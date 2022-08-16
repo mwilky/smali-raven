@@ -18,6 +18,8 @@
 
 
 # instance fields
+.field private final mSecureWindowsUri:Landroid/net/Uri;
+
 .field public final mAnimationDurationScaleUri:Landroid/net/Uri;
 
 .field public final mDevEnableNonResizableMultiWindowUri:Landroid/net/Uri;
@@ -198,6 +200,16 @@
     const/4 v14, -0x1
 
     invoke-virtual {v1, v2, v15, v0, v14}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
+    
+    const-string v2, "tweaks_secure_window"
+
+    invoke-static {v2}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v2
+
+    iput-object v2, v0, Lcom/android/server/wm/WindowManagerService$SettingsObserver;->mSecureWindowsUri:Landroid/net/Uri;
+    
+    invoke-virtual {v1, v2, v15, v0, v14}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
 
     invoke-virtual {v1, v3, v15, v0, v14}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
 
@@ -266,6 +278,21 @@
     return-void
 
     :cond_0
+    iget-object v0, p0, Lcom/android/server/wm/WindowManagerService$SettingsObserver;->mSecureWindowsUri:Landroid/net/Uri;
+
+    invoke-virtual {v0, p2}, Landroid/net/Uri;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_mw
+
+    iget-object v0, p0, Lcom/android/server/wm/WindowManagerService$SettingsObserver;->this$0:Lcom/android/server/wm/WindowManagerService;
+
+    invoke-virtual {v0}, Lcom/android/server/wm/WindowManagerService;->setSecureWindows()V
+
+    return-void
+
+    :cond_mw
     iget-object p1, p0, Lcom/android/server/wm/WindowManagerService$SettingsObserver;->mImmersiveModeConfirmationsUri:Landroid/net/Uri;
 
     invoke-virtual {p1, p2}, Landroid/net/Uri;->equals(Ljava/lang/Object;)Z

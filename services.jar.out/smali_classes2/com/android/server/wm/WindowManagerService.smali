@@ -22,6 +22,8 @@
 
 
 # static fields
+.field public static mSecureWindows:Z
+
 .field public static final ENABLE_FIXED_ROTATION_TRANSFORM:Z
 
 .field public static final sEnableRemoteKeyguardAnimation:I
@@ -1861,6 +1863,8 @@
     invoke-direct {v1, v0}, Lcom/android/server/wm/AccessibilityController;-><init>(Lcom/android/server/wm/WindowManagerService;)V
 
     iput-object v1, v0, Lcom/android/server/wm/WindowManagerService;->mAccessibilityController:Lcom/android/server/wm/AccessibilityController;
+    
+    invoke-virtual/range {p0 .. p0}, Lcom/android/server/wm/WindowManagerService;->setSecureWindows()V
 
     return-void
 .end method
@@ -29516,4 +29520,26 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method public setSecureWindows()V
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/server/wm/WindowManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string/jumbo v2, "tweaks_secure_window"
+
+    const/4 v1, 0x1
+
+    invoke-static {v0, v2, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v1
+
+    sput-boolean v1, Lcom/android/server/wm/WindowManagerService;->mSecureWindows:Z
+
+    return-void
 .end method
