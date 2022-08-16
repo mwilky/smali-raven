@@ -70,6 +70,38 @@
     return-void
 .end method
 
+.method static bridge synthetic -$$Nest$fgetmDisabledByAdmin(Lcom/android/settings/widget/SwitchBar;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/settings/widget/SwitchBar;->mDisabledByAdmin:Z
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmEnforcedAdmin(Lcom/android/settings/widget/SwitchBar;)Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/widget/SwitchBar;->mEnforcedAdmin:Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmMetricsFeatureProvider(Lcom/android/settings/widget/SwitchBar;)Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/widget/SwitchBar;->mMetricsFeatureProvider:Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmMetricsTag(Lcom/android/settings/widget/SwitchBar;)Ljava/lang/String;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/widget/SwitchBar;->mMetricsTag:Ljava/lang/String;
+
+    return-object p0
+.end method
+
 .method static constructor <clinit>()V
     .locals 1
 
@@ -87,11 +119,11 @@
 
     :array_0
     .array-data 4
-        0x7f050435
-        0x7f050434
-        0x7f050433
-        0x7f050432
-        0x7f050436
+        0x7f05049e
+        0x7f05049d
+        0x7f05049c
+        0x7f05049b
+        0x7f05049f
     .end array-data
 .end method
 
@@ -144,7 +176,7 @@
 
     move-result-object p3
 
-    const p4, 0x7f060276
+    const p4, 0x7f060282
 
     invoke-virtual {p3, p4, p0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -200,7 +232,7 @@
 
     invoke-virtual {p2}, Landroid/content/res/TypedArray;->recycle()V
 
-    const p2, 0x7f0d0594
+    const p2, 0x7f0d05d8
 
     invoke-virtual {p0, p2}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -214,7 +246,7 @@
 
     iget-object v2, p0, Landroid/widget/LinearLayout;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f1302e1
+    const v3, 0x7f130381
 
     invoke-direct {p2, v2, v3}, Landroid/text/style/TextAppearanceSpan;-><init>(Landroid/content/Context;I)V
 
@@ -230,7 +262,7 @@
 
     invoke-virtual {p2, v1}, Landroid/view/ViewGroup$MarginLayoutParams;->setMarginStart(I)V
 
-    const p2, 0x7f0d0595
+    const p2, 0x7f0d05d9
 
     invoke-virtual {p0, p2}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -264,9 +296,9 @@
 
     invoke-virtual {p0, p2}, Landroid/widget/LinearLayout;->setBackgroundColor(I)V
 
-    const p2, 0x7f0413a0    # 1.7556E38f
+    const p2, 0x7f041468
 
-    const p3, 0x7f04139f
+    const p3, 0x7f041467
 
     invoke-virtual {p0, p2, p3}, Lcom/android/settings/widget/SwitchBar;->setSwitchBarText(II)V
 
@@ -276,7 +308,7 @@
 
     invoke-virtual {p0, p2}, Lcom/android/settings/widget/SwitchBar;->addOnSwitchChangeListener(Lcom/android/settings/widget/SwitchBar$OnSwitchChangeListener;)V
 
-    const p2, 0x7f0d049d
+    const p2, 0x7f0d04da
 
     invoke-virtual {p0, p2}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -311,38 +343,6 @@
     iput-object p1, p0, Lcom/android/settings/widget/SwitchBar;->mMetricsFeatureProvider:Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/widget/SwitchBar;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/settings/widget/SwitchBar;->mDisabledByAdmin:Z
-
-    return p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/widget/SwitchBar;)Ljava/lang/String;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/widget/SwitchBar;->mMetricsTag:Ljava/lang/String;
-
-    return-object p0
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/widget/SwitchBar;)Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/widget/SwitchBar;->mMetricsFeatureProvider:Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;
-
-    return-object p0
-.end method
-
-.method static synthetic access$300(Lcom/android/settings/widget/SwitchBar;)Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/widget/SwitchBar;->mEnforcedAdmin:Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
-
-    return-object p0
 .end method
 
 .method private synthetic lambda$new$0(Landroid/widget/Switch;Z)V

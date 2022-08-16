@@ -39,16 +39,6 @@
 # direct methods
 .method constructor <init>(Landroidx/recyclerview/widget/StaggeredGridLayoutManager;I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x8010,
-            0x0
-        }
-        names = {
-            "this$0",
-            "index"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/recyclerview/widget/StaggeredGridLayoutManager$Span;->this$0:Landroidx/recyclerview/widget/StaggeredGridLayoutManager;
 
@@ -79,14 +69,6 @@
 # virtual methods
 .method appendToSpan(Landroid/view/View;)V
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "view"
-        }
-    .end annotation
 
     invoke-virtual {p0, p1}, Landroidx/recyclerview/widget/StaggeredGridLayoutManager$Span;->getLayoutParams(Landroid/view/View;)Landroidx/recyclerview/widget/StaggeredGridLayoutManager$LayoutParams;
 
@@ -148,16 +130,6 @@
 
 .method cacheReferenceLineAndClear(ZI)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "reverseLayout",
-            "offset"
-        }
-    .end annotation
 
     const/high16 v0, -0x80000000
 
@@ -467,22 +439,6 @@
 
 .method findOnePartiallyOrCompletelyVisibleChild(IIZZZ)I
     .locals 10
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "fromIndex",
-            "toIndex",
-            "completelyVisible",
-            "acceptCompletelyVisible",
-            "acceptEndPointInclusion"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/recyclerview/widget/StaggeredGridLayoutManager$Span;->this$0:Landroidx/recyclerview/widget/StaggeredGridLayoutManager;
 
@@ -629,18 +585,6 @@
 
 .method findOnePartiallyVisibleChild(IIZ)I
     .locals 6
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "fromIndex",
-            "toIndex",
-            "acceptEndPointInclusion"
-        }
-    .end annotation
 
     const/4 v3, 0x0
 
@@ -690,14 +634,6 @@
 
 .method getEndLine(I)I
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "def"
-        }
-    .end annotation
 
     iget v0, p0, Landroidx/recyclerview/widget/StaggeredGridLayoutManager$Span;->mCachedEnd:I
 
@@ -728,16 +664,6 @@
 
 .method public getFocusableViewAfter(II)Landroid/view/View;
     .locals 5
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "referenceChildPosition",
-            "layoutDir"
-        }
-    .end annotation
 
     const/4 v0, -0x1
 
@@ -871,14 +797,6 @@
 
 .method getLayoutParams(Landroid/view/View;)Landroidx/recyclerview/widget/StaggeredGridLayoutManager$LayoutParams;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "view"
-        }
-    .end annotation
 
     invoke-virtual {p1}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
@@ -910,14 +828,6 @@
 
 .method getStartLine(I)I
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "def"
-        }
-    .end annotation
 
     iget v0, p0, Landroidx/recyclerview/widget/StaggeredGridLayoutManager$Span;->mCachedStart:I
 
@@ -960,14 +870,6 @@
 
 .method onOffset(I)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "dt"
-        }
-    .end annotation
 
     iget v0, p0, Landroidx/recyclerview/widget/StaggeredGridLayoutManager$Span;->mCachedStart:I
 
@@ -1130,14 +1032,6 @@
 
 .method prependToSpan(Landroid/view/View;)V
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "view"
-        }
-    .end annotation
 
     invoke-virtual {p0, p1}, Landroidx/recyclerview/widget/StaggeredGridLayoutManager$Span;->getLayoutParams(Landroid/view/View;)Landroidx/recyclerview/widget/StaggeredGridLayoutManager$LayoutParams;
 
@@ -1201,14 +1095,6 @@
 
 .method setLine(I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "line"
-        }
-    .end annotation
 
     iput p1, p0, Landroidx/recyclerview/widget/StaggeredGridLayoutManager$Span;->mCachedStart:I
 

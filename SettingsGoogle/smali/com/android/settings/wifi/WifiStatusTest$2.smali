@@ -39,7 +39,7 @@
 
     iget-object p0, p0, Lcom/android/settings/wifi/WifiStatusTest$2;->this$0:Lcom/android/settings/wifi/WifiStatusTest;
 
-    invoke-static {p0}, Lcom/android/settings/wifi/WifiStatusTest;->access$500(Lcom/android/settings/wifi/WifiStatusTest;)V
+    invoke-static {p0}, Lcom/android/settings/wifi/WifiStatusTest;->-$$Nest$mupdatePingState(Lcom/android/settings/wifi/WifiStatusTest;)V
 
     return-void
 .end method

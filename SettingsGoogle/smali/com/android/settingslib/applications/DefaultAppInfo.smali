@@ -107,7 +107,7 @@
 .end method
 
 .method private getComponentInfo()Landroid/content/pm/ComponentInfo;
-    .locals 4
+    .locals 5
 
     :try_start_0
     invoke-static {}, Landroid/app/AppGlobals;->getPackageManager()Landroid/content/pm/IPackageManager;
@@ -118,9 +118,9 @@
 
     iget v2, p0, Lcom/android/settingslib/applications/DefaultAppInfo;->userId:I
 
-    const/4 v3, 0x0
+    const-wide/16 v3, 0x0
 
-    invoke-interface {v0, v1, v3, v2}, Landroid/content/pm/IPackageManager;->getActivityInfo(Landroid/content/ComponentName;II)Landroid/content/pm/ActivityInfo;
+    invoke-interface {v0, v1, v3, v4, v2}, Landroid/content/pm/IPackageManager;->getActivityInfo(Landroid/content/ComponentName;JI)Landroid/content/pm/ActivityInfo;
 
     move-result-object v0
 
@@ -134,7 +134,7 @@
 
     iget p0, p0, Lcom/android/settingslib/applications/DefaultAppInfo;->userId:I
 
-    invoke-interface {v0, v1, v3, p0}, Landroid/content/pm/IPackageManager;->getServiceInfo(Landroid/content/ComponentName;II)Landroid/content/pm/ServiceInfo;
+    invoke-interface {v0, v1, v3, v4, p0}, Landroid/content/pm/IPackageManager;->getServiceInfo(Landroid/content/ComponentName;JI)Landroid/content/pm/ServiceInfo;
 
     move-result-object v0
     :try_end_0

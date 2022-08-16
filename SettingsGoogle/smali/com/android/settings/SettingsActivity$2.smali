@@ -36,7 +36,7 @@
 
     iget-object p0, p0, Lcom/android/settings/SettingsActivity$2;->this$0:Lcom/android/settings/SettingsActivity;
 
-    invoke-static {p0}, Lcom/android/settings/SettingsActivity;->access$100(Lcom/android/settings/SettingsActivity;)V
+    invoke-static {p0}, Lcom/android/settings/SettingsActivity;->-$$Nest$mupdateTilesList(Lcom/android/settings/SettingsActivity;)V
 
     return-void
 .end method

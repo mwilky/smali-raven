@@ -33,6 +33,54 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmPulsePaint(Lcom/android/settings/biometrics/fingerprint/FingerprintLocationAnimationView;)Landroid/graphics/Paint;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintLocationAnimationView;->mPulsePaint:Landroid/graphics/Paint;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmStartPhaseRunnable(Lcom/android/settings/biometrics/fingerprint/FingerprintLocationAnimationView;)Ljava/lang/Runnable;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintLocationAnimationView;->mStartPhaseRunnable:Ljava/lang/Runnable;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmAlphaAnimator(Lcom/android/settings/biometrics/fingerprint/FingerprintLocationAnimationView;Landroid/animation/ValueAnimator;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintLocationAnimationView;->mAlphaAnimator:Landroid/animation/ValueAnimator;
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fputmPulseRadius(Lcom/android/settings/biometrics/fingerprint/FingerprintLocationAnimationView;F)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintLocationAnimationView;->mPulseRadius:F
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fputmRadiusAnimator(Lcom/android/settings/biometrics/fingerprint/FingerprintLocationAnimationView;Landroid/animation/ValueAnimator;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintLocationAnimationView;->mRadiusAnimator:Landroid/animation/ValueAnimator;
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mstartPhase(Lcom/android/settings/biometrics/fingerprint/FingerprintLocationAnimationView;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/biometrics/fingerprint/FingerprintLocationAnimationView;->startPhase()V
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 4
 
@@ -60,7 +108,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b016c
+    const v2, 0x7f0b0190
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -72,7 +120,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0175
+    const v2, 0x7f0b0199
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -84,7 +132,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0c0006
+    const v2, 0x7f0c0009
 
     const/4 v3, 0x1
 
@@ -98,7 +146,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0c0007
+    const v2, 0x7f0c000a
 
     invoke-virtual {v1, v2, v3, v3}, Landroid/content/res/Resources;->getFraction(III)F
 
@@ -131,54 +179,6 @@
     move-result-object p1
 
     iput-object p1, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintLocationAnimationView;->mFastOutSlowInInterpolator:Landroid/view/animation/Interpolator;
-
-    return-void
-.end method
-
-.method static synthetic access$002(Lcom/android/settings/biometrics/fingerprint/FingerprintLocationAnimationView;F)F
-    .locals 0
-
-    iput p1, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintLocationAnimationView;->mPulseRadius:F
-
-    return p1
-.end method
-
-.method static synthetic access$102(Lcom/android/settings/biometrics/fingerprint/FingerprintLocationAnimationView;Landroid/animation/ValueAnimator;)Landroid/animation/ValueAnimator;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintLocationAnimationView;->mRadiusAnimator:Landroid/animation/ValueAnimator;
-
-    return-object p1
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/biometrics/fingerprint/FingerprintLocationAnimationView;)Ljava/lang/Runnable;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintLocationAnimationView;->mStartPhaseRunnable:Ljava/lang/Runnable;
-
-    return-object p0
-.end method
-
-.method static synthetic access$300(Lcom/android/settings/biometrics/fingerprint/FingerprintLocationAnimationView;)Landroid/graphics/Paint;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintLocationAnimationView;->mPulsePaint:Landroid/graphics/Paint;
-
-    return-object p0
-.end method
-
-.method static synthetic access$402(Lcom/android/settings/biometrics/fingerprint/FingerprintLocationAnimationView;Landroid/animation/ValueAnimator;)Landroid/animation/ValueAnimator;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintLocationAnimationView;->mAlphaAnimator:Landroid/animation/ValueAnimator;
-
-    return-object p1
-.end method
-
-.method static synthetic access$500(Lcom/android/settings/biometrics/fingerprint/FingerprintLocationAnimationView;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/biometrics/fingerprint/FingerprintLocationAnimationView;->startPhase()V
 
     return-void
 .end method

@@ -28,7 +28,7 @@
 .method private addEthernetSection()V
     .locals 3
 
-    const v0, 0x7f150057
+    const v0, 0x7f15005a
 
     invoke-direct {p0, v0}, Lcom/android/settings/datausage/DataUsageSummary;->inflatePreferences(I)Landroidx/preference/Preference;
 
@@ -36,7 +36,13 @@
 
     check-cast v0, Lcom/android/settings/datausage/TemplatePreferenceCategory;
 
-    invoke-static {}, Landroid/net/NetworkTemplate;->buildTemplateEthernet()Landroid/net/NetworkTemplate;
+    new-instance v1, Landroid/net/NetworkTemplate$Builder;
+
+    const/4 v2, 0x5
+
+    invoke-direct {v1, v2}, Landroid/net/NetworkTemplate$Builder;-><init>(I)V
+
+    invoke-virtual {v1}, Landroid/net/NetworkTemplate$Builder;->build()Landroid/net/NetworkTemplate;
 
     move-result-object v1
 
@@ -52,7 +58,7 @@
 .method private addMobileSection(ILandroid/telephony/SubscriptionInfo;)V
     .locals 3
 
-    const v0, 0x7f150056
+    const v0, 0x7f150059
 
     invoke-direct {p0, v0}, Lcom/android/settings/datausage/DataUsageSummary;->inflatePreferences(I)Landroidx/preference/Preference;
 
@@ -159,7 +165,7 @@
 
     new-instance p4, Landroid/text/SpannableString;
 
-    const v0, 0x1040382
+    const v0, 0x10403c0
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -330,7 +336,7 @@
 .method addWifiSection()V
     .locals 3
 
-    const v0, 0x7f15005a
+    const v0, 0x7f15005d
 
     invoke-direct {p0, v0}, Lcom/android/settings/datausage/DataUsageSummary;->inflatePreferences(I)Landroidx/preference/Preference;
 
@@ -338,11 +344,13 @@
 
     check-cast v0, Lcom/android/settings/datausage/TemplatePreferenceCategory;
 
-    sget-object v1, Landroid/net/NetworkTemplate;->WIFI_NETWORKID_ALL:Ljava/lang/String;
+    new-instance v1, Landroid/net/NetworkTemplate$Builder;
 
-    const/4 v2, 0x0
+    const/4 v2, 0x4
 
-    invoke-static {v1, v2}, Landroid/net/NetworkTemplate;->buildTemplateWifi(Ljava/lang/String;Ljava/lang/String;)Landroid/net/NetworkTemplate;
+    invoke-direct {v1, v2}, Landroid/net/NetworkTemplate$Builder;-><init>(I)V
+
+    invoke-virtual {v1}, Landroid/net/NetworkTemplate$Builder;->build()Landroid/net/NetworkTemplate;
 
     move-result-object v1
 
@@ -424,7 +432,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a2c
+    const p0, 0x7f040a85
 
     return p0
 .end method
@@ -466,7 +474,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150055
+    const p0, 0x7f150058
 
     return p0
 .end method
@@ -550,7 +558,7 @@
     if-nez v2, :cond_2
 
     :cond_1
-    const-string v2, "restrict_background"
+    const-string/jumbo v2, "restrict_background"
 
     invoke-virtual {p0, v2}, Lcom/android/settings/SettingsPreferenceFragment;->removePreference(Ljava/lang/String;)Z
 

@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/settings/wifi/NetworkRequestDialogFragment$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnShowListener;
+.implements Landroid/widget/AdapterView$OnItemClickListener;
 
 
 # instance fields
@@ -26,14 +27,22 @@
 
 
 # virtual methods
-.method public final onShow(Landroid/content/DialogInterface;)V
-    .locals 1
+.method public final onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
+    .locals 7
 
     iget-object v0, p0, Lcom/android/settings/wifi/NetworkRequestDialogFragment$$ExternalSyntheticLambda1;->f$0:Lcom/android/settings/wifi/NetworkRequestDialogFragment;
 
-    iget-object p0, p0, Lcom/android/settings/wifi/NetworkRequestDialogFragment$$ExternalSyntheticLambda1;->f$1:Landroidx/appcompat/app/AlertDialog;
+    iget-object v1, p0, Lcom/android/settings/wifi/NetworkRequestDialogFragment$$ExternalSyntheticLambda1;->f$1:Landroidx/appcompat/app/AlertDialog;
 
-    invoke-static {v0, p0, p1}, Lcom/android/settings/wifi/NetworkRequestDialogFragment;->$r8$lambda$GKkQ4t7uVkKyFjNWaYoxGvlskcg(Lcom/android/settings/wifi/NetworkRequestDialogFragment;Landroidx/appcompat/app/AlertDialog;Landroid/content/DialogInterface;)V
+    move-object v2, p1
+
+    move-object v3, p2
+
+    move v4, p3
+
+    move-wide v5, p4
+
+    invoke-static/range {v0 .. v6}, Lcom/android/settings/wifi/NetworkRequestDialogFragment;->$r8$lambda$2Pqg-Y1OT0qlwI7Pu6wXUYIRF6A(Lcom/android/settings/wifi/NetworkRequestDialogFragment;Landroidx/appcompat/app/AlertDialog;Landroid/widget/AdapterView;Landroid/view/View;IJ)V
 
     return-void
 .end method

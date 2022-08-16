@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/wifitrackerlib/StandardNetworkDetailsTracker$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Predicate;
@@ -27,9 +28,9 @@
 
     iget-object p0, p0, Lcom/android/wifitrackerlib/StandardNetworkDetailsTracker$$ExternalSyntheticLambda1;->f$0:Lcom/android/wifitrackerlib/StandardNetworkDetailsTracker;
 
-    check-cast p1, Landroid/net/wifi/WifiConfiguration;
+    check-cast p1, Landroid/net/wifi/ScanResult;
 
-    invoke-static {p0, p1}, Lcom/android/wifitrackerlib/StandardNetworkDetailsTracker;->$r8$lambda$VNJx-BfZ-i5neJn83Hm7x-OwKCs(Lcom/android/wifitrackerlib/StandardNetworkDetailsTracker;Landroid/net/wifi/WifiConfiguration;)Z
+    invoke-static {p0, p1}, Lcom/android/wifitrackerlib/StandardNetworkDetailsTracker;->$r8$lambda$ENO_SHewx0GVnR9i8T5zGxdQtGc(Lcom/android/wifitrackerlib/StandardNetworkDetailsTracker;Landroid/net/wifi/ScanResult;)Z
 
     move-result p0
 

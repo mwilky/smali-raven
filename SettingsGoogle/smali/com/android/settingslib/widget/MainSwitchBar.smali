@@ -179,9 +179,9 @@
 
     move-result-object p3
 
-    sget v1, Lcom/android/settingslib/widget/R$drawable;->settingslib_switch_bar_bg_on:I
+    sget p4, Lcom/android/settingslib/widget/R$drawable;->settingslib_switch_bar_bg_on:I
 
-    invoke-virtual {p3, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {p3, p4}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object p3
 
@@ -191,9 +191,9 @@
 
     move-result-object p3
 
-    sget v1, Lcom/android/settingslib/widget/R$drawable;->settingslib_switch_bar_bg_off:I
+    sget p4, Lcom/android/settingslib/widget/R$drawable;->settingslib_switch_bar_bg_off:I
 
-    invoke-virtual {p3, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {p3, p4}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object p3
 
@@ -203,9 +203,9 @@
 
     move-result-object p3
 
-    sget v1, Lcom/android/settingslib/widget/R$drawable;->settingslib_switch_bar_bg_disabled:I
+    sget p4, Lcom/android/settingslib/widget/R$drawable;->settingslib_switch_bar_bg_disabled:I
 
-    invoke-virtual {p3, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {p3, p4}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object p3
 
@@ -220,13 +220,26 @@
 
     iget-object p3, p0, Lcom/android/settingslib/widget/MainSwitchBar;->mSwitch:Landroid/widget/Switch;
 
+    invoke-virtual {p3}, Landroid/widget/Switch;->getVisibility()I
+
+    move-result p3
+
+    if-nez p3, :cond_2
+
+    iget-object p3, p0, Lcom/android/settingslib/widget/MainSwitchBar;->mSwitch:Landroid/widget/Switch;
+
+    invoke-virtual {p3, p0}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+
+    :cond_2
+    iget-object p3, p0, Lcom/android/settingslib/widget/MainSwitchBar;->mSwitch:Landroid/widget/Switch;
+
     invoke-virtual {p3}, Landroid/widget/Switch;->isChecked()Z
 
     move-result p3
 
     invoke-virtual {p0, p3}, Lcom/android/settingslib/widget/MainSwitchBar;->setChecked(Z)V
 
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_3
 
     sget-object p3, Landroidx/preference/R$styleable;->Preference:[I
 
@@ -244,8 +257,14 @@
 
     invoke-virtual {p1}, Landroid/content/res/TypedArray;->recycle()V
 
-    :cond_2
-    invoke-direct {p0, p4}, Lcom/android/settingslib/widget/MainSwitchBar;->setBackground(Z)V
+    :cond_3
+    iget-object p1, p0, Lcom/android/settingslib/widget/MainSwitchBar;->mSwitch:Landroid/widget/Switch;
+
+    invoke-virtual {p1}, Landroid/widget/Switch;->isChecked()Z
+
+    move-result p1
+
+    invoke-direct {p0, p1}, Lcom/android/settingslib/widget/MainSwitchBar;->setBackground(Z)V
 
     return-void
 .end method
@@ -517,11 +536,13 @@
 .end method
 
 .method public performClick()Z
-    .locals 0
+    .locals 1
 
-    iget-object p0, p0, Lcom/android/settingslib/widget/MainSwitchBar;->mSwitch:Landroid/widget/Switch;
+    iget-object v0, p0, Lcom/android/settingslib/widget/MainSwitchBar;->mSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {p0}, Landroid/widget/Switch;->performClick()Z
+    invoke-virtual {v0}, Landroid/widget/Switch;->performClick()Z
+
+    invoke-super {p0}, Landroid/widget/LinearLayout;->performClick()Z
 
     move-result p0
 

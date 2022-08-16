@@ -17,14 +17,6 @@
 # direct methods
 .method public static getPresentationDisplay(Ljava/lang/Object;)Landroid/view/Display;
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "routeObj"
-        }
-    .end annotation
 
     :try_start_0
     check-cast p0, Landroid/media/MediaRouter$RouteInfo;
@@ -53,14 +45,6 @@
 
 .method public static isEnabled(Ljava/lang/Object;)Z
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "routeObj"
-        }
-    .end annotation
 
     check-cast p0, Landroid/media/MediaRouter$RouteInfo;
 

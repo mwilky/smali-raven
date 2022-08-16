@@ -81,7 +81,7 @@
 
     const/4 v0, 0x0
 
-    invoke-direct {p2, p0, v0}, Lcom/android/settings/media/MediaOutputIndicatorWorker$DevicesChangedBroadcastReceiver;-><init>(Lcom/android/settings/media/MediaOutputIndicatorWorker;Lcom/android/settings/media/MediaOutputIndicatorWorker$1;)V
+    invoke-direct {p2, p0, v0}, Lcom/android/settings/media/MediaOutputIndicatorWorker$DevicesChangedBroadcastReceiver;-><init>(Lcom/android/settings/media/MediaOutputIndicatorWorker;Lcom/android/settings/media/MediaOutputIndicatorWorker$DevicesChangedBroadcastReceiver-IA;)V
 
     iput-object p2, p0, Lcom/android/settings/media/MediaOutputIndicatorWorker;->mReceiver:Lcom/android/settings/media/MediaOutputIndicatorWorker$DevicesChangedBroadcastReceiver;
 
@@ -90,7 +90,7 @@
     return-void
 .end method
 
-.method static synthetic access$100(Lcom/android/settings/media/MediaOutputIndicatorWorker;)V
+.method static synthetic access$000(Lcom/android/settings/media/MediaOutputIndicatorWorker;)V
     .locals 0
 
     invoke-virtual {p0}, Lcom/android/settings/slices/SliceBackgroundWorker;->notifySliceChange()V
@@ -196,7 +196,7 @@
     return-void
 .end method
 
-.method getActiveLocalMediaController()Landroid/media/session/MediaController;
+.method public getActiveLocalMediaController()Landroid/media/session/MediaController;
     .locals 1
 
     iget-object p0, p0, Lcom/android/settings/media/MediaOutputIndicatorWorker;->mContext:Landroid/content/Context;
@@ -216,7 +216,7 @@
     return-object p0
 .end method
 
-.method getCurrentConnectedMediaDevice()Lcom/android/settingslib/media/MediaDevice;
+.method public getCurrentConnectedMediaDevice()Lcom/android/settingslib/media/MediaDevice;
     .locals 0
 
     iget-object p0, p0, Lcom/android/settings/media/MediaOutputIndicatorWorker;->mLocalMediaManager:Lcom/android/settingslib/media/LocalMediaManager;
@@ -244,12 +244,41 @@
     return-object p0
 .end method
 
-.method getPackageName()Ljava/lang/String;
+.method public getPackageName()Ljava/lang/String;
     .locals 0
 
     iget-object p0, p0, Lcom/android/settings/media/MediaOutputIndicatorWorker;->mPackageName:Ljava/lang/String;
 
     return-object p0
+.end method
+
+.method public isDeviceBroadcasting()Z
+    .locals 1
+
+    iget-object p0, p0, Lcom/android/settings/media/MediaOutputIndicatorWorker;->mLocalBluetoothManager:Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
+
+    invoke-virtual {p0}, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;->getProfileManager()Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;->getLeAudioBroadcastProfile()Lcom/android/settingslib/bluetooth/LocalBluetoothLeBroadcast;
+
+    move-result-object p0
+
+    if-nez p0, :cond_0
+
+    const/4 p0, 0x0
+
+    return p0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Lcom/android/settingslib/bluetooth/LocalBluetoothLeBroadcast;->isEnabled(Landroid/bluetooth/BluetoothDevice;)Z
+
+    move-result p0
+
+    return p0
 .end method
 
 .method public onAudioModeChanged()V

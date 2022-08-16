@@ -22,6 +22,14 @@
     return-void
 .end method
 
+.method static bridge synthetic -$$Nest$fgetmWifiTracker(Lcom/android/settings/wifi/WifiSummaryUpdater;)Lcom/android/settingslib/wifi/WifiStatusTracker;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/wifi/WifiSummaryUpdater;->mWifiTracker:Lcom/android/settingslib/wifi/WifiStatusTracker;
+
+    return-object p0
+.end method
+
 .method static constructor <clinit>()V
     .locals 2
 
@@ -120,15 +128,7 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/settings/wifi/WifiSummaryUpdater;)Lcom/android/settingslib/wifi/WifiStatusTracker;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/wifi/WifiSummaryUpdater;->mWifiTracker:Lcom/android/settingslib/wifi/WifiStatusTracker;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/wifi/WifiSummaryUpdater;)V
+.method static synthetic access$000(Lcom/android/settings/wifi/WifiSummaryUpdater;)V
     .locals 0
 
     invoke-virtual {p0}, Lcom/android/settings/widget/SummaryUpdater;->notifyChangeIfNeeded()V
@@ -149,7 +149,7 @@
 
     iget-object p0, p0, Lcom/android/settings/widget/SummaryUpdater;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f04139f
+    const v0, 0x7f041467
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -164,7 +164,7 @@
 
     iget-object p0, p0, Lcom/android/settings/widget/SummaryUpdater;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f040816
+    const v0, 0x7f04085f
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -198,7 +198,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f040f5b
+    const v2, 0x7f040ff4
 
     const/4 v3, 0x2
 
@@ -224,7 +224,7 @@
 .end method
 
 .method public register(Z)V
-    .locals 3
+    .locals 4
 
     if-eqz p1, :cond_0
 
@@ -240,7 +240,9 @@
 
     sget-object v2, Lcom/android/settings/wifi/WifiSummaryUpdater;->INTENT_FILTER:Landroid/content/IntentFilter;
 
-    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+    const/4 v3, 0x2
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;I)Landroid/content/Intent;
 
     goto :goto_0
 

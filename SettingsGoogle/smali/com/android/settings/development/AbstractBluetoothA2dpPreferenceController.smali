@@ -11,7 +11,7 @@
 
 
 # static fields
-.field static final STREAMING_LABEL_ID:I = 0x7f0404f4
+.field static final STREAMING_LABEL_ID:I = 0x7f04054d
 
 
 # instance fields
@@ -19,11 +19,53 @@
 
 .field protected final mBluetoothA2dpConfigStore:Lcom/android/settings/development/BluetoothA2dpConfigStore;
 
+.field mBluetoothAdapter:Landroid/bluetooth/BluetoothAdapter;
+
 .field private final mListSummaries:[Ljava/lang/String;
 
 .field private final mListValues:[Ljava/lang/String;
 
 .field protected mPreference:Landroidx/preference/ListPreference;
+
+
+# direct methods
+.method private getA2dpActiveDevice()Landroid/bluetooth/BluetoothDevice;
+    .locals 2
+
+    iget-object p0, p0, Lcom/android/settings/development/AbstractBluetoothA2dpPreferenceController;->mBluetoothAdapter:Landroid/bluetooth/BluetoothAdapter;
+
+    const/4 v0, 0x0
+
+    if-nez p0, :cond_0
+
+    return-object v0
+
+    :cond_0
+    const/4 v1, 0x2
+
+    invoke-virtual {p0, v1}, Landroid/bluetooth/BluetoothAdapter;->getActiveDevices(I)Ljava/util/List;
+
+    move-result-object p0
+
+    invoke-interface {p0}, Ljava/util/List;->size()I
+
+    move-result v1
+
+    if-lez v1, :cond_1
+
+    const/4 v0, 0x0
+
+    invoke-interface {p0, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object p0
+
+    move-object v0, p0
+
+    check-cast v0, Landroid/bluetooth/BluetoothDevice;
+
+    :cond_1
+    return-object v0
+.end method
 
 
 # virtual methods
@@ -83,7 +125,7 @@
     goto :goto_0
 
     :cond_0
-    invoke-virtual {v0}, Landroid/bluetooth/BluetoothA2dp;->getActiveDevice()Landroid/bluetooth/BluetoothDevice;
+    invoke-direct {p0}, Lcom/android/settings/development/AbstractBluetoothA2dpPreferenceController;->getA2dpActiveDevice()Landroid/bluetooth/BluetoothDevice;
 
     move-result-object p1
 
@@ -180,11 +222,7 @@
     monitor-enter v1
 
     :try_start_0
-    iget-object v2, p0, Lcom/android/settings/development/AbstractBluetoothA2dpPreferenceController;->mBluetoothA2dp:Landroid/bluetooth/BluetoothA2dp;
-
-    if-eqz v2, :cond_2
-
-    invoke-virtual {v2}, Landroid/bluetooth/BluetoothA2dp;->getActiveDevice()Landroid/bluetooth/BluetoothDevice;
+    invoke-direct {p0}, Lcom/android/settings/development/AbstractBluetoothA2dpPreferenceController;->getA2dpActiveDevice()Landroid/bluetooth/BluetoothDevice;
 
     move-result-object v2
 
@@ -197,7 +235,6 @@
     :cond_1
     invoke-virtual {p0, v2, p1}, Lcom/android/settings/development/AbstractBluetoothA2dpPreferenceController;->setCodecConfigPreference(Landroid/bluetooth/BluetoothDevice;Landroid/bluetooth/BluetoothCodecConfig;)V
 
-    :cond_2
     monitor-exit v1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -218,7 +255,7 @@
 
     const/4 v1, 0x1
 
-    if-ne p1, p2, :cond_3
+    if-ne p1, p2, :cond_2
 
     iget-object p2, p0, Lcom/android/settings/development/AbstractBluetoothA2dpPreferenceController;->mPreference:Landroidx/preference/ListPreference;
 
@@ -230,7 +267,7 @@
 
     goto :goto_0
 
-    :cond_3
+    :cond_2
     iget-object p2, p0, Lcom/android/settings/development/AbstractBluetoothA2dpPreferenceController;->mPreference:Landroidx/preference/ListPreference;
 
     iget-object v2, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
@@ -239,7 +276,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0404f4
+    const v3, 0x7f04054d
 
     new-array v4, v1, [Ljava/lang/Object;
 
@@ -277,9 +314,7 @@
     goto :goto_0
 
     :cond_0
-    iget-object p1, p0, Lcom/android/settings/development/AbstractBluetoothA2dpPreferenceController;->mBluetoothA2dp:Landroid/bluetooth/BluetoothA2dp;
-
-    invoke-virtual {p1}, Landroid/bluetooth/BluetoothA2dp;->getActiveDevice()Landroid/bluetooth/BluetoothDevice;
+    invoke-direct {p0}, Lcom/android/settings/development/AbstractBluetoothA2dpPreferenceController;->getA2dpActiveDevice()Landroid/bluetooth/BluetoothDevice;
 
     move-result-object p1
 
@@ -299,9 +334,7 @@
 .method public updateState(Landroidx/preference/Preference;)V
     .locals 6
 
-    iget-object p1, p0, Lcom/android/settings/development/AbstractBluetoothA2dpPreferenceController;->mBluetoothA2dp:Landroid/bluetooth/BluetoothA2dp;
-
-    invoke-virtual {p1}, Landroid/bluetooth/BluetoothA2dp;->getActiveDevice()Landroid/bluetooth/BluetoothDevice;
+    invoke-direct {p0}, Lcom/android/settings/development/AbstractBluetoothA2dpPreferenceController;->getA2dpActiveDevice()Landroid/bluetooth/BluetoothDevice;
 
     move-result-object p1
 
@@ -370,7 +403,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0404f4
+    const v2, 0x7f04054d
 
     const/4 v3, 0x1
 

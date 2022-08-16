@@ -22,8 +22,66 @@
 
 .field private mResetDialog:Landroidx/appcompat/app/AlertDialog;
 
+.field private final mUm:Landroid/os/UserManager;
+
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmAom(Lcom/android/settings/applications/manageapplications/ResetAppsHelper;)Landroid/app/AppOpsManager;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/applications/manageapplications/ResetAppsHelper;->mAom:Landroid/app/AppOpsManager;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmContext(Lcom/android/settings/applications/manageapplications/ResetAppsHelper;)Landroid/content/Context;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/applications/manageapplications/ResetAppsHelper;->mContext:Landroid/content/Context;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmIPm(Lcom/android/settings/applications/manageapplications/ResetAppsHelper;)Landroid/content/pm/IPackageManager;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/applications/manageapplications/ResetAppsHelper;->mIPm:Landroid/content/pm/IPackageManager;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmNm(Lcom/android/settings/applications/manageapplications/ResetAppsHelper;)Landroid/app/INotificationManager;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/applications/manageapplications/ResetAppsHelper;->mNm:Landroid/app/INotificationManager;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmNpm(Lcom/android/settings/applications/manageapplications/ResetAppsHelper;)Landroid/net/NetworkPolicyManager;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/applications/manageapplications/ResetAppsHelper;->mNpm:Landroid/net/NetworkPolicyManager;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmPm(Lcom/android/settings/applications/manageapplications/ResetAppsHelper;)Landroid/content/pm/PackageManager;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/applications/manageapplications/ResetAppsHelper;->mPm:Landroid/content/pm/PackageManager;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmUm(Lcom/android/settings/applications/manageapplications/ResetAppsHelper;)Landroid/os/UserManager;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/applications/manageapplications/ResetAppsHelper;->mUm:Landroid/os/UserManager;
+
+    return-object p0
+.end method
+
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
 
@@ -71,61 +129,23 @@
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
+    move-result-object v0
+
+    check-cast v0, Landroid/app/AppOpsManager;
+
+    iput-object v0, p0, Lcom/android/settings/applications/manageapplications/ResetAppsHelper;->mAom:Landroid/app/AppOpsManager;
+
+    const-string/jumbo v0, "user"
+
+    invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
     move-result-object p1
 
-    check-cast p1, Landroid/app/AppOpsManager;
+    check-cast p1, Landroid/os/UserManager;
 
-    iput-object p1, p0, Lcom/android/settings/applications/manageapplications/ResetAppsHelper;->mAom:Landroid/app/AppOpsManager;
+    iput-object p1, p0, Lcom/android/settings/applications/manageapplications/ResetAppsHelper;->mUm:Landroid/os/UserManager;
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/applications/manageapplications/ResetAppsHelper;)Landroid/content/pm/PackageManager;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/applications/manageapplications/ResetAppsHelper;->mPm:Landroid/content/pm/PackageManager;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/applications/manageapplications/ResetAppsHelper;)Landroid/content/Context;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/applications/manageapplications/ResetAppsHelper;->mContext:Landroid/content/Context;
-
-    return-object p0
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/applications/manageapplications/ResetAppsHelper;)Landroid/app/INotificationManager;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/applications/manageapplications/ResetAppsHelper;->mNm:Landroid/app/INotificationManager;
-
-    return-object p0
-.end method
-
-.method static synthetic access$300(Lcom/android/settings/applications/manageapplications/ResetAppsHelper;)Landroid/content/pm/IPackageManager;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/applications/manageapplications/ResetAppsHelper;->mIPm:Landroid/content/pm/IPackageManager;
-
-    return-object p0
-.end method
-
-.method static synthetic access$400(Lcom/android/settings/applications/manageapplications/ResetAppsHelper;)Landroid/app/AppOpsManager;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/applications/manageapplications/ResetAppsHelper;->mAom:Landroid/app/AppOpsManager;
-
-    return-object p0
-.end method
-
-.method static synthetic access$500(Lcom/android/settings/applications/manageapplications/ResetAppsHelper;)Landroid/net/NetworkPolicyManager;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/applications/manageapplications/ResetAppsHelper;->mNpm:Landroid/net/NetworkPolicyManager;
-
-    return-object p0
 .end method
 
 
@@ -143,25 +163,25 @@
 
     invoke-direct {v0, v1}, Landroidx/appcompat/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f041038
+    const v1, 0x7f0410de
 
     invoke-virtual {v0, v1}, Landroidx/appcompat/app/AlertDialog$Builder;->setTitle(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f041037
+    const v1, 0x7f0410dd
 
     invoke-virtual {v0, v1}, Landroidx/appcompat/app/AlertDialog$Builder;->setMessage(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f041036
+    const v1, 0x7f0410dc
 
     invoke-virtual {v0, v1, p0}, Landroidx/appcompat/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f040564
+    const v1, 0x7f0405c1
 
     const/4 v2, 0x0
 
@@ -222,7 +242,7 @@
 
     if-eqz p1, :cond_0
 
-    const-string v0, "resetDialog"
+    const-string/jumbo v0, "resetDialog"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
 
@@ -245,7 +265,7 @@
 
     const/4 p0, 0x1
 
-    const-string v0, "resetDialog"
+    const-string/jumbo v0, "resetDialog"
 
     invoke-virtual {p1, v0, p0}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 

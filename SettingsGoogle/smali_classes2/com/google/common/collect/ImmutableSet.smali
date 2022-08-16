@@ -29,9 +29,6 @@
 
 # instance fields
 .field private transient asList:Lcom/google/common/collect/ImmutableList;
-    .annotation runtime Lcom/google/errorprone/annotations/concurrent/LazyInit;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/google/common/collect/ImmutableList<",
@@ -48,45 +45,6 @@
     invoke-direct {p0}, Lcom/google/common/collect/ImmutableCollection;-><init>()V
 
     return-void
-.end method
-
-.method static synthetic access$000(II)Z
-    .locals 0
-
-    invoke-static {p0, p1}, Lcom/google/common/collect/ImmutableSet;->shouldTrim(II)Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method static synthetic access$100(I[Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSet;
-    .locals 0
-
-    invoke-static {p0, p1}, Lcom/google/common/collect/ImmutableSet;->construct(I[Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSet;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public static builder()Lcom/google/common/collect/ImmutableSet$Builder;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<E:",
-            "Ljava/lang/Object;",
-            ">()",
-            "Lcom/google/common/collect/ImmutableSet$Builder<",
-            "TE;>;"
-        }
-    .end annotation
-
-    new-instance v0, Lcom/google/common/collect/ImmutableSet$Builder;
-
-    invoke-direct {v0}, Lcom/google/common/collect/ImmutableSet$Builder;-><init>()V
-
-    return-object v0
 .end method
 
 .method static chooseTableSize(I)I
@@ -248,9 +206,11 @@
 
     aget-object p0, p1, v0
 
+    invoke-static {p0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+
     new-instance p1, Lcom/google/common/collect/SingletonImmutableSet;
 
-    invoke-direct {p1, p0, v5}, Lcom/google/common/collect/SingletonImmutableSet;-><init>(Ljava/lang/Object;I)V
+    invoke-direct {p1, p0}, Lcom/google/common/collect/SingletonImmutableSet;-><init>(Ljava/lang/Object;)V
 
     return-object p1
 
@@ -295,6 +255,8 @@
 
     :cond_6
     aget-object p0, p1, v0
+
+    invoke-static {p0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     invoke-static {p0}, Lcom/google/common/collect/ImmutableSet;->of(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSet;
 
@@ -538,10 +500,20 @@
     return p0
 .end method
 
+.method public abstract iterator()Lcom/google/common/collect/UnmodifiableIterator;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Lcom/google/common/collect/UnmodifiableIterator<",
+            "TE;>;"
+        }
+    .end annotation
+.end method
+
 .method public bridge synthetic iterator()Ljava/util/Iterator;
     .locals 0
 
-    invoke-virtual {p0}, Lcom/google/common/collect/ImmutableCollection;->iterator()Lcom/google/common/collect/UnmodifiableIterator;
+    invoke-virtual {p0}, Lcom/google/common/collect/ImmutableSet;->iterator()Lcom/google/common/collect/UnmodifiableIterator;
 
     move-result-object p0
 

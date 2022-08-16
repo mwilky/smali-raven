@@ -1,6 +1,6 @@
 .class public interface abstract Landroidx/lifecycle/ViewModelProvider$Factory;
 .super Ljava/lang/Object;
-.source "ViewModelProvider.java"
+.source "ViewModelProvider.kt"
 
 
 # annotations
@@ -16,6 +16,10 @@
 
 # virtual methods
 .method public abstract create(Ljava/lang/Class;)Landroidx/lifecycle/ViewModel;
+    .param p1    # Ljava/lang/Class;
+        .annotation build Lorg/jetbrains/annotations/NotNull;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -24,5 +28,8 @@
             "Ljava/lang/Class<",
             "TT;>;)TT;"
         }
+    .end annotation
+
+    .annotation build Lorg/jetbrains/annotations/NotNull;
     .end annotation
 .end method

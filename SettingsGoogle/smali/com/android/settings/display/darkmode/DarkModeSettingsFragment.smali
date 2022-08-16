@@ -8,8 +8,6 @@
 
 
 # instance fields
-.field private mCallback:Ljava/lang/Runnable;
-
 .field private mContentObserver:Lcom/android/settings/display/darkmode/DarkModeObserver;
 
 .field private mCustomEndController:Lcom/android/settings/display/darkmode/DarkModeCustomPreferenceController;
@@ -18,10 +16,10 @@
 
 
 # direct methods
-.method public static synthetic $r8$lambda$Gj2xbWAhPshNd9czuNH2P2KqL5c(Lcom/android/settings/display/darkmode/DarkModeSettingsFragment;)V
+.method public static synthetic $r8$lambda$uOlBrb8PwJ_VxBZBtKyVSasK04g(Lcom/android/settings/display/darkmode/DarkModeSettingsFragment;)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/settings/display/darkmode/DarkModeSettingsFragment;->lambda$new$0()V
+    invoke-direct {p0}, Lcom/android/settings/display/darkmode/DarkModeSettingsFragment;->lambda$onStart$0()V
 
     return-void
 .end method
@@ -31,7 +29,7 @@
 
     new-instance v0, Lcom/android/settings/display/darkmode/DarkModeSettingsFragment$1;
 
-    const v1, 0x7f150052
+    const v1, 0x7f150055
 
     invoke-direct {v0, v1}, Lcom/android/settings/display/darkmode/DarkModeSettingsFragment$1;-><init>(I)V
 
@@ -41,21 +39,27 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .locals 0
 
     invoke-direct {p0}, Lcom/android/settings/dashboard/DashboardFragment;-><init>()V
-
-    new-instance v0, Lcom/android/settings/display/darkmode/DarkModeSettingsFragment$$ExternalSyntheticLambda0;
-
-    invoke-direct {v0, p0}, Lcom/android/settings/display/darkmode/DarkModeSettingsFragment$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/display/darkmode/DarkModeSettingsFragment;)V
-
-    iput-object v0, p0, Lcom/android/settings/display/darkmode/DarkModeSettingsFragment;->mCallback:Ljava/lang/Runnable;
 
     return-void
 .end method
 
-.method private synthetic lambda$new$0()V
-    .locals 0
+.method private synthetic lambda$onStart$0()V
+    .locals 2
+
+    invoke-virtual {p0}, Landroidx/preference/PreferenceFragmentCompat;->getPreferenceScreen()Landroidx/preference/PreferenceScreen;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/settings/display/darkmode/DarkModeSettingsFragment;->mCustomStartController:Lcom/android/settings/display/darkmode/DarkModeCustomPreferenceController;
+
+    invoke-virtual {v1, v0}, Lcom/android/settings/core/BasePreferenceController;->displayPreference(Landroidx/preference/PreferenceScreen;)V
+
+    iget-object v1, p0, Lcom/android/settings/display/darkmode/DarkModeSettingsFragment;->mCustomEndController:Lcom/android/settings/display/darkmode/DarkModeCustomPreferenceController;
+
+    invoke-virtual {v1, v0}, Lcom/android/settings/core/BasePreferenceController;->displayPreference(Landroidx/preference/PreferenceScreen;)V
 
     invoke-virtual {p0}, Lcom/android/settings/dashboard/DashboardFragment;->updatePreferenceStates()V
 
@@ -145,7 +149,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a2a
+    const p0, 0x7f040a83
 
     return p0
 .end method
@@ -169,7 +173,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150052
+    const p0, 0x7f150055
 
     return p0
 .end method
@@ -281,15 +285,17 @@
 .end method
 
 .method public onStart()V
-    .locals 1
+    .locals 2
 
     invoke-super {p0}, Lcom/android/settings/dashboard/DashboardFragment;->onStart()V
 
     iget-object v0, p0, Lcom/android/settings/display/darkmode/DarkModeSettingsFragment;->mContentObserver:Lcom/android/settings/display/darkmode/DarkModeObserver;
 
-    iget-object p0, p0, Lcom/android/settings/display/darkmode/DarkModeSettingsFragment;->mCallback:Ljava/lang/Runnable;
+    new-instance v1, Lcom/android/settings/display/darkmode/DarkModeSettingsFragment$$ExternalSyntheticLambda0;
 
-    invoke-virtual {v0, p0}, Lcom/android/settings/display/darkmode/DarkModeObserver;->subscribe(Ljava/lang/Runnable;)V
+    invoke-direct {v1, p0}, Lcom/android/settings/display/darkmode/DarkModeSettingsFragment$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/display/darkmode/DarkModeSettingsFragment;)V
+
+    invoke-virtual {v0, v1}, Lcom/android/settings/display/darkmode/DarkModeObserver;->subscribe(Ljava/lang/Runnable;)V
 
     return-void
 .end method

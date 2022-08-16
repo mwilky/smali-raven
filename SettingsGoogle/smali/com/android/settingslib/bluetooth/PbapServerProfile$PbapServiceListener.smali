@@ -32,7 +32,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settingslib/bluetooth/PbapServerProfile;Lcom/android/settingslib/bluetooth/PbapServerProfile$1;)V
+.method synthetic constructor <init>(Lcom/android/settingslib/bluetooth/PbapServerProfile;Lcom/android/settingslib/bluetooth/PbapServerProfile$PbapServiceListener-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settingslib/bluetooth/PbapServerProfile$PbapServiceListener;-><init>(Lcom/android/settingslib/bluetooth/PbapServerProfile;)V
@@ -49,13 +49,13 @@
 
     check-cast p2, Landroid/bluetooth/BluetoothPbap;
 
-    invoke-static {p1, p2}, Lcom/android/settingslib/bluetooth/PbapServerProfile;->access$002(Lcom/android/settingslib/bluetooth/PbapServerProfile;Landroid/bluetooth/BluetoothPbap;)Landroid/bluetooth/BluetoothPbap;
+    invoke-static {p1, p2}, Lcom/android/settingslib/bluetooth/PbapServerProfile;->-$$Nest$fputmService(Lcom/android/settingslib/bluetooth/PbapServerProfile;Landroid/bluetooth/BluetoothPbap;)V
 
     iget-object p0, p0, Lcom/android/settingslib/bluetooth/PbapServerProfile$PbapServiceListener;->this$0:Lcom/android/settingslib/bluetooth/PbapServerProfile;
 
     const/4 p1, 0x1
 
-    invoke-static {p0, p1}, Lcom/android/settingslib/bluetooth/PbapServerProfile;->access$102(Lcom/android/settingslib/bluetooth/PbapServerProfile;Z)Z
+    invoke-static {p0, p1}, Lcom/android/settingslib/bluetooth/PbapServerProfile;->-$$Nest$fputmIsProfileReady(Lcom/android/settingslib/bluetooth/PbapServerProfile;Z)V
 
     return-void
 .end method
@@ -67,7 +67,7 @@
 
     const/4 p1, 0x0
 
-    invoke-static {p0, p1}, Lcom/android/settingslib/bluetooth/PbapServerProfile;->access$102(Lcom/android/settingslib/bluetooth/PbapServerProfile;Z)Z
+    invoke-static {p0, p1}, Lcom/android/settingslib/bluetooth/PbapServerProfile;->-$$Nest$fputmIsProfileReady(Lcom/android/settingslib/bluetooth/PbapServerProfile;Z)V
 
     return-void
 .end method

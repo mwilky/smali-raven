@@ -68,7 +68,7 @@
 .method private initView(Landroid/view/View;)V
     .locals 2
 
-    const v0, 0x7f0d02ac
+    const v0, 0x7f0d02ce
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -82,7 +82,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/EditText;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
 
-    const v0, 0x7f0d044b
+    const v0, 0x7f0d047a
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -102,7 +102,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/EditText;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
 
-    const v0, 0x7f0d0217
+    const v0, 0x7f0d0230
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -130,7 +130,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v0, 0x7f0d0158
+    const v0, 0x7f0d016c
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -144,7 +144,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v0, 0x7f0d01ac
+    const v0, 0x7f0d01c1
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -238,27 +238,27 @@
     return p0
 
     :cond_0
-    const p0, 0x7f040feb
+    const p0, 0x7f04108a
 
     return p0
 
     :cond_1
-    const p0, 0x7f040fed
+    const p0, 0x7f04108c
 
     return p0
 
     :cond_2
-    const p0, 0x7f040fea
+    const p0, 0x7f041089
 
     return p0
 
     :cond_3
-    const p0, 0x7f040fec
+    const p0, 0x7f04108b
 
     return p0
 
     :cond_4
-    const p0, 0x7f040fe9
+    const p0, 0x7f041088
 
     return p0
 
@@ -413,13 +413,13 @@
 
     invoke-direct {v1, p0}, Landroidx/appcompat/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const p0, 0x7f040fe7
+    const p0, 0x7f041086
 
     invoke-virtual {v1, p0}, Landroidx/appcompat/app/AlertDialog$Builder;->setTitle(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
     move-result-object p0
 
-    const v1, 0x7f040fe8
+    const v1, 0x7f041087
 
     invoke-virtual {p0, v1, v0}, Landroidx/appcompat/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 
@@ -442,7 +442,7 @@
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 1
 
-    const p3, 0x7f0601d2
+    const p3, 0x7f0601dd
 
     const/4 v0, 0x0
 
@@ -581,7 +581,7 @@
     goto :goto_2
 
     :cond_4
-    const p0, 0x7f040ff5
+    const p0, 0x7f041094
 
     invoke-virtual {v0, p0}, Landroid/app/Activity;->setTitle(I)V
 

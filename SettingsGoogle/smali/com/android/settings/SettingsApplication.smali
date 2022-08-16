@@ -62,6 +62,18 @@
     return-void
 .end method
 
+.method public onLowMemory()V
+    .locals 0
+
+    invoke-super {p0}, Landroid/app/Application;->onLowMemory()V
+
+    invoke-static {}, Lcom/android/settingslib/applications/AppIconCacheManager;->getInstance()Lcom/android/settingslib/applications/AppIconCacheManager;
+
+    invoke-static {}, Lcom/android/settingslib/applications/AppIconCacheManager;->release()V
+
+    return-void
+.end method
+
 .method public setHomeActivity(Lcom/android/settings/homepage/SettingsHomepageActivity;)V
     .locals 1
 

@@ -7,10 +7,6 @@
 
 
 # annotations
-.annotation runtime Lcom/google/errorprone/annotations/DoNotMock;
-    value = "Use ImmutableList.of or another implementation"
-.end annotation
-
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/google/common/collect/ImmutableCollection$ArrayBasedBuilder;,
@@ -59,9 +55,6 @@
 # virtual methods
 .method public final add(Ljava/lang/Object;)Z
     .locals 0
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)Z"
@@ -80,9 +73,6 @@
 
 .method public final addAll(Ljava/util/Collection;)Z
     .locals 0
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -153,8 +143,6 @@
 
 .method copyIntoArray([Ljava/lang/Object;I)I
     .locals 2
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
 
     invoke-virtual {p0}, Lcom/google/common/collect/ImmutableCollection;->iterator()Lcom/google/common/collect/UnmodifiableIterator;
 
@@ -236,9 +224,6 @@
 
 .method public final remove(Ljava/lang/Object;)Z
     .locals 0
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -251,9 +236,6 @@
 
 .method public final removeAll(Ljava/util/Collection;)Z
     .locals 0
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -274,9 +256,6 @@
 
 .method public final retainAll(Ljava/util/Collection;)Z
     .locals 0
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -309,9 +288,6 @@
 
 .method public final toArray([Ljava/lang/Object;)[Ljava/lang/Object;
     .locals 2
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",

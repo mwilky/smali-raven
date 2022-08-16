@@ -49,7 +49,9 @@
 
     move-result-object p0
 
-    sget-object p1, Lcom/android/settings/accessibility/rtt/TelecomUtil$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/settings/accessibility/rtt/TelecomUtil$$ExternalSyntheticLambda0;
+    new-instance p1, Lcom/android/settings/accessibility/rtt/TelecomUtil$$ExternalSyntheticLambda0;
+
+    invoke-direct {p1}, Lcom/android/settings/accessibility/rtt/TelecomUtil$$ExternalSyntheticLambda0;-><init>()V
 
     invoke-virtual {p0, p1}, Ljava/util/Optional;->map(Ljava/util/function/Function;)Ljava/util/Optional;
 

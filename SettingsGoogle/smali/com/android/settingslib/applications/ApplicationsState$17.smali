@@ -42,7 +42,7 @@
 
     const/high16 v1, 0x2000000
 
-    invoke-static {v0, v1}, Lcom/android/settingslib/applications/ApplicationsState;->access$200(II)Z
+    invoke-static {v0, v1}, Lcom/android/settingslib/applications/ApplicationsState;->-$$Nest$smhasFlag(II)Z
 
     move-result v0
 

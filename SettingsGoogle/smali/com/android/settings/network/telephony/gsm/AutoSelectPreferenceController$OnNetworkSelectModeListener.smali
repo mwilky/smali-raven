@@ -15,5 +15,5 @@
 
 
 # virtual methods
-.method public abstract onNetworkSelectModeChanged()V
+.method public abstract onNetworkSelectModeUpdated(I)V
 .end method

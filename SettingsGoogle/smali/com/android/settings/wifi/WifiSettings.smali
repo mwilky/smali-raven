@@ -65,6 +65,8 @@
 
 .field private mIsWifiEntryListStale:Z
 
+.field private mMainHandler:Landroid/os/Handler;
+
 .field private mOpenSsid:Ljava/lang/String;
 
 .field private mProgressHeader:Landroid/view/View;
@@ -86,6 +88,8 @@
 .field protected mWifiManager:Landroid/net/wifi/WifiManager;
 
 .field mWifiPickerTracker:Lcom/android/wifitrackerlib/WifiPickerTracker;
+
+.field private mWorkerHandler:Landroid/os/Handler;
 
 .field private mWorkerThread:Landroid/os/HandlerThread;
 
@@ -119,10 +123,10 @@
     return p0
 .end method
 
-.method public static synthetic $r8$lambda$Mxij3OvX-bhmUTtsEjvPoN9x1N4(Lcom/android/settings/wifi/WifiSettings;Lcom/android/wifitrackerlib/WifiEntry;Lcom/android/settingslib/wifi/WifiEntryPreference;)V
+.method public static synthetic $r8$lambda$bgcSUvZb9R48THPzRJp_oSdGUPI(Lcom/android/settings/wifi/WifiSettings;Lcom/android/wifitrackerlib/WifiEntry;Lcom/android/settings/wifi/WifiEntryPreference;)V
     .locals 0
 
-    invoke-direct {p0, p1, p2}, Lcom/android/settings/wifi/WifiSettings;->lambda$updateWifiEntryPreferences$8(Lcom/android/wifitrackerlib/WifiEntry;Lcom/android/settingslib/wifi/WifiEntryPreference;)V
+    invoke-direct {p0, p1, p2}, Lcom/android/settings/wifi/WifiSettings;->lambda$updateWifiEntryPreferences$8(Lcom/android/wifitrackerlib/WifiEntry;Lcom/android/settings/wifi/WifiEntryPreference;)V
 
     return-void
 .end method
@@ -179,6 +183,30 @@
     return-void
 .end method
 
+.method static bridge synthetic -$$Nest$fputmClickedConnect(Lcom/android/settings/wifi/WifiSettings;Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/settings/wifi/WifiSettings;->mClickedConnect:Z
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mlaunchConfigNewNetworkFragment(Lcom/android/settings/wifi/WifiSettings;Lcom/android/wifitrackerlib/WifiEntry;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/wifi/WifiSettings;->launchConfigNewNetworkFragment(Lcom/android/wifitrackerlib/WifiEntry;)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mshowDialog(Lcom/android/settings/wifi/WifiSettings;Lcom/android/wifitrackerlib/WifiEntry;I)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/settings/wifi/WifiSettings;->showDialog(Lcom/android/wifitrackerlib/WifiEntry;I)V
+
+    return-void
+.end method
+
 .method static constructor <clinit>()V
     .locals 2
 
@@ -188,7 +216,7 @@
 
     new-instance v0, Lcom/android/settings/wifi/WifiSettings$4;
 
-    const v1, 0x7f15011a
+    const v1, 0x7f150122
 
     invoke-direct {v0, v1}, Lcom/android/settings/wifi/WifiSettings$4;-><init>(I)V
 
@@ -208,30 +236,22 @@
 
     iput-boolean v0, p0, Lcom/android/settings/wifi/WifiSettings;->mIsWifiEntryListStale:Z
 
-    new-instance v0, Lcom/android/settings/wifi/WifiSettings$$ExternalSyntheticLambda4;
+    new-instance v0, Lcom/android/settings/wifi/WifiSettings$$ExternalSyntheticLambda1;
 
-    invoke-direct {v0, p0}, Lcom/android/settings/wifi/WifiSettings$$ExternalSyntheticLambda4;-><init>(Lcom/android/settings/wifi/WifiSettings;)V
+    invoke-direct {v0, p0}, Lcom/android/settings/wifi/WifiSettings$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/wifi/WifiSettings;)V
 
     iput-object v0, p0, Lcom/android/settings/wifi/WifiSettings;->mUpdateWifiEntryPreferencesRunnable:Ljava/lang/Runnable;
 
-    new-instance v0, Lcom/android/settings/wifi/WifiSettings$$ExternalSyntheticLambda5;
+    new-instance v0, Lcom/android/settings/wifi/WifiSettings$$ExternalSyntheticLambda2;
 
-    invoke-direct {v0, p0}, Lcom/android/settings/wifi/WifiSettings$$ExternalSyntheticLambda5;-><init>(Lcom/android/settings/wifi/WifiSettings;)V
+    invoke-direct {v0, p0}, Lcom/android/settings/wifi/WifiSettings$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/wifi/WifiSettings;)V
 
     iput-object v0, p0, Lcom/android/settings/wifi/WifiSettings;->mHideProgressBarRunnable:Ljava/lang/Runnable;
 
     return-void
 .end method
 
-.method static synthetic access$102(Lcom/android/settings/wifi/WifiSettings;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/settings/wifi/WifiSettings;->mClickedConnect:Z
-
-    return p1
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/wifi/WifiSettings;)Z
+.method static synthetic access$000(Lcom/android/settings/wifi/WifiSettings;)Z
     .locals 0
 
     invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->isFinishingOrDestroyed()Z
@@ -241,7 +261,7 @@
     return p0
 .end method
 
-.method static synthetic access$300(Lcom/android/settings/wifi/WifiSettings;)Z
+.method static synthetic access$100(Lcom/android/settings/wifi/WifiSettings;)Z
     .locals 0
 
     invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->isFinishingOrDestroyed()Z
@@ -249,22 +269,6 @@
     move-result p0
 
     return p0
-.end method
-
-.method static synthetic access$400(Lcom/android/settings/wifi/WifiSettings;Lcom/android/wifitrackerlib/WifiEntry;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/wifi/WifiSettings;->launchConfigNewNetworkFragment(Lcom/android/wifitrackerlib/WifiEntry;)V
-
-    return-void
-.end method
-
-.method static synthetic access$500(Lcom/android/settings/wifi/WifiSettings;Lcom/android/wifitrackerlib/WifiEntry;I)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/settings/wifi/WifiSettings;->showDialog(Lcom/android/wifitrackerlib/WifiEntry;I)V
-
-    return-void
 .end method
 
 .method private addMessagePreference(I)V
@@ -286,7 +290,7 @@
 .method private addPreferences()V
     .locals 3
 
-    const v0, 0x7f15011a
+    const v0, 0x7f150122
 
     invoke-virtual {p0, v0}, Lcom/android/settings/SettingsPreferenceFragment;->addPreferencesFromResource(I)V
 
@@ -318,7 +322,7 @@
 
     iput-object v0, p0, Lcom/android/settings/wifi/WifiSettings;->mConfigureWifiSettingsPreference:Landroidx/preference/Preference;
 
-    const-string v0, "saved_networks"
+    const-string/jumbo v0, "saved_networks"
 
     invoke-virtual {p0, v0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -368,17 +372,21 @@
 
     iget-object p0, p0, Lcom/android/settings/wifi/WifiSettings;->mDataUsagePreference:Lcom/android/settings/datausage/DataUsagePreference;
 
-    sget-object v0, Landroid/net/NetworkTemplate;->WIFI_NETWORKID_ALL:Ljava/lang/String;
+    new-instance v0, Landroid/net/NetworkTemplate$Builder;
 
-    const/4 v1, 0x0
+    const/4 v1, 0x4
 
-    invoke-static {v0, v1}, Landroid/net/NetworkTemplate;->buildTemplateWifi(Ljava/lang/String;Ljava/lang/String;)Landroid/net/NetworkTemplate;
+    invoke-direct {v0, v1}, Landroid/net/NetworkTemplate$Builder;-><init>(I)V
+
+    invoke-virtual {v0}, Landroid/net/NetworkTemplate$Builder;->build()Landroid/net/NetworkTemplate;
 
     move-result-object v0
 
+    const/4 v1, 0x0
+
     const/4 v2, 0x0
 
-    invoke-virtual {p0, v0, v2, v1}, Lcom/android/settings/datausage/DataUsagePreference;->setTemplate(Landroid/net/NetworkTemplate;ILcom/android/settings/datausage/TemplatePreference$NetworkServices;)V
+    invoke-virtual {p0, v0, v1, v2}, Lcom/android/settings/datausage/DataUsagePreference;->setTemplate(Landroid/net/NetworkTemplate;ILcom/android/settings/datausage/TemplatePreference$NetworkServices;)V
 
     return-void
 .end method
@@ -484,7 +492,7 @@
 
     move-result-object p0
 
-    const p2, 0x7f120059
+    const p2, 0x7f120057
 
     new-array v1, v1, [Ljava/lang/Object;
 
@@ -507,7 +515,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f12005b
+    const p1, 0x7f120059
 
     new-array v1, v1, [Ljava/lang/Object;
 
@@ -530,7 +538,7 @@
 
     move-result-object p0
 
-    const p2, 0x7f12005a
+    const p2, 0x7f120058
 
     new-array v1, v1, [Ljava/lang/Object;
 
@@ -804,7 +812,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040b95
+    const v1, 0x7f040bff
 
     invoke-virtual {v0, v1}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 
@@ -839,7 +847,7 @@
     goto :goto_0
 
     :cond_0
-    invoke-direct {p0, p2}, Lcom/android/settings/wifi/WifiSettings;->launchNetworkDetailsFragment(Lcom/android/settingslib/wifi/LongPressWifiEntryPreference;)V
+    invoke-direct {p0, p2}, Lcom/android/settings/wifi/WifiSettings;->launchNetworkDetailsFragment(Lcom/android/settings/wifi/LongPressWifiEntryPreference;)V
 
     :goto_0
     const/4 p0, 0x1
@@ -850,12 +858,12 @@
 .method private synthetic lambda$updateWifiEntryPreferences$7(Lcom/android/settings/wifi/ConnectedWifiEntryPreference;Lcom/android/settings/wifi/ConnectedWifiEntryPreference;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/settings/wifi/WifiSettings;->launchNetworkDetailsFragment(Lcom/android/settingslib/wifi/LongPressWifiEntryPreference;)V
+    invoke-direct {p0, p1}, Lcom/android/settings/wifi/WifiSettings;->launchNetworkDetailsFragment(Lcom/android/settings/wifi/LongPressWifiEntryPreference;)V
 
     return-void
 .end method
 
-.method private synthetic lambda$updateWifiEntryPreferences$8(Lcom/android/wifitrackerlib/WifiEntry;Lcom/android/settingslib/wifi/WifiEntryPreference;)V
+.method private synthetic lambda$updateWifiEntryPreferences$8(Lcom/android/wifitrackerlib/WifiEntry;Lcom/android/settings/wifi/WifiEntryPreference;)V
     .locals 0
 
     invoke-virtual {p0, p1}, Lcom/android/settings/wifi/WifiSettings;->openSubscriptionHelpPage(Lcom/android/wifitrackerlib/WifiEntry;)V
@@ -874,7 +882,7 @@
 
     invoke-direct {v0, v1}, Lcom/android/settings/core/SubSettingLauncher;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0415d3
+    const v1, 0x7f0416cc
 
     invoke-virtual {v0, v1}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 
@@ -973,10 +981,10 @@
     return-void
 .end method
 
-.method private launchNetworkDetailsFragment(Lcom/android/settingslib/wifi/LongPressWifiEntryPreference;)V
+.method private launchNetworkDetailsFragment(Lcom/android/settings/wifi/LongPressWifiEntryPreference;)V
     .locals 4
 
-    invoke-virtual {p1}, Lcom/android/settingslib/wifi/WifiEntryPreference;->getWifiEntry()Lcom/android/wifitrackerlib/WifiEntry;
+    invoke-virtual {p1}, Lcom/android/settings/wifi/WifiEntryPreference;->getWifiEntry()Lcom/android/wifitrackerlib/WifiEntry;
 
     move-result-object p1
 
@@ -999,7 +1007,7 @@
     goto :goto_0
 
     :cond_0
-    const v1, 0x7f040f58
+    const v1, 0x7f040fef
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -1150,7 +1158,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f04166b
+    const v1, 0x7f041764
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -1167,7 +1175,7 @@
 .method private setOffMessage()V
     .locals 4
 
-    const v0, 0x7f04166c
+    const v0, 0x7f041765
 
     invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
@@ -1181,7 +1189,7 @@
 
     if-eqz v1, :cond_0
 
-    const v1, 0x7f0416e5
+    const v1, 0x7f0417df
 
     invoke-virtual {p0, v1}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
@@ -1190,16 +1198,16 @@
     goto :goto_0
 
     :cond_0
-    const v1, 0x7f0416e6
+    const v1, 0x7f0417e0
 
     invoke-virtual {p0, v1}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v1
 
     :goto_0
-    new-instance v2, Lcom/android/settings/wifi/WifiSettings$$ExternalSyntheticLambda1;
+    new-instance v2, Lcom/android/settings/wifi/WifiSettings$$ExternalSyntheticLambda6;
 
-    invoke-direct {v2, p0}, Lcom/android/settings/wifi/WifiSettings$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/wifi/WifiSettings;)V
+    invoke-direct {v2, p0}, Lcom/android/settings/wifi/WifiSettings$$ExternalSyntheticLambda6;-><init>(Lcom/android/settings/wifi/WifiSettings;)V
 
     iget-object v3, p0, Lcom/android/settings/wifi/WifiSettings;->mStatusMessagePreference:Lcom/android/settings/wifi/LinkablePreference;
 
@@ -1348,11 +1356,11 @@
 
     move-result-object v3
 
-    check-cast v3, Lcom/android/settingslib/wifi/LongPressWifiEntryPreference;
+    check-cast v3, Lcom/android/settings/wifi/LongPressWifiEntryPreference;
 
     if-eqz v3, :cond_2
 
-    invoke-virtual {v3}, Lcom/android/settingslib/wifi/WifiEntryPreference;->getWifiEntry()Lcom/android/wifitrackerlib/WifiEntry;
+    invoke-virtual {v3}, Lcom/android/settings/wifi/WifiEntryPreference;->getWifiEntry()Lcom/android/wifitrackerlib/WifiEntry;
 
     move-result-object v3
 
@@ -1377,21 +1385,21 @@
 
     invoke-virtual {v3, v4}, Landroidx/preference/Preference;->setKey(Ljava/lang/String;)V
 
-    invoke-virtual {v3}, Lcom/android/settingslib/wifi/WifiEntryPreference;->refresh()V
+    invoke-virtual {v3}, Lcom/android/settings/wifi/LongPressWifiEntryPreference;->refresh()V
 
     iget-object v4, p0, Lcom/android/settings/wifi/WifiSettings;->mConnectedWifiEntryPreferenceCategory:Landroidx/preference/PreferenceCategory;
 
     invoke-virtual {v4, v3}, Landroidx/preference/PreferenceGroup;->addPreference(Landroidx/preference/Preference;)Z
 
-    new-instance v4, Lcom/android/settings/wifi/WifiSettings$$ExternalSyntheticLambda0;
+    new-instance v4, Lcom/android/settings/wifi/WifiSettings$$ExternalSyntheticLambda3;
 
-    invoke-direct {v4, p0, v0, v3}, Lcom/android/settings/wifi/WifiSettings$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/wifi/WifiSettings;Lcom/android/wifitrackerlib/WifiEntry;Lcom/android/settings/wifi/ConnectedWifiEntryPreference;)V
+    invoke-direct {v4, p0, v0, v3}, Lcom/android/settings/wifi/WifiSettings$$ExternalSyntheticLambda3;-><init>(Lcom/android/settings/wifi/WifiSettings;Lcom/android/wifitrackerlib/WifiEntry;Lcom/android/settings/wifi/ConnectedWifiEntryPreference;)V
 
     invoke-virtual {v3, v4}, Landroidx/preference/Preference;->setOnPreferenceClickListener(Landroidx/preference/Preference$OnPreferenceClickListener;)V
 
-    new-instance v0, Lcom/android/settings/wifi/WifiSettings$$ExternalSyntheticLambda2;
+    new-instance v0, Lcom/android/settings/wifi/WifiSettings$$ExternalSyntheticLambda4;
 
-    invoke-direct {v0, p0, v3}, Lcom/android/settings/wifi/WifiSettings$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/wifi/WifiSettings;Lcom/android/settings/wifi/ConnectedWifiEntryPreference;)V
+    invoke-direct {v0, p0, v3}, Lcom/android/settings/wifi/WifiSettings$$ExternalSyntheticLambda4;-><init>(Lcom/android/settings/wifi/WifiSettings;Lcom/android/settings/wifi/ConnectedWifiEntryPreference;)V
 
     invoke-virtual {v3, v0}, Lcom/android/settings/wifi/ConnectedWifiEntryPreference;->setOnGearClickListener(Lcom/android/settings/wifi/ConnectedWifiEntryPreference$OnGearClickListener;)V
 
@@ -1453,11 +1461,11 @@
 
     move-result-object v6
 
-    check-cast v6, Lcom/android/settingslib/wifi/LongPressWifiEntryPreference;
+    check-cast v6, Lcom/android/settings/wifi/LongPressWifiEntryPreference;
 
     if-eqz v6, :cond_6
 
-    invoke-virtual {v6}, Lcom/android/settingslib/wifi/WifiEntryPreference;->getWifiEntry()Lcom/android/wifitrackerlib/WifiEntry;
+    invoke-virtual {v6}, Lcom/android/settings/wifi/WifiEntryPreference;->getWifiEntry()Lcom/android/wifitrackerlib/WifiEntry;
 
     move-result-object v7
 
@@ -1477,7 +1485,7 @@
     invoke-virtual {p0, v5}, Lcom/android/settings/SettingsPreferenceFragment;->removePreference(Ljava/lang/String;)Z
 
     :cond_6
-    invoke-virtual {p0, v3}, Lcom/android/settings/wifi/WifiSettings;->createLongPressWifiEntryPreference(Lcom/android/wifitrackerlib/WifiEntry;)Lcom/android/settingslib/wifi/LongPressWifiEntryPreference;
+    invoke-virtual {p0, v3}, Lcom/android/settings/wifi/WifiSettings;->createLongPressWifiEntryPreference(Lcom/android/wifitrackerlib/WifiEntry;)Lcom/android/settings/wifi/LongPressWifiEntryPreference;
 
     move-result-object v5
 
@@ -1491,7 +1499,7 @@
 
     invoke-virtual {v5, v4}, Landroidx/preference/Preference;->setOrder(I)V
 
-    invoke-virtual {v5}, Lcom/android/settingslib/wifi/WifiEntryPreference;->refresh()V
+    invoke-virtual {v5}, Lcom/android/settings/wifi/LongPressWifiEntryPreference;->refresh()V
 
     invoke-virtual {v3}, Lcom/android/wifitrackerlib/WifiEntry;->getHelpUriString()Ljava/lang/String;
 
@@ -1499,11 +1507,11 @@
 
     if-eqz v4, :cond_7
 
-    new-instance v4, Lcom/android/settings/wifi/WifiSettings$$ExternalSyntheticLambda3;
+    new-instance v4, Lcom/android/settings/wifi/WifiSettings$$ExternalSyntheticLambda5;
 
-    invoke-direct {v4, p0, v3}, Lcom/android/settings/wifi/WifiSettings$$ExternalSyntheticLambda3;-><init>(Lcom/android/settings/wifi/WifiSettings;Lcom/android/wifitrackerlib/WifiEntry;)V
+    invoke-direct {v4, p0, v3}, Lcom/android/settings/wifi/WifiSettings$$ExternalSyntheticLambda5;-><init>(Lcom/android/settings/wifi/WifiSettings;Lcom/android/wifitrackerlib/WifiEntry;)V
 
-    invoke-virtual {v5, v4}, Lcom/android/settingslib/wifi/WifiEntryPreference;->setOnButtonClickListener(Lcom/android/settingslib/wifi/WifiEntryPreference$OnButtonClickListener;)V
+    invoke-virtual {v5, v4}, Lcom/android/settings/wifi/WifiEntryPreference;->setOnButtonClickListener(Lcom/android/settings/wifi/WifiEntryPreference$OnButtonClickListener;)V
 
     :cond_7
     iget-object v3, p0, Lcom/android/settings/wifi/WifiSettings;->mWifiEntryPreferenceCategory:Landroidx/preference/PreferenceCategory;
@@ -1535,7 +1543,7 @@
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setSelectable(Z)V
 
-    const v1, 0x7f04166d
+    const v1, 0x7f041766
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -1691,16 +1699,16 @@
     return-void
 .end method
 
-.method createLongPressWifiEntryPreference(Lcom/android/wifitrackerlib/WifiEntry;)Lcom/android/settingslib/wifi/LongPressWifiEntryPreference;
+.method createLongPressWifiEntryPreference(Lcom/android/wifitrackerlib/WifiEntry;)Lcom/android/settings/wifi/LongPressWifiEntryPreference;
     .locals 2
 
-    new-instance v0, Lcom/android/settingslib/wifi/LongPressWifiEntryPreference;
+    new-instance v0, Lcom/android/settings/wifi/LongPressWifiEntryPreference;
 
     invoke-virtual {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->getPrefContext()Landroid/content/Context;
 
     move-result-object v1
 
-    invoke-direct {v0, v1, p1, p0}, Lcom/android/settingslib/wifi/LongPressWifiEntryPreference;-><init>(Landroid/content/Context;Lcom/android/wifitrackerlib/WifiEntry;Landroidx/fragment/app/Fragment;)V
+    invoke-direct {v0, v1, p1, p0}, Lcom/android/settings/wifi/LongPressWifiEntryPreference;-><init>(Landroid/content/Context;Lcom/android/wifitrackerlib/WifiEntry;Landroidx/fragment/app/Fragment;)V
 
     return-object v0
 .end method
@@ -1743,7 +1751,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a54
+    const p0, 0x7f040aad
 
     return p0
 .end method
@@ -1820,6 +1828,24 @@
 
     invoke-direct {v5, p0, v0}, Lcom/android/settings/wifi/WifiSettings$1;-><init>(Lcom/android/settings/wifi/WifiSettings;Ljava/time/ZoneId;)V
 
+    new-instance v0, Landroid/os/Handler;
+
+    invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
+
+    iput-object v0, p0, Lcom/android/settings/wifi/WifiSettings;->mMainHandler:Landroid/os/Handler;
+
+    iget-object v0, p0, Lcom/android/settings/wifi/WifiSettings;->mWorkerThread:Landroid/os/HandlerThread;
+
+    invoke-virtual {v0}, Landroid/os/HandlerThread;->getThreadHandler()Landroid/os/Handler;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/settings/wifi/WifiSettings;->mWorkerHandler:Landroid/os/Handler;
+
     invoke-static {v2}, Lcom/android/settings/overlay/FeatureFactory;->getFactory(Landroid/content/Context;)Lcom/android/settings/overlay/FeatureFactory;
 
     move-result-object v0
@@ -1832,19 +1858,9 @@
 
     move-result-object v1
 
-    new-instance v3, Landroid/os/Handler;
+    iget-object v3, p0, Lcom/android/settings/wifi/WifiSettings;->mMainHandler:Landroid/os/Handler;
 
-    invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
-
-    move-result-object v4
-
-    invoke-direct {v3, v4}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
-
-    iget-object v4, p0, Lcom/android/settings/wifi/WifiSettings;->mWorkerThread:Landroid/os/HandlerThread;
-
-    invoke-virtual {v4}, Landroid/os/HandlerThread;->getThreadHandler()Landroid/os/Handler;
-
-    move-result-object v4
+    iget-object v4, p0, Lcom/android/settings/wifi/WifiSettings;->mWorkerHandler:Landroid/os/Handler;
 
     const-wide/16 v6, 0x3a98
 
@@ -2020,7 +2036,7 @@
 
     const/4 v0, 0x0
 
-    invoke-direct {p3, p0, v0}, Lcom/android/settings/wifi/WifiSettings$WifiConnectActionListener;-><init>(Lcom/android/settings/wifi/WifiSettings;Lcom/android/settings/wifi/WifiSettings$1;)V
+    invoke-direct {p3, p0, v0}, Lcom/android/settings/wifi/WifiSettings$WifiConnectActionListener;-><init>(Lcom/android/settings/wifi/WifiSettings;Lcom/android/settings/wifi/WifiSettings$WifiConnectActionListener-IA;)V
 
     invoke-virtual {p2, p1, p3}, Landroid/net/wifi/WifiManager;->connect(Landroid/net/wifi/WifiConfiguration;Landroid/net/wifi/WifiManager$ActionListener;)V
 
@@ -2103,9 +2119,9 @@
 
     move-result-object p1
 
-    new-instance v0, Lcom/android/settings/wifi/WifiSettings$$ExternalSyntheticLambda6;
+    new-instance v0, Lcom/android/settings/wifi/WifiSettings$$ExternalSyntheticLambda0;
 
-    invoke-direct {v0, p0}, Lcom/android/settings/wifi/WifiSettings$$ExternalSyntheticLambda6;-><init>(Lcom/android/settings/wifi/WifiSettings;)V
+    invoke-direct {v0, p0}, Lcom/android/settings/wifi/WifiSettings$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/wifi/WifiSettings;)V
 
     invoke-static {p1, v0}, Lcom/android/settings/wifi/dpp/WifiDppUtils;->showLockScreen(Landroid/content/Context;Ljava/lang/Runnable;)V
 
@@ -2233,16 +2249,16 @@
 
     check-cast p2, Landroidx/preference/Preference;
 
-    instance-of p3, p2, Lcom/android/settingslib/wifi/LongPressWifiEntryPreference;
+    instance-of p3, p2, Lcom/android/settings/wifi/LongPressWifiEntryPreference;
 
     if-nez p3, :cond_0
 
     return-void
 
     :cond_0
-    check-cast p2, Lcom/android/settingslib/wifi/LongPressWifiEntryPreference;
+    check-cast p2, Lcom/android/settings/wifi/LongPressWifiEntryPreference;
 
-    invoke-virtual {p2}, Lcom/android/settingslib/wifi/WifiEntryPreference;->getWifiEntry()Lcom/android/wifitrackerlib/WifiEntry;
+    invoke-virtual {p2}, Lcom/android/settings/wifi/WifiEntryPreference;->getWifiEntry()Lcom/android/wifitrackerlib/WifiEntry;
 
     move-result-object p2
 
@@ -2266,7 +2282,7 @@
 
     if-eqz p2, :cond_1
 
-    const p2, 0x7f041611
+    const p2, 0x7f04170a
 
     invoke-interface {p1, v0, p3, v0, p2}, Landroid/view/ContextMenu;->add(IIII)Landroid/view/MenuItem;
 
@@ -2281,7 +2297,7 @@
 
     const/4 p2, 0x6
 
-    const v1, 0x7f041208
+    const v1, 0x7f0412bd
 
     invoke-interface {p1, v0, p2, v0, v1}, Landroid/view/ContextMenu;->add(IIII)Landroid/view/MenuItem;
 
@@ -2289,7 +2305,7 @@
 
     const/4 v1, 0x1
 
-    const v2, 0x7f041622
+    const v2, 0x7f04171b
 
     invoke-interface {p1, v0, p2, v1, v2}, Landroid/view/ContextMenu;->add(IIII)Landroid/view/MenuItem;
 
@@ -2302,7 +2318,7 @@
 
     const/4 p2, 0x4
 
-    const v1, 0x7f04097a
+    const v1, 0x7f0409df
 
     invoke-interface {p1, v0, p2, v0, v1}, Landroid/view/ContextMenu;->add(IIII)Landroid/view/MenuItem;
 
@@ -2344,7 +2360,7 @@
 
     const/4 p0, 0x5
 
-    const p2, 0x7f0416af
+    const p2, 0x7f0417a6
 
     invoke-interface {p1, v0, p0, v0, p2}, Landroid/view/ContextMenu;->add(IIII)Landroid/view/MenuItem;
 
@@ -2384,7 +2400,7 @@
 .end method
 
 .method public onDestroyView()V
-    .locals 1
+    .locals 2
 
     iget-object v0, p0, Lcom/android/settings/wifi/WifiSettings;->mWifiEnabler:Lcom/android/settings/wifi/WifiEnabler;
 
@@ -2393,6 +2409,16 @@
     invoke-virtual {v0}, Lcom/android/settings/wifi/WifiEnabler;->teardownSwitchController()V
 
     :cond_0
+    iget-object v0, p0, Lcom/android/settings/wifi/WifiSettings;->mMainHandler:Landroid/os/Handler;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacksAndMessages(Ljava/lang/Object;)V
+
+    iget-object v0, p0, Lcom/android/settings/wifi/WifiSettings;->mWorkerHandler:Landroid/os/Handler;
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacksAndMessages(Ljava/lang/Object;)V
+
     iget-object v0, p0, Lcom/android/settings/wifi/WifiSettings;->mWorkerThread:Landroid/os/HandlerThread;
 
     invoke-virtual {v0}, Landroid/os/HandlerThread;->quit()Z
@@ -2507,15 +2533,15 @@
     return p0
 
     :cond_0
-    instance-of v0, p1, Lcom/android/settingslib/wifi/LongPressWifiEntryPreference;
+    instance-of v0, p1, Lcom/android/settings/wifi/LongPressWifiEntryPreference;
 
     const/4 v1, 0x1
 
     if-eqz v0, :cond_2
 
-    check-cast p1, Lcom/android/settingslib/wifi/LongPressWifiEntryPreference;
+    check-cast p1, Lcom/android/settings/wifi/LongPressWifiEntryPreference;
 
-    invoke-virtual {p1}, Lcom/android/settingslib/wifi/WifiEntryPreference;->getWifiEntry()Lcom/android/wifitrackerlib/WifiEntry;
+    invoke-virtual {p1}, Lcom/android/settings/wifi/WifiEntryPreference;->getWifiEntry()Lcom/android/wifitrackerlib/WifiEntry;
 
     move-result-object p1
 
@@ -2650,7 +2676,7 @@
 .method public onStart()V
     .locals 1
 
-    invoke-super {p0}, Lcom/android/settingslib/core/lifecycle/ObservablePreferenceFragment;->onStart()V
+    invoke-super {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->onStart()V
 
     invoke-direct {p0}, Lcom/android/settings/wifi/WifiSettings;->createWifiEnabler()Lcom/android/settings/wifi/WifiEnabler;
 
@@ -2727,7 +2753,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f041675
+    const p1, 0x7f04176c
 
     invoke-static {p0, p1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -2773,7 +2799,7 @@
 
     const/4 v2, 0x0
 
-    invoke-direct {v0, p0, v2}, Lcom/android/settings/wifi/WifiSettings$WifiConnectActionListener;-><init>(Lcom/android/settings/wifi/WifiSettings;Lcom/android/settings/wifi/WifiSettings$1;)V
+    invoke-direct {v0, p0, v2}, Lcom/android/settings/wifi/WifiSettings$WifiConnectActionListener;-><init>(Lcom/android/settings/wifi/WifiSettings;Lcom/android/settings/wifi/WifiSettings$WifiConnectActionListener-IA;)V
 
     invoke-virtual {p1, v1, v0}, Landroid/net/wifi/WifiManager;->connect(Landroid/net/wifi/WifiConfiguration;Landroid/net/wifi/WifiManager$ActionListener;)V
 
@@ -2793,13 +2819,13 @@
 
     if-eqz p1, :cond_0
 
-    const p2, 0x7f0601d1
+    const p2, 0x7f0601dc
 
     invoke-virtual {p0, p2}, Lcom/android/settings/SettingsPreferenceFragment;->setPinnedHeaderView(I)Landroid/view/View;
 
     move-result-object p2
 
-    const v0, 0x7f0d046c
+    const v0, 0x7f0d049f
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2822,7 +2848,7 @@
 
     move-result-object p0
 
-    const p2, 0x7f04170e
+    const p2, 0x7f041808
 
     invoke-virtual {p0, p2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2836,11 +2862,20 @@
 .method public onWifiEntriesChanged()V
     .locals 2
 
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->isFinishingOrDestroyed()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    return-void
+
+    :cond_0
     iget-boolean v0, p0, Lcom/android/settings/wifi/WifiSettings;->mIsWifiEntryListStale:Z
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     iput-boolean v1, p0, Lcom/android/settings/wifi/WifiSettings;->mIsWifiEntryListStale:Z
 
@@ -2848,7 +2883,7 @@
 
     goto :goto_0
 
-    :cond_0
+    :cond_1
     invoke-direct {p0}, Lcom/android/settings/wifi/WifiSettings;->updateWifiEntryPreferencesDelayed()V
 
     :goto_0
@@ -2858,16 +2893,16 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     const/4 v1, 0x1
 
-    :cond_1
+    :cond_2
     invoke-virtual {p0, v1}, Lcom/android/settings/wifi/WifiSettings;->changeNextButtonState(Z)V
 
     iget-object v0, p0, Lcom/android/settings/wifi/WifiSettings;->mOpenSsid:Ljava/lang/String;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
 
     iget-object v0, p0, Lcom/android/settings/wifi/WifiSettings;->mWifiPickerTracker:Lcom/android/wifitrackerlib/WifiPickerTracker;
 
@@ -2887,13 +2922,17 @@
 
     move-result-object v0
 
-    sget-object v1, Lcom/android/settings/wifi/WifiSettings$$ExternalSyntheticLambda8;->INSTANCE:Lcom/android/settings/wifi/WifiSettings$$ExternalSyntheticLambda8;
+    new-instance v1, Lcom/android/settings/wifi/WifiSettings$$ExternalSyntheticLambda8;
+
+    invoke-direct {v1}, Lcom/android/settings/wifi/WifiSettings$$ExternalSyntheticLambda8;-><init>()V
 
     invoke-interface {v0, v1}, Ljava/util/stream/Stream;->filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
 
     move-result-object v0
 
-    sget-object v1, Lcom/android/settings/wifi/WifiSettings$$ExternalSyntheticLambda9;->INSTANCE:Lcom/android/settings/wifi/WifiSettings$$ExternalSyntheticLambda9;
+    new-instance v1, Lcom/android/settings/wifi/WifiSettings$$ExternalSyntheticLambda9;
+
+    invoke-direct {v1}, Lcom/android/settings/wifi/WifiSettings$$ExternalSyntheticLambda9;-><init>()V
 
     invoke-interface {v0, v1}, Ljava/util/stream/Stream;->filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
 
@@ -2907,7 +2946,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_3
 
     const/4 v1, 0x0
 
@@ -2921,7 +2960,7 @@
 
     invoke-direct {p0, v0}, Lcom/android/settings/wifi/WifiSettings;->launchConfigNewNetworkFragment(Lcom/android/wifitrackerlib/WifiEntry;)V
 
-    :cond_2
+    :cond_3
     return-void
 .end method
 
@@ -2930,9 +2969,15 @@
 
     iget-boolean v0, p0, Lcom/android/settings/wifi/WifiSettings;->mIsRestricted:Z
 
+    if-nez v0, :cond_6
+
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->isFinishingOrDestroyed()Z
+
+    move-result v0
+
     if-eqz v0, :cond_0
 
-    return-void
+    goto :goto_0
 
     :cond_0
     iget-object v0, p0, Lcom/android/settings/wifi/WifiSettings;->mWifiPickerTracker:Lcom/android/wifitrackerlib/WifiPickerTracker;
@@ -2992,7 +3037,7 @@
 
     invoke-direct {p0}, Lcom/android/settings/wifi/WifiSettings;->removeWifiEntryPreference()V
 
-    const v0, 0x7f041721
+    const v0, 0x7f04181b
 
     invoke-direct {p0, v0}, Lcom/android/settings/wifi/WifiSettings;->addMessagePreference(I)V
 
@@ -3018,10 +3063,11 @@
 
     invoke-direct {p0}, Lcom/android/settings/wifi/WifiSettings;->removeWifiEntryPreference()V
 
-    const v0, 0x7f04172d
+    const v0, 0x7f041827
 
     invoke-direct {p0, v0}, Lcom/android/settings/wifi/WifiSettings;->addMessagePreference(I)V
 
+    :cond_6
     :goto_0
     return-void
 .end method
@@ -3091,12 +3137,12 @@
 
     if-eqz v1, :cond_0
 
-    const v1, 0x7f04160f
+    const v1, 0x7f041708
 
     goto :goto_0
 
     :cond_0
-    const v1, 0x7f04160e
+    const v1, 0x7f041707
 
     :goto_0
     invoke-virtual {p0, v1}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;

@@ -56,7 +56,7 @@
 
     iput-object v0, p0, Lcom/android/settings/development/qstile/DevelopmentTiles$SensorsOff;->mContext:Landroid/content/Context;
 
-    const-string v1, "sensor_privacy"
+    const-string/jumbo v1, "sensor_privacy"
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 

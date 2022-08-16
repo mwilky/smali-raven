@@ -36,7 +36,7 @@
 
     iget-object p0, p0, Lcom/android/settings/panel/PanelFragment$3;->this$0:Lcom/android/settings/panel/PanelFragment;
 
-    invoke-static {p0}, Lcom/android/settings/panel/PanelFragment;->access$400(Lcom/android/settings/panel/PanelFragment;)V
+    invoke-static {p0}, Lcom/android/settings/panel/PanelFragment;->-$$Nest$mcreatePanelContent(Lcom/android/settings/panel/PanelFragment;)V
 
     return-void
 .end method

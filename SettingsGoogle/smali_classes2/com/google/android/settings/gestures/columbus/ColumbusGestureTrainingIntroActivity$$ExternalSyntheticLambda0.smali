@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/google/android/settings/gestures/columbus/ColumbusGestureTrainingIntroActivity$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/view/View$OnClickListener;
@@ -27,7 +28,7 @@
 
     iget-object p0, p0, Lcom/google/android/settings/gestures/columbus/ColumbusGestureTrainingIntroActivity$$ExternalSyntheticLambda0;->f$0:Lcom/google/android/settings/gestures/columbus/ColumbusGestureTrainingIntroActivity;
 
-    invoke-static {p0, p1}, Lcom/google/android/settings/gestures/columbus/ColumbusGestureTrainingIntroActivity;->$r8$lambda$SvL_u5wQNPNlnvXh1phQA2IWJ8o(Lcom/google/android/settings/gestures/columbus/ColumbusGestureTrainingIntroActivity;Landroid/view/View;)V
+    invoke-static {p0, p1}, Lcom/google/android/settings/gestures/columbus/ColumbusGestureTrainingIntroActivity;->$r8$lambda$jUkQOn8zSSOEYDMWvYAv1tWinKU(Lcom/google/android/settings/gestures/columbus/ColumbusGestureTrainingIntroActivity;Landroid/view/View;)V
 
     return-void
 .end method

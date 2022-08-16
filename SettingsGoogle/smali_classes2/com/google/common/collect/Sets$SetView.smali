@@ -45,9 +45,6 @@
 # virtual methods
 .method public final add(Ljava/lang/Object;)Z
     .locals 0
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)Z"
@@ -66,9 +63,6 @@
 
 .method public final addAll(Ljava/util/Collection;)Z
     .locals 0
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -111,9 +105,6 @@
 
 .method public final remove(Ljava/lang/Object;)Z
     .locals 0
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -126,9 +117,6 @@
 
 .method public final removeAll(Ljava/util/Collection;)Z
     .locals 0
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -149,9 +137,6 @@
 
 .method public final retainAll(Ljava/util/Collection;)Z
     .locals 0
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

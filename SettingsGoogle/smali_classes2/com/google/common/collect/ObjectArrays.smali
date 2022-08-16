@@ -6,8 +6,6 @@
 # direct methods
 .method static checkElementNotNull(Ljava/lang/Object;I)Ljava/lang/Object;
     .locals 2
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
 
     if-eqz p0, :cond_0
 
@@ -37,22 +35,16 @@
 
 .method static varargs checkElementsNotNull([Ljava/lang/Object;)[Ljava/lang/Object;
     .locals 1
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
 
     array-length v0, p0
 
     invoke-static {p0, v0}, Lcom/google/common/collect/ObjectArrays;->checkElementsNotNull([Ljava/lang/Object;I)[Ljava/lang/Object;
-
-    move-result-object p0
 
     return-object p0
 .end method
 
 .method static checkElementsNotNull([Ljava/lang/Object;I)[Ljava/lang/Object;
     .locals 2
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -73,9 +65,6 @@
 
 .method private static fillArray(Ljava/lang/Iterable;[Ljava/lang/Object;)[Ljava/lang/Object;
     .locals 3
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

@@ -64,7 +64,7 @@
 
     move-result-object p1
 
-    invoke-static {p0, p1}, Lcom/google/android/wifitrackerlib/WsuServiceClient;->access$300(Lcom/google/android/wifitrackerlib/WsuServiceClient;Ljava/lang/String;)V
+    invoke-static {p0, p1}, Lcom/google/android/wifitrackerlib/WsuServiceClient;->-$$Nest$mlogd(Lcom/google/android/wifitrackerlib/WsuServiceClient;Ljava/lang/String;)V
 
     goto/16 :goto_1
 
@@ -75,7 +75,7 @@
 
     iget-object v1, p0, Lcom/google/android/wifitrackerlib/WsuServiceClient$WsuHandler;->this$0:Lcom/google/android/wifitrackerlib/WsuServiceClient;
 
-    invoke-static {v1}, Lcom/google/android/wifitrackerlib/WsuServiceClient;->access$200(Lcom/google/android/wifitrackerlib/WsuServiceClient;)Ljava/util/Map;
+    invoke-static {v1}, Lcom/google/android/wifitrackerlib/WsuServiceClient;->-$$Nest$fgetmNetworkGroups(Lcom/google/android/wifitrackerlib/WsuServiceClient;)Ljava/util/Map;
 
     move-result-object v1
 
@@ -107,7 +107,7 @@
 
     move-result-object p1
 
-    invoke-static {p0, p1}, Lcom/google/android/wifitrackerlib/WsuServiceClient;->access$300(Lcom/google/android/wifitrackerlib/WsuServiceClient;Ljava/lang/String;)V
+    invoke-static {p0, p1}, Lcom/google/android/wifitrackerlib/WsuServiceClient;->-$$Nest$mlogd(Lcom/google/android/wifitrackerlib/WsuServiceClient;Ljava/lang/String;)V
 
     goto/16 :goto_1
 
@@ -126,20 +126,20 @@
 
     iget-object v2, v0, Lcom/android/wsuinterface/NetworkGroupSubscription;->uniqueIdentifier:Ljava/lang/String;
 
-    invoke-static {v1, v2}, Lcom/google/android/wifitrackerlib/WsuServiceClient;->access$600(Lcom/google/android/wifitrackerlib/WsuServiceClient;Ljava/lang/String;)V
+    invoke-static {v1, v2}, Lcom/google/android/wifitrackerlib/WsuServiceClient;->-$$Nest$mloadNetworkGroups(Lcom/google/android/wifitrackerlib/WsuServiceClient;Ljava/lang/String;)V
 
     :cond_2
     invoke-virtual {v0, p1}, Lcom/android/wsuinterface/NetworkGroupSubscription;->setProvisionStatus(I)V
 
     iget-object v1, p0, Lcom/google/android/wifitrackerlib/WsuServiceClient$WsuHandler;->this$0:Lcom/google/android/wifitrackerlib/WsuServiceClient;
 
-    invoke-static {v1}, Lcom/google/android/wifitrackerlib/WsuServiceClient;->access$500(Lcom/google/android/wifitrackerlib/WsuServiceClient;)Lcom/google/android/wifitrackerlib/WsuManager;
+    invoke-static {v1}, Lcom/google/android/wifitrackerlib/WsuServiceClient;->-$$Nest$fgetmWsuManager(Lcom/google/android/wifitrackerlib/WsuServiceClient;)Lcom/google/android/wifitrackerlib/WsuManager;
 
     move-result-object v1
 
     iget-object p0, p0, Lcom/google/android/wifitrackerlib/WsuServiceClient$WsuHandler;->this$0:Lcom/google/android/wifitrackerlib/WsuServiceClient;
 
-    invoke-static {p0, v0}, Lcom/google/android/wifitrackerlib/WsuServiceClient;->access$700(Lcom/google/android/wifitrackerlib/WsuServiceClient;Lcom/android/wsuinterface/NetworkGroupSubscription;)Lcom/google/android/wifitrackerlib/WsuProvider;
+    invoke-static {p0, v0}, Lcom/google/android/wifitrackerlib/WsuServiceClient;->-$$Nest$mgetWsuProvider(Lcom/google/android/wifitrackerlib/WsuServiceClient;Lcom/android/wsuinterface/NetworkGroupSubscription;)Lcom/google/android/wifitrackerlib/WsuProvider;
 
     move-result-object p0
 
@@ -158,7 +158,7 @@
 
     invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
 
-    invoke-static {v0, v1}, Lcom/google/android/wifitrackerlib/WsuServiceClient;->access$202(Lcom/google/android/wifitrackerlib/WsuServiceClient;Ljava/util/Map;)Ljava/util/Map;
+    invoke-static {v0, v1}, Lcom/google/android/wifitrackerlib/WsuServiceClient;->-$$Nest$fputmNetworkGroups(Lcom/google/android/wifitrackerlib/WsuServiceClient;Ljava/util/Map;)V
 
     const/4 v0, 0x0
 
@@ -183,7 +183,7 @@
 
     iget-object v3, p0, Lcom/google/android/wifitrackerlib/WsuServiceClient$WsuHandler;->this$0:Lcom/google/android/wifitrackerlib/WsuServiceClient;
 
-    invoke-static {v3}, Lcom/google/android/wifitrackerlib/WsuServiceClient;->access$200(Lcom/google/android/wifitrackerlib/WsuServiceClient;)Ljava/util/Map;
+    invoke-static {v3}, Lcom/google/android/wifitrackerlib/WsuServiceClient;->-$$Nest$fgetmNetworkGroups(Lcom/google/android/wifitrackerlib/WsuServiceClient;)Ljava/util/Map;
 
     move-result-object v3
 
@@ -208,11 +208,11 @@
 
     const-string v1, "connect to the provisioned profile for api version 1."
 
-    invoke-static {v0, v1}, Lcom/google/android/wifitrackerlib/WsuServiceClient;->access$300(Lcom/google/android/wifitrackerlib/WsuServiceClient;Ljava/lang/String;)V
+    invoke-static {v0, v1}, Lcom/google/android/wifitrackerlib/WsuServiceClient;->-$$Nest$mlogd(Lcom/google/android/wifitrackerlib/WsuServiceClient;Ljava/lang/String;)V
 
     iget-object v0, p0, Lcom/google/android/wifitrackerlib/WsuServiceClient$WsuHandler;->this$0:Lcom/google/android/wifitrackerlib/WsuServiceClient;
 
-    invoke-static {v0}, Lcom/google/android/wifitrackerlib/WsuServiceClient;->access$200(Lcom/google/android/wifitrackerlib/WsuServiceClient;)Ljava/util/Map;
+    invoke-static {v0}, Lcom/google/android/wifitrackerlib/WsuServiceClient;->-$$Nest$fgetmNetworkGroups(Lcom/google/android/wifitrackerlib/WsuServiceClient;)Ljava/util/Map;
 
     move-result-object v1
 
@@ -224,12 +224,12 @@
 
     check-cast p1, Lcom/android/wsuinterface/NetworkGroupSubscription;
 
-    invoke-static {v0, p1}, Lcom/google/android/wifitrackerlib/WsuServiceClient;->access$400(Lcom/google/android/wifitrackerlib/WsuServiceClient;Lcom/android/wsuinterface/NetworkGroupSubscription;)V
+    invoke-static {v0, p1}, Lcom/google/android/wifitrackerlib/WsuServiceClient;->-$$Nest$mtryToConnectBestMatchingProvisionedNetwork(Lcom/google/android/wifitrackerlib/WsuServiceClient;Lcom/android/wsuinterface/NetworkGroupSubscription;)V
 
     :cond_5
     iget-object p0, p0, Lcom/google/android/wifitrackerlib/WsuServiceClient$WsuHandler;->this$0:Lcom/google/android/wifitrackerlib/WsuServiceClient;
 
-    invoke-static {p0}, Lcom/google/android/wifitrackerlib/WsuServiceClient;->access$500(Lcom/google/android/wifitrackerlib/WsuServiceClient;)Lcom/google/android/wifitrackerlib/WsuManager;
+    invoke-static {p0}, Lcom/google/android/wifitrackerlib/WsuServiceClient;->-$$Nest$fgetmWsuManager(Lcom/google/android/wifitrackerlib/WsuServiceClient;)Lcom/google/android/wifitrackerlib/WsuManager;
 
     move-result-object p0
 
@@ -240,7 +240,7 @@
     :cond_6
     iget-object p0, p0, Lcom/google/android/wifitrackerlib/WsuServiceClient$WsuHandler;->this$0:Lcom/google/android/wifitrackerlib/WsuServiceClient;
 
-    invoke-static {p0}, Lcom/google/android/wifitrackerlib/WsuServiceClient;->access$100(Lcom/google/android/wifitrackerlib/WsuServiceClient;)V
+    invoke-static {p0}, Lcom/google/android/wifitrackerlib/WsuServiceClient;->-$$Nest$mloadNetworkGroups(Lcom/google/android/wifitrackerlib/WsuServiceClient;)V
 
     :goto_1
     return-void

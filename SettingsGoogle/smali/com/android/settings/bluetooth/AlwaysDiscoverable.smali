@@ -68,14 +68,14 @@
 
     iget-object p0, p0, Lcom/android/settings/bluetooth/AlwaysDiscoverable;->mBluetoothAdapter:Landroid/bluetooth/BluetoothAdapter;
 
-    invoke-virtual {p0, p2}, Landroid/bluetooth/BluetoothAdapter;->setScanMode(I)Z
+    invoke-virtual {p0, p2}, Landroid/bluetooth/BluetoothAdapter;->setScanMode(I)I
 
     :cond_1
     return-void
 .end method
 
 .method public start()V
-    .locals 2
+    .locals 3
 
     iget-boolean v0, p0, Lcom/android/settings/bluetooth/AlwaysDiscoverable;->mStarted:Z
 
@@ -88,7 +88,9 @@
 
     iget-object v1, p0, Lcom/android/settings/bluetooth/AlwaysDiscoverable;->mIntentFilter:Landroid/content/IntentFilter;
 
-    invoke-virtual {v0, p0, v1}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+    const/4 v2, 0x2
+
+    invoke-virtual {v0, p0, v1, v2}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;I)Landroid/content/Intent;
 
     const/4 v0, 0x1
 
@@ -106,7 +108,7 @@
 
     iget-object p0, p0, Lcom/android/settings/bluetooth/AlwaysDiscoverable;->mBluetoothAdapter:Landroid/bluetooth/BluetoothAdapter;
 
-    invoke-virtual {p0, v1}, Landroid/bluetooth/BluetoothAdapter;->setScanMode(I)Z
+    invoke-virtual {p0, v1}, Landroid/bluetooth/BluetoothAdapter;->setScanMode(I)I
 
     :cond_1
     return-void
@@ -134,7 +136,7 @@
 
     const/16 v0, 0x15
 
-    invoke-virtual {p0, v0}, Landroid/bluetooth/BluetoothAdapter;->setScanMode(I)Z
+    invoke-virtual {p0, v0}, Landroid/bluetooth/BluetoothAdapter;->setScanMode(I)I
 
     return-void
 .end method

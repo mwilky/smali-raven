@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settings/homepage/SettingsHomepageActivity$$ExternalSyntheticLambda3;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -27,7 +28,7 @@
 
     iget-object p0, p0, Lcom/android/settings/homepage/SettingsHomepageActivity$$ExternalSyntheticLambda3;->f$0:Lcom/android/settings/homepage/SettingsHomepageActivity;
 
-    invoke-static {p0}, Lcom/android/settings/homepage/SettingsHomepageActivity;->$r8$lambda$oRTT8K78EYijKVZ60SM__A9vnvU(Lcom/android/settings/homepage/SettingsHomepageActivity;)V
+    invoke-static {p0}, Lcom/android/settings/homepage/SettingsHomepageActivity;->$r8$lambda$Qi4PuWlY_ZHlHr5mJvZkBviawd8(Lcom/android/settings/homepage/SettingsHomepageActivity;)V
 
     return-void
 .end method

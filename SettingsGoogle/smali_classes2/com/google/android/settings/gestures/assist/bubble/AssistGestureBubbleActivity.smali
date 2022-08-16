@@ -30,6 +30,102 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmAssistGestureHelper(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;)Lcom/google/android/settings/gestures/assist/AssistGestureHelper;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;->mAssistGestureHelper:Lcom/google/android/settings/gestures/assist/AssistGestureHelper;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmCurrentScoreTextView(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;)Landroid/widget/TextView;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;->mCurrentScoreTextView:Landroid/widget/TextView;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmEasterEggPlayDrawable(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;)Lcom/google/android/settings/gestures/assist/bubble/AssistGesturePlayButtonDrawable;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;->mEasterEggPlayDrawable:Lcom/google/android/settings/gestures/assist/bubble/AssistGesturePlayButtonDrawable;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmHandler(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;)Landroid/os/Handler;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;->mHandler:Landroid/os/Handler;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmPlayView(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;)Landroid/widget/ImageView;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;->mPlayView:Landroid/widget/ImageView;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmShouldStartNewGame(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;->mShouldStartNewGame:Z
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmGameState(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;I)V
+    .locals 0
+
+    iput p1, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;->mGameState:I
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fputmIsNavigationHidden(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;->mIsNavigationHidden:Z
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fputmShouldStartNewGame(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;->mShouldStartNewGame:Z
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$menterFullScreen(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;->enterFullScreen()V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mpauseGame(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;->pauseGame()V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mupdateGameState(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;->updateGameState()V
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 1
 
@@ -52,102 +148,6 @@
     iput-object v0, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;->mGestureListener:Lcom/google/android/settings/gestures/assist/AssistGestureHelper$GestureListener;
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;)Landroid/widget/TextView;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;->mCurrentScoreTextView:Landroid/widget/TextView;
-
-    return-object p0
-.end method
-
-.method static synthetic access$1000(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;->enterFullScreen()V
-
-    return-void
-.end method
-
-.method static synthetic access$102(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;I)I
-    .locals 0
-
-    iput p1, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;->mGameState:I
-
-    return p1
-.end method
-
-.method static synthetic access$200(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;->pauseGame()V
-
-    return-void
-.end method
-
-.method static synthetic access$300(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;->mShouldStartNewGame:Z
-
-    return p0
-.end method
-
-.method static synthetic access$302(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;->mShouldStartNewGame:Z
-
-    return p1
-.end method
-
-.method static synthetic access$400(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;)Lcom/google/android/settings/gestures/assist/AssistGestureHelper;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;->mAssistGestureHelper:Lcom/google/android/settings/gestures/assist/AssistGestureHelper;
-
-    return-object p0
-.end method
-
-.method static synthetic access$500(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;)Landroid/os/Handler;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;->mHandler:Landroid/os/Handler;
-
-    return-object p0
-.end method
-
-.method static synthetic access$602(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;->mIsNavigationHidden:Z
-
-    return p1
-.end method
-
-.method static synthetic access$700(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;->updateGameState()V
-
-    return-void
-.end method
-
-.method static synthetic access$800(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;)Lcom/google/android/settings/gestures/assist/bubble/AssistGesturePlayButtonDrawable;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;->mEasterEggPlayDrawable:Lcom/google/android/settings/gestures/assist/bubble/AssistGesturePlayButtonDrawable;
-
-    return-object p0
-.end method
-
-.method static synthetic access$900(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;)Landroid/widget/ImageView;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;->mPlayView:Landroid/widget/ImageView;
-
-    return-object p0
 .end method
 
 .method private enterFullScreen()V
@@ -284,7 +284,7 @@
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->requestWindowFeature(I)Z
 
-    const p1, 0x7f060054
+    const p1, 0x7f060058
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->setContentView(I)V
 
@@ -292,7 +292,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f020102
+    const v0, 0x7f020104
 
     invoke-virtual {p1, v0}, Landroid/view/Window;->setBackgroundDrawableResource(I)V
 
@@ -316,7 +316,7 @@
 
     iput-object p1, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;->mAssistGestureHelper:Lcom/google/android/settings/gestures/assist/AssistGestureHelper;
 
-    const p1, 0x7f0d0193
+    const p1, 0x7f0d01a9
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -326,7 +326,7 @@
 
     iput-object p1, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;->mCurrentScoreTextView:Landroid/widget/TextView;
 
-    const p1, 0x7f0d0254
+    const p1, 0x7f0d0276
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -352,7 +352,7 @@
 
     invoke-virtual {v0, p1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    const p1, 0x7f0d044a
+    const p1, 0x7f0d0479
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 

@@ -1,6 +1,6 @@
-.class abstract Landroidx/lifecycle/ViewModelProvider$KeyedFactory;
+.class public abstract Landroidx/lifecycle/ViewModelProvider$KeyedFactory;
 .super Landroidx/lifecycle/ViewModelProvider$OnRequeryFactory;
-.source "ViewModelProvider.java"
+.source "ViewModelProvider.kt"
 
 # interfaces
 .implements Landroidx/lifecycle/ViewModelProvider$Factory;
@@ -12,13 +12,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x408
+    accessFlags = 0x409
     name = "KeyedFactory"
 .end annotation
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Landroidx/lifecycle/ViewModelProvider$OnRequeryFactory;-><init>()V
@@ -30,6 +30,10 @@
 # virtual methods
 .method public create(Ljava/lang/Class;)Landroidx/lifecycle/ViewModel;
     .locals 0
+    .param p1    # Ljava/lang/Class;
+        .annotation build Lorg/jetbrains/annotations/NotNull;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -40,9 +44,16 @@
         }
     .end annotation
 
+    .annotation build Lorg/jetbrains/annotations/NotNull;
+    .end annotation
+
+    const-string p0, "modelClass"
+
+    invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
     new-instance p0, Ljava/lang/UnsupportedOperationException;
 
-    const-string p1, "create(String, Class<?>) must be called on implementaions of KeyedFactory"
+    const-string p1, "create(String, Class<?>) must be called on implementations of KeyedFactory"
 
     invoke-direct {p0, p1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
@@ -50,6 +61,14 @@
 .end method
 
 .method public abstract create(Ljava/lang/String;Ljava/lang/Class;)Landroidx/lifecycle/ViewModel;
+    .param p1    # Ljava/lang/String;
+        .annotation build Lorg/jetbrains/annotations/NotNull;
+        .end annotation
+    .end param
+    .param p2    # Ljava/lang/Class;
+        .annotation build Lorg/jetbrains/annotations/NotNull;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -59,5 +78,8 @@
             "Ljava/lang/Class<",
             "TT;>;)TT;"
         }
+    .end annotation
+
+    .annotation build Lorg/jetbrains/annotations/NotNull;
     .end annotation
 .end method

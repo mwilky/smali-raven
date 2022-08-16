@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/view/View$OnClickListener;
@@ -27,7 +28,7 @@
 
     iget-object p0, p0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment$$ExternalSyntheticLambda2;->f$0:Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;
 
-    invoke-virtual {p0, p1}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->onDialogButtonFromShortcutClicked(Landroid/view/View;)V
+    invoke-virtual {p0, p1}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->onDialogButtonFromShortcutToggleClicked(Landroid/view/View;)V
 
     return-void
 .end method

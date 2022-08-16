@@ -150,7 +150,7 @@
 .end method
 
 .method private static getResourcesByPackageName(Landroid/content/Context;Ljava/lang/String;)Landroid/content/res/Resources;
-    .locals 3
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/pm/PackageManager$NameNotFoundException;
@@ -161,26 +161,9 @@
 
     move-result-object p0
 
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+    const/16 v0, 0x200
 
-    const/16 v1, 0x200
-
-    const/16 v2, 0x18
-
-    if-lt v0, v2, :cond_0
-
-    invoke-virtual {p0, p1, v1}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
-
-    move-result-object p1
-
-    invoke-virtual {p0, p1}, Landroid/content/pm/PackageManager;->getResourcesForApplication(Landroid/content/pm/ApplicationInfo;)Landroid/content/res/Resources;
-
-    move-result-object p0
-
-    return-object p0
-
-    :cond_0
-    invoke-virtual {p0, p1, v1}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
+    invoke-virtual {p0, p1, v0}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
 
     move-result-object p1
 
@@ -207,6 +190,14 @@
     iget p0, p0, Lcom/google/android/setupcompat/partnerconfig/ResourceEntry;->resourceId:I
 
     return p0
+.end method
+
+.method public getResourceName()Ljava/lang/String;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/setupcompat/partnerconfig/ResourceEntry;->resourceName:Ljava/lang/String;
+
+    return-object p0
 .end method
 
 .method public getResources()Landroid/content/res/Resources;

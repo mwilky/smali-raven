@@ -32,7 +32,7 @@
 .end method
 
 .method private final initAndVerifyEmbeddingExtension()Landroidx/window/embedding/EmbeddingInterfaceCompat;
-    .locals 4
+    .locals 6
 
     const-string v0, "EmbeddingBackend"
 
@@ -57,22 +57,54 @@
 
     if-eqz p0, :cond_0
 
-    new-instance p0, Landroidx/window/embedding/EmbeddingCompat;
+    const-class p0, Landroidx/window/embedding/EmbeddingBackend;
 
-    invoke-direct {p0}, Landroidx/window/embedding/EmbeddingCompat;-><init>()V
+    invoke-virtual {p0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object p0
+
+    if-eqz p0, :cond_0
+
+    new-instance v3, Landroidx/window/embedding/EmbeddingCompat;
+
+    invoke-virtual {v2}, Landroidx/window/embedding/EmbeddingCompat$Companion;->embeddingComponent()Landroidx/window/extensions/embedding/ActivityEmbeddingComponent;
+
+    move-result-object v2
+
+    new-instance v4, Landroidx/window/embedding/EmbeddingAdapter;
+
+    new-instance v5, Landroidx/window/core/PredicateAdapter;
+
+    invoke-direct {v5, p0}, Landroidx/window/core/PredicateAdapter;-><init>(Ljava/lang/ClassLoader;)V
+
+    invoke-direct {v4, v5}, Landroidx/window/embedding/EmbeddingAdapter;-><init>(Landroidx/window/core/PredicateAdapter;)V
+
+    new-instance v5, Landroidx/window/core/ConsumerAdapter;
+
+    invoke-direct {v5, p0}, Landroidx/window/core/ConsumerAdapter;-><init>(Ljava/lang/ClassLoader;)V
+
+    invoke-direct {v3, v2, v4, v5}, Landroidx/window/embedding/EmbeddingCompat;-><init>(Landroidx/window/extensions/embedding/ActivityEmbeddingComponent;Landroidx/window/embedding/EmbeddingAdapter;Landroidx/window/core/ConsumerAdapter;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-object v1, p0
+    move-object v1, v3
 
     goto :goto_0
 
     :catchall_0
     move-exception p0
 
-    const-string v2, "Failed to load embedding extension: "
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-static {v2, p0}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "Failed to load embedding extension: "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
 

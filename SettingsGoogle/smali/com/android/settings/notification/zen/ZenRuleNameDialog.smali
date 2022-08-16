@@ -16,15 +16,7 @@
 
 
 # direct methods
-.method public constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/core/instrumentation/InstrumentedDialogFragment;-><init>()V
-
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/notification/zen/ZenRuleNameDialog;Landroid/widget/EditText;)Ljava/lang/String;
+.method static bridge synthetic -$$Nest$mtrimmedText(Lcom/android/settings/notification/zen/ZenRuleNameDialog;Landroid/widget/EditText;)Ljava/lang/String;
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settings/notification/zen/ZenRuleNameDialog;->trimmedText(Landroid/widget/EditText;)Ljava/lang/String;
@@ -32,6 +24,14 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method public constructor <init>()V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/core/instrumentation/InstrumentedDialogFragment;-><init>()V
+
+    return-void
 .end method
 
 .method private getTitleResource(Landroid/net/Uri;Z)I
@@ -49,19 +49,19 @@
 
     if-eqz p0, :cond_0
 
-    const p0, 0x7f0417d7
+    const p0, 0x7f0418d2
 
     goto :goto_0
 
     :cond_0
     if-eqz p1, :cond_1
 
-    const p0, 0x7f0417d9
+    const p0, 0x7f0418d4
 
     goto :goto_0
 
     :cond_1
-    const p0, 0x7f04186a
+    const p0, 0x7f041968
 
     :goto_0
     return p0
@@ -188,7 +188,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0602cf
+    const v6, 0x7f0602e3
 
     const/4 v7, 0x0
 
@@ -196,7 +196,7 @@
 
     move-result-object v2
 
-    const v5, 0x7f0d0664
+    const v5, 0x7f0d06a0
 
     invoke-virtual {v2, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -239,12 +239,12 @@
 
     if-eqz v3, :cond_2
 
-    const v1, 0x7f0417d6
+    const v1, 0x7f0418d1
 
     goto :goto_1
 
     :cond_2
-    const v1, 0x7f040ecc
+    const v1, 0x7f040f60
 
     :goto_1
     new-instance v2, Lcom/android/settings/notification/zen/ZenRuleNameDialog$1;
@@ -255,7 +255,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f040564
+    const p1, 0x7f0405c1
 
     invoke-virtual {p0, p1, v7}, Landroidx/appcompat/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 

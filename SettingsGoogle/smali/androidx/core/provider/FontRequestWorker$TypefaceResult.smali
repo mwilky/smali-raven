@@ -23,14 +23,6 @@
 # direct methods
 .method constructor <init>(I)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "result"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -48,15 +40,6 @@
     .annotation build Landroid/annotation/SuppressLint;
         value = {
             "WrongConstant"
-        }
-    .end annotation
-
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "typeface"
         }
     .end annotation
 

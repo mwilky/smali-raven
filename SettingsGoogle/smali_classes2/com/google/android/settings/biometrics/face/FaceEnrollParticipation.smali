@@ -51,7 +51,7 @@
 .method private getLayout()Lcom/google/android/setupdesign/GlifLayout;
     .locals 1
 
-    const v0, 0x7f0d0225
+    const v0, 0x7f0d023d
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -145,7 +145,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f09000c
+    const v2, 0x7f09000d
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -171,7 +171,7 @@
     :goto_0
     if-eqz v1, :cond_2
 
-    const v1, 0x7f04064f
+    const v1, 0x7f0406ae
 
     invoke-virtual {p0, v1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -235,7 +235,7 @@
 .method protected onApplyThemeResource(Landroid/content/res/Resources$Theme;IZ)V
     .locals 2
 
-    const v0, 0x7f1301cb
+    const v0, 0x7f13020d
 
     const/4 v1, 0x1
 
@@ -255,7 +255,7 @@
 
     invoke-super {p0, p1}, Landroidx/fragment/app/FragmentActivity;->onCreate(Landroid/os/Bundle;)V
 
-    const p1, 0x7f0600e7
+    const p1, 0x7f0600ea
 
     invoke-virtual {p0, p1}, Landroidx/activity/ComponentActivity;->setContentView(I)V
 
@@ -275,15 +275,15 @@
 
     invoke-direct {v0, p0}, Lcom/google/android/setupcompat/template/FooterButton$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f040907
+    const v1, 0x7f040959
 
     invoke-virtual {v0, v1}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setText(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
     move-result-object v0
 
-    new-instance v1, Lcom/google/android/settings/biometrics/face/FaceEnrollParticipation$$ExternalSyntheticLambda2;
+    new-instance v1, Lcom/google/android/settings/biometrics/face/FaceEnrollParticipation$$ExternalSyntheticLambda0;
 
-    invoke-direct {v1, p0}, Lcom/google/android/settings/biometrics/face/FaceEnrollParticipation$$ExternalSyntheticLambda2;-><init>(Lcom/google/android/settings/biometrics/face/FaceEnrollParticipation;)V
+    invoke-direct {v1, p0}, Lcom/google/android/settings/biometrics/face/FaceEnrollParticipation$$ExternalSyntheticLambda0;-><init>(Lcom/google/android/settings/biometrics/face/FaceEnrollParticipation;)V
 
     invoke-virtual {v0, v1}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setListener(Landroid/view/View$OnClickListener;)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -295,7 +295,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f13021c
+    const v1, 0x7f130283
 
     invoke-virtual {v0, v1}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setTheme(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -319,7 +319,7 @@
 
     invoke-direct {v0, p0}, Lcom/google/android/setupcompat/template/FooterButton$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f040911
+    const v2, 0x7f040963
 
     invoke-virtual {v0, v2}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setText(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -339,7 +339,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f13021d
+    const v2, 0x7f130284
 
     invoke-virtual {v0, v2}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setTheme(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -367,7 +367,7 @@
 
     iput p1, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollParticipation;->mUserId:I
 
-    const p1, 0x7f0d0074
+    const p1, 0x7f0d0075
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -375,9 +375,9 @@
 
     check-cast p1, Landroid/widget/CheckBox;
 
-    new-instance v0, Lcom/google/android/settings/biometrics/face/FaceEnrollParticipation$$ExternalSyntheticLambda0;
+    new-instance v0, Lcom/google/android/settings/biometrics/face/FaceEnrollParticipation$$ExternalSyntheticLambda2;
 
-    invoke-direct {v0, p0}, Lcom/google/android/settings/biometrics/face/FaceEnrollParticipation$$ExternalSyntheticLambda0;-><init>(Lcom/google/android/settings/biometrics/face/FaceEnrollParticipation;)V
+    invoke-direct {v0, p0}, Lcom/google/android/settings/biometrics/face/FaceEnrollParticipation$$ExternalSyntheticLambda2;-><init>(Lcom/google/android/settings/biometrics/face/FaceEnrollParticipation;)V
 
     invoke-virtual {p1, v0}, Landroid/widget/CheckBox;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 

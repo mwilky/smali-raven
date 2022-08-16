@@ -17,14 +17,6 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "name"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -37,14 +29,6 @@
 # virtual methods
 .method public getValue(Landroid/view/View;)F
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "view"
-        }
-    .end annotation
 
     invoke-virtual {p1}, Landroid/view/View;->getAlpha()F
 
@@ -55,14 +39,6 @@
 
 .method public bridge synthetic getValue(Ljava/lang/Object;)F
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x1000
-        }
-        names = {
-            "view"
-        }
-    .end annotation
 
     check-cast p1, Landroid/view/View;
 
@@ -75,16 +51,6 @@
 
 .method public setValue(Landroid/view/View;F)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "view",
-            "value"
-        }
-    .end annotation
 
     invoke-virtual {p1, p2}, Landroid/view/View;->setAlpha(F)V
 
@@ -93,16 +59,6 @@
 
 .method public bridge synthetic setValue(Ljava/lang/Object;F)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x1000,
-            0x1000
-        }
-        names = {
-            "view",
-            "value"
-        }
-    .end annotation
 
     check-cast p1, Landroid/view/View;
 

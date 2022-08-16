@@ -4,8 +4,8 @@
 
 
 # static fields
-.field public static final fragment_container_view_tag:I = 0x7f0d024e
+.field public static final fragment_container_view_tag:I = 0x7f0d026e
 
-.field public static final special_effects_controller_view_tag:I = 0x7f0d0527
+.field public static final special_effects_controller_view_tag:I = 0x7f0d0569
 
-.field public static final visible_removing_fragment_view_tag:I = 0x7f0d062f
+.field public static final visible_removing_fragment_view_tag:I = 0x7f0d066e

@@ -28,7 +28,7 @@
         }
     .end annotation
 
-    const-string v0, "$this$appendElement"
+    const-string v0, "<this>"
 
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -45,14 +45,14 @@
     goto :goto_1
 
     :cond_0
-    if-eqz p1, :cond_1
+    if-nez p1, :cond_1
 
-    instance-of p2, p1, Ljava/lang/CharSequence;
+    const/4 p2, 0x1
 
     goto :goto_0
 
     :cond_1
-    const/4 p2, 0x1
+    instance-of p2, p1, Ljava/lang/CharSequence;
 
     :goto_0
     if-eqz p2, :cond_2

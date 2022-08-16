@@ -13,19 +13,6 @@
         .annotation build Lorg/jetbrains/annotations/Nullable;
         .end annotation
     .end param
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<T:",
-            "Ljava/lang/Object;",
-            ">(",
-            "Ljava/lang/Appendable;",
-            "TT;",
-            "Lkotlin/jvm/functions/Function1<",
-            "-TT;+",
-            "Ljava/lang/CharSequence;",
-            ">;)V"
-        }
-    .end annotation
 
     invoke-static {p0, p1, p2}, Lkotlin/text/StringsKt__AppendableKt;->appendElement(Ljava/lang/Appendable;Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)V
 

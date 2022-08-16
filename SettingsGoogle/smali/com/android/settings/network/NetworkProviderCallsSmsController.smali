@@ -284,7 +284,7 @@
 
     if-eqz v1, :cond_3
 
-    const p1, 0x7f04055a
+    const p1, 0x7f0405b8
 
     invoke-direct {p0, p1}, Lcom/android/settings/network/NetworkProviderCallsSmsController;->setSummaryResId(I)Ljava/lang/String;
 
@@ -295,7 +295,7 @@
     :cond_3
     if-eqz v0, :cond_4
 
-    const p1, 0x7f040557
+    const p1, 0x7f0405b5
 
     invoke-direct {p0, p1}, Lcom/android/settings/network/NetworkProviderCallsSmsController;->setSummaryResId(I)Ljava/lang/String;
 
@@ -306,7 +306,7 @@
     :cond_4
     if-eqz v1, :cond_5
 
-    const p1, 0x7f04055b
+    const p1, 0x7f0405b9
 
     invoke-direct {p0, p1}, Lcom/android/settings/network/NetworkProviderCallsSmsController;->setSummaryResId(I)Ljava/lang/String;
 
@@ -323,12 +323,12 @@
     :goto_1
     if-le p1, v2, :cond_7
 
-    const p1, 0x7f04055d
+    const p1, 0x7f0405bb
 
     goto :goto_2
 
     :cond_7
-    const p1, 0x7f04055c
+    const p1, 0x7f0405ba
 
     :goto_2
     invoke-direct {p0, p1}, Lcom/android/settings/network/NetworkProviderCallsSmsController;->setSummaryResId(I)Ljava/lang/String;
@@ -354,7 +354,7 @@
 
     if-eqz v1, :cond_0
 
-    const v0, 0x7f040559
+    const v0, 0x7f0405b7
 
     invoke-direct {p0, v0}, Lcom/android/settings/network/NetworkProviderCallsSmsController;->setSummaryResId(I)Ljava/lang/String;
 

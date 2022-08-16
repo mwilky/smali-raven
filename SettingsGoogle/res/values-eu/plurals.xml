@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="abc_slice_duration_days">
-        <item quantity="other">Duela %d egun</item>
-        <item quantity="one">Duela %d egun</item>
+        <item quantity="other">Duela %d egun</item>
+        <item quantity="one">Duela %d egun</item>
     </plurals>
     <plurals name="abc_slice_duration_min">
-        <item quantity="other">Duela %d min</item>
-        <item quantity="one">Duela %d min</item>
+        <item quantity="other">Duela %d min</item>
+        <item quantity="one">Duela %d min</item>
     </plurals>
     <plurals name="abc_slice_duration_years">
         <item quantity="other">Duela %d urte</item>
@@ -233,11 +233,11 @@
         <item quantity="one">%d kategoria desaktibatuta dago</item>
     </plurals>
     <plurals name="notifications_sent_daily">
-        <item quantity="other">%d jakinarazpen inguru eguneko</item>
+        <item quantity="other">%,d jakinarazpen inguru eguneko</item>
         <item quantity="one">%d jakinarazpen inguru eguneko</item>
     </plurals>
     <plurals name="notifications_sent_weekly">
-        <item quantity="other">%d jakinarazpen inguru asteko</item>
+        <item quantity="other">%,d jakinarazpen inguru asteko</item>
         <item quantity="one">%d jakinarazpen inguru asteko</item>
     </plurals>
     <plurals name="number_of_device_admins">
@@ -328,22 +328,6 @@
         <item quantity="other">Jo fidagarritzat edo kendu ziurtagiriak</item>
         <item quantity="one">Jo fidagarritzat edo kendu ziurtagiria</item>
     </plurals>
-    <plurals name="ssl_ca_cert_info_message">
-        <item quantity="other">"%s domeinuak ziurtagiri-emaile batzuk instalatu dizkizu laneko profilean. Hortaz, baliteke domeinuak laneko sarean egiten duzuna gainbegiratu ahal izatea, besteak beste, posta elektronikoan, aplikazioetan eta webgune seguruetan egiten duzuna.
-
-Ziurtagiri horiei buruzko informazio gehiago lortzeko, jarri administratzailearekin harremanetan."</item>
-        <item quantity="one">"%s domeinuak ziurtagiri-emaile bat instalatu dizu laneko profilean. Hortaz, gailuak darabilen sarean egiten duzuna gainbegiratzeko gai izan liteke domeinua; besteak beste, posta elektronikoan, aplikazioetan eta webgune seguruetan egiten duzuna ikus lezake.
-
-Ziurtagiri horri buruzko informazio gehiago lortzeko, jarri administratzailearekin harremanetan."</item>
-    </plurals>
-    <plurals name="ssl_ca_cert_info_message_device_owner">
-        <item quantity="other">"%s domeinuak ziurtagiri-emaile batzuk instalatu dizkizu gailuan. Hortaz, gailuak darabilen sarean egiten duzuna gainbegiratzeko gai izan liteke domeinua; besteak beste, posta elektronikoan, aplikazioetan eta webgune seguruetan egiten duzuna ikus lezake.
-
-Ziurtagiri horiei buruzko informazio gehiago lortzeko, jarri administratzailearekin harremanetan."</item>
-        <item quantity="one">"%s domeinuak ziurtagiri-emaile bat instalatu dizu gailuan. Hortaz, gailuak darabilen sarean egiten duzuna gainbegiratzeko gai izan liteke domeinua; besteak beste, posta elektronikoan, aplikazioetan eta webgune seguruetan egiten duzuna ikus lezake.
-
-Ziurtagiri horri buruzko informazio gehiago lortzeko, jarri administratzailearekin harremanetan."</item>
-    </plurals>
     <plurals name="ssl_ca_cert_settings_button">
         <item quantity="other">Ikusi ziurtagiriak</item>
         <item quantity="one">Ikusi ziurtagiria</item>
@@ -375,10 +359,6 @@ Ziurtagiri horri buruzko informazio gehiago lortzeko, jarri administratzailearek
     <plurals name="wifi_saved_passpoint_access_points_summary">
         <item quantity="other">%d harpidetza</item>
         <item quantity="one">1 harpidetza</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$d gailu daude konektatuta</item>
-        <item quantity="one">%1$d gailu dago konektatuta</item>
     </plurals>
     <plurals name="wrong_pin_code">
         <item quantity="other">SIMaren PIN kodea okerra da. %d saiakera geratzen zaizkizu gailua desblokeatzeko.</item>

@@ -29,7 +29,7 @@
 .method getDialogDisabledMessage()I
     .locals 0
 
-    const p0, 0x7f0415ac
+    const p0, 0x7f0416a5
 
     return p0
 .end method
@@ -37,7 +37,7 @@
 .method public getGestureDialogMessage()I
     .locals 0
 
-    const p0, 0x7f0415ad
+    const p0, 0x7f0416a6
 
     return p0
 .end method
@@ -45,7 +45,7 @@
 .method public getGestureDialogTitle()I
     .locals 0
 
-    const p0, 0x7f0415ae
+    const p0, 0x7f0416a7
 
     return p0
 .end method

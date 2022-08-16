@@ -12,18 +12,18 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 0
-
-    return-void
-.end method
-
-.method static synthetic access$000()Ljava/lang/String;
+.method static bridge synthetic -$$Nest$sfgetTAG()Ljava/lang/String;
     .locals 1
 
     sget-object v0, Lcom/android/settingslib/HelpUtils;->TAG:Ljava/lang/String;
 
     return-object v0
+.end method
+
+.method static constructor <clinit>()V
+    .locals 0
+
+    return-void
 .end method
 
 .method public static addIntentParameters(Landroid/content/Context;Landroid/content/Intent;Ljava/lang/String;Z)V

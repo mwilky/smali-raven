@@ -111,11 +111,11 @@
     return-void
 
     :cond_1
-    const p1, 0x7f0601e9
+    const p1, 0x7f0601f2
 
     invoke-virtual {p0, p1}, Landroidx/activity/ComponentActivity;->setContentView(I)V
 
-    const p1, 0x7f0d03fb
+    const p1, 0x7f0d042c
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -123,7 +123,7 @@
 
     check-cast p1, Landroid/widget/Button;
 
-    const v0, 0x7f0d0328
+    const v0, 0x7f0d0353
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -131,7 +131,7 @@
 
     check-cast v0, Landroid/widget/Button;
 
-    const v1, 0x7f0d05da
+    const v1, 0x7f0d061d
 
     invoke-virtual {p0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -139,7 +139,7 @@
 
     check-cast v1, Landroid/widget/TextView;
 
-    const v2, 0x7f0d028d
+    const v2, 0x7f0d02af
 
     invoke-virtual {p0, v2}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -159,7 +159,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0d0179
+    const v5, 0x7f0d018e
 
     invoke-virtual {v4, v5, v3}, Landroidx/fragment/app/FragmentTransaction;->replace(ILandroidx/fragment/app/Fragment;)Landroidx/fragment/app/FragmentTransaction;
 
@@ -167,19 +167,19 @@
 
     invoke-virtual {v3}, Landroidx/fragment/app/FragmentTransaction;->commit()I
 
-    new-instance v3, Lcom/google/android/settings/fuelgauge/reversecharging/BottomSheetActivity$$ExternalSyntheticLambda1;
+    new-instance v3, Lcom/google/android/settings/fuelgauge/reversecharging/BottomSheetActivity$$ExternalSyntheticLambda0;
 
-    invoke-direct {v3, p0}, Lcom/google/android/settings/fuelgauge/reversecharging/BottomSheetActivity$$ExternalSyntheticLambda1;-><init>(Lcom/google/android/settings/fuelgauge/reversecharging/BottomSheetActivity;)V
+    invoke-direct {v3, p0}, Lcom/google/android/settings/fuelgauge/reversecharging/BottomSheetActivity$$ExternalSyntheticLambda0;-><init>(Lcom/google/android/settings/fuelgauge/reversecharging/BottomSheetActivity;)V
 
     invoke-virtual {p1, v3}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    new-instance p1, Lcom/google/android/settings/fuelgauge/reversecharging/BottomSheetActivity$$ExternalSyntheticLambda0;
+    new-instance p1, Lcom/google/android/settings/fuelgauge/reversecharging/BottomSheetActivity$$ExternalSyntheticLambda1;
 
-    invoke-direct {p1, p0}, Lcom/google/android/settings/fuelgauge/reversecharging/BottomSheetActivity$$ExternalSyntheticLambda0;-><init>(Lcom/google/android/settings/fuelgauge/reversecharging/BottomSheetActivity;)V
+    invoke-direct {p1, p0}, Lcom/google/android/settings/fuelgauge/reversecharging/BottomSheetActivity$$ExternalSyntheticLambda1;-><init>(Lcom/google/android/settings/fuelgauge/reversecharging/BottomSheetActivity;)V
 
     invoke-virtual {v0, p1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const p1, 0x7f04107a
+    const p1, 0x7f041120
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -193,7 +193,7 @@
 
     invoke-virtual {v1, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const p1, 0x7f04106c
+    const p1, 0x7f041112
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 

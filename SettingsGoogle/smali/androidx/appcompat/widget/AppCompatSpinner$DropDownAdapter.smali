@@ -45,12 +45,6 @@
     :cond_0
     if-eqz p2, :cond_2
 
-    sget p0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v0, 0x17
-
-    if-lt p0, v0, :cond_1
-
     instance-of p0, p1, Landroid/widget/ThemedSpinnerAdapter;
 
     if-eqz p0, :cond_1

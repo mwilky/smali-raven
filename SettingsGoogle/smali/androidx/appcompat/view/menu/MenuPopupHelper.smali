@@ -103,20 +103,8 @@
 
     invoke-direct {v1}, Landroid/graphics/Point;-><init>()V
 
-    sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v3, 0x11
-
-    if-lt v2, v3, :cond_0
-
     invoke-virtual {v0, v1}, Landroid/view/Display;->getRealSize(Landroid/graphics/Point;)V
 
-    goto :goto_0
-
-    :cond_0
-    invoke-virtual {v0, v1}, Landroid/view/Display;->getSize(Landroid/graphics/Point;)V
-
-    :goto_0
     iget v0, v1, Landroid/graphics/Point;->x:I
 
     iget v1, v1, Landroid/graphics/Point;->y:I
@@ -137,17 +125,17 @@
 
     move-result v1
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    goto :goto_1
+    goto :goto_0
 
-    :cond_1
+    :cond_0
     const/4 v0, 0x0
 
-    :goto_1
-    if-eqz v0, :cond_2
+    :goto_0
+    if-eqz v0, :cond_1
 
     new-instance v0, Landroidx/appcompat/view/menu/CascadingMenuPopup;
 
@@ -165,9 +153,9 @@
 
     invoke-direct/range {v1 .. v6}, Landroidx/appcompat/view/menu/CascadingMenuPopup;-><init>(Landroid/content/Context;Landroid/view/View;IIZ)V
 
-    goto :goto_2
+    goto :goto_1
 
-    :cond_2
+    :cond_1
     new-instance v0, Landroidx/appcompat/view/menu/StandardMenuPopup;
 
     iget-object v8, p0, Landroidx/appcompat/view/menu/MenuPopupHelper;->mContext:Landroid/content/Context;
@@ -186,7 +174,7 @@
 
     invoke-direct/range {v7 .. v13}, Landroidx/appcompat/view/menu/StandardMenuPopup;-><init>(Landroid/content/Context;Landroidx/appcompat/view/menu/MenuBuilder;Landroid/view/View;IIZ)V
 
-    :goto_2
+    :goto_1
     iget-object v1, p0, Landroidx/appcompat/view/menu/MenuPopupHelper;->mMenu:Landroidx/appcompat/view/menu/MenuBuilder;
 
     invoke-virtual {v0, v1}, Landroidx/appcompat/view/menu/MenuPopup;->addMenu(Landroidx/appcompat/view/menu/MenuBuilder;)V

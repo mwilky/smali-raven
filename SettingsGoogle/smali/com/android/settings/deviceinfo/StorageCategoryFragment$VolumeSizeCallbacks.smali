@@ -66,7 +66,7 @@
 
     iget-object v0, p0, Lcom/android/settings/deviceinfo/StorageCategoryFragment$VolumeSizeCallbacks;->this$0:Lcom/android/settings/deviceinfo/StorageCategoryFragment;
 
-    invoke-static {v0}, Lcom/android/settings/deviceinfo/StorageCategoryFragment;->access$100(Lcom/android/settings/deviceinfo/StorageCategoryFragment;)Landroid/os/storage/StorageManager;
+    invoke-static {v0}, Lcom/android/settings/deviceinfo/StorageCategoryFragment;->-$$Nest$fgetmStorageManager(Lcom/android/settings/deviceinfo/StorageCategoryFragment;)Landroid/os/storage/StorageManager;
 
     move-result-object v0
 
@@ -84,7 +84,7 @@
 
     iget-object p0, p0, Lcom/android/settings/deviceinfo/StorageCategoryFragment$VolumeSizeCallbacks;->this$0:Lcom/android/settings/deviceinfo/StorageCategoryFragment;
 
-    invoke-static {p0}, Lcom/android/settings/deviceinfo/StorageCategoryFragment;->access$200(Lcom/android/settings/deviceinfo/StorageCategoryFragment;)Lcom/android/settings/deviceinfo/storage/StorageEntry;
+    invoke-static {p0}, Lcom/android/settings/deviceinfo/StorageCategoryFragment;->-$$Nest$fgetmSelectedStorageEntry(Lcom/android/settings/deviceinfo/StorageCategoryFragment;)Lcom/android/settings/deviceinfo/storage/StorageEntry;
 
     move-result-object p0
 
@@ -125,11 +125,11 @@
     :cond_0
     iget-object p1, p0, Lcom/android/settings/deviceinfo/StorageCategoryFragment$VolumeSizeCallbacks;->this$0:Lcom/android/settings/deviceinfo/StorageCategoryFragment;
 
-    invoke-static {p1, p2}, Lcom/android/settings/deviceinfo/StorageCategoryFragment;->access$302(Lcom/android/settings/deviceinfo/StorageCategoryFragment;Lcom/android/settingslib/deviceinfo/PrivateStorageInfo;)Lcom/android/settingslib/deviceinfo/PrivateStorageInfo;
+    invoke-static {p1, p2}, Lcom/android/settings/deviceinfo/StorageCategoryFragment;->-$$Nest$fputmStorageInfo(Lcom/android/settings/deviceinfo/StorageCategoryFragment;Lcom/android/settingslib/deviceinfo/PrivateStorageInfo;)V
 
     iget-object p0, p0, Lcom/android/settings/deviceinfo/StorageCategoryFragment$VolumeSizeCallbacks;->this$0:Lcom/android/settings/deviceinfo/StorageCategoryFragment;
 
-    invoke-static {p0}, Lcom/android/settings/deviceinfo/StorageCategoryFragment;->access$400(Lcom/android/settings/deviceinfo/StorageCategoryFragment;)V
+    invoke-static {p0}, Lcom/android/settings/deviceinfo/StorageCategoryFragment;->-$$Nest$monReceivedSizes(Lcom/android/settings/deviceinfo/StorageCategoryFragment;)V
 
     return-void
 .end method

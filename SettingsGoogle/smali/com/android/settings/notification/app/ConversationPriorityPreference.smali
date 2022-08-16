@@ -145,7 +145,7 @@
 
     iput-object p1, p0, Lcom/android/settings/notification/app/ConversationPriorityPreference;->mContext:Landroid/content/Context;
 
-    const p1, 0x7f060166
+    const p1, 0x7f060170
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setLayoutResource(I)V
 
@@ -273,7 +273,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setClickable(Z)V
 
-    const v0, 0x7f0d0504
+    const v0, 0x7f0d0546
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -281,7 +281,7 @@
 
     iput-object v0, p0, Lcom/android/settings/notification/app/ConversationPriorityPreference;->mSilenceButton:Landroid/view/View;
 
-    const v0, 0x7f0d0075
+    const v0, 0x7f0d0077
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -289,7 +289,7 @@
 
     iput-object v0, p0, Lcom/android/settings/notification/app/ConversationPriorityPreference;->mAlertButton:Landroid/view/View;
 
-    const v0, 0x7f0d045a
+    const v0, 0x7f0d048c
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -326,25 +326,25 @@
 
     iget-object v0, p0, Lcom/android/settings/notification/app/ConversationPriorityPreference;->mSilenceButton:Landroid/view/View;
 
+    new-instance v1, Lcom/android/settings/notification/app/ConversationPriorityPreference$$ExternalSyntheticLambda0;
+
+    invoke-direct {v1, p0, p1}, Lcom/android/settings/notification/app/ConversationPriorityPreference$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/notification/app/ConversationPriorityPreference;Landroidx/preference/PreferenceViewHolder;)V
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    iget-object v0, p0, Lcom/android/settings/notification/app/ConversationPriorityPreference;->mAlertButton:Landroid/view/View;
+
     new-instance v1, Lcom/android/settings/notification/app/ConversationPriorityPreference$$ExternalSyntheticLambda1;
 
     invoke-direct {v1, p0, p1}, Lcom/android/settings/notification/app/ConversationPriorityPreference$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/notification/app/ConversationPriorityPreference;Landroidx/preference/PreferenceViewHolder;)V
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    iget-object v0, p0, Lcom/android/settings/notification/app/ConversationPriorityPreference;->mAlertButton:Landroid/view/View;
+    iget-object v0, p0, Lcom/android/settings/notification/app/ConversationPriorityPreference;->mPriorityButton:Landroid/view/View;
 
     new-instance v1, Lcom/android/settings/notification/app/ConversationPriorityPreference$$ExternalSyntheticLambda2;
 
     invoke-direct {v1, p0, p1}, Lcom/android/settings/notification/app/ConversationPriorityPreference$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/notification/app/ConversationPriorityPreference;Landroidx/preference/PreferenceViewHolder;)V
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    iget-object v0, p0, Lcom/android/settings/notification/app/ConversationPriorityPreference;->mPriorityButton:Landroid/view/View;
-
-    new-instance v1, Lcom/android/settings/notification/app/ConversationPriorityPreference$$ExternalSyntheticLambda0;
-
-    invoke-direct {v1, p0, p1}, Lcom/android/settings/notification/app/ConversationPriorityPreference$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/notification/app/ConversationPriorityPreference;Landroidx/preference/PreferenceViewHolder;)V
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
@@ -394,7 +394,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d02b1
+    const v2, 0x7f0d02d3
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -402,7 +402,7 @@
 
     check-cast v2, Landroid/widget/ImageView;
 
-    const v3, 0x7f0d0314
+    const v3, 0x7f0d033d
 
     invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -410,7 +410,7 @@
 
     check-cast v3, Landroid/widget/TextView;
 
-    const v4, 0x7f0d058a
+    const v4, 0x7f0d05ce
 
     invoke-virtual {p1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -456,12 +456,12 @@
 
     if-eqz p2, :cond_3
 
-    const v0, 0x7f020113
+    const v0, 0x7f02011c
 
     goto :goto_3
 
     :cond_3
-    const v0, 0x7f020114
+    const v0, 0x7f02011d
 
     :goto_3
     invoke-virtual {p0, v0}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;

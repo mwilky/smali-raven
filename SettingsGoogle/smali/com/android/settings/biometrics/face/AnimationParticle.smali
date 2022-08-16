@@ -101,7 +101,7 @@
 
     move-result-object p1
 
-    const p4, 0x7f0a00b1
+    const p4, 0x7f0a00b3
 
     invoke-virtual {p3, p4, p1}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 
@@ -434,8 +434,6 @@
     const/high16 p2, 0x41700000    # 15.0f
 
     add-float/2addr p1, p2
-
-    iput p1, p0, Lcom/android/settings/biometrics/face/AnimationParticle;->mCurrentSize:F
 
     const/high16 p2, 0x41200000    # 10.0f
 

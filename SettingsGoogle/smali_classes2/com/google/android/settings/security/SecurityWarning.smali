@@ -39,61 +39,61 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    invoke-static {p1}, Lcom/google/android/settings/security/SecurityWarning$Builder;->access$000(Lcom/google/android/settings/security/SecurityWarning$Builder;)Lcom/google/android/settings/security/SecurityLevel;
+    invoke-static {p1}, Lcom/google/android/settings/security/SecurityWarning$Builder;->-$$Nest$fgetmSecurityLevel(Lcom/google/android/settings/security/SecurityWarning$Builder;)Lcom/google/android/settings/security/SecurityLevel;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/google/android/settings/security/SecurityWarning;->mSecurityLevel:Lcom/google/android/settings/security/SecurityLevel;
 
-    invoke-static {p1}, Lcom/google/android/settings/security/SecurityWarning$Builder;->access$100(Lcom/google/android/settings/security/SecurityWarning$Builder;)Ljava/lang/String;
+    invoke-static {p1}, Lcom/google/android/settings/security/SecurityWarning$Builder;->-$$Nest$fgetmTitle(Lcom/google/android/settings/security/SecurityWarning$Builder;)Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/google/android/settings/security/SecurityWarning;->mTitle:Ljava/lang/String;
 
-    invoke-static {p1}, Lcom/google/android/settings/security/SecurityWarning$Builder;->access$200(Lcom/google/android/settings/security/SecurityWarning$Builder;)Ljava/lang/String;
+    invoke-static {p1}, Lcom/google/android/settings/security/SecurityWarning$Builder;->-$$Nest$fgetmSubtitle(Lcom/google/android/settings/security/SecurityWarning$Builder;)Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/google/android/settings/security/SecurityWarning;->mSubtitle:Ljava/lang/String;
 
-    invoke-static {p1}, Lcom/google/android/settings/security/SecurityWarning$Builder;->access$300(Lcom/google/android/settings/security/SecurityWarning$Builder;)Ljava/lang/String;
+    invoke-static {p1}, Lcom/google/android/settings/security/SecurityWarning$Builder;->-$$Nest$fgetmSummary(Lcom/google/android/settings/security/SecurityWarning$Builder;)Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/google/android/settings/security/SecurityWarning;->mSummary:Ljava/lang/String;
 
-    invoke-static {p1}, Lcom/google/android/settings/security/SecurityWarning$Builder;->access$400(Lcom/google/android/settings/security/SecurityWarning$Builder;)Ljava/lang/String;
+    invoke-static {p1}, Lcom/google/android/settings/security/SecurityWarning$Builder;->-$$Nest$fgetmPrimaryButtonText(Lcom/google/android/settings/security/SecurityWarning$Builder;)Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/google/android/settings/security/SecurityWarning;->mPrimaryButtonText:Ljava/lang/String;
 
-    invoke-static {p1}, Lcom/google/android/settings/security/SecurityWarning$Builder;->access$500(Lcom/google/android/settings/security/SecurityWarning$Builder;)Ljava/lang/String;
+    invoke-static {p1}, Lcom/google/android/settings/security/SecurityWarning$Builder;->-$$Nest$fgetmSecondaryButtonText(Lcom/google/android/settings/security/SecurityWarning$Builder;)Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/google/android/settings/security/SecurityWarning;->mSecondaryButtonText:Ljava/lang/String;
 
-    invoke-static {p1}, Lcom/google/android/settings/security/SecurityWarning$Builder;->access$600(Lcom/google/android/settings/security/SecurityWarning$Builder;)Landroid/os/Bundle;
+    invoke-static {p1}, Lcom/google/android/settings/security/SecurityWarning$Builder;->-$$Nest$fgetmPrimaryButtonClickBundle(Lcom/google/android/settings/security/SecurityWarning$Builder;)Landroid/os/Bundle;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/google/android/settings/security/SecurityWarning;->mPrimaryButtonClickBundle:Landroid/os/Bundle;
 
-    invoke-static {p1}, Lcom/google/android/settings/security/SecurityWarning$Builder;->access$700(Lcom/google/android/settings/security/SecurityWarning$Builder;)Landroid/os/Bundle;
+    invoke-static {p1}, Lcom/google/android/settings/security/SecurityWarning$Builder;->-$$Nest$fgetmSecondaryButtonClickBundle(Lcom/google/android/settings/security/SecurityWarning$Builder;)Landroid/os/Bundle;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/google/android/settings/security/SecurityWarning;->mSecondaryButtonClickBundle:Landroid/os/Bundle;
 
-    invoke-static {p1}, Lcom/google/android/settings/security/SecurityWarning$Builder;->access$800(Lcom/google/android/settings/security/SecurityWarning$Builder;)Landroid/os/Bundle;
+    invoke-static {p1}, Lcom/google/android/settings/security/SecurityWarning$Builder;->-$$Nest$fgetmDismissButtonClickBundle(Lcom/google/android/settings/security/SecurityWarning$Builder;)Landroid/os/Bundle;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/google/android/settings/security/SecurityWarning;->mDismissButtonClickBundle:Landroid/os/Bundle;
 
-    invoke-static {p1}, Lcom/google/android/settings/security/SecurityWarning$Builder;->access$900(Lcom/google/android/settings/security/SecurityWarning$Builder;)Z
+    invoke-static {p1}, Lcom/google/android/settings/security/SecurityWarning$Builder;->-$$Nest$fgetmShowConfirmationDialogOnDismiss(Lcom/google/android/settings/security/SecurityWarning$Builder;)Z
 
     move-result p1
 
@@ -102,7 +102,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/google/android/settings/security/SecurityWarning$Builder;Lcom/google/android/settings/security/SecurityWarning$1;)V
+.method synthetic constructor <init>(Lcom/google/android/settings/security/SecurityWarning$Builder;Lcom/google/android/settings/security/SecurityWarning-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/google/android/settings/security/SecurityWarning;-><init>(Lcom/google/android/settings/security/SecurityWarning$Builder;)V

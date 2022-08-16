@@ -11,7 +11,7 @@
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
 
-    const v0, 0x7f05038c
+    const v0, 0x7f0503e4
 
     invoke-direct {p0, p1, p2, v0}, Lcom/android/settingslib/widget/LayoutPreference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
@@ -33,7 +33,7 @@
 .method private init()V
     .locals 2
 
-    const v0, 0x7f0d0513
+    const v0, 0x7f0d0555
 
     invoke-virtual {p0, v0}, Lcom/android/settingslib/widget/LayoutPreference;->findViewById(I)Landroid/view/View;
 

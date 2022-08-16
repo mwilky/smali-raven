@@ -19,7 +19,9 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/google/common/collect/MapMakerInternalMap<",
-            "TE;***>;"
+            "TE;",
+            "Ljava/lang/Object;",
+            "**>;"
         }
     .end annotation
 .end field

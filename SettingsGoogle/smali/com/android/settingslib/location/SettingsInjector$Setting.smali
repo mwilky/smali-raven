@@ -111,7 +111,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/location/SettingsInjector$Setting;->this$0:Lcom/android/settingslib/location/SettingsInjector;
 
-    invoke-static {v0}, Lcom/android/settingslib/location/SettingsInjector;->access$000(Lcom/android/settingslib/location/SettingsInjector;)Landroid/content/Context;
+    invoke-static {v0}, Lcom/android/settingslib/location/SettingsInjector;->-$$Nest$fgetmContext(Lcom/android/settingslib/location/SettingsInjector;)Landroid/content/Context;
 
     move-result-object v0
 
@@ -183,7 +183,7 @@
 
     iget-object v2, p0, Lcom/android/settingslib/location/SettingsInjector$Setting;->this$0:Lcom/android/settingslib/location/SettingsInjector;
 
-    invoke-static {v2}, Lcom/android/settingslib/location/SettingsInjector;->access$100(Lcom/android/settingslib/location/SettingsInjector;)Landroid/os/Handler;
+    invoke-static {v2}, Lcom/android/settingslib/location/SettingsInjector;->-$$Nest$fgetmHandler(Lcom/android/settingslib/location/SettingsInjector;)Landroid/os/Handler;
 
     move-result-object v2
 
@@ -253,7 +253,7 @@
     :goto_0
     iget-object v0, p0, Lcom/android/settingslib/location/SettingsInjector$Setting;->this$0:Lcom/android/settingslib/location/SettingsInjector;
 
-    invoke-static {v0}, Lcom/android/settingslib/location/SettingsInjector;->access$000(Lcom/android/settingslib/location/SettingsInjector;)Landroid/content/Context;
+    invoke-static {v0}, Lcom/android/settingslib/location/SettingsInjector;->-$$Nest$fgetmContext(Lcom/android/settingslib/location/SettingsInjector;)Landroid/content/Context;
 
     move-result-object v0
 

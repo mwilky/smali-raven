@@ -117,25 +117,23 @@
 
 .field public static final progress_indeterminate_horizontal_rect2_copy:I = 0x7f070032
 
-.field public static final sud_interpolator:I = 0x7f070033
+.field public static final sud_pre_p_activity_close_enter:I = 0x7f070033
 
-.field public static final sud_pre_p_activity_close_enter:I = 0x7f070034
+.field public static final sud_pre_p_activity_close_exit:I = 0x7f070034
 
-.field public static final sud_pre_p_activity_close_exit:I = 0x7f070035
+.field public static final sud_pre_p_activity_open_enter:I = 0x7f070035
 
-.field public static final sud_pre_p_activity_open_enter:I = 0x7f070036
+.field public static final sud_pre_p_activity_open_exit:I = 0x7f070036
 
-.field public static final sud_pre_p_activity_open_exit:I = 0x7f070037
+.field public static final sud_slide_back_in:I = 0x7f070037
 
-.field public static final sud_slide_back_in:I = 0x7f070038
+.field public static final sud_slide_back_out:I = 0x7f070038
 
-.field public static final sud_slide_back_out:I = 0x7f070039
+.field public static final sud_slide_next_in:I = 0x7f070039
 
-.field public static final sud_slide_next_in:I = 0x7f07003a
+.field public static final sud_slide_next_out:I = 0x7f07003a
 
-.field public static final sud_slide_next_out:I = 0x7f07003b
-
-.field public static final sud_stay:I = 0x7f07003c
+.field public static final sud_stay:I = 0x7f07003b
 
 
 # direct methods

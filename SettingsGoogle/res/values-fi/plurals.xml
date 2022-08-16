@@ -5,8 +5,8 @@
         <item quantity="one">%d päivä sitten</item>
     </plurals>
     <plurals name="abc_slice_duration_min">
-        <item quantity="other">%d min sitten</item>
-        <item quantity="one">%d min sitten</item>
+        <item quantity="other">%d min sitten</item>
+        <item quantity="one">%d min sitten</item>
     </plurals>
     <plurals name="abc_slice_duration_years">
         <item quantity="other">%d vuotta sitten</item>
@@ -233,11 +233,11 @@
         <item quantity="one">%d luokka poistettu käytöstä</item>
     </plurals>
     <plurals name="notifications_sent_daily">
-        <item quantity="other">~%d ilmoitusta päivässä</item>
+        <item quantity="other">~%,d ilmoitusta päivässä</item>
         <item quantity="one">~%d ilmoitus päivässä</item>
     </plurals>
     <plurals name="notifications_sent_weekly">
-        <item quantity="other">~%d ilmoitusta viikossa</item>
+        <item quantity="other">~%,d ilmoitusta viikossa</item>
         <item quantity="one">~%d ilmoitus viikossa</item>
     </plurals>
     <plurals name="number_of_device_admins">
@@ -328,22 +328,6 @@
         <item quantity="other">Luota varmenteisiin tai poista niitä</item>
         <item quantity="one">Luota varmenteeseen tai poista se</item>
     </plurals>
-    <plurals name="ssl_ca_cert_info_message">
-        <item quantity="other">"%s on asentanut työprofiiliisi varmenteen myöntäjiä, mikä mahdollistaa toimintasi (kuten sähköpostin, sovellusten ja suojattujen verkkosivustojen käytön) seuraamisen työverkossa.
-
-Saat lisätietoja varmenteista järjestelmänvalvojaltasi."</item>
-        <item quantity="one">"%s on asentanut työprofiiliisi varmenteen myöntäjän, mikä mahdollistaa toimintasi (kuten sähköpostin, sovellusten ja suojattujen verkkosivustojen käytön) seuraamisen työverkossa.
-
-Saat lisätietoja varmenteesta järjestelmänvalvojaltasi."</item>
-    </plurals>
-    <plurals name="ssl_ca_cert_info_message_device_owner">
-        <item quantity="other">"%s on asentanut laitteellesi varmenteen myöntäjiä, mikä mahdollistaa verkkotoimintasi (kuten sähköpostin, sovellusten ja suojattujen verkkosivustojen käytön) seuraamisen.
-
-Saat lisätietoja varmenteista järjestelmänvalvojaltasi."</item>
-        <item quantity="one">"%s on asentanut laitteellesi varmenteen myöntäjän, mikä mahdollistaa verkkotoimintasi (kuten sähköpostin, sovellusten ja suojattujen verkkosivustojen käytön) seuraamisen.
-
-Saat lisätietoja varmenteesta järjestelmänvalvojaltasi."</item>
-    </plurals>
     <plurals name="ssl_ca_cert_settings_button">
         <item quantity="other">Tarkista varmenteet</item>
         <item quantity="one">Tarkista varmenne</item>
@@ -375,10 +359,6 @@ Saat lisätietoja varmenteesta järjestelmänvalvojaltasi."</item>
     <plurals name="wifi_saved_passpoint_access_points_summary">
         <item quantity="other">%d tilausta</item>
         <item quantity="one">1 tilaus</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$d laitetta yhdistettynä</item>
-        <item quantity="one">%1$d laite yhdistettynä</item>
     </plurals>
     <plurals name="wrong_pin_code">
         <item quantity="other">Virheellinen SIM-kortin PIN-koodi. Sinulla on %d yritystä jäljellä.</item>

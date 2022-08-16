@@ -3,6 +3,10 @@
 .source "ActivityEmbeddingRulesController.java"
 
 
+# static fields
+.field private static final COMPONENT_NAME_WILDCARD:Landroid/content/ComponentName;
+
+
 # instance fields
 .field private final mContext:Landroid/content/Context;
 
@@ -10,6 +14,20 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 2
+
+    new-instance v0, Landroid/content/ComponentName;
+
+    const-string v1, "*"
+
+    invoke-direct {v0, v1, v1}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    sput-object v0, Lcom/android/settings/activityembedding/ActivityEmbeddingRulesController;->COMPONENT_NAME_WILDCARD:Landroid/content/ComponentName;
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 0
 
@@ -22,6 +40,34 @@
     move-result-object p1
 
     iput-object p1, p0, Lcom/android/settings/activityembedding/ActivityEmbeddingRulesController;->mSplitController:Landroidx/window/embedding/SplitController;
+
+    return-void
+.end method
+
+.method private static addActivityFilter(Ljava/util/Set;Landroid/content/Intent;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Set<",
+            "Landroidx/window/embedding/ActivityFilter;",
+            ">;",
+            "Landroid/content/Intent;",
+            ")V"
+        }
+    .end annotation
+
+    new-instance v0, Landroidx/window/embedding/ActivityFilter;
+
+    sget-object v1, Lcom/android/settings/activityembedding/ActivityEmbeddingRulesController;->COMPONENT_NAME_WILDCARD:Landroid/content/ComponentName;
+
+    invoke-virtual {p1}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-direct {v0, v1, p1}, Landroidx/window/embedding/ActivityFilter;-><init>(Landroid/content/ComponentName;Ljava/lang/String;)V
+
+    invoke-interface {p0, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     return-void
 .end method
@@ -59,17 +105,56 @@
 .end method
 
 .method private registerAlwaysExpandRule()V
-    .locals 3
+    .locals 4
 
     new-instance v0, Ljava/util/HashSet;
 
     invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
 
+    iget-object v1, p0, Lcom/android/settings/activityembedding/ActivityEmbeddingRulesController;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v2, "settings_search_always_expand"
+
+    invoke-static {v1, v2}, Landroid/util/FeatureFlagUtils;->isEnabled(Landroid/content/Context;Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/settings/activityembedding/ActivityEmbeddingRulesController;->mContext:Landroid/content/Context;
+
+    invoke-static {v1}, Lcom/android/settings/overlay/FeatureFactory;->getFactory(Landroid/content/Context;)Lcom/android/settings/overlay/FeatureFactory;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/settings/overlay/FeatureFactory;->getSearchFeatureProvider()Lcom/android/settings/search/SearchFeatureProvider;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/settings/activityembedding/ActivityEmbeddingRulesController;->mContext:Landroid/content/Context;
+
+    const/16 v3, 0x5de
+
+    invoke-interface {v1, v2, v3}, Lcom/android/settings/search/SearchFeatureProvider;->buildSearchIntent(Landroid/content/Context;I)Landroid/content/Intent;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/android/settings/activityembedding/ActivityEmbeddingRulesController;->addActivityFilter(Ljava/util/Set;Landroid/content/Intent;)V
+
+    :cond_0
     const-class v1, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollIntroduction;
 
     invoke-direct {p0, v0, v1}, Lcom/android/settings/activityembedding/ActivityEmbeddingRulesController;->addActivityFilter(Ljava/util/Set;Ljava/lang/Class;)V
 
+    const-class v1, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollIntroductionInternal;
+
+    invoke-direct {p0, v0, v1}, Lcom/android/settings/activityembedding/ActivityEmbeddingRulesController;->addActivityFilter(Ljava/util/Set;Ljava/lang/Class;)V
+
     const-class v1, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollEnrolling;
+
+    invoke-direct {p0, v0, v1}, Lcom/android/settings/activityembedding/ActivityEmbeddingRulesController;->addActivityFilter(Ljava/util/Set;Ljava/lang/Class;)V
+
+    const-class v1, Lcom/android/settingslib/users/AvatarPickerActivity;
 
     invoke-direct {p0, v0, v1}, Lcom/android/settings/activityembedding/ActivityEmbeddingRulesController;->addActivityFilter(Ljava/util/Set;Ljava/lang/Class;)V
 
@@ -97,14 +182,6 @@
 
     invoke-direct {p0, v1, v0}, Lcom/android/settings/activityembedding/ActivityEmbeddingRulesController;->addActivityFilter(Ljava/util/Set;Ljava/lang/Class;)V
 
-    const-class v0, Lcom/android/settings/homepage/DeepLinkHomepageActivity;
-
-    invoke-direct {p0, v1, v0}, Lcom/android/settings/activityembedding/ActivityEmbeddingRulesController;->addActivityFilter(Ljava/util/Set;Ljava/lang/Class;)V
-
-    const-class v0, Lcom/android/settings/homepage/SliceDeepLinkHomepageActivity;
-
-    invoke-direct {p0, v1, v0}, Lcom/android/settings/activityembedding/ActivityEmbeddingRulesController;->addActivityFilter(Ljava/util/Set;Ljava/lang/Class;)V
-
     const-class v0, Lcom/android/settings/Settings;
 
     invoke-direct {p0, v1, v0}, Lcom/android/settings/activityembedding/ActivityEmbeddingRulesController;->addActivityFilter(Ljava/util/Set;Ljava/lang/Class;)V
@@ -116,6 +193,12 @@
     const-class v3, Lcom/android/settings/Settings$NetworkDashboardActivity;
 
     invoke-direct {v2, v0, v3}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+
+    const-string v0, ":settings:is_second_layer_page"
+
+    const/4 v3, 0x1
+
+    invoke-virtual {v2, v0, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
     new-instance v9, Landroidx/window/embedding/SplitPlaceholderRule;
 
@@ -131,11 +214,13 @@
 
     move-result v6
 
-    const/4 v3, 0x1
+    iget-object v0, p0, Lcom/android/settings/activityembedding/ActivityEmbeddingRulesController;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/settings/activityembedding/ActivityEmbeddingUtils;->getSplitRatio(Landroid/content/Context;)F
+
+    move-result v7
 
     const/4 v4, 0x2
-
-    const/high16 v7, 0x3f000000    # 0.5f
 
     const/4 v8, 0x3
 
@@ -169,6 +254,12 @@
     invoke-direct {v0, p0, v1}, Landroid/content/ComponentName;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
     const/4 v1, 0x0
+
+    invoke-static {p0, v0, v1, p1}, Lcom/android/settings/activityembedding/ActivityEmbeddingRulesController;->registerTwoPanePairRuleForSettingsHome(Landroid/content/Context;Landroid/content/ComponentName;Ljava/lang/String;Z)V
+
+    sget-object v0, Lcom/android/settings/activityembedding/ActivityEmbeddingRulesController;->COMPONENT_NAME_WILDCARD:Landroid/content/ComponentName;
+
+    const-string v1, "android.intent.action.SAFETY_CENTER"
 
     invoke-static {p0, v0, v1, p1}, Lcom/android/settings/activityembedding/ActivityEmbeddingRulesController;->registerTwoPanePairRuleForSettingsHome(Landroid/content/Context;Landroid/content/ComponentName;Ljava/lang/String;Z)V
 
@@ -217,7 +308,9 @@
 
     move-result v7
 
-    const/high16 v8, 0x3f000000    # 0.5f
+    invoke-static {p0}, Lcom/android/settings/activityembedding/ActivityEmbeddingUtils;->getSplitRatio(Landroid/content/Context;)F
+
+    move-result v8
 
     const/4 v9, 0x3
 
@@ -375,7 +468,7 @@
 
     new-instance v1, Landroid/content/ComponentName;
 
-    const-class v0, Lcom/android/settings/homepage/SliceDeepLinkHomepageActivity;
+    const-class v0, Lcom/android/settings/homepage/DeepLinkHomepageActivityInternal;
 
     invoke-direct {v1, p0, v0}, Landroid/content/ComponentName;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 

@@ -40,7 +40,7 @@
 
     const/4 p1, 0x0
 
-    invoke-static {p0, p1}, Lcom/google/android/settings/biometrics/face/anim/curve/ScrimState;->access$002(Lcom/google/android/settings/biometrics/face/anim/curve/ScrimState;I)I
+    invoke-static {p0, p1}, Lcom/google/android/settings/biometrics/face/anim/curve/ScrimState;->-$$Nest$fputmState(Lcom/google/android/settings/biometrics/face/anim/curve/ScrimState;I)V
 
     return-void
 .end method

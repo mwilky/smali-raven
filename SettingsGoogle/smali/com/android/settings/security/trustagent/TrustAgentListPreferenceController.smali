@@ -297,7 +297,7 @@
 
     invoke-virtual {v6, v2}, Lcom/android/settingslib/RestrictedPreference;->setEnabled(Z)V
 
-    const v7, 0x7f040803
+    const v7, 0x7f04084b
 
     invoke-virtual {v6, v7}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -321,7 +321,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settingslib/core/AbstractPreferenceController;->displayPreference(Landroidx/preference/PreferenceScreen;)V
 
-    const-string v0, "security_category"
+    const-string/jumbo v0, "security_category"
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceGroup;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -469,7 +469,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f090055
+    const v0, 0x7f090056
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 

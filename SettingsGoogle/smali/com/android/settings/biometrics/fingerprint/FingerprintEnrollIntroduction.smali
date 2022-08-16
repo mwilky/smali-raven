@@ -4,7 +4,12 @@
 
 
 # instance fields
+.field private mDevicePolicyManager:Landroid/app/admin/DevicePolicyManager;
+
 .field private mFingerprintManager:Landroid/hardware/fingerprint/FingerprintManager;
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+.end field
 
 .field private mPrimaryFooterButton:Lcom/google/android/setupcompat/template/FooterButton;
 
@@ -12,6 +17,16 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$Fxy6ze_Tb7SXk4A_nHbmx8h4u78(Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollIntroduction;)Ljava/lang/String;
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollIntroduction;->lambda$getDescriptionDisabledByAdmin$0()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method public static synthetic $r8$lambda$P4ObJbXCISqFroOrvvuXcwyhaB0(Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollIntroduction;Landroid/view/View;)V
     .locals 0
 
@@ -26,6 +41,18 @@
     invoke-direct {p0}, Lcom/android/settings/biometrics/BiometricEnrollIntroduction;-><init>()V
 
     return-void
+.end method
+
+.method private synthetic lambda$getDescriptionDisabledByAdmin$0()Ljava/lang/String;
+    .locals 1
+
+    const v0, 0x7f04123b
+
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method protected static setSkipPendingEnroll(Landroid/content/Intent;)Landroid/content/Intent;
@@ -50,7 +77,7 @@
 
 # virtual methods
 .method protected checkMaxEnrolled()I
-    .locals 5
+    .locals 6
 
     invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
@@ -60,35 +87,43 @@
 
     move-result v0
 
-    iget-object v1, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollIntroduction;->mFingerprintManager:Landroid/hardware/fingerprint/FingerprintManager;
-
-    if-eqz v1, :cond_3
-
-    invoke-virtual {v1}, Landroid/hardware/fingerprint/FingerprintManager;->getSensorPropertiesInternal()Ljava/util/List;
+    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object v1
 
-    const/4 v2, 0x0
+    invoke-static {v1}, Lcom/google/android/setupcompat/util/WizardManagerHelper;->isDeferredSetupWizard(Landroid/content/Intent;)Z
 
-    invoke-interface {v1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    move-result v1
 
-    move-result-object v1
+    iget-object v2, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollIntroduction;->mFingerprintManager:Landroid/hardware/fingerprint/FingerprintManager;
 
-    check-cast v1, Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;
+    if-eqz v2, :cond_3
 
-    iget v1, v1, Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;->maxEnrollmentsPerUser:I
+    invoke-virtual {v2}, Landroid/hardware/fingerprint/FingerprintManager;->getSensorPropertiesInternal()Ljava/util/List;
 
-    iget-object v3, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollIntroduction;->mFingerprintManager:Landroid/hardware/fingerprint/FingerprintManager;
+    move-result-object v2
 
-    iget v4, p0, Lcom/android/settings/biometrics/BiometricEnrollBase;->mUserId:I
+    const/4 v3, 0x0
 
-    invoke-virtual {v3, v4}, Landroid/hardware/fingerprint/FingerprintManager;->getEnrolledFingerprints(I)Ljava/util/List;
+    invoke-interface {v2, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-interface {v3}, Ljava/util/List;->size()I
+    check-cast v2, Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;
 
-    move-result v3
+    iget v2, v2, Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;->maxEnrollmentsPerUser:I
+
+    iget-object v4, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollIntroduction;->mFingerprintManager:Landroid/hardware/fingerprint/FingerprintManager;
+
+    iget v5, p0, Lcom/android/settings/biometrics/BiometricEnrollBase;->mUserId:I
+
+    invoke-virtual {v4, v5}, Landroid/hardware/fingerprint/FingerprintManager;->getEnrolledFingerprints(I)Ljava/util/List;
+
+    move-result-object v4
+
+    invoke-interface {v4}, Ljava/util/List;->size()I
+
+    move-result v4
 
     invoke-virtual {p0}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
 
@@ -98,33 +133,35 @@
 
     move-result-object p0
 
-    const v4, 0x7f0e0032
+    const v5, 0x7f0e0053
 
-    invoke-virtual {p0, v4}, Landroid/content/res/Resources;->getInteger(I)I
+    invoke-virtual {p0, v5}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result p0
 
-    const v4, 0x7f04094e
+    const v5, 0x7f0409b3
 
     if-eqz v0, :cond_1
 
-    if-lt v3, p0, :cond_0
+    if-nez v1, :cond_1
 
-    return v4
+    if-lt v4, p0, :cond_0
+
+    return v5
 
     :cond_0
-    return v2
+    return v3
 
     :cond_1
-    if-lt v3, v1, :cond_2
+    if-lt v4, v2, :cond_2
 
-    return v4
+    return v5
 
     :cond_2
-    return v2
+    return v3
 
     :cond_3
-    const p0, 0x7f04094f
+    const p0, 0x7f0409b4
 
     return p0
 .end method
@@ -132,7 +169,7 @@
 .method protected getAgreeButtonTextRes()I
     .locals 0
 
-    const p0, 0x7f041180
+    const p0, 0x7f041231
 
     return p0
 .end method
@@ -180,9 +217,9 @@
 
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    new-instance v1, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollIntroduction$$ExternalSyntheticLambda0;
+    new-instance v1, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollIntroduction$$ExternalSyntheticLambda2;
 
-    invoke-direct {v1, p1}, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollIntroduction$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/biometrics/BiometricEnrollIntroduction$GenerateChallengeCallback;)V
+    invoke-direct {v1, p1}, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollIntroduction$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/biometrics/BiometricEnrollIntroduction$GenerateChallengeCallback;)V
 
     invoke-virtual {v0, p0, v1}, Landroid/hardware/fingerprint/FingerprintManager;->generateChallenge(ILandroid/hardware/fingerprint/FingerprintManager$GenerateChallengeCallback;)V
 
@@ -192,17 +229,31 @@
 .method protected getConfirmLockTitleResId()I
     .locals 0
 
-    const p0, 0x7f041198
+    const p0, 0x7f04124a
 
     return p0
 .end method
 
-.method protected getDescriptionResDisabledByAdmin()I
-    .locals 0
+.method protected getDescriptionDisabledByAdmin()Ljava/lang/String;
+    .locals 2
 
-    const p0, 0x7f04118a
+    iget-object v0, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollIntroduction;->mDevicePolicyManager:Landroid/app/admin/DevicePolicyManager;
 
-    return p0
+    invoke-virtual {v0}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollIntroduction$$ExternalSyntheticLambda0;
+
+    invoke-direct {v1, p0}, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollIntroduction$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollIntroduction;)V
+
+    const-string p0, "Settings.FINGERPRINT_UNLOCK_DISABLED"
+
+    invoke-virtual {v0, p0, v1}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method protected getEnrollingIntent()Landroid/content/Intent;
@@ -243,7 +294,7 @@
 .method protected getErrorTextView()Landroid/widget/TextView;
     .locals 1
 
-    const v0, 0x7f0d0213
+    const v0, 0x7f0d022c
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -265,7 +316,7 @@
 .method protected getFooterMessage2()I
     .locals 0
 
-    const p0, 0x7f0411a1
+    const p0, 0x7f041253
 
     return p0
 .end method
@@ -273,7 +324,7 @@
 .method protected getFooterMessage3()I
     .locals 0
 
-    const p0, 0x7f0411a2
+    const p0, 0x7f041254
 
     return p0
 .end method
@@ -281,7 +332,7 @@
 .method protected getFooterMessage4()I
     .locals 0
 
-    const p0, 0x7f0411a3
+    const p0, 0x7f041255
 
     return p0
 .end method
@@ -289,7 +340,15 @@
 .method protected getFooterMessage5()I
     .locals 0
 
-    const p0, 0x7f0411a4
+    const p0, 0x7f041256
+
+    return p0
+.end method
+
+.method protected getFooterMessage6()I
+    .locals 0
+
+    const p0, 0x7f041257
 
     return p0
 .end method
@@ -297,7 +356,7 @@
 .method protected getFooterTitle1()I
     .locals 0
 
-    const p0, 0x7f041186
+    const p0, 0x7f041237
 
     return p0
 .end method
@@ -305,7 +364,7 @@
 .method protected getFooterTitle2()I
     .locals 0
 
-    const p0, 0x7f041187
+    const p0, 0x7f041238
 
     return p0
 .end method
@@ -313,7 +372,7 @@
 .method protected getHeaderResDefault()I
     .locals 0
 
-    const p0, 0x7f04118c
+    const p0, 0x7f04123d
 
     return p0
 .end method
@@ -321,7 +380,7 @@
 .method protected getHeaderResDisabledByAdmin()I
     .locals 0
 
-    const p0, 0x7f04118d
+    const p0, 0x7f04123e
 
     return p0
 .end method
@@ -329,7 +388,7 @@
 .method protected getLayoutResource()I
     .locals 0
 
-    const p0, 0x7f0600f3
+    const p0, 0x7f0600f6
 
     return p0
 .end method
@@ -353,7 +412,7 @@
 .method protected getMoreButtonTextRes()I
     .locals 0
 
-    const p0, 0x7f041148
+    const p0, 0x7f0411fa
 
     return p0
 .end method
@@ -361,7 +420,7 @@
 .method getNegativeButtonTextId()I
     .locals 0
 
-    const p0, 0x7f04118b
+    const p0, 0x7f04123c
 
     return p0
 .end method
@@ -396,15 +455,15 @@
 
     invoke-direct {v0, p0}, Lcom/google/android/setupcompat/template/FooterButton$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f041180
+    const v1, 0x7f041231
 
     invoke-virtual {v0, v1}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setText(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollIntroduction$$ExternalSyntheticLambda2;
+    new-instance v1, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollIntroduction$$ExternalSyntheticLambda1;
 
-    invoke-direct {v1, p0}, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollIntroduction$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollIntroduction;)V
+    invoke-direct {v1, p0}, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollIntroduction$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollIntroduction;)V
 
     invoke-virtual {v0, v1}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setListener(Landroid/view/View$OnClickListener;)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -416,7 +475,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f13021c
+    const v1, 0x7f130283
 
     invoke-virtual {v0, v1}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setTheme(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -453,9 +512,9 @@
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollIntroduction$$ExternalSyntheticLambda1;
+    new-instance v1, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollIntroduction$$ExternalSyntheticLambda3;
 
-    invoke-direct {v1, p0}, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollIntroduction$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollIntroduction;)V
+    invoke-direct {v1, p0}, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollIntroduction$$ExternalSyntheticLambda3;-><init>(Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollIntroduction;)V
 
     invoke-virtual {v0, v1}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setListener(Landroid/view/View$OnClickListener;)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -467,7 +526,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f13021c
+    const v1, 0x7f130283
 
     invoke-virtual {v0, v1}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setTheme(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -597,7 +656,7 @@
 
     if-eqz p1, :cond_1
 
-    const p1, 0x7f040a32
+    const p1, 0x7f040a8b
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -683,7 +742,17 @@
     :cond_0
     invoke-super {p0, p1}, Lcom/android/settings/biometrics/BiometricEnrollIntroduction;->onCreate(Landroid/os/Bundle;)V
 
-    const p1, 0x7f0d02b4
+    const-class p1, Landroid/app/admin/DevicePolicyManager;
+
+    invoke-virtual {p0, p1}, Landroid/app/Activity;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Landroid/app/admin/DevicePolicyManager;
+
+    iput-object p1, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollIntroduction;->mDevicePolicyManager:Landroid/app/admin/DevicePolicyManager;
+
+    const p1, 0x7f0d02d8
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -691,7 +760,7 @@
 
     check-cast p1, Landroid/widget/ImageView;
 
-    const v0, 0x7f0d02b3
+    const v0, 0x7f0d02d5
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -699,7 +768,7 @@
 
     check-cast v0, Landroid/widget/ImageView;
 
-    const v1, 0x7f0d02bf
+    const v1, 0x7f0d02e6
 
     invoke-virtual {p0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -707,7 +776,7 @@
 
     check-cast v1, Landroid/widget/ImageView;
 
-    const v2, 0x7f0d02b8
+    const v2, 0x7f0d02dc
 
     invoke-virtual {p0, v2}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -715,7 +784,7 @@
 
     check-cast v2, Landroid/widget/ImageView;
 
-    const v3, 0x7f0d02bb
+    const v3, 0x7f0d02df
 
     invoke-virtual {p0, v3}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -773,7 +842,7 @@
 
     invoke-virtual {p1, v0}, Landroid/graphics/drawable/Drawable;->setColorFilter(Landroid/graphics/ColorFilter;)V
 
-    const p1, 0x7f0d0242
+    const p1, 0x7f0d0260
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -781,7 +850,7 @@
 
     check-cast p1, Landroid/widget/TextView;
 
-    const v0, 0x7f0d0243
+    const v0, 0x7f0d0261
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -789,7 +858,7 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    const v1, 0x7f0d0244
+    const v1, 0x7f0d0262
 
     invoke-virtual {p0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -797,7 +866,7 @@
 
     check-cast v1, Landroid/widget/TextView;
 
-    const v2, 0x7f0d0245
+    const v2, 0x7f0d0263
 
     invoke-virtual {p0, v2}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -805,11 +874,19 @@
 
     check-cast v2, Landroid/widget/TextView;
 
+    const v3, 0x7f0d0264
+
+    invoke-virtual {p0, v3}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/widget/TextView;
+
     invoke-virtual {p0}, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollIntroduction;->getFooterMessage2()I
 
-    move-result v3
+    move-result v4
 
-    invoke-virtual {p1, v3}, Landroid/widget/TextView;->setText(I)V
+    invoke-virtual {p1, v4}, Landroid/widget/TextView;->setText(I)V
 
     invoke-virtual {p0}, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollIntroduction;->getFooterMessage3()I
 
@@ -829,7 +906,13 @@
 
     invoke-virtual {v2, p1}, Landroid/widget/TextView;->setText(I)V
 
-    const p1, 0x7f0d0246
+    invoke-virtual {p0}, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollIntroduction;->getFooterMessage6()I
+
+    move-result p1
+
+    invoke-virtual {v3, p1}, Landroid/widget/TextView;->setText(I)V
+
+    const p1, 0x7f0d0265
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -837,7 +920,7 @@
 
     check-cast p1, Landroid/widget/TextView;
 
-    const v0, 0x7f0d0247
+    const v0, 0x7f0d0266
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 

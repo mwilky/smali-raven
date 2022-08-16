@@ -16,6 +16,10 @@
 
 .field public static final FOUR_G:Lcom/android/settingslib/SignalIcon$MobileIconGroup;
 
+.field public static final FOUR_G_LTE:Lcom/android/settingslib/SignalIcon$MobileIconGroup;
+
+.field public static final FOUR_G_LTE_PLUS:Lcom/android/settingslib/SignalIcon$MobileIconGroup;
+
 .field public static final FOUR_G_PLUS:Lcom/android/settingslib/SignalIcon$MobileIconGroup;
 
 .field public static final G:Lcom/android/settingslib/SignalIcon$MobileIconGroup;
@@ -29,6 +33,10 @@
 .field public static final ICON_3G:I
 
 .field public static final ICON_4G:I
+
+.field public static final ICON_4G_LTE:I
+
+.field public static final ICON_4G_LTE_PLUS:I
 
 .field public static final ICON_4G_PLUS:I
 
@@ -90,7 +98,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 169
+    .locals 193
 
     sget v0, Lcom/android/settingslib/R$drawable;->stat_sys_airplane_mode:I
 
@@ -132,63 +140,71 @@
 
     sput v85, Lcom/android/settingslib/mobile/TelephonyIcons;->ICON_4G_PLUS:I
 
-    sget v97, Lcom/android/settingslib/R$drawable;->ic_5g_e_mobiledata:I
+    sget v97, Lcom/android/settingslib/R$drawable;->ic_4g_lte_mobiledata:I
 
-    sput v97, Lcom/android/settingslib/mobile/TelephonyIcons;->ICON_5G_E:I
+    sput v97, Lcom/android/settingslib/mobile/TelephonyIcons;->ICON_4G_LTE:I
 
-    sget v109, Lcom/android/settingslib/R$drawable;->ic_1x_mobiledata:I
+    sget v109, Lcom/android/settingslib/R$drawable;->ic_4g_lte_plus_mobiledata:I
 
-    sput v109, Lcom/android/settingslib/mobile/TelephonyIcons;->ICON_1X:I
+    sput v109, Lcom/android/settingslib/mobile/TelephonyIcons;->ICON_4G_LTE_PLUS:I
 
-    sget v121, Lcom/android/settingslib/R$drawable;->ic_5g_mobiledata:I
+    sget v121, Lcom/android/settingslib/R$drawable;->ic_5g_e_mobiledata:I
 
-    sput v121, Lcom/android/settingslib/mobile/TelephonyIcons;->ICON_5G:I
+    sput v121, Lcom/android/settingslib/mobile/TelephonyIcons;->ICON_5G_E:I
 
-    sget v133, Lcom/android/settingslib/R$drawable;->ic_5g_plus_mobiledata:I
+    sget v133, Lcom/android/settingslib/R$drawable;->ic_1x_mobiledata:I
 
-    sput v133, Lcom/android/settingslib/mobile/TelephonyIcons;->ICON_5G_PLUS:I
+    sput v133, Lcom/android/settingslib/mobile/TelephonyIcons;->ICON_1X:I
 
-    sget v145, Lcom/android/settingslib/R$drawable;->ic_carrier_wifi:I
+    sget v145, Lcom/android/settingslib/R$drawable;->ic_5g_mobiledata:I
 
-    sput v145, Lcom/android/settingslib/mobile/TelephonyIcons;->ICON_CWF:I
+    sput v145, Lcom/android/settingslib/mobile/TelephonyIcons;->ICON_5G:I
+
+    sget v157, Lcom/android/settingslib/R$drawable;->ic_5g_plus_mobiledata:I
+
+    sput v157, Lcom/android/settingslib/mobile/TelephonyIcons;->ICON_5G_PLUS:I
+
+    sget v169, Lcom/android/settingslib/R$drawable;->ic_carrier_wifi:I
+
+    sput v169, Lcom/android/settingslib/mobile/TelephonyIcons;->ICON_CWF:I
 
     new-instance v10, Lcom/android/settingslib/SignalIcon$MobileIconGroup;
 
-    sget-object v138, Lcom/android/settingslib/AccessibilityContentDescriptions;->PHONE_SIGNAL_STRENGTH:[I
+    sget-object v162, Lcom/android/settingslib/AccessibilityContentDescriptions;->PHONE_SIGNAL_STRENGTH:[I
 
-    const/16 v158, 0x0
+    const/16 v182, 0x0
 
-    aget v155, v138, v158
+    aget v179, v162, v182
 
-    sget v156, Lcom/android/settingslib/R$string;->carrier_network_change_mode:I
+    sget v180, Lcom/android/settingslib/R$string;->carrier_network_change_mode:I
 
-    const-string v147, "CARRIER_NETWORK_CHANGE"
+    const-string v171, "CARRIER_NETWORK_CHANGE"
 
-    const/16 v148, 0x0
+    const/16 v172, 0x0
 
-    const/16 v149, 0x0
+    const/16 v173, 0x0
 
-    const/16 v151, 0x0
+    const/16 v175, 0x0
 
-    const/16 v152, 0x0
+    const/16 v176, 0x0
 
-    const/16 v153, 0x0
+    const/16 v177, 0x0
 
-    const/16 v154, 0x0
+    const/16 v178, 0x0
 
-    const/16 v157, 0x0
+    const/16 v181, 0x0
 
-    move-object/from16 v146, v10
+    move-object/from16 v170, v10
 
-    move-object/from16 v150, v138
+    move-object/from16 v174, v162
 
-    invoke-direct/range {v146 .. v157}, Lcom/android/settingslib/SignalIcon$MobileIconGroup;-><init>(Ljava/lang/String;[[I[[I[IIIIIIII)V
+    invoke-direct/range {v170 .. v181}, Lcom/android/settingslib/SignalIcon$MobileIconGroup;-><init>(Ljava/lang/String;[[I[[I[IIIIIIII)V
 
     sput-object v10, Lcom/android/settingslib/mobile/TelephonyIcons;->CARRIER_NETWORK_CHANGE:Lcom/android/settingslib/SignalIcon$MobileIconGroup;
 
     new-instance v9, Lcom/android/settingslib/SignalIcon$MobileIconGroup;
 
-    aget v59, v138, v158
+    aget v59, v162, v182
 
     sget v60, Lcom/android/settingslib/R$string;->data_connection_3g:I
 
@@ -208,7 +224,7 @@
 
     move-object/from16 v50, v9
 
-    move-object/from16 v54, v138
+    move-object/from16 v54, v162
 
     invoke-direct/range {v50 .. v61}, Lcom/android/settingslib/SignalIcon$MobileIconGroup;-><init>(Ljava/lang/String;[[I[[I[IIIIIIII)V
 
@@ -216,33 +232,33 @@
 
     new-instance v8, Lcom/android/settingslib/SignalIcon$MobileIconGroup;
 
-    aget v155, v138, v158
+    aget v179, v162, v182
 
-    const-string v147, "WFC"
+    const-string v171, "WFC"
 
-    const/16 v156, 0x0
+    const/16 v180, 0x0
 
-    move-object/from16 v146, v8
+    move-object/from16 v170, v8
 
-    invoke-direct/range {v146 .. v157}, Lcom/android/settingslib/SignalIcon$MobileIconGroup;-><init>(Ljava/lang/String;[[I[[I[IIIIIIII)V
+    invoke-direct/range {v170 .. v181}, Lcom/android/settingslib/SignalIcon$MobileIconGroup;-><init>(Ljava/lang/String;[[I[[I[IIIIIIII)V
 
     sput-object v8, Lcom/android/settingslib/mobile/TelephonyIcons;->WFC:Lcom/android/settingslib/SignalIcon$MobileIconGroup;
 
     new-instance v7, Lcom/android/settingslib/SignalIcon$MobileIconGroup;
 
-    aget v155, v138, v158
+    aget v179, v162, v182
 
-    const-string v147, "Unknown"
+    const-string v171, "Unknown"
 
-    move-object/from16 v146, v7
+    move-object/from16 v170, v7
 
-    invoke-direct/range {v146 .. v157}, Lcom/android/settingslib/SignalIcon$MobileIconGroup;-><init>(Ljava/lang/String;[[I[[I[IIIIIIII)V
+    invoke-direct/range {v170 .. v181}, Lcom/android/settingslib/SignalIcon$MobileIconGroup;-><init>(Ljava/lang/String;[[I[[I[IIIIIIII)V
 
     sput-object v7, Lcom/android/settingslib/mobile/TelephonyIcons;->UNKNOWN:Lcom/android/settingslib/SignalIcon$MobileIconGroup;
 
     new-instance v6, Lcom/android/settingslib/SignalIcon$MobileIconGroup;
 
-    aget v23, v138, v158
+    aget v23, v162, v182
 
     sget v24, Lcom/android/settingslib/R$string;->data_connection_edge:I
 
@@ -262,7 +278,7 @@
 
     move-object v14, v6
 
-    move-object/from16 v18, v138
+    move-object/from16 v18, v162
 
     invoke-direct/range {v14 .. v25}, Lcom/android/settingslib/SignalIcon$MobileIconGroup;-><init>(Ljava/lang/String;[[I[[I[IIIIIIII)V
 
@@ -270,35 +286,35 @@
 
     new-instance v14, Lcom/android/settingslib/SignalIcon$MobileIconGroup;
 
-    aget v107, v138, v158
+    aget v131, v162, v182
 
-    sget v108, Lcom/android/settingslib/R$string;->data_connection_cdma:I
+    sget v132, Lcom/android/settingslib/R$string;->data_connection_cdma:I
 
-    const-string v99, "1X"
+    const-string v123, "1X"
 
-    const/16 v100, 0x0
+    const/16 v124, 0x0
 
-    const/16 v101, 0x0
+    const/16 v125, 0x0
 
-    const/16 v103, 0x0
+    const/16 v127, 0x0
 
-    const/16 v104, 0x0
+    const/16 v128, 0x0
 
-    const/16 v105, 0x0
+    const/16 v129, 0x0
 
-    const/16 v106, 0x0
+    const/16 v130, 0x0
 
-    move-object/from16 v98, v14
+    move-object/from16 v122, v14
 
-    move-object/from16 v102, v138
+    move-object/from16 v126, v162
 
-    invoke-direct/range {v98 .. v109}, Lcom/android/settingslib/SignalIcon$MobileIconGroup;-><init>(Ljava/lang/String;[[I[[I[IIIIIIII)V
+    invoke-direct/range {v122 .. v133}, Lcom/android/settingslib/SignalIcon$MobileIconGroup;-><init>(Ljava/lang/String;[[I[[I[IIIIIIII)V
 
     sput-object v14, Lcom/android/settingslib/mobile/TelephonyIcons;->ONE_X:Lcom/android/settingslib/SignalIcon$MobileIconGroup;
 
     new-instance v15, Lcom/android/settingslib/SignalIcon$MobileIconGroup;
 
-    aget v16, v138, v158
+    aget v16, v162, v182
 
     sget v17, Lcom/android/settingslib/R$string;->data_connection_gprs:I
 
@@ -314,25 +330,25 @@
 
     move-object v0, v15
 
-    move-object/from16 v4, v138
+    move-object/from16 v4, v162
 
-    move-object/from16 v159, v6
+    move-object/from16 v183, v6
 
     move/from16 v6, v18
 
-    move-object/from16 v160, v7
+    move-object/from16 v184, v7
 
     move/from16 v7, v19
 
-    move-object/from16 v161, v8
+    move-object/from16 v185, v8
 
     move/from16 v8, v20
 
-    move-object/from16 v162, v9
+    move-object/from16 v186, v9
 
     move/from16 v9, v16
 
-    move-object/from16 v163, v10
+    move-object/from16 v187, v10
 
     move/from16 v10, v17
 
@@ -342,7 +358,7 @@
 
     new-instance v0, Lcom/android/settingslib/SignalIcon$MobileIconGroup;
 
-    aget v35, v138, v158
+    aget v35, v162, v182
 
     sget v36, Lcom/android/settingslib/R$string;->data_connection_3_5g:I
 
@@ -362,7 +378,7 @@
 
     move-object/from16 v26, v0
 
-    move-object/from16 v30, v138
+    move-object/from16 v30, v162
 
     invoke-direct/range {v26 .. v37}, Lcom/android/settingslib/SignalIcon$MobileIconGroup;-><init>(Ljava/lang/String;[[I[[I[IIIIIIII)V
 
@@ -370,7 +386,7 @@
 
     new-instance v11, Lcom/android/settingslib/SignalIcon$MobileIconGroup;
 
-    aget v47, v138, v158
+    aget v47, v162, v182
 
     sget v48, Lcom/android/settingslib/R$string;->data_connection_3_5g_plus:I
 
@@ -390,7 +406,7 @@
 
     move-object/from16 v38, v11
 
-    move-object/from16 v42, v138
+    move-object/from16 v42, v162
 
     invoke-direct/range {v38 .. v49}, Lcom/android/settingslib/SignalIcon$MobileIconGroup;-><init>(Ljava/lang/String;[[I[[I[IIIIIIII)V
 
@@ -398,7 +414,7 @@
 
     new-instance v10, Lcom/android/settingslib/SignalIcon$MobileIconGroup;
 
-    aget v71, v138, v158
+    aget v71, v162, v182
 
     sget v72, Lcom/android/settingslib/R$string;->data_connection_4g:I
 
@@ -418,7 +434,7 @@
 
     move-object/from16 v62, v10
 
-    move-object/from16 v66, v138
+    move-object/from16 v66, v162
 
     invoke-direct/range {v62 .. v73}, Lcom/android/settingslib/SignalIcon$MobileIconGroup;-><init>(Ljava/lang/String;[[I[[I[IIIIIIII)V
 
@@ -426,7 +442,7 @@
 
     new-instance v9, Lcom/android/settingslib/SignalIcon$MobileIconGroup;
 
-    aget v83, v138, v158
+    aget v83, v162, v182
 
     sget v84, Lcom/android/settingslib/R$string;->data_connection_4g_plus:I
 
@@ -446,7 +462,7 @@
 
     move-object/from16 v74, v9
 
-    move-object/from16 v78, v138
+    move-object/from16 v78, v162
 
     invoke-direct/range {v74 .. v85}, Lcom/android/settingslib/SignalIcon$MobileIconGroup;-><init>(Ljava/lang/String;[[I[[I[IIIIIIII)V
 
@@ -454,7 +470,7 @@
 
     new-instance v8, Lcom/android/settingslib/SignalIcon$MobileIconGroup;
 
-    aget v16, v138, v158
+    aget v16, v162, v182
 
     sget v17, Lcom/android/settingslib/R$string;->data_connection_lte:I
 
@@ -468,33 +484,33 @@
 
     move-object v1, v8
 
-    move-object/from16 v5, v138
+    move-object/from16 v5, v162
 
-    move-object/from16 v164, v8
+    move-object/from16 v188, v8
 
     move/from16 v8, v18
 
-    move-object/from16 v165, v9
+    move-object/from16 v189, v9
 
     move/from16 v9, v19
 
-    move-object/from16 v166, v10
+    move-object/from16 v190, v10
 
     move/from16 v10, v16
 
-    move-object/from16 v167, v11
+    move-object/from16 v191, v11
 
     move/from16 v11, v17
 
     invoke-direct/range {v1 .. v12}, Lcom/android/settingslib/SignalIcon$MobileIconGroup;-><init>(Ljava/lang/String;[[I[[I[IIIIIIII)V
 
-    move-object/from16 v12, v164
+    move-object/from16 v12, v188
 
     sput-object v12, Lcom/android/settingslib/mobile/TelephonyIcons;->LTE:Lcom/android/settingslib/SignalIcon$MobileIconGroup;
 
     new-instance v11, Lcom/android/settingslib/SignalIcon$MobileIconGroup;
 
-    aget v9, v138, v158
+    aget v9, v162, v182
 
     sget v10, Lcom/android/settingslib/R$string;->data_connection_lte_plus:I
 
@@ -510,9 +526,9 @@
 
     move-object v0, v11
 
-    move-object/from16 v168, v4
+    move-object/from16 v192, v4
 
-    move-object/from16 v4, v138
+    move-object/from16 v4, v162
 
     move-object v12, v11
 
@@ -524,11 +540,11 @@
 
     new-instance v0, Lcom/android/settingslib/SignalIcon$MobileIconGroup;
 
-    aget v95, v138, v158
+    aget v95, v162, v182
 
-    sget v96, Lcom/android/settingslib/R$string;->data_connection_5ge_html:I
+    sget v96, Lcom/android/settingslib/R$string;->data_connection_4g_lte:I
 
-    const-string v87, "5Ge"
+    const-string v87, "4G LTE"
 
     const/16 v88, 0x0
 
@@ -544,19 +560,47 @@
 
     move-object/from16 v86, v0
 
-    move-object/from16 v90, v138
+    move-object/from16 v90, v162
 
     invoke-direct/range {v86 .. v97}, Lcom/android/settingslib/SignalIcon$MobileIconGroup;-><init>(Ljava/lang/String;[[I[[I[IIIIIIII)V
 
-    sput-object v0, Lcom/android/settingslib/mobile/TelephonyIcons;->LTE_CA_5G_E:Lcom/android/settingslib/SignalIcon$MobileIconGroup;
+    sput-object v0, Lcom/android/settingslib/mobile/TelephonyIcons;->FOUR_G_LTE:Lcom/android/settingslib/SignalIcon$MobileIconGroup;
 
     new-instance v1, Lcom/android/settingslib/SignalIcon$MobileIconGroup;
 
-    aget v119, v138, v158
+    aget v107, v162, v182
 
-    sget v120, Lcom/android/settingslib/R$string;->data_connection_5g:I
+    sget v108, Lcom/android/settingslib/R$string;->data_connection_4g_lte_plus:I
 
-    const-string v111, "5G"
+    const-string v99, "4G LTE+"
+
+    const/16 v100, 0x0
+
+    const/16 v101, 0x0
+
+    const/16 v103, 0x0
+
+    const/16 v104, 0x0
+
+    const/16 v105, 0x0
+
+    const/16 v106, 0x0
+
+    move-object/from16 v98, v1
+
+    move-object/from16 v102, v162
+
+    invoke-direct/range {v98 .. v109}, Lcom/android/settingslib/SignalIcon$MobileIconGroup;-><init>(Ljava/lang/String;[[I[[I[IIIIIIII)V
+
+    sput-object v1, Lcom/android/settingslib/mobile/TelephonyIcons;->FOUR_G_LTE_PLUS:Lcom/android/settingslib/SignalIcon$MobileIconGroup;
+
+    new-instance v2, Lcom/android/settingslib/SignalIcon$MobileIconGroup;
+
+    aget v119, v162, v182
+
+    sget v120, Lcom/android/settingslib/R$string;->data_connection_5ge_html:I
+
+    const-string v111, "5Ge"
 
     const/16 v112, 0x0
 
@@ -570,77 +614,21 @@
 
     const/16 v118, 0x0
 
-    move-object/from16 v110, v1
+    move-object/from16 v110, v2
 
-    move-object/from16 v114, v138
+    move-object/from16 v114, v162
 
     invoke-direct/range {v110 .. v121}, Lcom/android/settingslib/SignalIcon$MobileIconGroup;-><init>(Ljava/lang/String;[[I[[I[IIIIIIII)V
 
-    sput-object v1, Lcom/android/settingslib/mobile/TelephonyIcons;->NR_5G:Lcom/android/settingslib/SignalIcon$MobileIconGroup;
-
-    new-instance v2, Lcom/android/settingslib/SignalIcon$MobileIconGroup;
-
-    aget v131, v138, v158
-
-    sget v132, Lcom/android/settingslib/R$string;->data_connection_5g_plus:I
-
-    const-string v123, "5G_PLUS"
-
-    const/16 v124, 0x0
-
-    const/16 v125, 0x0
-
-    const/16 v127, 0x0
-
-    const/16 v128, 0x0
-
-    const/16 v129, 0x0
-
-    const/16 v130, 0x0
-
-    move-object/from16 v122, v2
-
-    move-object/from16 v126, v138
-
-    invoke-direct/range {v122 .. v133}, Lcom/android/settingslib/SignalIcon$MobileIconGroup;-><init>(Ljava/lang/String;[[I[[I[IIIIIIII)V
-
-    sput-object v2, Lcom/android/settingslib/mobile/TelephonyIcons;->NR_5G_PLUS:Lcom/android/settingslib/SignalIcon$MobileIconGroup;
+    sput-object v2, Lcom/android/settingslib/mobile/TelephonyIcons;->LTE_CA_5G_E:Lcom/android/settingslib/SignalIcon$MobileIconGroup;
 
     new-instance v3, Lcom/android/settingslib/SignalIcon$MobileIconGroup;
 
-    aget v155, v138, v158
+    aget v143, v162, v182
 
-    sget v156, Lcom/android/settingslib/R$string;->cell_data_off_content_description:I
+    sget v144, Lcom/android/settingslib/R$string;->data_connection_5g:I
 
-    const-string v147, "DataDisabled"
-
-    move-object/from16 v146, v3
-
-    invoke-direct/range {v146 .. v157}, Lcom/android/settingslib/SignalIcon$MobileIconGroup;-><init>(Ljava/lang/String;[[I[[I[IIIIIIII)V
-
-    sput-object v3, Lcom/android/settingslib/mobile/TelephonyIcons;->DATA_DISABLED:Lcom/android/settingslib/SignalIcon$MobileIconGroup;
-
-    new-instance v4, Lcom/android/settingslib/SignalIcon$MobileIconGroup;
-
-    aget v155, v138, v158
-
-    sget v156, Lcom/android/settingslib/R$string;->not_default_data_content_description:I
-
-    const-string v147, "NotDefaultData"
-
-    move-object/from16 v146, v4
-
-    invoke-direct/range {v146 .. v157}, Lcom/android/settingslib/SignalIcon$MobileIconGroup;-><init>(Ljava/lang/String;[[I[[I[IIIIIIII)V
-
-    sput-object v4, Lcom/android/settingslib/mobile/TelephonyIcons;->NOT_DEFAULT_DATA:Lcom/android/settingslib/SignalIcon$MobileIconGroup;
-
-    new-instance v5, Lcom/android/settingslib/SignalIcon$MobileIconGroup;
-
-    aget v143, v138, v158
-
-    sget v144, Lcom/android/settingslib/R$string;->data_connection_carrier_wifi:I
-
-    const-string v135, "CWF"
+    const-string v135, "5G"
 
     const/16 v136, 0x0
 
@@ -654,109 +642,201 @@
 
     const/16 v142, 0x0
 
-    move-object/from16 v134, v5
+    move-object/from16 v134, v3
+
+    move-object/from16 v138, v162
 
     invoke-direct/range {v134 .. v145}, Lcom/android/settingslib/SignalIcon$MobileIconGroup;-><init>(Ljava/lang/String;[[I[[I[IIIIIIII)V
 
-    sput-object v5, Lcom/android/settingslib/mobile/TelephonyIcons;->CARRIER_MERGED_WIFI:Lcom/android/settingslib/SignalIcon$MobileIconGroup;
+    sput-object v3, Lcom/android/settingslib/mobile/TelephonyIcons;->NR_5G:Lcom/android/settingslib/SignalIcon$MobileIconGroup;
 
-    new-instance v5, Ljava/util/HashMap;
+    new-instance v4, Lcom/android/settingslib/SignalIcon$MobileIconGroup;
 
-    invoke-direct {v5}, Ljava/util/HashMap;-><init>()V
+    aget v155, v162, v182
 
-    sput-object v5, Lcom/android/settingslib/mobile/TelephonyIcons;->ICON_NAME_TO_ICON:Ljava/util/Map;
+    sget v156, Lcom/android/settingslib/R$string;->data_connection_5g_plus:I
 
-    const-string v6, "carrier_network_change"
+    const-string v147, "5G_PLUS"
 
-    move-object/from16 v7, v163
+    const/16 v148, 0x0
 
-    invoke-interface {v5, v6, v7}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    const/16 v149, 0x0
 
-    const-string v6, "3g"
+    const/16 v151, 0x0
 
-    move-object/from16 v7, v162
+    const/16 v152, 0x0
 
-    invoke-interface {v5, v6, v7}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    const/16 v153, 0x0
 
-    const-string/jumbo v6, "wfc"
+    const/16 v154, 0x0
 
-    move-object/from16 v7, v161
+    move-object/from16 v146, v4
 
-    invoke-interface {v5, v6, v7}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    move-object/from16 v150, v162
 
-    const-string/jumbo v6, "unknown"
+    invoke-direct/range {v146 .. v157}, Lcom/android/settingslib/SignalIcon$MobileIconGroup;-><init>(Ljava/lang/String;[[I[[I[IIIIIIII)V
 
-    move-object/from16 v7, v160
+    sput-object v4, Lcom/android/settingslib/mobile/TelephonyIcons;->NR_5G_PLUS:Lcom/android/settingslib/SignalIcon$MobileIconGroup;
 
-    invoke-interface {v5, v6, v7}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    new-instance v5, Lcom/android/settingslib/SignalIcon$MobileIconGroup;
 
-    const-string v6, "e"
+    aget v179, v162, v182
 
-    move-object/from16 v7, v159
+    sget v180, Lcom/android/settingslib/R$string;->cell_data_off_content_description:I
 
-    invoke-interface {v5, v6, v7}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    const-string v171, "DataDisabled"
 
-    const-string v6, "1x"
+    move-object/from16 v170, v5
 
-    invoke-interface {v5, v6, v14}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-direct/range {v170 .. v181}, Lcom/android/settingslib/SignalIcon$MobileIconGroup;-><init>(Ljava/lang/String;[[I[[I[IIIIIIII)V
 
-    const-string v6, "g"
+    sput-object v5, Lcom/android/settingslib/mobile/TelephonyIcons;->DATA_DISABLED:Lcom/android/settingslib/SignalIcon$MobileIconGroup;
 
-    invoke-interface {v5, v6, v15}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    new-instance v6, Lcom/android/settingslib/SignalIcon$MobileIconGroup;
 
-    const-string v6, "h"
+    aget v179, v162, v182
 
-    move-object/from16 v7, v168
+    sget v180, Lcom/android/settingslib/R$string;->not_default_data_content_description:I
 
-    invoke-interface {v5, v6, v7}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    const-string v171, "NotDefaultData"
 
-    const-string v6, "h+"
+    move-object/from16 v170, v6
 
-    move-object/from16 v7, v167
+    invoke-direct/range {v170 .. v181}, Lcom/android/settingslib/SignalIcon$MobileIconGroup;-><init>(Ljava/lang/String;[[I[[I[IIIIIIII)V
 
-    invoke-interface {v5, v6, v7}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    sput-object v6, Lcom/android/settingslib/mobile/TelephonyIcons;->NOT_DEFAULT_DATA:Lcom/android/settingslib/SignalIcon$MobileIconGroup;
 
-    const-string v6, "4g"
+    new-instance v7, Lcom/android/settingslib/SignalIcon$MobileIconGroup;
 
-    move-object/from16 v7, v166
+    aget v167, v162, v182
 
-    invoke-interface {v5, v6, v7}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    sget v168, Lcom/android/settingslib/R$string;->data_connection_carrier_wifi:I
 
-    const-string v6, "4g+"
+    const-string v159, "CWF"
 
-    move-object/from16 v7, v165
+    const/16 v160, 0x0
 
-    invoke-interface {v5, v6, v7}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    const/16 v161, 0x0
 
-    const-string v6, "5ge"
+    const/16 v163, 0x0
 
-    invoke-interface {v5, v6, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    const/16 v164, 0x0
+
+    const/16 v165, 0x0
+
+    const/16 v166, 0x0
+
+    move-object/from16 v158, v7
+
+    invoke-direct/range {v158 .. v169}, Lcom/android/settingslib/SignalIcon$MobileIconGroup;-><init>(Ljava/lang/String;[[I[[I[IIIIIIII)V
+
+    sput-object v7, Lcom/android/settingslib/mobile/TelephonyIcons;->CARRIER_MERGED_WIFI:Lcom/android/settingslib/SignalIcon$MobileIconGroup;
+
+    new-instance v7, Ljava/util/HashMap;
+
+    invoke-direct {v7}, Ljava/util/HashMap;-><init>()V
+
+    sput-object v7, Lcom/android/settingslib/mobile/TelephonyIcons;->ICON_NAME_TO_ICON:Ljava/util/Map;
+
+    const-string v8, "carrier_network_change"
+
+    move-object/from16 v9, v187
+
+    invoke-interface {v7, v8, v9}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string v8, "3g"
+
+    move-object/from16 v9, v186
+
+    invoke-interface {v7, v8, v9}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string/jumbo v8, "wfc"
+
+    move-object/from16 v9, v185
+
+    invoke-interface {v7, v8, v9}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string/jumbo v8, "unknown"
+
+    move-object/from16 v9, v184
+
+    invoke-interface {v7, v8, v9}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string v8, "e"
+
+    move-object/from16 v9, v183
+
+    invoke-interface {v7, v8, v9}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string v8, "1x"
+
+    invoke-interface {v7, v8, v14}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string v8, "g"
+
+    invoke-interface {v7, v8, v15}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string v8, "h"
+
+    move-object/from16 v9, v192
+
+    invoke-interface {v7, v8, v9}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string v8, "h+"
+
+    move-object/from16 v9, v191
+
+    invoke-interface {v7, v8, v9}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string v8, "4g"
+
+    move-object/from16 v9, v190
+
+    invoke-interface {v7, v8, v9}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string v8, "4g+"
+
+    move-object/from16 v9, v189
+
+    invoke-interface {v7, v8, v9}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string v8, "4glte"
+
+    invoke-interface {v7, v8, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string v0, "4glte+"
+
+    invoke-interface {v7, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string v0, "5ge"
+
+    invoke-interface {v7, v0, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     const-string v0, "lte"
 
-    move-object/from16 v6, v164
+    move-object/from16 v1, v188
 
-    invoke-interface {v5, v0, v6}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v7, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     const-string v0, "lte+"
 
-    invoke-interface {v5, v0, v12}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v7, v0, v12}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     const-string v0, "5g"
 
-    invoke-interface {v5, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v7, v0, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     const-string v0, "5g_plus"
 
-    invoke-interface {v5, v0, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v7, v0, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     const-string v0, "datadisable"
 
-    invoke-interface {v5, v0, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v7, v0, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     const-string v0, "notdefaultdata"
 
-    invoke-interface {v5, v0, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v7, v0, v6}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     const/4 v0, 0x5
 
@@ -764,7 +844,7 @@
 
     sget v2, Lcom/android/settingslib/R$drawable;->ic_wifi_call_strength_0:I
 
-    aput v2, v1, v158
+    aput v2, v1, v182
 
     sget v2, Lcom/android/settingslib/R$drawable;->ic_wifi_call_strength_1:I
 
@@ -796,7 +876,7 @@
 
     sget v1, Lcom/android/settingslib/R$drawable;->ic_mobile_call_strength_0:I
 
-    aput v1, v0, v158
+    aput v1, v0, v182
 
     sget v1, Lcom/android/settingslib/R$drawable;->ic_mobile_call_strength_1:I
 

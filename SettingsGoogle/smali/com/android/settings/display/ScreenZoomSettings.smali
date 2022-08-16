@@ -81,7 +81,7 @@
 .method protected getActivityLayoutResId()I
     .locals 0
 
-    const p0, 0x7f0601f1
+    const p0, 0x7f0601fa
 
     return p0
 .end method
@@ -89,7 +89,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a2d
+    const p0, 0x7f040a86
 
     return p0
 .end method
@@ -113,7 +113,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f09000a
+    const v0, 0x7f09000b
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -136,7 +136,7 @@
 
     const/4 v0, 0x0
 
-    const v1, 0x7f0601f2
+    const v1, 0x7f0601fb
 
     aput v1, p0, v0
 
@@ -145,9 +145,9 @@
 
     :array_0
     .array-data 4
-        0x7f0601f2
-        0x7f0601f3
-        0x7f0601f5
+        0x7f0601fb
+        0x7f0601fc
+        0x7f0601fe
     .end array-data
 .end method
 

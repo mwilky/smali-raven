@@ -105,14 +105,14 @@
 
     if-ne p1, p2, :cond_0
 
-    const p1, 0x7f020311
+    const p1, 0x7f020334
 
     iput p1, p0, Lcom/android/settings/security/CredentialManagementAppButtonsController;->mRemoveIcon:I
 
     goto :goto_0
 
     :cond_0
-    const p1, 0x7f020394
+    const p1, 0x7f0203b8
 
     iput p1, p0, Lcom/android/settings/security/CredentialManagementAppButtonsController;->mRemoveIcon:I
 
@@ -137,27 +137,27 @@
 
     check-cast p1, Lcom/android/settingslib/widget/ActionButtonsPreference;
 
-    const v0, 0x7f041444
+    const v0, 0x7f04153f
 
     invoke-virtual {p1, v0}, Lcom/android/settingslib/widget/ActionButtonsPreference;->setButton1Text(I)Lcom/android/settingslib/widget/ActionButtonsPreference;
 
     move-result-object p1
 
-    const v0, 0x7f020395
+    const v0, 0x7f0203b9
 
     invoke-virtual {p1, v0}, Lcom/android/settingslib/widget/ActionButtonsPreference;->setButton1Icon(I)Lcom/android/settingslib/widget/ActionButtonsPreference;
 
     move-result-object p1
 
-    new-instance v0, Lcom/android/settings/security/CredentialManagementAppButtonsController$$ExternalSyntheticLambda0;
+    new-instance v0, Lcom/android/settings/security/CredentialManagementAppButtonsController$$ExternalSyntheticLambda3;
 
-    invoke-direct {v0, p0}, Lcom/android/settings/security/CredentialManagementAppButtonsController$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/security/CredentialManagementAppButtonsController;)V
+    invoke-direct {v0, p0}, Lcom/android/settings/security/CredentialManagementAppButtonsController$$ExternalSyntheticLambda3;-><init>(Lcom/android/settings/security/CredentialManagementAppButtonsController;)V
 
     invoke-virtual {p1, v0}, Lcom/android/settingslib/widget/ActionButtonsPreference;->setButton1OnClickListener(Landroid/view/View$OnClickListener;)Lcom/android/settingslib/widget/ActionButtonsPreference;
 
     move-result-object p1
 
-    const v0, 0x7f041029
+    const v0, 0x7f0410cf
 
     invoke-virtual {p1, v0}, Lcom/android/settingslib/widget/ActionButtonsPreference;->setButton2Text(I)Lcom/android/settingslib/widget/ActionButtonsPreference;
 
@@ -169,9 +169,9 @@
 
     move-result-object p1
 
-    new-instance v0, Lcom/android/settings/security/CredentialManagementAppButtonsController$$ExternalSyntheticLambda1;
+    new-instance v0, Lcom/android/settings/security/CredentialManagementAppButtonsController$$ExternalSyntheticLambda4;
 
-    invoke-direct {v0, p0}, Lcom/android/settings/security/CredentialManagementAppButtonsController$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/security/CredentialManagementAppButtonsController;)V
+    invoke-direct {v0, p0}, Lcom/android/settings/security/CredentialManagementAppButtonsController$$ExternalSyntheticLambda4;-><init>(Lcom/android/settings/security/CredentialManagementAppButtonsController;)V
 
     invoke-virtual {p1, v0}, Lcom/android/settingslib/widget/ActionButtonsPreference;->setButton2OnClickListener(Landroid/view/View$OnClickListener;)Lcom/android/settingslib/widget/ActionButtonsPreference;
 
@@ -238,9 +238,9 @@
     :goto_0
     iget-object v0, p0, Lcom/android/settings/security/CredentialManagementAppButtonsController;->mHandler:Landroid/os/Handler;
 
-    new-instance v1, Lcom/android/settings/security/CredentialManagementAppButtonsController$$ExternalSyntheticLambda4;
+    new-instance v1, Lcom/android/settings/security/CredentialManagementAppButtonsController$$ExternalSyntheticLambda0;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/settings/security/CredentialManagementAppButtonsController$$ExternalSyntheticLambda4;-><init>(Lcom/android/settings/security/CredentialManagementAppButtonsController;Landroidx/preference/PreferenceScreen;)V
+    invoke-direct {v1, p0, p1}, Lcom/android/settings/security/CredentialManagementAppButtonsController$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/security/CredentialManagementAppButtonsController;Landroidx/preference/PreferenceScreen;)V
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
@@ -344,14 +344,6 @@
 
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public displayPreference(Landroidx/preference/PreferenceScreen;)V
     .locals 2
 
@@ -359,9 +351,9 @@
 
     iget-object v0, p0, Lcom/android/settings/security/CredentialManagementAppButtonsController;->mExecutor:Ljava/util/concurrent/ExecutorService;
 
-    new-instance v1, Lcom/android/settings/security/CredentialManagementAppButtonsController$$ExternalSyntheticLambda3;
+    new-instance v1, Lcom/android/settings/security/CredentialManagementAppButtonsController$$ExternalSyntheticLambda1;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/settings/security/CredentialManagementAppButtonsController$$ExternalSyntheticLambda3;-><init>(Lcom/android/settings/security/CredentialManagementAppButtonsController;Landroidx/preference/PreferenceScreen;)V
+    invoke-direct {v1, p0, p1}, Lcom/android/settings/security/CredentialManagementAppButtonsController$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/security/CredentialManagementAppButtonsController;Landroidx/preference/PreferenceScreen;)V
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/ExecutorService;->execute(Ljava/lang/Runnable;)V
 
@@ -378,15 +370,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -419,16 +402,6 @@
     .locals 0
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->hasAsyncUpdate()Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
 
     move-result p0
 

@@ -78,13 +78,36 @@
 
     const/4 p3, 0x0
 
+    invoke-virtual {p2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
+
+    move-result-object p4
+
+    if-eqz p4, :cond_1
+
+    invoke-virtual {p2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
+
+    move-result-object p4
+
+    invoke-virtual {p4}, Landroid/os/Bundle;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object p4
+
+    if-nez p4, :cond_1
+
+    invoke-virtual {v0}, Landroid/app/Activity;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object p4
+
+    invoke-virtual {p2, p4}, Landroid/content/Intent;->setExtrasClassLoader(Ljava/lang/ClassLoader;)V
+
+    :cond_1
     const-string p4, "androidx.activity.result.contract.extra.ACTIVITY_OPTIONS_BUNDLE"
 
     invoke-virtual {p2, p4}, Landroid/content/Intent;->hasExtra(Ljava/lang/String;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2
 
     invoke-virtual {p2, p4}, Landroid/content/Intent;->getBundleExtra(Ljava/lang/String;)Landroid/os/Bundle;
 
@@ -92,7 +115,7 @@
 
     invoke-virtual {p2, p4}, Landroid/content/Intent;->removeExtra(Ljava/lang/String;)V
 
-    :cond_1
+    :cond_2
     move-object v7, p3
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
@@ -105,77 +128,26 @@
 
     move-result p3
 
-    if-eqz p3, :cond_5
+    if-eqz p3, :cond_4
 
-    const-string p3, "androidx.activity.result.contract.extra.PERMISSIONS"
+    const-string p0, "androidx.activity.result.contract.extra.PERMISSIONS"
 
-    invoke-virtual {p2, p3}, Landroid/content/Intent;->getStringArrayExtra(Ljava/lang/String;)[Ljava/lang/String;
+    invoke-virtual {p2, p0}, Landroid/content/Intent;->getStringArrayExtra(Ljava/lang/String;)[Ljava/lang/String;
 
-    move-result-object p2
+    move-result-object p0
 
-    if-nez p2, :cond_2
+    if-nez p0, :cond_3
 
-    return-void
+    const/4 p0, 0x0
 
-    :cond_2
-    new-instance p3, Ljava/util/ArrayList;
-
-    invoke-direct {p3}, Ljava/util/ArrayList;-><init>()V
-
-    array-length p4, p2
-
-    const/4 v1, 0x0
-
-    move v2, v1
-
-    :goto_0
-    if-ge v2, p4, :cond_4
-
-    aget-object v3, p2, v2
-
-    iget-object v4, p0, Landroidx/activity/ComponentActivity$2;->this$0:Landroidx/activity/ComponentActivity;
-
-    invoke-static {}, Landroid/os/Process;->myPid()I
-
-    move-result v5
-
-    invoke-static {}, Landroid/os/Process;->myUid()I
-
-    move-result v6
-
-    invoke-virtual {v4, v3, v5, v6}, Landroid/app/Activity;->checkPermission(Ljava/lang/String;II)I
-
-    move-result v4
-
-    if-eqz v4, :cond_3
-
-    invoke-interface {p3, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    new-array p0, p0, [Ljava/lang/String;
 
     :cond_3
-    add-int/lit8 v2, v2, 0x1
+    invoke-static {v0, p0, p1}, Landroidx/core/app/ActivityCompat;->requestPermissions(Landroid/app/Activity;[Ljava/lang/String;I)V
 
     goto :goto_0
 
     :cond_4
-    invoke-interface {p3}, Ljava/util/List;->isEmpty()Z
-
-    move-result p0
-
-    if-nez p0, :cond_7
-
-    new-array p0, v1, [Ljava/lang/String;
-
-    invoke-interface {p3, p0}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
-
-    move-result-object p0
-
-    check-cast p0, [Ljava/lang/String;
-
-    invoke-static {v0, p0, p1}, Landroidx/core/app/ActivityCompat;->requestPermissions(Landroid/app/Activity;[Ljava/lang/String;I)V
-
-    goto :goto_1
-
-    :cond_5
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object p3
@@ -186,7 +158,7 @@
 
     move-result p3
 
-    if-eqz p3, :cond_6
+    if-eqz p3, :cond_5
 
     const-string p3, "androidx.activity.result.contract.extra.INTENT_SENDER_REQUEST"
 
@@ -221,7 +193,7 @@
     :try_end_0
     .catch Landroid/content/IntentSender$SendIntentException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_1
+    goto :goto_0
 
     :catch_0
     move-exception p2
@@ -240,12 +212,11 @@
 
     invoke-virtual {p3, p4}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    goto :goto_1
+    goto :goto_0
 
-    :cond_6
+    :cond_5
     invoke-static {v0, p2, p1, v7}, Landroidx/core/app/ActivityCompat;->startActivityForResult(Landroid/app/Activity;Landroid/content/Intent;ILandroid/os/Bundle;)V
 
-    :cond_7
-    :goto_1
+    :goto_0
     return-void
 .end method

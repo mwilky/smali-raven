@@ -28,12 +28,22 @@
 
 
 # direct methods
-.method public static synthetic $r8$lambda$oxNnGd79vUZc09K8KJc0U69OCsQ(Lcom/android/settings/connecteddevice/usb/UsbDetailsFragment;ZJII)V
+.method public static synthetic $r8$lambda$dMKmLjiha0MWm46rWNecFtKXUdM(Lcom/android/settings/connecteddevice/usb/UsbDetailsFragment;ZJIIZ)V
     .locals 0
 
-    invoke-direct/range {p0 .. p5}, Lcom/android/settings/connecteddevice/usb/UsbDetailsFragment;->lambda$new$0(ZJII)V
+    invoke-direct/range {p0 .. p6}, Lcom/android/settings/connecteddevice/usb/UsbDetailsFragment;->lambda$new$0(ZJIIZ)V
 
     return-void
+.end method
+
+.method static bridge synthetic -$$Nest$smcreateControllerList(Landroid/content/Context;Lcom/android/settings/connecteddevice/usb/UsbBackend;Lcom/android/settings/connecteddevice/usb/UsbDetailsFragment;)Ljava/util/List;
+    .locals 0
+
+    invoke-static {p0, p1, p2}, Lcom/android/settings/connecteddevice/usb/UsbDetailsFragment;->createControllerList(Landroid/content/Context;Lcom/android/settings/connecteddevice/usb/UsbBackend;Lcom/android/settings/connecteddevice/usb/UsbDetailsFragment;)Ljava/util/List;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method static constructor <clinit>()V
@@ -49,7 +59,7 @@
 
     new-instance v0, Lcom/android/settings/connecteddevice/usb/UsbDetailsFragment$1;
 
-    const v1, 0x7f150102
+    const v1, 0x7f15010a
 
     invoke-direct {v0, v1}, Lcom/android/settings/connecteddevice/usb/UsbDetailsFragment$1;-><init>(I)V
 
@@ -70,16 +80,6 @@
     iput-object v0, p0, Lcom/android/settings/connecteddevice/usb/UsbDetailsFragment;->mUsbConnectionListener:Lcom/android/settings/connecteddevice/usb/UsbConnectionBroadcastReceiver$UsbConnectionListener;
 
     return-void
-.end method
-
-.method static synthetic access$000(Landroid/content/Context;Lcom/android/settings/connecteddevice/usb/UsbBackend;Lcom/android/settings/connecteddevice/usb/UsbDetailsFragment;)Ljava/util/List;
-    .locals 0
-
-    invoke-static {p0, p1, p2}, Lcom/android/settings/connecteddevice/usb/UsbDetailsFragment;->createControllerList(Landroid/content/Context;Lcom/android/settings/connecteddevice/usb/UsbBackend;Lcom/android/settings/connecteddevice/usb/UsbDetailsFragment;)Ljava/util/List;
-
-    move-result-object p0
-
-    return-object p0
 .end method
 
 .method private static createControllerList(Landroid/content/Context;Lcom/android/settings/connecteddevice/usb/UsbBackend;Lcom/android/settings/connecteddevice/usb/UsbDetailsFragment;)Ljava/util/List;
@@ -134,8 +134,8 @@
     return-object v0
 .end method
 
-.method private synthetic lambda$new$0(ZJII)V
-    .locals 7
+.method private synthetic lambda$new$0(ZJIIZ)V
+    .locals 6
 
     iget-object p0, p0, Lcom/android/settings/connecteddevice/usb/UsbDetailsFragment;->mControllers:Ljava/util/List;
 
@@ -146,27 +146,27 @@
     :goto_0
     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v0
+    move-result p6
 
-    if-eqz v0, :cond_0
+    if-eqz p6, :cond_0
 
     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p6
 
-    move-object v1, v0
+    move-object v0, p6
 
-    check-cast v1, Lcom/android/settings/connecteddevice/usb/UsbDetailsController;
+    check-cast v0, Lcom/android/settings/connecteddevice/usb/UsbDetailsController;
 
-    move v2, p1
+    move v1, p1
 
-    move-wide v3, p2
+    move-wide v2, p2
 
-    move v5, p4
+    move v4, p4
 
-    move v6, p5
+    move v5, p5
 
-    invoke-virtual/range {v1 .. v6}, Lcom/android/settings/connecteddevice/usb/UsbDetailsController;->refresh(ZJII)V
+    invoke-virtual/range {v0 .. v5}, Lcom/android/settings/connecteddevice/usb/UsbDetailsController;->refresh(ZJII)V
 
     goto :goto_0
 
@@ -247,7 +247,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150102
+    const p0, 0x7f15010a
 
     return p0
 .end method

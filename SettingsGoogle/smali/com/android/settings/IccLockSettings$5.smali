@@ -41,7 +41,7 @@
 
     iget-object p0, p0, Lcom/android/settings/IccLockSettings$5;->this$0:Lcom/android/settings/IccLockSettings;
 
-    invoke-static {p0}, Lcom/android/settings/IccLockSettings;->access$1000(Lcom/android/settings/IccLockSettings;)Landroid/widget/TabHost;
+    invoke-static {p0}, Lcom/android/settings/IccLockSettings;->-$$Nest$fgetmTabHost(Lcom/android/settings/IccLockSettings;)Landroid/widget/TabHost;
 
     move-result-object p0
 

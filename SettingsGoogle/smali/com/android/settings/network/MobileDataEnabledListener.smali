@@ -24,6 +24,22 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmClient(Lcom/android/settings/network/MobileDataEnabledListener;)Lcom/android/settings/network/MobileDataEnabledListener$Client;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/network/MobileDataEnabledListener;->mClient:Lcom/android/settings/network/MobileDataEnabledListener$Client;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$mstopMonitor(Lcom/android/settings/network/MobileDataEnabledListener;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/network/MobileDataEnabledListener;->stopMonitor()V
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Lcom/android/settings/network/MobileDataEnabledListener$Client;)V
     .locals 0
 
@@ -36,22 +52,6 @@
     const/4 p1, -0x1
 
     iput p1, p0, Lcom/android/settings/network/MobileDataEnabledListener;->mSubId:I
-
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/network/MobileDataEnabledListener;)Lcom/android/settings/network/MobileDataEnabledListener$Client;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/network/MobileDataEnabledListener;->mClient:Lcom/android/settings/network/MobileDataEnabledListener$Client;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/network/MobileDataEnabledListener;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/network/MobileDataEnabledListener;->stopMonitor()V
 
     return-void
 .end method

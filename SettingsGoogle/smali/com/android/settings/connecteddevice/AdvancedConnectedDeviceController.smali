@@ -55,24 +55,24 @@
 
     if-eqz p1, :cond_0
 
-    const p0, 0x7f04067a
+    const p0, 0x7f0406d8
 
     goto :goto_0
 
     :cond_0
-    const p0, 0x7f040677
+    const p0, 0x7f0406d5
 
     goto :goto_0
 
     :cond_1
     if-eqz p1, :cond_2
 
-    const p0, 0x7f040679
+    const p0, 0x7f0406d7
 
     goto :goto_0
 
     :cond_2
-    const p0, 0x7f040678
+    const p0, 0x7f0406d6
 
     goto :goto_0
 
@@ -85,24 +85,24 @@
 
     if-eqz p1, :cond_4
 
-    const p0, 0x7f04067f
+    const p0, 0x7f0406dd
 
     goto :goto_0
 
     :cond_4
-    const p0, 0x7f04067d
+    const p0, 0x7f0406db
 
     goto :goto_0
 
     :cond_5
     if-eqz p1, :cond_6
 
-    const p0, 0x7f04067e
+    const p0, 0x7f0406dc
 
     goto :goto_0
 
     :cond_6
-    const p0, 0x7f04067c
+    const p0, 0x7f0406da
 
     :goto_0
     return p0
@@ -169,14 +169,6 @@
 
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public getAvailabilityStatus()I
     .locals 0
 
@@ -187,15 +179,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -244,16 +227,6 @@
     .locals 0
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->hasAsyncUpdate()Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
 
     move-result p0
 

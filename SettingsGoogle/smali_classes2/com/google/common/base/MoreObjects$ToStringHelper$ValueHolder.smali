@@ -1,4 +1,4 @@
-.class final Lcom/google/common/base/MoreObjects$ToStringHelper$ValueHolder;
+.class Lcom/google/common/base/MoreObjects$ToStringHelper$ValueHolder;
 .super Ljava/lang/Object;
 .source "MoreObjects.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0xa
     name = "ValueHolder"
 .end annotation
 

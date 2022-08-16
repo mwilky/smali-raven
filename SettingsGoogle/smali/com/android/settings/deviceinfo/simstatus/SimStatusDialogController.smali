@@ -16,41 +16,41 @@
 
 
 # static fields
-.field static final CELLULAR_NETWORK_STATE:I = 0x7f0d01a4
+.field static final CELLULAR_NETWORK_STATE:I = 0x7f0d01b9
 
-.field static final CELL_DATA_NETWORK_TYPE_VALUE_ID:I = 0x7f0d01a1
+.field static final CELL_DATA_NETWORK_TYPE_VALUE_ID:I = 0x7f0d01b6
 
-.field static final CELL_VOICE_NETWORK_TYPE_VALUE_ID:I = 0x7f0d0631
+.field static final CELL_VOICE_NETWORK_TYPE_VALUE_ID:I = 0x7f0d0670
 
-.field static final EID_INFO_LABEL_ID:I = 0x7f0d0214
+.field static final EID_INFO_LABEL_ID:I = 0x7f0d022d
 
-.field static final EID_INFO_VALUE_ID:I = 0x7f0d0215
+.field static final EID_INFO_VALUE_ID:I = 0x7f0d022e
 
-.field static final ICCID_INFO_LABEL_ID:I = 0x7f0d02af
+.field static final ICCID_INFO_LABEL_ID:I = 0x7f0d02d1
 
-.field static final ICCID_INFO_VALUE_ID:I = 0x7f0d02b0
+.field static final ICCID_INFO_VALUE_ID:I = 0x7f0d02d2
 
-.field static final IMS_REGISTRATION_STATE_LABEL_ID:I = 0x7f0d02d5
+.field static final IMS_REGISTRATION_STATE_LABEL_ID:I = 0x7f0d02fc
 
-.field static final IMS_REGISTRATION_STATE_VALUE_ID:I = 0x7f0d02d6
+.field static final IMS_REGISTRATION_STATE_VALUE_ID:I = 0x7f0d02fd
 
 .field static final MAX_PHONE_COUNT_SINGLE_SIM:I = 0x1
 
-.field static final NETWORK_PROVIDER_VALUE_ID:I = 0x7f0d0404
+.field static final NETWORK_PROVIDER_VALUE_ID:I = 0x7f0d0435
 
-.field static final OPERATOR_INFO_LABEL_ID:I = 0x7f0d0320
+.field static final OPERATOR_INFO_LABEL_ID:I = 0x7f0d034a
 
-.field static final OPERATOR_INFO_VALUE_ID:I = 0x7f0d0321
+.field static final OPERATOR_INFO_VALUE_ID:I = 0x7f0d034b
 
-.field static final PHONE_NUMBER_VALUE_ID:I = 0x7f0d03f7
+.field static final PHONE_NUMBER_VALUE_ID:I = 0x7f0d0428
 
-.field static final ROAMING_INFO_VALUE_ID:I = 0x7f0d04a9
+.field static final ROAMING_INFO_VALUE_ID:I = 0x7f0d04e5
 
-.field static final SERVICE_STATE_VALUE_ID:I = 0x7f0d04e4
+.field static final SERVICE_STATE_VALUE_ID:I = 0x7f0d0524
 
-.field static final SIGNAL_STRENGTH_LABEL_ID:I = 0x7f0d0501
+.field static final SIGNAL_STRENGTH_LABEL_ID:I = 0x7f0d0543
 
-.field static final SIGNAL_STRENGTH_VALUE_ID:I = 0x7f0d0502
+.field static final SIGNAL_STRENGTH_VALUE_ID:I = 0x7f0d0544
 
 
 # instance fields
@@ -104,6 +104,160 @@
     .locals 0
 
     invoke-direct {p0}, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->lambda$requestForUpdateEid$1()V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmDialog(Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;)Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogFragment;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->mDialog:Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogFragment;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmRes(Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;)Landroid/content/res/Resources;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->mRes:Landroid/content/res/Resources;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmSlotIndex(Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->mSlotIndex:I
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmSubscriptionInfo(Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;)Landroid/telephony/SubscriptionInfo;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->mSubscriptionInfo:Landroid/telephony/SubscriptionInfo;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmPreviousServiceState(Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;Landroid/telephony/ServiceState;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->mPreviousServiceState:Landroid/telephony/ServiceState;
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fputmSubscriptionInfo(Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;Landroid/telephony/SubscriptionInfo;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->mSubscriptionInfo:Landroid/telephony/SubscriptionInfo;
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fputmTelephonyDisplayInfo(Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;Landroid/telephony/TelephonyDisplayInfo;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->mTelephonyDisplayInfo:Landroid/telephony/TelephonyDisplayInfo;
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fputmTelephonyManager(Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;Landroid/telephony/TelephonyManager;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->mTelephonyManager:Landroid/telephony/TelephonyManager;
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mgetPhoneSubscriptionInfo(Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;I)Landroid/telephony/SubscriptionInfo;
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->getPhoneSubscriptionInfo(I)Landroid/telephony/SubscriptionInfo;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$mregisterImsRegistrationCallback(Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->registerImsRegistrationCallback(I)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$munregisterImsRegistrationCallback(Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->unregisterImsRegistrationCallback(I)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mupdateAreaInfoText(Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->updateAreaInfoText()V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mupdateDataState(Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->updateDataState(I)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mupdateNetworkProvider(Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->updateNetworkProvider()V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mupdateNetworkType(Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->updateNetworkType()V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mupdateRoamingStatus(Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;Landroid/telephony/ServiceState;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->updateRoamingStatus(Landroid/telephony/ServiceState;)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mupdateServiceState(Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;Landroid/telephony/ServiceState;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->updateServiceState(Landroid/telephony/ServiceState;)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mupdateSignalStrength(Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;Landroid/telephony/SignalStrength;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->updateSignalStrength(Landroid/telephony/SignalStrength;)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mupdateSubscriptionStatus(Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->updateSubscriptionStatus()V
 
     return-void
 .end method
@@ -205,160 +359,6 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;)Landroid/telephony/SubscriptionInfo;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->mSubscriptionInfo:Landroid/telephony/SubscriptionInfo;
-
-    return-object p0
-.end method
-
-.method static synthetic access$002(Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;Landroid/telephony/SubscriptionInfo;)Landroid/telephony/SubscriptionInfo;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->mSubscriptionInfo:Landroid/telephony/SubscriptionInfo;
-
-    return-object p1
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;)I
-    .locals 0
-
-    iget p0, p0, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->mSlotIndex:I
-
-    return p0
-.end method
-
-.method static synthetic access$1000(Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;)Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogFragment;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->mDialog:Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogFragment;
-
-    return-object p0
-.end method
-
-.method static synthetic access$1100(Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;I)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->updateDataState(I)V
-
-    return-void
-.end method
-
-.method static synthetic access$1200(Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->updateNetworkType()V
-
-    return-void
-.end method
-
-.method static synthetic access$1300(Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;Landroid/telephony/SignalStrength;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->updateSignalStrength(Landroid/telephony/SignalStrength;)V
-
-    return-void
-.end method
-
-.method static synthetic access$1400(Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->updateNetworkProvider()V
-
-    return-void
-.end method
-
-.method static synthetic access$1500(Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;Landroid/telephony/ServiceState;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->updateServiceState(Landroid/telephony/ServiceState;)V
-
-    return-void
-.end method
-
-.method static synthetic access$1600(Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;Landroid/telephony/ServiceState;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->updateRoamingStatus(Landroid/telephony/ServiceState;)V
-
-    return-void
-.end method
-
-.method static synthetic access$1702(Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;Landroid/telephony/ServiceState;)Landroid/telephony/ServiceState;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->mPreviousServiceState:Landroid/telephony/ServiceState;
-
-    return-object p1
-.end method
-
-.method static synthetic access$1802(Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;Landroid/telephony/TelephonyDisplayInfo;)Landroid/telephony/TelephonyDisplayInfo;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->mTelephonyDisplayInfo:Landroid/telephony/TelephonyDisplayInfo;
-
-    return-object p1
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;I)Landroid/telephony/SubscriptionInfo;
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->getPhoneSubscriptionInfo(I)Landroid/telephony/SubscriptionInfo;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method static synthetic access$300(Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;I)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->unregisterImsRegistrationCallback(I)V
-
-    return-void
-.end method
-
-.method static synthetic access$402(Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;Landroid/telephony/TelephonyManager;)Landroid/telephony/TelephonyManager;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->mTelephonyManager:Landroid/telephony/TelephonyManager;
-
-    return-object p1
-.end method
-
-.method static synthetic access$500(Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;I)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->registerImsRegistrationCallback(I)V
-
-    return-void
-.end method
-
-.method static synthetic access$600(Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->updateSubscriptionStatus()V
-
-    return-void
-.end method
-
-.method static synthetic access$700(Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->updateAreaInfoText()V
-
-    return-void
-.end method
-
-.method static synthetic access$900(Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;)Landroid/content/res/Resources;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->mRes:Landroid/content/res/Resources;
-
-    return-object p0
-.end method
-
 .method private bindCellBroadcastService()V
     .locals 4
 
@@ -366,7 +366,7 @@
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, p0, v1}, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController$CellBroadcastServiceConnection;-><init>(Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController$1;)V
+    invoke-direct {v0, p0, v1}, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController$CellBroadcastServiceConnection;-><init>(Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController$CellBroadcastServiceConnection-IA;)V
 
     iput-object v0, p0, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->mCellBroadcastServiceConnection:Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController$CellBroadcastServiceConnection;
 
@@ -949,7 +949,7 @@
 
     iget-object p0, p0, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->mDialog:Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogFragment;
 
-    const v0, 0x7f0d0502
+    const v0, 0x7f0d0544
 
     const-string v1, "0"
 
@@ -1011,7 +1011,7 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->mDialog:Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogFragment;
 
-    const v2, 0x7f0d0321
+    const v2, 0x7f0d034b
 
     iget p0, p0, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->mSlotIndex:I
 
@@ -1070,7 +1070,7 @@
 
     iget-object p1, p0, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->mRes:Landroid/content/res/Resources;
 
-    const v0, 0x7f041005
+    const v0, 0x7f0410a4
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1081,7 +1081,7 @@
     :cond_0
     iget-object p1, p0, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->mRes:Landroid/content/res/Resources;
 
-    const v0, 0x7f040ffe
+    const v0, 0x7f04109d
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1092,7 +1092,7 @@
     :cond_1
     iget-object p1, p0, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->mRes:Landroid/content/res/Resources;
 
-    const v0, 0x7f040ffb
+    const v0, 0x7f04109a
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1103,7 +1103,7 @@
     :cond_2
     iget-object p1, p0, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->mRes:Landroid/content/res/Resources;
 
-    const v0, 0x7f040ffc
+    const v0, 0x7f04109b
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1114,7 +1114,7 @@
     :cond_3
     iget-object p1, p0, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->mRes:Landroid/content/res/Resources;
 
-    const v0, 0x7f040ffd
+    const v0, 0x7f04109c
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1123,7 +1123,7 @@
     :goto_0
     iget-object p0, p0, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->mDialog:Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogFragment;
 
-    const v0, 0x7f0d01a4
+    const v0, 0x7f0d01b9
 
     invoke-virtual {p0, v0, p1}, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogFragment;->setText(ILjava/lang/CharSequence;)V
 
@@ -1161,13 +1161,13 @@
     const/4 v0, 0x0
 
     :goto_0
-    const v1, 0x7f0d02b0
+    const v1, 0x7f0d02d2
 
     if-nez v0, :cond_1
 
     iget-object v0, p0, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->mDialog:Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogFragment;
 
-    const v2, 0x7f0d02af
+    const v2, 0x7f0d02d1
 
     invoke-virtual {v0, v2}, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogFragment;->removeSettingFromScreen(I)V
 
@@ -1208,13 +1208,13 @@
     :cond_0
     iget-object v0, p0, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->mDialog:Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogFragment;
 
-    const v1, 0x7f0d02d5
+    const v1, 0x7f0d02fc
 
     invoke-virtual {v0, v1}, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogFragment;->removeSettingFromScreen(I)V
 
     iget-object p0, p0, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->mDialog:Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogFragment;
 
-    const v0, 0x7f0d02d6
+    const v0, 0x7f0d02fd
 
     invoke-virtual {p0, v0}, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogFragment;->removeSettingFromScreen(I)V
 
@@ -1228,7 +1228,7 @@
 
     move-result-object v0
 
-    const v1, 0x111012f
+    const v1, 0x11101a2
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -1267,13 +1267,13 @@
     :cond_1
     iget-object v0, p0, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->mDialog:Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogFragment;
 
-    const v1, 0x7f0d0320
+    const v1, 0x7f0d034a
 
     invoke-virtual {v0, v1}, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogFragment;->removeSettingFromScreen(I)V
 
     iget-object p0, p0, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->mDialog:Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogFragment;
 
-    const v0, 0x7f0d0321
+    const v0, 0x7f0d034b
 
     invoke-virtual {p0, v0}, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogFragment;->removeSettingFromScreen(I)V
 
@@ -1300,7 +1300,7 @@
     :goto_0
     iget-object p0, p0, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->mDialog:Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogFragment;
 
-    const v1, 0x7f0d0404
+    const v1, 0x7f0d0435
 
     invoke-virtual {p0, v1, v0}, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogFragment;->setText(ILjava/lang/CharSequence;)V
 
@@ -1312,9 +1312,9 @@
 
     iget-object v0, p0, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->mSubscriptionInfo:Landroid/telephony/SubscriptionInfo;
 
-    const v1, 0x7f0d01a1
+    const v1, 0x7f0d01b6
 
-    const v2, 0x7f0d0631
+    const v2, 0x7f0d0670
 
     const/4 v3, 0x0
 
@@ -1472,7 +1472,7 @@
 .method private updateRoamingStatus(Landroid/telephony/ServiceState;)V
     .locals 2
 
-    const v0, 0x7f0d04a9
+    const v0, 0x7f0d04e5
 
     if-nez p1, :cond_0
 
@@ -1480,7 +1480,7 @@
 
     iget-object p0, p0, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->mRes:Landroid/content/res/Resources;
 
-    const v1, 0x7f041005
+    const v1, 0x7f0410a4
 
     invoke-virtual {p0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1501,7 +1501,7 @@
 
     iget-object p0, p0, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->mRes:Landroid/content/res/Resources;
 
-    const v1, 0x7f040fff
+    const v1, 0x7f04109e
 
     invoke-virtual {p0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1516,7 +1516,7 @@
 
     iget-object p0, p0, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->mRes:Landroid/content/res/Resources;
 
-    const v1, 0x7f041000
+    const v1, 0x7f04109f
 
     invoke-virtual {p0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1582,7 +1582,7 @@
 
     iget-object p1, p0, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->mRes:Landroid/content/res/Resources;
 
-    const v0, 0x7f041005
+    const v0, 0x7f0410a4
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1593,7 +1593,7 @@
     :cond_2
     iget-object p1, p0, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->mRes:Landroid/content/res/Resources;
 
-    const v0, 0x7f041003
+    const v0, 0x7f0410a2
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1604,7 +1604,7 @@
     :cond_3
     iget-object p1, p0, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->mRes:Landroid/content/res/Resources;
 
-    const v0, 0x7f041004
+    const v0, 0x7f0410a3
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1615,7 +1615,7 @@
     :cond_4
     iget-object p1, p0, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->mRes:Landroid/content/res/Resources;
 
-    const v0, 0x7f041002
+    const v0, 0x7f0410a1
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1624,7 +1624,7 @@
     :goto_1
     iget-object p0, p0, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->mDialog:Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogFragment;
 
-    const v0, 0x7f0d04e4
+    const v0, 0x7f0d0524
 
     invoke-virtual {p0, v0, p1}, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogFragment;->setText(ILjava/lang/CharSequence;)V
 
@@ -1669,13 +1669,13 @@
     move v0, v1
 
     :goto_0
-    const v2, 0x7f0d0502
+    const v2, 0x7f0d0544
 
     if-nez v0, :cond_2
 
     iget-object p1, p0, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->mDialog:Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogFragment;
 
-    const v0, 0x7f0d0501
+    const v0, 0x7f0d0543
 
     invoke-virtual {p1, v0}, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogFragment;->removeSettingFromScreen(I)V
 
@@ -1729,7 +1729,7 @@
 
     iget-object p0, p0, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->mRes:Landroid/content/res/Resources;
 
-    const v5, 0x7f04128a
+    const v5, 0x7f041344
 
     const/4 v6, 0x2
 
@@ -1908,7 +1908,7 @@
 
     check-cast v4, Landroid/telephony/UiccCardInfo;
 
-    invoke-virtual {v4}, Landroid/telephony/UiccCardInfo;->getSlotIndex()I
+    invoke-virtual {v4}, Landroid/telephony/UiccCardInfo;->getPhysicalSlotIndex()I
 
     move-result v5
 
@@ -2226,13 +2226,13 @@
         }
     .end annotation
 
-    const v0, 0x7f0d0215
+    const v0, 0x7f0d022e
 
     if-nez p1, :cond_0
 
     iget-object p1, p0, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogController;->mDialog:Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogFragment;
 
-    const v1, 0x7f0d0214
+    const v1, 0x7f0d022d
 
     invoke-virtual {p1, v1}, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogFragment;->removeSettingFromScreen(I)V
 
@@ -2277,7 +2277,7 @@
 
     move-result-object p0
 
-    const v1, 0x7f0d03f7
+    const v1, 0x7f0d0428
 
     invoke-virtual {v0, v1, p0}, Lcom/android/settings/deviceinfo/simstatus/SimStatusDialogFragment;->setText(ILjava/lang/CharSequence;)V
 

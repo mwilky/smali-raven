@@ -147,15 +147,13 @@
 
     move-result-object p0
 
-    sget v0, Lcom/android/settingslib/R$dimen;->circle_avatar_size:I
+    const v0, 0x10502d3
 
-    invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getDimension(I)F
+    invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result p0
 
     new-instance v0, Lcom/android/settingslib/drawable/CircleFramedDrawable;
-
-    float-to-int p0, p0
 
     invoke-direct {v0, p1, p0}, Lcom/android/settingslib/drawable/CircleFramedDrawable;-><init>(Landroid/graphics/Bitmap;I)V
 

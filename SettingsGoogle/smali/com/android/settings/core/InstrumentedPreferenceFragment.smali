@@ -29,6 +29,16 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$7OjNVd34EEmoUjRZhN8FCtw_kPI(Lcom/android/settings/core/InstrumentedPreferenceFragment;Landroidx/preference/Preference;)Z
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->lambda$onStart$0(Landroidx/preference/Preference;)Z
+
+    move-result p0
+
+    return p0
+.end method
+
 .method public constructor <init>()V
     .locals 1
 
@@ -39,6 +49,31 @@
     iput v0, p0, Lcom/android/settings/core/InstrumentedPreferenceFragment;->PLACEHOLDER_METRIC:I
 
     return-void
+.end method
+
+.method private synthetic lambda$onStart$0(Landroidx/preference/Preference;)Z
+    .locals 2
+
+    instance-of v0, p1, Landroidx/preference/SwitchPreference;
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Landroidx/preference/PreferenceFragmentCompat;->getListView()Landroidx/recyclerview/widget/RecyclerView;
+
+    move-result-object v0
+
+    move-object v1, p1
+
+    check-cast v1, Landroidx/preference/SwitchPreference;
+
+    invoke-static {v0, v1}, Lcom/android/settingslib/core/instrumentation/SettingsJankMonitor;->detectSwitchPreferenceClickJank(Landroidx/recyclerview/widget/RecyclerView;Landroidx/preference/SwitchPreference;)V
+
+    :cond_0
+    invoke-virtual {p0, p1}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->onPreferenceTreeClick(Landroidx/preference/Preference;)Z
+
+    move-result p0
+
+    return p0
 .end method
 
 .method private updateActivityTitleWithScreenTitle(Landroidx/preference/PreferenceScreen;)V
@@ -295,7 +330,7 @@
 
     const/4 v3, 0x0
 
-    invoke-direct {v1, v2, v3}, Lcom/android/settings/core/InstrumentedPreferenceFragment$OnScrollListener;-><init>(Ljava/lang/String;Lcom/android/settings/core/InstrumentedPreferenceFragment$1;)V
+    invoke-direct {v1, v2, v3}, Lcom/android/settings/core/InstrumentedPreferenceFragment$OnScrollListener;-><init>(Ljava/lang/String;Lcom/android/settings/core/InstrumentedPreferenceFragment$OnScrollListener-IA;)V
 
     iput-object v1, p0, Lcom/android/settings/core/InstrumentedPreferenceFragment;->mOnScrollListener:Landroidx/recyclerview/widget/RecyclerView$OnScrollListener;
 
@@ -303,6 +338,24 @@
 
     :cond_0
     invoke-super {p0}, Lcom/android/settingslib/core/lifecycle/ObservablePreferenceFragment;->onResume()V
+
+    return-void
+.end method
+
+.method public onStart()V
+    .locals 2
+
+    invoke-super {p0}, Lcom/android/settingslib/core/lifecycle/ObservablePreferenceFragment;->onStart()V
+
+    invoke-virtual {p0}, Landroidx/preference/PreferenceFragmentCompat;->getPreferenceManager()Landroidx/preference/PreferenceManager;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/android/settings/core/InstrumentedPreferenceFragment$$ExternalSyntheticLambda0;
+
+    invoke-direct {v1, p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/core/InstrumentedPreferenceFragment;)V
+
+    invoke-virtual {v0, v1}, Landroidx/preference/PreferenceManager;->setOnPreferenceTreeClickListener(Landroidx/preference/PreferenceManager$OnPreferenceTreeClickListener;)V
 
     return-void
 .end method

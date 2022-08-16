@@ -248,7 +248,7 @@
 
     move-result-object v1
 
-    const v4, 0x7f041285
+    const v4, 0x7f04133f
 
     if-nez v1, :cond_0
 
@@ -314,7 +314,7 @@
 
     invoke-direct {v4, v0}, Landroidx/appcompat/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v5, 0x7f04125a
+    const v5, 0x7f041314
 
     new-array v6, v3, [Ljava/lang/Object;
 
@@ -330,7 +330,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f041258
+    const v5, 0x7f041312
 
     const/4 v6, 0x2
 
@@ -348,7 +348,7 @@
 
     move-result-object v1
 
-    const v4, 0x7f041259
+    const v4, 0x7f041313
 
     new-array v3, v3, [Ljava/lang/Object;
 
@@ -362,7 +362,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f040564
+    const p1, 0x7f0405c1
 
     invoke-virtual {p0, p1, v2}, Landroidx/appcompat/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 
@@ -402,7 +402,7 @@
 
     invoke-direct {p1, v0}, Landroidx/appcompat/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v0, 0x7f040740
+    const v0, 0x7f040785
 
     invoke-virtual {p1, v0}, Landroidx/appcompat/app/AlertDialog$Builder;->setMessage(I)Landroidx/appcompat/app/AlertDialog$Builder;
 

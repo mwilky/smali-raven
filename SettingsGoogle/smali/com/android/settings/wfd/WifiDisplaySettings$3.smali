@@ -36,17 +36,17 @@
 
     iget-object v0, p0, Lcom/android/settings/wfd/WifiDisplaySettings$3;->this$0:Lcom/android/settings/wfd/WifiDisplaySettings;
 
-    invoke-static {v0}, Lcom/android/settings/wfd/WifiDisplaySettings;->access$300(Lcom/android/settings/wfd/WifiDisplaySettings;)Z
+    invoke-static {v0}, Lcom/android/settings/wfd/WifiDisplaySettings;->-$$Nest$fgetmAutoGO(Lcom/android/settings/wfd/WifiDisplaySettings;)Z
 
     move-result v1
 
     xor-int/lit8 v1, v1, 0x1
 
-    invoke-static {v0, v1}, Lcom/android/settings/wfd/WifiDisplaySettings;->access$302(Lcom/android/settings/wfd/WifiDisplaySettings;Z)Z
+    invoke-static {v0, v1}, Lcom/android/settings/wfd/WifiDisplaySettings;->-$$Nest$fputmAutoGO(Lcom/android/settings/wfd/WifiDisplaySettings;Z)V
 
     iget-object v0, p0, Lcom/android/settings/wfd/WifiDisplaySettings$3;->this$0:Lcom/android/settings/wfd/WifiDisplaySettings;
 
-    invoke-static {v0}, Lcom/android/settings/wfd/WifiDisplaySettings;->access$300(Lcom/android/settings/wfd/WifiDisplaySettings;)Z
+    invoke-static {v0}, Lcom/android/settings/wfd/WifiDisplaySettings;->-$$Nest$fgetmAutoGO(Lcom/android/settings/wfd/WifiDisplaySettings;)Z
 
     move-result v0
 
@@ -54,19 +54,19 @@
 
     iget-object v0, p0, Lcom/android/settings/wfd/WifiDisplaySettings$3;->this$0:Lcom/android/settings/wfd/WifiDisplaySettings;
 
-    invoke-static {v0}, Lcom/android/settings/wfd/WifiDisplaySettings;->access$400(Lcom/android/settings/wfd/WifiDisplaySettings;)V
+    invoke-static {v0}, Lcom/android/settings/wfd/WifiDisplaySettings;->-$$Nest$mstartAutoGO(Lcom/android/settings/wfd/WifiDisplaySettings;)V
 
     goto :goto_0
 
     :cond_0
     iget-object v0, p0, Lcom/android/settings/wfd/WifiDisplaySettings$3;->this$0:Lcom/android/settings/wfd/WifiDisplaySettings;
 
-    invoke-static {v0}, Lcom/android/settings/wfd/WifiDisplaySettings;->access$500(Lcom/android/settings/wfd/WifiDisplaySettings;)V
+    invoke-static {v0}, Lcom/android/settings/wfd/WifiDisplaySettings;->-$$Nest$mstopAutoGO(Lcom/android/settings/wfd/WifiDisplaySettings;)V
 
     :goto_0
     iget-object v0, p0, Lcom/android/settings/wfd/WifiDisplaySettings$3;->this$0:Lcom/android/settings/wfd/WifiDisplaySettings;
 
-    invoke-static {v0}, Lcom/android/settings/wfd/WifiDisplaySettings;->access$300(Lcom/android/settings/wfd/WifiDisplaySettings;)Z
+    invoke-static {v0}, Lcom/android/settings/wfd/WifiDisplaySettings;->-$$Nest$fgetmAutoGO(Lcom/android/settings/wfd/WifiDisplaySettings;)Z
 
     move-result v0
 

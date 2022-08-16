@@ -27,6 +27,14 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$monLogdSizeSettingUpdate(Lcom/android/settingslib/development/AbstractLogpersistPreferenceController;Ljava/lang/String;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settingslib/development/AbstractLogpersistPreferenceController;->onLogdSizeSettingUpdate(Ljava/lang/String;)V
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
     .locals 0
 
@@ -49,14 +57,6 @@
     invoke-virtual {p2, p0}, Lcom/android/settingslib/core/lifecycle/Lifecycle;->addObserver(Landroidx/lifecycle/LifecycleObserver;)V
 
     :cond_0
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settingslib/development/AbstractLogpersistPreferenceController;Ljava/lang/String;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settingslib/development/AbstractLogpersistPreferenceController;->onLogdSizeSettingUpdate(Ljava/lang/String;)V
-
     return-void
 .end method
 
@@ -140,7 +140,7 @@
 
     if-eqz v0, :cond_0
 
-    const-string v0, "select_logpersist"
+    const-string/jumbo v0, "select_logpersist"
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceGroup;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -157,7 +157,7 @@
 .method public getPreferenceKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "select_logpersist"
+    const-string/jumbo p0, "select_logpersist"
 
     return-object p0
 .end method
@@ -165,7 +165,7 @@
 .method public isAvailable()Z
     .locals 1
 
-    const-string p0, "ro.debuggable"
+    const-string/jumbo p0, "ro.debuggable"
 
     const-string v0, "0"
 
@@ -394,7 +394,7 @@
 
     if-nez v3, :cond_6
 
-    const-string v3, "radio"
+    const-string/jumbo v3, "radio"
 
     invoke-virtual {v2, v3}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
@@ -402,7 +402,7 @@
 
     if-nez v3, :cond_6
 
-    const-string v3, "security"
+    const-string/jumbo v3, "security"
 
     invoke-virtual {v2, v3}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 

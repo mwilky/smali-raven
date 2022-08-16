@@ -1,31 +1,22 @@
 .class public final synthetic Lcom/android/settings/biometrics/face/FaceEnrollAccessibilityDialog$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/content/DialogInterface$OnClickListener;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/settings/biometrics/face/FaceEnrollAccessibilityDialog$$ExternalSyntheticLambda1;
+# instance fields
+.field public final synthetic f$0:Lcom/android/settings/biometrics/face/FaceEnrollAccessibilityDialog;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/settings/biometrics/face/FaceEnrollAccessibilityDialog$$ExternalSyntheticLambda1;
-
-    invoke-direct {v0}, Lcom/android/settings/biometrics/face/FaceEnrollAccessibilityDialog$$ExternalSyntheticLambda1;-><init>()V
-
-    sput-object v0, Lcom/android/settings/biometrics/face/FaceEnrollAccessibilityDialog$$ExternalSyntheticLambda1;->INSTANCE:Lcom/android/settings/biometrics/face/FaceEnrollAccessibilityDialog$$ExternalSyntheticLambda1;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Lcom/android/settings/biometrics/face/FaceEnrollAccessibilityDialog;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/settings/biometrics/face/FaceEnrollAccessibilityDialog$$ExternalSyntheticLambda1;->f$0:Lcom/android/settings/biometrics/face/FaceEnrollAccessibilityDialog;
 
     return-void
 .end method
@@ -35,7 +26,9 @@
 .method public final onClick(Landroid/content/DialogInterface;I)V
     .locals 0
 
-    invoke-static {p1, p2}, Lcom/android/settings/biometrics/face/FaceEnrollAccessibilityDialog;->$r8$lambda$lYJoDERz04dbs9BeOT11VPQYIgw(Landroid/content/DialogInterface;I)V
+    iget-object p0, p0, Lcom/android/settings/biometrics/face/FaceEnrollAccessibilityDialog$$ExternalSyntheticLambda1;->f$0:Lcom/android/settings/biometrics/face/FaceEnrollAccessibilityDialog;
+
+    invoke-static {p0, p1, p2}, Lcom/android/settings/biometrics/face/FaceEnrollAccessibilityDialog;->$r8$lambda$9fCMm-bIWRpq-1bGlVgVbN22B3E(Lcom/android/settings/biometrics/face/FaceEnrollAccessibilityDialog;Landroid/content/DialogInterface;I)V
 
     return-void
 .end method

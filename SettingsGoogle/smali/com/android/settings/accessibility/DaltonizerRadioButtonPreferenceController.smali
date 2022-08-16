@@ -4,7 +4,7 @@
 
 # interfaces
 .implements Landroidx/lifecycle/LifecycleObserver;
-.implements Lcom/android/settingslib/widget/RadioButtonPreference$OnClickListener;
+.implements Lcom/android/settingslib/widget/SelectorWithWidgetPreference$OnClickListener;
 
 
 # annotations
@@ -37,7 +37,7 @@
 
 .field private mOnChangeListener:Lcom/android/settings/accessibility/DaltonizerRadioButtonPreferenceController$OnChangeListener;
 
-.field private mPreference:Lcom/android/settingslib/widget/RadioButtonPreference;
+.field private mPreference:Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
 .field private final mResources:Landroid/content/res/Resources;
 
@@ -136,7 +136,7 @@
 
     iget-object v0, p0, Lcom/android/settings/accessibility/DaltonizerRadioButtonPreferenceController;->mResources:Landroid/content/res/Resources;
 
-    const v1, 0x7f010070
+    const v1, 0x7f010075
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -144,7 +144,7 @@
 
     iget-object v1, p0, Lcom/android/settings/accessibility/DaltonizerRadioButtonPreferenceController;->mResources:Landroid/content/res/Resources;
 
-    const v2, 0x7f010072
+    const v2, 0x7f010077
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getIntArray(I)[I
 
@@ -232,14 +232,6 @@
 
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public displayPreference(Landroidx/preference/PreferenceScreen;)V
     .locals 1
 
@@ -253,19 +245,19 @@
 
     move-result-object p1
 
-    check-cast p1, Lcom/android/settingslib/widget/RadioButtonPreference;
+    check-cast p1, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
-    iput-object p1, p0, Lcom/android/settings/accessibility/DaltonizerRadioButtonPreferenceController;->mPreference:Lcom/android/settingslib/widget/RadioButtonPreference;
+    iput-object p1, p0, Lcom/android/settings/accessibility/DaltonizerRadioButtonPreferenceController;->mPreference:Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
-    invoke-virtual {p1, p0}, Lcom/android/settingslib/widget/RadioButtonPreference;->setOnClickListener(Lcom/android/settingslib/widget/RadioButtonPreference$OnClickListener;)V
+    invoke-virtual {p1, p0}, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;->setOnClickListener(Lcom/android/settingslib/widget/SelectorWithWidgetPreference$OnClickListener;)V
 
-    iget-object p1, p0, Lcom/android/settings/accessibility/DaltonizerRadioButtonPreferenceController;->mPreference:Lcom/android/settingslib/widget/RadioButtonPreference;
+    iget-object p1, p0, Lcom/android/settings/accessibility/DaltonizerRadioButtonPreferenceController;->mPreference:Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     const/16 v0, 0x8
 
-    invoke-virtual {p1, v0}, Lcom/android/settingslib/widget/RadioButtonPreference;->setAppendixVisibility(I)V
+    invoke-virtual {p1, v0}, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;->setAppendixVisibility(I)V
 
-    iget-object p1, p0, Lcom/android/settings/accessibility/DaltonizerRadioButtonPreferenceController;->mPreference:Lcom/android/settingslib/widget/RadioButtonPreference;
+    iget-object p1, p0, Lcom/android/settings/accessibility/DaltonizerRadioButtonPreferenceController;->mPreference:Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     invoke-virtual {p0, p1}, Lcom/android/settings/accessibility/DaltonizerRadioButtonPreferenceController;->updateState(Landroidx/preference/Preference;)V
 
@@ -282,15 +274,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -329,16 +312,6 @@
     return p0
 .end method
 
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
-
-    move-result p0
-
-    return p0
-.end method
-
 .method public bridge synthetic isPublicSlice()Z
     .locals 0
 
@@ -359,7 +332,7 @@
     return p0
 .end method
 
-.method public onRadioButtonClicked(Lcom/android/settingslib/widget/RadioButtonPreference;)V
+.method public onRadioButtonClicked(Lcom/android/settingslib/widget/SelectorWithWidgetPreference;)V
     .locals 1
 
     invoke-direct {p0}, Lcom/android/settings/accessibility/DaltonizerRadioButtonPreferenceController;->getDaltonizerValueToKeyMap()Ljava/util/Map;
@@ -388,7 +361,7 @@
 
     if-eqz p1, :cond_0
 
-    iget-object p0, p0, Lcom/android/settings/accessibility/DaltonizerRadioButtonPreferenceController;->mPreference:Lcom/android/settingslib/widget/RadioButtonPreference;
+    iget-object p0, p0, Lcom/android/settings/accessibility/DaltonizerRadioButtonPreferenceController;->mPreference:Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     invoke-interface {p1, p0}, Lcom/android/settings/accessibility/DaltonizerRadioButtonPreferenceController$OnChangeListener;->onCheckedChanged(Landroidx/preference/Preference;)V
 
@@ -411,7 +384,7 @@
 
     if-ne v0, p1, :cond_0
 
-    iget-object p0, p0, Lcom/android/settings/accessibility/DaltonizerRadioButtonPreferenceController;->mPreference:Lcom/android/settingslib/widget/RadioButtonPreference;
+    iget-object p0, p0, Lcom/android/settings/accessibility/DaltonizerRadioButtonPreferenceController;->mPreference:Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     const/4 p1, 0x1
 
@@ -432,7 +405,7 @@
 
     iput p1, p0, Lcom/android/settings/accessibility/DaltonizerRadioButtonPreferenceController;->mAccessibilityDaltonizerValue:I
 
-    iget-object p1, p0, Lcom/android/settings/accessibility/DaltonizerRadioButtonPreferenceController;->mPreference:Lcom/android/settingslib/widget/RadioButtonPreference;
+    iget-object p1, p0, Lcom/android/settings/accessibility/DaltonizerRadioButtonPreferenceController;->mPreference:Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     const/4 v0, 0x0
 
@@ -442,7 +415,7 @@
 
     move-result-object p1
 
-    iget-object v0, p0, Lcom/android/settings/accessibility/DaltonizerRadioButtonPreferenceController;->mPreference:Lcom/android/settingslib/widget/RadioButtonPreference;
+    iget-object v0, p0, Lcom/android/settings/accessibility/DaltonizerRadioButtonPreferenceController;->mPreference:Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     invoke-virtual {v0}, Landroidx/preference/Preference;->getKey()Ljava/lang/String;
 

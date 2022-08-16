@@ -414,11 +414,9 @@
 
     if-eqz p2, :cond_0
 
-    aget-object p2, p1, p0
-
-    if-eqz p2, :cond_0
-
     aget-object p0, p1, p0
+
+    if-eqz p0, :cond_0
 
     return-object p0
 

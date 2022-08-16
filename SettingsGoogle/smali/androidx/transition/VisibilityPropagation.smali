@@ -118,8 +118,6 @@
 
     aput v3, v1, v2
 
-    aget v3, v1, v2
-
     invoke-virtual {p0}, Landroid/view/View;->getWidth()I
 
     move-result v4
@@ -145,8 +143,6 @@
     add-int/2addr v3, v4
 
     aput v3, v1, v2
-
-    aget v3, v1, v2
 
     invoke-virtual {p0}, Landroid/view/View;->getHeight()I
 

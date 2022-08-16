@@ -6,6 +6,5 @@
     <SwitchPreference android:title="@string/assist_access_context_title" android:key="context" android:summary="@string/assist_access_context_summary" />
     <SwitchPreference android:title="@string/assist_access_screenshot_title" android:key="screenshot" android:summary="@string/assist_access_screenshot_summary" />
     <SwitchPreference android:title="@string/assist_flash_title" android:key="flash" android:summary="@string/assist_flash_summary" />
-    <com.android.settings.widget.GearPreference android:title="@string/voice_input_settings_title" android:key="voice_input_settings" android:fragment="com.android.settings.applications.assist.DefaultVoiceInputPicker" />
     <com.android.settingslib.widget.FooterPreference android:title="@string/assist_footer" android:selectable="false" android:key="manage_assist_footer" settings:searchable="false" />
 </PreferenceScreen>

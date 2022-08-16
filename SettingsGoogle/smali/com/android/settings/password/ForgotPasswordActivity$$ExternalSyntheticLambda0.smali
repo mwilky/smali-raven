@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/settings/password/ForgotPasswordActivity$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/view/View$OnClickListener;
+.implements Ljava/util/function/Supplier;
 
 
 # instance fields
@@ -22,12 +23,14 @@
 
 
 # virtual methods
-.method public final onClick(Landroid/view/View;)V
+.method public final get()Ljava/lang/Object;
     .locals 0
 
     iget-object p0, p0, Lcom/android/settings/password/ForgotPasswordActivity$$ExternalSyntheticLambda0;->f$0:Lcom/android/settings/password/ForgotPasswordActivity;
 
-    invoke-static {p0, p1}, Lcom/android/settings/password/ForgotPasswordActivity;->$r8$lambda$h49_gYglV8vQisVrpVwIkYlc3Gc(Lcom/android/settings/password/ForgotPasswordActivity;Landroid/view/View;)V
+    invoke-static {p0}, Lcom/android/settings/password/ForgotPasswordActivity;->$r8$lambda$9XpDHs6pjtp3eP5bbzvjqXvvevE(Lcom/android/settings/password/ForgotPasswordActivity;)Ljava/lang/String;
 
-    return-void
+    move-result-object p0
+
+    return-object p0
 .end method

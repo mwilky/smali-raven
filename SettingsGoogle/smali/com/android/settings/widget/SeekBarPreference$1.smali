@@ -44,7 +44,7 @@
 
     iget-object v0, p0, Lcom/android/settings/widget/SeekBarPreference$1;->this$0:Lcom/android/settings/widget/SeekBarPreference;
 
-    invoke-static {v0}, Lcom/android/settings/widget/SeekBarPreference;->access$000(Lcom/android/settings/widget/SeekBarPreference;)I
+    invoke-static {v0}, Lcom/android/settings/widget/SeekBarPreference;->-$$Nest$fgetmAccessibilityRangeInfoType(Lcom/android/settings/widget/SeekBarPreference;)I
 
     move-result v0
 
@@ -69,7 +69,7 @@
     :cond_0
     iget-object p1, p0, Lcom/android/settings/widget/SeekBarPreference$1;->this$0:Lcom/android/settings/widget/SeekBarPreference;
 
-    invoke-static {p1}, Lcom/android/settings/widget/SeekBarPreference;->access$100(Lcom/android/settings/widget/SeekBarPreference;)Ljava/lang/CharSequence;
+    invoke-static {p1}, Lcom/android/settings/widget/SeekBarPreference;->-$$Nest$fgetmOverrideSeekBarStateDescription(Lcom/android/settings/widget/SeekBarPreference;)Ljava/lang/CharSequence;
 
     move-result-object p1
 
@@ -77,7 +77,7 @@
 
     iget-object p0, p0, Lcom/android/settings/widget/SeekBarPreference$1;->this$0:Lcom/android/settings/widget/SeekBarPreference;
 
-    invoke-static {p0}, Lcom/android/settings/widget/SeekBarPreference;->access$100(Lcom/android/settings/widget/SeekBarPreference;)Ljava/lang/CharSequence;
+    invoke-static {p0}, Lcom/android/settings/widget/SeekBarPreference;->-$$Nest$fgetmOverrideSeekBarStateDescription(Lcom/android/settings/widget/SeekBarPreference;)Ljava/lang/CharSequence;
 
     move-result-object p0
 

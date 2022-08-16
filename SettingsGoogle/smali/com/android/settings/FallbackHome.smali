@@ -8,6 +8,8 @@
 
 .field private mHandler:Landroid/os/Handler;
 
+.field private mProgressTimeout:I
+
 .field private final mProgressTimeoutRunnable:Ljava/lang/Runnable;
 
 .field private mProvisioned:Z
@@ -24,6 +26,40 @@
     invoke-direct {p0}, Lcom/android/settings/FallbackHome;->lambda$new$0()V
 
     return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmColorsChangedListener(Lcom/android/settings/FallbackHome;)Landroid/app/WallpaperManager$OnColorsChangedListener;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/FallbackHome;->mColorsChangedListener:Landroid/app/WallpaperManager$OnColorsChangedListener;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmWallManager(Lcom/android/settings/FallbackHome;)Landroid/app/WallpaperManager;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/FallbackHome;->mWallManager:Landroid/app/WallpaperManager;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$mmaybeFinish(Lcom/android/settings/FallbackHome;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/FallbackHome;->maybeFinish()V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mupdateVisibilityFlagsFromColors(Lcom/android/settings/FallbackHome;Landroid/app/WallpaperColors;I)I
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/settings/FallbackHome;->updateVisibilityFlagsFromColors(Landroid/app/WallpaperColors;I)I
+
+    move-result p0
+
+    return p0
 .end method
 
 .method public constructor <init>()V
@@ -58,40 +94,6 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/settings/FallbackHome;Landroid/app/WallpaperColors;I)I
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/settings/FallbackHome;->updateVisibilityFlagsFromColors(Landroid/app/WallpaperColors;I)I
-
-    move-result p0
-
-    return p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/FallbackHome;)Landroid/app/WallpaperManager;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/FallbackHome;->mWallManager:Landroid/app/WallpaperManager;
-
-    return-object p0
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/FallbackHome;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/FallbackHome;->maybeFinish()V
-
-    return-void
-.end method
-
-.method static synthetic access$300(Lcom/android/settings/FallbackHome;)Landroid/app/WallpaperManager$OnColorsChangedListener;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/FallbackHome;->mColorsChangedListener:Landroid/app/WallpaperManager$OnColorsChangedListener;
-
-    return-object p0
-.end method
-
 .method private synthetic lambda$new$0()V
     .locals 3
 
@@ -99,7 +101,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0600ea
+    const v1, 0x7f0600ed
 
     const/4 v2, 0x0
 
@@ -293,28 +295,45 @@
 
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
+    invoke-virtual {p0}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p1
+
+    const v0, 0x10e00be
+
+    invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getInteger(I)I
+
+    move-result p1
+
+    iput p1, p0, Lcom/android/settings/FallbackHome;->mProgressTimeout:I
+
+    const/4 v0, 0x0
+
+    if-gtz p1, :cond_0
+
+    iput v0, p0, Lcom/android/settings/FallbackHome;->mProgressTimeout:I
+
+    :cond_0
     invoke-virtual {p0}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object p1
 
-    const-string v0, "device_provisioned"
+    const-string v1, "device_provisioned"
 
-    const/4 v1, 0x0
-
-    invoke-static {p1, v0, v1}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {p1, v1, v0}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    :cond_0
-    iput-boolean v1, p0, Lcom/android/settings/FallbackHome;->mProvisioned:Z
+    :cond_1
+    iput-boolean v0, p0, Lcom/android/settings/FallbackHome;->mProvisioned:Z
 
-    if-nez v1, :cond_1
+    if-nez v0, :cond_2
 
-    const p1, 0x7f13012f
+    const p1, 0x7f13015e
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->setTheme(I)V
 
@@ -322,7 +341,7 @@
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     const/16 p1, 0x600
 
     :goto_0
@@ -336,7 +355,7 @@
 
     iput-object v0, p0, Lcom/android/settings/FallbackHome;->mWallManager:Landroid/app/WallpaperManager;
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_3
 
     const-string v0, "FallbackHome"
 
@@ -346,7 +365,7 @@
 
     goto :goto_1
 
-    :cond_2
+    :cond_3
     invoke-direct {p0, p1}, Lcom/android/settings/FallbackHome;->loadWallpaperColors(I)V
 
     :goto_1
@@ -411,7 +430,7 @@
 .end method
 
 .method protected onResume()V
-    .locals 3
+    .locals 4
 
     invoke-super {p0}, Landroid/app/Activity;->onResume()V
 
@@ -421,11 +440,13 @@
 
     iget-object v0, p0, Lcom/android/settings/FallbackHome;->mHandler:Landroid/os/Handler;
 
-    iget-object p0, p0, Lcom/android/settings/FallbackHome;->mProgressTimeoutRunnable:Ljava/lang/Runnable;
+    iget-object v1, p0, Lcom/android/settings/FallbackHome;->mProgressTimeoutRunnable:Ljava/lang/Runnable;
 
-    const-wide/16 v1, 0x7d0
+    iget p0, p0, Lcom/android/settings/FallbackHome;->mProgressTimeout:I
 
-    invoke-virtual {v0, p0, v1, v2}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+    int-to-long v2, p0
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
     :cond_0
     return-void

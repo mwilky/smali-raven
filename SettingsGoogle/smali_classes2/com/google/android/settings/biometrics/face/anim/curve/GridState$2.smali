@@ -44,11 +44,11 @@
 
     const/4 v0, 0x0
 
-    invoke-static {p1, v0}, Lcom/google/android/settings/biometrics/face/anim/curve/GridState;->access$002(Lcom/google/android/settings/biometrics/face/anim/curve/GridState;I)I
+    invoke-static {p1, v0}, Lcom/google/android/settings/biometrics/face/anim/curve/GridState;->-$$Nest$fputmState(Lcom/google/android/settings/biometrics/face/anim/curve/GridState;I)V
 
     iget-object p1, p0, Lcom/google/android/settings/biometrics/face/anim/curve/GridState$2;->this$0:Lcom/google/android/settings/biometrics/face/anim/curve/GridState;
 
-    invoke-static {p1}, Lcom/google/android/settings/biometrics/face/anim/curve/GridState;->access$100(Lcom/google/android/settings/biometrics/face/anim/curve/GridState;)Landroid/os/Handler;
+    invoke-static {p1}, Lcom/google/android/settings/biometrics/face/anim/curve/GridState;->-$$Nest$fgetmHandler(Lcom/google/android/settings/biometrics/face/anim/curve/GridState;)Landroid/os/Handler;
 
     move-result-object p1
 

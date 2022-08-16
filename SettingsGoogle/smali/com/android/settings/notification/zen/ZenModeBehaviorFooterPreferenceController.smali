@@ -66,7 +66,7 @@
 
     const/4 v3, 0x1
 
-    const v4, 0x7f0417e2
+    const v4, 0x7f0418dd
 
     if-eqz v1, :cond_1
 
@@ -113,7 +113,7 @@
     :cond_0
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f041852
+    const v0, 0x7f041950
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -182,7 +182,7 @@
     :cond_3
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f04189e
+    const v0, 0x7f04199c
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

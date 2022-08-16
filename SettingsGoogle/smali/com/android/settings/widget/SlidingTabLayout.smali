@@ -29,6 +29,30 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmTitleView(Lcom/android/settings/widget/SlidingTabLayout;)Landroid/widget/LinearLayout;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/widget/SlidingTabLayout;->mTitleView:Landroid/widget/LinearLayout;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmViewPager(Lcom/android/settings/widget/SlidingTabLayout;)Lcom/android/settings/widget/RtlCompatibleViewPager;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/widget/SlidingTabLayout;->mViewPager:Lcom/android/settings/widget/RtlCompatibleViewPager;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$monViewPagerPageChanged(Lcom/android/settings/widget/SlidingTabLayout;IF)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/settings/widget/SlidingTabLayout;->onViewPagerPageChanged(IF)V
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 2
 
@@ -50,7 +74,7 @@
 
     invoke-virtual {v0, p1}, Landroid/widget/LinearLayout;->setGravity(I)V
 
-    const p1, 0x7f06021d
+    const p1, 0x7f06022b
 
     const/4 v1, 0x0
 
@@ -73,30 +97,6 @@
     invoke-virtual {p0, p1, p2}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
     return-void
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/widget/SlidingTabLayout;)Landroid/widget/LinearLayout;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/widget/SlidingTabLayout;->mTitleView:Landroid/widget/LinearLayout;
-
-    return-object p0
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/widget/SlidingTabLayout;IF)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/settings/widget/SlidingTabLayout;->onViewPagerPageChanged(IF)V
-
-    return-void
-.end method
-
-.method static synthetic access$300(Lcom/android/settings/widget/SlidingTabLayout;)Lcom/android/settings/widget/RtlCompatibleViewPager;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/widget/SlidingTabLayout;->mViewPager:Lcom/android/settings/widget/RtlCompatibleViewPager;
-
-    return-object p0
 .end method
 
 .method private getIndicatorLeft()I
@@ -248,7 +248,7 @@
 
     iget-object v3, p0, Lcom/android/settings/widget/SlidingTabLayout;->mLayoutInflater:Landroid/view/LayoutInflater;
 
-    const v4, 0x7f06021e
+    const v4, 0x7f06022c
 
     iget-object v5, p0, Lcom/android/settings/widget/SlidingTabLayout;->mTitleView:Landroid/widget/LinearLayout;
 
@@ -480,7 +480,7 @@
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, p0, v1}, Lcom/android/settings/widget/SlidingTabLayout$InternalViewPagerListener;-><init>(Lcom/android/settings/widget/SlidingTabLayout;Lcom/android/settings/widget/SlidingTabLayout$1;)V
+    invoke-direct {v0, p0, v1}, Lcom/android/settings/widget/SlidingTabLayout$InternalViewPagerListener;-><init>(Lcom/android/settings/widget/SlidingTabLayout;Lcom/android/settings/widget/SlidingTabLayout$InternalViewPagerListener-IA;)V
 
     invoke-virtual {p1, v0}, Landroidx/viewpager/widget/ViewPager;->addOnPageChangeListener(Landroidx/viewpager/widget/ViewPager$OnPageChangeListener;)V
 

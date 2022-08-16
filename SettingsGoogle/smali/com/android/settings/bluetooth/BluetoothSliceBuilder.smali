@@ -57,7 +57,7 @@
 .method public static getIntent(Landroid/content/Context;)Landroid/content/Intent;
     .locals 7
 
-    const v0, 0x7f040500
+    const v0, 0x7f040559
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -91,7 +91,7 @@
 
     const/16 v5, 0x2eb
 
-    const v6, 0x7f040d06
+    const v6, 0x7f040d81
 
     move-object v1, p0
 
@@ -145,13 +145,13 @@
 
     move-result v0
 
-    const v1, 0x7f0404fe
+    const v1, 0x7f040557
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v1
 
-    const v2, 0x1080533
+    const v2, 0x108053f
 
     invoke-static {p0, v2}, Landroidx/core/graphics/drawable/IconCompat;->createWithResource(Landroid/content/Context;I)Landroidx/core/graphics/drawable/IconCompat;
 

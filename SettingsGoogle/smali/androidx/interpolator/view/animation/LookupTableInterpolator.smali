@@ -6,18 +6,6 @@
 # direct methods
 .method static interpolate([FFF)F
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "values",
-            "stepSize",
-            "input"
-        }
-    .end annotation
 
     const/high16 v0, 0x3f800000    # 1.0f
 
@@ -65,15 +53,13 @@
 
     aget p1, p0, v0
 
-    add-int/lit8 v1, v0, 0x1
-
-    aget v1, p0, v1
+    add-int/lit8 v0, v0, 0x1
 
     aget p0, p0, v0
 
-    sub-float/2addr v1, p0
+    sub-float/2addr p0, p1
 
-    mul-float/2addr p2, v1
+    mul-float/2addr p2, p0
 
     add-float/2addr p1, p2
 

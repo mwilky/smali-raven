@@ -40,7 +40,7 @@
 
     const/4 v5, 0x3
 
-    const v6, 0x7f06008d
+    const v6, 0x7f060098
 
     invoke-direct {v4, v5, v6, v3, v0}, Lcom/android/settings/homepage/contextualcards/ContextualCardLookupTable$ControllerRendererMapping;-><init>(IILjava/lang/Class;Ljava/lang/Class;)V
 
@@ -48,7 +48,7 @@
 
     new-instance v4, Lcom/android/settings/homepage/contextualcards/ContextualCardLookupTable$ControllerRendererMapping;
 
-    const v6, 0x7f06008c
+    const v6, 0x7f060097
 
     invoke-direct {v4, v5, v6, v3, v0}, Lcom/android/settings/homepage/contextualcards/ContextualCardLookupTable$ControllerRendererMapping;-><init>(IILjava/lang/Class;Ljava/lang/Class;)V
 
@@ -62,7 +62,7 @@
 
     const/4 v6, 0x2
 
-    const v7, 0x7f060116
+    const v7, 0x7f06011b
 
     invoke-direct {v0, v6, v7, v4, v5}, Lcom/android/settings/homepage/contextualcards/ContextualCardLookupTable$ControllerRendererMapping;-><init>(IILjava/lang/Class;Ljava/lang/Class;)V
 
@@ -72,7 +72,7 @@
 
     const/4 v4, 0x1
 
-    const v5, 0x7f06009a
+    const v5, 0x7f0600a4
 
     invoke-direct {v0, v4, v5, v2, v1}, Lcom/android/settings/homepage/contextualcards/ContextualCardLookupTable$ControllerRendererMapping;-><init>(IILjava/lang/Class;Ljava/lang/Class;)V
 
@@ -80,7 +80,7 @@
 
     new-instance v0, Lcom/android/settings/homepage/contextualcards/ContextualCardLookupTable$ControllerRendererMapping;
 
-    const v5, 0x7f06009b
+    const v5, 0x7f0600a5
 
     invoke-direct {v0, v4, v5, v2, v1}, Lcom/android/settings/homepage/contextualcards/ContextualCardLookupTable$ControllerRendererMapping;-><init>(IILjava/lang/Class;Ljava/lang/Class;)V
 
@@ -88,7 +88,7 @@
 
     new-instance v0, Lcom/android/settings/homepage/contextualcards/ContextualCardLookupTable$ControllerRendererMapping;
 
-    const v5, 0x7f06009c
+    const v5, 0x7f0600a6
 
     invoke-direct {v0, v4, v5, v2, v1}, Lcom/android/settings/homepage/contextualcards/ContextualCardLookupTable$ControllerRendererMapping;-><init>(IILjava/lang/Class;Ljava/lang/Class;)V
 
@@ -100,7 +100,7 @@
 
     const/4 v2, 0x5
 
-    const v4, 0x7f06008b
+    const v4, 0x7f060096
 
     invoke-direct {v0, v2, v4, v3, v1}, Lcom/android/settings/homepage/contextualcards/ContextualCardLookupTable$ControllerRendererMapping;-><init>(IILjava/lang/Class;Ljava/lang/Class;)V
 
@@ -112,7 +112,7 @@
 
     const/4 v2, 0x4
 
-    const v4, 0x7f06008e
+    const v4, 0x7f060099
 
     invoke-direct {v0, v2, v4, v3, v1}, Lcom/android/settings/homepage/contextualcards/ContextualCardLookupTable$ControllerRendererMapping;-><init>(IILjava/lang/Class;Ljava/lang/Class;)V
 

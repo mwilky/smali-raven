@@ -7,11 +7,9 @@
 
 
 # instance fields
-.field private mCarrierConfigManager:Landroid/telephony/CarrierConfigManager;
+.field private mCarrierConfigCache:Lcom/android/settings/network/CarrierConfigCache;
 
 .field private mIsGlobalCdma:Z
-
-.field private mPersistableBundle:Landroid/os/PersistableBundle;
 
 .field private mTelephonyManager:Landroid/telephony/TelephonyManager;
 
@@ -22,15 +20,11 @@
 
     invoke-direct {p0, p1, p2}, Lcom/android/settings/network/telephony/TelephonyBasePreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
-    const-class p2, Landroid/telephony/CarrierConfigManager;
-
-    invoke-virtual {p1, p2}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/android/settings/network/CarrierConfigCache;->getInstance(Landroid/content/Context;)Lcom/android/settings/network/CarrierConfigCache;
 
     move-result-object p1
 
-    check-cast p1, Landroid/telephony/CarrierConfigManager;
-
-    iput-object p1, p0, Lcom/android/settings/network/telephony/PreferredNetworkModePreferenceController;->mCarrierConfigManager:Landroid/telephony/CarrierConfigManager;
+    iput-object p1, p0, Lcom/android/settings/network/telephony/PreferredNetworkModePreferenceController;->mCarrierConfigCache:Lcom/android/settings/network/CarrierConfigCache;
 
     return-void
 .end method
@@ -58,117 +52,117 @@
 .method private getPreferredNetworkModeSummaryResId(I)I
     .locals 2
 
-    const v0, 0x7f040f6a
+    const v0, 0x7f041003
 
     packed-switch p1, :pswitch_data_0
 
     :pswitch_0
-    const p0, 0x7f040f62
+    const p0, 0x7f040ffb
 
     return p0
 
     :pswitch_1
-    const p0, 0x7f040f75
+    const p0, 0x7f04100e
 
     return p0
 
     :pswitch_2
-    const p0, 0x7f040f77
+    const p0, 0x7f041010
 
     return p0
 
     :pswitch_3
-    const p0, 0x7f040f79
+    const p0, 0x7f041012
 
     return p0
 
     :pswitch_4
-    const p0, 0x7f040f76
+    const p0, 0x7f04100f
 
     return p0
 
     :pswitch_5
-    const p0, 0x7f040f78
+    const p0, 0x7f041011
 
     return p0
 
     :pswitch_6
-    const p0, 0x7f040f7a
+    const p0, 0x7f041013
 
     return p0
 
     :pswitch_7
-    const p0, 0x7f040f73
+    const p0, 0x7f04100c
 
     return p0
 
     :pswitch_8
-    const p0, 0x7f040f72
+    const p0, 0x7f04100b
 
     return p0
 
     :pswitch_9
-    const p0, 0x7f040f74
+    const p0, 0x7f04100d
 
     return p0
 
     :pswitch_a
-    const p0, 0x7f040f7b
+    const p0, 0x7f041014
 
     return p0
 
     :pswitch_b
-    const p0, 0x7f040f6b
+    const p0, 0x7f041004
 
     return p0
 
     :pswitch_c
-    const p0, 0x7f040f7d
+    const p0, 0x7f041016
 
     return p0
 
     :pswitch_d
-    const p0, 0x7f040f6d
+    const p0, 0x7f041006
 
     return p0
 
     :pswitch_e
-    const p0, 0x7f040f6f
+    const p0, 0x7f041008
 
     return p0
 
     :pswitch_f
-    const p0, 0x7f040f7f
+    const p0, 0x7f041018
 
     return p0
 
     :pswitch_10
-    const p0, 0x7f040f6c
+    const p0, 0x7f041005
 
     return p0
 
     :pswitch_11
-    const p0, 0x7f040f7e
+    const p0, 0x7f041017
 
     return p0
 
     :pswitch_12
-    const p0, 0x7f040f6e
+    const p0, 0x7f041007
 
     return p0
 
     :pswitch_13
-    const p0, 0x7f040f81
+    const p0, 0x7f04101a
 
     return p0
 
     :pswitch_14
-    const p0, 0x7f040f80
+    const p0, 0x7f041019
 
     return p0
 
     :pswitch_15
-    const p0, 0x7f040f70
+    const p0, 0x7f041009
 
     return p0
 
@@ -207,32 +201,32 @@
 
     :cond_1
     :goto_0
-    const p0, 0x7f040f65
+    const p0, 0x7f040ffe
 
     return p0
 
     :pswitch_18
-    const p0, 0x7f040f69
+    const p0, 0x7f041002
 
     return p0
 
     :pswitch_19
-    const p0, 0x7f040f66
+    const p0, 0x7f040fff
 
     return p0
 
     :pswitch_1a
-    const p0, 0x7f040f5c
+    const p0, 0x7f040ff5
 
     return p0
 
     :pswitch_1b
-    const p0, 0x7f040f61
+    const p0, 0x7f040ffa
 
     return p0
 
     :pswitch_1c
-    const p0, 0x7f040f5e
+    const p0, 0x7f040ff7
 
     return p0
 
@@ -245,33 +239,33 @@
 
     if-eqz p0, :cond_2
 
-    const p0, 0x7f040f5f
+    const p0, 0x7f040ff8
 
     goto :goto_1
 
     :cond_2
-    const p0, 0x7f040f5d
+    const p0, 0x7f040ff6
 
     :goto_1
     return p0
 
     :pswitch_1e
-    const p0, 0x7f040f64
+    const p0, 0x7f040ffd
 
     return p0
 
     :pswitch_1f
-    const p0, 0x7f040f83
+    const p0, 0x7f04101c
 
     return p0
 
     :pswitch_20
-    const p0, 0x7f040f63
+    const p0, 0x7f040ffc
 
     return p0
 
     :pswitch_21
-    const p0, 0x7f040f84
+    const p0, 0x7f04101d
 
     return p0
 
@@ -316,20 +310,12 @@
 
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public getAvailabilityStatus(I)I
     .locals 2
 
-    iget-object p0, p0, Lcom/android/settings/network/telephony/PreferredNetworkModePreferenceController;->mCarrierConfigManager:Landroid/telephony/CarrierConfigManager;
+    iget-object p0, p0, Lcom/android/settings/network/telephony/PreferredNetworkModePreferenceController;->mCarrierConfigCache:Lcom/android/settings/network/CarrierConfigCache;
 
-    invoke-virtual {p0, p1}, Landroid/telephony/CarrierConfigManager;->getConfigForSubId(I)Landroid/os/PersistableBundle;
+    invoke-virtual {p0, p1}, Lcom/android/settings/network/CarrierConfigCache;->getConfigForSubId(I)Landroid/os/PersistableBundle;
 
     move-result-object p0
 
@@ -394,15 +380,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -446,9 +423,9 @@
 
     iput p1, p0, Lcom/android/settings/network/telephony/TelephonyBasePreferenceController;->mSubId:I
 
-    iget-object v0, p0, Lcom/android/settings/network/telephony/PreferredNetworkModePreferenceController;->mCarrierConfigManager:Landroid/telephony/CarrierConfigManager;
+    iget-object v0, p0, Lcom/android/settings/network/telephony/PreferredNetworkModePreferenceController;->mCarrierConfigCache:Lcom/android/settings/network/CarrierConfigCache;
 
-    invoke-virtual {v0, p1}, Landroid/telephony/CarrierConfigManager;->getConfigForSubId(I)Landroid/os/PersistableBundle;
+    invoke-virtual {v0, p1}, Lcom/android/settings/network/CarrierConfigCache;->getConfigForSubId(I)Landroid/os/PersistableBundle;
 
     move-result-object p1
 
@@ -495,16 +472,6 @@
     iput-boolean p1, p0, Lcom/android/settings/network/telephony/PreferredNetworkModePreferenceController;->mIsGlobalCdma:Z
 
     return-void
-.end method
-
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
-
-    move-result p0
-
-    return p0
 .end method
 
 .method public bridge synthetic isPublicSlice()Z

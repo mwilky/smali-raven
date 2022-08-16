@@ -7,9 +7,6 @@
 
 
 # annotations
-.annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-.end annotation
-
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "<V:",

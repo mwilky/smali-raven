@@ -25,18 +25,6 @@
 # direct methods
 .method constructor <init>(IIZ)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "posInOwnerList",
-            "currentPos",
-            "removal"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 

@@ -118,7 +118,7 @@
 .end method
 
 .method getDP(D)D
-    .locals 10
+    .locals 8
 
     const-wide/16 v0, 0x0
 
@@ -164,9 +164,9 @@
 
     add-int/lit8 v3, v0, -0x1
 
-    aget v4, v1, v3
+    aget v1, v1, v3
 
-    sub-float/2addr v2, v4
+    sub-float/2addr v2, v1
 
     float-to-double v4, v2
 
@@ -174,19 +174,15 @@
 
     aget-wide v6, p0, v0
 
-    aget-wide v8, p0, v3
+    aget-wide v2, p0, v3
 
-    sub-double/2addr v6, v8
+    sub-double/2addr v6, v2
 
     div-double/2addr v4, v6
 
     mul-double/2addr p1, v4
 
-    aget v0, v1, v3
-
-    float-to-double v0, v0
-
-    aget-wide v2, p0, v3
+    float-to-double v0, v1
 
     mul-double/2addr v4, v2
 
@@ -247,9 +243,9 @@
 
     add-int/lit8 v3, v0, -0x1
 
-    aget v4, v1, v3
+    aget v1, v1, v3
 
-    sub-float/2addr v2, v4
+    sub-float/2addr v2, v1
 
     float-to-double v4, v2
 
@@ -265,35 +261,25 @@
 
     iget-object p0, p0, Landroidx/constraintlayout/motion/utils/Oscillator;->mArea:[D
 
-    aget-wide v6, p0, v3
+    aget-wide v2, p0, v3
 
-    aget p0, v1, v3
+    float-to-double v0, v1
 
-    float-to-double v0, p0
+    mul-double v6, v4, v8
 
-    aget-wide v8, v2, v3
+    sub-double/2addr v0, v6
 
-    mul-double/2addr v8, v4
+    sub-double v6, p1, v8
 
-    sub-double/2addr v0, v8
+    mul-double/2addr v0, v6
 
-    aget-wide v8, v2, v3
-
-    sub-double v8, p1, v8
-
-    mul-double/2addr v0, v8
-
-    add-double/2addr v6, v0
+    add-double/2addr v2, v0
 
     mul-double/2addr p1, p1
 
-    aget-wide v0, v2, v3
+    mul-double/2addr v8, v8
 
-    aget-wide v2, v2, v3
-
-    mul-double/2addr v0, v2
-
-    sub-double/2addr p1, v0
+    sub-double/2addr p1, v8
 
     mul-double/2addr v4, p1
 
@@ -301,7 +287,7 @@
 
     div-double/2addr v4, p0
 
-    add-double v0, v6, v4
+    add-double v0, v2, v4
 
     :cond_3
     :goto_1

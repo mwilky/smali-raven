@@ -21,8 +21,6 @@
 
 .field mPolicyManager:Landroid/net/NetworkPolicyManager;
 
-.field mStatsService:Landroid/net/INetworkStatsService;
-
 .field mSubscriptionManager:Landroid/telephony/SubscriptionManager;
 
 .field mTelephonyManager:Landroid/telephony/TelephonyManager;

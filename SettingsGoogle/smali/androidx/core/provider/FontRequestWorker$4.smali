@@ -33,14 +33,6 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x1010
-        }
-        names = {
-            "val$id"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/core/provider/FontRequestWorker$4;->val$id:Ljava/lang/String;
 
@@ -53,14 +45,6 @@
 # virtual methods
 .method public accept(Landroidx/core/provider/FontRequestWorker$TypefaceResult;)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "typefaceResult"
-        }
-    .end annotation
 
     sget-object v0, Landroidx/core/provider/FontRequestWorker;->LOCK:Ljava/lang/Object;
 
@@ -129,14 +113,6 @@
 
 .method public bridge synthetic accept(Ljava/lang/Object;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x1000
-        }
-        names = {
-            "typefaceResult"
-        }
-    .end annotation
 
     check-cast p1, Landroidx/core/provider/FontRequestWorker$TypefaceResult;
 

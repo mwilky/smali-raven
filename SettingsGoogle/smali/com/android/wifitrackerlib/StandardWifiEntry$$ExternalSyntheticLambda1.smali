@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/wifitrackerlib/StandardWifiEntry$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -27,7 +28,7 @@
 
     iget-object p0, p0, Lcom/android/wifitrackerlib/StandardWifiEntry$$ExternalSyntheticLambda1;->f$0:Lcom/android/wifitrackerlib/WifiEntry$ConnectCallback;
 
-    invoke-static {p0}, Lcom/android/wifitrackerlib/StandardWifiEntry;->$r8$lambda$BNOv0DaeSYrbD4uxWuNPGPtrXFk(Lcom/android/wifitrackerlib/WifiEntry$ConnectCallback;)V
+    invoke-static {p0}, Lcom/android/wifitrackerlib/StandardWifiEntry;->$r8$lambda$Oj8LAlv3oYIR1ZuYJaMh673O0GM(Lcom/android/wifitrackerlib/WifiEntry$ConnectCallback;)V
 
     return-void
 .end method

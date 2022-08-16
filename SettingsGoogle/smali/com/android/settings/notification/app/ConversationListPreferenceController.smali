@@ -6,7 +6,7 @@
 # instance fields
 .field protected final mBackend:Lcom/android/settings/notification/NotificationBackend;
 
-.field protected mConversationComparator:Ljava/util/Comparator;
+.field mConversationComparator:Ljava/util/Comparator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Comparator<",
@@ -16,16 +16,46 @@
     .end annotation
 .end field
 
+.field private mPreferenceGroup:Landroidx/preference/PreferenceGroup;
+
 
 # direct methods
-.method public static synthetic $r8$lambda$Gw_R_yoAMnvV_8YshQuX4ZJpyRo(Lcom/android/settings/notification/app/ConversationListPreferenceController;Landroid/service/notification/ConversationChannelWrapper;Lcom/android/settingslib/widget/AppPreference;Landroidx/preference/Preference;)Z
+.method public static synthetic $r8$lambda$DtzZdJKybrCkHQA0LZrvcq4mwuo(Lcom/android/settings/notification/app/ConversationListPreferenceController;Landroid/service/notification/ConversationChannelWrapper;)Landroidx/preference/Preference;
     .locals 0
 
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/settings/notification/app/ConversationListPreferenceController;->lambda$createConversationPref$0(Landroid/service/notification/ConversationChannelWrapper;Lcom/android/settingslib/widget/AppPreference;Landroidx/preference/Preference;)Z
+    invoke-direct {p0, p1}, Lcom/android/settings/notification/app/ConversationListPreferenceController;->createConversationPref(Landroid/service/notification/ConversationChannelWrapper;)Landroidx/preference/Preference;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static synthetic $r8$lambda$ld4LOOZQxMRXNlMYrIRyx5j8bL8(Lcom/android/settings/notification/app/ConversationListPreferenceController;Landroid/service/notification/ConversationChannelWrapper;)Z
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/notification/app/ConversationListPreferenceController;->lambda$populateConversations$0(Landroid/service/notification/ConversationChannelWrapper;)Z
 
     move-result p0
 
     return p0
+.end method
+
+.method public static synthetic $r8$lambda$tvnNTd5pNCQE-u8YKSNiu_6TTJY(Lcom/android/settings/notification/app/ConversationListPreferenceController;Landroid/service/notification/ConversationChannelWrapper;Lcom/android/settingslib/widget/AppPreference;Landroidx/preference/Preference;)Z
+    .locals 0
+
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/settings/notification/app/ConversationListPreferenceController;->lambda$createConversationPref$2(Landroid/service/notification/ConversationChannelWrapper;Lcom/android/settingslib/widget/AppPreference;Landroidx/preference/Preference;)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public static synthetic $r8$lambda$yOId1qd66--gvvfWNOBCb5TS_zg(Lcom/android/settings/notification/app/ConversationListPreferenceController;Ljava/util/concurrent/atomic/AtomicInteger;Landroidx/preference/Preference;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/settings/notification/app/ConversationListPreferenceController;->lambda$populateConversations$1(Ljava/util/concurrent/atomic/AtomicInteger;Landroidx/preference/Preference;)V
+
+    return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Lcom/android/settings/notification/NotificationBackend;)V
@@ -44,7 +74,77 @@
     return-void
 .end method
 
-.method private synthetic lambda$createConversationPref$0(Landroid/service/notification/ConversationChannelWrapper;Lcom/android/settingslib/widget/AppPreference;Landroidx/preference/Preference;)Z
+.method private createConversationPref(Landroid/service/notification/ConversationChannelWrapper;)Landroidx/preference/Preference;
+    .locals 8
+
+    new-instance v0, Lcom/android/settingslib/widget/AppPreference;
+
+    iget-object v1, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    invoke-direct {v0, v1}, Lcom/android/settingslib/widget/AppPreference;-><init>(Landroid/content/Context;)V
+
+    invoke-virtual {p0, p1}, Lcom/android/settings/notification/app/ConversationListPreferenceController;->getTitle(Landroid/service/notification/ConversationChannelWrapper;)Ljava/lang/CharSequence;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
+
+    invoke-virtual {p0, p1}, Lcom/android/settings/notification/app/ConversationListPreferenceController;->getSummary(Landroid/service/notification/ConversationChannelWrapper;)Ljava/lang/CharSequence;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
+
+    iget-object v2, p0, Lcom/android/settings/notification/app/ConversationListPreferenceController;->mBackend:Lcom/android/settings/notification/NotificationBackend;
+
+    iget-object v3, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    invoke-virtual {p1}, Landroid/service/notification/ConversationChannelWrapper;->getShortcutInfo()Landroid/content/pm/ShortcutInfo;
+
+    move-result-object v4
+
+    invoke-virtual {p1}, Landroid/service/notification/ConversationChannelWrapper;->getPkg()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {p1}, Landroid/service/notification/ConversationChannelWrapper;->getUid()I
+
+    move-result v6
+
+    invoke-virtual {p1}, Landroid/service/notification/ConversationChannelWrapper;->getNotificationChannel()Landroid/app/NotificationChannel;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/app/NotificationChannel;->isImportantConversation()Z
+
+    move-result v7
+
+    invoke-virtual/range {v2 .. v7}, Lcom/android/settings/notification/NotificationBackend;->getConversationDrawable(Landroid/content/Context;Landroid/content/pm/ShortcutInfo;Ljava/lang/String;IZ)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setIcon(Landroid/graphics/drawable/Drawable;)V
+
+    invoke-virtual {p1}, Landroid/service/notification/ConversationChannelWrapper;->getNotificationChannel()Landroid/app/NotificationChannel;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/app/NotificationChannel;->getId()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setKey(Ljava/lang/String;)V
+
+    new-instance v1, Lcom/android/settings/notification/app/ConversationListPreferenceController$$ExternalSyntheticLambda3;
+
+    invoke-direct {v1, p0, p1, v0}, Lcom/android/settings/notification/app/ConversationListPreferenceController$$ExternalSyntheticLambda3;-><init>(Lcom/android/settings/notification/app/ConversationListPreferenceController;Landroid/service/notification/ConversationChannelWrapper;Lcom/android/settingslib/widget/AppPreference;)V
+
+    invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setOnPreferenceClickListener(Landroidx/preference/Preference$OnPreferenceClickListener;)V
+
+    return-object v0
+.end method
+
+.method private synthetic lambda$createConversationPref$2(Landroid/service/notification/ConversationChannelWrapper;Lcom/android/settingslib/widget/AppPreference;Landroidx/preference/Preference;)Z
     .locals 0
 
     invoke-virtual {p2}, Landroidx/preference/Preference;->getTitle()Ljava/lang/CharSequence;
@@ -62,78 +162,72 @@
     return p0
 .end method
 
+.method private synthetic lambda$populateConversations$0(Landroid/service/notification/ConversationChannelWrapper;)Z
+    .locals 1
+
+    invoke-virtual {p1}, Landroid/service/notification/ConversationChannelWrapper;->getNotificationChannel()Landroid/app/NotificationChannel;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/app/NotificationChannel;->isDemoted()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    invoke-virtual {p0, p1}, Lcom/android/settings/notification/app/ConversationListPreferenceController;->matchesFilter(Landroid/service/notification/ConversationChannelWrapper;)Z
+
+    move-result p0
+
+    if-eqz p0, :cond_0
+
+    const/4 p0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    :goto_0
+    return p0
+.end method
+
+.method private synthetic lambda$populateConversations$1(Ljava/util/concurrent/atomic/AtomicInteger;Landroidx/preference/Preference;)V
+    .locals 0
+
+    invoke-virtual {p1}, Ljava/util/concurrent/atomic/AtomicInteger;->getAndIncrement()I
+
+    move-result p1
+
+    invoke-virtual {p2, p1}, Landroidx/preference/Preference;->setOrder(I)V
+
+    iget-object p0, p0, Lcom/android/settings/notification/app/ConversationListPreferenceController;->mPreferenceGroup:Landroidx/preference/PreferenceGroup;
+
+    invoke-virtual {p0, p2}, Landroidx/preference/PreferenceGroup;->addPreference(Landroidx/preference/Preference;)Z
+
+    return-void
+.end method
+
 
 # virtual methods
-.method protected createConversationPref(Landroid/service/notification/ConversationChannelWrapper;I)Landroidx/preference/Preference;
-    .locals 7
+.method public displayPreference(Landroidx/preference/PreferenceScreen;)V
+    .locals 1
 
-    new-instance v0, Lcom/android/settingslib/widget/AppPreference;
+    invoke-super {p0, p1}, Lcom/android/settingslib/core/AbstractPreferenceController;->displayPreference(Landroidx/preference/PreferenceScreen;)V
 
-    iget-object v1, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+    invoke-virtual {p0}, Lcom/android/settingslib/core/AbstractPreferenceController;->getPreferenceKey()Ljava/lang/String;
 
-    invoke-direct {v0, v1}, Lcom/android/settingslib/widget/AppPreference;-><init>(Landroid/content/Context;)V
+    move-result-object v0
 
-    invoke-virtual {v0, p2}, Landroidx/preference/Preference;->setOrder(I)V
+    invoke-virtual {p1, v0}, Landroidx/preference/PreferenceGroup;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
-    invoke-virtual {p0, p1}, Lcom/android/settings/notification/app/ConversationListPreferenceController;->getTitle(Landroid/service/notification/ConversationChannelWrapper;)Ljava/lang/CharSequence;
+    move-result-object p1
 
-    move-result-object p2
+    check-cast p1, Landroidx/preference/PreferenceGroup;
 
-    invoke-virtual {v0, p2}, Landroidx/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
+    iput-object p1, p0, Lcom/android/settings/notification/app/ConversationListPreferenceController;->mPreferenceGroup:Landroidx/preference/PreferenceGroup;
 
-    invoke-virtual {p0, p1}, Lcom/android/settings/notification/app/ConversationListPreferenceController;->getSummary(Landroid/service/notification/ConversationChannelWrapper;)Ljava/lang/CharSequence;
-
-    move-result-object p2
-
-    invoke-virtual {v0, p2}, Landroidx/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
-
-    iget-object v1, p0, Lcom/android/settings/notification/app/ConversationListPreferenceController;->mBackend:Lcom/android/settings/notification/NotificationBackend;
-
-    iget-object v2, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
-
-    invoke-virtual {p1}, Landroid/service/notification/ConversationChannelWrapper;->getShortcutInfo()Landroid/content/pm/ShortcutInfo;
-
-    move-result-object v3
-
-    invoke-virtual {p1}, Landroid/service/notification/ConversationChannelWrapper;->getPkg()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {p1}, Landroid/service/notification/ConversationChannelWrapper;->getUid()I
-
-    move-result v5
-
-    invoke-virtual {p1}, Landroid/service/notification/ConversationChannelWrapper;->getNotificationChannel()Landroid/app/NotificationChannel;
-
-    move-result-object p2
-
-    invoke-virtual {p2}, Landroid/app/NotificationChannel;->isImportantConversation()Z
-
-    move-result v6
-
-    invoke-virtual/range {v1 .. v6}, Lcom/android/settings/notification/NotificationBackend;->getConversationDrawable(Landroid/content/Context;Landroid/content/pm/ShortcutInfo;Ljava/lang/String;IZ)Landroid/graphics/drawable/Drawable;
-
-    move-result-object p2
-
-    invoke-virtual {v0, p2}, Landroidx/preference/Preference;->setIcon(Landroid/graphics/drawable/Drawable;)V
-
-    invoke-virtual {p1}, Landroid/service/notification/ConversationChannelWrapper;->getNotificationChannel()Landroid/app/NotificationChannel;
-
-    move-result-object p2
-
-    invoke-virtual {p2}, Landroid/app/NotificationChannel;->getId()Ljava/lang/String;
-
-    move-result-object p2
-
-    invoke-virtual {v0, p2}, Landroidx/preference/Preference;->setKey(Ljava/lang/String;)V
-
-    new-instance p2, Lcom/android/settings/notification/app/ConversationListPreferenceController$$ExternalSyntheticLambda0;
-
-    invoke-direct {p2, p0, p1, v0}, Lcom/android/settings/notification/app/ConversationListPreferenceController$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/notification/app/ConversationListPreferenceController;Landroid/service/notification/ConversationChannelWrapper;Lcom/android/settingslib/widget/AppPreference;)V
-
-    invoke-virtual {v0, p2}, Landroidx/preference/Preference;->setOnPreferenceClickListener(Landroidx/preference/Preference$OnPreferenceClickListener;)V
-
-    return-object v0
+    return-void
 .end method
 
 .method getSubSettingLauncher(Landroid/service/notification/ConversationChannelWrapper;Ljava/lang/CharSequence;)Lcom/android/settings/core/SubSettingLauncher;
@@ -254,7 +348,7 @@
     :cond_0
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f040e59
+    const v0, 0x7f040eed
 
     const/4 v1, 0x2
 
@@ -315,120 +409,145 @@
     return-object p0
 .end method
 
+.method public isAvailable()Z
+    .locals 0
+
+    const/4 p0, 0x1
+
+    return p0
+.end method
+
 .method abstract matchesFilter(Landroid/service/notification/ConversationChannelWrapper;)Z
 .end method
 
-.method protected populateConversations(Ljava/util/List;Landroidx/preference/PreferenceGroup;)V
-    .locals 3
+.method populateConversations(Ljava/util/List;)V
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljava/util/List<",
             "Landroid/service/notification/ConversationChannelWrapper;",
-            ">;",
-            "Landroidx/preference/PreferenceGroup;",
-            ")V"
+            ">;)V"
         }
     .end annotation
 
-    invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    new-instance v0, Ljava/util/concurrent/atomic/AtomicInteger;
+
+    const/16 v1, 0x64
+
+    invoke-direct {v0, v1}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>(I)V
+
+    invoke-interface {p1}, Ljava/util/List;->stream()Ljava/util/stream/Stream;
 
     move-result-object p1
 
-    const/16 v0, 0x64
+    new-instance v1, Lcom/android/settings/notification/app/ConversationListPreferenceController$$ExternalSyntheticLambda0;
 
-    :cond_0
-    :goto_0
-    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-direct {v1, p0}, Lcom/android/settings/notification/app/ConversationListPreferenceController$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/notification/app/ConversationListPreferenceController;)V
 
-    move-result v1
+    invoke-interface {p1, v1}, Ljava/util/stream/Stream;->filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
 
-    if-eqz v1, :cond_2
+    move-result-object p1
 
-    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    iget-object v1, p0, Lcom/android/settings/notification/app/ConversationListPreferenceController;->mConversationComparator:Ljava/util/Comparator;
 
-    move-result-object v1
+    invoke-interface {p1, v1}, Ljava/util/stream/Stream;->sorted(Ljava/util/Comparator;)Ljava/util/stream/Stream;
 
-    check-cast v1, Landroid/service/notification/ConversationChannelWrapper;
+    move-result-object p1
 
-    invoke-virtual {v1}, Landroid/service/notification/ConversationChannelWrapper;->getNotificationChannel()Landroid/app/NotificationChannel;
+    new-instance v1, Lcom/android/settings/notification/app/ConversationListPreferenceController$$ExternalSyntheticLambda1;
 
-    move-result-object v2
+    invoke-direct {v1, p0}, Lcom/android/settings/notification/app/ConversationListPreferenceController$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/notification/app/ConversationListPreferenceController;)V
 
-    invoke-virtual {v2}, Landroid/app/NotificationChannel;->isDemoted()Z
+    invoke-interface {p1, v1}, Ljava/util/stream/Stream;->map(Ljava/util/function/Function;)Ljava/util/stream/Stream;
 
-    move-result v2
+    move-result-object p1
 
-    if-nez v2, :cond_0
+    new-instance v1, Lcom/android/settings/notification/app/ConversationListPreferenceController$$ExternalSyntheticLambda2;
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/notification/app/ConversationListPreferenceController;->matchesFilter(Landroid/service/notification/ConversationChannelWrapper;)Z
+    invoke-direct {v1, p0, v0}, Lcom/android/settings/notification/app/ConversationListPreferenceController$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/notification/app/ConversationListPreferenceController;Ljava/util/concurrent/atomic/AtomicInteger;)V
 
-    move-result v2
+    invoke-interface {p1, v1}, Ljava/util/stream/Stream;->forEachOrdered(Ljava/util/function/Consumer;)V
 
-    if-nez v2, :cond_1
-
-    goto :goto_0
-
-    :cond_1
-    add-int/lit8 v2, v0, 0x1
-
-    invoke-virtual {p0, v1, v0}, Lcom/android/settings/notification/app/ConversationListPreferenceController;->createConversationPref(Landroid/service/notification/ConversationChannelWrapper;I)Landroidx/preference/Preference;
-
-    move-result-object v0
-
-    invoke-virtual {p2, v0}, Landroidx/preference/PreferenceGroup;->addPreference(Landroidx/preference/Preference;)Z
-
-    move v0, v2
-
-    goto :goto_0
-
-    :cond_2
     return-void
 .end method
 
-.method protected populateList(Ljava/util/List;Landroidx/preference/PreferenceGroup;)V
-    .locals 1
+.method updateList(Ljava/util/List;)Z
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljava/util/List<",
             "Landroid/service/notification/ConversationChannelWrapper;",
-            ">;",
-            "Landroidx/preference/PreferenceGroup;",
-            ")V"
+            ">;)Z"
         }
     .end annotation
 
-    const/4 v0, 0x0
+    iget-object v0, p0, Lcom/android/settings/notification/app/ConversationListPreferenceController;->mPreferenceGroup:Landroidx/preference/PreferenceGroup;
 
-    invoke-virtual {p2, v0}, Landroidx/preference/Preference;->setVisible(Z)V
+    const/4 v1, 0x0
 
-    invoke-virtual {p2}, Landroidx/preference/PreferenceGroup;->removeAll()V
+    invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setVisible(Z)V
+
+    iget-object v0, p0, Lcom/android/settings/notification/app/ConversationListPreferenceController;->mPreferenceGroup:Landroidx/preference/PreferenceGroup;
+
+    invoke-virtual {v0}, Landroidx/preference/PreferenceGroup;->removeAll()V
 
     if-eqz p1, :cond_0
 
-    invoke-virtual {p0, p1, p2}, Lcom/android/settings/notification/app/ConversationListPreferenceController;->populateConversations(Ljava/util/List;Landroidx/preference/PreferenceGroup;)V
+    invoke-virtual {p0, p1}, Lcom/android/settings/notification/app/ConversationListPreferenceController;->populateConversations(Ljava/util/List;)V
 
     :cond_0
-    invoke-virtual {p2}, Landroidx/preference/PreferenceGroup;->getPreferenceCount()I
+    iget-object p1, p0, Lcom/android/settings/notification/app/ConversationListPreferenceController;->mPreferenceGroup:Landroidx/preference/PreferenceGroup;
+
+    invoke-virtual {p1}, Landroidx/preference/PreferenceGroup;->getPreferenceCount()I
 
     move-result p1
 
-    if-eqz p1, :cond_2
+    const/4 v0, 0x1
+
+    if-eqz p1, :cond_1
+
+    move v1, v0
+
+    :cond_1
+    if-eqz v1, :cond_3
 
     invoke-virtual {p0}, Lcom/android/settings/notification/app/ConversationListPreferenceController;->getSummaryPreference()Landroidx/preference/Preference;
 
-    move-result-object p0
+    move-result-object p1
 
-    if-eqz p0, :cond_1
+    if-eqz p1, :cond_2
 
-    invoke-virtual {p2, p0}, Landroidx/preference/PreferenceGroup;->addPreference(Landroidx/preference/Preference;)Z
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    :cond_1
-    const/4 p0, 0x1
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {p2, p0}, Landroidx/preference/Preference;->setVisible(Z)V
+    invoke-virtual {p0}, Lcom/android/settingslib/core/AbstractPreferenceController;->getPreferenceKey()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v3, "_summary"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {p1, v2}, Landroidx/preference/Preference;->setKey(Ljava/lang/String;)V
+
+    iget-object v2, p0, Lcom/android/settings/notification/app/ConversationListPreferenceController;->mPreferenceGroup:Landroidx/preference/PreferenceGroup;
+
+    invoke-virtual {v2, p1}, Landroidx/preference/PreferenceGroup;->addPreference(Landroidx/preference/Preference;)Z
 
     :cond_2
-    return-void
+    iget-object p0, p0, Lcom/android/settings/notification/app/ConversationListPreferenceController;->mPreferenceGroup:Landroidx/preference/PreferenceGroup;
+
+    invoke-virtual {p0, v0}, Landroidx/preference/Preference;->setVisible(Z)V
+
+    :cond_3
+    return v1
 .end method

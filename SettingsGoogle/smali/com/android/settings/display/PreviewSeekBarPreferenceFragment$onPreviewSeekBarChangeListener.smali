@@ -53,16 +53,16 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance p1, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment$onPreviewSeekBarChangeListener$$ExternalSyntheticLambda0;
+    new-instance p1, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment$onPreviewSeekBarChangeListener$$ExternalSyntheticLambda1;
 
-    invoke-direct {p1, p0}, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment$onPreviewSeekBarChangeListener$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/display/PreviewSeekBarPreferenceFragment$onPreviewSeekBarChangeListener;)V
+    invoke-direct {p1, p0}, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment$onPreviewSeekBarChangeListener$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/display/PreviewSeekBarPreferenceFragment$onPreviewSeekBarChangeListener;)V
 
     iput-object p1, p0, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment$onPreviewSeekBarChangeListener;->mCommit:Landroid/view/Choreographer$FrameCallback;
 
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;Lcom/android/settings/display/PreviewSeekBarPreferenceFragment$1;)V
+.method synthetic constructor <init>(Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;Lcom/android/settings/display/PreviewSeekBarPreferenceFragment$onPreviewSeekBarChangeListener-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment$onPreviewSeekBarChangeListener;-><init>(Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;)V
@@ -79,7 +79,7 @@
 
     iget-object v2, p0, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment$onPreviewSeekBarChangeListener;->this$0:Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;
 
-    invoke-static {v2}, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;->access$200(Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;)J
+    invoke-static {v2}, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;->-$$Nest$fgetmLastCommitTime(Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;)J
 
     move-result-wide v2
 
@@ -128,7 +128,7 @@
 
     move-result-wide p1
 
-    invoke-static {p0, p1, p2}, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;->access$202(Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;J)J
+    invoke-static {p0, p1, p2}, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;->-$$Nest$fputmLastCommitTime(Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;J)V
 
     return-void
 .end method
@@ -155,7 +155,7 @@
 
     iput-boolean p3, p0, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment$onPreviewSeekBarChangeListener;->mIsChanged:Z
 
-    invoke-static {p1, p2, v0}, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;->access$000(Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;IZ)V
+    invoke-static {p1, p2, v0}, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;->-$$Nest$msetPreviewLayer(Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;IZ)V
 
     iget-boolean p1, p0, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment$onPreviewSeekBarChangeListener;->mSeekByTouch:Z
 
@@ -204,7 +204,7 @@
     :cond_0
     iget-object p1, p0, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment$onPreviewSeekBarChangeListener;->this$0:Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;
 
-    invoke-static {p1}, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;->access$100(Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;)Lcom/android/settings/display/PreviewPagerAdapter;
+    invoke-static {p1}, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;->-$$Nest$fgetmPreviewPagerAdapter(Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;)Lcom/android/settings/display/PreviewPagerAdapter;
 
     move-result-object p1
 
@@ -216,13 +216,13 @@
 
     iget-object p1, p0, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment$onPreviewSeekBarChangeListener;->this$0:Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;
 
-    invoke-static {p1}, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;->access$100(Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;)Lcom/android/settings/display/PreviewPagerAdapter;
+    invoke-static {p1}, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;->-$$Nest$fgetmPreviewPagerAdapter(Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;)Lcom/android/settings/display/PreviewPagerAdapter;
 
     move-result-object p1
 
-    new-instance v0, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment$onPreviewSeekBarChangeListener$$ExternalSyntheticLambda1;
+    new-instance v0, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment$onPreviewSeekBarChangeListener$$ExternalSyntheticLambda0;
 
-    invoke-direct {v0, p0}, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment$onPreviewSeekBarChangeListener$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/display/PreviewSeekBarPreferenceFragment$onPreviewSeekBarChangeListener;)V
+    invoke-direct {v0, p0}, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment$onPreviewSeekBarChangeListener$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/display/PreviewSeekBarPreferenceFragment$onPreviewSeekBarChangeListener;)V
 
     invoke-virtual {p1, v0}, Lcom/android/settings/display/PreviewPagerAdapter;->setAnimationEndAction(Ljava/lang/Runnable;)V
 

@@ -4,10 +4,6 @@
 
 
 # annotations
-.annotation runtime Lcom/google/errorprone/annotations/DoNotMock;
-    value = "Use Maps.difference"
-.end annotation
-
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/google/common/collect/MapDifference;
 .end annotation

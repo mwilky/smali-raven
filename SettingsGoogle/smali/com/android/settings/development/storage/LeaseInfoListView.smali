@@ -40,6 +40,22 @@
     return-void
 .end method
 
+.method static bridge synthetic -$$Nest$fgetmBlobInfo(Lcom/android/settings/development/storage/LeaseInfoListView;)Landroid/app/blob/BlobInfo;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/development/storage/LeaseInfoListView;->mBlobInfo:Landroid/app/blob/BlobInfo;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmInflater(Lcom/android/settings/development/storage/LeaseInfoListView;)Landroid/view/LayoutInflater;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/development/storage/LeaseInfoListView;->mInflater:Landroid/view/LayoutInflater;
+
+    return-object p0
+.end method
+
 .method public constructor <init>()V
     .locals 0
 
@@ -48,28 +64,12 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/settings/development/storage/LeaseInfoListView;)Landroid/app/blob/BlobInfo;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/development/storage/LeaseInfoListView;->mBlobInfo:Landroid/app/blob/BlobInfo;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/development/storage/LeaseInfoListView;)Landroid/view/LayoutInflater;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/development/storage/LeaseInfoListView;->mInflater:Landroid/view/LayoutInflater;
-
-    return-object p0
-.end method
-
 .method private getButtonOnClickListener()Landroid/view/View$OnClickListener;
     .locals 1
 
-    new-instance v0, Lcom/android/settings/development/storage/LeaseInfoListView$$ExternalSyntheticLambda1;
+    new-instance v0, Lcom/android/settings/development/storage/LeaseInfoListView$$ExternalSyntheticLambda0;
 
-    invoke-direct {v0, p0}, Lcom/android/settings/development/storage/LeaseInfoListView$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/development/storage/LeaseInfoListView;)V
+    invoke-direct {v0, p0}, Lcom/android/settings/development/storage/LeaseInfoListView$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/development/storage/LeaseInfoListView;)V
 
     return-object v0
 .end method
@@ -77,9 +77,9 @@
 .method private getDialogOnClickListener()Landroid/content/DialogInterface$OnClickListener;
     .locals 1
 
-    new-instance v0, Lcom/android/settings/development/storage/LeaseInfoListView$$ExternalSyntheticLambda0;
+    new-instance v0, Lcom/android/settings/development/storage/LeaseInfoListView$$ExternalSyntheticLambda1;
 
-    invoke-direct {v0, p0}, Lcom/android/settings/development/storage/LeaseInfoListView$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/development/storage/LeaseInfoListView;)V
+    invoke-direct {v0, p0}, Lcom/android/settings/development/storage/LeaseInfoListView$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/development/storage/LeaseInfoListView;)V
 
     return-object v0
 .end method
@@ -101,7 +101,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    const v1, 0x7f0407c0
+    const v1, 0x7f040805
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setText(I)V
 
@@ -119,7 +119,7 @@
 
     iget-object v0, p0, Lcom/android/settings/development/storage/LeaseInfoListView;->mInflater:Landroid/view/LayoutInflater;
 
-    const v1, 0x7f060065
+    const v1, 0x7f06006a
 
     const/4 v2, 0x0
 
@@ -133,7 +133,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setEnabled(Z)V
 
-    const v2, 0x7f0d00e3
+    const v2, 0x7f0d00e9
 
     invoke-virtual {v0, v2}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -141,7 +141,7 @@
 
     check-cast v2, Landroid/widget/TextView;
 
-    const v3, 0x7f0d00e2
+    const v3, 0x7f0d00e8
 
     invoke-virtual {v0, v3}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -149,7 +149,7 @@
 
     check-cast v3, Landroid/widget/TextView;
 
-    const v4, 0x7f0d00e1
+    const v4, 0x7f0d00e7
 
     invoke-virtual {v0, v4}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -157,7 +157,7 @@
 
     check-cast v4, Landroid/widget/TextView;
 
-    const v5, 0x7f0d00e4
+    const v5, 0x7f0d00ea
 
     invoke-virtual {v0, v5}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -193,7 +193,7 @@
 
     aput-object v6, v2, v1
 
-    const v1, 0x7f040416
+    const v1, 0x7f040454
 
     invoke-virtual {p0, v1, v2}, Landroid/app/ListActivity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -229,7 +229,7 @@
 
     invoke-direct {p1, v0}, Landroidx/appcompat/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v0, 0x7f0407bf
+    const v0, 0x7f040804
 
     invoke-virtual {p1, v0}, Landroidx/appcompat/app/AlertDialog$Builder;->setMessage(I)Landroidx/appcompat/app/AlertDialog$Builder;
 

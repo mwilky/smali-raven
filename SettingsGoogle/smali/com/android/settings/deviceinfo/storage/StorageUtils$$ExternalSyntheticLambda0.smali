@@ -1,37 +1,30 @@
 .class public final synthetic Lcom/android/settings/deviceinfo/storage/StorageUtils$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Function;
-
-
-# instance fields
-.field public final synthetic f$0:Landroid/content/Context;
+.implements Ljava/util/function/Predicate;
 
 
 # direct methods
-.method public synthetic constructor <init>(Landroid/content/Context;)V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/settings/deviceinfo/storage/StorageUtils$$ExternalSyntheticLambda0;->f$0:Landroid/content/Context;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
+.method public final test(Ljava/lang/Object;)Z
     .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/deviceinfo/storage/StorageUtils$$ExternalSyntheticLambda0;->f$0:Landroid/content/Context;
 
     check-cast p1, Landroid/os/storage/VolumeInfo;
 
-    invoke-static {p0, p1}, Lcom/android/settings/deviceinfo/storage/StorageUtils;->$r8$lambda$EtdvYnN2WL7zHvmIY4KcTbxP2is(Landroid/content/Context;Landroid/os/storage/VolumeInfo;)Lcom/android/settings/deviceinfo/storage/StorageEntry;
+    invoke-static {p1}, Lcom/android/settings/deviceinfo/storage/StorageUtils;->$r8$lambda$Bf0vLRmiSmm3MH67KlFFfPjOwQU(Landroid/os/storage/VolumeInfo;)Z
 
-    move-result-object p0
+    move-result p0
 
-    return-object p0
+    return p0
 .end method

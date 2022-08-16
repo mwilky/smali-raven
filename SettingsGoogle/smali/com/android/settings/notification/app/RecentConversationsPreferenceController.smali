@@ -6,7 +6,7 @@
 # instance fields
 .field private final mBackend:Lcom/android/settings/notification/NotificationBackend;
 
-.field protected mConversationComparator:Ljava/util/Comparator;
+.field mConversationComparator:Ljava/util/Comparator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Comparator<",
@@ -16,28 +16,12 @@
     .end annotation
 .end field
 
-.field private mConversations:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List<",
-            "Landroid/app/people/ConversationChannel;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field private mPreferenceGroup:Landroidx/preference/PreferenceGroup;
 
 .field private final mPs:Landroid/app/people/IPeopleManager;
 
 
 # direct methods
-.method public static synthetic $r8$lambda$10BOmApnh7syjQPE2IAf36B0vH0(Lcom/android/settings/notification/app/RecentConversationsPreferenceController;Ljava/lang/String;ILjava/lang/String;Lcom/android/settings/notification/app/RecentConversationPreference;Landroidx/preference/PreferenceGroup;)V
-    .locals 0
-
-    invoke-direct/range {p0 .. p5}, Lcom/android/settings/notification/app/RecentConversationsPreferenceController;->lambda$createConversationPref$1(Ljava/lang/String;ILjava/lang/String;Lcom/android/settings/notification/app/RecentConversationPreference;Landroidx/preference/PreferenceGroup;)V
-
-    return-void
-.end method
-
 .method public static synthetic $r8$lambda$1d1gqy0it1L6wds3Nh_W5IPl3no(Lcom/android/settings/notification/app/RecentConversationsPreferenceController;Landroidx/preference/PreferenceGroup;Landroid/widget/Button;Landroid/view/View;)V
     .locals 0
 
@@ -46,14 +30,40 @@
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$Pb6Iro_k6eA_4c8B5RBoYcvULZs(Lcom/android/settings/notification/app/RecentConversationsPreferenceController;Ljava/lang/String;ILandroid/app/people/ConversationChannel;Ljava/lang/String;Lcom/android/settings/notification/app/RecentConversationPreference;Landroidx/preference/Preference;)Z
+.method public static synthetic $r8$lambda$CzY3vF-DnX1cwJMUTeObznfOjOY(Lcom/android/settings/notification/app/RecentConversationsPreferenceController;Ljava/lang/String;ILjava/lang/String;Lcom/android/settings/notification/app/RecentConversationPreference;)V
     .locals 0
 
-    invoke-direct/range {p0 .. p6}, Lcom/android/settings/notification/app/RecentConversationsPreferenceController;->lambda$createConversationPref$2(Ljava/lang/String;ILandroid/app/people/ConversationChannel;Ljava/lang/String;Lcom/android/settings/notification/app/RecentConversationPreference;Landroidx/preference/Preference;)Z
+    invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/settings/notification/app/RecentConversationsPreferenceController;->lambda$createConversationPref$3(Ljava/lang/String;ILjava/lang/String;Lcom/android/settings/notification/app/RecentConversationPreference;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$GiMau-ndtA2FzYihPrpnpzWD800(Landroid/app/people/ConversationChannel;)Z
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/settings/notification/app/RecentConversationsPreferenceController;->lambda$populateConversations$1(Landroid/app/people/ConversationChannel;)Z
 
     move-result p0
 
     return p0
+.end method
+
+.method public static synthetic $r8$lambda$ngigFWCJhjqvoBNj1J2NUfHWZks(Lcom/android/settings/notification/app/RecentConversationsPreferenceController;Ljava/lang/String;ILandroid/app/people/ConversationChannel;Ljava/lang/String;Lcom/android/settings/notification/app/RecentConversationPreference;Landroidx/preference/Preference;)Z
+    .locals 0
+
+    invoke-direct/range {p0 .. p6}, Lcom/android/settings/notification/app/RecentConversationsPreferenceController;->lambda$createConversationPref$4(Ljava/lang/String;ILandroid/app/people/ConversationChannel;Ljava/lang/String;Lcom/android/settings/notification/app/RecentConversationPreference;Landroidx/preference/Preference;)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public static synthetic $r8$lambda$yK-i2tJuHC-y12e8Jn2Q_vepkUo(Lcom/android/settings/notification/app/RecentConversationsPreferenceController;Ljava/util/concurrent/atomic/AtomicInteger;Ljava/util/concurrent/atomic/AtomicBoolean;Lcom/android/settings/notification/app/RecentConversationPreference;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/settings/notification/app/RecentConversationsPreferenceController;->lambda$populateConversations$2(Ljava/util/concurrent/atomic/AtomicInteger;Ljava/util/concurrent/atomic/AtomicBoolean;Lcom/android/settings/notification/app/RecentConversationPreference;)V
+
+    return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Lcom/android/settings/notification/NotificationBackend;Landroid/app/people/IPeopleManager;)V
@@ -74,7 +84,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$createConversationPref$1(Ljava/lang/String;ILjava/lang/String;Lcom/android/settings/notification/app/RecentConversationPreference;Landroidx/preference/PreferenceGroup;)V
+.method private synthetic lambda$createConversationPref$3(Ljava/lang/String;ILjava/lang/String;Lcom/android/settings/notification/app/RecentConversationPreference;)V
     .locals 1
 
     :try_start_0
@@ -90,17 +100,19 @@
 
     move-result-object p1
 
-    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+    iget-object p2, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const p2, 0x7f04100f
+    const p3, 0x7f0410b4
 
-    invoke-virtual {p0, p2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    invoke-virtual {p2, p3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object p2
 
-    invoke-virtual {p1, p0}, Landroid/view/View;->announceForAccessibility(Ljava/lang/CharSequence;)V
+    invoke-virtual {p1, p2}, Landroid/view/View;->announceForAccessibility(Ljava/lang/CharSequence;)V
 
-    invoke-virtual {p5, p4}, Landroidx/preference/PreferenceGroup;->removePreference(Landroidx/preference/Preference;)Z
+    iget-object p0, p0, Lcom/android/settings/notification/app/RecentConversationsPreferenceController;->mPreferenceGroup:Landroidx/preference/PreferenceGroup;
+
+    invoke-virtual {p0, p4}, Landroidx/preference/PreferenceGroup;->removePreference(Landroidx/preference/Preference;)Z
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -119,7 +131,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$createConversationPref$2(Ljava/lang/String;ILandroid/app/people/ConversationChannel;Ljava/lang/String;Lcom/android/settings/notification/app/RecentConversationPreference;Landroidx/preference/Preference;)Z
+.method private synthetic lambda$createConversationPref$4(Ljava/lang/String;ILandroid/app/people/ConversationChannel;Ljava/lang/String;Lcom/android/settings/notification/app/RecentConversationPreference;Landroidx/preference/Preference;)Z
     .locals 1
 
     iget-object p6, p0, Lcom/android/settings/notification/app/RecentConversationsPreferenceController;->mBackend:Lcom/android/settings/notification/NotificationBackend;
@@ -190,7 +202,7 @@
     :cond_1
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const p1, 0x7f041010
+    const p1, 0x7f0410b5
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -215,12 +227,80 @@
     return-void
 .end method
 
+.method private static synthetic lambda$populateConversations$1(Landroid/app/people/ConversationChannel;)Z
+    .locals 1
+
+    invoke-virtual {p0}, Landroid/app/people/ConversationChannel;->getNotificationChannel()Landroid/app/NotificationChannel;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/app/NotificationChannel;->getImportance()I
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    invoke-virtual {p0}, Landroid/app/people/ConversationChannel;->getNotificationChannelGroup()Landroid/app/NotificationChannelGroup;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Landroid/app/people/ConversationChannel;->getNotificationChannelGroup()Landroid/app/NotificationChannelGroup;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroid/app/NotificationChannelGroup;->isBlocked()Z
+
+    move-result p0
+
+    if-nez p0, :cond_1
+
+    :cond_0
+    const/4 p0, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    const/4 p0, 0x0
+
+    :goto_0
+    return p0
+.end method
+
+.method private synthetic lambda$populateConversations$2(Ljava/util/concurrent/atomic/AtomicInteger;Ljava/util/concurrent/atomic/AtomicBoolean;Lcom/android/settings/notification/app/RecentConversationPreference;)V
+    .locals 0
+
+    invoke-virtual {p1}, Ljava/util/concurrent/atomic/AtomicInteger;->getAndIncrement()I
+
+    move-result p1
+
+    invoke-virtual {p3, p1}, Landroidx/preference/Preference;->setOrder(I)V
+
+    iget-object p0, p0, Lcom/android/settings/notification/app/RecentConversationsPreferenceController;->mPreferenceGroup:Landroidx/preference/PreferenceGroup;
+
+    invoke-virtual {p0, p3}, Landroidx/preference/PreferenceGroup;->addPreference(Landroidx/preference/Preference;)Z
+
+    invoke-virtual {p3}, Lcom/android/settings/notification/app/RecentConversationPreference;->hasClearListener()Z
+
+    move-result p0
+
+    if-eqz p0, :cond_0
+
+    const/4 p0, 0x1
+
+    invoke-virtual {p2, p0}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
+
+    :cond_0
+    return-void
+.end method
+
 
 # virtual methods
-.method protected createConversationPref(Landroidx/preference/PreferenceGroup;Landroid/app/people/ConversationChannel;I)Lcom/android/settings/notification/app/RecentConversationPreference;
-    .locals 12
+.method protected createConversationPref(Landroid/app/people/ConversationChannel;)Lcom/android/settings/notification/app/RecentConversationPreference;
+    .locals 11
 
-    invoke-virtual {p2}, Landroid/app/people/ConversationChannel;->getShortcutInfo()Landroid/content/pm/ShortcutInfo;
+    invoke-virtual {p1}, Landroid/app/people/ConversationChannel;->getShortcutInfo()Landroid/content/pm/ShortcutInfo;
 
     move-result-object v0
 
@@ -228,70 +308,66 @@
 
     move-result-object v0
 
-    invoke-virtual {p2}, Landroid/app/people/ConversationChannel;->getUid()I
+    invoke-virtual {p1}, Landroid/app/people/ConversationChannel;->getUid()I
 
-    move-result v8
+    move-result v7
 
-    invoke-virtual {p2}, Landroid/app/people/ConversationChannel;->getShortcutInfo()Landroid/content/pm/ShortcutInfo;
+    invoke-virtual {p1}, Landroid/app/people/ConversationChannel;->getShortcutInfo()Landroid/content/pm/ShortcutInfo;
 
     move-result-object v1
 
     invoke-virtual {v1}, Landroid/content/pm/ShortcutInfo;->getId()Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v8
 
-    new-instance v10, Lcom/android/settings/notification/app/RecentConversationPreference;
+    new-instance v9, Lcom/android/settings/notification/app/RecentConversationPreference;
 
     iget-object v1, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    invoke-direct {v10, v1}, Lcom/android/settings/notification/app/RecentConversationPreference;-><init>(Landroid/content/Context;)V
+    invoke-direct {v9, v1}, Lcom/android/settings/notification/app/RecentConversationPreference;-><init>(Landroid/content/Context;)V
 
-    invoke-virtual {p2}, Landroid/app/people/ConversationChannel;->hasActiveNotifications()Z
+    invoke-virtual {p1}, Landroid/app/people/ConversationChannel;->hasActiveNotifications()Z
 
     move-result v1
 
     if-nez v1, :cond_0
 
-    new-instance v11, Lcom/android/settings/notification/app/RecentConversationsPreferenceController$$ExternalSyntheticLambda2;
+    new-instance v10, Lcom/android/settings/notification/app/RecentConversationsPreferenceController$$ExternalSyntheticLambda4;
 
-    move-object v1, v11
+    move-object v1, v10
 
     move-object v2, p0
 
     move-object v3, v0
 
-    move v4, v8
+    move v4, v7
 
-    move-object v5, v9
+    move-object v5, v8
 
-    move-object v6, v10
+    move-object v6, v9
 
-    move-object v7, p1
+    invoke-direct/range {v1 .. v6}, Lcom/android/settings/notification/app/RecentConversationsPreferenceController$$ExternalSyntheticLambda4;-><init>(Lcom/android/settings/notification/app/RecentConversationsPreferenceController;Ljava/lang/String;ILjava/lang/String;Lcom/android/settings/notification/app/RecentConversationPreference;)V
 
-    invoke-direct/range {v1 .. v7}, Lcom/android/settings/notification/app/RecentConversationsPreferenceController$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/notification/app/RecentConversationsPreferenceController;Ljava/lang/String;ILjava/lang/String;Lcom/android/settings/notification/app/RecentConversationPreference;Landroidx/preference/PreferenceGroup;)V
-
-    invoke-virtual {v10, v11}, Lcom/android/settings/notification/app/RecentConversationPreference;->setOnClearClickListener(Lcom/android/settings/notification/app/RecentConversationPreference$OnClearClickListener;)V
+    invoke-virtual {v9, v10}, Lcom/android/settings/notification/app/RecentConversationPreference;->setOnClearClickListener(Lcom/android/settings/notification/app/RecentConversationPreference$OnClearClickListener;)V
 
     :cond_0
-    invoke-virtual {v10, p3}, Landroidx/preference/Preference;->setOrder(I)V
+    invoke-virtual {p0, p1}, Lcom/android/settings/notification/app/RecentConversationsPreferenceController;->getTitle(Landroid/app/people/ConversationChannel;)Ljava/lang/CharSequence;
 
-    invoke-virtual {p0, p2}, Lcom/android/settings/notification/app/RecentConversationsPreferenceController;->getTitle(Landroid/app/people/ConversationChannel;)Ljava/lang/CharSequence;
+    move-result-object v1
 
-    move-result-object p1
+    invoke-virtual {v9, v1}, Landroidx/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
 
-    invoke-virtual {v10, p1}, Landroidx/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
+    invoke-virtual {p0, p1}, Lcom/android/settings/notification/app/RecentConversationsPreferenceController;->getSummary(Landroid/app/people/ConversationChannel;)Ljava/lang/CharSequence;
 
-    invoke-virtual {p0, p2}, Lcom/android/settings/notification/app/RecentConversationsPreferenceController;->getSummary(Landroid/app/people/ConversationChannel;)Ljava/lang/CharSequence;
+    move-result-object v1
 
-    move-result-object p1
-
-    invoke-virtual {v10, p1}, Landroidx/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v9, v1}, Landroidx/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
     iget-object v1, p0, Lcom/android/settings/notification/app/RecentConversationsPreferenceController;->mBackend:Lcom/android/settings/notification/NotificationBackend;
 
     iget-object v2, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    invoke-virtual {p2}, Landroid/app/people/ConversationChannel;->getShortcutInfo()Landroid/content/pm/ShortcutInfo;
+    invoke-virtual {p1}, Landroid/app/people/ConversationChannel;->getShortcutInfo()Landroid/content/pm/ShortcutInfo;
 
     move-result-object v3
 
@@ -299,61 +375,81 @@
 
     move-object v4, v0
 
-    move v5, v8
+    move v5, v7
 
     invoke-virtual/range {v1 .. v6}, Lcom/android/settings/notification/NotificationBackend;->getConversationDrawable(Landroid/content/Context;Landroid/content/pm/ShortcutInfo;Ljava/lang/String;IZ)Landroid/graphics/drawable/Drawable;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-virtual {v10, p1}, Landroidx/preference/Preference;->setIcon(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {v9, v1}, Landroidx/preference/Preference;->setIcon(Landroid/graphics/drawable/Drawable;)V
 
-    new-instance p1, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {p2}, Landroid/app/people/ConversationChannel;->getNotificationChannel()Landroid/app/NotificationChannel;
+    invoke-virtual {p1}, Landroid/app/people/ConversationChannel;->getNotificationChannel()Landroid/app/NotificationChannel;
 
-    move-result-object p3
+    move-result-object v2
 
-    invoke-virtual {p3}, Landroid/app/NotificationChannel;->getId()Ljava/lang/String;
+    invoke-virtual {v2}, Landroid/app/NotificationChannel;->getId()Ljava/lang/String;
 
-    move-result-object p3
+    move-result-object v2
 
-    invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p3, ":"
+    const-string v2, ":"
 
-    invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p1, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-virtual {v10, p1}, Landroidx/preference/Preference;->setKey(Ljava/lang/String;)V
+    invoke-virtual {v9, v1}, Landroidx/preference/Preference;->setKey(Ljava/lang/String;)V
 
-    new-instance p1, Lcom/android/settings/notification/app/RecentConversationsPreferenceController$$ExternalSyntheticLambda1;
+    new-instance v10, Lcom/android/settings/notification/app/RecentConversationsPreferenceController$$ExternalSyntheticLambda5;
 
-    move-object v1, p1
+    move-object v1, v10
 
     move-object v2, p0
 
     move-object v3, v0
 
-    move v4, v8
+    move v4, v7
 
-    move-object v5, p2
+    move-object v5, p1
 
-    move-object v6, v9
+    move-object v6, v8
 
-    move-object v7, v10
+    move-object v7, v9
 
-    invoke-direct/range {v1 .. v7}, Lcom/android/settings/notification/app/RecentConversationsPreferenceController$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/notification/app/RecentConversationsPreferenceController;Ljava/lang/String;ILandroid/app/people/ConversationChannel;Ljava/lang/String;Lcom/android/settings/notification/app/RecentConversationPreference;)V
+    invoke-direct/range {v1 .. v7}, Lcom/android/settings/notification/app/RecentConversationsPreferenceController$$ExternalSyntheticLambda5;-><init>(Lcom/android/settings/notification/app/RecentConversationsPreferenceController;Ljava/lang/String;ILandroid/app/people/ConversationChannel;Ljava/lang/String;Lcom/android/settings/notification/app/RecentConversationPreference;)V
 
-    invoke-virtual {v10, p1}, Landroidx/preference/Preference;->setOnPreferenceClickListener(Landroidx/preference/Preference$OnPreferenceClickListener;)V
+    invoke-virtual {v9, v10}, Landroidx/preference/Preference;->setOnPreferenceClickListener(Landroidx/preference/Preference$OnPreferenceClickListener;)V
 
-    return-object v10
+    return-object v9
+.end method
+
+.method public displayPreference(Landroidx/preference/PreferenceScreen;)V
+    .locals 1
+
+    invoke-super {p0, p1}, Lcom/android/settingslib/core/AbstractPreferenceController;->displayPreference(Landroidx/preference/PreferenceScreen;)V
+
+    invoke-virtual {p0}, Lcom/android/settings/notification/app/RecentConversationsPreferenceController;->getPreferenceKey()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroidx/preference/PreferenceGroup;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
+
+    move-result-object p1
+
+    check-cast p1, Landroidx/preference/PreferenceGroup;
+
+    iput-object p1, p0, Lcom/android/settings/notification/app/RecentConversationsPreferenceController;->mPreferenceGroup:Landroidx/preference/PreferenceGroup;
+
+    return-void
 .end method
 
 .method getClearAll(Landroidx/preference/PreferenceGroup;)Lcom/android/settingslib/widget/LayoutPreference;
@@ -363,15 +459,35 @@
 
     iget-object v1, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0600a1
+    const v2, 0x7f0600ac
 
     invoke-direct {v0, v1, v2}, Lcom/android/settingslib/widget/LayoutPreference;-><init>(Landroid/content/Context;I)V
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {p0}, Lcom/android/settings/notification/app/RecentConversationsPreferenceController;->getPreferenceKey()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v2, "_clear_all"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setKey(Ljava/lang/String;)V
 
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setOrder(I)V
 
-    const v1, 0x7f0d0187
+    const v1, 0x7f0d019c
 
     invoke-virtual {v0, v1}, Lcom/android/settingslib/widget/LayoutPreference;->findViewById(I)Landroid/view/View;
 
@@ -379,9 +495,9 @@
 
     check-cast v1, Landroid/widget/Button;
 
-    new-instance v2, Lcom/android/settings/notification/app/RecentConversationsPreferenceController$$ExternalSyntheticLambda0;
+    new-instance v2, Lcom/android/settings/notification/app/RecentConversationsPreferenceController$$ExternalSyntheticLambda3;
 
-    invoke-direct {v2, p0, p1, v1}, Lcom/android/settings/notification/app/RecentConversationsPreferenceController$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/notification/app/RecentConversationsPreferenceController;Landroidx/preference/PreferenceGroup;Landroid/widget/Button;)V
+    invoke-direct {v2, p0, p1, v1}, Lcom/android/settings/notification/app/RecentConversationsPreferenceController$$ExternalSyntheticLambda3;-><init>(Lcom/android/settings/notification/app/RecentConversationsPreferenceController;Landroidx/preference/PreferenceGroup;Landroid/widget/Button;)V
 
     invoke-virtual {v1, v2}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
@@ -391,7 +507,7 @@
 .method public getPreferenceKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "recent_conversations"
+    const-string/jumbo p0, "recent_conversations"
 
     return-object p0
 .end method
@@ -518,7 +634,7 @@
     :cond_0
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f040e59
+    const v0, 0x7f040eed
 
     const/4 v1, 0x2
 
@@ -578,117 +694,88 @@
     return p0
 .end method
 
-.method protected populateConversations(Ljava/util/List;Landroidx/preference/PreferenceGroup;)Z
-    .locals 4
+.method protected populateConversations(Ljava/util/List;)Z
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljava/util/List<",
             "Landroid/app/people/ConversationChannel;",
-            ">;",
-            "Landroidx/preference/PreferenceGroup;",
-            ")Z"
+            ">;)Z"
         }
     .end annotation
 
-    invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    new-instance v0, Ljava/util/concurrent/atomic/AtomicInteger;
+
+    const/16 v1, 0x64
+
+    invoke-direct {v0, v1}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>(I)V
+
+    new-instance v1, Ljava/util/concurrent/atomic/AtomicBoolean;
+
+    const/4 v2, 0x0
+
+    invoke-direct {v1, v2}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>(Z)V
+
+    invoke-interface {p1}, Ljava/util/List;->stream()Ljava/util/stream/Stream;
 
     move-result-object p1
 
-    const/16 v0, 0x64
+    new-instance v2, Lcom/android/settings/notification/app/RecentConversationsPreferenceController$$ExternalSyntheticLambda0;
 
-    const/4 v1, 0x0
+    invoke-direct {v2}, Lcom/android/settings/notification/app/RecentConversationsPreferenceController$$ExternalSyntheticLambda0;-><init>()V
 
-    :cond_0
-    :goto_0
-    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p1, v2}, Ljava/util/stream/Stream;->filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
 
-    move-result v2
+    move-result-object p1
 
-    if-eqz v2, :cond_3
+    iget-object v2, p0, Lcom/android/settings/notification/app/RecentConversationsPreferenceController;->mConversationComparator:Ljava/util/Comparator;
 
-    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1, v2}, Ljava/util/stream/Stream;->sorted(Ljava/util/Comparator;)Ljava/util/stream/Stream;
 
-    move-result-object v2
+    move-result-object p1
 
-    check-cast v2, Landroid/app/people/ConversationChannel;
+    new-instance v2, Lcom/android/settings/notification/app/RecentConversationsPreferenceController$$ExternalSyntheticLambda1;
 
-    invoke-virtual {v2}, Landroid/app/people/ConversationChannel;->getNotificationChannel()Landroid/app/NotificationChannel;
+    invoke-direct {v2, p0}, Lcom/android/settings/notification/app/RecentConversationsPreferenceController$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/notification/app/RecentConversationsPreferenceController;)V
 
-    move-result-object v3
+    invoke-interface {p1, v2}, Ljava/util/stream/Stream;->map(Ljava/util/function/Function;)Ljava/util/stream/Stream;
 
-    invoke-virtual {v3}, Landroid/app/NotificationChannel;->getImportance()I
+    move-result-object p1
 
-    move-result v3
+    new-instance v2, Lcom/android/settings/notification/app/RecentConversationsPreferenceController$$ExternalSyntheticLambda2;
 
-    if-eqz v3, :cond_0
+    invoke-direct {v2, p0, v0, v1}, Lcom/android/settings/notification/app/RecentConversationsPreferenceController$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/notification/app/RecentConversationsPreferenceController;Ljava/util/concurrent/atomic/AtomicInteger;Ljava/util/concurrent/atomic/AtomicBoolean;)V
 
-    invoke-virtual {v2}, Landroid/app/people/ConversationChannel;->getNotificationChannelGroup()Landroid/app/NotificationChannelGroup;
+    invoke-interface {p1, v2}, Ljava/util/stream/Stream;->forEachOrdered(Ljava/util/function/Consumer;)V
 
-    move-result-object v3
+    invoke-virtual {v1}, Ljava/util/concurrent/atomic/AtomicBoolean;->get()Z
 
-    if-eqz v3, :cond_1
+    move-result p0
 
-    invoke-virtual {v2}, Landroid/app/people/ConversationChannel;->getNotificationChannelGroup()Landroid/app/NotificationChannelGroup;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Landroid/app/NotificationChannelGroup;->isBlocked()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_1
-
-    goto :goto_0
-
-    :cond_1
-    add-int/lit8 v3, v0, 0x1
-
-    invoke-virtual {p0, p2, v2, v0}, Lcom/android/settings/notification/app/RecentConversationsPreferenceController;->createConversationPref(Landroidx/preference/PreferenceGroup;Landroid/app/people/ConversationChannel;I)Lcom/android/settings/notification/app/RecentConversationPreference;
-
-    move-result-object v0
-
-    invoke-virtual {p2, v0}, Landroidx/preference/PreferenceGroup;->addPreference(Landroidx/preference/Preference;)Z
-
-    invoke-virtual {v0}, Lcom/android/settings/notification/app/RecentConversationPreference;->hasClearListener()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    const/4 v0, 0x1
-
-    move v1, v0
-
-    :cond_2
-    move v0, v3
-
-    goto :goto_0
-
-    :cond_3
-    return v1
+    return p0
 .end method
 
-.method protected populateList(Ljava/util/List;Landroidx/preference/PreferenceGroup;)V
+.method populateList(Ljava/util/List;)Z
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljava/util/List<",
             "Landroid/app/people/ConversationChannel;",
-            ">;",
-            "Landroidx/preference/PreferenceGroup;",
-            ")V"
+            ">;)Z"
         }
     .end annotation
 
-    invoke-virtual {p2}, Landroidx/preference/PreferenceGroup;->removeAll()V
+    iget-object v0, p0, Lcom/android/settings/notification/app/RecentConversationsPreferenceController;->mPreferenceGroup:Landroidx/preference/PreferenceGroup;
+
+    invoke-virtual {v0}, Landroidx/preference/PreferenceGroup;->removeAll()V
 
     const/4 v0, 0x0
 
     if-eqz p1, :cond_0
 
-    invoke-virtual {p0, p1, p2}, Lcom/android/settings/notification/app/RecentConversationsPreferenceController;->populateConversations(Ljava/util/List;Landroidx/preference/PreferenceGroup;)Z
+    invoke-virtual {p0, p1}, Lcom/android/settings/notification/app/RecentConversationsPreferenceController;->populateConversations(Ljava/util/List;)Z
 
     move-result p1
 
@@ -698,77 +785,76 @@
     move p1, v0
 
     :goto_0
-    invoke-virtual {p2}, Landroidx/preference/PreferenceGroup;->getPreferenceCount()I
+    iget-object v1, p0, Lcom/android/settings/notification/app/RecentConversationsPreferenceController;->mPreferenceGroup:Landroidx/preference/PreferenceGroup;
+
+    invoke-virtual {v1}, Landroidx/preference/PreferenceGroup;->getPreferenceCount()I
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-eqz v1, :cond_1
 
-    invoke-virtual {p2, v0}, Landroidx/preference/Preference;->setVisible(Z)V
-
-    goto :goto_1
-
-    :cond_1
     const/4 v0, 0x1
 
-    invoke-virtual {p2, v0}, Landroidx/preference/Preference;->setVisible(Z)V
+    :cond_1
+    iget-object v1, p0, Lcom/android/settings/notification/app/RecentConversationsPreferenceController;->mPreferenceGroup:Landroidx/preference/PreferenceGroup;
+
+    invoke-virtual {v1, v0}, Landroidx/preference/Preference;->setVisible(Z)V
+
+    if-eqz v0, :cond_2
 
     if-eqz p1, :cond_2
 
-    invoke-virtual {p0, p2}, Lcom/android/settings/notification/app/RecentConversationsPreferenceController;->getClearAll(Landroidx/preference/PreferenceGroup;)Lcom/android/settingslib/widget/LayoutPreference;
+    iget-object p1, p0, Lcom/android/settings/notification/app/RecentConversationsPreferenceController;->mPreferenceGroup:Landroidx/preference/PreferenceGroup;
 
-    move-result-object p0
+    invoke-virtual {p0, p1}, Lcom/android/settings/notification/app/RecentConversationsPreferenceController;->getClearAll(Landroidx/preference/PreferenceGroup;)Lcom/android/settingslib/widget/LayoutPreference;
 
-    if-eqz p0, :cond_2
+    move-result-object p1
 
-    invoke-virtual {p2, p0}, Landroidx/preference/PreferenceGroup;->addPreference(Landroidx/preference/Preference;)Z
+    if-eqz p1, :cond_2
+
+    iget-object p0, p0, Lcom/android/settings/notification/app/RecentConversationsPreferenceController;->mPreferenceGroup:Landroidx/preference/PreferenceGroup;
+
+    invoke-virtual {p0, p1}, Landroidx/preference/PreferenceGroup;->addPreference(Landroidx/preference/Preference;)Z
 
     :cond_2
-    :goto_1
-    return-void
+    return v0
 .end method
 
-.method public updateState(Landroidx/preference/Preference;)V
-    .locals 3
+.method updateList()Z
+    .locals 4
 
-    check-cast p1, Landroidx/preference/PreferenceCategory;
+    invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
+
+    move-result-object v0
 
     :try_start_0
-    iget-object v0, p0, Lcom/android/settings/notification/app/RecentConversationsPreferenceController;->mPs:Landroid/app/people/IPeopleManager;
+    iget-object v1, p0, Lcom/android/settings/notification/app/RecentConversationsPreferenceController;->mPs:Landroid/app/people/IPeopleManager;
 
-    invoke-interface {v0}, Landroid/app/people/IPeopleManager;->getRecentConversations()Landroid/content/pm/ParceledListSlice;
+    invoke-interface {v1}, Landroid/app/people/IPeopleManager;->getRecentConversations()Landroid/content/pm/ParceledListSlice;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/content/pm/ParceledListSlice;->getList()Ljava/util/List;
 
     move-result-object v0
-
-    invoke-virtual {v0}, Landroid/content/pm/ParceledListSlice;->getList()Ljava/util/List;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/settings/notification/app/RecentConversationsPreferenceController;->mConversations:Ljava/util/List;
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    move-exception v1
 
-    const-string v1, "RecentConversationsPC"
+    const-string v2, "RecentConversationsPC"
 
-    const-string v2, "Could get recents"
+    const-string v3, "Could not get recent conversations"
 
-    invoke-static {v1, v2, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v2, v3, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_0
-    iget-object v0, p0, Lcom/android/settings/notification/app/RecentConversationsPreferenceController;->mConversations:Ljava/util/List;
+    invoke-virtual {p0, v0}, Lcom/android/settings/notification/app/RecentConversationsPreferenceController;->populateList(Ljava/util/List;)Z
 
-    iget-object v1, p0, Lcom/android/settings/notification/app/RecentConversationsPreferenceController;->mConversationComparator:Ljava/util/Comparator;
+    move-result p0
 
-    invoke-static {v0, v1}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
-
-    iget-object v0, p0, Lcom/android/settings/notification/app/RecentConversationsPreferenceController;->mConversations:Ljava/util/List;
-
-    invoke-virtual {p0, v0, p1}, Lcom/android/settings/notification/app/RecentConversationsPreferenceController;->populateList(Ljava/util/List;Landroidx/preference/PreferenceGroup;)V
-
-    return-void
+    return p0
 .end method

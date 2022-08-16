@@ -49,7 +49,7 @@
     :cond_0
     iget-object p1, p0, Lcom/android/settingslib/wifi/WifiTracker$Scanner;->this$0:Lcom/android/settingslib/wifi/WifiTracker;
 
-    invoke-static {p1}, Lcom/android/settingslib/wifi/WifiTracker;->access$800(Lcom/android/settingslib/wifi/WifiTracker;)Landroid/net/wifi/WifiManager;
+    invoke-static {p1}, Lcom/android/settingslib/wifi/WifiTracker;->-$$Nest$fgetmWifiManager(Lcom/android/settingslib/wifi/WifiTracker;)Landroid/net/wifi/WifiManager;
 
     move-result-object p1
 
@@ -82,7 +82,7 @@
 
     iget-object p1, p0, Lcom/android/settingslib/wifi/WifiTracker$Scanner;->this$0:Lcom/android/settingslib/wifi/WifiTracker;
 
-    invoke-static {p1}, Lcom/android/settingslib/wifi/WifiTracker;->access$1000(Lcom/android/settingslib/wifi/WifiTracker;)Landroid/content/Context;
+    invoke-static {p1}, Lcom/android/settingslib/wifi/WifiTracker;->-$$Nest$fgetmContext(Lcom/android/settingslib/wifi/WifiTracker;)Landroid/content/Context;
 
     move-result-object p1
 
@@ -90,7 +90,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/wifi/WifiTracker$Scanner;->this$0:Lcom/android/settingslib/wifi/WifiTracker;
 
-    invoke-static {p0}, Lcom/android/settingslib/wifi/WifiTracker;->access$1000(Lcom/android/settingslib/wifi/WifiTracker;)Landroid/content/Context;
+    invoke-static {p0}, Lcom/android/settingslib/wifi/WifiTracker;->-$$Nest$fgetmContext(Lcom/android/settingslib/wifi/WifiTracker;)Landroid/content/Context;
 
     move-result-object p0
 
@@ -129,7 +129,7 @@
 .method pause()V
     .locals 2
 
-    invoke-static {}, Lcom/android/settingslib/wifi/WifiTracker;->access$900()Z
+    invoke-static {}, Lcom/android/settingslib/wifi/WifiTracker;->-$$Nest$smisVerboseLoggingEnabled()Z
 
     move-result v0
 
@@ -154,7 +154,7 @@
 .method resume()V
     .locals 2
 
-    invoke-static {}, Lcom/android/settingslib/wifi/WifiTracker;->access$900()Z
+    invoke-static {}, Lcom/android/settingslib/wifi/WifiTracker;->-$$Nest$smisVerboseLoggingEnabled()Z
 
     move-result v0
 

@@ -42,6 +42,14 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$-AbIEPURzxSdL7XpcOzNSbqEBFg(Lcom/android/settings/SettingsActivity;Landroid/view/View;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/SettingsActivity;->lambda$createUiFromIntent$2(Landroid/view/View;)V
+
+    return-void
+.end method
+
 .method public static synthetic $r8$lambda$9FswNwjCcsZLc-o0Gr0mecZEvbw(Lcom/android/settings/SettingsActivity;)V
     .locals 0
 
@@ -50,26 +58,42 @@
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$ODkn7mWP7vywCisgCLgYrhmji0k(Lcom/android/settings/SettingsActivity;Landroid/view/View;)V
+.method public static synthetic $r8$lambda$D-n3Ea4LWXM7PlVkHK9YFG7mr-c(Lcom/android/settings/SettingsActivity;Landroid/view/View;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/settings/SettingsActivity;->lambda$onCreate$0(Landroid/view/View;)V
+    invoke-direct {p0, p1}, Lcom/android/settings/SettingsActivity;->lambda$createUiFromIntent$0(Landroid/view/View;)V
 
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$bD93eZE2JBvkEZduRs4Iq_lcyPs(Lcom/android/settings/SettingsActivity;Landroid/view/View;)V
+.method public static synthetic $r8$lambda$v5G3KyvOc0f6Ky0uHMy_ETd9pBc(Lcom/android/settings/SettingsActivity;Landroid/view/View;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/settings/SettingsActivity;->lambda$onCreate$2(Landroid/view/View;)V
+    invoke-direct {p0, p1}, Lcom/android/settings/SettingsActivity;->lambda$createUiFromIntent$1(Landroid/view/View;)V
 
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$lOFkl0vOSsHmjZ2HQA1dX0PDzVo(Lcom/android/settings/SettingsActivity;Landroid/view/View;)V
+.method static bridge synthetic -$$Nest$fgetmBatteryPresent(Lcom/android/settings/SettingsActivity;)Z
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/settings/SettingsActivity;->lambda$onCreate$1(Landroid/view/View;)V
+    iget-boolean p0, p0, Lcom/android/settings/SettingsActivity;->mBatteryPresent:Z
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmBatteryPresent(Lcom/android/settings/SettingsActivity;Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/settings/SettingsActivity;->mBatteryPresent:Z
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mupdateTilesList(Lcom/android/settings/SettingsActivity;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/SettingsActivity;->updateTilesList()V
 
     return-void
 .end method
@@ -94,30 +118,6 @@
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/android/settings/SettingsActivity;->mCategories:Ljava/util/ArrayList;
-
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/SettingsActivity;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/settings/SettingsActivity;->mBatteryPresent:Z
-
-    return p0
-.end method
-
-.method static synthetic access$002(Lcom/android/settings/SettingsActivity;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/settings/SettingsActivity;->mBatteryPresent:Z
-
-    return p1
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/SettingsActivity;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/SettingsActivity;->updateTilesList()V
 
     return-void
 .end method
@@ -926,6 +926,35 @@
     return-object p0
 .end method
 
+.method private isActionBarButtonEnabled(Landroid/content/Intent;)Z
+    .locals 2
+
+    invoke-static {p1}, Lcom/google/android/setupcompat/util/WizardManagerHelper;->isAnySetupWizard(Landroid/content/Intent;)Z
+
+    move-result v0
+
+    const/4 v1, 0x0
+
+    if-eqz v0, :cond_0
+
+    return v1
+
+    :cond_0
+    const-string v0, ":settings:is_second_layer_page"
+
+    invoke-virtual {p1, v0, v1}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+
+    move-result p1
+
+    invoke-static {p0, p1}, Lcom/android/settingslib/activityembedding/ActivityEmbeddingUtils;->shouldHideNavigateUpButton(Landroid/app/Activity;Z)Z
+
+    move-result p0
+
+    xor-int/lit8 p0, p0, 0x1
+
+    return p0
+.end method
+
 .method private isSubSettings(Landroid/content/Intent;)Z
     .locals 1
 
@@ -950,7 +979,7 @@
     return v0
 .end method
 
-.method private synthetic lambda$onCreate$0(Landroid/view/View;)V
+.method private synthetic lambda$createUiFromIntent$0(Landroid/view/View;)V
     .locals 1
 
     const/4 p1, 0x0
@@ -964,7 +993,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$onCreate$1(Landroid/view/View;)V
+.method private synthetic lambda$createUiFromIntent$1(Landroid/view/View;)V
     .locals 1
 
     const/4 p1, -0x1
@@ -978,7 +1007,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$onCreate$2(Landroid/view/View;)V
+.method private synthetic lambda$createUiFromIntent$2(Landroid/view/View;)V
     .locals 1
 
     const/4 p1, -0x1
@@ -996,59 +1025,6 @@
     .locals 0
 
     invoke-direct {p0}, Lcom/android/settings/SettingsActivity;->doUpdateTilesList()V
-
-    return-void
-.end method
-
-.method private launchHomepageForTwoPaneDeepLink(Landroid/content/Intent;)V
-    .locals 2
-
-    const-string v0, "is_from_slice"
-
-    const/4 v1, 0x0
-
-    invoke-virtual {p1, v0, v1}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    const-string v0, "android.provider.extra.SETTINGS_EMBEDDED_DEEP_LINK_HIGHLIGHT_MENU_KEY"
-
-    invoke-virtual {p1, v0}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    iput-object v0, p0, Lcom/android/settings/SettingsActivity;->mHighlightMenuKey:Ljava/lang/String;
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/settings/SettingsActivity;->mHighlightMenuKey:Ljava/lang/String;
-
-    invoke-static {p1, v0}, Lcom/android/settings/SettingsActivity;->getTrampolineIntent(Landroid/content/Intent;Ljava/lang/String;)Landroid/content/Intent;
-
-    move-result-object p1
-
-    const-class v0, Lcom/android/settings/homepage/SliceDeepLinkHomepageActivity;
-
-    invoke-virtual {p1, p0, v0}, Landroid/content/Intent;->setClass(Landroid/content/Context;Ljava/lang/Class;)Landroid/content/Intent;
-
-    goto :goto_0
-
-    :cond_1
-    iget-object v0, p0, Lcom/android/settings/SettingsActivity;->mHighlightMenuKey:Ljava/lang/String;
-
-    invoke-static {p1, v0}, Lcom/android/settings/SettingsActivity;->getTrampolineIntent(Landroid/content/Intent;Ljava/lang/String;)Landroid/content/Intent;
-
-    move-result-object p1
-
-    :goto_0
-    invoke-virtual {p0, p1}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
 
     return-void
 .end method
@@ -1346,6 +1322,16 @@
 
     if-nez v0, :cond_1
 
+    invoke-virtual {p1}, Landroid/content/Intent;->getFlags()I
+
+    move-result v0
+
+    const/high16 v2, 0x10000000
+
+    and-int/2addr v0, v2
+
+    if-nez v0, :cond_1
+
     return v1
 
     :cond_1
@@ -1358,6 +1344,31 @@
     return v1
 
     :cond_2
+    invoke-virtual {p0}, Landroid/app/Activity;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v0
+
+    const/high16 v2, 0x10000
+
+    invoke-virtual {p1, v0, v2}, Landroid/content/Intent;->resolveActivityInfo(Landroid/content/pm/PackageManager;I)Landroid/content/pm/ActivityInfo;
+
+    move-result-object v0
+
+    iget v0, v0, Landroid/content/pm/ActivityInfo;->launchMode:I
+
+    const/4 v2, 0x3
+
+    if-ne v0, v2, :cond_3
+
+    const-string p0, "SettingsActivity"
+
+    const-string p1, "launchMode: singleInstance"
+
+    invoke-static {p0, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v1
+
+    :cond_3
     const-string v0, "is_from_slice"
 
     invoke-virtual {p1, v0, v1}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
@@ -1366,23 +1377,12 @@
 
     const/4 v2, 0x1
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4
 
     return v2
 
-    :cond_3
-    invoke-direct {p0, p1}, Lcom/android/settings/SettingsActivity;->isSubSettings(Landroid/content/Intent;)Z
-
-    move-result p0
-
-    if-eqz p0, :cond_4
-
-    return v1
-
     :cond_4
-    const-string p0, "is_from_settings_homepage"
-
-    invoke-virtual {p1, p0, v1}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+    invoke-direct {p0, p1}, Lcom/android/settings/SettingsActivity;->isSubSettings(Landroid/content/Intent;)Z
 
     move-result p0
 
@@ -1391,6 +1391,17 @@
     return v1
 
     :cond_5
+    const-string p0, "is_from_settings_homepage"
+
+    invoke-virtual {p1, p0, v1}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+
+    move-result p0
+
+    if-eqz p0, :cond_6
+
+    return v1
+
+    :cond_6
     invoke-virtual {p1}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object p0
@@ -1401,11 +1412,11 @@
 
     move-result p0
 
-    if-eqz p0, :cond_6
+    if-eqz p0, :cond_7
 
     return v1
 
-    :cond_6
+    :cond_7
     return v2
 .end method
 
@@ -1480,7 +1491,7 @@
 
     move-result-object p2
 
-    const p3, 0x7f0d0348
+    const p3, 0x7f0d0373
 
     invoke-virtual {p2, p3, p1}, Landroidx/fragment/app/FragmentTransaction;->replace(ILandroidx/fragment/app/Fragment;)Landroidx/fragment/app/FragmentTransaction;
 
@@ -1512,12 +1523,131 @@
     return-void
 .end method
 
+.method private tryStartTwoPaneDeepLink(Landroid/content/Intent;)Z
+    .locals 5
+
+    const-class v0, Lcom/android/settings/homepage/DeepLinkHomepageActivityInternal;
+
+    const-string v1, "is_from_slice"
+
+    const/4 v2, 0x0
+
+    invoke-virtual {p1, v1, v2}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    const-string v1, "android.provider.extra.SETTINGS_EMBEDDED_DEEP_LINK_HIGHLIGHT_MENU_KEY"
+
+    invoke-virtual {p1, v1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    iput-object v1, p0, Lcom/android/settings/SettingsActivity;->mHighlightMenuKey:Ljava/lang/String;
+
+    :cond_0
+    iget-object v1, p0, Lcom/android/settings/SettingsActivity;->mHighlightMenuKey:Ljava/lang/String;
+
+    invoke-static {p1, v1}, Lcom/android/settings/SettingsActivity;->getTrampolineIntent(Landroid/content/Intent;Ljava/lang/String;)Landroid/content/Intent;
+
+    move-result-object p1
+
+    invoke-virtual {p1, p0, v0}, Landroid/content/Intent;->setClass(Landroid/content/Context;Ljava/lang/Class;)Landroid/content/Intent;
+
+    goto :goto_0
+
+    :cond_1
+    iget-object v1, p0, Lcom/android/settings/SettingsActivity;->mHighlightMenuKey:Ljava/lang/String;
+
+    invoke-static {p1, v1}, Lcom/android/settings/SettingsActivity;->getTrampolineIntent(Landroid/content/Intent;Ljava/lang/String;)Landroid/content/Intent;
+
+    move-result-object p1
+
+    :goto_0
+    :try_start_0
+    const-class v1, Landroid/os/UserManager;
+
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/os/UserManager;
+
+    invoke-virtual {p0}, Landroid/app/Activity;->getUser()Landroid/os/UserHandle;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/os/UserHandle;->getIdentifier()I
+
+    move-result v3
+
+    invoke-virtual {v1, v3}, Landroid/os/UserManager;->getUserInfo(I)Landroid/content/pm/UserInfo;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/content/pm/UserInfo;->isManagedProfile()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_2
+
+    invoke-virtual {p1, p0, v0}, Landroid/content/Intent;->setClass(Landroid/content/Context;Ljava/lang/Class;)Landroid/content/Intent;
+
+    move-result-object v0
+
+    const-string/jumbo v3, "user_handle"
+
+    invoke-virtual {p0}, Landroid/app/Activity;->getUser()Landroid/os/UserHandle;
+
+    move-result-object v4
+
+    invoke-virtual {v0, v3, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
+
+    invoke-virtual {v1}, Landroid/os/UserManager;->getPrimaryUser()Landroid/content/pm/UserInfo;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/content/pm/UserInfo;->getUserHandle()Landroid/os/UserHandle;
+
+    move-result-object v0
+
+    invoke-virtual {p0, p1, v0}, Landroid/app/Activity;->startActivityAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
+
+    goto :goto_1
+
+    :cond_2
+    invoke-virtual {p0, p1}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
+    :try_end_0
+    .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_1
+    const/4 p0, 0x1
+
+    return p0
+
+    :catch_0
+    const-string p0, "SettingsActivity"
+
+    const-string p1, "Deep link homepage is not available to show 2-pane UI"
+
+    invoke-static {p0, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v2
+.end method
+
 .method private updateTilesList()V
     .locals 1
 
-    new-instance v0, Lcom/android/settings/SettingsActivity$$ExternalSyntheticLambda3;
+    new-instance v0, Lcom/android/settings/SettingsActivity$$ExternalSyntheticLambda0;
 
-    invoke-direct {v0, p0}, Lcom/android/settings/SettingsActivity$$ExternalSyntheticLambda3;-><init>(Lcom/android/settings/SettingsActivity;)V
+    invoke-direct {v0, p0}, Lcom/android/settings/SettingsActivity$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/SettingsActivity;)V
 
     invoke-static {v0}, Landroid/os/AsyncTask;->execute(Ljava/lang/Runnable;)V
 
@@ -1526,6 +1656,298 @@
 
 
 # virtual methods
+.method protected createUiFromIntent(Landroid/os/Bundle;Landroid/content/Intent;)V
+    .locals 5
+
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    invoke-static {p0}, Lcom/android/settings/overlay/FeatureFactory;->getFactory(Landroid/content/Context;)Lcom/android/settings/overlay/FeatureFactory;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p0}, Lcom/android/settings/overlay/FeatureFactory;->getDashboardFeatureProvider(Landroid/content/Context;)Lcom/android/settings/dashboard/DashboardFeatureProvider;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/settings/SettingsActivity;->mDashboardFeatureProvider:Lcom/android/settings/dashboard/DashboardFeatureProvider;
+
+    const-string/jumbo v0, "settings:ui_options"
+
+    invoke-virtual {p2, v0}, Landroid/content/Intent;->hasExtra(Ljava/lang/String;)Z
+
+    move-result v1
+
+    const/4 v2, 0x0
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {p0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
+
+    move-result-object v1
+
+    invoke-virtual {p2, v0, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+
+    move-result v0
+
+    invoke-virtual {v1, v0}, Landroid/view/Window;->setUiOptions(I)V
+
+    :cond_0
+    invoke-virtual {p0, p2}, Lcom/android/settings/SettingsActivity;->getInitialFragmentName(Landroid/content/Intent;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {p0, p2}, Lcom/android/settings/SettingsActivity;->isSubSettings(Landroid/content/Intent;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    invoke-virtual {p0}, Lcom/android/settings/SettingsActivity;->getIntent()Landroid/content/Intent;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/google/android/setupcompat/util/WizardManagerHelper;->isAnySetupWizard(Landroid/content/Intent;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    const v1, 0x7f130422
+
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->setTheme(I)V
+
+    :cond_1
+    const v1, 0x7f060210
+
+    invoke-virtual {p0, v1}, Lcom/android/settings/core/SettingsBaseActivity;->setContentView(I)V
+
+    invoke-virtual {p0}, Landroidx/fragment/app/FragmentActivity;->getSupportFragmentManager()Landroidx/fragment/app/FragmentManager;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p0}, Landroidx/fragment/app/FragmentManager;->addOnBackStackChangedListener(Landroidx/fragment/app/FragmentManager$OnBackStackChangedListener;)V
+
+    if-eqz p1, :cond_2
+
+    invoke-direct {p0, p2}, Lcom/android/settings/SettingsActivity;->setTitleFromIntent(Landroid/content/Intent;)V
+
+    const-string v0, ":settings:categories"
+
+    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getParcelableArrayList(Ljava/lang/String;)Ljava/util/ArrayList;
+
+    move-result-object p1
+
+    if-eqz p1, :cond_3
+
+    iget-object v0, p0, Lcom/android/settings/SettingsActivity;->mCategories:Ljava/util/ArrayList;
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
+
+    iget-object v0, p0, Lcom/android/settings/SettingsActivity;->mCategories:Ljava/util/ArrayList;
+
+    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
+
+    invoke-direct {p0}, Lcom/android/settings/SettingsActivity;->setTitleFromBackStack()V
+
+    goto :goto_0
+
+    :cond_2
+    invoke-virtual {p0, v0, p2}, Lcom/android/settings/SettingsActivity;->launchSettingFragment(Ljava/lang/String;Landroid/content/Intent;)V
+
+    :cond_3
+    :goto_0
+    invoke-direct {p0, p2}, Lcom/android/settings/SettingsActivity;->isActionBarButtonEnabled(Landroid/content/Intent;)Z
+
+    move-result p1
+
+    invoke-virtual {p0}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_4
+
+    invoke-virtual {v0, p1}, Landroid/app/ActionBar;->setDisplayHomeAsUpEnabled(Z)V
+
+    invoke-virtual {v0, p1}, Landroid/app/ActionBar;->setHomeButtonEnabled(Z)V
+
+    const/4 p1, 0x1
+
+    invoke-virtual {v0, p1}, Landroid/app/ActionBar;->setDisplayShowTitleEnabled(Z)V
+
+    :cond_4
+    const p1, 0x7f0d05d7
+
+    invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
+
+    move-result-object p1
+
+    check-cast p1, Lcom/android/settings/widget/SettingsMainSwitchBar;
+
+    iput-object p1, p0, Lcom/android/settings/SettingsActivity;->mMainSwitch:Lcom/android/settings/widget/SettingsMainSwitchBar;
+
+    if-eqz p1, :cond_5
+
+    invoke-direct {p0}, Lcom/android/settings/SettingsActivity;->getMetricsTag()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Lcom/android/settings/widget/SettingsMainSwitchBar;->setMetricsTag(Ljava/lang/String;)V
+
+    iget-object p1, p0, Lcom/android/settings/SettingsActivity;->mMainSwitch:Lcom/android/settings/widget/SettingsMainSwitchBar;
+
+    const v0, 0x7f0d0373
+
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/view/View;->getTranslationZ()F
+
+    move-result v0
+
+    const/high16 v1, 0x3f800000    # 1.0f
+
+    add-float/2addr v0, v1
+
+    invoke-virtual {p1, v0}, Landroid/widget/LinearLayout;->setTranslationZ(F)V
+
+    :cond_5
+    const-string p1, "extra_prefs_show_button_bar"
+
+    invoke-virtual {p2, p1, v2}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_a
+
+    const p1, 0x7f0d0138
+
+    invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
+
+    move-result-object p1
+
+    if-eqz p1, :cond_a
+
+    invoke-virtual {p1, v2}, Landroid/view/View;->setVisibility(I)V
+
+    const p1, 0x7f0d00c5
+
+    invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
+
+    move-result-object p1
+
+    check-cast p1, Landroid/widget/Button;
+
+    new-instance v0, Lcom/android/settings/SettingsActivity$$ExternalSyntheticLambda1;
+
+    invoke-direct {v0, p0}, Lcom/android/settings/SettingsActivity$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/SettingsActivity;)V
+
+    invoke-virtual {p1, v0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    const v0, 0x7f0d0553
+
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/Button;
+
+    new-instance v1, Lcom/android/settings/SettingsActivity$$ExternalSyntheticLambda2;
+
+    invoke-direct {v1, p0}, Lcom/android/settings/SettingsActivity$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/SettingsActivity;)V
+
+    invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    const v1, 0x7f0d0412
+
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/widget/Button;
+
+    iput-object v1, p0, Lcom/android/settings/SettingsActivity;->mNextButton:Landroid/widget/Button;
+
+    new-instance v3, Lcom/android/settings/SettingsActivity$$ExternalSyntheticLambda3;
+
+    invoke-direct {v3, p0}, Lcom/android/settings/SettingsActivity$$ExternalSyntheticLambda3;-><init>(Lcom/android/settings/SettingsActivity;)V
+
+    invoke-virtual {v1, v3}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    const-string v1, "extra_prefs_set_next_text"
+
+    invoke-virtual {p2, v1}, Landroid/content/Intent;->hasExtra(Ljava/lang/String;)Z
+
+    move-result v3
+
+    const/16 v4, 0x8
+
+    if-eqz v3, :cond_7
+
+    invoke-virtual {p2, v1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_6
+
+    iget-object p0, p0, Lcom/android/settings/SettingsActivity;->mNextButton:Landroid/widget/Button;
+
+    invoke-virtual {p0, v4}, Landroid/widget/Button;->setVisibility(I)V
+
+    goto :goto_1
+
+    :cond_6
+    iget-object p0, p0, Lcom/android/settings/SettingsActivity;->mNextButton:Landroid/widget/Button;
+
+    invoke-virtual {p0, v1}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
+
+    :cond_7
+    :goto_1
+    const-string p0, "extra_prefs_set_back_text"
+
+    invoke-virtual {p2, p0}, Landroid/content/Intent;->hasExtra(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_9
+
+    invoke-virtual {p2, p0}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_8
+
+    invoke-virtual {p1, v4}, Landroid/widget/Button;->setVisibility(I)V
+
+    goto :goto_2
+
+    :cond_8
+    invoke-virtual {p1, p0}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
+
+    :cond_9
+    :goto_2
+    const-string p0, "extra_prefs_show_skip"
+
+    invoke-virtual {p2, p0, v2}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+
+    move-result p0
+
+    if-eqz p0, :cond_a
+
+    invoke-virtual {v0, v2}, Landroid/widget/Button;->setVisibility(I)V
+
+    :cond_a
+    return-void
+.end method
+
 .method public finishPreferencePanel(ILandroid/content/Intent;)V
     .locals 1
 
@@ -1535,7 +1957,7 @@
 
     const/4 p1, 0x0
 
-    const-string v0, "remove_task_when_finishing"
+    const-string/jumbo v0, "remove_task_when_finishing"
 
     invoke-virtual {p2, v0, p1}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
@@ -1769,7 +2191,7 @@
     goto :goto_0
 
     :cond_0
-    const p1, 0x7f040707
+    const p1, 0x7f04074a
 
     iput p1, p0, Lcom/android/settings/SettingsActivity;->mInitialTitleResId:I
 
@@ -1843,7 +2265,7 @@
 .method protected onApplyThemeResource(Landroid/content/res/Resources$Theme;IZ)V
     .locals 2
 
-    const v0, 0x7f1301cb
+    const v0, 0x7f13020d
 
     const/4 v1, 0x1
 
@@ -1863,7 +2285,7 @@
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 6
+    .locals 3
 
     invoke-direct {p0}, Lcom/android/settings/SettingsActivity;->getMetaData()V
 
@@ -1877,9 +2299,13 @@
 
     if-eqz v1, :cond_0
 
-    invoke-direct {p0, v0}, Lcom/android/settings/SettingsActivity;->launchHomepageForTwoPaneDeepLink(Landroid/content/Intent;)V
+    invoke-direct {p0, v0}, Lcom/android/settings/SettingsActivity;->tryStartTwoPaneDeepLink(Landroid/content/Intent;)Z
 
-    invoke-virtual {p0}, Landroid/app/Activity;->finishAndRemoveTask()V
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     invoke-super {p0, p1}, Lcom/android/settings/core/SettingsBaseActivity;->onCreate(Landroid/os/Bundle;)V
 
@@ -1894,300 +2320,8 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+    invoke-virtual {p0, p1, v0}, Lcom/android/settings/SettingsActivity;->createUiFromIntent(Landroid/os/Bundle;Landroid/content/Intent;)V
 
-    invoke-static {p0}, Lcom/android/settings/overlay/FeatureFactory;->getFactory(Landroid/content/Context;)Lcom/android/settings/overlay/FeatureFactory;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p0}, Lcom/android/settings/overlay/FeatureFactory;->getDashboardFeatureProvider(Landroid/content/Context;)Lcom/android/settings/dashboard/DashboardFeatureProvider;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lcom/android/settings/SettingsActivity;->mDashboardFeatureProvider:Lcom/android/settings/dashboard/DashboardFeatureProvider;
-
-    const-string/jumbo v1, "settings:ui_options"
-
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->hasExtra(Ljava/lang/String;)Z
-
-    move-result v2
-
-    const/4 v3, 0x0
-
-    if-eqz v2, :cond_1
-
-    invoke-virtual {p0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v1, v3}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
-
-    move-result v1
-
-    invoke-virtual {v2, v1}, Landroid/view/Window;->setUiOptions(I)V
-
-    :cond_1
-    invoke-virtual {p0, v0}, Lcom/android/settings/SettingsActivity;->getInitialFragmentName(Landroid/content/Intent;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-direct {p0, v0}, Lcom/android/settings/SettingsActivity;->isSubSettings(Landroid/content/Intent;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_2
-
-    invoke-virtual {p0}, Lcom/android/settings/SettingsActivity;->getIntent()Landroid/content/Intent;
-
-    move-result-object v2
-
-    invoke-static {v2}, Lcom/google/android/setupcompat/util/WizardManagerHelper;->isAnySetupWizard(Landroid/content/Intent;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_2
-
-    const v2, 0x7f13035e
-
-    invoke-virtual {p0, v2}, Landroid/app/Activity;->setTheme(I)V
-
-    :cond_2
-    const v2, 0x7f060207
-
-    invoke-virtual {p0, v2}, Lcom/android/settings/core/SettingsBaseActivity;->setContentView(I)V
-
-    invoke-virtual {p0}, Landroidx/fragment/app/FragmentActivity;->getSupportFragmentManager()Landroidx/fragment/app/FragmentManager;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p0}, Landroidx/fragment/app/FragmentManager;->addOnBackStackChangedListener(Landroidx/fragment/app/FragmentManager$OnBackStackChangedListener;)V
-
-    if-eqz p1, :cond_3
-
-    invoke-direct {p0, v0}, Lcom/android/settings/SettingsActivity;->setTitleFromIntent(Landroid/content/Intent;)V
-
-    const-string v1, ":settings:categories"
-
-    invoke-virtual {p1, v1}, Landroid/os/Bundle;->getParcelableArrayList(Ljava/lang/String;)Ljava/util/ArrayList;
-
-    move-result-object p1
-
-    if-eqz p1, :cond_4
-
-    iget-object v1, p0, Lcom/android/settings/SettingsActivity;->mCategories:Ljava/util/ArrayList;
-
-    invoke-virtual {v1}, Ljava/util/ArrayList;->clear()V
-
-    iget-object v1, p0, Lcom/android/settings/SettingsActivity;->mCategories:Ljava/util/ArrayList;
-
-    invoke-virtual {v1, p1}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
-
-    invoke-direct {p0}, Lcom/android/settings/SettingsActivity;->setTitleFromBackStack()V
-
-    goto :goto_0
-
-    :cond_3
-    invoke-virtual {p0, v1, v0}, Lcom/android/settings/SettingsActivity;->launchSettingFragment(Ljava/lang/String;Landroid/content/Intent;)V
-
-    :cond_4
-    :goto_0
-    invoke-virtual {p0}, Lcom/android/settings/SettingsActivity;->getIntent()Landroid/content/Intent;
-
-    move-result-object p1
-
-    invoke-static {p1}, Lcom/google/android/setupcompat/util/WizardManagerHelper;->isAnySetupWizard(Landroid/content/Intent;)Z
-
-    move-result p1
-
-    invoke-virtual {p0}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_5
-
-    xor-int/lit8 v2, p1, 0x1
-
-    invoke-virtual {v1, v2}, Landroid/app/ActionBar;->setDisplayHomeAsUpEnabled(Z)V
-
-    const/4 v2, 0x1
-
-    xor-int/2addr p1, v2
-
-    invoke-virtual {v1, p1}, Landroid/app/ActionBar;->setHomeButtonEnabled(Z)V
-
-    invoke-virtual {v1, v2}, Landroid/app/ActionBar;->setDisplayShowTitleEnabled(Z)V
-
-    :cond_5
-    const p1, 0x7f0d0592
-
-    invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
-
-    move-result-object p1
-
-    check-cast p1, Lcom/android/settings/widget/SettingsMainSwitchBar;
-
-    iput-object p1, p0, Lcom/android/settings/SettingsActivity;->mMainSwitch:Lcom/android/settings/widget/SettingsMainSwitchBar;
-
-    if-eqz p1, :cond_6
-
-    invoke-direct {p0}, Lcom/android/settings/SettingsActivity;->getMetricsTag()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {p1, v1}, Lcom/android/settings/widget/SettingsMainSwitchBar;->setMetricsTag(Ljava/lang/String;)V
-
-    iget-object p1, p0, Lcom/android/settings/SettingsActivity;->mMainSwitch:Lcom/android/settings/widget/SettingsMainSwitchBar;
-
-    const v1, 0x7f0d0348
-
-    invoke-virtual {p0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/view/View;->getTranslationZ()F
-
-    move-result v1
-
-    const/high16 v2, 0x3f800000    # 1.0f
-
-    add-float/2addr v1, v2
-
-    invoke-virtual {p1, v1}, Landroid/widget/LinearLayout;->setTranslationZ(F)V
-
-    :cond_6
-    const-string p1, "extra_prefs_show_button_bar"
-
-    invoke-virtual {v0, p1, v3}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
-
-    move-result p1
-
-    if-eqz p1, :cond_b
-
-    const p1, 0x7f0d0129
-
-    invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
-
-    move-result-object p1
-
-    if-eqz p1, :cond_b
-
-    invoke-virtual {p1, v3}, Landroid/view/View;->setVisibility(I)V
-
-    const p1, 0x7f0d00bf
-
-    invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
-
-    move-result-object p1
-
-    check-cast p1, Landroid/widget/Button;
-
-    new-instance v1, Lcom/android/settings/SettingsActivity$$ExternalSyntheticLambda0;
-
-    invoke-direct {v1, p0}, Lcom/android/settings/SettingsActivity$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/SettingsActivity;)V
-
-    invoke-virtual {p1, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    const v1, 0x7f0d0511
-
-    invoke-virtual {p0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/widget/Button;
-
-    new-instance v2, Lcom/android/settings/SettingsActivity$$ExternalSyntheticLambda2;
-
-    invoke-direct {v2, p0}, Lcom/android/settings/SettingsActivity$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/SettingsActivity;)V
-
-    invoke-virtual {v1, v2}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    const v2, 0x7f0d03e1
-
-    invoke-virtual {p0, v2}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/widget/Button;
-
-    iput-object v2, p0, Lcom/android/settings/SettingsActivity;->mNextButton:Landroid/widget/Button;
-
-    new-instance v4, Lcom/android/settings/SettingsActivity$$ExternalSyntheticLambda1;
-
-    invoke-direct {v4, p0}, Lcom/android/settings/SettingsActivity$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/SettingsActivity;)V
-
-    invoke-virtual {v2, v4}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    const-string v2, "extra_prefs_set_next_text"
-
-    invoke-virtual {v0, v2}, Landroid/content/Intent;->hasExtra(Ljava/lang/String;)Z
-
-    move-result v4
-
-    const/16 v5, 0x8
-
-    if-eqz v4, :cond_8
-
-    invoke-virtual {v0, v2}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_7
-
-    iget-object p0, p0, Lcom/android/settings/SettingsActivity;->mNextButton:Landroid/widget/Button;
-
-    invoke-virtual {p0, v5}, Landroid/widget/Button;->setVisibility(I)V
-
-    goto :goto_1
-
-    :cond_7
-    iget-object p0, p0, Lcom/android/settings/SettingsActivity;->mNextButton:Landroid/widget/Button;
-
-    invoke-virtual {p0, v2}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
-
-    :cond_8
-    :goto_1
-    const-string p0, "extra_prefs_set_back_text"
-
-    invoke-virtual {v0, p0}, Landroid/content/Intent;->hasExtra(Ljava/lang/String;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_a
-
-    invoke-virtual {v0, p0}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object p0
-
-    invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_9
-
-    invoke-virtual {p1, v5}, Landroid/widget/Button;->setVisibility(I)V
-
-    goto :goto_2
-
-    :cond_9
-    invoke-virtual {p1, p0}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
-
-    :cond_a
-    :goto_2
-    const-string p0, "extra_prefs_show_skip"
-
-    invoke-virtual {v0, p0, v3}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
-
-    move-result p0
-
-    if-eqz p0, :cond_b
-
-    invoke-virtual {v1, v3}, Landroid/widget/Button;->setVisibility(I)V
-
-    :cond_b
     return-void
 .end method
 
@@ -2353,7 +2487,7 @@
 .method public setTaskDescription(Landroid/app/ActivityManager$TaskDescription;)V
     .locals 1
 
-    const v0, 0x7f020237
+    const v0, 0x7f020255
 
     invoke-static {p0, v0}, Landroid/graphics/drawable/Icon;->createWithResource(Landroid/content/Context;I)Landroid/graphics/drawable/Icon;
 

@@ -55,7 +55,7 @@
 
     move-result-object p0
 
-    const-string v0, "Reflection.renderLambdaToString(this)"
+    const-string v0, "renderLambdaToString(this)"
 
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 

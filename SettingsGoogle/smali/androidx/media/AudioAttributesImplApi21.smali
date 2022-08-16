@@ -6,14 +6,6 @@
 .implements Landroidx/media/AudioAttributesImpl;
 
 
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Landroidx/media/AudioAttributesImplApi21$Builder;
-    }
-.end annotation
-
-
 # instance fields
 .field public mAudioAttributes:Landroid/media/AudioAttributes;
 
@@ -33,42 +25,10 @@
     return-void
 .end method
 
-.method constructor <init>(Landroid/media/AudioAttributes;)V
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "audioAttributes"
-        }
-    .end annotation
-
-    const/4 v0, -0x1
-
-    invoke-direct {p0, p1, v0}, Landroidx/media/AudioAttributesImplApi21;-><init>(Landroid/media/AudioAttributes;I)V
-
-    return-void
-.end method
-
 .method constructor <init>(Landroid/media/AudioAttributes;I)V
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "audioAttributes",
-            "explicitLegacyStream"
-        }
-    .end annotation
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    const/4 v0, -0x1
-
-    iput v0, p0, Landroidx/media/AudioAttributesImplApi21;->mLegacyStreamType:I
 
     iput-object p1, p0, Landroidx/media/AudioAttributesImplApi21;->mAudioAttributes:Landroid/media/AudioAttributes;
 
@@ -81,14 +41,6 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "o"
-        }
-    .end annotation
 
     instance-of v0, p1, Landroidx/media/AudioAttributesImplApi21;
 

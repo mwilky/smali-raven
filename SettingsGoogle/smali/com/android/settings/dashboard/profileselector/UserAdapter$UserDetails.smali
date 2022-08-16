@@ -17,12 +17,56 @@
 # instance fields
 .field private final mIcon:Landroid/graphics/drawable/Drawable;
 
-.field private final mName:Ljava/lang/String;
+.field private final mTitle:Ljava/lang/String;
 
 .field private final mUserHandle:Landroid/os/UserHandle;
 
 
 # direct methods
+.method public static synthetic $r8$lambda$OE4MGRsxZ2l_XgKEg1vPBUgYrJs(Landroid/content/Context;)Ljava/lang/String;
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/settings/dashboard/profileselector/UserAdapter$UserDetails;->lambda$getTitle$1(Landroid/content/Context;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static synthetic $r8$lambda$V3QVi2qsrf6SB4EsEs3aJ8wwZr4(Landroid/content/Context;)Ljava/lang/String;
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/settings/dashboard/profileselector/UserAdapter$UserDetails;->lambda$getTitle$0(Landroid/content/Context;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmIcon(Lcom/android/settings/dashboard/profileselector/UserAdapter$UserDetails;)Landroid/graphics/drawable/Drawable;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/dashboard/profileselector/UserAdapter$UserDetails;->mIcon:Landroid/graphics/drawable/Drawable;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmTitle(Lcom/android/settings/dashboard/profileselector/UserAdapter$UserDetails;)Ljava/lang/String;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/dashboard/profileselector/UserAdapter$UserDetails;->mTitle:Ljava/lang/String;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmUserHandle(Lcom/android/settings/dashboard/profileselector/UserAdapter$UserDetails;)Landroid/os/UserHandle;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/dashboard/profileselector/UserAdapter$UserDetails;->mUserHandle:Landroid/os/UserHandle;
+
+    return-object p0
+.end method
+
 .method public constructor <init>(Landroid/os/UserHandle;Landroid/os/UserManager;Landroid/content/Context;)V
     .locals 2
 
@@ -32,116 +76,146 @@
 
     invoke-virtual {p1}, Landroid/os/UserHandle;->getIdentifier()I
 
-    move-result p1
-
-    invoke-virtual {p2, p1}, Landroid/os/UserManager;->getUserInfo(I)Landroid/content/pm/UserInfo;
-
-    move-result-object p1
-
-    invoke-virtual {p1}, Landroid/content/pm/UserInfo;->isManagedProfile()Z
-
     move-result v0
 
-    if-eqz v0, :cond_0
-
-    const p1, 0x7f040c97
-
-    invoke-virtual {p3, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object p1
-
-    iput-object p1, p0, Lcom/android/settings/dashboard/profileselector/UserAdapter$UserDetails;->mName:Ljava/lang/String;
-
-    const p1, 0x1080375
-
-    invoke-virtual {p3, p1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
-
-    move-result-object p1
-
-    goto :goto_0
-
-    :cond_0
-    iget-object v0, p1, Landroid/content/pm/UserInfo;->name:Ljava/lang/String;
-
-    iput-object v0, p0, Lcom/android/settings/dashboard/profileselector/UserAdapter$UserDetails;->mName:Ljava/lang/String;
-
-    iget p1, p1, Landroid/content/pm/UserInfo;->id:I
-
-    invoke-virtual {p2, p1}, Landroid/os/UserManager;->getUserIcon(I)Landroid/graphics/Bitmap;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_1
-
-    new-instance v0, Landroid/graphics/drawable/BitmapDrawable;
-
-    invoke-virtual {p3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    invoke-virtual {p2, p1}, Landroid/os/UserManager;->getUserIcon(I)Landroid/graphics/Bitmap;
-
-    move-result-object p1
-
-    invoke-direct {v0, v1, p1}, Landroid/graphics/drawable/BitmapDrawable;-><init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;)V
-
-    move-object p1, v0
-
-    goto :goto_0
-
-    :cond_1
-    invoke-virtual {p3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p2, v0}, Landroid/os/UserManager;->getUserInfo(I)Landroid/content/pm/UserInfo;
 
     move-result-object p2
 
-    const/4 v0, 0x0
+    const v0, 0x1120025
 
-    invoke-static {p2, p1, v0}, Lcom/android/internal/util/UserIcons;->getDefaultUserIcon(Landroid/content/res/Resources;IZ)Landroid/graphics/drawable/Drawable;
+    invoke-static {p3, v0}, Lcom/android/settingslib/Utils;->getColorAttrDefaultColor(Landroid/content/Context;I)I
 
-    move-result-object p1
+    move-result v0
 
-    :goto_0
-    invoke-static {p3, p1}, Lcom/android/settings/dashboard/profileselector/UserAdapter$UserDetails;->encircle(Landroid/content/Context;Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {p2}, Landroid/content/pm/UserInfo;->isManagedProfile()Z
+
+    move-result p2
+
+    if-eqz p2, :cond_0
+
+    invoke-virtual {p3}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object p2
+
+    const/4 v1, 0x0
+
+    invoke-virtual {p2, p1, v1}, Landroid/content/pm/PackageManager;->getUserBadgeForDensityNoBackground(Landroid/os/UserHandle;I)Landroid/graphics/drawable/Drawable;
 
     move-result-object p1
 
     iput-object p1, p0, Lcom/android/settings/dashboard/profileselector/UserAdapter$UserDetails;->mIcon:Landroid/graphics/drawable/Drawable;
 
+    invoke-virtual {p1, v0}, Landroid/graphics/drawable/Drawable;->setTint(I)V
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {p3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p1
+
+    invoke-static {p1, v0}, Lcom/android/internal/util/UserIcons;->getDefaultUserIconInColor(Landroid/content/res/Resources;I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object p1
+
+    iput-object p1, p0, Lcom/android/settings/dashboard/profileselector/UserAdapter$UserDetails;->mIcon:Landroid/graphics/drawable/Drawable;
+
+    :goto_0
+    invoke-direct {p0, p3}, Lcom/android/settings/dashboard/profileselector/UserAdapter$UserDetails;->getTitle(Landroid/content/Context;)Ljava/lang/String;
+
+    move-result-object p1
+
+    iput-object p1, p0, Lcom/android/settings/dashboard/profileselector/UserAdapter$UserDetails;->mTitle:Ljava/lang/String;
+
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/settings/dashboard/profileselector/UserAdapter$UserDetails;)Landroid/os/UserHandle;
-    .locals 0
+.method private getTitle(Landroid/content/Context;)Ljava/lang/String;
+    .locals 2
+
+    const-class v0, Landroid/app/admin/DevicePolicyManager;
+
+    invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/app/admin/DevicePolicyManager;
+
+    invoke-static {v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-object v1, v0
+
+    check-cast v1, Landroid/app/admin/DevicePolicyManager;
+
+    invoke-virtual {v0}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
+
+    move-result-object v0
 
     iget-object p0, p0, Lcom/android/settings/dashboard/profileselector/UserAdapter$UserDetails;->mUserHandle:Landroid/os/UserHandle;
 
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/dashboard/profileselector/UserAdapter$UserDetails;)Landroid/graphics/drawable/Drawable;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/dashboard/profileselector/UserAdapter$UserDetails;->mIcon:Landroid/graphics/drawable/Drawable;
-
-    return-object p0
-.end method
-
-.method private static encircle(Landroid/content/Context;Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
-    .locals 1
-
-    new-instance v0, Lcom/android/settingslib/drawable/UserIconDrawable;
-
-    invoke-static {p0}, Lcom/android/settingslib/drawable/UserIconDrawable;->getSizeForList(Landroid/content/Context;)I
+    invoke-virtual {p0}, Landroid/os/UserHandle;->getIdentifier()I
 
     move-result p0
 
-    invoke-direct {v0, p0}, Lcom/android/settingslib/drawable/UserIconDrawable;-><init>(I)V
+    const/4 v1, -0x2
 
-    invoke-virtual {v0, p1}, Lcom/android/settingslib/drawable/UserIconDrawable;->setIconDrawable(Landroid/graphics/drawable/Drawable;)Lcom/android/settingslib/drawable/UserIconDrawable;
+    if-eq p0, v1, :cond_1
+
+    invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
+
+    move-result v1
+
+    if-ne p0, v1, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    new-instance p0, Lcom/android/settings/dashboard/profileselector/UserAdapter$UserDetails$$ExternalSyntheticLambda1;
+
+    invoke-direct {p0, p1}, Lcom/android/settings/dashboard/profileselector/UserAdapter$UserDetails$$ExternalSyntheticLambda1;-><init>(Landroid/content/Context;)V
+
+    const-string p1, "Settings.WORK_CATEGORY_HEADER"
+
+    invoke-virtual {v0, p1, p0}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
 
     move-result-object p0
 
-    invoke-virtual {p0}, Lcom/android/settingslib/drawable/UserIconDrawable;->bake()Lcom/android/settingslib/drawable/UserIconDrawable;
+    return-object p0
+
+    :cond_1
+    :goto_0
+    new-instance p0, Lcom/android/settings/dashboard/profileselector/UserAdapter$UserDetails$$ExternalSyntheticLambda0;
+
+    invoke-direct {p0, p1}, Lcom/android/settings/dashboard/profileselector/UserAdapter$UserDetails$$ExternalSyntheticLambda0;-><init>(Landroid/content/Context;)V
+
+    const-string p1, "Settings.PERSONAL_CATEGORY_HEADER"
+
+    invoke-virtual {v0, p1, p0}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private static synthetic lambda$getTitle$0(Landroid/content/Context;)Ljava/lang/String;
+    .locals 1
+
+    const v0, 0x7f0405f5
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private static synthetic lambda$getTitle$1(Landroid/content/Context;)Ljava/lang/String;
+    .locals 1
+
+    const v0, 0x7f0405f6
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object p0
 

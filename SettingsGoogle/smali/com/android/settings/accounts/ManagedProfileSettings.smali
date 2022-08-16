@@ -24,6 +24,14 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmManagedUser(Lcom/android/settings/accounts/ManagedProfileSettings;)Landroid/os/UserHandle;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/accounts/ManagedProfileSettings;->mManagedUser:Landroid/os/UserHandle;
+
+    return-object p0
+.end method
+
 .method static constructor <clinit>()V
     .locals 1
 
@@ -42,14 +50,6 @@
     invoke-direct {p0}, Lcom/android/settings/dashboard/DashboardFragment;-><init>()V
 
     return-void
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/accounts/ManagedProfileSettings;)Landroid/os/UserHandle;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/accounts/ManagedProfileSettings;->mManagedUser:Landroid/os/UserHandle;
-
-    return-object p0
 .end method
 
 .method private getManagedUserFromArgument()Landroid/os/UserHandle;
@@ -116,7 +116,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150097
+    const p0, 0x7f150098
 
     return p0
 .end method
@@ -191,7 +191,7 @@
 .end method
 
 .method public onCreate(Landroid/os/Bundle;)V
-    .locals 1
+    .locals 2
 
     invoke-super {p0, p1}, Lcom/android/settings/dashboard/DashboardFragment;->onCreate(Landroid/os/Bundle;)V
 
@@ -199,15 +199,57 @@
 
     const/4 v0, 0x0
 
-    invoke-direct {p1, p0, v0}, Lcom/android/settings/accounts/ManagedProfileSettings$ManagedProfileBroadcastReceiver;-><init>(Lcom/android/settings/accounts/ManagedProfileSettings;Lcom/android/settings/accounts/ManagedProfileSettings$1;)V
+    invoke-direct {p1, p0, v0}, Lcom/android/settings/accounts/ManagedProfileSettings$ManagedProfileBroadcastReceiver;-><init>(Lcom/android/settings/accounts/ManagedProfileSettings;Lcom/android/settings/accounts/ManagedProfileSettings$ManagedProfileBroadcastReceiver-IA;)V
 
     iput-object p1, p0, Lcom/android/settings/accounts/ManagedProfileSettings;->mManagedProfileBroadcastReceiver:Lcom/android/settings/accounts/ManagedProfileSettings$ManagedProfileBroadcastReceiver;
 
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-virtual {p1, p0}, Lcom/android/settings/accounts/ManagedProfileSettings$ManagedProfileBroadcastReceiver;->register(Landroid/content/Context;)V
+    invoke-virtual {p1, v0}, Lcom/android/settings/accounts/ManagedProfileSettings$ManagedProfileBroadcastReceiver;->register(Landroid/content/Context;)V
+
+    const-string p1, "Settings.MANAGED_PROFILE_SETTINGS_TITLE"
+
+    const v0, 0x7f040d11
+
+    invoke-virtual {p0, p1, v0}, Lcom/android/settings/SettingsPreferenceFragment;->replaceEnterprisePreferenceScreenTitle(Ljava/lang/String;I)V
+
+    const-string/jumbo p1, "work_mode"
+
+    const-string v0, "Settings.WORK_PROFILE_SETTING"
+
+    const v1, 0x7f04189a
+
+    invoke-virtual {p0, p1, v0, v1}, Lcom/android/settings/SettingsPreferenceFragment;->replaceEnterpriseStringTitle(Ljava/lang/String;Ljava/lang/String;I)V
+
+    const-string p1, "contacts_search"
+
+    const-string v0, "Settings.WORK_PROFILE_CONTACT_SEARCH_TITLE"
+
+    const v1, 0x7f040d0d
+
+    invoke-virtual {p0, p1, v0, v1}, Lcom/android/settings/SettingsPreferenceFragment;->replaceEnterpriseStringTitle(Ljava/lang/String;Ljava/lang/String;I)V
+
+    const-string v0, "Settings.WORK_PROFILE_CONTACT_SEARCH_SUMMARY"
+
+    const v1, 0x7f040d0c
+
+    invoke-virtual {p0, p1, v0, v1}, Lcom/android/settings/SettingsPreferenceFragment;->replaceEnterpriseStringSummary(Ljava/lang/String;Ljava/lang/String;I)V
+
+    const-string p1, "cross_profile_calendar"
+
+    const-string v0, "Settings.CROSS_PROFILE_CALENDAR_TITLE"
+
+    const v1, 0x7f04071b
+
+    invoke-virtual {p0, p1, v0, v1}, Lcom/android/settings/SettingsPreferenceFragment;->replaceEnterpriseStringTitle(Ljava/lang/String;Ljava/lang/String;I)V
+
+    const-string v0, "Settings.CROSS_PROFILE_CALENDAR_SUMMARY"
+
+    const v1, 0x7f04071a
+
+    invoke-virtual {p0, p1, v0, v1}, Lcom/android/settings/SettingsPreferenceFragment;->replaceEnterpriseStringSummary(Ljava/lang/String;Ljava/lang/String;I)V
 
     return-void
 .end method

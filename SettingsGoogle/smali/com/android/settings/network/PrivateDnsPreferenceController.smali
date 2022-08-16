@@ -38,6 +38,22 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmPreference(Lcom/android/settings/network/PrivateDnsPreferenceController;)Landroidx/preference/Preference;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/network/PrivateDnsPreferenceController;->mPreference:Landroidx/preference/Preference;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmLatestLinkProperties(Lcom/android/settings/network/PrivateDnsPreferenceController;Landroid/net/LinkProperties;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/settings/network/PrivateDnsPreferenceController;->mLatestLinkProperties:Landroid/net/LinkProperties;
+
+    return-void
+.end method
+
 .method static constructor <clinit>()V
     .locals 3
 
@@ -122,22 +138,6 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/settings/network/PrivateDnsPreferenceController;)Landroidx/preference/Preference;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/network/PrivateDnsPreferenceController;->mPreference:Landroidx/preference/Preference;
-
-    return-object p0
-.end method
-
-.method static synthetic access$102(Lcom/android/settings/network/PrivateDnsPreferenceController;Landroid/net/LinkProperties;)Landroid/net/LinkProperties;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/settings/network/PrivateDnsPreferenceController;->mLatestLinkProperties:Landroid/net/LinkProperties;
-
-    return-object p1
-.end method
-
 .method private isManagedByAdmin()Z
     .locals 2
 
@@ -168,14 +168,6 @@
 
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public displayPreference(Landroidx/preference/PreferenceScreen;)V
     .locals 1
 
@@ -203,7 +195,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090043
+    const v1, 0x7f090044
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -244,15 +236,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -356,7 +339,7 @@
     goto :goto_1
 
     :cond_2
-    const p0, 0x7f040fbe
+    const p0, 0x7f04105a
 
     invoke-virtual {v0, p0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -368,7 +351,7 @@
     :cond_3
     if-eqz p0, :cond_4
 
-    const p0, 0x7f040fbb
+    const p0, 0x7f041057
 
     invoke-virtual {v0, p0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -377,7 +360,7 @@
     goto :goto_2
 
     :cond_4
-    const p0, 0x7f040fbc
+    const p0, 0x7f041058
 
     invoke-virtual {v0, p0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -387,7 +370,7 @@
     return-object p0
 
     :cond_5
-    const p0, 0x7f040fba
+    const p0, 0x7f041056
 
     invoke-virtual {v0, p0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -400,16 +383,6 @@
     .locals 0
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->hasAsyncUpdate()Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
 
     move-result p0
 

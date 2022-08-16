@@ -50,6 +50,166 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmAnimationDrawable(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;)Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationBase;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->mAnimationDrawable:Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationBase;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmCameraDevice(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;)Landroid/hardware/camera2/CameraDevice;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->mCameraDevice:Landroid/hardware/camera2/CameraDevice;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmCaptureCallback(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;)Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->mCaptureCallback:Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmCaptureSession(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;)Landroid/hardware/camera2/CameraCaptureSession;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->mCaptureSession:Landroid/hardware/camera2/CameraCaptureSession;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmClientAnimationListener(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;)Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationBase$AnimationListener;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->mClientAnimationListener:Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationBase$AnimationListener;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmHandler(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;)Landroid/os/Handler;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->mHandler:Landroid/os/Handler;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmPreviewRequest(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;)Landroid/hardware/camera2/CaptureRequest;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->mPreviewRequest:Landroid/hardware/camera2/CaptureRequest;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmPreviewRequestBuilder(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;)Landroid/hardware/camera2/CaptureRequest$Builder;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->mPreviewRequestBuilder:Landroid/hardware/camera2/CaptureRequest$Builder;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmPreviewSize(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;)Landroid/util/Size;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->mPreviewSize:Landroid/util/Size;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmShouldManagePreview(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->mShouldManagePreview:Z
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmTextureView(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;)Lcom/google/android/settings/biometrics/face/SquareTextureView;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->mTextureView:Lcom/google/android/settings/biometrics/face/SquareTextureView;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmTextureViewDestroyed(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->mTextureViewDestroyed:Z
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmCameraDevice(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;Landroid/hardware/camera2/CameraDevice;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->mCameraDevice:Landroid/hardware/camera2/CameraDevice;
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fputmCaptureSession(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;Landroid/hardware/camera2/CameraCaptureSession;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->mCaptureSession:Landroid/hardware/camera2/CameraCaptureSession;
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fputmPreviewRequest(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;Landroid/hardware/camera2/CaptureRequest;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->mPreviewRequest:Landroid/hardware/camera2/CaptureRequest;
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fputmPreviewRequestBuilder(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;Landroid/hardware/camera2/CaptureRequest$Builder;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->mPreviewRequestBuilder:Landroid/hardware/camera2/CaptureRequest$Builder;
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fputmTextureViewDestroyed(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->mTextureViewDestroyed:Z
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mcloseCamera(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->closeCamera()V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mconfigureTransform(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;II)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->configureTransform(II)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$msetUpPreview(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;II)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->setUpPreview(II)V
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 1
 
@@ -86,166 +246,6 @@
     iput-object v0, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->mCameraStateCallback:Landroid/hardware/camera2/CameraDevice$StateCallback;
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;)Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationBase$AnimationListener;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->mClientAnimationListener:Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationBase$AnimationListener;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->mShouldManagePreview:Z
-
-    return p0
-.end method
-
-.method static synthetic access$1000(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;)Landroid/util/Size;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->mPreviewSize:Landroid/util/Size;
-
-    return-object p0
-.end method
-
-.method static synthetic access$1100(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;)Landroid/hardware/camera2/CaptureRequest$Builder;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->mPreviewRequestBuilder:Landroid/hardware/camera2/CaptureRequest$Builder;
-
-    return-object p0
-.end method
-
-.method static synthetic access$1102(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;Landroid/hardware/camera2/CaptureRequest$Builder;)Landroid/hardware/camera2/CaptureRequest$Builder;
-    .locals 0
-
-    iput-object p1, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->mPreviewRequestBuilder:Landroid/hardware/camera2/CaptureRequest$Builder;
-
-    return-object p1
-.end method
-
-.method static synthetic access$1200(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;)Landroid/hardware/camera2/CameraCaptureSession;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->mCaptureSession:Landroid/hardware/camera2/CameraCaptureSession;
-
-    return-object p0
-.end method
-
-.method static synthetic access$1202(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;Landroid/hardware/camera2/CameraCaptureSession;)Landroid/hardware/camera2/CameraCaptureSession;
-    .locals 0
-
-    iput-object p1, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->mCaptureSession:Landroid/hardware/camera2/CameraCaptureSession;
-
-    return-object p1
-.end method
-
-.method static synthetic access$1300(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;)Landroid/hardware/camera2/CaptureRequest;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->mPreviewRequest:Landroid/hardware/camera2/CaptureRequest;
-
-    return-object p0
-.end method
-
-.method static synthetic access$1302(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;Landroid/hardware/camera2/CaptureRequest;)Landroid/hardware/camera2/CaptureRequest;
-    .locals 0
-
-    iput-object p1, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->mPreviewRequest:Landroid/hardware/camera2/CaptureRequest;
-
-    return-object p1
-.end method
-
-.method static synthetic access$1400(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;)Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->mCaptureCallback:Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;
-
-    return-object p0
-.end method
-
-.method static synthetic access$200(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;)Landroid/os/Handler;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->mHandler:Landroid/os/Handler;
-
-    return-object p0
-.end method
-
-.method static synthetic access$300(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->closeCamera()V
-
-    return-void
-.end method
-
-.method static synthetic access$400(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->mTextureViewDestroyed:Z
-
-    return p0
-.end method
-
-.method static synthetic access$402(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->mTextureViewDestroyed:Z
-
-    return p1
-.end method
-
-.method static synthetic access$500(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;II)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->setUpPreview(II)V
-
-    return-void
-.end method
-
-.method static synthetic access$600(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;II)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->configureTransform(II)V
-
-    return-void
-.end method
-
-.method static synthetic access$700(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;)Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationBase;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->mAnimationDrawable:Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationBase;
-
-    return-object p0
-.end method
-
-.method static synthetic access$800(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;)Landroid/hardware/camera2/CameraDevice;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->mCameraDevice:Landroid/hardware/camera2/CameraDevice;
-
-    return-object p0
-.end method
-
-.method static synthetic access$802(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;Landroid/hardware/camera2/CameraDevice;)Landroid/hardware/camera2/CameraDevice;
-    .locals 0
-
-    iput-object p1, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->mCameraDevice:Landroid/hardware/camera2/CameraDevice;
-
-    return-object p1
-.end method
-
-.method static synthetic access$900(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;)Lcom/google/android/settings/biometrics/face/SquareTextureView;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->mTextureView:Lcom/google/android/settings/biometrics/face/SquareTextureView;
-
-    return-object p0
 .end method
 
 .method private chooseOptimalSize([Landroid/util/Size;)Landroid/util/Size;
@@ -344,7 +344,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0164
+    const v2, 0x7f0b0188
 
     const/4 v3, 0x1
 
@@ -370,7 +370,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b0165
+    const v6, 0x7f0b0189
 
     invoke-virtual {v5, v6, v2, v3}, Landroid/content/res/Resources;->getValue(ILandroid/util/TypedValue;Z)V
 
@@ -378,7 +378,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b0166
+    const v6, 0x7f0b018a
 
     invoke-virtual {v5, v6, v4, v3}, Landroid/content/res/Resources;->getValue(ILandroid/util/TypedValue;Z)V
 
@@ -606,7 +606,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d05ca
+    const v1, 0x7f0d060c
 
     invoke-virtual {v0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -620,7 +620,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0157
+    const v1, 0x7f0d016b
 
     invoke-virtual {v0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -659,7 +659,7 @@
     :cond_0
     iget-boolean v0, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->mRequireDiversity:Z
 
-    const v1, 0x7f0d01d3
+    const v1, 0x7f0d01ec
 
     if-eqz v0, :cond_1
 
@@ -675,7 +675,7 @@
 
     move-result-object v2
 
-    const v5, 0x7f0d02da
+    const v5, 0x7f0d0301
 
     invoke-virtual {v2, v5}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 

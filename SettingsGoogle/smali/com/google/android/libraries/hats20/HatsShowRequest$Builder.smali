@@ -130,9 +130,7 @@
 .method public forSiteId(Ljava/lang/String;)Lcom/google/android/libraries/hats20/HatsShowRequest$Builder;
     .locals 1
 
-    const-string v0, "Site ID cannot be set to null."
-
-    invoke-static {p1, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    if-eqz p1, :cond_1
 
     iget-object v0, p0, Lcom/google/android/libraries/hats20/HatsShowRequest$Builder;->siteId:Ljava/lang/String;
 
@@ -148,6 +146,15 @@
     const-string p1, "Currently don\'t support multiple site IDs."
 
     invoke-direct {p0, p1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+
+    :cond_1
+    new-instance p0, Ljava/lang/NullPointerException;
+
+    const-string p1, "Site ID cannot be set to null."
+
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
     throw p0
 .end method

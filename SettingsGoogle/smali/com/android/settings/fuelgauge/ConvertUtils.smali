@@ -142,7 +142,7 @@
 
     invoke-virtual {v0, v1, p1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Double;)V
 
-    iget-wide v1, p0, Lcom/android/settings/fuelgauge/BatteryEntry;->percent:D
+    iget-wide v1, p0, Lcom/android/settings/fuelgauge/BatteryEntry;->mPercent:D
 
     invoke-static {v1, v2}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
 
@@ -431,9 +431,9 @@
     goto/16 :goto_5
 
     :cond_1
-    new-instance v7, Ljava/util/HashSet;
+    new-instance v7, Landroid/util/ArraySet;
 
-    invoke-direct {v7}, Ljava/util/HashSet;-><init>()V
+    invoke-direct {v7}, Landroid/util/ArraySet;-><init>()V
 
     invoke-interface {v5}, Ljava/util/Map;->keySet()Ljava/util/Set;
 

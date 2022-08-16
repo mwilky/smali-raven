@@ -46,39 +46,10 @@
 
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method protected getEnrollClassName()Ljava/lang/String;
-    .locals 0
-
-    const-class p0, Lcom/android/settings/Settings$CombinedBiometricProfileSettingsActivity;
-
-    invoke-virtual {p0}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
     move-result-object p0
 
@@ -98,9 +69,9 @@
 .method protected getSettingsClassName()Ljava/lang/String;
     .locals 0
 
-    const-class p0, Lcom/android/settings/Settings$CombinedBiometricProfileSettingsActivity;
+    iget-object p0, p0, Lcom/android/settings/biometrics/combination/CombinedBiometricStatusPreferenceController;->mCombinedBiometricStatusUtils:Lcom/android/settings/biometrics/combination/CombinedBiometricStatusUtils;
 
-    invoke-virtual {p0}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-virtual {p0}, Lcom/android/settings/biometrics/combination/CombinedBiometricStatusUtils;->getProfileSettingsClassName()Ljava/lang/String;
 
     move-result-object p0
 
@@ -129,16 +100,6 @@
     .locals 0
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->hasAsyncUpdate()Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
 
     move-result p0
 
@@ -174,9 +135,9 @@
 
     if-eq v0, v1, :cond_0
 
-    iget-object p0, p0, Lcom/android/settings/biometrics/BiometricStatusPreferenceController;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+    iget-object p0, p0, Lcom/android/settings/biometrics/BiometricStatusPreferenceController;->mUm:Landroid/os/UserManager;
 
-    invoke-virtual {p0, v0}, Lcom/android/internal/widget/LockPatternUtils;->isSeparateProfileChallengeAllowed(I)Z
+    invoke-virtual {p0, v0}, Landroid/os/UserManager;->isManagedProfile(I)Z
 
     move-result p0
 

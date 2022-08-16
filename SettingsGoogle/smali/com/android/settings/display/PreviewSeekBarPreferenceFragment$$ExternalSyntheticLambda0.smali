@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settings/display/PreviewSeekBarPreferenceFragment$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/view/View$OnClickListener;
@@ -27,7 +28,7 @@
 
     iget-object p0, p0, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment$$ExternalSyntheticLambda0;->f$0:Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;
 
-    invoke-static {p0, p1}, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;->$r8$lambda$0KRdtGHUBsyM7Ke5SSGB6m9jdtw(Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;Landroid/view/View;)V
+    invoke-static {p0, p1}, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;->$r8$lambda$87xpQJovXUXwwU8SQGc_kyV0EDs(Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;Landroid/view/View;)V
 
     return-void
 .end method

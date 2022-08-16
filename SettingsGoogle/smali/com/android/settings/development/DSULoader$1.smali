@@ -48,7 +48,7 @@
     if-eqz v0, :cond_0
 
     :try_start_0
-    invoke-static {v0}, Lcom/android/settings/development/DSULoader;->access$000(Ljava/net/URL;)Ljava/lang/String;
+    invoke-static {v0}, Lcom/android/settings/development/DSULoader;->-$$Nest$smreadAll(Ljava/net/URL;)Ljava/lang/String;
 
     move-result-object v0
     :try_end_0

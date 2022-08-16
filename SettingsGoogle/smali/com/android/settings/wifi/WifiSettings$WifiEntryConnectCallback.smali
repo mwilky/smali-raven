@@ -51,7 +51,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/WifiSettings$WifiEntryConnectCallback;->this$0:Lcom/android/settings/wifi/WifiSettings;
 
-    invoke-static {v0}, Lcom/android/settings/wifi/WifiSettings;->access$300(Lcom/android/settings/wifi/WifiSettings;)Z
+    invoke-static {v0}, Lcom/android/settings/wifi/WifiSettings;->access$100(Lcom/android/settings/wifi/WifiSettings;)Z
 
     move-result v0
 
@@ -66,7 +66,7 @@
 
     iget-object p0, p0, Lcom/android/settings/wifi/WifiSettings$WifiEntryConnectCallback;->this$0:Lcom/android/settings/wifi/WifiSettings;
 
-    invoke-static {p0, v0}, Lcom/android/settings/wifi/WifiSettings;->access$102(Lcom/android/settings/wifi/WifiSettings;Z)Z
+    invoke-static {p0, v0}, Lcom/android/settings/wifi/WifiSettings;->-$$Nest$fputmClickedConnect(Lcom/android/settings/wifi/WifiSettings;Z)V
 
     goto :goto_0
 
@@ -85,7 +85,7 @@
 
     iget-object p0, p0, Lcom/android/settings/wifi/WifiSettings$WifiEntryConnectCallback;->mConnectWifiEntry:Lcom/android/wifitrackerlib/WifiEntry;
 
-    invoke-static {p1, p0}, Lcom/android/settings/wifi/WifiSettings;->access$400(Lcom/android/settings/wifi/WifiSettings;Lcom/android/wifitrackerlib/WifiEntry;)V
+    invoke-static {p1, p0}, Lcom/android/settings/wifi/WifiSettings;->-$$Nest$mlaunchConfigNewNetworkFragment(Lcom/android/settings/wifi/WifiSettings;Lcom/android/wifitrackerlib/WifiEntry;)V
 
     goto :goto_0
 
@@ -94,7 +94,7 @@
 
     iget-object p0, p0, Lcom/android/settings/wifi/WifiSettings$WifiEntryConnectCallback;->mConnectWifiEntry:Lcom/android/wifitrackerlib/WifiEntry;
 
-    invoke-static {p1, p0, v0}, Lcom/android/settings/wifi/WifiSettings;->access$500(Lcom/android/settings/wifi/WifiSettings;Lcom/android/wifitrackerlib/WifiEntry;I)V
+    invoke-static {p1, p0, v0}, Lcom/android/settings/wifi/WifiSettings;->-$$Nest$mshowDialog(Lcom/android/settings/wifi/WifiSettings;Lcom/android/wifitrackerlib/WifiEntry;I)V
 
     goto :goto_0
 
@@ -109,7 +109,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f041673
+    const p1, 0x7f04176a
 
     const/4 v0, 0x0
 

@@ -21,7 +21,8 @@
         "Lcom/google/protobuf/GeneratedMessageLite$Builder<",
         "Lcom/android/settings/intelligence/ContextualCardProto$ContextualCard;",
         "Lcom/android/settings/intelligence/ContextualCardProto$ContextualCard$Builder;",
-        ">;"
+        ">;",
+        "Lcom/google/protobuf/MessageLiteOrBuilder;"
     }
 .end annotation
 
@@ -30,7 +31,7 @@
 .method private constructor <init>()V
     .locals 1
 
-    invoke-static {}, Lcom/android/settings/intelligence/ContextualCardProto$ContextualCard;->access$1100()Lcom/android/settings/intelligence/ContextualCardProto$ContextualCard;
+    invoke-static {}, Lcom/android/settings/intelligence/ContextualCardProto$ContextualCard;->-$$Nest$sfgetDEFAULT_INSTANCE()Lcom/android/settings/intelligence/ContextualCardProto$ContextualCard;
 
     move-result-object v0
 
@@ -39,7 +40,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settings/intelligence/ContextualCardProto$1;)V
+.method synthetic constructor <init>(Lcom/android/settings/intelligence/ContextualCardProto$ContextualCard$Builder-IA;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/settings/intelligence/ContextualCardProto$ContextualCard$Builder;-><init>()V
@@ -58,7 +59,7 @@
 
     check-cast v0, Lcom/android/settings/intelligence/ContextualCardProto$ContextualCard;
 
-    invoke-static {v0, p1}, Lcom/android/settings/intelligence/ContextualCardProto$ContextualCard;->access$1800(Lcom/android/settings/intelligence/ContextualCardProto$ContextualCard;Lcom/android/settings/intelligence/ContextualCardProto$ContextualCard$Category;)V
+    invoke-static {v0, p1}, Lcom/android/settings/intelligence/ContextualCardProto$ContextualCard;->-$$Nest$msetCardCategory(Lcom/android/settings/intelligence/ContextualCardProto$ContextualCard;Lcom/android/settings/intelligence/ContextualCardProto$ContextualCard$Category;)V
 
     return-object p0
 .end method
@@ -72,7 +73,7 @@
 
     check-cast v0, Lcom/android/settings/intelligence/ContextualCardProto$ContextualCard;
 
-    invoke-static {v0, p1}, Lcom/android/settings/intelligence/ContextualCardProto$ContextualCard;->access$1500(Lcom/android/settings/intelligence/ContextualCardProto$ContextualCard;Ljava/lang/String;)V
+    invoke-static {v0, p1}, Lcom/android/settings/intelligence/ContextualCardProto$ContextualCard;->-$$Nest$msetCardName(Lcom/android/settings/intelligence/ContextualCardProto$ContextualCard;Ljava/lang/String;)V
 
     return-object p0
 .end method
@@ -86,7 +87,7 @@
 
     check-cast v0, Lcom/android/settings/intelligence/ContextualCardProto$ContextualCard;
 
-    invoke-static {v0, p1}, Lcom/android/settings/intelligence/ContextualCardProto$ContextualCard;->access$1200(Lcom/android/settings/intelligence/ContextualCardProto$ContextualCard;Ljava/lang/String;)V
+    invoke-static {v0, p1}, Lcom/android/settings/intelligence/ContextualCardProto$ContextualCard;->-$$Nest$msetSliceUri(Lcom/android/settings/intelligence/ContextualCardProto$ContextualCard;Ljava/lang/String;)V
 
     return-object p0
 .end method

@@ -39,7 +39,7 @@
 
     iget-object v0, p0, Lcom/android/settings/widget/LabeledSeekBar$1;->this$0:Lcom/android/settings/widget/LabeledSeekBar;
 
-    invoke-static {v0}, Lcom/android/settings/widget/LabeledSeekBar;->access$000(Lcom/android/settings/widget/LabeledSeekBar;)Landroid/widget/SeekBar$OnSeekBarChangeListener;
+    invoke-static {v0}, Lcom/android/settings/widget/LabeledSeekBar;->-$$Nest$fgetmOnSeekBarChangeListener(Lcom/android/settings/widget/LabeledSeekBar;)Landroid/widget/SeekBar$OnSeekBarChangeListener;
 
     move-result-object v0
 
@@ -47,7 +47,7 @@
 
     iget-object v0, p0, Lcom/android/settings/widget/LabeledSeekBar$1;->this$0:Lcom/android/settings/widget/LabeledSeekBar;
 
-    invoke-static {v0}, Lcom/android/settings/widget/LabeledSeekBar;->access$000(Lcom/android/settings/widget/LabeledSeekBar;)Landroid/widget/SeekBar$OnSeekBarChangeListener;
+    invoke-static {v0}, Lcom/android/settings/widget/LabeledSeekBar;->-$$Nest$fgetmOnSeekBarChangeListener(Lcom/android/settings/widget/LabeledSeekBar;)Landroid/widget/SeekBar$OnSeekBarChangeListener;
 
     move-result-object v0
 
@@ -55,12 +55,12 @@
 
     iget-object p3, p0, Lcom/android/settings/widget/LabeledSeekBar$1;->this$0:Lcom/android/settings/widget/LabeledSeekBar;
 
-    invoke-static {p3, p2}, Lcom/android/settings/widget/LabeledSeekBar;->access$100(Lcom/android/settings/widget/LabeledSeekBar;I)V
+    invoke-static {p3, p2}, Lcom/android/settings/widget/LabeledSeekBar;->-$$Nest$msendClickEventForAccessibility(Lcom/android/settings/widget/LabeledSeekBar;I)V
 
     :cond_0
     iget-object p3, p0, Lcom/android/settings/widget/LabeledSeekBar$1;->this$0:Lcom/android/settings/widget/LabeledSeekBar;
 
-    invoke-static {p3}, Lcom/android/settings/widget/LabeledSeekBar;->access$200(Lcom/android/settings/widget/LabeledSeekBar;)I
+    invoke-static {p3}, Lcom/android/settings/widget/LabeledSeekBar;->-$$Nest$fgetmLastProgress(Lcom/android/settings/widget/LabeledSeekBar;)I
 
     move-result p3
 
@@ -72,7 +72,7 @@
 
     iget-object p0, p0, Lcom/android/settings/widget/LabeledSeekBar$1;->this$0:Lcom/android/settings/widget/LabeledSeekBar;
 
-    invoke-static {p0, p2}, Lcom/android/settings/widget/LabeledSeekBar;->access$202(Lcom/android/settings/widget/LabeledSeekBar;I)I
+    invoke-static {p0, p2}, Lcom/android/settings/widget/LabeledSeekBar;->-$$Nest$fputmLastProgress(Lcom/android/settings/widget/LabeledSeekBar;I)V
 
     :cond_1
     return-void
@@ -83,7 +83,7 @@
 
     iget-object v0, p0, Lcom/android/settings/widget/LabeledSeekBar$1;->this$0:Lcom/android/settings/widget/LabeledSeekBar;
 
-    invoke-static {v0}, Lcom/android/settings/widget/LabeledSeekBar;->access$000(Lcom/android/settings/widget/LabeledSeekBar;)Landroid/widget/SeekBar$OnSeekBarChangeListener;
+    invoke-static {v0}, Lcom/android/settings/widget/LabeledSeekBar;->-$$Nest$fgetmOnSeekBarChangeListener(Lcom/android/settings/widget/LabeledSeekBar;)Landroid/widget/SeekBar$OnSeekBarChangeListener;
 
     move-result-object v0
 
@@ -91,7 +91,7 @@
 
     iget-object p0, p0, Lcom/android/settings/widget/LabeledSeekBar$1;->this$0:Lcom/android/settings/widget/LabeledSeekBar;
 
-    invoke-static {p0}, Lcom/android/settings/widget/LabeledSeekBar;->access$000(Lcom/android/settings/widget/LabeledSeekBar;)Landroid/widget/SeekBar$OnSeekBarChangeListener;
+    invoke-static {p0}, Lcom/android/settings/widget/LabeledSeekBar;->-$$Nest$fgetmOnSeekBarChangeListener(Lcom/android/settings/widget/LabeledSeekBar;)Landroid/widget/SeekBar$OnSeekBarChangeListener;
 
     move-result-object p0
 
@@ -106,7 +106,7 @@
 
     iget-object v0, p0, Lcom/android/settings/widget/LabeledSeekBar$1;->this$0:Lcom/android/settings/widget/LabeledSeekBar;
 
-    invoke-static {v0}, Lcom/android/settings/widget/LabeledSeekBar;->access$000(Lcom/android/settings/widget/LabeledSeekBar;)Landroid/widget/SeekBar$OnSeekBarChangeListener;
+    invoke-static {v0}, Lcom/android/settings/widget/LabeledSeekBar;->-$$Nest$fgetmOnSeekBarChangeListener(Lcom/android/settings/widget/LabeledSeekBar;)Landroid/widget/SeekBar$OnSeekBarChangeListener;
 
     move-result-object v0
 
@@ -114,7 +114,7 @@
 
     iget-object p0, p0, Lcom/android/settings/widget/LabeledSeekBar$1;->this$0:Lcom/android/settings/widget/LabeledSeekBar;
 
-    invoke-static {p0}, Lcom/android/settings/widget/LabeledSeekBar;->access$000(Lcom/android/settings/widget/LabeledSeekBar;)Landroid/widget/SeekBar$OnSeekBarChangeListener;
+    invoke-static {p0}, Lcom/android/settings/widget/LabeledSeekBar;->-$$Nest$fgetmOnSeekBarChangeListener(Lcom/android/settings/widget/LabeledSeekBar;)Landroid/widget/SeekBar$OnSeekBarChangeListener;
 
     move-result-object p0
 

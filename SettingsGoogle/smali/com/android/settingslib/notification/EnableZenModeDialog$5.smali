@@ -59,7 +59,7 @@
 
     const/4 v3, 0x1
 
-    invoke-static {p1, v0, v1, v3, v2}, Lcom/android/settingslib/notification/EnableZenModeDialog;->access$500(Lcom/android/settingslib/notification/EnableZenModeDialog;Landroid/view/View;Lcom/android/settingslib/notification/EnableZenModeDialog$ConditionTag;ZI)V
+    invoke-static {p1, v0, v1, v3, v2}, Lcom/android/settingslib/notification/EnableZenModeDialog;->-$$Nest$monClickTimeButton(Lcom/android/settingslib/notification/EnableZenModeDialog;Landroid/view/View;Lcom/android/settingslib/notification/EnableZenModeDialog$ConditionTag;ZI)V
 
     iget-object p0, p0, Lcom/android/settingslib/notification/EnableZenModeDialog$5;->val$tag:Lcom/android/settingslib/notification/EnableZenModeDialog$ConditionTag;
 

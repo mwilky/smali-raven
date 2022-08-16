@@ -53,7 +53,7 @@
 
     iput-object p1, p0, Lcom/android/settings/accessibility/PaletteListPreference;->mGradientOffsets:Ljava/util/List;
 
-    const p1, 0x7f0600b3
+    const p1, 0x7f0600b0
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setLayoutResource(I)V
 
@@ -129,7 +129,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f0100b4
+    const p1, 0x7f0100be
 
     invoke-virtual {p0, p1}, Landroid/content/res/Resources;->getIntArray(I)[I
 
@@ -173,7 +173,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f0100b5
+    const p1, 0x7f0100bf
 
     invoke-virtual {p0, p1}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -239,7 +239,7 @@
 .method private initPaletteAttributes(Landroid/content/Context;)V
     .locals 4
 
-    const v0, 0x7f0a0193
+    const v0, 0x7f0a0317
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getColor(I)I
 
@@ -332,13 +332,15 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0073
+    const v3, 0x7f0b0074
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
     move-result v2
 
-    sget-object v3, Lcom/android/settings/accessibility/PaletteListPreference$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/settings/accessibility/PaletteListPreference$$ExternalSyntheticLambda0;
+    new-instance v3, Lcom/android/settings/accessibility/PaletteListPreference$$ExternalSyntheticLambda0;
+
+    invoke-direct {v3}, Lcom/android/settings/accessibility/PaletteListPreference$$ExternalSyntheticLambda0;-><init>()V
 
     invoke-static {v3}, Ljava/util/Comparator;->comparing(Ljava/util/function/Function;)Ljava/util/Comparator;
 
@@ -462,6 +464,112 @@
     goto :goto_0
 
     :cond_1
+    invoke-interface {v1}, Ljava/util/List;->size()I
+
+    move-result v0
+
+    invoke-direct {p0, p1, p2, v0}, Lcom/android/settings/accessibility/PaletteListPreference;->updateFirstAndLastItemsBackground(Landroid/content/Context;Landroid/view/ViewGroup;I)V
+
+    return-void
+.end method
+
+.method private updateFirstAndLastItemsBackground(Landroid/content/Context;Landroid/view/ViewGroup;I)V
+    .locals 10
+
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p0
+
+    const p1, 0x7f0b0072
+
+    invoke-virtual {p0, p1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result p0
+
+    const/4 p1, 0x1
+
+    sub-int/2addr p3, p1
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p2, v0}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/view/View;->getBackground()Landroid/graphics/drawable/Drawable;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/graphics/drawable/GradientDrawable;
+
+    invoke-virtual {p2, p3}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+
+    move-result-object p2
+
+    invoke-virtual {p2}, Landroid/view/View;->getBackground()Landroid/graphics/drawable/Drawable;
+
+    move-result-object p2
+
+    check-cast p2, Landroid/graphics/drawable/GradientDrawable;
+
+    const/16 p3, 0x8
+
+    new-array v2, p3, [F
+
+    int-to-float p0, p0
+
+    aput p0, v2, v0
+
+    aput p0, v2, p1
+
+    const/4 v3, 0x2
+
+    aput p0, v2, v3
+
+    const/4 v4, 0x3
+
+    aput p0, v2, v4
+
+    const/4 v5, 0x4
+
+    const/4 v6, 0x0
+
+    aput v6, v2, v5
+
+    const/4 v7, 0x5
+
+    aput v6, v2, v7
+
+    const/4 v8, 0x6
+
+    aput v6, v2, v8
+
+    const/4 v9, 0x7
+
+    aput v6, v2, v9
+
+    invoke-virtual {v1, v2}, Landroid/graphics/drawable/GradientDrawable;->setCornerRadii([F)V
+
+    new-array p3, p3, [F
+
+    aput v6, p3, v0
+
+    aput v6, p3, p1
+
+    aput v6, p3, v3
+
+    aput v6, p3, v4
+
+    aput p0, p3, v5
+
+    aput p0, p3, v7
+
+    aput p0, p3, v8
+
+    aput p0, p3, v9
+
+    invoke-virtual {p2, p3}, Landroid/graphics/drawable/GradientDrawable;->setCornerRadii([F)V
+
     return-void
 .end method
 
@@ -474,7 +582,7 @@
 
     iget-object p1, p1, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
 
-    const v0, 0x7f0d0417
+    const v0, 0x7f0d0448
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

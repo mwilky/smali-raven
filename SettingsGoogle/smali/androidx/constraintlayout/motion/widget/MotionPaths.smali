@@ -474,7 +474,7 @@
 .end method
 
 .method fillStandard([D[I)V
-    .locals 6
+    .locals 7
 
     const/4 v0, 0x6
 
@@ -527,17 +527,15 @@
 
     if-ge v2, v0, :cond_0
 
-    add-int/lit8 v2, p0, 0x1
+    add-int/lit8 v4, p0, 0x1
 
-    aget v4, p2, v3
+    aget v2, v1, v2
 
-    aget v4, v1, v4
+    float-to-double v5, v2
 
-    float-to-double v4, v4
+    aput-wide v5, p1, p0
 
-    aput-wide v4, p1, p0
-
-    move p0, v2
+    move p0, v4
 
     :cond_0
     add-int/lit8 v3, v3, 0x1
@@ -1342,8 +1340,6 @@
 
     int-to-float v3, v3
 
-    iput v3, v0, Landroidx/constraintlayout/motion/widget/MotionPaths;->x:F
-
     iget v5, v8, Landroidx/constraintlayout/motion/widget/MotionPaths;->y:F
 
     add-float/2addr v5, v4
@@ -1353,8 +1349,6 @@
     float-to-int v4, v5
 
     int-to-float v4, v4
-
-    iput v4, v0, Landroidx/constraintlayout/motion/widget/MotionPaths;->y:F
 
     add-float/2addr v3, v1
 
@@ -1844,8 +1838,6 @@
     aput-wide v12, v10, v11
 
     iget-object v10, v0, Landroidx/constraintlayout/motion/widget/MotionPaths;->mTempDelta:[D
-
-    aget v11, v2, v9
 
     aget-wide v12, p4, v9
 

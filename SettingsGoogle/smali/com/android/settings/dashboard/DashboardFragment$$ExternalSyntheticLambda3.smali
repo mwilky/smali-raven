@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda3;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
@@ -27,9 +28,9 @@
 
     iget-object p0, p0, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda3;->f$0:Lcom/android/settings/dashboard/DashboardFragment;
 
-    check-cast p1, Landroidx/preference/Preference;
+    check-cast p1, Lcom/android/settings/dashboard/DynamicDataObserver;
 
-    invoke-static {p0, p1}, Lcom/android/settings/dashboard/DashboardFragment;->$r8$lambda$56UZ8GQDFVN5JzSoKbrAtRGNJ_8(Lcom/android/settings/dashboard/DashboardFragment;Landroidx/preference/Preference;)V
+    invoke-static {p0, p1}, Lcom/android/settings/dashboard/DashboardFragment;->$r8$lambda$lsvcduYn1JPjnKgsFzChH38Gqmo(Lcom/android/settings/dashboard/DashboardFragment;Lcom/android/settings/dashboard/DynamicDataObserver;)V
 
     return-void
 .end method

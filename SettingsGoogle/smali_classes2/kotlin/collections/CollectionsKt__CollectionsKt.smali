@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nCollections.kt\nKotlin\n*S Kotlin\n*F\n+ 1 Collections.kt\nkotlin/collections/CollectionsKt__CollectionsKt\n+ 2 fake.kt\nkotlin/jvm/internal/FakeKt\n*L\n1#1,467:1\n1#2:468\n*E\n"
+    value = "SMAP\nCollections.kt\nKotlin\n*S Kotlin\n*F\n+ 1 Collections.kt\nkotlin/collections/CollectionsKt__CollectionsKt\n+ 2 fake.kt\nkotlin/jvm/internal/FakeKt\n*L\n1#1,469:1\n392#1:471\n1#2:470\n*S KotlinDebug\n*F\n+ 1 Collections.kt\nkotlin/collections/CollectionsKt__CollectionsKt\n*L\n386#1:471\n*E\n"
 .end annotation
 
 
@@ -29,7 +29,7 @@
     .annotation build Lorg/jetbrains/annotations/NotNull;
     .end annotation
 
-    const-string v0, "$this$asCollection"
+    const-string v0, "<this>"
 
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -62,7 +62,7 @@
         }
     .end annotation
 
-    const-string v0, "$this$binarySearch"
+    const-string v0, "<this>"
 
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -93,18 +93,14 @@
 
     if-gez v1, :cond_0
 
-    add-int/lit8 v0, v0, 0x1
-
-    move p2, v0
+    add-int/lit8 p2, v0, 0x1
 
     goto :goto_0
 
     :cond_0
     if-lez v1, :cond_1
 
-    add-int/lit8 v0, v0, -0x1
-
-    move p3, v0
+    add-int/lit8 p3, v0, -0x1
 
     goto :goto_0
 

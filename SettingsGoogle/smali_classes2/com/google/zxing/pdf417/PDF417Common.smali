@@ -5638,9 +5638,9 @@
 
     sget-object v3, Lcom/google/zxing/pdf417/PDF417Common;->SYMBOL_TABLE:[I
 
-    aget v4, v3, v2
+    aget v3, v3, v2
 
-    int-to-long v4, v4
+    int-to-long v4, v3
 
     cmp-long v4, p0, v4
 
@@ -5651,9 +5651,7 @@
     goto :goto_0
 
     :cond_0
-    aget v1, v3, v2
-
-    int-to-long v3, v1
+    int-to-long v3, v3
 
     cmp-long v1, p0, v3
 

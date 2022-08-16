@@ -6,7 +6,6 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroidx/loader/content/Loader$OnLoadCanceledListener;,
         Landroidx/loader/content/Loader$OnLoadCompleteListener;,
         Landroidx/loader/content/Loader$ForceLoadContentObserver;
     }
@@ -35,15 +34,6 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroidx/loader/content/Loader$OnLoadCompleteListener<",
-            "TD;>;"
-        }
-    .end annotation
-.end field
-
-.field private mOnLoadCanceledListener:Landroidx/loader/content/Loader$OnLoadCanceledListener;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Landroidx/loader/content/Loader$OnLoadCanceledListener<",
             "TD;>;"
         }
     .end annotation
@@ -180,15 +170,8 @@
 .end method
 
 .method public deliverCancellation()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Landroidx/loader/content/Loader;->mOnLoadCanceledListener:Landroidx/loader/content/Loader$OnLoadCanceledListener;
-
-    if-eqz v0, :cond_0
-
-    invoke-interface {v0, p0}, Landroidx/loader/content/Loader$OnLoadCanceledListener;->onLoadCanceled(Landroidx/loader/content/Loader;)V
-
-    :cond_0
     return-void
 .end method
 
@@ -353,7 +336,7 @@
 .method protected onCancelLoad()Z
     .locals 0
 
-    const p0, 0x0
+    const/4 p0, 0x0
 
     throw p0
 .end method

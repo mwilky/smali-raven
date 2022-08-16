@@ -36,7 +36,7 @@
 
     iget-object p0, p0, Lcom/android/settings/widget/VectorAnimationController$1;->this$0:Lcom/android/settings/widget/VectorAnimationController;
 
-    invoke-static {p0}, Lcom/android/settings/widget/VectorAnimationController;->access$000(Lcom/android/settings/widget/VectorAnimationController;)Landroidx/vectordrawable/graphics/drawable/AnimatedVectorDrawableCompat;
+    invoke-static {p0}, Lcom/android/settings/widget/VectorAnimationController;->-$$Nest$fgetmAnimatedVectorDrawableCompat(Lcom/android/settings/widget/VectorAnimationController;)Landroidx/vectordrawable/graphics/drawable/AnimatedVectorDrawableCompat;
 
     move-result-object p0
 

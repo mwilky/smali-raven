@@ -75,17 +75,17 @@
 
     move-result p1
 
-    const v0, 0x7f0d0255
+    const v0, 0x7f0d0277
 
     if-ne p1, v0, :cond_0
 
     iget-object p1, p0, Lcom/android/settings/wifi/WifiConfigController2$2;->this$0:Lcom/android/settings/wifi/WifiConfigController2;
 
-    invoke-static {p1}, Lcom/android/settings/wifi/WifiConfigController2;->access$000(Lcom/android/settings/wifi/WifiConfigController2;)Landroid/widget/TextView;
+    invoke-static {p1}, Lcom/android/settings/wifi/WifiConfigController2;->-$$Nest$fgetmGatewayView(Lcom/android/settings/wifi/WifiConfigController2;)Landroid/widget/TextView;
 
     move-result-object p1
 
-    const v0, 0x7f04167b
+    const v0, 0x7f041772
 
     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setHint(I)V
 
@@ -98,17 +98,17 @@
 
     move-result p1
 
-    const v0, 0x7f0d03d8
+    const v0, 0x7f0d0408
 
     if-ne p1, v0, :cond_1
 
     iget-object p1, p0, Lcom/android/settings/wifi/WifiConfigController2$2;->this$0:Lcom/android/settings/wifi/WifiConfigController2;
 
-    invoke-static {p1}, Lcom/android/settings/wifi/WifiConfigController2;->access$100(Lcom/android/settings/wifi/WifiConfigController2;)Landroid/widget/TextView;
+    invoke-static {p1}, Lcom/android/settings/wifi/WifiConfigController2;->-$$Nest$fgetmNetworkPrefixLengthView(Lcom/android/settings/wifi/WifiConfigController2;)Landroid/widget/TextView;
 
     move-result-object p1
 
-    const v0, 0x7f0416b3
+    const v0, 0x7f0417aa
 
     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setHint(I)V
 
@@ -121,17 +121,17 @@
 
     move-result p1
 
-    const v0, 0x7f0d01d8
+    const v0, 0x7f0d01f1
 
     if-ne p1, v0, :cond_2
 
     iget-object p1, p0, Lcom/android/settings/wifi/WifiConfigController2$2;->this$0:Lcom/android/settings/wifi/WifiConfigController2;
 
-    invoke-static {p1}, Lcom/android/settings/wifi/WifiConfigController2;->access$200(Lcom/android/settings/wifi/WifiConfigController2;)Landroid/widget/TextView;
+    invoke-static {p1}, Lcom/android/settings/wifi/WifiConfigController2;->-$$Nest$fgetmDns1View(Lcom/android/settings/wifi/WifiConfigController2;)Landroid/widget/TextView;
 
     move-result-object p1
 
-    const v0, 0x7f04163d
+    const v0, 0x7f041736
 
     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setHint(I)V
 
@@ -139,7 +139,7 @@
     :goto_0
     iget-object p0, p0, Lcom/android/settings/wifi/WifiConfigController2$2;->this$0:Lcom/android/settings/wifi/WifiConfigController2;
 
-    invoke-static {p0}, Lcom/android/settings/wifi/WifiConfigController2;->access$300(Lcom/android/settings/wifi/WifiConfigController2;)Lcom/android/settings/wifi/WifiConfigUiBase2;
+    invoke-static {p0}, Lcom/android/settings/wifi/WifiConfigController2;->-$$Nest$fgetmConfigUi(Lcom/android/settings/wifi/WifiConfigController2;)Lcom/android/settings/wifi/WifiConfigUiBase2;
 
     move-result-object p0
 

@@ -1,28 +1,13 @@
 .class public final synthetic Lcom/android/settingslib/license/LicenseHtmlGeneratorFromXml$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Function;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/settingslib/license/LicenseHtmlGeneratorFromXml$$ExternalSyntheticLambda1;
-
-
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/settingslib/license/LicenseHtmlGeneratorFromXml$$ExternalSyntheticLambda1;
-
-    invoke-direct {v0}, Lcom/android/settingslib/license/LicenseHtmlGeneratorFromXml$$ExternalSyntheticLambda1;-><init>()V
-
-    sput-object v0, Lcom/android/settingslib/license/LicenseHtmlGeneratorFromXml$$ExternalSyntheticLambda1;->INSTANCE:Lcom/android/settingslib/license/LicenseHtmlGeneratorFromXml$$ExternalSyntheticLambda1;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,7 +22,7 @@
 
     check-cast p1, Ljava/lang/String;
 
-    invoke-static {p1}, Lcom/android/settingslib/license/LicenseHtmlGeneratorFromXml;->$r8$lambda$3u4Q3FfSqDXrOmNA8jTRuVAS6ME(Ljava/lang/String;)Ljava/util/Set;
+    invoke-static {p1}, Lcom/android/settingslib/license/LicenseHtmlGeneratorFromXml;->$r8$lambda$CFk14rjAV0FPDbu3Ok1ANHVG9D0(Ljava/lang/String;)Ljava/util/List;
 
     move-result-object p0
 

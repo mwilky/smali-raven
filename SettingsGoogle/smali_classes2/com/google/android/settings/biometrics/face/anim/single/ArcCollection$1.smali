@@ -40,7 +40,7 @@
 
     const/4 p1, 0x1
 
-    invoke-static {p0, p1}, Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection;->access$002(Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection;I)I
+    invoke-static {p0, p1}, Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection;->-$$Nest$fputmState(Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection;I)V
 
     return-void
 .end method

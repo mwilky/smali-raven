@@ -233,11 +233,11 @@
         <item quantity="one">카테고리 %d개가 사용 중지됨</item>
     </plurals>
     <plurals name="notifications_sent_daily">
-        <item quantity="other">하루에 약 %d개</item>
+        <item quantity="other">하루에 약 %,d개</item>
         <item quantity="one">하루에 약 %d개</item>
     </plurals>
     <plurals name="notifications_sent_weekly">
-        <item quantity="other">1주일에 약 %d개</item>
+        <item quantity="other">1주일에 약 %,d개</item>
         <item quantity="one">1주일에 약 %d개</item>
     </plurals>
     <plurals name="number_of_device_admins">
@@ -328,22 +328,6 @@
         <item quantity="other">인증서 신뢰 또는 삭제</item>
         <item quantity="one">인증서 신뢰 또는 삭제</item>
     </plurals>
-    <plurals name="ssl_ca_cert_info_message">
-        <item quantity="other">"%s에서 직장 프로필의 인증서를 설치했으며, 이메일, 앱, 보안 웹사이트를 포함한 직장 네트워크 활동을 모니터링하도록 허용할 수 있습니다.
-
-이 인증서를 자세히 알아보려면 관리자에게 문의하세요."</item>
-        <item quantity="one">"%s에서 직장 프로필의 인증서를 설치했으며, 이메일, 앱, 보안 웹사이트를 포함한 직장 네트워크 활동을 모니터링하도록 허용할 수 있습니다.
-
-이 인증서를 자세히 알아보려면 관리자에게 문의하세요."</item>
-    </plurals>
-    <plurals name="ssl_ca_cert_info_message_device_owner">
-        <item quantity="other">"%s에서 내 기기에 인증서를 설치했으며, 이메일, 앱, 보안 웹사이트를 포함한 내 기기의 네트워크 활동을 모니터링하도록 허용할 수도 있습니다.
-
-이 인증서를 자세히 알아보려면 관리자에게 문의하세요."</item>
-        <item quantity="one">"%s에서 내 기기에 인증서를 설치했으며, 이메일, 앱, 보안 웹사이트를 포함한 내 기기의 네트워크 활동을 모니터링하도록 허용할 수도 있습니다.
-
-이 인증서를 자세히 알아보려면 관리자에게 문의하세요."</item>
-    </plurals>
     <plurals name="ssl_ca_cert_settings_button">
         <item quantity="other">인증서 확인</item>
         <item quantity="one">인증서 확인</item>
@@ -375,10 +359,6 @@
     <plurals name="wifi_saved_passpoint_access_points_summary">
         <item quantity="other">구독 %d개</item>
         <item quantity="one">구독 1개</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">기기 %1$d개 연결됨</item>
-        <item quantity="one">기기 %1$d개 연결됨</item>
     </plurals>
     <plurals name="wrong_pin_code">
         <item quantity="other">SIM PIN 코드가 잘못되었습니다. %d번 더 시도할 수 있습니다.</item>

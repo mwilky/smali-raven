@@ -33,10 +33,13 @@
 
 
 # virtual methods
+.method public abstract onChanged()V
+.end method
+
 .method public final onItemRangeChanged(II)V
     .locals 0
 
-    invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$AdapterDataObserver;->onChanged()V
+    invoke-virtual {p0}, Landroidx/viewpager2/widget/ViewPager2$DataSetChangeObserver;->onChanged()V
 
     return-void
 .end method
@@ -44,7 +47,7 @@
 .method public final onItemRangeChanged(IILjava/lang/Object;)V
     .locals 0
 
-    invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$AdapterDataObserver;->onChanged()V
+    invoke-virtual {p0}, Landroidx/viewpager2/widget/ViewPager2$DataSetChangeObserver;->onChanged()V
 
     return-void
 .end method
@@ -52,7 +55,7 @@
 .method public final onItemRangeInserted(II)V
     .locals 0
 
-    invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$AdapterDataObserver;->onChanged()V
+    invoke-virtual {p0}, Landroidx/viewpager2/widget/ViewPager2$DataSetChangeObserver;->onChanged()V
 
     return-void
 .end method
@@ -60,7 +63,7 @@
 .method public final onItemRangeMoved(III)V
     .locals 0
 
-    invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$AdapterDataObserver;->onChanged()V
+    invoke-virtual {p0}, Landroidx/viewpager2/widget/ViewPager2$DataSetChangeObserver;->onChanged()V
 
     return-void
 .end method
@@ -68,7 +71,7 @@
 .method public final onItemRangeRemoved(II)V
     .locals 0
 
-    invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$AdapterDataObserver;->onChanged()V
+    invoke-virtual {p0}, Landroidx/viewpager2/widget/ViewPager2$DataSetChangeObserver;->onChanged()V
 
     return-void
 .end method

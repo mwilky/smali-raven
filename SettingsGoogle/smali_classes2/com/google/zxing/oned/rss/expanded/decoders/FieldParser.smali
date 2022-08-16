@@ -1629,8 +1629,6 @@
     return-object p0
 
     :cond_1
-    aget-object v0, v7, v6
-
     check-cast v0, Ljava/lang/Integer;
 
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
@@ -1701,8 +1699,6 @@
     return-object p0
 
     :cond_4
-    aget-object v0, v8, v6
-
     check-cast v0, Ljava/lang/Integer;
 
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
@@ -1763,8 +1759,6 @@
     return-object p0
 
     :cond_7
-    aget-object v0, v8, v6
-
     check-cast v0, Ljava/lang/Integer;
 
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
@@ -1833,8 +1827,6 @@
     return-object p0
 
     :cond_a
-    aget-object v0, v8, v6
-
     check-cast v0, Ljava/lang/Integer;
 
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I

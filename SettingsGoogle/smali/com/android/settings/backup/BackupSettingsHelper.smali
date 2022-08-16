@@ -194,7 +194,7 @@
 
     move-result-object p0
 
-    const v1, 0x7f040643
+    const v1, 0x7f0406a2
 
     invoke-virtual {p0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -247,7 +247,7 @@
 
     iget-object p0, p0, Lcom/android/settings/backup/BackupSettingsHelper;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f040fb7
+    const v0, 0x7f041053
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -329,7 +329,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f040644
+    const v0, 0x7f0406a3
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -372,12 +372,12 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f040358
+    const v0, 0x7f040395
 
     goto :goto_0
 
     :cond_0
-    const v0, 0x7f040357
+    const v0, 0x7f040394
 
     :goto_0
     iget-object p0, p0, Lcom/android/settings/backup/BackupSettingsHelper;->mContext:Landroid/content/Context;
@@ -420,7 +420,7 @@
 
     iget-object p0, p0, Lcom/android/settings/backup/BackupSettingsHelper;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f04033d
+    const v0, 0x7f04037a
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -511,7 +511,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f040643
+    const v0, 0x7f0406a2
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

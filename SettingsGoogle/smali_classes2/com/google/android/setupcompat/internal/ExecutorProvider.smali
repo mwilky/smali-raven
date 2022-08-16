@@ -15,16 +15,6 @@
 
 
 # static fields
-.field public static final setupCompatExecutor:Lcom/google/android/setupcompat/internal/ExecutorProvider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Lcom/google/android/setupcompat/internal/ExecutorProvider<",
-            "Ljava/util/concurrent/ExecutorService;",
-            ">;"
-        }
-    .end annotation
-.end field
-
 .field public static final setupCompatServiceInvoker:Lcom/google/android/setupcompat/internal/ExecutorProvider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -81,20 +71,6 @@
     invoke-direct {v0, v1}, Lcom/google/android/setupcompat/internal/ExecutorProvider;-><init>(Ljava/util/concurrent/Executor;)V
 
     sput-object v0, Lcom/google/android/setupcompat/internal/ExecutorProvider;->setupCompatServiceInvoker:Lcom/google/android/setupcompat/internal/ExecutorProvider;
-
-    new-instance v0, Lcom/google/android/setupcompat/internal/ExecutorProvider;
-
-    const-string v1, "SetupBindbackServiceExecutor"
-
-    const/4 v2, 0x1
-
-    invoke-static {v1, v2}, Lcom/google/android/setupcompat/internal/ExecutorProvider;->createSizeBoundedExecutor(Ljava/lang/String;I)Ljava/util/concurrent/ExecutorService;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Lcom/google/android/setupcompat/internal/ExecutorProvider;-><init>(Ljava/util/concurrent/Executor;)V
-
-    sput-object v0, Lcom/google/android/setupcompat/internal/ExecutorProvider;->setupCompatExecutor:Lcom/google/android/setupcompat/internal/ExecutorProvider;
 
     return-void
 .end method

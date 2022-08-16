@@ -43,23 +43,33 @@
     return-void
 .end method
 
-.method private constructor <init>(Landroid/content/Context;Landroid/os/Looper;)V
+.method static bridge synthetic -$$Nest$mgetLocalBtManager(Lcom/android/settings/homepage/contextualcards/slices/BluetoothUpdateWorker$LoadBtManagerHandler;)Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
     .locals 0
 
-    invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
+    invoke-direct {p0}, Lcom/android/settings/homepage/contextualcards/slices/BluetoothUpdateWorker$LoadBtManagerHandler;->getLocalBtManager()Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
 
-    iput-object p1, p0, Lcom/android/settings/homepage/contextualcards/slices/BluetoothUpdateWorker$LoadBtManagerHandler;->mContext:Landroid/content/Context;
+    move-result-object p0
 
-    new-instance p1, Lcom/android/settings/homepage/contextualcards/slices/BluetoothUpdateWorker$LoadBtManagerHandler$$ExternalSyntheticLambda1;
+    return-object p0
+.end method
 
-    invoke-direct {p1, p0}, Lcom/android/settings/homepage/contextualcards/slices/BluetoothUpdateWorker$LoadBtManagerHandler$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/homepage/contextualcards/slices/BluetoothUpdateWorker$LoadBtManagerHandler;)V
+.method static bridge synthetic -$$Nest$mstartLoadingBtManager(Lcom/android/settings/homepage/contextualcards/slices/BluetoothUpdateWorker$LoadBtManagerHandler;)V
+    .locals 0
 
-    iput-object p1, p0, Lcom/android/settings/homepage/contextualcards/slices/BluetoothUpdateWorker$LoadBtManagerHandler;->mLoadBtManagerTask:Ljava/lang/Runnable;
+    invoke-direct {p0}, Lcom/android/settings/homepage/contextualcards/slices/BluetoothUpdateWorker$LoadBtManagerHandler;->startLoadingBtManager()V
 
     return-void
 .end method
 
-.method static synthetic access$000(Landroid/content/Context;)Lcom/android/settings/homepage/contextualcards/slices/BluetoothUpdateWorker$LoadBtManagerHandler;
+.method static bridge synthetic -$$Nest$mstartLoadingBtManager(Lcom/android/settings/homepage/contextualcards/slices/BluetoothUpdateWorker$LoadBtManagerHandler;Lcom/android/settings/homepage/contextualcards/slices/BluetoothUpdateWorker;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/homepage/contextualcards/slices/BluetoothUpdateWorker$LoadBtManagerHandler;->startLoadingBtManager(Lcom/android/settings/homepage/contextualcards/slices/BluetoothUpdateWorker;)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$smgetInstance(Landroid/content/Context;)Lcom/android/settings/homepage/contextualcards/slices/BluetoothUpdateWorker$LoadBtManagerHandler;
     .locals 0
 
     invoke-static {p0}, Lcom/android/settings/homepage/contextualcards/slices/BluetoothUpdateWorker$LoadBtManagerHandler;->getInstance(Landroid/content/Context;)Lcom/android/settings/homepage/contextualcards/slices/BluetoothUpdateWorker$LoadBtManagerHandler;
@@ -69,30 +79,20 @@
     return-object p0
 .end method
 
-.method static synthetic access$100(Lcom/android/settings/homepage/contextualcards/slices/BluetoothUpdateWorker$LoadBtManagerHandler;Lcom/android/settings/homepage/contextualcards/slices/BluetoothUpdateWorker;)V
+.method private constructor <init>(Landroid/content/Context;Landroid/os/Looper;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/settings/homepage/contextualcards/slices/BluetoothUpdateWorker$LoadBtManagerHandler;->startLoadingBtManager(Lcom/android/settings/homepage/contextualcards/slices/BluetoothUpdateWorker;)V
+    invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
+
+    iput-object p1, p0, Lcom/android/settings/homepage/contextualcards/slices/BluetoothUpdateWorker$LoadBtManagerHandler;->mContext:Landroid/content/Context;
+
+    new-instance p1, Lcom/android/settings/homepage/contextualcards/slices/BluetoothUpdateWorker$LoadBtManagerHandler$$ExternalSyntheticLambda0;
+
+    invoke-direct {p1, p0}, Lcom/android/settings/homepage/contextualcards/slices/BluetoothUpdateWorker$LoadBtManagerHandler$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/homepage/contextualcards/slices/BluetoothUpdateWorker$LoadBtManagerHandler;)V
+
+    iput-object p1, p0, Lcom/android/settings/homepage/contextualcards/slices/BluetoothUpdateWorker$LoadBtManagerHandler;->mLoadBtManagerTask:Ljava/lang/Runnable;
 
     return-void
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/homepage/contextualcards/slices/BluetoothUpdateWorker$LoadBtManagerHandler;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/homepage/contextualcards/slices/BluetoothUpdateWorker$LoadBtManagerHandler;->startLoadingBtManager()V
-
-    return-void
-.end method
-
-.method static synthetic access$300(Lcom/android/settings/homepage/contextualcards/slices/BluetoothUpdateWorker$LoadBtManagerHandler;)Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/homepage/contextualcards/slices/BluetoothUpdateWorker$LoadBtManagerHandler;->getLocalBtManager()Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
-
-    move-result-object p0
-
-    return-object p0
 .end method
 
 .method private static getInstance(Landroid/content/Context;)Lcom/android/settings/homepage/contextualcards/slices/BluetoothUpdateWorker$LoadBtManagerHandler;
@@ -131,13 +131,13 @@
 .method private getLocalBtManager()Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
     .locals 2
 
-    invoke-static {}, Lcom/android/settings/homepage/contextualcards/slices/BluetoothUpdateWorker;->access$400()Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
+    invoke-static {}, Lcom/android/settings/homepage/contextualcards/slices/BluetoothUpdateWorker;->-$$Nest$sfgetsLocalBluetoothManager()Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    invoke-static {}, Lcom/android/settings/homepage/contextualcards/slices/BluetoothUpdateWorker;->access$400()Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
+    invoke-static {}, Lcom/android/settings/homepage/contextualcards/slices/BluetoothUpdateWorker;->-$$Nest$sfgetsLocalBluetoothManager()Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
 
     move-result-object p0
 
@@ -146,9 +146,9 @@
     :cond_0
     iget-object v0, p0, Lcom/android/settings/homepage/contextualcards/slices/BluetoothUpdateWorker$LoadBtManagerHandler;->mContext:Landroid/content/Context;
 
-    new-instance v1, Lcom/android/settings/homepage/contextualcards/slices/BluetoothUpdateWorker$LoadBtManagerHandler$$ExternalSyntheticLambda0;
+    new-instance v1, Lcom/android/settings/homepage/contextualcards/slices/BluetoothUpdateWorker$LoadBtManagerHandler$$ExternalSyntheticLambda1;
 
-    invoke-direct {v1, p0}, Lcom/android/settings/homepage/contextualcards/slices/BluetoothUpdateWorker$LoadBtManagerHandler$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/homepage/contextualcards/slices/BluetoothUpdateWorker$LoadBtManagerHandler;)V
+    invoke-direct {v1, p0}, Lcom/android/settings/homepage/contextualcards/slices/BluetoothUpdateWorker$LoadBtManagerHandler$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/homepage/contextualcards/slices/BluetoothUpdateWorker$LoadBtManagerHandler;)V
 
     invoke-static {v0, v1}, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;->getInstance(Landroid/content/Context;Lcom/android/settingslib/bluetooth/LocalBluetoothManager$BluetoothManagerCallback;)Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
 
@@ -164,7 +164,7 @@
 
     if-eqz p0, :cond_0
 
-    invoke-static {p0}, Lcom/android/settings/homepage/contextualcards/slices/BluetoothUpdateWorker;->access$500(Lcom/android/settings/homepage/contextualcards/slices/BluetoothUpdateWorker;)V
+    invoke-static {p0}, Lcom/android/settings/homepage/contextualcards/slices/BluetoothUpdateWorker;->access$000(Lcom/android/settings/homepage/contextualcards/slices/BluetoothUpdateWorker;)V
 
     :cond_0
     return-void
@@ -187,7 +187,7 @@
 
     move-result-object p0
 
-    invoke-static {p0}, Lcom/android/settings/homepage/contextualcards/slices/BluetoothUpdateWorker;->access$402(Lcom/android/settingslib/bluetooth/LocalBluetoothManager;)Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
+    invoke-static {p0}, Lcom/android/settings/homepage/contextualcards/slices/BluetoothUpdateWorker;->-$$Nest$sfputsLocalBluetoothManager(Lcom/android/settingslib/bluetooth/LocalBluetoothManager;)V
 
     new-instance p0, Ljava/lang/StringBuilder;
 

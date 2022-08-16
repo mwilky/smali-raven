@@ -19,7 +19,7 @@
 
     const-string v3, "fillEnabled"
 
-    const-string v4, "r"
+    const-string/jumbo v4, "r"
 
     const-string v5, "hd"
 

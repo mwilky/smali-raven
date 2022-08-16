@@ -4,9 +4,6 @@
 
 
 # annotations
-.annotation runtime Lcom/google/errorprone/annotations/DoNotMock;
-.end annotation
-
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/google/common/collect/ImmutableMap;
 .end annotation
@@ -110,6 +107,23 @@
 
 # virtual methods
 .method public build()Lcom/google/common/collect/ImmutableMap;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Lcom/google/common/collect/ImmutableMap<",
+            "TK;TV;>;"
+        }
+    .end annotation
+
+    invoke-virtual {p0}, Lcom/google/common/collect/ImmutableMap$Builder;->buildOrThrow()Lcom/google/common/collect/ImmutableMap;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public buildOrThrow()Lcom/google/common/collect/ImmutableMap;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -138,9 +152,6 @@
 
 .method public put(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableMap$Builder;
     .locals 3
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)",
@@ -175,97 +186,6 @@
 
     iput v1, p0, Lcom/google/common/collect/ImmutableMap$Builder;->size:I
 
-    return-object p0
-.end method
-
-.method public put(Ljava/util/Map$Entry;)Lcom/google/common/collect/ImmutableMap$Builder;
-    .locals 1
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/Map$Entry<",
-            "+TK;+TV;>;)",
-            "Lcom/google/common/collect/ImmutableMap$Builder<",
-            "TK;TV;>;"
-        }
-    .end annotation
-
-    invoke-interface {p1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
-
-    move-result-object v0
-
-    invoke-interface {p1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
-
-    move-result-object p1
-
-    invoke-virtual {p0, v0, p1}, Lcom/google/common/collect/ImmutableMap$Builder;->put(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableMap$Builder;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public putAll(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableMap$Builder;
-    .locals 2
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/lang/Iterable<",
-            "+",
-            "Ljava/util/Map$Entry<",
-            "+TK;+TV;>;>;)",
-            "Lcom/google/common/collect/ImmutableMap$Builder<",
-            "TK;TV;>;"
-        }
-    .end annotation
-
-    instance-of v0, p1, Ljava/util/Collection;
-
-    if-eqz v0, :cond_0
-
-    iget v0, p0, Lcom/google/common/collect/ImmutableMap$Builder;->size:I
-
-    move-object v1, p1
-
-    check-cast v1, Ljava/util/Collection;
-
-    invoke-interface {v1}, Ljava/util/Collection;->size()I
-
-    move-result v1
-
-    add-int/2addr v0, v1
-
-    invoke-direct {p0, v0}, Lcom/google/common/collect/ImmutableMap$Builder;->ensureCapacity(I)V
-
-    :cond_0
-    invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object p1
-
-    :goto_0
-    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/util/Map$Entry;
-
-    invoke-virtual {p0, v0}, Lcom/google/common/collect/ImmutableMap$Builder;->put(Ljava/util/Map$Entry;)Lcom/google/common/collect/ImmutableMap$Builder;
-
-    goto :goto_0
-
-    :cond_1
     return-object p0
 .end method
 
@@ -312,13 +232,19 @@
 
     mul-int/lit8 v5, v2, 0x2
 
-    aget-object v6, v4, v5
+    aget-object v4, v4, v5
+
+    invoke-static {v4}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v6, p0, Lcom/google/common/collect/ImmutableMap$Builder;->alternatingKeysAndValues:[Ljava/lang/Object;
 
     add-int/lit8 v5, v5, 0x1
 
-    aget-object v4, v4, v5
+    aget-object v5, v6, v5
 
-    invoke-direct {v3, v6, v4}, Ljava/util/AbstractMap$SimpleImmutableEntry;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static {v5}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+
+    invoke-direct {v3, v4, v5}, Ljava/util/AbstractMap$SimpleImmutableEntry;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
     aput-object v3, v0, v2
 

@@ -85,7 +85,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Ljava/lang/String;Ljava/lang/String;ZZJIILandroid/content/Intent;Landroid/content/Intent;Lcom/google/android/setupcompat/portal/ProgressServiceComponent$1;)V
+.method synthetic constructor <init>(Ljava/lang/String;Ljava/lang/String;ZZJIILandroid/content/Intent;Landroid/content/Intent;Lcom/google/android/setupcompat/portal/ProgressServiceComponent-IA;)V
     .locals 0
 
     invoke-direct/range {p0 .. p10}, Lcom/google/android/setupcompat/portal/ProgressServiceComponent;-><init>(Ljava/lang/String;Ljava/lang/String;ZZJIILandroid/content/Intent;Landroid/content/Intent;)V
@@ -100,7 +100,7 @@
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, v1}, Lcom/google/android/setupcompat/portal/ProgressServiceComponent$Builder;-><init>(Lcom/google/android/setupcompat/portal/ProgressServiceComponent$1;)V
+    invoke-direct {v0, v1}, Lcom/google/android/setupcompat/portal/ProgressServiceComponent$Builder;-><init>(Lcom/google/android/setupcompat/portal/ProgressServiceComponent$Builder-IA;)V
 
     return-object v0
 .end method

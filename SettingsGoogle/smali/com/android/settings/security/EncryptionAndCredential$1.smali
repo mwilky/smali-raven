@@ -40,7 +40,7 @@
 
     const/4 p0, 0x0
 
-    invoke-static {p1, p0}, Lcom/android/settings/security/EncryptionAndCredential;->access$000(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;)Ljava/util/List;
+    invoke-static {p1, p0}, Lcom/android/settings/security/EncryptionAndCredential;->-$$Nest$smbuildPreferenceControllers(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;)Ljava/util/List;
 
     move-result-object p0
 
@@ -50,17 +50,7 @@
 .method protected isPageSearchEnabled(Landroid/content/Context;)Z
     .locals 0
 
-    const-string/jumbo p0, "user"
-
-    invoke-virtual {p1, p0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object p0
-
-    check-cast p0, Landroid/os/UserManager;
-
-    invoke-virtual {p0}, Landroid/os/UserManager;->isAdminUser()Z
-
-    move-result p0
+    const/4 p0, 0x1
 
     return p0
 .end method

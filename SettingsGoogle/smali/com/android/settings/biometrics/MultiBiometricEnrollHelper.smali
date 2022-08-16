@@ -75,7 +75,7 @@
 
     move-result-object v5
 
-    const-string p2, "sensor_id"
+    const-string/jumbo p2, "sensor_id"
 
     invoke-virtual {v5, p2, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
@@ -160,7 +160,7 @@
 
     move-result-object v5
 
-    const-string p2, "sensor_id"
+    const-string/jumbo p2, "sensor_id"
 
     invoke-virtual {v5, p2, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
@@ -200,9 +200,9 @@
 
     iget v1, p0, Lcom/android/settings/biometrics/MultiBiometricEnrollHelper;->mUserId:I
 
-    new-instance v2, Lcom/android/settings/biometrics/MultiBiometricEnrollHelper$$ExternalSyntheticLambda0;
+    new-instance v2, Lcom/android/settings/biometrics/MultiBiometricEnrollHelper$$ExternalSyntheticLambda1;
 
-    invoke-direct {v2, p0}, Lcom/android/settings/biometrics/MultiBiometricEnrollHelper$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/biometrics/MultiBiometricEnrollHelper;)V
+    invoke-direct {v2, p0}, Lcom/android/settings/biometrics/MultiBiometricEnrollHelper$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/biometrics/MultiBiometricEnrollHelper;)V
 
     invoke-virtual {v0, v1, v2}, Landroid/hardware/face/FaceManager;->generateChallenge(ILandroid/hardware/face/FaceManager$GenerateChallengeCallback;)V
 
@@ -224,9 +224,9 @@
 
     iget v1, p0, Lcom/android/settings/biometrics/MultiBiometricEnrollHelper;->mUserId:I
 
-    new-instance v2, Lcom/android/settings/biometrics/MultiBiometricEnrollHelper$$ExternalSyntheticLambda1;
+    new-instance v2, Lcom/android/settings/biometrics/MultiBiometricEnrollHelper$$ExternalSyntheticLambda0;
 
-    invoke-direct {v2, p0}, Lcom/android/settings/biometrics/MultiBiometricEnrollHelper$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/biometrics/MultiBiometricEnrollHelper;)V
+    invoke-direct {v2, p0}, Lcom/android/settings/biometrics/MultiBiometricEnrollHelper$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/biometrics/MultiBiometricEnrollHelper;)V
 
     invoke-virtual {v0, v1, v2}, Landroid/hardware/fingerprint/FingerprintManager;->generateChallenge(ILandroid/hardware/fingerprint/FingerprintManager$GenerateChallengeCallback;)V
 

@@ -295,12 +295,6 @@
 
     invoke-super {p0}, Landroidx/appcompat/widget/AppCompatTextView;->drawableStateChanged()V
 
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x11
-
-    if-lt v0, v1, :cond_1
-
     invoke-virtual {p0}, Landroid/widget/TextView;->getDrawableState()[I
 
     move-result-object v0
@@ -451,18 +445,11 @@
     :goto_0
     invoke-virtual {p0, p1}, Landroid/widget/TextView;->setFocusable(Z)V
 
-    sget p2, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v0, 0x19
-
-    if-lt p2, v0, :cond_1
-
     const/4 p2, 0x0
 
     invoke-virtual {p0, p2}, Landroid/widget/TextView;->setRevealOnFocusHint(Z)V
 
     invoke-virtual {p0, p1}, Landroid/widget/TextView;->setFocusableInTouchMode(Z)V
 
-    :cond_1
     return-void
 .end method

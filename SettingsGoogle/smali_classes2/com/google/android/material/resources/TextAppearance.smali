@@ -26,13 +26,13 @@
 
 .field public final textAllCaps:Z
 
-.field public final textColor:Landroid/content/res/ColorStateList;
+.field private textColor:Landroid/content/res/ColorStateList;
 
 .field public final textColorHint:Landroid/content/res/ColorStateList;
 
 .field public final textColorLink:Landroid/content/res/ColorStateList;
 
-.field public textSize:F
+.field private textSize:F
 
 .field public final textStyle:I
 
@@ -63,7 +63,7 @@
 
     move-result v2
 
-    iput v2, p0, Lcom/google/android/material/resources/TextAppearance;->textSize:F
+    invoke-virtual {p0, v2}, Lcom/google/android/material/resources/TextAppearance;->setTextSize(F)V
 
     sget v2, Lcom/google/android/material/R$styleable;->TextAppearance_android_textColor:I
 
@@ -71,7 +71,7 @@
 
     move-result-object v2
 
-    iput-object v2, p0, Lcom/google/android/material/resources/TextAppearance;->textColor:Landroid/content/res/ColorStateList;
+    invoke-virtual {p0, v2}, Lcom/google/android/material/resources/TextAppearance;->setTextColor(Landroid/content/res/ColorStateList;)V
 
     sget v2, Lcom/google/android/material/R$styleable;->TextAppearance_android_textColorHint:I
 
@@ -131,49 +131,43 @@
 
     invoke-virtual {v1, v2, v0}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
-    move-result v2
+    move-result v0
 
-    iput-boolean v2, p0, Lcom/google/android/material/resources/TextAppearance;->textAllCaps:Z
+    iput-boolean v0, p0, Lcom/google/android/material/resources/TextAppearance;->textAllCaps:Z
 
-    sget v2, Lcom/google/android/material/R$styleable;->TextAppearance_android_shadowColor:I
+    sget v0, Lcom/google/android/material/R$styleable;->TextAppearance_android_shadowColor:I
 
-    invoke-static {p1, v1, v2}, Lcom/google/android/material/resources/MaterialResources;->getColorStateList(Landroid/content/Context;Landroid/content/res/TypedArray;I)Landroid/content/res/ColorStateList;
+    invoke-static {p1, v1, v0}, Lcom/google/android/material/resources/MaterialResources;->getColorStateList(Landroid/content/Context;Landroid/content/res/TypedArray;I)Landroid/content/res/ColorStateList;
 
-    move-result-object v2
+    move-result-object v0
 
-    iput-object v2, p0, Lcom/google/android/material/resources/TextAppearance;->shadowColor:Landroid/content/res/ColorStateList;
+    iput-object v0, p0, Lcom/google/android/material/resources/TextAppearance;->shadowColor:Landroid/content/res/ColorStateList;
 
-    sget v2, Lcom/google/android/material/R$styleable;->TextAppearance_android_shadowDx:I
+    sget v0, Lcom/google/android/material/R$styleable;->TextAppearance_android_shadowDx:I
 
-    invoke-virtual {v1, v2, v3}, Landroid/content/res/TypedArray;->getFloat(IF)F
+    invoke-virtual {v1, v0, v3}, Landroid/content/res/TypedArray;->getFloat(IF)F
 
-    move-result v2
+    move-result v0
 
-    iput v2, p0, Lcom/google/android/material/resources/TextAppearance;->shadowDx:F
+    iput v0, p0, Lcom/google/android/material/resources/TextAppearance;->shadowDx:F
 
-    sget v2, Lcom/google/android/material/R$styleable;->TextAppearance_android_shadowDy:I
+    sget v0, Lcom/google/android/material/R$styleable;->TextAppearance_android_shadowDy:I
 
-    invoke-virtual {v1, v2, v3}, Landroid/content/res/TypedArray;->getFloat(IF)F
+    invoke-virtual {v1, v0, v3}, Landroid/content/res/TypedArray;->getFloat(IF)F
 
-    move-result v2
+    move-result v0
 
-    iput v2, p0, Lcom/google/android/material/resources/TextAppearance;->shadowDy:F
+    iput v0, p0, Lcom/google/android/material/resources/TextAppearance;->shadowDy:F
 
-    sget v2, Lcom/google/android/material/R$styleable;->TextAppearance_android_shadowRadius:I
+    sget v0, Lcom/google/android/material/R$styleable;->TextAppearance_android_shadowRadius:I
 
-    invoke-virtual {v1, v2, v3}, Landroid/content/res/TypedArray;->getFloat(IF)F
+    invoke-virtual {v1, v0, v3}, Landroid/content/res/TypedArray;->getFloat(IF)F
 
-    move-result v2
+    move-result v0
 
-    iput v2, p0, Lcom/google/android/material/resources/TextAppearance;->shadowRadius:F
+    iput v0, p0, Lcom/google/android/material/resources/TextAppearance;->shadowRadius:F
 
     invoke-virtual {v1}, Landroid/content/res/TypedArray;->recycle()V
-
-    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v2, 0x15
-
-    if-lt v1, v2, :cond_0
 
     sget-object v0, Lcom/google/android/material/R$styleable;->MaterialTextAppearance:[I
 
@@ -197,14 +191,6 @@
 
     invoke-virtual {p1}, Landroid/content/res/TypedArray;->recycle()V
 
-    goto :goto_0
-
-    :cond_0
-    iput-boolean v0, p0, Lcom/google/android/material/resources/TextAppearance;->hasLetterSpacing:Z
-
-    iput v3, p0, Lcom/google/android/material/resources/TextAppearance;->letterSpacing:F
-
-    :goto_0
     return-void
 .end method
 
@@ -448,11 +434,11 @@
 
     move-result-object v0
 
-    invoke-virtual {p0, p2, v0}, Lcom/google/android/material/resources/TextAppearance;->updateTextPaintMeasureState(Landroid/text/TextPaint;Landroid/graphics/Typeface;)V
+    invoke-virtual {p0, p1, p2, v0}, Lcom/google/android/material/resources/TextAppearance;->updateTextPaintMeasureState(Landroid/content/Context;Landroid/text/TextPaint;Landroid/graphics/Typeface;)V
 
     new-instance v0, Lcom/google/android/material/resources/TextAppearance$2;
 
-    invoke-direct {v0, p0, p2, p3}, Lcom/google/android/material/resources/TextAppearance$2;-><init>(Lcom/google/android/material/resources/TextAppearance;Landroid/text/TextPaint;Lcom/google/android/material/resources/TextAppearanceFontCallback;)V
+    invoke-direct {v0, p0, p1, p2, p3}, Lcom/google/android/material/resources/TextAppearance$2;-><init>(Lcom/google/android/material/resources/TextAppearance;Landroid/content/Context;Landroid/text/TextPaint;Lcom/google/android/material/resources/TextAppearanceFontCallback;)V
 
     invoke-virtual {p0, p1, v0}, Lcom/google/android/material/resources/TextAppearance;->getFontAsync(Landroid/content/Context;Lcom/google/android/material/resources/TextAppearanceFontCallback;)V
 
@@ -550,6 +536,38 @@
     return-void
 .end method
 
+.method public getTextColor()Landroid/content/res/ColorStateList;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/material/resources/TextAppearance;->textColor:Landroid/content/res/ColorStateList;
+
+    return-object p0
+.end method
+
+.method public getTextSize()F
+    .locals 0
+
+    iget p0, p0, Lcom/google/android/material/resources/TextAppearance;->textSize:F
+
+    return p0
+.end method
+
+.method public setTextColor(Landroid/content/res/ColorStateList;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/google/android/material/resources/TextAppearance;->textColor:Landroid/content/res/ColorStateList;
+
+    return-void
+.end method
+
+.method public setTextSize(F)V
+    .locals 0
+
+    iput p1, p0, Lcom/google/android/material/resources/TextAppearance;->textSize:F
+
+    return-void
+.end method
+
 .method public updateDrawState(Landroid/content/Context;Landroid/text/TextPaint;Lcom/google/android/material/resources/TextAppearanceFontCallback;)V
     .locals 3
 
@@ -619,9 +637,9 @@
 
     invoke-virtual {p0, p1}, Lcom/google/android/material/resources/TextAppearance;->getFont(Landroid/content/Context;)Landroid/graphics/Typeface;
 
-    move-result-object p1
+    move-result-object p3
 
-    invoke-virtual {p0, p2, p1}, Lcom/google/android/material/resources/TextAppearance;->updateTextPaintMeasureState(Landroid/text/TextPaint;Landroid/graphics/Typeface;)V
+    invoke-virtual {p0, p1, p2, p3}, Lcom/google/android/material/resources/TextAppearance;->updateTextPaintMeasureState(Landroid/content/Context;Landroid/text/TextPaint;Landroid/graphics/Typeface;)V
 
     goto :goto_0
 
@@ -632,67 +650,70 @@
     return-void
 .end method
 
-.method public updateTextPaintMeasureState(Landroid/text/TextPaint;Landroid/graphics/Typeface;)V
-    .locals 1
+.method public updateTextPaintMeasureState(Landroid/content/Context;Landroid/text/TextPaint;Landroid/graphics/Typeface;)V
+    .locals 0
 
-    invoke-virtual {p1, p2}, Landroid/text/TextPaint;->setTypeface(Landroid/graphics/Typeface;)Landroid/graphics/Typeface;
+    invoke-static {p1, p3}, Lcom/google/android/material/resources/TypefaceUtils;->maybeCopyWithFontWeightAdjustment(Landroid/content/Context;Landroid/graphics/Typeface;)Landroid/graphics/Typeface;
 
-    iget v0, p0, Lcom/google/android/material/resources/TextAppearance;->textStyle:I
+    move-result-object p1
 
-    invoke-virtual {p2}, Landroid/graphics/Typeface;->getStyle()I
+    if-eqz p1, :cond_0
 
-    move-result p2
+    move-object p3, p1
 
-    not-int p2, p2
+    :cond_0
+    invoke-virtual {p2, p3}, Landroid/text/TextPaint;->setTypeface(Landroid/graphics/Typeface;)Landroid/graphics/Typeface;
 
-    and-int/2addr p2, v0
+    iget p1, p0, Lcom/google/android/material/resources/TextAppearance;->textStyle:I
 
-    and-int/lit8 v0, p2, 0x1
+    invoke-virtual {p3}, Landroid/graphics/Typeface;->getStyle()I
 
-    if-eqz v0, :cond_0
+    move-result p3
 
-    const/4 v0, 0x1
+    not-int p3, p3
+
+    and-int/2addr p1, p3
+
+    and-int/lit8 p3, p1, 0x1
+
+    if-eqz p3, :cond_1
+
+    const/4 p3, 0x1
 
     goto :goto_0
 
-    :cond_0
-    const/4 v0, 0x0
+    :cond_1
+    const/4 p3, 0x0
 
     :goto_0
-    invoke-virtual {p1, v0}, Landroid/text/TextPaint;->setFakeBoldText(Z)V
+    invoke-virtual {p2, p3}, Landroid/text/TextPaint;->setFakeBoldText(Z)V
 
-    and-int/lit8 p2, p2, 0x2
+    and-int/lit8 p1, p1, 0x2
 
-    if-eqz p2, :cond_1
+    if-eqz p1, :cond_2
 
-    const/high16 p2, -0x41800000    # -0.25f
+    const/high16 p1, -0x41800000    # -0.25f
 
     goto :goto_1
 
-    :cond_1
-    const/4 p2, 0x0
+    :cond_2
+    const/4 p1, 0x0
 
     :goto_1
-    invoke-virtual {p1, p2}, Landroid/text/TextPaint;->setTextSkewX(F)V
+    invoke-virtual {p2, p1}, Landroid/text/TextPaint;->setTextSkewX(F)V
 
-    iget p2, p0, Lcom/google/android/material/resources/TextAppearance;->textSize:F
+    iget p1, p0, Lcom/google/android/material/resources/TextAppearance;->textSize:F
 
-    invoke-virtual {p1, p2}, Landroid/text/TextPaint;->setTextSize(F)V
+    invoke-virtual {p2, p1}, Landroid/text/TextPaint;->setTextSize(F)V
 
-    sget p2, Landroid/os/Build$VERSION;->SDK_INT:I
+    iget-boolean p1, p0, Lcom/google/android/material/resources/TextAppearance;->hasLetterSpacing:Z
 
-    const/16 v0, 0x15
-
-    if-lt p2, v0, :cond_2
-
-    iget-boolean p2, p0, Lcom/google/android/material/resources/TextAppearance;->hasLetterSpacing:Z
-
-    if-eqz p2, :cond_2
+    if-eqz p1, :cond_3
 
     iget p0, p0, Lcom/google/android/material/resources/TextAppearance;->letterSpacing:F
 
-    invoke-virtual {p1, p0}, Landroid/text/TextPaint;->setLetterSpacing(F)V
+    invoke-virtual {p2, p0}, Landroid/text/TextPaint;->setLetterSpacing(F)V
 
-    :cond_2
+    :cond_3
     return-void
 .end method

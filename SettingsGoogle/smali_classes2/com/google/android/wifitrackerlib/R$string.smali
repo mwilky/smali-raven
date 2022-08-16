@@ -4,10 +4,10 @@
 
 
 # static fields
-.field public static final wifitrackerlib_connected_with_wsu_authenticator:I = 0x7f041757
+.field public static final wifitrackerlib_connected_with_wsu_authenticator:I = 0x7f041851
 
-.field public static final wifitrackerlib_wsu_entry_summary_not_provisioned:I = 0x7f041793
+.field public static final wifitrackerlib_wsu_entry_summary_not_provisioned:I = 0x7f04188e
 
-.field public static final wifitrackerlib_wsu_entry_summary_provision_error:I = 0x7f041794
+.field public static final wifitrackerlib_wsu_entry_summary_provision_error:I = 0x7f04188f
 
-.field public static final wifitrackerlib_wsu_entry_summary_provisioning:I = 0x7f041795
+.field public static final wifitrackerlib_wsu_entry_summary_provisioning:I = 0x7f041890

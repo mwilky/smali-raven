@@ -18,15 +18,15 @@
 
 # virtual methods
 .method public createNetworkDetailsTracker(Landroidx/lifecycle/Lifecycle;Landroid/content/Context;Landroid/os/Handler;Landroid/os/Handler;Ljava/time/Clock;JJLjava/lang/String;)Lcom/android/wifitrackerlib/NetworkDetailsTracker;
-    .locals 15
+    .locals 14
 
     move-object/from16 v2, p2
 
-    move-object/from16 v13, p10
+    move-object/from16 v12, p10
 
     const-string v0, "StandardWifiEntry:"
 
-    invoke-virtual {v13, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {v12, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v0
 
@@ -34,7 +34,7 @@
 
     const-string v0, "NetworkRequestEntry:"
 
-    invoke-virtual {v13, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {v12, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v0
 
@@ -45,13 +45,13 @@
     :cond_0
     const-string v0, "PasspointWifiEntry:"
 
-    invoke-virtual {v13, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {v12, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    new-instance v14, Lcom/google/android/wifitrackerlib/GooglePasspointNetworkDetailsTracker;
+    new-instance v13, Lcom/google/android/wifitrackerlib/GooglePasspointNetworkDetailsTracker;
 
     const-class v0, Landroid/net/wifi/WifiManager;
 
@@ -73,37 +73,27 @@
 
     check-cast v4, Landroid/net/ConnectivityManager;
 
-    const-class v0, Landroid/net/NetworkScoreManager;
+    move-object v0, v13
 
-    invoke-virtual {v2, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    move-object v5, v0
-
-    check-cast v5, Landroid/net/NetworkScoreManager;
-
-    move-object v0, v14
-
-    move-object/from16 v1, p1
+    move-object v1, p1
 
     move-object/from16 v2, p2
 
-    move-object/from16 v6, p3
+    move-object/from16 v5, p3
 
-    move-object/from16 v7, p4
+    move-object/from16 v6, p4
 
-    move-object/from16 v8, p5
+    move-object/from16 v7, p5
 
-    move-wide/from16 v9, p6
+    move-wide/from16 v8, p6
 
-    move-wide/from16 v11, p8
+    move-wide/from16 v10, p8
 
-    move-object/from16 v13, p10
+    move-object/from16 v12, p10
 
-    invoke-direct/range {v0 .. v13}, Lcom/google/android/wifitrackerlib/GooglePasspointNetworkDetailsTracker;-><init>(Landroidx/lifecycle/Lifecycle;Landroid/content/Context;Landroid/net/wifi/WifiManager;Landroid/net/ConnectivityManager;Landroid/net/NetworkScoreManager;Landroid/os/Handler;Landroid/os/Handler;Ljava/time/Clock;JJLjava/lang/String;)V
+    invoke-direct/range {v0 .. v12}, Lcom/google/android/wifitrackerlib/GooglePasspointNetworkDetailsTracker;-><init>(Landroidx/lifecycle/Lifecycle;Landroid/content/Context;Landroid/net/wifi/WifiManager;Landroid/net/ConnectivityManager;Landroid/os/Handler;Landroid/os/Handler;Ljava/time/Clock;JJLjava/lang/String;)V
 
-    return-object v14
+    return-object v13
 
     :cond_1
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -116,7 +106,7 @@
 
     :cond_2
     :goto_0
-    new-instance v14, Lcom/google/android/wifitrackerlib/GoogleStandardNetworkDetailsTracker;
+    new-instance v13, Lcom/google/android/wifitrackerlib/GoogleStandardNetworkDetailsTracker;
 
     const-class v0, Landroid/net/wifi/WifiManager;
 
@@ -138,45 +128,35 @@
 
     check-cast v4, Landroid/net/ConnectivityManager;
 
-    const-class v0, Landroid/net/NetworkScoreManager;
+    move-object v0, v13
 
-    invoke-virtual {v2, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    move-object v5, v0
-
-    check-cast v5, Landroid/net/NetworkScoreManager;
-
-    move-object v0, v14
-
-    move-object/from16 v1, p1
+    move-object v1, p1
 
     move-object/from16 v2, p2
 
-    move-object/from16 v6, p3
+    move-object/from16 v5, p3
 
-    move-object/from16 v7, p4
+    move-object/from16 v6, p4
 
-    move-object/from16 v8, p5
+    move-object/from16 v7, p5
 
-    move-wide/from16 v9, p6
+    move-wide/from16 v8, p6
 
-    move-wide/from16 v11, p8
+    move-wide/from16 v10, p8
 
-    move-object/from16 v13, p10
+    move-object/from16 v12, p10
 
-    invoke-direct/range {v0 .. v13}, Lcom/google/android/wifitrackerlib/GoogleStandardNetworkDetailsTracker;-><init>(Landroidx/lifecycle/Lifecycle;Landroid/content/Context;Landroid/net/wifi/WifiManager;Landroid/net/ConnectivityManager;Landroid/net/NetworkScoreManager;Landroid/os/Handler;Landroid/os/Handler;Ljava/time/Clock;JJLjava/lang/String;)V
+    invoke-direct/range {v0 .. v12}, Lcom/google/android/wifitrackerlib/GoogleStandardNetworkDetailsTracker;-><init>(Landroidx/lifecycle/Lifecycle;Landroid/content/Context;Landroid/net/wifi/WifiManager;Landroid/net/ConnectivityManager;Landroid/os/Handler;Landroid/os/Handler;Ljava/time/Clock;JJLjava/lang/String;)V
 
-    return-object v14
+    return-object v13
 .end method
 
 .method public createWifiPickerTracker(Landroidx/lifecycle/Lifecycle;Landroid/content/Context;Landroid/os/Handler;Landroid/os/Handler;Ljava/time/Clock;JJLcom/android/wifitrackerlib/WifiPickerTracker$WifiPickerTrackerCallback;)Lcom/android/wifitrackerlib/WifiPickerTracker;
-    .locals 15
+    .locals 14
 
     move-object/from16 v2, p2
 
-    new-instance v14, Lcom/google/android/wifitrackerlib/GoogleWifiPickerTracker;
+    new-instance v13, Lcom/google/android/wifitrackerlib/GoogleWifiPickerTracker;
 
     const-class v0, Landroid/net/wifi/WifiManager;
 
@@ -198,33 +178,23 @@
 
     check-cast v4, Landroid/net/ConnectivityManager;
 
-    const-class v0, Landroid/net/NetworkScoreManager;
+    move-object v0, v13
 
-    invoke-virtual {v2, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+    move-object v1, p1
 
-    move-result-object v0
+    move-object/from16 v5, p3
 
-    move-object v5, v0
+    move-object/from16 v6, p4
 
-    check-cast v5, Landroid/net/NetworkScoreManager;
+    move-object/from16 v7, p5
 
-    move-object v0, v14
+    move-wide/from16 v8, p6
 
-    move-object/from16 v1, p1
+    move-wide/from16 v10, p8
 
-    move-object/from16 v6, p3
+    move-object/from16 v12, p10
 
-    move-object/from16 v7, p4
+    invoke-direct/range {v0 .. v12}, Lcom/google/android/wifitrackerlib/GoogleWifiPickerTracker;-><init>(Landroidx/lifecycle/Lifecycle;Landroid/content/Context;Landroid/net/wifi/WifiManager;Landroid/net/ConnectivityManager;Landroid/os/Handler;Landroid/os/Handler;Ljava/time/Clock;JJLcom/android/wifitrackerlib/WifiPickerTracker$WifiPickerTrackerCallback;)V
 
-    move-object/from16 v8, p5
-
-    move-wide/from16 v9, p6
-
-    move-wide/from16 v11, p8
-
-    move-object/from16 v13, p10
-
-    invoke-direct/range {v0 .. v13}, Lcom/google/android/wifitrackerlib/GoogleWifiPickerTracker;-><init>(Landroidx/lifecycle/Lifecycle;Landroid/content/Context;Landroid/net/wifi/WifiManager;Landroid/net/ConnectivityManager;Landroid/net/NetworkScoreManager;Landroid/os/Handler;Landroid/os/Handler;Ljava/time/Clock;JJLcom/android/wifitrackerlib/WifiPickerTracker$WifiPickerTrackerCallback;)V
-
-    return-object v14
+    return-object v13
 .end method

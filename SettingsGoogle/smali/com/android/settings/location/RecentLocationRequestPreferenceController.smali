@@ -110,14 +110,6 @@
 
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public displayPreference(Landroidx/preference/PreferenceScreen;)V
     .locals 6
 
@@ -149,9 +141,41 @@
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/android/settings/location/RecentLocationRequestPreferenceController;->mRecentLocationApps:Lcom/android/settingslib/location/RecentLocationApps;
+    const-string v2, "privacy"
 
-    const/4 v3, 0x0
+    const-string v3, "location_indicators_small_enabled"
+
+    const/4 v4, 0x0
+
+    invoke-static {v2, v3, v4}, Landroid/provider/DeviceConfig;->getBoolean(Ljava/lang/String;Ljava/lang/String;Z)Z
+
+    move-result v2
+
+    const/4 v3, 0x1
+
+    if-eqz v2, :cond_0
+
+    iget-object v2, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v2
+
+    const-string v5, "locationShowSystemOps"
+
+    invoke-static {v2, v5, v4}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v2
+
+    if-ne v2, v3, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    move v3, v4
+
+    :goto_0
+    iget-object v2, p0, Lcom/android/settings/location/RecentLocationRequestPreferenceController;->mRecentLocationApps:Lcom/android/settingslib/location/RecentLocationApps;
 
     invoke-virtual {v2, v3}, Lcom/android/settingslib/location/RecentLocationApps;->getAppListSorted(Z)Ljava/util/List;
 
@@ -161,54 +185,54 @@
 
     move-result-object v2
 
-    :cond_0
+    :cond_1
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v4
+    move-result v3
 
-    if-eqz v4, :cond_1
+    if-eqz v3, :cond_2
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v3
 
-    check-cast v4, Lcom/android/settingslib/location/RecentLocationApps$Request;
+    check-cast v3, Lcom/android/settingslib/location/RecentLocationApps$Request;
 
     iget v5, p0, Lcom/android/settings/location/RecentLocationRequestPreferenceController;->mType:I
 
-    invoke-static {v1, v4, v5}, Lcom/android/settings/location/RecentLocationRequestPreferenceController;->isRequestMatchesProfileType(Landroid/os/UserManager;Lcom/android/settingslib/location/RecentLocationApps$Request;I)Z
+    invoke-static {v1, v3, v5}, Lcom/android/settings/location/RecentLocationRequestPreferenceController;->isRequestMatchesProfileType(Landroid/os/UserManager;Lcom/android/settingslib/location/RecentLocationApps$Request;I)Z
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_1
 
-    invoke-interface {v0, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     invoke-interface {v0}, Ljava/util/List;->size()I
 
-    move-result v4
+    move-result v3
 
     const/4 v5, 0x3
 
-    if-ne v4, v5, :cond_0
+    if-ne v3, v5, :cond_1
 
-    :cond_1
+    :cond_2
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v1
 
-    if-lez v1, :cond_2
+    if-lez v1, :cond_3
 
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
-    :goto_0
+    :goto_1
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_4
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -226,38 +250,29 @@
 
     invoke-virtual {v2, v1}, Landroidx/preference/PreferenceGroup;->addPreference(Landroidx/preference/Preference;)Z
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_2
+    :cond_3
     new-instance v0, Lcom/android/settingslib/widget/AppPreference;
 
     invoke-direct {v0, p1}, Lcom/android/settingslib/widget/AppPreference;-><init>(Landroid/content/Context;)V
 
-    const p1, 0x7f040b8e
+    const p1, 0x7f040bf8
 
     invoke-virtual {v0, p1}, Landroidx/preference/Preference;->setTitle(I)V
 
-    invoke-virtual {v0, v3}, Landroidx/preference/Preference;->setSelectable(Z)V
+    invoke-virtual {v0, v4}, Landroidx/preference/Preference;->setSelectable(Z)V
 
     iget-object p0, p0, Lcom/android/settings/location/RecentLocationRequestPreferenceController;->mCategoryRecentLocationRequests:Landroidx/preference/PreferenceCategory;
 
     invoke-virtual {p0, v0}, Landroidx/preference/PreferenceGroup;->addPreference(Landroidx/preference/Preference;)Z
 
-    :cond_3
+    :cond_4
     return-void
 .end method
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -290,16 +305,6 @@
     .locals 0
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->hasAsyncUpdate()Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
 
     move-result p0
 

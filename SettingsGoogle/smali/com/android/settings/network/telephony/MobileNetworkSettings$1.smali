@@ -36,7 +36,7 @@
 
     iget-object p0, p0, Lcom/android/settings/network/telephony/MobileNetworkSettings$1;->this$0:Lcom/android/settings/network/telephony/MobileNetworkSettings;
 
-    invoke-static {p0}, Lcom/android/settings/network/telephony/MobileNetworkSettings;->access$000(Lcom/android/settings/network/telephony/MobileNetworkSettings;)V
+    invoke-static {p0}, Lcom/android/settings/network/telephony/MobileNetworkSettings;->-$$Nest$monSubscriptionDetailChanged(Lcom/android/settings/network/telephony/MobileNetworkSettings;)V
 
     return-void
 .end method

@@ -1,33 +1,42 @@
 .class public final synthetic Lcom/android/settings/security/UnificationConfirmationDialog$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
+.implements Ljava/util/function/Supplier;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/settings/security/SecuritySettings;
+.field public final synthetic f$0:Lcom/android/settings/security/UnificationConfirmationDialog;
+
+.field public final synthetic f$1:I
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/settings/security/SecuritySettings;)V
+.method public synthetic constructor <init>(Lcom/android/settings/security/UnificationConfirmationDialog;I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/settings/security/UnificationConfirmationDialog$$ExternalSyntheticLambda0;->f$0:Lcom/android/settings/security/SecuritySettings;
+    iput-object p1, p0, Lcom/android/settings/security/UnificationConfirmationDialog$$ExternalSyntheticLambda0;->f$0:Lcom/android/settings/security/UnificationConfirmationDialog;
+
+    iput p2, p0, Lcom/android/settings/security/UnificationConfirmationDialog$$ExternalSyntheticLambda0;->f$1:I
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final onClick(Landroid/content/DialogInterface;I)V
-    .locals 0
+.method public final get()Ljava/lang/Object;
+    .locals 1
 
-    iget-object p0, p0, Lcom/android/settings/security/UnificationConfirmationDialog$$ExternalSyntheticLambda0;->f$0:Lcom/android/settings/security/SecuritySettings;
+    iget-object v0, p0, Lcom/android/settings/security/UnificationConfirmationDialog$$ExternalSyntheticLambda0;->f$0:Lcom/android/settings/security/UnificationConfirmationDialog;
 
-    invoke-static {p0, p1, p2}, Lcom/android/settings/security/UnificationConfirmationDialog;->$r8$lambda$J-jkEEvH5PxXThyEqiDYbZuuVjU(Lcom/android/settings/security/SecuritySettings;Landroid/content/DialogInterface;I)V
+    iget p0, p0, Lcom/android/settings/security/UnificationConfirmationDialog$$ExternalSyntheticLambda0;->f$1:I
 
-    return-void
+    invoke-static {v0, p0}, Lcom/android/settings/security/UnificationConfirmationDialog;->$r8$lambda$qhHD09qyBnor_fmV6wSFNkE4wtE(Lcom/android/settings/security/UnificationConfirmationDialog;I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 .end method

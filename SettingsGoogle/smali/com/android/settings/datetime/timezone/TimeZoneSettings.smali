@@ -59,7 +59,7 @@
 
     new-instance v0, Lcom/android/settings/datetime/timezone/TimeZoneSettings$1;
 
-    const v1, 0x7f1500f8
+    const v1, 0x7f1500fe
 
     invoke-direct {v0, v1}, Lcom/android/settings/datetime/timezone/TimeZoneSettings$1;-><init>(I)V
 
@@ -832,9 +832,9 @@
 
     invoke-direct {v3, p1}, Lcom/android/settings/datetime/timezone/FixedOffsetPreferenceController;-><init>(Landroid/content/Context;)V
 
-    new-instance p1, Lcom/android/settings/datetime/timezone/TimeZoneSettings$$ExternalSyntheticLambda0;
+    new-instance p1, Lcom/android/settings/datetime/timezone/TimeZoneSettings$$ExternalSyntheticLambda3;
 
-    invoke-direct {p1, p0}, Lcom/android/settings/datetime/timezone/TimeZoneSettings$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/datetime/timezone/TimeZoneSettings;)V
+    invoke-direct {p1, p0}, Lcom/android/settings/datetime/timezone/TimeZoneSettings$$ExternalSyntheticLambda3;-><init>(Lcom/android/settings/datetime/timezone/TimeZoneSettings;)V
 
     invoke-virtual {v3, p1}, Lcom/android/settings/datetime/timezone/BaseTimeZonePreferenceController;->setOnClickListener(Lcom/android/settings/datetime/timezone/OnPreferenceClickListener;)V
 
@@ -927,7 +927,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f1500f8
+    const p0, 0x7f1500fe
 
     return p0
 .end method
@@ -1033,9 +1033,9 @@
 
     move-result-object v2
 
-    new-instance v3, Lcom/android/settings/datetime/timezone/TimeZoneSettings$$ExternalSyntheticLambda3;
+    new-instance v3, Lcom/android/settings/datetime/timezone/TimeZoneSettings$$ExternalSyntheticLambda0;
 
-    invoke-direct {v3, p0}, Lcom/android/settings/datetime/timezone/TimeZoneSettings$$ExternalSyntheticLambda3;-><init>(Lcom/android/settings/datetime/timezone/TimeZoneSettings;)V
+    invoke-direct {v3, p0}, Lcom/android/settings/datetime/timezone/TimeZoneSettings$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/datetime/timezone/TimeZoneSettings;)V
 
     invoke-direct {v1, v2, v3}, Lcom/android/settings/datetime/timezone/model/TimeZoneDataLoader$LoaderCreator;-><init>(Landroid/content/Context;Lcom/android/settings/datetime/timezone/model/TimeZoneDataLoader$OnDataReadyCallback;)V
 
@@ -1053,13 +1053,13 @@
 
     const/4 v1, 0x1
 
-    const v2, 0x7f0418c3
+    const v2, 0x7f0419c1
 
     invoke-interface {p1, v0, v1, v0, v2}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
     const/4 v1, 0x2
 
-    const v2, 0x7f0418c2
+    const v2, 0x7f0419c0
 
     invoke-interface {p1, v0, v1, v0, v2}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 

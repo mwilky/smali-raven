@@ -45,7 +45,7 @@
 
     check-cast p0, Lcom/android/settings/wifi/WifiScanModeActivity;
 
-    invoke-static {p0}, Lcom/android/settings/wifi/WifiScanModeActivity;->access$100(Lcom/android/settings/wifi/WifiScanModeActivity;)V
+    invoke-static {p0}, Lcom/android/settings/wifi/WifiScanModeActivity;->-$$Nest$mdoPositiveClick(Lcom/android/settings/wifi/WifiScanModeActivity;)V
 
     return-void
 .end method

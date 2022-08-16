@@ -50,7 +50,7 @@
 
     const/4 p2, 0x1
 
-    invoke-static {p1, p2}, Lcom/android/settings/network/UsbTetherPreferenceController;->access$002(Lcom/android/settings/network/UsbTetherPreferenceController;Z)Z
+    invoke-static {p1, p2}, Lcom/android/settings/network/UsbTetherPreferenceController;->-$$Nest$fputmMassStorageActive(Lcom/android/settings/network/UsbTetherPreferenceController;Z)V
 
     goto :goto_0
 
@@ -67,7 +67,7 @@
 
     iget-object p1, p0, Lcom/android/settings/network/UsbTetherPreferenceController$1;->this$0:Lcom/android/settings/network/UsbTetherPreferenceController;
 
-    invoke-static {p1, v1}, Lcom/android/settings/network/UsbTetherPreferenceController;->access$002(Lcom/android/settings/network/UsbTetherPreferenceController;Z)Z
+    invoke-static {p1, v1}, Lcom/android/settings/network/UsbTetherPreferenceController;->-$$Nest$fputmMassStorageActive(Lcom/android/settings/network/UsbTetherPreferenceController;Z)V
 
     goto :goto_0
 
@@ -88,7 +88,7 @@
 
     move-result p2
 
-    invoke-static {p1, p2}, Lcom/android/settings/network/UsbTetherPreferenceController;->access$102(Lcom/android/settings/network/UsbTetherPreferenceController;Z)Z
+    invoke-static {p1, p2}, Lcom/android/settings/network/UsbTetherPreferenceController;->-$$Nest$fputmUsbConnected(Lcom/android/settings/network/UsbTetherPreferenceController;Z)V
 
     :cond_2
     :goto_0

@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/settings/network/helper/QuerySimSlotIndex$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/ToIntFunction;
+.implements Ljava/util/function/Predicate;
 
 
 # instance fields
@@ -22,14 +23,14 @@
 
 
 # virtual methods
-.method public final applyAsInt(Ljava/lang/Object;)I
+.method public final test(Ljava/lang/Object;)Z
     .locals 0
 
     iget-object p0, p0, Lcom/android/settings/network/helper/QuerySimSlotIndex$$ExternalSyntheticLambda2;->f$0:Lcom/android/settings/network/helper/QuerySimSlotIndex;
 
-    check-cast p1, Landroid/telephony/UiccSlotInfo;
+    check-cast p1, Landroid/telephony/UiccPortInfo;
 
-    invoke-static {p0, p1}, Lcom/android/settings/network/helper/QuerySimSlotIndex;->$r8$lambda$DiJ2iRsYkdREp3DUZZ6wxQECVAk(Lcom/android/settings/network/helper/QuerySimSlotIndex;Landroid/telephony/UiccSlotInfo;)I
+    invoke-static {p0, p1}, Lcom/android/settings/network/helper/QuerySimSlotIndex;->$r8$lambda$24yXkJtBzfazlzI6iN6gES-55iQ(Lcom/android/settings/network/helper/QuerySimSlotIndex;Landroid/telephony/UiccPortInfo;)Z
 
     move-result p0
 

@@ -43,10 +43,10 @@
 
     :array_0
     .array-data 4
-        0x7f0d0365
-        0x7f0d0374
-        0x7f0d02d4
-        0x7f0d02d3
+        0x7f0d0391
+        0x7f0d03a0
+        0x7f0d02fb
+        0x7f0d02fa
     .end array-data
 .end method
 
@@ -158,7 +158,7 @@
 
     move-result-object v0
 
-    const v3, 0x7f0600ce
+    const v3, 0x7f0600cc
 
     invoke-virtual {v0, v3, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -226,7 +226,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f0407dc
+    const p1, 0x7f040824
 
     invoke-virtual {p0, p1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

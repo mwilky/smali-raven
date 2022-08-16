@@ -51,7 +51,7 @@
 
     iget-object v0, p0, Lcom/android/settings/deviceinfo/PrivateVolumeFormat$1;->this$0:Lcom/android/settings/deviceinfo/PrivateVolumeFormat;
 
-    invoke-static {v0}, Lcom/android/settings/deviceinfo/PrivateVolumeFormat;->access$000(Lcom/android/settings/deviceinfo/PrivateVolumeFormat;)Landroid/os/storage/DiskInfo;
+    invoke-static {v0}, Lcom/android/settings/deviceinfo/PrivateVolumeFormat;->-$$Nest$fgetmDisk(Lcom/android/settings/deviceinfo/PrivateVolumeFormat;)Landroid/os/storage/DiskInfo;
 
     move-result-object v0
 
@@ -71,7 +71,7 @@
 
     iget-object v0, p0, Lcom/android/settings/deviceinfo/PrivateVolumeFormat$1;->this$0:Lcom/android/settings/deviceinfo/PrivateVolumeFormat;
 
-    invoke-static {v0}, Lcom/android/settings/deviceinfo/PrivateVolumeFormat;->access$100(Lcom/android/settings/deviceinfo/PrivateVolumeFormat;)Landroid/os/storage/VolumeInfo;
+    invoke-static {v0}, Lcom/android/settings/deviceinfo/PrivateVolumeFormat;->-$$Nest$fgetmVolume(Lcom/android/settings/deviceinfo/PrivateVolumeFormat;)Landroid/os/storage/VolumeInfo;
 
     move-result-object v0
 

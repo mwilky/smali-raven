@@ -36,7 +36,7 @@
 .method private defaultLogdSizeValue()Ljava/lang/String;
     .locals 1
 
-    const-string p0, "ro.logd.size"
+    const-string/jumbo p0, "ro.logd.size"
 
     invoke-static {p0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
@@ -51,7 +51,7 @@
     if-nez v0, :cond_2
 
     :cond_0
-    const-string p0, "ro.config.low_ram"
+    const-string/jumbo p0, "ro.config.low_ram"
 
     invoke-static {p0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
@@ -90,7 +90,7 @@
 
     if-eqz v0, :cond_0
 
-    const-string v0, "select_logd_size"
+    const-string/jumbo v0, "select_logd_size"
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceGroup;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -107,7 +107,7 @@
 .method public getPreferenceKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "select_logd_size"
+    const-string/jumbo p0, "select_logd_size"
 
     return-object p0
 .end method
@@ -223,7 +223,7 @@
 
     const/4 v3, 0x2
 
-    const-string v4, "ro.config.low_ram"
+    const-string/jumbo v4, "ro.config.low_ram"
 
     invoke-static {v4}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 

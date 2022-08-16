@@ -3,25 +3,31 @@
 .source "SpatialAudioPreferenceController.java"
 
 
-# static fields
-.field private static final KEY_SPATIAL_AUDIO:Ljava/lang/String; = "spatial_audio"
-
-
 # instance fields
 .field private final mSpatializer:Landroid/media/Spatializer;
 
+.field final mSpeaker:Landroid/media/AudioDeviceAttributes;
+
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+.method public constructor <init>(Landroid/content/Context;Ljava/lang/String;)V
+    .locals 2
 
-    const-string/jumbo v0, "spatial_audio"
+    invoke-direct {p0, p1, p2}, Lcom/android/settings/core/TogglePreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
-    invoke-direct {p0, p1, v0}, Lcom/android/settings/core/TogglePreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;)V
+    new-instance p2, Landroid/media/AudioDeviceAttributes;
 
-    const-class v0, Landroid/media/AudioManager;
+    const/4 v0, 0x2
 
-    invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+    const-string v1, ""
+
+    invoke-direct {p2, v0, v0, v1}, Landroid/media/AudioDeviceAttributes;-><init>(IILjava/lang/String;)V
+
+    iput-object p2, p0, Lcom/android/settings/notification/SpatialAudioPreferenceController;->mSpeaker:Landroid/media/AudioDeviceAttributes;
+
+    const-class p2, Landroid/media/AudioManager;
+
+    invoke-virtual {p1, p2}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -38,31 +44,25 @@
 
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public getAvailabilityStatus()I
-    .locals 0
+    .locals 1
 
-    iget-object p0, p0, Lcom/android/settings/notification/SpatialAudioPreferenceController;->mSpatializer:Landroid/media/Spatializer;
+    iget-object v0, p0, Lcom/android/settings/notification/SpatialAudioPreferenceController;->mSpatializer:Landroid/media/Spatializer;
 
-    invoke-virtual {p0}, Landroid/media/Spatializer;->getImmersiveAudioLevel()I
+    iget-object p0, p0, Lcom/android/settings/notification/SpatialAudioPreferenceController;->mSpeaker:Landroid/media/AudioDeviceAttributes;
+
+    invoke-virtual {v0, p0}, Landroid/media/Spatializer;->isAvailableForDevice(Landroid/media/AudioDeviceAttributes;)Z
 
     move-result p0
 
-    if-nez p0, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 p0, 0x3
+    const/4 p0, 0x0
 
     goto :goto_0
 
     :cond_0
-    const/4 p0, 0x0
+    const/4 p0, 0x3
 
     :goto_0
     return p0
@@ -70,15 +70,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -100,7 +91,7 @@
 .method public getSliceHighlightMenuRes()I
     .locals 0
 
-    const p0, 0x7f040d0b
+    const p0, 0x7f040d8a
 
     return p0
 .end method
@@ -116,21 +107,17 @@
 .end method
 
 .method public isChecked()Z
-    .locals 0
+    .locals 1
 
-    iget-object p0, p0, Lcom/android/settings/notification/SpatialAudioPreferenceController;->mSpatializer:Landroid/media/Spatializer;
+    iget-object v0, p0, Lcom/android/settings/notification/SpatialAudioPreferenceController;->mSpatializer:Landroid/media/Spatializer;
 
-    invoke-virtual {p0}, Landroid/media/Spatializer;->isEnabled()Z
+    invoke-virtual {v0}, Landroid/media/Spatializer;->getCompatibleAudioDevices()Ljava/util/List;
 
-    move-result p0
+    move-result-object v0
 
-    return p0
-.end method
+    iget-object p0, p0, Lcom/android/settings/notification/SpatialAudioPreferenceController;->mSpeaker:Landroid/media/AudioDeviceAttributes;
 
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
+    invoke-interface {v0, p0}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
 
     move-result p0
 
@@ -138,26 +125,40 @@
 .end method
 
 .method public setChecked(Z)Z
-    .locals 1
+    .locals 2
+
+    if-eqz p1, :cond_0
 
     iget-object v0, p0, Lcom/android/settings/notification/SpatialAudioPreferenceController;->mSpatializer:Landroid/media/Spatializer;
 
-    invoke-virtual {v0, p1}, Landroid/media/Spatializer;->setEnabled(Z)V
+    iget-object v1, p0, Lcom/android/settings/notification/SpatialAudioPreferenceController;->mSpeaker:Landroid/media/AudioDeviceAttributes;
 
-    invoke-virtual {p0}, Lcom/android/settings/notification/SpatialAudioPreferenceController;->isChecked()Z
-
-    move-result p0
-
-    if-ne p1, p0, :cond_0
-
-    const/4 p0, 0x1
+    invoke-virtual {v0, v1}, Landroid/media/Spatializer;->addCompatibleAudioDevice(Landroid/media/AudioDeviceAttributes;)V
 
     goto :goto_0
 
     :cond_0
-    const/4 p0, 0x0
+    iget-object v0, p0, Lcom/android/settings/notification/SpatialAudioPreferenceController;->mSpatializer:Landroid/media/Spatializer;
+
+    iget-object v1, p0, Lcom/android/settings/notification/SpatialAudioPreferenceController;->mSpeaker:Landroid/media/AudioDeviceAttributes;
+
+    invoke-virtual {v0, v1}, Landroid/media/Spatializer;->removeCompatibleAudioDevice(Landroid/media/AudioDeviceAttributes;)V
 
     :goto_0
+    invoke-virtual {p0}, Lcom/android/settings/notification/SpatialAudioPreferenceController;->isChecked()Z
+
+    move-result p0
+
+    if-ne p1, p0, :cond_1
+
+    const/4 p0, 0x1
+
+    goto :goto_1
+
+    :cond_1
+    const/4 p0, 0x0
+
+    :goto_1
     return p0
 .end method
 

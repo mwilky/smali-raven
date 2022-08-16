@@ -54,31 +54,18 @@
     return p0
 .end method
 
-.method public onResume(Landroid/app/AutomaticZenRule;Ljava/lang/String;)V
+.method public onResume()V
     .locals 0
-
-    iput-object p2, p0, Lcom/android/settings/notification/zen/AbstractZenCustomRulePreferenceController;->mId:Ljava/lang/String;
-
-    iput-object p1, p0, Lcom/android/settings/notification/zen/AbstractZenCustomRulePreferenceController;->mRule:Landroid/app/AutomaticZenRule;
 
     return-void
 .end method
 
-.method public updateState(Landroidx/preference/Preference;)V
-    .locals 1
+.method public setIdAndRule(Ljava/lang/String;Landroid/app/AutomaticZenRule;)V
+    .locals 0
 
-    iget-object p1, p0, Lcom/android/settings/notification/zen/AbstractZenCustomRulePreferenceController;->mId:Ljava/lang/String;
+    iput-object p1, p0, Lcom/android/settings/notification/zen/AbstractZenCustomRulePreferenceController;->mId:Ljava/lang/String;
 
-    if-eqz p1, :cond_0
+    iput-object p2, p0, Lcom/android/settings/notification/zen/AbstractZenCustomRulePreferenceController;->mRule:Landroid/app/AutomaticZenRule;
 
-    iget-object v0, p0, Lcom/android/settings/notification/zen/AbstractZenModePreferenceController;->mBackend:Lcom/android/settings/notification/zen/ZenModeBackend;
-
-    invoke-virtual {v0, p1}, Lcom/android/settings/notification/zen/ZenModeBackend;->getAutomaticZenRule(Ljava/lang/String;)Landroid/app/AutomaticZenRule;
-
-    move-result-object p1
-
-    iput-object p1, p0, Lcom/android/settings/notification/zen/AbstractZenCustomRulePreferenceController;->mRule:Landroid/app/AutomaticZenRule;
-
-    :cond_0
     return-void
 .end method

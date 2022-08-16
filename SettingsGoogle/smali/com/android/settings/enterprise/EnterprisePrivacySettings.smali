@@ -121,6 +121,221 @@
     return-void
 .end method
 
+.method public onCreate(Landroid/os/Bundle;)V
+    .locals 2
+
+    invoke-super {p0, p1}, Lcom/android/settings/dashboard/DashboardFragment;->onCreate(Landroid/os/Bundle;)V
+
+    iget-object p1, p0, Lcom/android/settings/enterprise/EnterprisePrivacySettings;->mPrivacySettingsPreference:Lcom/android/settings/enterprise/PrivacySettingsPreference;
+
+    instance-of p1, p1, Lcom/android/settings/enterprise/PrivacySettingsFinancedPreference;
+
+    if-eqz p1, :cond_0
+
+    return-void
+
+    :cond_0
+    const p1, 0x7f04092b
+
+    const-string v0, "Settings.MANAGED_DEVICE_INFO"
+
+    invoke-virtual {p0, v0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->replaceEnterprisePreferenceScreenTitle(Ljava/lang/String;I)V
+
+    const p1, 0x7f04091c
+
+    const-string v0, "exposure_category"
+
+    const-string v1, "Settings.INFORMATION_SEEN_BY_ORGANIZATION_TITLE"
+
+    invoke-virtual {p0, v0, v1, p1}, Lcom/android/settings/SettingsPreferenceFragment;->replaceEnterpriseStringTitle(Ljava/lang/String;Ljava/lang/String;I)V
+
+    const p1, 0x7f040919
+
+    const-string v0, "enterprise_privacy_enterprise_data"
+
+    const-string v1, "Settings.ADMIN_CAN_SEE_WORK_DATA_WARNING"
+
+    invoke-virtual {p0, v0, v1, p1}, Lcom/android/settings/SettingsPreferenceFragment;->replaceEnterpriseStringTitle(Ljava/lang/String;Ljava/lang/String;I)V
+
+    const p1, 0x7f040924
+
+    const-string v0, "enterprise_privacy_installed_packages"
+
+    const-string v1, "Settings.ADMIN_CAN_SEE_APPS_WARNING"
+
+    invoke-virtual {p0, v0, v1, p1}, Lcom/android/settings/SettingsPreferenceFragment;->replaceEnterpriseStringTitle(Ljava/lang/String;Ljava/lang/String;I)V
+
+    const p1, 0x7f04092e
+
+    const-string v0, "enterprise_privacy_usage_stats"
+
+    const-string v1, "Settings.ADMIN_CAN_SEE_USAGE_WARNING"
+
+    invoke-virtual {p0, v0, v1, p1}, Lcom/android/settings/SettingsPreferenceFragment;->replaceEnterpriseStringTitle(Ljava/lang/String;Ljava/lang/String;I)V
+
+    const p1, 0x7f040928
+
+    const-string v0, "network_logs"
+
+    const-string v1, "Settings.ADMIN_CAN_SEE_NETWORK_LOGS_WARNING"
+
+    invoke-virtual {p0, v0, v1, p1}, Lcom/android/settings/SettingsPreferenceFragment;->replaceEnterpriseStringTitle(Ljava/lang/String;Ljava/lang/String;I)V
+
+    const p1, 0x7f040913
+
+    const-string v0, "bug_reports"
+
+    const-string v1, "Settings.ADMIN_CAN_SEE_BUG_REPORT_WARNING"
+
+    invoke-virtual {p0, v0, v1, p1}, Lcom/android/settings/SettingsPreferenceFragment;->replaceEnterpriseStringTitle(Ljava/lang/String;Ljava/lang/String;I)V
+
+    const p1, 0x7f04092a
+
+    const-string/jumbo v0, "security_logs"
+
+    const-string v1, "Settings.ADMIN_CAN_SEE_SECURITY_LOGS_WARNING"
+
+    invoke-virtual {p0, v0, v1, p1}, Lcom/android/settings/SettingsPreferenceFragment;->replaceEnterpriseStringTitle(Ljava/lang/String;Ljava/lang/String;I)V
+
+    const p1, 0x7f04091d
+
+    const-string v0, "exposure_changes_category"
+
+    const-string v1, "Settings.CHANGES_BY_ORGANIZATION_TITLE"
+
+    invoke-virtual {p0, v0, v1, p1}, Lcom/android/settings/SettingsPreferenceFragment;->replaceEnterpriseStringTitle(Ljava/lang/String;Ljava/lang/String;I)V
+
+    const p1, 0x7f04091a
+
+    const-string v0, "number_enterprise_installed_packages"
+
+    const-string v1, "Settings.ADMIN_ACTION_APPS_INSTALLED"
+
+    invoke-virtual {p0, v0, v1, p1}, Lcom/android/settings/SettingsPreferenceFragment;->replaceEnterpriseStringTitle(Ljava/lang/String;Ljava/lang/String;I)V
+
+    const p1, 0x7f040925
+
+    const-string v0, "enterprise_privacy_number_location_access_packages"
+
+    const-string v1, "Settings.ADMIN_ACTION_ACCESS_LOCATION"
+
+    invoke-virtual {p0, v0, v1, p1}, Lcom/android/settings/SettingsPreferenceFragment;->replaceEnterpriseStringTitle(Ljava/lang/String;Ljava/lang/String;I)V
+
+    const p1, 0x7f040927
+
+    const-string v0, "enterprise_privacy_number_microphone_access_packages"
+
+    const-string v1, "Settings.ADMIN_ACTION_ACCESS_MICROPHONE"
+
+    invoke-virtual {p0, v0, v1, p1}, Lcom/android/settings/SettingsPreferenceFragment;->replaceEnterpriseStringTitle(Ljava/lang/String;Ljava/lang/String;I)V
+
+    const p1, 0x7f040917
+
+    const-string v0, "enterprise_privacy_number_camera_access_packages"
+
+    const-string v1, "Settings.ADMIN_ACTION_ACCESS_CAMERA"
+
+    invoke-virtual {p0, v0, v1, p1}, Lcom/android/settings/SettingsPreferenceFragment;->replaceEnterpriseStringTitle(Ljava/lang/String;Ljava/lang/String;I)V
+
+    const p1, 0x7f04091b
+
+    const-string v0, "number_enterprise_set_default_apps"
+
+    const-string v1, "Settings.ADMIN_ACTION_SET_DEFAULT_APPS"
+
+    invoke-virtual {p0, v0, v1, p1}, Lcom/android/settings/SettingsPreferenceFragment;->replaceEnterpriseStringTitle(Ljava/lang/String;Ljava/lang/String;I)V
+
+    const p1, 0x7f040911
+
+    const-string v0, "always_on_vpn_managed_profile"
+
+    const-string v1, "Settings.ALWAYS_ON_VPN_WORK_PROFILE"
+
+    invoke-virtual {p0, v0, v1, p1}, Lcom/android/settings/SettingsPreferenceFragment;->replaceEnterpriseStringTitle(Ljava/lang/String;Ljava/lang/String;I)V
+
+    const p1, 0x7f040922
+
+    const-string v0, "input_method"
+
+    const-string v1, "Settings.ADMIN_ACTION_SET_CURRENT_INPUT_METHOD"
+
+    invoke-virtual {p0, v0, v1, p1}, Lcom/android/settings/SettingsPreferenceFragment;->replaceEnterpriseStringTitle(Ljava/lang/String;Ljava/lang/String;I)V
+
+    const p1, 0x7f040920
+
+    const-string v0, "global_http_proxy"
+
+    const-string v1, "Settings.ADMIN_ACTION_SET_HTTP_PROXY"
+
+    invoke-virtual {p0, v0, v1, p1}, Lcom/android/settings/SettingsPreferenceFragment;->replaceEnterpriseStringTitle(Ljava/lang/String;Ljava/lang/String;I)V
+
+    const p1, 0x7f040915
+
+    const-string v0, "ca_certs_current_user"
+
+    const-string v1, "Settings.CA_CERTS_PERSONAL_PROFILE"
+
+    invoke-virtual {p0, v0, v1, p1}, Lcom/android/settings/SettingsPreferenceFragment;->replaceEnterpriseStringTitle(Ljava/lang/String;Ljava/lang/String;I)V
+
+    const p1, 0x7f040916
+
+    const-string v0, "ca_certs_managed_profile"
+
+    const-string v1, "Settings.CA_CERTS_WORK_PROFILE"
+
+    invoke-virtual {p0, v0, v1, p1}, Lcom/android/settings/SettingsPreferenceFragment;->replaceEnterpriseStringTitle(Ljava/lang/String;Ljava/lang/String;I)V
+
+    const p1, 0x7f040918
+
+    const-string v0, "device_access_category"
+
+    const-string v1, "Settings.YOUR_ACCESS_TO_THIS_DEVICE_TITLE"
+
+    invoke-virtual {p0, v0, v1, p1}, Lcom/android/settings/SettingsPreferenceFragment;->replaceEnterpriseStringTitle(Ljava/lang/String;Ljava/lang/String;I)V
+
+    const p1, 0x7f040926
+
+    const-string v0, "enterprise_privacy_lock_device"
+
+    const-string v1, "Settings.ADMIN_CAN_LOCK_DEVICE"
+
+    invoke-virtual {p0, v0, v1, p1}, Lcom/android/settings/SettingsPreferenceFragment;->replaceEnterpriseStringTitle(Ljava/lang/String;Ljava/lang/String;I)V
+
+    const p1, 0x7f04092f
+
+    const-string v0, "enterprise_privacy_wipe_device"
+
+    const-string v1, "Settings.ADMIN_CAN_WIPE_DEVICE"
+
+    invoke-virtual {p0, v0, v1, p1}, Lcom/android/settings/SettingsPreferenceFragment;->replaceEnterpriseStringTitle(Ljava/lang/String;Ljava/lang/String;I)V
+
+    const p1, 0x7f04091e
+
+    const-string v0, "failed_password_wipe_current_user"
+
+    const-string v1, "Settings.ADMIN_CONFIGURED_FAILED_PASSWORD_WIPE_DEVICE"
+
+    invoke-virtual {p0, v0, v1, p1}, Lcom/android/settings/SettingsPreferenceFragment;->replaceEnterpriseStringTitle(Ljava/lang/String;Ljava/lang/String;I)V
+
+    const p1, 0x7f04091f
+
+    const-string v0, "failed_password_wipe_managed_profile"
+
+    const-string v1, "Settings.ADMIN_CONFIGURED_FAILED_PASSWORD_WIPE_WORK_PROFILE"
+
+    invoke-virtual {p0, v0, v1, p1}, Lcom/android/settings/SettingsPreferenceFragment;->replaceEnterpriseStringTitle(Ljava/lang/String;Ljava/lang/String;I)V
+
+    const p1, 0x7f040921
+
+    const-string v0, "enterprise_privacy_footer"
+
+    const-string v1, "Settings.ENTERPRISE_PRIVACY_FOOTER"
+
+    invoke-virtual {p0, v0, v1, p1}, Lcom/android/settings/SettingsPreferenceFragment;->replaceEnterpriseStringTitle(Ljava/lang/String;Ljava/lang/String;I)V
+
+    return-void
+.end method
+
 .method public onDetach()V
     .locals 1
 

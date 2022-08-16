@@ -16,16 +16,6 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Z)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "fullActions"
-        }
-    .end annotation
 
     invoke-direct {p0, p1}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
 
@@ -98,16 +88,6 @@
 
 .method private addAction(Landroidx/core/graphics/drawable/IconCompat;Z)Landroid/widget/ImageView;
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "icon",
-            "allowTint"
-        }
-    .end annotation
 
     new-instance v0, Landroid/widget/ImageView;
 
@@ -171,14 +151,6 @@
 
 .method private addAction(Landroid/view/View;)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "child"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/slice/widget/ActionRow;->mActionsGroup:Landroid/widget/LinearLayout;
 
@@ -197,16 +169,6 @@
 
 .method private createRemoteInputView(ILandroid/content/Context;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "color",
-            "context"
-        }
-    .end annotation
 
     invoke-static {p2, p0}, Landroidx/slice/widget/RemoteInputView;->inflate(Landroid/content/Context;Landroid/view/ViewGroup;)Landroidx/slice/widget/RemoteInputView;
 
@@ -231,14 +193,6 @@
 
 .method private findRemoteInputView(Landroid/view/View;)Landroidx/slice/widget/RemoteInputView;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "v"
-        }
-    .end annotation
 
     if-nez p1, :cond_0
 
@@ -260,18 +214,6 @@
 
 .method private handleSetRemoteInputActions(Landroidx/slice/SliceItem;Landroidx/slice/SliceItem;Landroidx/slice/SliceItem;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x10,
-            0x0,
-            0x10
-        }
-        names = {
-            "input",
-            "image",
-            "action"
-        }
-    .end annotation
 
     invoke-virtual {p1}, Landroidx/slice/SliceItem;->getRemoteInput()Landroid/app/RemoteInput;
 
@@ -319,14 +261,6 @@
 
 .method private setColor(I)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "color"
-        }
-    .end annotation
 
     iput p1, p0, Landroidx/slice/widget/ActionRow;->mColor:I
 
@@ -394,18 +328,6 @@
 # virtual methods
 .method handleRemoteInputClick(Landroid/view/View;Landroidx/slice/SliceItem;Landroid/app/RemoteInput;)Z
     .locals 6
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "view",
-            "action",
-            "input"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -573,17 +495,6 @@
 
 .method public setActions(Ljava/util/List;I)V
     .locals 5
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "actions",
-            "color"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -622,7 +533,7 @@
 
     const/4 v0, 0x0
 
-    if-eqz p2, :cond_6
+    if-eqz p2, :cond_5
 
     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -667,42 +578,15 @@
 
     move-result-object v2
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_3
 
-    if-eqz v2, :cond_4
-
-    sget p2, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v0, 0x15
-
-    if-lt p2, v0, :cond_3
+    if-eqz v2, :cond_3
 
     invoke-direct {p0, v3, v2, v1}, Landroidx/slice/widget/ActionRow;->handleSetRemoteInputActions(Landroidx/slice/SliceItem;Landroidx/slice/SliceItem;Landroidx/slice/SliceItem;)V
 
     goto :goto_0
 
     :cond_3
-    new-instance p2, Ljava/lang/StringBuilder;
-
-    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v0, "Received RemoteInput on API <20 "
-
-    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p2
-
-    const-string v0, "ActionRow"
-
-    invoke-static {v0, p2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
-
-    :cond_4
     invoke-interface {p2}, Landroidx/slice/core/SliceAction;->getIcon()Landroidx/core/graphics/drawable/IconCompat;
 
     move-result-object v2
@@ -721,11 +605,11 @@
 
     move-result p2
 
-    if-nez p2, :cond_5
+    if-nez p2, :cond_4
 
     const/4 v0, 0x1
 
-    :cond_5
+    :cond_4
     invoke-direct {p0, v2, v0}, Landroidx/slice/widget/ActionRow;->addAction(Landroidx/core/graphics/drawable/IconCompat;Z)Landroid/widget/ImageView;
 
     move-result-object p2
@@ -738,16 +622,16 @@
 
     goto :goto_0
 
-    :cond_6
+    :cond_5
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getChildCount()I
 
     move-result p1
 
-    if-eqz p1, :cond_7
+    if-eqz p1, :cond_6
 
     goto :goto_1
 
-    :cond_7
+    :cond_6
     const/16 v0, 0x8
 
     :goto_1

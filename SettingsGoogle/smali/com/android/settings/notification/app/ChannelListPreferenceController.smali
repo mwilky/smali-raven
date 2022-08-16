@@ -38,15 +38,7 @@
     return p0
 .end method
 
-.method public constructor <init>(Landroid/content/Context;Lcom/android/settings/notification/NotificationBackend;)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/settings/notification/app/NotificationPreferenceController;-><init>(Landroid/content/Context;Lcom/android/settings/notification/NotificationBackend;)V
-
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/notification/app/ChannelListPreferenceController;)Ljava/util/List;
+.method static bridge synthetic -$$Nest$fgetmChannelGroupList(Lcom/android/settings/notification/app/ChannelListPreferenceController;)Ljava/util/List;
     .locals 0
 
     iget-object p0, p0, Lcom/android/settings/notification/app/ChannelListPreferenceController;->mChannelGroupList:Ljava/util/List;
@@ -54,20 +46,28 @@
     return-object p0
 .end method
 
-.method static synthetic access$002(Lcom/android/settings/notification/app/ChannelListPreferenceController;Ljava/util/List;)Ljava/util/List;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/settings/notification/app/ChannelListPreferenceController;->mChannelGroupList:Ljava/util/List;
-
-    return-object p1
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/notification/app/ChannelListPreferenceController;)Landroidx/preference/PreferenceCategory;
+.method static bridge synthetic -$$Nest$fgetmPreference(Lcom/android/settings/notification/app/ChannelListPreferenceController;)Landroidx/preference/PreferenceCategory;
     .locals 0
 
     iget-object p0, p0, Lcom/android/settings/notification/app/ChannelListPreferenceController;->mPreference:Landroidx/preference/PreferenceCategory;
 
     return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmChannelGroupList(Lcom/android/settings/notification/app/ChannelListPreferenceController;Ljava/util/List;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/settings/notification/app/ChannelListPreferenceController;->mChannelGroupList:Ljava/util/List;
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/content/Context;Lcom/android/settings/notification/NotificationBackend;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/settings/notification/app/NotificationPreferenceController;-><init>(Landroid/content/Context;Lcom/android/settings/notification/NotificationBackend;)V
+
+    return-void
 .end method
 
 .method private addOrUpdateGroupToggle(Landroidx/preference/PreferenceGroup;Landroid/app/NotificationChannelGroup;)Landroidx/preference/Preference;
@@ -117,7 +117,7 @@
 
     iget-object v4, p0, Lcom/android/settings/notification/app/NotificationPreferenceController;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f040eab
+    const v5, 0x7f040f3f
 
     new-array v6, v1, [Ljava/lang/Object;
 
@@ -156,9 +156,9 @@
 
     invoke-virtual {v0, v1}, Landroidx/preference/TwoStatePreference;->setChecked(Z)V
 
-    new-instance v1, Lcom/android/settings/notification/app/ChannelListPreferenceController$$ExternalSyntheticLambda1;
+    new-instance v1, Lcom/android/settings/notification/app/ChannelListPreferenceController$$ExternalSyntheticLambda0;
 
-    invoke-direct {v1, p0, p2}, Lcom/android/settings/notification/app/ChannelListPreferenceController$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/notification/app/ChannelListPreferenceController;Landroid/app/NotificationChannelGroup;)V
+    invoke-direct {v1, p0, p2}, Lcom/android/settings/notification/app/ChannelListPreferenceController$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/notification/app/ChannelListPreferenceController;Landroid/app/NotificationChannelGroup;)V
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setOnPreferenceClickListener(Landroidx/preference/Preference$OnPreferenceClickListener;)V
 
@@ -170,7 +170,7 @@
     return-object v0
 .end method
 
-.method private findOrCreateChannelPrefForKey(Landroidx/preference/PreferenceGroup;Ljava/lang/String;I)Lcom/android/settings/widget/PrimarySwitchPreference;
+.method private findOrCreateChannelPrefForKey(Landroidx/preference/PreferenceGroup;Ljava/lang/String;I)Lcom/android/settingslib/PrimarySwitchPreference;
     .locals 4
 
     invoke-virtual {p1}, Landroidx/preference/PreferenceGroup;->getPreferenceCount()I
@@ -193,7 +193,7 @@
 
     if-eqz v2, :cond_0
 
-    check-cast v1, Lcom/android/settings/widget/PrimarySwitchPreference;
+    check-cast v1, Lcom/android/settingslib/PrimarySwitchPreference;
 
     return-object v1
 
@@ -219,7 +219,7 @@
 
     invoke-virtual {v2, p3}, Landroidx/preference/Preference;->setOrder(I)V
 
-    check-cast v2, Lcom/android/settings/widget/PrimarySwitchPreference;
+    check-cast v2, Lcom/android/settingslib/PrimarySwitchPreference;
 
     return-object v2
 
@@ -229,11 +229,11 @@
     goto :goto_0
 
     :cond_2
-    new-instance v0, Lcom/android/settings/widget/PrimarySwitchPreference;
+    new-instance v0, Lcom/android/settingslib/PrimarySwitchPreference;
 
     iget-object p0, p0, Lcom/android/settings/notification/app/NotificationPreferenceController;->mContext:Landroid/content/Context;
 
-    invoke-direct {v0, p0}, Lcom/android/settings/widget/PrimarySwitchPreference;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, p0}, Lcom/android/settingslib/PrimarySwitchPreference;-><init>(Landroid/content/Context;)V
 
     invoke-virtual {v0, p3}, Landroidx/preference/Preference;->setOrder(I)V
 
@@ -328,7 +328,7 @@
 
     iget-object v0, p0, Lcom/android/settings/notification/app/NotificationPreferenceController;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0202ef
+    const v1, 0x7f020310
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -408,9 +408,9 @@
 
     invoke-virtual {p1, p3}, Landroid/app/NotificationChannel;->lockFields(I)V
 
-    check-cast p2, Lcom/android/settings/widget/PrimarySwitchPreference;
+    check-cast p2, Lcom/android/settingslib/PrimarySwitchPreference;
 
-    const p3, 0x7f02012b
+    const p3, 0x7f020138
 
     invoke-virtual {p2, p3}, Landroidx/preference/Preference;->setIcon(I)V
 
@@ -568,7 +568,7 @@
 
     if-nez v2, :cond_0
 
-    const v2, 0x7f040e54
+    const v2, 0x7f040ee8
 
     invoke-virtual {p2, v2}, Landroidx/preference/Preference;->setTitle(I)V
 
@@ -676,7 +676,7 @@
 
     move-result v8
 
-    invoke-direct {p0, p2, v7, v8}, Lcom/android/settings/notification/app/ChannelListPreferenceController;->findOrCreateChannelPrefForKey(Landroidx/preference/PreferenceGroup;Ljava/lang/String;I)Lcom/android/settings/widget/PrimarySwitchPreference;
+    invoke-direct {p0, p2, v7, v8}, Lcom/android/settings/notification/app/ChannelListPreferenceController;->findOrCreateChannelPrefForKey(Landroidx/preference/PreferenceGroup;Ljava/lang/String;I)Lcom/android/settingslib/PrimarySwitchPreference;
 
     move-result-object v7
 
@@ -684,7 +684,7 @@
 
     move-result v8
 
-    invoke-direct {p0, v7, v6, v8}, Lcom/android/settings/notification/app/ChannelListPreferenceController;->updateSingleChannelPrefs(Lcom/android/settings/widget/PrimarySwitchPreference;Landroid/app/NotificationChannel;Z)V
+    invoke-direct {p0, v7, v6, v8}, Lcom/android/settings/notification/app/ChannelListPreferenceController;->updateSingleChannelPrefs(Lcom/android/settingslib/PrimarySwitchPreference;Landroid/app/NotificationChannel;Z)V
 
     invoke-interface {v1, v7}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
@@ -751,7 +751,7 @@
     return-void
 .end method
 
-.method private updateSingleChannelPrefs(Lcom/android/settings/widget/PrimarySwitchPreference;Landroid/app/NotificationChannel;Z)V
+.method private updateSingleChannelPrefs(Lcom/android/settingslib/PrimarySwitchPreference;Landroid/app/NotificationChannel;Z)V
     .locals 4
 
     iget-object v0, p0, Lcom/android/settings/notification/app/NotificationPreferenceController;->mAdmin:Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
@@ -784,7 +784,7 @@
     move p3, v2
 
     :goto_0
-    invoke-virtual {p1, p3}, Lcom/android/settings/widget/PrimarySwitchPreference;->setSwitchEnabled(Z)V
+    invoke-virtual {p1, p3}, Lcom/android/settingslib/PrimarySwitchPreference;->setSwitchEnabled(Z)V
 
     invoke-virtual {p2}, Landroid/app/NotificationChannel;->getImportance()I
 
@@ -803,7 +803,7 @@
     goto :goto_1
 
     :cond_1
-    const p3, 0x7f02012b
+    const p3, 0x7f020138
 
     invoke-virtual {p1, p3}, Landroidx/preference/Preference;->setIcon(I)V
 
@@ -847,7 +847,7 @@
     move v2, v1
 
     :cond_2
-    invoke-virtual {p1, v2}, Lcom/android/settings/widget/PrimarySwitchPreference;->setChecked(Z)V
+    invoke-virtual {p1, v2}, Lcom/android/settingslib/PrimarySwitchPreference;->setChecked(Z)V
 
     new-instance p3, Landroid/os/Bundle;
 
@@ -901,7 +901,7 @@
 
     move-result-object p3
 
-    const v0, 0x7f040e52
+    const v0, 0x7f040ee6
 
     invoke-virtual {p3, v0}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 
@@ -919,9 +919,9 @@
 
     invoke-virtual {p1, p3}, Landroidx/preference/Preference;->setIntent(Landroid/content/Intent;)V
 
-    new-instance p3, Lcom/android/settings/notification/app/ChannelListPreferenceController$$ExternalSyntheticLambda0;
+    new-instance p3, Lcom/android/settings/notification/app/ChannelListPreferenceController$$ExternalSyntheticLambda1;
 
-    invoke-direct {p3, p0, p2}, Lcom/android/settings/notification/app/ChannelListPreferenceController$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/notification/app/ChannelListPreferenceController;Landroid/app/NotificationChannel;)V
+    invoke-direct {p3, p0, p2}, Lcom/android/settings/notification/app/ChannelListPreferenceController$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/notification/app/ChannelListPreferenceController;Landroid/app/NotificationChannel;)V
 
     invoke-virtual {p1, p3}, Landroidx/preference/Preference;->setOnPreferenceChangeListener(Landroidx/preference/Preference$OnPreferenceChangeListener;)V
 
@@ -1056,11 +1056,11 @@
 
     const/4 v0, 0x1
 
-    const v1, 0x7f040e1b
+    const v1, 0x7f040eaa
 
     const-string/jumbo v2, "zeroCategories"
 
-    const v3, 0x7f040e53
+    const v3, 0x7f040ee7
 
     const/4 v4, 0x0
 

@@ -53,6 +53,22 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetsm(Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;)Landroid/telephony/SubscriptionManager;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;->sm:Landroid/telephony/SubscriptionManager;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgettm(Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;)Landroid/telephony/TelephonyManager;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;->tm:Landroid/telephony/TelephonyManager;
+
+    return-object p0
+.end method
+
 .method public constructor <init>(Landroid/content/Context;[Ljava/lang/String;)V
     .locals 3
 
@@ -97,22 +113,6 @@
     iput-object p2, p0, Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;->mCallForwardingNumber:[Ljava/lang/String;
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;)Landroid/telephony/TelephonyManager;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;->tm:Landroid/telephony/TelephonyManager;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;)Landroid/telephony/SubscriptionManager;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;->sm:Landroid/telephony/SubscriptionManager;
-
-    return-object p0
 .end method
 
 

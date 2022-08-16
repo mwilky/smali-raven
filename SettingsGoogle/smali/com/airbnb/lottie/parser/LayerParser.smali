@@ -19,7 +19,7 @@
 
     const-string v1, "ind"
 
-    const-string v2, "refId"
+    const-string/jumbo v2, "refId"
 
     const-string/jumbo v3, "ty"
 
@@ -29,7 +29,7 @@
 
     const-string/jumbo v6, "sh"
 
-    const-string v7, "sc"
+    const-string/jumbo v7, "sc"
 
     const-string v8, "ks"
 

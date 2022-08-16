@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settings/tts/TextToSpeechSettings$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/view/View$OnClickListener;
@@ -27,7 +28,7 @@
 
     iget-object p0, p0, Lcom/android/settings/tts/TextToSpeechSettings$$ExternalSyntheticLambda1;->f$0:Lcom/android/settings/tts/TextToSpeechSettings;
 
-    invoke-static {p0, p1}, Lcom/android/settings/tts/TextToSpeechSettings;->$r8$lambda$PtE6thUChj8eIwxMPWvbORoqj_A(Lcom/android/settings/tts/TextToSpeechSettings;Landroid/view/View;)V
+    invoke-static {p0, p1}, Lcom/android/settings/tts/TextToSpeechSettings;->$r8$lambda$QIkFs6jmOk6G2HyIuXZGuKDCQRY(Lcom/android/settings/tts/TextToSpeechSettings;Landroid/view/View;)V
 
     return-void
 .end method

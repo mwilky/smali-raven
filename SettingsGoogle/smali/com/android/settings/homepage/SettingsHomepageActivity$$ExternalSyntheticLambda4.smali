@@ -1,31 +1,22 @@
 .class public final synthetic Lcom/android/settings/homepage/SettingsHomepageActivity$$ExternalSyntheticLambda4;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/settings/homepage/SettingsHomepageActivity$$ExternalSyntheticLambda4;
+# instance fields
+.field public final synthetic f$0:Lcom/android/settings/homepage/SettingsHomepageActivity;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/settings/homepage/SettingsHomepageActivity$$ExternalSyntheticLambda4;
-
-    invoke-direct {v0}, Lcom/android/settings/homepage/SettingsHomepageActivity$$ExternalSyntheticLambda4;-><init>()V
-
-    sput-object v0, Lcom/android/settings/homepage/SettingsHomepageActivity$$ExternalSyntheticLambda4;->INSTANCE:Lcom/android/settings/homepage/SettingsHomepageActivity$$ExternalSyntheticLambda4;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Lcom/android/settings/homepage/SettingsHomepageActivity;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/settings/homepage/SettingsHomepageActivity$$ExternalSyntheticLambda4;->f$0:Lcom/android/settings/homepage/SettingsHomepageActivity;
 
     return-void
 .end method
@@ -35,9 +26,11 @@
 .method public final accept(Ljava/lang/Object;)V
     .locals 0
 
-    check-cast p1, Lcom/android/settings/homepage/SettingsHomepageActivity$HomepageLoadedListener;
+    iget-object p0, p0, Lcom/android/settings/homepage/SettingsHomepageActivity$$ExternalSyntheticLambda4;->f$0:Lcom/android/settings/homepage/SettingsHomepageActivity;
 
-    invoke-static {p1}, Lcom/android/settings/homepage/SettingsHomepageActivity;->$r8$lambda$U9glgHyHrcg28hf6gRURK1CuTvI(Lcom/android/settings/homepage/SettingsHomepageActivity$HomepageLoadedListener;)V
+    check-cast p1, Landroidx/fragment/app/Fragment;
+
+    invoke-static {p0, p1}, Lcom/android/settings/homepage/SettingsHomepageActivity;->$r8$lambda$Q0VnzxqKLtCf3NDXjV31knZwQ-w(Lcom/android/settings/homepage/SettingsHomepageActivity;Landroidx/fragment/app/Fragment;)V
 
     return-void
 .end method

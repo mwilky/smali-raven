@@ -15,5 +15,5 @@
 
 
 # virtual methods
-.method public abstract onUsbConnectionChanged(ZJII)V
+.method public abstract onUsbConnectionChanged(ZJIIZ)V
 .end method

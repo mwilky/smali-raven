@@ -21,14 +21,6 @@
 # direct methods
 .method public constructor <init>(Landroidx/recyclerview/widget/ListUpdateCallback;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "callback"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -124,18 +116,6 @@
 
 .method public onChanged(IILjava/lang/Object;)V
     .locals 5
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "position",
-            "count",
-            "payload"
-        }
-    .end annotation
 
     iget v0, p0, Landroidx/recyclerview/widget/BatchingListUpdateCallback;->mLastEventType:I
 
@@ -195,16 +175,6 @@
 
 .method public onInserted(II)V
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "position",
-            "count"
-        }
-    .end annotation
 
     iget v0, p0, Landroidx/recyclerview/widget/BatchingListUpdateCallback;->mLastEventType:I
 
@@ -248,16 +218,6 @@
 
 .method public onMoved(II)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "fromPosition",
-            "toPosition"
-        }
-    .end annotation
 
     invoke-virtual {p0}, Landroidx/recyclerview/widget/BatchingListUpdateCallback;->dispatchLastEvent()V
 
@@ -270,16 +230,6 @@
 
 .method public onRemoved(II)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "position",
-            "count"
-        }
-    .end annotation
 
     iget v0, p0, Landroidx/recyclerview/widget/BatchingListUpdateCallback;->mLastEventType:I
 

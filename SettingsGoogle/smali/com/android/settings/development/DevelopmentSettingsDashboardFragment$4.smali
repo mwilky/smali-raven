@@ -45,7 +45,7 @@
 
     iget-object p0, p0, Lcom/android/settings/development/DevelopmentSettingsDashboardFragment$4;->this$0:Lcom/android/settings/development/DevelopmentSettingsDashboardFragment;
 
-    invoke-static {p0}, Lcom/android/settings/development/DevelopmentSettingsDashboardFragment;->access$300(Lcom/android/settings/development/DevelopmentSettingsDashboardFragment;)V
+    invoke-static {p0}, Lcom/android/settings/development/DevelopmentSettingsDashboardFragment;->access$000(Lcom/android/settings/development/DevelopmentSettingsDashboardFragment;)V
 
     return-void
 .end method

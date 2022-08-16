@@ -11,35 +11,47 @@
 .end annotation
 
 
-# static fields
-.field private static final LABEL:[I
-
-
 # instance fields
 .field private mContentView:Landroid/view/ViewGroup;
 
+.field private mViewPager:Landroidx/viewpager2/widget/ViewPager2;
+
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
+.method public static synthetic $r8$lambda$9LKB0WBrCSveVkkBBNwnkhoW-yY(Lcom/android/settings/dashboard/profileselector/ProfileSelectFragment;Lcom/google/android/material/tabs/TabLayout$Tab;I)V
+    .locals 0
 
-    const/4 v0, 0x2
-
-    new-array v0, v0, [I
-
-    fill-array-data v0, :array_0
-
-    sput-object v0, Lcom/android/settings/dashboard/profileselector/ProfileSelectFragment;->LABEL:[I
+    invoke-direct {p0, p1, p2}, Lcom/android/settings/dashboard/profileselector/ProfileSelectFragment;->lambda$onCreateView$0(Lcom/google/android/material/tabs/TabLayout$Tab;I)V
 
     return-void
+.end method
 
-    nop
+.method public static synthetic $r8$lambda$Bvs60U7QgS9jeltk3gxvW8_TnFU(Lcom/android/settings/dashboard/profileselector/ProfileSelectFragment;)Ljava/lang/String;
+    .locals 0
 
-    :array_0
-    .array-data 4
-        0x7f040598
-        0x7f040599
-    .end array-data
+    invoke-direct {p0}, Lcom/android/settings/dashboard/profileselector/ProfileSelectFragment;->lambda$getPageTitle$2()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static synthetic $r8$lambda$gB3ztBqPGcFY84BKcYCxFZ-uHeI(Lcom/android/settings/dashboard/profileselector/ProfileSelectFragment;)Ljava/lang/String;
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/dashboard/profileselector/ProfileSelectFragment;->lambda$getPageTitle$1()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$mupdateHeight(Lcom/android/settings/dashboard/profileselector/ProfileSelectFragment;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/dashboard/profileselector/ProfileSelectFragment;->updateHeight(I)V
+
+    return-void
 .end method
 
 .method public constructor <init>()V
@@ -50,125 +62,205 @@
     return-void
 .end method
 
-.method static synthetic access$000(I)I
-    .locals 0
-
-    invoke-static {p0}, Lcom/android/settings/dashboard/profileselector/ProfileSelectFragment;->convertPosition(I)I
-
-    move-result p0
-
-    return p0
-.end method
-
-.method static synthetic access$100()[I
-    .locals 1
-
-    sget-object v0, Lcom/android/settings/dashboard/profileselector/ProfileSelectFragment;->LABEL:[I
-
-    return-object v0
-.end method
-
-.method private static convertPosition(I)I
+.method private getPageTitle(I)Ljava/lang/CharSequence;
     .locals 2
-
-    invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
-
-    move-result-object v0
-
-    invoke-static {v0}, Landroid/text/TextUtils;->getLayoutDirectionFromLocale(Ljava/util/Locale;)I
-
-    move-result v0
-
-    const/4 v1, 0x1
-
-    if-ne v0, v1, :cond_0
-
-    sget-object v0, Lcom/android/settings/dashboard/profileselector/ProfileSelectFragment;->LABEL:[I
-
-    array-length v0, v0
-
-    sub-int/2addr v0, v1
-
-    sub-int/2addr v0, p0
-
-    return v0
-
-    :cond_0
-    return p0
-.end method
-
-.method private setupTabTextColor(Lcom/google/android/material/tabs/TabLayout;)V
-    .locals 9
-
-    invoke-virtual {p1}, Lcom/google/android/material/tabs/TabLayout;->getTabTextColors()Landroid/content/res/ColorStateList;
-
-    move-result-object v0
-
-    new-instance v1, Landroid/content/res/ColorStateList;
-
-    const/4 v2, 0x2
-
-    new-array v3, v2, [[I
-
-    const/4 v4, 0x1
-
-    new-array v5, v4, [I
-
-    const/4 v6, 0x0
-
-    const v7, 0x10100a1
-
-    aput v7, v5, v6
-
-    aput-object v5, v3, v6
-
-    new-array v5, v6, [I
-
-    aput-object v5, v3, v4
-
-    new-array v2, v2, [I
-
-    new-array v5, v4, [I
-
-    aput v7, v5, v6
 
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
 
-    move-result-object v7
+    move-result-object v0
 
-    const v8, 0x1120025
+    const-class v1, Landroid/app/admin/DevicePolicyManager;
 
-    invoke-static {v7, v8}, Lcom/android/settingslib/Utils;->getColorAttrDefaultColor(Landroid/content/Context;I)I
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result v7
+    move-result-object v0
 
-    invoke-virtual {v0, v5, v7}, Landroid/content/res/ColorStateList;->getColorForState([II)I
+    check-cast v0, Landroid/app/admin/DevicePolicyManager;
 
-    move-result v0
+    const/4 v1, 0x1
 
-    aput v0, v2, v6
+    if-ne p1, v1, :cond_0
+
+    invoke-virtual {v0}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
+
+    move-result-object p1
+
+    new-instance v0, Lcom/android/settings/dashboard/profileselector/ProfileSelectFragment$$ExternalSyntheticLambda1;
+
+    invoke-direct {v0, p0}, Lcom/android/settings/dashboard/profileselector/ProfileSelectFragment$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/dashboard/profileselector/ProfileSelectFragment;)V
+
+    const-string p0, "Settings.WORK_CATEGORY_HEADER"
+
+    invoke-virtual {p1, p0, v0}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
+    :cond_0
+    invoke-virtual {v0}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
+
+    move-result-object p1
+
+    new-instance v0, Lcom/android/settings/dashboard/profileselector/ProfileSelectFragment$$ExternalSyntheticLambda2;
+
+    invoke-direct {v0, p0}, Lcom/android/settings/dashboard/profileselector/ProfileSelectFragment$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/dashboard/profileselector/ProfileSelectFragment;)V
+
+    const-string p0, "Settings.PERSONAL_CATEGORY_HEADER"
+
+    invoke-virtual {p1, p0, v0}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private synthetic lambda$getPageTitle$1()Ljava/lang/String;
+    .locals 1
 
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
 
     move-result-object p0
 
-    const v0, 0x1010038
+    const v0, 0x7f0405f6
 
-    invoke-static {p0, v0}, Lcom/android/settingslib/Utils;->getColorAttrDefaultColor(Landroid/content/Context;I)I
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
-    move-result p0
+    move-result-object p0
 
-    aput p0, v2, v4
+    return-object p0
+.end method
 
-    invoke-direct {v1, v3, v2}, Landroid/content/res/ColorStateList;-><init>([[I[I)V
+.method private synthetic lambda$getPageTitle$2()Ljava/lang/String;
+    .locals 1
 
-    invoke-virtual {p1, v1}, Lcom/google/android/material/tabs/TabLayout;->setTabTextColors(Landroid/content/res/ColorStateList;)V
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
 
+    move-result-object p0
+
+    const v0, 0x7f0405f5
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private synthetic lambda$onCreateView$0(Lcom/google/android/material/tabs/TabLayout$Tab;I)V
+    .locals 0
+
+    invoke-direct {p0, p2}, Lcom/android/settings/dashboard/profileselector/ProfileSelectFragment;->getPageTitle(I)Ljava/lang/CharSequence;
+
+    move-result-object p0
+
+    invoke-virtual {p1, p0}, Lcom/google/android/material/tabs/TabLayout$Tab;->setText(Ljava/lang/CharSequence;)Lcom/google/android/material/tabs/TabLayout$Tab;
+
+    return-void
+.end method
+
+.method private updateHeight(I)V
+    .locals 2
+
+    invoke-virtual {p0}, Lcom/android/settings/dashboard/profileselector/ProfileSelectFragment;->forceUpdateHeight()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/settings/dashboard/profileselector/ProfileSelectFragment;->mViewPager:Landroidx/viewpager2/widget/ViewPager2;
+
+    invoke-virtual {v0}, Landroidx/viewpager2/widget/ViewPager2;->getAdapter()Landroidx/recyclerview/widget/RecyclerView$Adapter;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/settings/dashboard/profileselector/ProfileSelectFragment$ViewPagerAdapter;
+
+    if-eqz v0, :cond_2
+
+    invoke-virtual {v0}, Lcom/android/settings/dashboard/profileselector/ProfileSelectFragment$ViewPagerAdapter;->getItemCount()I
+
+    move-result v1
+
+    if-gt v1, p1, :cond_1
+
+    goto :goto_0
+
+    :cond_1
+    invoke-virtual {v0, p1}, Lcom/android/settings/dashboard/profileselector/ProfileSelectFragment$ViewPagerAdapter;->createFragment(I)Landroidx/fragment/app/Fragment;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Landroidx/fragment/app/Fragment;->getView()Landroid/view/View;
+
+    move-result-object p1
+
+    if-eqz p1, :cond_2
+
+    invoke-virtual {p1}, Landroid/view/View;->getWidth()I
+
+    move-result v0
+
+    const/high16 v1, 0x40000000    # 2.0f
+
+    invoke-static {v0, v1}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
+
+    move-result v0
+
+    const/4 v1, 0x0
+
+    invoke-static {v1, v1}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
+
+    move-result v1
+
+    invoke-virtual {p1, v0, v1}, Landroid/view/View;->measure(II)V
+
+    iget-object v0, p0, Lcom/android/settings/dashboard/profileselector/ProfileSelectFragment;->mViewPager:Landroidx/viewpager2/widget/ViewPager2;
+
+    invoke-virtual {v0}, Landroid/view/ViewGroup;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v0
+
+    iget v0, v0, Landroid/view/ViewGroup$LayoutParams;->height:I
+
+    invoke-virtual {p1}, Landroid/view/View;->getMeasuredHeight()I
+
+    move-result p1
+
+    if-eqz p1, :cond_2
+
+    if-eq v0, p1, :cond_2
+
+    iget-object v0, p0, Lcom/android/settings/dashboard/profileselector/ProfileSelectFragment;->mViewPager:Landroidx/viewpager2/widget/ViewPager2;
+
+    invoke-virtual {v0}, Landroid/view/ViewGroup;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v0
+
+    iput p1, v0, Landroid/view/ViewGroup$LayoutParams;->height:I
+
+    iget-object p0, p0, Lcom/android/settings/dashboard/profileselector/ProfileSelectFragment;->mViewPager:Landroidx/viewpager2/widget/ViewPager2;
+
+    invoke-virtual {p0, v0}, Landroid/view/ViewGroup;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    :cond_2
+    :goto_0
     return-void
 .end method
 
 
 # virtual methods
+.method protected forceUpdateHeight()Z
+    .locals 0
+
+    const/4 p0, 0x0
+
+    return p0
+.end method
+
 .method public abstract getFragments()[Landroidx/fragment/app/Fragment;
 .end method
 
@@ -191,7 +283,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f1500b5
+    const p0, 0x7f1500b7
 
     return p0
 .end method
@@ -267,7 +359,7 @@
     return p0
 .end method
 
-.method getTitleResId()I
+.method public getTitleResId()I
     .locals 0
 
     const/4 p0, 0x0
@@ -276,7 +368,7 @@
 .end method
 
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
-    .locals 2
+    .locals 4
 
     invoke-super {p0, p1, p2, p3}, Lcom/android/settings/SettingsPreferenceFragment;->onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
 
@@ -307,49 +399,63 @@
 
     move-result p2
 
-    invoke-static {p2}, Lcom/android/settings/dashboard/profileselector/ProfileSelectFragment;->convertPosition(I)I
-
-    move-result p2
-
     iget-object p3, p0, Lcom/android/settings/dashboard/profileselector/ProfileSelectFragment;->mContentView:Landroid/view/ViewGroup;
 
-    const v0, 0x7f0d05a0
+    const v0, 0x7f0d05e1
 
     invoke-virtual {p3, v0}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
     move-result-object p3
 
-    const v0, 0x7f0d0629
+    const v0, 0x7f0d0668
 
     invoke-virtual {p3, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    check-cast v0, Landroidx/viewpager/widget/ViewPager;
+    check-cast v0, Landroidx/viewpager2/widget/ViewPager2;
+
+    iput-object v0, p0, Lcom/android/settings/dashboard/profileselector/ProfileSelectFragment;->mViewPager:Landroidx/viewpager2/widget/ViewPager2;
 
     new-instance v1, Lcom/android/settings/dashboard/profileselector/ProfileSelectFragment$ViewPagerAdapter;
 
     invoke-direct {v1, p0}, Lcom/android/settings/dashboard/profileselector/ProfileSelectFragment$ViewPagerAdapter;-><init>(Lcom/android/settings/dashboard/profileselector/ProfileSelectFragment;)V
 
-    invoke-virtual {v0, v1}, Landroidx/viewpager/widget/ViewPager;->setAdapter(Landroidx/viewpager/widget/PagerAdapter;)V
+    invoke-virtual {v0, v1}, Landroidx/viewpager2/widget/ViewPager2;->setAdapter(Landroidx/recyclerview/widget/RecyclerView$Adapter;)V
 
-    const v1, 0x7f0d05a1
+    const v0, 0x7f0d05e2
 
-    invoke-virtual {p3, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p3, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Lcom/google/android/material/tabs/TabLayout;
+    check-cast v0, Lcom/google/android/material/tabs/TabLayout;
 
-    invoke-virtual {v1, v0}, Lcom/google/android/material/tabs/TabLayout;->setupWithViewPager(Landroidx/viewpager/widget/ViewPager;)V
+    new-instance v1, Lcom/google/android/material/tabs/TabLayoutMediator;
 
-    invoke-direct {p0, v1}, Lcom/android/settings/dashboard/profileselector/ProfileSelectFragment;->setupTabTextColor(Lcom/google/android/material/tabs/TabLayout;)V
+    iget-object v2, p0, Lcom/android/settings/dashboard/profileselector/ProfileSelectFragment;->mViewPager:Landroidx/viewpager2/widget/ViewPager2;
 
-    const/4 v0, 0x0
+    new-instance v3, Lcom/android/settings/dashboard/profileselector/ProfileSelectFragment$$ExternalSyntheticLambda0;
 
-    invoke-virtual {p3, v0}, Landroid/view/View;->setVisibility(I)V
+    invoke-direct {v3, p0}, Lcom/android/settings/dashboard/profileselector/ProfileSelectFragment$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/dashboard/profileselector/ProfileSelectFragment;)V
 
-    invoke-virtual {v1, p2}, Lcom/google/android/material/tabs/TabLayout;->getTabAt(I)Lcom/google/android/material/tabs/TabLayout$Tab;
+    invoke-direct {v1, v0, v2, v3}, Lcom/google/android/material/tabs/TabLayoutMediator;-><init>(Lcom/google/android/material/tabs/TabLayout;Landroidx/viewpager2/widget/ViewPager2;Lcom/google/android/material/tabs/TabLayoutMediator$TabConfigurationStrategy;)V
+
+    invoke-virtual {v1}, Lcom/google/android/material/tabs/TabLayoutMediator;->attach()V
+
+    iget-object v1, p0, Lcom/android/settings/dashboard/profileselector/ProfileSelectFragment;->mViewPager:Landroidx/viewpager2/widget/ViewPager2;
+
+    new-instance v2, Lcom/android/settings/dashboard/profileselector/ProfileSelectFragment$1;
+
+    invoke-direct {v2, p0}, Lcom/android/settings/dashboard/profileselector/ProfileSelectFragment$1;-><init>(Lcom/android/settings/dashboard/profileselector/ProfileSelectFragment;)V
+
+    invoke-virtual {v1, v2}, Landroidx/viewpager2/widget/ViewPager2;->registerOnPageChangeCallback(Landroidx/viewpager2/widget/ViewPager2$OnPageChangeCallback;)V
+
+    const/4 v1, 0x0
+
+    invoke-virtual {p3, v1}, Landroid/view/View;->setVisibility(I)V
+
+    invoke-virtual {v0, p2}, Lcom/google/android/material/tabs/TabLayout;->getTabAt(I)Lcom/google/android/material/tabs/TabLayout$Tab;
 
     move-result-object p2
 

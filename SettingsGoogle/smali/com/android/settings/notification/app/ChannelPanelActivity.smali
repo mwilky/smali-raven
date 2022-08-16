@@ -64,7 +64,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f06016a
+    const v2, 0x7f060174
 
     invoke-virtual {p0, v2}, Landroidx/activity/ComponentActivity;->setContentView(I)V
 
@@ -82,19 +82,7 @@
 
     invoke-virtual {v2, v3, v4}, Landroid/view/Window;->setLayout(II)V
 
-    const v2, 0x7f0d01de
-
-    invoke-virtual {p0, v2}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
-
-    move-result-object v2
-
-    new-instance v3, Lcom/android/settings/notification/app/ChannelPanelActivity$$ExternalSyntheticLambda1;
-
-    invoke-direct {v3, p0}, Lcom/android/settings/notification/app/ChannelPanelActivity$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/notification/app/ChannelPanelActivity;)V
-
-    invoke-virtual {v2, v3}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    const v2, 0x7f0d04d9
+    const v2, 0x7f0d01f7
 
     invoke-virtual {p0, v2}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -103,6 +91,18 @@
     new-instance v3, Lcom/android/settings/notification/app/ChannelPanelActivity$$ExternalSyntheticLambda0;
 
     invoke-direct {v3, p0}, Lcom/android/settings/notification/app/ChannelPanelActivity$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/notification/app/ChannelPanelActivity;)V
+
+    invoke-virtual {v2, v3}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    const v2, 0x7f0d0516
+
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
+
+    move-result-object v2
+
+    new-instance v3, Lcom/android/settings/notification/app/ChannelPanelActivity$$ExternalSyntheticLambda1;
+
+    invoke-direct {v3, p0}, Lcom/android/settings/notification/app/ChannelPanelActivity$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/notification/app/ChannelPanelActivity;)V
 
     invoke-virtual {v2, v3}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 

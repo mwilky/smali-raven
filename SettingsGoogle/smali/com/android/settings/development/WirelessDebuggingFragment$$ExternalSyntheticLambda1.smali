@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settings/development/WirelessDebuggingFragment$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroidx/preference/Preference$OnPreferenceClickListener;
@@ -27,7 +28,7 @@
 
     iget-object p0, p0, Lcom/android/settings/development/WirelessDebuggingFragment$$ExternalSyntheticLambda1;->f$0:Lcom/android/settings/development/WirelessDebuggingFragment;
 
-    invoke-static {p0, p1}, Lcom/android/settings/development/WirelessDebuggingFragment;->$r8$lambda$_d5mvoju78xn7cmRB_2II0LR0VQ(Lcom/android/settings/development/WirelessDebuggingFragment;Landroidx/preference/Preference;)Z
+    invoke-static {p0, p1}, Lcom/android/settings/development/WirelessDebuggingFragment;->$r8$lambda$yUD3V0XqBgRKKFD48JRql_jIn-0(Lcom/android/settings/development/WirelessDebuggingFragment;Landroidx/preference/Preference;)Z
 
     move-result p0
 

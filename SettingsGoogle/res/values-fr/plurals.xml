@@ -5,8 +5,8 @@
         <item quantity="one">Il y a %d jour</item>
     </plurals>
     <plurals name="abc_slice_duration_min">
-        <item quantity="other">Il y a %d minutes</item>
-        <item quantity="one">Il y a %d minute</item>
+        <item quantity="other">Il y a %d min</item>
+        <item quantity="one">Il y a %d min</item>
     </plurals>
     <plurals name="abc_slice_duration_years">
         <item quantity="other">Il y a %d ans</item>
@@ -233,12 +233,12 @@
         <item quantity="one">%d catégorie désactivée</item>
     </plurals>
     <plurals name="notifications_sent_daily">
-        <item quantity="other">Environ %d notifications par jour</item>
-        <item quantity="one">Environ %d notification par jour</item>
+        <item quantity="other">Environ %,d notifications par jour</item>
+        <item quantity="one">Environ %,d notification par jour</item>
     </plurals>
     <plurals name="notifications_sent_weekly">
-        <item quantity="other">Environ %d notifications par semaine</item>
-        <item quantity="one">Environ %d notification par semaine</item>
+        <item quantity="other">Environ %,d notifications par semaine</item>
+        <item quantity="one">Environ %,d notification par semaine</item>
     </plurals>
     <plurals name="number_of_device_admins">
         <item quantity="other">%d applications actives</item>
@@ -328,22 +328,6 @@
         <item quantity="other">Considérer les certificats comme fiables ou les supprimer</item>
         <item quantity="one">Considérer le certificat comme fiable ou le supprimer</item>
     </plurals>
-    <plurals name="ssl_ca_cert_info_message">
-        <item quantity="other">"%s a installé des autorités de certification pour votre profil professionnel afin de contrôler l'activité sur le réseau, y compris les e-mails, les applications et les sites Web sécurisés.
-
-Pour en savoir plus sur ces certificats, contactez votre administrateur."</item>
-        <item quantity="one">"%s a installé une autorité de certification pour votre profil professionnel afin de contrôler l'activité sur le réseau, y compris les e-mails, les applications et les sites Web sécurisés.
-
-Pour en savoir plus sur ce certificat, contactez votre administrateur."</item>
-    </plurals>
-    <plurals name="ssl_ca_cert_info_message_device_owner">
-        <item quantity="other">"%s a installé des autorités de certification sur votre appareil afin de contrôler l'activité réseau de l'appareil, y compris les e-mails, les applications et les sites Web sécurisés.
-
-Pour en savoir plus sur ces certificats, contactez votre administrateur."</item>
-        <item quantity="one">"%s a installé une autorité de certification sur votre appareil afin de contrôler l'activité réseau de l'appareil, y compris les e-mails, les applications et les sites Web sécurisés.
-
-Pour en savoir plus sur ce certificat, contactez votre administrateur."</item>
-    </plurals>
     <plurals name="ssl_ca_cert_settings_button">
         <item quantity="other">Vérifier les certificats</item>
         <item quantity="one">Vérifier le certificat</item>
@@ -375,10 +359,6 @@ Pour en savoir plus sur ce certificat, contactez votre administrateur."</item>
     <plurals name="wifi_saved_passpoint_access_points_summary">
         <item quantity="other">%d abonnements</item>
         <item quantity="one">%d abonnement</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$d appareils connectés</item>
-        <item quantity="one">%1$d appareil connecté</item>
     </plurals>
     <plurals name="wrong_pin_code">
         <item quantity="other">Code PIN de la carte SIM erroné. Il vous reste %d tentatives.</item>

@@ -24,16 +24,6 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/net/Uri;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "uri"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -75,15 +65,6 @@
 
 .method private getSpecs(Landroid/net/Uri;)Ljava/util/List;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "uri"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -133,14 +114,6 @@
 # virtual methods
 .method protected checkCompatible(Landroidx/slice/SliceSpec;)Z
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "candidate"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/slice/builders/TemplateSliceBuilder;->mSpecs:Ljava/util/List;
 
@@ -217,12 +190,4 @@
 .end method
 
 .method abstract setImpl(Landroidx/slice/builders/impl/TemplateBuilderImpl;)V
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "impl"
-        }
-    .end annotation
 .end method

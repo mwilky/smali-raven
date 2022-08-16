@@ -328,7 +328,7 @@
 
     move-result-object v1
 
-    const-string v2, "responseCode"
+    const-string/jumbo v2, "responseCode"
 
     invoke-virtual {v1, v2}, Lorg/json/JSONObject;->getInt(Ljava/lang/String;)I
 

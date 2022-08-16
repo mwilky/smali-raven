@@ -44,6 +44,8 @@
 
 .field private final mContext:Landroid/content/Context;
 
+.field private mFirstOnResume:Z
+
 .field private final mPackageReceiver:Lcom/android/settings/core/CategoryMixin$PackageReceiver;
 
 
@@ -54,6 +56,46 @@
     invoke-static {p0, p1}, Lcom/android/settings/core/CategoryMixin;->lambda$onCategoriesChanged$0(Ljava/util/Set;Lcom/android/settings/core/CategoryMixin$CategoryListener;)V
 
     return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmCategoriesUpdateTaskCount(Lcom/android/settings/core/CategoryMixin;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/settings/core/CategoryMixin;->mCategoriesUpdateTaskCount:I
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmContext(Lcom/android/settings/core/CategoryMixin;)Landroid/content/Context;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/core/CategoryMixin;->mContext:Landroid/content/Context;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmCategoriesUpdateTaskCount(Lcom/android/settings/core/CategoryMixin;I)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/settings/core/CategoryMixin;->mCategoriesUpdateTaskCount:I
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mupdateCategories(Lcom/android/settings/core/CategoryMixin;Z)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/core/CategoryMixin;->updateCategories(Z)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$sfgetsTileDenylist()Landroid/util/ArraySet;
+    .locals 1
+
+    sget-object v0, Lcom/android/settings/core/CategoryMixin;->sTileDenylist:Landroid/util/ArraySet;
+
+    return-object v0
 .end method
 
 .method static constructor <clinit>()V
@@ -77,7 +119,7 @@
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, p0, v1}, Lcom/android/settings/core/CategoryMixin$PackageReceiver;-><init>(Lcom/android/settings/core/CategoryMixin;Lcom/android/settings/core/CategoryMixin$1;)V
+    invoke-direct {v0, p0, v1}, Lcom/android/settings/core/CategoryMixin$PackageReceiver;-><init>(Lcom/android/settings/core/CategoryMixin;Lcom/android/settings/core/CategoryMixin$PackageReceiver-IA;)V
 
     iput-object v0, p0, Lcom/android/settings/core/CategoryMixin;->mPackageReceiver:Lcom/android/settings/core/CategoryMixin$PackageReceiver;
 
@@ -87,55 +129,11 @@
 
     iput-object v0, p0, Lcom/android/settings/core/CategoryMixin;->mCategoryListeners:Ljava/util/List;
 
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/settings/core/CategoryMixin;->mFirstOnResume:Z
+
     iput-object p1, p0, Lcom/android/settings/core/CategoryMixin;->mContext:Landroid/content/Context;
-
-    return-void
-.end method
-
-.method static synthetic access$108(Lcom/android/settings/core/CategoryMixin;)I
-    .locals 2
-
-    iget v0, p0, Lcom/android/settings/core/CategoryMixin;->mCategoriesUpdateTaskCount:I
-
-    add-int/lit8 v1, v0, 0x1
-
-    iput v1, p0, Lcom/android/settings/core/CategoryMixin;->mCategoriesUpdateTaskCount:I
-
-    return v0
-.end method
-
-.method static synthetic access$110(Lcom/android/settings/core/CategoryMixin;)I
-    .locals 2
-
-    iget v0, p0, Lcom/android/settings/core/CategoryMixin;->mCategoriesUpdateTaskCount:I
-
-    add-int/lit8 v1, v0, -0x1
-
-    iput v1, p0, Lcom/android/settings/core/CategoryMixin;->mCategoriesUpdateTaskCount:I
-
-    return v0
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/core/CategoryMixin;)Landroid/content/Context;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/core/CategoryMixin;->mContext:Landroid/content/Context;
-
-    return-object p0
-.end method
-
-.method static synthetic access$300()Landroid/util/ArraySet;
-    .locals 1
-
-    sget-object v0, Lcom/android/settings/core/CategoryMixin;->sTileDenylist:Landroid/util/ArraySet;
-
-    return-object v0
-.end method
-
-.method static synthetic access$400(Lcom/android/settings/core/CategoryMixin;Z)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/core/CategoryMixin;->updateCategories(Z)V
 
     return-void
 .end method
@@ -272,6 +270,23 @@
 
     invoke-virtual {v1, v2, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
+    iget-boolean v0, p0, Lcom/android/settings/core/CategoryMixin;->mFirstOnResume:Z
+
+    if-eqz v0, :cond_0
+
+    const-string v0, "CategoryMixin"
+
+    const-string v1, "Skip categories update"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/settings/core/CategoryMixin;->mFirstOnResume:Z
+
+    return-void
+
+    :cond_0
     invoke-virtual {p0}, Lcom/android/settings/core/CategoryMixin;->updateCategories()V
 
     return-void

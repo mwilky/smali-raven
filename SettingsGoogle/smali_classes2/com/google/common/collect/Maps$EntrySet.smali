@@ -135,6 +135,10 @@
 
     if-eqz v0, :cond_0
 
+    instance-of v0, p1, Ljava/util/Map$Entry;
+
+    if-eqz v0, :cond_0
+
     check-cast p1, Ljava/util/Map$Entry;
 
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$EntrySet;->map()Ljava/util/Map;
@@ -251,6 +255,10 @@
     invoke-virtual {p0, v1}, Lcom/google/common/collect/Maps$EntrySet;->contains(Ljava/lang/Object;)Z
 
     move-result v2
+
+    if-eqz v2, :cond_0
+
+    instance-of v2, v1, Ljava/util/Map$Entry;
 
     if-eqz v2, :cond_0
 

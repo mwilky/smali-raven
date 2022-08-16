@@ -38,7 +38,7 @@
 
     const/4 p1, 0x0
 
-    invoke-static {p0, p1}, Lcom/google/android/settings/biometrics/face/anim/curve/CellState;->access$402(Lcom/google/android/settings/biometrics/face/anim/curve/CellState;I)I
+    invoke-static {p0, p1}, Lcom/google/android/settings/biometrics/face/anim/curve/CellState;->-$$Nest$fputmCursorState(Lcom/google/android/settings/biometrics/face/anim/curve/CellState;I)V
 
     return-void
 .end method

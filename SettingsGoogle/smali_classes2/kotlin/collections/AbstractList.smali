@@ -29,7 +29,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nAbstractList.kt\nKotlin\n*S Kotlin\n*F\n+ 1 AbstractList.kt\nkotlin/collections/AbstractList\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n*L\n1#1,157:1\n318#2,7:158\n346#2,7:165\n*E\n*S KotlinDebug\n*F\n+ 1 AbstractList.kt\nkotlin/collections/AbstractList\n*L\n27#1,7:158\n29#1,7:165\n*E\n"
+    value = "SMAP\nAbstractList.kt\nKotlin\n*S Kotlin\n*F\n+ 1 AbstractList.kt\nkotlin/collections/AbstractList\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n*L\n1#1,157:1\n348#2,7:158\n376#2,7:165\n*S KotlinDebug\n*F\n+ 1 AbstractList.kt\nkotlin/collections/AbstractList\n*L\n27#1:158,7\n29#1:165,7\n*E\n"
 .end annotation
 
 
@@ -157,6 +157,11 @@
 
 .method public indexOf(Ljava/lang/Object;)I
     .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(TE;)I"
+        }
+    .end annotation
 
     invoke-interface {p0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -217,6 +222,11 @@
 
 .method public lastIndexOf(Ljava/lang/Object;)I
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(TE;)I"
+        }
+    .end annotation
 
     invoke-interface {p0}, Ljava/util/List;->size()I
 

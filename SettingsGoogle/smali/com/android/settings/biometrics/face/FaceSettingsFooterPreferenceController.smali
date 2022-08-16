@@ -32,14 +32,6 @@
 
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public getAvailabilityStatus()I
     .locals 0
 
@@ -50,15 +42,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -97,16 +80,6 @@
     return p0
 .end method
 
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
-
-    move-result p0
-
-    return p0
-.end method
-
 .method public bridge synthetic isPublicSlice()Z
     .locals 0
 
@@ -134,7 +107,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f040a31
+    const v1, 0x7f040a8a
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -170,12 +143,12 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f041163
+    const v0, 0x7f041215
 
     goto :goto_0
 
     :cond_0
-    const v0, 0x7f041164
+    const v0, 0x7f041216
 
     :goto_0
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;

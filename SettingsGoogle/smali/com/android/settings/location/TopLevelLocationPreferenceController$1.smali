@@ -36,7 +36,7 @@
 
     iget-object p0, p0, Lcom/android/settings/location/TopLevelLocationPreferenceController$1;->this$0:Lcom/android/settings/location/TopLevelLocationPreferenceController;
 
-    invoke-static {p0}, Lcom/android/settings/location/TopLevelLocationPreferenceController;->access$000(Lcom/android/settings/location/TopLevelLocationPreferenceController;)V
+    invoke-static {p0}, Lcom/android/settings/location/TopLevelLocationPreferenceController;->-$$Nest$mrefreshLocationMode(Lcom/android/settings/location/TopLevelLocationPreferenceController;)V
 
     return-void
 .end method

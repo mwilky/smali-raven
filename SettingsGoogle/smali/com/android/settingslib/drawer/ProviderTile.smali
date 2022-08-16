@@ -13,9 +13,7 @@
 .method public constructor <init>(Landroid/content/pm/ProviderInfo;Ljava/lang/String;Landroid/os/Bundle;)V
     .locals 0
 
-    invoke-direct {p0, p1, p2}, Lcom/android/settingslib/drawer/Tile;-><init>(Landroid/content/pm/ComponentInfo;Ljava/lang/String;)V
-
-    invoke-virtual {p0, p3}, Lcom/android/settingslib/drawer/Tile;->setMetaData(Landroid/os/Bundle;)V
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/settingslib/drawer/Tile;-><init>(Landroid/content/pm/ComponentInfo;Ljava/lang/String;Landroid/os/Bundle;)V
 
     iget-object p1, p1, Landroid/content/pm/ProviderInfo;->authority:Ljava/lang/String;
 

@@ -53,16 +53,6 @@
 
 .method static findFirstKeyLessThan(Landroid/util/SparseIntArray;I)I
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "cache",
-            "position"
-        }
-    .end annotation
 
     invoke-virtual {p0}, Landroid/util/SparseIntArray;->size()I
 
@@ -125,16 +115,6 @@
 # virtual methods
 .method getCachedSpanGroupIndex(II)I
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "position",
-            "spanCount"
-        }
-    .end annotation
 
     iget-boolean v0, p0, Landroidx/recyclerview/widget/GridLayoutManager$SpanSizeLookup;->mCacheSpanGroupIndices:Z
 
@@ -173,16 +153,6 @@
 
 .method getCachedSpanIndex(II)I
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "position",
-            "spanCount"
-        }
-    .end annotation
 
     iget-boolean v0, p0, Landroidx/recyclerview/widget/GridLayoutManager$SpanSizeLookup;->mCacheSpanIndices:Z
 
@@ -221,16 +191,6 @@
 
 .method public getSpanGroupIndex(II)I
     .locals 6
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "adapterPosition",
-            "spanCount"
-        }
-    .end annotation
 
     iget-boolean v0, p0, Landroidx/recyclerview/widget/GridLayoutManager$SpanSizeLookup;->mCacheSpanGroupIndices:Z
 
@@ -330,16 +290,6 @@
 
 .method public getSpanIndex(II)I
     .locals 5
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "position",
-            "spanCount"
-        }
-    .end annotation
 
     invoke-virtual {p0, p1}, Landroidx/recyclerview/widget/GridLayoutManager$SpanSizeLookup;->getSpanSize(I)I
 
@@ -421,14 +371,6 @@
 .end method
 
 .method public abstract getSpanSize(I)I
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "position"
-        }
-    .end annotation
 .end method
 
 .method public invalidateSpanGroupIndexCache()V

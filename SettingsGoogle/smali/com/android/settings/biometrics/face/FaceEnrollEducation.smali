@@ -50,6 +50,30 @@
     return-void
 .end method
 
+.method static bridge synthetic -$$Nest$fgetmIllustrationAccessibility(Lcom/android/settings/biometrics/face/FaceEnrollEducation;)Landroid/view/View;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/biometrics/face/FaceEnrollEducation;->mIllustrationAccessibility:Landroid/view/View;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$mhideDefaultIllustration(Lcom/android/settings/biometrics/face/FaceEnrollEducation;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/biometrics/face/FaceEnrollEducation;->hideDefaultIllustration()V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mshowDefaultIllustration(Lcom/android/settings/biometrics/face/FaceEnrollEducation;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/biometrics/face/FaceEnrollEducation;->showDefaultIllustration()V
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 1
 
@@ -68,30 +92,6 @@
     .locals 0
 
     invoke-virtual {p0, p1}, Lcom/android/settings/biometrics/BiometricEnrollBase;->setDescriptionText(I)V
-
-    return-void
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/biometrics/face/FaceEnrollEducation;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/biometrics/face/FaceEnrollEducation;->hideDefaultIllustration()V
-
-    return-void
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/biometrics/face/FaceEnrollEducation;)Landroid/view/View;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/biometrics/face/FaceEnrollEducation;->mIllustrationAccessibility:Landroid/view/View;
-
-    return-object p0
-.end method
-
-.method static synthetic access$300(Lcom/android/settings/biometrics/face/FaceEnrollEducation;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/biometrics/face/FaceEnrollEducation;->showDefaultIllustration()V
 
     return-void
 .end method
@@ -272,15 +272,15 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/biometrics/BiometricEnrollBase;->onCreate(Landroid/os/Bundle;)V
 
-    const p1, 0x7f0600e3
+    const p1, 0x7f0600e6
 
     invoke-virtual {p0, p1}, Landroidx/activity/ComponentActivity;->setContentView(I)V
 
-    const p1, 0x7f041122
+    const p1, 0x7f0411d4
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->setTitle(I)V
 
-    const p1, 0x7f04111f
+    const p1, 0x7f0411d1
 
     invoke-virtual {p0, p1}, Lcom/android/settings/biometrics/BiometricEnrollBase;->setDescriptionText(I)V
 
@@ -290,7 +290,7 @@
 
     iput-object p1, p0, Lcom/android/settings/biometrics/face/FaceEnrollEducation;->mFaceManager:Landroid/hardware/face/FaceManager;
 
-    const p1, 0x7f0d02c8
+    const p1, 0x7f0d02ef
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -300,7 +300,7 @@
 
     iput-object p1, p0, Lcom/android/settings/biometrics/face/FaceEnrollEducation;->mIllustrationDefault:Lcom/google/android/setupdesign/view/IllustrationVideoView;
 
-    const p1, 0x7f0d02ca
+    const p1, 0x7f0d02f1
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -310,7 +310,7 @@
 
     iput-object p1, p0, Lcom/android/settings/biometrics/face/FaceEnrollEducation;->mIllustrationLottie:Lcom/airbnb/lottie/LottieAnimationView;
 
-    const p1, 0x7f0d02c7
+    const p1, 0x7f0d02ee
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -322,7 +322,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f09000b
+    const v0, 0x7f09000c
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -381,7 +381,7 @@
 
     move-result p1
 
-    const v1, 0x7f13021d
+    const v1, 0x7f130284
 
     if-eqz p1, :cond_1
 
@@ -391,15 +391,15 @@
 
     invoke-direct {v2, p0}, Lcom/google/android/setupcompat/template/FooterButton$Builder;-><init>(Landroid/content/Context;)V
 
-    const v3, 0x7f041291
+    const v3, 0x7f04134b
 
     invoke-virtual {v2, v3}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setText(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
     move-result-object v2
 
-    new-instance v3, Lcom/android/settings/biometrics/face/FaceEnrollEducation$$ExternalSyntheticLambda2;
+    new-instance v3, Lcom/android/settings/biometrics/face/FaceEnrollEducation$$ExternalSyntheticLambda0;
 
-    invoke-direct {v3, p0}, Lcom/android/settings/biometrics/face/FaceEnrollEducation$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/biometrics/face/FaceEnrollEducation;)V
+    invoke-direct {v3, p0}, Lcom/android/settings/biometrics/face/FaceEnrollEducation$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/biometrics/face/FaceEnrollEducation;)V
 
     invoke-virtual {v2, v3}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setListener(Landroid/view/View$OnClickListener;)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -430,15 +430,15 @@
 
     invoke-direct {v2, p0}, Lcom/google/android/setupcompat/template/FooterButton$Builder;-><init>(Landroid/content/Context;)V
 
-    const v3, 0x7f041134
+    const v3, 0x7f0411e6
 
     invoke-virtual {v2, v3}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setText(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
     move-result-object v2
 
-    new-instance v3, Lcom/android/settings/biometrics/face/FaceEnrollEducation$$ExternalSyntheticLambda2;
+    new-instance v3, Lcom/android/settings/biometrics/face/FaceEnrollEducation$$ExternalSyntheticLambda0;
 
-    invoke-direct {v3, p0}, Lcom/android/settings/biometrics/face/FaceEnrollEducation$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/biometrics/face/FaceEnrollEducation;)V
+    invoke-direct {v3, p0}, Lcom/android/settings/biometrics/face/FaceEnrollEducation$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/biometrics/face/FaceEnrollEducation;)V
 
     invoke-virtual {v2, v3}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setListener(Landroid/view/View$OnClickListener;)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -465,7 +465,7 @@
 
     invoke-direct {p1, p0}, Lcom/google/android/setupcompat/template/FooterButton$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f041121
+    const v1, 0x7f0411d3
 
     invoke-virtual {p1, v1}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setText(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -485,7 +485,7 @@
 
     move-result-object p1
 
-    const v1, 0x7f13021c
+    const v1, 0x7f130283
 
     invoke-virtual {p1, v1}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setTheme(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -539,13 +539,13 @@
 
     check-cast p1, Landroid/widget/Button;
 
-    new-instance v0, Lcom/android/settings/biometrics/face/FaceEnrollEducation$$ExternalSyntheticLambda4;
+    new-instance v0, Lcom/android/settings/biometrics/face/FaceEnrollEducation$$ExternalSyntheticLambda2;
 
-    invoke-direct {v0, p0, p1}, Lcom/android/settings/biometrics/face/FaceEnrollEducation$$ExternalSyntheticLambda4;-><init>(Lcom/android/settings/biometrics/face/FaceEnrollEducation;Landroid/widget/Button;)V
+    invoke-direct {v0, p0, p1}, Lcom/android/settings/biometrics/face/FaceEnrollEducation$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/biometrics/face/FaceEnrollEducation;Landroid/widget/Button;)V
 
     invoke-virtual {p1, v0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v0, 0x7f0d05d9
+    const v0, 0x7f0d061c
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -612,7 +612,7 @@
 
     iget v0, p0, Lcom/android/settings/biometrics/BiometricEnrollBase;->mSensorId:I
 
-    const-string v1, "sensor_id"
+    const-string/jumbo v1, "sensor_id"
 
     invoke-virtual {p1, v1, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
@@ -628,7 +628,7 @@
 
     invoke-static {v0, p1}, Lcom/android/settings/biometrics/BiometricUtils;->copyMultiBiometricExtras(Landroid/content/Intent;Landroid/content/Intent;)V
 
-    const v0, 0x7f04064e
+    const v0, 0x7f0406ad
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -697,9 +697,9 @@
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/settings/biometrics/face/FaceEnrollEducation$$ExternalSyntheticLambda0;
+    new-instance v1, Lcom/android/settings/biometrics/face/FaceEnrollEducation$$ExternalSyntheticLambda4;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/settings/biometrics/face/FaceEnrollEducation$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/biometrics/face/FaceEnrollEducation;Landroid/content/Intent;)V
+    invoke-direct {v1, p0, p1}, Lcom/android/settings/biometrics/face/FaceEnrollEducation$$ExternalSyntheticLambda4;-><init>(Lcom/android/settings/biometrics/face/FaceEnrollEducation;Landroid/content/Intent;)V
 
     invoke-virtual {v0, v1}, Lcom/android/settings/biometrics/face/FaceEnrollAccessibilityDialog;->setPositiveButtonListener(Landroid/content/DialogInterface$OnClickListener;)V
 
@@ -753,7 +753,7 @@
 
     move-result-object v0
 
-    const v1, 0x10e0066
+    const v1, 0x10e006f
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 

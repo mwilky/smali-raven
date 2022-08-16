@@ -41,6 +41,14 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetheader(Lcom/google/android/setupdesign/view/HeaderRecyclerView$HeaderAdapter;)Landroid/view/View;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/setupdesign/view/HeaderRecyclerView$HeaderAdapter;->header:Landroid/view/View;
+
+    return-object p0
+.end method
+
 .method public constructor <init>(Landroidx/recyclerview/widget/RecyclerView$Adapter;)V
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
@@ -70,14 +78,6 @@
     invoke-virtual {p0, p1}, Landroidx/recyclerview/widget/RecyclerView$Adapter;->setHasStableIds(Z)V
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/google/android/setupdesign/view/HeaderRecyclerView$HeaderAdapter;)Landroid/view/View;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/setupdesign/view/HeaderRecyclerView$HeaderAdapter;->header:Landroid/view/View;
-
-    return-object p0
 .end method
 
 

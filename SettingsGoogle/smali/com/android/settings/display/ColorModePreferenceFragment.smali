@@ -61,12 +61,36 @@
     return-void
 .end method
 
+.method static bridge synthetic -$$Nest$fgetmPageList(Lcom/android/settings/display/ColorModePreferenceFragment;)Ljava/util/ArrayList;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/display/ColorModePreferenceFragment;->mPageList:Ljava/util/ArrayList;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmViewPagerImages(Lcom/android/settings/display/ColorModePreferenceFragment;)[Landroid/view/View;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/display/ColorModePreferenceFragment;->mViewPagerImages:[Landroid/view/View;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$mupdateIndicator(Lcom/android/settings/display/ColorModePreferenceFragment;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/display/ColorModePreferenceFragment;->updateIndicator(I)V
+
+    return-void
+.end method
+
 .method static constructor <clinit>()V
     .locals 2
 
     new-instance v0, Lcom/android/settings/display/ColorModePreferenceFragment$3;
 
-    const v1, 0x7f150046
+    const v1, 0x7f150049
 
     invoke-direct {v0, v1}, Lcom/android/settings/display/ColorModePreferenceFragment$3;-><init>(I)V
 
@@ -79,30 +103,6 @@
     .locals 0
 
     invoke-direct {p0}, Lcom/android/settings/widget/RadioButtonPickerFragment;-><init>()V
-
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/display/ColorModePreferenceFragment;)Ljava/util/ArrayList;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/display/ColorModePreferenceFragment;->mPageList:Ljava/util/ArrayList;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/display/ColorModePreferenceFragment;)[Landroid/view/View;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/display/ColorModePreferenceFragment;->mViewPagerImages:[Landroid/view/View;
-
-    return-object p0
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/display/ColorModePreferenceFragment;I)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/display/ColorModePreferenceFragment;->updateIndicator(I)V
 
     return-void
 .end method
@@ -216,7 +216,7 @@
 
     aget-object v2, v2, v1
 
-    const v3, 0x7f0201ac
+    const v3, 0x7f0201c7
 
     invoke-virtual {v2, v3}, Landroid/widget/ImageView;->setBackgroundResource(I)V
 
@@ -233,7 +233,7 @@
 
     aget-object v2, v2, v1
 
-    const v4, 0x7f0201ad
+    const v4, 0x7f0201c8
 
     invoke-virtual {v2, v4}, Landroid/widget/ImageView;->setBackgroundResource(I)V
 
@@ -306,7 +306,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f06007f
+    const v2, 0x7f06008a
 
     invoke-direct {v0, v1, v2}, Lcom/android/settingslib/widget/LayoutPreference;-><init>(Landroid/content/Context;I)V
 
@@ -324,7 +324,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d062d
+    const v1, 0x7f0d066c
 
     invoke-virtual {p1, v1}, Lcom/android/settingslib/widget/LayoutPreference;->findViewById(I)Landroid/view/View;
 
@@ -422,7 +422,7 @@
 
     invoke-virtual {v0, v2}, Landroidx/viewpager/widget/ViewPager;->setAdapter(Landroidx/viewpager/widget/PagerAdapter;)V
 
-    const v0, 0x7f0d00b0
+    const v0, 0x7f0d00b4
 
     invoke-virtual {p1, v0}, Lcom/android/settingslib/widget/LayoutPreference;->findViewById(I)Landroid/view/View;
 
@@ -436,7 +436,7 @@
 
     invoke-virtual {v0, v2}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v0, 0x7f0d00af
+    const v0, 0x7f0d00b3
 
     invoke-virtual {p1, v0}, Lcom/android/settingslib/widget/LayoutPreference;->findViewById(I)Landroid/view/View;
 
@@ -458,7 +458,7 @@
 
     invoke-virtual {v0, v2}, Landroidx/viewpager/widget/ViewPager;->addOnPageChangeListener(Landroidx/viewpager/widget/ViewPager$OnPageChangeListener;)V
 
-    const v0, 0x7f0d0627
+    const v0, 0x7f0d0666
 
     invoke-virtual {p1, v0}, Lcom/android/settingslib/widget/LayoutPreference;->findViewById(I)Landroid/view/View;
 
@@ -510,8 +510,6 @@
     iget-object v3, p0, Lcom/android/settings/display/ColorModePreferenceFragment;->mDotIndicators:[Landroid/widget/ImageView;
 
     aput-object v2, v3, v0
-
-    aget-object v2, v3, v0
 
     invoke-virtual {p1, v2}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
@@ -567,7 +565,7 @@
 
     iget-object v2, p0, Lcom/android/settings/display/ColorModePreferenceFragment;->mResources:Landroid/content/res/Resources;
 
-    const v3, 0x1070018
+    const v3, 0x107001c
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getIntArray(I)[I
 
@@ -684,7 +682,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150046
+    const p0, 0x7f150049
 
     return p0
 .end method
@@ -706,7 +704,7 @@
 
     new-array v0, v0, [Ljava/lang/Integer;
 
-    const v1, 0x7f060080
+    const v1, 0x7f06008b
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -716,7 +714,7 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f060081
+    const v1, 0x7f06008c
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -726,7 +724,7 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f060082
+    const v1, 0x7f06008d
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 

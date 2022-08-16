@@ -39,18 +39,10 @@
 
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public displayPreference(Landroidx/preference/PreferenceScreen;)V
     .locals 1
 
-    invoke-super {p0, p1}, Lcom/android/settings/core/BasePreferenceController;->displayPreference(Landroidx/preference/PreferenceScreen;)V
+    invoke-super {p0, p1}, Lcom/android/settings/core/TogglePreferenceController;->displayPreference(Landroidx/preference/PreferenceScreen;)V
 
     const-string v0, "carrier_wifi_network"
 
@@ -85,15 +77,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -134,7 +117,7 @@
 .method public getSliceHighlightMenuRes()I
     .locals 0
 
-    const p0, 0x7f040d0a
+    const p0, 0x7f040d85
 
     return p0
 .end method
@@ -193,23 +176,11 @@
 .end method
 
 .method public isChecked()Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/settings/network/CarrierWifiTogglePreferenceController;->mWifiPickerTrackerHelper:Lcom/android/settings/wifi/WifiPickerTrackerHelper;
-
-    iget p0, p0, Lcom/android/settings/network/CarrierWifiTogglePreferenceController;->mSubId:I
-
-    invoke-virtual {v0, p0}, Lcom/android/settings/wifi/WifiPickerTrackerHelper;->isCarrierNetworkEnabled(I)Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public bridge synthetic isCopyableSlice()Z
     .locals 0
 
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
+    iget-object p0, p0, Lcom/android/settings/network/CarrierWifiTogglePreferenceController;->mWifiPickerTrackerHelper:Lcom/android/settings/wifi/WifiPickerTrackerHelper;
+
+    invoke-virtual {p0}, Lcom/android/settings/wifi/WifiPickerTrackerHelper;->isCarrierNetworkEnabled()Z
 
     move-result p0
 

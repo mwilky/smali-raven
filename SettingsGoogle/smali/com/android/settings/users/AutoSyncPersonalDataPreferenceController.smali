@@ -4,10 +4,10 @@
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;Landroidx/fragment/app/Fragment;)V
+.method public constructor <init>(Landroid/content/Context;Landroidx/preference/PreferenceFragmentCompat;)V
     .locals 0
 
-    invoke-direct {p0, p1, p2}, Lcom/android/settings/users/AutoSyncDataPreferenceController;-><init>(Landroid/content/Context;Landroidx/fragment/app/Fragment;)V
+    invoke-direct {p0, p1, p2}, Lcom/android/settings/users/AutoSyncDataPreferenceController;-><init>(Landroid/content/Context;Landroidx/preference/PreferenceFragmentCompat;)V
 
     return-void
 .end method

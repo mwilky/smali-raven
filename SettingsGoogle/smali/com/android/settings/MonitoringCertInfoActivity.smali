@@ -12,12 +12,60 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$aSLNC6IOe7XABXvpQ0EyALbAT0M(Lcom/android/settings/MonitoringCertInfoActivity;)Ljava/lang/String;
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/MonitoringCertInfoActivity;->lambda$onCreate$1()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static synthetic $r8$lambda$pk26uaBHPHMpKsY0wJ3yGqutQPY(Lcom/android/settings/MonitoringCertInfoActivity;)Ljava/lang/String;
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/MonitoringCertInfoActivity;->lambda$onCreate$0()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
     return-void
+.end method
+
+.method private synthetic lambda$onCreate$0()Ljava/lang/String;
+    .locals 1
+
+    const v0, 0x7f041391
+
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private synthetic lambda$onCreate$1()Ljava/lang/String;
+    .locals 1
+
+    invoke-virtual {p0}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p0
+
+    const v0, 0x7f041392
+
+    invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 
@@ -49,7 +97,7 @@
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 6
+    .locals 8
 
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
@@ -109,7 +157,7 @@
 
     move-result-object p1
 
-    const v3, 0x7f120054
+    const v3, 0x7f120052
 
     if-eqz p1, :cond_1
 
@@ -149,7 +197,7 @@
 
     invoke-virtual {v5, p1, p0}, Landroidx/appcompat/app/AlertDialog$Builder;->setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 
-    const p1, 0x7f040564
+    const p1, 0x7f0405c1
 
     invoke-virtual {v5, p1, v0}, Landroidx/appcompat/app/AlertDialog$Builder;->setNeutralButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 
@@ -161,17 +209,43 @@
 
     move-result-object p1
 
-    const/4 v0, 0x0
+    const-string v0, "orgName"
+
+    const-string v3, "numberOfCertificates"
 
     if-eqz p1, :cond_2
 
-    invoke-virtual {p0}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
+    new-instance p1, Landroid/icu/text/MessageFormat;
 
-    move-result-object p1
+    invoke-virtual {v1}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
 
-    const v3, 0x7f120052
+    move-result-object v4
 
-    new-array v4, v4, [Ljava/lang/Object;
+    new-instance v6, Lcom/android/settings/MonitoringCertInfoActivity$$ExternalSyntheticLambda0;
+
+    invoke-direct {v6, p0}, Lcom/android/settings/MonitoringCertInfoActivity$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/MonitoringCertInfoActivity;)V
+
+    const-string v7, "Settings.WORK_PROFILE_INSTALLED_CERTIFICATE_AUTHORITY_WARNING"
+
+    invoke-virtual {v4, v7, v6}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
+
+    move-result-object v6
+
+    invoke-direct {p1, v4, v6}, Landroid/icu/text/MessageFormat;-><init>(Ljava/lang/String;Ljava/util/Locale;)V
+
+    new-instance v4, Ljava/util/HashMap;
+
+    invoke-direct {v4}, Ljava/util/HashMap;-><init>()V
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    invoke-interface {v4, v3, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     iget p0, p0, Lcom/android/settings/MonitoringCertInfoActivity;->mUserId:I
 
@@ -179,9 +253,9 @@
 
     move-result-object p0
 
-    aput-object p0, v4, v0
+    invoke-interface {v4, v0, p0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {p1, v3, v2, v4}, Landroid/content/res/Resources;->getQuantityString(II[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {p1, v4}, Landroid/icu/text/MessageFormat;->format(Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object p0
 
@@ -196,21 +270,45 @@
 
     if-eqz p1, :cond_3
 
-    invoke-virtual {p0}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
+    new-instance p1, Landroid/icu/text/MessageFormat;
+
+    invoke-virtual {v1}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
+
+    move-result-object v4
+
+    new-instance v6, Lcom/android/settings/MonitoringCertInfoActivity$$ExternalSyntheticLambda1;
+
+    invoke-direct {v6, p0}, Lcom/android/settings/MonitoringCertInfoActivity$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/MonitoringCertInfoActivity;)V
+
+    const-string p0, "Settings.DEVICE_OWNER_INSTALLED_CERTIFICATE_AUTHORITY_WARNING"
+
+    invoke-virtual {v4, p0, v6}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
 
     move-result-object p0
 
-    const p1, 0x7f120053
+    invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
 
-    new-array v3, v4, [Ljava/lang/Object;
+    move-result-object v4
+
+    invoke-direct {p1, p0, v4}, Landroid/icu/text/MessageFormat;-><init>(Ljava/lang/String;Ljava/util/Locale;)V
+
+    new-instance p0, Ljava/util/HashMap;
+
+    invoke-direct {p0}, Ljava/util/HashMap;-><init>()V
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    invoke-interface {p0, v3, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     invoke-virtual {v1}, Landroid/app/admin/DevicePolicyManager;->getDeviceOwnerNameOnAnyUser()Ljava/lang/String;
 
     move-result-object v1
 
-    aput-object v1, v3, v0
+    invoke-interface {p0, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {p0, p1, v2, v3}, Landroid/content/res/Resources;->getQuantityString(II[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {p1, p0}, Landroid/icu/text/MessageFormat;->format(Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object p0
 
@@ -223,7 +321,7 @@
 
     invoke-virtual {v5, p0}, Landroidx/appcompat/app/AlertDialog$Builder;->setIcon(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
-    const p0, 0x7f0412cf
+    const p0, 0x7f041394
 
     invoke-virtual {v5, p0}, Landroidx/appcompat/app/AlertDialog$Builder;->setMessage(I)Landroidx/appcompat/app/AlertDialog$Builder;
 

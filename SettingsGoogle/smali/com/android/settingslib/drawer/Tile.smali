@@ -76,14 +76,16 @@
 
     sput-object v0, Lcom/android/settingslib/drawer/Tile;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    sget-object v0, Lcom/android/settingslib/drawer/Tile$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/settingslib/drawer/Tile$$ExternalSyntheticLambda0;
+    new-instance v0, Lcom/android/settingslib/drawer/Tile$$ExternalSyntheticLambda0;
+
+    invoke-direct {v0}, Lcom/android/settingslib/drawer/Tile$$ExternalSyntheticLambda0;-><init>()V
 
     sput-object v0, Lcom/android/settingslib/drawer/Tile;->TILE_COMPARATOR:Ljava/util/Comparator;
 
     return-void
 .end method
 
-.method public constructor <init>(Landroid/content/pm/ComponentInfo;Ljava/lang/String;)V
+.method public constructor <init>(Landroid/content/pm/ComponentInfo;Ljava/lang/String;Landroid/os/Bundle;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -106,6 +108,8 @@
 
     iput-object p2, p0, Lcom/android/settingslib/drawer/Tile;->mCategory:Ljava/lang/String;
 
+    iput-object p3, p0, Lcom/android/settingslib/drawer/Tile;->mMetaData:Landroid/os/Bundle;
+
     new-instance p2, Landroid/content/Intent;
 
     invoke-direct {p2}, Landroid/content/Intent;-><init>()V
@@ -116,6 +120,17 @@
 
     iput-object p1, p0, Lcom/android/settingslib/drawer/Tile;->mIntent:Landroid/content/Intent;
 
+    invoke-virtual {p0}, Lcom/android/settingslib/drawer/Tile;->isNewTask()Z
+
+    move-result p0
+
+    if-eqz p0, :cond_0
+
+    const/high16 p0, 0x10000000
+
+    invoke-virtual {p1, p0}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+
+    :cond_0
     return-void
 .end method
 
@@ -129,8 +144,6 @@
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/android/settingslib/drawer/Tile;->userHandle:Ljava/util/ArrayList;
-
-    invoke-virtual {p1}, Landroid/os/Parcel;->readBoolean()Z
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
@@ -192,6 +205,19 @@
 
     iput-object p1, p0, Lcom/android/settingslib/drawer/Tile;->mMetaData:Landroid/os/Bundle;
 
+    invoke-virtual {p0}, Lcom/android/settingslib/drawer/Tile;->isNewTask()Z
+
+    move-result p1
+
+    if-eqz p1, :cond_1
+
+    iget-object p0, p0, Lcom/android/settingslib/drawer/Tile;->mIntent:Landroid/content/Intent;
+
+    const/high16 p1, 0x10000000
+
+    invoke-virtual {p0, p1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+
+    :cond_1
     return-void
 .end method
 
@@ -847,26 +873,24 @@
     return p0
 .end method
 
-.method public isNewTask(Landroid/content/Context;)Z
-    .locals 1
+.method public isNewTask()Z
+    .locals 2
 
-    invoke-direct {p0, p1}, Lcom/android/settingslib/drawer/Tile;->ensureMetadataNotStale(Landroid/content/Context;)V
+    iget-object v0, p0, Lcom/android/settingslib/drawer/Tile;->mMetaData:Landroid/os/Bundle;
 
-    iget-object p1, p0, Lcom/android/settingslib/drawer/Tile;->mMetaData:Landroid/os/Bundle;
+    if-eqz v0, :cond_0
 
-    if-eqz p1, :cond_0
+    const-string v1, "com.android.settings.new_task"
 
-    const-string v0, "com.android.settings.new_task"
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
 
-    invoke-virtual {p1, v0}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
+    move-result v0
 
-    move-result p1
-
-    if-eqz p1, :cond_0
+    if-eqz v0, :cond_0
 
     iget-object p0, p0, Lcom/android/settingslib/drawer/Tile;->mMetaData:Landroid/os/Bundle;
 
-    invoke-virtual {p0, v0}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
+    invoke-virtual {p0, v1}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
 
     move-result p0
 

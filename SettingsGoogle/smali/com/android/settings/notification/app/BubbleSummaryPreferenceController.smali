@@ -105,7 +105,7 @@
 
     if-ne v0, p0, :cond_2
 
-    const p0, 0x7f040523
+    const p0, 0x7f040582
 
     invoke-virtual {v1, p0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -114,7 +114,7 @@
     return-object p0
 
     :cond_2
-    const p0, 0x7f040527
+    const p0, 0x7f040586
 
     invoke-virtual {v1, p0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -124,7 +124,7 @@
 
     :cond_3
     :goto_0
-    const p0, 0x7f040526
+    const p0, 0x7f040585
 
     invoke-virtual {v1, p0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -202,7 +202,7 @@
 
     iget p0, p0, Lcom/android/settings/notification/NotificationBackend$AppRow;->uid:I
 
-    invoke-virtual {v0, v3, p0}, Lcom/android/settings/notification/NotificationBackend;->hasSentValidMsg(Ljava/lang/String;I)Z
+    invoke-virtual {v0, v3, p0}, Lcom/android/settings/notification/NotificationBackend;->hasSentValidBubble(Ljava/lang/String;I)Z
 
     move-result p0
 

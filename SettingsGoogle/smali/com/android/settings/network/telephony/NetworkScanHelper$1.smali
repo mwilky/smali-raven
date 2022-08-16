@@ -64,7 +64,7 @@
 
     iget-object p0, p0, Lcom/android/settings/network/telephony/NetworkScanHelper$1;->this$0:Lcom/android/settings/network/telephony/NetworkScanHelper;
 
-    invoke-static {p0, p1}, Lcom/android/settings/network/telephony/NetworkScanHelper;->access$300(Lcom/android/settings/network/telephony/NetworkScanHelper;I)V
+    invoke-static {p0, p1}, Lcom/android/settings/network/telephony/NetworkScanHelper;->-$$Nest$monError(Lcom/android/settings/network/telephony/NetworkScanHelper;I)V
 
     return-void
 .end method
@@ -92,11 +92,11 @@
 
     iget-object v0, p0, Lcom/android/settings/network/telephony/NetworkScanHelper$1;->this$0:Lcom/android/settings/network/telephony/NetworkScanHelper;
 
-    invoke-static {v0, p1}, Lcom/android/settings/network/telephony/NetworkScanHelper;->access$100(Lcom/android/settings/network/telephony/NetworkScanHelper;Ljava/util/List;)V
+    invoke-static {v0, p1}, Lcom/android/settings/network/telephony/NetworkScanHelper;->-$$Nest$monResults(Lcom/android/settings/network/telephony/NetworkScanHelper;Ljava/util/List;)V
 
     iget-object p0, p0, Lcom/android/settings/network/telephony/NetworkScanHelper$1;->this$0:Lcom/android/settings/network/telephony/NetworkScanHelper;
 
-    invoke-static {p0}, Lcom/android/settings/network/telephony/NetworkScanHelper;->access$200(Lcom/android/settings/network/telephony/NetworkScanHelper;)V
+    invoke-static {p0}, Lcom/android/settings/network/telephony/NetworkScanHelper;->-$$Nest$monComplete(Lcom/android/settings/network/telephony/NetworkScanHelper;)V
 
     return-void
 .end method

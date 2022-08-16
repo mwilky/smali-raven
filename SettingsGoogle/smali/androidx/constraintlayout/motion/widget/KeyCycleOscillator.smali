@@ -163,7 +163,7 @@
     goto/16 :goto_0
 
     :sswitch_4
-    const-string v1, "rotation"
+    const-string/jumbo v1, "rotation"
 
     invoke-virtual {p0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -195,7 +195,7 @@
     goto/16 :goto_0
 
     :sswitch_6
-    const-string v1, "scaleY"
+    const-string/jumbo v1, "scaleY"
 
     invoke-virtual {p0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -211,7 +211,7 @@
     goto :goto_0
 
     :sswitch_7
-    const-string v1, "scaleX"
+    const-string/jumbo v1, "scaleX"
 
     invoke-virtual {p0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -291,7 +291,7 @@
     goto :goto_0
 
     :sswitch_c
-    const-string v1, "rotationY"
+    const-string/jumbo v1, "rotationY"
 
     invoke-virtual {p0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -307,7 +307,7 @@
     goto :goto_0
 
     :sswitch_d
-    const-string v1, "rotationX"
+    const-string/jumbo v1, "rotationX"
 
     invoke-virtual {p0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -424,6 +424,8 @@
     invoke-direct {p0}, Landroidx/constraintlayout/motion/widget/KeyCycleOscillator$RotationXset;-><init>()V
 
     return-object p0
+
+    nop
 
     :sswitch_data_0
     .sparse-switch
@@ -646,8 +648,6 @@
     float-to-double v12, v10
 
     aput-wide v12, v6, v2
-
-    aget-object v6, v3, v11
 
     iget v9, v5, Landroidx/constraintlayout/motion/widget/KeyCycleOscillator$WavePoint;->mOffset:F
 

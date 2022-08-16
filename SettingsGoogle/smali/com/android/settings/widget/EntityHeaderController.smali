@@ -36,6 +36,8 @@
 
 .field private mPackageName:Ljava/lang/String;
 
+.field private mPrefOrder:I
+
 .field private mRecyclerView:Landroidx/recyclerview/widget/RecyclerView;
 
 .field private mSecondSummary:Ljava/lang/CharSequence;
@@ -54,10 +56,54 @@
     return-void
 .end method
 
+.method static bridge synthetic -$$Nest$fgetmActivity(Lcom/android/settings/widget/EntityHeaderController;)Landroid/app/Activity;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/widget/EntityHeaderController;->mActivity:Landroid/app/Activity;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmFragment(Lcom/android/settings/widget/EntityHeaderController;)Landroidx/fragment/app/Fragment;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/widget/EntityHeaderController;->mFragment:Landroidx/fragment/app/Fragment;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmMetricsCategory(Lcom/android/settings/widget/EntityHeaderController;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/settings/widget/EntityHeaderController;->mMetricsCategory:I
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmPackageName(Lcom/android/settings/widget/EntityHeaderController;)Ljava/lang/String;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/widget/EntityHeaderController;->mPackageName:Ljava/lang/String;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmUid(Lcom/android/settings/widget/EntityHeaderController;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/settings/widget/EntityHeaderController;->mUid:I
+
+    return p0
+.end method
+
 .method private constructor <init>(Landroid/app/Activity;Landroidx/fragment/app/Fragment;Landroid/view/View;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    const/16 v0, -0x3e8
+
+    iput v0, p0, Lcom/android/settings/widget/EntityHeaderController;->mPrefOrder:I
 
     const/16 v0, -0x2710
 
@@ -102,7 +148,7 @@
 
     move-result-object p1
 
-    const p2, 0x7f060202
+    const p2, 0x7f06020b
 
     const/4 p3, 0x0
 
@@ -114,38 +160,6 @@
 
     :goto_0
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/widget/EntityHeaderController;)Ljava/lang/String;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/widget/EntityHeaderController;->mPackageName:Ljava/lang/String;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/widget/EntityHeaderController;)I
-    .locals 0
-
-    iget p0, p0, Lcom/android/settings/widget/EntityHeaderController;->mUid:I
-
-    return p0
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/widget/EntityHeaderController;)Landroidx/fragment/app/Fragment;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/widget/EntityHeaderController;->mFragment:Landroidx/fragment/app/Fragment;
-
-    return-object p0
-.end method
-
-.method static synthetic access$300(Lcom/android/settings/widget/EntityHeaderController;)I
-    .locals 0
-
-    iget p0, p0, Lcom/android/settings/widget/EntityHeaderController;->mMetricsCategory:I
-
-    return p0
 .end method
 
 .method private bindAppInfoLink(Landroid/view/View;)V
@@ -234,7 +248,7 @@
     goto :goto_0
 
     :cond_2
-    const p2, 0x10804ee
+    const p2, 0x10804fa
 
     invoke-virtual {p1, p2}, Landroid/widget/ImageButton;->setImageResource(I)V
 
@@ -360,7 +374,7 @@
 
     iget-object v0, p0, Lcom/android/settings/widget/EntityHeaderController;->mHeader:Landroid/view/View;
 
-    const v1, 0x7f0d0204
+    const v1, 0x7f0d021d
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -416,7 +430,7 @@
 
     iget-object p1, p0, Lcom/android/settings/widget/EntityHeaderController;->mHeader:Landroid/view/View;
 
-    const v0, 0x7f0d0205
+    const v0, 0x7f0d021e
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -435,19 +449,19 @@
     invoke-virtual {p1, v0}, Landroid/widget/ImageView;->setContentDescription(Ljava/lang/CharSequence;)V
 
     :cond_0
-    const p1, 0x7f0d020b
+    const p1, 0x7f0d0224
 
     iget-object v0, p0, Lcom/android/settings/widget/EntityHeaderController;->mLabel:Ljava/lang/CharSequence;
 
     invoke-direct {p0, p1, v0}, Lcom/android/settings/widget/EntityHeaderController;->setText(ILjava/lang/CharSequence;)V
 
-    const p1, 0x7f0d0209
+    const p1, 0x7f0d0222
 
     iget-object v0, p0, Lcom/android/settings/widget/EntityHeaderController;->mSummary:Ljava/lang/CharSequence;
 
     invoke-direct {p0, p1, v0}, Lcom/android/settings/widget/EntityHeaderController;->setText(ILjava/lang/CharSequence;)V
 
-    const p1, 0x7f0d0208
+    const p1, 0x7f0d0221
 
     iget-object v0, p0, Lcom/android/settings/widget/EntityHeaderController;->mSecondSummary:Ljava/lang/CharSequence;
 
@@ -457,7 +471,7 @@
 
     if-eqz p1, :cond_1
 
-    const p1, 0x7f0d02e6
+    const p1, 0x7f0d030e
 
     iget-object v0, p0, Lcom/android/settings/widget/EntityHeaderController;->mHeader:Landroid/view/View;
 
@@ -465,7 +479,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040a9d
+    const v1, 0x7f040afb
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -491,11 +505,11 @@
 
     invoke-virtual {p0, p1}, Lcom/android/settings/widget/EntityHeaderController;->done(Landroid/app/Activity;)Landroid/view/View;
 
-    move-result-object p0
+    move-result-object p1
 
-    invoke-direct {v0, p2, p0}, Lcom/android/settingslib/widget/LayoutPreference;-><init>(Landroid/content/Context;Landroid/view/View;)V
+    invoke-direct {v0, p2, p1}, Lcom/android/settingslib/widget/LayoutPreference;-><init>(Landroid/content/Context;Landroid/view/View;)V
 
-    const/16 p0, -0x3e8
+    iget p0, p0, Lcom/android/settings/widget/EntityHeaderController;->mPrefOrder:I
 
     invoke-virtual {v0, p0}, Landroidx/preference/Preference;->setOrder(I)V
 
@@ -606,6 +620,14 @@
     .locals 0
 
     iput-object p1, p0, Lcom/android/settings/widget/EntityHeaderController;->mLabel:Ljava/lang/CharSequence;
+
+    return-object p0
+.end method
+
+.method public setOrder(I)Lcom/android/settings/widget/EntityHeaderController;
+    .locals 0
+
+    iput p1, p0, Lcom/android/settings/widget/EntityHeaderController;->mPrefOrder:I
 
     return-object p0
 .end method

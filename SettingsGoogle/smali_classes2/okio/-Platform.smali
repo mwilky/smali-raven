@@ -23,7 +23,7 @@
 
     move-result-object p0
 
-    const-string v0, "(this as java.lang.String).getBytes(charset)"
+    const-string v0, "this as java.lang.String).getBytes(charset)"
 
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 

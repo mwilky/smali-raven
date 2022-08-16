@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/google/android/settings/network/ConnectivityHelperBasePreferenceController$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -27,7 +28,7 @@
 
     iget-object p0, p0, Lcom/google/android/settings/network/ConnectivityHelperBasePreferenceController$$ExternalSyntheticLambda0;->f$0:Lcom/google/android/settings/network/ConnectivityHelperBasePreferenceController;
 
-    invoke-static {p0}, Lcom/google/android/settings/network/ConnectivityHelperBasePreferenceController;->$r8$lambda$h2dXzOZ0gPWTM5oJvpmCWBzMeTQ(Lcom/google/android/settings/network/ConnectivityHelperBasePreferenceController;)V
+    invoke-static {p0}, Lcom/google/android/settings/network/ConnectivityHelperBasePreferenceController;->$r8$lambda$zpzFk6BNxHj9mFsF9wnLqF39nhU(Lcom/google/android/settings/network/ConnectivityHelperBasePreferenceController;)V
 
     return-void
 .end method

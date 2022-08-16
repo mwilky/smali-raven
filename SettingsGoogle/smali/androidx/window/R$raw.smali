@@ -105,47 +105,55 @@
 
 .field public static final lottie_adaptive_brightness:I = 0x7f03002c
 
-.field public static final lottie_bubbles:I = 0x7f03002d
+.field public static final lottie_aware_display:I = 0x7f03002d
 
-.field public static final lottie_lift_to_check_phone:I = 0x7f03002e
+.field public static final lottie_bubbles:I = 0x7f03002e
 
-.field public static final lottie_one_hand_mode:I = 0x7f03002f
+.field public static final lottie_button_nav_menu:I = 0x7f03002f
 
-.field public static final lottie_power_menu:I = 0x7f030030
+.field public static final lottie_gesture_assist_silence:I = 0x7f030030
 
-.field public static final lottie_prevent_ringing:I = 0x7f030031
+.field public static final lottie_lift_to_check_phone:I = 0x7f030031
 
-.field public static final lottie_reverse_charging:I = 0x7f030032
+.field public static final lottie_one_hand_mode:I = 0x7f030032
 
-.field public static final lottie_swipe_fingerprint:I = 0x7f030033
+.field public static final lottie_power_menu:I = 0x7f030033
 
-.field public static final lottie_swipe_for_notifications:I = 0x7f030034
+.field public static final lottie_prevent_ringing:I = 0x7f030034
 
-.field public static final lottie_system_nav_2_button:I = 0x7f030035
+.field public static final lottie_reverse_charging:I = 0x7f030035
 
-.field public static final lottie_system_nav_3_button:I = 0x7f030036
+.field public static final lottie_swipe_fingerprint:I = 0x7f030036
 
-.field public static final lottie_system_nav_fully_gestural:I = 0x7f030037
+.field public static final lottie_swipe_for_notifications:I = 0x7f030037
 
-.field public static final lottie_tap_to_check_phone:I = 0x7f030038
+.field public static final lottie_system_nav_2_button:I = 0x7f030038
 
-.field public static final media_volume:I = 0x7f030039
+.field public static final lottie_system_nav_3_button:I = 0x7f030039
 
-.field public static final notification_interruption_model:I = 0x7f03003a
+.field public static final lottie_system_nav_fully_gestural:I = 0x7f03003a
 
-.field public static final system_nav_2_button:I = 0x7f03003b
+.field public static final lottie_tap_to_check_phone:I = 0x7f03003b
 
-.field public static final system_nav_3_button:I = 0x7f03003c
+.field public static final media_volume:I = 0x7f03003c
 
-.field public static final system_nav_fully_gestural:I = 0x7f03003d
+.field public static final notification_interruption_model:I = 0x7f03003d
 
-.field public static final udfps_edge_hint_lottie:I = 0x7f03003e
+.field public static final system_nav_2_button:I = 0x7f03003e
 
-.field public static final udfps_edu_a11y_lottie:I = 0x7f03003f
+.field public static final system_nav_3_button:I = 0x7f03003f
 
-.field public static final udfps_edu_lottie:I = 0x7f030040
+.field public static final system_nav_fully_gestural:I = 0x7f030040
 
-.field public static final udfps_tip_hint_lottie:I = 0x7f030041
+.field public static final udfps_edu_a11y_lottie:I = 0x7f030041
+
+.field public static final udfps_edu_lottie:I = 0x7f030042
+
+.field public static final udfps_left_edge_hint_lottie:I = 0x7f030043
+
+.field public static final udfps_right_edge_hint_lottie:I = 0x7f030044
+
+.field public static final udfps_tip_hint_lottie:I = 0x7f030045
 
 
 # direct methods

@@ -37,7 +37,7 @@
 .method public onRtxStatusChanged(Lvendor/google/wireless_charger/V1_2/RtxStatusInfo;)V
     .locals 2
 
-    invoke-static {}, Lcom/google/android/settings/fuelgauge/reversecharging/ReverseChargingManager;->access$000()Z
+    invoke-static {}, Lcom/google/android/settings/fuelgauge/reversecharging/ReverseChargingManager;->-$$Nest$sfgetDEBUG()Z
 
     move-result v0
 

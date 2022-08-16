@@ -3,6 +3,14 @@
 .source "Insets.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Landroidx/core/graphics/Insets$Api29Impl;
+    }
+.end annotation
+
+
 # static fields
 .field public static final NONE:Landroidx/core/graphics/Insets;
 
@@ -34,20 +42,6 @@
 
 .method private constructor <init>(IIII)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "left",
-            "top",
-            "right",
-            "bottom"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -64,16 +58,6 @@
 
 .method public static max(Landroidx/core/graphics/Insets;Landroidx/core/graphics/Insets;)Landroidx/core/graphics/Insets;
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "a",
-            "b"
-        }
-    .end annotation
 
     iget v0, p0, Landroidx/core/graphics/Insets;->left:I
 
@@ -116,20 +100,6 @@
 
 .method public static of(IIII)Landroidx/core/graphics/Insets;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "left",
-            "top",
-            "right",
-            "bottom"
-        }
-    .end annotation
 
     if-nez p0, :cond_0
 
@@ -153,14 +123,6 @@
 
 .method public static of(Landroid/graphics/Rect;)Landroidx/core/graphics/Insets;
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "r"
-        }
-    .end annotation
 
     iget v0, p0, Landroid/graphics/Rect;->left:I
 
@@ -179,14 +141,6 @@
 
 .method public static toCompatInsets(Landroid/graphics/Insets;)Landroidx/core/graphics/Insets;
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "insets"
-        }
-    .end annotation
 
     iget v0, p0, Landroid/graphics/Insets;->left:I
 
@@ -207,14 +161,6 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "o"
-        }
-    .end annotation
 
     const/4 v0, 0x1
 
@@ -320,7 +266,7 @@
 
     iget p0, p0, Landroidx/core/graphics/Insets;->bottom:I
 
-    invoke-static {v0, v1, v2, p0}, Landroid/graphics/Insets;->of(IIII)Landroid/graphics/Insets;
+    invoke-static {v0, v1, v2, p0}, Landroidx/core/graphics/Insets$Api29Impl;->of(IIII)Landroid/graphics/Insets;
 
     move-result-object p0
 

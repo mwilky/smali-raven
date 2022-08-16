@@ -1,33 +1,26 @@
 .class public final synthetic Lcom/android/settings/sim/smartForwarding/MDNHandlerFragment$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/view/View$OnClickListener;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/android/settings/sim/smartForwarding/MDNHandlerFragment;
+.implements Landroid/content/DialogInterface$OnClickListener;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/settings/sim/smartForwarding/MDNHandlerFragment;)V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/settings/sim/smartForwarding/MDNHandlerFragment$$ExternalSyntheticLambda2;->f$0:Lcom/android/settings/sim/smartForwarding/MDNHandlerFragment;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final onClick(Landroid/view/View;)V
+.method public final onClick(Landroid/content/DialogInterface;I)V
     .locals 0
 
-    iget-object p0, p0, Lcom/android/settings/sim/smartForwarding/MDNHandlerFragment$$ExternalSyntheticLambda2;->f$0:Lcom/android/settings/sim/smartForwarding/MDNHandlerFragment;
-
-    invoke-static {p0, p1}, Lcom/android/settings/sim/smartForwarding/MDNHandlerFragment;->$r8$lambda$_tDqBq2JqxIzPMl6vP_oBMDhotk(Lcom/android/settings/sim/smartForwarding/MDNHandlerFragment;Landroid/view/View;)V
+    invoke-static {p1, p2}, Lcom/android/settings/sim/smartForwarding/MDNHandlerFragment;->$r8$lambda$eFkuNSYq9HBR5wJqV6_YT-316tU(Landroid/content/DialogInterface;I)V
 
     return-void
 .end method

@@ -239,7 +239,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0412ea
+    const v1, 0x7f0413ae
 
     if-eqz v0, :cond_1
 

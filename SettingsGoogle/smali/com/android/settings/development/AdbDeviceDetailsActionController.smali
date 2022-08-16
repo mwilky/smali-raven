@@ -43,7 +43,7 @@
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    const-string v1, "request_type"
+    const-string/jumbo v1, "request_type"
 
     const/4 v2, 0x0
 
@@ -107,13 +107,13 @@
 
     move-result-object p1
 
-    const v0, 0x7f020339
+    const v0, 0x7f02035d
 
     invoke-virtual {p1, v0}, Lcom/android/settingslib/widget/ActionButtonsPreference;->setButton2Icon(I)Lcom/android/settingslib/widget/ActionButtonsPreference;
 
     move-result-object p1
 
-    const v0, 0x7f0401b3
+    const v0, 0x7f0401da
 
     invoke-virtual {p1, v0}, Lcom/android/settingslib/widget/ActionButtonsPreference;->setButton2Text(I)Lcom/android/settingslib/widget/ActionButtonsPreference;
 

@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settings/biometrics/combination/BiometricsSettingsBase$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/hardware/fingerprint/FingerprintManager$GenerateChallengeCallback;

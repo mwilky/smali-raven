@@ -33,10 +33,34 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmHandler(Lcom/android/settings/notification/RingVolumePreferenceController;)Lcom/android/settings/notification/RingVolumePreferenceController$H;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/notification/RingVolumePreferenceController;->mHandler:Lcom/android/settings/notification/RingVolumePreferenceController$H;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$mupdateEffectsSuppressor(Lcom/android/settings/notification/RingVolumePreferenceController;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/notification/RingVolumePreferenceController;->updateEffectsSuppressor()V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mupdateRingerMode(Lcom/android/settings/notification/RingVolumePreferenceController;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/notification/RingVolumePreferenceController;->updateRingerMode()V
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
 
-    const-string v0, "ring_volume"
+    const-string/jumbo v0, "ring_volume"
 
     invoke-direct {p0, p1, v0}, Lcom/android/settings/notification/RingVolumePreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
@@ -56,13 +80,13 @@
 
     const/4 p2, 0x0
 
-    invoke-direct {p1, p0, p2}, Lcom/android/settings/notification/RingVolumePreferenceController$RingReceiver;-><init>(Lcom/android/settings/notification/RingVolumePreferenceController;Lcom/android/settings/notification/RingVolumePreferenceController$1;)V
+    invoke-direct {p1, p0, p2}, Lcom/android/settings/notification/RingVolumePreferenceController$RingReceiver;-><init>(Lcom/android/settings/notification/RingVolumePreferenceController;Lcom/android/settings/notification/RingVolumePreferenceController$RingReceiver-IA;)V
 
     iput-object p1, p0, Lcom/android/settings/notification/RingVolumePreferenceController;->mReceiver:Lcom/android/settings/notification/RingVolumePreferenceController$RingReceiver;
 
     new-instance p1, Lcom/android/settings/notification/RingVolumePreferenceController$H;
 
-    invoke-direct {p1, p0, p2}, Lcom/android/settings/notification/RingVolumePreferenceController$H;-><init>(Lcom/android/settings/notification/RingVolumePreferenceController;Lcom/android/settings/notification/RingVolumePreferenceController$1;)V
+    invoke-direct {p1, p0, p2}, Lcom/android/settings/notification/RingVolumePreferenceController$H;-><init>(Lcom/android/settings/notification/RingVolumePreferenceController;Lcom/android/settings/notification/RingVolumePreferenceController$H-IA;)V
 
     iput-object p1, p0, Lcom/android/settings/notification/RingVolumePreferenceController;->mHandler:Lcom/android/settings/notification/RingVolumePreferenceController$H;
 
@@ -94,23 +118,7 @@
     return-void
 .end method
 
-.method static synthetic access$200(Lcom/android/settings/notification/RingVolumePreferenceController;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/notification/RingVolumePreferenceController;->updateEffectsSuppressor()V
-
-    return-void
-.end method
-
-.method static synthetic access$300(Lcom/android/settings/notification/RingVolumePreferenceController;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/notification/RingVolumePreferenceController;->updateRingerMode()V
-
-    return-void
-.end method
-
-.method static synthetic access$400(Lcom/android/settings/notification/RingVolumePreferenceController;)Landroid/content/Context;
+.method static synthetic access$000(Lcom/android/settings/notification/RingVolumePreferenceController;)Landroid/content/Context;
     .locals 0
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
@@ -118,18 +126,10 @@
     return-object p0
 .end method
 
-.method static synthetic access$500(Lcom/android/settings/notification/RingVolumePreferenceController;)Landroid/content/Context;
+.method static synthetic access$100(Lcom/android/settings/notification/RingVolumePreferenceController;)Landroid/content/Context;
     .locals 0
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
-
-    return-object p0
-.end method
-
-.method static synthetic access$600(Lcom/android/settings/notification/RingVolumePreferenceController;)Lcom/android/settings/notification/RingVolumePreferenceController$H;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/notification/RingVolumePreferenceController;->mHandler:Lcom/android/settings/notification/RingVolumePreferenceController$H;
 
     return-object p0
 .end method
@@ -193,7 +193,7 @@
 
     if-ne v1, v2, :cond_0
 
-    const v1, 0x7f0203a4
+    const v1, 0x7f0203c8
 
     iput v1, p0, Lcom/android/settings/notification/RingVolumePreferenceController;->mMuteIcon:I
 
@@ -204,7 +204,7 @@
     :cond_0
     if-nez v1, :cond_1
 
-    const v1, 0x7f0202f0
+    const v1, 0x7f020311
 
     iput v1, p0, Lcom/android/settings/notification/RingVolumePreferenceController;->mMuteIcon:I
 
@@ -213,7 +213,7 @@
     goto :goto_0
 
     :cond_1
-    const p0, 0x7f0202ee
+    const p0, 0x7f02030f
 
     invoke-virtual {v0, p0}, Lcom/android/settings/notification/VolumeSeekBarPreference;->showIcon(I)V
 
@@ -247,14 +247,6 @@
 
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public getAudioStream()I
     .locals 0
 
@@ -295,15 +287,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -323,7 +306,7 @@
 .method public getPreferenceKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "ring_volume"
+    const-string/jumbo p0, "ring_volume"
 
     return-object p0
 .end method
@@ -332,16 +315,6 @@
     .locals 0
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->hasAsyncUpdate()Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
 
     move-result p0
 
@@ -363,7 +336,7 @@
 
     move-result-object p0
 
-    const-string v0, "ring_volume"
+    const-string/jumbo v0, "ring_volume"
 
     invoke-static {p0, v0}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
 

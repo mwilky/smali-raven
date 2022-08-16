@@ -50,7 +50,7 @@
 
     iget-object v0, p0, Lcom/android/settings/panel/WifiPanel;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f04170c
+    const v1, 0x7f041806
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -72,7 +72,7 @@
 
     const/16 v5, 0x67
 
-    const v6, 0x7f040d0a
+    const v6, 0x7f040d85
 
     invoke-static/range {v1 .. v6}, Lcom/android/settings/slices/SliceBuilderUtils;->buildSearchResultPageIntent(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;II)Landroid/content/Intent;
 
@@ -126,7 +126,7 @@
 
     iget-object p0, p0, Lcom/android/settings/panel/WifiPanel;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f04170c
+    const v0, 0x7f041806
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 

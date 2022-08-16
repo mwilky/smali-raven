@@ -41,9 +41,6 @@
 
 .method public static getDone(Ljava/util/concurrent/Future;)Ljava/lang/Object;
     .locals 2
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<V:",

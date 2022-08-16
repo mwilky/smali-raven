@@ -4,4 +4,4 @@
 
 
 # static fields
-.field public static final cardViewStyle:I = 0x7f05009d
+.field public static final cardViewStyle:I = 0x7f0500a3

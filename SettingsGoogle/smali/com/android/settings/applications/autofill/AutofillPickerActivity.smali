@@ -77,7 +77,7 @@
 
     const-string v2, ":settings:show_fragment_title_resid"
 
-    const v3, 0x7f0402f6
+    const v3, 0x7f04032f
 
     invoke-virtual {v0, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 

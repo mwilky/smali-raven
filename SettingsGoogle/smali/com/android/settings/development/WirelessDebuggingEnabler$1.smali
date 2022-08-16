@@ -44,7 +44,7 @@
 
     iget-object p2, p0, Lcom/android/settings/development/WirelessDebuggingEnabler$1;->this$0:Lcom/android/settings/development/WirelessDebuggingEnabler;
 
-    invoke-static {p2}, Lcom/android/settings/development/WirelessDebuggingEnabler;->access$000(Lcom/android/settings/development/WirelessDebuggingEnabler;)Z
+    invoke-static {p2}, Lcom/android/settings/development/WirelessDebuggingEnabler;->-$$Nest$misAdbWifiEnabled(Lcom/android/settings/development/WirelessDebuggingEnabler;)Z
 
     move-result p2
 
@@ -60,11 +60,11 @@
 
     iget-object p0, p0, Lcom/android/settings/development/WirelessDebuggingEnabler$1;->this$0:Lcom/android/settings/development/WirelessDebuggingEnabler;
 
-    invoke-static {p0}, Lcom/android/settings/development/WirelessDebuggingEnabler;->access$000(Lcom/android/settings/development/WirelessDebuggingEnabler;)Z
+    invoke-static {p0}, Lcom/android/settings/development/WirelessDebuggingEnabler;->-$$Nest$misAdbWifiEnabled(Lcom/android/settings/development/WirelessDebuggingEnabler;)Z
 
     move-result p1
 
-    invoke-static {p0, p1}, Lcom/android/settings/development/WirelessDebuggingEnabler;->access$100(Lcom/android/settings/development/WirelessDebuggingEnabler;Z)V
+    invoke-static {p0, p1}, Lcom/android/settings/development/WirelessDebuggingEnabler;->-$$Nest$monWirelessDebuggingEnabled(Lcom/android/settings/development/WirelessDebuggingEnabler;Z)V
 
     return-void
 .end method

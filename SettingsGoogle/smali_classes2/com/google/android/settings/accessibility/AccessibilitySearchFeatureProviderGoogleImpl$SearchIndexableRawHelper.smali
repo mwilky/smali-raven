@@ -235,7 +235,7 @@
 
     iget-object v1, p0, Lcom/google/android/settings/accessibility/AccessibilitySearchFeatureProviderGoogleImpl$SearchIndexableRawHelper;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f040b36
+    const v3, 0x7f040b9e
 
     invoke-virtual {v1, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -243,7 +243,7 @@
 
     iget-object v3, p0, Lcom/google/android/settings/accessibility/AccessibilitySearchFeatureProviderGoogleImpl$SearchIndexableRawHelper;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f040b21
+    const v5, 0x7f040b84
 
     invoke-virtual {v3, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -251,7 +251,7 @@
 
     iget-object v5, p0, Lcom/google/android/settings/accessibility/AccessibilitySearchFeatureProviderGoogleImpl$SearchIndexableRawHelper;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f040b37
+    const v6, 0x7f040b9f
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -296,17 +296,17 @@
 
     move-result-object v6
 
-    new-instance v7, Lcom/google/android/settings/accessibility/AccessibilitySearchFeatureProviderGoogleImpl$SearchIndexableRawHelper$$ExternalSyntheticLambda3;
+    new-instance v7, Lcom/google/android/settings/accessibility/AccessibilitySearchFeatureProviderGoogleImpl$SearchIndexableRawHelper$$ExternalSyntheticLambda0;
 
-    invoke-direct {v7, v4}, Lcom/google/android/settings/accessibility/AccessibilitySearchFeatureProviderGoogleImpl$SearchIndexableRawHelper$$ExternalSyntheticLambda3;-><init>(Landroid/content/ComponentName;)V
+    invoke-direct {v7, v4}, Lcom/google/android/settings/accessibility/AccessibilitySearchFeatureProviderGoogleImpl$SearchIndexableRawHelper$$ExternalSyntheticLambda0;-><init>(Landroid/content/ComponentName;)V
 
     invoke-interface {v6, v7}, Ljava/util/stream/Stream;->filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
 
     move-result-object v4
 
-    new-instance v6, Lcom/google/android/settings/accessibility/AccessibilitySearchFeatureProviderGoogleImpl$SearchIndexableRawHelper$$ExternalSyntheticLambda0;
+    new-instance v6, Lcom/google/android/settings/accessibility/AccessibilitySearchFeatureProviderGoogleImpl$SearchIndexableRawHelper$$ExternalSyntheticLambda1;
 
-    invoke-direct {v6, p0, v5, v1}, Lcom/google/android/settings/accessibility/AccessibilitySearchFeatureProviderGoogleImpl$SearchIndexableRawHelper$$ExternalSyntheticLambda0;-><init>(Lcom/google/android/settings/accessibility/AccessibilitySearchFeatureProviderGoogleImpl$SearchIndexableRawHelper;Landroid/content/pm/ActivityInfo;Ljava/util/List;)V
+    invoke-direct {v6, p0, v5, v1}, Lcom/google/android/settings/accessibility/AccessibilitySearchFeatureProviderGoogleImpl$SearchIndexableRawHelper$$ExternalSyntheticLambda1;-><init>(Lcom/google/android/settings/accessibility/AccessibilitySearchFeatureProviderGoogleImpl$SearchIndexableRawHelper;Landroid/content/pm/ActivityInfo;Ljava/util/List;)V
 
     invoke-interface {v4, v6}, Ljava/util/stream/Stream;->forEach(Ljava/util/function/Consumer;)V
 
@@ -368,7 +368,7 @@
 
     iget-object v1, p0, Lcom/google/android/settings/accessibility/AccessibilitySearchFeatureProviderGoogleImpl$SearchIndexableRawHelper;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f040b42
+    const v3, 0x7f040baa
 
     invoke-virtual {v1, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -376,7 +376,7 @@
 
     iget-object v3, p0, Lcom/google/android/settings/accessibility/AccessibilitySearchFeatureProviderGoogleImpl$SearchIndexableRawHelper;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f040ad8
+    const v5, 0x7f040b36
 
     invoke-virtual {v3, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -384,7 +384,7 @@
 
     iget-object v5, p0, Lcom/google/android/settings/accessibility/AccessibilitySearchFeatureProviderGoogleImpl$SearchIndexableRawHelper;->mContext:Landroid/content/Context;
 
-    const v7, 0x7f040b34
+    const v7, 0x7f040b9c
 
     invoke-virtual {v5, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -392,7 +392,7 @@
 
     iget-object v7, p0, Lcom/google/android/settings/accessibility/AccessibilitySearchFeatureProviderGoogleImpl$SearchIndexableRawHelper;->mContext:Landroid/content/Context;
 
-    const v9, 0x7f040b40
+    const v9, 0x7f040ba8
 
     invoke-virtual {v7, v9}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -400,7 +400,7 @@
 
     iget-object v9, p0, Lcom/google/android/settings/accessibility/AccessibilitySearchFeatureProviderGoogleImpl$SearchIndexableRawHelper;->mContext:Landroid/content/Context;
 
-    const v10, 0x7f040b4b
+    const v10, 0x7f040bb4
 
     invoke-virtual {v9, v10}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -461,9 +461,9 @@
 
     move-result-object v5
 
-    new-instance v6, Lcom/google/android/settings/accessibility/AccessibilitySearchFeatureProviderGoogleImpl$SearchIndexableRawHelper$$ExternalSyntheticLambda1;
+    new-instance v6, Lcom/google/android/settings/accessibility/AccessibilitySearchFeatureProviderGoogleImpl$SearchIndexableRawHelper$$ExternalSyntheticLambda3;
 
-    invoke-direct {v6, p0, v4, v1}, Lcom/google/android/settings/accessibility/AccessibilitySearchFeatureProviderGoogleImpl$SearchIndexableRawHelper$$ExternalSyntheticLambda1;-><init>(Lcom/google/android/settings/accessibility/AccessibilitySearchFeatureProviderGoogleImpl$SearchIndexableRawHelper;Landroid/content/pm/ResolveInfo;Ljava/util/List;)V
+    invoke-direct {v6, p0, v4, v1}, Lcom/google/android/settings/accessibility/AccessibilitySearchFeatureProviderGoogleImpl$SearchIndexableRawHelper$$ExternalSyntheticLambda3;-><init>(Lcom/google/android/settings/accessibility/AccessibilitySearchFeatureProviderGoogleImpl$SearchIndexableRawHelper;Landroid/content/pm/ResolveInfo;Ljava/util/List;)V
 
     invoke-interface {v5, v6}, Ljava/util/stream/Stream;->forEach(Ljava/util/function/Consumer;)V
 

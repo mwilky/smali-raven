@@ -45,7 +45,7 @@
 
     move-result p1
 
-    invoke-static {p0, p1}, Lcom/android/settings/security/ScreenPinningSettings;->access$000(Lcom/android/settings/security/ScreenPinningSettings;Z)Z
+    invoke-static {p0, p1}, Lcom/android/settings/security/ScreenPinningSettings;->-$$Nest$msetScreenLockUsed(Lcom/android/settings/security/ScreenPinningSettings;Z)Z
 
     move-result p0
 

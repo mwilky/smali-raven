@@ -61,7 +61,7 @@
 
     iget-object p0, p0, Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate$5;->this$0:Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;
 
-    invoke-static {p0}, Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;->access$1100(Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;)Landroid/view/View$OnFocusChangeListener;
+    invoke-static {p0}, Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;->access$1200(Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;)Landroid/view/View$OnFocusChangeListener;
 
     move-result-object p0
 
@@ -74,7 +74,7 @@
     :cond_0
     invoke-virtual {p1, v0}, Landroid/widget/AutoCompleteTextView;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
-    invoke-static {}, Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;->access$1200()Z
+    invoke-static {}, Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;->access$1300()Z
 
     move-result p0
 

@@ -62,8 +62,6 @@
 
 .method static checkNonnegative(ILjava/lang/String;)I
     .locals 2
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
 
     if-ltz p0, :cond_0
 

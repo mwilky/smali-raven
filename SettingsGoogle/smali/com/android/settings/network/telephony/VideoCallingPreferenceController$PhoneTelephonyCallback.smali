@@ -34,7 +34,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settings/network/telephony/VideoCallingPreferenceController;Lcom/android/settings/network/telephony/VideoCallingPreferenceController$1;)V
+.method synthetic constructor <init>(Lcom/android/settings/network/telephony/VideoCallingPreferenceController;Lcom/android/settings/network/telephony/VideoCallingPreferenceController$PhoneTelephonyCallback-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settings/network/telephony/VideoCallingPreferenceController$PhoneTelephonyCallback;-><init>(Lcom/android/settings/network/telephony/VideoCallingPreferenceController;)V
@@ -57,7 +57,7 @@
 
     iget-object p0, p0, Lcom/android/settings/network/telephony/VideoCallingPreferenceController$PhoneTelephonyCallback;->this$0:Lcom/android/settings/network/telephony/VideoCallingPreferenceController;
 
-    invoke-static {p0}, Lcom/android/settings/network/telephony/VideoCallingPreferenceController;->access$100(Lcom/android/settings/network/telephony/VideoCallingPreferenceController;)Landroidx/preference/Preference;
+    invoke-static {p0}, Lcom/android/settings/network/telephony/VideoCallingPreferenceController;->-$$Nest$fgetmPreference(Lcom/android/settings/network/telephony/VideoCallingPreferenceController;)Landroidx/preference/Preference;
 
     move-result-object p1
 

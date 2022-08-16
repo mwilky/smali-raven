@@ -26,13 +26,13 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/settings/homepage/contextualcards/conditional/ConditionContextualCardController;->mContext:Landroid/content/Context;
-
-    new-instance v0, Lcom/android/settings/homepage/contextualcards/conditional/ConditionManager;
-
     invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
     move-result-object p1
+
+    iput-object p1, p0, Lcom/android/settings/homepage/contextualcards/conditional/ConditionContextualCardController;->mContext:Landroid/content/Context;
+
+    new-instance v0, Lcom/android/settings/homepage/contextualcards/conditional/ConditionManager;
 
     invoke-direct {v0, p1, p0}, Lcom/android/settings/homepage/contextualcards/conditional/ConditionManager;-><init>(Landroid/content/Context;Lcom/android/settings/homepage/contextualcards/conditional/ConditionListener;)V
 
@@ -93,7 +93,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f06008b
+    const v0, 0x7f060096
 
     invoke-virtual {p1, v0}, Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;->setViewType(I)Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;
 
@@ -167,7 +167,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f06008e
+    const v0, 0x7f060099
 
     invoke-virtual {p1, v0}, Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;->setViewType(I)Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;
 
@@ -270,7 +270,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f06008c
+    const v1, 0x7f060097
 
     invoke-virtual {v0, v1}, Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;->setViewType(I)Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;
 

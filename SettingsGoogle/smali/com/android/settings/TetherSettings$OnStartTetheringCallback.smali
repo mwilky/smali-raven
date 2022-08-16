@@ -54,7 +54,7 @@
 
     if-eqz p0, :cond_0
 
-    invoke-static {p0}, Lcom/android/settings/TetherSettings;->access$300(Lcom/android/settings/TetherSettings;)V
+    invoke-static {p0}, Lcom/android/settings/TetherSettings;->-$$Nest$mupdateBluetoothAndEthernetState(Lcom/android/settings/TetherSettings;)V
 
     :cond_0
     return-void

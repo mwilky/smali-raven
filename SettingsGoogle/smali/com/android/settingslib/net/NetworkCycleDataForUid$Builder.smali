@@ -28,7 +28,7 @@
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, v1}, Lcom/android/settingslib/net/NetworkCycleDataForUid;-><init>(Lcom/android/settingslib/net/NetworkCycleDataForUid$1;)V
+    invoke-direct {v0, v1}, Lcom/android/settingslib/net/NetworkCycleDataForUid;-><init>(Lcom/android/settingslib/net/NetworkCycleDataForUid-IA;)V
 
     iput-object v0, p0, Lcom/android/settingslib/net/NetworkCycleDataForUid$Builder;->mObject:Lcom/android/settingslib/net/NetworkCycleDataForUid;
 
@@ -82,7 +82,7 @@
 
     move-result-object v0
 
-    invoke-static {v0, p1, p2}, Lcom/android/settingslib/net/NetworkCycleDataForUid;->access$102(Lcom/android/settingslib/net/NetworkCycleDataForUid;J)J
+    invoke-static {v0, p1, p2}, Lcom/android/settingslib/net/NetworkCycleDataForUid;->-$$Nest$fputmBackgroudUsage(Lcom/android/settingslib/net/NetworkCycleDataForUid;J)V
 
     return-object p0
 .end method
@@ -94,7 +94,7 @@
 
     move-result-object v0
 
-    invoke-static {v0, p1, p2}, Lcom/android/settingslib/net/NetworkCycleDataForUid;->access$202(Lcom/android/settingslib/net/NetworkCycleDataForUid;J)J
+    invoke-static {v0, p1, p2}, Lcom/android/settingslib/net/NetworkCycleDataForUid;->-$$Nest$fputmForegroudUsage(Lcom/android/settingslib/net/NetworkCycleDataForUid;J)V
 
     return-object p0
 .end method

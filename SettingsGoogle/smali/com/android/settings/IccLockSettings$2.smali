@@ -48,13 +48,13 @@
 
     iget-object p1, p0, Lcom/android/settings/IccLockSettings$2;->this$0:Lcom/android/settings/IccLockSettings;
 
-    invoke-static {p1}, Lcom/android/settings/IccLockSettings;->access$100(Lcom/android/settings/IccLockSettings;)Landroid/os/Handler;
+    invoke-static {p1}, Lcom/android/settings/IccLockSettings;->-$$Nest$fgetmHandler(Lcom/android/settings/IccLockSettings;)Landroid/os/Handler;
 
     move-result-object p1
 
     iget-object p0, p0, Lcom/android/settings/IccLockSettings$2;->this$0:Lcom/android/settings/IccLockSettings;
 
-    invoke-static {p0}, Lcom/android/settings/IccLockSettings;->access$100(Lcom/android/settings/IccLockSettings;)Landroid/os/Handler;
+    invoke-static {p0}, Lcom/android/settings/IccLockSettings;->-$$Nest$fgetmHandler(Lcom/android/settings/IccLockSettings;)Landroid/os/Handler;
 
     move-result-object p0
 

@@ -29,6 +29,54 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmOnClickBundle(Lcom/google/android/settings/security/SecurityContentManager$Entry$Builder;)Landroid/os/Bundle;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/settings/security/SecurityContentManager$Entry$Builder;->mOnClickBundle:Landroid/os/Bundle;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmOrder(Lcom/google/android/settings/security/SecurityContentManager$Entry$Builder;)I
+    .locals 0
+
+    iget p0, p0, Lcom/google/android/settings/security/SecurityContentManager$Entry$Builder;->mOrder:I
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmSecurityLevel(Lcom/google/android/settings/security/SecurityContentManager$Entry$Builder;)Lcom/google/android/settings/security/SecurityLevel;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/settings/security/SecurityContentManager$Entry$Builder;->mSecurityLevel:Lcom/google/android/settings/security/SecurityLevel;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmSecuritySourceId(Lcom/google/android/settings/security/SecurityContentManager$Entry$Builder;)Ljava/lang/String;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/settings/security/SecurityContentManager$Entry$Builder;->mSecuritySourceId:Ljava/lang/String;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmSummary(Lcom/google/android/settings/security/SecurityContentManager$Entry$Builder;)Ljava/lang/String;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/settings/security/SecurityContentManager$Entry$Builder;->mSummary:Ljava/lang/String;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmTitle(Lcom/google/android/settings/security/SecurityContentManager$Entry$Builder;)Ljava/lang/String;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/settings/security/SecurityContentManager$Entry$Builder;->mTitle:Ljava/lang/String;
+
+    return-object p0
+.end method
+
 .method public constructor <init>()V
     .locals 1
 
@@ -41,54 +89,6 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/google/android/settings/security/SecurityContentManager$Entry$Builder;)Ljava/lang/String;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/settings/security/SecurityContentManager$Entry$Builder;->mTitle:Ljava/lang/String;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/google/android/settings/security/SecurityContentManager$Entry$Builder;)Ljava/lang/String;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/settings/security/SecurityContentManager$Entry$Builder;->mSummary:Ljava/lang/String;
-
-    return-object p0
-.end method
-
-.method static synthetic access$200(Lcom/google/android/settings/security/SecurityContentManager$Entry$Builder;)Lcom/google/android/settings/security/SecurityLevel;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/settings/security/SecurityContentManager$Entry$Builder;->mSecurityLevel:Lcom/google/android/settings/security/SecurityLevel;
-
-    return-object p0
-.end method
-
-.method static synthetic access$300(Lcom/google/android/settings/security/SecurityContentManager$Entry$Builder;)Landroid/os/Bundle;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/settings/security/SecurityContentManager$Entry$Builder;->mOnClickBundle:Landroid/os/Bundle;
-
-    return-object p0
-.end method
-
-.method static synthetic access$400(Lcom/google/android/settings/security/SecurityContentManager$Entry$Builder;)I
-    .locals 0
-
-    iget p0, p0, Lcom/google/android/settings/security/SecurityContentManager$Entry$Builder;->mOrder:I
-
-    return p0
-.end method
-
-.method static synthetic access$500(Lcom/google/android/settings/security/SecurityContentManager$Entry$Builder;)Ljava/lang/String;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/settings/security/SecurityContentManager$Entry$Builder;->mSecuritySourceId:Ljava/lang/String;
-
-    return-object p0
-.end method
-
 
 # virtual methods
 .method public build()Lcom/google/android/settings/security/SecurityContentManager$Entry;
@@ -98,7 +98,7 @@
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, p0, v1}, Lcom/google/android/settings/security/SecurityContentManager$Entry;-><init>(Lcom/google/android/settings/security/SecurityContentManager$Entry$Builder;Lcom/google/android/settings/security/SecurityContentManager$1;)V
+    invoke-direct {v0, p0, v1}, Lcom/google/android/settings/security/SecurityContentManager$Entry;-><init>(Lcom/google/android/settings/security/SecurityContentManager$Entry$Builder;Lcom/google/android/settings/security/SecurityContentManager$Entry-IA;)V
 
     return-object v0
 .end method

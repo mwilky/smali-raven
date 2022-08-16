@@ -43,6 +43,50 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$6X9wgFRrAcOcNsV7lUyv-J-h1A0(Lcom/android/settings/notification/LockScreenNotificationPreferenceController;)Ljava/lang/String;
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/notification/LockScreenNotificationPreferenceController;->lambda$initLockscreenNotificationPrefForProfile$1()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static synthetic $r8$lambda$HXyKq2FYGXRvPJmc4kGrn9Sl-Kw(Lcom/android/settings/notification/LockScreenNotificationPreferenceController;)Ljava/lang/String;
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/notification/LockScreenNotificationPreferenceController;->lambda$initLockscreenNotificationPrefForProfile$0()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmProfileUserId(Lcom/android/settings/notification/LockScreenNotificationPreferenceController;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/settings/notification/LockScreenNotificationPreferenceController;->mProfileUserId:I
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$mupdateLockscreenNotifications(Lcom/android/settings/notification/LockScreenNotificationPreferenceController;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/notification/LockScreenNotificationPreferenceController;->updateLockscreenNotifications()V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mupdateLockscreenNotificationsForProfile(Lcom/android/settings/notification/LockScreenNotificationPreferenceController;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/notification/LockScreenNotificationPreferenceController;->updateLockscreenNotificationsForProfile()V
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
 
@@ -119,30 +163,6 @@
 
     :goto_0
     iput-boolean p1, p0, Lcom/android/settings/notification/LockScreenNotificationPreferenceController;->mSecureProfile:Z
-
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/notification/LockScreenNotificationPreferenceController;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/notification/LockScreenNotificationPreferenceController;->updateLockscreenNotifications()V
-
-    return-void
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/notification/LockScreenNotificationPreferenceController;)I
-    .locals 0
-
-    iget p0, p0, Lcom/android/settings/notification/LockScreenNotificationPreferenceController;->mProfileUserId:I
-
-    return p0
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/notification/LockScreenNotificationPreferenceController;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/notification/LockScreenNotificationPreferenceController;->updateLockscreenNotificationsForProfile()V
 
     return-void
 .end method
@@ -280,19 +300,19 @@
     :goto_1
     if-nez v0, :cond_2
 
-    const p0, 0x7f040bc6
+    const p0, 0x7f040c2d
 
     goto :goto_2
 
     :cond_2
     if-eqz p0, :cond_3
 
-    const p0, 0x7f040bc9
+    const p0, 0x7f040c30
 
     goto :goto_2
 
     :cond_3
-    const p0, 0x7f040bc7
+    const p0, 0x7f040c2e
 
     :goto_2
     return p0
@@ -311,7 +331,7 @@
 
     iget-object v2, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f040bc9
+    const v3, 0x7f040c30
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -335,7 +355,7 @@
 
     iget-object v2, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f040bc7
+    const v3, 0x7f040c2e
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -356,7 +376,7 @@
     :cond_0
     iget-object v2, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f040bc6
+    const v3, 0x7f040c2d
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -434,7 +454,7 @@
 .end method
 
 .method private initLockscreenNotificationPrefForProfile()V
-    .locals 5
+    .locals 6
 
     iget-object v0, p0, Lcom/android/settings/notification/LockScreenNotificationPreferenceController;->mLockscreenProfile:Lcom/android/settings/RestrictedListPreference;
 
@@ -473,35 +493,61 @@
 
     iget-object v2, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f040bca
+    const-class v3, Landroid/app/admin/DevicePolicyManager;
 
-    invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    invoke-virtual {v2, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v2
 
-    invoke-static {v3}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    check-cast v2, Landroid/app/admin/DevicePolicyManager;
+
+    invoke-virtual {v2}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
 
     move-result-object v3
 
-    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    new-instance v4, Lcom/android/settings/notification/LockScreenNotificationPreferenceController$$ExternalSyntheticLambda0;
 
-    invoke-virtual {v1, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-direct {v4, p0}, Lcom/android/settings/notification/LockScreenNotificationPreferenceController$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/notification/LockScreenNotificationPreferenceController;)V
 
-    const/16 v4, 0xc
+    const-string v5, "Settings.LOCK_SCREEN_SHOW_WORK_NOTIFICATION_CONTENT"
 
-    invoke-direct {p0, v2, v3, v4}, Lcom/android/settings/notification/LockScreenNotificationPreferenceController;->setRestrictedIfNotificationFeaturesDisabled(Ljava/lang/CharSequence;Ljava/lang/CharSequence;I)V
+    invoke-virtual {v3, v5, v4}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
 
-    iget-boolean v2, p0, Lcom/android/settings/notification/LockScreenNotificationPreferenceController;->mSecureProfile:Z
+    move-result-object v3
 
-    if-eqz v2, :cond_1
+    const v4, 0x7f040c31
 
-    iget-object v2, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+    invoke-static {v4}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    const v3, 0x7f040bc8
+    move-result-object v4
 
-    invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    invoke-virtual {v0, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    invoke-virtual {v1, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const/16 v5, 0xc
+
+    invoke-direct {p0, v3, v4, v5}, Lcom/android/settings/notification/LockScreenNotificationPreferenceController;->setRestrictedIfNotificationFeaturesDisabled(Ljava/lang/CharSequence;Ljava/lang/CharSequence;I)V
+
+    iget-boolean v3, p0, Lcom/android/settings/notification/LockScreenNotificationPreferenceController;->mSecureProfile:Z
+
+    if-eqz v3, :cond_1
+
+    invoke-virtual {v2}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
 
     move-result-object v2
+
+    new-instance v3, Lcom/android/settings/notification/LockScreenNotificationPreferenceController$$ExternalSyntheticLambda1;
+
+    invoke-direct {v3, p0}, Lcom/android/settings/notification/LockScreenNotificationPreferenceController$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/notification/LockScreenNotificationPreferenceController;)V
+
+    const-string v4, "Settings.LOCK_SCREEN_HIDE_WORK_NOTIFICATION_CONTENT"
+
+    invoke-virtual {v2, v4, v3}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
+
+    move-result-object v2
+
+    const v3, 0x7f040c2f
 
     invoke-static {v3}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
@@ -577,6 +623,34 @@
 
     :goto_0
     return-void
+.end method
+
+.method private synthetic lambda$initLockscreenNotificationPrefForProfile$0()Ljava/lang/String;
+    .locals 1
+
+    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    const v0, 0x7f040c31
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private synthetic lambda$initLockscreenNotificationPrefForProfile$1()Ljava/lang/String;
+    .locals 1
+
+    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    const v0, 0x7f040c2f
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method private setRestrictedIfNotificationFeaturesDisabled(Ljava/lang/CharSequence;Ljava/lang/CharSequence;I)V
@@ -730,12 +804,12 @@
 
     if-eqz v0, :cond_4
 
-    const v0, 0x7f040bca
+    const v0, 0x7f040c31
 
     goto :goto_1
 
     :cond_4
-    const v0, 0x7f040bc8
+    const v0, 0x7f040c2f
 
     :goto_1
     iput v0, p0, Lcom/android/settings/notification/LockScreenNotificationPreferenceController;->mLockscreenSelectedValueProfile:I
@@ -917,7 +991,7 @@
     return v3
 
     :cond_0
-    const p2, 0x7f040bca
+    const p2, 0x7f040c31
 
     if-ne p1, p2, :cond_1
 
@@ -960,7 +1034,7 @@
     return v3
 
     :cond_3
-    const p2, 0x7f040bc6
+    const p2, 0x7f040c2d
 
     if-eq p1, p2, :cond_4
 
@@ -972,7 +1046,7 @@
     move p2, v3
 
     :goto_0
-    const v0, 0x7f040bc9
+    const v0, 0x7f040c30
 
     if-ne p1, v0, :cond_5
 

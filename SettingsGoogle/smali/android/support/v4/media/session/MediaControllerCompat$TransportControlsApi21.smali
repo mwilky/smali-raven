@@ -21,14 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/media/session/MediaController$TransportControls;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "controlsFwk"
-        }
-    .end annotation
 
     invoke-direct {p0}, Landroid/support/v4/media/session/MediaControllerCompat$TransportControls;-><init>()V
 

@@ -50,7 +50,7 @@
 
     iget-object p1, p0, Lcom/android/settings/users/UserSettings$2;->this$0:Lcom/android/settings/users/UserSettings;
 
-    invoke-static {p1, v0}, Lcom/android/settings/users/UserSettings;->access$102(Lcom/android/settings/users/UserSettings;I)I
+    invoke-static {p1, v0}, Lcom/android/settings/users/UserSettings;->-$$Nest$fputmRemovingUserId(Lcom/android/settings/users/UserSettings;I)V
 
     goto :goto_0
 
@@ -85,7 +85,7 @@
     :goto_0
     iget-object p0, p0, Lcom/android/settings/users/UserSettings$2;->this$0:Lcom/android/settings/users/UserSettings;
 
-    invoke-static {p0}, Lcom/android/settings/users/UserSettings;->access$200(Lcom/android/settings/users/UserSettings;)Landroid/os/Handler;
+    invoke-static {p0}, Lcom/android/settings/users/UserSettings;->-$$Nest$fgetmHandler(Lcom/android/settings/users/UserSettings;)Landroid/os/Handler;
 
     move-result-object p0
 

@@ -66,14 +66,6 @@
 
 
 # virtual methods
-.method public dispatchFitSystemWindows(Landroid/graphics/Rect;)V
-    .locals 0
-
-    invoke-virtual {p0, p1}, Landroid/widget/FrameLayout;->fitSystemWindows(Landroid/graphics/Rect;)Z
-
-    return-void
-.end method
-
 .method public getFixedHeightMajor()Landroid/util/TypedValue;
     .locals 1
 

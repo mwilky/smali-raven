@@ -44,8 +44,6 @@
 # virtual methods
 .method public concurrencyLevel(I)Lcom/google/common/collect/MapMaker;
     .locals 5
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
 
     iget v0, p0, Lcom/google/common/collect/MapMaker;->concurrencyLevel:I
 
@@ -178,8 +176,6 @@
 
 .method public initialCapacity(I)Lcom/google/common/collect/MapMaker;
     .locals 5
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
 
     iget v0, p0, Lcom/google/common/collect/MapMaker;->initialCapacity:I
 
@@ -220,9 +216,6 @@
 
 .method keyEquivalence(Lcom/google/common/base/Equivalence;)Lcom/google/common/collect/MapMaker;
     .locals 4
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -463,8 +456,6 @@
 
 .method public weakKeys()Lcom/google/common/collect/MapMaker;
     .locals 1
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
 
     sget-object v0, Lcom/google/common/collect/MapMakerInternalMap$Strength;->WEAK:Lcom/google/common/collect/MapMakerInternalMap$Strength;
 

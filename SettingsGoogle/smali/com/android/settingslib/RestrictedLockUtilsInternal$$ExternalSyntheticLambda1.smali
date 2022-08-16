@@ -1,31 +1,26 @@
 .class public final synthetic Lcom/android/settingslib/RestrictedLockUtilsInternal$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/settingslib/RestrictedLockUtilsInternal$LockSettingCheck;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/settingslib/RestrictedLockUtilsInternal$$ExternalSyntheticLambda1;
+# instance fields
+.field public final synthetic f$0:I
+
+.field public final synthetic f$1:I
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/settingslib/RestrictedLockUtilsInternal$$ExternalSyntheticLambda1;
-
-    invoke-direct {v0}, Lcom/android/settingslib/RestrictedLockUtilsInternal$$ExternalSyntheticLambda1;-><init>()V
-
-    sput-object v0, Lcom/android/settingslib/RestrictedLockUtilsInternal$$ExternalSyntheticLambda1;->INSTANCE:Lcom/android/settingslib/RestrictedLockUtilsInternal$$ExternalSyntheticLambda1;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(II)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput p1, p0, Lcom/android/settingslib/RestrictedLockUtilsInternal$$ExternalSyntheticLambda1;->f$0:I
+
+    iput p2, p0, Lcom/android/settingslib/RestrictedLockUtilsInternal$$ExternalSyntheticLambda1;->f$1:I
 
     return-void
 .end method
@@ -33,9 +28,13 @@
 
 # virtual methods
 .method public final isEnforcing(Landroid/app/admin/DevicePolicyManager;Landroid/content/ComponentName;I)Z
-    .locals 0
+    .locals 1
 
-    invoke-static {p1, p2, p3}, Lcom/android/settingslib/RestrictedLockUtilsInternal;->$r8$lambda$_rDywpGNK_twDa41QEsd4--Vu9Y(Landroid/app/admin/DevicePolicyManager;Landroid/content/ComponentName;I)Z
+    iget v0, p0, Lcom/android/settingslib/RestrictedLockUtilsInternal$$ExternalSyntheticLambda1;->f$0:I
+
+    iget p0, p0, Lcom/android/settingslib/RestrictedLockUtilsInternal$$ExternalSyntheticLambda1;->f$1:I
+
+    invoke-static {v0, p0, p1, p2, p3}, Lcom/android/settingslib/RestrictedLockUtilsInternal;->$r8$lambda$oDyBfugdg_uANtWi1Hw0fURcGr8(IILandroid/app/admin/DevicePolicyManager;Landroid/content/ComponentName;I)Z
 
     move-result p0
 

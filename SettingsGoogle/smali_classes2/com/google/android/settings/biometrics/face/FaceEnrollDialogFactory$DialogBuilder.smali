@@ -21,6 +21,14 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmOnBackKeyListener(Lcom/google/android/settings/biometrics/face/FaceEnrollDialogFactory$DialogBuilder;)Lcom/google/android/settings/biometrics/face/FaceEnrollDialogFactory$OnBackKeyListener;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollDialogFactory$DialogBuilder;->mOnBackKeyListener:Lcom/google/android/settings/biometrics/face/FaceEnrollDialogFactory$OnBackKeyListener;
+
+    return-object p0
+.end method
+
 .method private constructor <init>(Landroid/content/Context;)V
     .locals 1
 
@@ -35,20 +43,12 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Landroid/content/Context;Lcom/google/android/settings/biometrics/face/FaceEnrollDialogFactory$1;)V
+.method synthetic constructor <init>(Landroid/content/Context;Lcom/google/android/settings/biometrics/face/FaceEnrollDialogFactory$DialogBuilder-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/google/android/settings/biometrics/face/FaceEnrollDialogFactory$DialogBuilder;-><init>(Landroid/content/Context;)V
 
     return-void
-.end method
-
-.method static synthetic access$100(Lcom/google/android/settings/biometrics/face/FaceEnrollDialogFactory$DialogBuilder;)Lcom/google/android/settings/biometrics/face/FaceEnrollDialogFactory$OnBackKeyListener;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollDialogFactory$DialogBuilder;->mOnBackKeyListener:Lcom/google/android/settings/biometrics/face/FaceEnrollDialogFactory$OnBackKeyListener;
-
-    return-object p0
 .end method
 
 

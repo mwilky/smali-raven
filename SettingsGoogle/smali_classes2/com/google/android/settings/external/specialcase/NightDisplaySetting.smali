@@ -18,7 +18,7 @@
 .method private getIconResource()I
     .locals 0
 
-    const p0, 0x1080525
+    const p0, 0x1080530
 
     return p0
 .end method
@@ -72,7 +72,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f040d07
+    const v6, 0x7f040d82
 
     const-string v3, "night_display"
 
@@ -172,7 +172,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f040d07
+    const v8, 0x7f040d82
 
     const-string v5, "night_display"
 

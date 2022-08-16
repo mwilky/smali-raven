@@ -134,7 +134,7 @@
 
     const-string p0, "BatteryOptimizeUtils"
 
-    const-string p1, "set unknown app optimization mode."
+    const-string/jumbo p1, "set unknown app optimization mode."
 
     invoke-static {p0, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -218,7 +218,7 @@
 
     aput-object p0, v0, v1
 
-    const-string p0, "refresh %s state, allowlisted = %s, mode = %d"
+    const-string/jumbo p0, "refresh %s state, allowlisted = %s, mode = %d"
 
     invoke-static {p0, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -271,7 +271,7 @@
 
     invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v0, "set OPTIMIZED failed for "
+    const-string/jumbo v0, "set OPTIMIZED failed for "
 
     invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -407,7 +407,7 @@
 
     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v0, "set the same optimization mode for: "
+    const-string/jumbo v0, "set the same optimization mode for: "
 
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

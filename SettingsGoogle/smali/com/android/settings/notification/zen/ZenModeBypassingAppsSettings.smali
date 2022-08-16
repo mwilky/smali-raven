@@ -12,12 +12,22 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$smbuildPreferenceControllers(Landroid/content/Context;Landroid/app/Application;Landroidx/fragment/app/Fragment;Lcom/android/settings/notification/NotificationBackend;)Ljava/util/List;
+    .locals 0
+
+    invoke-static {p0, p1, p2, p3}, Lcom/android/settings/notification/zen/ZenModeBypassingAppsSettings;->buildPreferenceControllers(Landroid/content/Context;Landroid/app/Application;Landroidx/fragment/app/Fragment;Lcom/android/settings/notification/NotificationBackend;)Ljava/util/List;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method static constructor <clinit>()V
     .locals 2
 
     new-instance v0, Lcom/android/settings/notification/zen/ZenModeBypassingAppsSettings$1;
 
-    const v1, 0x7f150121
+    const v1, 0x7f150129
 
     invoke-direct {v0, v1}, Lcom/android/settings/notification/zen/ZenModeBypassingAppsSettings$1;-><init>(I)V
 
@@ -36,16 +46,6 @@
     iput-object v0, p0, Lcom/android/settings/notification/zen/ZenModeBypassingAppsSettings;->TAG:Ljava/lang/String;
 
     return-void
-.end method
-
-.method static synthetic access$000(Landroid/content/Context;Landroid/app/Application;Landroidx/fragment/app/Fragment;Lcom/android/settings/notification/NotificationBackend;)Ljava/util/List;
-    .locals 0
-
-    invoke-static {p0, p1, p2, p3}, Lcom/android/settings/notification/zen/ZenModeBypassingAppsSettings;->buildPreferenceControllers(Landroid/content/Context;Landroid/app/Application;Landroidx/fragment/app/Fragment;Lcom/android/settings/notification/NotificationBackend;)Ljava/util/List;
-
-    move-result-object p0
-
-    return-object p0
 .end method
 
 .method private static buildPreferenceControllers(Landroid/content/Context;Landroid/app/Application;Landroidx/fragment/app/Fragment;Lcom/android/settings/notification/NotificationBackend;)Ljava/util/List;
@@ -144,7 +144,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150121
+    const p0, 0x7f150129
 
     return p0
 .end method

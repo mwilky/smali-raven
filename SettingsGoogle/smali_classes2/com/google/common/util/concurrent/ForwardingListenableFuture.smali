@@ -7,9 +7,6 @@
 
 
 # annotations
-.annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-.end annotation
-
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/google/common/util/concurrent/ForwardingListenableFuture$SimpleForwardingListenableFuture;

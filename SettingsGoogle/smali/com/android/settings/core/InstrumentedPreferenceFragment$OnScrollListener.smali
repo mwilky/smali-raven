@@ -37,7 +37,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Ljava/lang/String;Lcom/android/settings/core/InstrumentedPreferenceFragment$1;)V
+.method synthetic constructor <init>(Ljava/lang/String;Lcom/android/settings/core/InstrumentedPreferenceFragment$OnScrollListener-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settings/core/InstrumentedPreferenceFragment$OnScrollListener;-><init>(Ljava/lang/String;)V

@@ -39,11 +39,11 @@
 
     iget-object v0, p0, Lcom/android/settings/notification/app/NotificationSettings$1;->this$0:Lcom/android/settings/notification/app/NotificationSettings;
 
-    invoke-static {v0}, Lcom/android/settings/notification/app/NotificationSettings;->access$000(Lcom/android/settings/notification/app/NotificationSettings;)V
+    invoke-static {v0}, Lcom/android/settings/notification/app/NotificationSettings;->-$$Nest$manimateIn(Lcom/android/settings/notification/app/NotificationSettings;)V
 
     iget-object v0, p0, Lcom/android/settings/notification/app/NotificationSettings$1;->this$0:Lcom/android/settings/notification/app/NotificationSettings;
 
-    invoke-static {v0}, Lcom/android/settings/notification/app/NotificationSettings;->access$100(Lcom/android/settings/notification/app/NotificationSettings;)Landroid/view/ViewGroup;
+    invoke-static {v0}, Lcom/android/settings/notification/app/NotificationSettings;->-$$Nest$fgetmLayoutView(Lcom/android/settings/notification/app/NotificationSettings;)Landroid/view/ViewGroup;
 
     move-result-object v0
 
@@ -51,7 +51,7 @@
 
     iget-object v0, p0, Lcom/android/settings/notification/app/NotificationSettings$1;->this$0:Lcom/android/settings/notification/app/NotificationSettings;
 
-    invoke-static {v0}, Lcom/android/settings/notification/app/NotificationSettings;->access$100(Lcom/android/settings/notification/app/NotificationSettings;)Landroid/view/ViewGroup;
+    invoke-static {v0}, Lcom/android/settings/notification/app/NotificationSettings;->-$$Nest$fgetmLayoutView(Lcom/android/settings/notification/app/NotificationSettings;)Landroid/view/ViewGroup;
 
     move-result-object v0
 

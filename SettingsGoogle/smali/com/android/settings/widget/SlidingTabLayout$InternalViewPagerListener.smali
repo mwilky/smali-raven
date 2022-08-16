@@ -34,7 +34,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settings/widget/SlidingTabLayout;Lcom/android/settings/widget/SlidingTabLayout$1;)V
+.method synthetic constructor <init>(Lcom/android/settings/widget/SlidingTabLayout;Lcom/android/settings/widget/SlidingTabLayout$InternalViewPagerListener-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settings/widget/SlidingTabLayout$InternalViewPagerListener;-><init>(Lcom/android/settings/widget/SlidingTabLayout;)V
@@ -57,7 +57,7 @@
 
     iget-object p3, p0, Lcom/android/settings/widget/SlidingTabLayout$InternalViewPagerListener;->this$0:Lcom/android/settings/widget/SlidingTabLayout;
 
-    invoke-static {p3}, Lcom/android/settings/widget/SlidingTabLayout;->access$100(Lcom/android/settings/widget/SlidingTabLayout;)Landroid/widget/LinearLayout;
+    invoke-static {p3}, Lcom/android/settings/widget/SlidingTabLayout;->-$$Nest$fgetmTitleView(Lcom/android/settings/widget/SlidingTabLayout;)Landroid/widget/LinearLayout;
 
     move-result-object p3
 
@@ -76,7 +76,7 @@
     :cond_0
     iget-object p0, p0, Lcom/android/settings/widget/SlidingTabLayout$InternalViewPagerListener;->this$0:Lcom/android/settings/widget/SlidingTabLayout;
 
-    invoke-static {p0, p1, p2}, Lcom/android/settings/widget/SlidingTabLayout;->access$200(Lcom/android/settings/widget/SlidingTabLayout;IF)V
+    invoke-static {p0, p1, p2}, Lcom/android/settings/widget/SlidingTabLayout;->-$$Nest$monViewPagerPageChanged(Lcom/android/settings/widget/SlidingTabLayout;IF)V
 
     :cond_1
     :goto_0
@@ -88,7 +88,7 @@
 
     iget-object v0, p0, Lcom/android/settings/widget/SlidingTabLayout$InternalViewPagerListener;->this$0:Lcom/android/settings/widget/SlidingTabLayout;
 
-    invoke-static {v0}, Lcom/android/settings/widget/SlidingTabLayout;->access$300(Lcom/android/settings/widget/SlidingTabLayout;)Lcom/android/settings/widget/RtlCompatibleViewPager;
+    invoke-static {v0}, Lcom/android/settings/widget/SlidingTabLayout;->-$$Nest$fgetmViewPager(Lcom/android/settings/widget/SlidingTabLayout;)Lcom/android/settings/widget/RtlCompatibleViewPager;
 
     move-result-object v0
 
@@ -104,12 +104,12 @@
 
     const/4 v1, 0x0
 
-    invoke-static {v0, p1, v1}, Lcom/android/settings/widget/SlidingTabLayout;->access$200(Lcom/android/settings/widget/SlidingTabLayout;IF)V
+    invoke-static {v0, p1, v1}, Lcom/android/settings/widget/SlidingTabLayout;->-$$Nest$monViewPagerPageChanged(Lcom/android/settings/widget/SlidingTabLayout;IF)V
 
     :cond_0
     iget-object v0, p0, Lcom/android/settings/widget/SlidingTabLayout$InternalViewPagerListener;->this$0:Lcom/android/settings/widget/SlidingTabLayout;
 
-    invoke-static {v0}, Lcom/android/settings/widget/SlidingTabLayout;->access$100(Lcom/android/settings/widget/SlidingTabLayout;)Landroid/widget/LinearLayout;
+    invoke-static {v0}, Lcom/android/settings/widget/SlidingTabLayout;->-$$Nest$fgetmTitleView(Lcom/android/settings/widget/SlidingTabLayout;)Landroid/widget/LinearLayout;
 
     move-result-object v0
 
@@ -126,7 +126,7 @@
 
     iget-object v3, p0, Lcom/android/settings/widget/SlidingTabLayout$InternalViewPagerListener;->this$0:Lcom/android/settings/widget/SlidingTabLayout;
 
-    invoke-static {v3}, Lcom/android/settings/widget/SlidingTabLayout;->access$100(Lcom/android/settings/widget/SlidingTabLayout;)Landroid/widget/LinearLayout;
+    invoke-static {v3}, Lcom/android/settings/widget/SlidingTabLayout;->-$$Nest$fgetmTitleView(Lcom/android/settings/widget/SlidingTabLayout;)Landroid/widget/LinearLayout;
 
     move-result-object v3
 

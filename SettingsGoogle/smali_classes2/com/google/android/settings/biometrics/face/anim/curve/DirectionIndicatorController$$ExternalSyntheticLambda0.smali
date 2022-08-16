@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/google/android/settings/biometrics/face/anim/curve/DirectionIndicatorController$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/animation/ValueAnimator$AnimatorUpdateListener;

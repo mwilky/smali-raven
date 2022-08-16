@@ -31,6 +31,14 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmContext(Lcom/android/settings/notification/app/BubblePreference;)Landroid/content/Context;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/notification/app/BubblePreference;->mContext:Landroid/content/Context;
+
+    return-object p0
+.end method
+
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
 
@@ -78,19 +86,11 @@
 
     iput-object p1, p0, Lcom/android/settings/notification/app/BubblePreference;->mContext:Landroid/content/Context;
 
-    const p1, 0x7f060072
+    const p1, 0x7f06007a
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setLayoutResource(I)V
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/notification/app/BubblePreference;)Landroid/content/Context;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/notification/app/BubblePreference;->mContext:Landroid/content/Context;
-
-    return-object p0
 .end method
 
 
@@ -142,13 +142,13 @@
 
     invoke-virtual {v1, v3}, Landroid/view/View;->setClickable(Z)V
 
-    const v1, 0x7f0d0116
+    const v1, 0x7f0d0125
 
     invoke-virtual {p1, v1}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
-    const v4, 0x7f0d0117
+    const v4, 0x7f0d0126
 
     invoke-virtual {p1, v4}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -158,7 +158,7 @@
 
     check-cast v7, Landroid/widget/ImageView;
 
-    const v4, 0x7f0d0118
+    const v4, 0x7f0d0127
 
     invoke-virtual {p1, v4}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -220,13 +220,13 @@
     :goto_2
     invoke-virtual {v1, v4}, Landroid/view/View;->setVisibility(I)V
 
-    const v1, 0x7f0d011c
+    const v1, 0x7f0d012b
 
     invoke-virtual {p1, v1}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
-    const v4, 0x7f0d011d
+    const v4, 0x7f0d012c
 
     invoke-virtual {p1, v4}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -236,7 +236,7 @@
 
     check-cast v10, Landroid/widget/ImageView;
 
-    const v4, 0x7f0d011e
+    const v4, 0x7f0d012d
 
     invoke-virtual {p1, v4}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -306,13 +306,13 @@
     :goto_5
     invoke-virtual {v1, v4}, Landroid/view/View;->setVisibility(I)V
 
-    const v1, 0x7f0d0119
+    const v1, 0x7f0d0128
 
     invoke-virtual {p1, v1}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
-    const v4, 0x7f0d011a
+    const v4, 0x7f0d0129
 
     invoke-virtual {p1, v4}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -322,7 +322,7 @@
 
     check-cast v10, Landroid/widget/ImageView;
 
-    const v4, 0x7f0d011b
+    const v4, 0x7f0d012a
 
     invoke-virtual {p1, v4}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 

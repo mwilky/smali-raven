@@ -14,6 +14,8 @@
 # static fields
 .field public static final ANDROID_SYSTEM_PACKAGE_NAME:Ljava/lang/String; = "android"
 
+.field private static final CAMERA_OPS:[I
+
 .field static final LOCATION_OPS:[I
 
 .field private static final MICROPHONE_OPS:[I
@@ -35,7 +37,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .locals 4
 
     const/4 v0, 0x2
 
@@ -47,15 +49,23 @@
 
     const/4 v0, 0x1
 
-    new-array v0, v0, [I
-
-    const/4 v1, 0x0
+    new-array v1, v0, [I
 
     const/16 v2, 0x1b
 
-    aput v2, v0, v1
+    const/4 v3, 0x0
 
-    sput-object v0, Lcom/android/settingslib/applications/RecentAppOpsAccess;->MICROPHONE_OPS:[I
+    aput v2, v1, v3
+
+    sput-object v1, Lcom/android/settingslib/applications/RecentAppOpsAccess;->MICROPHONE_OPS:[I
+
+    new-array v0, v0, [I
+
+    const/16 v1, 0x1a
+
+    aput v1, v0, v3
+
+    sput-object v0, Lcom/android/settingslib/applications/RecentAppOpsAccess;->CAMERA_OPS:[I
 
     const-class v0, Lcom/android/settingslib/applications/RecentAppOpsAccess;
 

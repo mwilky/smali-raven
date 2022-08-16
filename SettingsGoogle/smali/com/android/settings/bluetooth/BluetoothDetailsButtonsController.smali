@@ -59,7 +59,19 @@
 .end method
 
 .method private synthetic lambda$refresh$1(Landroid/view/View;)V
-    .locals 0
+    .locals 3
+
+    iget-object p1, p0, Lcom/android/settings/bluetooth/BluetoothDetailsController;->mMetricsFeatureProvider:Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;
+
+    iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothDetailsController;->mContext:Landroid/content/Context;
+
+    const/4 v1, 0x0
+
+    new-array v1, v1, [Landroid/util/Pair;
+
+    const/16 v2, 0x364
+
+    invoke-virtual {p1, v0, v2, v1}, Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;->action(Landroid/content/Context;I[Landroid/util/Pair;)V
 
     iget-object p0, p0, Lcom/android/settings/bluetooth/BluetoothDetailsController;->mCachedDevice:Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
 
@@ -69,7 +81,19 @@
 .end method
 
 .method private synthetic lambda$refresh$2(Landroid/view/View;)V
-    .locals 0
+    .locals 3
+
+    iget-object p1, p0, Lcom/android/settings/bluetooth/BluetoothDetailsController;->mMetricsFeatureProvider:Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;
+
+    iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothDetailsController;->mContext:Landroid/content/Context;
+
+    const/4 v1, 0x0
+
+    new-array v1, v1, [Landroid/util/Pair;
+
+    const/16 v2, 0x363
+
+    invoke-virtual {p1, v0, v2, v1}, Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;->action(Landroid/content/Context;I[Landroid/util/Pair;)V
 
     iget-object p0, p0, Lcom/android/settings/bluetooth/BluetoothDetailsController;->mCachedDevice:Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
 
@@ -127,13 +151,13 @@
 
     check-cast p1, Lcom/android/settingslib/widget/ActionButtonsPreference;
 
-    const v0, 0x7f04097a
+    const v0, 0x7f0409df
 
     invoke-virtual {p1, v0}, Lcom/android/settingslib/widget/ActionButtonsPreference;->setButton1Text(I)Lcom/android/settingslib/widget/ActionButtonsPreference;
 
     move-result-object p1
 
-    const v0, 0x7f020339
+    const v0, 0x7f02035d
 
     invoke-virtual {p1, v0}, Lcom/android/settingslib/widget/ActionButtonsPreference;->setButton1Icon(I)Lcom/android/settingslib/widget/ActionButtonsPreference;
 
@@ -196,21 +220,21 @@
     :cond_0
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothDetailsButtonsController;->mActionButtons:Lcom/android/settingslib/widget/ActionButtonsPreference;
 
-    const v1, 0x7f040452
+    const v1, 0x7f04049b
 
     invoke-virtual {v0, v1}, Lcom/android/settingslib/widget/ActionButtonsPreference;->setButton2Text(I)Lcom/android/settingslib/widget/ActionButtonsPreference;
 
     move-result-object v0
 
-    const v1, 0x7f020337
+    const v1, 0x7f02035b
 
     invoke-virtual {v0, v1}, Lcom/android/settingslib/widget/ActionButtonsPreference;->setButton2Icon(I)Lcom/android/settingslib/widget/ActionButtonsPreference;
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/settings/bluetooth/BluetoothDetailsButtonsController$$ExternalSyntheticLambda2;
+    new-instance v1, Lcom/android/settings/bluetooth/BluetoothDetailsButtonsController$$ExternalSyntheticLambda1;
 
-    invoke-direct {v1, p0}, Lcom/android/settings/bluetooth/BluetoothDetailsButtonsController$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/bluetooth/BluetoothDetailsButtonsController;)V
+    invoke-direct {v1, p0}, Lcom/android/settings/bluetooth/BluetoothDetailsButtonsController$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/bluetooth/BluetoothDetailsButtonsController;)V
 
     invoke-virtual {v0, v1}, Lcom/android/settingslib/widget/ActionButtonsPreference;->setButton2OnClickListener(Landroid/view/View$OnClickListener;)Lcom/android/settingslib/widget/ActionButtonsPreference;
 
@@ -228,21 +252,21 @@
     :cond_2
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothDetailsButtonsController;->mActionButtons:Lcom/android/settingslib/widget/ActionButtonsPreference;
 
-    const v1, 0x7f040450
+    const v1, 0x7f040499
 
     invoke-virtual {v0, v1}, Lcom/android/settingslib/widget/ActionButtonsPreference;->setButton2Text(I)Lcom/android/settingslib/widget/ActionButtonsPreference;
 
     move-result-object v0
 
-    const v1, 0x7f020171
+    const v1, 0x7f020185
 
     invoke-virtual {v0, v1}, Lcom/android/settingslib/widget/ActionButtonsPreference;->setButton2Icon(I)Lcom/android/settingslib/widget/ActionButtonsPreference;
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/settings/bluetooth/BluetoothDetailsButtonsController$$ExternalSyntheticLambda1;
+    new-instance v1, Lcom/android/settings/bluetooth/BluetoothDetailsButtonsController$$ExternalSyntheticLambda2;
 
-    invoke-direct {v1, p0}, Lcom/android/settings/bluetooth/BluetoothDetailsButtonsController$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/bluetooth/BluetoothDetailsButtonsController;)V
+    invoke-direct {v1, p0}, Lcom/android/settings/bluetooth/BluetoothDetailsButtonsController$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/bluetooth/BluetoothDetailsButtonsController;)V
 
     invoke-virtual {v0, v1}, Lcom/android/settingslib/widget/ActionButtonsPreference;->setButton2OnClickListener(Landroid/view/View$OnClickListener;)Lcom/android/settingslib/widget/ActionButtonsPreference;
 

@@ -4,9 +4,6 @@
 
 
 # annotations
-.annotation build Lcom/android/internal/annotations/VisibleForTesting;
-.end annotation
-
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/android/wifitrackerlib/StandardWifiEntry$ScanResultKey;,
@@ -18,7 +15,13 @@
 # instance fields
 .field private final mContext:Landroid/content/Context;
 
+.field private final mDevicePolicyManager:Landroid/app/admin/DevicePolicyManager;
+
+.field private mHasAddConfigUserRestriction:Z
+
 .field private final mInjector:Lcom/android/wifitrackerlib/WifiTrackerInjector;
+
+.field private mIsAdminRestricted:Z
 
 .field private final mIsEnhancedOpenSupported:Z
 
@@ -53,8 +56,6 @@
     .end annotation
 .end field
 
-.field private mRecommendationServiceLabel:Ljava/lang/String;
-
 .field private mShouldAutoOpenCaptivePortal:Z
 
 .field private final mTargetScanResults:Ljava/util/List;
@@ -78,6 +79,8 @@
 .end field
 
 .field private mTargetWifiConfig:Landroid/net/wifi/WifiConfiguration;
+
+.field private final mUserManager:Landroid/os/UserManager;
 
 
 # direct methods
@@ -143,10 +146,10 @@
     return p0
 .end method
 
-.method constructor <init>(Lcom/android/wifitrackerlib/WifiTrackerInjector;Landroid/content/Context;Landroid/os/Handler;Lcom/android/wifitrackerlib/StandardWifiEntry$StandardWifiEntryKey;Landroid/net/wifi/WifiManager;Landroid/net/wifi/WifiNetworkScoreCache;Z)V
+.method constructor <init>(Lcom/android/wifitrackerlib/WifiTrackerInjector;Landroid/content/Context;Landroid/os/Handler;Lcom/android/wifitrackerlib/StandardWifiEntry$StandardWifiEntryKey;Landroid/net/wifi/WifiManager;Z)V
     .locals 0
 
-    invoke-direct {p0, p3, p5, p6, p7}, Lcom/android/wifitrackerlib/WifiEntry;-><init>(Landroid/os/Handler;Landroid/net/wifi/WifiManager;Landroid/net/wifi/WifiNetworkScoreCache;Z)V
+    invoke-direct {p0, p3, p5, p6}, Lcom/android/wifitrackerlib/WifiEntry;-><init>(Landroid/os/Handler;Landroid/net/wifi/WifiManager;Z)V
 
     new-instance p3, Ljava/util/HashMap;
 
@@ -178,6 +181,10 @@
 
     iput-boolean p3, p0, Lcom/android/wifitrackerlib/StandardWifiEntry;->mShouldAutoOpenCaptivePortal:Z
 
+    iput-boolean p3, p0, Lcom/android/wifitrackerlib/StandardWifiEntry;->mIsAdminRestricted:Z
+
+    iput-boolean p3, p0, Lcom/android/wifitrackerlib/StandardWifiEntry;->mHasAddConfigUserRestriction:Z
+
     iput-object p1, p0, Lcom/android/wifitrackerlib/StandardWifiEntry;->mInjector:Lcom/android/wifitrackerlib/WifiTrackerInjector;
 
     iput-object p2, p0, Lcom/android/wifitrackerlib/StandardWifiEntry;->mContext:Landroid/content/Context;
@@ -186,29 +193,43 @@
 
     invoke-virtual {p5}, Landroid/net/wifi/WifiManager;->isWpa3SaeSupported()Z
 
-    move-result p1
+    move-result p2
 
-    iput-boolean p1, p0, Lcom/android/wifitrackerlib/StandardWifiEntry;->mIsWpa3SaeSupported:Z
+    iput-boolean p2, p0, Lcom/android/wifitrackerlib/StandardWifiEntry;->mIsWpa3SaeSupported:Z
 
     invoke-virtual {p5}, Landroid/net/wifi/WifiManager;->isWpa3SuiteBSupported()Z
 
-    move-result p1
+    move-result p2
 
-    iput-boolean p1, p0, Lcom/android/wifitrackerlib/StandardWifiEntry;->mIsWpa3SuiteBSupported:Z
+    iput-boolean p2, p0, Lcom/android/wifitrackerlib/StandardWifiEntry;->mIsWpa3SuiteBSupported:Z
 
     invoke-virtual {p5}, Landroid/net/wifi/WifiManager;->isEnhancedOpenSupported()Z
 
-    move-result p1
+    move-result p2
 
-    iput-boolean p1, p0, Lcom/android/wifitrackerlib/StandardWifiEntry;->mIsEnhancedOpenSupported:Z
+    iput-boolean p2, p0, Lcom/android/wifitrackerlib/StandardWifiEntry;->mIsEnhancedOpenSupported:Z
 
-    invoke-direct {p0}, Lcom/android/wifitrackerlib/StandardWifiEntry;->updateRecommendationServiceLabel()V
+    invoke-virtual {p1}, Lcom/android/wifitrackerlib/WifiTrackerInjector;->getUserManager()Landroid/os/UserManager;
+
+    move-result-object p2
+
+    iput-object p2, p0, Lcom/android/wifitrackerlib/StandardWifiEntry;->mUserManager:Landroid/os/UserManager;
+
+    invoke-virtual {p1}, Lcom/android/wifitrackerlib/WifiTrackerInjector;->getDevicePolicyManager()Landroid/app/admin/DevicePolicyManager;
+
+    move-result-object p1
+
+    iput-object p1, p0, Lcom/android/wifitrackerlib/StandardWifiEntry;->mDevicePolicyManager:Landroid/app/admin/DevicePolicyManager;
+
+    invoke-virtual {p0}, Lcom/android/wifitrackerlib/StandardWifiEntry;->updateSecurityTypes()V
+
+    invoke-virtual {p0}, Lcom/android/wifitrackerlib/StandardWifiEntry;->updateAdminRestrictions()V
 
     return-void
 .end method
 
-.method constructor <init>(Lcom/android/wifitrackerlib/WifiTrackerInjector;Landroid/content/Context;Landroid/os/Handler;Lcom/android/wifitrackerlib/StandardWifiEntry$StandardWifiEntryKey;Ljava/util/List;Ljava/util/List;Landroid/net/wifi/WifiManager;Landroid/net/wifi/WifiNetworkScoreCache;Z)V
-    .locals 11
+.method constructor <init>(Lcom/android/wifitrackerlib/WifiTrackerInjector;Landroid/content/Context;Landroid/os/Handler;Lcom/android/wifitrackerlib/StandardWifiEntry$StandardWifiEntryKey;Ljava/util/List;Ljava/util/List;Landroid/net/wifi/WifiManager;Z)V
+    .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -223,7 +244,6 @@
             "Landroid/net/wifi/ScanResult;",
             ">;",
             "Landroid/net/wifi/WifiManager;",
-            "Landroid/net/wifi/WifiNetworkScoreCache;",
             "Z)V"
         }
     .end annotation
@@ -233,12 +253,6 @@
             Ljava/lang/IllegalArgumentException;
         }
     .end annotation
-
-    move-object v8, p0
-
-    move-object/from16 v9, p5
-
-    move-object/from16 v10, p6
 
     move-object v0, p0
 
@@ -250,34 +264,32 @@
 
     move-object v4, p4
 
-    move-object/from16 v5, p7
+    move-object v5, p7
 
-    move-object/from16 v6, p8
+    move v6, p8
 
-    move/from16 v7, p9
+    invoke-direct/range {v0 .. v6}, Lcom/android/wifitrackerlib/StandardWifiEntry;-><init>(Lcom/android/wifitrackerlib/WifiTrackerInjector;Landroid/content/Context;Landroid/os/Handler;Lcom/android/wifitrackerlib/StandardWifiEntry$StandardWifiEntryKey;Landroid/net/wifi/WifiManager;Z)V
 
-    invoke-direct/range {v0 .. v7}, Lcom/android/wifitrackerlib/StandardWifiEntry;-><init>(Lcom/android/wifitrackerlib/WifiTrackerInjector;Landroid/content/Context;Landroid/os/Handler;Lcom/android/wifitrackerlib/StandardWifiEntry$StandardWifiEntryKey;Landroid/net/wifi/WifiManager;Landroid/net/wifi/WifiNetworkScoreCache;Z)V
+    if-eqz p5, :cond_0
 
-    if-eqz v9, :cond_0
+    invoke-interface {p5}, Ljava/util/List;->isEmpty()Z
 
-    invoke-interface/range {p5 .. p5}, Ljava/util/List;->isEmpty()Z
+    move-result p1
 
-    move-result v0
+    if-nez p1, :cond_0
 
-    if-nez v0, :cond_0
-
-    invoke-virtual {p0, v9}, Lcom/android/wifitrackerlib/StandardWifiEntry;->updateConfig(Ljava/util/List;)V
+    invoke-virtual {p0, p5}, Lcom/android/wifitrackerlib/StandardWifiEntry;->updateConfig(Ljava/util/List;)V
 
     :cond_0
-    if-eqz v10, :cond_1
+    if-eqz p6, :cond_1
 
-    invoke-interface/range {p6 .. p6}, Ljava/util/List;->isEmpty()Z
+    invoke-interface {p6}, Ljava/util/List;->isEmpty()Z
 
-    move-result v0
+    move-result p1
 
-    if-nez v0, :cond_1
+    if-nez p1, :cond_1
 
-    invoke-virtual {p0, v10}, Lcom/android/wifitrackerlib/StandardWifiEntry;->updateScanResultInfo(Ljava/util/List;)V
+    invoke-virtual {p0, p6}, Lcom/android/wifitrackerlib/StandardWifiEntry;->updateScanResultInfo(Ljava/util/List;)V
 
     :cond_1
     return-void
@@ -295,15 +307,17 @@
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/wifitrackerlib/StandardWifiEntry$$ExternalSyntheticLambda4;
+    new-instance v1, Lcom/android/wifitrackerlib/StandardWifiEntry$$ExternalSyntheticLambda3;
 
-    invoke-direct {v1, p1, p2}, Lcom/android/wifitrackerlib/StandardWifiEntry$$ExternalSyntheticLambda4;-><init>(II)V
+    invoke-direct {v1, p1, p2}, Lcom/android/wifitrackerlib/StandardWifiEntry$$ExternalSyntheticLambda3;-><init>(II)V
 
     invoke-interface {v0, v1}, Ljava/util/stream/Stream;->filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
 
     move-result-object p1
 
-    sget-object p2, Lcom/android/wifitrackerlib/StandardWifiEntry$$ExternalSyntheticLambda6;->INSTANCE:Lcom/android/wifitrackerlib/StandardWifiEntry$$ExternalSyntheticLambda6;
+    new-instance p2, Lcom/android/wifitrackerlib/StandardWifiEntry$$ExternalSyntheticLambda4;
+
+    invoke-direct {p2}, Lcom/android/wifitrackerlib/StandardWifiEntry$$ExternalSyntheticLambda4;-><init>()V
 
     invoke-static {p2}, Ljava/util/Comparator;->comparingInt(Ljava/util/function/ToIntFunction;)Ljava/util/Comparator;
 
@@ -361,7 +375,9 @@
 
     move-result-object p2
 
-    sget-object v1, Lcom/android/wifitrackerlib/StandardWifiEntry$$ExternalSyntheticLambda5;->INSTANCE:Lcom/android/wifitrackerlib/StandardWifiEntry$$ExternalSyntheticLambda5;
+    new-instance v1, Lcom/android/wifitrackerlib/StandardWifiEntry$$ExternalSyntheticLambda5;
+
+    invoke-direct {v1}, Lcom/android/wifitrackerlib/StandardWifiEntry$$ExternalSyntheticLambda5;-><init>()V
 
     invoke-interface {p2, v1}, Ljava/util/stream/Stream;->mapToInt(Ljava/util/function/ToIntFunction;)Ljava/util/stream/IntStream;
 
@@ -390,9 +406,9 @@
 
     move-result-wide v1
 
-    new-instance p2, Lcom/android/wifitrackerlib/StandardWifiEntry$$ExternalSyntheticLambda3;
+    new-instance p2, Lcom/android/wifitrackerlib/StandardWifiEntry$$ExternalSyntheticLambda6;
 
-    invoke-direct {p2, p0, v0, v1, v2}, Lcom/android/wifitrackerlib/StandardWifiEntry$$ExternalSyntheticLambda3;-><init>(Lcom/android/wifitrackerlib/StandardWifiEntry;Ljava/lang/StringBuilder;J)V
+    invoke-direct {p2, p0, v0, v1, v2}, Lcom/android/wifitrackerlib/StandardWifiEntry$$ExternalSyntheticLambda6;-><init>(Lcom/android/wifitrackerlib/StandardWifiEntry;Ljava/lang/StringBuilder;J)V
 
     invoke-interface {p1, p2}, Ljava/util/List;->forEach(Ljava/util/function/Consumer;)V
 
@@ -416,6 +432,11 @@
 
 .method private declared-synchronized getScanResultDescription(Landroid/net/wifi/ScanResult;J)Ljava/lang/String;
     .locals 5
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "NewApi"
+        }
+    .end annotation
 
     monitor-enter p0
 
@@ -469,6 +490,63 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    invoke-virtual {p1}, Landroid/net/wifi/ScanResult;->getWifiStandard()I
+
+    move-result v1
+
+    const-string v2, ","
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v2, p0, Lcom/android/wifitrackerlib/StandardWifiEntry;->mContext:Landroid/content/Context;
+
+    invoke-static {v2, v1}, Lcom/android/wifitrackerlib/Utils;->getStandardString(Landroid/content/Context;I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-static {}, Landroidx/core/os/BuildCompat;->isAtLeastT()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    const/16 v2, 0x8
+
+    if-ne v1, v2, :cond_1
+
+    const-string v1, ",mldMac="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p1}, Landroid/net/wifi/ScanResult;->getApMldMacAddress()Landroid/net/MacAddress;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string v1, ",linkId="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p1}, Landroid/net/wifi/ScanResult;->getApMloLinkId()I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v1, ",affLinks="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p1}, Landroid/net/wifi/ScanResult;->getAffiliatedMloLinks()Ljava/util/List;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    :cond_1
     iget-wide v1, p1, Landroid/net/wifi/ScanResult;->timestamp:J
 
     const-wide/16 v3, 0x3e8
@@ -487,7 +565,7 @@
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string p1, "s"
+    const-string/jumbo p1, "s"
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -511,6 +589,41 @@
     monitor-exit p0
 
     throw p1
+.end method
+
+.method private hasAdminRestrictions()Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/wifitrackerlib/StandardWifiEntry;->mHasAddConfigUserRestriction:Z
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/wifitrackerlib/StandardWifiEntry;->isSaved()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/wifitrackerlib/StandardWifiEntry;->isSuggestion()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    :cond_0
+    iget-boolean p0, p0, Lcom/android/wifitrackerlib/StandardWifiEntry;->mIsAdminRestricted:Z
+
+    if-eqz p0, :cond_2
+
+    :cond_1
+    const/4 p0, 0x1
+
+    return p0
+
+    :cond_2
+    const/4 p0, 0x0
+
+    return p0
 .end method
 
 .method private isSecurityTypeSupported(I)Z
@@ -635,49 +748,6 @@
     return-void
 .end method
 
-.method private declared-synchronized updateRecommendationServiceLabel()V
-    .locals 2
-
-    monitor-enter p0
-
-    :try_start_0
-    iget-object v0, p0, Lcom/android/wifitrackerlib/StandardWifiEntry;->mContext:Landroid/content/Context;
-
-    const-string v1, "network_score"
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/net/NetworkScoreManager;
-
-    invoke-virtual {v0}, Landroid/net/NetworkScoreManager;->getActiveScorer()Landroid/net/NetworkScorerAppData;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {v0}, Landroid/net/NetworkScorerAppData;->getRecommendationServiceLabel()Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/wifitrackerlib/StandardWifiEntry;->mRecommendationServiceLabel:Ljava/lang/String;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    :cond_0
-    monitor-exit p0
-
-    return-void
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit p0
-
-    throw v0
-.end method
-
 .method private declared-synchronized updateTargetScanResultInfo()V
     .locals 2
 
@@ -713,16 +783,6 @@
 
     :goto_0
     iput v0, p0, Lcom/android/wifitrackerlib/WifiEntry;->mLevel:I
-
-    iget-object v0, p0, Lcom/android/wifitrackerlib/WifiEntry;->mScoreCache:Landroid/net/wifi/WifiNetworkScoreCache;
-
-    iget-object v1, p0, Lcom/android/wifitrackerlib/StandardWifiEntry;->mTargetScanResults:Ljava/util/List;
-
-    invoke-static {v0, v1}, Lcom/android/wifitrackerlib/Utils;->getAverageSpeedFromScanResults(Landroid/net/wifi/WifiNetworkScoreCache;Ljava/util/List;)I
-
-    move-result v0
-
-    iput v0, p0, Lcom/android/wifitrackerlib/WifiEntry;->mSpeed:I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -753,7 +813,7 @@
 
     const/4 v2, 0x0
 
-    if-eq v0, v1, :cond_8
+    if-eq v0, v1, :cond_9
 
     invoke-virtual {p0}, Lcom/android/wifitrackerlib/WifiEntry;->getConnectedState()I
 
@@ -764,6 +824,20 @@
     goto :goto_1
 
     :cond_0
+    invoke-direct {p0}, Lcom/android/wifitrackerlib/StandardWifiEntry;->hasAdminRestrictions()Z
+
+    move-result v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    if-eqz v0, :cond_1
+
+    monitor-exit p0
+
+    return v2
+
+    :cond_1
+    :try_start_1
     iget-object v0, p0, Lcom/android/wifitrackerlib/StandardWifiEntry;->mTargetSecurityTypes:Ljava/util/List;
 
     const/4 v3, 0x3
@@ -778,35 +852,35 @@
 
     const/4 v3, 0x1
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_8
 
     iget-object v0, p0, Lcom/android/wifitrackerlib/StandardWifiEntry;->mTargetWifiConfig:Landroid/net/wifi/WifiConfiguration;
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_8
 
     iget-object v0, v0, Landroid/net/wifi/WifiConfiguration;->enterpriseConfig:Landroid/net/wifi/WifiEnterpriseConfig;
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_8
 
     invoke-virtual {v0}, Landroid/net/wifi/WifiEnterpriseConfig;->isAuthenticationSimBased()Z
 
     move-result v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2
 
     monitor-exit p0
 
     return v3
 
-    :cond_1
-    :try_start_1
+    :cond_2
+    :try_start_2
     iget-object v0, p0, Lcom/android/wifitrackerlib/StandardWifiEntry;->mContext:Landroid/content/Context;
 
-    const-string/jumbo v4, "telephony_subscription_service"
+    const-class v4, Landroid/telephony/SubscriptionManager;
 
-    invoke-virtual {v0, v4}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v0, v4}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -816,41 +890,41 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_7
 
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v4
 
-    if-nez v4, :cond_2
+    if-nez v4, :cond_3
 
     goto :goto_0
 
-    :cond_2
+    :cond_3
     iget-object v4, p0, Lcom/android/wifitrackerlib/StandardWifiEntry;->mTargetWifiConfig:Landroid/net/wifi/WifiConfiguration;
 
     iget v4, v4, Landroid/net/wifi/WifiConfiguration;->carrierId:I
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    if-ne v4, v1, :cond_3
+    if-ne v4, v1, :cond_4
 
     monitor-exit p0
 
     return v3
 
-    :cond_3
-    :try_start_2
+    :cond_4
+    :try_start_3
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
-    :cond_4
+    :cond_5
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_6
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -865,32 +939,32 @@
     iget-object v4, p0, Lcom/android/wifitrackerlib/StandardWifiEntry;->mTargetWifiConfig:Landroid/net/wifi/WifiConfiguration;
 
     iget v4, v4, Landroid/net/wifi/WifiConfiguration;->carrierId:I
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    if-ne v1, v4, :cond_4
+    if-ne v1, v4, :cond_5
 
     monitor-exit p0
 
     return v3
 
-    :cond_5
-    monitor-exit p0
-
-    return v2
-
     :cond_6
-    :goto_0
     monitor-exit p0
 
     return v2
 
     :cond_7
+    :goto_0
+    monitor-exit p0
+
+    return v2
+
+    :cond_8
     monitor-exit p0
 
     return v3
 
-    :cond_8
+    :cond_9
     :goto_1
     monitor-exit p0
 
@@ -927,7 +1001,7 @@
 .end method
 
 .method public declared-synchronized canEasyConnect()Z
-    .locals 3
+    .locals 5
 
     monitor-enter p0
 
@@ -964,15 +1038,15 @@
 
     :cond_1
     :try_start_2
-    iget-object v0, p0, Lcom/android/wifitrackerlib/WifiEntry;->mWifiManager:Landroid/net/wifi/WifiManager;
+    iget-object v2, p0, Lcom/android/wifitrackerlib/WifiEntry;->mWifiManager:Landroid/net/wifi/WifiManager;
 
-    invoke-virtual {v0}, Landroid/net/wifi/WifiManager;->isEasyConnectSupported()Z
+    invoke-virtual {v2}, Landroid/net/wifi/WifiManager;->isEasyConnectSupported()Z
 
-    move-result v0
+    move-result v2
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    if-nez v0, :cond_2
+    if-nez v2, :cond_2
 
     monitor-exit p0
 
@@ -980,6 +1054,48 @@
 
     :cond_2
     :try_start_3
+    invoke-static {}, Landroidx/core/os/BuildCompat;->isAtLeastT()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
+
+    iget-object v2, p0, Lcom/android/wifitrackerlib/StandardWifiEntry;->mUserManager:Landroid/os/UserManager;
+
+    const-string v3, "no_sharing_admin_configured_wifi"
+
+    iget v4, v0, Landroid/net/wifi/WifiConfiguration;->creatorUid:I
+
+    invoke-static {v4}, Landroid/os/UserHandle;->getUserHandleForUid(I)Landroid/os/UserHandle;
+
+    move-result-object v4
+
+    invoke-virtual {v2, v3, v4}, Landroid/os/UserManager;->hasUserRestrictionForUser(Ljava/lang/String;Landroid/os/UserHandle;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
+
+    iget v2, v0, Landroid/net/wifi/WifiConfiguration;->creatorUid:I
+
+    iget-object v0, v0, Landroid/net/wifi/WifiConfiguration;->creatorName:Ljava/lang/String;
+
+    iget-object v3, p0, Lcom/android/wifitrackerlib/StandardWifiEntry;->mContext:Landroid/content/Context;
+
+    invoke-static {v2, v0, v3}, Lcom/android/wifitrackerlib/Utils;->isDeviceOrProfileOwner(ILjava/lang/String;Landroid/content/Context;)Z
+
+    move-result v0
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    if-eqz v0, :cond_3
+
+    monitor-exit p0
+
+    return v1
+
+    :cond_3
+    :try_start_4
     iget-object v0, p0, Lcom/android/wifitrackerlib/StandardWifiEntry;->mTargetSecurityTypes:Ljava/util/List;
 
     const/4 v2, 0x2
@@ -992,7 +1108,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_4
 
     iget-object v0, p0, Lcom/android/wifitrackerlib/StandardWifiEntry;->mTargetSecurityTypes:Ljava/util/List;
 
@@ -1005,15 +1121,15 @@
     invoke-interface {v0, v2}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
 
     move-result v0
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
-    if-eqz v0, :cond_4
-
-    :cond_3
-    const/4 v1, 0x1
+    if-eqz v0, :cond_5
 
     :cond_4
+    const/4 v1, 0x1
+
+    :cond_5
     monitor-exit p0
 
     return v1
@@ -1144,6 +1260,48 @@
 
     :cond_1
     :try_start_2
+    invoke-static {}, Landroidx/core/os/BuildCompat;->isAtLeastT()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    iget-object v2, p0, Lcom/android/wifitrackerlib/StandardWifiEntry;->mUserManager:Landroid/os/UserManager;
+
+    const-string v3, "no_sharing_admin_configured_wifi"
+
+    iget v4, v0, Landroid/net/wifi/WifiConfiguration;->creatorUid:I
+
+    invoke-static {v4}, Landroid/os/UserHandle;->getUserHandleForUid(I)Landroid/os/UserHandle;
+
+    move-result-object v4
+
+    invoke-virtual {v2, v3, v4}, Landroid/os/UserManager;->hasUserRestrictionForUser(Ljava/lang/String;Landroid/os/UserHandle;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    iget v2, v0, Landroid/net/wifi/WifiConfiguration;->creatorUid:I
+
+    iget-object v0, v0, Landroid/net/wifi/WifiConfiguration;->creatorName:Ljava/lang/String;
+
+    iget-object v3, p0, Lcom/android/wifitrackerlib/StandardWifiEntry;->mContext:Landroid/content/Context;
+
+    invoke-static {v2, v0, v3}, Lcom/android/wifitrackerlib/Utils;->isDeviceOrProfileOwner(ILjava/lang/String;Landroid/content/Context;)Z
+
+    move-result v0
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    if-eqz v0, :cond_2
+
+    monitor-exit p0
+
+    return v1
+
+    :cond_2
+    :try_start_3
     iget-object v0, p0, Lcom/android/wifitrackerlib/StandardWifiEntry;->mTargetSecurityTypes:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
@@ -1155,7 +1313,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_4
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1166,35 +1324,35 @@
     invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
 
     move-result v2
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     const/4 v3, 0x1
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_3
 
-    if-eq v2, v3, :cond_2
+    if-eq v2, v3, :cond_3
 
     const/4 v4, 0x2
 
-    if-eq v2, v4, :cond_2
+    if-eq v2, v4, :cond_3
 
     const/4 v4, 0x4
 
-    if-eq v2, v4, :cond_2
+    if-eq v2, v4, :cond_3
 
     const/4 v4, 0x6
 
-    if-eq v2, v4, :cond_2
+    if-eq v2, v4, :cond_3
 
     goto :goto_0
 
-    :cond_2
+    :cond_3
     monitor-exit p0
 
     return v3
 
-    :cond_3
+    :cond_4
     monitor-exit p0
 
     return v1
@@ -1458,9 +1616,9 @@
 
     iget-object v0, p0, Lcom/android/wifitrackerlib/WifiEntry;->mCallbackHandler:Landroid/os/Handler;
 
-    new-instance v1, Lcom/android/wifitrackerlib/StandardWifiEntry$$ExternalSyntheticLambda2;
+    new-instance v1, Lcom/android/wifitrackerlib/StandardWifiEntry$$ExternalSyntheticLambda1;
 
-    invoke-direct {v1, p1}, Lcom/android/wifitrackerlib/StandardWifiEntry$$ExternalSyntheticLambda2;-><init>(Lcom/android/wifitrackerlib/WifiEntry$ConnectCallback;)V
+    invoke-direct {v1, p1}, Lcom/android/wifitrackerlib/StandardWifiEntry$$ExternalSyntheticLambda1;-><init>(Lcom/android/wifitrackerlib/WifiEntry$ConnectCallback;)V
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
@@ -1492,9 +1650,9 @@
 
     iget-object v0, p0, Lcom/android/wifitrackerlib/WifiEntry;->mCallbackHandler:Landroid/os/Handler;
 
-    new-instance v1, Lcom/android/wifitrackerlib/StandardWifiEntry$$ExternalSyntheticLambda1;
+    new-instance v1, Lcom/android/wifitrackerlib/StandardWifiEntry$$ExternalSyntheticLambda0;
 
-    invoke-direct {v1, p1}, Lcom/android/wifitrackerlib/StandardWifiEntry$$ExternalSyntheticLambda1;-><init>(Lcom/android/wifitrackerlib/WifiEntry$ConnectCallback;)V
+    invoke-direct {v1, p1}, Lcom/android/wifitrackerlib/StandardWifiEntry$$ExternalSyntheticLambda0;-><init>(Lcom/android/wifitrackerlib/WifiEntry$ConnectCallback;)V
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
     :try_end_0
@@ -1636,9 +1794,9 @@
 
     iget-object v0, p0, Lcom/android/wifitrackerlib/WifiEntry;->mCallbackHandler:Landroid/os/Handler;
 
-    new-instance v1, Lcom/android/wifitrackerlib/StandardWifiEntry$$ExternalSyntheticLambda0;
+    new-instance v1, Lcom/android/wifitrackerlib/StandardWifiEntry$$ExternalSyntheticLambda2;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/wifitrackerlib/StandardWifiEntry$$ExternalSyntheticLambda0;-><init>(Lcom/android/wifitrackerlib/StandardWifiEntry;Lcom/android/wifitrackerlib/WifiEntry$DisconnectCallback;)V
+    invoke-direct {v1, p0, p1}, Lcom/android/wifitrackerlib/StandardWifiEntry$$ExternalSyntheticLambda2;-><init>(Lcom/android/wifitrackerlib/StandardWifiEntry;Lcom/android/wifitrackerlib/WifiEntry$DisconnectCallback;)V
 
     const-wide/16 v2, 0x2710
 
@@ -2695,6 +2853,86 @@
     return-object p0
 .end method
 
+.method public declared-synchronized getStandardString()Ljava/lang/String;
+    .locals 3
+
+    monitor-enter p0
+
+    :try_start_0
+    iget-object v0, p0, Lcom/android/wifitrackerlib/WifiEntry;->mWifiInfo:Landroid/net/wifi/WifiInfo;
+
+    if-eqz v0, :cond_0
+
+    iget-object v1, p0, Lcom/android/wifitrackerlib/StandardWifiEntry;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/net/wifi/WifiInfo;->getWifiStandard()I
+
+    move-result v0
+
+    invoke-static {v1, v0}, Lcom/android/wifitrackerlib/Utils;->getStandardString(Landroid/content/Context;I)Ljava/lang/String;
+
+    move-result-object v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit p0
+
+    return-object v0
+
+    :cond_0
+    :try_start_1
+    iget-object v0, p0, Lcom/android/wifitrackerlib/StandardWifiEntry;->mTargetScanResults:Ljava/util/List;
+
+    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/wifitrackerlib/StandardWifiEntry;->mContext:Landroid/content/Context;
+
+    iget-object v1, p0, Lcom/android/wifitrackerlib/StandardWifiEntry;->mTargetScanResults:Ljava/util/List;
+
+    const/4 v2, 0x0
+
+    invoke-interface {v1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/net/wifi/ScanResult;
+
+    invoke-virtual {v1}, Landroid/net/wifi/ScanResult;->getWifiStandard()I
+
+    move-result v1
+
+    invoke-static {v0, v1}, Lcom/android/wifitrackerlib/Utils;->getStandardString(Landroid/content/Context;I)Ljava/lang/String;
+
+    move-result-object v0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    monitor-exit p0
+
+    return-object v0
+
+    :cond_1
+    :try_start_2
+    const-string v0, ""
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    monitor-exit p0
+
+    return-object v0
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit p0
+
+    throw v0
+.end method
+
 .method getStandardWifiEntryKey()Lcom/android/wifitrackerlib/StandardWifiEntry$StandardWifiEntryKey;
     .locals 0
 
@@ -2704,11 +2942,33 @@
 .end method
 
 .method public declared-synchronized getSummary(Z)Ljava/lang/String;
-    .locals 7
+    .locals 6
 
     monitor-enter p0
 
     :try_start_0
+    invoke-direct {p0}, Lcom/android/wifitrackerlib/StandardWifiEntry;->hasAdminRestrictions()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object p1, p0, Lcom/android/wifitrackerlib/StandardWifiEntry;->mContext:Landroid/content/Context;
+
+    sget v0, Lcom/android/wifitrackerlib/R$string;->wifitrackerlib_admin_restricted_network:I
+
+    invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object p1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit p0
+
+    return-object p1
+
+    :cond_0
+    :try_start_1
     new-instance v0, Ljava/util/StringJoiner;
 
     iget-object v1, p0, Lcom/android/wifitrackerlib/StandardWifiEntry;->mContext:Landroid/content/Context;
@@ -2725,15 +2985,15 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_3
 
     const/4 v2, 0x1
 
-    if-eq v1, v2, :cond_1
+    if-eq v1, v2, :cond_2
 
     const/4 v2, 0x2
 
-    if-eq v1, v2, :cond_0
+    if-eq v1, v2, :cond_1
 
     const-string v2, "StandardWifiEntry"
 
@@ -2757,26 +3017,24 @@
 
     goto :goto_0
 
-    :cond_0
+    :cond_1
     iget-object v1, p0, Lcom/android/wifitrackerlib/StandardWifiEntry;->mContext:Landroid/content/Context;
 
     iget-object v2, p0, Lcom/android/wifitrackerlib/StandardWifiEntry;->mTargetWifiConfig:Landroid/net/wifi/WifiConfiguration;
 
     iget-object v3, p0, Lcom/android/wifitrackerlib/WifiEntry;->mNetworkCapabilities:Landroid/net/NetworkCapabilities;
 
-    iget-object v4, p0, Lcom/android/wifitrackerlib/StandardWifiEntry;->mRecommendationServiceLabel:Ljava/lang/String;
+    iget-boolean v4, p0, Lcom/android/wifitrackerlib/WifiEntry;->mIsDefaultNetwork:Z
 
-    iget-boolean v5, p0, Lcom/android/wifitrackerlib/WifiEntry;->mIsDefaultNetwork:Z
+    iget-boolean v5, p0, Lcom/android/wifitrackerlib/WifiEntry;->mIsLowQuality:Z
 
-    iget-boolean v6, p0, Lcom/android/wifitrackerlib/WifiEntry;->mIsLowQuality:Z
-
-    invoke-static/range {v1 .. v6}, Lcom/android/wifitrackerlib/Utils;->getConnectedDescription(Landroid/content/Context;Landroid/net/wifi/WifiConfiguration;Landroid/net/NetworkCapabilities;Ljava/lang/String;ZZ)Ljava/lang/String;
+    invoke-static {v1, v2, v3, v4, v5}, Lcom/android/wifitrackerlib/Utils;->getConnectedDescription(Landroid/content/Context;Landroid/net/wifi/WifiConfiguration;Landroid/net/NetworkCapabilities;ZZ)Ljava/lang/String;
 
     move-result-object v1
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     iget-object v1, p0, Lcom/android/wifitrackerlib/StandardWifiEntry;->mContext:Landroid/content/Context;
 
     iget-object v2, p0, Lcom/android/wifitrackerlib/WifiEntry;->mNetworkInfo:Landroid/net/NetworkInfo;
@@ -2787,7 +3045,7 @@
 
     goto :goto_0
 
-    :cond_2
+    :cond_3
     iget-object v1, p0, Lcom/android/wifitrackerlib/StandardWifiEntry;->mInjector:Lcom/android/wifitrackerlib/WifiTrackerInjector;
 
     iget-object v2, p0, Lcom/android/wifitrackerlib/StandardWifiEntry;->mContext:Landroid/content/Context;
@@ -2801,21 +3059,6 @@
     move-result-object v1
 
     :goto_0
-    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_3
-
-    invoke-virtual {v0, v1}, Ljava/util/StringJoiner;->add(Ljava/lang/CharSequence;)Ljava/util/StringJoiner;
-
-    :cond_3
-    iget-object v1, p0, Lcom/android/wifitrackerlib/StandardWifiEntry;->mContext:Landroid/content/Context;
-
-    invoke-static {v1, p0}, Lcom/android/wifitrackerlib/Utils;->getSpeedDescription(Landroid/content/Context;Lcom/android/wifitrackerlib/WifiEntry;)Ljava/lang/String;
-
-    move-result-object v1
-
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v2
@@ -2873,8 +3116,8 @@
     invoke-virtual {v0}, Ljava/util/StringJoiner;->toString()Ljava/lang/String;
 
     move-result-object p1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     monitor-exit p0
 
@@ -3112,54 +3355,6 @@
     monitor-exit p0
 
     return v0
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit p0
-
-    throw v0
-.end method
-
-.method declared-synchronized onScoreCacheUpdated()V
-    .locals 2
-
-    monitor-enter p0
-
-    :try_start_0
-    iget-object v0, p0, Lcom/android/wifitrackerlib/WifiEntry;->mWifiInfo:Landroid/net/wifi/WifiInfo;
-
-    if-eqz v0, :cond_0
-
-    iget-object v1, p0, Lcom/android/wifitrackerlib/WifiEntry;->mScoreCache:Landroid/net/wifi/WifiNetworkScoreCache;
-
-    invoke-static {v1, v0}, Lcom/android/wifitrackerlib/Utils;->getSpeedFromWifiInfo(Landroid/net/wifi/WifiNetworkScoreCache;Landroid/net/wifi/WifiInfo;)I
-
-    move-result v0
-
-    iput v0, p0, Lcom/android/wifitrackerlib/WifiEntry;->mSpeed:I
-
-    goto :goto_0
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/wifitrackerlib/WifiEntry;->mScoreCache:Landroid/net/wifi/WifiNetworkScoreCache;
-
-    iget-object v1, p0, Lcom/android/wifitrackerlib/StandardWifiEntry;->mTargetScanResults:Ljava/util/List;
-
-    invoke-static {v0, v1}, Lcom/android/wifitrackerlib/Utils;->getAverageSpeedFromScanResults(Landroid/net/wifi/WifiNetworkScoreCache;Ljava/util/List;)I
-
-    move-result v0
-
-    iput v0, p0, Lcom/android/wifitrackerlib/WifiEntry;->mSpeed:I
-
-    :goto_0
-    invoke-virtual {p0}, Lcom/android/wifitrackerlib/WifiEntry;->notifyOnUpdated()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    monitor-exit p0
-
-    return-void
 
     :catchall_0
     move-exception v0
@@ -3457,9 +3652,9 @@
 
     iget-object p1, p0, Lcom/android/wifitrackerlib/StandardWifiEntry;->mContext:Landroid/content/Context;
 
-    const-string v0, "connectivity"
+    const-class v0, Landroid/net/ConnectivityManager;
 
-    invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -3471,9 +3666,182 @@
 
     move-result-object p0
 
-    invoke-virtual {p1, p0}, Landroid/net/ConnectivityManager;->startCaptivePortalApp(Landroid/net/Network;)V
+    invoke-static {p1, p0}, Lcom/android/wifitrackerlib/NonSdkApiWrapper;->startCaptivePortalApp(Landroid/net/ConnectivityManager;Landroid/net/Network;)V
 
     :cond_0
+    return-void
+.end method
+
+.method updateAdminRestrictions()V
+    .locals 6
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "NewApi"
+        }
+    .end annotation
+
+    invoke-static {}, Landroidx/core/os/BuildCompat;->isAtLeastT()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/wifitrackerlib/StandardWifiEntry;->mUserManager:Landroid/os/UserManager;
+
+    if-eqz v0, :cond_1
+
+    const-string v1, "no_add_wifi_config"
+
+    invoke-virtual {v0, v1}, Landroid/os/UserManager;->hasUserRestriction(Ljava/lang/String;)Z
+
+    move-result v0
+
+    iput-boolean v0, p0, Lcom/android/wifitrackerlib/StandardWifiEntry;->mHasAddConfigUserRestriction:Z
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/wifitrackerlib/StandardWifiEntry;->mDevicePolicyManager:Landroid/app/admin/DevicePolicyManager;
+
+    const/4 v1, 0x0
+
+    if-eqz v0, :cond_7
+
+    invoke-virtual {v0}, Landroid/app/admin/DevicePolicyManager;->getMinimumRequiredWifiSecurityLevel()I
+
+    move-result v0
+
+    const/4 v2, 0x1
+
+    if-eqz v0, :cond_5
+
+    invoke-virtual {p0}, Lcom/android/wifitrackerlib/StandardWifiEntry;->getSecurityTypes()Ljava/util/List;
+
+    move-result-object v3
+
+    invoke-interface {v3}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v3
+
+    :cond_2
+    :goto_0
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_4
+
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Ljava/lang/Integer;
+
+    invoke-virtual {v4}, Ljava/lang/Integer;->intValue()I
+
+    move-result v4
+
+    invoke-static {v4}, Lcom/android/wifitrackerlib/Utils;->convertSecurityTypeToDpmWifiSecurity(I)I
+
+    move-result v4
+
+    const/4 v5, -0x1
+
+    if-ne v4, v5, :cond_3
+
+    goto :goto_0
+
+    :cond_3
+    if-gt v0, v4, :cond_2
+
+    move v0, v2
+
+    goto :goto_1
+
+    :cond_4
+    move v0, v1
+
+    :goto_1
+    if-nez v0, :cond_5
+
+    iput-boolean v2, p0, Lcom/android/wifitrackerlib/StandardWifiEntry;->mIsAdminRestricted:Z
+
+    return-void
+
+    :cond_5
+    iget-object v0, p0, Lcom/android/wifitrackerlib/StandardWifiEntry;->mDevicePolicyManager:Landroid/app/admin/DevicePolicyManager;
+
+    invoke-virtual {v0}, Landroid/app/admin/DevicePolicyManager;->getWifiSsidPolicy()Landroid/app/admin/WifiSsidPolicy;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_7
+
+    invoke-virtual {v0}, Landroid/app/admin/WifiSsidPolicy;->getPolicyType()I
+
+    move-result v3
+
+    invoke-virtual {v0}, Landroid/app/admin/WifiSsidPolicy;->getSsids()Ljava/util/Set;
+
+    move-result-object v0
+
+    if-nez v3, :cond_6
+
+    invoke-virtual {p0}, Lcom/android/wifitrackerlib/StandardWifiEntry;->getSsid()Ljava/lang/String;
+
+    move-result-object v4
+
+    sget-object v5, Ljava/nio/charset/StandardCharsets;->UTF_8:Ljava/nio/charset/Charset;
+
+    invoke-virtual {v4, v5}, Ljava/lang/String;->getBytes(Ljava/nio/charset/Charset;)[B
+
+    move-result-object v4
+
+    invoke-static {v4}, Landroid/net/wifi/WifiSsid;->fromBytes([B)Landroid/net/wifi/WifiSsid;
+
+    move-result-object v4
+
+    invoke-interface {v0, v4}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_6
+
+    iput-boolean v2, p0, Lcom/android/wifitrackerlib/StandardWifiEntry;->mIsAdminRestricted:Z
+
+    return-void
+
+    :cond_6
+    if-ne v3, v2, :cond_7
+
+    invoke-virtual {p0}, Lcom/android/wifitrackerlib/StandardWifiEntry;->getSsid()Ljava/lang/String;
+
+    move-result-object v3
+
+    sget-object v4, Ljava/nio/charset/StandardCharsets;->UTF_8:Ljava/nio/charset/Charset;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->getBytes(Ljava/nio/charset/Charset;)[B
+
+    move-result-object v3
+
+    invoke-static {v3}, Landroid/net/wifi/WifiSsid;->fromBytes([B)Landroid/net/wifi/WifiSsid;
+
+    move-result-object v3
+
+    invoke-interface {v0, v3}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_7
+
+    iput-boolean v2, p0, Lcom/android/wifitrackerlib/StandardWifiEntry;->mIsAdminRestricted:Z
+
+    return-void
+
+    :cond_7
+    iput-boolean v1, p0, Lcom/android/wifitrackerlib/StandardWifiEntry;->mIsAdminRestricted:Z
+
     return-void
 .end method
 

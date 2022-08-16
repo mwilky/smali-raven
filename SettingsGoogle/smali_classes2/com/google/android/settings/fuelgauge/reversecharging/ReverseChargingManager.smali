@@ -42,6 +42,14 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$sfgetDEBUG()Z
+    .locals 1
+
+    sget-boolean v0, Lcom/google/android/settings/fuelgauge/reversecharging/ReverseChargingManager;->DEBUG:Z
+
+    return v0
+.end method
+
 .method static constructor <clinit>()V
     .locals 2
 
@@ -110,14 +118,6 @@
     return-void
 .end method
 
-.method static synthetic access$000()Z
-    .locals 1
-
-    sget-boolean v0, Lcom/google/android/settings/fuelgauge/reversecharging/ReverseChargingManager;->DEBUG:Z
-
-    return v0
-.end method
-
 .method public static getInstance(Landroid/content/Context;)Lcom/google/android/settings/fuelgauge/reversecharging/ReverseChargingManager;
     .locals 1
 
@@ -146,7 +146,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090046
+    const v1, 0x7f090047
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 

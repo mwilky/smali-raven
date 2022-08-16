@@ -11,26 +11,6 @@
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;Ljava/lang/String;Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/settings/notification/zen/AbstractZenCustomRulePreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
-
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object p1
-
-    const p2, 0x7f0100fc
-
-    invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
-
-    move-result-object p1
-
-    iput-object p1, p0, Lcom/android/settings/notification/zen/ZenRuleMessagesPreferenceController;->mListValues:[Ljava/lang/String;
-
-    return-void
-.end method
-
 .method private updateFromContactsValue(Landroidx/preference/Preference;)V
     .locals 2
 
@@ -229,10 +209,18 @@
     return v4
 .end method
 
-.method public bridge synthetic onResume(Landroid/app/AutomaticZenRule;Ljava/lang/String;)V
+.method public bridge synthetic onResume()V
     .locals 0
 
-    invoke-super {p0, p1, p2}, Lcom/android/settings/notification/zen/AbstractZenCustomRulePreferenceController;->onResume(Landroid/app/AutomaticZenRule;Ljava/lang/String;)V
+    invoke-super {p0}, Lcom/android/settings/notification/zen/AbstractZenCustomRulePreferenceController;->onResume()V
+
+    return-void
+.end method
+
+.method public bridge synthetic setIdAndRule(Ljava/lang/String;Landroid/app/AutomaticZenRule;)V
+    .locals 0
+
+    invoke-super {p0, p1, p2}, Lcom/android/settings/notification/zen/AbstractZenCustomRulePreferenceController;->setIdAndRule(Ljava/lang/String;Landroid/app/AutomaticZenRule;)V
 
     return-void
 .end method
@@ -240,7 +228,7 @@
 .method public updateState(Landroidx/preference/Preference;)V
     .locals 0
 
-    invoke-super {p0, p1}, Lcom/android/settings/notification/zen/AbstractZenCustomRulePreferenceController;->updateState(Landroidx/preference/Preference;)V
+    invoke-super {p0, p1}, Lcom/android/settingslib/core/AbstractPreferenceController;->updateState(Landroidx/preference/Preference;)V
 
     invoke-direct {p0, p1}, Lcom/android/settings/notification/zen/ZenRuleMessagesPreferenceController;->updateFromContactsValue(Landroidx/preference/Preference;)V
 

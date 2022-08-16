@@ -96,7 +96,7 @@
 
     move-result-object v2
 
-    invoke-static {v1}, Lcom/android/settings/utils/ManagedServiceSettings;->access$000(Lcom/android/settings/utils/ManagedServiceSettings;)Lcom/android/settings/utils/ManagedServiceSettings$Config;
+    invoke-static {v1}, Lcom/android/settings/utils/ManagedServiceSettings;->-$$Nest$fgetmConfig(Lcom/android/settings/utils/ManagedServiceSettings;)Lcom/android/settings/utils/ManagedServiceSettings$Config;
 
     move-result-object v3
 
@@ -118,7 +118,7 @@
 
     move-result-object v3
 
-    invoke-static {v1}, Lcom/android/settings/utils/ManagedServiceSettings;->access$000(Lcom/android/settings/utils/ManagedServiceSettings;)Lcom/android/settings/utils/ManagedServiceSettings$Config;
+    invoke-static {v1}, Lcom/android/settings/utils/ManagedServiceSettings;->-$$Nest$fgetmConfig(Lcom/android/settings/utils/ManagedServiceSettings;)Lcom/android/settings/utils/ManagedServiceSettings$Config;
 
     move-result-object v5
 
@@ -156,15 +156,17 @@
 
     invoke-direct {v0, v1, p1}, Lcom/android/settings/utils/ManagedServiceSettings$ScaryWarningDialogFragment$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/utils/ManagedServiceSettings;Landroid/content/ComponentName;)V
 
-    const p1, 0x7f0401f9
+    const p1, 0x7f040222
 
     invoke-virtual {p0, p1, v0}, Landroidx/appcompat/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 
     move-result-object p0
 
-    sget-object p1, Lcom/android/settings/utils/ManagedServiceSettings$ScaryWarningDialogFragment$$ExternalSyntheticLambda1;->INSTANCE:Lcom/android/settings/utils/ManagedServiceSettings$ScaryWarningDialogFragment$$ExternalSyntheticLambda1;
+    new-instance p1, Lcom/android/settings/utils/ManagedServiceSettings$ScaryWarningDialogFragment$$ExternalSyntheticLambda1;
 
-    const v0, 0x7f0407c8
+    invoke-direct {p1}, Lcom/android/settings/utils/ManagedServiceSettings$ScaryWarningDialogFragment$$ExternalSyntheticLambda1;-><init>()V
+
+    const v0, 0x7f04080d
 
     invoke-virtual {p0, v0, p1}, Landroidx/appcompat/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 

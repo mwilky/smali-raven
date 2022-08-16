@@ -61,7 +61,7 @@
 
     iget-object p1, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f0401b2
+    const v0, 0x7f0401d9
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -79,9 +79,7 @@
 
     iget-object v2, p0, Lcom/android/settings/development/AdbDeviceDetailsFingerprintController;->mPairedDevice:Landroid/debug/PairDevice;
 
-    invoke-virtual {v2}, Landroid/debug/PairDevice;->getGuid()Ljava/lang/String;
-
-    move-result-object v2
+    iget-object v2, v2, Landroid/debug/PairDevice;->guid:Ljava/lang/String;
 
     const/4 v3, 0x0
 

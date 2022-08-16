@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/settings/biometrics/face/FaceSettings$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/settings/biometrics/face/FaceSettingsRemoveButtonPreferenceController$Listener;
+.implements Lcom/android/settings/biometrics/face/FaceSettingsEnrollButtonPreferenceController$Listener;
 
 
 # instance fields
@@ -22,12 +23,12 @@
 
 
 # virtual methods
-.method public final onRemoved()V
+.method public final onStartEnrolling(Landroid/content/Intent;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/settings/biometrics/face/FaceSettings$$ExternalSyntheticLambda2;->f$0:Lcom/android/settings/biometrics/face/FaceSettings;
 
-    invoke-static {p0}, Lcom/android/settings/biometrics/face/FaceSettings;->$r8$lambda$TEoDiWzAgU6GzwUROT5ko2T2ca0(Lcom/android/settings/biometrics/face/FaceSettings;)V
+    invoke-static {p0, p1}, Lcom/android/settings/biometrics/face/FaceSettings;->$r8$lambda$Vq1FnFpoQWPXSz490WImkKmzj1s(Lcom/android/settings/biometrics/face/FaceSettings;Landroid/content/Intent;)V
 
     return-void
 .end method

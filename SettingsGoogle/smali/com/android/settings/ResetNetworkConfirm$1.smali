@@ -48,7 +48,7 @@
     :cond_0
     iget-object p1, p0, Lcom/android/settings/ResetNetworkConfirm$1;->this$0:Lcom/android/settings/ResetNetworkConfirm;
 
-    invoke-static {p1}, Lcom/android/settings/ResetNetworkConfirm;->access$000(Lcom/android/settings/ResetNetworkConfirm;)I
+    invoke-static {p1}, Lcom/android/settings/ResetNetworkConfirm;->-$$Nest$fgetmSubId(Lcom/android/settings/ResetNetworkConfirm;)I
 
     move-result p1
 
@@ -58,21 +58,21 @@
 
     iget-object p1, p0, Lcom/android/settings/ResetNetworkConfirm$1;->this$0:Lcom/android/settings/ResetNetworkConfirm;
 
-    invoke-static {p1}, Lcom/android/settings/ResetNetworkConfirm;->access$400(Lcom/android/settings/ResetNetworkConfirm;)Landroid/telephony/SubscriptionManager;
+    invoke-static {p1}, Lcom/android/settings/ResetNetworkConfirm;->-$$Nest$mgetSubscriptionManager(Lcom/android/settings/ResetNetworkConfirm;)Landroid/telephony/SubscriptionManager;
 
     move-result-object p1
 
     iget-object v0, p0, Lcom/android/settings/ResetNetworkConfirm$1;->this$0:Lcom/android/settings/ResetNetworkConfirm;
 
-    invoke-static {v0, p1}, Lcom/android/settings/ResetNetworkConfirm;->access$500(Lcom/android/settings/ResetNetworkConfirm;Landroid/telephony/SubscriptionManager;)V
+    invoke-static {v0, p1}, Lcom/android/settings/ResetNetworkConfirm;->-$$Nest$mstopMonitorSubscriptionChange(Lcom/android/settings/ResetNetworkConfirm;Landroid/telephony/SubscriptionManager;)V
 
     iget-object v0, p0, Lcom/android/settings/ResetNetworkConfirm$1;->this$0:Lcom/android/settings/ResetNetworkConfirm;
 
-    invoke-static {v0}, Lcom/android/settings/ResetNetworkConfirm;->access$000(Lcom/android/settings/ResetNetworkConfirm;)I
+    invoke-static {v0}, Lcom/android/settings/ResetNetworkConfirm;->-$$Nest$fgetmSubId(Lcom/android/settings/ResetNetworkConfirm;)I
 
     move-result v1
 
-    invoke-static {v0, p1, v1}, Lcom/android/settings/ResetNetworkConfirm;->access$600(Lcom/android/settings/ResetNetworkConfirm;Landroid/telephony/SubscriptionManager;I)Z
+    invoke-static {v0, p1, v1}, Lcom/android/settings/ResetNetworkConfirm;->-$$Nest$misSubscriptionRemainActive(Lcom/android/settings/ResetNetworkConfirm;Landroid/telephony/SubscriptionManager;I)Z
 
     move-result p1
 
@@ -88,7 +88,7 @@
 
     iget-object v0, p0, Lcom/android/settings/ResetNetworkConfirm$1;->this$0:Lcom/android/settings/ResetNetworkConfirm;
 
-    invoke-static {v0}, Lcom/android/settings/ResetNetworkConfirm;->access$000(Lcom/android/settings/ResetNetworkConfirm;)I
+    invoke-static {v0}, Lcom/android/settings/ResetNetworkConfirm;->-$$Nest$fgetmSubId(Lcom/android/settings/ResetNetworkConfirm;)I
 
     move-result v0
 
@@ -117,17 +117,46 @@
     :cond_1
     iget-object p1, p0, Lcom/android/settings/ResetNetworkConfirm$1;->this$0:Lcom/android/settings/ResetNetworkConfirm;
 
-    iget-object v0, p1, Lcom/android/settings/ResetNetworkConfirm;->mActivity:Landroid/app/Activity;
+    invoke-static {p1}, Lcom/android/settings/ResetNetworkConfirm;->-$$Nest$fgetmProgressDialog(Lcom/android/settings/ResetNetworkConfirm;)Landroid/app/ProgressDialog;
 
-    invoke-static {p1, v0}, Lcom/android/settings/ResetNetworkConfirm;->access$700(Lcom/android/settings/ResetNetworkConfirm;Landroid/content/Context;)Landroid/app/ProgressDialog;
+    move-result-object p1
 
-    move-result-object v0
-
-    invoke-static {p1, v0}, Lcom/android/settings/ResetNetworkConfirm;->access$202(Lcom/android/settings/ResetNetworkConfirm;Landroid/app/ProgressDialog;)Landroid/app/ProgressDialog;
+    if-eqz p1, :cond_2
 
     iget-object p1, p0, Lcom/android/settings/ResetNetworkConfirm$1;->this$0:Lcom/android/settings/ResetNetworkConfirm;
 
-    invoke-static {p1}, Lcom/android/settings/ResetNetworkConfirm;->access$200(Lcom/android/settings/ResetNetworkConfirm;)Landroid/app/ProgressDialog;
+    invoke-static {p1}, Lcom/android/settings/ResetNetworkConfirm;->-$$Nest$fgetmProgressDialog(Lcom/android/settings/ResetNetworkConfirm;)Landroid/app/ProgressDialog;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Landroid/app/ProgressDialog;->isShowing()Z
+
+    move-result p1
+
+    if-eqz p1, :cond_2
+
+    iget-object p1, p0, Lcom/android/settings/ResetNetworkConfirm$1;->this$0:Lcom/android/settings/ResetNetworkConfirm;
+
+    invoke-static {p1}, Lcom/android/settings/ResetNetworkConfirm;->-$$Nest$fgetmProgressDialog(Lcom/android/settings/ResetNetworkConfirm;)Landroid/app/ProgressDialog;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Landroid/app/ProgressDialog;->dismiss()V
+
+    :cond_2
+    iget-object p1, p0, Lcom/android/settings/ResetNetworkConfirm$1;->this$0:Lcom/android/settings/ResetNetworkConfirm;
+
+    iget-object v0, p1, Lcom/android/settings/ResetNetworkConfirm;->mActivity:Landroid/app/Activity;
+
+    invoke-static {p1, v0}, Lcom/android/settings/ResetNetworkConfirm;->-$$Nest$mgetProgressDialog(Lcom/android/settings/ResetNetworkConfirm;Landroid/content/Context;)Landroid/app/ProgressDialog;
+
+    move-result-object v0
+
+    invoke-static {p1, v0}, Lcom/android/settings/ResetNetworkConfirm;->-$$Nest$fputmProgressDialog(Lcom/android/settings/ResetNetworkConfirm;Landroid/app/ProgressDialog;)V
+
+    iget-object p1, p0, Lcom/android/settings/ResetNetworkConfirm$1;->this$0:Lcom/android/settings/ResetNetworkConfirm;
+
+    invoke-static {p1}, Lcom/android/settings/ResetNetworkConfirm;->-$$Nest$fgetmProgressDialog(Lcom/android/settings/ResetNetworkConfirm;)Landroid/app/ProgressDialog;
 
     move-result-object p1
 

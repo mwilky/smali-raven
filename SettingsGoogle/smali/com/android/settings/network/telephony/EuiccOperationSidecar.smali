@@ -2,6 +2,9 @@
 .super Lcom/android/settings/SidecarFragment;
 .source "EuiccOperationSidecar.java"
 
+# interfaces
+.implements Lcom/android/settings/SidecarFragment$Listener;
+
 
 # static fields
 .field private static sCurrentOpId:Ljava/util/concurrent/atomic/AtomicInteger;
@@ -20,8 +23,60 @@
 
 .field private mResultIntent:Landroid/content/Intent;
 
+.field protected mSwitchSlotSidecar:Lcom/android/settings/network/SwitchSlotSidecar;
+
+.field protected mTelephonyManager:Landroid/telephony/TelephonyManager;
+
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmDetailedCode(Lcom/android/settings/network/telephony/EuiccOperationSidecar;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/settings/network/telephony/EuiccOperationSidecar;->mDetailedCode:I
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmOpId(Lcom/android/settings/network/telephony/EuiccOperationSidecar;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/settings/network/telephony/EuiccOperationSidecar;->mOpId:I
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmResultCode(Lcom/android/settings/network/telephony/EuiccOperationSidecar;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/settings/network/telephony/EuiccOperationSidecar;->mResultCode:I
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmDetailedCode(Lcom/android/settings/network/telephony/EuiccOperationSidecar;I)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/settings/network/telephony/EuiccOperationSidecar;->mDetailedCode:I
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fputmResultCode(Lcom/android/settings/network/telephony/EuiccOperationSidecar;I)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/settings/network/telephony/EuiccOperationSidecar;->mResultCode:I
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fputmResultIntent(Lcom/android/settings/network/telephony/EuiccOperationSidecar;Landroid/content/Intent;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/settings/network/telephony/EuiccOperationSidecar;->mResultIntent:Landroid/content/Intent;
+
+    return-void
+.end method
+
 .method static constructor <clinit>()V
     .locals 3
 
@@ -52,54 +107,6 @@
     iput-object v0, p0, Lcom/android/settings/network/telephony/EuiccOperationSidecar;->mReceiver:Landroid/content/BroadcastReceiver;
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/network/telephony/EuiccOperationSidecar;)I
-    .locals 0
-
-    iget p0, p0, Lcom/android/settings/network/telephony/EuiccOperationSidecar;->mOpId:I
-
-    return p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/network/telephony/EuiccOperationSidecar;)I
-    .locals 0
-
-    iget p0, p0, Lcom/android/settings/network/telephony/EuiccOperationSidecar;->mResultCode:I
-
-    return p0
-.end method
-
-.method static synthetic access$102(Lcom/android/settings/network/telephony/EuiccOperationSidecar;I)I
-    .locals 0
-
-    iput p1, p0, Lcom/android/settings/network/telephony/EuiccOperationSidecar;->mResultCode:I
-
-    return p1
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/network/telephony/EuiccOperationSidecar;)I
-    .locals 0
-
-    iget p0, p0, Lcom/android/settings/network/telephony/EuiccOperationSidecar;->mDetailedCode:I
-
-    return p0
-.end method
-
-.method static synthetic access$202(Lcom/android/settings/network/telephony/EuiccOperationSidecar;I)I
-    .locals 0
-
-    iput p1, p0, Lcom/android/settings/network/telephony/EuiccOperationSidecar;->mDetailedCode:I
-
-    return p1
-.end method
-
-.method static synthetic access$302(Lcom/android/settings/network/telephony/EuiccOperationSidecar;Landroid/content/Intent;)Landroid/content/Intent;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/settings/network/telephony/EuiccOperationSidecar;->mResultIntent:Landroid/content/Intent;
-
-    return-object p1
 .end method
 
 
@@ -180,7 +187,7 @@
 .end method
 
 .method public onCreate(Landroid/os/Bundle;)V
-    .locals 3
+    .locals 6
 
     invoke-super {p0, p1}, Lcom/android/settings/SidecarFragment;->onCreate(Landroid/os/Bundle;)V
 
@@ -202,25 +209,51 @@
 
     move-result-object p1
 
-    invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+    const-class v0, Landroid/telephony/TelephonyManager;
+
+    invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object p1
 
-    iget-object v0, p0, Lcom/android/settings/network/telephony/EuiccOperationSidecar;->mReceiver:Landroid/content/BroadcastReceiver;
+    check-cast p1, Landroid/telephony/TelephonyManager;
 
-    new-instance v1, Landroid/content/IntentFilter;
+    iput-object p1, p0, Lcom/android/settings/network/telephony/EuiccOperationSidecar;->mTelephonyManager:Landroid/telephony/TelephonyManager;
+
+    invoke-virtual {p0}, Landroid/app/Fragment;->getChildFragmentManager()Landroid/app/FragmentManager;
+
+    move-result-object p1
+
+    invoke-static {p1}, Lcom/android/settings/network/SwitchSlotSidecar;->get(Landroid/app/FragmentManager;)Lcom/android/settings/network/SwitchSlotSidecar;
+
+    move-result-object p1
+
+    iput-object p1, p0, Lcom/android/settings/network/telephony/EuiccOperationSidecar;->mSwitchSlotSidecar:Lcom/android/settings/network/SwitchSlotSidecar;
+
+    invoke-virtual {p0}, Landroid/app/Fragment;->getContext()Landroid/content/Context;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/settings/network/telephony/EuiccOperationSidecar;->mReceiver:Landroid/content/BroadcastReceiver;
+
+    new-instance v2, Landroid/content/IntentFilter;
 
     invoke-virtual {p0}, Lcom/android/settings/network/telephony/EuiccOperationSidecar;->getReceiverAction()Ljava/lang/String;
 
     move-result-object p0
 
-    invoke-direct {v1, p0}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, p0}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
 
-    const-string p0, "android.permission.WRITE_EMBEDDED_SUBSCRIPTIONS"
+    const-string v3, "android.permission.WRITE_EMBEDDED_SUBSCRIPTIONS"
 
-    const/4 v2, 0x0
+    const/4 v4, 0x0
 
-    invoke-virtual {p1, v0, v1, p0, v2}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
+    const/4 v5, 0x2
+
+    invoke-virtual/range {v0 .. v5}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;I)Landroid/content/Intent;
 
     return-void
 .end method
@@ -242,5 +275,83 @@
 
     invoke-super {p0}, Lcom/android/settings/SidecarFragment;->onDestroy()V
 
+    return-void
+.end method
+
+.method public onPause()V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/settings/network/telephony/EuiccOperationSidecar;->mSwitchSlotSidecar:Lcom/android/settings/network/SwitchSlotSidecar;
+
+    invoke-virtual {v0, p0}, Lcom/android/settings/SidecarFragment;->removeListener(Lcom/android/settings/SidecarFragment$Listener;)Z
+
+    invoke-super {p0}, Landroid/app/Fragment;->onPause()V
+
+    return-void
+.end method
+
+.method public onResume()V
+    .locals 1
+
+    invoke-super {p0}, Landroid/app/Fragment;->onResume()V
+
+    iget-object v0, p0, Lcom/android/settings/network/telephony/EuiccOperationSidecar;->mSwitchSlotSidecar:Lcom/android/settings/network/SwitchSlotSidecar;
+
+    invoke-virtual {v0, p0}, Lcom/android/settings/SidecarFragment;->addListener(Lcom/android/settings/SidecarFragment$Listener;)V
+
+    return-void
+.end method
+
+.method public onStateChange(Lcom/android/settings/SidecarFragment;)V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/settings/network/telephony/EuiccOperationSidecar;->mSwitchSlotSidecar:Lcom/android/settings/network/SwitchSlotSidecar;
+
+    const-string v1, "EuiccOperationSidecar"
+
+    if-ne p1, v0, :cond_2
+
+    invoke-virtual {v0}, Lcom/android/settings/SidecarFragment;->getState()I
+
+    move-result p1
+
+    const/4 v0, 0x2
+
+    if-eq p1, v0, :cond_1
+
+    const/4 v0, 0x3
+
+    if-eq p1, v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    iget-object p0, p0, Lcom/android/settings/network/telephony/EuiccOperationSidecar;->mSwitchSlotSidecar:Lcom/android/settings/network/SwitchSlotSidecar;
+
+    invoke-virtual {p0}, Lcom/android/settings/SidecarFragment;->reset()V
+
+    const-string p0, "mSwitchSlotSidecar ERROR"
+
+    invoke-static {v1, p0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    :cond_1
+    iget-object p0, p0, Lcom/android/settings/network/telephony/EuiccOperationSidecar;->mSwitchSlotSidecar:Lcom/android/settings/network/SwitchSlotSidecar;
+
+    invoke-virtual {p0}, Lcom/android/settings/SidecarFragment;->reset()V
+
+    const-string p0, "mSwitchSlotSidecar SUCCESS"
+
+    invoke-static {v1, p0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    :cond_2
+    const-string p0, "Received state change from a sidecar not expected."
+
+    invoke-static {v1, p0}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;)I
+
+    :goto_0
     return-void
 .end method

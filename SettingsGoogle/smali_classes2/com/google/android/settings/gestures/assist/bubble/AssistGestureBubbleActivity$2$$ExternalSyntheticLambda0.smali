@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity$2$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;

@@ -910,8 +910,6 @@
 
     aput v6, v9, v5
 
-    aget v6, v9, v5
-
     aput v6, v7, v0
 
     aget v6, v1, v5

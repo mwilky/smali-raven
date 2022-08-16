@@ -10,6 +10,8 @@
 # instance fields
 .field mIsUpdateStateFromSelectedStorageEntry:Z
 
+.field private mStorageCacheHelper:Lcom/android/settings/deviceinfo/storage/StorageCacheHelper;
+
 .field private mStorageEntry:Lcom/android/settings/deviceinfo/storage/StorageEntry;
 
 .field private final mStorageStatsManager:Landroid/app/usage/StorageStatsManager;
@@ -39,7 +41,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;)V
-    .locals 0
+    .locals 1
 
     invoke-direct {p0, p1, p2}, Lcom/android/settings/core/BasePreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
@@ -47,63 +49,76 @@
 
     invoke-virtual {p1, p2}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object p2
 
-    check-cast p1, Landroid/app/usage/StorageStatsManager;
+    check-cast p2, Landroid/app/usage/StorageStatsManager;
 
-    iput-object p1, p0, Lcom/android/settings/deviceinfo/storage/StorageUsageProgressBarPreferenceController;->mStorageStatsManager:Landroid/app/usage/StorageStatsManager;
+    iput-object p2, p0, Lcom/android/settings/deviceinfo/storage/StorageUsageProgressBarPreferenceController;->mStorageStatsManager:Landroid/app/usage/StorageStatsManager;
+
+    new-instance p2, Lcom/android/settings/deviceinfo/storage/StorageCacheHelper;
+
+    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
+
+    move-result v0
+
+    invoke-direct {p2, p1, v0}, Lcom/android/settings/deviceinfo/storage/StorageCacheHelper;-><init>(Landroid/content/Context;I)V
+
+    iput-object p2, p0, Lcom/android/settings/deviceinfo/storage/StorageUsageProgressBarPreferenceController;->mStorageCacheHelper:Lcom/android/settings/deviceinfo/storage/StorageCacheHelper;
 
     return-void
 .end method
 
 .method private getStorageStatsAndUpdateUi()V
-    .locals 1
+    .locals 3
 
-    new-instance v0, Lcom/android/settings/deviceinfo/storage/StorageUsageProgressBarPreferenceController$$ExternalSyntheticLambda0;
+    iget-object v0, p0, Lcom/android/settings/deviceinfo/storage/StorageUsageProgressBarPreferenceController;->mStorageEntry:Lcom/android/settings/deviceinfo/storage/StorageEntry;
 
-    invoke-direct {v0, p0}, Lcom/android/settings/deviceinfo/storage/StorageUsageProgressBarPreferenceController$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/deviceinfo/storage/StorageUsageProgressBarPreferenceController;)V
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Lcom/android/settings/deviceinfo/storage/StorageEntry;->isMounted()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/settings/deviceinfo/storage/StorageUsageProgressBarPreferenceController;->mStorageEntry:Lcom/android/settings/deviceinfo/storage/StorageEntry;
+
+    invoke-virtual {v0}, Lcom/android/settings/deviceinfo/storage/StorageEntry;->isPrivate()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/settings/deviceinfo/storage/StorageUsageProgressBarPreferenceController;->mStorageCacheHelper:Lcom/android/settings/deviceinfo/storage/StorageCacheHelper;
+
+    invoke-virtual {v0}, Lcom/android/settings/deviceinfo/storage/StorageCacheHelper;->retrieveCachedSize()Lcom/android/settings/deviceinfo/storage/StorageCacheHelper$StorageCache;
+
+    move-result-object v0
+
+    iget-wide v1, v0, Lcom/android/settings/deviceinfo/storage/StorageCacheHelper$StorageCache;->totalSize:J
+
+    iput-wide v1, p0, Lcom/android/settings/deviceinfo/storage/StorageUsageProgressBarPreferenceController;->mTotalBytes:J
+
+    iget-wide v0, v0, Lcom/android/settings/deviceinfo/storage/StorageCacheHelper$StorageCache;->totalUsedSize:J
+
+    iput-wide v0, p0, Lcom/android/settings/deviceinfo/storage/StorageUsageProgressBarPreferenceController;->mUsedBytes:J
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/settings/deviceinfo/storage/StorageUsageProgressBarPreferenceController;->mIsUpdateStateFromSelectedStorageEntry:Z
+
+    iget-object v0, p0, Lcom/android/settings/deviceinfo/storage/StorageUsageProgressBarPreferenceController;->mUsageProgressBarPreference:Lcom/android/settingslib/widget/UsageProgressBarPreference;
+
+    invoke-virtual {p0, v0}, Lcom/android/settings/deviceinfo/storage/StorageUsageProgressBarPreferenceController;->updateState(Landroidx/preference/Preference;)V
+
+    :cond_0
+    new-instance v0, Lcom/android/settings/deviceinfo/storage/StorageUsageProgressBarPreferenceController$$ExternalSyntheticLambda1;
+
+    invoke-direct {v0, p0}, Lcom/android/settings/deviceinfo/storage/StorageUsageProgressBarPreferenceController$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/deviceinfo/storage/StorageUsageProgressBarPreferenceController;)V
 
     invoke-static {v0}, Lcom/android/settingslib/utils/ThreadUtils;->postOnBackgroundThread(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;
 
     return-void
-.end method
-
-.method private getStorageSummary(IJ)Ljava/lang/String;
-    .locals 3
-
-    iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    const/4 v1, 0x1
-
-    invoke-static {v0, p2, p3, v1}, Landroid/text/format/Formatter;->formatBytes(Landroid/content/res/Resources;JI)Landroid/text/format/Formatter$BytesResult;
-
-    move-result-object p2
-
-    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
-
-    const/4 p3, 0x2
-
-    new-array p3, p3, [Ljava/lang/Object;
-
-    iget-object v0, p2, Landroid/text/format/Formatter$BytesResult;->value:Ljava/lang/String;
-
-    const/4 v2, 0x0
-
-    aput-object v0, p3, v2
-
-    iget-object p2, p2, Landroid/text/format/Formatter$BytesResult;->units:Ljava/lang/String;
-
-    aput-object p2, p3, v1
-
-    invoke-virtual {p0, p1, p3}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object p0
-
-    return-object p0
 .end method
 
 .method private synthetic lambda$getStorageStatsAndUpdateUi$0()V
@@ -250,9 +265,9 @@
 
     iput-boolean v0, p0, Lcom/android/settings/deviceinfo/storage/StorageUsageProgressBarPreferenceController;->mIsUpdateStateFromSelectedStorageEntry:Z
 
-    new-instance v0, Lcom/android/settings/deviceinfo/storage/StorageUsageProgressBarPreferenceController$$ExternalSyntheticLambda1;
+    new-instance v0, Lcom/android/settings/deviceinfo/storage/StorageUsageProgressBarPreferenceController$$ExternalSyntheticLambda0;
 
-    invoke-direct {v0, p0}, Lcom/android/settings/deviceinfo/storage/StorageUsageProgressBarPreferenceController$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/deviceinfo/storage/StorageUsageProgressBarPreferenceController;)V
+    invoke-direct {v0, p0}, Lcom/android/settings/deviceinfo/storage/StorageUsageProgressBarPreferenceController$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/deviceinfo/storage/StorageUsageProgressBarPreferenceController;)V
 
     invoke-static {v0}, Lcom/android/settingslib/utils/ThreadUtils;->postOnMainThread(Ljava/lang/Runnable;)V
 
@@ -261,14 +276,6 @@
 
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public displayPreference(Landroidx/preference/PreferenceScreen;)V
     .locals 1
 
@@ -297,15 +304,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -338,16 +336,6 @@
     .locals 0
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->hasAsyncUpdate()Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
 
     move-result p0
 
@@ -400,11 +388,13 @@
 
     iget-object p1, p0, Lcom/android/settings/deviceinfo/storage/StorageUsageProgressBarPreferenceController;->mUsageProgressBarPreference:Lcom/android/settingslib/widget/UsageProgressBarPreference;
 
-    const v0, 0x7f041333
+    iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    iget-wide v1, p0, Lcom/android/settings/deviceinfo/storage/StorageUsageProgressBarPreferenceController;->mUsedBytes:J
+    const v1, 0x7f0413f7
 
-    invoke-direct {p0, v0, v1, v2}, Lcom/android/settings/deviceinfo/storage/StorageUsageProgressBarPreferenceController;->getStorageSummary(IJ)Ljava/lang/String;
+    iget-wide v2, p0, Lcom/android/settings/deviceinfo/storage/StorageUsageProgressBarPreferenceController;->mUsedBytes:J
+
+    invoke-static {v0, v1, v2, v3}, Lcom/android/settings/deviceinfo/storage/StorageUtils;->getStorageSummary(Landroid/content/Context;IJ)Ljava/lang/String;
 
     move-result-object v0
 
@@ -412,11 +402,13 @@
 
     iget-object p1, p0, Lcom/android/settings/deviceinfo/storage/StorageUsageProgressBarPreferenceController;->mUsageProgressBarPreference:Lcom/android/settingslib/widget/UsageProgressBarPreference;
 
-    const v0, 0x7f041329
+    iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    iget-wide v1, p0, Lcom/android/settings/deviceinfo/storage/StorageUsageProgressBarPreferenceController;->mTotalBytes:J
+    const v1, 0x7f0413ed
 
-    invoke-direct {p0, v0, v1, v2}, Lcom/android/settings/deviceinfo/storage/StorageUsageProgressBarPreferenceController;->getStorageSummary(IJ)Ljava/lang/String;
+    iget-wide v2, p0, Lcom/android/settings/deviceinfo/storage/StorageUsageProgressBarPreferenceController;->mTotalBytes:J
+
+    invoke-static {v0, v1, v2, v3}, Lcom/android/settings/deviceinfo/storage/StorageUtils;->getStorageSummary(Landroid/content/Context;IJ)Ljava/lang/String;
 
     move-result-object v0
 

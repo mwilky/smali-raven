@@ -39,20 +39,6 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;Landroid/content/Context;Landroidx/core/provider/FontRequest;I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x1010,
-            0x1010,
-            0x1010,
-            0x1010
-        }
-        names = {
-            "val$id",
-            "val$context",
-            "val$request",
-            "val$style"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/core/provider/FontRequestWorker$1;->val$id:Ljava/lang/String;
 

@@ -87,7 +87,7 @@
 
     iput-object v0, p0, Lcom/android/settings/connecteddevice/usb/UsbDetailsTranscodeMtpController;->mSwitchPreference:Landroidx/preference/SwitchPreference;
 
-    const p1, 0x7f0414c0
+    const p1, 0x7f0415bd
 
     invoke-virtual {v0, p1}, Landroidx/preference/Preference;->setTitle(I)V
 
@@ -97,7 +97,7 @@
 
     iget-object p1, p0, Lcom/android/settings/connecteddevice/usb/UsbDetailsTranscodeMtpController;->mSwitchPreference:Landroidx/preference/SwitchPreference;
 
-    const v0, 0x7f0414c1
+    const v0, 0x7f0415be
 
     invoke-virtual {p1, v0}, Landroidx/preference/TwoStatePreference;->setSummaryOn(I)V
 
@@ -131,21 +131,39 @@
 .end method
 
 .method public onPreferenceClick(Landroidx/preference/Preference;)Z
-    .locals 0
+    .locals 4
 
-    iget-object p0, p0, Lcom/android/settings/connecteddevice/usb/UsbDetailsTranscodeMtpController;->mSwitchPreference:Landroidx/preference/SwitchPreference;
+    iget-object p1, p0, Lcom/android/settings/connecteddevice/usb/UsbDetailsTranscodeMtpController;->mSwitchPreference:Landroidx/preference/SwitchPreference;
 
-    invoke-virtual {p0}, Landroidx/preference/TwoStatePreference;->isChecked()Z
+    invoke-virtual {p1}, Landroidx/preference/TwoStatePreference;->isChecked()Z
 
-    move-result p0
+    move-result p1
 
-    invoke-static {p0}, Ljava/lang/Boolean;->toString(Z)Ljava/lang/String;
+    invoke-static {p1}, Ljava/lang/Boolean;->toString(Z)Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object p1
 
-    const-string/jumbo p1, "sys.fuse.transcode_mtp"
+    const-string/jumbo v0, "sys.fuse.transcode_mtp"
 
-    invoke-static {p1, p0}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v0, p1}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-object p1, p0, Lcom/android/settings/connecteddevice/usb/UsbDetailsController;->mUsbBackend:Lcom/android/settings/connecteddevice/usb/UsbBackend;
+
+    invoke-virtual {p1}, Lcom/android/settings/connecteddevice/usb/UsbBackend;->getCurrentFunctions()J
+
+    move-result-wide v0
+
+    iget-object p1, p0, Lcom/android/settings/connecteddevice/usb/UsbDetailsController;->mUsbBackend:Lcom/android/settings/connecteddevice/usb/UsbBackend;
+
+    const-wide/16 v2, -0x5
+
+    and-long/2addr v2, v0
+
+    invoke-virtual {p1, v2, v3}, Lcom/android/settings/connecteddevice/usb/UsbBackend;->setCurrentFunctions(J)V
+
+    iget-object p0, p0, Lcom/android/settings/connecteddevice/usb/UsbDetailsController;->mUsbBackend:Lcom/android/settings/connecteddevice/usb/UsbBackend;
+
+    invoke-virtual {p0, v0, v1}, Lcom/android/settings/connecteddevice/usb/UsbBackend;->setCurrentFunctions(J)V
 
     const/4 p0, 0x1
 

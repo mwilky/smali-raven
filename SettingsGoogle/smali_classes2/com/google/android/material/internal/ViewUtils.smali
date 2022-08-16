@@ -169,7 +169,7 @@
 .end method
 
 .method public static getOverlay(Landroid/view/View;)Lcom/google/android/material/internal/ViewOverlayImpl;
-    .locals 2
+    .locals 1
 
     if-nez p0, :cond_0
 
@@ -178,24 +178,11 @@
     return-object p0
 
     :cond_0
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x12
-
-    if-lt v0, v1, :cond_1
-
     new-instance v0, Lcom/google/android/material/internal/ViewOverlayApi18;
 
     invoke-direct {v0, p0}, Lcom/google/android/material/internal/ViewOverlayApi18;-><init>(Landroid/view/View;)V
 
     return-object v0
-
-    :cond_1
-    invoke-static {p0}, Lcom/google/android/material/internal/ViewOverlayApi14;->createFrom(Landroid/view/View;)Lcom/google/android/material/internal/ViewOverlayApi14;
-
-    move-result-object p0
-
-    return-object p0
 .end method
 
 .method public static getParentAbsoluteElevation(Landroid/view/View;)F

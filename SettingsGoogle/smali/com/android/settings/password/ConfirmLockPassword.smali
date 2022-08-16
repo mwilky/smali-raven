@@ -15,10 +15,28 @@
 # static fields
 .field private static final DETAIL_TEXTS:[I
 
+.field private static final DETAIL_TEXT_OVERRIDES:[Ljava/lang/String;
+
 
 # direct methods
-.method static constructor <clinit>()V
+.method static bridge synthetic -$$Nest$sfgetDETAIL_TEXTS()[I
     .locals 1
+
+    sget-object v0, Lcom/android/settings/password/ConfirmLockPassword;->DETAIL_TEXTS:[I
+
+    return-object v0
+.end method
+
+.method static bridge synthetic -$$Nest$sfgetDETAIL_TEXT_OVERRIDES()[Ljava/lang/String;
+    .locals 1
+
+    sget-object v0, Lcom/android/settings/password/ConfirmLockPassword;->DETAIL_TEXT_OVERRIDES:[Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method static constructor <clinit>()V
+    .locals 9
 
     const/16 v0, 0x8
 
@@ -28,18 +46,40 @@
 
     sput-object v0, Lcom/android/settings/password/ConfirmLockPassword;->DETAIL_TEXTS:[I
 
+    const-string v1, "UNDEFINED"
+
+    const-string v2, "UNDEFINED"
+
+    const-string v3, "Settings.WORK_PROFILE_CONFIRM_PIN"
+
+    const-string v4, "Settings.WORK_PROFILE_CONFIRM_PASSWORD"
+
+    const-string v5, "UNDEFINED"
+
+    const-string v6, "UNDEFINED"
+
+    const-string v7, "Settings.WORK_PROFILE_PIN_REQUIRED"
+
+    const-string v8, "Settings.WORK_PROFILE_PASSWORD_REQUIRED"
+
+    filled-new-array/range {v1 .. v8}, [Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/android/settings/password/ConfirmLockPassword;->DETAIL_TEXT_OVERRIDES:[Ljava/lang/String;
+
     return-void
 
     :array_0
     .array-data 4
-        0x7f040c25
-        0x7f040c1b
-        0x7f040c26
-        0x7f040c1c
-        0x7f040c42
-        0x7f040c40
-        0x7f040c45
-        0x7f040c43
+        0x7f040c8c
+        0x7f040c82
+        0x7f040c8d
+        0x7f040c83
+        0x7f040caa
+        0x7f040ca8
+        0x7f040cad
+        0x7f040cab
     .end array-data
 .end method
 
@@ -49,14 +89,6 @@
     invoke-direct {p0}, Lcom/android/settings/password/ConfirmDeviceCredentialBaseActivity;-><init>()V
 
     return-void
-.end method
-
-.method static synthetic access$000()[I
-    .locals 1
-
-    sget-object v0, Lcom/android/settings/password/ConfirmLockPassword;->DETAIL_TEXTS:[I
-
-    return-object v0
 .end method
 
 
@@ -119,7 +151,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f0d0348
+    const v0, 0x7f0d0373
 
     invoke-virtual {p0, v0}, Landroidx/fragment/app/FragmentManager;->findFragmentById(I)Landroidx/fragment/app/Fragment;
 

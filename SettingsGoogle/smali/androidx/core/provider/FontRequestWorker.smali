@@ -82,16 +82,6 @@
 
 .method private static createCacheId(Landroidx/core/provider/FontRequest;I)Ljava/lang/String;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "request",
-            "style"
-        }
-    .end annotation
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -121,15 +111,6 @@
     .annotation build Landroid/annotation/SuppressLint;
         value = {
             "WrongConstant"
-        }
-    .end annotation
-
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "fontFamilyResult"
         }
     .end annotation
 
@@ -209,20 +190,6 @@
 
 .method static getFontSync(Ljava/lang/String;Landroid/content/Context;Landroidx/core/provider/FontRequest;I)Landroidx/core/provider/FontRequestWorker$TypefaceResult;
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x10,
-            0x10,
-            0x10,
-            0x0
-        }
-        names = {
-            "cacheId",
-            "context",
-            "request",
-            "style"
-        }
-    .end annotation
 
     sget-object v0, Landroidx/core/provider/FontRequestWorker;->sTypefaceCache:Landroidx/collection/LruCache;
 
@@ -302,22 +269,6 @@
 
 .method static requestFontAsync(Landroid/content/Context;Landroidx/core/provider/FontRequest;ILjava/util/concurrent/Executor;Landroidx/core/provider/CallbackWithHandler;)Landroid/graphics/Typeface;
     .locals 5
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x10,
-            0x10,
-            0x10,
-            0x10,
-            0x10
-        }
-        names = {
-            "context",
-            "request",
-            "style",
-            "executor",
-            "callback"
-        }
-    .end annotation
 
     invoke-static {p1, p2}, Landroidx/core/provider/FontRequestWorker;->createCacheId(Landroidx/core/provider/FontRequest;I)Ljava/lang/String;
 
@@ -412,22 +363,6 @@
 
 .method static requestFontSync(Landroid/content/Context;Landroidx/core/provider/FontRequest;Landroidx/core/provider/CallbackWithHandler;II)Landroid/graphics/Typeface;
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x10,
-            0x10,
-            0x10,
-            0x10,
-            0x0
-        }
-        names = {
-            "context",
-            "request",
-            "callback",
-            "style",
-            "timeoutInMillis"
-        }
-    .end annotation
 
     invoke-static {p1, p3}, Landroidx/core/provider/FontRequestWorker;->createCacheId(Landroidx/core/provider/FontRequest;I)Ljava/lang/String;
 

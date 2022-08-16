@@ -93,7 +93,7 @@
 
     iget-object p0, p0, Lcom/android/settings/SetFullBackupPassword$1;->this$0:Lcom/android/settings/SetFullBackupPassword;
 
-    const p1, 0x7f040b77
+    const p1, 0x7f040be0
 
     invoke-static {p0, p1, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -106,7 +106,7 @@
     :cond_0
     iget-object v1, p0, Lcom/android/settings/SetFullBackupPassword$1;->this$0:Lcom/android/settings/SetFullBackupPassword;
 
-    invoke-static {v1, p1, v0}, Lcom/android/settings/SetFullBackupPassword;->access$000(Lcom/android/settings/SetFullBackupPassword;Ljava/lang/String;Ljava/lang/String;)Z
+    invoke-static {v1, p1, v0}, Lcom/android/settings/SetFullBackupPassword;->-$$Nest$msetBackupPassword(Lcom/android/settings/SetFullBackupPassword;Ljava/lang/String;Ljava/lang/String;)Z
 
     move-result p1
 
@@ -118,7 +118,7 @@
 
     iget-object p1, p0, Lcom/android/settings/SetFullBackupPassword$1;->this$0:Lcom/android/settings/SetFullBackupPassword;
 
-    const v0, 0x7f040b78
+    const v0, 0x7f040be1
 
     invoke-static {p1, v0, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -139,7 +139,7 @@
 
     iget-object p0, p0, Lcom/android/settings/SetFullBackupPassword$1;->this$0:Lcom/android/settings/SetFullBackupPassword;
 
-    const p1, 0x7f040b79
+    const p1, 0x7f040be2
 
     invoke-static {p0, p1, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 

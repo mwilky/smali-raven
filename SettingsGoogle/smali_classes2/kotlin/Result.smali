@@ -9,8 +9,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lkotlin/Result$Failure;,
-        Lkotlin/Result$Companion;
+        Lkotlin/Result$Companion;,
+        Lkotlin/Result$Failure;
     }
 .end annotation
 
@@ -60,6 +60,17 @@
         .annotation build Lorg/jetbrains/annotations/Nullable;
         .end annotation
     .end param
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<T:",
+            "Ljava/lang/Object;",
+            ">(",
+            "Ljava/lang/Object;",
+            ")",
+            "Ljava/lang/Object;"
+        }
+    .end annotation
+
     .annotation build Lorg/jetbrains/annotations/NotNull;
     .end annotation
 
@@ -67,12 +78,17 @@
 .end method
 
 .method public static equals-impl(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 1
+    .locals 2
 
     instance-of v0, p1, Lkotlin/Result;
 
-    if-eqz v0, :cond_0
+    const/4 v1, 0x0
 
+    if-nez v0, :cond_0
+
+    return v1
+
+    :cond_0
     check-cast p1, Lkotlin/Result;
 
     invoke-virtual {p1}, Lkotlin/Result;->unbox-impl()Ljava/lang/Object;
@@ -83,14 +99,12 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-nez p0, :cond_1
 
+    return v1
+
+    :cond_1
     const/4 p0, 0x1
-
-    return p0
-
-    :cond_0
-    const/4 p0, 0x0
 
     return p0
 .end method
@@ -98,16 +112,16 @@
 .method public static hashCode-impl(Ljava/lang/Object;)I
     .locals 0
 
-    if-eqz p0, :cond_0
+    if-nez p0, :cond_0
 
-    invoke-virtual {p0}, Ljava/lang/Object;->hashCode()I
-
-    move-result p0
+    const/4 p0, 0x0
 
     goto :goto_0
 
     :cond_0
-    const/4 p0, 0x0
+    invoke-virtual {p0}, Ljava/lang/Object;->hashCode()I
+
+    move-result p0
 
     :goto_0
     return p0
@@ -122,7 +136,9 @@
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    check-cast p0, Lkotlin/Result$Failure;
+
+    invoke-virtual {p0}, Lkotlin/Result$Failure;->toString()Ljava/lang/String;
 
     move-result-object p0
 

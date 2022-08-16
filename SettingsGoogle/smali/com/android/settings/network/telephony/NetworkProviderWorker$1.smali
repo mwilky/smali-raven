@@ -54,7 +54,7 @@
 
     iget-object p0, p0, Lcom/android/settings/network/telephony/NetworkProviderWorker$1;->this$0:Lcom/android/settings/network/telephony/NetworkProviderWorker;
 
-    invoke-static {p0}, Lcom/android/settings/network/telephony/NetworkProviderWorker;->access$000(Lcom/android/settings/network/telephony/NetworkProviderWorker;)V
+    invoke-static {p0}, Lcom/android/settings/network/telephony/NetworkProviderWorker;->-$$Nest$mupdateListener(Lcom/android/settings/network/telephony/NetworkProviderWorker;)V
 
     :cond_0
     return-void

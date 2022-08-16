@@ -39,7 +39,7 @@
 
     iget-object p0, p0, Lcom/android/settings/notification/zen/ZenModeSettingsFooterPreferenceController$1;->this$0:Lcom/android/settings/notification/zen/ZenModeSettingsFooterPreferenceController;
 
-    invoke-static {p0}, Lcom/android/settings/notification/zen/ZenModeSettingsFooterPreferenceController;->access$000(Lcom/android/settings/notification/zen/ZenModeSettingsFooterPreferenceController;)V
+    invoke-static {p0}, Lcom/android/settings/notification/zen/ZenModeSettingsFooterPreferenceController;->-$$Nest$mshowCustomSettingsDialog(Lcom/android/settings/notification/zen/ZenModeSettingsFooterPreferenceController;)V
 
     return-void
 .end method

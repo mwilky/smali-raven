@@ -17,14 +17,6 @@
 # direct methods
 .method static indexOf(I)I
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "type"
-        }
-    .end annotation
 
     const/4 v0, 0x1
 
@@ -118,4 +110,20 @@
     const/4 p0, 0x0
 
     return p0
+.end method
+
+.method public static mandatorySystemGestures()I
+    .locals 1
+
+    const/16 v0, 0x20
+
+    return v0
+.end method
+
+.method public static systemBars()I
+    .locals 1
+
+    const/4 v0, 0x7
+
+    return v0
 .end method

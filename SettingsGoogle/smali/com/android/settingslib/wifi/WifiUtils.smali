@@ -3,7 +3,21 @@
 .source "WifiUtils.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/android/settingslib/wifi/WifiUtils$InternetIconInjector;
+    }
+.end annotation
+
+
 # static fields
+.field static final ACTION_WIFI_DIALOG:Ljava/lang/String; = "com.android.settings.WIFI_DIALOG"
+
+.field static final EXTRA_CHOSEN_WIFI_ENTRY_KEY:Ljava/lang/String; = "key_chosen_wifientry_key"
+
+.field static final EXTRA_CONNECT_FOR_CALLER:Ljava/lang/String; = "connect_for_caller"
+
 .field static final NO_INTERNET_WIFI_PIE:[I
 
 .field static final WIFI_PIE:[I
@@ -59,59 +73,83 @@
 
     :array_0
     .array-data 4
-        0x1080565
-        0x1080566
-        0x1080567
-        0x1080568
-        0x1080569
+        0x1080571
+        0x1080572
+        0x1080573
+        0x1080574
+        0x1080575
     .end array-data
 .end method
 
 .method public static getInternetIconResource(IZ)I
-    .locals 2
+    .locals 4
 
-    if-ltz p0, :cond_1
+    const-string v0, "Wi-Fi level is out of range! level:"
 
-    sget-object v0, Lcom/android/settingslib/wifi/WifiUtils;->WIFI_PIE:[I
+    const-string v1, "WifiUtils"
 
-    array-length v1, v0
+    if-gez p0, :cond_0
 
-    if-ge p0, v1, :cond_1
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    if-eqz p1, :cond_0
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-static {v1, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 p0, 0x0
+
+    goto :goto_0
+
+    :cond_0
+    sget-object v2, Lcom/android/settingslib/wifi/WifiUtils;->WIFI_PIE:[I
+
+    array-length v3, v2
+
+    if-lt p0, v3, :cond_1
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-static {v1, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    array-length p0, v2
+
+    add-int/lit8 p0, p0, -0x1
+
+    :cond_1
+    :goto_0
+    if-eqz p1, :cond_2
 
     sget-object p1, Lcom/android/settingslib/wifi/WifiUtils;->NO_INTERNET_WIFI_PIE:[I
 
     aget p0, p1, p0
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_0
-    aget p0, v0, p0
+    :cond_2
+    sget-object p1, Lcom/android/settingslib/wifi/WifiUtils;->WIFI_PIE:[I
 
-    :goto_0
+    aget p0, p1, p0
+
+    :goto_1
     return p0
-
-    :cond_1
-    new-instance p1, Ljava/lang/IllegalArgumentException;
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "No Wifi icon found for level: "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p0
-
-    invoke-direct {p1, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw p1
 .end method
 
 .method private static getSpecificApSpeed(Landroid/net/wifi/ScanResult;Ljava/util/Map;)I
@@ -326,7 +364,7 @@
 
     aput-object v1, v8, v7
 
-    const-string v1, "rx=%.1f"
+    const-string/jumbo v1, "rx=%.1f"
 
     invoke-static {v1, v8}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -595,6 +633,46 @@
     return-object v0
 .end method
 
+.method public static getWifiTetherSummaryForConnectedDevices(Landroid/content/Context;I)Ljava/lang/String;
+    .locals 2
+
+    new-instance v0, Landroid/icu/text/MessageFormat;
+
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p0
+
+    sget v1, Lcom/android/settingslib/R$string;->wifi_tether_connected_summary:I
+
+    invoke-virtual {p0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
+
+    move-result-object v1
+
+    invoke-direct {v0, p0, v1}, Landroid/icu/text/MessageFormat;-><init>(Ljava/lang/String;Ljava/util/Locale;)V
+
+    new-instance p0, Ljava/util/HashMap;
+
+    invoke-direct {p0}, Ljava/util/HashMap;-><init>()V
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object p1
+
+    const-string v1, "count"
+
+    invoke-interface {p0, v1, p1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    invoke-virtual {v0, p0}, Landroid/icu/text/MessageFormat;->format(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method static verboseScanResultSummary(Lcom/android/settingslib/wifi/AccessPoint;Landroid/net/wifi/ScanResult;Ljava/lang/String;J)Ljava/lang/String;
     .locals 3
 
@@ -674,7 +752,7 @@
 
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string p0, "s"
+    const-string/jumbo p0, "s"
 
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

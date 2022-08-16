@@ -25,6 +25,8 @@
 
 .field final mControllerHandler:Landroid/os/Handler;
 
+.field mGroupRouteDescriptor:Landroidx/mediarouter/media/MediaRouteDescriptor;
+
 .field final mInitialMemberRouteId:Ljava/lang/String;
 
 .field mNextRequestId:Ljava/util/concurrent/atomic/AtomicInteger;
@@ -61,18 +63,6 @@
 
 .method constructor <init>(Landroidx/mediarouter/media/MediaRoute2Provider;Landroid/media/MediaRouter2$RoutingController;Ljava/lang/String;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x1010,
-            0x0,
-            0x0
-        }
-        names = {
-            "this$0",
-            "routingController",
-            "initialMemberRouteId"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/mediarouter/media/MediaRoute2Provider$GroupRouteController;->this$0:Landroidx/mediarouter/media/MediaRoute2Provider;
 
@@ -175,16 +165,32 @@
 
 
 # virtual methods
+.method public getGroupRouteId()Ljava/lang/String;
+    .locals 1
+
+    iget-object v0, p0, Landroidx/mediarouter/media/MediaRoute2Provider$GroupRouteController;->mGroupRouteDescriptor:Landroidx/mediarouter/media/MediaRouteDescriptor;
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Landroidx/mediarouter/media/MediaRouteDescriptor;->getId()Ljava/lang/String;
+
+    move-result-object p0
+
+    goto :goto_0
+
+    :cond_0
+    iget-object p0, p0, Landroidx/mediarouter/media/MediaRoute2Provider$GroupRouteController;->mRoutingController:Landroid/media/MediaRouter2$RoutingController;
+
+    invoke-virtual {p0}, Landroid/media/MediaRouter2$RoutingController;->getId()Ljava/lang/String;
+
+    move-result-object p0
+
+    :goto_0
+    return-object p0
+.end method
+
 .method public onAddMemberRoute(Ljava/lang/String;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "routeId"
-        }
-    .end annotation
 
     const-string v0, "MR2Provider"
 
@@ -253,14 +259,6 @@
 
 .method public onRemoveMemberRoute(Ljava/lang/String;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "routeId"
-        }
-    .end annotation
 
     const-string v0, "MR2Provider"
 
@@ -319,14 +317,6 @@
 
 .method public onSetVolume(I)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "volume"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/mediarouter/media/MediaRoute2Provider$GroupRouteController;->mRoutingController:Landroid/media/MediaRouter2$RoutingController;
 
@@ -346,15 +336,6 @@
 
 .method public onUpdateMemberRoutes(Ljava/util/List;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "routeIds"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -431,14 +412,6 @@
 
 .method public onUpdateVolume(I)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "delta"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/mediarouter/media/MediaRoute2Provider$GroupRouteController;->mRoutingController:Landroid/media/MediaRouter2$RoutingController;
 
@@ -485,19 +458,34 @@
     return-void
 .end method
 
+.method setGroupRouteDescriptor(Landroidx/mediarouter/media/MediaRouteDescriptor;)V
+    .locals 0
+
+    iput-object p1, p0, Landroidx/mediarouter/media/MediaRoute2Provider$GroupRouteController;->mGroupRouteDescriptor:Landroidx/mediarouter/media/MediaRouteDescriptor;
+
+    return-void
+.end method
+
 .method setMemberRouteVolume(Ljava/lang/String;I)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "memberRouteOriginalId",
-            "volume"
-        }
-    .end annotation
 
+    iget-object v0, p0, Landroidx/mediarouter/media/MediaRoute2Provider$GroupRouteController;->mRoutingController:Landroid/media/MediaRouter2$RoutingController;
+
+    if-eqz v0, :cond_1
+
+    invoke-virtual {v0}, Landroid/media/MediaRouter2$RoutingController;->isReleased()Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    iget-object v0, p0, Landroidx/mediarouter/media/MediaRoute2Provider$GroupRouteController;->mServiceMessenger:Landroid/os/Messenger;
+
+    if-nez v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
     iget-object v0, p0, Landroidx/mediarouter/media/MediaRoute2Provider$GroupRouteController;->mNextRequestId:Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->getAndIncrement()I
@@ -522,7 +510,7 @@
 
     invoke-virtual {v0, v2, p2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    const-string p2, "routeId"
+    const-string/jumbo p2, "routeId"
 
     invoke-virtual {v0, p2, p1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -552,23 +540,31 @@
     invoke-static {p1, p2, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :catch_1
+    :cond_1
     :goto_0
     return-void
 .end method
 
 .method updateMemberRouteVolume(Ljava/lang/String;I)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "memberRouteOriginalId",
-            "delta"
-        }
-    .end annotation
 
+    iget-object v0, p0, Landroidx/mediarouter/media/MediaRoute2Provider$GroupRouteController;->mRoutingController:Landroid/media/MediaRouter2$RoutingController;
+
+    if-eqz v0, :cond_1
+
+    invoke-virtual {v0}, Landroid/media/MediaRouter2$RoutingController;->isReleased()Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    iget-object v0, p0, Landroidx/mediarouter/media/MediaRoute2Provider$GroupRouteController;->mServiceMessenger:Landroid/os/Messenger;
+
+    if-nez v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
     iget-object v0, p0, Landroidx/mediarouter/media/MediaRoute2Provider$GroupRouteController;->mNextRequestId:Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->getAndIncrement()I
@@ -593,7 +589,7 @@
 
     invoke-virtual {v0, v2, p2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    const-string p2, "routeId"
+    const-string/jumbo p2, "routeId"
 
     invoke-virtual {v0, p2, p1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -623,6 +619,7 @@
     invoke-static {p1, p2, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :catch_1
+    :cond_1
     :goto_0
     return-void
 .end method

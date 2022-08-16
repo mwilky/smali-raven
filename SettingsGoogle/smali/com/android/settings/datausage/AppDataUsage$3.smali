@@ -62,19 +62,19 @@
 
     iget-object p2, p0, Lcom/android/settings/datausage/AppDataUsage$3;->this$0:Lcom/android/settings/datausage/AppDataUsage;
 
-    invoke-static {p2}, Lcom/android/settings/datausage/AppDataUsage;->access$700(Lcom/android/settings/datausage/AppDataUsage;)Landroid/content/Context;
+    invoke-static {p2}, Lcom/android/settings/datausage/AppDataUsage;->access$000(Lcom/android/settings/datausage/AppDataUsage;)Landroid/content/Context;
 
     move-result-object p2
 
     iget-object v0, p0, Lcom/android/settings/datausage/AppDataUsage$3;->this$0:Lcom/android/settings/datausage/AppDataUsage;
 
-    invoke-static {v0}, Lcom/android/settings/datausage/AppDataUsage;->access$800(Lcom/android/settings/datausage/AppDataUsage;)Landroid/util/ArraySet;
+    invoke-static {v0}, Lcom/android/settings/datausage/AppDataUsage;->-$$Nest$fgetmPackages(Lcom/android/settings/datausage/AppDataUsage;)Landroid/util/ArraySet;
 
     move-result-object v0
 
     iget-object p0, p0, Lcom/android/settings/datausage/AppDataUsage$3;->this$0:Lcom/android/settings/datausage/AppDataUsage;
 
-    invoke-static {p0}, Lcom/android/settings/datausage/AppDataUsage;->access$900(Lcom/android/settings/datausage/AppDataUsage;)Landroid/content/pm/PackageManager;
+    invoke-static {p0}, Lcom/android/settings/datausage/AppDataUsage;->access$100(Lcom/android/settings/datausage/AppDataUsage;)Landroid/content/pm/PackageManager;
 
     move-result-object p0
 
@@ -102,7 +102,7 @@
 
     iget-object p1, p0, Lcom/android/settings/datausage/AppDataUsage$3;->this$0:Lcom/android/settings/datausage/AppDataUsage;
 
-    invoke-static {p1}, Lcom/android/settings/datausage/AppDataUsage;->access$1000(Lcom/android/settings/datausage/AppDataUsage;)Landroidx/preference/PreferenceCategory;
+    invoke-static {p1}, Lcom/android/settings/datausage/AppDataUsage;->-$$Nest$fgetmAppList(Lcom/android/settings/datausage/AppDataUsage;)Landroidx/preference/PreferenceCategory;
 
     move-result-object p1
 
@@ -127,7 +127,7 @@
 
     iget-object v0, p0, Lcom/android/settings/datausage/AppDataUsage$3;->this$0:Lcom/android/settings/datausage/AppDataUsage;
 
-    invoke-static {v0}, Lcom/android/settings/datausage/AppDataUsage;->access$1000(Lcom/android/settings/datausage/AppDataUsage;)Landroidx/preference/PreferenceCategory;
+    invoke-static {v0}, Lcom/android/settings/datausage/AppDataUsage;->-$$Nest$fgetmAppList(Lcom/android/settings/datausage/AppDataUsage;)Landroidx/preference/PreferenceCategory;
 
     move-result-object v0
 

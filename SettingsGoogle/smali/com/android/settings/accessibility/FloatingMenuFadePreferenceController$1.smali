@@ -36,7 +36,7 @@
 
     iget-object p0, p0, Lcom/android/settings/accessibility/FloatingMenuFadePreferenceController$1;->this$0:Lcom/android/settings/accessibility/FloatingMenuFadePreferenceController;
 
-    invoke-static {p0}, Lcom/android/settings/accessibility/FloatingMenuFadePreferenceController;->access$000(Lcom/android/settings/accessibility/FloatingMenuFadePreferenceController;)V
+    invoke-static {p0}, Lcom/android/settings/accessibility/FloatingMenuFadePreferenceController;->-$$Nest$mupdateAvailabilityStatus(Lcom/android/settings/accessibility/FloatingMenuFadePreferenceController;)V
 
     return-void
 .end method

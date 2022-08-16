@@ -75,7 +75,7 @@
 .method private getSharedPreferences(Landroid/content/Context;)Landroid/content/SharedPreferences;
     .locals 1
 
-    const-string p0, "seamless_transfer_record"
+    const-string/jumbo p0, "seamless_transfer_record"
 
     const/4 v0, 0x0
 

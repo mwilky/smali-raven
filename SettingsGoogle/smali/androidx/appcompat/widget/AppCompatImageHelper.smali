@@ -8,6 +8,8 @@
 
 .field private mInternalImageTint:Landroidx/appcompat/widget/TintInfo;
 
+.field private mLevel:I
+
 .field private mTmpInfo:Landroidx/appcompat/widget/TintInfo;
 
 .field private final mView:Landroid/widget/ImageView;
@@ -15,9 +17,13 @@
 
 # direct methods
 .method public constructor <init>(Landroid/widget/ImageView;)V
-    .locals 0
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    const/4 v0, 0x0
+
+    iput v0, p0, Landroidx/appcompat/widget/AppCompatImageHelper;->mLevel:I
 
     iput-object p1, p0, Landroidx/appcompat/widget/AppCompatImageHelper;->mView:Landroid/widget/ImageView;
 
@@ -99,41 +105,50 @@
 .end method
 
 .method private shouldApplyFrameworkTintUsingColorFilter()Z
-    .locals 4
-
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/4 v1, 0x1
-
-    const/4 v2, 0x0
-
-    const/16 v3, 0x15
-
-    if-le v0, v3, :cond_1
+    .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/widget/AppCompatImageHelper;->mInternalImageTint:Landroidx/appcompat/widget/TintInfo;
 
     if-eqz p0, :cond_0
 
+    const/4 p0, 0x1
+
     goto :goto_0
 
     :cond_0
-    move v1, v2
+    const/4 p0, 0x0
 
     :goto_0
-    return v1
-
-    :cond_1
-    if-ne v0, v3, :cond_2
-
-    return v1
-
-    :cond_2
-    return v2
+    return p0
 .end method
 
 
 # virtual methods
+.method applyImageLevel()V
+    .locals 1
+
+    iget-object v0, p0, Landroidx/appcompat/widget/AppCompatImageHelper;->mView:Landroid/widget/ImageView;
+
+    invoke-virtual {v0}, Landroid/widget/ImageView;->getDrawable()Landroid/graphics/drawable/Drawable;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroidx/appcompat/widget/AppCompatImageHelper;->mView:Landroid/widget/ImageView;
+
+    invoke-virtual {v0}, Landroid/widget/ImageView;->getDrawable()Landroid/graphics/drawable/Drawable;
+
+    move-result-object v0
+
+    iget p0, p0, Landroidx/appcompat/widget/AppCompatImageHelper;->mLevel:I
+
+    invoke-virtual {v0, p0}, Landroid/graphics/drawable/Drawable;->setLevel(I)Z
+
+    :cond_0
+    return-void
+.end method
+
 .method applySupportImageTint()V
     .locals 2
 
@@ -234,19 +249,13 @@
 .end method
 
 .method hasOverlappingRendering()Z
-    .locals 2
+    .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/widget/AppCompatImageHelper;->mView:Landroid/widget/ImageView;
 
     invoke-virtual {p0}, Landroid/widget/ImageView;->getBackground()Landroid/graphics/drawable/Drawable;
 
     move-result-object p0
-
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    if-lt v0, v1, :cond_0
 
     instance-of p0, p0, Landroid/graphics/drawable/RippleDrawable;
 
@@ -390,6 +399,18 @@
     invoke-virtual {v0}, Landroidx/appcompat/widget/TintTypedArray;->recycle()V
 
     throw p0
+.end method
+
+.method obtainLevelFromDrawable(Landroid/graphics/drawable/Drawable;)V
+    .locals 0
+
+    invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->getLevel()I
+
+    move-result p1
+
+    iput p1, p0, Landroidx/appcompat/widget/AppCompatImageHelper;->mLevel:I
+
+    return-void
 .end method
 
 .method public setImageResource(I)V

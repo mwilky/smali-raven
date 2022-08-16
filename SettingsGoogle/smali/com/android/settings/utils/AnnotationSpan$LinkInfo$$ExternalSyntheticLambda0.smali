@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settings/utils/AnnotationSpan$LinkInfo$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/view/View$OnClickListener;

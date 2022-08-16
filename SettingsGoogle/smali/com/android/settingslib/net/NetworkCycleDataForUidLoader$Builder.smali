@@ -39,6 +39,22 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmRetrieveDetail(Lcom/android/settingslib/net/NetworkCycleDataForUidLoader$Builder;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/settingslib/net/NetworkCycleDataForUidLoader$Builder;->mRetrieveDetail:Z
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmUids(Lcom/android/settingslib/net/NetworkCycleDataForUidLoader$Builder;)Ljava/util/List;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settingslib/net/NetworkCycleDataForUidLoader$Builder;->mUids:Ljava/util/List;
+
+    return-object p0
+.end method
+
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 0
 
@@ -55,22 +71,6 @@
     iput-boolean p1, p0, Lcom/android/settingslib/net/NetworkCycleDataForUidLoader$Builder;->mRetrieveDetail:Z
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settingslib/net/NetworkCycleDataForUidLoader$Builder;)Ljava/util/List;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/net/NetworkCycleDataForUidLoader$Builder;->mUids:Ljava/util/List;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settingslib/net/NetworkCycleDataForUidLoader$Builder;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/settingslib/net/NetworkCycleDataForUidLoader$Builder;->mRetrieveDetail:Z
-
-    return p0
 .end method
 
 

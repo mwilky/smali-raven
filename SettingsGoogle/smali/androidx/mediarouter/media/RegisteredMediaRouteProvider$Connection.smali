@@ -48,16 +48,6 @@
 # direct methods
 .method public constructor <init>(Landroidx/mediarouter/media/RegisteredMediaRouteProvider;Landroid/os/Messenger;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x1010,
-            0x0
-        }
-        names = {
-            "this$0",
-            "serviceMessenger"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;->this$0:Landroidx/mediarouter/media/RegisteredMediaRouteProvider;
 
@@ -94,22 +84,6 @@
 
 .method private sendRequest(IIILjava/lang/Object;Landroid/os/Bundle;)Z
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "what",
-            "requestId",
-            "arg",
-            "obj",
-            "data"
-        }
-    .end annotation
 
     invoke-static {}, Landroid/os/Message;->obtain()Landroid/os/Message;
 
@@ -165,16 +139,6 @@
 # virtual methods
 .method public addMemberRoute(ILjava/lang/String;)V
     .locals 6
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "controllerId",
-            "memberRouteId"
-        }
-    .end annotation
 
     new-instance v5, Landroid/os/Bundle;
 
@@ -221,16 +185,6 @@
 
 .method public createDynamicGroupRouteController(Ljava/lang/String;Landroidx/mediarouter/media/MediaRouter$ControlRequestCallback;)I
     .locals 8
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "initialMemberRouteId",
-            "callback"
-        }
-    .end annotation
 
     iget v6, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;->mNextControllerId:I
 
@@ -273,16 +227,6 @@
 
 .method public createRouteController(Ljava/lang/String;Ljava/lang/String;)I
     .locals 7
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "routeId",
-            "routeGroupId"
-        }
-    .end annotation
 
     iget v6, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;->mNextControllerId:I
 
@@ -294,11 +238,11 @@
 
     invoke-direct {v5}, Landroid/os/Bundle;-><init>()V
 
-    const-string v0, "routeId"
+    const-string/jumbo v0, "routeId"
 
     invoke-virtual {v5, v0, p1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string p1, "routeGroupId"
+    const-string/jumbo p1, "routeGroupId"
 
     invoke-virtual {v5, p1, p2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -405,18 +349,6 @@
 
 .method public onControlRequestFailed(ILjava/lang/String;Landroid/os/Bundle;)Z
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "requestId",
-            "error",
-            "data"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;->mPendingCallbacks:Landroid/util/SparseArray;
 
@@ -446,16 +378,6 @@
 
 .method public onControlRequestSucceeded(ILandroid/os/Bundle;)Z
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "requestId",
-            "data"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;->mPendingCallbacks:Landroid/util/SparseArray;
 
@@ -485,14 +407,6 @@
 
 .method public onControllerReleasedByProvider(I)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "controllerId"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;->this$0:Landroidx/mediarouter/media/RegisteredMediaRouteProvider;
 
@@ -503,14 +417,6 @@
 
 .method public onDescriptorChanged(Landroid/os/Bundle;)Z
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "descriptorBundle"
-        }
-    .end annotation
 
     iget v0, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;->mServiceVersion:I
 
@@ -536,16 +442,6 @@
 
 .method public onDynamicGroupRouteControllerCreated(ILandroid/os/Bundle;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "requestId",
-            "data"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;->mPendingCallbacks:Landroid/util/SparseArray;
 
@@ -557,7 +453,7 @@
 
     if-eqz p2, :cond_0
 
-    const-string v1, "routeId"
+    const-string/jumbo v1, "routeId"
 
     invoke-virtual {p2, v1}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
 
@@ -584,16 +480,6 @@
 
 .method public onDynamicRouteDescriptorsChanged(ILandroid/os/Bundle;)Z
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "controllerId",
-            "descriptorsBundle"
-        }
-    .end annotation
 
     iget v0, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;->mServiceVersion:I
 
@@ -668,14 +554,6 @@
 
 .method public onGenericFailure(I)Z
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "requestId"
-        }
-    .end annotation
 
     iget v0, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;->mPendingRegisterRequestId:I
 
@@ -718,14 +596,6 @@
 
 .method public onGenericSuccess(I)Z
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "requestId"
-        }
-    .end annotation
 
     const/4 p0, 0x1
 
@@ -734,18 +604,6 @@
 
 .method public onRegistered(IILandroid/os/Bundle;)Z
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "requestId",
-            "serviceVersion",
-            "descriptorBundle"
-        }
-    .end annotation
 
     iget v0, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;->mServiceVersion:I
 
@@ -838,14 +696,6 @@
 
 .method public releaseRouteController(I)V
     .locals 6
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "controllerId"
-        }
-    .end annotation
 
     iget v2, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;->mNextRequestId:I
 
@@ -870,16 +720,6 @@
 
 .method public removeMemberRoute(ILjava/lang/String;)V
     .locals 6
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "controllerId",
-            "memberRouteId"
-        }
-    .end annotation
 
     new-instance v5, Landroid/os/Bundle;
 
@@ -910,14 +750,6 @@
 
 .method public selectRoute(I)V
     .locals 6
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "controllerId"
-        }
-    .end annotation
 
     iget v2, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;->mNextRequestId:I
 
@@ -942,14 +774,6 @@
 
 .method public setDiscoveryRequest(Landroidx/mediarouter/media/MediaRouteDiscoveryRequest;)V
     .locals 6
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "request"
-        }
-    .end annotation
 
     iget v2, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;->mNextRequestId:I
 
@@ -986,16 +810,6 @@
 
 .method public setVolume(II)V
     .locals 6
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "controllerId",
-            "volume"
-        }
-    .end annotation
 
     new-instance v5, Landroid/os/Bundle;
 
@@ -1026,16 +840,6 @@
 
 .method public unselectRoute(II)V
     .locals 6
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "controllerId",
-            "reason"
-        }
-    .end annotation
 
     new-instance v5, Landroid/os/Bundle;
 
@@ -1066,17 +870,6 @@
 
 .method public updateMemberRoutes(ILjava/util/List;)V
     .locals 6
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "controllerId",
-            "memberRouteIds"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -1119,16 +912,6 @@
 
 .method public updateVolume(II)V
     .locals 6
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "controllerId",
-            "delta"
-        }
-    .end annotation
 
     new-instance v5, Landroid/os/Bundle;
 

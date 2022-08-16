@@ -12,6 +12,10 @@
 
 
 # static fields
+.field private static final sAccessibilityHeading:[I
+
+.field private static final sAccessibilityPaneTitle:[I
+
 .field private static final sClassPrefixList:[Ljava/lang/String;
 
 .field private static final sConstructorMap:Landroidx/collection/SimpleArrayMap;
@@ -38,6 +42,8 @@
 .end field
 
 .field private static final sOnClickAttrs:[I
+
+.field private static final sScreenReaderFocusable:[I
 
 
 # instance fields
@@ -74,6 +80,30 @@
 
     sput-object v0, Landroidx/appcompat/app/AppCompatViewInflater;->sOnClickAttrs:[I
 
+    new-array v0, v3, [I
+
+    const v1, 0x1010580
+
+    aput v1, v0, v2
+
+    sput-object v0, Landroidx/appcompat/app/AppCompatViewInflater;->sAccessibilityHeading:[I
+
+    new-array v0, v3, [I
+
+    const v1, 0x101057c
+
+    aput v1, v0, v2
+
+    sput-object v0, Landroidx/appcompat/app/AppCompatViewInflater;->sAccessibilityPaneTitle:[I
+
+    new-array v0, v3, [I
+
+    const v1, 0x1010574
+
+    aput v1, v0, v2
+
+    sput-object v0, Landroidx/appcompat/app/AppCompatViewInflater;->sScreenReaderFocusable:[I
+
     const-string v0, "android.widget."
 
     const-string v1, "android.view."
@@ -109,8 +139,14 @@
     return-void
 .end method
 
+.method private backportAccessibilityAttributes(Landroid/content/Context;Landroid/view/View;Landroid/util/AttributeSet;)V
+    .locals 0
+
+    return-void
+.end method
+
 .method private checkOnClickListener(Landroid/view/View;Landroid/util/AttributeSet;)V
-    .locals 2
+    .locals 1
 
     invoke-virtual {p1}, Landroid/view/View;->getContext()Landroid/content/Context;
 
@@ -119,12 +155,6 @@
     instance-of v0, p0, Landroid/content/ContextWrapper;
 
     if-eqz v0, :cond_2
-
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0xf
-
-    if-lt v0, v1, :cond_0
 
     invoke-static {p1}, Landroidx/core/view/ViewCompat;->hasOnClickListeners(Landroid/view/View;)Z
 
@@ -1052,10 +1082,10 @@
 
     invoke-direct {p0, p5, p4}, Landroidx/appcompat/app/AppCompatViewInflater;->checkOnClickListener(Landroid/view/View;Landroid/util/AttributeSet;)V
 
+    invoke-direct {p0, p1, p5, p4}, Landroidx/appcompat/app/AppCompatViewInflater;->backportAccessibilityAttributes(Landroid/content/Context;Landroid/view/View;Landroid/util/AttributeSet;)V
+
     :cond_13
     return-object p5
-
-    nop
 
     :sswitch_data_0
     .sparse-switch

@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/settings/panel/PanelFragment$$ExternalSyntheticLambda4;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroidx/lifecycle/Observer;
+.implements Landroidx/slice/widget/SliceLiveData$OnErrorListener;
 
 
 # instance fields
@@ -26,16 +27,14 @@
 
 
 # virtual methods
-.method public final onChanged(Ljava/lang/Object;)V
+.method public final onSliceError(ILjava/lang/Throwable;)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/settings/panel/PanelFragment$$ExternalSyntheticLambda4;->f$0:Lcom/android/settings/panel/PanelFragment;
 
     iget-object p0, p0, Lcom/android/settings/panel/PanelFragment$$ExternalSyntheticLambda4;->f$1:Landroid/net/Uri;
 
-    check-cast p1, Landroidx/slice/Slice;
-
-    invoke-static {v0, p0, p1}, Lcom/android/settings/panel/PanelFragment;->$r8$lambda$PaPGSxL5kKy3l1WQHWzqts9f34U(Lcom/android/settings/panel/PanelFragment;Landroid/net/Uri;Landroidx/slice/Slice;)V
+    invoke-static {v0, p0, p1, p2}, Lcom/android/settings/panel/PanelFragment;->$r8$lambda$UsA5BSEz1NdCg1MmIigEwBXDibE(Lcom/android/settings/panel/PanelFragment;Landroid/net/Uri;ILjava/lang/Throwable;)V
 
     return-void
 .end method

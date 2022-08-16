@@ -128,7 +128,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0409cb
+    const v1, 0x7f040a22
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -136,7 +136,7 @@
 
     iput-object v1, p0, Lcom/android/settings/development/graphicsdriver/GraphicsDriverAppPreferenceController;->mPreferenceTitle:Ljava/lang/String;
 
-    const v1, 0x7f0409c7
+    const v1, 0x7f040a1e
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -144,7 +144,7 @@
 
     iput-object v1, p0, Lcom/android/settings/development/graphicsdriver/GraphicsDriverAppPreferenceController;->mPreferenceDefault:Ljava/lang/String;
 
-    const v1, 0x7f0409c9
+    const v1, 0x7f040a20
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -152,7 +152,7 @@
 
     iput-object v1, p0, Lcom/android/settings/development/graphicsdriver/GraphicsDriverAppPreferenceController;->mPreferenceProductionDriver:Ljava/lang/String;
 
-    const v1, 0x7f0409c8
+    const v1, 0x7f040a1f
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -160,7 +160,7 @@
 
     iput-object v1, p0, Lcom/android/settings/development/graphicsdriver/GraphicsDriverAppPreferenceController;->mPreferencePrereleaseDriver:Ljava/lang/String;
 
-    const v1, 0x7f0409ca
+    const v1, 0x7f040a21
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -326,14 +326,6 @@
 
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method protected createListPreference(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)Landroidx/preference/ListPreference;
     .locals 1
 
@@ -524,15 +516,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -565,16 +548,6 @@
     .locals 0
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->hasAsyncUpdate()Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
 
     move-result p0
 

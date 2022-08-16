@@ -1,21 +1,22 @@
 .class public final synthetic Lcom/android/wifitrackerlib/PasspointNetworkDetailsTracker$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Predicate;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/wifitrackerlib/PasspointNetworkDetailsTracker;
+.field public final synthetic f$0:Ljava/lang/String;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/wifitrackerlib/PasspointNetworkDetailsTracker;)V
+.method public synthetic constructor <init>(Ljava/lang/String;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/wifitrackerlib/PasspointNetworkDetailsTracker$$ExternalSyntheticLambda1;->f$0:Lcom/android/wifitrackerlib/PasspointNetworkDetailsTracker;
+    iput-object p1, p0, Lcom/android/wifitrackerlib/PasspointNetworkDetailsTracker$$ExternalSyntheticLambda1;->f$0:Ljava/lang/String;
 
     return-void
 .end method
@@ -25,11 +26,11 @@
 .method public final test(Ljava/lang/Object;)Z
     .locals 0
 
-    iget-object p0, p0, Lcom/android/wifitrackerlib/PasspointNetworkDetailsTracker$$ExternalSyntheticLambda1;->f$0:Lcom/android/wifitrackerlib/PasspointNetworkDetailsTracker;
+    iget-object p0, p0, Lcom/android/wifitrackerlib/PasspointNetworkDetailsTracker$$ExternalSyntheticLambda1;->f$0:Ljava/lang/String;
 
-    check-cast p1, Landroid/net/wifi/hotspot2/PasspointConfiguration;
+    check-cast p1, Landroid/net/wifi/WifiConfiguration;
 
-    invoke-static {p0, p1}, Lcom/android/wifitrackerlib/PasspointNetworkDetailsTracker;->$r8$lambda$kIKyFFp_tPQqRnx1jdrmfli3CQ4(Lcom/android/wifitrackerlib/PasspointNetworkDetailsTracker;Landroid/net/wifi/hotspot2/PasspointConfiguration;)Z
+    invoke-static {p0, p1}, Lcom/android/wifitrackerlib/PasspointNetworkDetailsTracker;->$r8$lambda$3vz_GQkoNbGe_HQyXFol1RzVnQA(Ljava/lang/String;Landroid/net/wifi/WifiConfiguration;)Z
 
     move-result p0
 

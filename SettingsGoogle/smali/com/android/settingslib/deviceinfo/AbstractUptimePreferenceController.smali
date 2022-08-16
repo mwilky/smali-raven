@@ -27,6 +27,14 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$mupdateTimes(Lcom/android/settingslib/deviceinfo/AbstractUptimePreferenceController;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settingslib/deviceinfo/AbstractUptimePreferenceController;->updateTimes()V
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
     .locals 0
 
@@ -37,14 +45,6 @@
     invoke-virtual {p2, p0}, Lcom/android/settingslib/core/lifecycle/Lifecycle;->addObserver(Landroidx/lifecycle/LifecycleObserver;)V
 
     :cond_0
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settingslib/deviceinfo/AbstractUptimePreferenceController;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settingslib/deviceinfo/AbstractUptimePreferenceController;->updateTimes()V
-
     return-void
 .end method
 

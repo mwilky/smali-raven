@@ -14,14 +14,6 @@
 
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public getAvailabilityStatus()I
     .locals 1
 
@@ -31,7 +23,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f090037
+    const v0, 0x7f090038
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -52,15 +44,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -115,12 +98,12 @@
     :cond_0
     if-eqz v2, :cond_1
 
-    const v0, 0x7f0410b5
+    const v0, 0x7f04115d
 
     goto :goto_0
 
     :cond_1
-    const v0, 0x7f0410b4
+    const v0, 0x7f04115c
 
     :goto_0
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
@@ -136,16 +119,6 @@
     .locals 0
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->hasAsyncUpdate()Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
 
     move-result p0
 
@@ -170,6 +143,22 @@
     move-result p0
 
     return p0
+.end method
+
+.method public updateState(Landroidx/preference/Preference;)V
+    .locals 2
+
+    move-object v0, p1
+
+    check-cast v0, Lcom/android/settingslib/RestrictedPreference;
+
+    const-string v1, "no_config_location"
+
+    invoke-virtual {v0, v1}, Lcom/android/settingslib/RestrictedPreference;->checkRestrictionAndSetDisabled(Ljava/lang/String;)V
+
+    invoke-virtual {p0, p1}, Lcom/android/settingslib/core/AbstractPreferenceController;->refreshSummary(Landroidx/preference/Preference;)V
+
+    return-void
 .end method
 
 .method public bridge synthetic useDynamicSliceSummary()Z

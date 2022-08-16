@@ -38,7 +38,7 @@
         }
     .end annotation
 
-    invoke-static {p1}, Lcom/android/settings/location/WifiScanningFragment;->access$000(Landroid/content/Context;)Ljava/util/List;
+    invoke-static {p1}, Lcom/android/settings/location/WifiScanningFragment;->-$$Nest$smbuildPreferenceControllers(Landroid/content/Context;)Ljava/util/List;
 
     move-result-object p0
 

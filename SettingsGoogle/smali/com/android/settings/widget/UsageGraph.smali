@@ -119,7 +119,7 @@
 
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setAntiAlias(Z)V
 
-    const v2, 0x7f0b03ee
+    const v2, 0x7f0b04e9
 
     invoke-virtual {p2, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -135,7 +135,7 @@
 
     invoke-virtual {v0, v3}, Landroid/graphics/Paint;->setPathEffect(Landroid/graphics/PathEffect;)Landroid/graphics/PathEffect;
 
-    const v2, 0x7f0b03ef
+    const v2, 0x7f0b04ea
 
     invoke-virtual {p2, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -165,7 +165,7 @@
 
     invoke-virtual {v2, v0}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
 
-    const v0, 0x7f0b03eb
+    const v0, 0x7f0b04e6
 
     invoke-virtual {p2, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -173,7 +173,7 @@
 
     int-to-float v0, v0
 
-    const v3, 0x7f0b03ea
+    const v3, 0x7f0b04e5
 
     invoke-virtual {p2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -205,7 +205,7 @@
 
     invoke-virtual {v2, v4}, Landroid/graphics/Paint;->setPathEffect(Landroid/graphics/PathEffect;)Landroid/graphics/PathEffect;
 
-    const v0, 0x7f0a0277
+    const v0, 0x7f0a0419
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getColor(I)I
 
@@ -241,7 +241,7 @@
 
     iput-object p1, p0, Lcom/android/settings/widget/UsageGraph;->mTintedDivider:Landroid/graphics/drawable/Drawable;
 
-    const p1, 0x7f0b03e9
+    const p1, 0x7f0b04e4
 
     invoke-virtual {p2, p1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

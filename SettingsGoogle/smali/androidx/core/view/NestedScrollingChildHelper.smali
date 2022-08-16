@@ -18,14 +18,6 @@
 # direct methods
 .method public constructor <init>(Landroid/view/View;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "view"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -36,26 +28,6 @@
 
 .method private dispatchNestedScrollInternal(IIII[II[I)Z
     .locals 15
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "dxConsumed",
-            "dyConsumed",
-            "dxUnconsumed",
-            "dyUnconsumed",
-            "offsetInWindow",
-            "type",
-            "consumed"
-        }
-    .end annotation
 
     move-object v0, p0
 
@@ -185,14 +157,6 @@
 
 .method private getNestedScrollingParentForType(I)Landroid/view/ViewParent;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "type"
-        }
-    .end annotation
 
     if-eqz p1, :cond_1
 
@@ -236,16 +200,6 @@
 
 .method private setNestedScrollingParentForType(ILandroid/view/ViewParent;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "type",
-            "p"
-        }
-    .end annotation
 
     if-eqz p1, :cond_1
 
@@ -271,18 +225,6 @@
 # virtual methods
 .method public dispatchNestedFling(FFZ)Z
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "velocityX",
-            "velocityY",
-            "consumed"
-        }
-    .end annotation
 
     invoke-virtual {p0}, Landroidx/core/view/NestedScrollingChildHelper;->isNestedScrollingEnabled()Z
 
@@ -312,16 +254,6 @@
 
 .method public dispatchNestedPreFling(FF)Z
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "velocityX",
-            "velocityY"
-        }
-    .end annotation
 
     invoke-virtual {p0}, Landroidx/core/view/NestedScrollingChildHelper;->isNestedScrollingEnabled()Z
 
@@ -351,20 +283,6 @@
 
 .method public dispatchNestedPreScroll(II[I[I)Z
     .locals 6
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "dx",
-            "dy",
-            "consumed",
-            "offsetInWindow"
-        }
-    .end annotation
 
     const/4 v5, 0x0
 
@@ -387,22 +305,6 @@
 
 .method public dispatchNestedPreScroll(II[I[II)Z
     .locals 10
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "dx",
-            "dy",
-            "consumed",
-            "offsetInWindow",
-            "type"
-        }
-    .end annotation
 
     invoke-virtual {p0}, Landroidx/core/view/NestedScrollingChildHelper;->isNestedScrollingEnabled()Z
 
@@ -522,26 +424,6 @@
 
 .method public dispatchNestedScroll(IIII[II[I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "dxConsumed",
-            "dyConsumed",
-            "dxUnconsumed",
-            "dyUnconsumed",
-            "offsetInWindow",
-            "type",
-            "consumed"
-        }
-    .end annotation
 
     invoke-direct/range {p0 .. p7}, Landroidx/core/view/NestedScrollingChildHelper;->dispatchNestedScrollInternal(IIII[II[I)Z
 
@@ -550,22 +432,6 @@
 
 .method public dispatchNestedScroll(IIII[I)Z
     .locals 8
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "dxConsumed",
-            "dyConsumed",
-            "dxUnconsumed",
-            "dyUnconsumed",
-            "offsetInWindow"
-        }
-    .end annotation
 
     const/4 v6, 0x0
 
@@ -604,14 +470,6 @@
 
 .method public hasNestedScrollingParent(I)Z
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "type"
-        }
-    .end annotation
 
     invoke-direct {p0, p1}, Landroidx/core/view/NestedScrollingChildHelper;->getNestedScrollingParentForType(I)Landroid/view/ViewParent;
 
@@ -640,14 +498,6 @@
 
 .method public setNestedScrollingEnabled(Z)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "enabled"
-        }
-    .end annotation
 
     iget-boolean v0, p0, Landroidx/core/view/NestedScrollingChildHelper;->mIsNestedScrollingEnabled:Z
 
@@ -665,14 +515,6 @@
 
 .method public startNestedScroll(I)Z
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "axes"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -685,16 +527,6 @@
 
 .method public startNestedScroll(II)Z
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "axes",
-            "type"
-        }
-    .end annotation
 
     invoke-virtual {p0, p2}, Landroidx/core/view/NestedScrollingChildHelper;->hasNestedScrollingParent(I)Z
 
@@ -774,14 +606,6 @@
 
 .method public stopNestedScroll(I)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "type"
-        }
-    .end annotation
 
     invoke-direct {p0, p1}, Landroidx/core/view/NestedScrollingChildHelper;->getNestedScrollingParentForType(I)Landroid/view/ViewParent;
 

@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settings/wifi/dpp/WifiDppAddDeviceFragment$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/view/View$OnClickListener;
@@ -27,7 +28,7 @@
 
     iget-object p0, p0, Lcom/android/settings/wifi/dpp/WifiDppAddDeviceFragment$$ExternalSyntheticLambda2;->f$0:Lcom/android/settings/wifi/dpp/WifiDppAddDeviceFragment;
 
-    invoke-static {p0, p1}, Lcom/android/settings/wifi/dpp/WifiDppAddDeviceFragment;->$r8$lambda$VYJltJwtPa9nrjq4qwusEnrm5fg(Lcom/android/settings/wifi/dpp/WifiDppAddDeviceFragment;Landroid/view/View;)V
+    invoke-static {p0, p1}, Lcom/android/settings/wifi/dpp/WifiDppAddDeviceFragment;->$r8$lambda$2SpKntsah4ARQmxNjMS70TnY14I(Lcom/android/settings/wifi/dpp/WifiDppAddDeviceFragment;Landroid/view/View;)V
 
     return-void
 .end method

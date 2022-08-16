@@ -11,10 +11,25 @@
 .end annotation
 
 
+# static fields
+.field private static final mDefaultTelephonyDisplayInfo:Landroid/telephony/TelephonyDisplayInfo;
+
+
 # instance fields
 .field private mBaseTelephonyManager:Landroid/telephony/TelephonyManager;
 
 .field private mCallback:Lcom/android/settings/network/telephony/TelephonyDisplayInfoListener$Callback;
+
+.field private mDisplayInfos:Ljava/util/Map;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/Map<",
+            "Ljava/lang/Integer;",
+            "Landroid/telephony/TelephonyDisplayInfo;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 .field private mListeners:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
@@ -27,14 +42,26 @@
     .end annotation
 .end field
 
-.field private mTelephonyDisplayInfo:Landroid/telephony/TelephonyDisplayInfo;
-
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;Lcom/android/settings/network/telephony/TelephonyDisplayInfoListener$Callback;)V
-    .locals 2
+.method static bridge synthetic -$$Nest$fgetmCallback(Lcom/android/settings/network/telephony/TelephonyDisplayInfoListener;)Lcom/android/settings/network/telephony/TelephonyDisplayInfoListener$Callback;
+    .locals 0
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    iget-object p0, p0, Lcom/android/settings/network/telephony/TelephonyDisplayInfoListener;->mCallback:Lcom/android/settings/network/telephony/TelephonyDisplayInfoListener$Callback;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmDisplayInfos(Lcom/android/settings/network/telephony/TelephonyDisplayInfoListener;)Ljava/util/Map;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/network/telephony/TelephonyDisplayInfoListener;->mDisplayInfos:Ljava/util/Map;
+
+    return-object p0
+.end method
+
+.method static constructor <clinit>()V
+    .locals 2
 
     new-instance v0, Landroid/telephony/TelephonyDisplayInfo;
 
@@ -42,7 +69,15 @@
 
     invoke-direct {v0, v1, v1}, Landroid/telephony/TelephonyDisplayInfo;-><init>(II)V
 
-    iput-object v0, p0, Lcom/android/settings/network/telephony/TelephonyDisplayInfoListener;->mTelephonyDisplayInfo:Landroid/telephony/TelephonyDisplayInfo;
+    sput-object v0, Lcom/android/settings/network/telephony/TelephonyDisplayInfoListener;->mDefaultTelephonyDisplayInfo:Landroid/telephony/TelephonyDisplayInfo;
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/content/Context;Lcom/android/settings/network/telephony/TelephonyDisplayInfoListener$Callback;)V
+    .locals 1
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     const-class v0, Landroid/telephony/TelephonyManager;
 
@@ -62,23 +97,13 @@
 
     iput-object p1, p0, Lcom/android/settings/network/telephony/TelephonyDisplayInfoListener;->mListeners:Ljava/util/Map;
 
+    new-instance p1, Ljava/util/HashMap;
+
+    invoke-direct {p1}, Ljava/util/HashMap;-><init>()V
+
+    iput-object p1, p0, Lcom/android/settings/network/telephony/TelephonyDisplayInfoListener;->mDisplayInfos:Ljava/util/Map;
+
     return-void
-.end method
-
-.method static synthetic access$002(Lcom/android/settings/network/telephony/TelephonyDisplayInfoListener;Landroid/telephony/TelephonyDisplayInfo;)Landroid/telephony/TelephonyDisplayInfo;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/settings/network/telephony/TelephonyDisplayInfoListener;->mTelephonyDisplayInfo:Landroid/telephony/TelephonyDisplayInfo;
-
-    return-object p1
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/network/telephony/TelephonyDisplayInfoListener;)Lcom/android/settings/network/telephony/TelephonyDisplayInfoListener$Callback;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/network/telephony/TelephonyDisplayInfoListener;->mCallback:Lcom/android/settings/network/telephony/TelephonyDisplayInfoListener$Callback;
-
-    return-object p0
 .end method
 
 .method private startListening(I)V
@@ -216,7 +241,7 @@
 .end method
 
 .method public updateSubscriptionIds(Ljava/util/Set;)V
-    .locals 4
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -267,6 +292,14 @@
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
+    move-result-object v4
+
+    invoke-interface {v3, v4}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v3, p0, Lcom/android/settings/network/telephony/TelephonyDisplayInfoListener;->mDisplayInfos:Ljava/util/Map;
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
     move-result-object v2
 
     invoke-interface {v3, v2}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
@@ -301,7 +334,17 @@
 
     new-instance v1, Lcom/android/settings/network/telephony/TelephonyDisplayInfoListener$1;
 
-    invoke-direct {v1, p0}, Lcom/android/settings/network/telephony/TelephonyDisplayInfoListener$1;-><init>(Lcom/android/settings/network/telephony/TelephonyDisplayInfoListener;)V
+    invoke-direct {v1, p0, v0}, Lcom/android/settings/network/telephony/TelephonyDisplayInfoListener$1;-><init>(Lcom/android/settings/network/telephony/TelephonyDisplayInfoListener;I)V
+
+    iget-object v2, p0, Lcom/android/settings/network/telephony/TelephonyDisplayInfoListener;->mDisplayInfos:Ljava/util/Map;
+
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    sget-object v4, Lcom/android/settings/network/telephony/TelephonyDisplayInfoListener;->mDefaultTelephonyDisplayInfo:Landroid/telephony/TelephonyDisplayInfo;
+
+    invoke-interface {v2, v3, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     iget-object v2, p0, Lcom/android/settings/network/telephony/TelephonyDisplayInfoListener;->mListeners:Ljava/util/Map;
 

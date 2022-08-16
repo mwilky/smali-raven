@@ -28,25 +28,15 @@
 .method computeAndSetTextDirection(Landroid/text/StaticLayout$Builder;Landroid/widget/TextView;)V
     .locals 0
 
-    return-void
+    const/4 p0, 0x0
+
+    throw p0
 .end method
 
 .method isHorizontallyScrollable(Landroid/widget/TextView;)Z
-    .locals 1
+    .locals 0
 
-    sget-object p0, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
+    const/4 p0, 0x0
 
-    const-string v0, "getHorizontallyScrolling"
-
-    invoke-static {p1, v0, p0}, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->invokeAndReturnWithDefault(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object p0
-
-    check-cast p0, Ljava/lang/Boolean;
-
-    invoke-virtual {p0}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result p0
-
-    return p0
+    throw p0
 .end method

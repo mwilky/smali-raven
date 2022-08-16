@@ -153,7 +153,7 @@
 
     if-eqz v1, :cond_1
 
-    const v4, 0x7f04041e
+    const v4, 0x7f04045f
 
     new-array v3, v3, [Ljava/lang/Object;
 
@@ -166,7 +166,7 @@
     goto :goto_0
 
     :cond_1
-    const v1, 0x7f04041f
+    const v1, 0x7f040460
 
     invoke-virtual {p0, v1}, Lcom/android/internal/app/AlertActivity;->getString(I)Ljava/lang/String;
 
@@ -186,7 +186,7 @@
 
     if-eqz v1, :cond_3
 
-    const v4, 0x7f040422
+    const v4, 0x7f040463
 
     new-array v3, v3, [Ljava/lang/Object;
 
@@ -199,7 +199,7 @@
     goto :goto_1
 
     :cond_3
-    const v1, 0x7f040427
+    const v1, 0x7f040468
 
     invoke-virtual {p0, v1}, Lcom/android/internal/app/AlertActivity;->getString(I)Ljava/lang/String;
 
@@ -217,7 +217,7 @@
 
     if-eqz v1, :cond_5
 
-    const v4, 0x7f040425
+    const v4, 0x7f040466
 
     new-array v3, v3, [Ljava/lang/Object;
 
@@ -230,7 +230,7 @@
     goto :goto_2
 
     :cond_5
-    const v1, 0x7f040426
+    const v1, 0x7f040467
 
     invoke-virtual {p0, v1}, Lcom/android/internal/app/AlertActivity;->getString(I)Ljava/lang/String;
 
@@ -246,7 +246,7 @@
 
     if-eqz v4, :cond_7
 
-    const v5, 0x7f040423
+    const v5, 0x7f040464
 
     const/4 v6, 0x2
 
@@ -267,7 +267,7 @@
     goto :goto_3
 
     :cond_7
-    const v4, 0x7f040424
+    const v4, 0x7f040465
 
     new-array v3, v3, [Ljava/lang/Object;
 
@@ -285,7 +285,7 @@
     iput-object v1, v0, Lcom/android/internal/app/AlertController$AlertParams;->mMessage:Ljava/lang/CharSequence;
 
     :goto_4
-    const v1, 0x7f0401f9
+    const v1, 0x7f040222
 
     invoke-virtual {p0, v1}, Lcom/android/internal/app/AlertActivity;->getString(I)Ljava/lang/String;
 
@@ -295,7 +295,7 @@
 
     iput-object p0, v0, Lcom/android/internal/app/AlertController$AlertParams;->mPositiveButtonListener:Landroid/content/DialogInterface$OnClickListener;
 
-    const v1, 0x7f0407c8
+    const v1, 0x7f04080d
 
     invoke-virtual {p0, v1}, Lcom/android/internal/app/AlertActivity;->getString(I)Ljava/lang/String;
 

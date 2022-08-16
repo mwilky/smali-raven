@@ -36,17 +36,17 @@
 
     iget-object p1, p0, Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController$1;->this$0:Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;
 
-    invoke-static {p1}, Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;->access$000(Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;)Landroid/content/Context;
+    invoke-static {p1}, Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;->-$$Nest$fgetmAppContext(Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;)Landroid/content/Context;
 
     move-result-object v0
 
-    invoke-static {p1, v0}, Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;->access$100(Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;Landroid/content/Context;)I
+    invoke-static {p1, v0}, Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;->-$$Nest$mgetDefaultDataSubscriptionId(Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;Landroid/content/Context;)I
 
     move-result p1
 
     iget-object v0, p0, Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController$1;->this$0:Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;
 
-    invoke-static {v0}, Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;->access$200(Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;)I
+    invoke-static {v0}, Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;->-$$Nest$fgetmSubId(Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;)I
 
     move-result v0
 
@@ -57,11 +57,11 @@
     :cond_0
     iget-object v0, p0, Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController$1;->this$0:Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;
 
-    invoke-static {v0, p1}, Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;->access$202(Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;I)I
+    invoke-static {v0, p1}, Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;->-$$Nest$fputmSubId(Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;I)V
 
     iget-object v0, p0, Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController$1;->this$0:Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;
 
-    invoke-static {v0}, Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;->access$300(Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;)Z
+    invoke-static {v0}, Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;->-$$Nest$fgetmIsListeningConnectionChange(Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;)Z
 
     move-result v0
 
@@ -69,11 +69,11 @@
 
     iget-object p0, p0, Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController$1;->this$0:Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;
 
-    invoke-static {p0}, Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;->access$000(Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;)Landroid/content/Context;
+    invoke-static {p0}, Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;->-$$Nest$fgetmAppContext(Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;)Landroid/content/Context;
 
     move-result-object v0
 
-    invoke-static {p0, v0, p1}, Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;->access$400(Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;Landroid/content/Context;I)V
+    invoke-static {p0, v0, p1}, Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;->-$$Nest$mrestartPhoneStateListener(Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;Landroid/content/Context;I)V
 
     :cond_1
     return-void

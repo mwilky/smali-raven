@@ -45,7 +45,7 @@
 
     const/4 v0, 0x0
 
-    invoke-static {p1, v0}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;->access$602(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;Z)Z
+    invoke-static {p1, v0}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;->-$$Nest$fputmIsNavigationHidden(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;Z)V
 
     goto :goto_0
 
@@ -54,12 +54,12 @@
 
     const/4 v0, 0x1
 
-    invoke-static {p1, v0}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;->access$602(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;Z)Z
+    invoke-static {p1, v0}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;->-$$Nest$fputmIsNavigationHidden(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;Z)V
 
     :goto_0
     iget-object p0, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity$3;->this$0:Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;
 
-    invoke-static {p0}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;->access$700(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;)V
+    invoke-static {p0}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;->-$$Nest$mupdateGameState(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;)V
 
     return-void
 .end method

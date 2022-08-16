@@ -41,7 +41,9 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    sget-object v0, Lcom/google/android/setupcompat/internal/ClockProvider$$ExternalSyntheticLambda1;->INSTANCE:Lcom/google/android/setupcompat/internal/ClockProvider$$ExternalSyntheticLambda1;
+    new-instance v0, Lcom/google/android/setupcompat/internal/ClockProvider$$ExternalSyntheticLambda0;
+
+    invoke-direct {v0}, Lcom/google/android/setupcompat/internal/ClockProvider$$ExternalSyntheticLambda0;-><init>()V
 
     sput-object v0, Lcom/google/android/setupcompat/internal/ClockProvider;->SYSTEM_TICKER:Lcom/google/android/setupcompat/internal/Ticker;
 
@@ -97,9 +99,9 @@
         }
     .end annotation
 
-    new-instance v0, Lcom/google/android/setupcompat/internal/ClockProvider$$ExternalSyntheticLambda0;
+    new-instance v0, Lcom/google/android/setupcompat/internal/ClockProvider$$ExternalSyntheticLambda1;
 
-    invoke-direct {v0, p0}, Lcom/google/android/setupcompat/internal/ClockProvider$$ExternalSyntheticLambda0;-><init>(Lcom/google/android/setupcompat/internal/ClockProvider$Supplier;)V
+    invoke-direct {v0, p0}, Lcom/google/android/setupcompat/internal/ClockProvider$$ExternalSyntheticLambda1;-><init>(Lcom/google/android/setupcompat/internal/ClockProvider$Supplier;)V
 
     sput-object v0, Lcom/google/android/setupcompat/internal/ClockProvider;->ticker:Lcom/google/android/setupcompat/internal/Ticker;
 

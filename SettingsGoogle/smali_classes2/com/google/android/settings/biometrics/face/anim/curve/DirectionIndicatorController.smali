@@ -34,6 +34,14 @@
     return-void
 .end method
 
+.method static bridge synthetic -$$Nest$fgetmShouldRepeat(Lcom/google/android/settings/biometrics/face/anim/curve/DirectionIndicatorController;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/google/android/settings/biometrics/face/anim/curve/DirectionIndicatorController;->mShouldRepeat:Z
+
+    return p0
+.end method
+
 .method static constructor <clinit>()V
     .locals 2
 
@@ -97,7 +105,7 @@
 
     invoke-virtual {v0, p2}, Landroid/graphics/Paint;->setAntiAlias(Z)V
 
-    const p2, 0x7f0a004f
+    const p2, 0x7f0a0052
 
     invoke-virtual {p1, p2}, Landroid/content/Context;->getColor(I)I
 
@@ -149,14 +157,6 @@
         0x41a00000    # 20.0f
         0x0
     .end array-data
-.end method
-
-.method static synthetic access$000(Lcom/google/android/settings/biometrics/face/anim/curve/DirectionIndicatorController;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/google/android/settings/biometrics/face/anim/curve/DirectionIndicatorController;->mShouldRepeat:Z
-
-    return p0
 .end method
 
 .method private synthetic lambda$new$0(Landroid/animation/ValueAnimator;)V
@@ -214,7 +214,7 @@
     :cond_1
     iget-object v0, p0, Lcom/google/android/settings/biometrics/face/anim/curve/DirectionIndicatorController;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f020136
+    const v1, 0x7f020141
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

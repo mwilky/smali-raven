@@ -11,11 +11,11 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    new-instance v0, Lcom/android/settings/location/LocationServicesForWork$1;
+    new-instance v0, Lcom/android/settings/search/BaseSearchIndexProvider;
 
-    const v1, 0x7f15008f
+    const v1, 0x7f150090
 
-    invoke-direct {v0, v1}, Lcom/android/settings/location/LocationServicesForWork$1;-><init>(I)V
+    invoke-direct {v0, v1}, Lcom/android/settings/search/BaseSearchIndexProvider;-><init>(I)V
 
     sput-object v0, Lcom/android/settings/location/LocationServicesForWork;->SEARCH_INDEX_DATA_PROVIDER:Lcom/android/settings/search/BaseSearchIndexProvider;
 
@@ -30,58 +30,8 @@
     return-void
 .end method
 
-.method static synthetic access$000(Landroid/content/Context;)Ljava/util/List;
-    .locals 0
-
-    invoke-static {p0}, Lcom/android/settings/location/LocationServicesForWork;->buildPreferenceControllers(Landroid/content/Context;)Ljava/util/List;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method private static buildPreferenceControllers(Landroid/content/Context;)Ljava/util/List;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/content/Context;",
-            ")",
-            "Ljava/util/List<",
-            "Lcom/android/settingslib/core/AbstractPreferenceController;",
-            ">;"
-        }
-    .end annotation
-
-    new-instance p0, Ljava/util/ArrayList;
-
-    invoke-direct {p0}, Ljava/util/ArrayList;-><init>()V
-
-    return-object p0
-.end method
-
 
 # virtual methods
-.method protected createPreferenceControllers(Landroid/content/Context;)Ljava/util/List;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/content/Context;",
-            ")",
-            "Ljava/util/List<",
-            "Lcom/android/settingslib/core/AbstractPreferenceController;",
-            ">;"
-        }
-    .end annotation
-
-    invoke-static {p1}, Lcom/android/settings/location/LocationServicesForWork;->buildPreferenceControllers(Landroid/content/Context;)Ljava/util/List;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
 .method protected getLogTag()Ljava/lang/String;
     .locals 0
 
@@ -101,7 +51,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f15008f
+    const p0, 0x7f150090
 
     return p0
 .end method

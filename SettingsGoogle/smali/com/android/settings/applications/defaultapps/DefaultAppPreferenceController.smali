@@ -163,7 +163,12 @@
     return-object v1
 .end method
 
-.method protected abstract getSettingIntent(Lcom/android/settingslib/applications/DefaultAppInfo;)Landroid/content/Intent;
+.method protected getSettingIntent(Lcom/android/settingslib/applications/DefaultAppInfo;)Landroid/content/Intent;
+    .locals 0
+
+    const/4 p0, 0x0
+
+    return-object p0
 .end method
 
 .method protected showLabelAsTitle()Z
@@ -251,7 +256,7 @@
 
     move-result v1
 
-    const v2, 0x7f040257
+    const v2, 0x7f040286
 
     if-eqz v1, :cond_3
 

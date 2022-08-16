@@ -53,7 +53,7 @@
 
     iget-object p0, p0, Lcom/android/settings/notification/zen/ZenModeRuleSettingsBase$1;->this$0:Lcom/android/settings/notification/zen/ZenModeRuleSettingsBase;
 
-    iget-object p0, p0, Lcom/android/settings/notification/zen/ZenModeRuleSettingsBase;->mContext:Landroid/content/Context;
+    iget-object p0, p0, Lcom/android/settings/notification/zen/ZenModeSettingsBase;->mContext:Landroid/content/Context;
 
     invoke-direct {v0, p0}, Lcom/android/settings/core/SubSettingLauncher;-><init>(Landroid/content/Context;)V
 

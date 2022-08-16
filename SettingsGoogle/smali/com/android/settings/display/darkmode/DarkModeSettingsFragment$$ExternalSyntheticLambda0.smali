@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settings/display/darkmode/DarkModeSettingsFragment$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -27,7 +28,7 @@
 
     iget-object p0, p0, Lcom/android/settings/display/darkmode/DarkModeSettingsFragment$$ExternalSyntheticLambda0;->f$0:Lcom/android/settings/display/darkmode/DarkModeSettingsFragment;
 
-    invoke-static {p0}, Lcom/android/settings/display/darkmode/DarkModeSettingsFragment;->$r8$lambda$Gj2xbWAhPshNd9czuNH2P2KqL5c(Lcom/android/settings/display/darkmode/DarkModeSettingsFragment;)V
+    invoke-static {p0}, Lcom/android/settings/display/darkmode/DarkModeSettingsFragment;->$r8$lambda$uOlBrb8PwJ_VxBZBtKyVSasK04g(Lcom/android/settings/display/darkmode/DarkModeSettingsFragment;)V
 
     return-void
 .end method

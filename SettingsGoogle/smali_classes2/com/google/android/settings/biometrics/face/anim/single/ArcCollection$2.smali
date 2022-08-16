@@ -42,7 +42,7 @@
 
     iget-object p1, p0, Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection$2;->this$0:Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection;
 
-    invoke-static {p1}, Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection;->access$100(Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection;)Landroid/os/Handler;
+    invoke-static {p1}, Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection;->-$$Nest$fgetmHandler(Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection;)Landroid/os/Handler;
 
     move-result-object p1
 

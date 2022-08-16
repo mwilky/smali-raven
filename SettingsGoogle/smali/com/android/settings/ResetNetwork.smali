@@ -36,6 +36,16 @@
     return-void
 .end method
 
+.method static bridge synthetic -$$Nest$mrunKeyguardConfirmation(Lcom/android/settings/ResetNetwork;I)Z
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/ResetNetwork;->runKeyguardConfirmation(I)Z
+
+    move-result p0
+
+    return p0
+.end method
+
 .method public constructor <init>()V
     .locals 1
 
@@ -48,16 +58,6 @@
     iput-object v0, p0, Lcom/android/settings/ResetNetwork;->mInitiateListener:Landroid/view/View$OnClickListener;
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/ResetNetwork;I)Z
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/ResetNetwork;->runKeyguardConfirmation(I)Z
-
-    move-result p0
-
-    return p0
 .end method
 
 .method private establishInitialState(Ljava/util/List;)V
@@ -73,7 +73,7 @@
 
     iget-object v0, p0, Lcom/android/settings/ResetNetwork;->mContentView:Landroid/view/View;
 
-    const v1, 0x7f0d0499
+    const v1, 0x7f0d04d6
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -85,7 +85,7 @@
 
     iget-object v0, p0, Lcom/android/settings/ResetNetwork;->mContentView:Landroid/view/View;
 
-    const v1, 0x7f0d020d
+    const v1, 0x7f0d0226
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -95,7 +95,7 @@
 
     iget-object v0, p0, Lcom/android/settings/ResetNetwork;->mContentView:Landroid/view/View;
 
-    const v1, 0x7f0d020c
+    const v1, 0x7f0d0225
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -111,13 +111,13 @@
 
     const/4 v1, 0x0
 
-    if-eqz p1, :cond_9
+    if-eqz p1, :cond_a
 
     invoke-interface {p1}, Ljava/util/List;->size()I
 
     move-result p1
 
-    if-lez p1, :cond_9
+    if-lez p1, :cond_a
 
     invoke-static {}, Landroid/telephony/SubscriptionManager;->getDefaultDataSubscriptionId()I
 
@@ -179,7 +179,7 @@
 
     const/4 v6, 0x1
 
-    if-eqz v5, :cond_7
+    if-eqz v5, :cond_8
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -225,22 +225,34 @@
 
     move-result v8
 
-    if-eqz v8, :cond_5
+    if-eqz v8, :cond_6
 
     invoke-virtual {v5}, Landroid/telephony/SubscriptionInfo;->getCarrierName()Ljava/lang/CharSequence;
 
     move-result-object v7
 
-    invoke-interface {v7}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    :cond_5
     invoke-static {v7}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v8
 
-    if-eqz v8, :cond_6
+    if-eqz v8, :cond_5
+
+    const-string v7, ""
+
+    goto :goto_1
+
+    :cond_5
+    invoke-interface {v7}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    :cond_6
+    :goto_1
+    invoke-static {v7}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_7
 
     new-array v7, v0, [Ljava/lang/Object;
 
@@ -294,12 +306,12 @@
 
     move-result-object v7
 
-    :cond_6
+    :cond_7
     invoke-interface {v2, v7}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
-    :cond_7
+    :cond_8
     new-instance p1, Landroid/widget/ArrayAdapter;
 
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
@@ -328,30 +340,30 @@
 
     move-result p1
 
-    if-le p1, v6, :cond_8
+    if-le p1, v6, :cond_9
 
     iget-object p1, p0, Lcom/android/settings/ResetNetwork;->mSubscriptionSpinner:Landroid/widget/Spinner;
 
     invoke-virtual {p1, v1}, Landroid/widget/Spinner;->setVisibility(I)V
 
-    goto :goto_1
-
-    :cond_8
-    iget-object p1, p0, Lcom/android/settings/ResetNetwork;->mSubscriptionSpinner:Landroid/widget/Spinner;
-
-    invoke-virtual {p1, v0}, Landroid/widget/Spinner;->setVisibility(I)V
-
-    goto :goto_1
+    goto :goto_2
 
     :cond_9
     iget-object p1, p0, Lcom/android/settings/ResetNetwork;->mSubscriptionSpinner:Landroid/widget/Spinner;
 
     invoke-virtual {p1, v0}, Landroid/widget/Spinner;->setVisibility(I)V
 
-    :goto_1
+    goto :goto_2
+
+    :cond_a
+    iget-object p1, p0, Lcom/android/settings/ResetNetwork;->mSubscriptionSpinner:Landroid/widget/Spinner;
+
+    invoke-virtual {p1, v0}, Landroid/widget/Spinner;->setVisibility(I)V
+
+    :goto_2
     iget-object p1, p0, Lcom/android/settings/ResetNetwork;->mContentView:Landroid/view/View;
 
-    const v0, 0x7f0d02e4
+    const v0, 0x7f0d030c
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -373,7 +385,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_a
+    if-eqz p1, :cond_b
 
     iget-object p1, p0, Lcom/android/settings/ResetNetwork;->mEsimContainer:Landroid/view/View;
 
@@ -387,14 +399,14 @@
 
     invoke-virtual {p1, v0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    goto :goto_2
+    goto :goto_3
 
-    :cond_a
+    :cond_b
     iget-object p0, p0, Lcom/android/settings/ResetNetwork;->mEsimCheckbox:Landroid/widget/CheckBox;
 
     invoke-virtual {p0, v1}, Landroid/widget/CheckBox;->setChecked(Z)V
 
-    :goto_2
+    :goto_3
     return-void
 .end method
 
@@ -492,7 +504,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f041047
+    const p1, 0x7f0410ed
 
     invoke-virtual {v0, p1}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -606,7 +618,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f041047
+    const p1, 0x7f0410ed
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->setTitle(I)V
 
@@ -698,7 +710,7 @@
     return-object p1
 
     :cond_1
-    const p2, 0x7f0601de
+    const p2, 0x7f0601eb
 
     invoke-virtual {p1, p2, v0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -718,7 +730,7 @@
 
     :cond_2
     :goto_0
-    const p0, 0x7f060160
+    const p0, 0x7f06016a
 
     invoke-virtual {p1, p0, v0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -862,7 +874,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f041042
+    const v1, 0x7f0410e8
 
     invoke-virtual {v0, v1}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 

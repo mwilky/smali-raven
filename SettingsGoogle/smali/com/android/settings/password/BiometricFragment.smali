@@ -18,6 +18,30 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmClientCallback(Lcom/android/settings/password/BiometricFragment;)Landroid/hardware/biometrics/BiometricPrompt$AuthenticationCallback;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/password/BiometricFragment;->mClientCallback:Landroid/hardware/biometrics/BiometricPrompt$AuthenticationCallback;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmClientExecutor(Lcom/android/settings/password/BiometricFragment;)Ljava/util/concurrent/Executor;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/password/BiometricFragment;->mClientExecutor:Ljava/util/concurrent/Executor;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$mcleanup(Lcom/android/settings/password/BiometricFragment;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/password/BiometricFragment;->cleanup()V
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 1
 
@@ -30,30 +54,6 @@
     iput-object v0, p0, Lcom/android/settings/password/BiometricFragment;->mAuthenticationCallback:Landroid/hardware/biometrics/BiometricPrompt$AuthenticationCallback;
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/password/BiometricFragment;)Ljava/util/concurrent/Executor;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/password/BiometricFragment;->mClientExecutor:Ljava/util/concurrent/Executor;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/password/BiometricFragment;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/password/BiometricFragment;->cleanup()V
-
-    return-void
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/password/BiometricFragment;)Landroid/hardware/biometrics/BiometricPrompt$AuthenticationCallback;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/password/BiometricFragment;->mClientCallback:Landroid/hardware/biometrics/BiometricPrompt$AuthenticationCallback;
-
-    return-object p0
 .end method
 
 .method private cleanup()V

@@ -7,8 +7,6 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroidx/mediarouter/media/MediaRouterJellybeanMr1$CallbackProxy;,
-        Landroidx/mediarouter/media/MediaRouterJellybeanMr1$IsConnectingWorkaround;,
-        Landroidx/mediarouter/media/MediaRouterJellybeanMr1$ActiveScanWorkaround;,
         Landroidx/mediarouter/media/MediaRouterJellybeanMr1$Callback;,
         Landroidx/mediarouter/media/MediaRouterJellybeanMr1$RouteInfo;
     }
@@ -18,14 +16,6 @@
 # direct methods
 .method public static createCallback(Landroidx/mediarouter/media/MediaRouterJellybeanMr1$Callback;)Ljava/lang/Object;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "callback"
-        }
-    .end annotation
 
     new-instance v0, Landroidx/mediarouter/media/MediaRouterJellybeanMr1$CallbackProxy;
 

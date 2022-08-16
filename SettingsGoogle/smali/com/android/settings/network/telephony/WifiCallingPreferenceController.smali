@@ -35,6 +35,14 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmPreference(Lcom/android/settings/network/telephony/WifiCallingPreferenceController;)Landroidx/preference/Preference;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/network/telephony/WifiCallingPreferenceController;->mPreference:Landroidx/preference/Preference;
+
+    return-object p0
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;)V
     .locals 0
 
@@ -54,19 +62,11 @@
 
     const/4 p2, 0x0
 
-    invoke-direct {p1, p0, p2}, Lcom/android/settings/network/telephony/WifiCallingPreferenceController$PhoneTelephonyCallback;-><init>(Lcom/android/settings/network/telephony/WifiCallingPreferenceController;Lcom/android/settings/network/telephony/WifiCallingPreferenceController$1;)V
+    invoke-direct {p1, p0, p2}, Lcom/android/settings/network/telephony/WifiCallingPreferenceController$PhoneTelephonyCallback;-><init>(Lcom/android/settings/network/telephony/WifiCallingPreferenceController;Lcom/android/settings/network/telephony/WifiCallingPreferenceController$PhoneTelephonyCallback-IA;)V
 
     iput-object p1, p0, Lcom/android/settings/network/telephony/WifiCallingPreferenceController;->mTelephonyCallback:Lcom/android/settings/network/telephony/WifiCallingPreferenceController$PhoneTelephonyCallback;
 
     return-void
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/network/telephony/WifiCallingPreferenceController;)Landroidx/preference/Preference;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/network/telephony/WifiCallingPreferenceController;->mPreference:Landroidx/preference/Preference;
-
-    return-object p0
 .end method
 
 .method private getResourceIdForWfcMode(I)Ljava/lang/CharSequence;
@@ -144,23 +144,23 @@
     goto :goto_1
 
     :cond_2
-    const v0, 0x10408cf
+    const v0, 0x1040949
 
     goto :goto_2
 
     :cond_3
-    const v0, 0x10408cd
+    const v0, 0x1040947
 
     goto :goto_2
 
     :cond_4
-    const v0, 0x10408ce
+    const v0, 0x1040948
 
     goto :goto_2
 
     :cond_5
     :goto_1
-    const v0, 0x10408ed
+    const v0, 0x1040967
 
     :goto_2
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
@@ -178,14 +178,6 @@
 
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public displayPreference(Landroidx/preference/PreferenceScreen;)V
     .locals 1
 
@@ -249,15 +241,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -384,16 +367,6 @@
     return-object p0
 .end method
 
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
-
-    move-result p0
-
-    return p0
-.end method
-
 .method public bridge synthetic isPublicSlice()Z
     .locals 0
 
@@ -518,7 +491,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0415ff
+    const v1, 0x7f0416f8
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

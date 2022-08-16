@@ -33,7 +33,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;Landroid/content/Context;Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2$1;)V
+.method synthetic constructor <init>(Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;Landroid/content/Context;Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2$CarrierIdAsyncQueryHandler-IA;)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2$CarrierIdAsyncQueryHandler;-><init>(Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;Landroid/content/Context;)V
@@ -71,17 +71,17 @@
     :cond_0
     iget-object p1, p0, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2$CarrierIdAsyncQueryHandler;->this$0:Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;
 
-    invoke-static {p1}, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;->access$100(Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;)Landroidx/preference/Preference;
+    invoke-static {p1}, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;->-$$Nest$fgetmEapSimSubscriptionPref(Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;)Landroidx/preference/Preference;
 
     move-result-object p1
 
     iget-object p0, p0, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2$CarrierIdAsyncQueryHandler;->this$0:Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;
 
-    invoke-static {p0}, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;->access$200(Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;)Landroid/content/Context;
+    invoke-static {p0}, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;->access$100(Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;)Landroid/content/Context;
 
     move-result-object p0
 
-    const v0, 0x7f0416d9
+    const v0, 0x7f0417d2
 
     new-array p2, p2, [Ljava/lang/Object;
 
@@ -112,11 +112,11 @@
     :cond_2
     iget-object p0, p0, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2$CarrierIdAsyncQueryHandler;->this$0:Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;
 
-    invoke-static {p0}, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;->access$100(Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;)Landroidx/preference/Preference;
+    invoke-static {p0}, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;->-$$Nest$fgetmEapSimSubscriptionPref(Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;)Landroidx/preference/Preference;
 
     move-result-object p0
 
-    const p1, 0x7f0416d8
+    const p1, 0x7f0417d1
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setSummary(I)V
 

@@ -10,16 +10,6 @@
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;Ljava/lang/String;Lcom/android/settingslib/core/lifecycle/Lifecycle;Z)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/settings/notification/zen/AbstractZenModePreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
-
-    iput-boolean p4, p0, Lcom/android/settings/notification/zen/ZenModeSendersImagePreferenceController;->mIsMessages:Z
-
-    return-void
-.end method
-
 .method private getPrioritySenders()I
     .locals 1
 
@@ -60,7 +50,7 @@
 
     check-cast p1, Lcom/android/settingslib/widget/LayoutPreference;
 
-    const v0, 0x7f0d0666
+    const v0, 0x7f0d06a2
 
     invoke-virtual {p1, v0}, Lcom/android/settingslib/widget/LayoutPreference;->findViewById(I)Landroid/view/View;
 
@@ -102,17 +92,17 @@
 
     if-eqz p1, :cond_0
 
-    const p1, 0x7f02046d
+    const p1, 0x7f0204a9
 
     goto :goto_0
 
     :cond_0
-    const p1, 0x7f020469
+    const p1, 0x7f0204a5
 
     :goto_0
     iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f04183b
+    const v1, 0x7f041936
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -129,17 +119,17 @@
 
     if-eqz p1, :cond_2
 
-    const p1, 0x7f02046e
+    const p1, 0x7f0204aa
 
     goto :goto_1
 
     :cond_2
-    const p1, 0x7f02046a
+    const p1, 0x7f0204a6
 
     :goto_1
     iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f04183c
+    const v1, 0x7f041937
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -156,17 +146,17 @@
 
     if-eqz p1, :cond_4
 
-    const p1, 0x7f020470
+    const p1, 0x7f0204ac
 
     goto :goto_2
 
     :cond_4
-    const p1, 0x7f02046c
+    const p1, 0x7f0204a8
 
     :goto_2
     iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f04183f
+    const v1, 0x7f04193c
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -179,24 +169,24 @@
 
     if-eqz p1, :cond_6
 
-    const v0, 0x7f02046f
+    const v0, 0x7f0204ab
 
     goto :goto_3
 
     :cond_6
-    const v0, 0x7f02046b
+    const v0, 0x7f0204a7
 
     :goto_3
     iget-object v1, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
     if-eqz p1, :cond_7
 
-    const p1, 0x7f04184b
+    const p1, 0x7f041948
 
     goto :goto_4
 
     :cond_7
-    const p1, 0x7f04184a
+    const p1, 0x7f041947
 
     :goto_4
     invoke-virtual {v1, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;

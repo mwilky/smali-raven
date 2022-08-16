@@ -45,11 +45,11 @@
 
     iget-object p0, p0, Lcom/android/settings/display/BrightnessLevelPreferenceController$2;->this$0:Lcom/android/settings/display/BrightnessLevelPreferenceController;
 
-    invoke-static {p0}, Lcom/android/settings/display/BrightnessLevelPreferenceController;->access$000(Lcom/android/settings/display/BrightnessLevelPreferenceController;)Landroidx/preference/Preference;
+    invoke-static {p0}, Lcom/android/settings/display/BrightnessLevelPreferenceController;->-$$Nest$fgetmPreference(Lcom/android/settings/display/BrightnessLevelPreferenceController;)Landroidx/preference/Preference;
 
     move-result-object p1
 
-    invoke-static {p0, p1}, Lcom/android/settings/display/BrightnessLevelPreferenceController;->access$100(Lcom/android/settings/display/BrightnessLevelPreferenceController;Landroidx/preference/Preference;)V
+    invoke-static {p0, p1}, Lcom/android/settings/display/BrightnessLevelPreferenceController;->-$$Nest$mupdatedSummary(Lcom/android/settings/display/BrightnessLevelPreferenceController;Landroidx/preference/Preference;)V
 
     return-void
 .end method

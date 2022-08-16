@@ -128,7 +128,17 @@
 
     div-int/lit16 v5, v5, 0x140
 
-    const/high16 v7, 0x3fc00000    # 1.5f
+    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v7
+
+    sget v8, Lcom/android/settingslib/R$fraction;->display_density_max_scale:I
+
+    const/4 v9, 0x1
+
+    invoke-virtual {v7, v8, v9, v9}, Landroid/content/res/Resources;->getFraction(III)F
+
+    move-result v7
 
     int-to-float v5, v5
 
@@ -140,61 +150,77 @@
 
     move-result v5
 
-    const/high16 v7, 0x3f800000    # 1.0f
+    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    sub-float/2addr v5, v7
+    move-result-object v7
 
-    const v9, 0x3db851ec    # 0.09f
+    sget v10, Lcom/android/settingslib/R$fraction;->display_density_min_scale:I
 
-    div-float v9, v5, v9
+    invoke-virtual {v7, v10, v9, v9}, Landroid/content/res/Resources;->getFraction(III)F
 
-    sget-object v10, Lcom/android/settingslib/display/DisplayDensityUtils;->SUMMARIES_LARGER:[I
+    move-result v7
 
-    array-length v10, v10
+    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    int-to-float v10, v10
+    move-result-object v10
 
-    const/4 v11, 0x0
+    sget v11, Lcom/android/settingslib/R$fraction;->display_density_min_scale_interval:I
 
-    invoke-static {v9, v11, v10}, Landroid/util/MathUtils;->constrain(FFF)F
+    invoke-virtual {v10, v11, v9, v9}, Landroid/content/res/Resources;->getFraction(III)F
 
-    move-result v9
+    move-result v10
 
-    float-to-int v9, v9
+    const/high16 v11, 0x3f800000    # 1.0f
 
-    const v10, 0x3fd55553
+    sub-float/2addr v5, v11
 
-    sget-object v12, Lcom/android/settingslib/display/DisplayDensityUtils;->SUMMARIES_SMALLER:[I
+    div-float v12, v5, v10
 
-    array-length v12, v12
+    sget-object v13, Lcom/android/settingslib/display/DisplayDensityUtils;->SUMMARIES_LARGER:[I
 
-    int-to-float v12, v12
+    array-length v13, v13
 
-    invoke-static {v10, v11, v12}, Landroid/util/MathUtils;->constrain(FFF)F
+    int-to-float v13, v13
+
+    const/4 v14, 0x0
+
+    invoke-static {v12, v14, v13}, Landroid/util/MathUtils;->constrain(FFF)F
+
+    move-result v12
+
+    float-to-int v12, v12
+
+    sub-float v7, v11, v7
+
+    div-float v10, v7, v10
+
+    sget-object v13, Lcom/android/settingslib/display/DisplayDensityUtils;->SUMMARIES_SMALLER:[I
+
+    array-length v13, v13
+
+    int-to-float v13, v13
+
+    invoke-static {v10, v14, v13}, Landroid/util/MathUtils;->constrain(FFF)F
 
     move-result v10
 
     float-to-int v10, v10
 
-    add-int/lit8 v11, v10, 0x1
+    add-int/lit8 v13, v10, 0x1
 
-    add-int/2addr v11, v9
+    add-int/2addr v13, v12
 
-    new-array v12, v11, [Ljava/lang/String;
+    new-array v14, v13, [Ljava/lang/String;
 
-    new-array v13, v11, [I
-
-    const/4 v14, 0x1
+    new-array v15, v13, [I
 
     if-lez v10, :cond_2
 
-    const v15, 0x3e199998    # 0.14999998f
-
     int-to-float v3, v10
 
-    div-float/2addr v15, v3
+    div-float/2addr v7, v3
 
-    sub-int/2addr v10, v14
+    sub-int/2addr v10, v9
 
     move/from16 v16, v1
 
@@ -207,9 +233,9 @@
 
     int-to-float v1, v1
 
-    mul-float/2addr v1, v15
+    mul-float/2addr v1, v7
 
-    sub-float v1, v7, v1
+    sub-float v1, v11, v1
 
     mul-float/2addr v1, v8
 
@@ -224,15 +250,15 @@
     :cond_1
     sget-object v17, Lcom/android/settingslib/display/DisplayDensityUtils;->SUMMARIES_SMALLER:[I
 
-    aget v7, v17, v10
+    aget v11, v17, v10
 
-    invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    invoke-virtual {v4, v11}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v11
 
-    aput-object v7, v12, v16
+    aput-object v11, v14, v16
 
-    aput v1, v13, v16
+    aput v1, v15, v16
 
     add-int/lit8 v16, v16, 0x1
 
@@ -240,7 +266,7 @@
 
     const/4 v1, 0x0
 
-    const/high16 v7, 0x3f800000    # 1.0f
+    const/high16 v11, 0x3f800000    # 1.0f
 
     goto :goto_0
 
@@ -255,7 +281,7 @@
     move/from16 v3, v16
 
     :cond_4
-    aput v2, v13, v16
+    aput v2, v15, v16
 
     sget v1, Lcom/android/settingslib/display/DisplayDensityUtils;->SUMMARY_DEFAULT:I
 
@@ -263,20 +289,20 @@
 
     move-result-object v1
 
-    aput-object v1, v12, v16
+    aput-object v1, v14, v16
 
     add-int/lit8 v16, v16, 0x1
 
-    if-lez v9, :cond_6
+    if-lez v12, :cond_6
 
-    int-to-float v1, v9
+    int-to-float v1, v12
 
     div-float/2addr v5, v1
 
     const/4 v1, 0x0
 
     :goto_1
-    if-ge v1, v9, :cond_6
+    if-ge v1, v12, :cond_6
 
     add-int/lit8 v7, v1, 0x1
 
@@ -284,9 +310,9 @@
 
     mul-float/2addr v10, v5
 
-    const/high16 v15, 0x3f800000    # 1.0f
+    const/high16 v11, 0x3f800000    # 1.0f
 
-    add-float/2addr v10, v15
+    add-float/2addr v10, v11
 
     mul-float/2addr v10, v8
 
@@ -299,7 +325,7 @@
     move/from16 v3, v16
 
     :cond_5
-    aput v10, v13, v16
+    aput v10, v15, v16
 
     sget-object v10, Lcom/android/settingslib/display/DisplayDensityUtils;->SUMMARIES_LARGER:[I
 
@@ -309,7 +335,7 @@
 
     move-result-object v1
 
-    aput-object v1, v12, v16
+    aput-object v1, v14, v16
 
     add-int/lit8 v16, v16, 0x1
 
@@ -323,25 +349,25 @@
     goto :goto_2
 
     :cond_7
-    add-int/2addr v11, v14
+    add-int/2addr v13, v9
 
-    invoke-static {v13, v11}, Ljava/util/Arrays;->copyOf([II)[I
+    invoke-static {v15, v13}, Ljava/util/Arrays;->copyOf([II)[I
 
-    move-result-object v13
+    move-result-object v15
 
-    aput v6, v13, v16
+    aput v6, v15, v16
 
-    invoke-static {v12, v11}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
+    invoke-static {v14, v13}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
 
     move-result-object v1
 
-    move-object v12, v1
+    move-object v14, v1
 
-    check-cast v12, [Ljava/lang/String;
+    check-cast v14, [Ljava/lang/String;
 
     sget v1, Lcom/android/settingslib/display/DisplayDensityUtils;->SUMMARY_CUSTOM:I
 
-    new-array v3, v14, [Ljava/lang/Object;
+    new-array v3, v9, [Ljava/lang/Object;
 
     invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -355,7 +381,7 @@
 
     move-result-object v1
 
-    aput-object v1, v12, v16
+    aput-object v1, v14, v16
 
     move/from16 v3, v16
 
@@ -364,9 +390,9 @@
 
     iput v3, v0, Lcom/android/settingslib/display/DisplayDensityUtils;->mCurrentIndex:I
 
-    iput-object v12, v0, Lcom/android/settingslib/display/DisplayDensityUtils;->mEntries:[Ljava/lang/String;
+    iput-object v14, v0, Lcom/android/settingslib/display/DisplayDensityUtils;->mEntries:[Ljava/lang/String;
 
-    iput-object v13, v0, Lcom/android/settingslib/display/DisplayDensityUtils;->mValues:[I
+    iput-object v15, v0, Lcom/android/settingslib/display/DisplayDensityUtils;->mValues:[I
 
     return-void
 .end method

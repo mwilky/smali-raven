@@ -27,16 +27,6 @@
 # virtual methods
 .method public getSpanIndex(II)I
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "position",
-            "spanCount"
-        }
-    .end annotation
 
     rem-int/2addr p1, p2
 
@@ -45,14 +35,6 @@
 
 .method public getSpanSize(I)I
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "position"
-        }
-    .end annotation
 
     const/4 p0, 0x1
 

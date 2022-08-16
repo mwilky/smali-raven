@@ -13,13 +13,6 @@
         .annotation build Lorg/jetbrains/annotations/Nullable;
         .end annotation
     .end param
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<T::",
-            "Ljava/lang/Comparable<",
-            "*>;>(TT;TT;)I"
-        }
-    .end annotation
 
     invoke-static {p0, p1}, Lkotlin/comparisons/ComparisonsKt__ComparisonsKt;->compareValues(Ljava/lang/Comparable;Ljava/lang/Comparable;)I
 

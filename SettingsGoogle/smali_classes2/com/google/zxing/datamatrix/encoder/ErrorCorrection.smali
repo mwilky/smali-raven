@@ -855,25 +855,23 @@
 
     if-eqz v6, :cond_3
 
-    add-int/lit8 v6, v4, -0x1
+    add-int/lit8 v7, v4, -0x1
 
-    aget-char v6, v2, v6
+    aget-char v7, v2, v7
 
-    sget-object v7, Lcom/google/zxing/datamatrix/encoder/ErrorCorrection;->ALOG:[I
+    sget-object v8, Lcom/google/zxing/datamatrix/encoder/ErrorCorrection;->ALOG:[I
 
-    sget-object v8, Lcom/google/zxing/datamatrix/encoder/ErrorCorrection;->LOG:[I
+    sget-object v9, Lcom/google/zxing/datamatrix/encoder/ErrorCorrection;->LOG:[I
 
-    aget v9, v8, v5
+    aget v10, v9, v5
 
-    aget v10, v1, v4
+    aget v6, v9, v6
 
-    aget v8, v8, v10
+    add-int/2addr v10, v6
 
-    add-int/2addr v9, v8
+    rem-int/lit16 v10, v10, 0xff
 
-    rem-int/lit16 v9, v9, 0xff
-
-    aget v7, v7, v9
+    aget v6, v8, v10
 
     xor-int/2addr v6, v7
 
@@ -902,21 +900,19 @@
 
     if-eqz v4, :cond_5
 
-    sget-object v4, Lcom/google/zxing/datamatrix/encoder/ErrorCorrection;->ALOG:[I
+    sget-object v6, Lcom/google/zxing/datamatrix/encoder/ErrorCorrection;->ALOG:[I
 
-    sget-object v6, Lcom/google/zxing/datamatrix/encoder/ErrorCorrection;->LOG:[I
+    sget-object v7, Lcom/google/zxing/datamatrix/encoder/ErrorCorrection;->LOG:[I
 
-    aget v5, v6, v5
+    aget v5, v7, v5
 
-    aget v7, v1, v0
+    aget v4, v7, v4
 
-    aget v6, v6, v7
-
-    add-int/2addr v5, v6
+    add-int/2addr v5, v4
 
     rem-int/lit16 v5, v5, 0xff
 
-    aget v4, v4, v5
+    aget v4, v6, v5
 
     int-to-char v4, v4
 

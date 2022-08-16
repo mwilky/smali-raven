@@ -47,7 +47,7 @@
 
     iget-object p0, p0, Lcom/android/settings/widget/MediaAnimationController$1;->this$0:Lcom/android/settings/widget/MediaAnimationController;
 
-    invoke-static {p0, p1}, Lcom/android/settings/widget/MediaAnimationController;->access$000(Lcom/android/settings/widget/MediaAnimationController;Landroid/graphics/SurfaceTexture;)V
+    invoke-static {p0, p1}, Lcom/android/settings/widget/MediaAnimationController;->-$$Nest$msetSurface(Lcom/android/settings/widget/MediaAnimationController;Landroid/graphics/SurfaceTexture;)V
 
     return-void
 .end method
@@ -65,7 +65,7 @@
 
     const/4 p1, 0x0
 
-    invoke-static {p0, p1}, Lcom/android/settings/widget/MediaAnimationController;->access$102(Lcom/android/settings/widget/MediaAnimationController;Landroid/view/Surface;)Landroid/view/Surface;
+    invoke-static {p0, p1}, Lcom/android/settings/widget/MediaAnimationController;->-$$Nest$fputmSurface(Lcom/android/settings/widget/MediaAnimationController;Landroid/view/Surface;)V
 
     return v0
 .end method
@@ -81,11 +81,11 @@
 
     iget-object v0, p0, Lcom/android/settings/widget/MediaAnimationController$1;->this$0:Lcom/android/settings/widget/MediaAnimationController;
 
-    invoke-static {v0, p1}, Lcom/android/settings/widget/MediaAnimationController;->access$000(Lcom/android/settings/widget/MediaAnimationController;Landroid/graphics/SurfaceTexture;)V
+    invoke-static {v0, p1}, Lcom/android/settings/widget/MediaAnimationController;->-$$Nest$msetSurface(Lcom/android/settings/widget/MediaAnimationController;Landroid/graphics/SurfaceTexture;)V
 
     iget-object p1, p0, Lcom/android/settings/widget/MediaAnimationController$1;->this$0:Lcom/android/settings/widget/MediaAnimationController;
 
-    invoke-static {p1}, Lcom/android/settings/widget/MediaAnimationController;->access$200(Lcom/android/settings/widget/MediaAnimationController;)Z
+    invoke-static {p1}, Lcom/android/settings/widget/MediaAnimationController;->-$$Nest$fgetmVideoReady(Lcom/android/settings/widget/MediaAnimationController;)Z
 
     move-result p1
 
@@ -108,7 +108,7 @@
     :cond_0
     iget-object p1, p0, Lcom/android/settings/widget/MediaAnimationController$1;->this$0:Lcom/android/settings/widget/MediaAnimationController;
 
-    invoke-static {p1}, Lcom/android/settings/widget/MediaAnimationController;->access$300(Lcom/android/settings/widget/MediaAnimationController;)Landroid/media/MediaPlayer;
+    invoke-static {p1}, Lcom/android/settings/widget/MediaAnimationController;->-$$Nest$fgetmMediaPlayer(Lcom/android/settings/widget/MediaAnimationController;)Landroid/media/MediaPlayer;
 
     move-result-object p1
 
@@ -116,7 +116,7 @@
 
     iget-object p1, p0, Lcom/android/settings/widget/MediaAnimationController$1;->this$0:Lcom/android/settings/widget/MediaAnimationController;
 
-    invoke-static {p1}, Lcom/android/settings/widget/MediaAnimationController;->access$300(Lcom/android/settings/widget/MediaAnimationController;)Landroid/media/MediaPlayer;
+    invoke-static {p1}, Lcom/android/settings/widget/MediaAnimationController;->-$$Nest$fgetmMediaPlayer(Lcom/android/settings/widget/MediaAnimationController;)Landroid/media/MediaPlayer;
 
     move-result-object p1
 
@@ -128,7 +128,7 @@
 
     iget-object p1, p0, Lcom/android/settings/widget/MediaAnimationController$1;->this$0:Lcom/android/settings/widget/MediaAnimationController;
 
-    invoke-static {p1}, Lcom/android/settings/widget/MediaAnimationController;->access$300(Lcom/android/settings/widget/MediaAnimationController;)Landroid/media/MediaPlayer;
+    invoke-static {p1}, Lcom/android/settings/widget/MediaAnimationController;->-$$Nest$fgetmMediaPlayer(Lcom/android/settings/widget/MediaAnimationController;)Landroid/media/MediaPlayer;
 
     move-result-object p1
 
@@ -141,7 +141,7 @@
     :cond_1
     iget-object p1, p0, Lcom/android/settings/widget/MediaAnimationController$1;->this$0:Lcom/android/settings/widget/MediaAnimationController;
 
-    invoke-static {p1}, Lcom/android/settings/widget/MediaAnimationController;->access$300(Lcom/android/settings/widget/MediaAnimationController;)Landroid/media/MediaPlayer;
+    invoke-static {p1}, Lcom/android/settings/widget/MediaAnimationController;->-$$Nest$fgetmMediaPlayer(Lcom/android/settings/widget/MediaAnimationController;)Landroid/media/MediaPlayer;
 
     move-result-object p1
 
@@ -149,7 +149,7 @@
 
     iget-object p1, p0, Lcom/android/settings/widget/MediaAnimationController$1;->this$0:Lcom/android/settings/widget/MediaAnimationController;
 
-    invoke-static {p1}, Lcom/android/settings/widget/MediaAnimationController;->access$300(Lcom/android/settings/widget/MediaAnimationController;)Landroid/media/MediaPlayer;
+    invoke-static {p1}, Lcom/android/settings/widget/MediaAnimationController;->-$$Nest$fgetmMediaPlayer(Lcom/android/settings/widget/MediaAnimationController;)Landroid/media/MediaPlayer;
 
     move-result-object p1
 

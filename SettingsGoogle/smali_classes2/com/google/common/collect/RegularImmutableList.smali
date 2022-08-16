@@ -98,6 +98,8 @@
 
     aget-object p0, p0, p1
 
+    invoke-static {p0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+
     return-object p0
 .end method
 

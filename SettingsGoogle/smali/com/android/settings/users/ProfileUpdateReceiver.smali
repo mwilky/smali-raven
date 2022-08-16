@@ -4,18 +4,18 @@
 
 
 # direct methods
-.method public constructor <init>()V
+.method static bridge synthetic -$$Nest$smcopyProfileName(Landroid/content/Context;)V
     .locals 0
 
-    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
+    invoke-static {p0}, Lcom/android/settings/users/ProfileUpdateReceiver;->copyProfileName(Landroid/content/Context;)V
 
     return-void
 .end method
 
-.method static synthetic access$000(Landroid/content/Context;)V
+.method public constructor <init>()V
     .locals 0
 
-    invoke-static {p0}, Lcom/android/settings/users/ProfileUpdateReceiver;->copyProfileName(Landroid/content/Context;)V
+    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
     return-void
 .end method
@@ -123,7 +123,7 @@
     goto :goto_0
 
     :cond_1
-    const p1, 0x7f041519
+    const p1, 0x7f041615
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -133,7 +133,7 @@
 
     :cond_2
     :goto_0
-    const p1, 0x7f041518
+    const p1, 0x7f041614
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

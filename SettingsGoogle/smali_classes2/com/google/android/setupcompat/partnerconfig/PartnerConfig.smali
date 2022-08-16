@@ -200,6 +200,8 @@
 
 .field public static final enum CONFIG_LOADING_LAYOUT_PADDING_TOP:Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;
 
+.field public static final enum CONFIG_LOADING_LAYOUT_WAIT_FOR_ANIMATION_FINISHED:Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;
+
 .field public static final enum CONFIG_LOADING_LOTTIE_ACCOUNT:Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;
 
 .field public static final enum CONFIG_LOADING_LOTTIE_CONNECTION:Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;
@@ -263,7 +265,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 120
+    .locals 121
 
     new-instance v0, Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;
 
@@ -1857,33 +1859,47 @@
 
     sput-object v11, Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;->CONFIG_LOADING_LAYOUT_FULL_SCREEN_ILLUSTRATION_ENABLED:Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;
 
+    new-instance v6, Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;
+
+    const-string v13, "CONFIG_LOADING_LAYOUT_WAIT_FOR_ANIMATION_FINISHED"
+
+    const/16 v15, 0x72
+
+    move-object/from16 v119, v11
+
+    const-string v11, "loading_layout_wait_for_animation_finished"
+
+    invoke-direct {v6, v13, v15, v11, v4}, Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/google/android/setupcompat/partnerconfig/PartnerConfig$ResourceType;)V
+
+    sput-object v6, Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;->CONFIG_LOADING_LAYOUT_WAIT_FOR_ANIMATION_FINISHED:Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;
+
     new-instance v4, Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;
 
-    const-string v6, "CONFIG_PROGRESS_BAR_MARGIN_TOP"
+    const-string v11, "CONFIG_PROGRESS_BAR_MARGIN_TOP"
 
-    const/16 v13, 0x72
+    const/16 v13, 0x73
 
     const-string v15, "setup_design_progress_bar_margin_top"
 
-    invoke-direct {v4, v6, v13, v15, v14}, Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/google/android/setupcompat/partnerconfig/PartnerConfig$ResourceType;)V
+    invoke-direct {v4, v11, v13, v15, v14}, Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/google/android/setupcompat/partnerconfig/PartnerConfig$ResourceType;)V
 
     sput-object v4, Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;->CONFIG_PROGRESS_BAR_MARGIN_TOP:Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;
 
-    new-instance v6, Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;
+    new-instance v11, Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;
 
     const-string v13, "CONFIG_PROGRESS_BAR_MARGIN_BOTTOM"
 
-    const/16 v15, 0x73
+    const/16 v15, 0x74
 
-    move-object/from16 v119, v4
+    move-object/from16 v120, v4
 
     const-string v4, "setup_design_progress_bar_margin_bottom"
 
-    invoke-direct {v6, v13, v15, v4, v14}, Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/google/android/setupcompat/partnerconfig/PartnerConfig$ResourceType;)V
+    invoke-direct {v11, v13, v15, v4, v14}, Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/google/android/setupcompat/partnerconfig/PartnerConfig$ResourceType;)V
 
-    sput-object v6, Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;->CONFIG_PROGRESS_BAR_MARGIN_BOTTOM:Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;
+    sput-object v11, Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;->CONFIG_PROGRESS_BAR_MARGIN_BOTTOM:Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;
 
-    const/16 v4, 0x74
+    const/16 v4, 0x75
 
     new-array v4, v4, [Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;
 
@@ -2341,15 +2357,19 @@
 
     const/16 v0, 0x71
 
-    aput-object v11, v4, v0
+    aput-object v119, v4, v0
 
     const/16 v0, 0x72
 
-    aput-object v119, v4, v0
+    aput-object v6, v4, v0
 
     const/16 v0, 0x73
 
-    aput-object v6, v4, v0
+    aput-object v120, v4, v0
+
+    const/16 v0, 0x74
+
+    aput-object v11, v4, v0
 
     sput-object v4, Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;->$VALUES:[Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;
 

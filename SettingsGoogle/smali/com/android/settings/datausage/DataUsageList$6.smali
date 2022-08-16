@@ -46,7 +46,7 @@
 
     iget-object v0, p0, Lcom/android/settings/datausage/DataUsageList$6;->this$0:Lcom/android/settings/datausage/DataUsageList;
 
-    invoke-static {v0}, Lcom/android/settings/datausage/DataUsageList;->access$400(Lcom/android/settings/datausage/DataUsageList;)Landroidx/preference/PreferenceGroup;
+    invoke-static {v0}, Lcom/android/settings/datausage/DataUsageList;->-$$Nest$fgetmApps(Lcom/android/settings/datausage/DataUsageList;)Landroidx/preference/PreferenceGroup;
 
     move-result-object v0
 
@@ -90,7 +90,7 @@
 
     iget-object v0, p0, Lcom/android/settings/datausage/DataUsageList$6;->this$0:Lcom/android/settings/datausage/DataUsageList;
 
-    invoke-static {v0}, Lcom/android/settings/datausage/DataUsageList;->access$400(Lcom/android/settings/datausage/DataUsageList;)Landroidx/preference/PreferenceGroup;
+    invoke-static {v0}, Lcom/android/settings/datausage/DataUsageList;->-$$Nest$fgetmApps(Lcom/android/settings/datausage/DataUsageList;)Landroidx/preference/PreferenceGroup;
 
     move-result-object v0
 
@@ -108,7 +108,7 @@
 
     iget-object v1, p0, Lcom/android/settings/datausage/DataUsageList$6;->this$0:Lcom/android/settings/datausage/DataUsageList;
 
-    invoke-static {v1}, Lcom/android/settings/datausage/DataUsageList;->access$500(Lcom/android/settings/datausage/DataUsageList;)Landroidx/preference/Preference;
+    invoke-static {v1}, Lcom/android/settings/datausage/DataUsageList;->-$$Nest$fgetmUsageAmount(Lcom/android/settings/datausage/DataUsageList;)Landroidx/preference/Preference;
 
     move-result-object v1
 
@@ -122,7 +122,7 @@
 
     iget-object p0, p0, Lcom/android/settings/datausage/DataUsageList$6;->this$0:Lcom/android/settings/datausage/DataUsageList;
 
-    invoke-static {p0}, Lcom/android/settings/datausage/DataUsageList;->access$400(Lcom/android/settings/datausage/DataUsageList;)Landroidx/preference/PreferenceGroup;
+    invoke-static {p0}, Lcom/android/settings/datausage/DataUsageList;->-$$Nest$fgetmApps(Lcom/android/settings/datausage/DataUsageList;)Landroidx/preference/PreferenceGroup;
 
     move-result-object p0
 
@@ -171,7 +171,7 @@
 
     iget-object p2, p0, Lcom/android/settings/datausage/DataUsageList$6;->this$0:Lcom/android/settings/datausage/DataUsageList;
 
-    invoke-static {p2}, Lcom/android/settings/datausage/DataUsageList;->access$100(Lcom/android/settings/datausage/DataUsageList;)Lcom/android/settings/datausage/ChartDataUsagePreference;
+    invoke-static {p2}, Lcom/android/settings/datausage/DataUsageList;->-$$Nest$fgetmChart(Lcom/android/settings/datausage/DataUsageList;)Lcom/android/settings/datausage/ChartDataUsagePreference;
 
     move-result-object p2
 
@@ -185,7 +185,7 @@
 
     iget-object p2, p0, Lcom/android/settings/datausage/DataUsageList$6;->this$0:Lcom/android/settings/datausage/DataUsageList;
 
-    invoke-static {p2}, Lcom/android/settings/datausage/DataUsageList;->access$100(Lcom/android/settings/datausage/DataUsageList;)Lcom/android/settings/datausage/ChartDataUsagePreference;
+    invoke-static {p2}, Lcom/android/settings/datausage/DataUsageList;->-$$Nest$fgetmChart(Lcom/android/settings/datausage/DataUsageList;)Lcom/android/settings/datausage/ChartDataUsagePreference;
 
     move-result-object p2
 
@@ -239,7 +239,7 @@
 
     iget-object v0, p0, Lcom/android/settings/datausage/DataUsageList$6;->this$0:Lcom/android/settings/datausage/DataUsageList;
 
-    invoke-static {v0, p2, p1}, Lcom/android/settings/datausage/DataUsageList;->access$300(Lcom/android/settings/datausage/DataUsageList;Landroid/app/usage/NetworkStats;[I)V
+    invoke-static {v0, p2, p1}, Lcom/android/settings/datausage/DataUsageList;->-$$Nest$mbindStats(Lcom/android/settings/datausage/DataUsageList;Landroid/app/usage/NetworkStats;[I)V
 
     invoke-direct {p0}, Lcom/android/settings/datausage/DataUsageList$6;->updateEmptyVisible()V
 
@@ -275,7 +275,7 @@
 
     const/4 v1, 0x0
 
-    invoke-static {p1, v1, v0}, Lcom/android/settings/datausage/DataUsageList;->access$300(Lcom/android/settings/datausage/DataUsageList;Landroid/app/usage/NetworkStats;[I)V
+    invoke-static {p1, v1, v0}, Lcom/android/settings/datausage/DataUsageList;->-$$Nest$mbindStats(Lcom/android/settings/datausage/DataUsageList;Landroid/app/usage/NetworkStats;[I)V
 
     invoke-direct {p0}, Lcom/android/settings/datausage/DataUsageList$6;->updateEmptyVisible()V
 

@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="abc_slice_duration_days">
-        <item quantity="other">%dদিন আগেয়ে</item>
-        <item quantity="one">%d দিন আগেয়ে</item>
+        <item quantity="other">%d দিন আগতে</item>
+        <item quantity="one">%d দিন আগতে</item>
     </plurals>
     <plurals name="abc_slice_duration_min">
-        <item quantity="other">%d মিনিট আগেয়ে</item>
-        <item quantity="one">%d মিনিট আগেয়ে</item>
+        <item quantity="other">%d মিনিট আগতে</item>
+        <item quantity="one">%d মিনিট আগতে</item>
     </plurals>
     <plurals name="abc_slice_duration_years">
-        <item quantity="other">%d বছৰ আগেয়ে</item>
-        <item quantity="one">%d বছৰ আগেয়ে</item>
+        <item quantity="other">%d বছৰ আগতে</item>
+        <item quantity="one">%d বছৰ আগতে</item>
     </plurals>
     <plurals name="accessibility_usage_summary">
         <item quantity="other">%1$dটা এপে আপোনাৰ ডিভাইচটো সম্পূৰ্ণভাৱে এক্সেছ কৰিব পাৰে</item>
@@ -85,8 +85,8 @@
         <item quantity="one">%d দিন বাকী আছে</item>
     </plurals>
     <plurals name="data_saver_unrestricted_summary">
-        <item quantity="other">ডেটা সঞ্চয় অন হৈ থকা অৱস্থাত %1$d এপক অসীমিত ডেটা ব্যৱহাৰ কৰিবলৈ দিয়া হৈছে</item>
-        <item quantity="one">ডেটা সঞ্চয় অন হৈ থকা অৱস্থাত %1$d এপক অসীমিত ডেটা ব্যৱহাৰ কৰিবলৈ দিয়া হৈছে</item>
+        <item quantity="other">ডেটা সঞ্চয়কাৰী অন হৈ থকা অৱস্থাত %1$d এপক অসীমিত ডেটা ব্যৱহাৰ কৰিবলৈ দিয়া হৈছে</item>
+        <item quantity="one">ডেটা সঞ্চয়কাৰী অন হৈ থকা অৱস্থাত %1$d এপক অসীমিত ডেটা ব্যৱহাৰ কৰিবলৈ দিয়া হৈছে</item>
     </plurals>
     <plurals name="default_camera_app_title">
         <item quantity="other">টা কেমেৰা এপ্‌</item>
@@ -233,12 +233,12 @@
         <item quantity="one">%d শ্ৰেণী অফ কৰা হ’ল</item>
     </plurals>
     <plurals name="notifications_sent_daily">
-        <item quantity="other">~প্ৰতিদিনে %dটা জাননী</item>
-        <item quantity="one">~প্ৰতিদিনে %dটা জাননী</item>
+        <item quantity="other">~প্ৰতিদিনে %,dটা জাননী</item>
+        <item quantity="one">~প্ৰতিদিনে %,dটা জাননী</item>
     </plurals>
     <plurals name="notifications_sent_weekly">
-        <item quantity="other">~প্ৰতি সপ্তাহে %dটা জাননী</item>
-        <item quantity="one">~প্ৰতি সপ্তাহে %dটা জাননী</item>
+        <item quantity="other">~প্ৰতি সপ্তাহে %,dটা জাননী</item>
+        <item quantity="one">~প্ৰতি সপ্তাহে %,dটা জাননী</item>
     </plurals>
     <plurals name="number_of_device_admins">
         <item quantity="other">%dটা সক্ৰিয় এপ্</item>
@@ -277,8 +277,8 @@
         <item quantity="one">%d টা অগ্ৰাধিকাৰপ্ৰাপ্ত বার্তালাপ</item>
     </plurals>
     <plurals name="restricted_app_summary">
-        <item quantity="other">%1$dটা এপৰ বেটাৰী ব্য়ৱহাৰ সীমিতকৰণ</item>
-        <item quantity="one">%1$dটা এপৰ বেটাৰী ব্য়ৱহাৰ সীমিতকৰণ</item>
+        <item quantity="other">%1$dটা এপৰ বেটাৰী ব্যৱহাৰ সীমিতকৰণ</item>
+        <item quantity="one">%1$dটা এপৰ বেটাৰী ব্যৱহাৰ সীমিতকৰণ</item>
     </plurals>
     <plurals name="runtime_permissions_additional_count">
         <item quantity="other">%dটা অতিৰিক্ত অনুমতি</item>
@@ -328,22 +328,6 @@
         <item quantity="other">প্ৰমাণপত্ৰক বিশ্বাসী বুলি চিহ্নিত কৰক বা আঁতৰাওক</item>
         <item quantity="one">প্ৰমাণপত্ৰক বিশ্বাসী বুলি চিহ্নিত কৰক বা আঁতৰাওক</item>
     </plurals>
-    <plurals name="ssl_ca_cert_info_message">
-        <item quantity="other">"%sএ আপোনাৰ কৰ্মস্থানৰ প্ৰ’ফাইলৰ কাৰণে প্ৰমাণপত্ৰ প্ৰদানকাৰী কৰ্তৃপক্ষ ইনষ্টল কৰিছে, যিয়ে ইমেইল, এপ্‌ আৰু সুৰক্ষিত ৱেবছাইটসমূহক অন্তৰ্ভুক্ত কৰি কৰ্মস্থানৰ নেটৱৰ্কৰ কাৰ্যকলাপ তেওঁলোকক নিৰীক্ষণ কৰিবলৈ অনুমতি দিব পাৰে।
-
-এই প্ৰমাণপত্ৰসমূহৰ সম্পৰ্কে অধিক তথ্যৰ বাবে, আপোনাৰ প্ৰশাসকৰ লগত যোগাযোগ কৰক।"</item>
-        <item quantity="one">"%sএ আপোনাৰ কৰ্মস্থানৰ প্ৰ’ফাইলৰ কাৰণে এক প্ৰমাণপত্ৰ প্ৰদানকাৰী কৰ্তৃপক্ষ ইনষ্টল কৰিছে, যিয়ে ইমেইল, এপ্‌ আৰু সুৰক্ষিত ৱেবছাইটসমূহক অন্তৰ্ভুক্ত কৰি কৰ্মস্থানৰ নেটৱৰ্কৰ কাৰ্যকলাপ তেওঁলোকক নিৰীক্ষণ কৰিবলৈ অনুমতি দিব পাৰে।
-
-এই প্ৰমাণপত্ৰসমূহৰ সম্পৰ্কে অধিক তথ্যৰ বাবে, আপোনাৰ প্ৰশাসকৰ লগত যোগাযোগ কৰক৷"</item>
-    </plurals>
-    <plurals name="ssl_ca_cert_info_message_device_owner">
-        <item quantity="other">"%sএ আপোনাৰ ডিভাইচত প্ৰমাণপত্ৰ প্ৰদানকাৰী কৰ্তৃপক্ষ ইনষ্টল কৰিছে, যিয়ে ইমেইল, এপ্‌ আৰু সুৰক্ষিত ৱেবছাইটসমূহক অন্তৰ্ভুক্ত কৰি ডিভাইচৰ নেটৱৰ্কৰ কাৰ্যকলাপ তেওঁলোকক নিৰীক্ষণ কৰিবলৈ অনুমতি দিব পাৰে।
-
-এই প্ৰমাণপত্ৰসমূহৰ বিষয়ে অধিক জানিবলৈ আপোনাৰ প্ৰশাসকৰ সৈতে যোগাযোগ কৰক।."</item>
-        <item quantity="one">"%sএ আপোনাৰ ডিভাইচত প্ৰমাণপত্ৰ প্ৰদানকাৰী কৰ্তৃপক্ষ ইনষ্টল কৰিছে, যিয়ে ইমেইল, এপ্‌ আৰু সুৰক্ষিত ৱেবছাইটসমূহক অন্তৰ্ভুক্ত কৰি ডিভাইচৰ নেটৱৰ্কৰ কাৰ্যকলাপ তেওঁলোকক নিৰীক্ষণ কৰিবলৈ অনুমতি দিব পাৰে।
-
-এই প্ৰমাণপত্ৰসমূহৰ বিষয়ে অধিক জানিবলৈ আপোনাৰ প্ৰশাসকৰ সৈতে যোগাযোগ কৰক।"</item>
-    </plurals>
     <plurals name="ssl_ca_cert_settings_button">
         <item quantity="other">প্ৰমাণপত্ৰ পৰীক্ষা কৰক</item>
         <item quantity="one">প্ৰমাণপত্ৰ পৰীক্ষা কৰক</item>
@@ -365,8 +349,8 @@
         <item quantity="one">%d টা বস্তু</item>
     </plurals>
     <plurals name="wifi_saved_access_points_summary">
-        <item quantity="other">%d নেটৱৰ্ক</item>
-        <item quantity="one">%d নেটৱৰ্ক</item>
+        <item quantity="other">%d টা নেটৱৰ্ক</item>
+        <item quantity="one">%d টা নেটৱৰ্ক</item>
     </plurals>
     <plurals name="wifi_saved_all_access_points_summary">
         <item quantity="other">%dটা নেটৱৰ্ক আৰু গ্ৰাহকভুক্তি</item>
@@ -375,10 +359,6 @@
     <plurals name="wifi_saved_passpoint_access_points_summary">
         <item quantity="other">%d গ্ৰাহকভুক্তি</item>
         <item quantity="one">%d গ্ৰাহকভুক্তি</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$dটা ডিভাইচ সংযোগ হ’ল</item>
-        <item quantity="one">%1$dটা ডিভাইচ সংযোগ হ’ল</item>
     </plurals>
     <plurals name="wrong_pin_code">
         <item quantity="other">ভুল ছিম পিন ক’ড, আপোনাৰ %d টা প্ৰচেষ্টা বাকী আছে৷</item>

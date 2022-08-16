@@ -205,6 +205,7 @@
         <item>Più vecchi di 60 giorni</item>
         <item>Più vecchi di 90 giorni</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>0%</item>
         <item>50%</item>
@@ -348,17 +349,10 @@
         <item>In rilievo</item>
         <item>Incassato</item>
     </string-array>
-    <string-array name="captioning_font_size_selector_summaries">
-        <item>Dimensioni del testo molto piccole</item>
-        <item>Dimensioni del testo piccole</item>
-        <item>Dimensioni del testo predefinite</item>
-        <item>Dimensioni del testo grandi</item>
-        <item>Dimensioni del testo molto grandi</item>
-    </string-array>
     <string-array name="captioning_font_size_selector_titles">
         <item>Molto piccole</item>
         <item>Piccole</item>
-        <item>Predefinite</item>
+        <item>Medie</item>
         <item>Grandi</item>
         <item>Molto grandi</item>
     </string-array>
@@ -490,6 +484,14 @@
         <item>IMSI</item>
         <item>GID</item>
     </string-array>
+    <string-array name="nfc_payment_favor">
+        <item>Sempre</item>
+        <item>"Tranne quando è aperta un'altra app per pagamenti"</item>
+    </string-array>
+    <string-array name="nfc_payment_favor_values">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
     <string-array name="overlay_display_devices_entries">
         <item>Nessuno</item>
         <item>480p</item>
@@ -616,6 +618,17 @@
     <string-array name="swipe_direction_values">
         <item>1</item>
         <item>0</item>
+    </string-array>
+    <string-array name="switch_to_user_zero_when_docked_timeout_entries">
+        <item>Mai</item>
+        <item>Dopo 1 minuto</item>
+        <item>Dopo 5 minuti</item>
+    </string-array>
+    <string-array name="tare_modifiers_subfactors">
+        <item>In carica</item>
+        <item>Sospensione</item>
+        <item>Modalità di risparmio energetico</item>
+        <item>Stato processo</item>
     </string-array>
     <string-array name="timezone_filters">
         <item>America</item>

@@ -41,7 +41,7 @@
 
     const/4 p1, 0x0
 
-    invoke-static {p0, p1}, Lcom/android/settings/localepicker/LocaleListEditor;->access$300(Lcom/android/settings/localepicker/LocaleListEditor;Z)V
+    invoke-static {p0, p1}, Lcom/android/settings/localepicker/LocaleListEditor;->-$$Nest$msetRemoveMode(Lcom/android/settings/localepicker/LocaleListEditor;Z)V
 
     return-void
 .end method

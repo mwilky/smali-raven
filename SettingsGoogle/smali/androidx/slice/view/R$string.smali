@@ -4,6 +4,6 @@
 
 
 # static fields
-.field public static final abc_slice_more_content:I = 0x7f040088
+.field public static final abc_slice_more_content:I = 0x7f04007e
 
-.field public static final abc_slice_updated:I = 0x7f040090
+.field public static final abc_slice_updated:I = 0x7f040085

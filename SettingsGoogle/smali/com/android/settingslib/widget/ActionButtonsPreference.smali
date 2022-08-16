@@ -519,7 +519,7 @@
 
     check-cast v0, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;
 
-    invoke-static {v0}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->access$000(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;)Landroid/widget/Button;
+    invoke-static {v0}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->-$$Nest$fgetmButton(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;)Landroid/widget/Button;
 
     move-result-object v0
 
@@ -686,7 +686,7 @@
 
     check-cast v0, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;
 
-    invoke-static {v0}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->access$000(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;)Landroid/widget/Button;
+    invoke-static {v0}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->-$$Nest$fgetmButton(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;)Landroid/widget/Button;
 
     move-result-object v0
 
@@ -979,7 +979,7 @@
 
     check-cast v1, Landroid/widget/Button;
 
-    invoke-static {v0, v1}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->access$002(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;Landroid/widget/Button;)Landroid/widget/Button;
+    invoke-static {v0, v1}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->-$$Nest$fputmButton(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;Landroid/widget/Button;)V
 
     iget-object v0, p0, Lcom/android/settingslib/widget/ActionButtonsPreference;->mButton2Info:Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;
 
@@ -991,7 +991,7 @@
 
     check-cast v1, Landroid/widget/Button;
 
-    invoke-static {v0, v1}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->access$002(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;Landroid/widget/Button;)Landroid/widget/Button;
+    invoke-static {v0, v1}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->-$$Nest$fputmButton(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;Landroid/widget/Button;)V
 
     iget-object v0, p0, Lcom/android/settingslib/widget/ActionButtonsPreference;->mButton3Info:Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;
 
@@ -1003,7 +1003,7 @@
 
     check-cast v1, Landroid/widget/Button;
 
-    invoke-static {v0, v1}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->access$002(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;Landroid/widget/Button;)Landroid/widget/Button;
+    invoke-static {v0, v1}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->-$$Nest$fputmButton(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;Landroid/widget/Button;)V
 
     iget-object v0, p0, Lcom/android/settingslib/widget/ActionButtonsPreference;->mButton4Info:Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;
 
@@ -1015,7 +1015,7 @@
 
     check-cast v1, Landroid/widget/Button;
 
-    invoke-static {v0, v1}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->access$002(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;Landroid/widget/Button;)Landroid/widget/Button;
+    invoke-static {v0, v1}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->-$$Nest$fputmButton(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;Landroid/widget/Button;)V
 
     sget v0, Lcom/android/settingslib/widget/R$id;->divider1:I
 
@@ -1080,7 +1080,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/widget/ActionButtonsPreference;->mButton1Info:Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;
 
-    invoke-static {v0}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->access$400(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;)Z
+    invoke-static {v0}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->-$$Nest$fgetmIsEnabled(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;)Z
 
     move-result v0
 
@@ -1088,7 +1088,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/widget/ActionButtonsPreference;->mButton1Info:Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;
 
-    invoke-static {v0, p1}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->access$402(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;Z)Z
+    invoke-static {v0, p1}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->-$$Nest$fputmIsEnabled(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;Z)V
 
     invoke-virtual {p0}, Lcom/android/settingslib/widget/ActionButtonsPreference;->notifyChanged()V
 
@@ -1115,7 +1115,7 @@
 
     iget-object v1, p0, Lcom/android/settingslib/widget/ActionButtonsPreference;->mButton1Info:Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;
 
-    invoke-static {v1, v0}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->access$302(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
+    invoke-static {v1, v0}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->-$$Nest$fputmIcon(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;Landroid/graphics/drawable/Drawable;)V
 
     invoke-virtual {p0}, Lcom/android/settingslib/widget/ActionButtonsPreference;->notifyChanged()V
     :try_end_0
@@ -1151,7 +1151,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/widget/ActionButtonsPreference;->mButton1Info:Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;
 
-    invoke-static {v0}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->access$500(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;)Landroid/view/View$OnClickListener;
+    invoke-static {v0}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->-$$Nest$fgetmListener(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;)Landroid/view/View$OnClickListener;
 
     move-result-object v0
 
@@ -1159,7 +1159,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/widget/ActionButtonsPreference;->mButton1Info:Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;
 
-    invoke-static {v0, p1}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->access$502(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;Landroid/view/View$OnClickListener;)Landroid/view/View$OnClickListener;
+    invoke-static {v0, p1}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->-$$Nest$fputmListener(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;Landroid/view/View$OnClickListener;)V
 
     invoke-virtual {p0}, Lcom/android/settingslib/widget/ActionButtonsPreference;->notifyChanged()V
 
@@ -1180,7 +1180,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/widget/ActionButtonsPreference;->mButton1Info:Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;
 
-    invoke-static {v0}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->access$200(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;)Ljava/lang/CharSequence;
+    invoke-static {v0}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->-$$Nest$fgetmText(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;)Ljava/lang/CharSequence;
 
     move-result-object v0
 
@@ -1192,7 +1192,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/widget/ActionButtonsPreference;->mButton1Info:Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;
 
-    invoke-static {v0, p1}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->access$202(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+    invoke-static {v0, p1}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->-$$Nest$fputmText(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;Ljava/lang/CharSequence;)V
 
     invoke-virtual {p0}, Lcom/android/settingslib/widget/ActionButtonsPreference;->notifyChanged()V
 
@@ -1205,7 +1205,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/widget/ActionButtonsPreference;->mButton1Info:Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;
 
-    invoke-static {v0}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->access$100(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;)Z
+    invoke-static {v0}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->-$$Nest$fgetmIsVisible(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;)Z
 
     move-result v0
 
@@ -1213,7 +1213,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/widget/ActionButtonsPreference;->mButton1Info:Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;
 
-    invoke-static {v0, p1}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->access$102(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;Z)Z
+    invoke-static {v0, p1}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->-$$Nest$fputmIsVisible(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;Z)V
 
     invoke-virtual {p0}, Lcom/android/settingslib/widget/ActionButtonsPreference;->notifyChanged()V
 
@@ -1226,7 +1226,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/widget/ActionButtonsPreference;->mButton2Info:Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;
 
-    invoke-static {v0}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->access$400(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;)Z
+    invoke-static {v0}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->-$$Nest$fgetmIsEnabled(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;)Z
 
     move-result v0
 
@@ -1234,7 +1234,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/widget/ActionButtonsPreference;->mButton2Info:Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;
 
-    invoke-static {v0, p1}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->access$402(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;Z)Z
+    invoke-static {v0, p1}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->-$$Nest$fputmIsEnabled(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;Z)V
 
     invoke-virtual {p0}, Lcom/android/settingslib/widget/ActionButtonsPreference;->notifyChanged()V
 
@@ -1261,7 +1261,7 @@
 
     iget-object v1, p0, Lcom/android/settingslib/widget/ActionButtonsPreference;->mButton2Info:Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;
 
-    invoke-static {v1, v0}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->access$302(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
+    invoke-static {v1, v0}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->-$$Nest$fputmIcon(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;Landroid/graphics/drawable/Drawable;)V
 
     invoke-virtual {p0}, Lcom/android/settingslib/widget/ActionButtonsPreference;->notifyChanged()V
     :try_end_0
@@ -1297,7 +1297,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/widget/ActionButtonsPreference;->mButton2Info:Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;
 
-    invoke-static {v0}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->access$500(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;)Landroid/view/View$OnClickListener;
+    invoke-static {v0}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->-$$Nest$fgetmListener(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;)Landroid/view/View$OnClickListener;
 
     move-result-object v0
 
@@ -1305,7 +1305,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/widget/ActionButtonsPreference;->mButton2Info:Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;
 
-    invoke-static {v0, p1}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->access$502(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;Landroid/view/View$OnClickListener;)Landroid/view/View$OnClickListener;
+    invoke-static {v0, p1}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->-$$Nest$fputmListener(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;Landroid/view/View$OnClickListener;)V
 
     invoke-virtual {p0}, Lcom/android/settingslib/widget/ActionButtonsPreference;->notifyChanged()V
 
@@ -1326,7 +1326,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/widget/ActionButtonsPreference;->mButton2Info:Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;
 
-    invoke-static {v0}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->access$200(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;)Ljava/lang/CharSequence;
+    invoke-static {v0}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->-$$Nest$fgetmText(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;)Ljava/lang/CharSequence;
 
     move-result-object v0
 
@@ -1338,7 +1338,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/widget/ActionButtonsPreference;->mButton2Info:Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;
 
-    invoke-static {v0, p1}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->access$202(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+    invoke-static {v0, p1}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->-$$Nest$fputmText(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;Ljava/lang/CharSequence;)V
 
     invoke-virtual {p0}, Lcom/android/settingslib/widget/ActionButtonsPreference;->notifyChanged()V
 
@@ -1351,7 +1351,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/widget/ActionButtonsPreference;->mButton2Info:Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;
 
-    invoke-static {v0}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->access$100(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;)Z
+    invoke-static {v0}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->-$$Nest$fgetmIsVisible(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;)Z
 
     move-result v0
 
@@ -1359,7 +1359,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/widget/ActionButtonsPreference;->mButton2Info:Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;
 
-    invoke-static {v0, p1}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->access$102(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;Z)Z
+    invoke-static {v0, p1}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->-$$Nest$fputmIsVisible(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;Z)V
 
     invoke-virtual {p0}, Lcom/android/settingslib/widget/ActionButtonsPreference;->notifyChanged()V
 
@@ -1372,7 +1372,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/widget/ActionButtonsPreference;->mButton3Info:Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;
 
-    invoke-static {v0}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->access$400(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;)Z
+    invoke-static {v0}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->-$$Nest$fgetmIsEnabled(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;)Z
 
     move-result v0
 
@@ -1380,7 +1380,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/widget/ActionButtonsPreference;->mButton3Info:Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;
 
-    invoke-static {v0, p1}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->access$402(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;Z)Z
+    invoke-static {v0, p1}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->-$$Nest$fputmIsEnabled(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;Z)V
 
     invoke-virtual {p0}, Lcom/android/settingslib/widget/ActionButtonsPreference;->notifyChanged()V
 
@@ -1407,7 +1407,7 @@
 
     iget-object v1, p0, Lcom/android/settingslib/widget/ActionButtonsPreference;->mButton3Info:Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;
 
-    invoke-static {v1, v0}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->access$302(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
+    invoke-static {v1, v0}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->-$$Nest$fputmIcon(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;Landroid/graphics/drawable/Drawable;)V
 
     invoke-virtual {p0}, Lcom/android/settingslib/widget/ActionButtonsPreference;->notifyChanged()V
     :try_end_0
@@ -1443,7 +1443,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/widget/ActionButtonsPreference;->mButton3Info:Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;
 
-    invoke-static {v0}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->access$500(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;)Landroid/view/View$OnClickListener;
+    invoke-static {v0}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->-$$Nest$fgetmListener(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;)Landroid/view/View$OnClickListener;
 
     move-result-object v0
 
@@ -1451,7 +1451,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/widget/ActionButtonsPreference;->mButton3Info:Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;
 
-    invoke-static {v0, p1}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->access$502(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;Landroid/view/View$OnClickListener;)Landroid/view/View$OnClickListener;
+    invoke-static {v0, p1}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->-$$Nest$fputmListener(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;Landroid/view/View$OnClickListener;)V
 
     invoke-virtual {p0}, Lcom/android/settingslib/widget/ActionButtonsPreference;->notifyChanged()V
 
@@ -1472,7 +1472,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/widget/ActionButtonsPreference;->mButton3Info:Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;
 
-    invoke-static {v0}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->access$200(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;)Ljava/lang/CharSequence;
+    invoke-static {v0}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->-$$Nest$fgetmText(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;)Ljava/lang/CharSequence;
 
     move-result-object v0
 
@@ -1484,7 +1484,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/widget/ActionButtonsPreference;->mButton3Info:Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;
 
-    invoke-static {v0, p1}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->access$202(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+    invoke-static {v0, p1}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->-$$Nest$fputmText(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;Ljava/lang/CharSequence;)V
 
     invoke-virtual {p0}, Lcom/android/settingslib/widget/ActionButtonsPreference;->notifyChanged()V
 
@@ -1497,7 +1497,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/widget/ActionButtonsPreference;->mButton3Info:Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;
 
-    invoke-static {v0}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->access$100(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;)Z
+    invoke-static {v0}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->-$$Nest$fgetmIsVisible(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;)Z
 
     move-result v0
 
@@ -1505,7 +1505,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/widget/ActionButtonsPreference;->mButton3Info:Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;
 
-    invoke-static {v0, p1}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->access$102(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;Z)Z
+    invoke-static {v0, p1}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->-$$Nest$fputmIsVisible(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;Z)V
 
     invoke-virtual {p0}, Lcom/android/settingslib/widget/ActionButtonsPreference;->notifyChanged()V
 
@@ -1532,7 +1532,7 @@
 
     iget-object v1, p0, Lcom/android/settingslib/widget/ActionButtonsPreference;->mButton4Info:Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;
 
-    invoke-static {v1, v0}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->access$302(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
+    invoke-static {v1, v0}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->-$$Nest$fputmIcon(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;Landroid/graphics/drawable/Drawable;)V
 
     invoke-virtual {p0}, Lcom/android/settingslib/widget/ActionButtonsPreference;->notifyChanged()V
     :try_end_0
@@ -1568,7 +1568,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/widget/ActionButtonsPreference;->mButton4Info:Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;
 
-    invoke-static {v0}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->access$500(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;)Landroid/view/View$OnClickListener;
+    invoke-static {v0}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->-$$Nest$fgetmListener(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;)Landroid/view/View$OnClickListener;
 
     move-result-object v0
 
@@ -1576,7 +1576,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/widget/ActionButtonsPreference;->mButton4Info:Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;
 
-    invoke-static {v0, p1}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->access$502(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;Landroid/view/View$OnClickListener;)Landroid/view/View$OnClickListener;
+    invoke-static {v0, p1}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->-$$Nest$fputmListener(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;Landroid/view/View$OnClickListener;)V
 
     invoke-virtual {p0}, Lcom/android/settingslib/widget/ActionButtonsPreference;->notifyChanged()V
 
@@ -1597,7 +1597,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/widget/ActionButtonsPreference;->mButton4Info:Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;
 
-    invoke-static {v0}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->access$200(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;)Ljava/lang/CharSequence;
+    invoke-static {v0}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->-$$Nest$fgetmText(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;)Ljava/lang/CharSequence;
 
     move-result-object v0
 
@@ -1609,7 +1609,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/widget/ActionButtonsPreference;->mButton4Info:Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;
 
-    invoke-static {v0, p1}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->access$202(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+    invoke-static {v0, p1}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->-$$Nest$fputmText(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;Ljava/lang/CharSequence;)V
 
     invoke-virtual {p0}, Lcom/android/settingslib/widget/ActionButtonsPreference;->notifyChanged()V
 
@@ -1622,7 +1622,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/widget/ActionButtonsPreference;->mButton4Info:Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;
 
-    invoke-static {v0}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->access$100(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;)Z
+    invoke-static {v0}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->-$$Nest$fgetmIsVisible(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;)Z
 
     move-result v0
 
@@ -1630,7 +1630,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/widget/ActionButtonsPreference;->mButton4Info:Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;
 
-    invoke-static {v0, p1}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->access$102(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;Z)Z
+    invoke-static {v0, p1}, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->-$$Nest$fputmIsVisible(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;Z)V
 
     invoke-virtual {p0}, Lcom/android/settingslib/widget/ActionButtonsPreference;->notifyChanged()V
 

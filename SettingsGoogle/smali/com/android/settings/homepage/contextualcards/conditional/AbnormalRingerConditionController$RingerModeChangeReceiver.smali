@@ -48,7 +48,7 @@
 
     iget-object p0, p0, Lcom/android/settings/homepage/contextualcards/conditional/AbnormalRingerConditionController$RingerModeChangeReceiver;->this$0:Lcom/android/settings/homepage/contextualcards/conditional/AbnormalRingerConditionController;
 
-    invoke-static {p0}, Lcom/android/settings/homepage/contextualcards/conditional/AbnormalRingerConditionController;->access$000(Lcom/android/settings/homepage/contextualcards/conditional/AbnormalRingerConditionController;)Lcom/android/settings/homepage/contextualcards/conditional/ConditionManager;
+    invoke-static {p0}, Lcom/android/settings/homepage/contextualcards/conditional/AbnormalRingerConditionController;->-$$Nest$fgetmConditionManager(Lcom/android/settings/homepage/contextualcards/conditional/AbnormalRingerConditionController;)Lcom/android/settings/homepage/contextualcards/conditional/ConditionManager;
 
     move-result-object p0
 

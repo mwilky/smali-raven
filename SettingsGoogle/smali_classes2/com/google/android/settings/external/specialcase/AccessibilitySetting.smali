@@ -148,7 +148,7 @@
 .method private getScreenTitle(Landroid/content/Context;)Ljava/lang/String;
     .locals 0
 
-    const p0, 0x7f040125
+    const p0, 0x7f040140
 
     invoke-virtual {p1, p0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -237,7 +237,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f040d02
+    const v7, 0x7f040d7d
 
     move-object v2, p0
 
@@ -315,7 +315,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f040d02
+    const v6, 0x7f040d7d
 
     move-object v1, p0
 

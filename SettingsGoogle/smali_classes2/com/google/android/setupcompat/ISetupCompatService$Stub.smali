@@ -57,11 +57,3 @@
 
     return-object v0
 .end method
-
-.method public static getDefaultImpl()Lcom/google/android/setupcompat/ISetupCompatService;
-    .locals 1
-
-    sget-object v0, Lcom/google/android/setupcompat/ISetupCompatService$Stub$Proxy;->sDefaultImpl:Lcom/google/android/setupcompat/ISetupCompatService;
-
-    return-object v0
-.end method

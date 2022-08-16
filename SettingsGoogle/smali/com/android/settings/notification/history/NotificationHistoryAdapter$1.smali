@@ -44,7 +44,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f040e68
+    const p1, 0x7f040efc
 
     invoke-virtual {p0, p1}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -80,7 +80,7 @@
 
     iget-object p1, p0, Lcom/android/settings/notification/history/NotificationHistoryAdapter$1;->this$0:Lcom/android/settings/notification/history/NotificationHistoryAdapter;
 
-    invoke-static {p1}, Lcom/android/settings/notification/history/NotificationHistoryAdapter;->access$000(Lcom/android/settings/notification/history/NotificationHistoryAdapter;)Ljava/util/List;
+    invoke-static {p1}, Lcom/android/settings/notification/history/NotificationHistoryAdapter;->-$$Nest$fgetmValues(Lcom/android/settings/notification/history/NotificationHistoryAdapter;)Ljava/util/List;
 
     move-result-object p1
 

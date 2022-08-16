@@ -44,7 +44,7 @@
 
     iget-object p1, p0, Lcom/android/settings/network/apn/ApnSettings$1;->this$0:Lcom/android/settings/network/apn/ApnSettings;
 
-    invoke-static {p1}, Lcom/android/settings/network/apn/ApnSettings;->access$000(Lcom/android/settings/network/apn/ApnSettings;)Z
+    invoke-static {p1}, Lcom/android/settings/network/apn/ApnSettings;->-$$Nest$fgetmRestoreDefaultApnMode(Lcom/android/settings/network/apn/ApnSettings;)Z
 
     move-result p1
 
@@ -52,7 +52,7 @@
 
     iget-object p0, p0, Lcom/android/settings/network/apn/ApnSettings$1;->this$0:Lcom/android/settings/network/apn/ApnSettings;
 
-    invoke-static {p0}, Lcom/android/settings/network/apn/ApnSettings;->access$100(Lcom/android/settings/network/apn/ApnSettings;)V
+    invoke-static {p0}, Lcom/android/settings/network/apn/ApnSettings;->-$$Nest$mfillList(Lcom/android/settings/network/apn/ApnSettings;)V
 
     goto :goto_0
 
@@ -61,7 +61,7 @@
 
     const/16 p1, 0x3e9
 
-    invoke-static {p0, p1}, Lcom/android/settings/network/apn/ApnSettings;->access$200(Lcom/android/settings/network/apn/ApnSettings;I)V
+    invoke-static {p0, p1}, Lcom/android/settings/network/apn/ApnSettings;->access$000(Lcom/android/settings/network/apn/ApnSettings;I)V
 
     :cond_1
     :goto_0

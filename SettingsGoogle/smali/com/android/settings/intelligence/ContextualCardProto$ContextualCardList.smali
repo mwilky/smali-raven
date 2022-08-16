@@ -18,7 +18,8 @@
         "Lcom/google/protobuf/GeneratedMessageLite<",
         "Lcom/android/settings/intelligence/ContextualCardProto$ContextualCardList;",
         "Lcom/android/settings/intelligence/ContextualCardProto$ContextualCardList$Builder;",
-        ">;"
+        ">;",
+        "Lcom/google/protobuf/MessageLiteOrBuilder;"
     }
 .end annotation
 
@@ -52,6 +53,22 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$maddCard(Lcom/android/settings/intelligence/ContextualCardProto$ContextualCardList;Lcom/android/settings/intelligence/ContextualCardProto$ContextualCard;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/intelligence/ContextualCardProto$ContextualCardList;->addCard(Lcom/android/settings/intelligence/ContextualCardProto$ContextualCard;)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$sfgetDEFAULT_INSTANCE()Lcom/android/settings/intelligence/ContextualCardProto$ContextualCardList;
+    .locals 1
+
+    sget-object v0, Lcom/android/settings/intelligence/ContextualCardProto$ContextualCardList;->DEFAULT_INSTANCE:Lcom/android/settings/intelligence/ContextualCardProto$ContextualCardList;
+
+    return-object v0
+.end method
+
 .method static constructor <clinit>()V
     .locals 2
 
@@ -82,26 +99,10 @@
     return-void
 .end method
 
-.method static synthetic access$000()Lcom/android/settings/intelligence/ContextualCardProto$ContextualCardList;
-    .locals 1
-
-    sget-object v0, Lcom/android/settings/intelligence/ContextualCardProto$ContextualCardList;->DEFAULT_INSTANCE:Lcom/android/settings/intelligence/ContextualCardProto$ContextualCardList;
-
-    return-object v0
-.end method
-
-.method static synthetic access$300(Lcom/android/settings/intelligence/ContextualCardProto$ContextualCardList;Lcom/android/settings/intelligence/ContextualCardProto$ContextualCard;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/intelligence/ContextualCardProto$ContextualCardList;->addCard(Lcom/android/settings/intelligence/ContextualCardProto$ContextualCard;)V
-
-    return-void
-.end method
-
 .method private addCard(Lcom/android/settings/intelligence/ContextualCardProto$ContextualCard;)V
     .locals 0
 
-    invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     invoke-direct {p0}, Lcom/android/settings/intelligence/ContextualCardProto$ContextualCardList;->ensureCardIsMutable()V
 
@@ -257,7 +258,7 @@
     :pswitch_5
     new-instance p0, Lcom/android/settings/intelligence/ContextualCardProto$ContextualCardList$Builder;
 
-    invoke-direct {p0, p2}, Lcom/android/settings/intelligence/ContextualCardProto$ContextualCardList$Builder;-><init>(Lcom/android/settings/intelligence/ContextualCardProto$1;)V
+    invoke-direct {p0, p2}, Lcom/android/settings/intelligence/ContextualCardProto$ContextualCardList$Builder;-><init>(Lcom/android/settings/intelligence/ContextualCardProto$ContextualCardList$Builder-IA;)V
 
     return-object p0
 

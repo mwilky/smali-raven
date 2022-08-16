@@ -44,7 +44,7 @@
     goto :goto_1
 
     :cond_1
-    invoke-static {}, Lcom/google/common/base/Throwables;->getSizeMethod()Ljava/lang/reflect/Method;
+    invoke-static {v0}, Lcom/google/common/base/Throwables;->getSizeMethod(Ljava/lang/Object;)Ljava/lang/reflect/Method;
 
     move-result-object v1
 
@@ -170,7 +170,7 @@
     throw p0
 .end method
 
-.method private static getSizeMethod()Ljava/lang/reflect/Method;
+.method private static getSizeMethod(Ljava/lang/Object;)Ljava/lang/reflect/Method;
     .locals 6
 
     const/4 v0, 0x0
@@ -197,19 +197,15 @@
     return-object v0
 
     :cond_0
-    invoke-static {}, Lcom/google/common/base/Throwables;->getJLA()Ljava/lang/Object;
-
-    move-result-object v3
-
     new-array v2, v2, [Ljava/lang/Object;
 
-    new-instance v4, Ljava/lang/Throwable;
+    new-instance v3, Ljava/lang/Throwable;
 
-    invoke-direct {v4}, Ljava/lang/Throwable;-><init>()V
+    invoke-direct {v3}, Ljava/lang/Throwable;-><init>()V
 
-    aput-object v4, v2, v5
+    aput-object v3, v2, v5
 
-    invoke-virtual {v1, v3, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, p0, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catch Ljava/lang/UnsupportedOperationException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
@@ -223,9 +219,6 @@
 
 .method public static propagate(Ljava/lang/Throwable;)Ljava/lang/RuntimeException;
     .locals 1
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 

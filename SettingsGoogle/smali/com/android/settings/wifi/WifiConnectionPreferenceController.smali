@@ -20,7 +20,7 @@
 
 .field private mPrefContext:Landroid/content/Context;
 
-.field private mPreference:Lcom/android/settingslib/wifi/WifiEntryPreference;
+.field private mPreference:Lcom/android/settings/wifi/WifiEntryPreference;
 
 .field private mPreferenceGroup:Landroidx/preference/PreferenceGroup;
 
@@ -175,7 +175,7 @@
 
     invoke-direct {p1, v0}, Lcom/android/settings/core/SubSettingLauncher;-><init>(Landroid/content/Context;)V
 
-    const v0, 0x7f040f58
+    const v0, 0x7f040fef
 
     invoke-virtual {p1, v0}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 
@@ -226,11 +226,11 @@
     goto :goto_1
 
     :cond_0
-    iget-object v1, p0, Lcom/android/settings/wifi/WifiConnectionPreferenceController;->mPreference:Lcom/android/settingslib/wifi/WifiEntryPreference;
+    iget-object v1, p0, Lcom/android/settings/wifi/WifiConnectionPreferenceController;->mPreference:Lcom/android/settings/wifi/WifiEntryPreference;
 
     if-eqz v1, :cond_2
 
-    invoke-virtual {v1}, Lcom/android/settingslib/wifi/WifiEntryPreference;->getWifiEntry()Lcom/android/wifitrackerlib/WifiEntry;
+    invoke-virtual {v1}, Lcom/android/settings/wifi/WifiEntryPreference;->getWifiEntry()Lcom/android/wifitrackerlib/WifiEntry;
 
     move-result-object v1
 
@@ -243,11 +243,11 @@
     goto :goto_0
 
     :cond_1
-    iget-object v0, p0, Lcom/android/settings/wifi/WifiConnectionPreferenceController;->mPreference:Lcom/android/settingslib/wifi/WifiEntryPreference;
+    iget-object v0, p0, Lcom/android/settings/wifi/WifiConnectionPreferenceController;->mPreference:Lcom/android/settings/wifi/WifiEntryPreference;
 
     if-eqz v0, :cond_3
 
-    invoke-virtual {v0}, Lcom/android/settingslib/wifi/WifiEntryPreference;->refresh()V
+    invoke-virtual {v0}, Lcom/android/settings/wifi/WifiEntryPreference;->refresh()V
 
     goto :goto_1
 
@@ -267,7 +267,7 @@
 .method private updatePreference(Lcom/android/wifitrackerlib/WifiEntry;)V
     .locals 2
 
-    iget-object v0, p0, Lcom/android/settings/wifi/WifiConnectionPreferenceController;->mPreference:Lcom/android/settingslib/wifi/WifiEntryPreference;
+    iget-object v0, p0, Lcom/android/settings/wifi/WifiConnectionPreferenceController;->mPreference:Lcom/android/settings/wifi/WifiEntryPreference;
 
     if-eqz v0, :cond_0
 
@@ -277,7 +277,7 @@
 
     const/4 v0, 0x0
 
-    iput-object v0, p0, Lcom/android/settings/wifi/WifiConnectionPreferenceController;->mPreference:Lcom/android/settingslib/wifi/WifiEntryPreference;
+    iput-object v0, p0, Lcom/android/settings/wifi/WifiConnectionPreferenceController;->mPreference:Lcom/android/settings/wifi/WifiEntryPreference;
 
     :cond_0
     if-eqz p1, :cond_2
@@ -289,29 +289,29 @@
     goto :goto_0
 
     :cond_1
-    new-instance v0, Lcom/android/settingslib/wifi/WifiEntryPreference;
+    new-instance v0, Lcom/android/settings/wifi/WifiEntryPreference;
 
     iget-object v1, p0, Lcom/android/settings/wifi/WifiConnectionPreferenceController;->mPrefContext:Landroid/content/Context;
 
-    invoke-direct {v0, v1, p1}, Lcom/android/settingslib/wifi/WifiEntryPreference;-><init>(Landroid/content/Context;Lcom/android/wifitrackerlib/WifiEntry;)V
+    invoke-direct {v0, v1, p1}, Lcom/android/settings/wifi/WifiEntryPreference;-><init>(Landroid/content/Context;Lcom/android/wifitrackerlib/WifiEntry;)V
 
-    iput-object v0, p0, Lcom/android/settings/wifi/WifiConnectionPreferenceController;->mPreference:Lcom/android/settingslib/wifi/WifiEntryPreference;
+    iput-object v0, p0, Lcom/android/settings/wifi/WifiConnectionPreferenceController;->mPreference:Lcom/android/settings/wifi/WifiEntryPreference;
 
     const-string v1, "active_wifi_connection"
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setKey(Ljava/lang/String;)V
 
-    iget-object v0, p0, Lcom/android/settings/wifi/WifiConnectionPreferenceController;->mPreference:Lcom/android/settingslib/wifi/WifiEntryPreference;
+    iget-object v0, p0, Lcom/android/settings/wifi/WifiConnectionPreferenceController;->mPreference:Lcom/android/settings/wifi/WifiEntryPreference;
 
-    invoke-virtual {v0}, Lcom/android/settingslib/wifi/WifiEntryPreference;->refresh()V
+    invoke-virtual {v0}, Lcom/android/settings/wifi/WifiEntryPreference;->refresh()V
 
-    iget-object v0, p0, Lcom/android/settings/wifi/WifiConnectionPreferenceController;->mPreference:Lcom/android/settingslib/wifi/WifiEntryPreference;
+    iget-object v0, p0, Lcom/android/settings/wifi/WifiConnectionPreferenceController;->mPreference:Lcom/android/settings/wifi/WifiEntryPreference;
 
     iget v1, p0, Lcom/android/settings/wifi/WifiConnectionPreferenceController;->order:I
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setOrder(I)V
 
-    iget-object v0, p0, Lcom/android/settings/wifi/WifiConnectionPreferenceController;->mPreference:Lcom/android/settingslib/wifi/WifiEntryPreference;
+    iget-object v0, p0, Lcom/android/settings/wifi/WifiConnectionPreferenceController;->mPreference:Lcom/android/settings/wifi/WifiEntryPreference;
 
     new-instance v1, Lcom/android/settings/wifi/WifiConnectionPreferenceController$$ExternalSyntheticLambda0;
 
@@ -321,7 +321,7 @@
 
     iget-object p1, p0, Lcom/android/settings/wifi/WifiConnectionPreferenceController;->mPreferenceGroup:Landroidx/preference/PreferenceGroup;
 
-    iget-object p0, p0, Lcom/android/settings/wifi/WifiConnectionPreferenceController;->mPreference:Lcom/android/settingslib/wifi/WifiEntryPreference;
+    iget-object p0, p0, Lcom/android/settings/wifi/WifiConnectionPreferenceController;->mPreference:Lcom/android/settings/wifi/WifiEntryPreference;
 
     invoke-virtual {p1, p0}, Landroidx/preference/PreferenceGroup;->addPreference(Landroidx/preference/Preference;)Z
 

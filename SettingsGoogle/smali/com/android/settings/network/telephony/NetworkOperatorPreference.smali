@@ -43,7 +43,7 @@
 
     const/4 p1, 0x0
 
-    invoke-direct {p0, p1, p2}, Lcom/android/settings/network/telephony/NetworkOperatorPreference;->updateCell(Landroid/telephony/CellInfo;Landroid/telephony/CellIdentity;)V
+    invoke-virtual {p0, p1, p2}, Lcom/android/settings/network/telephony/NetworkOperatorPreference;->updateCell(Landroid/telephony/CellInfo;Landroid/telephony/CellIdentity;)V
 
     return-void
 .end method
@@ -94,7 +94,7 @@
 
     move-result-object p1
 
-    const p2, 0x11100d8
+    const p2, 0x111013a
 
     invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -259,7 +259,7 @@
 
     if-eqz v0, :cond_0
 
-    const p0, 0x7f02042a
+    const p0, 0x7f02045f
 
     return p0
 
@@ -268,7 +268,7 @@
 
     if-eqz v0, :cond_1
 
-    const p0, 0x7f020427
+    const p0, 0x7f02045c
 
     return p0
 
@@ -292,12 +292,12 @@
 
     if-eqz p0, :cond_3
 
-    const p0, 0x7f020368
+    const p0, 0x7f02038d
 
     goto :goto_0
 
     :cond_3
-    const p0, 0x7f02042b
+    const p0, 0x7f020460
 
     :goto_0
     return p0
@@ -307,7 +307,7 @@
 
     if-eqz p0, :cond_5
 
-    const p0, 0x7f020429
+    const p0, 0x7f02045e
 
     return p0
 
@@ -318,21 +318,9 @@
 
     :cond_6
     :goto_1
-    const p0, 0x7f020428
+    const p0, 0x7f02045d
 
     return p0
-.end method
-
-.method private updateCell(Landroid/telephony/CellInfo;Landroid/telephony/CellIdentity;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/settings/network/telephony/NetworkOperatorPreference;->mCellInfo:Landroid/telephony/CellInfo;
-
-    iput-object p2, p0, Lcom/android/settings/network/telephony/NetworkOperatorPreference;->mCellId:Landroid/telephony/CellIdentity;
-
-    invoke-virtual {p0}, Lcom/android/settings/network/telephony/NetworkOperatorPreference;->refresh()V
-
-    return-void
 .end method
 
 .method private updateIcon(I)V
@@ -609,7 +597,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f040969
+    const v2, 0x7f0409ce
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -675,7 +663,19 @@
 
     move-result-object v0
 
-    invoke-direct {p0, p1, v0}, Lcom/android/settings/network/telephony/NetworkOperatorPreference;->updateCell(Landroid/telephony/CellInfo;Landroid/telephony/CellIdentity;)V
+    invoke-virtual {p0, p1, v0}, Lcom/android/settings/network/telephony/NetworkOperatorPreference;->updateCell(Landroid/telephony/CellInfo;Landroid/telephony/CellIdentity;)V
+
+    return-void
+.end method
+
+.method protected updateCell(Landroid/telephony/CellInfo;Landroid/telephony/CellIdentity;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/settings/network/telephony/NetworkOperatorPreference;->mCellInfo:Landroid/telephony/CellInfo;
+
+    iput-object p2, p0, Lcom/android/settings/network/telephony/NetworkOperatorPreference;->mCellId:Landroid/telephony/CellIdentity;
+
+    invoke-virtual {p0}, Lcom/android/settings/network/telephony/NetworkOperatorPreference;->refresh()V
 
     return-void
 .end method

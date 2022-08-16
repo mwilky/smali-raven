@@ -19,7 +19,9 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    sget-object v0, Lcom/android/launcher3/icons/GraphicsUtils$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/launcher3/icons/GraphicsUtils$$ExternalSyntheticLambda0;
+    new-instance v0, Lcom/android/launcher3/icons/GraphicsUtils$$ExternalSyntheticLambda0;
+
+    invoke-direct {v0}, Lcom/android/launcher3/icons/GraphicsUtils$$ExternalSyntheticLambda0;-><init>()V
 
     sput-object v0, Lcom/android/launcher3/icons/GraphicsUtils;->sOnNewBitmapRunnable:Ljava/lang/Runnable;
 
@@ -62,6 +64,86 @@
 
     :cond_0
     return v1
+.end method
+
+.method public static getAttrColor(Landroid/content/Context;I)I
+    .locals 2
+
+    const/4 v0, 0x1
+
+    new-array v0, v0, [I
+
+    const/4 v1, 0x0
+
+    aput p1, v0, v1
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->obtainStyledAttributes([I)Landroid/content/res/TypedArray;
+
+    move-result-object p0
+
+    invoke-virtual {p0, v1, v1}, Landroid/content/res/TypedArray;->getColor(II)I
+
+    move-result p1
+
+    invoke-virtual {p0}, Landroid/content/res/TypedArray;->recycle()V
+
+    return p1
+.end method
+
+.method public static getFloat(Landroid/content/Context;IF)F
+    .locals 2
+
+    const/4 v0, 0x1
+
+    new-array v0, v0, [I
+
+    const/4 v1, 0x0
+
+    aput p1, v0, v1
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->obtainStyledAttributes([I)Landroid/content/res/TypedArray;
+
+    move-result-object p0
+
+    invoke-virtual {p0, v1, p2}, Landroid/content/res/TypedArray;->getFloat(IF)F
+
+    move-result p1
+
+    invoke-virtual {p0}, Landroid/content/res/TypedArray;->recycle()V
+
+    return p1
+.end method
+
+.method public static getShapePath(I)Landroid/graphics/Path;
+    .locals 4
+
+    new-instance v0, Landroid/graphics/drawable/AdaptiveIconDrawable;
+
+    new-instance v1, Landroid/graphics/drawable/ColorDrawable;
+
+    const/high16 v2, -0x1000000
+
+    invoke-direct {v1, v2}, Landroid/graphics/drawable/ColorDrawable;-><init>(I)V
+
+    new-instance v3, Landroid/graphics/drawable/ColorDrawable;
+
+    invoke-direct {v3, v2}, Landroid/graphics/drawable/ColorDrawable;-><init>(I)V
+
+    invoke-direct {v0, v1, v3}, Landroid/graphics/drawable/AdaptiveIconDrawable;-><init>(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1, v1, p0, p0}, Landroid/graphics/drawable/AdaptiveIconDrawable;->setBounds(IIII)V
+
+    new-instance p0, Landroid/graphics/Path;
+
+    invoke-virtual {v0}, Landroid/graphics/drawable/AdaptiveIconDrawable;->getIconMask()Landroid/graphics/Path;
+
+    move-result-object v0
+
+    invoke-direct {p0, v0}, Landroid/graphics/Path;-><init>(Landroid/graphics/Path;)V
+
+    return-object p0
 .end method
 
 .method private static synthetic lambda$static$0()V

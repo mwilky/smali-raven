@@ -204,7 +204,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f04063f
+    const v1, 0x7f04069d
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -418,7 +418,7 @@
 
     iget-object p0, p0, Lcom/android/settings/accounts/AvatarViewMixin;->mAvatarView:Landroid/widget/ImageView;
 
-    const v0, 0x7f020170
+    const v0, 0x7f020181
 
     invoke-virtual {p0, v0}, Landroid/widget/ImageView;->setImageResource(I)V
 

@@ -1264,8 +1264,6 @@
 
     if-eqz p1, :cond_2
 
-    aget-char p1, v1, v0
-
     rsub-int p1, p1, 0x3a1
 
     int-to-char p1, p1

@@ -8,6 +8,16 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$smbuildControllers(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;)Ljava/util/List;
+    .locals 0
+
+    invoke-static {p0, p1}, Lcom/android/settings/connecteddevice/AdvancedConnectedDeviceDashboardFragment;->buildControllers(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;)Ljava/util/List;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method static constructor <clinit>()V
     .locals 1
 
@@ -26,16 +36,6 @@
     invoke-direct {p0}, Lcom/android/settings/dashboard/DashboardFragment;-><init>()V
 
     return-void
-.end method
-
-.method static synthetic access$000(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;)Ljava/util/List;
-    .locals 0
-
-    invoke-static {p0, p1}, Lcom/android/settings/connecteddevice/AdvancedConnectedDeviceDashboardFragment;->buildControllers(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;)Ljava/util/List;
-
-    move-result-object p0
-
-    return-object p0
 .end method
 
 .method private static buildControllers(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;)Ljava/util/List;
@@ -99,7 +99,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a28
+    const p0, 0x7f040a81
 
     return p0
 .end method
@@ -123,7 +123,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f15004c
+    const p0, 0x7f15004f
 
     return p0
 .end method

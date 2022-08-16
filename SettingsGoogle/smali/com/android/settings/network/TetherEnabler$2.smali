@@ -56,7 +56,7 @@
 
     move-result p2
 
-    invoke-static {p1, p2}, Lcom/android/settings/network/TetherEnabler;->access$000(Lcom/android/settings/network/TetherEnabler;I)Z
+    invoke-static {p1, p2}, Lcom/android/settings/network/TetherEnabler;->-$$Nest$mhandleWifiApStateChanged(Lcom/android/settings/network/TetherEnabler;I)Z
 
     move-result p1
 
@@ -81,7 +81,7 @@
 
     move-result p2
 
-    invoke-static {p1, p2}, Lcom/android/settings/network/TetherEnabler;->access$100(Lcom/android/settings/network/TetherEnabler;I)Z
+    invoke-static {p1, p2}, Lcom/android/settings/network/TetherEnabler;->-$$Nest$mhandleBluetoothStateChanged(Lcom/android/settings/network/TetherEnabler;I)Z
 
     move-result p1
 

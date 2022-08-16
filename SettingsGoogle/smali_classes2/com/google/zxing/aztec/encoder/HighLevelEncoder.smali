@@ -183,15 +183,13 @@
     :cond_2
     sget-object v1, Lcom/google/zxing/aztec/encoder/HighLevelEncoder;->CHAR_MAP:[[I
 
-    aget-object v2, v1, v6
-
-    const/16 v8, 0x2c
-
-    const/16 v9, 0xc
-
-    aput v9, v2, v8
-
     aget-object v1, v1, v6
+
+    const/16 v2, 0x2c
+
+    const/16 v8, 0xc
+
+    aput v8, v1, v2
 
     const/16 v2, 0x2e
 
@@ -238,13 +236,11 @@
 
     if-lez v10, :cond_4
 
-    sget-object v10, Lcom/google/zxing/aztec/encoder/HighLevelEncoder;->CHAR_MAP:[[I
+    sget-object v11, Lcom/google/zxing/aztec/encoder/HighLevelEncoder;->CHAR_MAP:[[I
 
-    aget-object v10, v10, v3
+    aget-object v11, v11, v3
 
-    aget v11, v8, v9
-
-    aput v9, v10, v11
+    aput v9, v11, v10
 
     :cond_4
     add-int/lit8 v9, v9, 0x1
@@ -292,19 +288,15 @@
 
     aput v4, v2, v3
 
-    aget-object v2, v0, v5
-
     aput v1, v2, v4
 
     aget-object v1, v0, v7
 
     aput v4, v1, v3
 
-    aget-object v1, v0, v6
-
-    aput v4, v1, v3
-
     aget-object v0, v0, v6
+
+    aput v4, v0, v3
 
     const/16 v1, 0xf
 

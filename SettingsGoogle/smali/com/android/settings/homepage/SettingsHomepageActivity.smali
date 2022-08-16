@@ -9,7 +9,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/settings/homepage/SettingsHomepageActivity$FragmentBuilder;,
+        Lcom/android/settings/homepage/SettingsHomepageActivity$SuggestionFragCreator;,
+        Lcom/android/settings/homepage/SettingsHomepageActivity$FragmentCreator;,
         Lcom/android/settings/homepage/SettingsHomepageActivity$HomepageLoadedListener;
     }
 .end annotation
@@ -22,7 +23,9 @@
 
 .field private mIsEmbeddingActivityEnabled:Z
 
-.field private mIsTwoPaneLastTime:Z
+.field private mIsRegularLayout:Z
+
+.field private mIsTwoPane:Z
 
 .field private mLoadedListeners:Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
@@ -36,30 +39,38 @@
 
 .field private mMainFragment:Lcom/android/settings/homepage/TopLevelSettings;
 
+.field private mSplitController:Landroidx/window/embedding/SplitController;
+
 .field private mSuggestionView:Landroid/view/View;
 
 .field private mTwoPaneSuggestionView:Landroid/view/View;
 
 
 # direct methods
-.method public static synthetic $r8$lambda$7usTTgvARgq5zXuWadMgOyKxK98(Ljava/lang/Class;)Landroidx/fragment/app/Fragment;
+.method public static synthetic $r8$lambda$BUzzfRttldpJQdCPFiA5bN7T378(Landroid/view/View;Landroidx/core/view/WindowInsetsCompat;)Landroidx/core/view/WindowInsetsCompat;
     .locals 0
 
-    invoke-static {p0}, Lcom/android/settings/homepage/SettingsHomepageActivity;->lambda$showSuggestionFragment$4(Ljava/lang/Class;)Landroidx/fragment/app/Fragment;
+    invoke-static {p0, p1}, Lcom/android/settings/homepage/SettingsHomepageActivity;->lambda$setupEdgeToEdge$4(Landroid/view/View;Landroidx/core/view/WindowInsetsCompat;)Landroidx/core/view/WindowInsetsCompat;
 
     move-result-object p0
 
     return-object p0
 .end method
 
-.method public static synthetic $r8$lambda$MEGeGsSD_sxi4qrgMMZB8jR8G7w()Lcom/android/settings/homepage/contextualcards/ContextualCardsFragment;
-    .locals 1
+.method public static synthetic $r8$lambda$Q0VnzxqKLtCf3NDXjV31knZwQ-w(Lcom/android/settings/homepage/SettingsHomepageActivity;Landroidx/fragment/app/Fragment;)V
+    .locals 0
 
-    invoke-static {}, Lcom/android/settings/homepage/SettingsHomepageActivity;->lambda$onCreate$1()Lcom/android/settings/homepage/contextualcards/ContextualCardsFragment;
+    invoke-direct {p0, p1}, Lcom/android/settings/homepage/SettingsHomepageActivity;->lambda$updateSplitLayout$3(Landroidx/fragment/app/Fragment;)V
 
-    move-result-object v0
+    return-void
+.end method
 
-    return-object v0
+.method public static synthetic $r8$lambda$Qi4PuWlY_ZHlHr5mJvZkBviawd8(Lcom/android/settings/homepage/SettingsHomepageActivity;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/homepage/SettingsHomepageActivity;->lambda$showSuggestionFragment$5()V
+
+    return-void
 .end method
 
 .method public static synthetic $r8$lambda$U9glgHyHrcg28hf6gRURK1CuTvI(Lcom/android/settings/homepage/SettingsHomepageActivity$HomepageLoadedListener;)V
@@ -70,15 +81,17 @@
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$oRTT8K78EYijKVZ60SM__A9vnvU(Lcom/android/settings/homepage/SettingsHomepageActivity;)V
-    .locals 0
+.method public static synthetic $r8$lambda$Wnii903Fj5LluS89sfMyWHaINAo()Lcom/android/settings/homepage/contextualcards/ContextualCardsFragment;
+    .locals 1
 
-    invoke-direct {p0}, Lcom/android/settings/homepage/SettingsHomepageActivity;->lambda$showSuggestionFragment$3()V
+    invoke-static {}, Lcom/android/settings/homepage/SettingsHomepageActivity;->lambda$onCreate$1()Lcom/android/settings/homepage/contextualcards/ContextualCardsFragment;
 
-    return-void
+    move-result-object v0
+
+    return-object v0
 .end method
 
-.method public static synthetic $r8$lambda$zLq73akZQSlWFiCBYeGZ-EdnfMs(Ljava/lang/String;)Lcom/android/settings/homepage/TopLevelSettings;
+.method public static synthetic $r8$lambda$dSH7Ip8EFDJCy5K295sVwJi-s9o(Ljava/lang/String;)Lcom/android/settings/homepage/TopLevelSettings;
     .locals 0
 
     invoke-static {p0}, Lcom/android/settings/homepage/SettingsHomepageActivity;->lambda$onCreate$2(Ljava/lang/String;)Lcom/android/settings/homepage/TopLevelSettings;
@@ -89,9 +102,13 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .locals 1
 
     invoke-direct {p0}, Landroidx/fragment/app/FragmentActivity;-><init>()V
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/settings/homepage/SettingsHomepageActivity;->mIsRegularLayout:Z
 
     return-void
 .end method
@@ -132,43 +149,13 @@
     return-object v0
 
     :cond_0
-    const v0, 0x7f040d0a
+    const v0, 0x7f040d85
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
     move-result-object p0
 
     return-object p0
-.end method
-
-.method private getSearchBoxHeight()I
-    .locals 2
-
-    invoke-virtual {p0}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    const v1, 0x7f0b030f
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v0
-
-    invoke-virtual {p0}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
-
-    move-result-object p0
-
-    const v1, 0x7f0b0310
-
-    invoke-virtual {p0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result p0
-
-    mul-int/lit8 p0, p0, 0x2
-
-    add-int/2addr v0, p0
-
-    return v0
 .end method
 
 .method private initAvatarView()V
@@ -233,7 +220,7 @@
 .method private initHomepageContainer()V
     .locals 1
 
-    const v0, 0x7f0d02a7
+    const v0, 0x7f0d02c9
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -251,7 +238,7 @@
 .method private initSearchBarView()V
     .locals 3
 
-    const v0, 0x7f0d04c6
+    const v0, 0x7f0d0502
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -275,7 +262,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0d04c8
+    const v0, 0x7f0d0504
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -325,6 +312,32 @@
     return-object v0
 .end method
 
+.method private static synthetic lambda$setupEdgeToEdge$4(Landroid/view/View;Landroidx/core/view/WindowInsetsCompat;)Landroidx/core/view/WindowInsetsCompat;
+    .locals 3
+
+    invoke-static {}, Landroidx/core/view/WindowInsetsCompat$Type;->systemBars()I
+
+    move-result v0
+
+    invoke-virtual {p1, v0}, Landroidx/core/view/WindowInsetsCompat;->getInsets(I)Landroidx/core/graphics/Insets;
+
+    move-result-object p1
+
+    iget v0, p1, Landroidx/core/graphics/Insets;->left:I
+
+    iget v1, p1, Landroidx/core/graphics/Insets;->top:I
+
+    iget v2, p1, Landroidx/core/graphics/Insets;->right:I
+
+    iget p1, p1, Landroidx/core/graphics/Insets;->bottom:I
+
+    invoke-virtual {p0, v0, v1, v2, p1}, Landroid/view/View;->setPadding(IIII)V
+
+    sget-object p0, Landroidx/core/view/WindowInsetsCompat;->CONSUMED:Landroidx/core/view/WindowInsetsCompat;
+
+    return-object p0
+.end method
+
 .method private static synthetic lambda$showHomepageWithSuggestion$0(Lcom/android/settings/homepage/SettingsHomepageActivity$HomepageLoadedListener;)V
     .locals 0
 
@@ -333,7 +346,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$showSuggestionFragment$3()V
+.method private synthetic lambda$showSuggestionFragment$5()V
     .locals 1
 
     const/4 v0, 0x0
@@ -343,42 +356,21 @@
     return-void
 .end method
 
-.method private static synthetic lambda$showSuggestionFragment$4(Ljava/lang/Class;)Landroidx/fragment/app/Fragment;
-    .locals 2
+.method private synthetic lambda$updateSplitLayout$3(Landroidx/fragment/app/Fragment;)V
+    .locals 1
 
-    const/4 v0, 0x0
+    instance-of v0, p1, Lcom/android/settings/homepage/SplitLayoutListener;
 
-    :try_start_0
-    new-array v1, v0, [Ljava/lang/Class;
+    if-eqz v0, :cond_0
 
-    invoke-virtual {p0, v1}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
+    check-cast p1, Lcom/android/settings/homepage/SplitLayoutListener;
 
-    move-result-object p0
+    iget-boolean p0, p0, Lcom/android/settings/homepage/SettingsHomepageActivity;->mIsRegularLayout:Z
 
-    new-array v0, v0, [Ljava/lang/Object;
+    invoke-interface {p1, p0}, Lcom/android/settings/homepage/SplitLayoutListener;->onSplitLayoutChanged(Z)V
 
-    invoke-virtual {p0, v0}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object p0
-
-    check-cast p0, Landroidx/fragment/app/Fragment;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    return-object p0
-
-    :catch_0
-    move-exception p0
-
-    const-string v0, "SettingsHomepageActivity"
-
-    const-string v1, "Cannot show fragment"
-
-    invoke-static {v0, v1, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    const/4 p0, 0x0
-
-    return-object p0
+    :cond_0
+    return-void
 .end method
 
 .method private launchDeepLinkIntentToRight()V
@@ -395,7 +387,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_6
 
     invoke-virtual {v0}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
@@ -409,7 +401,7 @@
 
     if-nez v1, :cond_1
 
-    goto/16 :goto_0
+    goto/16 :goto_1
 
     :cond_1
     instance-of v1, p0, Lcom/android/settings/homepage/DeepLinkHomepageActivity;
@@ -418,7 +410,7 @@
 
     if-nez v1, :cond_2
 
-    instance-of v1, p0, Lcom/android/settings/homepage/SliceDeepLinkHomepageActivity;
+    instance-of v1, p0, Lcom/android/settings/homepage/DeepLinkHomepageActivityInternal;
 
     if-nez v1, :cond_2
 
@@ -498,15 +490,9 @@
 
     invoke-virtual {v0, v2}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
-    invoke-virtual {v1}, Landroid/content/Intent;->getFlags()I
+    const/high16 v2, 0x10080000
 
-    move-result v2
-
-    const v5, -0x10000001
-
-    and-int/2addr v2, v5
-
-    invoke-virtual {v1, v2}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
+    invoke-virtual {v1, v2}, Landroid/content/Intent;->removeFlags(I)V
 
     const/high16 v2, 0x2000000
 
@@ -528,23 +514,23 @@
 
     invoke-virtual {v0, v2}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
 
-    move-result-object v0
+    move-result-object v2
 
-    check-cast v0, Landroid/net/Uri;
+    check-cast v2, Landroid/net/Uri;
 
-    invoke-virtual {v1, v0}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
+    invoke-virtual {v1, v2}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
 
     new-instance v6, Landroid/content/ComponentName;
 
     invoke-virtual {p0}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
 
-    move-result-object v0
+    move-result-object v2
 
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-direct {v6, v0, v2}, Landroid/content/ComponentName;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+    invoke-direct {v6, v2, v3}, Landroid/content/ComponentName;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
     invoke-virtual {v1}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
@@ -566,11 +552,11 @@
 
     invoke-virtual {p0}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
 
-    move-result-object v0
+    move-result-object v2
 
-    const-class v2, Lcom/android/settings/Settings;
+    const-class v3, Lcom/android/settings/Settings;
 
-    invoke-direct {v6, v0, v2}, Landroid/content/ComponentName;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+    invoke-direct {v6, v2, v3}, Landroid/content/ComponentName;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
     invoke-virtual {v1}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
@@ -578,8 +564,26 @@
 
     invoke-static/range {v5 .. v11}, Lcom/android/settings/activityembedding/ActivityEmbeddingRulesController;->registerTwoPanePairRule(Landroid/content/Context;Landroid/content/ComponentName;Landroid/content/ComponentName;Ljava/lang/String;IIZ)V
 
+    const-class v2, Landroid/os/UserHandle;
+
+    const-string/jumbo v3, "user_handle"
+
+    invoke-virtual {v0, v3, v2}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/os/UserHandle;
+
+    if-eqz v0, :cond_5
+
+    invoke-virtual {p0, v1, v0}, Landroid/app/Activity;->startActivityAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
+
+    goto :goto_0
+
+    :cond_5
     invoke-virtual {p0, v1}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
 
+    :goto_0
     return-void
 
     :catch_0
@@ -603,8 +607,8 @@
 
     invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
-    :cond_5
-    :goto_0
+    :cond_6
+    :goto_1
     return-void
 .end method
 
@@ -632,14 +636,40 @@
     return-void
 .end method
 
-.method private showFragment(Lcom/android/settings/homepage/SettingsHomepageActivity$FragmentBuilder;I)Landroidx/fragment/app/Fragment;
+.method private setupEdgeToEdge()V
+    .locals 2
+
+    invoke-virtual {p0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Landroidx/core/view/WindowCompat;->setDecorFitsSystemWindows(Landroid/view/Window;Z)V
+
+    const v0, 0x1020002
+
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
+
+    move-result-object p0
+
+    new-instance v0, Lcom/android/settings/homepage/SettingsHomepageActivity$$ExternalSyntheticLambda2;
+
+    invoke-direct {v0}, Lcom/android/settings/homepage/SettingsHomepageActivity$$ExternalSyntheticLambda2;-><init>()V
+
+    invoke-static {p0, v0}, Landroidx/core/view/ViewCompat;->setOnApplyWindowInsetsListener(Landroid/view/View;Landroidx/core/view/OnApplyWindowInsetsListener;)V
+
+    return-void
+.end method
+
+.method private showFragment(Lcom/android/settings/homepage/SettingsHomepageActivity$FragmentCreator;I)Landroidx/fragment/app/Fragment;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
             "Landroidx/fragment/app/Fragment;",
             ">(",
-            "Lcom/android/settings/homepage/SettingsHomepageActivity$FragmentBuilder<",
+            "Lcom/android/settings/homepage/SettingsHomepageActivity$FragmentCreator<",
             "TT;>;I)TT;"
         }
     .end annotation
@@ -658,15 +688,19 @@
 
     if-nez p0, :cond_0
 
-    invoke-interface {p1}, Lcom/android/settings/homepage/SettingsHomepageActivity$FragmentBuilder;->build()Landroidx/fragment/app/Fragment;
+    invoke-interface {p1}, Lcom/android/settings/homepage/SettingsHomepageActivity$FragmentCreator;->create()Landroidx/fragment/app/Fragment;
 
     move-result-object p0
+
+    invoke-interface {p1, p0}, Lcom/android/settings/homepage/SettingsHomepageActivity$FragmentCreator;->init(Landroidx/fragment/app/Fragment;)V
 
     invoke-virtual {v0, p2, p0}, Landroidx/fragment/app/FragmentTransaction;->add(ILandroidx/fragment/app/Fragment;)Landroidx/fragment/app/FragmentTransaction;
 
     goto :goto_0
 
     :cond_0
+    invoke-interface {p1, p0}, Lcom/android/settings/homepage/SettingsHomepageActivity$FragmentCreator;->init(Landroidx/fragment/app/Fragment;)V
+
     invoke-virtual {v0, p0}, Landroidx/fragment/app/FragmentTransaction;->show(Landroidx/fragment/app/Fragment;)Landroidx/fragment/app/FragmentTransaction;
 
     :goto_0
@@ -695,7 +729,7 @@
     return-void
 
     :cond_0
-    const v1, 0x7f0d0589
+    const v1, 0x7f0d05cd
 
     invoke-virtual {p0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -703,7 +737,7 @@
 
     iput-object v2, p0, Lcom/android/settings/homepage/SettingsHomepageActivity;->mSuggestionView:Landroid/view/View;
 
-    const v2, 0x7f0d05f2
+    const v2, 0x7f0d0634
 
     invoke-virtual {p0, v2}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -711,7 +745,7 @@
 
     iput-object v3, p0, Lcom/android/settings/homepage/SettingsHomepageActivity;->mTwoPaneSuggestionView:Landroid/view/View;
 
-    const v3, 0x7f0d04e9
+    const v3, 0x7f0d052a
 
     invoke-virtual {p0, v3}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -741,24 +775,84 @@
 
     invoke-virtual {p1, v3, v4, v5}, Landroid/view/View;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    new-instance p1, Lcom/android/settings/homepage/SettingsHomepageActivity$$ExternalSyntheticLambda0;
+    new-instance p1, Lcom/android/settings/homepage/SettingsHomepageActivity$SuggestionFragCreator;
 
-    invoke-direct {p1, v0}, Lcom/android/settings/homepage/SettingsHomepageActivity$$ExternalSyntheticLambda0;-><init>(Ljava/lang/Class;)V
+    const/4 v3, 0x0
 
-    invoke-direct {p0, p1, v1}, Lcom/android/settings/homepage/SettingsHomepageActivity;->showFragment(Lcom/android/settings/homepage/SettingsHomepageActivity$FragmentBuilder;I)Landroidx/fragment/app/Fragment;
+    invoke-direct {p1, v0, v3}, Lcom/android/settings/homepage/SettingsHomepageActivity$SuggestionFragCreator;-><init>(Ljava/lang/Class;Z)V
 
-    iget-boolean v0, p0, Lcom/android/settings/homepage/SettingsHomepageActivity;->mIsEmbeddingActivityEnabled:Z
+    invoke-direct {p0, p1, v1}, Lcom/android/settings/homepage/SettingsHomepageActivity;->showFragment(Lcom/android/settings/homepage/SettingsHomepageActivity$FragmentCreator;I)Landroidx/fragment/app/Fragment;
 
-    if-eqz v0, :cond_2
+    iget-boolean p1, p0, Lcom/android/settings/homepage/SettingsHomepageActivity;->mIsEmbeddingActivityEnabled:Z
 
-    invoke-direct {p0, p1, v2}, Lcom/android/settings/homepage/SettingsHomepageActivity;->showFragment(Lcom/android/settings/homepage/SettingsHomepageActivity$FragmentBuilder;I)Landroidx/fragment/app/Fragment;
+    if-eqz p1, :cond_2
+
+    new-instance p1, Lcom/android/settings/homepage/SettingsHomepageActivity$SuggestionFragCreator;
+
+    const/4 v1, 0x1
+
+    invoke-direct {p1, v0, v1}, Lcom/android/settings/homepage/SettingsHomepageActivity$SuggestionFragCreator;-><init>(Ljava/lang/Class;Z)V
+
+    invoke-direct {p0, p1, v2}, Lcom/android/settings/homepage/SettingsHomepageActivity;->showFragment(Lcom/android/settings/homepage/SettingsHomepageActivity$FragmentCreator;I)Landroidx/fragment/app/Fragment;
 
     :cond_2
     return-void
 .end method
 
+.method private updateAppBarMinHeight()V
+    .locals 3
+
+    invoke-virtual {p0}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const v1, 0x7f0b03c9
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v0
+
+    invoke-virtual {p0}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    iget-boolean v2, p0, Lcom/android/settings/homepage/SettingsHomepageActivity;->mIsEmbeddingActivityEnabled:Z
+
+    if-eqz v2, :cond_0
+
+    iget-boolean v2, p0, Lcom/android/settings/homepage/SettingsHomepageActivity;->mIsTwoPane:Z
+
+    if-eqz v2, :cond_0
+
+    const v2, 0x7f0b01da
+
+    goto :goto_0
+
+    :cond_0
+    const v2, 0x7f0b03ca
+
+    :goto_0
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v1
+
+    const v2, 0x7f0d0093
+
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
+
+    move-result-object p0
+
+    mul-int/lit8 v1, v1, 0x2
+
+    add-int/2addr v0, v1
+
+    invoke-virtual {p0, v0}, Landroid/view/View;->setMinimumHeight(I)V
+
+    return-void
+.end method
+
 .method private updateHomepageAppBar()V
-    .locals 5
+    .locals 6
 
     iget-boolean v0, p0, Lcom/android/settings/homepage/SettingsHomepageActivity;->mIsEmbeddingActivityEnabled:Z
 
@@ -767,46 +861,60 @@
     return-void
 
     :cond_0
-    invoke-static {p0}, Lcom/android/settings/activityembedding/ActivityEmbeddingUtils;->isTwoPaneResolution(Landroid/app/Activity;)Z
+    invoke-direct {p0}, Lcom/android/settings/homepage/SettingsHomepageActivity;->updateAppBarMinHeight()V
 
-    move-result v0
+    iget-boolean v0, p0, Lcom/android/settings/homepage/SettingsHomepageActivity;->mIsTwoPane:Z
 
-    const/16 v1, 0x8
+    const v1, 0x7f0d05cc
 
-    const v2, 0x7f0d02a6
+    const v2, 0x7f0d02c8
 
-    const/4 v3, 0x0
+    const v3, 0x7f0d02c7
 
-    const v4, 0x7f0d02a5
+    const/16 v4, 0x8
+
+    const/4 v5, 0x0
 
     if-eqz v0, :cond_1
 
-    invoke-virtual {p0, v4}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v3}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v0, v4}, Landroid/view/View;->setVisibility(I)V
 
     invoke-virtual {p0, v2}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
+    move-result-object v0
+
+    invoke-virtual {v0, v5}, Landroid/view/View;->setVisibility(I)V
+
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
+
     move-result-object p0
 
-    invoke-virtual {p0, v3}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {p0, v5}, Landroid/view/View;->setVisibility(I)V
 
     goto :goto_0
 
     :cond_1
-    invoke-virtual {p0, v4}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v3}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    invoke-virtual {v0, v3}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v0, v5}, Landroid/view/View;->setVisibility(I)V
 
     invoke-virtual {p0, v2}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
+    move-result-object v0
+
+    invoke-virtual {v0, v4}, Landroid/view/View;->setVisibility(I)V
+
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
+
     move-result-object p0
 
-    invoke-virtual {p0, v1}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {p0, v4}, Landroid/view/View;->setVisibility(I)V
 
     :goto_0
     return-void
@@ -826,15 +934,13 @@
 
     move-result-object v0
 
-    invoke-static {p0}, Lcom/android/settings/activityembedding/ActivityEmbeddingUtils;->isTwoPaneResolution(Landroid/app/Activity;)Z
-
-    move-result v1
+    iget-boolean v1, p0, Lcom/android/settings/homepage/SettingsHomepageActivity;->mIsTwoPane:Z
 
     if-eqz v1, :cond_1
 
-    const v1, 0x112002d
+    const v1, 0x7f0a0339
 
-    invoke-static {p0, v1}, Lcom/android/settingslib/Utils;->getColorAttrDefaultColor(Landroid/content/Context;I)I
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->getColor(I)I
 
     move-result v1
 
@@ -854,13 +960,148 @@
 
     invoke-virtual {v0, v1}, Landroid/view/Window;->setStatusBarColor(I)V
 
-    const v0, 0x7f0d04e9
+    const v0, 0x1020002
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object p0
 
     invoke-virtual {p0, v1}, Landroid/view/View;->setBackgroundColor(I)V
+
+    return-void
+.end method
+
+.method private updateHomepagePaddings()V
+    .locals 2
+
+    iget-boolean v0, p0, Lcom/android/settings/homepage/SettingsHomepageActivity;->mIsEmbeddingActivityEnabled:Z
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
+    iget-boolean v0, p0, Lcom/android/settings/homepage/SettingsHomepageActivity;->mIsTwoPane:Z
+
+    if-eqz v0, :cond_1
+
+    invoke-virtual {p0}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const v1, 0x7f0b01db
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v0
+
+    iget-object v1, p0, Lcom/android/settings/homepage/SettingsHomepageActivity;->mMainFragment:Lcom/android/settings/homepage/TopLevelSettings;
+
+    invoke-virtual {v1, v0}, Lcom/android/settings/homepage/TopLevelSettings;->setPaddingHorizontal(I)V
+
+    goto :goto_0
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/settings/homepage/SettingsHomepageActivity;->mMainFragment:Lcom/android/settings/homepage/TopLevelSettings;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Lcom/android/settings/homepage/TopLevelSettings;->setPaddingHorizontal(I)V
+
+    :goto_0
+    iget-object v0, p0, Lcom/android/settings/homepage/SettingsHomepageActivity;->mMainFragment:Lcom/android/settings/homepage/TopLevelSettings;
+
+    iget-boolean p0, p0, Lcom/android/settings/homepage/SettingsHomepageActivity;->mIsTwoPane:Z
+
+    invoke-virtual {v0, p0}, Lcom/android/settings/homepage/TopLevelSettings;->updatePreferencePadding(Z)V
+
+    return-void
+.end method
+
+.method private updateSplitLayout()V
+    .locals 3
+
+    iget-boolean v0, p0, Lcom/android/settings/homepage/SettingsHomepageActivity;->mIsEmbeddingActivityEnabled:Z
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
+    iget-boolean v0, p0, Lcom/android/settings/homepage/SettingsHomepageActivity;->mIsTwoPane:Z
+
+    if-eqz v0, :cond_1
+
+    iget-boolean v0, p0, Lcom/android/settings/homepage/SettingsHomepageActivity;->mIsRegularLayout:Z
+
+    invoke-static {p0}, Lcom/android/settings/activityembedding/ActivityEmbeddingUtils;->isRegularHomepageLayout(Landroid/app/Activity;)Z
+
+    move-result v1
+
+    if-ne v0, v1, :cond_2
+
+    return-void
+
+    :cond_1
+    iget-boolean v0, p0, Lcom/android/settings/homepage/SettingsHomepageActivity;->mIsRegularLayout:Z
+
+    if-eqz v0, :cond_2
+
+    return-void
+
+    :cond_2
+    iget-boolean v0, p0, Lcom/android/settings/homepage/SettingsHomepageActivity;->mIsRegularLayout:Z
+
+    xor-int/lit8 v0, v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/settings/homepage/SettingsHomepageActivity;->mIsRegularLayout:Z
+
+    const v0, 0x7f0d0508
+
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_4
+
+    invoke-virtual {p0}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    iget-boolean v2, p0, Lcom/android/settings/homepage/SettingsHomepageActivity;->mIsRegularLayout:Z
+
+    if-eqz v2, :cond_3
+
+    const v2, 0x7f0b03d1
+
+    goto :goto_0
+
+    :cond_3
+    const v2, 0x7f0b03d0
+
+    :goto_0
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v1
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v1, v2, v2, v2}, Landroid/view/View;->setPaddingRelative(IIII)V
+
+    :cond_4
+    invoke-virtual {p0}, Landroidx/fragment/app/FragmentActivity;->getSupportFragmentManager()Landroidx/fragment/app/FragmentManager;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroidx/fragment/app/FragmentManager;->getFragments()Ljava/util/List;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/android/settings/homepage/SettingsHomepageActivity$$ExternalSyntheticLambda4;
+
+    invoke-direct {v1, p0}, Lcom/android/settings/homepage/SettingsHomepageActivity$$ExternalSyntheticLambda4;-><init>(Lcom/android/settings/homepage/SettingsHomepageActivity;)V
+
+    invoke-interface {v0, v1}, Ljava/util/List;->forEach(Ljava/util/function/Consumer;)V
 
     return-void
 .end method
@@ -918,32 +1159,34 @@
 
     invoke-super {p0, p1}, Landroidx/fragment/app/FragmentActivity;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
-    invoke-static {p0}, Lcom/android/settings/activityembedding/ActivityEmbeddingUtils;->isTwoPaneResolution(Landroid/app/Activity;)Z
+    iget-object p1, p0, Lcom/android/settings/homepage/SettingsHomepageActivity;->mSplitController:Landroidx/window/embedding/SplitController;
+
+    invoke-virtual {p1, p0}, Landroidx/window/embedding/SplitController;->isActivityEmbedded(Landroid/app/Activity;)Z
 
     move-result p1
 
-    iget-boolean v0, p0, Lcom/android/settings/homepage/SettingsHomepageActivity;->mIsTwoPaneLastTime:Z
+    iget-boolean v0, p0, Lcom/android/settings/homepage/SettingsHomepageActivity;->mIsTwoPane:Z
 
     if-eq v0, p1, :cond_0
 
-    iput-boolean p1, p0, Lcom/android/settings/homepage/SettingsHomepageActivity;->mIsTwoPaneLastTime:Z
+    iput-boolean p1, p0, Lcom/android/settings/homepage/SettingsHomepageActivity;->mIsTwoPane:Z
 
     invoke-direct {p0}, Lcom/android/settings/homepage/SettingsHomepageActivity;->updateHomepageAppBar()V
 
     invoke-direct {p0}, Lcom/android/settings/homepage/SettingsHomepageActivity;->updateHomepageBackground()V
 
+    invoke-direct {p0}, Lcom/android/settings/homepage/SettingsHomepageActivity;->updateHomepagePaddings()V
+
     :cond_0
+    invoke-direct {p0}, Lcom/android/settings/homepage/SettingsHomepageActivity;->updateSplitLayout()V
+
     return-void
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 2
+    .locals 3
 
     invoke-super {p0, p1}, Landroidx/fragment/app/FragmentActivity;->onCreate(Landroid/os/Bundle;)V
-
-    const p1, 0x7f060206
-
-    invoke-virtual {p0, p1}, Landroidx/activity/ComponentActivity;->setContentView(I)V
 
     invoke-static {p0}, Lcom/android/settings/activityembedding/ActivityEmbeddingUtils;->isEmbeddingActivityEnabled(Landroid/content/Context;)Z
 
@@ -951,23 +1194,102 @@
 
     iput-boolean p1, p0, Lcom/android/settings/homepage/SettingsHomepageActivity;->mIsEmbeddingActivityEnabled:Z
 
-    invoke-static {p0}, Lcom/android/settings/activityembedding/ActivityEmbeddingUtils;->isTwoPaneResolution(Landroid/app/Activity;)Z
+    if-eqz p1, :cond_0
 
-    move-result p1
+    const-class p1, Landroid/os/UserManager;
 
-    iput-boolean p1, p0, Lcom/android/settings/homepage/SettingsHomepageActivity;->mIsTwoPaneLastTime:Z
-
-    const p1, 0x7f0d0091
-
-    invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, p1}, Landroid/app/Activity;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object p1
 
-    invoke-direct {p0}, Lcom/android/settings/homepage/SettingsHomepageActivity;->getSearchBoxHeight()I
+    check-cast p1, Landroid/os/UserManager;
+
+    invoke-virtual {p0}, Landroid/app/Activity;->getUser()Landroid/os/UserHandle;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/os/UserHandle;->getIdentifier()I
 
     move-result v0
 
-    invoke-virtual {p1, v0}, Landroid/view/View;->setMinimumHeight(I)V
+    invoke-virtual {p1, v0}, Landroid/os/UserManager;->getUserInfo(I)Landroid/content/pm/UserInfo;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/content/pm/UserInfo;->isManagedProfile()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    new-instance v0, Landroid/content/Intent;
+
+    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Intent;)V
+
+    const-class v1, Lcom/android/settings/homepage/DeepLinkHomepageActivityInternal;
+
+    invoke-virtual {v0, p0, v1}, Landroid/content/Intent;->setClass(Landroid/content/Context;Ljava/lang/Class;)Landroid/content/Intent;
+
+    move-result-object v0
+
+    const/high16 v1, 0x2000000
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+
+    move-result-object v0
+
+    invoke-virtual {p0}, Landroid/app/Activity;->getUser()Landroid/os/UserHandle;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "user_handle"
+
+    invoke-virtual {v0, v2, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
+
+    move-result-object v0
+
+    const/high16 v1, 0x10000000
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->removeFlags(I)V
+
+    invoke-virtual {p1}, Landroid/os/UserManager;->getPrimaryUser()Landroid/content/pm/UserInfo;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Landroid/content/pm/UserInfo;->getUserHandle()Landroid/os/UserHandle;
+
+    move-result-object p1
+
+    invoke-virtual {p0, v0, p1}, Landroid/app/Activity;->startActivityAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
+
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
+
+    return-void
+
+    :cond_0
+    invoke-direct {p0}, Lcom/android/settings/homepage/SettingsHomepageActivity;->setupEdgeToEdge()V
+
+    const p1, 0x7f06020f
+
+    invoke-virtual {p0, p1}, Landroidx/activity/ComponentActivity;->setContentView(I)V
+
+    invoke-static {}, Landroidx/window/embedding/SplitController;->getInstance()Landroidx/window/embedding/SplitController;
+
+    move-result-object p1
+
+    iput-object p1, p0, Lcom/android/settings/homepage/SettingsHomepageActivity;->mSplitController:Landroidx/window/embedding/SplitController;
+
+    invoke-virtual {p1, p0}, Landroidx/window/embedding/SplitController;->isActivityEmbedded(Landroid/app/Activity;)Z
+
+    move-result p1
+
+    iput-boolean p1, p0, Lcom/android/settings/homepage/SettingsHomepageActivity;->mIsTwoPane:Z
+
+    invoke-direct {p0}, Lcom/android/settings/homepage/SettingsHomepageActivity;->updateAppBarMinHeight()V
 
     invoke-direct {p0}, Lcom/android/settings/homepage/SettingsHomepageActivity;->initHomepageContainer()V
 
@@ -1023,15 +1345,17 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    const v1, 0x7f0d0373
+
+    if-nez v0, :cond_2
 
     invoke-direct {p0}, Lcom/android/settings/homepage/SettingsHomepageActivity;->initAvatarView()V
 
     iget-boolean v0, p0, Lcom/android/settings/homepage/SettingsHomepageActivity;->mIsEmbeddingActivityEnabled:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
-    const v0, 0x7f040d0a
+    const v0, 0x7f040d85
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -1041,13 +1365,13 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1
 
     const/4 v0, 0x1
 
     goto :goto_0
 
-    :cond_0
+    :cond_1
     const/4 v0, 0x0
 
     :goto_0
@@ -1059,44 +1383,48 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
-    sget-object v0, Lcom/android/settings/homepage/SettingsHomepageActivity$$ExternalSyntheticLambda2;->INSTANCE:Lcom/android/settings/homepage/SettingsHomepageActivity$$ExternalSyntheticLambda2;
+    new-instance v0, Lcom/android/settings/homepage/SettingsHomepageActivity$$ExternalSyntheticLambda0;
 
-    const v1, 0x7f0d0180
+    invoke-direct {v0}, Lcom/android/settings/homepage/SettingsHomepageActivity$$ExternalSyntheticLambda0;-><init>()V
 
-    invoke-direct {p0, v0, v1}, Lcom/android/settings/homepage/SettingsHomepageActivity;->showFragment(Lcom/android/settings/homepage/SettingsHomepageActivity$FragmentBuilder;I)Landroidx/fragment/app/Fragment;
+    const v2, 0x7f0d0195
 
-    :cond_1
+    invoke-direct {p0, v0, v2}, Lcom/android/settings/homepage/SettingsHomepageActivity;->showFragment(Lcom/android/settings/homepage/SettingsHomepageActivity$FragmentCreator;I)Landroidx/fragment/app/Fragment;
+
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/FrameLayout;
+
+    invoke-virtual {v0}, Landroid/widget/FrameLayout;->getLayoutTransition()Landroid/animation/LayoutTransition;
+
+    move-result-object v0
+
+    const/4 v2, 0x4
+
+    invoke-virtual {v0, v2}, Landroid/animation/LayoutTransition;->enableTransitionType(I)V
+
+    :cond_2
     new-instance v0, Lcom/android/settings/homepage/SettingsHomepageActivity$$ExternalSyntheticLambda1;
 
     invoke-direct {v0, p1}, Lcom/android/settings/homepage/SettingsHomepageActivity$$ExternalSyntheticLambda1;-><init>(Ljava/lang/String;)V
 
-    const p1, 0x7f0d0348
-
-    invoke-direct {p0, v0, p1}, Lcom/android/settings/homepage/SettingsHomepageActivity;->showFragment(Lcom/android/settings/homepage/SettingsHomepageActivity$FragmentBuilder;I)Landroidx/fragment/app/Fragment;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/settings/homepage/TopLevelSettings;
-
-    iput-object v0, p0, Lcom/android/settings/homepage/SettingsHomepageActivity;->mMainFragment:Lcom/android/settings/homepage/TopLevelSettings;
-
-    invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
+    invoke-direct {p0, v0, v1}, Lcom/android/settings/homepage/SettingsHomepageActivity;->showFragment(Lcom/android/settings/homepage/SettingsHomepageActivity$FragmentCreator;I)Landroidx/fragment/app/Fragment;
 
     move-result-object p1
 
-    check-cast p1, Landroid/widget/FrameLayout;
+    check-cast p1, Lcom/android/settings/homepage/TopLevelSettings;
 
-    invoke-virtual {p1}, Landroid/widget/FrameLayout;->getLayoutTransition()Landroid/animation/LayoutTransition;
-
-    move-result-object p1
-
-    const/4 v0, 0x4
-
-    invoke-virtual {p1, v0}, Landroid/animation/LayoutTransition;->enableTransitionType(I)V
+    iput-object p1, p0, Lcom/android/settings/homepage/SettingsHomepageActivity;->mMainFragment:Lcom/android/settings/homepage/TopLevelSettings;
 
     invoke-direct {p0}, Lcom/android/settings/homepage/SettingsHomepageActivity;->launchDeepLinkIntentToRight()V
+
+    invoke-direct {p0}, Lcom/android/settings/homepage/SettingsHomepageActivity;->updateHomepagePaddings()V
+
+    invoke-direct {p0}, Lcom/android/settings/homepage/SettingsHomepageActivity;->updateSplitLayout()V
 
     return-void
 .end method
@@ -1203,7 +1531,9 @@
 
     iget-object p1, p0, Lcom/android/settings/homepage/SettingsHomepageActivity;->mLoadedListeners:Ljava/util/Set;
 
-    sget-object v1, Lcom/android/settings/homepage/SettingsHomepageActivity$$ExternalSyntheticLambda4;->INSTANCE:Lcom/android/settings/homepage/SettingsHomepageActivity$$ExternalSyntheticLambda4;
+    new-instance v1, Lcom/android/settings/homepage/SettingsHomepageActivity$$ExternalSyntheticLambda5;
+
+    invoke-direct {v1}, Lcom/android/settings/homepage/SettingsHomepageActivity$$ExternalSyntheticLambda5;-><init>()V
 
     invoke-interface {p1, v1}, Ljava/util/Set;->forEach(Ljava/util/function/Consumer;)V
 

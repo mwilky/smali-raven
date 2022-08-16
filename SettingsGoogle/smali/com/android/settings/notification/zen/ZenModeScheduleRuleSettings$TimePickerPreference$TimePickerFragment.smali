@@ -47,7 +47,7 @@
 
     if-eqz p1, :cond_0
 
-    invoke-static {p1}, Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings$TimePickerPreference;->access$300(Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings$TimePickerPreference;)I
+    invoke-static {p1}, Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings$TimePickerPreference;->-$$Nest$fgetmHourOfDay(Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings$TimePickerPreference;)I
 
     move-result p1
 
@@ -55,7 +55,7 @@
 
     iget-object p1, p0, Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings$TimePickerPreference$TimePickerFragment;->pref:Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings$TimePickerPreference;
 
-    invoke-static {p1}, Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings$TimePickerPreference;->access$400(Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings$TimePickerPreference;)I
+    invoke-static {p1}, Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings$TimePickerPreference;->-$$Nest$fgetmMinute(Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings$TimePickerPreference;)I
 
     move-result p1
 
@@ -77,7 +77,7 @@
 
     iget-object v1, p0, Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings$TimePickerPreference$TimePickerFragment;->pref:Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings$TimePickerPreference;
 
-    invoke-static {v1}, Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings$TimePickerPreference;->access$300(Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings$TimePickerPreference;)I
+    invoke-static {v1}, Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings$TimePickerPreference;->-$$Nest$fgetmHourOfDay(Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings$TimePickerPreference;)I
 
     move-result v1
 
@@ -97,7 +97,7 @@
 
     iget-object p1, p0, Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings$TimePickerPreference$TimePickerFragment;->pref:Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings$TimePickerPreference;
 
-    invoke-static {p1}, Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings$TimePickerPreference;->access$400(Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings$TimePickerPreference;)I
+    invoke-static {p1}, Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings$TimePickerPreference;->-$$Nest$fgetmMinute(Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings$TimePickerPreference;)I
 
     move-result p1
 

@@ -1,39 +1,40 @@
 .class public final synthetic Lcom/android/settingslib/users/EditUserInfoController$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnCancelListener;
+.implements Landroid/view/View$OnClickListener;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/settingslib/users/EditUserInfoController;
+.field public final synthetic f$0:Landroid/app/Activity;
 
-.field public final synthetic f$1:Ljava/lang/Runnable;
+.field public final synthetic f$1:Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/settingslib/users/EditUserInfoController;Ljava/lang/Runnable;)V
+.method public synthetic constructor <init>(Landroid/app/Activity;Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/settingslib/users/EditUserInfoController$$ExternalSyntheticLambda0;->f$0:Lcom/android/settingslib/users/EditUserInfoController;
+    iput-object p1, p0, Lcom/android/settingslib/users/EditUserInfoController$$ExternalSyntheticLambda0;->f$0:Landroid/app/Activity;
 
-    iput-object p2, p0, Lcom/android/settingslib/users/EditUserInfoController$$ExternalSyntheticLambda0;->f$1:Ljava/lang/Runnable;
+    iput-object p2, p0, Lcom/android/settingslib/users/EditUserInfoController$$ExternalSyntheticLambda0;->f$1:Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final onCancel(Landroid/content/DialogInterface;)V
+.method public final onClick(Landroid/view/View;)V
     .locals 1
 
-    iget-object v0, p0, Lcom/android/settingslib/users/EditUserInfoController$$ExternalSyntheticLambda0;->f$0:Lcom/android/settingslib/users/EditUserInfoController;
+    iget-object v0, p0, Lcom/android/settingslib/users/EditUserInfoController$$ExternalSyntheticLambda0;->f$0:Landroid/app/Activity;
 
-    iget-object p0, p0, Lcom/android/settingslib/users/EditUserInfoController$$ExternalSyntheticLambda0;->f$1:Ljava/lang/Runnable;
+    iget-object p0, p0, Lcom/android/settingslib/users/EditUserInfoController$$ExternalSyntheticLambda0;->f$1:Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
 
-    invoke-static {v0, p0, p1}, Lcom/android/settingslib/users/EditUserInfoController;->$r8$lambda$s5F2fUsPG09Rk0DNPho5Ed5gKdM(Lcom/android/settingslib/users/EditUserInfoController;Ljava/lang/Runnable;Landroid/content/DialogInterface;)V
+    invoke-static {v0, p0, p1}, Lcom/android/settingslib/users/EditUserInfoController;->$r8$lambda$vyBXS3iW61nwcHYFAZerUf-LUc8(Landroid/app/Activity;Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;Landroid/view/View;)V
 
     return-void
 .end method

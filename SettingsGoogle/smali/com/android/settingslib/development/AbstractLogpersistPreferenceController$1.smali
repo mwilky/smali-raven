@@ -42,7 +42,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/development/AbstractLogpersistPreferenceController$1;->this$0:Lcom/android/settingslib/development/AbstractLogpersistPreferenceController;
 
-    invoke-static {p0, p1}, Lcom/android/settingslib/development/AbstractLogpersistPreferenceController;->access$000(Lcom/android/settingslib/development/AbstractLogpersistPreferenceController;Ljava/lang/String;)V
+    invoke-static {p0, p1}, Lcom/android/settingslib/development/AbstractLogpersistPreferenceController;->-$$Nest$monLogdSizeSettingUpdate(Lcom/android/settingslib/development/AbstractLogpersistPreferenceController;Ljava/lang/String;)V
 
     return-void
 .end method

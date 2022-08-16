@@ -50,26 +50,12 @@
 .end method
 
 .method public createFromParcel(Landroid/os/Parcel;Ljava/lang/ClassLoader;)Landroidx/viewpager2/widget/ViewPager2$SavedState;
-    .locals 1
-
-    sget p0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v0, 0x18
-
-    if-lt p0, v0, :cond_0
+    .locals 0
 
     new-instance p0, Landroidx/viewpager2/widget/ViewPager2$SavedState;
 
     invoke-direct {p0, p1, p2}, Landroidx/viewpager2/widget/ViewPager2$SavedState;-><init>(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V
 
-    goto :goto_0
-
-    :cond_0
-    new-instance p0, Landroidx/viewpager2/widget/ViewPager2$SavedState;
-
-    invoke-direct {p0, p1}, Landroidx/viewpager2/widget/ViewPager2$SavedState;-><init>(Landroid/os/Parcel;)V
-
-    :goto_0
     return-object p0
 .end method
 

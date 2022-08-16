@@ -99,28 +99,20 @@
 
     if-nez v11, :cond_0
 
-    aget-object v13, v3, v11
+    aget-object v11, v3, v11
 
-    aget-object v11, v9, v11
-
-    aget-wide v14, v11, v10
-
-    aput-wide v14, v13, v10
+    aput-wide v16, v11, v10
 
     goto :goto_2
 
     :cond_0
     aget-object v13, v3, v11
 
-    add-int/lit8 v14, v11, -0x1
-
-    aget-object v14, v9, v14
-
-    aget-wide v14, v14, v10
+    add-int/lit8 v11, v11, -0x1
 
     aget-object v11, v9, v11
 
-    aget-wide v16, v11, v10
+    aget-wide v14, v11, v10
 
     add-double v14, v14, v16
 
@@ -167,9 +159,9 @@
 
     const-wide/16 v12, 0x0
 
-    cmpl-double v10, v10, v12
+    cmpl-double v14, v10, v12
 
-    if-nez v10, :cond_3
+    if-nez v14, :cond_3
 
     aget-object v10, v3, v4
 
@@ -184,29 +176,21 @@
     goto :goto_5
 
     :cond_3
-    aget-object v10, v3, v4
-
-    aget-wide v10, v10, v8
-
-    aget-object v12, v9, v4
+    aget-object v12, v3, v4
 
     aget-wide v12, v12, v8
 
-    div-double/2addr v10, v12
+    div-double/2addr v12, v10
 
-    add-int/lit8 v12, v4, 0x1
+    add-int/lit8 v14, v4, 0x1
 
-    aget-object v13, v3, v12
-
-    aget-wide v13, v13, v8
-
-    aget-object v15, v9, v4
+    aget-object v15, v3, v14
 
     aget-wide v15, v15, v8
 
-    div-double/2addr v13, v15
+    div-double v10, v15, v10
 
-    invoke-static {v10, v11, v13, v14}, Ljava/lang/Math;->hypot(DD)D
+    invoke-static {v12, v13, v10, v11}, Ljava/lang/Math;->hypot(DD)D
 
     move-result-wide v15
 
@@ -222,27 +206,25 @@
 
     aget-object v15, v3, v4
 
-    mul-double v10, v10, v17
+    mul-double v12, v12, v17
 
     aget-object v16, v9, v4
 
     aget-wide v19, v16, v8
 
-    mul-double v10, v10, v19
+    mul-double v12, v12, v19
 
-    aput-wide v10, v15, v8
+    aput-wide v12, v15, v8
 
-    aget-object v10, v3, v12
+    aget-object v12, v3, v14
 
-    mul-double v17, v17, v13
+    mul-double v17, v17, v10
 
-    aget-object v11, v9, v4
+    aget-wide v10, v16, v8
 
-    aget-wide v11, v11, v8
+    mul-double v17, v17, v10
 
-    mul-double v17, v17, v11
-
-    aput-wide v17, v10, v8
+    aput-wide v17, v12, v8
 
     :cond_4
     :goto_5
@@ -455,9 +437,9 @@
 
     aget-wide v4, v1, v3
 
-    cmpl-double v4, p1, v4
+    cmpl-double v6, p1, v4
 
-    if-nez v4, :cond_2
+    if-nez v6, :cond_2
 
     iget-object v0, v0, Landroidx/constraintlayout/motion/utils/MonotonicCurveFit;->mY:[[D
 
@@ -468,23 +450,17 @@
     return-wide v0
 
     :cond_2
-    add-int/lit8 v4, v3, 0x1
+    add-int/lit8 v6, v3, 0x1
 
-    aget-wide v5, v1, v4
+    aget-wide v7, v1, v6
 
-    cmpg-double v5, p1, v5
+    cmpg-double v1, p1, v7
 
-    if-gez v5, :cond_3
+    if-gez v1, :cond_3
 
-    aget-wide v5, v1, v4
+    sub-double v9, v7, v4
 
-    aget-wide v7, v1, v3
-
-    sub-double v9, v5, v7
-
-    aget-wide v1, v1, v3
-
-    sub-double v1, p1, v1
+    sub-double v1, p1, v4
 
     div-double v11, v1, v9
 
@@ -494,7 +470,7 @@
 
     aget-wide v13, v2, p3
 
-    aget-object v1, v1, v4
+    aget-object v1, v1, v6
 
     aget-wide v15, v1, p3
 
@@ -504,7 +480,7 @@
 
     aget-wide v17, v1, p3
 
-    aget-object v0, v0, v4
+    aget-object v0, v0, v6
 
     aget-wide v19, v0, p3
 
@@ -515,7 +491,7 @@
     return-wide v0
 
     :cond_3
-    move v3, v4
+    move v3, v6
 
     goto :goto_0
 
@@ -633,17 +609,13 @@
 
     aget-wide v7, v5, v6
 
-    cmpg-double v7, p1, v7
+    cmpg-double v9, p1, v7
 
-    if-gez v7, :cond_6
-
-    aget-wide v7, v5, v6
+    if-gez v9, :cond_6
 
     aget-wide v9, v5, v1
 
     sub-double/2addr v7, v9
-
-    aget-wide v9, v5, v1
 
     sub-double v9, p1, v9
 
@@ -812,17 +784,13 @@
 
     aget-wide v7, v5, v6
 
-    cmpg-double v7, p1, v7
+    cmpg-double v9, p1, v7
 
-    if-gez v7, :cond_6
-
-    aget-wide v7, v5, v6
+    if-gez v9, :cond_6
 
     aget-wide v9, v5, v1
 
     sub-double/2addr v7, v9
-
-    aget-wide v9, v5, v1
 
     sub-double v9, p1, v9
 
@@ -880,7 +848,7 @@
 .end method
 
 .method public getSlope(DI)D
-    .locals 23
+    .locals 21
 
     move-object/from16 v0, p0
 
@@ -892,24 +860,20 @@
 
     aget-wide v4, v1, v3
 
-    cmpg-double v4, p1, v4
+    cmpg-double v6, p1, v4
 
-    if-gez v4, :cond_0
-
-    aget-wide v4, v1, v3
+    if-gez v6, :cond_0
 
     goto :goto_0
 
     :cond_0
     add-int/lit8 v4, v2, -0x1
 
-    aget-wide v5, v1, v4
-
-    cmpl-double v5, p1, v5
-
-    if-ltz v5, :cond_1
-
     aget-wide v4, v1, v4
+
+    cmpl-double v1, p1, v4
+
+    if-ltz v1, :cond_1
 
     goto :goto_0
 
@@ -927,45 +891,41 @@
 
     aget-wide v7, v1, v6
 
-    cmpg-double v7, v4, v7
+    cmpg-double v9, v4, v7
 
-    if-gtz v7, :cond_2
-
-    aget-wide v7, v1, v6
-
-    aget-wide v9, v1, v3
-
-    sub-double/2addr v7, v9
+    if-gtz v9, :cond_2
 
     aget-wide v1, v1, v3
 
+    sub-double/2addr v7, v1
+
     sub-double/2addr v4, v1
 
-    div-double v13, v4, v7
+    div-double v11, v4, v7
 
     iget-object v1, v0, Landroidx/constraintlayout/motion/utils/MonotonicCurveFit;->mY:[[D
 
     aget-object v2, v1, v3
 
-    aget-wide v15, v2, p3
+    aget-wide v13, v2, p3
 
     aget-object v1, v1, v6
 
-    aget-wide v17, v1, p3
+    aget-wide v15, v1, p3
 
     iget-object v0, v0, Landroidx/constraintlayout/motion/utils/MonotonicCurveFit;->mTangent:[[D
 
     aget-object v1, v0, v3
 
-    aget-wide v19, v1, p3
+    aget-wide v17, v1, p3
 
     aget-object v0, v0, v6
 
-    aget-wide v21, v0, p3
+    aget-wide v19, v0, p3
 
-    move-wide v11, v7
+    move-wide v9, v7
 
-    invoke-static/range {v11 .. v22}, Landroidx/constraintlayout/motion/utils/MonotonicCurveFit;->diff(DDDDDD)D
+    invoke-static/range {v9 .. v20}, Landroidx/constraintlayout/motion/utils/MonotonicCurveFit;->diff(DDDDDD)D
 
     move-result-wide v0
 
@@ -1003,24 +963,20 @@
 
     aget-wide v5, v1, v4
 
-    cmpg-double v5, p1, v5
+    cmpg-double v7, p1, v5
 
-    if-gtz v5, :cond_0
-
-    aget-wide v5, v1, v4
+    if-gtz v7, :cond_0
 
     goto :goto_0
 
     :cond_0
     add-int/lit8 v5, v2, -0x1
 
-    aget-wide v6, v1, v5
-
-    cmpl-double v6, p1, v6
-
-    if-ltz v6, :cond_1
-
     aget-wide v5, v1, v5
+
+    cmpl-double v1, p1, v5
+
+    if-ltz v1, :cond_1
 
     goto :goto_0
 
@@ -1041,17 +997,13 @@
 
     aget-wide v9, v7, v8
 
-    cmpg-double v9, v5, v9
+    cmpg-double v11, v5, v9
 
-    if-gtz v9, :cond_2
-
-    aget-wide v9, v7, v8
+    if-gtz v11, :cond_2
 
     aget-wide v11, v7, v1
 
     sub-double/2addr v9, v11
-
-    aget-wide v11, v7, v1
 
     sub-double/2addr v5, v11
 

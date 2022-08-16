@@ -44,7 +44,7 @@
 
     const/4 v0, 0x0
 
-    invoke-direct {p0, p1, v0}, Landroid/frameworks/stats/VendorAtomValue;-><init>(Landroid/os/Parcel;Landroid/frameworks/stats/VendorAtomValue$1;)V
+    invoke-direct {p0, p1, v0}, Landroid/frameworks/stats/VendorAtomValue;-><init>(Landroid/os/Parcel;Landroid/frameworks/stats/VendorAtomValue-IA;)V
 
     return-object p0
 .end method

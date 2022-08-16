@@ -100,11 +100,9 @@
 
     aget v6, v0, v4
 
-    sub-int v6, v1, v6
+    sub-int v7, v1, v6
 
-    add-int/2addr v3, v6
-
-    aget v6, v0, v4
+    add-int/2addr v3, v7
 
     if-lez v6, :cond_4
 
@@ -406,11 +404,9 @@
     :goto_1
     aget-object v5, v0, v2
 
-    array-length v5, v5
+    array-length v6, v5
 
-    if-ge v4, v5, :cond_0
-
-    aget-object v5, v0, v2
+    if-ge v4, v6, :cond_0
 
     new-instance v6, Lcom/google/zxing/pdf417/decoder/BarcodeValue;
 
@@ -739,11 +735,9 @@
 
     if-ge v5, v6, :cond_1
 
-    aget v2, v1, v4
+    add-int/lit8 v5, v5, 0x1
 
-    add-int/lit8 v2, v2, 0x1
-
-    aput v2, v1, v4
+    aput v5, v1, v4
 
     goto :goto_3
 

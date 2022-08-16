@@ -70,7 +70,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/password/ChooseLockPattern;->onCreate(Landroid/os/Bundle;)V
 
-    const p1, 0x7f040c0a
+    const p1, 0x7f040c71
 
     invoke-virtual {p0, p1}, Lcom/android/settings/core/SettingsBaseActivity;->setTitle(I)V
 

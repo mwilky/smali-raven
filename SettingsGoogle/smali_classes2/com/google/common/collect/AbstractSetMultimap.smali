@@ -26,25 +26,6 @@
 .field private static final serialVersionUID:J = 0x67226fd4cd0928d8L
 
 
-# direct methods
-.method protected constructor <init>(Ljava/util/Map;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/Map<",
-            "TK;",
-            "Ljava/util/Collection<",
-            "TV;>;>;)V"
-        }
-    .end annotation
-
-    invoke-direct {p0, p1}, Lcom/google/common/collect/AbstractMapBasedMultimap;-><init>(Ljava/util/Map;)V
-
-    return-void
-.end method
-
-
 # virtual methods
 .method public asMap()Ljava/util/Map;
     .locals 0
@@ -93,47 +74,6 @@
     move-result p0
 
     return p0
-.end method
-
-.method public put(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 0
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(TK;TV;)Z"
-        }
-    .end annotation
-
-    invoke-super {p0, p1, p2}, Lcom/google/common/collect/AbstractMapBasedMultimap;->put(Ljava/lang/Object;Ljava/lang/Object;)Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method unmodifiableCollectionSubclass(Ljava/util/Collection;)Ljava/util/Collection;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<E:",
-            "Ljava/lang/Object;",
-            ">(",
-            "Ljava/util/Collection<",
-            "TE;>;)",
-            "Ljava/util/Collection<",
-            "TE;>;"
-        }
-    .end annotation
-
-    check-cast p1, Ljava/util/Set;
-
-    invoke-static {p1}, Ljava/util/Collections;->unmodifiableSet(Ljava/util/Set;)Ljava/util/Set;
-
-    move-result-object p0
-
-    return-object p0
 .end method
 
 .method wrapCollection(Ljava/lang/Object;Ljava/util/Collection;)Ljava/util/Collection;

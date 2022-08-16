@@ -100,15 +100,17 @@
 
     move-result-object v1
 
-    sget-object v2, Lcom/android/settings/deviceinfo/storage/StorageUtils$$ExternalSyntheticLambda5;->INSTANCE:Lcom/android/settings/deviceinfo/storage/StorageUtils$$ExternalSyntheticLambda5;
+    new-instance v2, Lcom/android/settings/deviceinfo/storage/StorageUtils$$ExternalSyntheticLambda0;
+
+    invoke-direct {v2}, Lcom/android/settings/deviceinfo/storage/StorageUtils$$ExternalSyntheticLambda0;-><init>()V
 
     invoke-interface {v1, v2}, Ljava/util/stream/Stream;->filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
 
     move-result-object v1
 
-    new-instance v2, Lcom/android/settings/deviceinfo/storage/StorageUtils$$ExternalSyntheticLambda0;
+    new-instance v2, Lcom/android/settings/deviceinfo/storage/StorageUtils$$ExternalSyntheticLambda1;
 
-    invoke-direct {v2, p0}, Lcom/android/settings/deviceinfo/storage/StorageUtils$$ExternalSyntheticLambda0;-><init>(Landroid/content/Context;)V
+    invoke-direct {v2, p0}, Lcom/android/settings/deviceinfo/storage/StorageUtils$$ExternalSyntheticLambda1;-><init>(Landroid/content/Context;)V
 
     invoke-interface {v1, v2}, Ljava/util/stream/Stream;->map(Ljava/util/function/Function;)Ljava/util/stream/Stream;
 
@@ -134,13 +136,17 @@
 
     move-result-object p0
 
-    sget-object v1, Lcom/android/settings/deviceinfo/storage/StorageUtils$$ExternalSyntheticLambda4;->INSTANCE:Lcom/android/settings/deviceinfo/storage/StorageUtils$$ExternalSyntheticLambda4;
+    new-instance v1, Lcom/android/settings/deviceinfo/storage/StorageUtils$$ExternalSyntheticLambda2;
+
+    invoke-direct {v1}, Lcom/android/settings/deviceinfo/storage/StorageUtils$$ExternalSyntheticLambda2;-><init>()V
 
     invoke-interface {p0, v1}, Ljava/util/stream/Stream;->filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
 
     move-result-object p0
 
-    sget-object v1, Lcom/android/settings/deviceinfo/storage/StorageUtils$$ExternalSyntheticLambda1;->INSTANCE:Lcom/android/settings/deviceinfo/storage/StorageUtils$$ExternalSyntheticLambda1;
+    new-instance v1, Lcom/android/settings/deviceinfo/storage/StorageUtils$$ExternalSyntheticLambda3;
+
+    invoke-direct {v1}, Lcom/android/settings/deviceinfo/storage/StorageUtils$$ExternalSyntheticLambda3;-><init>()V
 
     invoke-interface {p0, v1}, Ljava/util/stream/Stream;->map(Ljava/util/function/Function;)Ljava/util/stream/Stream;
 
@@ -166,15 +172,17 @@
 
     move-result-object p0
 
-    new-instance v1, Lcom/android/settings/deviceinfo/storage/StorageUtils$$ExternalSyntheticLambda3;
+    new-instance v1, Lcom/android/settings/deviceinfo/storage/StorageUtils$$ExternalSyntheticLambda4;
 
-    invoke-direct {v1, p1}, Lcom/android/settings/deviceinfo/storage/StorageUtils$$ExternalSyntheticLambda3;-><init>(Landroid/os/storage/StorageManager;)V
+    invoke-direct {v1, p1}, Lcom/android/settings/deviceinfo/storage/StorageUtils$$ExternalSyntheticLambda4;-><init>(Landroid/os/storage/StorageManager;)V
 
     invoke-interface {p0, v1}, Ljava/util/stream/Stream;->filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
 
     move-result-object p0
 
-    sget-object p1, Lcom/android/settings/deviceinfo/storage/StorageUtils$$ExternalSyntheticLambda2;->INSTANCE:Lcom/android/settings/deviceinfo/storage/StorageUtils$$ExternalSyntheticLambda2;
+    new-instance p1, Lcom/android/settings/deviceinfo/storage/StorageUtils$$ExternalSyntheticLambda5;
+
+    invoke-direct {p1}, Lcom/android/settings/deviceinfo/storage/StorageUtils$$ExternalSyntheticLambda5;-><init>()V
 
     invoke-interface {p0, p1}, Ljava/util/stream/Stream;->map(Ljava/util/function/Function;)Ljava/util/stream/Stream;
 
@@ -195,6 +203,49 @@
     return-object v0
 .end method
 
+.method public static getManageStorageIcon(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
+    .locals 3
+
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v0
+
+    new-instance v1, Landroid/content/Intent;
+
+    const-string v2, "android.os.storage.action.MANAGE_STORAGE"
+
+    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v1, v2, p1}, Landroid/content/pm/PackageManager;->resolveActivityAsUser(Landroid/content/Intent;II)Landroid/content/pm/ResolveInfo;
+
+    move-result-object p1
+
+    if-eqz p1, :cond_1
+
+    iget-object p1, p1, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+
+    if-nez p1, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    iget-object p1, p1, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    invoke-static {p0, p1}, Lcom/android/settingslib/Utils;->getBadgedIcon(Landroid/content/Context;Landroid/content/pm/ApplicationInfo;)Landroid/graphics/drawable/Drawable;
+
+    move-result-object p0
+
+    return-object p0
+
+    :cond_1
+    :goto_0
+    const/4 p0, 0x0
+
+    return-object p0
+.end method
+
 .method public static getStorageSizeLabel(Landroid/content/Context;J)Ljava/lang/String;
     .locals 3
 
@@ -208,7 +259,7 @@
 
     move-result-object p1
 
-    const p2, 0x7f041322
+    const p2, 0x7f0413e6
 
     invoke-virtual {p0, p2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -233,6 +284,40 @@
     move-result-object p0
 
     invoke-interface {p0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static getStorageSummary(Landroid/content/Context;IJ)Ljava/lang/String;
+    .locals 3
+
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const/4 v1, 0x1
+
+    invoke-static {v0, p2, p3, v1}, Landroid/text/format/Formatter;->formatBytes(Landroid/content/res/Resources;JI)Landroid/text/format/Formatter$BytesResult;
+
+    move-result-object p2
+
+    const/4 p3, 0x2
+
+    new-array p3, p3, [Ljava/lang/Object;
+
+    iget-object v0, p2, Landroid/text/format/Formatter$BytesResult;->value:Ljava/lang/String;
+
+    const/4 v2, 0x0
+
+    aput-object v0, p3, v2
+
+    iget-object p2, p2, Landroid/text/format/Formatter$BytesResult;->units:Ljava/lang/String;
+
+    aput-object p2, p3, v1
+
+    invoke-virtual {p0, p1, p3}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object p0
 
@@ -420,7 +505,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f04130a
+    const p1, 0x7f0413ce
 
     invoke-virtual {p0, p1}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 

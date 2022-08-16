@@ -1012,7 +1012,7 @@
 .end method
 
 .method private populateConstraint(Landroid/content/Context;Landroidx/constraintlayout/widget/ConstraintSet$Constraint;Landroid/content/res/TypedArray;)V
-    .locals 8
+    .locals 7
 
     invoke-virtual {p3}, Landroid/content/res/TypedArray;->getIndexCount()I
 
@@ -1023,7 +1023,7 @@
     move v0, p1
 
     :goto_0
-    if-ge v0, p0, :cond_3
+    if-ge v0, p0, :cond_2
 
     invoke-virtual {p3, v0}, Landroid/content/res/TypedArray;->getIndex(I)I
 
@@ -1062,9 +1062,7 @@
 
     const/high16 v5, 0x3f800000    # 1.0f
 
-    const/16 v6, 0x15
-
-    const-string v7, "ConstraintSet"
+    const-string v6, "ConstraintSet"
 
     packed-switch v2, :pswitch_data_0
 
@@ -1096,7 +1094,7 @@
 
     move-result-object v1
 
-    invoke-static {v7, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_1
 
@@ -1129,7 +1127,7 @@
 
     move-result-object v1
 
-    invoke-static {v7, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_1
 
@@ -1262,7 +1260,7 @@
     :pswitch_b
     const-string v1, "CURRENTLY UNSUPPORTED"
 
-    invoke-static {v7, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_1
 
@@ -1505,10 +1503,6 @@
     goto/16 :goto_1
 
     :pswitch_1d
-    sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    if-lt v2, v6, :cond_2
-
     iget-object v2, p2, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->transform:Landroidx/constraintlayout/widget/ConstraintSet$Transform;
 
     iget v3, v2, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->translationZ:F
@@ -1626,10 +1620,6 @@
     goto/16 :goto_1
 
     :pswitch_26
-    sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    if-lt v2, v6, :cond_2
-
     iget-object v2, p2, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->transform:Landroidx/constraintlayout/widget/ConstraintSet$Transform;
 
     iput-boolean v3, v2, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->applyElevation:Z
@@ -2207,13 +2197,12 @@
 
     iput v1, v2, Landroidx/constraintlayout/widget/ConstraintSet$Layout;->baselineToBaseline:I
 
-    :cond_2
     :goto_1
     add-int/lit8 v0, v0, 0x1
 
     goto/16 :goto_0
 
-    :cond_3
+    :cond_2
     return-void
 
     nop
@@ -2721,97 +2710,87 @@
     invoke-virtual {v5, v3}, Landroid/view/View;->setVisibility(I)V
 
     :cond_9
-    sget v3, Landroid/os/Build$VERSION;->SDK_INT:I
+    iget-object v3, v7, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->propertySet:Landroidx/constraintlayout/widget/ConstraintSet$PropertySet;
 
-    const/16 v4, 0x11
+    iget v3, v3, Landroidx/constraintlayout/widget/ConstraintSet$PropertySet;->alpha:F
 
-    if-lt v3, v4, :cond_d
+    invoke-virtual {v5, v3}, Landroid/view/View;->setAlpha(F)V
 
-    iget-object v4, v7, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->propertySet:Landroidx/constraintlayout/widget/ConstraintSet$PropertySet;
+    iget-object v3, v7, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->transform:Landroidx/constraintlayout/widget/ConstraintSet$Transform;
 
-    iget v4, v4, Landroidx/constraintlayout/widget/ConstraintSet$PropertySet;->alpha:F
+    iget v3, v3, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->rotation:F
 
-    invoke-virtual {v5, v4}, Landroid/view/View;->setAlpha(F)V
+    invoke-virtual {v5, v3}, Landroid/view/View;->setRotation(F)V
 
-    iget-object v4, v7, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->transform:Landroidx/constraintlayout/widget/ConstraintSet$Transform;
+    iget-object v3, v7, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->transform:Landroidx/constraintlayout/widget/ConstraintSet$Transform;
 
-    iget v4, v4, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->rotation:F
+    iget v3, v3, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->rotationX:F
 
-    invoke-virtual {v5, v4}, Landroid/view/View;->setRotation(F)V
+    invoke-virtual {v5, v3}, Landroid/view/View;->setRotationX(F)V
 
-    iget-object v4, v7, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->transform:Landroidx/constraintlayout/widget/ConstraintSet$Transform;
+    iget-object v3, v7, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->transform:Landroidx/constraintlayout/widget/ConstraintSet$Transform;
 
-    iget v4, v4, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->rotationX:F
+    iget v3, v3, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->rotationY:F
 
-    invoke-virtual {v5, v4}, Landroid/view/View;->setRotationX(F)V
+    invoke-virtual {v5, v3}, Landroid/view/View;->setRotationY(F)V
 
-    iget-object v4, v7, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->transform:Landroidx/constraintlayout/widget/ConstraintSet$Transform;
+    iget-object v3, v7, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->transform:Landroidx/constraintlayout/widget/ConstraintSet$Transform;
 
-    iget v4, v4, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->rotationY:F
+    iget v3, v3, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->scaleX:F
 
-    invoke-virtual {v5, v4}, Landroid/view/View;->setRotationY(F)V
+    invoke-virtual {v5, v3}, Landroid/view/View;->setScaleX(F)V
 
-    iget-object v4, v7, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->transform:Landroidx/constraintlayout/widget/ConstraintSet$Transform;
+    iget-object v3, v7, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->transform:Landroidx/constraintlayout/widget/ConstraintSet$Transform;
 
-    iget v4, v4, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->scaleX:F
+    iget v3, v3, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->scaleY:F
 
-    invoke-virtual {v5, v4}, Landroid/view/View;->setScaleX(F)V
+    invoke-virtual {v5, v3}, Landroid/view/View;->setScaleY(F)V
 
-    iget-object v4, v7, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->transform:Landroidx/constraintlayout/widget/ConstraintSet$Transform;
+    iget-object v3, v7, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->transform:Landroidx/constraintlayout/widget/ConstraintSet$Transform;
 
-    iget v4, v4, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->scaleY:F
+    iget v3, v3, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->transformPivotX:F
 
-    invoke-virtual {v5, v4}, Landroid/view/View;->setScaleY(F)V
+    invoke-static {v3}, Ljava/lang/Float;->isNaN(F)Z
 
-    iget-object v4, v7, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->transform:Landroidx/constraintlayout/widget/ConstraintSet$Transform;
+    move-result v3
 
-    iget v4, v4, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->transformPivotX:F
+    if-nez v3, :cond_a
 
-    invoke-static {v4}, Ljava/lang/Float;->isNaN(F)Z
+    iget-object v3, v7, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->transform:Landroidx/constraintlayout/widget/ConstraintSet$Transform;
 
-    move-result v4
+    iget v3, v3, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->transformPivotX:F
 
-    if-nez v4, :cond_a
-
-    iget-object v4, v7, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->transform:Landroidx/constraintlayout/widget/ConstraintSet$Transform;
-
-    iget v4, v4, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->transformPivotX:F
-
-    invoke-virtual {v5, v4}, Landroid/view/View;->setPivotX(F)V
+    invoke-virtual {v5, v3}, Landroid/view/View;->setPivotX(F)V
 
     :cond_a
-    iget-object v4, v7, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->transform:Landroidx/constraintlayout/widget/ConstraintSet$Transform;
+    iget-object v3, v7, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->transform:Landroidx/constraintlayout/widget/ConstraintSet$Transform;
 
-    iget v4, v4, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->transformPivotY:F
+    iget v3, v3, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->transformPivotY:F
 
-    invoke-static {v4}, Ljava/lang/Float;->isNaN(F)Z
+    invoke-static {v3}, Ljava/lang/Float;->isNaN(F)Z
 
-    move-result v4
+    move-result v3
 
-    if-nez v4, :cond_b
+    if-nez v3, :cond_b
 
-    iget-object v4, v7, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->transform:Landroidx/constraintlayout/widget/ConstraintSet$Transform;
+    iget-object v3, v7, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->transform:Landroidx/constraintlayout/widget/ConstraintSet$Transform;
 
-    iget v4, v4, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->transformPivotY:F
+    iget v3, v3, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->transformPivotY:F
 
-    invoke-virtual {v5, v4}, Landroid/view/View;->setPivotY(F)V
+    invoke-virtual {v5, v3}, Landroid/view/View;->setPivotY(F)V
 
     :cond_b
-    iget-object v4, v7, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->transform:Landroidx/constraintlayout/widget/ConstraintSet$Transform;
+    iget-object v3, v7, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->transform:Landroidx/constraintlayout/widget/ConstraintSet$Transform;
 
-    iget v4, v4, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->translationX:F
+    iget v3, v3, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->translationX:F
 
-    invoke-virtual {v5, v4}, Landroid/view/View;->setTranslationX(F)V
+    invoke-virtual {v5, v3}, Landroid/view/View;->setTranslationX(F)V
 
-    iget-object v4, v7, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->transform:Landroidx/constraintlayout/widget/ConstraintSet$Transform;
+    iget-object v3, v7, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->transform:Landroidx/constraintlayout/widget/ConstraintSet$Transform;
 
-    iget v4, v4, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->translationY:F
+    iget v3, v3, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->translationY:F
 
-    invoke-virtual {v5, v4}, Landroid/view/View;->setTranslationY(F)V
-
-    const/16 v4, 0x15
-
-    if-lt v3, v4, :cond_d
+    invoke-virtual {v5, v3}, Landroid/view/View;->setTranslationY(F)V
 
     iget-object v3, v7, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->transform:Landroidx/constraintlayout/widget/ConstraintSet$Transform;
 
@@ -3185,7 +3164,7 @@
 .end method
 
 .method public clone(Landroidx/constraintlayout/widget/ConstraintLayout;)V
-    .locals 11
+    .locals 10
 
     invoke-virtual {p1}, Landroid/view/ViewGroup;->getChildCount()I
 
@@ -3290,109 +3269,99 @@
 
     iput v4, v3, Landroidx/constraintlayout/widget/ConstraintSet$PropertySet;->visibility:I
 
-    sget v3, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v4, 0x11
-
-    if-lt v3, v4, :cond_5
-
-    iget-object v4, v5, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->propertySet:Landroidx/constraintlayout/widget/ConstraintSet$PropertySet;
+    iget-object v3, v5, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->propertySet:Landroidx/constraintlayout/widget/ConstraintSet$PropertySet;
 
     invoke-virtual {v2}, Landroid/view/View;->getAlpha()F
 
-    move-result v6
+    move-result v4
 
-    iput v6, v4, Landroidx/constraintlayout/widget/ConstraintSet$PropertySet;->alpha:F
+    iput v4, v3, Landroidx/constraintlayout/widget/ConstraintSet$PropertySet;->alpha:F
 
-    iget-object v4, v5, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->transform:Landroidx/constraintlayout/widget/ConstraintSet$Transform;
+    iget-object v3, v5, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->transform:Landroidx/constraintlayout/widget/ConstraintSet$Transform;
 
     invoke-virtual {v2}, Landroid/view/View;->getRotation()F
 
-    move-result v6
+    move-result v4
 
-    iput v6, v4, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->rotation:F
+    iput v4, v3, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->rotation:F
 
-    iget-object v4, v5, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->transform:Landroidx/constraintlayout/widget/ConstraintSet$Transform;
+    iget-object v3, v5, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->transform:Landroidx/constraintlayout/widget/ConstraintSet$Transform;
 
     invoke-virtual {v2}, Landroid/view/View;->getRotationX()F
 
-    move-result v6
+    move-result v4
 
-    iput v6, v4, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->rotationX:F
+    iput v4, v3, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->rotationX:F
 
-    iget-object v4, v5, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->transform:Landroidx/constraintlayout/widget/ConstraintSet$Transform;
+    iget-object v3, v5, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->transform:Landroidx/constraintlayout/widget/ConstraintSet$Transform;
 
     invoke-virtual {v2}, Landroid/view/View;->getRotationY()F
 
-    move-result v6
+    move-result v4
 
-    iput v6, v4, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->rotationY:F
+    iput v4, v3, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->rotationY:F
 
-    iget-object v4, v5, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->transform:Landroidx/constraintlayout/widget/ConstraintSet$Transform;
+    iget-object v3, v5, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->transform:Landroidx/constraintlayout/widget/ConstraintSet$Transform;
 
     invoke-virtual {v2}, Landroid/view/View;->getScaleX()F
 
-    move-result v6
+    move-result v4
 
-    iput v6, v4, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->scaleX:F
+    iput v4, v3, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->scaleX:F
 
-    iget-object v4, v5, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->transform:Landroidx/constraintlayout/widget/ConstraintSet$Transform;
+    iget-object v3, v5, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->transform:Landroidx/constraintlayout/widget/ConstraintSet$Transform;
 
     invoke-virtual {v2}, Landroid/view/View;->getScaleY()F
 
-    move-result v6
+    move-result v4
 
-    iput v6, v4, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->scaleY:F
+    iput v4, v3, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->scaleY:F
 
     invoke-virtual {v2}, Landroid/view/View;->getPivotX()F
 
-    move-result v4
+    move-result v3
 
     invoke-virtual {v2}, Landroid/view/View;->getPivotY()F
 
-    move-result v6
+    move-result v4
 
-    float-to-double v7, v4
+    float-to-double v6, v3
 
-    const-wide/16 v9, 0x0
+    const-wide/16 v8, 0x0
 
-    cmpl-double v7, v7, v9
+    cmpl-double v6, v6, v8
 
-    if-nez v7, :cond_3
+    if-nez v6, :cond_3
 
-    float-to-double v7, v6
+    float-to-double v6, v4
 
-    cmpl-double v7, v7, v9
+    cmpl-double v6, v6, v8
 
-    if-eqz v7, :cond_4
+    if-eqz v6, :cond_4
 
     :cond_3
-    iget-object v7, v5, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->transform:Landroidx/constraintlayout/widget/ConstraintSet$Transform;
+    iget-object v6, v5, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->transform:Landroidx/constraintlayout/widget/ConstraintSet$Transform;
 
-    iput v4, v7, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->transformPivotX:F
+    iput v3, v6, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->transformPivotX:F
 
-    iput v6, v7, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->transformPivotY:F
+    iput v4, v6, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->transformPivotY:F
 
     :cond_4
-    iget-object v4, v5, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->transform:Landroidx/constraintlayout/widget/ConstraintSet$Transform;
+    iget-object v3, v5, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->transform:Landroidx/constraintlayout/widget/ConstraintSet$Transform;
 
     invoke-virtual {v2}, Landroid/view/View;->getTranslationX()F
 
-    move-result v6
+    move-result v4
 
-    iput v6, v4, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->translationX:F
+    iput v4, v3, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->translationX:F
 
-    iget-object v4, v5, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->transform:Landroidx/constraintlayout/widget/ConstraintSet$Transform;
+    iget-object v3, v5, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->transform:Landroidx/constraintlayout/widget/ConstraintSet$Transform;
 
     invoke-virtual {v2}, Landroid/view/View;->getTranslationY()F
 
-    move-result v6
+    move-result v4
 
-    iput v6, v4, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->translationY:F
-
-    const/16 v4, 0x15
-
-    if-lt v3, v4, :cond_5
+    iput v4, v3, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->translationY:F
 
     iget-object v3, v5, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->transform:Landroidx/constraintlayout/widget/ConstraintSet$Transform;
 
@@ -4308,7 +4277,7 @@
 .end method
 
 .method public readFallback(Landroidx/constraintlayout/widget/ConstraintLayout;)V
-    .locals 11
+    .locals 10
 
     invoke-virtual {p1}, Landroid/view/ViewGroup;->getChildCount()I
 
@@ -4480,107 +4449,97 @@
     iput-boolean v7, v3, Landroidx/constraintlayout/widget/ConstraintSet$PropertySet;->mApply:Z
 
     :cond_5
-    sget v3, Landroid/os/Build$VERSION;->SDK_INT:I
+    iget-object v3, v5, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->transform:Landroidx/constraintlayout/widget/ConstraintSet$Transform;
 
-    const/16 v4, 0x11
+    iget-boolean v4, v3, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->mApply:Z
 
-    if-lt v3, v4, :cond_8
+    if-nez v4, :cond_8
 
-    iget-object v4, v5, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->transform:Landroidx/constraintlayout/widget/ConstraintSet$Transform;
-
-    iget-boolean v6, v4, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->mApply:Z
-
-    if-nez v6, :cond_8
-
-    iput-boolean v7, v4, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->mApply:Z
+    iput-boolean v7, v3, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->mApply:Z
 
     invoke-virtual {v2}, Landroid/view/View;->getRotation()F
 
-    move-result v6
+    move-result v4
 
-    iput v6, v4, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->rotation:F
+    iput v4, v3, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->rotation:F
 
-    iget-object v4, v5, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->transform:Landroidx/constraintlayout/widget/ConstraintSet$Transform;
+    iget-object v3, v5, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->transform:Landroidx/constraintlayout/widget/ConstraintSet$Transform;
 
     invoke-virtual {v2}, Landroid/view/View;->getRotationX()F
 
-    move-result v6
+    move-result v4
 
-    iput v6, v4, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->rotationX:F
+    iput v4, v3, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->rotationX:F
 
-    iget-object v4, v5, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->transform:Landroidx/constraintlayout/widget/ConstraintSet$Transform;
+    iget-object v3, v5, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->transform:Landroidx/constraintlayout/widget/ConstraintSet$Transform;
 
     invoke-virtual {v2}, Landroid/view/View;->getRotationY()F
 
-    move-result v6
+    move-result v4
 
-    iput v6, v4, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->rotationY:F
+    iput v4, v3, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->rotationY:F
 
-    iget-object v4, v5, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->transform:Landroidx/constraintlayout/widget/ConstraintSet$Transform;
+    iget-object v3, v5, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->transform:Landroidx/constraintlayout/widget/ConstraintSet$Transform;
 
     invoke-virtual {v2}, Landroid/view/View;->getScaleX()F
 
-    move-result v6
+    move-result v4
 
-    iput v6, v4, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->scaleX:F
+    iput v4, v3, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->scaleX:F
 
-    iget-object v4, v5, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->transform:Landroidx/constraintlayout/widget/ConstraintSet$Transform;
+    iget-object v3, v5, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->transform:Landroidx/constraintlayout/widget/ConstraintSet$Transform;
 
     invoke-virtual {v2}, Landroid/view/View;->getScaleY()F
 
-    move-result v6
+    move-result v4
 
-    iput v6, v4, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->scaleY:F
+    iput v4, v3, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->scaleY:F
 
     invoke-virtual {v2}, Landroid/view/View;->getPivotX()F
 
-    move-result v4
+    move-result v3
 
     invoke-virtual {v2}, Landroid/view/View;->getPivotY()F
 
-    move-result v6
+    move-result v4
 
-    float-to-double v7, v4
+    float-to-double v6, v3
 
-    const-wide/16 v9, 0x0
+    const-wide/16 v8, 0x0
 
-    cmpl-double v7, v7, v9
+    cmpl-double v6, v6, v8
 
-    if-nez v7, :cond_6
+    if-nez v6, :cond_6
 
-    float-to-double v7, v6
+    float-to-double v6, v4
 
-    cmpl-double v7, v7, v9
+    cmpl-double v6, v6, v8
 
-    if-eqz v7, :cond_7
+    if-eqz v6, :cond_7
 
     :cond_6
-    iget-object v7, v5, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->transform:Landroidx/constraintlayout/widget/ConstraintSet$Transform;
+    iget-object v6, v5, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->transform:Landroidx/constraintlayout/widget/ConstraintSet$Transform;
 
-    iput v4, v7, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->transformPivotX:F
+    iput v3, v6, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->transformPivotX:F
 
-    iput v6, v7, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->transformPivotY:F
+    iput v4, v6, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->transformPivotY:F
 
     :cond_7
-    iget-object v4, v5, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->transform:Landroidx/constraintlayout/widget/ConstraintSet$Transform;
+    iget-object v3, v5, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->transform:Landroidx/constraintlayout/widget/ConstraintSet$Transform;
 
     invoke-virtual {v2}, Landroid/view/View;->getTranslationX()F
 
-    move-result v6
+    move-result v4
 
-    iput v6, v4, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->translationX:F
+    iput v4, v3, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->translationX:F
 
-    iget-object v4, v5, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->transform:Landroidx/constraintlayout/widget/ConstraintSet$Transform;
+    iget-object v3, v5, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->transform:Landroidx/constraintlayout/widget/ConstraintSet$Transform;
 
     invoke-virtual {v2}, Landroid/view/View;->getTranslationY()F
 
-    move-result v6
+    move-result v4
 
-    iput v6, v4, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->translationY:F
-
-    const/16 v4, 0x15
-
-    if-lt v3, v4, :cond_8
+    iput v4, v3, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->translationY:F
 
     iget-object v3, v5, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->transform:Landroidx/constraintlayout/widget/ConstraintSet$Transform;
 

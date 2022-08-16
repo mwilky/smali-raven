@@ -45,6 +45,18 @@
 
 
 # virtual methods
+.method public dismiss()V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/settings/sim/SimDialogFragment;->mChangeListener:Lcom/android/settings/network/SubscriptionsChangeListener;
+
+    invoke-virtual {v0}, Lcom/android/settings/network/SubscriptionsChangeListener;->stop()V
+
+    invoke-super {p0}, Landroidx/fragment/app/DialogFragment;->dismiss()V
+
+    return-void
+.end method
+
 .method public getDialogType()I
     .locals 1
 

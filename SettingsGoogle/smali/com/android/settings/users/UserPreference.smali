@@ -35,7 +35,9 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    sget-object v0, Lcom/android/settings/users/UserPreference$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/settings/users/UserPreference$$ExternalSyntheticLambda0;
+    new-instance v0, Lcom/android/settings/users/UserPreference$$ExternalSyntheticLambda0;
+
+    invoke-direct {v0}, Lcom/android/settings/users/UserPreference$$ExternalSyntheticLambda0;-><init>()V
 
     sput-object v0, Lcom/android/settings/users/UserPreference;->SERIAL_NUMBER_COMPARATOR:Ljava/util/Comparator;
 
@@ -60,10 +62,6 @@
     const/4 p1, -0x1
 
     iput p1, p0, Lcom/android/settings/users/UserPreference;->mSerialNumber:I
-
-    const/16 p1, -0xa
-
-    iput p1, p0, Lcom/android/settings/users/UserPreference;->mUserId:I
 
     iput p3, p0, Lcom/android/settings/users/UserPreference;->mUserId:I
 

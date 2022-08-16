@@ -1,35 +1,34 @@
 .class public final synthetic Lcom/android/settings/network/helper/QuerySimSlotIndex$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Predicate;
+.implements Ljava/util/function/IntPredicate;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/settings/network/helper/QuerySimSlotIndex;
+.field public final synthetic f$0:I
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/settings/network/helper/QuerySimSlotIndex;)V
+.method public synthetic constructor <init>(I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/settings/network/helper/QuerySimSlotIndex$$ExternalSyntheticLambda1;->f$0:Lcom/android/settings/network/helper/QuerySimSlotIndex;
+    iput p1, p0, Lcom/android/settings/network/helper/QuerySimSlotIndex$$ExternalSyntheticLambda1;->f$0:I
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final test(Ljava/lang/Object;)Z
+.method public final test(I)Z
     .locals 0
 
-    iget-object p0, p0, Lcom/android/settings/network/helper/QuerySimSlotIndex$$ExternalSyntheticLambda1;->f$0:Lcom/android/settings/network/helper/QuerySimSlotIndex;
+    iget p0, p0, Lcom/android/settings/network/helper/QuerySimSlotIndex$$ExternalSyntheticLambda1;->f$0:I
 
-    check-cast p1, Landroid/telephony/UiccSlotInfo;
-
-    invoke-static {p0, p1}, Lcom/android/settings/network/helper/QuerySimSlotIndex;->$r8$lambda$pvB9BuJwl6H97PMKGRS0qjJRz8M(Lcom/android/settings/network/helper/QuerySimSlotIndex;Landroid/telephony/UiccSlotInfo;)Z
+    invoke-static {p0, p1}, Lcom/android/settings/network/helper/QuerySimSlotIndex;->$r8$lambda$DFJ3Zu_wqdeRA6E07oN5AYfiXWs(II)Z
 
     move-result p0
 

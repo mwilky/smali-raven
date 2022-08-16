@@ -51,7 +51,7 @@
 
     iget-object v1, p0, Lcom/android/settings/development/AdbDeviceDetailsHeaderController;->mFragment:Landroidx/fragment/app/Fragment;
 
-    const v2, 0x7f0d0203
+    const v2, 0x7f0d021c
 
     invoke-virtual {p1, v2}, Lcom/android/settingslib/widget/LayoutPreference;->findViewById(I)Landroid/view/View;
 
@@ -65,7 +65,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v1, 0x1080339
+    const v1, 0x1080342
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -77,9 +77,7 @@
 
     iget-object v0, p0, Lcom/android/settings/development/AdbDeviceDetailsHeaderController;->mPairedDevice:Landroid/debug/PairDevice;
 
-    invoke-virtual {v0}, Landroid/debug/PairDevice;->getDeviceName()Ljava/lang/String;
-
-    move-result-object v0
+    iget-object v0, v0, Landroid/debug/PairDevice;->name:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Lcom/android/settings/widget/EntityHeaderController;->setLabel(Ljava/lang/CharSequence;)Lcom/android/settings/widget/EntityHeaderController;
 

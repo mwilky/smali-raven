@@ -6,10 +6,11 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Landroid/support/v4/media/session/MediaControllerCompat$TransportControlsApi29;,
+        Landroid/support/v4/media/session/MediaControllerCompat$TransportControlsApi24;,
+        Landroid/support/v4/media/session/MediaControllerCompat$TransportControlsApi23;,
         Landroid/support/v4/media/session/MediaControllerCompat$TransportControlsApi21;,
         Landroid/support/v4/media/session/MediaControllerCompat$MediaControllerImplApi21;,
-        Landroid/support/v4/media/session/MediaControllerCompat$TransportControlsBase;,
-        Landroid/support/v4/media/session/MediaControllerCompat$MediaControllerImplBase;,
         Landroid/support/v4/media/session/MediaControllerCompat$MediaControllerImpl;,
         Landroid/support/v4/media/session/MediaControllerCompat$PlaybackInfo;,
         Landroid/support/v4/media/session/MediaControllerCompat$TransportControls;,
@@ -43,17 +44,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/support/v4/media/session/MediaSessionCompat$Token;)V
-    .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "sessionToken"
-        }
-    .end annotation
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -63,15 +54,9 @@
 
     iput-object v0, p0, Landroid/support/v4/media/session/MediaControllerCompat;->mRegisteredCallbacks:Ljava/util/concurrent/ConcurrentHashMap;
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_0
 
     iput-object p2, p0, Landroid/support/v4/media/session/MediaControllerCompat;->mToken:Landroid/support/v4/media/session/MediaSessionCompat$Token;
-
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    if-lt v0, v1, :cond_0
 
     new-instance v0, Landroid/support/v4/media/session/MediaControllerCompat$MediaControllerImplApi21;
 
@@ -79,22 +64,12 @@
 
     iput-object v0, p0, Landroid/support/v4/media/session/MediaControllerCompat;->mImpl:Landroid/support/v4/media/session/MediaControllerCompat$MediaControllerImpl;
 
-    goto :goto_0
-
-    :cond_0
-    new-instance p1, Landroid/support/v4/media/session/MediaControllerCompat$MediaControllerImplBase;
-
-    invoke-direct {p1, p2}, Landroid/support/v4/media/session/MediaControllerCompat$MediaControllerImplBase;-><init>(Landroid/support/v4/media/session/MediaSessionCompat$Token;)V
-
-    iput-object p1, p0, Landroid/support/v4/media/session/MediaControllerCompat;->mImpl:Landroid/support/v4/media/session/MediaControllerCompat$MediaControllerImpl;
-
-    :goto_0
     return-void
 
-    :cond_1
+    :cond_0
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string p1, "sessionToken must not be null"
+    const-string/jumbo p1, "sessionToken must not be null"
 
     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
@@ -153,14 +128,6 @@
 
 .method public registerCallback(Landroid/support/v4/media/session/MediaControllerCompat$Callback;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "callback"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -171,16 +138,6 @@
 
 .method public registerCallback(Landroid/support/v4/media/session/MediaControllerCompat$Callback;Landroid/os/Handler;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "callback",
-            "handler"
-        }
-    .end annotation
 
     if-eqz p1, :cond_2
 
@@ -230,14 +187,6 @@
 
 .method public unregisterCallback(Landroid/support/v4/media/session/MediaControllerCompat$Callback;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "callback"
-        }
-    .end annotation
 
     if-eqz p1, :cond_1
 

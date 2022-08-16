@@ -4,7 +4,6 @@
     <dimen name="abc_text_size_subtitle_material_toolbar">12.0dip</dimen>
     <dimen name="abc_text_size_title_material_toolbar">14.0dip</dimen>
     <dimen name="actionbar_size">46.0dip</dimen>
-    <dimen name="captioning_preview_height">100.0dip</dimen>
     <dimen name="fingerprint_decor_padding_top">24.0dip</dimen>
     <item type="dimen" name="fingerprint_illustration_aspect_ratio">0.0</item>
     <dimen name="material_time_picker_minimum_screen_height">450.0dip</dimen>
@@ -37,12 +36,24 @@
     <dimen name="sud_glif_button_min_height">36.0dip</dimen>
     <dimen name="sud_glif_card_height">560.0dip</dimen>
     <dimen name="sud_glif_card_width">672.0dip</dimen>
-    <dimen name="sud_glif_footer_min_height">52.0dip</dimen>
+    <dimen name="sud_glif_content_padding_top">32.0dip</dimen>
+    <dimen name="sud_glif_content_padding_top_material_you">32.0dip</dimen>
+    <dimen name="sud_glif_description_margin_top">8.0dip</dimen>
+    <dimen name="sud_glif_footer_bar_min_height">52.0dip</dimen>
+    <dimen name="sud_glif_footer_bar_min_height_material_you">52.0dip</dimen>
+    <dimen name="sud_glif_footer_bar_padding_end_material_you">28.0dip</dimen>
+    <dimen name="sud_glif_footer_bar_padding_start_material_you">16.0dip</dimen>
+    <dimen name="sud_glif_footer_bar_padding_vertical_material_you">0.0dip</dimen>
     <dimen name="sud_glif_footer_padding_end">28.0dip</dimen>
     <dimen name="sud_glif_footer_padding_start">16.0dip</dimen>
     <dimen name="sud_glif_footer_padding_vertical">0.0dip</dimen>
+    <dimen name="sud_glif_header_title_margin_bottom">0.0dip</dimen>
+    <dimen name="sud_glif_header_title_margin_top">24.0dip</dimen>
+    <dimen name="sud_glif_icon_margin_top">32.0dip</dimen>
     <dimen name="sud_glif_margin_end">32.0dip</dimen>
+    <dimen name="sud_glif_margin_end_material_you">32.0dip</dimen>
     <dimen name="sud_glif_margin_start">32.0dip</dimen>
+    <dimen name="sud_glif_margin_start_material_you">32.0dip</dimen>
     <item type="dimen" name="sud_illustration_aspect_ratio">0.0</item>
     <dimen name="appwidget_height">68.0dip</dimen>
     <dimen name="appwidget_width">421.0dip</dimen>

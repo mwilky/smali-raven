@@ -93,7 +93,7 @@
 
     iget-object v0, p0, Lcom/android/settings/network/telephony/NetworkProviderWorker$NetworkProviderTelephonyCallback;->this$0:Lcom/android/settings/network/telephony/NetworkProviderWorker;
 
-    invoke-static {v0, p1}, Lcom/android/settings/network/telephony/NetworkProviderWorker;->access$102(Lcom/android/settings/network/telephony/NetworkProviderWorker;Landroid/telephony/TelephonyDisplayInfo;)Landroid/telephony/TelephonyDisplayInfo;
+    invoke-static {v0, p1}, Lcom/android/settings/network/telephony/NetworkProviderWorker;->-$$Nest$fputmTelephonyDisplayInfo(Lcom/android/settings/network/telephony/NetworkProviderWorker;Landroid/telephony/TelephonyDisplayInfo;)V
 
     iget-object p0, p0, Lcom/android/settings/network/telephony/NetworkProviderWorker$NetworkProviderTelephonyCallback;->this$0:Lcom/android/settings/network/telephony/NetworkProviderWorker;
 

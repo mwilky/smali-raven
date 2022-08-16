@@ -5,8 +5,8 @@
         <item quantity="one">%d dag sedan</item>
     </plurals>
     <plurals name="abc_slice_duration_min">
-        <item quantity="other">%d minuter sedan</item>
-        <item quantity="one">%d minut sedan</item>
+        <item quantity="other">%d min sedan</item>
+        <item quantity="one">%d min sedan</item>
     </plurals>
     <plurals name="abc_slice_duration_years">
         <item quantity="other">%d år sedan</item>
@@ -177,8 +177,8 @@
         <item quantity="one">Får inte innehålla fler än %d tecken</item>
     </plurals>
     <plurals name="lockpassword_password_too_short">
-        <item quantity="other">Måste innehåll minst %d tecken</item>
-        <item quantity="one">Måste innehåll minst %d tecken</item>
+        <item quantity="other">Måste innehålla minst %d tecken</item>
+        <item quantity="one">Måste innehålla minst %d tecken</item>
     </plurals>
     <plurals name="lockpassword_pin_too_long">
         <item quantity="other">Får inte innehålla fler än %d siffror</item>
@@ -233,11 +233,11 @@
         <item quantity="one">%d kategori har inaktiverats</item>
     </plurals>
     <plurals name="notifications_sent_daily">
-        <item quantity="other">ca %d aviseringar om dagen</item>
+        <item quantity="other">ca %,d aviseringar om dagen</item>
         <item quantity="one">ca %d avisering om dagen</item>
     </plurals>
     <plurals name="notifications_sent_weekly">
-        <item quantity="other">Ca %d aviseringar i veckan</item>
+        <item quantity="other">Ca %,d aviseringar i veckan</item>
         <item quantity="one">Ca %d avisering i veckan</item>
     </plurals>
     <plurals name="number_of_device_admins">
@@ -328,22 +328,6 @@
         <item quantity="other">Lita på eller ta bort certifikaten</item>
         <item quantity="one">Lita på eller ta bort certifikatet</item>
     </plurals>
-    <plurals name="ssl_ca_cert_info_message">
-        <item quantity="other">"%s har installerat certifikatutfärdare för jobbprofilen. Detta innebär att nätverksaktivitet på jobbet, som e-postmeddelanden, appar och säkra webbplatser, kan kontrolleras.
-
-Kontakta administratören om du vill veta mer om certifikaten."</item>
-        <item quantity="one">"%s har installerat en certifikatutfärdare för jobbprofilen. Detta innebär att nätverksaktivitet på jobbet, som e-postmeddelanden, appar och säkra webbplatser, kan kontrolleras.
-
-Kontakta administratören om du vill veta mer om certifikatet."</item>
-    </plurals>
-    <plurals name="ssl_ca_cert_info_message_device_owner">
-        <item quantity="other">"%s har installerat certifikatutfärdare för enheten. Detta innebär att nätverksaktivitet på enheten, som e-postmeddelanden, appar och säkra webbplatser, kan kontrolleras.
-
-Kontakta administratören om du vill veta mer om certifikaten."</item>
-        <item quantity="one">"%s har installerat en certifikatutfärdare för enheten. Detta innebär att nätverksaktivitet på enheten, som e-postmeddelanden, appar och säkra webbplatser, kan kontrolleras.
-
-Kontakta administratören om du vill veta mer om certifikatet."</item>
-    </plurals>
     <plurals name="ssl_ca_cert_settings_button">
         <item quantity="other">Kontrollera certifikaten</item>
         <item quantity="one">Kontrollera certifikatet</item>
@@ -375,10 +359,6 @@ Kontakta administratören om du vill veta mer om certifikatet."</item>
     <plurals name="wifi_saved_passpoint_access_points_summary">
         <item quantity="other">%d prenumerationer</item>
         <item quantity="one">1 prenumeration</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$d enheter är anslutna</item>
-        <item quantity="one">%1$d enhet är ansluten</item>
     </plurals>
     <plurals name="wrong_pin_code">
         <item quantity="other">Du angav fel pinkod för SIM-kortet. %d försök återstår.</item>

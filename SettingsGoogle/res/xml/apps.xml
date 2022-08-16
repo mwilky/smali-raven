@@ -9,7 +9,6 @@
     <Preference android:title="@string/app_default_dashboard_title" android:key="default_apps" android:order="-996" settings:controller="com.android.settings.applications.DefaultAppsPreferenceController">
         <intent android:action="android.settings.MANAGE_DEFAULT_APPS_SETTINGS" />
     </Preference>
-    <Preference android:title="@string/game_settings_title" android:key="game_settings" android:summary="@string/game_settings_summary" android:order="-995" settings:controller="com.android.settings.applications.GameSettingsPreferenceController" />
     <PreferenceCategory android:key="dashboard_tile_placeholder" android:order="10" />
     <Preference android:title="@string/unused_apps" android:key="hibernated_apps" android:summary="@string/summary_placeholder" android:order="15" settings:controller="com.android.settings.applications.HibernatedAppsPreferenceController" settings:keywords="app_hibernation_key">
         <intent android:action="android.intent.action.MANAGE_UNUSED_APPS" />

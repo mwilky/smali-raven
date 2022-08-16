@@ -45,11 +45,11 @@
 
     mul-float/2addr v0, v1
 
-    invoke-static {p1, v0}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->access$202(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;F)F
+    invoke-static {p1, v0}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->-$$Nest$fputmLastTime(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;F)V
 
     iget-object p1, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable$2;->this$0:Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;
 
-    invoke-static {p1}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->access$300(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)I
+    invoke-static {p1}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->-$$Nest$fgetmGameState(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)I
 
     move-result p1
 
@@ -66,13 +66,13 @@
     :try_start_0
     iget-object p1, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable$2;->this$0:Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;
 
-    invoke-static {p1}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->access$200(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)F
+    invoke-static {p1}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->-$$Nest$fgetmLastTime(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)F
 
     move-result p1
 
     iget-object v2, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable$2;->this$0:Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;
 
-    invoke-static {v2}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->access$400(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)F
+    invoke-static {v2}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->-$$Nest$fgetmNextBubbleTime(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)F
 
     move-result v2
 
@@ -82,7 +82,7 @@
 
     iget-object p1, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable$2;->this$0:Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;
 
-    invoke-static {p1}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->access$600(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)Ljava/util/List;
+    invoke-static {p1}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->-$$Nest$fgetmBubbles(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)Ljava/util/List;
 
     move-result-object p1
 
@@ -90,7 +90,7 @@
 
     iget-object v3, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable$2;->this$0:Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;
 
-    invoke-static {v3}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->access$500(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)Landroid/graphics/Rect;
+    invoke-static {v3}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->-$$Nest$fgetmBounds(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)Landroid/graphics/Rect;
 
     move-result-object v3
 
@@ -100,7 +100,7 @@
 
     iget-object p1, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable$2;->this$0:Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;
 
-    invoke-static {p1}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->access$200(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)F
+    invoke-static {p1}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->-$$Nest$fgetmLastTime(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)F
 
     move-result v2
 
@@ -108,12 +108,12 @@
 
     add-float/2addr v2, v3
 
-    invoke-static {p1, v2}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->access$402(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;F)F
+    invoke-static {p1, v2}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->-$$Nest$fputmNextBubbleTime(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;F)V
 
     :cond_0
     iget-object p1, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable$2;->this$0:Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;
 
-    invoke-static {p1}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->access$600(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)Ljava/util/List;
+    invoke-static {p1}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->-$$Nest$fgetmBubbles(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)Ljava/util/List;
 
     move-result-object p1
 
@@ -128,7 +128,7 @@
 
     iget-object v2, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable$2;->this$0:Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;
 
-    invoke-static {v2}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->access$600(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)Ljava/util/List;
+    invoke-static {v2}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->-$$Nest$fgetmBubbles(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)Ljava/util/List;
 
     move-result-object v2
 
@@ -148,7 +148,7 @@
 
     iget-object v2, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable$2;->this$0:Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;
 
-    invoke-static {v2}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->access$600(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)Ljava/util/List;
+    invoke-static {v2}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->-$$Nest$fgetmBubbles(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)Ljava/util/List;
 
     move-result-object v2
 
@@ -171,7 +171,7 @@
 
     iget-object v3, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable$2;->this$0:Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;
 
-    invoke-static {v3}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->access$700(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)Ljava/util/List;
+    invoke-static {v3}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->-$$Nest$fgetmDeadBubbles(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)Ljava/util/List;
 
     move-result-object v3
 
@@ -179,7 +179,7 @@
 
     iget-object v2, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable$2;->this$0:Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;
 
-    invoke-static {v2}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->access$600(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)Ljava/util/List;
+    invoke-static {v2}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->-$$Nest$fgetmBubbles(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)Ljava/util/List;
 
     move-result-object v2
 
@@ -190,7 +190,7 @@
     :cond_2
     iget-object v3, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable$2;->this$0:Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;
 
-    invoke-static {v3, v2}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->access$800(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;Lcom/google/android/settings/gestures/assist/bubble/Bubble;)Z
+    invoke-static {v3, v2}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->-$$Nest$mhasCollisionWithDeadBubbles(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;Lcom/google/android/settings/gestures/assist/bubble/Bubble;)Z
 
     move-result v3
 
@@ -212,7 +212,7 @@
 
     iget-object v4, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable$2;->this$0:Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;
 
-    invoke-static {v4}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->access$500(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)Landroid/graphics/Rect;
+    invoke-static {v4}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->-$$Nest$fgetmBounds(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)Landroid/graphics/Rect;
 
     move-result-object v4
 
@@ -226,11 +226,11 @@
 
     iget-object v3, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable$2;->this$0:Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;
 
-    invoke-static {v3, v0}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->access$302(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;I)I
+    invoke-static {v3, v0}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->-$$Nest$fputmGameState(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;I)V
 
     iget-object v3, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable$2;->this$0:Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;
 
-    invoke-static {v3, v1}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->access$902(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;Z)Z
+    invoke-static {v3, v1}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->-$$Nest$fputmBubbleTouchedBottom(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;Z)V
 
     :cond_3
     invoke-virtual {v2}, Lcom/google/android/settings/gestures/assist/bubble/Bubble;->getState()I
@@ -241,7 +241,7 @@
 
     iget-object v3, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable$2;->this$0:Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;
 
-    invoke-static {v3}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->access$700(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)Ljava/util/List;
+    invoke-static {v3}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->-$$Nest$fgetmDeadBubbles(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)Ljava/util/List;
 
     move-result-object v3
 
@@ -249,7 +249,7 @@
 
     iget-object v2, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable$2;->this$0:Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;
 
-    invoke-static {v2}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->access$600(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)Ljava/util/List;
+    invoke-static {v2}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->-$$Nest$fgetmBubbles(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)Ljava/util/List;
 
     move-result-object v2
 
@@ -279,7 +279,7 @@
     :goto_2
     iget-object p1, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable$2;->this$0:Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;
 
-    invoke-static {p1}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->access$300(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)I
+    invoke-static {p1}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->-$$Nest$fgetmGameState(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)I
 
     move-result p1
 
@@ -295,7 +295,7 @@
     :try_start_1
     iget-object v2, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable$2;->this$0:Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;
 
-    invoke-static {v2}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->access$1000(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)Ljava/util/List;
+    invoke-static {v2}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->-$$Nest$fgetmSpiralingAndroids(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)Ljava/util/List;
 
     move-result-object v2
 
@@ -307,7 +307,7 @@
 
     iget-object v2, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable$2;->this$0:Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;
 
-    invoke-static {v2}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->access$1000(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)Ljava/util/List;
+    invoke-static {v2}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->-$$Nest$fgetmSpiralingAndroids(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)Ljava/util/List;
 
     move-result-object v2
 
@@ -329,7 +329,7 @@
 
     iget-object v4, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable$2;->this$0:Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;
 
-    invoke-static {v4}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->access$500(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)Landroid/graphics/Rect;
+    invoke-static {v4}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->-$$Nest$fgetmBounds(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)Landroid/graphics/Rect;
 
     move-result-object v4
 
@@ -349,7 +349,7 @@
     :cond_8
     iget-object p1, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable$2;->this$0:Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;
 
-    invoke-static {p1}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->access$1100(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)Z
+    invoke-static {p1}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->-$$Nest$fgetmServiceConnected(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)Z
 
     move-result p1
 
@@ -364,11 +364,11 @@
 
     iget-object p1, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable$2;->this$0:Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;
 
-    invoke-static {p1}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->access$1200(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)V
+    invoke-static {p1}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->-$$Nest$mnotifyGameStateChanged(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)V
 
     iget-object p1, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable$2;->this$0:Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;
 
-    invoke-static {p1}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->access$1300(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)Landroid/animation/TimeAnimator;
+    invoke-static {p1}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->-$$Nest$fgetmDriftAnimation(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)Landroid/animation/TimeAnimator;
 
     move-result-object p1
 

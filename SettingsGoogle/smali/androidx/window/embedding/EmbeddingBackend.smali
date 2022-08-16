@@ -23,6 +23,13 @@
     .end annotation
 .end method
 
+.method public abstract isActivityEmbedded(Landroid/app/Activity;)Z
+    .param p1    # Landroid/app/Activity;
+        .annotation build Lorg/jetbrains/annotations/NotNull;
+        .end annotation
+    .end param
+.end method
+
 .method public abstract isSplitSupported()Z
 .end method
 

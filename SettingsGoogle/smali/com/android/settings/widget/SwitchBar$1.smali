@@ -43,7 +43,7 @@
 
     iget-object p1, p0, Lcom/android/settings/widget/SwitchBar$1;->this$0:Lcom/android/settings/widget/SwitchBar;
 
-    invoke-static {p1}, Lcom/android/settings/widget/SwitchBar;->access$000(Lcom/android/settings/widget/SwitchBar;)Z
+    invoke-static {p1}, Lcom/android/settings/widget/SwitchBar;->-$$Nest$fgetmDisabledByAdmin(Lcom/android/settings/widget/SwitchBar;)Z
 
     move-result p1
 
@@ -51,7 +51,7 @@
 
     iget-object p1, p0, Lcom/android/settings/widget/SwitchBar$1;->this$0:Lcom/android/settings/widget/SwitchBar;
 
-    invoke-static {p1}, Lcom/android/settings/widget/SwitchBar;->access$200(Lcom/android/settings/widget/SwitchBar;)Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;
+    invoke-static {p1}, Lcom/android/settings/widget/SwitchBar;->-$$Nest$fgetmMetricsFeatureProvider(Lcom/android/settings/widget/SwitchBar;)Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;
 
     move-result-object v0
 
@@ -67,7 +67,7 @@
 
     iget-object v4, p0, Lcom/android/settings/widget/SwitchBar$1;->this$0:Lcom/android/settings/widget/SwitchBar;
 
-    invoke-static {v4}, Lcom/android/settings/widget/SwitchBar;->access$100(Lcom/android/settings/widget/SwitchBar;)Ljava/lang/String;
+    invoke-static {v4}, Lcom/android/settings/widget/SwitchBar;->-$$Nest$fgetmMetricsTag(Lcom/android/settings/widget/SwitchBar;)Ljava/lang/String;
 
     move-result-object v4
 
@@ -89,7 +89,7 @@
 
     iget-object p0, p0, Lcom/android/settings/widget/SwitchBar$1;->this$0:Lcom/android/settings/widget/SwitchBar;
 
-    invoke-static {p0}, Lcom/android/settings/widget/SwitchBar;->access$300(Lcom/android/settings/widget/SwitchBar;)Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
+    invoke-static {p0}, Lcom/android/settings/widget/SwitchBar;->-$$Nest$fgetmEnforcedAdmin(Lcom/android/settings/widget/SwitchBar;)Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
 
     move-result-object p0
 

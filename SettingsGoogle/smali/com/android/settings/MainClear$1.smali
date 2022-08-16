@@ -81,7 +81,7 @@
 
     const/16 v0, 0x37
 
-    invoke-static {p1, v0}, Lcom/android/settings/MainClear;->access$000(Lcom/android/settings/MainClear;I)Z
+    invoke-static {p1, v0}, Lcom/android/settings/MainClear;->-$$Nest$mrunKeyguardConfirmation(Lcom/android/settings/MainClear;I)Z
 
     move-result p1
 

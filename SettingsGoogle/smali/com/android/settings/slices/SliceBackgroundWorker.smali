@@ -349,11 +349,11 @@
 .method protected final notifySliceChange()V
     .locals 1
 
-    invoke-static {}, Lcom/android/settings/slices/SliceBackgroundWorker$NotifySliceChangeHandler;->access$000()Lcom/android/settings/slices/SliceBackgroundWorker$NotifySliceChangeHandler;
+    invoke-static {}, Lcom/android/settings/slices/SliceBackgroundWorker$NotifySliceChangeHandler;->-$$Nest$smgetInstance()Lcom/android/settings/slices/SliceBackgroundWorker$NotifySliceChangeHandler;
 
     move-result-object v0
 
-    invoke-static {v0, p0}, Lcom/android/settings/slices/SliceBackgroundWorker$NotifySliceChangeHandler;->access$100(Lcom/android/settings/slices/SliceBackgroundWorker$NotifySliceChangeHandler;Lcom/android/settings/slices/SliceBackgroundWorker;)V
+    invoke-static {v0, p0}, Lcom/android/settings/slices/SliceBackgroundWorker$NotifySliceChangeHandler;->-$$Nest$mupdateSlice(Lcom/android/settings/slices/SliceBackgroundWorker$NotifySliceChangeHandler;Lcom/android/settings/slices/SliceBackgroundWorker;)V
 
     return-void
 .end method
@@ -377,11 +377,11 @@
 
     invoke-virtual {p0}, Lcom/android/settings/slices/SliceBackgroundWorker;->onSliceUnpinned()V
 
-    invoke-static {}, Lcom/android/settings/slices/SliceBackgroundWorker$NotifySliceChangeHandler;->access$000()Lcom/android/settings/slices/SliceBackgroundWorker$NotifySliceChangeHandler;
+    invoke-static {}, Lcom/android/settings/slices/SliceBackgroundWorker$NotifySliceChangeHandler;->-$$Nest$smgetInstance()Lcom/android/settings/slices/SliceBackgroundWorker$NotifySliceChangeHandler;
 
     move-result-object v0
 
-    invoke-static {v0, p0}, Lcom/android/settings/slices/SliceBackgroundWorker$NotifySliceChangeHandler;->access$200(Lcom/android/settings/slices/SliceBackgroundWorker$NotifySliceChangeHandler;Lcom/android/settings/slices/SliceBackgroundWorker;)V
+    invoke-static {v0, p0}, Lcom/android/settings/slices/SliceBackgroundWorker$NotifySliceChangeHandler;->-$$Nest$mcancelSliceUpdate(Lcom/android/settings/slices/SliceBackgroundWorker$NotifySliceChangeHandler;Lcom/android/settings/slices/SliceBackgroundWorker;)V
 
     return-void
 .end method

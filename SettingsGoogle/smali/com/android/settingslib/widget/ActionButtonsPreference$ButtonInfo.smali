@@ -29,6 +29,94 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmButton(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;)Landroid/widget/Button;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->mButton:Landroid/widget/Button;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmIsEnabled(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->mIsEnabled:Z
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmIsVisible(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->mIsVisible:Z
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmListener(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;)Landroid/view/View$OnClickListener;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->mListener:Landroid/view/View$OnClickListener;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmText(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;)Ljava/lang/CharSequence;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->mText:Ljava/lang/CharSequence;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmButton(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;Landroid/widget/Button;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->mButton:Landroid/widget/Button;
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fputmIcon(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;Landroid/graphics/drawable/Drawable;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->mIcon:Landroid/graphics/drawable/Drawable;
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fputmIsEnabled(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->mIsEnabled:Z
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fputmIsVisible(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->mIsVisible:Z
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fputmListener(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;Landroid/view/View$OnClickListener;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->mListener:Landroid/view/View$OnClickListener;
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fputmText(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;Ljava/lang/CharSequence;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->mText:Ljava/lang/CharSequence;
+
+    return-void
+.end method
+
 .method constructor <init>()V
     .locals 1
 
@@ -41,94 +129,6 @@
     iput-boolean v0, p0, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->mIsVisible:Z
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;)Landroid/widget/Button;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->mButton:Landroid/widget/Button;
-
-    return-object p0
-.end method
-
-.method static synthetic access$002(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;Landroid/widget/Button;)Landroid/widget/Button;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->mButton:Landroid/widget/Button;
-
-    return-object p1
-.end method
-
-.method static synthetic access$100(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->mIsVisible:Z
-
-    return p0
-.end method
-
-.method static synthetic access$102(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->mIsVisible:Z
-
-    return p1
-.end method
-
-.method static synthetic access$200(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;)Ljava/lang/CharSequence;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->mText:Ljava/lang/CharSequence;
-
-    return-object p0
-.end method
-
-.method static synthetic access$202(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->mText:Ljava/lang/CharSequence;
-
-    return-object p1
-.end method
-
-.method static synthetic access$302(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->mIcon:Landroid/graphics/drawable/Drawable;
-
-    return-object p1
-.end method
-
-.method static synthetic access$400(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->mIsEnabled:Z
-
-    return p0
-.end method
-
-.method static synthetic access$402(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->mIsEnabled:Z
-
-    return p1
-.end method
-
-.method static synthetic access$500(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;)Landroid/view/View$OnClickListener;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->mListener:Landroid/view/View$OnClickListener;
-
-    return-object p0
-.end method
-
-.method static synthetic access$502(Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;Landroid/view/View$OnClickListener;)Landroid/view/View$OnClickListener;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/settingslib/widget/ActionButtonsPreference$ButtonInfo;->mListener:Landroid/view/View$OnClickListener;
-
-    return-object p1
 .end method
 
 .method private shouldBeVisible()Z

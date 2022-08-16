@@ -39,7 +39,7 @@
 
     iget-object p0, p0, Lcom/android/settings/print/PrintSettingsFragment$PrintJobsLoader$1;->this$0:Lcom/android/settings/print/PrintSettingsFragment$PrintJobsLoader;
 
-    invoke-static {p0}, Lcom/android/settings/print/PrintSettingsFragment$PrintJobsLoader;->access$700(Lcom/android/settings/print/PrintSettingsFragment$PrintJobsLoader;)V
+    invoke-static {p0}, Lcom/android/settings/print/PrintSettingsFragment$PrintJobsLoader;->access$200(Lcom/android/settings/print/PrintSettingsFragment$PrintJobsLoader;)V
 
     return-void
 .end method

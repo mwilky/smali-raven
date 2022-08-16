@@ -6,6 +6,9 @@
     <fraction name="bt_battery_button_height_fraction">7.799995%</fraction>
     <fraction name="bt_battery_ratio_fraction">35.000004%</fraction>
     <fraction name="bt_battery_scale_fraction">75.0%</fraction>
+    <fraction name="display_density_max_scale">150.0%</fraction>
+    <fraction name="display_density_min_scale">85.0%</fraction>
+    <fraction name="display_density_min_scale_interval">9.000004%</fraction>
     <fraction name="fingerprint_sensor_location_fraction_x">50.0%</fraction>
     <fraction name="fingerprint_sensor_location_fraction_y">29.999996%</fraction>
 </resources>

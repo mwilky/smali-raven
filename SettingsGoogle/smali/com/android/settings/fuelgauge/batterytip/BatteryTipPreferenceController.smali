@@ -89,14 +89,6 @@
 
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public displayPreference(Landroidx/preference/PreferenceScreen;)V
     .locals 1
 
@@ -137,15 +129,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -170,7 +153,9 @@
 
     move-result-object v0
 
-    sget-object v2, Lcom/android/settings/fuelgauge/batterytip/BatteryTipPreferenceController$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/settings/fuelgauge/batterytip/BatteryTipPreferenceController$$ExternalSyntheticLambda0;
+    new-instance v2, Lcom/android/settings/fuelgauge/batterytip/BatteryTipPreferenceController$$ExternalSyntheticLambda0;
+
+    invoke-direct {v2}, Lcom/android/settings/fuelgauge/batterytip/BatteryTipPreferenceController$$ExternalSyntheticLambda0;-><init>()V
 
     invoke-interface {v0, v2}, Ljava/util/stream/Stream;->anyMatch(Ljava/util/function/Predicate;)Z
 
@@ -184,7 +169,9 @@
 
     move-result-object p0
 
-    sget-object v0, Lcom/android/settings/fuelgauge/batterytip/BatteryTipPreferenceController$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/settings/fuelgauge/batterytip/BatteryTipPreferenceController$$ExternalSyntheticLambda0;
+    new-instance v0, Lcom/android/settings/fuelgauge/batterytip/BatteryTipPreferenceController$$ExternalSyntheticLambda0;
+
+    invoke-direct {v0}, Lcom/android/settings/fuelgauge/batterytip/BatteryTipPreferenceController$$ExternalSyntheticLambda0;-><init>()V
 
     invoke-interface {p0, v0}, Ljava/util/stream/Stream;->filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
 
@@ -321,16 +308,6 @@
     .locals 0
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->hasAsyncUpdate()Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
 
     move-result p0
 

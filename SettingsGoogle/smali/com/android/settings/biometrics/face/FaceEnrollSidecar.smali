@@ -8,7 +8,7 @@
 
 .field private mEnrollmentCallback:Landroid/hardware/face/FaceManager$EnrollmentCallback;
 
-.field private mFaceManager:Landroid/hardware/face/FaceManager;
+.field private mFaceUpdater:Lcom/android/settings/biometrics/face/FaceUpdater;
 
 
 # direct methods
@@ -69,15 +69,15 @@
 .end method
 
 .method public onAttach(Landroid/app/Activity;)V
-    .locals 0
+    .locals 1
 
     invoke-super {p0, p1}, Lcom/android/settings/biometrics/BiometricEnrollSidecar;->onAttach(Landroid/app/Activity;)V
 
-    invoke-static {p1}, Lcom/android/settings/Utils;->getFaceManagerOrNull(Landroid/content/Context;)Landroid/hardware/face/FaceManager;
+    new-instance v0, Lcom/android/settings/biometrics/face/FaceUpdater;
 
-    move-result-object p1
+    invoke-direct {v0, p1}, Lcom/android/settings/biometrics/face/FaceUpdater;-><init>(Landroid/content/Context;)V
 
-    iput-object p1, p0, Lcom/android/settings/biometrics/face/FaceEnrollSidecar;->mFaceManager:Landroid/hardware/face/FaceManager;
+    iput-object v0, p0, Lcom/android/settings/biometrics/face/FaceEnrollSidecar;->mFaceUpdater:Lcom/android/settings/biometrics/face/FaceUpdater;
 
     return-void
 .end method
@@ -87,7 +87,7 @@
 
     invoke-super {p0}, Lcom/android/settings/biometrics/BiometricEnrollSidecar;->startEnrollment()V
 
-    iget-object v0, p0, Lcom/android/settings/biometrics/face/FaceEnrollSidecar;->mFaceManager:Landroid/hardware/face/FaceManager;
+    iget-object v0, p0, Lcom/android/settings/biometrics/face/FaceEnrollSidecar;->mFaceUpdater:Lcom/android/settings/biometrics/face/FaceUpdater;
 
     iget v1, p0, Lcom/android/settings/biometrics/BiometricEnrollSidecar;->mUserId:I
 
@@ -99,7 +99,7 @@
 
     iget-object v5, p0, Lcom/android/settings/biometrics/face/FaceEnrollSidecar;->mDisabledFeatures:[I
 
-    invoke-virtual/range {v0 .. v5}, Landroid/hardware/face/FaceManager;->enroll(I[BLandroid/os/CancellationSignal;Landroid/hardware/face/FaceManager$EnrollmentCallback;[I)V
+    invoke-virtual/range {v0 .. v5}, Lcom/android/settings/biometrics/face/FaceUpdater;->enroll(I[BLandroid/os/CancellationSignal;Landroid/hardware/face/FaceManager$EnrollmentCallback;[I)V
 
     return-void
 .end method

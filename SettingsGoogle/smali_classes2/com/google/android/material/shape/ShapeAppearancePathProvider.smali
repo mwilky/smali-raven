@@ -404,12 +404,6 @@
 
     if-eqz v1, :cond_1
 
-    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v5, 0x13
-
-    if-lt v1, v5, :cond_1
-
     invoke-virtual {v2}, Lcom/google/android/material/shape/EdgeTreatment;->forceIntersection()Z
 
     move-result v1
@@ -664,15 +658,13 @@
 
     iget-object v1, p0, Lcom/google/android/material/shape/ShapeAppearancePathProvider;->cornerPaths:[Lcom/google/android/material/shape/ShapePath;
 
-    aget-object v2, v1, p2
+    aget-object v1, v1, p2
 
-    iget v2, v2, Lcom/google/android/material/shape/ShapePath;->endX:F
+    iget v2, v1, Lcom/google/android/material/shape/ShapePath;->endX:F
 
     const/4 v3, 0x0
 
     aput v2, v0, v3
-
-    aget-object v1, v1, p2
 
     iget v1, v1, Lcom/google/android/material/shape/ShapePath;->endY:F
 
@@ -1076,12 +1068,6 @@
     iget-object p1, p0, Lcom/google/android/material/shape/ShapeAppearancePathProvider;->overlappedEdgePath:Landroid/graphics/Path;
 
     invoke-virtual {p1}, Landroid/graphics/Path;->close()V
-
-    sget p1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 p2, 0x13
-
-    if-lt p1, p2, :cond_2
 
     iget-object p1, p0, Lcom/google/android/material/shape/ShapeAppearancePathProvider;->overlappedEdgePath:Landroid/graphics/Path;
 

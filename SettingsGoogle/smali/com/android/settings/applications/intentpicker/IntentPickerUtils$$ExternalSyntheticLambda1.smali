@@ -1,37 +1,30 @@
 .class public final synthetic Lcom/android/settings/applications/intentpicker/IntentPickerUtils$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Predicate;
-
-
-# instance fields
-.field public final synthetic f$0:I
+.implements Ljava/util/function/Function;
 
 
 # direct methods
-.method public synthetic constructor <init>(I)V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput p1, p0, Lcom/android/settings/applications/intentpicker/IntentPickerUtils$$ExternalSyntheticLambda1;->f$0:I
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final test(Ljava/lang/Object;)Z
+.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
-
-    iget p0, p0, Lcom/android/settings/applications/intentpicker/IntentPickerUtils$$ExternalSyntheticLambda1;->f$0:I
 
     check-cast p1, Ljava/util/Map$Entry;
 
-    invoke-static {p0, p1}, Lcom/android/settings/applications/intentpicker/IntentPickerUtils;->$r8$lambda$L4JsG_PolMWynZaHxYJtw8-V4Hk(ILjava/util/Map$Entry;)Z
+    invoke-static {p1}, Lcom/android/settings/applications/intentpicker/IntentPickerUtils;->$r8$lambda$sVtP986i5ZPXdRsG6lwumPPhivs(Ljava/util/Map$Entry;)Ljava/lang/String;
 
-    move-result p0
+    move-result-object p0
 
-    return p0
+    return-object p0
 .end method

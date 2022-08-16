@@ -49,7 +49,9 @@
 
     iput-object p1, p0, Lcom/android/settings/notification/app/AppConversationListPreferenceController;->mConversations:Ljava/util/List;
 
-    sget-object p1, Lcom/android/settings/notification/app/AppConversationListPreferenceController$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/settings/notification/app/AppConversationListPreferenceController$$ExternalSyntheticLambda0;
+    new-instance p1, Lcom/android/settings/notification/app/AppConversationListPreferenceController$$ExternalSyntheticLambda0;
+
+    invoke-direct {p1}, Lcom/android/settings/notification/app/AppConversationListPreferenceController$$ExternalSyntheticLambda0;-><init>()V
 
     iput-object p1, p0, Lcom/android/settings/notification/app/AppConversationListPreferenceController;->mConversationComparator:Ljava/util/Comparator;
 
@@ -220,7 +222,7 @@
 .method protected getTitleResId()I
     .locals 0
 
-    const p0, 0x7f0406a7
+    const p0, 0x7f040705
 
     return p0
 .end method
@@ -385,7 +387,7 @@
 
     iget-object v0, p0, Lcom/android/settings/notification/app/NotificationPreferenceController;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f040e59
+    const v1, 0x7f040eed
 
     const/4 v3, 0x2
 

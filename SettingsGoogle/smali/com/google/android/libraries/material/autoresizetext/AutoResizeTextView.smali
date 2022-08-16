@@ -650,64 +650,31 @@
 
 # virtual methods
 .method public final getLineSpacingExtra()F
-    .locals 2
-
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x10
-
-    if-lt v0, v1, :cond_0
+    .locals 0
 
     invoke-super {p0}, Landroid/widget/TextView;->getLineSpacingExtra()F
 
     move-result p0
 
     return p0
-
-    :cond_0
-    iget p0, p0, Lcom/google/android/libraries/material/autoresizetext/AutoResizeTextView;->lineSpacingExtra:F
-
-    return p0
 .end method
 
 .method public final getLineSpacingMultiplier()F
-    .locals 2
-
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x10
-
-    if-lt v0, v1, :cond_0
+    .locals 0
 
     invoke-super {p0}, Landroid/widget/TextView;->getLineSpacingMultiplier()F
 
     move-result p0
 
     return p0
-
-    :cond_0
-    iget p0, p0, Lcom/google/android/libraries/material/autoresizetext/AutoResizeTextView;->lineSpacingMultiplier:F
-
-    return p0
 .end method
 
 .method public final getMaxLines()I
-    .locals 2
-
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x10
-
-    if-lt v0, v1, :cond_0
+    .locals 0
 
     invoke-super {p0}, Landroid/widget/TextView;->getMaxLines()I
 
     move-result p0
-
-    return p0
-
-    :cond_0
-    iget p0, p0, Lcom/google/android/libraries/material/autoresizetext/AutoResizeTextView;->maxLines:I
 
     return p0
 .end method

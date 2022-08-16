@@ -22,6 +22,14 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$mcheckScroll(Lcom/google/android/setupdesign/view/BottomScrollView;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/google/android/setupdesign/view/BottomScrollView;->checkScroll()V
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 0
 
@@ -72,14 +80,6 @@
     invoke-direct {p1, p0}, Lcom/google/android/setupdesign/view/BottomScrollView$1;-><init>(Lcom/google/android/setupdesign/view/BottomScrollView;)V
 
     iput-object p1, p0, Lcom/google/android/setupdesign/view/BottomScrollView;->checkScrollRunnable:Ljava/lang/Runnable;
-
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/google/android/setupdesign/view/BottomScrollView;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/google/android/setupdesign/view/BottomScrollView;->checkScroll()V
 
     return-void
 .end method

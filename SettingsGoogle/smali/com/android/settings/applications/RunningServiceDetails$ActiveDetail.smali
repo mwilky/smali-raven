@@ -175,7 +175,7 @@
 
     move-result-object v5
 
-    const-string v6, "service_dump.txt"
+    const-string/jumbo v6, "service_dump.txt"
 
     invoke-virtual {v5, v6}, Landroid/app/Activity;->getFileStreamPath(Ljava/lang/String;)Ljava/io/File;
 
@@ -206,7 +206,7 @@
 
     aput-object v11, v10, v1
 
-    const-string v1, "service"
+    const-string/jumbo v1, "service"
 
     aput-object v1, v10, v3
 
@@ -522,7 +522,7 @@
 
     iget-object p0, p0, Lcom/android/settings/applications/RunningServiceDetails$ActiveDetail;->this$0:Lcom/android/settings/applications/RunningServiceDetails;
 
-    invoke-static {p0}, Lcom/android/settings/applications/RunningServiceDetails;->access$100(Lcom/android/settings/applications/RunningServiceDetails;)V
+    invoke-static {p0}, Lcom/android/settings/applications/RunningServiceDetails;->-$$Nest$mfinish(Lcom/android/settings/applications/RunningServiceDetails;)V
 
     goto :goto_9
 
@@ -539,7 +539,7 @@
 
     iget-object p0, p0, Lcom/android/settings/applications/RunningServiceDetails$ActiveDetail;->this$0:Lcom/android/settings/applications/RunningServiceDetails;
 
-    invoke-static {p0}, Lcom/android/settings/applications/RunningServiceDetails;->access$100(Lcom/android/settings/applications/RunningServiceDetails;)V
+    invoke-static {p0}, Lcom/android/settings/applications/RunningServiceDetails;->-$$Nest$mfinish(Lcom/android/settings/applications/RunningServiceDetails;)V
 
     :goto_9
     return-void
@@ -570,7 +570,7 @@
 
     iget-object p1, p1, Landroid/app/ActivityManager$RunningServiceInfo;->service:Landroid/content/ComponentName;
 
-    invoke-static {p0, p1}, Lcom/android/settings/applications/RunningServiceDetails;->access$000(Lcom/android/settings/applications/RunningServiceDetails;Landroid/content/ComponentName;)V
+    invoke-static {p0, p1}, Lcom/android/settings/applications/RunningServiceDetails;->-$$Nest$mshowConfirmStopDialog(Lcom/android/settings/applications/RunningServiceDetails;Landroid/content/ComponentName;)V
 
     return-void
 
@@ -607,7 +607,7 @@
 
     iget-object p0, p0, Lcom/android/settings/applications/RunningServiceDetails$ActiveDetail;->this$0:Lcom/android/settings/applications/RunningServiceDetails;
 
-    invoke-static {p0}, Lcom/android/settings/applications/RunningServiceDetails;->access$100(Lcom/android/settings/applications/RunningServiceDetails;)V
+    invoke-static {p0}, Lcom/android/settings/applications/RunningServiceDetails;->-$$Nest$mfinish(Lcom/android/settings/applications/RunningServiceDetails;)V
 
     goto :goto_0
 
@@ -632,7 +632,7 @@
 
     iget-object p0, p0, Lcom/android/settings/applications/RunningServiceDetails$ActiveDetail;->this$0:Lcom/android/settings/applications/RunningServiceDetails;
 
-    invoke-static {p0}, Lcom/android/settings/applications/RunningServiceDetails;->access$100(Lcom/android/settings/applications/RunningServiceDetails;)V
+    invoke-static {p0}, Lcom/android/settings/applications/RunningServiceDetails;->-$$Nest$mfinish(Lcom/android/settings/applications/RunningServiceDetails;)V
 
     goto :goto_0
 

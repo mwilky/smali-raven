@@ -1,5 +1,5 @@
 .class public Lcom/google/android/settings/gestures/columbus/ColumbusRadioButtonPreference;
-.super Lcom/android/settingslib/widget/RadioButtonPreference;
+.super Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 .source "ColumbusRadioButtonPreference.java"
 
 
@@ -16,14 +16,51 @@
 
 .field private mExtraWidgetView:Landroid/widget/ImageView;
 
+.field private final mIconSize:I
+
 .field private mMetric:I
 
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 0
+    .locals 1
 
-    invoke-direct {p0, p1}, Lcom/android/settingslib/widget/RadioButtonPreference;-><init>(Landroid/content/Context;)V
+    invoke-direct {p0, p1}, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;-><init>(Landroid/content/Context;)V
+
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p1
+
+    const v0, 0x7f0b03d2
+
+    invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result p1
+
+    iput p1, p0, Lcom/google/android/settings/gestures/columbus/ColumbusRadioButtonPreference;->mIconSize:I
+
+    return-void
+.end method
+
+.method private makeIconFixedSize(Landroid/widget/ImageView;)V
+    .locals 1
+
+    invoke-virtual {p1}, Landroid/widget/ImageView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    iget p0, p0, Lcom/google/android/settings/gestures/columbus/ColumbusRadioButtonPreference;->mIconSize:I
+
+    iput p0, v0, Landroid/view/ViewGroup$LayoutParams;->width:I
+
+    iput p0, v0, Landroid/view/ViewGroup$LayoutParams;->height:I
+
+    :cond_0
+    sget-object p0, Landroid/widget/ImageView$ScaleType;->FIT_CENTER:Landroid/widget/ImageView$ScaleType;
+
+    invoke-virtual {p1, p0}, Landroid/widget/ImageView;->setScaleType(Landroid/widget/ImageView$ScaleType;)V
 
     return-void
 .end method
@@ -39,7 +76,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f04060b
+    const v2, 0x7f040667
 
     const/4 v3, 0x1
 
@@ -76,9 +113,19 @@
 .method public onBindViewHolder(Landroidx/preference/PreferenceViewHolder;)V
     .locals 1
 
-    invoke-super {p0, p1}, Lcom/android/settingslib/widget/RadioButtonPreference;->onBindViewHolder(Landroidx/preference/PreferenceViewHolder;)V
+    invoke-super {p0, p1}, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;->onBindViewHolder(Landroidx/preference/PreferenceViewHolder;)V
 
-    const v0, 0x7f0d0483
+    const v0, 0x7f0d051e
+
+    invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/ImageView;
+
+    iput-object v0, p0, Lcom/google/android/settings/gestures/columbus/ColumbusRadioButtonPreference;->mExtraWidgetView:Landroid/widget/ImageView;
+
+    const v0, 0x1020006
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -86,8 +133,11 @@
 
     check-cast p1, Landroid/widget/ImageView;
 
-    iput-object p1, p0, Lcom/google/android/settings/gestures/columbus/ColumbusRadioButtonPreference;->mExtraWidgetView:Landroid/widget/ImageView;
+    if-eqz p1, :cond_0
 
+    invoke-direct {p0, p1}, Lcom/google/android/settings/gestures/columbus/ColumbusRadioButtonPreference;->makeIconFixedSize(Landroid/widget/ImageView;)V
+
+    :cond_0
     invoke-direct {p0}, Lcom/google/android/settings/gestures/columbus/ColumbusRadioButtonPreference;->updateAccessibilityDescription()V
 
     return-void

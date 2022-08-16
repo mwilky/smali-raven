@@ -346,7 +346,7 @@
 .end method
 
 .method private enableOrDisableHardwareLayer()V
-    .locals 5
+    .locals 4
 
     sget-object v0, Lcom/airbnb/lottie/LottieAnimationView$5;->$SwitchMap$com$airbnb$lottie$RenderMode:[I
 
@@ -362,7 +362,7 @@
 
     const/4 v2, 0x1
 
-    if-eq v0, v2, :cond_5
+    if-eq v0, v2, :cond_4
 
     if-eq v0, v1, :cond_0
 
@@ -378,23 +378,11 @@
     :cond_1
     iget-object v0, p0, Lcom/airbnb/lottie/LottieAnimationView;->composition:Lcom/airbnb/lottie/LottieComposition;
 
-    const/4 v3, 0x0
-
     if-eqz v0, :cond_2
 
     invoke-virtual {v0}, Lcom/airbnb/lottie/LottieComposition;->hasDashPattern()Z
 
     move-result v0
-
-    if-eqz v0, :cond_2
-
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v4, 0x1c
-
-    if-ge v0, v4, :cond_2
-
-    goto :goto_0
 
     :cond_2
     iget-object v0, p0, Lcom/airbnb/lottie/LottieAnimationView;->composition:Lcom/airbnb/lottie/LottieComposition;
@@ -405,40 +393,33 @@
 
     move-result v0
 
-    const/4 v4, 0x4
+    const/4 v3, 0x4
 
-    if-le v0, v4, :cond_3
+    if-le v0, v3, :cond_3
+
+    const/4 v0, 0x0
 
     goto :goto_0
 
     :cond_3
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v4, 0x15
-
-    if-ge v0, v4, :cond_4
-
-    goto :goto_0
-
-    :cond_4
-    move v3, v2
+    move v0, v2
 
     :goto_0
-    if-eqz v3, :cond_0
+    if-eqz v0, :cond_0
 
-    :cond_5
+    :cond_4
     :goto_1
     invoke-virtual {p0}, Landroid/widget/ImageView;->getLayerType()I
 
     move-result v0
 
-    if-eq v1, v0, :cond_6
+    if-eq v1, v0, :cond_5
 
     const/4 v0, 0x0
 
     invoke-virtual {p0, v1, v0}, Landroid/widget/ImageView;->setLayerType(ILandroid/graphics/Paint;)V
 
-    :cond_6
+    :cond_5
     return-void
 .end method
 
@@ -1254,7 +1235,7 @@
 .end method
 
 .method protected onAttachedToWindow()V
-    .locals 2
+    .locals 1
 
     invoke-super {p0}, Landroid/widget/ImageView;->onAttachedToWindow()V
 
@@ -1276,19 +1257,6 @@
     iput-boolean v0, p0, Lcom/airbnb/lottie/LottieAnimationView;->wasAnimatingWhenDetached:Z
 
     :cond_1
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x17
-
-    if-ge v0, v1, :cond_2
-
-    invoke-virtual {p0}, Landroid/widget/ImageView;->getVisibility()I
-
-    move-result v0
-
-    invoke-virtual {p0, p0, v0}, Lcom/airbnb/lottie/LottieAnimationView;->onVisibilityChanged(Landroid/view/View;I)V
-
-    :cond_2
     return-void
 .end method
 

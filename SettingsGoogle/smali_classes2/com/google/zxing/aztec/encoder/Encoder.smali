@@ -328,7 +328,7 @@
 .end method
 
 .method public static encode([BII)Lcom/google/zxing/aztec/encoder/AztecCode;
-    .locals 19
+    .locals 18
 
     new-instance v0, Lcom/google/zxing/aztec/encoder/HighLevelEncoder;
 
@@ -423,7 +423,7 @@
 
     if-gt v9, v10, :cond_2
 
-    goto/16 :goto_5
+    goto/16 :goto_6
 
     :cond_2
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -498,35 +498,34 @@
 
     if-le v2, v12, :cond_9
 
+    move v13, v9
+
     :cond_8
     :goto_4
-    move v10, v6
+    move v9, v6
 
-    goto/16 :goto_11
+    goto/16 :goto_12
 
     :cond_9
     sget-object v13, Lcom/google/zxing/aztec/encoder/Encoder;->WORD_SIZE:[I
 
-    aget v14, v13, v11
+    aget v13, v13, v11
 
-    if-eq v9, v14, :cond_a
+    if-eq v9, v13, :cond_a
 
-    aget v7, v13, v11
+    invoke-static {v0, v13}, Lcom/google/zxing/aztec/encoder/Encoder;->stuffBits(Lcom/google/zxing/common/BitArray;I)Lcom/google/zxing/common/BitArray;
 
-    invoke-static {v0, v7}, Lcom/google/zxing/aztec/encoder/Encoder;->stuffBits(Lcom/google/zxing/common/BitArray;I)Lcom/google/zxing/common/BitArray;
+    move-result-object v7
 
-    move-result-object v9
-
-    move-object/from16 v18, v9
-
-    move v9, v7
-
-    move-object/from16 v7, v18
+    goto :goto_5
 
     :cond_a
-    rem-int v13, v12, v9
+    move v13, v9
 
-    sub-int v13, v12, v13
+    :goto_5
+    rem-int v9, v12, v13
+
+    sub-int v9, v12, v9
 
     if-eqz v10, :cond_b
 
@@ -534,7 +533,7 @@
 
     move-result v14
 
-    mul-int/lit8 v15, v9, 0x40
+    mul-int/lit8 v15, v13, 0x40
 
     if-le v14, v15, :cond_b
 
@@ -547,11 +546,9 @@
 
     add-int/2addr v14, v1
 
-    if-gt v14, v13, :cond_8
+    if-gt v14, v9, :cond_8
 
     move-object v0, v7
-
-    move v8, v9
 
     move v2, v10
 
@@ -559,8 +556,10 @@
 
     move v3, v12
 
+    move v8, v13
+
     :cond_c
-    :goto_5
+    :goto_6
     invoke-static {v0, v3, v8}, Lcom/google/zxing/aztec/encoder/Encoder;->generateCheckWords(Lcom/google/zxing/common/BitArray;II)Lcom/google/zxing/common/BitArray;
 
     move-result-object v1
@@ -581,14 +580,14 @@
 
     add-int/lit8 v8, v8, 0xb
 
-    goto :goto_6
+    goto :goto_7
 
     :cond_d
     mul-int/lit8 v8, v7, 0x4
 
     add-int/lit8 v8, v8, 0xe
 
-    :goto_6
+    :goto_7
     new-array v9, v8, [I
 
     const/4 v10, 0x2
@@ -597,19 +596,19 @@
 
     move v11, v5
 
-    :goto_7
+    :goto_8
     if-ge v11, v8, :cond_e
 
     aput v11, v9, v11
 
     add-int/lit8 v11, v11, 0x1
 
-    goto :goto_7
+    goto :goto_8
 
     :cond_e
     move v11, v8
 
-    goto :goto_9
+    goto :goto_a
 
     :cond_f
     add-int/lit8 v11, v8, 0x1
@@ -628,7 +627,7 @@
 
     move v14, v5
 
-    :goto_8
+    :goto_9
     if-ge v14, v12, :cond_10
 
     div-int/lit8 v15, v14, 0xf
@@ -655,10 +654,10 @@
 
     add-int/lit8 v14, v14, 0x1
 
-    goto :goto_8
+    goto :goto_9
 
     :cond_10
-    :goto_9
+    :goto_a
     new-instance v12, Lcom/google/zxing/common/BitMatrix;
 
     invoke-direct {v12, v11}, Lcom/google/zxing/common/BitMatrix;-><init>(I)V
@@ -667,7 +666,7 @@
 
     move v14, v13
 
-    :goto_a
+    :goto_b
     if-ge v13, v7, :cond_18
 
     sub-int v15, v7, v13
@@ -678,20 +677,20 @@
 
     add-int/lit8 v15, v15, 0x9
 
-    goto :goto_b
+    goto :goto_c
 
     :cond_11
     add-int/lit8 v15, v15, 0xc
 
-    :goto_b
+    :goto_c
     move v4, v5
 
-    :goto_c
+    :goto_d
     if-ge v4, v15, :cond_17
 
     mul-int/lit8 v16, v4, 0x2
 
-    :goto_d
+    :goto_e
     if-ge v5, v10, :cond_16
 
     add-int v17, v14, v16
@@ -816,7 +815,7 @@
 
     const/4 v10, 0x2
 
-    goto :goto_d
+    goto :goto_e
 
     :cond_16
     add-int/lit8 v4, v4, 0x1
@@ -827,7 +826,7 @@
 
     const/4 v10, 0x2
 
-    goto :goto_c
+    goto :goto_d
 
     :cond_17
     mul-int/lit8 v15, v15, 0x8
@@ -844,7 +843,7 @@
 
     const/4 v10, 0x2
 
-    goto/16 :goto_a
+    goto/16 :goto_b
 
     :cond_18
     invoke-static {v12, v2, v11, v3}, Lcom/google/zxing/aztec/encoder/Encoder;->drawModeMessage(Lcom/google/zxing/common/BitMatrix;ZILcom/google/zxing/common/BitArray;)V
@@ -857,7 +856,7 @@
 
     invoke-static {v12, v1, v3}, Lcom/google/zxing/aztec/encoder/Encoder;->drawBullsEye(Lcom/google/zxing/common/BitMatrix;II)V
 
-    goto :goto_10
+    goto :goto_11
 
     :cond_19
     div-int/lit8 v1, v11, 0x2
@@ -872,45 +871,45 @@
 
     const/4 v5, 0x0
 
-    :goto_e
+    :goto_f
     div-int/lit8 v6, v8, 0x2
 
-    const/4 v10, 0x1
+    const/4 v9, 0x1
 
-    sub-int/2addr v6, v10
+    sub-int/2addr v6, v9
 
     if-ge v5, v6, :cond_1b
 
     and-int/lit8 v6, v1, 0x1
 
-    :goto_f
+    :goto_10
     if-ge v6, v11, :cond_1a
 
-    sub-int v9, v1, v3
+    sub-int v10, v1, v3
 
-    invoke-virtual {v12, v9, v6}, Lcom/google/zxing/common/BitMatrix;->set(II)V
+    invoke-virtual {v12, v10, v6}, Lcom/google/zxing/common/BitMatrix;->set(II)V
 
     add-int v13, v1, v3
 
     invoke-virtual {v12, v13, v6}, Lcom/google/zxing/common/BitMatrix;->set(II)V
 
-    invoke-virtual {v12, v6, v9}, Lcom/google/zxing/common/BitMatrix;->set(II)V
+    invoke-virtual {v12, v6, v10}, Lcom/google/zxing/common/BitMatrix;->set(II)V
 
     invoke-virtual {v12, v6, v13}, Lcom/google/zxing/common/BitMatrix;->set(II)V
 
     add-int/lit8 v6, v6, 0x2
 
-    goto :goto_f
+    goto :goto_10
 
     :cond_1a
     add-int/lit8 v5, v5, 0xf
 
     add-int/lit8 v3, v3, 0x10
 
-    goto :goto_e
+    goto :goto_f
 
     :cond_1b
-    :goto_10
+    :goto_11
     new-instance v1, Lcom/google/zxing/aztec/encoder/AztecCode;
 
     invoke-direct {v1}, Lcom/google/zxing/aztec/encoder/AztecCode;-><init>()V
@@ -927,10 +926,12 @@
 
     return-object v1
 
-    :goto_11
+    :goto_12
     add-int/lit8 v8, v8, 0x1
 
-    move v6, v10
+    move v6, v9
+
+    move v9, v13
 
     const/4 v4, 0x4
 

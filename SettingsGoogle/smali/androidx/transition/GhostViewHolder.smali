@@ -175,25 +175,19 @@
 
     move-result v1
 
-    sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/4 v3, 0x0
-
-    const/4 v4, 0x1
-
-    const/16 v5, 0x15
-
-    if-lt v2, v5, :cond_1
-
     invoke-virtual {p0}, Landroid/view/View;->getZ()F
 
     move-result v2
 
     invoke-virtual {p1}, Landroid/view/View;->getZ()F
 
-    move-result v5
+    move-result v3
 
-    cmpl-float v2, v2, v5
+    cmpl-float v2, v2, v3
+
+    const/4 v3, 0x0
+
+    const/4 v4, 0x1
 
     if-eqz v2, :cond_1
 

@@ -17,14 +17,6 @@
 
 .method private getCardBackground(Landroidx/cardview/widget/CardViewDelegate;)Landroidx/cardview/widget/RoundRectDrawable;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "cardView"
-        }
-    .end annotation
 
     invoke-interface {p1}, Landroidx/cardview/widget/CardViewDelegate;->getCardBackground()Landroid/graphics/drawable/Drawable;
 
@@ -39,14 +31,6 @@
 # virtual methods
 .method public getBackgroundColor(Landroidx/cardview/widget/CardViewDelegate;)Landroid/content/res/ColorStateList;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "cardView"
-        }
-    .end annotation
 
     invoke-direct {p0, p1}, Landroidx/cardview/widget/CardViewApi21Impl;->getCardBackground(Landroidx/cardview/widget/CardViewDelegate;)Landroidx/cardview/widget/RoundRectDrawable;
 
@@ -61,14 +45,6 @@
 
 .method public getElevation(Landroidx/cardview/widget/CardViewDelegate;)F
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "cardView"
-        }
-    .end annotation
 
     invoke-interface {p1}, Landroidx/cardview/widget/CardViewDelegate;->getCardView()Landroid/view/View;
 
@@ -83,14 +59,6 @@
 
 .method public getMaxElevation(Landroidx/cardview/widget/CardViewDelegate;)F
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "cardView"
-        }
-    .end annotation
 
     invoke-direct {p0, p1}, Landroidx/cardview/widget/CardViewApi21Impl;->getCardBackground(Landroidx/cardview/widget/CardViewDelegate;)Landroidx/cardview/widget/RoundRectDrawable;
 
@@ -105,14 +73,6 @@
 
 .method public getMinHeight(Landroidx/cardview/widget/CardViewDelegate;)F
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "cardView"
-        }
-    .end annotation
 
     invoke-virtual {p0, p1}, Landroidx/cardview/widget/CardViewApi21Impl;->getRadius(Landroidx/cardview/widget/CardViewDelegate;)F
 
@@ -127,14 +87,6 @@
 
 .method public getMinWidth(Landroidx/cardview/widget/CardViewDelegate;)F
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "cardView"
-        }
-    .end annotation
 
     invoke-virtual {p0, p1}, Landroidx/cardview/widget/CardViewApi21Impl;->getRadius(Landroidx/cardview/widget/CardViewDelegate;)F
 
@@ -149,14 +101,6 @@
 
 .method public getRadius(Landroidx/cardview/widget/CardViewDelegate;)F
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "cardView"
-        }
-    .end annotation
 
     invoke-direct {p0, p1}, Landroidx/cardview/widget/CardViewApi21Impl;->getCardBackground(Landroidx/cardview/widget/CardViewDelegate;)Landroidx/cardview/widget/RoundRectDrawable;
 
@@ -177,24 +121,6 @@
 
 .method public initialize(Landroidx/cardview/widget/CardViewDelegate;Landroid/content/Context;Landroid/content/res/ColorStateList;FFF)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "cardView",
-            "context",
-            "backgroundColor",
-            "radius",
-            "elevation",
-            "maxElevation"
-        }
-    .end annotation
 
     new-instance p2, Landroidx/cardview/widget/RoundRectDrawable;
 
@@ -219,14 +145,6 @@
 
 .method public onCompatPaddingChanged(Landroidx/cardview/widget/CardViewDelegate;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "cardView"
-        }
-    .end annotation
 
     invoke-virtual {p0, p1}, Landroidx/cardview/widget/CardViewApi21Impl;->getMaxElevation(Landroidx/cardview/widget/CardViewDelegate;)F
 
@@ -239,14 +157,6 @@
 
 .method public onPreventCornerOverlapChanged(Landroidx/cardview/widget/CardViewDelegate;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "cardView"
-        }
-    .end annotation
 
     invoke-virtual {p0, p1}, Landroidx/cardview/widget/CardViewApi21Impl;->getMaxElevation(Landroidx/cardview/widget/CardViewDelegate;)F
 
@@ -259,16 +169,6 @@
 
 .method public setBackgroundColor(Landroidx/cardview/widget/CardViewDelegate;Landroid/content/res/ColorStateList;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "cardView",
-            "color"
-        }
-    .end annotation
 
     invoke-direct {p0, p1}, Landroidx/cardview/widget/CardViewApi21Impl;->getCardBackground(Landroidx/cardview/widget/CardViewDelegate;)Landroidx/cardview/widget/RoundRectDrawable;
 
@@ -281,16 +181,6 @@
 
 .method public setElevation(Landroidx/cardview/widget/CardViewDelegate;F)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "cardView",
-            "elevation"
-        }
-    .end annotation
 
     invoke-interface {p1}, Landroidx/cardview/widget/CardViewDelegate;->getCardView()Landroid/view/View;
 
@@ -303,16 +193,6 @@
 
 .method public setMaxElevation(Landroidx/cardview/widget/CardViewDelegate;F)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "cardView",
-            "maxElevation"
-        }
-    .end annotation
 
     invoke-direct {p0, p1}, Landroidx/cardview/widget/CardViewApi21Impl;->getCardBackground(Landroidx/cardview/widget/CardViewDelegate;)Landroidx/cardview/widget/RoundRectDrawable;
 
@@ -335,16 +215,6 @@
 
 .method public setRadius(Landroidx/cardview/widget/CardViewDelegate;F)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "cardView",
-            "radius"
-        }
-    .end annotation
 
     invoke-direct {p0, p1}, Landroidx/cardview/widget/CardViewApi21Impl;->getCardBackground(Landroidx/cardview/widget/CardViewDelegate;)Landroidx/cardview/widget/RoundRectDrawable;
 
@@ -357,14 +227,6 @@
 
 .method public updatePadding(Landroidx/cardview/widget/CardViewDelegate;)V
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "cardView"
-        }
-    .end annotation
 
     invoke-interface {p1}, Landroidx/cardview/widget/CardViewDelegate;->getUseCompatPadding()Z
 

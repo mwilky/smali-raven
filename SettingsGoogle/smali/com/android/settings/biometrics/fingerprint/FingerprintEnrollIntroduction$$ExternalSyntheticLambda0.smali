@@ -1,33 +1,36 @@
 .class public final synthetic Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollIntroduction$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/hardware/fingerprint/FingerprintManager$GenerateChallengeCallback;
+.implements Ljava/util/function/Supplier;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/settings/biometrics/BiometricEnrollIntroduction$GenerateChallengeCallback;
+.field public final synthetic f$0:Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollIntroduction;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/settings/biometrics/BiometricEnrollIntroduction$GenerateChallengeCallback;)V
+.method public synthetic constructor <init>(Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollIntroduction;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollIntroduction$$ExternalSyntheticLambda0;->f$0:Lcom/android/settings/biometrics/BiometricEnrollIntroduction$GenerateChallengeCallback;
+    iput-object p1, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollIntroduction$$ExternalSyntheticLambda0;->f$0:Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollIntroduction;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final onChallengeGenerated(IIJ)V
+.method public final get()Ljava/lang/Object;
     .locals 0
 
-    iget-object p0, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollIntroduction$$ExternalSyntheticLambda0;->f$0:Lcom/android/settings/biometrics/BiometricEnrollIntroduction$GenerateChallengeCallback;
+    iget-object p0, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollIntroduction$$ExternalSyntheticLambda0;->f$0:Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollIntroduction;
 
-    invoke-interface {p0, p1, p2, p3, p4}, Lcom/android/settings/biometrics/BiometricEnrollIntroduction$GenerateChallengeCallback;->onChallengeGenerated(IIJ)V
+    invoke-static {p0}, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollIntroduction;->$r8$lambda$Fxy6ze_Tb7SXk4A_nHbmx8h4u78(Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollIntroduction;)Ljava/lang/String;
 
-    return-void
+    move-result-object p0
+
+    return-object p0
 .end method

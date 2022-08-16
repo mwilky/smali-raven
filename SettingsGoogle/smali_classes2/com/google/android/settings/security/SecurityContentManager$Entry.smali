@@ -40,37 +40,37 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    invoke-static {p1}, Lcom/google/android/settings/security/SecurityContentManager$Entry$Builder;->access$000(Lcom/google/android/settings/security/SecurityContentManager$Entry$Builder;)Ljava/lang/String;
+    invoke-static {p1}, Lcom/google/android/settings/security/SecurityContentManager$Entry$Builder;->-$$Nest$fgetmTitle(Lcom/google/android/settings/security/SecurityContentManager$Entry$Builder;)Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/google/android/settings/security/SecurityContentManager$Entry;->mTitle:Ljava/lang/String;
 
-    invoke-static {p1}, Lcom/google/android/settings/security/SecurityContentManager$Entry$Builder;->access$100(Lcom/google/android/settings/security/SecurityContentManager$Entry$Builder;)Ljava/lang/String;
+    invoke-static {p1}, Lcom/google/android/settings/security/SecurityContentManager$Entry$Builder;->-$$Nest$fgetmSummary(Lcom/google/android/settings/security/SecurityContentManager$Entry$Builder;)Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/google/android/settings/security/SecurityContentManager$Entry;->mSummary:Ljava/lang/String;
 
-    invoke-static {p1}, Lcom/google/android/settings/security/SecurityContentManager$Entry$Builder;->access$200(Lcom/google/android/settings/security/SecurityContentManager$Entry$Builder;)Lcom/google/android/settings/security/SecurityLevel;
+    invoke-static {p1}, Lcom/google/android/settings/security/SecurityContentManager$Entry$Builder;->-$$Nest$fgetmSecurityLevel(Lcom/google/android/settings/security/SecurityContentManager$Entry$Builder;)Lcom/google/android/settings/security/SecurityLevel;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/google/android/settings/security/SecurityContentManager$Entry;->mSecurityLevel:Lcom/google/android/settings/security/SecurityLevel;
 
-    invoke-static {p1}, Lcom/google/android/settings/security/SecurityContentManager$Entry$Builder;->access$300(Lcom/google/android/settings/security/SecurityContentManager$Entry$Builder;)Landroid/os/Bundle;
+    invoke-static {p1}, Lcom/google/android/settings/security/SecurityContentManager$Entry$Builder;->-$$Nest$fgetmOnClickBundle(Lcom/google/android/settings/security/SecurityContentManager$Entry$Builder;)Landroid/os/Bundle;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/google/android/settings/security/SecurityContentManager$Entry;->mOnClickBundle:Landroid/os/Bundle;
 
-    invoke-static {p1}, Lcom/google/android/settings/security/SecurityContentManager$Entry$Builder;->access$400(Lcom/google/android/settings/security/SecurityContentManager$Entry$Builder;)I
+    invoke-static {p1}, Lcom/google/android/settings/security/SecurityContentManager$Entry$Builder;->-$$Nest$fgetmOrder(Lcom/google/android/settings/security/SecurityContentManager$Entry$Builder;)I
 
     move-result v0
 
     iput v0, p0, Lcom/google/android/settings/security/SecurityContentManager$Entry;->mOrder:I
 
-    invoke-static {p1}, Lcom/google/android/settings/security/SecurityContentManager$Entry$Builder;->access$500(Lcom/google/android/settings/security/SecurityContentManager$Entry$Builder;)Ljava/lang/String;
+    invoke-static {p1}, Lcom/google/android/settings/security/SecurityContentManager$Entry$Builder;->-$$Nest$fgetmSecuritySourceId(Lcom/google/android/settings/security/SecurityContentManager$Entry$Builder;)Ljava/lang/String;
 
     move-result-object p1
 
@@ -79,7 +79,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/google/android/settings/security/SecurityContentManager$Entry$Builder;Lcom/google/android/settings/security/SecurityContentManager$1;)V
+.method synthetic constructor <init>(Lcom/google/android/settings/security/SecurityContentManager$Entry$Builder;Lcom/google/android/settings/security/SecurityContentManager$Entry-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/google/android/settings/security/SecurityContentManager$Entry;-><init>(Lcom/google/android/settings/security/SecurityContentManager$Entry$Builder;)V

@@ -429,35 +429,23 @@
 
     move-result-object v2
 
-    sget v3, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v4, 0x11
-
-    if-lt v3, v4, :cond_2
-
     invoke-virtual {v2}, Landroid/app/Activity;->isDestroyed()Z
 
     move-result v3
 
-    goto :goto_0
-
-    :cond_2
-    move v3, v1
-
-    :goto_0
-    if-eqz v2, :cond_c
+    if-eqz v2, :cond_b
 
     invoke-virtual {v2}, Landroid/app/Activity;->isFinishing()Z
 
     move-result v4
 
-    if-nez v4, :cond_c
+    if-nez v4, :cond_b
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_2
 
-    goto/16 :goto_4
+    goto/16 :goto_3
 
-    :cond_3
+    :cond_2
     invoke-virtual {p0}, Lcom/google/android/libraries/hats20/HatsShowRequest;->getSiteId()Ljava/lang/String;
 
     move-result-object v5
@@ -480,20 +468,20 @@
 
     move-result v4
 
-    if-nez v4, :cond_4
+    if-nez v4, :cond_3
 
     monitor-exit v0
 
     return v1
 
-    :cond_4
+    :cond_3
     invoke-virtual {v3, v5}, Lcom/google/android/libraries/hats20/storage/HatsDataStore;->getSurveyJson(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v4
 
     const/4 v11, 0x1
 
-    if-eqz v4, :cond_b
+    if-eqz v4, :cond_a
 
     invoke-virtual {v4}, Ljava/lang/String;->isEmpty()Z
 
@@ -501,11 +489,11 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_4
 
-    goto/16 :goto_3
+    goto/16 :goto_2
 
-    :cond_5
+    :cond_4
     :try_start_1
     invoke-virtual {v2}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
 
@@ -540,7 +528,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_a
+    if-eqz v1, :cond_9
 
     new-instance v1, Lcom/google/android/libraries/hats20/util/LayoutDimensions;
 
@@ -554,14 +542,14 @@
 
     move-result v1
 
-    if-nez v1, :cond_6
+    if-nez v1, :cond_5
 
-    goto :goto_2
+    goto :goto_1
 
-    :cond_6
+    :cond_5
     instance-of v1, v2, Landroidx/fragment/app/FragmentActivity;
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_7
 
     check-cast v2, Landroidx/fragment/app/FragmentActivity;
 
@@ -575,7 +563,7 @@
 
     move-result-object v2
 
-    if-nez v2, :cond_7
+    if-nez v2, :cond_6
 
     invoke-virtual {p0}, Lcom/google/android/libraries/hats20/HatsShowRequest;->getMaxPromptWidth()Ljava/lang/Integer;
 
@@ -605,18 +593,18 @@
 
     invoke-virtual {p0}, Landroidx/fragment/app/FragmentTransaction;->commitAllowingStateLoss()I
 
-    goto :goto_1
+    goto :goto_0
 
-    :cond_7
+    :cond_6
     const-string p0, "HatsLibClient"
 
     const-string v1, "PromptDialog was already open, bailing out."
 
     invoke-static {p0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_1
+    goto :goto_0
 
-    :cond_8
+    :cond_7
     invoke-virtual {v2}, Landroid/app/Activity;->getFragmentManager()Landroid/app/FragmentManager;
 
     move-result-object v1
@@ -627,7 +615,7 @@
 
     move-result-object v2
 
-    if-nez v2, :cond_9
+    if-nez v2, :cond_8
 
     invoke-virtual {p0}, Lcom/google/android/libraries/hats20/HatsShowRequest;->getMaxPromptWidth()Ljava/lang/Integer;
 
@@ -657,22 +645,22 @@
 
     invoke-virtual {p0}, Landroid/app/FragmentTransaction;->commitAllowingStateLoss()I
 
-    goto :goto_1
+    goto :goto_0
 
-    :cond_9
+    :cond_8
     const-string p0, "HatsLibClient"
 
     const-string v1, "PromptDialog was already open, bailing out."
 
     invoke-static {p0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    :goto_1
+    :goto_0
     monitor-exit v0
 
     return v11
 
-    :cond_a
-    :goto_2
+    :cond_9
+    :goto_1
     invoke-virtual {p0}, Lcom/google/android/libraries/hats20/HatsShowRequest;->isBottomSheet()Z
 
     move-result p0
@@ -749,8 +737,8 @@
 
     return v1
 
-    :cond_b
-    :goto_3
+    :cond_a
+    :goto_2
     const-string p0, "HatsLibClient"
 
     const-string v2, "Attempted to start survey with site ID %s, but the json in the shared preferences was not found or was empty."
@@ -769,8 +757,8 @@
 
     return v1
 
-    :cond_c
-    :goto_4
+    :cond_b
+    :goto_3
     const-string p0, "HatsLibClient"
 
     const-string v2, "Cancelling show request, activity was null, destroyed or finishing."

@@ -39,7 +39,7 @@
 .end method
 
 .method private updateImportantForAccessibility(Landroid/view/View;Z)V
-    .locals 8
+    .locals 7
 
     invoke-virtual {p1}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
@@ -58,12 +58,6 @@
 
     move-result v1
 
-    sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v3, 0x10
-
-    if-lt v2, v3, :cond_1
-
     if-eqz p2, :cond_1
 
     new-instance v2, Ljava/util/HashMap;
@@ -75,116 +69,111 @@
     :cond_1
     const/4 v2, 0x0
 
-    move v4, v2
+    move v3, v2
 
     :goto_0
-    if-ge v4, v1, :cond_7
+    if-ge v3, v1, :cond_6
 
-    invoke-virtual {v0, v4}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v0, v3}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v5
 
-    invoke-virtual {v5}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+    instance-of v5, v5, Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;
 
-    move-result-object v6
+    if-eqz v5, :cond_2
 
-    instance-of v6, v6, Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;
+    invoke-virtual {v4}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
-    if-eqz v6, :cond_2
+    move-result-object v5
 
-    invoke-virtual {v5}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+    check-cast v5, Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;
 
-    move-result-object v6
+    invoke-virtual {v5}, Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;->getBehavior()Landroidx/coordinatorlayout/widget/CoordinatorLayout$Behavior;
 
-    check-cast v6, Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;
+    move-result-object v5
 
-    invoke-virtual {v6}, Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;->getBehavior()Landroidx/coordinatorlayout/widget/CoordinatorLayout$Behavior;
+    instance-of v5, v5, Lcom/google/android/material/transformation/FabTransformationScrimBehavior;
 
-    move-result-object v6
+    if-eqz v5, :cond_2
 
-    instance-of v6, v6, Lcom/google/android/material/transformation/FabTransformationScrimBehavior;
-
-    if-eqz v6, :cond_2
-
-    const/4 v6, 0x1
+    const/4 v5, 0x1
 
     goto :goto_1
 
     :cond_2
-    move v6, v2
+    move v5, v2
 
     :goto_1
-    if-eq v5, p1, :cond_6
+    if-eq v4, p1, :cond_5
 
-    if-eqz v6, :cond_3
+    if-eqz v5, :cond_3
 
     goto :goto_2
 
     :cond_3
     if-nez p2, :cond_4
 
-    iget-object v6, p0, Lcom/google/android/material/transformation/FabTransformationSheetBehavior;->importantForAccessibilityMap:Ljava/util/Map;
+    iget-object v5, p0, Lcom/google/android/material/transformation/FabTransformationSheetBehavior;->importantForAccessibilityMap:Ljava/util/Map;
 
-    if-eqz v6, :cond_6
+    if-eqz v5, :cond_5
 
-    invoke-interface {v6, v5}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+    invoke-interface {v5, v4}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v6
+    move-result v5
 
-    if-eqz v6, :cond_6
+    if-eqz v5, :cond_5
 
-    iget-object v6, p0, Lcom/google/android/material/transformation/FabTransformationSheetBehavior;->importantForAccessibilityMap:Ljava/util/Map;
+    iget-object v5, p0, Lcom/google/android/material/transformation/FabTransformationSheetBehavior;->importantForAccessibilityMap:Ljava/util/Map;
 
-    invoke-interface {v6, v5}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v5, v4}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v6
+    move-result-object v5
 
-    check-cast v6, Ljava/lang/Integer;
+    check-cast v5, Ljava/lang/Integer;
 
-    invoke-virtual {v6}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v5}, Ljava/lang/Integer;->intValue()I
 
-    move-result v6
+    move-result v5
 
-    invoke-static {v5, v6}, Landroidx/core/view/ViewCompat;->setImportantForAccessibility(Landroid/view/View;I)V
+    invoke-static {v4, v5}, Landroidx/core/view/ViewCompat;->setImportantForAccessibility(Landroid/view/View;I)V
 
     goto :goto_2
 
     :cond_4
-    sget v6, Landroid/os/Build$VERSION;->SDK_INT:I
+    iget-object v5, p0, Lcom/google/android/material/transformation/FabTransformationSheetBehavior;->importantForAccessibilityMap:Ljava/util/Map;
 
-    if-lt v6, v3, :cond_5
+    invoke-virtual {v4}, Landroid/view/View;->getImportantForAccessibility()I
 
-    iget-object v6, p0, Lcom/google/android/material/transformation/FabTransformationSheetBehavior;->importantForAccessibilityMap:Ljava/util/Map;
+    move-result v6
 
-    invoke-virtual {v5}, Landroid/view/View;->getImportantForAccessibility()I
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result v7
+    move-result-object v6
 
-    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-interface {v5, v4, v6}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v7
+    const/4 v5, 0x4
 
-    invoke-interface {v6, v5, v7}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {v4, v5}, Landroidx/core/view/ViewCompat;->setImportantForAccessibility(Landroid/view/View;I)V
 
     :cond_5
-    const/4 v6, 0x4
-
-    invoke-static {v5, v6}, Landroidx/core/view/ViewCompat;->setImportantForAccessibility(Landroid/view/View;I)V
-
-    :cond_6
     :goto_2
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    :cond_7
-    if-nez p2, :cond_8
+    :cond_6
+    if-nez p2, :cond_7
 
     const/4 p1, 0x0
 
     iput-object p1, p0, Lcom/google/android/material/transformation/FabTransformationSheetBehavior;->importantForAccessibilityMap:Ljava/util/Map;
 
-    :cond_8
+    :cond_7
     return-void
 .end method
 

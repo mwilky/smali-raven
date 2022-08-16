@@ -4,18 +4,18 @@
 
 
 # direct methods
-.method public constructor <init>()V
+.method static bridge synthetic -$$Nest$minstallDSU(Lcom/android/settings/development/DSUTermsOfServiceActivity;Landroid/content/Intent;)V
     .locals 0
 
-    invoke-direct {p0}, Landroid/app/Activity;-><init>()V
+    invoke-direct {p0, p1}, Lcom/android/settings/development/DSUTermsOfServiceActivity;->installDSU(Landroid/content/Intent;)V
 
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/settings/development/DSUTermsOfServiceActivity;Landroid/content/Intent;)V
+.method public constructor <init>()V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/settings/development/DSUTermsOfServiceActivity;->installDSU(Landroid/content/Intent;)V
+    invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
     return-void
 .end method
@@ -43,11 +43,11 @@
 
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
-    const p1, 0x7f0600d7
+    const p1, 0x7f0600d9
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->setContentView(I)V
 
-    const p1, 0x7f0d05e1
+    const p1, 0x7f0d0623
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 

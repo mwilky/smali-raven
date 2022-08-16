@@ -1,45 +1,42 @@
 .class public final synthetic Lcom/google/android/settings/security/SecurityHubDashboard$$ExternalSyntheticLambda6;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Function;
+.implements Landroidx/preference/Preference$OnPreferenceClickListener;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/google/android/settings/security/SecurityHubDashboard$$ExternalSyntheticLambda6;
+# instance fields
+.field public final synthetic f$0:Lcom/google/android/settings/security/SecurityHubDashboard;
+
+.field public final synthetic f$1:Landroid/os/Bundle;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/google/android/settings/security/SecurityHubDashboard$$ExternalSyntheticLambda6;
-
-    invoke-direct {v0}, Lcom/google/android/settings/security/SecurityHubDashboard$$ExternalSyntheticLambda6;-><init>()V
-
-    sput-object v0, Lcom/google/android/settings/security/SecurityHubDashboard$$ExternalSyntheticLambda6;->INSTANCE:Lcom/google/android/settings/security/SecurityHubDashboard$$ExternalSyntheticLambda6;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Lcom/google/android/settings/security/SecurityHubDashboard;Landroid/os/Bundle;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/google/android/settings/security/SecurityHubDashboard$$ExternalSyntheticLambda6;->f$0:Lcom/google/android/settings/security/SecurityHubDashboard;
+
+    iput-object p2, p0, Lcom/google/android/settings/security/SecurityHubDashboard$$ExternalSyntheticLambda6;->f$1:Landroid/os/Bundle;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+.method public final onPreferenceClick(Landroidx/preference/Preference;)Z
+    .locals 1
 
-    check-cast p1, Lcom/google/android/settings/security/SecurityContentManager$Entry;
+    iget-object v0, p0, Lcom/google/android/settings/security/SecurityHubDashboard$$ExternalSyntheticLambda6;->f$0:Lcom/google/android/settings/security/SecurityHubDashboard;
 
-    invoke-virtual {p1}, Lcom/google/android/settings/security/SecurityContentManager$Entry;->getSecuritySourceId()Ljava/lang/String;
+    iget-object p0, p0, Lcom/google/android/settings/security/SecurityHubDashboard$$ExternalSyntheticLambda6;->f$1:Landroid/os/Bundle;
 
-    move-result-object p0
+    invoke-static {v0, p0, p1}, Lcom/google/android/settings/security/SecurityHubDashboard;->$r8$lambda$QYnnoTb1WwbwO4p1fYXlGecDHU0(Lcom/google/android/settings/security/SecurityHubDashboard;Landroid/os/Bundle;Landroidx/preference/Preference;)Z
 
-    return-object p0
+    move-result p0
+
+    return p0
 .end method

@@ -29,15 +29,11 @@
 .method static setTitle(Lcom/android/settings/development/AdbPairedDevicePreference;Landroid/debug/PairDevice;)V
     .locals 1
 
-    invoke-virtual {p1}, Landroid/debug/PairDevice;->getDeviceName()Ljava/lang/String;
-
-    move-result-object v0
+    iget-object v0, p1, Landroid/debug/PairDevice;->name:Ljava/lang/String;
 
     invoke-virtual {p0, v0}, Landroidx/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
 
-    invoke-virtual {p1}, Landroid/debug/PairDevice;->isConnected()Z
-
-    move-result p1
+    iget-boolean p1, p1, Landroid/debug/PairDevice;->connected:Z
 
     if-eqz p1, :cond_0
 
@@ -45,7 +41,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f0401c3
+    const v0, 0x7f0401ea
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -67,7 +63,7 @@
 .method protected getWidgetLayoutResourceId()I
     .locals 0
 
-    const p0, 0x7f0601ba
+    const p0, 0x7f0601c6
 
     return p0
 .end method
@@ -77,13 +73,13 @@
 
     invoke-super {p0, p1}, Landroidx/preference/Preference;->onBindViewHolder(Landroidx/preference/PreferenceViewHolder;)V
 
-    const p0, 0x7f0d04e6
+    const p0, 0x7f0d0526
 
     invoke-virtual {p1, p0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
     move-result-object p0
 
-    const v0, 0x7f0d04e7
+    const v0, 0x7f0d0527
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 

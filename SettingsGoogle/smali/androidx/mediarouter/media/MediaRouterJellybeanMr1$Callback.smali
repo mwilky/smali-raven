@@ -19,12 +19,4 @@
 
 # virtual methods
 .method public abstract onRoutePresentationDisplayChanged(Ljava/lang/Object;)V
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "routeObj"
-        }
-    .end annotation
 .end method

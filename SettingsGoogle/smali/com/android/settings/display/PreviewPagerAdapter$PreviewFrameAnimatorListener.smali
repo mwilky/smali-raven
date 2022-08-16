@@ -32,7 +32,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settings/display/PreviewPagerAdapter;Lcom/android/settings/display/PreviewPagerAdapter$1;)V
+.method synthetic constructor <init>(Lcom/android/settings/display/PreviewPagerAdapter;Lcom/android/settings/display/PreviewPagerAdapter$PreviewFrameAnimatorListener-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settings/display/PreviewPagerAdapter$PreviewFrameAnimatorListener;-><init>(Lcom/android/settings/display/PreviewPagerAdapter;)V
@@ -49,15 +49,21 @@
 .end method
 
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 0
+    .locals 1
 
     iget-object p1, p0, Lcom/android/settings/display/PreviewPagerAdapter$PreviewFrameAnimatorListener;->this$0:Lcom/android/settings/display/PreviewPagerAdapter;
 
-    invoke-static {p1}, Lcom/android/settings/display/PreviewPagerAdapter;->access$110(Lcom/android/settings/display/PreviewPagerAdapter;)I
+    invoke-static {p1}, Lcom/android/settings/display/PreviewPagerAdapter;->-$$Nest$fgetmAnimationCounter(Lcom/android/settings/display/PreviewPagerAdapter;)I
+
+    move-result v0
+
+    add-int/lit8 v0, v0, -0x1
+
+    invoke-static {p1, v0}, Lcom/android/settings/display/PreviewPagerAdapter;->-$$Nest$fputmAnimationCounter(Lcom/android/settings/display/PreviewPagerAdapter;I)V
 
     iget-object p0, p0, Lcom/android/settings/display/PreviewPagerAdapter$PreviewFrameAnimatorListener;->this$0:Lcom/android/settings/display/PreviewPagerAdapter;
 
-    invoke-static {p0}, Lcom/android/settings/display/PreviewPagerAdapter;->access$200(Lcom/android/settings/display/PreviewPagerAdapter;)V
+    invoke-static {p0}, Lcom/android/settings/display/PreviewPagerAdapter;->-$$Nest$mrunAnimationEndAction(Lcom/android/settings/display/PreviewPagerAdapter;)V
 
     return-void
 .end method
@@ -73,7 +79,13 @@
 
     iget-object p0, p0, Lcom/android/settings/display/PreviewPagerAdapter$PreviewFrameAnimatorListener;->this$0:Lcom/android/settings/display/PreviewPagerAdapter;
 
-    invoke-static {p0}, Lcom/android/settings/display/PreviewPagerAdapter;->access$108(Lcom/android/settings/display/PreviewPagerAdapter;)I
+    invoke-static {p0}, Lcom/android/settings/display/PreviewPagerAdapter;->-$$Nest$fgetmAnimationCounter(Lcom/android/settings/display/PreviewPagerAdapter;)I
+
+    move-result p1
+
+    add-int/lit8 p1, p1, 0x1
+
+    invoke-static {p0, p1}, Lcom/android/settings/display/PreviewPagerAdapter;->-$$Nest$fputmAnimationCounter(Lcom/android/settings/display/PreviewPagerAdapter;I)V
 
     return-void
 .end method

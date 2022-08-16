@@ -157,6 +157,14 @@
     throw p2
 .end method
 
+.method public static emptyList()Lcom/google/protobuf/IntArrayList;
+    .locals 1
+
+    sget-object v0, Lcom/google/protobuf/IntArrayList;->EMPTY_LIST:Lcom/google/protobuf/IntArrayList;
+
+    return-object v0
+.end method
+
 .method private ensureIndexInRange(I)V
     .locals 1
 

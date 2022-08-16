@@ -8,12 +8,22 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$smbuildPreferenceControllers(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;Landroid/app/Application;Landroidx/fragment/app/Fragment;Landroidx/fragment/app/FragmentManager;Lcom/android/settings/notification/NotificationBackend;)Ljava/util/List;
+    .locals 0
+
+    invoke-static/range {p0 .. p5}, Lcom/android/settings/notification/zen/ZenModePeopleSettings;->buildPreferenceControllers(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;Landroid/app/Application;Landroidx/fragment/app/Fragment;Landroidx/fragment/app/FragmentManager;Lcom/android/settings/notification/NotificationBackend;)Ljava/util/List;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method static constructor <clinit>()V
     .locals 2
 
     new-instance v0, Lcom/android/settings/notification/zen/ZenModePeopleSettings$1;
 
-    const v1, 0x7f15012a
+    const v1, 0x7f150132
 
     invoke-direct {v0, v1}, Lcom/android/settings/notification/zen/ZenModePeopleSettings$1;-><init>(I)V
 
@@ -30,18 +40,8 @@
     return-void
 .end method
 
-.method static synthetic access$000(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;Landroid/app/Application;Landroidx/fragment/app/Fragment;Landroidx/fragment/app/FragmentManager;Lcom/android/settings/notification/NotificationBackend;)Ljava/util/List;
-    .locals 0
-
-    invoke-static/range {p0 .. p5}, Lcom/android/settings/notification/zen/ZenModePeopleSettings;->buildPreferenceControllers(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;Landroid/app/Application;Landroidx/fragment/app/Fragment;Landroidx/fragment/app/FragmentManager;Lcom/android/settings/notification/NotificationBackend;)Ljava/util/List;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
 .method private static buildPreferenceControllers(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;Landroid/app/Application;Landroidx/fragment/app/Fragment;Landroidx/fragment/app/FragmentManager;Lcom/android/settings/notification/NotificationBackend;)Ljava/util/List;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -62,41 +62,27 @@
 
     invoke-direct {p2}, Ljava/util/ArrayList;-><init>()V
 
-    new-instance p3, Lcom/android/settings/notification/zen/ZenModeConversationsImagePreferenceController;
-
-    const-string/jumbo v0, "zen_mode_conversations_image"
-
-    invoke-direct {p3, p0, v0, p1, p5}, Lcom/android/settings/notification/zen/ZenModeConversationsImagePreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;Lcom/android/settingslib/core/lifecycle/Lifecycle;Lcom/android/settings/notification/NotificationBackend;)V
-
-    invoke-interface {p2, p3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    new-instance p3, Lcom/android/settings/notification/zen/ZenModeConversationsPreferenceController;
-
-    const-string/jumbo p5, "zen_mode_conversations"
-
-    invoke-direct {p3, p0, p5, p1}, Lcom/android/settings/notification/zen/ZenModeConversationsPreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
-
-    invoke-interface {p2, p3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
     new-instance p3, Lcom/android/settings/notification/zen/ZenModeCallsPreferenceController;
 
-    const-string/jumbo p5, "zen_mode_people_calls"
+    const-string/jumbo p4, "zen_mode_people_calls"
 
-    invoke-direct {p3, p0, p1, p5}, Lcom/android/settings/notification/zen/ZenModeCallsPreferenceController;-><init>(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;Ljava/lang/String;)V
+    invoke-direct {p3, p0, p1, p4}, Lcom/android/settings/notification/zen/ZenModeCallsPreferenceController;-><init>(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;Ljava/lang/String;)V
 
     invoke-interface {p2, p3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     new-instance p3, Lcom/android/settings/notification/zen/ZenModeMessagesPreferenceController;
 
-    const-string/jumbo p5, "zen_mode_people_messages"
+    const-string/jumbo p4, "zen_mode_people_messages"
 
-    invoke-direct {p3, p0, p1, p5}, Lcom/android/settings/notification/zen/ZenModeMessagesPreferenceController;-><init>(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;Ljava/lang/String;)V
+    invoke-direct {p3, p0, p1, p4}, Lcom/android/settings/notification/zen/ZenModeMessagesPreferenceController;-><init>(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;Ljava/lang/String;)V
 
     invoke-interface {p2, p3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    new-instance p3, Lcom/android/settings/notification/zen/ZenModeSettingsFooterPreferenceController;
+    new-instance p3, Lcom/android/settings/notification/zen/ZenModeBehaviorFooterPreferenceController;
 
-    invoke-direct {p3, p0, p1, p4}, Lcom/android/settings/notification/zen/ZenModeSettingsFooterPreferenceController;-><init>(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;Landroidx/fragment/app/FragmentManager;)V
+    const p4, 0x7f04194d
+
+    invoke-direct {p3, p0, p1, p4}, Lcom/android/settings/notification/zen/ZenModeBehaviorFooterPreferenceController;-><init>(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;I)V
 
     invoke-interface {p2, p3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
@@ -170,7 +156,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f15012a
+    const p0, 0x7f150132
 
     return p0
 .end method

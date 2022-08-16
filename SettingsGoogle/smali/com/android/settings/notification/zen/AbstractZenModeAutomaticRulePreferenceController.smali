@@ -199,6 +199,12 @@
 
     invoke-virtual {v0, v1, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
+    move-result-object v0
+
+    const-string v1, "android.app.extra.AUTOMATIC_RULE_ID"
+
+    invoke-virtual {v0, v1, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
     move-result-object p2
 
     if-eqz p1, :cond_0

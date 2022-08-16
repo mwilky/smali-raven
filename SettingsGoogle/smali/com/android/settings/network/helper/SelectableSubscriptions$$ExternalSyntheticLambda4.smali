@@ -1,33 +1,40 @@
 .class public final synthetic Lcom/android/settings/network/helper/SelectableSubscriptions$$ExternalSyntheticLambda4;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/IntFunction;
+.implements Ljava/util/function/Supplier;
 
 
 # instance fields
-.field public final synthetic f$0:Ljava/util/List;
+.field public final synthetic f$0:Lcom/android/settings/network/helper/SelectableSubscriptions;
+
+.field public final synthetic f$1:Landroid/content/Context;
 
 
 # direct methods
-.method public synthetic constructor <init>(Ljava/util/List;)V
+.method public synthetic constructor <init>(Lcom/android/settings/network/helper/SelectableSubscriptions;Landroid/content/Context;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/settings/network/helper/SelectableSubscriptions$$ExternalSyntheticLambda4;->f$0:Ljava/util/List;
+    iput-object p1, p0, Lcom/android/settings/network/helper/SelectableSubscriptions$$ExternalSyntheticLambda4;->f$0:Lcom/android/settings/network/helper/SelectableSubscriptions;
+
+    iput-object p2, p0, Lcom/android/settings/network/helper/SelectableSubscriptions$$ExternalSyntheticLambda4;->f$1:Landroid/content/Context;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final apply(I)Ljava/lang/Object;
-    .locals 0
+.method public final get()Ljava/lang/Object;
+    .locals 1
 
-    iget-object p0, p0, Lcom/android/settings/network/helper/SelectableSubscriptions$$ExternalSyntheticLambda4;->f$0:Ljava/util/List;
+    iget-object v0, p0, Lcom/android/settings/network/helper/SelectableSubscriptions$$ExternalSyntheticLambda4;->f$0:Lcom/android/settings/network/helper/SelectableSubscriptions;
 
-    invoke-static {p0, p1}, Lcom/android/settings/network/helper/SelectableSubscriptions;->$r8$lambda$jXknLLwRbjsIm9GHPq_FyGU17ow(Ljava/util/List;I)Lcom/android/settings/network/helper/SubscriptionAnnotation$Builder;
+    iget-object p0, p0, Lcom/android/settings/network/helper/SelectableSubscriptions$$ExternalSyntheticLambda4;->f$1:Landroid/content/Context;
+
+    invoke-static {v0, p0}, Lcom/android/settings/network/helper/SelectableSubscriptions;->$r8$lambda$bJhD2_wcYAaaf7nHq4AhVTACqP8(Lcom/android/settings/network/helper/SelectableSubscriptions;Landroid/content/Context;)Ljava/util/List;
 
     move-result-object p0
 

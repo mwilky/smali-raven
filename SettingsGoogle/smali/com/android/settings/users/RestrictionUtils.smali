@@ -27,7 +27,7 @@
 
     new-array v1, v0, [I
 
-    const v2, 0x7f041058
+    const v2, 0x7f0410fe
 
     const/4 v3, 0x0
 
@@ -37,7 +37,7 @@
 
     new-array v0, v0, [I
 
-    const v1, 0x7f041057
+    const v1, 0x7f0410fd
 
     aput v1, v0, v3
 
@@ -89,19 +89,17 @@
 
     new-instance v4, Landroid/content/RestrictionEntry;
 
-    aget-object v5, v3, v2
-
     aget-object v3, v3, v2
 
     invoke-virtual {p0, v3, p1}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
 
-    move-result v3
+    move-result v5
 
     const/4 v6, 0x1
 
-    xor-int/2addr v3, v6
+    xor-int/2addr v5, v6
 
-    invoke-direct {v4, v5, v3}, Landroid/content/RestrictionEntry;-><init>(Ljava/lang/String;Z)V
+    invoke-direct {v4, v3, v5}, Landroid/content/RestrictionEntry;-><init>(Ljava/lang/String;Z)V
 
     sget-object v3, Lcom/android/settings/users/RestrictionUtils;->sRestrictionTitles:[I
 

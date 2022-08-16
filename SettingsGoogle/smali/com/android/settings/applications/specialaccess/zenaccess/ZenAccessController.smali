@@ -8,22 +8,6 @@
 
 
 # direct methods
-.method public static synthetic $r8$lambda$PGbLN70FeOkJFD-EKWsfrIBvYic(Landroid/content/Context;Ljava/lang/String;Z)V
-    .locals 0
-
-    invoke-static {p0, p1, p2}, Lcom/android/settings/applications/specialaccess/zenaccess/ZenAccessController;->lambda$setAccess$0(Landroid/content/Context;Ljava/lang/String;Z)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$PPPf16Iis-hYH3QOS-e3ZDe9GoI(Landroid/content/Context;Ljava/lang/String;)V
-    .locals 0
-
-    invoke-static {p0, p1}, Lcom/android/settings/applications/specialaccess/zenaccess/ZenAccessController;->lambda$deleteRules$1(Landroid/content/Context;Ljava/lang/String;)V
-
-    return-void
-.end method
-
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;)V
     .locals 0
 
@@ -35,11 +19,15 @@
 .method public static deleteRules(Landroid/content/Context;Ljava/lang/String;)V
     .locals 1
 
-    new-instance v0, Lcom/android/settings/applications/specialaccess/zenaccess/ZenAccessController$$ExternalSyntheticLambda0;
+    const-class v0, Landroid/app/NotificationManager;
 
-    invoke-direct {v0, p0, p1}, Lcom/android/settings/applications/specialaccess/zenaccess/ZenAccessController$$ExternalSyntheticLambda0;-><init>(Landroid/content/Context;Ljava/lang/String;)V
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
-    invoke-static {v0}, Landroid/os/AsyncTask;->execute(Ljava/lang/Runnable;)V
+    move-result-object p0
+
+    check-cast p0, Landroid/app/NotificationManager;
+
+    invoke-virtual {p0, p1}, Landroid/app/NotificationManager;->removeAutomaticZenRules(Ljava/lang/String;)Z
 
     return-void
 .end method
@@ -127,7 +115,7 @@
 .end method
 
 .method public static getPackagesWithPermissions([Ljava/lang/String;)Ljava/util/Set;
-    .locals 4
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([",
@@ -148,13 +136,13 @@
 
     move-result-object v1
 
-    const/4 v2, 0x0
+    const-wide/16 v2, 0x0
 
     invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
 
-    move-result v3
+    move-result v4
 
-    invoke-interface {v1, p0, v2, v3}, Landroid/content/pm/IPackageManager;->getPackagesHoldingPermissions([Ljava/lang/String;II)Landroid/content/pm/ParceledListSlice;
+    invoke-interface {v1, p0, v2, v3, v4}, Landroid/content/pm/IPackageManager;->getPackagesHoldingPermissions([Ljava/lang/String;JI)Landroid/content/pm/ParceledListSlice;
 
     move-result-object p0
 
@@ -227,38 +215,6 @@
     return p0
 .end method
 
-.method private static synthetic lambda$deleteRules$1(Landroid/content/Context;Ljava/lang/String;)V
-    .locals 1
-
-    const-class v0, Landroid/app/NotificationManager;
-
-    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
-
-    move-result-object p0
-
-    check-cast p0, Landroid/app/NotificationManager;
-
-    invoke-virtual {p0, p1}, Landroid/app/NotificationManager;->removeAutomaticZenRules(Ljava/lang/String;)Z
-
-    return-void
-.end method
-
-.method private static synthetic lambda$setAccess$0(Landroid/content/Context;Ljava/lang/String;Z)V
-    .locals 1
-
-    const-class v0, Landroid/app/NotificationManager;
-
-    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
-
-    move-result-object p0
-
-    check-cast p0, Landroid/app/NotificationManager;
-
-    invoke-virtual {p0, p1, p2}, Landroid/app/NotificationManager;->setNotificationPolicyAccessGranted(Ljava/lang/String;Z)V
-
-    return-void
-.end method
-
 .method static logSpecialPermissionChange(ZLjava/lang/String;Landroid/content/Context;)V
     .locals 1
 
@@ -290,25 +246,21 @@
 
     invoke-static {p2, p1, p0}, Lcom/android/settings/applications/specialaccess/zenaccess/ZenAccessController;->logSpecialPermissionChange(ZLjava/lang/String;Landroid/content/Context;)V
 
-    new-instance v0, Lcom/android/settings/applications/specialaccess/zenaccess/ZenAccessController$$ExternalSyntheticLambda1;
+    const-class v0, Landroid/app/NotificationManager;
 
-    invoke-direct {v0, p0, p1, p2}, Lcom/android/settings/applications/specialaccess/zenaccess/ZenAccessController$$ExternalSyntheticLambda1;-><init>(Landroid/content/Context;Ljava/lang/String;Z)V
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
-    invoke-static {v0}, Landroid/os/AsyncTask;->execute(Ljava/lang/Runnable;)V
+    move-result-object p0
+
+    check-cast p0, Landroid/app/NotificationManager;
+
+    invoke-virtual {p0, p1, p2}, Landroid/app/NotificationManager;->setNotificationPolicyAccessGranted(Ljava/lang/String;Z)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public getAvailabilityStatus()I
     .locals 0
 
@@ -319,15 +271,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -360,16 +303,6 @@
     .locals 0
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->hasAsyncUpdate()Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
 
     move-result p0
 

@@ -33,37 +33,15 @@
 
 # virtual methods
 .method public getSystemAnimatorDurationScale(Landroid/content/ContentResolver;)F
-    .locals 3
+    .locals 1
 
-    sget p0, Landroid/os/Build$VERSION;->SDK_INT:I
+    const/high16 p0, 0x3f800000    # 1.0f
 
-    const/high16 v0, 0x3f800000    # 1.0f
+    const-string v0, "animator_duration_scale"
 
-    const-string v1, "animator_duration_scale"
-
-    const/16 v2, 0x11
-
-    if-lt p0, v2, :cond_0
-
-    invoke-static {p1, v1, v0}, Landroid/provider/Settings$Global;->getFloat(Landroid/content/ContentResolver;Ljava/lang/String;F)F
+    invoke-static {p1, v0, p0}, Landroid/provider/Settings$Global;->getFloat(Landroid/content/ContentResolver;Ljava/lang/String;F)F
 
     move-result p0
-
-    return p0
-
-    :cond_0
-    const/16 v2, 0x10
-
-    if-ne p0, v2, :cond_1
-
-    invoke-static {p1, v1, v0}, Landroid/provider/Settings$System;->getFloat(Landroid/content/ContentResolver;Ljava/lang/String;F)F
-
-    move-result p0
-
-    return p0
-
-    :cond_1
-    sget p0, Lcom/google/android/material/progressindicator/AnimatorDurationScaleProvider;->defaultSystemAnimatorDurationScale:F
 
     return p0
 .end method

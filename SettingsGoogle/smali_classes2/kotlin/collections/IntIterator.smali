@@ -28,26 +28,14 @@
 
 
 # virtual methods
-.method public final next()Ljava/lang/Integer;
+.method public bridge synthetic next()Ljava/lang/Object;
     .locals 0
-    .annotation build Lorg/jetbrains/annotations/NotNull;
-    .end annotation
 
     invoke-virtual {p0}, Lkotlin/collections/IntIterator;->nextInt()I
 
     move-result p0
 
     invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public bridge synthetic next()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lkotlin/collections/IntIterator;->next()Ljava/lang/Integer;
 
     move-result-object p0
 

@@ -17,28 +17,12 @@
 
 # direct methods
 .method public constructor <init>(Landroid/widget/TextView;)V
-    .locals 2
-
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x1a
-
-    if-lt v0, v1, :cond_0
+    .locals 0
 
     new-instance p1, Landroidx/core/view/AccessibilityDelegateCompat;
 
     invoke-direct {p1}, Landroidx/core/view/AccessibilityDelegateCompat;-><init>()V
 
-    goto :goto_0
-
-    :cond_0
-    new-instance v0, Lcom/google/android/setupdesign/accessibility/LinkAccessibilityHelper$PreOLinkAccessibilityHelper;
-
-    invoke-direct {v0, p1}, Lcom/google/android/setupdesign/accessibility/LinkAccessibilityHelper$PreOLinkAccessibilityHelper;-><init>(Landroid/widget/TextView;)V
-
-    move-object p1, v0
-
-    :goto_0
     invoke-direct {p0, p1}, Lcom/google/android/setupdesign/accessibility/LinkAccessibilityHelper;-><init>(Landroidx/core/view/AccessibilityDelegateCompat;)V
 
     return-void

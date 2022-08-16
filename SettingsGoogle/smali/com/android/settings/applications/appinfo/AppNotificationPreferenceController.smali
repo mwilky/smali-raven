@@ -40,7 +40,7 @@
     :cond_0
     iget-boolean v0, p0, Lcom/android/settings/notification/NotificationBackend$AppRow;->banned:Z
 
-    const v1, 0x7f040eb5
+    const v1, 0x7f040f49
 
     if-eqz v0, :cond_1
 
@@ -88,7 +88,7 @@
     return-object p0
 
     :cond_4
-    const v0, 0x7f040eb7
+    const v0, 0x7f040f4b
 
     const/4 v1, 0x2
 
@@ -162,10 +162,20 @@
 
 
 # virtual methods
-.method public bridge synthetic copy()V
+.method public displayPreference(Landroidx/preference/PreferenceScreen;)V
     .locals 0
 
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
+    invoke-super {p0, p1}, Lcom/android/settings/applications/appinfo/AppInfoPreferenceControllerBase;->displayPreference(Landroidx/preference/PreferenceScreen;)V
+
+    iget-object p1, p0, Lcom/android/settings/applications/appinfo/AppInfoPreferenceControllerBase;->mPreference:Landroidx/preference/Preference;
+
+    iget-object p0, p0, Lcom/android/settings/applications/appinfo/AppInfoPreferenceControllerBase;->mAppEntry:Lcom/android/settingslib/applications/ApplicationsState$AppEntry;
+
+    invoke-static {p0}, Lcom/android/settingslib/applications/AppUtils;->isAppInstalled(Lcom/android/settingslib/applications/ApplicationsState$AppEntry;)Z
+
+    move-result p0
+
+    invoke-virtual {p1, p0}, Landroidx/preference/Preference;->setEnabled(Z)V
 
     return-void
 .end method
@@ -198,15 +208,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -256,16 +257,6 @@
     .locals 0
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->hasAsyncUpdate()Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
 
     move-result p0
 

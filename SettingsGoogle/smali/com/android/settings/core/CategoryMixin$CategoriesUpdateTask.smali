@@ -60,15 +60,21 @@
 .end method
 
 .method constructor <init>(Lcom/android/settings/core/CategoryMixin;)V
-    .locals 0
+    .locals 1
 
     iput-object p1, p0, Lcom/android/settings/core/CategoryMixin$CategoriesUpdateTask;->this$0:Lcom/android/settings/core/CategoryMixin;
 
     invoke-direct {p0}, Landroid/os/AsyncTask;-><init>()V
 
-    invoke-static {p1}, Lcom/android/settings/core/CategoryMixin;->access$108(Lcom/android/settings/core/CategoryMixin;)I
+    invoke-static {p1}, Lcom/android/settings/core/CategoryMixin;->-$$Nest$fgetmCategoriesUpdateTaskCount(Lcom/android/settings/core/CategoryMixin;)I
 
-    invoke-static {p1}, Lcom/android/settings/core/CategoryMixin;->access$200(Lcom/android/settings/core/CategoryMixin;)Landroid/content/Context;
+    move-result v0
+
+    add-int/lit8 v0, v0, 0x1
+
+    invoke-static {p1, v0}, Lcom/android/settings/core/CategoryMixin;->-$$Nest$fputmCategoriesUpdateTaskCount(Lcom/android/settings/core/CategoryMixin;I)V
+
+    invoke-static {p1}, Lcom/android/settings/core/CategoryMixin;->-$$Nest$fgetmContext(Lcom/android/settings/core/CategoryMixin;)Landroid/content/Context;
 
     move-result-object p1
 
@@ -186,7 +192,7 @@
     :cond_0
     iget-object v2, p0, Lcom/android/settings/core/CategoryMixin$CategoriesUpdateTask;->this$0:Lcom/android/settings/core/CategoryMixin;
 
-    invoke-static {v2}, Lcom/android/settings/core/CategoryMixin;->access$200(Lcom/android/settings/core/CategoryMixin;)Landroid/content/Context;
+    invoke-static {v2}, Lcom/android/settings/core/CategoryMixin;->-$$Nest$fgetmContext(Lcom/android/settings/core/CategoryMixin;)Landroid/content/Context;
 
     move-result-object v2
 
@@ -196,7 +202,7 @@
 
     iget-object v3, p0, Lcom/android/settings/core/CategoryMixin$CategoriesUpdateTask;->this$0:Lcom/android/settings/core/CategoryMixin;
 
-    invoke-static {v3}, Lcom/android/settings/core/CategoryMixin;->access$200(Lcom/android/settings/core/CategoryMixin;)Landroid/content/Context;
+    invoke-static {v3}, Lcom/android/settings/core/CategoryMixin;->-$$Nest$fgetmContext(Lcom/android/settings/core/CategoryMixin;)Landroid/content/Context;
 
     move-result-object v3
 
@@ -212,7 +218,7 @@
 
     iget-object v2, p0, Lcom/android/settings/core/CategoryMixin$CategoriesUpdateTask;->this$0:Lcom/android/settings/core/CategoryMixin;
 
-    invoke-static {v2}, Lcom/android/settings/core/CategoryMixin;->access$200(Lcom/android/settings/core/CategoryMixin;)Landroid/content/Context;
+    invoke-static {v2}, Lcom/android/settings/core/CategoryMixin;->-$$Nest$fgetmContext(Lcom/android/settings/core/CategoryMixin;)Landroid/content/Context;
 
     move-result-object v2
 
@@ -222,7 +228,7 @@
 
     iget-object p0, p0, Lcom/android/settings/core/CategoryMixin$CategoriesUpdateTask;->this$0:Lcom/android/settings/core/CategoryMixin;
 
-    invoke-static {p0}, Lcom/android/settings/core/CategoryMixin;->access$200(Lcom/android/settings/core/CategoryMixin;)Landroid/content/Context;
+    invoke-static {p0}, Lcom/android/settings/core/CategoryMixin;->-$$Nest$fgetmContext(Lcom/android/settings/core/CategoryMixin;)Landroid/content/Context;
 
     move-result-object p0
 
@@ -348,7 +354,7 @@
 
     iget-object v1, p0, Lcom/android/settings/core/CategoryMixin$CategoriesUpdateTask;->this$0:Lcom/android/settings/core/CategoryMixin;
 
-    invoke-static {v1}, Lcom/android/settings/core/CategoryMixin;->access$200(Lcom/android/settings/core/CategoryMixin;)Landroid/content/Context;
+    invoke-static {v1}, Lcom/android/settings/core/CategoryMixin;->-$$Nest$fgetmContext(Lcom/android/settings/core/CategoryMixin;)Landroid/content/Context;
 
     move-result-object v1
 
@@ -356,7 +362,7 @@
 
     iget-object v0, p0, Lcom/android/settings/core/CategoryMixin$CategoriesUpdateTask;->mCategoryManager:Lcom/android/settings/dashboard/CategoryManager;
 
-    invoke-static {}, Lcom/android/settings/core/CategoryMixin;->access$300()Landroid/util/ArraySet;
+    invoke-static {}, Lcom/android/settings/core/CategoryMixin;->-$$Nest$sfgetsTileDenylist()Landroid/util/ArraySet;
 
     move-result-object v1
 
@@ -414,7 +420,13 @@
     :cond_1
     iget-object p0, p0, Lcom/android/settings/core/CategoryMixin$CategoriesUpdateTask;->this$0:Lcom/android/settings/core/CategoryMixin;
 
-    invoke-static {p0}, Lcom/android/settings/core/CategoryMixin;->access$110(Lcom/android/settings/core/CategoryMixin;)I
+    invoke-static {p0}, Lcom/android/settings/core/CategoryMixin;->-$$Nest$fgetmCategoriesUpdateTaskCount(Lcom/android/settings/core/CategoryMixin;)I
+
+    move-result p1
+
+    add-int/lit8 p1, p1, -0x1
+
+    invoke-static {p0, p1}, Lcom/android/settings/core/CategoryMixin;->-$$Nest$fputmCategoriesUpdateTaskCount(Lcom/android/settings/core/CategoryMixin;I)V
 
     return-void
 .end method

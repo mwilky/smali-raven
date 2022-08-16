@@ -96,7 +96,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0411d1
+    const v1, 0x7f041289
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -106,7 +106,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f02016f
+    const v2, 0x7f02017f
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -126,5 +126,14 @@
 
     iput-boolean p1, p0, Lcom/android/settings/accessibility/ToggleSelectToSpeakPreferenceFragmentForSetupWizard;->mToggleSwitchWasInitiallyChecked:Z
 
+    iget-object p0, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mTopIntroPreference:Lcom/android/settingslib/widget/TopIntroPreference;
+
+    if-eqz p0, :cond_0
+
+    const/4 p1, 0x0
+
+    invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setVisible(Z)V
+
+    :cond_0
     return-void
 .end method

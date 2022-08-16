@@ -203,7 +203,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f15004e
+    const p0, 0x7f150051
 
     return p0
 .end method
@@ -252,7 +252,7 @@
 
     iget v0, p0, Lcom/android/settings/notification/app/NotificationSettings;->mUid:I
 
-    if-ltz v0, :cond_2
+    if-ltz v0, :cond_3
 
     iget-object v0, p0, Lcom/android/settings/notification/app/NotificationSettings;->mPkg:Ljava/lang/String;
 
@@ -260,21 +260,17 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_3
 
     iget-object v0, p0, Lcom/android/settings/notification/app/NotificationSettings;->mPkgInfo:Landroid/content/pm/PackageInfo;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
 
     iget-object v0, p0, Lcom/android/settings/notification/app/NotificationSettings;->mChannel:Landroid/app/NotificationChannel;
 
-    if-eqz v0, :cond_2
-
-    iget-object v0, p0, Lcom/android/settings/notification/app/NotificationSettings;->mConversationInfo:Landroid/content/pm/ShortcutInfo;
-
     if-nez v0, :cond_0
 
-    goto :goto_1
+    goto :goto_2
 
     :cond_0
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
@@ -283,10 +279,22 @@
 
     iget-object v1, p0, Lcom/android/settings/notification/app/NotificationSettings;->mConversationInfo:Landroid/content/pm/ShortcutInfo;
 
+    if-nez v1, :cond_1
+
+    iget-object v1, p0, Lcom/android/settings/notification/app/NotificationSettings;->mChannel:Landroid/app/NotificationChannel;
+
+    invoke-virtual {v1}, Landroid/app/NotificationChannel;->getName()Ljava/lang/CharSequence;
+
+    move-result-object v1
+
+    goto :goto_0
+
+    :cond_1
     invoke-virtual {v1}, Landroid/content/pm/ShortcutInfo;->getLabel()Ljava/lang/CharSequence;
 
     move-result-object v1
 
+    :goto_0
     invoke-virtual {v0, v1}, Landroid/app/Activity;->setTitle(Ljava/lang/CharSequence;)V
 
     iget-object v0, p0, Lcom/android/settings/notification/app/NotificationSettings;->mControllers:Ljava/util/List;
@@ -295,12 +303,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_1
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -332,17 +340,17 @@
 
     invoke-virtual {v1, v2}, Lcom/android/settingslib/core/AbstractPreferenceController;->displayPreference(Landroidx/preference/PreferenceScreen;)V
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_1
+    :cond_2
     invoke-virtual {p0}, Lcom/android/settings/dashboard/DashboardFragment;->updatePreferenceStates()V
 
     invoke-virtual {p0}, Lcom/android/settings/notification/app/NotificationSettings;->animatePanel()V
 
     return-void
 
-    :cond_2
-    :goto_1
+    :cond_3
+    :goto_2
     const-string v0, "ConvoSettings"
 
     const-string v1, "Missing package or uid or packageinfo or channel"

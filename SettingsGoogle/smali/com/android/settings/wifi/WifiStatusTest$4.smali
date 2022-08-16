@@ -39,13 +39,13 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/WifiStatusTest$4;->this$0:Lcom/android/settings/wifi/WifiStatusTest;
 
-    invoke-static {v0}, Lcom/android/settings/wifi/WifiStatusTest;->access$1900(Lcom/android/settings/wifi/WifiStatusTest;)Landroid/widget/TextView;
+    invoke-static {v0}, Lcom/android/settings/wifi/WifiStatusTest;->-$$Nest$fgetmPingHostname(Lcom/android/settings/wifi/WifiStatusTest;)Landroid/widget/TextView;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/settings/wifi/WifiStatusTest$4;->this$0:Lcom/android/settings/wifi/WifiStatusTest;
 
-    invoke-static {v1}, Lcom/android/settings/wifi/WifiStatusTest;->access$1800(Lcom/android/settings/wifi/WifiStatusTest;)Ljava/lang/String;
+    invoke-static {v1}, Lcom/android/settings/wifi/WifiStatusTest;->-$$Nest$fgetmPingHostnameResult(Lcom/android/settings/wifi/WifiStatusTest;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -53,13 +53,13 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/WifiStatusTest$4;->this$0:Lcom/android/settings/wifi/WifiStatusTest;
 
-    invoke-static {v0}, Lcom/android/settings/wifi/WifiStatusTest;->access$2100(Lcom/android/settings/wifi/WifiStatusTest;)Landroid/widget/TextView;
+    invoke-static {v0}, Lcom/android/settings/wifi/WifiStatusTest;->-$$Nest$fgetmHttpClientTest(Lcom/android/settings/wifi/WifiStatusTest;)Landroid/widget/TextView;
 
     move-result-object v0
 
     iget-object p0, p0, Lcom/android/settings/wifi/WifiStatusTest$4;->this$0:Lcom/android/settings/wifi/WifiStatusTest;
 
-    invoke-static {p0}, Lcom/android/settings/wifi/WifiStatusTest;->access$2000(Lcom/android/settings/wifi/WifiStatusTest;)Ljava/lang/String;
+    invoke-static {p0}, Lcom/android/settings/wifi/WifiStatusTest;->-$$Nest$fgetmHttpClientTestResult(Lcom/android/settings/wifi/WifiStatusTest;)Ljava/lang/String;
 
     move-result-object p0
 

@@ -14,16 +14,6 @@
 # direct methods
 .method static checkFormat(Landroidx/slice/SliceItem;Ljava/lang/String;)Z
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "item",
-            "format"
-        }
-    .end annotation
 
     if-eqz p1, :cond_1
 
@@ -54,16 +44,6 @@
 
 .method static checkSubtype(Landroidx/slice/SliceItem;Ljava/lang/String;)Z
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "item",
-            "subtype"
-        }
-    .end annotation
 
     if-eqz p1, :cond_1
 
@@ -94,16 +74,6 @@
 
 .method public static find(Landroidx/slice/Slice;Ljava/lang/String;)Landroidx/slice/SliceItem;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "s",
-            "format"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -116,20 +86,6 @@
 
 .method public static find(Landroidx/slice/Slice;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroidx/slice/SliceItem;
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "s",
-            "format",
-            "hints",
-            "nonHints"
-        }
-    .end annotation
 
     const/4 v0, 0x1
 
@@ -152,20 +108,6 @@
 
 .method public static find(Landroidx/slice/Slice;Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)Landroidx/slice/SliceItem;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x10,
-            0x10,
-            0x10
-        }
-        names = {
-            "s",
-            "format",
-            "hints",
-            "nonHints"
-        }
-    .end annotation
 
     if-nez p0, :cond_0
 
@@ -191,16 +133,6 @@
 
 .method public static find(Landroidx/slice/SliceItem;Ljava/lang/String;)Landroidx/slice/SliceItem;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "s",
-            "format"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -213,20 +145,6 @@
 
 .method public static find(Landroidx/slice/SliceItem;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroidx/slice/SliceItem;
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "s",
-            "format",
-            "hints",
-            "nonHints"
-        }
-    .end annotation
 
     const/4 v0, 0x1
 
@@ -249,20 +167,6 @@
 
 .method public static find(Landroidx/slice/SliceItem;Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)Landroidx/slice/SliceItem;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x10,
-            0x10,
-            0x10
-        }
-        names = {
-            "s",
-            "format",
-            "hints",
-            "nonHints"
-        }
-    .end annotation
 
     if-nez p0, :cond_0
 
@@ -288,21 +192,6 @@
 
 .method public static findAll(Landroidx/slice/Slice;Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)Ljava/util/List;
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x10,
-            0x10,
-            0x10
-        }
-        names = {
-            "s",
-            "format",
-            "hints",
-            "nonHints"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -338,17 +227,6 @@
 
 .method public static findAll(Landroidx/slice/SliceItem;Ljava/lang/String;)Ljava/util/List;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "s",
-            "format"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -372,21 +250,6 @@
 
 .method public static findAll(Landroidx/slice/SliceItem;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "s",
-            "format",
-            "hints",
-            "nonHints"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -422,21 +285,6 @@
 
 .method public static findAll(Landroidx/slice/SliceItem;Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)Ljava/util/List;
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x10,
-            0x10,
-            0x10
-        }
-        names = {
-            "s",
-            "format",
-            "hints",
-            "nonHints"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -472,19 +320,6 @@
 
 .method private static findAll(Ljava/util/Deque;Landroidx/slice/core/SliceQuery$Filter;Ljava/util/List;)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x10,
-            0x0,
-            0x0
-        }
-        names = {
-            "items",
-            "f",
-            "out"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -566,17 +401,6 @@
 
 .method private static findSliceItem(Ljava/util/Deque;Landroidx/slice/core/SliceQuery$Filter;)Landroidx/slice/SliceItem;
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x10,
-            0x0
-        }
-        names = {
-            "items",
-            "f"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -658,18 +482,6 @@
 
 .method public static findSubtype(Landroidx/slice/Slice;Ljava/lang/String;Ljava/lang/String;)Landroidx/slice/SliceItem;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x10,
-            0x10
-        }
-        names = {
-            "s",
-            "format",
-            "subtype"
-        }
-    .end annotation
 
     if-nez p0, :cond_0
 
@@ -695,18 +507,6 @@
 
 .method public static findSubtype(Landroidx/slice/SliceItem;Ljava/lang/String;Ljava/lang/String;)Landroidx/slice/SliceItem;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x10,
-            0x10
-        }
-        names = {
-            "s",
-            "format",
-            "subtype"
-        }
-    .end annotation
 
     if-nez p0, :cond_0
 
@@ -732,22 +532,6 @@
 
 .method public static findTopLevelItem(Landroidx/slice/Slice;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)Landroidx/slice/SliceItem;
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x10,
-            0x10,
-            0x10,
-            0x10
-        }
-        names = {
-            "s",
-            "format",
-            "subtype",
-            "hints",
-            "nonHints"
-        }
-    .end annotation
 
     invoke-virtual {p0}, Landroidx/slice/Slice;->getItemArray()[Landroidx/slice/SliceItem;
 
@@ -801,16 +585,6 @@
 
 .method public static varargs hasAnyHints(Landroidx/slice/SliceItem;[Ljava/lang/String;)Z
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "item",
-            "hints"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -849,16 +623,6 @@
 
 .method public static varargs hasHints(Landroidx/slice/SliceItem;[Ljava/lang/String;)Z
     .locals 6
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "item",
-            "hints"
-        }
-    .end annotation
 
     const/4 v0, 0x1
 
@@ -903,15 +667,6 @@
 
 .method private static toQueue(Landroidx/slice/Slice;)Ljava/util/Deque;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "item"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -938,15 +693,6 @@
 
 .method private static toQueue(Landroidx/slice/SliceItem;)Ljava/util/Deque;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "item"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

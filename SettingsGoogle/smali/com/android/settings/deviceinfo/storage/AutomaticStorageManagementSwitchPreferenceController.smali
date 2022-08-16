@@ -17,7 +17,7 @@
 
 .field private final mMetricsFeatureProvider:Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;
 
-.field private mSwitch:Lcom/android/settings/widget/PrimarySwitchPreference;
+.field private mSwitch:Lcom/android/settingslib/PrimarySwitchPreference;
 
 .field private mSwitchController:Lcom/android/settings/widget/GenericSwitchController;
 
@@ -43,14 +43,6 @@
 
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public displayPreference(Landroidx/preference/PreferenceScreen;)V
     .locals 1
 
@@ -64,9 +56,9 @@
 
     move-result-object p1
 
-    check-cast p1, Lcom/android/settings/widget/PrimarySwitchPreference;
+    check-cast p1, Lcom/android/settingslib/PrimarySwitchPreference;
 
-    iput-object p1, p0, Lcom/android/settings/deviceinfo/storage/AutomaticStorageManagementSwitchPreferenceController;->mSwitch:Lcom/android/settings/widget/PrimarySwitchPreference;
+    iput-object p1, p0, Lcom/android/settings/deviceinfo/storage/AutomaticStorageManagementSwitchPreferenceController;->mSwitch:Lcom/android/settingslib/PrimarySwitchPreference;
 
     return-void
 .end method
@@ -80,7 +72,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f09004a
+    const v0, 0x7f09004b
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -107,15 +99,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -154,16 +137,6 @@
     return p0
 .end method
 
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
-
-    move-result p0
-
-    return p0
-.end method
-
 .method public bridge synthetic isPublicSlice()Z
     .locals 0
 
@@ -196,7 +169,7 @@
     return-void
 
     :cond_0
-    iget-object v0, p0, Lcom/android/settings/deviceinfo/storage/AutomaticStorageManagementSwitchPreferenceController;->mSwitch:Lcom/android/settings/widget/PrimarySwitchPreference;
+    iget-object v0, p0, Lcom/android/settings/deviceinfo/storage/AutomaticStorageManagementSwitchPreferenceController;->mSwitch:Lcom/android/settingslib/PrimarySwitchPreference;
 
     iget-object v1, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
@@ -204,15 +177,15 @@
 
     move-result v1
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/widget/PrimarySwitchPreference;->setChecked(Z)V
+    invoke-virtual {v0, v1}, Lcom/android/settingslib/PrimarySwitchPreference;->setChecked(Z)V
 
-    iget-object v0, p0, Lcom/android/settings/deviceinfo/storage/AutomaticStorageManagementSwitchPreferenceController;->mSwitch:Lcom/android/settings/widget/PrimarySwitchPreference;
+    iget-object v0, p0, Lcom/android/settings/deviceinfo/storage/AutomaticStorageManagementSwitchPreferenceController;->mSwitch:Lcom/android/settingslib/PrimarySwitchPreference;
 
     if-eqz v0, :cond_1
 
     new-instance v1, Lcom/android/settings/widget/GenericSwitchController;
 
-    invoke-direct {v1, v0}, Lcom/android/settings/widget/GenericSwitchController;-><init>(Lcom/android/settings/widget/PrimarySwitchPreference;)V
+    invoke-direct {v1, v0}, Lcom/android/settings/widget/GenericSwitchController;-><init>(Lcom/android/settingslib/PrimarySwitchPreference;)V
 
     iput-object v1, p0, Lcom/android/settings/deviceinfo/storage/AutomaticStorageManagementSwitchPreferenceController;->mSwitchController:Lcom/android/settings/widget/GenericSwitchController;
 
@@ -247,7 +220,7 @@
 
     invoke-static {v0, v1, p1}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    const-string v0, "ro.storage_manager.enabled"
+    const-string/jumbo v0, "ro.storage_manager.enabled"
 
     const/4 v1, 0x0
 

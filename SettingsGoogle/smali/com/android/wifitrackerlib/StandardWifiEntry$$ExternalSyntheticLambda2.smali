@@ -1,21 +1,26 @@
 .class public final synthetic Lcom/android/wifitrackerlib/StandardWifiEntry$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/wifitrackerlib/WifiEntry$ConnectCallback;
+.field public final synthetic f$0:Lcom/android/wifitrackerlib/StandardWifiEntry;
+
+.field public final synthetic f$1:Lcom/android/wifitrackerlib/WifiEntry$DisconnectCallback;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/wifitrackerlib/WifiEntry$ConnectCallback;)V
+.method public synthetic constructor <init>(Lcom/android/wifitrackerlib/StandardWifiEntry;Lcom/android/wifitrackerlib/WifiEntry$DisconnectCallback;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/wifitrackerlib/StandardWifiEntry$$ExternalSyntheticLambda2;->f$0:Lcom/android/wifitrackerlib/WifiEntry$ConnectCallback;
+    iput-object p1, p0, Lcom/android/wifitrackerlib/StandardWifiEntry$$ExternalSyntheticLambda2;->f$0:Lcom/android/wifitrackerlib/StandardWifiEntry;
+
+    iput-object p2, p0, Lcom/android/wifitrackerlib/StandardWifiEntry$$ExternalSyntheticLambda2;->f$1:Lcom/android/wifitrackerlib/WifiEntry$DisconnectCallback;
 
     return-void
 .end method
@@ -23,11 +28,13 @@
 
 # virtual methods
 .method public final run()V
-    .locals 0
+    .locals 1
 
-    iget-object p0, p0, Lcom/android/wifitrackerlib/StandardWifiEntry$$ExternalSyntheticLambda2;->f$0:Lcom/android/wifitrackerlib/WifiEntry$ConnectCallback;
+    iget-object v0, p0, Lcom/android/wifitrackerlib/StandardWifiEntry$$ExternalSyntheticLambda2;->f$0:Lcom/android/wifitrackerlib/StandardWifiEntry;
 
-    invoke-static {p0}, Lcom/android/wifitrackerlib/StandardWifiEntry;->$r8$lambda$Oj8LAlv3oYIR1ZuYJaMh673O0GM(Lcom/android/wifitrackerlib/WifiEntry$ConnectCallback;)V
+    iget-object p0, p0, Lcom/android/wifitrackerlib/StandardWifiEntry$$ExternalSyntheticLambda2;->f$1:Lcom/android/wifitrackerlib/WifiEntry$DisconnectCallback;
+
+    invoke-static {v0, p0}, Lcom/android/wifitrackerlib/StandardWifiEntry;->$r8$lambda$aj0QpM09KMbI4Efalj-kR5YZAJU(Lcom/android/wifitrackerlib/StandardWifiEntry;Lcom/android/wifitrackerlib/WifiEntry$DisconnectCallback;)V
 
     return-void
 .end method

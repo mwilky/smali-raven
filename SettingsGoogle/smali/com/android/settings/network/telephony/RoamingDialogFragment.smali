@@ -148,12 +148,12 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f041087
+    const v0, 0x7f04112d
 
     goto :goto_0
 
     :cond_0
-    const v0, 0x7f04108d
+    const v0, 0x7f041133
 
     :goto_0
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getResources()Landroid/content/res/Resources;
@@ -168,7 +168,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f041086
+    const v1, 0x7f04112c
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -193,6 +193,10 @@
     invoke-virtual {p1}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
     move-result-object p0
+
+    const/4 p1, 0x0
+
+    invoke-virtual {p0, p1}, Landroid/app/AlertDialog;->setCanceledOnTouchOutside(Z)V
 
     return-object p0
 .end method

@@ -96,10 +96,82 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$KfjGHHk_f_OFS8s2py6jPuzoQo0(Lcom/android/settings/applications/manageapplications/ApplicationViewHolder;Landroid/graphics/drawable/Drawable;)V
+    .locals 0
+
+    invoke-static {p0, p1}, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->lambda$updateIcon$1(Lcom/android/settings/applications/manageapplications/ApplicationViewHolder;Landroid/graphics/drawable/Drawable;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$PDoT3zJh13mw0NAK2W11WM4WplI(Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;Lcom/android/settingslib/applications/ApplicationsState$AppEntry;Lcom/android/settings/applications/manageapplications/ApplicationViewHolder;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->lambda$updateIcon$2(Lcom/android/settingslib/applications/ApplicationsState$AppEntry;Lcom/android/settings/applications/manageapplications/ApplicationViewHolder;)V
+
+    return-void
+.end method
+
 .method public static synthetic $r8$lambda$gsyl8Xj_0Zj22Gs57HWla2VLL54(Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;Lcom/android/settingslib/applications/ApplicationsState$AppFilter;Ljava/util/Comparator;)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->lambda$rebuild$0(Lcom/android/settingslib/applications/ApplicationsState$AppFilter;Ljava/util/Comparator;)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmExtraInfoBridge(Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;)Lcom/android/settings/applications/AppStateBaseBridge;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mExtraInfoBridge:Lcom/android/settings/applications/AppStateBaseBridge;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmHasReceivedBridgeCallback(Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mHasReceivedBridgeCallback:Z
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmHasReceivedLoadEntries(Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mHasReceivedLoadEntries:Z
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmOriginalEntries(Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;)Ljava/util/ArrayList;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mOriginalEntries:Ljava/util/ArrayList;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmEntries(Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;Ljava/util/ArrayList;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mEntries:Ljava/util/ArrayList;
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fputmHasReceivedBridgeCallback(Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mHasReceivedBridgeCallback:Z
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fputmHasReceivedLoadEntries(Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mHasReceivedLoadEntries:Z
 
     return-void
 .end method
@@ -135,13 +207,13 @@
 
     new-instance v3, Lcom/android/settings/widget/LoadingViewController;
 
-    invoke-static {p2}, Lcom/android/settings/applications/manageapplications/ManageApplications;->access$600(Lcom/android/settings/applications/manageapplications/ManageApplications;)Landroid/view/View;
+    invoke-static {p2}, Lcom/android/settings/applications/manageapplications/ManageApplications;->-$$Nest$fgetmLoadingContainer(Lcom/android/settings/applications/manageapplications/ManageApplications;)Landroid/view/View;
 
     move-result-object v4
 
     iget-object v5, p2, Lcom/android/settings/applications/manageapplications/ManageApplications;->mRecyclerView:Landroidx/recyclerview/widget/RecyclerView;
 
-    invoke-static {p2}, Lcom/android/settings/applications/manageapplications/ManageApplications;->access$700(Lcom/android/settings/applications/manageapplications/ManageApplications;)Landroid/view/View;
+    invoke-static {p2}, Lcom/android/settings/applications/manageapplications/ManageApplications;->-$$Nest$fgetmEmptyView(Lcom/android/settings/applications/manageapplications/ManageApplications;)Landroid/view/View;
 
     move-result-object v6
 
@@ -175,15 +247,15 @@
 
     new-instance v7, Lcom/android/settings/applications/AppStateNotificationBridge;
 
-    invoke-static {p2}, Lcom/android/settings/applications/manageapplications/ManageApplications;->access$800(Lcom/android/settings/applications/manageapplications/ManageApplications;)Landroid/app/usage/IUsageStatsManager;
+    invoke-static {p2}, Lcom/android/settings/applications/manageapplications/ManageApplications;->-$$Nest$fgetmUsageStatsManager(Lcom/android/settings/applications/manageapplications/ManageApplications;)Landroid/app/usage/IUsageStatsManager;
 
     move-result-object v4
 
-    invoke-static {p2}, Lcom/android/settings/applications/manageapplications/ManageApplications;->access$900(Lcom/android/settings/applications/manageapplications/ManageApplications;)Landroid/os/UserManager;
+    invoke-static {p2}, Lcom/android/settings/applications/manageapplications/ManageApplications;->-$$Nest$fgetmUserManager(Lcom/android/settings/applications/manageapplications/ManageApplications;)Landroid/os/UserManager;
 
     move-result-object v5
 
-    invoke-static {p2}, Lcom/android/settings/applications/manageapplications/ManageApplications;->access$1000(Lcom/android/settings/applications/manageapplications/ManageApplications;)Lcom/android/settings/notification/NotificationBackend;
+    invoke-static {p2}, Lcom/android/settings/applications/manageapplications/ManageApplications;->-$$Nest$fgetmNotificationBackend(Lcom/android/settings/applications/manageapplications/ManageApplications;)Lcom/android/settings/notification/NotificationBackend;
 
     move-result-object v6
 
@@ -212,7 +284,7 @@
 
     iput-object v0, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mExtraInfoBridge:Lcom/android/settings/applications/AppStateBaseBridge;
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :cond_1
     const/4 v0, 0x5
@@ -321,12 +393,25 @@
     goto :goto_0
 
     :cond_9
+    const/16 v0, 0xe
+
+    if-ne v5, v0, :cond_a
+
+    new-instance v0, Lcom/android/settings/applications/AppStateLocaleBridge;
+
+    invoke-direct {v0, v3, p1, p0}, Lcom/android/settings/applications/AppStateLocaleBridge;-><init>(Landroid/content/Context;Lcom/android/settingslib/applications/ApplicationsState;Lcom/android/settings/applications/AppStateBaseBridge$Callback;)V
+
+    iput-object v0, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mExtraInfoBridge:Lcom/android/settings/applications/AppStateBaseBridge;
+
+    goto :goto_0
+
+    :cond_a
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mExtraInfoBridge:Lcom/android/settings/applications/AppStateBaseBridge;
 
     :goto_0
-    if-eqz p4, :cond_a
+    if-eqz p4, :cond_b
 
     const-string/jumbo v0, "state_last_scroll_index"
 
@@ -336,64 +421,31 @@
 
     iput v0, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mLastIndex:I
 
-    :cond_a
+    :cond_b
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;)Z
-    .locals 0
+.method public static getApplicationPosition(II)I
+    .locals 1
 
-    iget-boolean p0, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mHasReceivedLoadEntries:Z
+    const/16 v0, 0xe
 
-    return p0
-.end method
+    if-ne p0, v0, :cond_1
 
-.method static synthetic access$002(Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;Z)Z
-    .locals 0
+    if-lez p1, :cond_0
 
-    iput-boolean p1, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mHasReceivedLoadEntries:Z
+    add-int/lit8 p1, p1, -0x1
 
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, -0x1
+
+    move p1, p0
+
+    :cond_1
+    :goto_0
     return p1
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mHasReceivedBridgeCallback:Z
-
-    return p0
-.end method
-
-.method static synthetic access$102(Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mHasReceivedBridgeCallback:Z
-
-    return p1
-.end method
-
-.method static synthetic access$1500(Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;)Ljava/util/ArrayList;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mOriginalEntries:Ljava/util/ArrayList;
-
-    return-object p0
-.end method
-
-.method static synthetic access$1602(Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;Ljava/util/ArrayList;)Ljava/util/ArrayList;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mEntries:Ljava/util/ArrayList;
-
-    return-object p1
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;)Lcom/android/settings/applications/AppStateBaseBridge;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mExtraInfoBridge:Lcom/android/settings/applications/AppStateBaseBridge;
-
-    return-object p0
 .end method
 
 .method private synthetic lambda$rebuild$0(Lcom/android/settingslib/applications/ApplicationsState$AppFilter;Ljava/util/Comparator;)V
@@ -405,6 +457,35 @@
 
     invoke-virtual {p0, p1, p2, v0}, Lcom/android/settingslib/applications/ApplicationsState$Session;->rebuild(Lcom/android/settingslib/applications/ApplicationsState$AppFilter;Ljava/util/Comparator;Z)Ljava/util/ArrayList;
 
+    return-void
+.end method
+
+.method private static synthetic lambda$updateIcon$1(Lcom/android/settings/applications/manageapplications/ApplicationViewHolder;Landroid/graphics/drawable/Drawable;)V
+    .locals 0
+
+    invoke-virtual {p0, p1}, Lcom/android/settings/applications/manageapplications/ApplicationViewHolder;->setIcon(Landroid/graphics/drawable/Drawable;)V
+
+    return-void
+.end method
+
+.method private synthetic lambda$updateIcon$2(Lcom/android/settingslib/applications/ApplicationsState$AppEntry;Lcom/android/settings/applications/manageapplications/ApplicationViewHolder;)V
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mContext:Landroid/content/Context;
+
+    invoke-static {p0, p1}, Lcom/android/settingslib/applications/AppUtils;->getIcon(Landroid/content/Context;Lcom/android/settingslib/applications/ApplicationsState$AppEntry;)Landroid/graphics/drawable/Drawable;
+
+    move-result-object p0
+
+    if-eqz p0, :cond_0
+
+    new-instance p1, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter$$ExternalSyntheticLambda2;
+
+    invoke-direct {p1, p2, p0}, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/applications/manageapplications/ApplicationViewHolder;Landroid/graphics/drawable/Drawable;)V
+
+    invoke-static {p1}, Lcom/android/settingslib/utils/ThreadUtils;->postOnMainThread(Ljava/lang/Runnable;)V
+
+    :cond_0
     return-void
 .end method
 
@@ -500,6 +581,34 @@
     return-object v0
 .end method
 
+.method private updateIcon(Lcom/android/settings/applications/manageapplications/ApplicationViewHolder;Lcom/android/settingslib/applications/ApplicationsState$AppEntry;)V
+    .locals 2
+
+    invoke-static {p2}, Lcom/android/settingslib/applications/AppUtils;->getIconFromCache(Lcom/android/settingslib/applications/ApplicationsState$AppEntry;)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    iget-boolean v1, p2, Lcom/android/settingslib/applications/ApplicationsState$AppEntry;->mounted:Z
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {p1, v0}, Lcom/android/settings/applications/manageapplications/ApplicationViewHolder;->setIcon(Landroid/graphics/drawable/Drawable;)V
+
+    goto :goto_0
+
+    :cond_0
+    new-instance v0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter$$ExternalSyntheticLambda1;
+
+    invoke-direct {v0, p0, p2, p1}, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;Lcom/android/settingslib/applications/ApplicationsState$AppEntry;Lcom/android/settings/applications/manageapplications/ApplicationViewHolder;)V
+
+    invoke-static {v0}, Lcom/android/settingslib/utils/ThreadUtils;->postOnBackgroundThread(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;
+
+    :goto_0
+    return-void
+.end method
+
 .method private updateSummary(Lcom/android/settings/applications/manageapplications/ApplicationViewHolder;Lcom/android/settingslib/applications/ApplicationsState$AppEntry;)V
     .locals 3
 
@@ -523,6 +632,17 @@
     :pswitch_1
     iget-object p0, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mContext:Landroid/content/Context;
 
+    invoke-static {p0, p2}, Lcom/android/settings/applications/appinfo/AppLocaleDetails;->getSummary(Landroid/content/Context;Lcom/android/settingslib/applications/ApplicationsState$AppEntry;)Ljava/lang/CharSequence;
+
+    move-result-object p0
+
+    invoke-virtual {p1, p0}, Lcom/android/settings/applications/manageapplications/ApplicationViewHolder;->setSummary(Ljava/lang/CharSequence;)V
+
+    goto/16 :goto_1
+
+    :pswitch_2
+    iget-object p0, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mContext:Landroid/content/Context;
+
     invoke-static {p0, p2}, Lcom/android/settings/applications/appinfo/MediaManagementAppsDetails;->getSummary(Landroid/content/Context;Lcom/android/settingslib/applications/ApplicationsState$AppEntry;)I
 
     move-result p0
@@ -531,7 +651,7 @@
 
     goto/16 :goto_1
 
-    :pswitch_2
+    :pswitch_3
     iget-object p0, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mContext:Landroid/content/Context;
 
     invoke-static {p0, p2}, Lcom/android/settings/applications/appinfo/AlarmsAndRemindersDetails;->getSummary(Landroid/content/Context;Lcom/android/settingslib/applications/ApplicationsState$AppEntry;)Ljava/lang/CharSequence;
@@ -542,7 +662,7 @@
 
     goto/16 :goto_1
 
-    :pswitch_3
+    :pswitch_4
     iget-object p0, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mContext:Landroid/content/Context;
 
     invoke-static {p0, p2}, Lcom/android/settings/applications/appinfo/ManageExternalStorageDetails;->getSummary(Landroid/content/Context;Lcom/android/settingslib/applications/ApplicationsState$AppEntry;)Ljava/lang/CharSequence;
@@ -553,7 +673,7 @@
 
     goto/16 :goto_1
 
-    :pswitch_4
+    :pswitch_5
     iget-object p0, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mContext:Landroid/content/Context;
 
     invoke-static {p0, p2}, Lcom/android/settings/wifi/ChangeWifiStateDetails;->getSummary(Landroid/content/Context;Lcom/android/settingslib/applications/ApplicationsState$AppEntry;)Ljava/lang/CharSequence;
@@ -564,7 +684,7 @@
 
     goto :goto_1
 
-    :pswitch_5
+    :pswitch_6
     iget-object p0, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mContext:Landroid/content/Context;
 
     invoke-static {p0, p2}, Lcom/android/settings/applications/appinfo/ExternalSourcesDetails;->getPreferenceSummary(Landroid/content/Context;Lcom/android/settingslib/applications/ApplicationsState$AppEntry;)Ljava/lang/CharSequence;
@@ -575,7 +695,7 @@
 
     goto :goto_1
 
-    :pswitch_6
+    :pswitch_7
     iget-object p0, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mContext:Landroid/content/Context;
 
     invoke-static {p0, p2}, Lcom/android/settings/applications/appinfo/WriteSettingsDetails;->getSummary(Landroid/content/Context;Lcom/android/settingslib/applications/ApplicationsState$AppEntry;)Ljava/lang/CharSequence;
@@ -586,7 +706,7 @@
 
     goto :goto_1
 
-    :pswitch_7
+    :pswitch_8
     iget-object p0, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mContext:Landroid/content/Context;
 
     invoke-static {p0, p2}, Lcom/android/settings/applications/appinfo/DrawOverlayDetails;->getSummary(Landroid/content/Context;Lcom/android/settingslib/applications/ApplicationsState$AppEntry;)Ljava/lang/CharSequence;
@@ -597,7 +717,7 @@
 
     goto :goto_1
 
-    :pswitch_8
+    :pswitch_9
     iget-object p0, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mContext:Landroid/content/Context;
 
     invoke-static {p0, p2}, Lcom/android/settings/fuelgauge/HighPowerDetail;->getSummary(Landroid/content/Context;Lcom/android/settingslib/applications/ApplicationsState$AppEntry;)Ljava/lang/CharSequence;
@@ -608,7 +728,7 @@
 
     goto :goto_1
 
-    :pswitch_9
+    :pswitch_a
     iget-object p0, p2, Lcom/android/settingslib/applications/ApplicationsState$AppEntry;->extraInfo:Ljava/lang/Object;
 
     if-eqz p0, :cond_1
@@ -625,12 +745,12 @@
 
     if-eqz p0, :cond_0
 
-    const p0, 0x7f040270
+    const p0, 0x7f0402a3
 
     goto :goto_0
 
     :cond_0
-    const p0, 0x7f040271
+    const p0, 0x7f0402a4
 
     :goto_0
     invoke-virtual {p1, p0}, Lcom/android/settings/applications/manageapplications/ApplicationViewHolder;->setSummary(I)V
@@ -642,7 +762,7 @@
 
     goto :goto_1
 
-    :pswitch_a
+    :pswitch_b
     iget-object p2, p2, Lcom/android/settingslib/applications/ApplicationsState$AppEntry;->extraInfo:Ljava/lang/Object;
 
     if-eqz p2, :cond_2
@@ -671,17 +791,20 @@
     :goto_1
     return-void
 
+    nop
+
     :pswitch_data_0
     .packed-switch 0x1
+        :pswitch_b
+        :pswitch_0
+        :pswitch_0
         :pswitch_a
-        :pswitch_0
-        :pswitch_0
         :pswitch_9
         :pswitch_8
         :pswitch_7
         :pswitch_6
-        :pswitch_5
         :pswitch_0
+        :pswitch_5
         :pswitch_4
         :pswitch_3
         :pswitch_2
@@ -765,7 +888,7 @@
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, p0, v1}, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter$SearchFilter;-><init>(Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;Lcom/android/settings/applications/manageapplications/ManageApplications$1;)V
+    invoke-direct {v0, p0, v1}, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter$SearchFilter;-><init>(Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter$SearchFilter-IA;)V
 
     iput-object v0, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mSearchFilter:Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter$SearchFilter;
 
@@ -825,26 +948,38 @@
 .end method
 
 .method public getItemCount()I
-    .locals 0
+    .locals 2
 
-    iget-object p0, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mEntries:Ljava/util/ArrayList;
+    invoke-virtual {p0}, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->getApplicationCount()I
 
-    if-nez p0, :cond_0
+    move-result v0
 
-    const/4 p0, 0x0
+    if-eqz v0, :cond_0
 
-    return p0
+    iget-object p0, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mManageApplications:Lcom/android/settings/applications/manageapplications/ManageApplications;
+
+    iget p0, p0, Lcom/android/settings/applications/manageapplications/ManageApplications;->mListType:I
+
+    const/16 v1, 0xe
+
+    if-ne p0, v1, :cond_0
+
+    add-int/lit8 v0, v0, 0x1
 
     :cond_0
-    invoke-virtual {p0}, Ljava/util/ArrayList;->size()I
-
-    move-result p0
-
-    return p0
+    return v0
 .end method
 
 .method public getItemId(I)J
     .locals 1
+
+    iget-object v0, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mManageApplications:Lcom/android/settings/applications/manageapplications/ManageApplications;
+
+    iget v0, v0, Lcom/android/settings/applications/manageapplications/ManageApplications;->mListType:I
+
+    invoke-static {v0, p1}, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->getApplicationPosition(II)I
+
+    move-result p1
 
     iget-object v0, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mEntries:Ljava/util/ArrayList;
 
@@ -852,11 +987,13 @@
 
     move-result v0
 
+    if-eq p1, v0, :cond_1
+
+    const/4 v0, -0x1
+
     if-ne p1, v0, :cond_0
 
-    const-wide/16 p0, -0x1
-
-    return-wide p0
+    goto :goto_0
 
     :cond_0
     iget-object p0, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mEntries:Ljava/util/ArrayList;
@@ -870,11 +1007,32 @@
     iget-wide p0, p0, Lcom/android/settingslib/applications/ApplicationsState$AppEntry;->id:J
 
     return-wide p0
+
+    :cond_1
+    :goto_0
+    const-wide/16 p0, -0x1
+
+    return-wide p0
 .end method
 
 .method public getItemViewType(I)I
     .locals 0
 
+    if-nez p1, :cond_0
+
+    iget-object p0, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mManageApplications:Lcom/android/settings/applications/manageapplications/ManageApplications;
+
+    iget p0, p0, Lcom/android/settings/applications/manageapplications/ManageApplications;->mListType:I
+
+    const/16 p1, 0xe
+
+    if-ne p0, p1, :cond_0
+
+    const/4 p0, 0x2
+
+    return p0
+
+    :cond_0
     const/4 p0, 0x0
 
     return p0
@@ -889,7 +1047,11 @@
 
     const/4 v1, 0x1
 
-    if-eq v0, v1, :cond_2
+    if-eq v0, v1, :cond_3
+
+    const/4 v2, 0x2
+
+    if-eq v0, v2, :cond_3
 
     iget-object v0, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mManageApplications:Lcom/android/settings/applications/manageapplications/ManageApplications;
 
@@ -902,6 +1064,17 @@
     goto :goto_0
 
     :cond_0
+    invoke-static {v0, p1}, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->getApplicationPosition(II)I
+
+    move-result p1
+
+    const/4 v0, -0x1
+
+    if-ne p1, v0, :cond_1
+
+    return v1
+
+    :cond_1
     iget-object v0, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mEntries:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -920,7 +1093,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2
 
     iget-object p0, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mBackend:Lcom/android/settingslib/fuelgauge/PowerAllowlistBackend;
 
@@ -932,14 +1105,14 @@
 
     move-result p0
 
-    if-nez p0, :cond_1
+    if-nez p0, :cond_2
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     const/4 v1, 0x0
 
-    :cond_2
+    :cond_3
     :goto_0
     return v1
 .end method
@@ -949,7 +1122,7 @@
 
     iget v0, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mLastSortMode:I
 
-    const v1, 0x7f0d0523
+    const v1, 0x7f0d0565
 
     if-ne v0, v1, :cond_0
 
@@ -992,9 +1165,35 @@
 .method public onBindViewHolder(Lcom/android/settings/applications/manageapplications/ApplicationViewHolder;I)V
     .locals 3
 
-    iget-object v0, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mEntries:Ljava/util/ArrayList;
+    invoke-virtual {p0, p2}, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->getItemViewType(I)I
 
-    invoke-virtual {v0, p2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    move-result v0
+
+    const/4 v1, 0x2
+
+    if-ne v0, v1, :cond_0
+
+    return-void
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mManageApplications:Lcom/android/settings/applications/manageapplications/ManageApplications;
+
+    iget v0, v0, Lcom/android/settings/applications/manageapplications/ManageApplications;->mListType:I
+
+    invoke-static {v0, p2}, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->getApplicationPosition(II)I
+
+    move-result v0
+
+    const/4 v1, -0x1
+
+    if-ne v0, v1, :cond_1
+
+    return-void
+
+    :cond_1
+    iget-object v1, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mEntries:Ljava/util/ArrayList;
+
+    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -1013,13 +1212,7 @@
 
     invoke-virtual {p1, v1, v2}, Lcom/android/settings/applications/manageapplications/ApplicationViewHolder;->setTitle(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V
 
-    iget-object v1, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mState:Lcom/android/settingslib/applications/ApplicationsState;
-
-    invoke-virtual {v1, v0}, Lcom/android/settingslib/applications/ApplicationsState;->ensureIcon(Lcom/android/settingslib/applications/ApplicationsState$AppEntry;)V
-
-    iget-object v1, v0, Lcom/android/settingslib/applications/ApplicationsState$AppEntry;->icon:Landroid/graphics/drawable/Drawable;
-
-    invoke-virtual {p1, v1}, Lcom/android/settings/applications/manageapplications/ApplicationViewHolder;->setIcon(Landroid/graphics/drawable/Drawable;)V
+    invoke-direct {p0, p1, v0}, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->updateIcon(Lcom/android/settings/applications/manageapplications/ApplicationViewHolder;Lcom/android/settingslib/applications/ApplicationsState$AppEntry;)V
 
     invoke-direct {p0, p1, v0}, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->updateSummary(Lcom/android/settings/applications/manageapplications/ApplicationViewHolder;Lcom/android/settingslib/applications/ApplicationsState$AppEntry;)V
 
@@ -1069,15 +1262,32 @@
 .end method
 
 .method public onCreateViewHolder(Landroid/view/ViewGroup;I)Lcom/android/settings/applications/manageapplications/ApplicationViewHolder;
-    .locals 0
+    .locals 1
 
     iget-object p0, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mManageApplications:Lcom/android/settings/applications/manageapplications/ManageApplications;
 
     iget p0, p0, Lcom/android/settings/applications/manageapplications/ManageApplications;->mListType:I
 
+    const/16 v0, 0xe
+
+    if-ne p0, v0, :cond_0
+
+    const/4 v0, 0x2
+
+    if-ne p2, v0, :cond_0
+
+    const p0, 0x7f04080f
+
+    invoke-static {p1, p0}, Lcom/android/settings/applications/manageapplications/ApplicationViewHolder;->newHeader(Landroid/view/ViewGroup;I)Landroid/view/View;
+
+    move-result-object p0
+
+    goto :goto_0
+
+    :cond_0
     const/4 p2, 0x1
 
-    if-ne p0, p2, :cond_0
+    if-ne p0, p2, :cond_1
 
     invoke-static {p1, p2}, Lcom/android/settings/applications/manageapplications/ApplicationViewHolder;->newView(Landroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -1085,7 +1295,7 @@
 
     goto :goto_0
 
-    :cond_0
+    :cond_1
     const/4 p0, 0x0
 
     invoke-static {p1, p0}, Lcom/android/settings/applications/manageapplications/ApplicationViewHolder;->newView(Landroid/view/ViewGroup;Z)Landroid/view/View;
@@ -1137,7 +1347,7 @@
 
     iget-object v0, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mManageApplications:Lcom/android/settings/applications/manageapplications/ManageApplications;
 
-    invoke-static {v0}, Lcom/android/settings/applications/manageapplications/ManageApplications;->access$1100(Lcom/android/settings/applications/manageapplications/ManageApplications;)Z
+    invoke-static {v0}, Lcom/android/settings/applications/manageapplications/ManageApplications;->-$$Nest$fgetmShowSystem(Lcom/android/settings/applications/manageapplications/ManageApplications;)Z
 
     move-result v0
 
@@ -1219,7 +1429,7 @@
     :cond_1
     iget-object v3, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mManageApplications:Lcom/android/settings/applications/manageapplications/ManageApplications;
 
-    invoke-static {v3}, Lcom/android/settings/applications/manageapplications/ManageApplications;->access$1400(Lcom/android/settings/applications/manageapplications/ManageApplications;)Ljava/lang/String;
+    invoke-static {v3}, Lcom/android/settings/applications/manageapplications/ManageApplications;->-$$Nest$fgetmCurrentPkgName(Lcom/android/settings/applications/manageapplications/ManageApplications;)Ljava/lang/String;
 
     move-result-object v3
 
@@ -1250,7 +1460,7 @@
 .end method
 
 .method public onRebuildComplete(Ljava/util/ArrayList;)V
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1287,6 +1497,20 @@
     invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
+    iget-object v0, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    const v2, 0x7f0e0008
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
+
+    move-result v1
+
+    invoke-static {v0, p1, v1}, Lcom/android/settingslib/applications/AppUtils;->preloadTopIcons(Landroid/content/Context;Ljava/util/ArrayList;I)V
+
     iget-object v0, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mAppFilter:Lcom/android/settings/applications/manageapplications/AppFilterItem;
 
     invoke-virtual {v0}, Lcom/android/settings/applications/manageapplications/AppFilterItem;->getFilterType()I
@@ -1332,7 +1556,7 @@
 
     iget-object p1, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mManageApplications:Lcom/android/settings/applications/manageapplications/ManageApplications;
 
-    invoke-static {p1}, Lcom/android/settings/applications/manageapplications/ManageApplications;->access$1300(Lcom/android/settings/applications/manageapplications/ManageApplications;)Landroid/widget/SearchView;
+    invoke-static {p1}, Lcom/android/settings/applications/manageapplications/ManageApplications;->-$$Nest$fgetmSearchView(Lcom/android/settings/applications/manageapplications/ManageApplications;)Landroid/widget/SearchView;
 
     move-result-object p1
 
@@ -1340,7 +1564,7 @@
 
     iget-object p1, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mManageApplications:Lcom/android/settings/applications/manageapplications/ManageApplications;
 
-    invoke-static {p1}, Lcom/android/settings/applications/manageapplications/ManageApplications;->access$1300(Lcom/android/settings/applications/manageapplications/ManageApplications;)Landroid/widget/SearchView;
+    invoke-static {p1}, Lcom/android/settings/applications/manageapplications/ManageApplications;->-$$Nest$fgetmSearchView(Lcom/android/settings/applications/manageapplications/ManageApplications;)Landroid/widget/SearchView;
 
     move-result-object p1
 
@@ -1352,7 +1576,7 @@
 
     iget-object p1, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mManageApplications:Lcom/android/settings/applications/manageapplications/ManageApplications;
 
-    invoke-static {p1}, Lcom/android/settings/applications/manageapplications/ManageApplications;->access$1300(Lcom/android/settings/applications/manageapplications/ManageApplications;)Landroid/widget/SearchView;
+    invoke-static {p1}, Lcom/android/settings/applications/manageapplications/ManageApplications;->-$$Nest$fgetmSearchView(Lcom/android/settings/applications/manageapplications/ManageApplications;)Landroid/widget/SearchView;
 
     move-result-object p1
 
@@ -1553,7 +1777,7 @@
     :cond_2
     iget-object v1, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mManageApplications:Lcom/android/settings/applications/manageapplications/ManageApplications;
 
-    invoke-static {v1}, Lcom/android/settings/applications/manageapplications/ManageApplications;->access$1100(Lcom/android/settings/applications/manageapplications/ManageApplications;)Z
+    invoke-static {v1}, Lcom/android/settings/applications/manageapplications/ManageApplications;->-$$Nest$fgetmShowSystem(Lcom/android/settings/applications/manageapplications/ManageApplications;)Z
 
     move-result v1
 
@@ -1596,7 +1820,7 @@
     :cond_4
     iget v1, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mLastSortMode:I
 
-    const v3, 0x7f0d0523
+    const v3, 0x7f0d0565
 
     if-ne v1, v3, :cond_7
 
@@ -1623,7 +1847,7 @@
     goto :goto_2
 
     :cond_7
-    const v2, 0x7f0d0522
+    const v2, 0x7f0d0564
 
     if-ne v1, v2, :cond_8
 
@@ -1632,7 +1856,7 @@
     goto :goto_2
 
     :cond_8
-    const v2, 0x7f0d0521
+    const v2, 0x7f0d0563
 
     if-ne v1, v2, :cond_9
 
@@ -1713,19 +1937,21 @@
     return-void
 .end method
 
-.method public rebuild(I)V
+.method public rebuild(IZ)V
     .locals 1
 
     iget v0, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mLastSortMode:I
 
     if-ne p1, v0, :cond_0
 
+    if-nez p2, :cond_0
+
     return-void
 
     :cond_0
-    iget-object v0, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mManageApplications:Lcom/android/settings/applications/manageapplications/ManageApplications;
+    iget-object p2, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mManageApplications:Lcom/android/settings/applications/manageapplications/ManageApplications;
 
-    iput p1, v0, Lcom/android/settings/applications/manageapplications/ManageApplications;->mSortOrder:I
+    iput p1, p2, Lcom/android/settings/applications/manageapplications/ManageApplications;->mSortOrder:I
 
     iput p1, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mLastSortMode:I
 
@@ -1781,6 +2007,8 @@
     :cond_0
     iget-boolean v0, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mResumed:Z
 
+    const/4 v1, 0x0
+
     if-nez v0, :cond_2
 
     const/4 v0, 0x1
@@ -1797,7 +2025,7 @@
 
     if-eqz p1, :cond_1
 
-    invoke-virtual {p1}, Lcom/android/settings/applications/AppStateBaseBridge;->resume()V
+    invoke-virtual {p1, v1}, Lcom/android/settings/applications/AppStateBaseBridge;->resume(Z)V
 
     :cond_1
     invoke-virtual {p0}, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->rebuild()V
@@ -1805,7 +2033,7 @@
     goto :goto_0
 
     :cond_2
-    invoke-virtual {p0, p1}, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->rebuild(I)V
+    invoke-virtual {p0, p1, v1}, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->rebuild(IZ)V
 
     :goto_0
     return-void
@@ -1822,7 +2050,7 @@
 .end method
 
 .method public setFilter(Lcom/android/settings/applications/manageapplications/AppFilterItem;)V
-    .locals 2
+    .locals 4
 
     iput-object p1, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mAppFilter:Lcom/android/settings/applications/manageapplications/AppFilterItem;
 
@@ -1838,13 +2066,15 @@
 
     invoke-virtual {p1}, Lcom/android/settings/applications/manageapplications/AppFilterItem;->getFilterType()I
 
-    move-result v1
+    move-result v2
 
-    if-ne v0, v1, :cond_0
+    const/4 v3, 0x0
 
-    const p1, 0x7f0d0521
+    if-ne v0, v2, :cond_0
 
-    invoke-virtual {p0, p1}, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->rebuild(I)V
+    const p1, 0x7f0d0563
+
+    invoke-virtual {p0, p1, v3}, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->rebuild(IZ)V
 
     goto :goto_0
 
@@ -1853,13 +2083,13 @@
 
     invoke-virtual {p1}, Lcom/android/settings/applications/manageapplications/AppFilterItem;->getFilterType()I
 
-    move-result v1
+    move-result v2
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v2, :cond_1
 
-    const p1, 0x7f0d0522
+    const p1, 0x7f0d0564
 
-    invoke-virtual {p0, p1}, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->rebuild(I)V
+    invoke-virtual {p0, p1, v3}, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->rebuild(IZ)V
 
     goto :goto_0
 
@@ -1870,16 +2100,16 @@
 
     move-result p1
 
-    const v1, 0x7f0d0520
+    const v2, 0x7f0d0562
 
     if-ne v0, p1, :cond_2
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->rebuild(I)V
+    invoke-virtual {p0, v2, v1}, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->rebuild(IZ)V
 
     goto :goto_0
 
     :cond_2
-    invoke-virtual {p0, v1}, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->rebuild(I)V
+    invoke-virtual {p0, v2, v1}, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->rebuild(IZ)V
 
     goto :goto_0
 

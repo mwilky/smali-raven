@@ -51,7 +51,7 @@
 .method public onTransitionEnd(Landroid/transition/Transition;)V
     .locals 3
 
-    invoke-virtual {p1, p0}, Landroid/transition/Transition;->removeListener(Landroid/transition/Transition$TransitionListener;)Landroid/transition/Transition;
+    invoke-static {p1, p0}, Landroidx/fragment/app/FragmentTransitionCompat21$Api19Impl;->removeListener(Landroid/transition/Transition;Landroid/transition/Transition$TransitionListener;)V
 
     iget-object p1, p0, Landroidx/fragment/app/FragmentTransitionCompat21$2;->val$fragmentView:Landroid/view/View;
 
@@ -105,9 +105,9 @@
 .method public onTransitionStart(Landroid/transition/Transition;)V
     .locals 0
 
-    invoke-virtual {p1, p0}, Landroid/transition/Transition;->removeListener(Landroid/transition/Transition$TransitionListener;)Landroid/transition/Transition;
+    invoke-static {p1, p0}, Landroidx/fragment/app/FragmentTransitionCompat21$Api19Impl;->removeListener(Landroid/transition/Transition;Landroid/transition/Transition$TransitionListener;)V
 
-    invoke-virtual {p1, p0}, Landroid/transition/Transition;->addListener(Landroid/transition/Transition$TransitionListener;)Landroid/transition/Transition;
+    invoke-static {p1, p0}, Landroidx/fragment/app/FragmentTransitionCompat21$Api19Impl;->addListener(Landroid/transition/Transition;Landroid/transition/Transition$TransitionListener;)V
 
     return-void
 .end method

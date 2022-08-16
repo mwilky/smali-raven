@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settings/applications/specialaccess/notificationaccess/NotificationAccessDetails$$ExternalSyntheticLambda3;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
@@ -29,7 +30,7 @@
 
     check-cast p1, Ljava/util/List;
 
-    invoke-static {p0, p1}, Lcom/android/settings/applications/specialaccess/notificationaccess/NotificationAccessDetails;->$r8$lambda$4J6GkvNGAatvs3-J89HcBrxehzY(Landroidx/preference/PreferenceScreen;Ljava/util/List;)V
+    invoke-static {p0, p1}, Lcom/android/settings/applications/specialaccess/notificationaccess/NotificationAccessDetails;->$r8$lambda$axaC15TDPLW3NrZbauERF3DWtmo(Landroidx/preference/PreferenceScreen;Ljava/util/List;)V
 
     return-void
 .end method

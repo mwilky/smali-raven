@@ -64,7 +64,9 @@
 .method private getPredecessor(I)I
     .locals 0
 
-    iget-object p0, p0, Lcom/google/common/collect/CompactLinkedHashSet;->predecessor:[I
+    invoke-direct {p0}, Lcom/google/common/collect/CompactLinkedHashSet;->requirePredecessors()[I
+
+    move-result-object p0
 
     aget p0, p0, p1
 
@@ -73,10 +75,36 @@
     return p0
 .end method
 
-.method private setPredecessor(II)V
+.method private requirePredecessors()[I
     .locals 0
 
     iget-object p0, p0, Lcom/google/common/collect/CompactLinkedHashSet;->predecessor:[I
+
+    invoke-static {p0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+
+    check-cast p0, [I
+
+    return-object p0
+.end method
+
+.method private requireSuccessors()[I
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/common/collect/CompactLinkedHashSet;->successor:[I
+
+    invoke-static {p0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+
+    check-cast p0, [I
+
+    return-object p0
+.end method
+
+.method private setPredecessor(II)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/google/common/collect/CompactLinkedHashSet;->requirePredecessors()[I
+
+    move-result-object p0
 
     add-int/lit8 p2, p2, 0x1
 
@@ -116,7 +144,9 @@
 .method private setSuccessor(II)V
     .locals 0
 
-    iget-object p0, p0, Lcom/google/common/collect/CompactLinkedHashSet;->successor:[I
+    invoke-direct {p0}, Lcom/google/common/collect/CompactLinkedHashSet;->requireSuccessors()[I
+
+    move-result-object p0
 
     add-int/lit8 p2, p2, 0x1
 
@@ -182,6 +212,10 @@
 
     if-eqz v0, :cond_1
 
+    iget-object v1, p0, Lcom/google/common/collect/CompactLinkedHashSet;->successor:[I
+
+    if-eqz v1, :cond_1
+
     invoke-virtual {p0}, Lcom/google/common/collect/CompactHashSet;->size()I
 
     move-result v1
@@ -206,9 +240,6 @@
 
 .method convertToHashFloodingResistantImplementation()Ljava/util/Set;
     .locals 2
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -241,7 +272,9 @@
 .method getSuccessor(I)I
     .locals 0
 
-    iget-object p0, p0, Lcom/google/common/collect/CompactLinkedHashSet;->successor:[I
+    invoke-direct {p0}, Lcom/google/common/collect/CompactLinkedHashSet;->requireSuccessors()[I
+
+    move-result-object p0
 
     aget p0, p0, p1
 
@@ -321,13 +354,17 @@
     invoke-direct {p0, p1, p2}, Lcom/google/common/collect/CompactLinkedHashSet;->setSucceeds(II)V
 
     :cond_0
-    iget-object p1, p0, Lcom/google/common/collect/CompactLinkedHashSet;->predecessor:[I
+    invoke-direct {p0}, Lcom/google/common/collect/CompactLinkedHashSet;->requirePredecessors()[I
+
+    move-result-object p1
 
     const/4 p2, 0x0
 
     aput p2, p1, v0
 
-    iget-object p0, p0, Lcom/google/common/collect/CompactLinkedHashSet;->successor:[I
+    invoke-direct {p0}, Lcom/google/common/collect/CompactLinkedHashSet;->requireSuccessors()[I
+
+    move-result-object p0
 
     aput p2, p0, v0
 
@@ -339,7 +376,9 @@
 
     invoke-super {p0, p1}, Lcom/google/common/collect/CompactHashSet;->resizeEntries(I)V
 
-    iget-object v0, p0, Lcom/google/common/collect/CompactLinkedHashSet;->predecessor:[I
+    invoke-direct {p0}, Lcom/google/common/collect/CompactLinkedHashSet;->requirePredecessors()[I
+
+    move-result-object v0
 
     invoke-static {v0, p1}, Ljava/util/Arrays;->copyOf([II)[I
 
@@ -347,7 +386,9 @@
 
     iput-object v0, p0, Lcom/google/common/collect/CompactLinkedHashSet;->predecessor:[I
 
-    iget-object v0, p0, Lcom/google/common/collect/CompactLinkedHashSet;->successor:[I
+    invoke-direct {p0}, Lcom/google/common/collect/CompactLinkedHashSet;->requireSuccessors()[I
+
+    move-result-object v0
 
     invoke-static {v0, p1}, Ljava/util/Arrays;->copyOf([II)[I
 

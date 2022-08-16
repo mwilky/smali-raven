@@ -34,7 +34,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settings/network/telephony/WifiCallingPreferenceController;Lcom/android/settings/network/telephony/WifiCallingPreferenceController$1;)V
+.method synthetic constructor <init>(Lcom/android/settings/network/telephony/WifiCallingPreferenceController;Lcom/android/settings/network/telephony/WifiCallingPreferenceController$PhoneTelephonyCallback-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settings/network/telephony/WifiCallingPreferenceController$PhoneTelephonyCallback;-><init>(Lcom/android/settings/network/telephony/WifiCallingPreferenceController;)V
@@ -57,7 +57,7 @@
 
     iget-object p0, p0, Lcom/android/settings/network/telephony/WifiCallingPreferenceController$PhoneTelephonyCallback;->this$0:Lcom/android/settings/network/telephony/WifiCallingPreferenceController;
 
-    invoke-static {p0}, Lcom/android/settings/network/telephony/WifiCallingPreferenceController;->access$100(Lcom/android/settings/network/telephony/WifiCallingPreferenceController;)Landroidx/preference/Preference;
+    invoke-static {p0}, Lcom/android/settings/network/telephony/WifiCallingPreferenceController;->-$$Nest$fgetmPreference(Lcom/android/settings/network/telephony/WifiCallingPreferenceController;)Landroidx/preference/Preference;
 
     move-result-object p1
 

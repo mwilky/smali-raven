@@ -3,12 +3,12 @@
 .source "ZenModePrioritySendersPreferenceController.java"
 
 # interfaces
-.implements Landroid/view/View$OnClickListener;
+.implements Lcom/android/settingslib/widget/SelectorWithWidgetPreference$OnClickListener;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;->getWidgetClickListener(Ljava/lang/String;)Landroid/view/View$OnClickListener;
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,16 +20,12 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;
 
-.field final synthetic val$key:Ljava/lang/String;
-
 
 # direct methods
-.method constructor <init>(Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;Ljava/lang/String;)V
+.method constructor <init>(Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController$2;->this$0:Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;
-
-    iput-object p2, p0, Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController$2;->val$key:Ljava/lang/String;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -38,103 +34,80 @@
 
 
 # virtual methods
-.method public onClick(Landroid/view/View;)V
-    .locals 1
-
-    iget-object p1, p0, Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController$2;->val$key:Ljava/lang/String;
-
-    const-string v0, "senders_starred_contacts"
-
-    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p1
-
-    if-eqz p1, :cond_0
-
-    invoke-static {}, Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;->access$400()Landroid/content/Intent;
-
-    move-result-object p1
+.method public onRadioButtonClicked(Lcom/android/settingslib/widget/SelectorWithWidgetPreference;)V
+    .locals 4
 
     iget-object v0, p0, Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController$2;->this$0:Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;
 
-    invoke-static {v0}, Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;->access$300(Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;)Landroid/content/pm/PackageManager;
+    invoke-static {v0}, Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;->-$$Nest$fgetmHelper(Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;)Lcom/android/settings/notification/zen/ZenPrioritySendersHelper;
 
     move-result-object v0
 
-    invoke-virtual {p1, v0}, Landroid/content/Intent;->resolveActivity(Landroid/content/pm/PackageManager;)Landroid/content/ComponentName;
+    iget-object v1, p0, Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController$2;->this$0:Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;
+
+    invoke-static {v1}, Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;->-$$Nest$mgetPrioritySenders(Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;)I
+
+    move-result v1
+
+    iget-object v2, p0, Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController$2;->this$0:Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;
+
+    invoke-static {v2}, Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;->-$$Nest$mgetPriorityConversationSenders(Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;)I
+
+    move-result v2
+
+    invoke-virtual {v0, p1, v1, v2}, Lcom/android/settings/notification/zen/ZenPrioritySendersHelper;->settingsToSaveOnClick(Lcom/android/settingslib/widget/SelectorWithWidgetPreference;II)[I
 
     move-result-object p1
 
-    if-eqz p1, :cond_0
+    const/4 v0, 0x0
 
-    iget-object p0, p0, Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController$2;->this$0:Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;
+    aget v0, p1, v0
 
-    invoke-static {p0}, Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;->access$500(Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;)Landroid/content/Context;
+    const/4 v1, 0x1
 
-    move-result-object p0
+    aget p1, p1, v1
 
-    invoke-static {}, Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;->access$400()Landroid/content/Intent;
+    const/16 v1, -0xa
 
-    move-result-object p1
+    if-eq v0, v1, :cond_1
 
-    invoke-virtual {p0, p1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
+    iget-object v2, p0, Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController$2;->this$0:Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;
+
+    iget-object v3, v2, Lcom/android/settings/notification/zen/AbstractZenModePreferenceController;->mBackend:Lcom/android/settings/notification/zen/ZenModeBackend;
+
+    invoke-static {v2}, Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;->-$$Nest$fgetmIsMessages(Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    const/4 v2, 0x4
 
     goto :goto_0
 
     :cond_0
-    iget-object p1, p0, Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController$2;->val$key:Ljava/lang/String;
-
-    const-string v0, "senders_contacts"
-
-    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p1
-
-    if-eqz p1, :cond_1
-
-    invoke-static {}, Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;->access$600()Landroid/content/Intent;
-
-    move-result-object p1
-
-    iget-object v0, p0, Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController$2;->this$0:Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;
-
-    invoke-static {v0}, Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;->access$300(Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;)Landroid/content/pm/PackageManager;
-
-    move-result-object v0
-
-    invoke-virtual {p1, v0}, Landroid/content/Intent;->resolveActivity(Landroid/content/pm/PackageManager;)Landroid/content/ComponentName;
-
-    move-result-object p1
-
-    if-eqz p1, :cond_1
-
-    iget-object p0, p0, Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController$2;->this$0:Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;
-
-    invoke-static {p0}, Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;->access$700(Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;)Landroid/content/Context;
-
-    move-result-object p0
-
-    invoke-static {}, Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;->access$600()Landroid/content/Intent;
-
-    move-result-object p1
-
-    invoke-virtual {p0, p1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
-
-    goto :goto_0
-
-    :cond_1
-    iget-object p0, p0, Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController$2;->this$0:Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;
-
-    invoke-static {p0}, Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;->access$900(Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;)Landroid/content/Context;
-
-    move-result-object p0
-
-    invoke-static {}, Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;->access$800()Landroid/content/Intent;
-
-    move-result-object p1
-
-    invoke-virtual {p0, p1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
+    const/16 v2, 0x8
 
     :goto_0
+    invoke-virtual {v3, v2, v0}, Lcom/android/settings/notification/zen/ZenModeBackend;->saveSenders(II)V
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController$2;->this$0:Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;
+
+    invoke-static {v0}, Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;->-$$Nest$fgetmIsMessages(Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    if-eq p1, v1, :cond_2
+
+    iget-object p0, p0, Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController$2;->this$0:Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;
+
+    iget-object p0, p0, Lcom/android/settings/notification/zen/AbstractZenModePreferenceController;->mBackend:Lcom/android/settings/notification/zen/ZenModeBackend;
+
+    invoke-virtual {p0, p1}, Lcom/android/settings/notification/zen/ZenModeBackend;->saveConversationSenders(I)V
+
+    :cond_2
     return-void
 .end method

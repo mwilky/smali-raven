@@ -21,14 +21,6 @@
 # direct methods
 .method constructor <init>(Landroidx/mediarouter/media/MediaRoute2Provider$GroupRouteController;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x8010
-        }
-        names = {
-            "this$1"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/mediarouter/media/MediaRoute2Provider$GroupRouteController$ReceiveHandler;->this$1:Landroidx/mediarouter/media/MediaRoute2Provider$GroupRouteController;
 
@@ -45,14 +37,6 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "msg"
-        }
-    .end annotation
 
     iget v0, p1, Landroid/os/Message;->what:I
 

@@ -34,7 +34,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settings/network/telephony/NrAdvancedCallingPreferenceController;Lcom/android/settings/network/telephony/NrAdvancedCallingPreferenceController$1;)V
+.method synthetic constructor <init>(Lcom/android/settings/network/telephony/NrAdvancedCallingPreferenceController;Lcom/android/settings/network/telephony/NrAdvancedCallingPreferenceController$PhoneCallStateTelephonyCallback-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settings/network/telephony/NrAdvancedCallingPreferenceController$PhoneCallStateTelephonyCallback;-><init>(Lcom/android/settings/network/telephony/NrAdvancedCallingPreferenceController;)V
@@ -53,7 +53,7 @@
 
     move-result-object p1
 
-    invoke-static {v0, p1}, Lcom/android/settings/network/telephony/NrAdvancedCallingPreferenceController;->access$102(Lcom/android/settings/network/telephony/NrAdvancedCallingPreferenceController;Ljava/lang/Integer;)Ljava/lang/Integer;
+    invoke-static {v0, p1}, Lcom/android/settings/network/telephony/NrAdvancedCallingPreferenceController;->-$$Nest$fputmCallState(Lcom/android/settings/network/telephony/NrAdvancedCallingPreferenceController;Ljava/lang/Integer;)V
 
     iget-object p0, p0, Lcom/android/settings/network/telephony/NrAdvancedCallingPreferenceController$PhoneCallStateTelephonyCallback;->this$0:Lcom/android/settings/network/telephony/NrAdvancedCallingPreferenceController;
 
@@ -79,13 +79,13 @@
 
     move-result-object p1
 
-    invoke-static {v0, p1}, Lcom/android/settings/network/telephony/NrAdvancedCallingPreferenceController;->access$102(Lcom/android/settings/network/telephony/NrAdvancedCallingPreferenceController;Ljava/lang/Integer;)Ljava/lang/Integer;
+    invoke-static {v0, p1}, Lcom/android/settings/network/telephony/NrAdvancedCallingPreferenceController;->-$$Nest$fputmCallState(Lcom/android/settings/network/telephony/NrAdvancedCallingPreferenceController;Ljava/lang/Integer;)V
 
     iget-object p1, p0, Lcom/android/settings/network/telephony/NrAdvancedCallingPreferenceController$PhoneCallStateTelephonyCallback;->mLocalTelephonyManager:Landroid/telephony/TelephonyManager;
 
     iget-object v0, p0, Lcom/android/settings/network/telephony/NrAdvancedCallingPreferenceController$PhoneCallStateTelephonyCallback;->this$0:Lcom/android/settings/network/telephony/NrAdvancedCallingPreferenceController;
 
-    invoke-static {v0}, Lcom/android/settings/network/telephony/NrAdvancedCallingPreferenceController;->access$200(Lcom/android/settings/network/telephony/NrAdvancedCallingPreferenceController;)Landroid/content/Context;
+    invoke-static {v0}, Lcom/android/settings/network/telephony/NrAdvancedCallingPreferenceController;->access$000(Lcom/android/settings/network/telephony/NrAdvancedCallingPreferenceController;)Landroid/content/Context;
 
     move-result-object v0
 
@@ -95,7 +95,7 @@
 
     iget-object p0, p0, Lcom/android/settings/network/telephony/NrAdvancedCallingPreferenceController$PhoneCallStateTelephonyCallback;->this$0:Lcom/android/settings/network/telephony/NrAdvancedCallingPreferenceController;
 
-    invoke-static {p0}, Lcom/android/settings/network/telephony/NrAdvancedCallingPreferenceController;->access$300(Lcom/android/settings/network/telephony/NrAdvancedCallingPreferenceController;)Lcom/android/settings/network/telephony/NrAdvancedCallingPreferenceController$PhoneCallStateTelephonyCallback;
+    invoke-static {p0}, Lcom/android/settings/network/telephony/NrAdvancedCallingPreferenceController;->-$$Nest$fgetmTelephonyCallback(Lcom/android/settings/network/telephony/NrAdvancedCallingPreferenceController;)Lcom/android/settings/network/telephony/NrAdvancedCallingPreferenceController$PhoneCallStateTelephonyCallback;
 
     move-result-object p0
 
@@ -111,7 +111,7 @@
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/android/settings/network/telephony/NrAdvancedCallingPreferenceController;->access$102(Lcom/android/settings/network/telephony/NrAdvancedCallingPreferenceController;Ljava/lang/Integer;)Ljava/lang/Integer;
+    invoke-static {v0, v1}, Lcom/android/settings/network/telephony/NrAdvancedCallingPreferenceController;->-$$Nest$fputmCallState(Lcom/android/settings/network/telephony/NrAdvancedCallingPreferenceController;Ljava/lang/Integer;)V
 
     iget-object v0, p0, Lcom/android/settings/network/telephony/NrAdvancedCallingPreferenceController$PhoneCallStateTelephonyCallback;->mLocalTelephonyManager:Landroid/telephony/TelephonyManager;
 

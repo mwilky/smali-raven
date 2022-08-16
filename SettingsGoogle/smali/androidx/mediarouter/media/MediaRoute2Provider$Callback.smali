@@ -26,36 +26,10 @@
 
 # virtual methods
 .method public abstract onReleaseController(Landroidx/mediarouter/media/MediaRouteProvider$RouteController;)V
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "controller"
-        }
-    .end annotation
 .end method
 
 .method public abstract onSelectFallbackRoute(I)V
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "reason"
-        }
-    .end annotation
 .end method
 
 .method public abstract onSelectRoute(Ljava/lang/String;I)V
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "routeDescriptorId",
-            "reason"
-        }
-    .end annotation
 .end method

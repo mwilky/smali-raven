@@ -49,7 +49,7 @@
 
     iget-object v0, p0, Lcom/android/settings/development/bluetooth/BaseBluetoothDialogPreference;->mRadioButtonIds:Ljava/util/List;
 
-    const v1, 0x7f0d0100
+    const v1, 0x7f0d0106
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -59,7 +59,7 @@
 
     iget-object v0, p0, Lcom/android/settings/development/bluetooth/BaseBluetoothDialogPreference;->mRadioButtonIds:Ljava/util/List;
 
-    const v1, 0x7f0d00fc
+    const v1, 0x7f0d0102
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -69,7 +69,7 @@
 
     iget-object v0, p0, Lcom/android/settings/development/bluetooth/BaseBluetoothDialogPreference;->mRadioButtonIds:Ljava/util/List;
 
-    const v1, 0x7f0d00fd
+    const v1, 0x7f0d0103
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -79,7 +79,7 @@
 
     iget-object v0, p0, Lcom/android/settings/development/bluetooth/BaseBluetoothDialogPreference;->mRadioButtonIds:Ljava/util/List;
 
-    const v1, 0x7f0d00fe
+    const v1, 0x7f0d0104
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -89,7 +89,7 @@
 
     iget-object v0, p0, Lcom/android/settings/development/bluetooth/BaseBluetoothDialogPreference;->mRadioButtonIds:Ljava/util/List;
 
-    const v1, 0x7f0d00ff
+    const v1, 0x7f0d0105
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -101,7 +101,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f010037
+    const v1, 0x7f010039
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -131,7 +131,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f010036
+    const v0, 0x7f010038
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -161,7 +161,7 @@
 .method protected getRadioButtonGroupId()I
     .locals 0
 
-    const p0, 0x7f0d0101
+    const p0, 0x7f0d0107
 
     return p0
 .end method

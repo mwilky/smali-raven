@@ -1,45 +1,44 @@
 .class public final synthetic Lcom/android/settings/applications/intentpicker/SupportedLinkWrapper$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Predicate;
+.implements Ljava/util/function/Function;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/settings/applications/intentpicker/SupportedLinkWrapper$$ExternalSyntheticLambda2;
+# instance fields
+.field public final synthetic f$0:Lcom/android/settings/applications/intentpicker/SupportedLinkWrapper;
+
+.field public final synthetic f$1:Landroid/content/Context;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/settings/applications/intentpicker/SupportedLinkWrapper$$ExternalSyntheticLambda2;
-
-    invoke-direct {v0}, Lcom/android/settings/applications/intentpicker/SupportedLinkWrapper$$ExternalSyntheticLambda2;-><init>()V
-
-    sput-object v0, Lcom/android/settings/applications/intentpicker/SupportedLinkWrapper$$ExternalSyntheticLambda2;->INSTANCE:Lcom/android/settings/applications/intentpicker/SupportedLinkWrapper$$ExternalSyntheticLambda2;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Lcom/android/settings/applications/intentpicker/SupportedLinkWrapper;Landroid/content/Context;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/settings/applications/intentpicker/SupportedLinkWrapper$$ExternalSyntheticLambda2;->f$0:Lcom/android/settings/applications/intentpicker/SupportedLinkWrapper;
+
+    iput-object p2, p0, Lcom/android/settings/applications/intentpicker/SupportedLinkWrapper$$ExternalSyntheticLambda2;->f$1:Landroid/content/Context;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final test(Ljava/lang/Object;)Z
-    .locals 0
+.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/settings/applications/intentpicker/SupportedLinkWrapper$$ExternalSyntheticLambda2;->f$0:Lcom/android/settings/applications/intentpicker/SupportedLinkWrapper;
+
+    iget-object p0, p0, Lcom/android/settings/applications/intentpicker/SupportedLinkWrapper$$ExternalSyntheticLambda2;->f$1:Landroid/content/Context;
 
     check-cast p1, Landroid/content/pm/verify/domain/DomainOwner;
 
-    invoke-static {p1}, Lcom/android/settings/applications/intentpicker/SupportedLinkWrapper;->$r8$lambda$BJKui6Dl-CDLAS0b1uawWq_enFE(Landroid/content/pm/verify/domain/DomainOwner;)Z
+    invoke-static {v0, p0, p1}, Lcom/android/settings/applications/intentpicker/SupportedLinkWrapper;->$r8$lambda$Gk03xL2qB6XVKKpz7Ls-lOnxEug(Lcom/android/settings/applications/intentpicker/SupportedLinkWrapper;Landroid/content/Context;Landroid/content/pm/verify/domain/DomainOwner;)Ljava/lang/String;
 
-    move-result p0
+    move-result-object p0
 
-    return p0
+    return-object p0
 .end method

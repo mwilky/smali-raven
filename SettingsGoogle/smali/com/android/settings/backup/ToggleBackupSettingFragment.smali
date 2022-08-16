@@ -20,6 +20,22 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$msetBackupEnabled(Lcom/android/settings/backup/ToggleBackupSettingFragment;Z)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/backup/ToggleBackupSettingFragment;->setBackupEnabled(Z)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mshowEraseBackupDialog(Lcom/android/settings/backup/ToggleBackupSettingFragment;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/backup/ToggleBackupSettingFragment;->showEraseBackupDialog()V
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 1
 
@@ -28,22 +44,6 @@
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/settings/backup/ToggleBackupSettingFragment;->mWaitingForConfirmationDialog:Z
-
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/backup/ToggleBackupSettingFragment;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/backup/ToggleBackupSettingFragment;->showEraseBackupDialog()V
-
-    return-void
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/backup/ToggleBackupSettingFragment;Z)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/backup/ToggleBackupSettingFragment;->setBackupEnabled(Z)V
 
     return-void
 .end method
@@ -97,7 +97,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040980
+    const v1, 0x7f0409e5
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -110,7 +110,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040343
+    const v1, 0x7f040380
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -133,7 +133,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040344
+    const v1, 0x7f040381
 
     invoke-virtual {v0, v1}, Landroidx/appcompat/app/AlertDialog$Builder;->setTitle(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
@@ -280,7 +280,7 @@
 
     iget-object v0, p0, Lcom/android/settings/backup/ToggleBackupSettingFragment;->mSummaryPreference:Landroidx/preference/Preference;
 
-    const v1, 0x7f060282
+    const v1, 0x7f060292
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setLayoutResource(I)V
 
@@ -388,7 +388,7 @@
 
     iget-object p1, p0, Lcom/android/settings/backup/ToggleBackupSettingFragment;->mSummaryPreference:Landroidx/preference/Preference;
 
-    const p2, 0x7f04097f
+    const p2, 0x7f0409e4
 
     invoke-virtual {p1, p2}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -397,7 +397,7 @@
     :cond_0
     iget-object p1, p0, Lcom/android/settings/backup/ToggleBackupSettingFragment;->mSummaryPreference:Landroidx/preference/Preference;
 
-    const p2, 0x7f040340
+    const p2, 0x7f04037d
 
     invoke-virtual {p1, p2}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -435,7 +435,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f040341
+    const p1, 0x7f04037e
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->setTitle(I)V
 

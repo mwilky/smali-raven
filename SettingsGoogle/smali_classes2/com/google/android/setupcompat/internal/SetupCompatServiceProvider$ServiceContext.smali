@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x18
     name = "ServiceContext"
 .end annotation
 
@@ -21,7 +21,7 @@
 
 
 # direct methods
-.method private constructor <init>(Lcom/google/android/setupcompat/internal/SetupCompatServiceProvider$State;)V
+.method constructor <init>(Lcom/google/android/setupcompat/internal/SetupCompatServiceProvider$State;)V
     .locals 1
 
     const/4 v0, 0x0
@@ -52,18 +52,10 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/google/android/setupcompat/internal/SetupCompatServiceProvider$State;Lcom/google/android/setupcompat/ISetupCompatService;Lcom/google/android/setupcompat/internal/SetupCompatServiceProvider$1;)V
+.method synthetic constructor <init>(Lcom/google/android/setupcompat/internal/SetupCompatServiceProvider$State;Lcom/google/android/setupcompat/ISetupCompatService;Lcom/google/android/setupcompat/internal/SetupCompatServiceProvider$ServiceContext-IA;)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/google/android/setupcompat/internal/SetupCompatServiceProvider$ServiceContext;-><init>(Lcom/google/android/setupcompat/internal/SetupCompatServiceProvider$State;Lcom/google/android/setupcompat/ISetupCompatService;)V
-
-    return-void
-.end method
-
-.method synthetic constructor <init>(Lcom/google/android/setupcompat/internal/SetupCompatServiceProvider$State;Lcom/google/android/setupcompat/internal/SetupCompatServiceProvider$1;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/google/android/setupcompat/internal/SetupCompatServiceProvider$ServiceContext;-><init>(Lcom/google/android/setupcompat/internal/SetupCompatServiceProvider$State;)V
 
     return-void
 .end method

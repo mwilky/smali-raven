@@ -56,7 +56,7 @@
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, p0, v1}, Lcom/android/settings/network/telephony/TelephonyStatusControlSession;-><init>(Ljava/util/Collection;Lcom/android/settings/network/telephony/TelephonyStatusControlSession$1;)V
+    invoke-direct {v0, p0, v1}, Lcom/android/settings/network/telephony/TelephonyStatusControlSession;-><init>(Ljava/util/Collection;Lcom/android/settings/network/telephony/TelephonyStatusControlSession-IA;)V
 
     return-object v0
 .end method

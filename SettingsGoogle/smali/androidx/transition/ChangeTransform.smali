@@ -84,20 +84,8 @@
 
     sput-object v0, Landroidx/transition/ChangeTransform;->TRANSLATIONS_PROPERTY:Landroid/util/Property;
 
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    if-lt v0, v1, :cond_0
-
     const/4 v0, 0x1
 
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    :goto_0
     sput-boolean v0, Landroidx/transition/ChangeTransform;->SUPPORTS_VIEW_REMOVAL_SUPPRESSION:Z
 
     return-void
@@ -153,7 +141,7 @@
 
     check-cast p2, Lorg/xmlpull/v1/XmlPullParser;
 
-    const-string v1, "reparentWithOverlay"
+    const-string/jumbo v1, "reparentWithOverlay"
 
     invoke-static {p1, p2, v1, v0, v0}, Landroidx/core/content/res/TypedArrayUtils;->getNamedBoolean(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;IZ)Z
 
@@ -161,7 +149,7 @@
 
     iput-boolean v1, p0, Landroidx/transition/ChangeTransform;->mUseOverlay:Z
 
-    const-string v1, "reparent"
+    const-string/jumbo v1, "reparent"
 
     const/4 v2, 0x0
 

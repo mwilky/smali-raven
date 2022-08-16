@@ -1,41 +1,30 @@
 .class public final synthetic Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda4;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Consumer;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/android/settings/dashboard/DashboardFragment;
-
-.field public final synthetic f$1:Landroid/content/ContentResolver;
+.implements Ljava/util/function/Predicate;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/settings/dashboard/DashboardFragment;Landroid/content/ContentResolver;)V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda4;->f$0:Lcom/android/settings/dashboard/DashboardFragment;
-
-    iput-object p2, p0, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda4;->f$1:Landroid/content/ContentResolver;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
-    .locals 1
+.method public final test(Ljava/lang/Object;)Z
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda4;->f$0:Lcom/android/settings/dashboard/DashboardFragment;
+    check-cast p1, Ljava/util/List;
 
-    iget-object p0, p0, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda4;->f$1:Landroid/content/ContentResolver;
+    invoke-static {p1}, Ljava/util/Objects;->nonNull(Ljava/lang/Object;)Z
 
-    check-cast p1, Lcom/android/settings/dashboard/DynamicDataObserver;
+    move-result p0
 
-    invoke-static {v0, p0, p1}, Lcom/android/settings/dashboard/DashboardFragment;->$r8$lambda$-eV8Nc0LVdFr9s5Szw9xTEgZrPc(Lcom/android/settings/dashboard/DashboardFragment;Landroid/content/ContentResolver;Lcom/android/settings/dashboard/DynamicDataObserver;)V
-
-    return-void
+    return p0
 .end method

@@ -778,11 +778,9 @@
 
     aget-object v2, p1, v0
 
-    iget-object v2, v2, Landroid/accounts/AuthenticatorDescription;->type:Ljava/lang/String;
+    iget-object v3, v2, Landroid/accounts/AuthenticatorDescription;->type:Ljava/lang/String;
 
-    aget-object v3, p1, v0
-
-    invoke-interface {v1, v2, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v1, v3, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     add-int/lit8 v0, v0, 0x1
 

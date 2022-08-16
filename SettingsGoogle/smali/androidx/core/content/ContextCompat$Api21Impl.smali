@@ -17,16 +17,6 @@
 # direct methods
 .method static getDrawable(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "obj",
-            "id"
-        }
-    .end annotation
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

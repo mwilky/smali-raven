@@ -39,32 +39,6 @@
 
 
 # direct methods
-.method constructor <init>(Landroid/view/ActionMode$Callback;Landroid/widget/TextView;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "callback",
-            "textView"
-        }
-    .end annotation
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Landroidx/core/widget/TextViewCompat$OreoCallback;->mCallback:Landroid/view/ActionMode$Callback;
-
-    iput-object p2, p0, Landroidx/core/widget/TextViewCompat$OreoCallback;->mTextView:Landroid/widget/TextView;
-
-    const/4 p1, 0x0
-
-    iput-boolean p1, p0, Landroidx/core/widget/TextViewCompat$OreoCallback;->mInitializedMenuBuilderReferences:Z
-
-    return-void
-.end method
-
 .method private createProcessTextIntent()Landroid/content/Intent;
     .locals 1
 
@@ -89,16 +63,6 @@
 
 .method private createProcessTextIntentForResolveInfo(Landroid/content/pm/ResolveInfo;Landroid/widget/TextView;)Landroid/content/Intent;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x10,
-            0x10
-        }
-        names = {
-            "info",
-            "textView11"
-        }
-    .end annotation
 
     invoke-direct {p0}, Landroidx/core/widget/TextViewCompat$OreoCallback;->createProcessTextIntent()Landroid/content/Intent;
 
@@ -131,17 +95,6 @@
 
 .method private getSupportedActivities(Landroid/content/Context;Landroid/content/pm/PackageManager;)Ljava/util/List;
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x10,
-            0x10
-        }
-        names = {
-            "context",
-            "packageManager"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -209,14 +162,6 @@
 
 .method private isEditable(Landroid/widget/TextView;)Z
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x10
-        }
-        names = {
-            "textView11"
-        }
-    .end annotation
 
     instance-of p0, p1, Landroid/text/Editable;
 
@@ -247,16 +192,6 @@
 
 .method private isSupportedActivity(Landroid/content/pm/ResolveInfo;Landroid/content/Context;)Z
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x10,
-            0x10
-        }
-        names = {
-            "info",
-            "context"
-        }
-    .end annotation
 
     invoke-virtual {p2}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
@@ -310,14 +245,6 @@
 
 .method private recomputeProcessTextMenuItems(Landroid/view/Menu;)V
     .locals 8
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x10
-        }
-        names = {
-            "menu"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/core/widget/TextViewCompat$OreoCallback;->mTextView:Landroid/widget/TextView;
 
@@ -331,7 +258,7 @@
 
     iget-boolean v2, p0, Landroidx/core/widget/TextViewCompat$OreoCallback;->mInitializedMenuBuilderReferences:Z
 
-    const-string v3, "removeItemAt"
+    const-string/jumbo v3, "removeItemAt"
 
     const/4 v4, 0x0
 
@@ -520,18 +447,16 @@
 
 
 # virtual methods
+.method getWrappedCallback()Landroid/view/ActionMode$Callback;
+    .locals 0
+
+    iget-object p0, p0, Landroidx/core/widget/TextViewCompat$OreoCallback;->mCallback:Landroid/view/ActionMode$Callback;
+
+    return-object p0
+.end method
+
 .method public onActionItemClicked(Landroid/view/ActionMode;Landroid/view/MenuItem;)Z
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "mode",
-            "item"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/core/widget/TextViewCompat$OreoCallback;->mCallback:Landroid/view/ActionMode$Callback;
 
@@ -544,16 +469,6 @@
 
 .method public onCreateActionMode(Landroid/view/ActionMode;Landroid/view/Menu;)Z
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "mode",
-            "menu"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/core/widget/TextViewCompat$OreoCallback;->mCallback:Landroid/view/ActionMode$Callback;
 
@@ -566,14 +481,6 @@
 
 .method public onDestroyActionMode(Landroid/view/ActionMode;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "mode"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/core/widget/TextViewCompat$OreoCallback;->mCallback:Landroid/view/ActionMode$Callback;
 
@@ -584,16 +491,6 @@
 
 .method public onPrepareActionMode(Landroid/view/ActionMode;Landroid/view/Menu;)Z
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "mode",
-            "menu"
-        }
-    .end annotation
 
     invoke-direct {p0, p2}, Landroidx/core/widget/TextViewCompat$OreoCallback;->recomputeProcessTextMenuItems(Landroid/view/Menu;)V
 

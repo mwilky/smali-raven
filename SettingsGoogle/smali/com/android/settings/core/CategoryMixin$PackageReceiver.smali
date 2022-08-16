@@ -29,7 +29,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settings/core/CategoryMixin;Lcom/android/settings/core/CategoryMixin$1;)V
+.method synthetic constructor <init>(Lcom/android/settings/core/CategoryMixin;Lcom/android/settings/core/CategoryMixin$PackageReceiver-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settings/core/CategoryMixin$PackageReceiver;-><init>(Lcom/android/settings/core/CategoryMixin;)V
@@ -46,7 +46,7 @@
 
     const/4 p1, 0x1
 
-    invoke-static {p0, p1}, Lcom/android/settings/core/CategoryMixin;->access$400(Lcom/android/settings/core/CategoryMixin;Z)V
+    invoke-static {p0, p1}, Lcom/android/settings/core/CategoryMixin;->-$$Nest$mupdateCategories(Lcom/android/settings/core/CategoryMixin;Z)V
 
     return-void
 .end method

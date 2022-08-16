@@ -16,12 +16,4 @@
 
 # virtual methods
 .method public abstract validateRequestPermissionsRequestCode(I)V
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "requestCode"
-        }
-    .end annotation
 .end method

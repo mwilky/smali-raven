@@ -22,12 +22,12 @@
     return-void
 .end method
 
-.method private static doParseTrieToBuilder(Ljava/util/List;Ljava/lang/CharSequence;ILcom/google/common/collect/ImmutableMap$Builder;)I
-    .locals 9
+.method private static doParseTrieToBuilder(Ljava/util/Deque;Ljava/lang/CharSequence;ILcom/google/common/collect/ImmutableMap$Builder;)I
+    .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/List<",
+            "Ljava/util/Deque<",
             "Ljava/lang/CharSequence;",
             ">;",
             "Ljava/lang/CharSequence;",
@@ -47,34 +47,32 @@
 
     move v2, p2
 
-    move v3, v1
-
     :goto_0
-    const/16 v4, 0x3a
+    const/16 v3, 0x3a
 
-    const/16 v5, 0x21
+    const/16 v4, 0x21
 
-    const/16 v6, 0x2c
+    const/16 v5, 0x2c
 
-    const/16 v7, 0x3f
+    const/16 v6, 0x3f
 
     if-ge v2, v0, :cond_1
 
     invoke-interface {p1, v2}, Ljava/lang/CharSequence;->charAt(I)C
 
-    move-result v3
+    move-result v1
 
-    const/16 v8, 0x26
+    const/16 v7, 0x26
 
-    if-eq v3, v8, :cond_1
+    if-eq v1, v7, :cond_1
 
-    if-eq v3, v7, :cond_1
+    if-eq v1, v6, :cond_1
 
-    if-eq v3, v5, :cond_1
+    if-eq v1, v4, :cond_1
 
-    if-eq v3, v4, :cond_1
+    if-eq v1, v3, :cond_1
 
-    if-ne v3, v6, :cond_0
+    if-ne v1, v5, :cond_0
 
     goto :goto_1
 
@@ -87,74 +85,74 @@
     :goto_1
     invoke-interface {p1, p2, v2}, Ljava/lang/CharSequence;->subSequence(II)Ljava/lang/CharSequence;
 
-    move-result-object v8
+    move-result-object v7
 
-    invoke-static {v8}, Lcom/google/thirdparty/publicsuffix/TrieParser;->reverse(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+    invoke-static {v7}, Lcom/google/thirdparty/publicsuffix/TrieParser;->reverse(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
 
-    move-result-object v8
+    move-result-object v7
 
-    invoke-interface {p0, v1, v8}, Ljava/util/List;->add(ILjava/lang/Object;)V
+    invoke-interface {p0, v7}, Ljava/util/Deque;->push(Ljava/lang/Object;)V
 
-    if-eq v3, v5, :cond_2
+    if-eq v1, v4, :cond_2
 
-    if-eq v3, v7, :cond_2
+    if-eq v1, v6, :cond_2
 
-    if-eq v3, v4, :cond_2
+    if-eq v1, v3, :cond_2
 
-    if-ne v3, v6, :cond_3
+    if-ne v1, v5, :cond_3
 
     :cond_2
-    sget-object v4, Lcom/google/thirdparty/publicsuffix/TrieParser;->PREFIX_JOINER:Lcom/google/common/base/Joiner;
+    sget-object v3, Lcom/google/thirdparty/publicsuffix/TrieParser;->PREFIX_JOINER:Lcom/google/common/base/Joiner;
 
-    invoke-virtual {v4, p0}, Lcom/google/common/base/Joiner;->join(Ljava/lang/Iterable;)Ljava/lang/String;
+    invoke-virtual {v3, p0}, Lcom/google/common/base/Joiner;->join(Ljava/lang/Iterable;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/String;->length()I
+
+    move-result v4
+
+    if-lez v4, :cond_3
+
+    invoke-static {v1}, Lcom/google/thirdparty/publicsuffix/PublicSuffixType;->fromCode(C)Lcom/google/thirdparty/publicsuffix/PublicSuffixType;
 
     move-result-object v4
 
-    invoke-virtual {v4}, Ljava/lang/String;->length()I
-
-    move-result v5
-
-    if-lez v5, :cond_3
-
-    invoke-static {v3}, Lcom/google/thirdparty/publicsuffix/PublicSuffixType;->fromCode(C)Lcom/google/thirdparty/publicsuffix/PublicSuffixType;
-
-    move-result-object v5
-
-    invoke-virtual {p3, v4, v5}, Lcom/google/common/collect/ImmutableMap$Builder;->put(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableMap$Builder;
+    invoke-virtual {p3, v3, v4}, Lcom/google/common/collect/ImmutableMap$Builder;->put(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableMap$Builder;
 
     :cond_3
     add-int/lit8 v2, v2, 0x1
 
-    if-eq v3, v7, :cond_6
+    if-eq v1, v6, :cond_6
 
-    if-eq v3, v6, :cond_6
+    if-eq v1, v5, :cond_6
 
     :cond_4
     if-ge v2, v0, :cond_6
 
-    invoke-static {p0, p1, v2, p3}, Lcom/google/thirdparty/publicsuffix/TrieParser;->doParseTrieToBuilder(Ljava/util/List;Ljava/lang/CharSequence;ILcom/google/common/collect/ImmutableMap$Builder;)I
+    invoke-static {p0, p1, v2, p3}, Lcom/google/thirdparty/publicsuffix/TrieParser;->doParseTrieToBuilder(Ljava/util/Deque;Ljava/lang/CharSequence;ILcom/google/common/collect/ImmutableMap$Builder;)I
 
-    move-result v3
+    move-result v1
 
-    add-int/2addr v2, v3
-
-    invoke-interface {p1, v2}, Ljava/lang/CharSequence;->charAt(I)C
-
-    move-result v3
-
-    if-eq v3, v7, :cond_5
+    add-int/2addr v2, v1
 
     invoke-interface {p1, v2}, Ljava/lang/CharSequence;->charAt(I)C
 
-    move-result v3
+    move-result v1
 
-    if-ne v3, v6, :cond_4
+    if-eq v1, v6, :cond_5
+
+    invoke-interface {p1, v2}, Ljava/lang/CharSequence;->charAt(I)C
+
+    move-result v1
+
+    if-ne v1, v5, :cond_4
 
     :cond_5
     add-int/lit8 v2, v2, 0x1
 
     :cond_6
-    invoke-interface {p0, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+    invoke-interface {p0}, Ljava/util/Deque;->pop()Ljava/lang/Object;
 
     sub-int/2addr v2, p2
 
@@ -188,11 +186,11 @@
     :goto_0
     if-ge v2, v1, :cond_0
 
-    invoke-static {}, Lcom/google/common/collect/Lists;->newLinkedList()Ljava/util/LinkedList;
+    invoke-static {}, Lcom/google/common/collect/Queues;->newArrayDeque()Ljava/util/ArrayDeque;
 
     move-result-object v3
 
-    invoke-static {v3, p0, v2, v0}, Lcom/google/thirdparty/publicsuffix/TrieParser;->doParseTrieToBuilder(Ljava/util/List;Ljava/lang/CharSequence;ILcom/google/common/collect/ImmutableMap$Builder;)I
+    invoke-static {v3, p0, v2, v0}, Lcom/google/thirdparty/publicsuffix/TrieParser;->doParseTrieToBuilder(Ljava/util/Deque;Ljava/lang/CharSequence;ILcom/google/common/collect/ImmutableMap$Builder;)I
 
     move-result v3
 

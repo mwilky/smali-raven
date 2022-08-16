@@ -35,14 +35,6 @@
 # direct methods
 .method constructor <init>(Landroidx/mediarouter/media/MediaRouteProvider;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "provider"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -67,14 +59,6 @@
 # virtual methods
 .method findRouteByDescriptorId(Ljava/lang/String;)Landroidx/mediarouter/media/MediaRouter$RouteInfo;
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "id"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/mediarouter/media/MediaRouter$ProviderInfo;->mRoutes:Ljava/util/List;
 
@@ -126,14 +110,6 @@
 
 .method findRouteIndexByDescriptorId(Ljava/lang/String;)I
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "id"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/mediarouter/media/MediaRouter$ProviderInfo;->mRoutes:Ljava/util/List;
 
@@ -285,14 +261,6 @@
 
 .method updateDescriptor(Landroidx/mediarouter/media/MediaRouteProviderDescriptor;)Z
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "descriptor"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/mediarouter/media/MediaRouter$ProviderInfo;->mDescriptor:Landroidx/mediarouter/media/MediaRouteProviderDescriptor;
 

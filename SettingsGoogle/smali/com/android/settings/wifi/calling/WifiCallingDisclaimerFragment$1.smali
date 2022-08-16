@@ -46,11 +46,11 @@
 
     iget-object p3, p0, Lcom/android/settings/wifi/calling/WifiCallingDisclaimerFragment$1;->this$0:Lcom/android/settings/wifi/calling/WifiCallingDisclaimerFragment;
 
-    invoke-static {p3, p2}, Lcom/android/settings/wifi/calling/WifiCallingDisclaimerFragment;->access$002(Lcom/android/settings/wifi/calling/WifiCallingDisclaimerFragment;Z)Z
+    invoke-static {p3, p2}, Lcom/android/settings/wifi/calling/WifiCallingDisclaimerFragment;->-$$Nest$fputmScrollToBottom(Lcom/android/settings/wifi/calling/WifiCallingDisclaimerFragment;Z)V
 
     iget-object p2, p0, Lcom/android/settings/wifi/calling/WifiCallingDisclaimerFragment$1;->this$0:Lcom/android/settings/wifi/calling/WifiCallingDisclaimerFragment;
 
-    invoke-static {p2}, Lcom/android/settings/wifi/calling/WifiCallingDisclaimerFragment;->access$100(Lcom/android/settings/wifi/calling/WifiCallingDisclaimerFragment;)V
+    invoke-static {p2}, Lcom/android/settings/wifi/calling/WifiCallingDisclaimerFragment;->-$$Nest$mupdateButtonState(Lcom/android/settings/wifi/calling/WifiCallingDisclaimerFragment;)V
 
     invoke-virtual {p1, p0}, Landroidx/recyclerview/widget/RecyclerView;->removeOnScrollListener(Landroidx/recyclerview/widget/RecyclerView$OnScrollListener;)V
 

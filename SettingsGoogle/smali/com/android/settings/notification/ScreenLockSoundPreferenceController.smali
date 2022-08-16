@@ -17,7 +17,7 @@
 
     const/4 v1, 0x2
 
-    const-string v2, "screen_locking_sounds"
+    const-string/jumbo v2, "screen_locking_sounds"
 
     const-string v3, "lockscreen_sounds_enabled"
 
@@ -43,7 +43,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f090047
+    const v0, 0x7f090048
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 

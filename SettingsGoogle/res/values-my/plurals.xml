@@ -5,12 +5,12 @@
         <item quantity="one">ပြီးခဲ့သော %d ရက်</item>
     </plurals>
     <plurals name="abc_slice_duration_min">
-        <item quantity="other">ပြီးခဲ့သော%dမိနစ်</item>
-        <item quantity="one">ပြီးခဲ့သော%dမိနစ်</item>
+        <item quantity="other">ပြီးခဲ့သော %d မိနစ်</item>
+        <item quantity="one">ပြီးခဲ့သော %d မိနစ်</item>
     </plurals>
     <plurals name="abc_slice_duration_years">
-        <item quantity="other">ပြီးခဲ့သော %dနှစ်</item>
-        <item quantity="one">ပြီးခဲ့သော %dနှစ်</item>
+        <item quantity="other">ပြီးခဲ့သော %d နှစ်</item>
+        <item quantity="one">ပြီးခဲ့သော %d နှစ်</item>
     </plurals>
     <plurals name="accessibility_usage_summary">
         <item quantity="other">အက်ပ် %1$d ခုသည် သင့်ကိရိယာကို အပြည့်အဝ အသုံးပြုခွင့်ရှိသည်</item>
@@ -141,8 +141,8 @@
         <item quantity="one">အက်ပ် %2$d ခုအနက် %1$d ခုက တည်နေရာ ဝင်သုံးခွင့်ရှိပါသည်</item>
     </plurals>
     <plurals name="location_settings_summary_location_on">
-        <item quantity="other">ဖွင့်ထားသည် - အက်ပ် %1$d ခုက တည်နေရာ ဝင်သုံးခွင့်ရှိပါသည်</item>
-        <item quantity="one">ဖွင့်ထားသည် - အက်ပ် %1$d ခုက တည်နေရာ ဝင်သုံးခွင့်ရှိပါသည်</item>
+        <item quantity="other">ဖွင့် - အက်ပ် %1$d ခုက တည်နေရာ ဝင်သုံးခွင့်ရှိသည်</item>
+        <item quantity="one">ဖွင့် - အက်ပ် %1$d ခုက တည်နေရာ ဝင်သုံးခွင့်ရှိသည်</item>
     </plurals>
     <plurals name="lockpassword_password_requires_letters">
         <item quantity="other">အနည်းဆုံး စကားလုံး %d လုံးပါဝင်ရမည်</item>
@@ -193,8 +193,8 @@
         <item quantity="one">app %d ခုသည် သတိပေးချက်များကို ဖတ်နိုင်သည်</item>
     </plurals>
     <plurals name="manage_trust_agents_summary_on">
-        <item quantity="other">သတ်မှတ်အေးဂျင့် %d ဦး</item>
-        <item quantity="one">သတ်မှတ်အေးဂျင့် ၁ ဦး</item>
+        <item quantity="other">သတ်မှတ်အေးဂျင့် %d ခု</item>
+        <item quantity="one">သတ်မှတ်အေးဂျင့် ၁ ခု</item>
     </plurals>
     <plurals name="memory_usage_apps_summary">
         <item quantity="other">အက်ပ် %1$d ခုသည် မှတ်ဉာဏ်ကို လွန်ခဲ့သော %2$s က သုံးခဲ့သည်</item>
@@ -233,11 +233,11 @@
         <item quantity="one">အမျိုးအစား %d ခုကို ပိတ်ထားသည်</item>
     </plurals>
     <plurals name="notifications_sent_daily">
-        <item quantity="other">တစ်နေ့လျှင် အကြောင်းကြားချက်~%d ခု</item>
+        <item quantity="other">တစ်နေ့လျှင် အကြောင်းကြားချက်~%,d ခု</item>
         <item quantity="one">တစ်နေ့လျှင် အကြောင်းကြားချက်~%d ခု</item>
     </plurals>
     <plurals name="notifications_sent_weekly">
-        <item quantity="other">တစ်ပတ်လျှင် အကြောင်းကြားချက်~%d ခု</item>
+        <item quantity="other">တစ်ပတ်လျှင် အကြောင်းကြားချက်~%,d ခု</item>
         <item quantity="one">တစ်ပတ်လျှင် အကြောင်းကြားချက်~%d ခု</item>
     </plurals>
     <plurals name="number_of_device_admins">
@@ -328,22 +328,6 @@
         <item quantity="other">ယုံကြည်ပါ သို့မဟုတ် အသိအမှတ်ပြုလက်မှတ်များကို ဖယ်ရှားပါ</item>
         <item quantity="one">ယုံကြည်ပါ သို့မဟုတ် အသိအမှတ်ပြုလက်မှတ်ကို ဖယ်ရှားပါ</item>
     </plurals>
-    <plurals name="ssl_ca_cert_info_message">
-        <item quantity="other">"%s သည် သင့်အလုပ်ပရိုဖိုင်အတွက် အသိအမှတ်ပြုခွင့်ကို ထည့်သွင်းလိုက်ပါသည်။ ၎င်းသည် အီးမေးလ်များ၊ အက်ပ်များအပါအဝင် အလုပ်ကွန်ရက်လုပ်ဆောင်ချက်ကို စောင့်ကြည့်ခြင်းနှင့် ဝဘ်ဆိုက်များကို လုံခြုံစေခြင်းတို့ ပြုလုပ်နိုင်ပါသည်။
-
-ဤအသိအမှတ်ပြု လက်မှတ်များအကြောင်း နောက်ထပ်အချက်အလက်များအတွက် သင့်စီမံခန့်ခွဲသူကို ဆက်သွယ်ပါ။"</item>
-        <item quantity="one">"%s သည် သင့်အလုပ်ပရိုဖိုင်အတွက် အသိအမှတ်ပြုခွင့်ကို ထည့်သွင်းလိုက်ပါသည်။ ၎င်းသည် အီးမေးလ်များ၊ အက်ပ်များအပါအဝင် အလုပ်ကွန်ရက်လုပ်ဆောင်ချက်ကို စောင့်ကြည့်ခြင်းနှင့် ဝဘ်ဆိုက်များကို လုံခြုံစေခြင်းတို့ ပြုလုပ်နိုင်ပါသည်။
-
-ဤအသိအမှတ်ပြု လက်မှတ်များအကြောင်း နောက်ထပ်အချက်အလက်များအတွက် သင့်စီမံခန့်ခွဲသူကို ဆက်သွယ်ပါ။"</item>
-    </plurals>
-    <plurals name="ssl_ca_cert_info_message_device_owner">
-        <item quantity="other">"%s သည် သင့်အလုပ်ပရိုဖိုင်အတွက် အသိအမှတ်ပြုခွင့်ကို ထည့်သွင်းလိုက်ပါသည်။ ၎င်းသည် အီးမေးလ်များ၊ အက်ပ်များအပါအဝင် အလုပ်ကွန်ရက်လုပ်ဆောင်ချက်ကို စောင့်ကြည့်ခြင်းနှင့် ဝဘ်ဆိုက်များကို လုံခြုံစေခြင်းတို့ ပြုလုပ်နိုင်ပါသည်။
-
-ဤအသိအမှတ်ပြု လက်မှတ်များအကြောင်း နောက်ထပ်အချက်အလက်များအတွက် သင့်စီမံခန့်ခွဲသူကို ဆက်သွယ်ပါ။"</item>
-        <item quantity="one">"%s သည် သင့်အလုပ်ပရိုဖိုင်အတွက် အသိအမှတ်ပြုခွင့်ကို ထည့်သွင်းလိုက်ပါသည်။ ၎င်းသည် အီးမေးလ်များ၊ အက်ပ်များအပါအဝင် အလုပ်ကွန်ရက်လုပ်ဆောင်ချက်ကို စောင့်ကြည့်ခြင်းနှင့် ဝဘ်ဆိုက်များကို လုံခြုံစေခြင်းတို့ ပြုလုပ်နိုင်ပါသည်။
-
-ဤအသိအမှတ်ပြု လက်မှတ်များအကြောင်း နောက်ထပ်အချက်အလက်များအတွက် သင့်စီမံခန့်ခွဲသူကို ဆက်သွယ်ပါ။"</item>
-    </plurals>
     <plurals name="ssl_ca_cert_settings_button">
         <item quantity="other">အသိအမှတ်ပြုလက်မှတ်များကို စစ်ဆေးပါ</item>
         <item quantity="one">အသိအမှတ်ပြုလက်မှတ်ကို စစ်ဆေးပါ</item>
@@ -375,10 +359,6 @@
     <plurals name="wifi_saved_passpoint_access_points_summary">
         <item quantity="other">စာရင်းသွင်းမှု %d ခု</item>
         <item quantity="one">စာရင်းသွင်းမှု ၁ ခု</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">စက် %1$d ခု ချိတ်ဆက်ထားသည်</item>
-        <item quantity="one">စက် %1$d ခု ချိတ်ဆက်ထားသည်</item>
     </plurals>
     <plurals name="wrong_pin_code">
         <item quantity="other">ဆင်းမ်ကတ်၏ ပင်နံပါတ် မှားနေပါသည်၊ သင့်တွင် %d ခါ ကြိုးစားခွင့် ကျန်ပါသေးသည်။</item>

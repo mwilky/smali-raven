@@ -405,7 +405,7 @@
 
     iget-object v0, p0, Lcom/android/settings/notification/history/NotificationSbnAdapter;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f020117
+    const v1, 0x7f020120
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -718,12 +718,14 @@
 
     sub-int/2addr v1, v2
 
+    const/4 v3, 0x0
+
     if-ge p2, v1, :cond_0
 
     goto :goto_0
 
     :cond_0
-    const/4 v2, 0x0
+    move v2, v3
 
     :goto_0
     invoke-virtual {p1, v2}, Lcom/android/settings/notification/history/NotificationSbnViewHolder;->setDividerVisible(Z)V
@@ -736,9 +738,9 @@
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-interface {v2, v3}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+    invoke-interface {v2, v4}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
     move-result v2
 
@@ -752,11 +754,9 @@
 
     invoke-static {v1}, Landroid/os/UserHandle;->of(I)Landroid/os/UserHandle;
 
-    move-result-object v3
+    move-result-object v4
 
-    const/4 v4, -0x1
-
-    invoke-virtual {v2, v3, v4}, Landroid/content/pm/PackageManager;->getUserBadgeForDensity(Landroid/os/UserHandle;I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v2, v4, v3}, Landroid/content/pm/PackageManager;->getUserBadgeForDensity(Landroid/os/UserHandle;I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v2
 
@@ -869,7 +869,7 @@
 
     move-result-object p0
 
-    const p2, 0x7f060171
+    const p2, 0x7f06017b
 
     const/4 v0, 0x0
 

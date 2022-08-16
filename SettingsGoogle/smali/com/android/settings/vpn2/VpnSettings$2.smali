@@ -36,7 +36,7 @@
 
     iget-object p1, p0, Lcom/android/settings/vpn2/VpnSettings$2;->this$0:Lcom/android/settings/vpn2/VpnSettings;
 
-    invoke-static {p1}, Lcom/android/settings/vpn2/VpnSettings;->access$100(Lcom/android/settings/vpn2/VpnSettings;)Landroid/os/Handler;
+    invoke-static {p1}, Lcom/android/settings/vpn2/VpnSettings;->-$$Nest$fgetmUpdater(Lcom/android/settings/vpn2/VpnSettings;)Landroid/os/Handler;
 
     move-result-object p1
 
@@ -44,7 +44,7 @@
 
     iget-object p0, p0, Lcom/android/settings/vpn2/VpnSettings$2;->this$0:Lcom/android/settings/vpn2/VpnSettings;
 
-    invoke-static {p0}, Lcom/android/settings/vpn2/VpnSettings;->access$100(Lcom/android/settings/vpn2/VpnSettings;)Landroid/os/Handler;
+    invoke-static {p0}, Lcom/android/settings/vpn2/VpnSettings;->-$$Nest$fgetmUpdater(Lcom/android/settings/vpn2/VpnSettings;)Landroid/os/Handler;
 
     move-result-object p0
 
@@ -61,7 +61,7 @@
 
     iget-object p1, p0, Lcom/android/settings/vpn2/VpnSettings$2;->this$0:Lcom/android/settings/vpn2/VpnSettings;
 
-    invoke-static {p1}, Lcom/android/settings/vpn2/VpnSettings;->access$100(Lcom/android/settings/vpn2/VpnSettings;)Landroid/os/Handler;
+    invoke-static {p1}, Lcom/android/settings/vpn2/VpnSettings;->-$$Nest$fgetmUpdater(Lcom/android/settings/vpn2/VpnSettings;)Landroid/os/Handler;
 
     move-result-object p1
 
@@ -69,7 +69,7 @@
 
     iget-object p0, p0, Lcom/android/settings/vpn2/VpnSettings$2;->this$0:Lcom/android/settings/vpn2/VpnSettings;
 
-    invoke-static {p0}, Lcom/android/settings/vpn2/VpnSettings;->access$100(Lcom/android/settings/vpn2/VpnSettings;)Landroid/os/Handler;
+    invoke-static {p0}, Lcom/android/settings/vpn2/VpnSettings;->-$$Nest$fgetmUpdater(Lcom/android/settings/vpn2/VpnSettings;)Landroid/os/Handler;
 
     move-result-object p0
 

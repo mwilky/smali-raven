@@ -60,7 +60,7 @@
 .method public getOkButtonTextResId()I
     .locals 0
 
-    const p0, 0x7f04111a
+    const p0, 0x7f0411cc
 
     return p0
 .end method
@@ -68,7 +68,7 @@
 .method public getTitleResId()I
     .locals 0
 
-    const p0, 0x7f041126
+    const p0, 0x7f0411d8
 
     return p0
 .end method

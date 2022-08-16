@@ -42,7 +42,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f0406bb
+    const v0, 0x7f040716
 
     invoke-virtual {p1, v0}, Landroidx/appcompat/app/AlertDialog$Builder;->setMessage(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
@@ -71,7 +71,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settings/security/CredentialStorage;Lcom/android/settings/security/CredentialStorage$1;)V
+.method synthetic constructor <init>(Lcom/android/settings/security/CredentialStorage;Lcom/android/settings/security/CredentialStorage$ResetDialog-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settings/security/CredentialStorage$ResetDialog;-><init>(Lcom/android/settings/security/CredentialStorage;)V
@@ -121,7 +121,7 @@
 
     iget-object v0, p0, Lcom/android/settings/security/CredentialStorage$ResetDialog;->this$0:Lcom/android/settings/security/CredentialStorage;
 
-    invoke-static {v0}, Lcom/android/settings/security/CredentialStorage;->access$100(Lcom/android/settings/security/CredentialStorage;)Lcom/android/internal/widget/LockPatternUtils;
+    invoke-static {v0}, Lcom/android/settings/security/CredentialStorage;->-$$Nest$fgetmUtils(Lcom/android/settings/security/CredentialStorage;)Lcom/android/internal/widget/LockPatternUtils;
 
     move-result-object v0
 
@@ -141,7 +141,7 @@
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, p0, v1}, Lcom/android/settings/security/CredentialStorage$ResetKeyStoreAndKeyChain;-><init>(Lcom/android/settings/security/CredentialStorage;Lcom/android/settings/security/CredentialStorage$1;)V
+    invoke-direct {v0, p0, v1}, Lcom/android/settings/security/CredentialStorage$ResetKeyStoreAndKeyChain;-><init>(Lcom/android/settings/security/CredentialStorage;Lcom/android/settings/security/CredentialStorage$ResetKeyStoreAndKeyChain-IA;)V
 
     new-array p0, p1, [Ljava/lang/Void;
 
@@ -154,7 +154,7 @@
 
     const/4 v0, 0x1
 
-    invoke-static {p1, v0}, Lcom/android/settings/security/CredentialStorage;->access$300(Lcom/android/settings/security/CredentialStorage;I)Z
+    invoke-static {p1, v0}, Lcom/android/settings/security/CredentialStorage;->-$$Nest$mconfirmKeyGuard(Lcom/android/settings/security/CredentialStorage;I)Z
 
     move-result p1
 

@@ -13,6 +13,8 @@
 
 .field private mSecureNfcEnabler:Lcom/android/settings/nfc/SecureNfcEnabler;
 
+.field private final mUserManager:Landroid/os/UserManager;
+
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;)V
@@ -22,27 +24,50 @@
 
     invoke-static {p1}, Landroid/nfc/NfcAdapter;->getDefaultAdapter(Landroid/content/Context;)Landroid/nfc/NfcAdapter;
 
+    move-result-object p2
+
+    iput-object p2, p0, Lcom/android/settings/nfc/SecureNfcPreferenceController;->mNfcAdapter:Landroid/nfc/NfcAdapter;
+
+    const-class p2, Landroid/os/UserManager;
+
+    invoke-virtual {p1, p2}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
     move-result-object p1
 
-    iput-object p1, p0, Lcom/android/settings/nfc/SecureNfcPreferenceController;->mNfcAdapter:Landroid/nfc/NfcAdapter;
+    check-cast p1, Landroid/os/UserManager;
+
+    iput-object p1, p0, Lcom/android/settings/nfc/SecureNfcPreferenceController;->mUserManager:Landroid/os/UserManager;
 
     return-void
+.end method
+
+.method private isToggleable()Z
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/nfc/SecureNfcPreferenceController;->mUserManager:Landroid/os/UserManager;
+
+    invoke-virtual {p0}, Landroid/os/UserManager;->isGuestUser()Z
+
+    move-result p0
+
+    if-eqz p0, :cond_0
+
+    const/4 p0, 0x0
+
+    return p0
+
+    :cond_0
+    const/4 p0, 0x1
+
+    return p0
 .end method
 
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public displayPreference(Landroidx/preference/PreferenceScreen;)V
     .locals 2
 
-    invoke-super {p0, p1}, Lcom/android/settings/core/BasePreferenceController;->displayPreference(Landroidx/preference/PreferenceScreen;)V
+    invoke-super {p0, p1}, Lcom/android/settings/core/TogglePreferenceController;->displayPreference(Landroidx/preference/PreferenceScreen;)V
 
     invoke-virtual {p0}, Lcom/android/settings/core/BasePreferenceController;->isAvailable()Z
 
@@ -104,15 +129,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -134,7 +150,7 @@
 .method public getSliceHighlightMenuRes()I
     .locals 0
 
-    const p0, 0x7f040d06
+    const p0, 0x7f040d81
 
     return p0
 .end method
@@ -153,16 +169,6 @@
     iget-object p0, p0, Lcom/android/settings/nfc/SecureNfcPreferenceController;->mNfcAdapter:Landroid/nfc/NfcAdapter;
 
     invoke-virtual {p0}, Landroid/nfc/NfcAdapter;->isSecureNfcEnabled()Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
 
     move-result p0
 
@@ -204,13 +210,24 @@
 .end method
 
 .method public setChecked(Z)Z
-    .locals 0
+    .locals 1
+
+    invoke-direct {p0}, Lcom/android/settings/nfc/SecureNfcPreferenceController;->isToggleable()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
 
     iget-object p0, p0, Lcom/android/settings/nfc/SecureNfcPreferenceController;->mNfcAdapter:Landroid/nfc/NfcAdapter;
 
     invoke-virtual {p0, p1}, Landroid/nfc/NfcAdapter;->enableSecureNfc(Z)Z
 
     move-result p0
+
+    return p0
+
+    :cond_0
+    const/4 p0, 0x0
 
     return p0
 .end method

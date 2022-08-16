@@ -30,14 +30,6 @@
 # virtual methods
 .method public onRecreated(Landroidx/savedstate/SavedStateRegistryOwner;)V
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "owner"
-        }
-    .end annotation
 
     instance-of p0, p1, Landroidx/lifecycle/ViewModelStoreOwner;
 

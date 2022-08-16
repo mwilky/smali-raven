@@ -27,6 +27,8 @@
 
 .field private mAuthoritiesCount:I
 
+.field private mDpm:Landroid/app/admin/DevicePolicyManager;
+
 .field private mFragment:Lcom/android/settings/SettingsPreferenceFragment;
 
 .field private mHelper:Lcom/android/settings/accounts/AccountRestrictionHelper;
@@ -53,6 +55,148 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$-GQGXNvtugJ3YOVWNySG3Ic8SCY(Lcom/android/settings/accounts/AccountPreferenceController;Ljava/lang/CharSequence;)Ljava/lang/String;
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/accounts/AccountPreferenceController;->lambda$getWorkGroupSummary$9(Ljava/lang/CharSequence;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static synthetic $r8$lambda$-buqvCjHfk4EBpa8-m3AjKfpMfg(Landroid/content/res/Resources;)Ljava/lang/String;
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/settings/accounts/AccountPreferenceController;->lambda$updateDynamicRawDataToIndex$1(Landroid/content/res/Resources;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static synthetic $r8$lambda$0JqPYcckv4v002Kf-Gh65yqxmCQ(Lcom/android/settings/accounts/AccountPreferenceController;)Ljava/lang/String;
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/accounts/AccountPreferenceController;->lambda$newRemoveWorkProfilePreference$7()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static synthetic $r8$lambda$8B45jDiTaFog9BKlPh1Z6DAWOt0(Lcom/android/settings/accounts/AccountPreferenceController;)Ljava/lang/String;
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/accounts/AccountPreferenceController;->lambda$updateProfileUi$6()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static synthetic $r8$lambda$AN0eCa-Go-LoBHoA8Db8Lj0HTv8(Lcom/android/settings/accounts/AccountPreferenceController;Ljava/lang/String;)Ljava/lang/String;
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/accounts/AccountPreferenceController;->lambda$updateProfileUi$4(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static synthetic $r8$lambda$Dgl7Kcz7YcOYfS5NR0gXH6Pm3t0(Lcom/android/settings/accounts/AccountPreferenceController;)Ljava/lang/String;
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/accounts/AccountPreferenceController;->lambda$updateAccountTypes$10()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static synthetic $r8$lambda$IzrrYR7a_J_LcQl31vT0aclHV70(Landroid/content/res/Resources;)Ljava/lang/String;
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/settings/accounts/AccountPreferenceController;->lambda$updateDynamicRawDataToIndex$0(Landroid/content/res/Resources;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static synthetic $r8$lambda$VpKkL1inQHqKxabqCXNWfq28Rb8(Lcom/android/settings/accounts/AccountPreferenceController;)Ljava/lang/String;
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/accounts/AccountPreferenceController;->lambda$updateProfileUi$5()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static synthetic $r8$lambda$Vs-HexRl0CPs-5uma-6BjT9e68k(Lcom/android/settings/accounts/AccountPreferenceController;)Ljava/lang/String;
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/accounts/AccountPreferenceController;->lambda$onPreferenceClick$2()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static synthetic $r8$lambda$rmiXXe8dzv10tM69ls2M4omN5d0(Lcom/android/settings/accounts/AccountPreferenceController;)Ljava/lang/String;
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/accounts/AccountPreferenceController;->lambda$newManagedProfileSettings$8()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static synthetic $r8$lambda$y-3mvByVtMIghmgpJtTPm2MyKN0(Lcom/android/settings/accounts/AccountPreferenceController;)Ljava/lang/String;
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/accounts/AccountPreferenceController;->lambda$updateProfileUi$3()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmFragment(Lcom/android/settings/accounts/AccountPreferenceController;)Lcom/android/settings/SettingsPreferenceFragment;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/accounts/AccountPreferenceController;->mFragment:Lcom/android/settings/SettingsPreferenceFragment;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$mlistenToAccountUpdates(Lcom/android/settings/accounts/AccountPreferenceController;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/accounts/AccountPreferenceController;->listenToAccountUpdates()V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mstopListeningToAccountUpdates(Lcom/android/settings/accounts/AccountPreferenceController;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/accounts/AccountPreferenceController;->stopListeningToAccountUpdates()V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mupdateUi(Lcom/android/settings/accounts/AccountPreferenceController;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/accounts/AccountPreferenceController;->updateUi()V
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Lcom/android/settings/SettingsPreferenceFragment;[Ljava/lang/String;I)V
     .locals 6
 
@@ -90,7 +234,7 @@
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, p0, v1}, Lcom/android/settings/accounts/AccountPreferenceController$ManagedProfileBroadcastReceiver;-><init>(Lcom/android/settings/accounts/AccountPreferenceController;Lcom/android/settings/accounts/AccountPreferenceController$1;)V
+    invoke-direct {v0, p0, v1}, Lcom/android/settings/accounts/AccountPreferenceController$ManagedProfileBroadcastReceiver;-><init>(Lcom/android/settings/accounts/AccountPreferenceController;Lcom/android/settings/accounts/AccountPreferenceController$ManagedProfileBroadcastReceiver-IA;)V
 
     iput-object v0, p0, Lcom/android/settings/accounts/AccountPreferenceController;->mManagedProfileBroadcastReceiver:Lcom/android/settings/accounts/AccountPreferenceController$ManagedProfileBroadcastReceiver;
 
@@ -106,11 +250,21 @@
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
+    move-result-object v0
+
+    check-cast v0, Landroid/os/UserManager;
+
+    iput-object v0, p0, Lcom/android/settings/accounts/AccountPreferenceController;->mUm:Landroid/os/UserManager;
+
+    const-class v0, Landroid/app/admin/DevicePolicyManager;
+
+    invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
     move-result-object p1
 
-    check-cast p1, Landroid/os/UserManager;
+    check-cast p1, Landroid/app/admin/DevicePolicyManager;
 
-    iput-object p1, p0, Lcom/android/settings/accounts/AccountPreferenceController;->mUm:Landroid/os/UserManager;
+    iput-object p1, p0, Lcom/android/settings/accounts/AccountPreferenceController;->mDpm:Landroid/app/admin/DevicePolicyManager;
 
     iput-object p3, p0, Lcom/android/settings/accounts/AccountPreferenceController;->mAuthorities:[Ljava/lang/String;
 
@@ -138,38 +292,6 @@
     iput-object p4, p0, Lcom/android/settings/accounts/AccountPreferenceController;->mHelper:Lcom/android/settings/accounts/AccountRestrictionHelper;
 
     iput p5, p0, Lcom/android/settings/accounts/AccountPreferenceController;->mType:I
-
-    return-void
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/accounts/AccountPreferenceController;)Lcom/android/settings/SettingsPreferenceFragment;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/accounts/AccountPreferenceController;->mFragment:Lcom/android/settings/SettingsPreferenceFragment;
-
-    return-object p0
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/accounts/AccountPreferenceController;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/accounts/AccountPreferenceController;->stopListeningToAccountUpdates()V
-
-    return-void
-.end method
-
-.method static synthetic access$300(Lcom/android/settings/accounts/AccountPreferenceController;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/accounts/AccountPreferenceController;->updateUi()V
-
-    return-void
-.end method
-
-.method static synthetic access$400(Lcom/android/settings/accounts/AccountPreferenceController;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/accounts/AccountPreferenceController;->listenToAccountUpdates()V
 
     return-void
 .end method
@@ -545,19 +667,27 @@
 
     move-result-object p1
 
-    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+    iget-object p2, p0, Lcom/android/settings/accounts/AccountPreferenceController;->mDpm:Landroid/app/admin/DevicePolicyManager;
 
-    const p2, 0x7f040ca3
+    invoke-virtual {p2}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
 
-    const/4 v0, 0x1
+    move-result-object p2
 
-    new-array v0, v0, [Ljava/lang/Object;
+    new-instance v0, Lcom/android/settings/accounts/AccountPreferenceController$$ExternalSyntheticLambda8;
+
+    invoke-direct {v0, p0, p1}, Lcom/android/settings/accounts/AccountPreferenceController$$ExternalSyntheticLambda8;-><init>(Lcom/android/settings/accounts/AccountPreferenceController;Ljava/lang/CharSequence;)V
+
+    const/4 p0, 0x1
+
+    new-array p0, p0, [Ljava/lang/Object;
 
     const/4 v1, 0x0
 
-    aput-object p1, v0, v1
+    aput-object p1, p0, v1
 
-    invoke-virtual {p0, p2, v0}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    const-string p1, "Settings.MANAGED_BY"
+
+    invoke-virtual {p2, p1, v0, p0}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object p0
 
@@ -601,6 +731,172 @@
     :cond_1
     :goto_0
     return v1
+.end method
+
+.method private synthetic lambda$getWorkGroupSummary$9(Ljava/lang/CharSequence;)Ljava/lang/String;
+    .locals 2
+
+    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    const/4 v0, 0x1
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    const/4 v1, 0x0
+
+    aput-object p1, v0, v1
+
+    const p1, 0x7f040d1e
+
+    invoke-virtual {p0, p1, v0}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private synthetic lambda$newManagedProfileSettings$8()Ljava/lang/String;
+    .locals 1
+
+    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    const v0, 0x7f040d11
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private synthetic lambda$newRemoveWorkProfilePreference$7()Ljava/lang/String;
+    .locals 1
+
+    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    const v0, 0x7f0410d3
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private synthetic lambda$onPreferenceClick$2()Ljava/lang/String;
+    .locals 1
+
+    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    const v0, 0x7f040d11
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private synthetic lambda$updateAccountTypes$10()Ljava/lang/String;
+    .locals 1
+
+    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    const v0, 0x7f040d10
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private static synthetic lambda$updateDynamicRawDataToIndex$0(Landroid/content/res/Resources;)Ljava/lang/String;
+    .locals 1
+
+    const v0, 0x7f0410d3
+
+    invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private static synthetic lambda$updateDynamicRawDataToIndex$1(Landroid/content/res/Resources;)Ljava/lang/String;
+    .locals 1
+
+    const v0, 0x7f040d11
+
+    invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private synthetic lambda$updateProfileUi$3()Ljava/lang/String;
+    .locals 1
+
+    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    const v0, 0x7f0405f6
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private synthetic lambda$updateProfileUi$4(Ljava/lang/String;)Ljava/lang/String;
+    .locals 2
+
+    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    const/4 v0, 0x1
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    const/4 v1, 0x0
+
+    aput-object p1, v0, v1
+
+    const p1, 0x7f0400be
+
+    invoke-virtual {p0, p1, v0}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private synthetic lambda$updateProfileUi$5()Ljava/lang/String;
+    .locals 1
+
+    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    const v0, 0x7f0405f5
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private synthetic lambda$updateProfileUi$6()Ljava/lang/String;
+    .locals 1
+
+    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    const v0, 0x7f0400bd
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method private listenToAccountUpdates()V
@@ -661,11 +957,11 @@
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setKey(Ljava/lang/String;)V
 
-    const v1, 0x7f0401d2
+    const v1, 0x7f0401f9
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setTitle(I)V
 
-    const v1, 0x7f020171
+    const v1, 0x7f020185
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setIcon(I)V
 
@@ -679,7 +975,7 @@
 .end method
 
 .method private newManagedProfileSettings()Landroidx/preference/Preference;
-    .locals 2
+    .locals 4
 
     new-instance v0, Landroidx/preference/Preference;
 
@@ -699,11 +995,25 @@
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setKey(Ljava/lang/String;)V
 
-    const v1, 0x7f040c96
+    iget-object v1, p0, Lcom/android/settings/accounts/AccountPreferenceController;->mDpm:Landroid/app/admin/DevicePolicyManager;
 
-    invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setTitle(I)V
+    invoke-virtual {v1}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
 
-    const v1, 0x7f020328
+    move-result-object v1
+
+    new-instance v2, Lcom/android/settings/accounts/AccountPreferenceController$$ExternalSyntheticLambda9;
+
+    invoke-direct {v2, p0}, Lcom/android/settings/accounts/AccountPreferenceController$$ExternalSyntheticLambda9;-><init>(Lcom/android/settings/accounts/AccountPreferenceController;)V
+
+    const-string v3, "Settings.MANAGED_PROFILE_SETTINGS_TITLE"
+
+    invoke-virtual {v1, v3, v2}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
+
+    const v1, 0x7f02034c
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setIcon(I)V
 
@@ -717,7 +1027,7 @@
 .end method
 
 .method private newRemoveWorkProfilePreference()Lcom/android/settingslib/RestrictedPreference;
-    .locals 2
+    .locals 4
 
     new-instance v0, Lcom/android/settingslib/RestrictedPreference;
 
@@ -733,15 +1043,29 @@
 
     invoke-direct {v0, v1}, Lcom/android/settingslib/RestrictedPreference;-><init>(Landroid/content/Context;)V
 
-    const-string v1, "remove_profile"
+    const-string/jumbo v1, "remove_profile"
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setKey(Ljava/lang/String;)V
 
-    const v1, 0x7f04102d
+    iget-object v1, p0, Lcom/android/settings/accounts/AccountPreferenceController;->mDpm:Landroid/app/admin/DevicePolicyManager;
 
-    invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setTitle(I)V
+    invoke-virtual {v1}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
 
-    const v1, 0x7f0201b4
+    move-result-object v1
+
+    new-instance v2, Lcom/android/settings/accounts/AccountPreferenceController$$ExternalSyntheticLambda10;
+
+    invoke-direct {v2, p0}, Lcom/android/settings/accounts/AccountPreferenceController$$ExternalSyntheticLambda10;-><init>(Lcom/android/settings/accounts/AccountPreferenceController;)V
+
+    const-string v3, "Settings.REMOVE_WORK_PROFILE"
+
+    invoke-virtual {v1, v3, v2}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
+
+    const v1, 0x7f0201cf
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setIcon(I)V
 
@@ -962,7 +1286,7 @@
 
     iget-object v0, p0, Lcom/android/settings/accounts/AccountPreferenceController;->mProfileNotAvailablePreference:Landroidx/preference/Preference;
 
-    const v1, 0x7f02012b
+    const v1, 0x7f020138
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setIcon(I)V
 
@@ -974,9 +1298,23 @@
 
     iget-object v0, p0, Lcom/android/settings/accounts/AccountPreferenceController;->mProfileNotAvailablePreference:Landroidx/preference/Preference;
 
-    const v1, 0x7f040c95
+    iget-object v1, p0, Lcom/android/settings/accounts/AccountPreferenceController;->mDpm:Landroid/app/admin/DevicePolicyManager;
 
-    invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setSummary(I)V
+    invoke-virtual {v1}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
+
+    move-result-object v1
+
+    new-instance v2, Lcom/android/settings/accounts/AccountPreferenceController$$ExternalSyntheticLambda3;
+
+    invoke-direct {v2, p0}, Lcom/android/settings/accounts/AccountPreferenceController$$ExternalSyntheticLambda3;-><init>(Lcom/android/settings/accounts/AccountPreferenceController;)V
+
+    const-string v3, "Settings.WORK_PROFILE_NOT_AVAILABLE"
+
+    invoke-virtual {v1, v3, v2}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
     iget-object v0, p1, Lcom/android/settings/accounts/AccountPreferenceController$ProfileData;->preferenceGroup:Landroidx/preference/PreferenceGroup;
 
@@ -1093,7 +1431,7 @@
 
     invoke-virtual {v3, v4}, Landroidx/preference/Preference;->setOrder(I)V
 
-    const v4, 0x7f040189
+    const v4, 0x7f0401b0
 
     invoke-virtual {v3, v4}, Landroidx/preference/Preference;->setTitle(I)V
 
@@ -1101,11 +1439,11 @@
 
     move-result v4
 
-    const/4 v5, 0x1
-
     if-eqz v4, :cond_3
 
-    const v4, 0x7f040188
+    const v4, 0x7f0401af
+
+    const/4 v5, 0x1
 
     new-array v5, v5, [Ljava/lang/Object;
 
@@ -1129,40 +1467,58 @@
 
     invoke-virtual {v3, v1}, Lcom/android/settings/AccessiblePreferenceCategory;->setContentDescription(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :cond_3
     invoke-virtual {p1}, Landroid/content/pm/UserInfo;->isManagedProfile()Z
 
-    move-result v4
+    move-result v1
 
-    const/4 v6, 0x3
+    const/4 v4, 0x3
 
-    if-eqz v4, :cond_5
+    if-eqz v1, :cond_5
 
-    iget v4, p0, Lcom/android/settings/accounts/AccountPreferenceController;->mType:I
+    iget v1, p0, Lcom/android/settings/accounts/AccountPreferenceController;->mType:I
 
-    if-ne v4, v6, :cond_4
+    if-ne v1, v4, :cond_4
 
-    const v4, 0x7f040599
+    iget-object v1, p0, Lcom/android/settings/accounts/AccountPreferenceController;->mDpm:Landroid/app/admin/DevicePolicyManager;
 
-    invoke-virtual {v3, v4}, Landroidx/preference/Preference;->setTitle(I)V
+    invoke-virtual {v1}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
+
+    move-result-object v1
+
+    new-instance v4, Lcom/android/settings/accounts/AccountPreferenceController$$ExternalSyntheticLambda4;
+
+    invoke-direct {v4, p0}, Lcom/android/settings/accounts/AccountPreferenceController$$ExternalSyntheticLambda4;-><init>(Lcom/android/settings/accounts/AccountPreferenceController;)V
+
+    const-string v5, "Settings.WORK_CATEGORY_HEADER"
+
+    invoke-virtual {v1, v5, v4}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v3, v1}, Landroidx/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
 
     invoke-direct {p0, v0, p1}, Lcom/android/settings/accounts/AccountPreferenceController;->getWorkGroupSummary(Landroid/content/Context;Landroid/content/pm/UserInfo;)Ljava/lang/String;
 
+    move-result-object v1
+
+    invoke-virtual {v3, v1}, Landroidx/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
+
+    iget-object v4, p0, Lcom/android/settings/accounts/AccountPreferenceController;->mDpm:Landroid/app/admin/DevicePolicyManager;
+
+    invoke-virtual {v4}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
+
     move-result-object v4
 
-    invoke-virtual {v3, v4}, Landroidx/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
+    new-instance v5, Lcom/android/settings/accounts/AccountPreferenceController$$ExternalSyntheticLambda5;
 
-    iget-object v6, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+    invoke-direct {v5, p0, v1}, Lcom/android/settings/accounts/AccountPreferenceController$$ExternalSyntheticLambda5;-><init>(Lcom/android/settings/accounts/AccountPreferenceController;Ljava/lang/String;)V
 
-    const v7, 0x7f0400c4
+    const-string v1, "Settings.ACCESSIBILITY_CATEGORY_WORK"
 
-    new-array v5, v5, [Ljava/lang/Object;
-
-    aput-object v4, v5, v1
-
-    invoke-virtual {v6, v7, v5}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {v4, v1, v5}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -1196,17 +1552,39 @@
     :cond_5
     iget v1, p0, Lcom/android/settings/accounts/AccountPreferenceController;->mType:I
 
-    if-ne v1, v6, :cond_6
+    if-ne v1, v4, :cond_6
 
-    const v1, 0x7f040598
+    iget-object v1, p0, Lcom/android/settings/accounts/AccountPreferenceController;->mDpm:Landroid/app/admin/DevicePolicyManager;
 
-    invoke-virtual {v3, v1}, Landroidx/preference/Preference;->setTitle(I)V
+    invoke-virtual {v1}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
 
-    iget-object v1, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+    move-result-object v1
 
-    const v4, 0x7f0400c3
+    new-instance v4, Lcom/android/settings/accounts/AccountPreferenceController$$ExternalSyntheticLambda6;
 
-    invoke-virtual {v1, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    invoke-direct {v4, p0}, Lcom/android/settings/accounts/AccountPreferenceController$$ExternalSyntheticLambda6;-><init>(Lcom/android/settings/accounts/AccountPreferenceController;)V
+
+    const-string v5, "Settings.PERSONAL_CATEGORY_HEADER"
+
+    invoke-virtual {v1, v5, v4}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v3, v1}, Landroidx/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
+
+    iget-object v1, p0, Lcom/android/settings/accounts/AccountPreferenceController;->mDpm:Landroid/app/admin/DevicePolicyManager;
+
+    invoke-virtual {v1}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
+
+    move-result-object v1
+
+    new-instance v4, Lcom/android/settings/accounts/AccountPreferenceController$$ExternalSyntheticLambda7;
+
+    invoke-direct {v4, p0}, Lcom/android/settings/accounts/AccountPreferenceController$$ExternalSyntheticLambda7;-><init>(Lcom/android/settings/accounts/AccountPreferenceController;)V
+
+    const-string v5, "Settings.ACCESSIBILITY_CATEGORY_PERSONAL"
+
+    invoke-virtual {v1, v5, v4}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -1690,7 +2068,7 @@
 
     move-result-object p0
 
-    const-string v0, "removeUser"
+    const-string/jumbo v0, "removeUser"
 
     invoke-virtual {p1, p0, v0}, Landroidx/fragment/app/DialogFragment;->show(Landroidx/fragment/app/FragmentManager;Ljava/lang/String;)V
 
@@ -1719,27 +2097,41 @@
 
     new-instance v1, Lcom/android/settings/core/SubSettingLauncher;
 
-    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+    iget-object v2, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    invoke-direct {v1, p0}, Lcom/android/settings/core/SubSettingLauncher;-><init>(Landroid/content/Context;)V
+    invoke-direct {v1, v2}, Lcom/android/settings/core/SubSettingLauncher;-><init>(Landroid/content/Context;)V
 
     invoke-virtual {v1, v0}, Lcom/android/settings/core/SubSettingLauncher;->setSourceMetricsCategory(I)Lcom/android/settings/core/SubSettingLauncher;
 
-    move-result-object p0
+    move-result-object v0
 
-    const-class v0, Lcom/android/settings/accounts/ManagedProfileSettings;
+    const-class v1, Lcom/android/settings/accounts/ManagedProfileSettings;
 
-    invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/android/settings/core/SubSettingLauncher;->setDestination(Ljava/lang/String;)Lcom/android/settings/core/SubSettingLauncher;
 
     move-result-object v0
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/core/SubSettingLauncher;->setDestination(Ljava/lang/String;)Lcom/android/settings/core/SubSettingLauncher;
+    iget-object v1, p0, Lcom/android/settings/accounts/AccountPreferenceController;->mDpm:Landroid/app/admin/DevicePolicyManager;
+
+    invoke-virtual {v1}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
+
+    move-result-object v1
+
+    new-instance v2, Lcom/android/settings/accounts/AccountPreferenceController$$ExternalSyntheticLambda0;
+
+    invoke-direct {v2, p0}, Lcom/android/settings/accounts/AccountPreferenceController$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/accounts/AccountPreferenceController;)V
+
+    const-string p0, "Settings.MANAGED_PROFILE_SETTINGS_TITLE"
+
+    invoke-virtual {v1, p0, v2}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
 
     move-result-object p0
 
-    const v0, 0x7f040c96
-
-    invoke-virtual {p0, v0}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
+    invoke-virtual {v0, p0}, Lcom/android/settings/core/SubSettingLauncher;->setTitleText(Ljava/lang/CharSequence;)Lcom/android/settings/core/SubSettingLauncher;
 
     move-result-object p0
 
@@ -1777,7 +2169,7 @@
 .end method
 
 .method public updateDynamicRawDataToIndex(Ljava/util/List;)V
-    .locals 6
+    .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1802,7 +2194,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f04018d
+    const v1, 0x7f0401b4
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1868,13 +2260,23 @@
 
     invoke-direct {v3, v4}, Lcom/android/settingslib/search/SearchIndexableRaw;-><init>(Landroid/content/Context;)V
 
-    const-string v4, "remove_profile"
+    const-string/jumbo v4, "remove_profile"
 
     iput-object v4, v3, Landroid/provider/SearchIndexableData;->key:Ljava/lang/String;
 
-    const v4, 0x7f04102d
+    iget-object v4, p0, Lcom/android/settings/accounts/AccountPreferenceController;->mDpm:Landroid/app/admin/DevicePolicyManager;
 
-    invoke-virtual {v0, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    invoke-virtual {v4}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
+
+    move-result-object v4
+
+    new-instance v5, Lcom/android/settings/accounts/AccountPreferenceController$$ExternalSyntheticLambda1;
+
+    invoke-direct {v5, v0}, Lcom/android/settings/accounts/AccountPreferenceController$$ExternalSyntheticLambda1;-><init>(Landroid/content/res/Resources;)V
+
+    const-string v6, "Settings.REMOVE_WORK_PROFILE"
+
+    invoke-virtual {v4, v6, v5}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
 
     move-result-object v4
 
@@ -1895,9 +2297,19 @@
 
     iput-object v4, v3, Landroid/provider/SearchIndexableData;->key:Ljava/lang/String;
 
-    const v4, 0x7f040c96
+    iget-object v4, p0, Lcom/android/settings/accounts/AccountPreferenceController;->mDpm:Landroid/app/admin/DevicePolicyManager;
 
-    invoke-virtual {v0, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    invoke-virtual {v4}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
+
+    move-result-object v4
+
+    new-instance v5, Lcom/android/settings/accounts/AccountPreferenceController$$ExternalSyntheticLambda2;
+
+    invoke-direct {v5, v0}, Lcom/android/settings/accounts/AccountPreferenceController$$ExternalSyntheticLambda2;-><init>(Landroid/content/res/Resources;)V
+
+    const-string v6, "Settings.MANAGED_PROFILE_SETTINGS_TITLE"
+
+    invoke-virtual {v4, v6, v5}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
 
     move-result-object v4
 

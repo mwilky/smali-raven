@@ -71,7 +71,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d025b
+    const v1, 0x7f0d027d
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -97,7 +97,7 @@
 
     iget-boolean v0, p0, Lcom/android/settings/sim/ChooseSimActivity;->mHasPsim:Z
 
-    const v1, 0x7f0405c2
+    const v1, 0x7f04061e
 
     const-string v2, ""
 
@@ -132,7 +132,7 @@
 
     if-eqz v4, :cond_1
 
-    const v3, 0x7f04124d
+    const v3, 0x7f041307
 
     invoke-virtual {p0, v3}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -320,7 +320,7 @@
 
     invoke-virtual {v0, v1}, Lcom/google/android/setupdesign/items/Item;->setEnabled(Z)V
 
-    const v2, 0x7f0405c3
+    const v2, 0x7f04061f
 
     invoke-virtual {p0, v2}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -392,7 +392,7 @@
 
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
-    const v0, 0x7f06007d
+    const v0, 0x7f060087
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->setContentView(I)V
 
@@ -441,7 +441,7 @@
     :cond_0
     if-eqz p1, :cond_1
 
-    const-string v0, "selected_index"
+    const-string/jumbo v0, "selected_index"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
@@ -458,7 +458,7 @@
     iput-boolean p1, p0, Lcom/android/settings/sim/ChooseSimActivity;->mIsSwitching:Z
 
     :cond_1
-    const p1, 0x7f0d025b
+    const p1, 0x7f0d027d
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -479,7 +479,7 @@
     add-int/lit8 v0, v0, 0x1
 
     :cond_2
-    const v1, 0x7f0405c6
+    const v1, 0x7f040622
 
     invoke-virtual {p0, v1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -489,7 +489,7 @@
 
     new-instance v1, Landroid/icu/text/MessageFormat;
 
-    const v2, 0x7f0405c5
+    const v2, 0x7f040621
 
     invoke-virtual {p0, v2}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -545,7 +545,7 @@
 .end method
 
 .method public onItemSelected(Lcom/google/android/setupdesign/items/IItem;)V
-    .locals 2
+    .locals 4
 
     iget-boolean v0, p0, Lcom/android/settings/sim/ChooseSimActivity;->mIsSwitching:Z
 
@@ -560,7 +560,7 @@
 
     check-cast p1, Lcom/google/android/setupdesign/items/Item;
 
-    const v0, 0x7f0405c2
+    const v0, 0x7f04061e
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -574,19 +574,21 @@
 
     iput p1, p0, Lcom/android/settings/sim/ChooseSimActivity;->mSelectedItemIndex:I
 
-    const-string v0, "ChooseSimActivity"
+    const/4 v0, 0x0
 
-    const/4 v1, -0x1
+    const-string v1, "ChooseSimActivity"
 
-    if-ne p1, v1, :cond_1
+    const/4 v2, -0x1
+
+    if-ne p1, v2, :cond_1
 
     const-string p1, "Ready to switch to pSIM slot."
 
-    invoke-static {v0, p1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, p1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object p0, p0, Lcom/android/settings/sim/ChooseSimActivity;->mSwitchToRemovableSlotSidecar:Lcom/android/settings/network/SwitchToRemovableSlotSidecar;
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/network/SwitchToRemovableSlotSidecar;->run(I)V
+    invoke-virtual {p0, v2, v0}, Lcom/android/settings/network/SwitchToRemovableSlotSidecar;->run(ILandroid/telephony/SubscriptionInfo;)V
 
     goto :goto_0
 
@@ -595,27 +597,27 @@
 
     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "Ready to switch to eSIM subscription with index: "
+    const-string v3, "Ready to switch to eSIM subscription with index: "
 
-    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v1, p0, Lcom/android/settings/sim/ChooseSimActivity;->mSelectedItemIndex:I
+    iget v3, p0, Lcom/android/settings/sim/ChooseSimActivity;->mSelectedItemIndex:I
 
-    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 
-    invoke-static {v0, p1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, p1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object p1, p0, Lcom/android/settings/sim/ChooseSimActivity;->mSwitchToEuiccSubscriptionSidecar:Lcom/android/settings/network/SwitchToEuiccSubscriptionSidecar;
 
-    iget-object v0, p0, Lcom/android/settings/sim/ChooseSimActivity;->mEmbeddedSubscriptions:Ljava/util/ArrayList;
+    iget-object v1, p0, Lcom/android/settings/sim/ChooseSimActivity;->mEmbeddedSubscriptions:Ljava/util/ArrayList;
 
     iget p0, p0, Lcom/android/settings/sim/ChooseSimActivity;->mSelectedItemIndex:I
 
-    invoke-virtual {v0, p0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v1, p0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object p0
 
@@ -625,7 +627,7 @@
 
     move-result p0
 
-    invoke-virtual {p1, p0}, Lcom/android/settings/network/SwitchToEuiccSubscriptionSidecar;->run(I)V
+    invoke-virtual {p1, p0, v2, v0}, Lcom/android/settings/network/SwitchToEuiccSubscriptionSidecar;->run(IILandroid/telephony/SubscriptionInfo;)V
 
     :goto_0
     return-void
@@ -668,7 +670,7 @@
 
     iget v0, p0, Lcom/android/settings/sim/ChooseSimActivity;->mSelectedItemIndex:I
 
-    const-string v1, "selected_index"
+    const-string/jumbo v1, "selected_index"
 
     invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
@@ -799,7 +801,7 @@
 
     invoke-virtual {p1, v0}, Lcom/google/android/setupdesign/items/Item;->setEnabled(Z)V
 
-    const v1, 0x7f0405c3
+    const v1, 0x7f04061f
 
     invoke-virtual {p0, v1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 

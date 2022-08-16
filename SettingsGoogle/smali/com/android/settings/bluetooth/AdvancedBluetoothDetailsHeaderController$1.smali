@@ -37,7 +37,7 @@
 .method public onMetadataChanged(Landroid/bluetooth/BluetoothDevice;I[B)V
     .locals 2
 
-    invoke-static {}, Lcom/android/settings/bluetooth/AdvancedBluetoothDetailsHeaderController;->access$000()Z
+    invoke-static {}, Lcom/android/settings/bluetooth/AdvancedBluetoothDetailsHeaderController;->-$$Nest$sfgetDEBUG()Z
 
     move-result v0
 

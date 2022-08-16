@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="abc_slice_duration_days">
-        <item quantity="other">%d дня таму</item>
-        <item quantity="one">%d дзень таму</item>
-        <item quantity="few">%d дні таму</item>
-        <item quantity="many">%d дзён таму</item>
+        <item quantity="other">%d дня таму</item>
+        <item quantity="one">%d дзень таму</item>
+        <item quantity="few">%d дні таму</item>
+        <item quantity="many">%d дзён таму</item>
     </plurals>
     <plurals name="abc_slice_duration_min">
-        <item quantity="other">%d хвіліны таму</item>
-        <item quantity="one">%d хвіліну таму</item>
-        <item quantity="few">%d хвіліны таму</item>
-        <item quantity="many">%d хвілін таму</item>
+        <item quantity="other">%d хв таму</item>
+        <item quantity="one">%d хв таму</item>
+        <item quantity="few">%d хв таму</item>
+        <item quantity="many">%d хв таму</item>
     </plurals>
     <plurals name="abc_slice_duration_years">
-        <item quantity="other">%d года таму</item>
-        <item quantity="one">%d год таму</item>
-        <item quantity="few">%d гады таму</item>
-        <item quantity="many">%d гадоў таму</item>
+        <item quantity="other">%d года таму</item>
+        <item quantity="one">%d год таму</item>
+        <item quantity="few">%d гады таму</item>
+        <item quantity="many">%d гадоў таму</item>
     </plurals>
     <plurals name="accessibility_usage_summary">
         <item quantity="other">%1$d праграмы маюць поўны доступ да даных вашай прылады</item>
@@ -349,16 +349,16 @@
         <item quantity="many">Выключана %d катэгорый</item>
     </plurals>
     <plurals name="notifications_sent_daily">
-        <item quantity="other">~%d апавяшчэння ў дзень</item>
-        <item quantity="one">~%d апавяшчэнне ў дзень</item>
-        <item quantity="few">~%d апавяшчэнні ў дзень</item>
-        <item quantity="many">~%d апавяшчэнняў у дзень</item>
+        <item quantity="other">~%,d апавяшчэння ў дзень</item>
+        <item quantity="one">~%,d апавяшчэнне ў дзень</item>
+        <item quantity="few">~%,d апавяшчэнні ў дзень</item>
+        <item quantity="many">~%,d апавяшчэнняў у дзень</item>
     </plurals>
     <plurals name="notifications_sent_weekly">
-        <item quantity="other">~%d апавяшчэння ў тыдзень</item>
-        <item quantity="one">~%d апавяшчэнне ў тыдзень</item>
-        <item quantity="few">~%d апавяшчэнні ў тыдзень</item>
-        <item quantity="many">~%d апавяшчэнняў у тыдзень</item>
+        <item quantity="other">~%,d апавяшчэння ў тыдзень</item>
+        <item quantity="one">~%,d апавяшчэнне ў тыдзень</item>
+        <item quantity="few">~%,d апавяшчэнні ў тыдзень</item>
+        <item quantity="many">~%,d апавяшчэнняў у тыдзень</item>
     </plurals>
     <plurals name="number_of_device_admins">
         <item quantity="other">%d актыўнай праграмы</item>
@@ -492,34 +492,6 @@
         <item quantity="few">Давяраць сертыфікатам або выдаліць іх</item>
         <item quantity="many">Давяраць сертыфікатам або выдаліць іх</item>
     </plurals>
-    <plurals name="ssl_ca_cert_info_message">
-        <item quantity="other">"%s усталяваў цэнтр сертыфікацыі для вашага працоўнага профілю, які можа дазволіць яму кантраляваць працу працоўнай сеткі, у тым ліку электронную пошту, праграмы і бяспечныя вэб-сайты.
-
-Для атрымання дадатковай інфармацыі аб гэтых сертыфікатах звярніцеся да адміністратара."</item>
-        <item quantity="one">"%s усталяваў цэнтр сертыфікацыі для вашага працоўнага профілю, які можа дазволіць яму кантраляваць працу працоўнай сеткі, у тым ліку электронную пошту, праграмы і бяспечныя вэб-сайты.
-
-Для атрымання дадатковай інфармацыі аб гэтых сертыфікатах звярніцеся да адміністратара."</item>
-        <item quantity="few">"%s усталяваў цэнтр сертыфікацыі для вашага працоўнага профілю, які можа дазволіць яму кантраляваць працу працоўнай сеткі, у тым ліку электронную пошту, праграмы і бяспечныя вэб-сайты.
-
-Для атрымання дадатковай інфармацыі аб гэтых сертыфікатах звярніцеся да адміністратара."</item>
-        <item quantity="many">"%s усталяваў цэнтр сертыфікацыі для вашага працоўнага профілю, які можа дазволіць яму кантраляваць працу працоўнай сеткі, у тым ліку электронную пошту, праграмы і бяспечныя вэб-сайты.
-
-Для атрымання дадатковай інфармацыі аб гэтых сертыфікатах звярніцеся да адміністратара."</item>
-    </plurals>
-    <plurals name="ssl_ca_cert_info_message_device_owner">
-        <item quantity="other">"%s усталяваў цэнтр сертыфікацыі на вашай прыладзе, які можа дазволіць яму кантраляваць сеткавую дзейнасць вашай прылады, у тым ліку электронную пошту, праграмы і бяспечныя вэб-сайты.
-
-Для атрымання дадатковай інфармацыі аб гэтых сертыфікатах звярніцеся да адміністратара."</item>
-        <item quantity="one">"%s усталяваў цэнтр сертыфікацыі на вашай прыладзе, які можа дазволіць яму кантраляваць сеткавую дзейнасць вашай прылады, у тым ліку электронную пошту, праграмы і бяспечныя вэб-сайты.
-
-Для атрымання дадатковай інфармацыі аб гэтых сертыфікатах звярніцеся да адміністратара."</item>
-        <item quantity="few">"%s усталяваў цэнтр сертыфікацыі на вашай прыладзе, які можа дазволіць яму кантраляваць сеткавую дзейнасць вашай прылады, у тым ліку электронную пошту, праграмы і бяспечныя вэб-сайты.
-
-Для атрымання дадатковай інфармацыі аб гэтых сертыфікатах звярніцеся да адміністратара."</item>
-        <item quantity="many">"%s усталяваў цэнтр сертыфікацыі на вашай прыладзе, які можа дазволіць яму кантраляваць сеткавую дзейнасць вашай прылады, у тым ліку электронную пошту, праграмы і бяспечныя вэб-сайты.
-
-Для атрымання дадатковай інфармацыі аб гэтых сертыфікатах звярніцеся да адміністратара."</item>
-    </plurals>
     <plurals name="ssl_ca_cert_settings_button">
         <item quantity="other">Праверыць сертыфікаты</item>
         <item quantity="one">Праверыць сертыфікаты</item>
@@ -567,12 +539,6 @@
         <item quantity="one">%d падпіска</item>
         <item quantity="few">%d падпіскі</item>
         <item quantity="many">%d падпісак</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$d прылады падключана</item>
-        <item quantity="one">%1$d прылада падключана</item>
-        <item quantity="few">%1$d прылады падключаны</item>
-        <item quantity="many">%1$d прылад падключана</item>
     </plurals>
     <plurals name="wrong_pin_code">
         <item quantity="other">Няправільны PIN-код SIM-карты, у вас засталося %d спробы.</item>

@@ -33,7 +33,7 @@
 
     move-result p0
 
-    const v0, 0x7f06009b
+    const v0, 0x7f0600a5
 
     if-ne p0, v0, :cond_0
 
@@ -78,7 +78,7 @@
 
     const/4 p1, 0x0
 
-    const v0, 0x7f06009a
+    const v0, 0x7f0600a4
 
     if-eq p0, v0, :cond_1
 
@@ -86,7 +86,7 @@
 
     move-result p0
 
-    const v0, 0x7f06009b
+    const v0, 0x7f0600a5
 
     if-ne p0, v0, :cond_0
 
@@ -99,7 +99,7 @@
     :goto_0
     iget-object p0, p2, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
 
-    const p2, 0x7f0d01d2
+    const p2, 0x7f0d01eb
 
     invoke-virtual {p0, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -132,7 +132,7 @@
 
     iget-object p0, p3, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
 
-    const v0, 0x7f0d01d0
+    const v0, 0x7f0d01e9
 
     invoke-virtual {p0, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -140,7 +140,7 @@
 
     iget-object p3, p3, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
 
-    const v0, 0x7f0d01cf
+    const v0, 0x7f0d01e8
 
     invoke-virtual {p3, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

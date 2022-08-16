@@ -39,7 +39,7 @@
 
     iget-object p0, p0, Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings$1;->this$0:Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings;
 
-    invoke-static {p0}, Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings;->access$000(Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings;)V
+    invoke-static {p0}, Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings;->-$$Nest$mshowDaysDialog(Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings;)V
 
     const/4 p0, 0x1
 

@@ -9,12 +9,6 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/android/settingslib/suggestions/SuggestionControllerMixin$SuggestionControllerHost;
-    }
-.end annotation
-
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
@@ -33,8 +27,6 @@
 
 # instance fields
 .field private final mContext:Landroid/content/Context;
-
-.field private final mHost:Lcom/android/settingslib/suggestions/SuggestionControllerMixin$SuggestionControllerHost;
 
 .field private final mSuggestionController:Lcom/android/settingslib/suggestions/SuggestionController;
 
@@ -125,11 +117,9 @@
 
     iput-boolean p1, p0, Lcom/android/settingslib/suggestions/SuggestionControllerMixin;->mSuggestionLoaded:Z
 
-    iget-object p0, p0, Lcom/android/settingslib/suggestions/SuggestionControllerMixin;->mHost:Lcom/android/settingslib/suggestions/SuggestionControllerMixin$SuggestionControllerHost;
+    const/4 p0, 0x0
 
-    invoke-interface {p0, p2}, Lcom/android/settingslib/suggestions/SuggestionControllerMixin$SuggestionControllerHost;->onSuggestionReady(Ljava/util/List;)V
-
-    return-void
+    throw p0
 .end method
 
 .method public onLoaderReset(Landroid/content/Loader;)V
@@ -152,43 +142,19 @@
 .end method
 
 .method public onServiceConnected()V
-    .locals 3
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/settingslib/suggestions/SuggestionControllerMixin;->mHost:Lcom/android/settingslib/suggestions/SuggestionControllerMixin$SuggestionControllerHost;
+    const/4 p0, 0x0
 
-    invoke-interface {v0}, Lcom/android/settingslib/suggestions/SuggestionControllerMixin$SuggestionControllerHost;->getLoaderManager()Landroid/app/LoaderManager;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    const/16 v1, 0x2a
-
-    const/4 v2, 0x0
-
-    invoke-virtual {v0, v1, v2, p0}, Landroid/app/LoaderManager;->restartLoader(ILandroid/os/Bundle;Landroid/app/LoaderManager$LoaderCallbacks;)Landroid/content/Loader;
-
-    :cond_0
-    return-void
+    throw p0
 .end method
 
 .method public onServiceDisconnected()V
-    .locals 1
+    .locals 0
 
-    iget-object p0, p0, Lcom/android/settingslib/suggestions/SuggestionControllerMixin;->mHost:Lcom/android/settingslib/suggestions/SuggestionControllerMixin$SuggestionControllerHost;
+    const/4 p0, 0x0
 
-    invoke-interface {p0}, Lcom/android/settingslib/suggestions/SuggestionControllerMixin$SuggestionControllerHost;->getLoaderManager()Landroid/app/LoaderManager;
-
-    move-result-object p0
-
-    if-eqz p0, :cond_0
-
-    const/16 v0, 0x2a
-
-    invoke-virtual {p0, v0}, Landroid/app/LoaderManager;->destroyLoader(I)V
-
-    :cond_0
-    return-void
+    throw p0
 .end method
 
 .method public onStart()V

@@ -1,33 +1,24 @@
 .class public Lcom/android/settings/display/AutoRotateSwitchBarController;
-.super Ljava/lang/Object;
+.super Lcom/android/settings/widget/SettingsMainSwitchPreferenceController;
 .source "AutoRotateSwitchBarController.java"
 
 # interfaces
-.implements Lcom/android/settingslib/widget/OnMainSwitchChangeListener;
 .implements Lcom/android/settingslib/core/lifecycle/LifecycleObserver;
 .implements Lcom/android/settingslib/core/lifecycle/events/OnStart;
 .implements Lcom/android/settingslib/core/lifecycle/events/OnStop;
 
 
 # instance fields
-.field private final mContext:Landroid/content/Context;
-
 .field private final mMetricsFeatureProvider:Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;
 
-.field private final mSwitchBar:Lcom/android/settings/widget/SettingsMainSwitchBar;
-
-.field private mValidListener:Z
+.field private mRotationPolicyListener:Lcom/android/internal/view/RotationPolicy$RotationPolicyListener;
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;Lcom/android/settings/widget/SettingsMainSwitchBar;Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
+.method public constructor <init>(Landroid/content/Context;Ljava/lang/String;)V
     .locals 0
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p2, p0, Lcom/android/settings/display/AutoRotateSwitchBarController;->mSwitchBar:Lcom/android/settings/widget/SettingsMainSwitchBar;
-
-    iput-object p1, p0, Lcom/android/settings/display/AutoRotateSwitchBarController;->mContext:Landroid/content/Context;
+    invoke-direct {p0, p1, p2}, Lcom/android/settings/widget/SettingsMainSwitchPreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
     invoke-static {p1}, Lcom/android/settings/overlay/FeatureFactory;->getFactory(Landroid/content/Context;)Lcom/android/settings/overlay/FeatureFactory;
 
@@ -39,99 +30,128 @@
 
     iput-object p1, p0, Lcom/android/settings/display/AutoRotateSwitchBarController;->mMetricsFeatureProvider:Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;
 
-    if-eqz p3, :cond_0
-
-    invoke-virtual {p3, p0}, Lcom/android/settingslib/core/lifecycle/Lifecycle;->addObserver(Landroidx/lifecycle/LifecycleObserver;)V
-
-    :cond_0
     return-void
 .end method
 
-.method private setRotationLock(Z)Z
-    .locals 4
+.method static synthetic access$000(Lcom/android/settings/display/AutoRotateSwitchBarController;)Lcom/android/settingslib/widget/MainSwitchPreference;
+    .locals 0
 
-    xor-int/lit8 v0, p1, 0x1
+    iget-object p0, p0, Lcom/android/settings/widget/SettingsMainSwitchPreferenceController;->mSwitchPreference:Lcom/android/settingslib/widget/MainSwitchPreference;
 
-    iget-object v1, p0, Lcom/android/settings/display/AutoRotateSwitchBarController;->mMetricsFeatureProvider:Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;
+    return-object p0
+.end method
 
-    iget-object v2, p0, Lcom/android/settings/display/AutoRotateSwitchBarController;->mContext:Landroid/content/Context;
+.method static synthetic access$100(Lcom/android/settings/display/AutoRotateSwitchBarController;)Lcom/android/settingslib/widget/MainSwitchPreference;
+    .locals 0
 
-    const/16 v3, 0x6d9
+    iget-object p0, p0, Lcom/android/settings/widget/SettingsMainSwitchPreferenceController;->mSwitchPreference:Lcom/android/settingslib/widget/MainSwitchPreference;
 
-    invoke-virtual {v1, v2, v3, p1}, Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;->action(Landroid/content/Context;IZ)V
-
-    iget-object p0, p0, Lcom/android/settings/display/AutoRotateSwitchBarController;->mContext:Landroid/content/Context;
-
-    invoke-static {p0, v0}, Lcom/android/internal/view/RotationPolicy;->setRotationLock(Landroid/content/Context;Z)V
-
-    const/4 p0, 0x1
-
-    return p0
+    return-object p0
 .end method
 
 
 # virtual methods
-.method protected onChange()V
-    .locals 2
+.method public getAvailabilityStatus()I
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/settings/display/AutoRotateSwitchBarController;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    invoke-static {v0}, Lcom/android/internal/view/RotationPolicy;->isRotationLocked(Landroid/content/Context;)Z
+    invoke-static {v0}, Lcom/android/internal/view/RotationPolicy;->isRotationLockToggleVisible(Landroid/content/Context;)Z
 
     move-result v0
 
-    xor-int/lit8 v0, v0, 0x1
+    if-eqz v0, :cond_0
 
-    iget-object v1, p0, Lcom/android/settings/display/AutoRotateSwitchBarController;->mSwitchBar:Lcom/android/settings/widget/SettingsMainSwitchBar;
+    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v1}, Lcom/android/settingslib/widget/MainSwitchBar;->isChecked()Z
+    invoke-static {p0}, Lcom/android/settings/display/DeviceStateAutoRotationHelper;->isDeviceStateRotationEnabled(Landroid/content/Context;)Z
 
-    move-result v1
+    move-result p0
 
-    if-eq v0, v1, :cond_1
+    if-nez p0, :cond_0
 
-    iget-boolean v1, p0, Lcom/android/settings/display/AutoRotateSwitchBarController;->mValidListener:Z
+    const/4 p0, 0x0
 
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/settings/display/AutoRotateSwitchBarController;->mSwitchBar:Lcom/android/settings/widget/SettingsMainSwitchBar;
-
-    invoke-virtual {v1, p0}, Lcom/android/settingslib/widget/MainSwitchBar;->removeOnSwitchChangeListener(Lcom/android/settingslib/widget/OnMainSwitchChangeListener;)V
+    goto :goto_0
 
     :cond_0
-    iget-object v1, p0, Lcom/android/settings/display/AutoRotateSwitchBarController;->mSwitchBar:Lcom/android/settings/widget/SettingsMainSwitchBar;
+    const/4 p0, 0x3
 
-    invoke-virtual {v1, v0}, Lcom/android/settings/widget/SettingsMainSwitchBar;->setChecked(Z)V
+    :goto_0
+    return p0
+.end method
 
-    iget-boolean v0, p0, Lcom/android/settings/display/AutoRotateSwitchBarController;->mValidListener:Z
+.method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
+    .locals 0
 
-    if-eqz v0, :cond_1
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
-    iget-object v0, p0, Lcom/android/settings/display/AutoRotateSwitchBarController;->mSwitchBar:Lcom/android/settings/widget/SettingsMainSwitchBar;
+    move-result-object p0
 
-    invoke-virtual {v0, p0}, Lcom/android/settingslib/widget/MainSwitchBar;->addOnSwitchChangeListener(Lcom/android/settingslib/widget/OnMainSwitchChangeListener;)V
+    return-object p0
+.end method
 
-    :cond_1
-    return-void
+.method public bridge synthetic getIntentFilter()Landroid/content/IntentFilter;
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getIntentFilter()Landroid/content/IntentFilter;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public getSliceHighlightMenuRes()I
+    .locals 0
+
+    const p0, 0x7f040d82
+
+    return p0
+.end method
+
+.method public bridge synthetic hasAsyncUpdate()Z
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->hasAsyncUpdate()Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public isChecked()Z
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    invoke-static {p0}, Lcom/android/internal/view/RotationPolicy;->isRotationLocked(Landroid/content/Context;)Z
+
+    move-result p0
+
+    xor-int/lit8 p0, p0, 0x1
+
+    return p0
 .end method
 
 .method public onStart()V
     .locals 1
 
-    iget-boolean v0, p0, Lcom/android/settings/display/AutoRotateSwitchBarController;->mValidListener:Z
+    iget-object v0, p0, Lcom/android/settings/display/AutoRotateSwitchBarController;->mRotationPolicyListener:Lcom/android/internal/view/RotationPolicy$RotationPolicyListener;
 
     if-nez v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/settings/display/AutoRotateSwitchBarController;->mSwitchBar:Lcom/android/settings/widget/SettingsMainSwitchBar;
+    new-instance v0, Lcom/android/settings/display/AutoRotateSwitchBarController$1;
 
-    invoke-virtual {v0, p0}, Lcom/android/settingslib/widget/MainSwitchBar;->addOnSwitchChangeListener(Lcom/android/settingslib/widget/OnMainSwitchChangeListener;)V
+    invoke-direct {v0, p0}, Lcom/android/settings/display/AutoRotateSwitchBarController$1;-><init>(Lcom/android/settings/display/AutoRotateSwitchBarController;)V
 
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/android/settings/display/AutoRotateSwitchBarController;->mValidListener:Z
+    iput-object v0, p0, Lcom/android/settings/display/AutoRotateSwitchBarController;->mRotationPolicyListener:Lcom/android/internal/view/RotationPolicy$RotationPolicyListener;
 
     :cond_0
-    invoke-virtual {p0}, Lcom/android/settings/display/AutoRotateSwitchBarController;->onChange()V
+    iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    iget-object p0, p0, Lcom/android/settings/display/AutoRotateSwitchBarController;->mRotationPolicyListener:Lcom/android/internal/view/RotationPolicy$RotationPolicyListener;
+
+    invoke-static {v0, p0}, Lcom/android/internal/view/RotationPolicy;->registerRotationPolicyListener(Landroid/content/Context;Lcom/android/internal/view/RotationPolicy$RotationPolicyListener;)V
 
     return-void
 .end method
@@ -139,26 +159,46 @@
 .method public onStop()V
     .locals 1
 
-    iget-boolean v0, p0, Lcom/android/settings/display/AutoRotateSwitchBarController;->mValidListener:Z
+    iget-object v0, p0, Lcom/android/settings/display/AutoRotateSwitchBarController;->mRotationPolicyListener:Lcom/android/internal/view/RotationPolicy$RotationPolicyListener;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/settings/display/AutoRotateSwitchBarController;->mSwitchBar:Lcom/android/settings/widget/SettingsMainSwitchBar;
+    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v0, p0}, Lcom/android/settingslib/widget/MainSwitchBar;->removeOnSwitchChangeListener(Lcom/android/settingslib/widget/OnMainSwitchChangeListener;)V
-
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/android/settings/display/AutoRotateSwitchBarController;->mValidListener:Z
+    invoke-static {p0, v0}, Lcom/android/internal/view/RotationPolicy;->unregisterRotationPolicyListener(Landroid/content/Context;Lcom/android/internal/view/RotationPolicy$RotationPolicyListener;)V
 
     :cond_0
     return-void
 .end method
 
-.method public onSwitchChanged(Landroid/widget/Switch;Z)V
+.method public setChecked(Z)Z
+    .locals 4
+
+    const/4 v0, 0x1
+
+    xor-int/2addr p1, v0
+
+    iget-object v1, p0, Lcom/android/settings/display/AutoRotateSwitchBarController;->mMetricsFeatureProvider:Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;
+
+    iget-object v2, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    const/16 v3, 0x6d9
+
+    invoke-virtual {v1, v2, v3, p1}, Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;->action(Landroid/content/Context;IZ)V
+
+    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    invoke-static {p0, p1}, Lcom/android/internal/view/RotationPolicy;->setRotationLock(Landroid/content/Context;Z)V
+
+    return v0
+.end method
+
+.method public bridge synthetic useDynamicSliceSummary()Z
     .locals 0
 
-    invoke-direct {p0, p2}, Lcom/android/settings/display/AutoRotateSwitchBarController;->setRotationLock(Z)Z
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->useDynamicSliceSummary()Z
 
-    return-void
+    move-result p0
+
+    return p0
 .end method

@@ -28,7 +28,7 @@
 
     invoke-direct {p0, p1}, Lcom/android/settingslib/development/DeveloperOptionsPreferenceController;-><init>(Landroid/content/Context;)V
 
-    const-string v0, "ro.oem_unlock_supported"
+    const-string/jumbo v0, "ro.oem_unlock_supported"
 
     const-string v1, "-9999"
 
@@ -200,7 +200,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f040ec7
+    const v0, 0x7f040f5b
 
     goto :goto_0
 
@@ -211,7 +211,7 @@
 
     if-eqz v0, :cond_1
 
-    const v0, 0x7f040eca
+    const v0, 0x7f040f5e
 
     goto :goto_0
 
@@ -222,12 +222,12 @@
 
     if-nez v0, :cond_2
 
-    const v0, 0x7f040ec9
+    const v0, 0x7f040f5d
 
     goto :goto_0
 
     :cond_2
-    const v0, 0x7f040ecb
+    const v0, 0x7f040f5f
 
     :goto_0
     iget-object v1, p0, Lcom/android/settings/development/OemUnlockPreferenceController;->mPreference:Lcom/android/settingslib/RestrictedSwitchPreference;
@@ -502,7 +502,7 @@
 
     move-result-object p0
 
-    const p2, 0x7f040ec6
+    const p2, 0x7f040f5a
 
     invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

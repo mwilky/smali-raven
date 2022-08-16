@@ -9,6 +9,8 @@
 # instance fields
 .field private mFaceManager:Landroid/hardware/face/FaceManager;
 
+.field private mFaceUpdater:Lcom/android/settings/biometrics/face/FaceUpdater;
+
 .field private mReEnrollType:I
 
 
@@ -52,17 +54,17 @@
 
     if-eqz p1, :cond_0
 
-    const p1, 0x7f04112d
+    const p1, 0x7f0411df
 
     goto :goto_0
 
     :cond_0
-    const p1, 0x7f04112c
+    const p1, 0x7f0411de
 
     :goto_0
     iget-object v0, p0, Lcom/android/internal/app/AlertActivity;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
 
-    const v1, 0x7f04112e
+    const v1, 0x7f0411e0
 
     invoke-virtual {p0, v1}, Lcom/android/internal/app/AlertActivity;->getText(I)Ljava/lang/CharSequence;
 
@@ -76,7 +78,7 @@
 
     iput-object p1, v0, Lcom/android/internal/app/AlertController$AlertParams;->mMessage:Ljava/lang/CharSequence;
 
-    const p1, 0x7f041313
+    const p1, 0x7f0413d7
 
     invoke-virtual {p0, p1}, Lcom/android/internal/app/AlertActivity;->getText(I)Ljava/lang/CharSequence;
 
@@ -84,7 +86,7 @@
 
     iput-object p1, v0, Lcom/android/internal/app/AlertController$AlertParams;->mPositiveButtonText:Ljava/lang/CharSequence;
 
-    const p1, 0x7f040564
+    const p1, 0x7f0405c1
 
     invoke-virtual {p0, p1}, Lcom/android/internal/app/AlertActivity;->getText(I)Ljava/lang/CharSequence;
 
@@ -103,6 +105,18 @@
     move-result-object p1
 
     iput-object p1, p0, Lcom/android/settings/homepage/contextualcards/FaceReEnrollDialog;->mFaceManager:Landroid/hardware/face/FaceManager;
+
+    new-instance p1, Lcom/android/settings/biometrics/face/FaceUpdater;
+
+    invoke-virtual {p0}, Lcom/android/internal/app/AlertActivity;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/settings/homepage/contextualcards/FaceReEnrollDialog;->mFaceManager:Landroid/hardware/face/FaceManager;
+
+    invoke-direct {p1, v0, v1}, Lcom/android/settings/biometrics/face/FaceUpdater;-><init>(Landroid/content/Context;Landroid/hardware/face/FaceManager;)V
+
+    iput-object p1, p0, Lcom/android/settings/homepage/contextualcards/FaceReEnrollDialog;->mFaceUpdater:Lcom/android/settings/biometrics/face/FaceUpdater;
 
     invoke-virtual {p0}, Lcom/android/internal/app/AlertActivity;->getApplicationContext()Landroid/content/Context;
 
@@ -203,7 +217,7 @@
     invoke-virtual {p0}, Lcom/android/internal/app/AlertActivity;->finish()V
 
     :cond_1
-    iget-object v1, p0, Lcom/android/settings/homepage/contextualcards/FaceReEnrollDialog;->mFaceManager:Landroid/hardware/face/FaceManager;
+    iget-object v1, p0, Lcom/android/settings/homepage/contextualcards/FaceReEnrollDialog;->mFaceUpdater:Lcom/android/settings/biometrics/face/FaceUpdater;
 
     new-instance v2, Landroid/hardware/face/Face;
 
@@ -219,7 +233,7 @@
 
     invoke-direct {v3, p0}, Lcom/android/settings/homepage/contextualcards/FaceReEnrollDialog$1;-><init>(Lcom/android/settings/homepage/contextualcards/FaceReEnrollDialog;)V
 
-    invoke-virtual {v1, v2, v0, v3}, Landroid/hardware/face/FaceManager;->remove(Landroid/hardware/face/Face;ILandroid/hardware/face/FaceManager$RemovalCallback;)V
+    invoke-virtual {v1, v2, v0, v3}, Lcom/android/settings/biometrics/face/FaceUpdater;->remove(Landroid/hardware/face/Face;ILandroid/hardware/face/FaceManager$RemovalCallback;)V
 
     return-void
 .end method

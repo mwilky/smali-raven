@@ -15,22 +15,6 @@
 
 
 # virtual methods
-.method public abstract getLaunchPendingIntent()Landroid/app/PendingIntent;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract getMetadata()Landroid/support/v4/media/MediaMetadataCompat;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract getPlaybackState()Landroid/support/v4/media/session/PlaybackStateCompat;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -39,40 +23,7 @@
     .end annotation
 .end method
 
-.method public abstract pause()V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract play()V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract registerCallbackListener(Landroid/support/v4/media/session/IMediaControllerCallback;)V
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "cb"
-        }
-    .end annotation
-
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract stop()V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -81,15 +32,6 @@
 .end method
 
 .method public abstract unregisterCallbackListener(Landroid/support/v4/media/session/IMediaControllerCallback;)V
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "cb"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

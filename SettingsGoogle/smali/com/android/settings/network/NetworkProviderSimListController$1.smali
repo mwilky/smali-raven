@@ -48,7 +48,7 @@
 
     iget-object p0, p0, Lcom/android/settings/network/NetworkProviderSimListController$1;->this$0:Lcom/android/settings/network/NetworkProviderSimListController;
 
-    invoke-static {p0}, Lcom/android/settings/network/NetworkProviderSimListController;->access$000(Lcom/android/settings/network/NetworkProviderSimListController;)V
+    invoke-static {p0}, Lcom/android/settings/network/NetworkProviderSimListController;->-$$Nest$mupdate(Lcom/android/settings/network/NetworkProviderSimListController;)V
 
     :cond_0
     return-void

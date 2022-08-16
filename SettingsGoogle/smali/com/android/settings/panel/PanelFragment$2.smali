@@ -39,11 +39,11 @@
 
     iget-object v0, p0, Lcom/android/settings/panel/PanelFragment$2;->this$0:Lcom/android/settings/panel/PanelFragment;
 
-    invoke-static {v0}, Lcom/android/settings/panel/PanelFragment;->access$100(Lcom/android/settings/panel/PanelFragment;)V
+    invoke-static {v0}, Lcom/android/settings/panel/PanelFragment;->-$$Nest$manimateIn(Lcom/android/settings/panel/PanelFragment;)V
 
     iget-object v0, p0, Lcom/android/settings/panel/PanelFragment$2;->this$0:Lcom/android/settings/panel/PanelFragment;
 
-    invoke-static {v0}, Lcom/android/settings/panel/PanelFragment;->access$200(Lcom/android/settings/panel/PanelFragment;)Landroidx/recyclerview/widget/RecyclerView;
+    invoke-static {v0}, Lcom/android/settings/panel/PanelFragment;->-$$Nest$fgetmPanelSlices(Lcom/android/settings/panel/PanelFragment;)Landroidx/recyclerview/widget/RecyclerView;
 
     move-result-object v0
 
@@ -51,7 +51,7 @@
 
     iget-object v0, p0, Lcom/android/settings/panel/PanelFragment$2;->this$0:Lcom/android/settings/panel/PanelFragment;
 
-    invoke-static {v0}, Lcom/android/settings/panel/PanelFragment;->access$200(Lcom/android/settings/panel/PanelFragment;)Landroidx/recyclerview/widget/RecyclerView;
+    invoke-static {v0}, Lcom/android/settings/panel/PanelFragment;->-$$Nest$fgetmPanelSlices(Lcom/android/settings/panel/PanelFragment;)Landroidx/recyclerview/widget/RecyclerView;
 
     move-result-object v0
 
@@ -66,7 +66,7 @@
 
     const/4 v0, 0x0
 
-    invoke-static {p0, v0}, Lcom/android/settings/panel/PanelFragment;->access$302(Lcom/android/settings/panel/PanelFragment;Z)Z
+    invoke-static {p0, v0}, Lcom/android/settings/panel/PanelFragment;->-$$Nest$fputmPanelCreating(Lcom/android/settings/panel/PanelFragment;Z)V
 
     return-void
 .end method

@@ -39,7 +39,7 @@
 
     iget-object v0, p0, Lcom/android/settings/biometrics/face/FaceEnrollAnimationDrawable$1;->this$0:Lcom/android/settings/biometrics/face/FaceEnrollAnimationDrawable;
 
-    invoke-static {v0}, Lcom/android/settings/biometrics/face/FaceEnrollAnimationDrawable;->access$000(Lcom/android/settings/biometrics/face/FaceEnrollAnimationDrawable;)Landroid/animation/TimeAnimator;
+    invoke-static {v0}, Lcom/android/settings/biometrics/face/FaceEnrollAnimationDrawable;->-$$Nest$fgetmTimeAnimator(Lcom/android/settings/biometrics/face/FaceEnrollAnimationDrawable;)Landroid/animation/TimeAnimator;
 
     move-result-object v0
 
@@ -47,7 +47,7 @@
 
     iget-object v0, p0, Lcom/android/settings/biometrics/face/FaceEnrollAnimationDrawable$1;->this$0:Lcom/android/settings/biometrics/face/FaceEnrollAnimationDrawable;
 
-    invoke-static {v0}, Lcom/android/settings/biometrics/face/FaceEnrollAnimationDrawable;->access$000(Lcom/android/settings/biometrics/face/FaceEnrollAnimationDrawable;)Landroid/animation/TimeAnimator;
+    invoke-static {v0}, Lcom/android/settings/biometrics/face/FaceEnrollAnimationDrawable;->-$$Nest$fgetmTimeAnimator(Lcom/android/settings/biometrics/face/FaceEnrollAnimationDrawable;)Landroid/animation/TimeAnimator;
 
     move-result-object v0
 
@@ -59,7 +59,7 @@
 
     iget-object v0, p0, Lcom/android/settings/biometrics/face/FaceEnrollAnimationDrawable$1;->this$0:Lcom/android/settings/biometrics/face/FaceEnrollAnimationDrawable;
 
-    invoke-static {v0}, Lcom/android/settings/biometrics/face/FaceEnrollAnimationDrawable;->access$000(Lcom/android/settings/biometrics/face/FaceEnrollAnimationDrawable;)Landroid/animation/TimeAnimator;
+    invoke-static {v0}, Lcom/android/settings/biometrics/face/FaceEnrollAnimationDrawable;->-$$Nest$fgetmTimeAnimator(Lcom/android/settings/biometrics/face/FaceEnrollAnimationDrawable;)Landroid/animation/TimeAnimator;
 
     move-result-object v0
 
@@ -67,7 +67,7 @@
 
     iget-object p0, p0, Lcom/android/settings/biometrics/face/FaceEnrollAnimationDrawable$1;->this$0:Lcom/android/settings/biometrics/face/FaceEnrollAnimationDrawable;
 
-    invoke-static {p0}, Lcom/android/settings/biometrics/face/FaceEnrollAnimationDrawable;->access$100(Lcom/android/settings/biometrics/face/FaceEnrollAnimationDrawable;)Lcom/android/settings/biometrics/face/ParticleCollection$Listener;
+    invoke-static {p0}, Lcom/android/settings/biometrics/face/FaceEnrollAnimationDrawable;->-$$Nest$fgetmListener(Lcom/android/settings/biometrics/face/FaceEnrollAnimationDrawable;)Lcom/android/settings/biometrics/face/ParticleCollection$Listener;
 
     move-result-object p0
 

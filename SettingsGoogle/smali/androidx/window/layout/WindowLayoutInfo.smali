@@ -134,7 +134,11 @@
     .annotation build Lorg/jetbrains/annotations/NotNull;
     .end annotation
 
-    iget-object v0, p0, Landroidx/window/layout/WindowLayoutInfo;->displayFeatures:Ljava/util/List;
+    iget-object p0, p0, Landroidx/window/layout/WindowLayoutInfo;->displayFeatures:Ljava/util/List;
+
+    move-object v0, p0
+
+    check-cast v0, Ljava/lang/Iterable;
 
     const-string v1, ", "
 

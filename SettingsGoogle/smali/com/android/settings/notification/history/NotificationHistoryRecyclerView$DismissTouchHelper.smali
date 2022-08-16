@@ -80,7 +80,7 @@
     :goto_1
     iget-object v0, p0, Lcom/android/settings/notification/history/NotificationHistoryRecyclerView$DismissTouchHelper;->this$0:Lcom/android/settings/notification/history/NotificationHistoryRecyclerView;
 
-    invoke-static {v0}, Lcom/android/settings/notification/history/NotificationHistoryRecyclerView;->access$100(Lcom/android/settings/notification/history/NotificationHistoryRecyclerView;)F
+    invoke-static {v0}, Lcom/android/settings/notification/history/NotificationHistoryRecyclerView;->-$$Nest$fgetdXLast(Lcom/android/settings/notification/history/NotificationHistoryRecyclerView;)F
 
     move-result v0
 
@@ -90,7 +90,7 @@
 
     iget-object p3, p0, Lcom/android/settings/notification/history/NotificationHistoryRecyclerView$DismissTouchHelper;->this$0:Lcom/android/settings/notification/history/NotificationHistoryRecyclerView;
 
-    invoke-static {p3}, Lcom/android/settings/notification/history/NotificationHistoryRecyclerView;->access$100(Lcom/android/settings/notification/history/NotificationHistoryRecyclerView;)F
+    invoke-static {p3}, Lcom/android/settings/notification/history/NotificationHistoryRecyclerView;->-$$Nest$fgetdXLast(Lcom/android/settings/notification/history/NotificationHistoryRecyclerView;)F
 
     move-result p3
 
@@ -111,7 +111,7 @@
     :cond_4
     iget-object p0, p0, Lcom/android/settings/notification/history/NotificationHistoryRecyclerView$DismissTouchHelper;->this$0:Lcom/android/settings/notification/history/NotificationHistoryRecyclerView;
 
-    invoke-static {p0, p4}, Lcom/android/settings/notification/history/NotificationHistoryRecyclerView;->access$102(Lcom/android/settings/notification/history/NotificationHistoryRecyclerView;F)F
+    invoke-static {p0, p4}, Lcom/android/settings/notification/history/NotificationHistoryRecyclerView;->-$$Nest$fputdXLast(Lcom/android/settings/notification/history/NotificationHistoryRecyclerView;F)V
 
     goto :goto_2
 
@@ -120,7 +120,7 @@
 
     const/4 p1, 0x0
 
-    invoke-static {p0, p1}, Lcom/android/settings/notification/history/NotificationHistoryRecyclerView;->access$102(Lcom/android/settings/notification/history/NotificationHistoryRecyclerView;F)F
+    invoke-static {p0, p1}, Lcom/android/settings/notification/history/NotificationHistoryRecyclerView;->-$$Nest$fputdXLast(Lcom/android/settings/notification/history/NotificationHistoryRecyclerView;F)V
 
     :goto_2
     return-void
@@ -139,7 +139,7 @@
 
     iget-object p2, p0, Lcom/android/settings/notification/history/NotificationHistoryRecyclerView$DismissTouchHelper;->this$0:Lcom/android/settings/notification/history/NotificationHistoryRecyclerView;
 
-    invoke-static {p2}, Lcom/android/settings/notification/history/NotificationHistoryRecyclerView;->access$000(Lcom/android/settings/notification/history/NotificationHistoryRecyclerView;)Lcom/android/settings/notification/history/NotificationHistoryRecyclerView$OnItemSwipeDeleteListener;
+    invoke-static {p2}, Lcom/android/settings/notification/history/NotificationHistoryRecyclerView;->-$$Nest$fgetlistener(Lcom/android/settings/notification/history/NotificationHistoryRecyclerView;)Lcom/android/settings/notification/history/NotificationHistoryRecyclerView$OnItemSwipeDeleteListener;
 
     move-result-object p2
 
@@ -147,7 +147,7 @@
 
     iget-object p0, p0, Lcom/android/settings/notification/history/NotificationHistoryRecyclerView$DismissTouchHelper;->this$0:Lcom/android/settings/notification/history/NotificationHistoryRecyclerView;
 
-    invoke-static {p0}, Lcom/android/settings/notification/history/NotificationHistoryRecyclerView;->access$000(Lcom/android/settings/notification/history/NotificationHistoryRecyclerView;)Lcom/android/settings/notification/history/NotificationHistoryRecyclerView$OnItemSwipeDeleteListener;
+    invoke-static {p0}, Lcom/android/settings/notification/history/NotificationHistoryRecyclerView;->-$$Nest$fgetlistener(Lcom/android/settings/notification/history/NotificationHistoryRecyclerView;)Lcom/android/settings/notification/history/NotificationHistoryRecyclerView$OnItemSwipeDeleteListener;
 
     move-result-object p0
 

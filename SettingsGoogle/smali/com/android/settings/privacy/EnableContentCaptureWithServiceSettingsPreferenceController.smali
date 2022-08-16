@@ -3,31 +3,17 @@
 .source "EnableContentCaptureWithServiceSettingsPreferenceController.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/android/settings/privacy/EnableContentCaptureWithServiceSettingsPreferenceController$ProfileSelectDialog;
-    }
-.end annotation
-
-
 # static fields
 .field private static final TAG:Ljava/lang/String; = "ContentCaptureController"
 
 
-# instance fields
-.field private final mUserManager:Landroid/os/UserManager;
-
-
 # direct methods
-.method public static synthetic $r8$lambda$kMPMqElHg5U2nh_mkWBMbE7Gaw4(Lcom/android/settings/privacy/EnableContentCaptureWithServiceSettingsPreferenceController;Landroidx/preference/Preference;)Z
+.method public static synthetic $r8$lambda$WLJ67TNRGL3B-NaDIFEeWvYbAP4(Lcom/android/settings/privacy/EnableContentCaptureWithServiceSettingsPreferenceController;Landroid/content/Intent;Ljava/util/ArrayList;I)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/settings/privacy/EnableContentCaptureWithServiceSettingsPreferenceController;->lambda$updateState$0(Landroidx/preference/Preference;)Z
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/settings/privacy/EnableContentCaptureWithServiceSettingsPreferenceController;->lambda$show$0(Landroid/content/Intent;Ljava/util/ArrayList;I)V
 
-    move-result p0
-
-    return p0
+    return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;)V
@@ -35,37 +21,122 @@
 
     invoke-direct {p0, p1, p2}, Lcom/android/settings/core/TogglePreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
-    invoke-static {p1}, Landroid/os/UserManager;->get(Landroid/content/Context;)Landroid/os/UserManager;
-
-    move-result-object p1
-
-    iput-object p1, p0, Lcom/android/settings/privacy/EnableContentCaptureWithServiceSettingsPreferenceController;->mUserManager:Landroid/os/UserManager;
-
     return-void
 .end method
 
-.method private synthetic lambda$updateState$0(Landroidx/preference/Preference;)Z
+.method private synthetic lambda$show$0(Landroid/content/Intent;Ljava/util/ArrayList;I)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    invoke-static {p0, p1}, Lcom/android/settings/privacy/EnableContentCaptureWithServiceSettingsPreferenceController$ProfileSelectDialog;->show(Landroid/content/Context;Landroidx/preference/Preference;)V
+    invoke-virtual {p2, p3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    const/4 p0, 0x1
+    move-result-object p2
 
-    return p0
-.end method
+    check-cast p2, Landroid/os/UserHandle;
 
-
-# virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
+    invoke-virtual {p0, p1, p2}, Landroid/content/Context;->startActivityAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
 
     return-void
 .end method
 
+.method private show(Landroidx/preference/Preference;)V
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Landroid/os/UserManager;->get(Landroid/content/Context;)Landroid/os/UserManager;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/os/UserManager;->getUsers()Ljava/util/List;
+
+    move-result-object v0
+
+    new-instance v1, Ljava/util/ArrayList;
+
+    invoke-interface {v0}, Ljava/util/List;->size()I
+
+    move-result v2
+
+    invoke-direct {v1, v2}, Ljava/util/ArrayList;-><init>(I)V
+
+    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v0
+
+    :goto_0
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/content/pm/UserInfo;
+
+    invoke-virtual {v2}, Landroid/content/pm/UserInfo;->getUserHandle()Landroid/os/UserHandle;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {p1}, Landroidx/preference/Preference;->getIntent()Landroid/content/Intent;
+
+    move-result-object p1
+
+    const v0, 0x8000
+
+    invoke-virtual {p1, v0}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+
+    move-result-object p1
+
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
+
+    move-result v0
+
+    const/4 v2, 0x1
+
+    if-ne v0, v2, :cond_1
+
+    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    const/4 v0, 0x0
+
+    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/os/UserHandle;
+
+    invoke-virtual {p0, p1, v0}, Landroid/content/Context;->startActivityAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
+
+    return-void
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    new-instance v2, Lcom/android/settings/privacy/EnableContentCaptureWithServiceSettingsPreferenceController$$ExternalSyntheticLambda0;
+
+    invoke-direct {v2, p0, p1, v1}, Lcom/android/settings/privacy/EnableContentCaptureWithServiceSettingsPreferenceController$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/privacy/EnableContentCaptureWithServiceSettingsPreferenceController;Landroid/content/Intent;Ljava/util/ArrayList;)V
+
+    invoke-static {v0, v1, v2}, Lcom/android/settings/dashboard/profileselector/ProfileSelectDialog;->createDialog(Landroid/content/Context;Ljava/util/List;Lcom/android/settings/dashboard/profileselector/UserAdapter$OnClickListener;)Landroid/app/Dialog;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroid/app/Dialog;->show()V
+
+    return-void
+.end method
+
+
+# virtual methods
 .method public getAvailabilityStatus()I
     .locals 1
 
@@ -104,15 +175,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -134,7 +196,36 @@
 .method public getSliceHighlightMenuRes()I
     .locals 0
 
-    const p0, 0x7f040d0c
+    const p0, 0x7f040d87
+
+    return p0
+.end method
+
+.method public handlePreferenceTreeClick(Landroidx/preference/Preference;)Z
+    .locals 2
+
+    invoke-virtual {p1}, Landroidx/preference/Preference;->getKey()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p0}, Lcom/android/settings/core/BasePreferenceController;->getPreferenceKey()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const/4 p0, 0x0
+
+    return p0
+
+    :cond_0
+    invoke-direct {p0, p1}, Lcom/android/settings/privacy/EnableContentCaptureWithServiceSettingsPreferenceController;->show(Landroidx/preference/Preference;)V
+
+    const/4 p0, 0x1
 
     return p0
 .end method
@@ -161,16 +252,6 @@
     return p0
 .end method
 
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
-
-    move-result p0
-
-    return p0
-.end method
-
 .method public setChecked(Z)Z
     .locals 0
 
@@ -184,48 +265,42 @@
 .end method
 
 .method public updateState(Landroidx/preference/Preference;)V
-    .locals 3
+    .locals 2
 
     invoke-super {p0, p1}, Lcom/android/settings/core/TogglePreferenceController;->updateState(Landroidx/preference/Preference;)V
 
     invoke-static {}, Lcom/android/settings/utils/ContentCaptureUtils;->getServiceSettingsComponentName()Landroid/content/ComponentName;
 
-    move-result-object v0
+    move-result-object p0
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    new-instance v1, Landroid/content/Intent;
+    new-instance v0, Landroid/content/Intent;
 
-    const-string v2, "android.intent.action.MAIN"
+    const-string v1, "android.intent.action.MAIN"
 
-    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v0}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
+    invoke-virtual {v0, p0}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {p1, v0}, Landroidx/preference/Preference;->setIntent(Landroid/content/Intent;)V
+    invoke-virtual {p1, p0}, Landroidx/preference/Preference;->setIntent(Landroid/content/Intent;)V
 
     goto :goto_0
 
     :cond_0
-    const-string v0, "ContentCaptureController"
+    const-string p0, "ContentCaptureController"
 
-    const-string v1, "No component name for custom service settings"
+    const-string v0, "No component name for custom service settings"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    invoke-virtual {p1, v0}, Landroidx/preference/Preference;->setSelectable(Z)V
+    invoke-virtual {p1, p0}, Landroidx/preference/Preference;->setSelectable(Z)V
 
     :goto_0
-    new-instance v0, Lcom/android/settings/privacy/EnableContentCaptureWithServiceSettingsPreferenceController$$ExternalSyntheticLambda0;
-
-    invoke-direct {v0, p0}, Lcom/android/settings/privacy/EnableContentCaptureWithServiceSettingsPreferenceController$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/privacy/EnableContentCaptureWithServiceSettingsPreferenceController;)V
-
-    invoke-virtual {p1, v0}, Landroidx/preference/Preference;->setOnPreferenceClickListener(Landroidx/preference/Preference$OnPreferenceClickListener;)V
-
     return-void
 .end method
 

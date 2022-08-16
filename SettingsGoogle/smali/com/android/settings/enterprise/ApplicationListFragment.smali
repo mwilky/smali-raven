@@ -74,3 +74,19 @@
 
     return p0
 .end method
+
+.method public onCreate(Landroid/os/Bundle;)V
+    .locals 2
+
+    invoke-super {p0, p1}, Lcom/android/settings/dashboard/DashboardFragment;->onCreate(Landroid/os/Bundle;)V
+
+    const-string p1, "enterprise_privacy_apps_footer"
+
+    const-string v0, "Settings.ADMIN_ACTION_APPS_COUNT_ESTIMATED"
+
+    const v1, 0x7f040912
+
+    invoke-virtual {p0, p1, v0, v1}, Lcom/android/settings/SettingsPreferenceFragment;->replaceEnterpriseStringTitle(Ljava/lang/String;Ljava/lang/String;I)V
+
+    return-void
+.end method

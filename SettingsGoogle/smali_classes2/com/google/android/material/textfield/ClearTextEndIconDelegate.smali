@@ -18,10 +18,10 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/google/android/material/textfield/TextInputLayout;)V
+.method constructor <init>(Lcom/google/android/material/textfield/TextInputLayout;I)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/google/android/material/textfield/EndIconDelegate;-><init>(Lcom/google/android/material/textfield/TextInputLayout;)V
+    invoke-direct {p0, p1, p2}, Lcom/google/android/material/textfield/EndIconDelegate;-><init>(Lcom/google/android/material/textfield/TextInputLayout;I)V
 
     new-instance p1, Lcom/google/android/material/textfield/ClearTextEndIconDelegate$1;
 
@@ -50,10 +50,10 @@
     return-void
 .end method
 
-.method static synthetic access$000(Landroid/text/Editable;)Z
+.method static synthetic access$000(Lcom/google/android/material/textfield/ClearTextEndIconDelegate;)Z
     .locals 0
 
-    invoke-static {p0}, Lcom/google/android/material/textfield/ClearTextEndIconDelegate;->hasText(Landroid/text/Editable;)Z
+    invoke-direct {p0}, Lcom/google/android/material/textfield/ClearTextEndIconDelegate;->shouldBeVisible()Z
 
     move-result p0
 
@@ -213,26 +213,6 @@
     .end array-data
 .end method
 
-.method private static hasText(Landroid/text/Editable;)Z
-    .locals 0
-
-    invoke-interface {p0}, Landroid/text/Editable;->length()I
-
-    move-result p0
-
-    if-lez p0, :cond_0
-
-    const/4 p0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
-    return p0
-.end method
-
 .method private initAnimators()V
     .locals 6
 
@@ -307,6 +287,53 @@
     .end array-data
 .end method
 
+.method private shouldBeVisible()Z
+    .locals 2
+
+    iget-object v0, p0, Lcom/google/android/material/textfield/EndIconDelegate;->textInputLayout:Lcom/google/android/material/textfield/TextInputLayout;
+
+    invoke-virtual {v0}, Lcom/google/android/material/textfield/TextInputLayout;->getEditText()Landroid/widget/EditText;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1
+
+    invoke-virtual {v0}, Landroid/widget/EditText;->hasFocus()Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    iget-object p0, p0, Lcom/google/android/material/textfield/EndIconDelegate;->endIconView:Lcom/google/android/material/internal/CheckableImageButton;
+
+    invoke-virtual {p0}, Landroid/widget/ImageButton;->hasFocus()Z
+
+    move-result p0
+
+    if-eqz p0, :cond_1
+
+    :cond_0
+    invoke-virtual {v0}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+
+    move-result-object p0
+
+    invoke-interface {p0}, Landroid/text/Editable;->length()I
+
+    move-result p0
+
+    if-lez p0, :cond_1
+
+    const/4 p0, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    const/4 p0, 0x0
+
+    :goto_0
+    return p0
+.end method
+
 
 # virtual methods
 .method initialize()V
@@ -314,15 +341,14 @@
 
     iget-object v0, p0, Lcom/google/android/material/textfield/EndIconDelegate;->textInputLayout:Lcom/google/android/material/textfield/TextInputLayout;
 
-    iget-object v1, p0, Lcom/google/android/material/textfield/EndIconDelegate;->context:Landroid/content/Context;
+    iget v1, p0, Lcom/google/android/material/textfield/EndIconDelegate;->customEndIcon:I
 
-    sget v2, Lcom/google/android/material/R$drawable;->mtrl_ic_cancel:I
+    if-nez v1, :cond_0
 
-    invoke-static {v1, v2}, Landroidx/appcompat/content/res/AppCompatResources;->getDrawable(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
+    sget v1, Lcom/google/android/material/R$drawable;->mtrl_ic_cancel:I
 
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Lcom/google/android/material/textfield/TextInputLayout;->setEndIconDrawable(Landroid/graphics/drawable/Drawable;)V
+    :cond_0
+    invoke-virtual {v0, v1}, Lcom/google/android/material/textfield/TextInputLayout;->setEndIconDrawable(I)V
 
     iget-object v0, p0, Lcom/google/android/material/textfield/EndIconDelegate;->textInputLayout:Lcom/google/android/material/textfield/TextInputLayout;
 
@@ -337,6 +363,12 @@
     move-result-object v1
 
     invoke-virtual {v0, v1}, Lcom/google/android/material/textfield/TextInputLayout;->setEndIconContentDescription(Ljava/lang/CharSequence;)V
+
+    iget-object v0, p0, Lcom/google/android/material/textfield/EndIconDelegate;->textInputLayout:Lcom/google/android/material/textfield/TextInputLayout;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Lcom/google/android/material/textfield/TextInputLayout;->setEndIconCheckable(Z)V
 
     iget-object v0, p0, Lcom/google/android/material/textfield/EndIconDelegate;->textInputLayout:Lcom/google/android/material/textfield/TextInputLayout;
 

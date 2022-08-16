@@ -40,10 +40,42 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmChangeDot(Lcom/android/settingslib/graph/SignalDrawable;)Ljava/lang/Runnable;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settingslib/graph/SignalDrawable;->mChangeDot:Ljava/lang/Runnable;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmCurrentDot(Lcom/android/settingslib/graph/SignalDrawable;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/settingslib/graph/SignalDrawable;->mCurrentDot:I
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmHandler(Lcom/android/settingslib/graph/SignalDrawable;)Landroid/os/Handler;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settingslib/graph/SignalDrawable;->mHandler:Landroid/os/Handler;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmCurrentDot(Lcom/android/settingslib/graph/SignalDrawable;I)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/settingslib/graph/SignalDrawable;->mCurrentDot:I
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 3
 
-    const v0, 0x1080537
+    const v0, 0x1080542
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -105,7 +137,7 @@
 
     iput-object v2, p0, Lcom/android/settingslib/graph/SignalDrawable;->mChangeDot:Ljava/lang/Runnable;
 
-    const v2, 0x104027e
+    const v2, 0x10402a6
 
     invoke-virtual {p1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -123,7 +155,7 @@
 
     move-result-object v1
 
-    const v2, 0x10500d7
+    const v2, 0x10500d8
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getFloat(I)F
 
@@ -135,7 +167,7 @@
 
     move-result-object v1
 
-    const v2, 0x10500d6
+    const v2, 0x10500d7
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getFloat(I)F
 
@@ -198,42 +230,6 @@
     invoke-virtual {p0, p1}, Lcom/android/settingslib/graph/SignalDrawable;->setDarkIntensity(F)V
 
     return-void
-.end method
-
-.method static synthetic access$002(Lcom/android/settingslib/graph/SignalDrawable;I)I
-    .locals 0
-
-    iput p1, p0, Lcom/android/settingslib/graph/SignalDrawable;->mCurrentDot:I
-
-    return p1
-.end method
-
-.method static synthetic access$004(Lcom/android/settingslib/graph/SignalDrawable;)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/settingslib/graph/SignalDrawable;->mCurrentDot:I
-
-    add-int/lit8 v0, v0, 0x1
-
-    iput v0, p0, Lcom/android/settingslib/graph/SignalDrawable;->mCurrentDot:I
-
-    return v0
-.end method
-
-.method static synthetic access$100(Lcom/android/settingslib/graph/SignalDrawable;)Ljava/lang/Runnable;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/graph/SignalDrawable;->mChangeDot:Ljava/lang/Runnable;
-
-    return-object p0
-.end method
-
-.method static synthetic access$200(Lcom/android/settingslib/graph/SignalDrawable;)Landroid/os/Handler;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/graph/SignalDrawable;->mHandler:Landroid/os/Handler;
-
-    return-object p0
 .end method
 
 .method private drawDotAndPadding(FFFFI)V

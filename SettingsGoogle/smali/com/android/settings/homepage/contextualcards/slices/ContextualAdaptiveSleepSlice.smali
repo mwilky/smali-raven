@@ -297,7 +297,7 @@
 
     iget-object v0, p0, Lcom/android/settings/homepage/contextualcards/slices/ContextualAdaptiveSleepSlice;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f02032d
+    const v1, 0x7f020351
 
     invoke-static {v0, v1}, Landroidx/core/graphics/drawable/IconCompat;->createWithResource(Landroid/content/Context;I)Landroidx/core/graphics/drawable/IconCompat;
 
@@ -305,7 +305,7 @@
 
     iget-object v1, p0, Lcom/android/settings/homepage/contextualcards/slices/ContextualAdaptiveSleepSlice;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0401a8
+    const v3, 0x7f0401cf
 
     invoke-virtual {v1, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -313,7 +313,7 @@
 
     iget-object v3, p0, Lcom/android/settings/homepage/contextualcards/slices/ContextualAdaptiveSleepSlice;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f0401a7
+    const v4, 0x7f0401ce
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -380,7 +380,7 @@
 .method public getSliceHighlightMenuRes()I
     .locals 0
 
-    const p0, 0x7f040d07
+    const p0, 0x7f040d82
 
     return p0
 .end method

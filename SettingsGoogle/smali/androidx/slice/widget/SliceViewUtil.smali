@@ -6,22 +6,6 @@
 # direct methods
 .method public static createCircledIcon(Landroid/content/Context;ILandroidx/core/graphics/drawable/IconCompat;ZLandroid/view/ViewGroup;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "iconSizePx",
-            "icon",
-            "isLarge",
-            "parent"
-        }
-    .end annotation
 
     new-instance v0, Landroid/widget/ImageView;
 
@@ -98,14 +82,6 @@
 
 .method public static createIconFromDrawable(Landroid/graphics/drawable/Drawable;)Landroidx/core/graphics/drawable/IconCompat;
     .locals 5
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "d"
-        }
-    .end annotation
 
     instance-of v0, p0, Landroid/graphics/drawable/BitmapDrawable;
 
@@ -165,14 +141,6 @@
 
 .method public static getCircularBitmap(Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
     .locals 7
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "bitmap"
-        }
-    .end annotation
 
     invoke-virtual {p0}, Landroid/graphics/Bitmap;->getWidth()I
 
@@ -257,14 +225,6 @@
 
 .method public static getColorAccent(Landroid/content/Context;)I
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "context"
-        }
-    .end annotation
 
     const v0, 0x1010435
 
@@ -277,16 +237,6 @@
 
 .method public static getColorAttr(Landroid/content/Context;I)I
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "attr"
-        }
-    .end annotation
 
     const/4 v0, 0x1
 
@@ -311,16 +261,6 @@
 
 .method public static getDrawable(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "attr"
-        }
-    .end annotation
 
     const/4 v0, 0x1
 
@@ -345,16 +285,6 @@
 
 .method public static getTimestampString(Landroid/content/Context;J)Ljava/lang/CharSequence;
     .locals 7
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "time"
-        }
-    .end annotation
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
@@ -406,14 +336,6 @@
 
 .method public static resolveLayoutDirection(I)I
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "layoutDir"
-        }
-    .end annotation
 
     const/4 v0, 0x2
 
@@ -441,16 +363,6 @@
 
 .method public static tintIndeterminateProgressBar(Landroid/content/Context;Landroid/widget/ProgressBar;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "bar"
-        }
-    .end annotation
 
     sget v0, Landroidx/appcompat/R$attr;->colorControlHighlight:I
 

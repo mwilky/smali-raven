@@ -31,7 +31,7 @@
 
     aget-object v0, v0, v1
 
-    const v1, 0x7f040641
+    const v1, 0x7f0406a0
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

@@ -35,6 +35,14 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmContext(Lcom/google/android/settings/aware/AwareHelper;)Landroid/content/Context;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/settings/aware/AwareHelper;->mContext:Landroid/content/Context;
+
+    return-object p0
+.end method
+
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 3
 
@@ -71,14 +79,6 @@
     iput-object p1, p0, Lcom/google/android/settings/aware/AwareHelper;->mFeatureProvider:Lcom/android/settings/aware/AwareFeatureProvider;
 
     return-void
-.end method
-
-.method static synthetic access$100(Lcom/google/android/settings/aware/AwareHelper;)Landroid/content/Context;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/settings/aware/AwareHelper;->mContext:Landroid/content/Context;
-
-    return-object p0
 .end method
 
 .method public static isTapAvailableOnTheDevice()Z
@@ -270,7 +270,7 @@
 
     iget-object p0, p0, Lcom/google/android/settings/aware/AwareHelper;->mSettingsObserver:Lcom/google/android/settings/aware/AwareHelper$SettingsObserver;
 
-    invoke-static {p0, p1}, Lcom/google/android/settings/aware/AwareHelper$SettingsObserver;->access$000(Lcom/google/android/settings/aware/AwareHelper$SettingsObserver;Lcom/google/android/settings/aware/AwareHelper$Callback;)V
+    invoke-static {p0, p1}, Lcom/google/android/settings/aware/AwareHelper$SettingsObserver;->-$$Nest$msetCallback(Lcom/google/android/settings/aware/AwareHelper$SettingsObserver;Lcom/google/android/settings/aware/AwareHelper$Callback;)V
 
     return-void
 .end method

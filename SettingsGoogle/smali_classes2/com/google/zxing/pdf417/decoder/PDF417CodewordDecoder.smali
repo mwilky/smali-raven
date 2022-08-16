@@ -337,17 +337,15 @@
 
     aget v6, p0, v4
 
-    add-int/2addr v6, v3
+    add-int v7, v3, v6
 
-    int-to-float v6, v6
+    int-to-float v7, v7
 
-    cmpg-float v5, v6, v5
+    cmpg-float v5, v7, v5
 
     if-gtz v5, :cond_0
 
-    aget v5, p0, v4
-
-    add-int/2addr v3, v5
+    add-int/2addr v3, v6
 
     add-int/lit8 v4, v4, 0x1
 

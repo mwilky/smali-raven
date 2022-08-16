@@ -1,5 +1,5 @@
 .class public Lcom/android/settings/wifi/ConnectedWifiEntryPreference;
-.super Lcom/android/settingslib/wifi/LongPressWifiEntryPreference;
+.super Lcom/android/settings/wifi/LongPressWifiEntryPreference;
 .source "ConnectedWifiEntryPreference.java"
 
 
@@ -19,9 +19,9 @@
 .method public constructor <init>(Landroid/content/Context;Lcom/android/wifitrackerlib/WifiEntry;Landroidx/fragment/app/Fragment;)V
     .locals 0
 
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/settingslib/wifi/LongPressWifiEntryPreference;-><init>(Landroid/content/Context;Lcom/android/wifitrackerlib/WifiEntry;Landroidx/fragment/app/Fragment;)V
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/settings/wifi/LongPressWifiEntryPreference;-><init>(Landroid/content/Context;Lcom/android/wifitrackerlib/WifiEntry;Landroidx/fragment/app/Fragment;)V
 
-    const p1, 0x7f0601ba
+    const p1, 0x7f0601c6
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setWidgetLayoutResource(I)V
 
@@ -33,9 +33,9 @@
 .method public onBindViewHolder(Landroidx/preference/PreferenceViewHolder;)V
     .locals 5
 
-    invoke-super {p0, p1}, Lcom/android/settingslib/wifi/LongPressWifiEntryPreference;->onBindViewHolder(Landroidx/preference/PreferenceViewHolder;)V
+    invoke-super {p0, p1}, Lcom/android/settings/wifi/LongPressWifiEntryPreference;->onBindViewHolder(Landroidx/preference/PreferenceViewHolder;)V
 
-    const v0, 0x7f0d04e6
+    const v0, 0x7f0d0526
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -43,7 +43,7 @@
 
     invoke-virtual {v0, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    invoke-virtual {p0}, Lcom/android/settingslib/wifi/WifiEntryPreference;->getWifiEntry()Lcom/android/wifitrackerlib/WifiEntry;
+    invoke-virtual {p0}, Lcom/android/settings/wifi/WifiEntryPreference;->getWifiEntry()Lcom/android/wifitrackerlib/WifiEntry;
 
     move-result-object p0
 
@@ -51,7 +51,7 @@
 
     move-result p0
 
-    const v1, 0x7f0d04e7
+    const v1, 0x7f0d0527
 
     invoke-virtual {p1, v1}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -85,7 +85,7 @@
     :goto_1
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
-    const v0, 0x7f0d05f3
+    const v0, 0x7f0d0635
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -108,7 +108,7 @@
 
     move-result p1
 
-    const v0, 0x7f0d04e6
+    const v0, 0x7f0d0526
 
     if-ne p1, v0, :cond_0
 

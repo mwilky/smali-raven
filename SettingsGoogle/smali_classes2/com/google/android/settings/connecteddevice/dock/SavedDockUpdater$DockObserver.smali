@@ -50,7 +50,7 @@
 
     iget-object p0, p0, Lcom/google/android/settings/connecteddevice/dock/SavedDockUpdater$DockObserver;->mUri:Landroid/net/Uri;
 
-    invoke-static {p1, v0, p0}, Lcom/google/android/settings/connecteddevice/dock/SavedDockUpdater;->access$000(Lcom/google/android/settings/connecteddevice/dock/SavedDockUpdater;ILandroid/net/Uri;)V
+    invoke-static {p1, v0, p0}, Lcom/google/android/settings/connecteddevice/dock/SavedDockUpdater;->-$$Nest$mstartQuery(Lcom/google/android/settings/connecteddevice/dock/SavedDockUpdater;ILandroid/net/Uri;)V
 
     return-void
 .end method

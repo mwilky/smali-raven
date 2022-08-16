@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="abc_slice_duration_days">
-        <item quantity="other">acum %d de zile</item>
-        <item quantity="one">acum %d zi</item>
-        <item quantity="few">acum %d zile</item>
+        <item quantity="other">Acum %d de zile</item>
+        <item quantity="one">Acum %d zi</item>
+        <item quantity="few">Acum %d zile</item>
     </plurals>
     <plurals name="abc_slice_duration_min">
-        <item quantity="other">acum %d de min.</item>
-        <item quantity="one">acum %d min.</item>
-        <item quantity="few">acum %d min.</item>
+        <item quantity="other">Acum %d de minute</item>
+        <item quantity="one">Acum %d minut</item>
+        <item quantity="few">Acum %d minute</item>
     </plurals>
     <plurals name="abc_slice_duration_years">
-        <item quantity="other">acum %d de ani</item>
-        <item quantity="one">acum %d an</item>
-        <item quantity="few">acum %d ani</item>
+        <item quantity="other">Acum %d de ani</item>
+        <item quantity="one">Acum %d an</item>
+        <item quantity="few">Acum %d ani</item>
     </plurals>
     <plurals name="accessibility_usage_summary">
         <item quantity="other">%1$d de aplicații au acces complet la dispozitivul dvs.</item>
@@ -291,14 +291,14 @@
         <item quantity="few">%d categorii dezactivate</item>
     </plurals>
     <plurals name="notifications_sent_daily">
-        <item quantity="other">~%d de notificări pe zi</item>
+        <item quantity="other">~%,d de notificări pe zi</item>
         <item quantity="one">~%d notificare pe zi</item>
-        <item quantity="few">~%d notificări pe zi</item>
+        <item quantity="few">~%,d notificări pe zi</item>
     </plurals>
     <plurals name="notifications_sent_weekly">
-        <item quantity="other">~%d de notificări pe săptămână</item>
+        <item quantity="other">~%,d de notificări pe săptămână</item>
         <item quantity="one">~%d notificare pe săptămână</item>
-        <item quantity="few">~%d notificări pe săptămână</item>
+        <item quantity="few">~%,d notificări pe săptămână</item>
     </plurals>
     <plurals name="number_of_device_admins">
         <item quantity="other">%d de aplicații active</item>
@@ -410,28 +410,6 @@
         <item quantity="one">Setați ca fiind de încredere sau eliminați certificatul</item>
         <item quantity="few">Setați ca fiind de încredere sau eliminați certificatele</item>
     </plurals>
-    <plurals name="ssl_ca_cert_info_message">
-        <item quantity="other">"%s a instalat autorități de certificare pentru profilul dvs. de serviciu, ceea ce îi poate permite să monitorizeze activitatea în rețeaua de serviciu, inclusiv e-mailurile, aplicațiile și site-urile securizate.
-
-Pentru mai multe informații despre aceste certificate, contactați administratorul."</item>
-        <item quantity="one">"%s a instalat o autoritate de certificare pentru profilul dvs. de serviciu, ceea ce îi poate permite să monitorizeze activitatea în rețeaua de serviciu, inclusiv e-mailurile, aplicațiile și site-urile securizate.
-
-Pentru mai multe informații despre acest certificat, contactați administratorul."</item>
-        <item quantity="few">"%s a instalat autorități de certificare pentru profilul dvs. de serviciu, ceea ce îi poate permite să monitorizeze activitatea în rețeaua de serviciu, inclusiv e-mailurile, aplicațiile și site-urile securizate.
-
-Pentru mai multe informații despre aceste certificate, contactați administratorul."</item>
-    </plurals>
-    <plurals name="ssl_ca_cert_info_message_device_owner">
-        <item quantity="other">"%s a instalat autorități de certificare pe dispozitivul dvs., ceea ce îi poate permite să monitorizeze activitatea în rețea a dispozitivului, inclusiv e-mailurile, aplicațiile și site-urile securizate.
-
-Pentru mai multe informații despre aceste certificate, contactați administratorul."</item>
-        <item quantity="one">"%s a instalat o autoritate de certificare pe dispozitivul dvs., ceea ce îi poate permite să monitorizeze activitatea în rețea a dispozitivului, inclusiv e-mailurile, aplicațiile și site-urile securizate.
-
-Pentru mai multe informații despre acest certificat, contactați administratorul."</item>
-        <item quantity="few">"%s a instalat autorități de certificare pe dispozitivul dvs., ceea ce îi poate permite să monitorizeze activitatea în rețea a dispozitivului, inclusiv e-mailurile, aplicațiile și site-urile securizate.
-
-Pentru mai multe informații despre aceste certificate, contactați administratorul."</item>
-    </plurals>
     <plurals name="ssl_ca_cert_settings_button">
         <item quantity="other">Verificați certificatele</item>
         <item quantity="one">Verificați certificatul</item>
@@ -471,11 +449,6 @@ Pentru mai multe informații despre aceste certificate, contactați administrato
         <item quantity="other">%d de abonamente</item>
         <item quantity="one">Un abonament</item>
         <item quantity="few">%d abonamente</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$d de dispozitive conectate</item>
-        <item quantity="one">%1$d dispozitiv conectat</item>
-        <item quantity="few">%1$d dispozitive conectate</item>
     </plurals>
     <plurals name="wrong_pin_code">
         <item quantity="other">Codul PIN pentru cardul SIM este incorect. V-au mai rămas %d de încercări.</item>

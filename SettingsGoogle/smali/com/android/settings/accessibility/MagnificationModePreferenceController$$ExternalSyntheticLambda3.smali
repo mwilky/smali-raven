@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/settings/accessibility/MagnificationModePreferenceController$$ExternalSyntheticLambda3;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/settings/accessibility/AccessibilityDialogUtils$CustomButtonsClickListener;
+.implements Landroid/content/DialogInterface$OnClickListener;
 
 
 # instance fields
@@ -22,12 +23,12 @@
 
 
 # virtual methods
-.method public final onClick(I)V
+.method public final onClick(Landroid/content/DialogInterface;I)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/settings/accessibility/MagnificationModePreferenceController$$ExternalSyntheticLambda3;->f$0:Lcom/android/settings/accessibility/MagnificationModePreferenceController;
 
-    invoke-virtual {p0, p1}, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->onSwitchShortcutDialogButtonClicked(I)V
+    invoke-virtual {p0, p1, p2}, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->onMagnificationModeDialogPositiveButtonClicked(Landroid/content/DialogInterface;I)V
 
     return-void
 .end method

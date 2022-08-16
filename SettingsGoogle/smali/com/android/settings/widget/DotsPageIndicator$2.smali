@@ -36,7 +36,7 @@
 
     iget-object p0, p0, Lcom/android/settings/widget/DotsPageIndicator$2;->this$0:Lcom/android/settings/widget/DotsPageIndicator;
 
-    invoke-static {p0}, Lcom/android/settings/widget/DotsPageIndicator;->access$100(Lcom/android/settings/widget/DotsPageIndicator;)Landroidx/viewpager/widget/ViewPager;
+    invoke-static {p0}, Lcom/android/settings/widget/DotsPageIndicator;->-$$Nest$fgetviewPager(Lcom/android/settings/widget/DotsPageIndicator;)Landroidx/viewpager/widget/ViewPager;
 
     move-result-object v0
 
@@ -48,7 +48,7 @@
 
     move-result v0
 
-    invoke-static {p0, v0}, Lcom/android/settings/widget/DotsPageIndicator;->access$200(Lcom/android/settings/widget/DotsPageIndicator;I)V
+    invoke-static {p0, v0}, Lcom/android/settings/widget/DotsPageIndicator;->-$$Nest$msetPageCount(Lcom/android/settings/widget/DotsPageIndicator;I)V
 
     return-void
 .end method

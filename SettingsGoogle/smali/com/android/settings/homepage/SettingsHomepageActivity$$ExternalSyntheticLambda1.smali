@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/settings/homepage/SettingsHomepageActivity$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/settings/homepage/SettingsHomepageActivity$FragmentBuilder;
+.implements Lcom/android/settings/homepage/SettingsHomepageActivity$FragmentCreator;
 
 
 # instance fields
@@ -22,12 +23,12 @@
 
 
 # virtual methods
-.method public final build()Landroidx/fragment/app/Fragment;
+.method public final create()Landroidx/fragment/app/Fragment;
     .locals 0
 
     iget-object p0, p0, Lcom/android/settings/homepage/SettingsHomepageActivity$$ExternalSyntheticLambda1;->f$0:Ljava/lang/String;
 
-    invoke-static {p0}, Lcom/android/settings/homepage/SettingsHomepageActivity;->$r8$lambda$zLq73akZQSlWFiCBYeGZ-EdnfMs(Ljava/lang/String;)Lcom/android/settings/homepage/TopLevelSettings;
+    invoke-static {p0}, Lcom/android/settings/homepage/SettingsHomepageActivity;->$r8$lambda$dSH7Ip8EFDJCy5K295sVwJi-s9o(Ljava/lang/String;)Lcom/android/settings/homepage/TopLevelSettings;
 
     move-result-object p0
 

@@ -90,7 +90,7 @@
 
     iget-object p0, p0, Lcom/android/settings/applications/assist/AssistFlashScreenPreferenceController$SettingObserver;->this$0:Lcom/android/settings/applications/assist/AssistFlashScreenPreferenceController;
 
-    invoke-static {p0}, Lcom/android/settings/applications/assist/AssistFlashScreenPreferenceController;->access$000(Lcom/android/settings/applications/assist/AssistFlashScreenPreferenceController;)V
+    invoke-static {p0}, Lcom/android/settings/applications/assist/AssistFlashScreenPreferenceController;->-$$Nest$mupdatePreference(Lcom/android/settings/applications/assist/AssistFlashScreenPreferenceController;)V
 
     return-void
 .end method

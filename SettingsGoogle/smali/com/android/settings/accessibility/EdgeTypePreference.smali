@@ -13,7 +13,7 @@
 
     move-result-object p1
 
-    const p2, 0x7f01004e
+    const p2, 0x7f010050
 
     invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getIntArray(I)[I
 
@@ -21,7 +21,7 @@
 
     invoke-virtual {p0, p2}, Lcom/android/settings/accessibility/ListDialogPreference;->setValues([I)V
 
-    const p2, 0x7f01004d
+    const p2, 0x7f01004f
 
     invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -29,11 +29,11 @@
 
     invoke-virtual {p0, p1}, Lcom/android/settings/accessibility/ListDialogPreference;->setTitles([Ljava/lang/CharSequence;)V
 
-    const p1, 0x7f0600f8
+    const p1, 0x7f0600fb
 
     invoke-virtual {p0, p1}, Landroidx/preference/DialogPreference;->setDialogLayoutResource(I)V
 
-    const p1, 0x7f0601ca
+    const p1, 0x7f0601d6
 
     invoke-virtual {p0, p1}, Lcom/android/settings/accessibility/ListDialogPreference;->setListItemLayoutResource(I)V
 
@@ -45,7 +45,7 @@
 .method protected onBindListItem(Landroid/view/View;I)V
     .locals 3
 
-    const v0, 0x7f0d0451
+    const v0, 0x7f0d0481
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -97,7 +97,7 @@
 
     if-eqz p0, :cond_0
 
-    const p2, 0x7f0d058a
+    const p2, 0x7f0d05ce
 
     invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

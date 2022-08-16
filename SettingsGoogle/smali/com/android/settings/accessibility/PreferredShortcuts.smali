@@ -106,9 +106,9 @@
 
     invoke-direct {v0, p0}, Ljava/util/HashSet;-><init>(Ljava/util/Collection;)V
 
-    new-instance p0, Lcom/android/settings/accessibility/PreferredShortcuts$$ExternalSyntheticLambda0;
+    new-instance p0, Lcom/android/settings/accessibility/PreferredShortcuts$$ExternalSyntheticLambda1;
 
-    invoke-direct {p0, p1}, Lcom/android/settings/accessibility/PreferredShortcuts$$ExternalSyntheticLambda0;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Lcom/android/settings/accessibility/PreferredShortcuts$$ExternalSyntheticLambda1;-><init>(Ljava/lang/String;)V
 
     invoke-interface {v0, p0}, Ljava/util/Set;->removeIf(Ljava/util/function/Predicate;)Z
 
@@ -197,9 +197,9 @@
 
     invoke-direct {v1, v2}, Ljava/util/HashSet;-><init>(Ljava/util/Collection;)V
 
-    new-instance v2, Lcom/android/settings/accessibility/PreferredShortcuts$$ExternalSyntheticLambda1;
+    new-instance v2, Lcom/android/settings/accessibility/PreferredShortcuts$$ExternalSyntheticLambda0;
 
-    invoke-direct {v2, v0}, Lcom/android/settings/accessibility/PreferredShortcuts$$ExternalSyntheticLambda1;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v0}, Lcom/android/settings/accessibility/PreferredShortcuts$$ExternalSyntheticLambda0;-><init>(Ljava/lang/String;)V
 
     invoke-interface {v1, v2}, Ljava/util/Set;->removeIf(Ljava/util/function/Predicate;)Z
 

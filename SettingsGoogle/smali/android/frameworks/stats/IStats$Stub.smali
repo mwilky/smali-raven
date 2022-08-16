@@ -57,11 +57,3 @@
 
     return-object v0
 .end method
-
-.method public static getDefaultImpl()Landroid/frameworks/stats/IStats;
-    .locals 1
-
-    sget-object v0, Landroid/frameworks/stats/IStats$Stub$Proxy;->sDefaultImpl:Landroid/frameworks/stats/IStats;
-
-    return-object v0
-.end method

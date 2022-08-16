@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="abc_slice_duration_days">
-        <item quantity="other">%d วันที่แล้ว</item>
-        <item quantity="one">%d วันที่แล้ว</item>
+        <item quantity="other">%d วันที่ผ่านมา</item>
+        <item quantity="one">%d วันที่ผ่านมา</item>
     </plurals>
     <plurals name="abc_slice_duration_min">
-        <item quantity="other">%d นาทีที่แล้ว</item>
-        <item quantity="one">%d นาทีที่แล้ว</item>
+        <item quantity="other">%d นาทีที่ผ่านมา</item>
+        <item quantity="one">%d นาทีที่ผ่านมา</item>
     </plurals>
     <plurals name="abc_slice_duration_years">
-        <item quantity="other">%d ปีที่แล้ว</item>
-        <item quantity="one">%d ปีที่แล้ว</item>
+        <item quantity="other">%d ปีที่ผ่านมา</item>
+        <item quantity="one">%d ปีที่ผ่านมา</item>
     </plurals>
     <plurals name="accessibility_usage_summary">
         <item quantity="other">แอป %1$d แอปมีสิทธิ์เข้าถึงอุปกรณ์ได้โดยสมบูรณ์</item>
@@ -85,8 +85,8 @@
         <item quantity="one">เหลืออีก %d วัน</item>
     </plurals>
     <plurals name="data_saver_unrestricted_summary">
-        <item quantity="other">%1$d แอปได้รับอนุญาตให้ใช้อินเทอร์เน็ตได้ไม่จำกัดเมื่อเปิดโปรแกรมประหยัดอินเทอร์เน็ต</item>
-        <item quantity="one">1 แอปได้รับอนุญาตให้ใช้อินเทอร์เน็ตได้ไม่จำกัดเมื่อเปิดโปรแกรมประหยัดอินเทอร์เน็ต</item>
+        <item quantity="other">%1$d แอปได้รับอนุญาตให้ใช้อินเทอร์เน็ตได้ไม่จำกัดเมื่อเปิดการประหยัดอินเทอร์เน็ต</item>
+        <item quantity="one">1 แอปได้รับอนุญาตให้ใช้อินเทอร์เน็ตได้ไม่จำกัดเมื่อเปิดการประหยัดอินเทอร์เน็ต</item>
     </plurals>
     <plurals name="default_camera_app_title">
         <item quantity="other">แอปกล้องถ่ายรูป</item>
@@ -193,8 +193,8 @@
         <item quantity="one">%d แอปสามารถอ่านการแจ้งเตือนได้</item>
     </plurals>
     <plurals name="manage_trust_agents_summary_on">
-        <item quantity="other">มีเอเจนต์ความน่าเชื่อถือ %d รายการ</item>
-        <item quantity="one">มีเอเจนต์ความน่าเชื่อถือ 1 รายการ</item>
+        <item quantity="other">เอเจนต์ความน่าเชื่อถือทำงานอยู่ %d รายการ</item>
+        <item quantity="one">เอเจนต์ความน่าเชื่อถือทำงานอยู่ 1 รายการ</item>
     </plurals>
     <plurals name="memory_usage_apps_summary">
         <item quantity="other">%1$d แอปใช้หน่วยความจำใน %2$sที่ผ่านมา</item>
@@ -233,11 +233,11 @@
         <item quantity="one">%d หมวดหมู่ปิดอยู่</item>
     </plurals>
     <plurals name="notifications_sent_daily">
-        <item quantity="other">การแจ้งเตือนประมาณ %d ครั้งต่อวัน</item>
+        <item quantity="other">การแจ้งเตือนประมาณ %,d ครั้งต่อวัน</item>
         <item quantity="one">การแจ้งเตือนประมาณ %d ครั้งต่อวัน</item>
     </plurals>
     <plurals name="notifications_sent_weekly">
-        <item quantity="other">การแจ้งเตือนประมาณ %d ครั้งต่อสัปดาห์</item>
+        <item quantity="other">การแจ้งเตือนประมาณ %,d ครั้งต่อสัปดาห์</item>
         <item quantity="one">การแจ้งเตือนประมาณ %d ครั้งต่อสัปดาห์</item>
     </plurals>
     <plurals name="number_of_device_admins">
@@ -328,22 +328,6 @@
         <item quantity="other">เชื่อถือหรือนำใบรับรองออก</item>
         <item quantity="one">เชื่อถือหรือนำใบรับรองออก</item>
     </plurals>
-    <plurals name="ssl_ca_cert_info_message">
-        <item quantity="other">"%s ได้ติดตั้งใบรับรอง CA สำหรับโปรไฟล์งานของคุณ ซึ่งอาจช่วยให้เขาตรวจสอบกิจกรรมในเครือข่ายการทำงานได้ รวมถึงอีเมล แอป และเว็บไซต์ที่ปลอดภัย
-
-โปรดติดต่อผู้ดูแลระบบสำหรับข้อมูลเพิ่มเติมเกี่ยวกับใบรับรองเหล่านี้"</item>
-        <item quantity="one">"%s ได้ติดตั้งใบรับรอง CA สำหรับโปรไฟล์งานของคุณ ซึ่งอาจช่วยให้เขาตรวจสอบกิจกรรมในเครือข่ายการทำงานได้ รวมถึงอีเมล แอป และเว็บไซต์ที่ปลอดภัย
-
-โปรดติดต่อผู้ดูแลระบบสำหรับข้อมูลเพิ่มเติมเกี่ยวกับใบรับรองนี้"</item>
-    </plurals>
-    <plurals name="ssl_ca_cert_info_message_device_owner">
-        <item quantity="other">"%s ได้ติดตั้งใบรับรอง CA บนอุปกรณ์ของคุณ ซึ่งอาจช่วยในการตรวจสอบกิจกรรมเครือข่ายของอุปกรณ์ได้ รวมถึงอีเมล แอป และเว็บไซต์ที่ปลอดภัย
-
-โปรดติดต่อผู้ดูแลระบบสำหรับข้อมูลเพิ่มเติมเกี่ยวกับใบรับรองเหล่านี้"</item>
-        <item quantity="one">"%s ได้ติดตั้งใบรับรอง CA บนอุปกรณ์ของคุณ ซึ่งอาจช่วยในการตรวจสอบกิจกรรมเครือข่ายของอุปกรณ์ได้ รวมถึงอีเมล แอป และเว็บไซต์ที่ปลอดภัย
-
-โปรดติดต่อผู้ดูแลระบบสำหรับข้อมูลเพิ่มเติมเกี่ยวกับใบรับรองนี้"</item>
-    </plurals>
     <plurals name="ssl_ca_cert_settings_button">
         <item quantity="other">ตรวจสอบใบรับรอง</item>
         <item quantity="one">ตรวจสอบใบรับรอง</item>
@@ -375,10 +359,6 @@
     <plurals name="wifi_saved_passpoint_access_points_summary">
         <item quantity="other">การสมัครใช้บริการ %d รายการ</item>
         <item quantity="one">การสมัครใช้บริการ 1 รายการ</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">มีอุปกรณ์ที่เชื่อมต่อ %1$d เครื่อง</item>
-        <item quantity="one">มีอุปกรณ์ที่เชื่อมต่อ %1$d เครื่อง</item>
     </plurals>
     <plurals name="wrong_pin_code">
         <item quantity="other">รหัส PIN ของซิมไม่ถูกต้อง คุณพยายามได้อีก %d ครั้ง</item>

@@ -17,10 +17,6 @@
 .end annotation
 
 
-# static fields
-.field public static sDefaultImpl:Landroid/frameworks/stats/IStats;
-
-
 # instance fields
 .field private mCachedHash:Ljava/lang/String;
 
@@ -59,7 +55,7 @@
 .end method
 
 .method public reportVendorAtom(Landroid/frameworks/stats/VendorAtom;)V
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -77,49 +73,27 @@
 
     const/4 v1, 0x0
 
-    const/4 v2, 0x1
+    invoke-virtual {v0, p1, v1}, Landroid/os/Parcel;->writeTypedObject(Landroid/os/Parcelable;I)V
 
-    if-eqz p1, :cond_0
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-
-    invoke-virtual {p1, v0, v1}, Landroid/frameworks/stats/VendorAtom;->writeToParcel(Landroid/os/Parcel;I)V
-
-    goto :goto_0
-
-    :cond_0
-    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
-
-    :goto_0
     iget-object p0, p0, Landroid/frameworks/stats/IStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    invoke-interface {p0, v2, v0, v1, v2}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+    const/4 v1, 0x1
+
+    invoke-interface {p0, v1, v0, p1, v1}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result p0
-
-    if-nez p0, :cond_2
-
-    invoke-static {}, Landroid/frameworks/stats/IStats$Stub;->getDefaultImpl()Landroid/frameworks/stats/IStats;
-
-    move-result-object p0
-
-    if-eqz p0, :cond_1
-
-    invoke-static {}, Landroid/frameworks/stats/IStats$Stub;->getDefaultImpl()Landroid/frameworks/stats/IStats;
-
-    move-result-object p0
-
-    invoke-interface {p0, p1}, Landroid/frameworks/stats/IStats;->reportVendorAtom(Landroid/frameworks/stats/VendorAtom;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    if-eqz p0, :cond_0
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     return-void
 
-    :cond_1
+    :cond_0
     :try_start_1
     new-instance p0, Landroid/os/RemoteException;
 
@@ -130,11 +104,6 @@
     throw p0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    :cond_2
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    return-void
 
     :catchall_0
     move-exception p0

@@ -24,13 +24,9 @@
 .end method
 
 .method public constructor <init>(I)V
-    .locals 1
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    const/4 v0, 0x0
-
-    iput v0, p0, Lcom/android/settings/search/BaseSearchIndexProvider;->mXmlRes:I
 
     iput p1, p0, Lcom/android/settings/search/BaseSearchIndexProvider;->mXmlRes:I
 
@@ -81,7 +77,7 @@
 
     if-nez p3, :cond_1
 
-    const-string v1, "searchable"
+    const-string/jumbo v1, "searchable"
 
     const/4 v2, 0x1
 

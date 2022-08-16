@@ -37,7 +37,7 @@
 
     const-string v2, "f"
 
-    const-string v3, "s"
+    const-string/jumbo v3, "s"
 
     const-string v4, "j"
 
@@ -49,7 +49,7 @@
 
     const-string v8, "fc"
 
-    const-string v9, "sc"
+    const-string/jumbo v9, "sc"
 
     const-string/jumbo v10, "sw"
 

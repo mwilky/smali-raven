@@ -143,7 +143,7 @@
 .method protected getActivityLayoutResId()I
     .locals 0
 
-    const p0, 0x7f0600f5
+    const p0, 0x7f0600f8
 
     return p0
 .end method
@@ -151,7 +151,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a33
+    const p0, 0x7f040a8c
 
     return p0
 .end method
@@ -173,7 +173,7 @@
 
     const/4 v0, 0x0
 
-    const v1, 0x7f0600f6
+    const v1, 0x7f0600f9
 
     aput v1, p0, v0
 
@@ -201,7 +201,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f01008b
+    const v1, 0x7f010091
 
     invoke-virtual {p1, v1}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -209,7 +209,7 @@
 
     iput-object v1, p0, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;->mEntries:[Ljava/lang/String;
 
-    const v1, 0x7f01008c
+    const v1, 0x7f010092
 
     invoke-virtual {p1, v1}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 

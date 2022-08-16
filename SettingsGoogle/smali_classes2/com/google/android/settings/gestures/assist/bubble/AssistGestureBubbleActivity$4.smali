@@ -69,7 +69,7 @@
 
     iget-object p1, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity$4;->this$0:Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;
 
-    invoke-static {p1}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;->access$900(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;)Landroid/widget/ImageView;
+    invoke-static {p1}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;->-$$Nest$fgetmPlayView(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;)Landroid/widget/ImageView;
 
     move-result-object p1
 
@@ -79,11 +79,11 @@
 
     iget-object p1, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity$4;->this$0:Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;
 
-    invoke-static {p1}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;->access$1000(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;)V
+    invoke-static {p1}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;->-$$Nest$menterFullScreen(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;)V
 
     iget-object p1, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity$4;->this$0:Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;
 
-    invoke-static {p1}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;->access$300(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;)Z
+    invoke-static {p1}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;->-$$Nest$fgetmShouldStartNewGame(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;)Z
 
     move-result p2
 
@@ -96,7 +96,7 @@
     :cond_2
     iget-object p1, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity$4;->this$0:Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;
 
-    invoke-static {p1}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;->access$800(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;)Lcom/google/android/settings/gestures/assist/bubble/AssistGesturePlayButtonDrawable;
+    invoke-static {p1}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;->-$$Nest$fgetmEasterEggPlayDrawable(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;)Lcom/google/android/settings/gestures/assist/bubble/AssistGesturePlayButtonDrawable;
 
     move-result-object p1
 

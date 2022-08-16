@@ -56,7 +56,7 @@
 
     const/4 v0, 0x0
 
-    invoke-static {p1, v0}, Lcom/android/settings/fuelgauge/PowerUsageAdvanced;->access$102(Lcom/android/settings/fuelgauge/PowerUsageAdvanced;Z)Z
+    invoke-static {p1, v0}, Lcom/android/settings/fuelgauge/PowerUsageAdvanced;->-$$Nest$fputmIsChartDataLoaded(Lcom/android/settings/fuelgauge/PowerUsageAdvanced;Z)V
 
     iget-object p0, p0, Lcom/android/settings/fuelgauge/PowerUsageAdvanced$1;->this$0:Lcom/android/settings/fuelgauge/PowerUsageAdvanced;
 

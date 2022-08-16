@@ -17,17 +17,9 @@
 
 # direct methods
 .method public constructor <init>(JJ)V
-    .locals 2
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    const-wide/16 v0, 0x0
-
-    iput-wide v0, p0, Lcom/google/android/material/animation/MotionTiming;->delay:J
-
-    const-wide/16 v0, 0x12c
-
-    iput-wide v0, p0, Lcom/google/android/material/animation/MotionTiming;->duration:J
 
     const/4 v0, 0x0
 
@@ -49,21 +41,9 @@
 .end method
 
 .method public constructor <init>(JJLandroid/animation/TimeInterpolator;)V
-    .locals 2
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    const-wide/16 v0, 0x0
-
-    iput-wide v0, p0, Lcom/google/android/material/animation/MotionTiming;->delay:J
-
-    const-wide/16 v0, 0x12c
-
-    iput-wide v0, p0, Lcom/google/android/material/animation/MotionTiming;->duration:J
-
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/google/android/material/animation/MotionTiming;->interpolator:Landroid/animation/TimeInterpolator;
 
     const/4 v0, 0x0
 
@@ -435,7 +415,9 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    const-class v1, Lcom/google/android/material/animation/MotionTiming;
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 

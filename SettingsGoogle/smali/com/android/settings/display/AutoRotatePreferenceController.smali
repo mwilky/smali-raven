@@ -18,6 +18,14 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmPreference(Lcom/android/settings/display/AutoRotatePreferenceController;)Landroidx/preference/Preference;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/display/AutoRotatePreferenceController;->mPreference:Landroidx/preference/Preference;
+
+    return-object p0
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;)V
     .locals 0
 
@@ -36,34 +44,26 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/settings/display/AutoRotatePreferenceController;)Landroidx/preference/Preference;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/display/AutoRotatePreferenceController;->mPreference:Landroidx/preference/Preference;
-
-    return-object p0
-.end method
-
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public getAvailabilityStatus()I
-    .locals 0
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/internal/view/RotationPolicy;->isRotationLockToggleVisible(Landroid/content/Context;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    invoke-static {p0}, Lcom/android/internal/view/RotationPolicy;->isRotationLockToggleVisible(Landroid/content/Context;)Z
+    invoke-static {p0}, Lcom/android/settings/display/DeviceStateAutoRotationHelper;->isDeviceStateRotationEnabled(Landroid/content/Context;)Z
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-nez p0, :cond_0
 
     const/4 p0, 0x0
 
@@ -78,15 +78,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -108,7 +99,7 @@
 .method public getSliceHighlightMenuRes()I
     .locals 0
 
-    const p0, 0x7f040d07
+    const p0, 0x7f040d82
 
     return p0
 .end method
@@ -133,16 +124,6 @@
     move-result p0
 
     xor-int/lit8 p0, p0, 0x1
-
-    return p0
-.end method
-
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
-
-    move-result p0
 
     return p0
 .end method

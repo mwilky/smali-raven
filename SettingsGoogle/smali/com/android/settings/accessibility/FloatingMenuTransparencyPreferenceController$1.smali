@@ -36,7 +36,7 @@
 
     iget-object p0, p0, Lcom/android/settings/accessibility/FloatingMenuTransparencyPreferenceController$1;->this$0:Lcom/android/settings/accessibility/FloatingMenuTransparencyPreferenceController;
 
-    invoke-static {p0}, Lcom/android/settings/accessibility/FloatingMenuTransparencyPreferenceController;->access$000(Lcom/android/settings/accessibility/FloatingMenuTransparencyPreferenceController;)V
+    invoke-static {p0}, Lcom/android/settings/accessibility/FloatingMenuTransparencyPreferenceController;->-$$Nest$mupdateAvailabilityStatus(Lcom/android/settings/accessibility/FloatingMenuTransparencyPreferenceController;)V
 
     return-void
 .end method

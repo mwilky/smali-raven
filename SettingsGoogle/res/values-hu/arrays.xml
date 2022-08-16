@@ -205,6 +205,7 @@
         <item>Több mint 60 napos</item>
         <item>Több mint 90 napos</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>0%</item>
         <item>50%</item>
@@ -348,17 +349,10 @@
         <item>Emelt</item>
         <item>Nyomott</item>
     </string-array>
-    <string-array name="captioning_font_size_selector_summaries">
-        <item>Nagyon kicsi szövegméret</item>
-        <item>Kis szövegméret</item>
-        <item>Alapértelmezett szövegméret</item>
-        <item>Nagy szövegméret</item>
-        <item>Nagyon nagy szövegméret</item>
-    </string-array>
     <string-array name="captioning_font_size_selector_titles">
         <item>Nagyon kicsi</item>
         <item>Kicsi</item>
-        <item>Alapértelmezett</item>
+        <item>Közepes</item>
         <item>Nagy</item>
         <item>Nagyon nagy</item>
     </string-array>
@@ -490,6 +484,14 @@
         <item>IMSI</item>
         <item>GID</item>
     </string-array>
+    <string-array name="nfc_payment_favor">
+        <item>Mindig</item>
+        <item>Kivéve, ha másik fizetési alkalmazás van megnyitva</item>
+    </string-array>
+    <string-array name="nfc_payment_favor_values">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
     <string-array name="overlay_display_devices_entries">
         <item>Egyik sem</item>
         <item>480p</item>
@@ -616,6 +618,17 @@
     <string-array name="swipe_direction_values">
         <item>1</item>
         <item>0</item>
+    </string-array>
+    <string-array name="switch_to_user_zero_when_docked_timeout_entries">
+        <item>Soha</item>
+        <item>1 perc után</item>
+        <item>5 perc után</item>
+    </string-array>
+    <string-array name="tare_modifiers_subfactors">
+        <item>Töltés</item>
+        <item>Kímélés</item>
+        <item>Energiatakarékos mód</item>
+        <item>Folyamatállapot</item>
     </string-array>
     <string-array name="timezone_filters">
         <item>Amerika</item>

@@ -1,35 +1,34 @@
 .class public final synthetic Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Function;
+.implements Ljava/util/function/Supplier;
 
 
 # instance fields
-.field public final synthetic f$0:Ljava/util/Set;
+.field public final synthetic f$0:Landroid/content/Context;
 
 
 # direct methods
-.method public synthetic constructor <init>(Ljava/util/Set;)V
+.method public synthetic constructor <init>(Landroid/content/Context;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda1;->f$0:Ljava/util/Set;
+    iput-object p1, p0, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda1;->f$0:Landroid/content/Context;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
+.method public final get()Ljava/lang/Object;
     .locals 0
 
-    iget-object p0, p0, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda1;->f$0:Ljava/util/Set;
+    iget-object p0, p0, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda1;->f$0:Landroid/content/Context;
 
-    check-cast p1, Lcom/android/settings/network/SubscriptionUtil$1DisplayInfo;
-
-    invoke-static {p0, p1}, Lcom/android/settings/network/SubscriptionUtil;->$r8$lambda$Owm7jBe9q2CCZ9CTzAPX1-2tSD0(Ljava/util/Set;Lcom/android/settings/network/SubscriptionUtil$1DisplayInfo;)Lcom/android/settings/network/SubscriptionUtil$1DisplayInfo;
+    invoke-static {p0}, Lcom/android/settings/network/SubscriptionUtil;->$r8$lambda$x3gCPEeoiNrndlz5BbiJYWUEFoY(Landroid/content/Context;)Ljava/util/stream/Stream;
 
     move-result-object p0
 

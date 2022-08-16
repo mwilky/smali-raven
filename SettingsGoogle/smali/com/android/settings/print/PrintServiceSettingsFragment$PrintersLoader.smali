@@ -39,6 +39,14 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmDiscoverySession(Lcom/android/settings/print/PrintServiceSettingsFragment$PrintersLoader;)Landroid/print/PrinterDiscoverySession;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/print/PrintServiceSettingsFragment$PrintersLoader;->mDiscoverySession:Landroid/print/PrinterDiscoverySession;
+
+    return-object p0
+.end method
+
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 0
 
@@ -51,14 +59,6 @@
     iput-object p1, p0, Lcom/android/settings/print/PrintServiceSettingsFragment$PrintersLoader;->mPrinters:Ljava/util/Map;
 
     return-void
-.end method
-
-.method static synthetic access$900(Lcom/android/settings/print/PrintServiceSettingsFragment$PrintersLoader;)Landroid/print/PrinterDiscoverySession;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/print/PrintServiceSettingsFragment$PrintersLoader;->mDiscoverySession:Landroid/print/PrinterDiscoverySession;
-
-    return-object p0
 .end method
 
 .method private cancelInternal()Z

@@ -1,28 +1,13 @@
 .class public final synthetic Lcom/android/settings/notification/zen/ZenModeSettings$SummaryBuilder$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Predicate;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/settings/notification/zen/ZenModeSettings$SummaryBuilder$$ExternalSyntheticLambda2;
-
-
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/settings/notification/zen/ZenModeSettings$SummaryBuilder$$ExternalSyntheticLambda2;
-
-    invoke-direct {v0}, Lcom/android/settings/notification/zen/ZenModeSettings$SummaryBuilder$$ExternalSyntheticLambda2;-><init>()V
-
-    sput-object v0, Lcom/android/settings/notification/zen/ZenModeSettings$SummaryBuilder$$ExternalSyntheticLambda2;->INSTANCE:Lcom/android/settings/notification/zen/ZenModeSettings$SummaryBuilder$$ExternalSyntheticLambda2;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,7 +22,7 @@
 
     check-cast p1, Ljava/lang/Integer;
 
-    invoke-static {p1}, Lcom/android/settings/notification/zen/ZenModeSettings$SummaryBuilder;->$r8$lambda$f68SIop6NlXK3uLhACoU9A6u0bc(Ljava/lang/Integer;)Z
+    invoke-static {p1}, Lcom/android/settings/notification/zen/ZenModeSettings$SummaryBuilder;->$r8$lambda$cJHlRy7SFTBEdznxaTr_02yeBRU(Ljava/lang/Integer;)Z
 
     move-result p0
 

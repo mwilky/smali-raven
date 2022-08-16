@@ -22,8 +22,6 @@
 
 .field private final loggingExecutor:Ljava/util/concurrent/ExecutorService;
 
-.field private final setupCompatExecutor:Ljava/util/concurrent/ExecutorService;
-
 .field private final waitTimeInMillisForServiceConnection:J
 
 
@@ -32,6 +30,14 @@
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/google/android/setupcompat/internal/SetupCompatServiceInvoker;->lambda$logMetricEvent$0(ILandroid/os/Bundle;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$AV-5oteikYXq7o4IN56Dq6Dqvd0(Lcom/google/android/setupcompat/internal/SetupCompatServiceInvoker;Ljava/lang/String;Landroid/os/Bundle;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/google/android/setupcompat/internal/SetupCompatServiceInvoker;->lambda$onFocusStatusChanged$2(Ljava/lang/String;Landroid/os/Bundle;)V
 
     return-void
 .end method
@@ -84,16 +90,6 @@
     check-cast p1, Ljava/util/concurrent/ExecutorService;
 
     iput-object p1, p0, Lcom/google/android/setupcompat/internal/SetupCompatServiceInvoker;->loggingExecutor:Ljava/util/concurrent/ExecutorService;
-
-    sget-object p1, Lcom/google/android/setupcompat/internal/ExecutorProvider;->setupCompatExecutor:Lcom/google/android/setupcompat/internal/ExecutorProvider;
-
-    invoke-virtual {p1}, Lcom/google/android/setupcompat/internal/ExecutorProvider;->get()Ljava/util/concurrent/Executor;
-
-    move-result-object p1
-
-    check-cast p1, Ljava/util/concurrent/ExecutorService;
-
-    iput-object p1, p0, Lcom/google/android/setupcompat/internal/SetupCompatServiceInvoker;->setupCompatExecutor:Ljava/util/concurrent/ExecutorService;
 
     sget-wide v0, Lcom/google/android/setupcompat/internal/SetupCompatServiceInvoker;->MAX_WAIT_TIME_FOR_CONNECTION_MS:J
 
@@ -260,6 +256,65 @@
     return-void
 .end method
 
+.method private invokeOnWindowFocusChanged(Ljava/lang/String;Landroid/os/Bundle;)V
+    .locals 3
+
+    :try_start_0
+    iget-object v0, p0, Lcom/google/android/setupcompat/internal/SetupCompatServiceInvoker;->context:Landroid/content/Context;
+
+    iget-wide v1, p0, Lcom/google/android/setupcompat/internal/SetupCompatServiceInvoker;->waitTimeInMillisForServiceConnection:J
+
+    sget-object p0, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
+
+    invoke-static {v0, v1, v2, p0}, Lcom/google/android/setupcompat/internal/SetupCompatServiceProvider;->get(Landroid/content/Context;JLjava/util/concurrent/TimeUnit;)Lcom/google/android/setupcompat/ISetupCompatService;
+
+    move-result-object p0
+
+    if-eqz p0, :cond_0
+
+    invoke-interface {p0, p2}, Lcom/google/android/setupcompat/ISetupCompatService;->onFocusStatusChanged(Landroid/os/Bundle;)V
+
+    goto :goto_0
+
+    :cond_0
+    sget-object p0, Lcom/google/android/setupcompat/internal/SetupCompatServiceInvoker;->LOG:Lcom/google/android/setupcompat/util/Logger;
+
+    const-string p2, "Report focusChange failed since service reference is null. Are the permission valid?"
+
+    invoke-virtual {p0, p2}, Lcom/google/android/setupcompat/util/Logger;->w(Ljava/lang/String;)V
+    :try_end_0
+    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/util/concurrent/TimeoutException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/UnsupportedOperationException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception p0
+
+    sget-object p2, Lcom/google/android/setupcompat/internal/SetupCompatServiceInvoker;->LOG:Lcom/google/android/setupcompat/util/Logger;
+
+    const/4 v0, 0x1
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    const/4 v1, 0x0
+
+    aput-object p1, v0, v1
+
+    const-string p1, "Exception occurred while %s trying report windowFocusChange to SetupWizard."
+
+    invoke-static {p1, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {p2, p1, p0}, Lcom/google/android/setupcompat/util/Logger;->e(Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    :goto_0
+    return-void
+.end method
+
 .method private synthetic lambda$bindBack$1(Ljava/lang/String;Landroid/os/Bundle;)V
     .locals 0
 
@@ -272,6 +327,14 @@
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/google/android/setupcompat/internal/SetupCompatServiceInvoker;->invokeLogMetric(ILandroid/os/Bundle;)V
+
+    return-void
+.end method
+
+.method private synthetic lambda$onFocusStatusChanged$2(Ljava/lang/String;Landroid/os/Bundle;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/google/android/setupcompat/internal/SetupCompatServiceInvoker;->invokeOnWindowFocusChanged(Ljava/lang/String;Landroid/os/Bundle;)V
 
     return-void
 .end method
@@ -290,7 +353,7 @@
     .locals 2
 
     :try_start_0
-    iget-object v0, p0, Lcom/google/android/setupcompat/internal/SetupCompatServiceInvoker;->setupCompatExecutor:Ljava/util/concurrent/ExecutorService;
+    iget-object v0, p0, Lcom/google/android/setupcompat/internal/SetupCompatServiceInvoker;->loggingExecutor:Ljava/util/concurrent/ExecutorService;
 
     new-instance v1, Lcom/google/android/setupcompat/internal/SetupCompatServiceInvoker$$ExternalSyntheticLambda1;
 
@@ -366,6 +429,47 @@
     aput-object p1, v0, v1
 
     const-string p1, "Metric of type %d dropped since queue is full."
+
+    invoke-static {p1, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {p2, p1, p0}, Lcom/google/android/setupcompat/util/Logger;->e(Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    :goto_0
+    return-void
+.end method
+
+.method public onFocusStatusChanged(Ljava/lang/String;Landroid/os/Bundle;)V
+    .locals 2
+
+    :try_start_0
+    iget-object v0, p0, Lcom/google/android/setupcompat/internal/SetupCompatServiceInvoker;->loggingExecutor:Ljava/util/concurrent/ExecutorService;
+
+    new-instance v1, Lcom/google/android/setupcompat/internal/SetupCompatServiceInvoker$$ExternalSyntheticLambda2;
+
+    invoke-direct {v1, p0, p1, p2}, Lcom/google/android/setupcompat/internal/SetupCompatServiceInvoker$$ExternalSyntheticLambda2;-><init>(Lcom/google/android/setupcompat/internal/SetupCompatServiceInvoker;Ljava/lang/String;Landroid/os/Bundle;)V
+
+    invoke-interface {v0, v1}, Ljava/util/concurrent/ExecutorService;->execute(Ljava/lang/Runnable;)V
+    :try_end_0
+    .catch Ljava/util/concurrent/RejectedExecutionException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception p0
+
+    sget-object p2, Lcom/google/android/setupcompat/internal/SetupCompatServiceInvoker;->LOG:Lcom/google/android/setupcompat/util/Logger;
+
+    const/4 v0, 0x1
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    const/4 v1, 0x0
+
+    aput-object p1, v0, v1
+
+    const-string p1, "Screen %s report focus changed failed."
 
     invoke-static {p1, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 

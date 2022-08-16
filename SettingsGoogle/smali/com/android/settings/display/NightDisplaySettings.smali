@@ -30,7 +30,7 @@
 
     new-instance v0, Lcom/android/settings/display/NightDisplaySettings$1;
 
-    const v1, 0x7f1500a6
+    const v1, 0x7f1500a8
 
     invoke-direct {v0, v1}, Lcom/android/settings/display/NightDisplaySettings$1;-><init>(I)V
 
@@ -100,7 +100,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a3f
+    const p0, 0x7f040a98
 
     return p0
 .end method
@@ -124,7 +124,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f1500a6
+    const p0, 0x7f1500a8
 
     return p0
 .end method

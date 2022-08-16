@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settingslib/wifi/AccessPoint$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -27,7 +28,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/wifi/AccessPoint$$ExternalSyntheticLambda2;->f$0:Lcom/android/settingslib/wifi/AccessPoint;
 
-    invoke-static {p0}, Lcom/android/settingslib/wifi/AccessPoint;->$r8$lambda$JAV3jilCOosKFRJBWen4S373XgU(Lcom/android/settingslib/wifi/AccessPoint;)V
+    invoke-static {p0}, Lcom/android/settingslib/wifi/AccessPoint;->$r8$lambda$l7HvoRkL0mn502GEmI0-49YA2Xk(Lcom/android/settingslib/wifi/AccessPoint;)V
 
     return-void
 .end method

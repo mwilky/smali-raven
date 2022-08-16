@@ -9,7 +9,9 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/settings/wifi/tether/WifiTetherSettings$TetherChangeReceiver;
+        Lcom/android/settings/wifi/tether/WifiTetherSettings$TetherChangeReceiver;,
+        Lcom/android/settings/wifi/tether/WifiTetherSettings$WifiRestriction;,
+        Lcom/android/settings/wifi/tether/WifiTetherSettings$SearchIndexProvider;
     }
 .end annotation
 
@@ -23,7 +25,9 @@
 
 .field static final KEY_WIFI_TETHER_NETWORK_PASSWORD:Ljava/lang/String; = "wifi_tether_network_password"
 
-.field public static final SEARCH_INDEX_DATA_PROVIDER:Lcom/android/settings/search/BaseSearchIndexProvider;
+.field static final KEY_WIFI_TETHER_SECURITY:Ljava/lang/String; = "wifi_tether_security"
+
+.field public static final SEARCH_INDEX_DATA_PROVIDER:Lcom/android/settings/wifi/tether/WifiTetherSettings$SearchIndexProvider;
 
 .field private static final TETHER_STATE_CHANGE_FILTER:Landroid/content/IntentFilter;
 
@@ -47,30 +51,62 @@
 
 .field private mWifiManager:Landroid/net/wifi/WifiManager;
 
+.field private mWifiRestriction:Lcom/android/settings/wifi/tether/WifiTetherSettings$WifiRestriction;
+
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmRestartWifiApAfterConfigChange(Lcom/android/settings/wifi/tether/WifiTetherSettings;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/settings/wifi/tether/WifiTetherSettings;->mRestartWifiApAfterConfigChange:Z
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$mstartTether(Lcom/android/settings/wifi/tether/WifiTetherSettings;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/wifi/tether/WifiTetherSettings;->startTether()V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mupdateDisplayWithNewConfig(Lcom/android/settings/wifi/tether/WifiTetherSettings;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/wifi/tether/WifiTetherSettings;->updateDisplayWithNewConfig()V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$smbuildPreferenceControllers(Landroid/content/Context;Lcom/android/settings/wifi/tether/WifiTetherBasePreferenceController$OnTetherConfigUpdateListener;)Ljava/util/List;
+    .locals 0
+
+    invoke-static {p0, p1}, Lcom/android/settings/wifi/tether/WifiTetherSettings;->buildPreferenceControllers(Landroid/content/Context;Lcom/android/settings/wifi/tether/WifiTetherBasePreferenceController$OnTetherConfigUpdateListener;)Ljava/util/List;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method static constructor <clinit>()V
     .locals 2
 
     new-instance v0, Landroid/content/IntentFilter;
 
-    const-string v1, "android.net.conn.TETHER_STATE_CHANGED"
+    const-string v1, "android.net.wifi.WIFI_AP_STATE_CHANGED"
 
     invoke-direct {v0, v1}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
 
     sput-object v0, Lcom/android/settings/wifi/tether/WifiTetherSettings;->TETHER_STATE_CHANGE_FILTER:Landroid/content/IntentFilter;
 
-    const-string v1, "android.net.wifi.WIFI_AP_STATE_CHANGED"
+    new-instance v0, Lcom/android/settings/wifi/tether/WifiTetherSettings$SearchIndexProvider;
 
-    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+    const v1, 0x7f150123
 
-    new-instance v0, Lcom/android/settings/wifi/tether/WifiTetherSettings$1;
+    invoke-direct {v0, v1}, Lcom/android/settings/wifi/tether/WifiTetherSettings$SearchIndexProvider;-><init>(I)V
 
-    const v1, 0x7f15011b
-
-    invoke-direct {v0, v1}, Lcom/android/settings/wifi/tether/WifiTetherSettings$1;-><init>(I)V
-
-    sput-object v0, Lcom/android/settings/wifi/tether/WifiTetherSettings;->SEARCH_INDEX_DATA_PROVIDER:Lcom/android/settings/search/BaseSearchIndexProvider;
+    sput-object v0, Lcom/android/settings/wifi/tether/WifiTetherSettings;->SEARCH_INDEX_DATA_PROVIDER:Lcom/android/settings/wifi/tether/WifiTetherSettings$SearchIndexProvider;
 
     return-void
 .end method
@@ -82,47 +118,11 @@
 
     invoke-direct {p0, v0}, Lcom/android/settings/dashboard/RestrictedDashboardFragment;-><init>(Ljava/lang/String;)V
 
-    return-void
-.end method
+    new-instance v0, Lcom/android/settings/wifi/tether/WifiTetherSettings$WifiRestriction;
 
-.method static synthetic access$000(Landroid/content/Context;Lcom/android/settings/wifi/tether/WifiTetherBasePreferenceController$OnTetherConfigUpdateListener;)Ljava/util/List;
-    .locals 0
+    invoke-direct {v0}, Lcom/android/settings/wifi/tether/WifiTetherSettings$WifiRestriction;-><init>()V
 
-    invoke-static {p0, p1}, Lcom/android/settings/wifi/tether/WifiTetherSettings;->buildPreferenceControllers(Landroid/content/Context;Lcom/android/settings/wifi/tether/WifiTetherBasePreferenceController$OnTetherConfigUpdateListener;)Ljava/util/List;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/wifi/tether/WifiTetherSettings;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/wifi/tether/WifiTetherSettings;->updateDisplayWithNewConfig()V
-
-    return-void
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/wifi/tether/WifiTetherSettings;)Landroid/net/wifi/WifiManager;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/wifi/tether/WifiTetherSettings;->mWifiManager:Landroid/net/wifi/WifiManager;
-
-    return-object p0
-.end method
-
-.method static synthetic access$300(Lcom/android/settings/wifi/tether/WifiTetherSettings;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/settings/wifi/tether/WifiTetherSettings;->mRestartWifiApAfterConfigChange:Z
-
-    return p0
-.end method
-
-.method static synthetic access$400(Lcom/android/settings/wifi/tether/WifiTetherSettings;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/wifi/tether/WifiTetherSettings;->startTether()V
+    iput-object v0, p0, Lcom/android/settings/wifi/tether/WifiTetherSettings;->mWifiRestriction:Lcom/android/settings/wifi/tether/WifiTetherSettings$WifiRestriction;
 
     return-void
 .end method
@@ -328,7 +328,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f15011b
+    const p0, 0x7f150123
 
     return p0
 .end method
@@ -359,7 +359,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0414d4
+    const v2, 0x7f0415d1
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -451,7 +451,7 @@
 .end method
 
 .method public onCreate(Landroid/os/Bundle;)V
-    .locals 1
+    .locals 2
 
     invoke-super {p0, p1}, Lcom/android/settings/dashboard/RestrictedDashboardFragment;->onCreate(Landroid/os/Bundle;)V
 
@@ -463,24 +463,44 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-nez v0, :cond_1
 
-    iput-boolean p1, p0, Lcom/android/settings/wifi/tether/WifiTetherSettings;->mUnavailable:Z
+    iget-object v0, p0, Lcom/android/settings/wifi/tether/WifiTetherSettings;->mWifiRestriction:Lcom/android/settings/wifi/tether/WifiTetherSettings$WifiRestriction;
+
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/android/settings/wifi/tether/WifiTetherSettings$WifiRestriction;->isHotspotAvailable(Landroid/content/Context;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    goto :goto_0
 
     :cond_0
+    const/4 p1, 0x0
+
+    :cond_1
+    :goto_0
+    iput-boolean p1, p0, Lcom/android/settings/wifi/tether/WifiTetherSettings;->mUnavailable:Z
+
     return-void
 .end method
 
 .method public onStart()V
-    .locals 2
+    .locals 3
 
     invoke-super {p0}, Lcom/android/settings/dashboard/DashboardFragment;->onStart()V
 
-    iget-boolean v0, p0, Lcom/android/settings/wifi/tether/WifiTetherSettings;->mUnavailable:Z
+    iget-object v0, p0, Lcom/android/settings/wifi/tether/WifiTetherSettings;->mWifiRestriction:Lcom/android/settings/wifi/tether/WifiTetherSettings$WifiRestriction;
 
-    if-eqz v0, :cond_1
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
 
-    invoke-virtual {p0}, Lcom/android/settings/dashboard/RestrictedDashboardFragment;->isUiRestrictedByOnlyAdmin()Z
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/android/settings/wifi/tether/WifiTetherSettings$WifiRestriction;->isHotspotAvailable(Landroid/content/Context;)Z
 
     move-result v0
 
@@ -490,11 +510,10 @@
 
     move-result-object v0
 
-    const v1, 0x7f0413eb
+    const v1, 0x7f040ec0
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
-    :cond_0
     invoke-virtual {p0}, Landroidx/preference/PreferenceFragmentCompat;->getPreferenceScreen()Landroidx/preference/PreferenceScreen;
 
     move-result-object p0
@@ -503,20 +522,50 @@
 
     return-void
 
+    :cond_0
+    iget-boolean v0, p0, Lcom/android/settings/wifi/tether/WifiTetherSettings;->mUnavailable:Z
+
+    if-eqz v0, :cond_2
+
+    invoke-virtual {p0}, Lcom/android/settings/dashboard/RestrictedDashboardFragment;->isUiRestrictedByOnlyAdmin()Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    invoke-virtual {p0}, Lcom/android/settings/dashboard/RestrictedDashboardFragment;->getEmptyTextView()Landroid/widget/TextView;
+
+    move-result-object v0
+
+    const v1, 0x7f0414e5
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
+
     :cond_1
+    invoke-virtual {p0}, Landroidx/preference/PreferenceFragmentCompat;->getPreferenceScreen()Landroidx/preference/PreferenceScreen;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroidx/preference/PreferenceGroup;->removeAll()V
+
+    return-void
+
+    :cond_2
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
 
     iget-object p0, p0, Lcom/android/settings/wifi/tether/WifiTetherSettings;->mTetherChangeReceiver:Lcom/android/settings/wifi/tether/WifiTetherSettings$TetherChangeReceiver;
 
     sget-object v1, Lcom/android/settings/wifi/tether/WifiTetherSettings;->TETHER_STATE_CHANGE_FILTER:Landroid/content/IntentFilter;
 
-    invoke-virtual {v0, p0, v1}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+    const/4 v2, 0x2
 
-    :cond_2
+    invoke-virtual {v0, p0, v1, v2}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;I)Landroid/content/Intent;
+
+    :cond_3
     return-void
 .end method
 

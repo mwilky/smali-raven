@@ -283,16 +283,6 @@
 
 .method private flushTaskWithDeadline(Landroidx/recyclerview/widget/GapWorker$Task;J)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "task",
-            "deadlineNs"
-        }
-    .end annotation
 
     iget-boolean v0, p1, Landroidx/recyclerview/widget/GapWorker$Task;->immediate:Z
 
@@ -348,14 +338,6 @@
 
 .method private flushTasksWithDeadline(J)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "deadlineNs"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -398,16 +380,6 @@
 
 .method static isPrefetchPositionAttached(Landroidx/recyclerview/widget/RecyclerView;I)Z
     .locals 5
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "view",
-            "position"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerView;->mChildHelper:Landroidx/recyclerview/widget/ChildHelper;
 
@@ -457,16 +429,6 @@
 
 .method private prefetchInnerRecyclerViewWithDeadline(Landroidx/recyclerview/widget/RecyclerView;J)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "innerView",
-            "deadlineNs"
-        }
-    .end annotation
 
     if-nez p1, :cond_0
 
@@ -549,18 +511,6 @@
 
 .method private prefetchPositionWithDeadline(Landroidx/recyclerview/widget/RecyclerView;IJ)Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "view",
-            "position",
-            "deadlineNs"
-        }
-    .end annotation
 
     invoke-static {p1, p2}, Landroidx/recyclerview/widget/GapWorker;->isPrefetchPositionAttached(Landroidx/recyclerview/widget/RecyclerView;I)Z
 
@@ -627,14 +577,6 @@
 # virtual methods
 .method public add(Landroidx/recyclerview/widget/RecyclerView;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "recyclerView"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/recyclerview/widget/GapWorker;->mRecyclerViews:Ljava/util/ArrayList;
 
@@ -645,18 +587,6 @@
 
 .method postFromTraversal(Landroidx/recyclerview/widget/RecyclerView;II)V
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "recyclerView",
-            "prefetchDx",
-            "prefetchDy"
-        }
-    .end annotation
 
     invoke-virtual {p1}, Landroidx/recyclerview/widget/RecyclerView;->isAttachedToWindow()Z
 
@@ -690,14 +620,6 @@
 
 .method prefetch(J)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "deadlineNs"
-        }
-    .end annotation
 
     invoke-direct {p0}, Landroidx/recyclerview/widget/GapWorker;->buildTaskList()V
 
@@ -708,14 +630,6 @@
 
 .method public remove(Landroidx/recyclerview/widget/RecyclerView;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "recyclerView"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/recyclerview/widget/GapWorker;->mRecyclerViews:Ljava/util/ArrayList;
 

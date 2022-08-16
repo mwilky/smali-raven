@@ -5,8 +5,8 @@
         <item quantity="one">%d napja</item>
     </plurals>
     <plurals name="abc_slice_duration_min">
-        <item quantity="other">%d perce</item>
-        <item quantity="one">%d perce</item>
+        <item quantity="other">%d perccel ezelőtt</item>
+        <item quantity="one">%d perccel ezelőtt</item>
     </plurals>
     <plurals name="abc_slice_duration_years">
         <item quantity="other">%d éve</item>
@@ -233,11 +233,11 @@
         <item quantity="one">%d kategória kikapcsolva</item>
     </plurals>
     <plurals name="notifications_sent_daily">
-        <item quantity="other">~%d értesítés naponta</item>
+        <item quantity="other">~%,d értesítés naponta</item>
         <item quantity="one">~%d értesítés naponta</item>
     </plurals>
     <plurals name="notifications_sent_weekly">
-        <item quantity="other">~%d értesítés hetente</item>
+        <item quantity="other">~%,d értesítés hetente</item>
         <item quantity="one">~%d értesítés hetente</item>
     </plurals>
     <plurals name="number_of_device_admins">
@@ -328,22 +328,6 @@
         <item quantity="other">Tanúsítványok elfogadása megbízhatóként vagy eltávolítása</item>
         <item quantity="one">Tanúsítvány elfogadása megbízhatóként vagy eltávolítása</item>
     </plurals>
-    <plurals name="ssl_ca_cert_info_message">
-        <item quantity="other">"%s tanúsítványkibocsátókat telepített az Ön munkaprofiljához, ami lehetővé teheti a munkahelyi hálózati tevékenységek, beleértve az e-mailek, alkalmazások és biztonságos webhelyek figyelését.
-
-Ha további információt szeretne ezekről a tanúsítványokról, lépjen kapcsolatba a rendszergazdával."</item>
-        <item quantity="one">"%s tanúsítványkibocsátót telepített az Ön munkaprofiljához, ami lehetővé teheti a munkahelyi hálózati tevékenységek, beleértve az e-mailek, alkalmazások és biztonságos webhelyek figyelését.
-
-Ha további információt szeretne erről a tanúsítványról, lépjen kapcsolatba a rendszergazdával."</item>
-    </plurals>
-    <plurals name="ssl_ca_cert_info_message_device_owner">
-        <item quantity="other">"%s tanúsítványkibocsátókat telepített az Ön eszközére, ami lehetővé teheti a hálózati tevékenységeinek, beleértve az e-mailek, alkalmazások és biztonságos webhelyek figyelését.
-
-Ha további információt szeretne ezekről a tanúsítványokról, lépjen kapcsolatba a rendszergazdával."</item>
-        <item quantity="one">"%s tanúsítványkibocsátót telepített az Ön eszközére, ami lehetővé teheti a hálózati tevékenységeinek, beleértve az e-mailek, alkalmazások és biztonságos webhelyek figyelését.
-
-Ha további információt szeretne erről a tanúsítványról, lépjen kapcsolatba a rendszergazdával."</item>
-    </plurals>
     <plurals name="ssl_ca_cert_settings_button">
         <item quantity="other">Tanúsítványok ellenőrzése</item>
         <item quantity="one">Tanúsítvány ellenőrzése</item>
@@ -375,10 +359,6 @@ Ha további információt szeretne erről a tanúsítványról, lépjen kapcsola
     <plurals name="wifi_saved_passpoint_access_points_summary">
         <item quantity="other">%d feliratkozás</item>
         <item quantity="one">1 feliratkozás</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$d eszköz csatlakozik</item>
-        <item quantity="one">%1$d eszköz csatlakozik</item>
     </plurals>
     <plurals name="wrong_pin_code">
         <item quantity="other">A SIM-kártya PIN-kódja helytelen. %d próbálkozás maradt.</item>

@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/settings/biometrics/MultiBiometricEnrollHelper$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/hardware/face/FaceManager$GenerateChallengeCallback;
+.implements Landroid/hardware/fingerprint/FingerprintManager$GenerateChallengeCallback;
 
 
 # instance fields
@@ -22,12 +23,12 @@
 
 
 # virtual methods
-.method public final onGenerateChallengeResult(IIJ)V
+.method public final onChallengeGenerated(IIJ)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/settings/biometrics/MultiBiometricEnrollHelper$$ExternalSyntheticLambda0;->f$0:Lcom/android/settings/biometrics/MultiBiometricEnrollHelper;
 
-    invoke-static {p0, p1, p2, p3, p4}, Lcom/android/settings/biometrics/MultiBiometricEnrollHelper;->$r8$lambda$fbqFDd3hFa7UqqQJzOIwD3xFTGw(Lcom/android/settings/biometrics/MultiBiometricEnrollHelper;IIJ)V
+    invoke-static {p0, p1, p2, p3, p4}, Lcom/android/settings/biometrics/MultiBiometricEnrollHelper;->$r8$lambda$PRdoaXV2Y2DdKDIcfX1_c3KrmWM(Lcom/android/settings/biometrics/MultiBiometricEnrollHelper;IIJ)V
 
     return-void
 .end method

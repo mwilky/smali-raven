@@ -34,6 +34,14 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmContext(Lcom/android/settings/gestures/OneHandedSettingsUtils;)Landroid/content/Context;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/gestures/OneHandedSettingsUtils;->mContext:Landroid/content/Context;
+
+    return-object p0
+.end method
+
 .method static constructor <clinit>()V
     .locals 1
 
@@ -108,14 +116,6 @@
     iput-object p1, p0, Lcom/android/settings/gestures/OneHandedSettingsUtils;->mSettingsObserver:Lcom/android/settings/gestures/OneHandedSettingsUtils$SettingsObserver;
 
     return-void
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/gestures/OneHandedSettingsUtils;)Landroid/content/Context;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/gestures/OneHandedSettingsUtils;->mContext:Landroid/content/Context;
-
-    return-object p0
 .end method
 
 .method public static canEnableController(Landroid/content/Context;)Z
@@ -270,7 +270,7 @@
 .method public static isSupportOneHandedMode()Z
     .locals 2
 
-    const-string v0, "ro.support_one_handed_mode"
+    const-string/jumbo v0, "ro.support_one_handed_mode"
 
     const/4 v1, 0x0
 
@@ -393,7 +393,7 @@
 
     iget-object p0, p0, Lcom/android/settings/gestures/OneHandedSettingsUtils;->mSettingsObserver:Lcom/android/settings/gestures/OneHandedSettingsUtils$SettingsObserver;
 
-    invoke-static {p0, p1}, Lcom/android/settings/gestures/OneHandedSettingsUtils$SettingsObserver;->access$000(Lcom/android/settings/gestures/OneHandedSettingsUtils$SettingsObserver;Lcom/android/settings/gestures/OneHandedSettingsUtils$TogglesCallback;)V
+    invoke-static {p0, p1}, Lcom/android/settings/gestures/OneHandedSettingsUtils$SettingsObserver;->-$$Nest$msetCallback(Lcom/android/settings/gestures/OneHandedSettingsUtils$SettingsObserver;Lcom/android/settings/gestures/OneHandedSettingsUtils$TogglesCallback;)V
 
     return-void
 .end method

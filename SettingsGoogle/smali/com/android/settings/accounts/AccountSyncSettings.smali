@@ -29,6 +29,26 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$Np2couW1DghoZgxCG0OeDhyHXT0(Lcom/android/settings/accounts/AccountSyncSettings;Ljava/lang/CharSequence;)Ljava/lang/String;
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/accounts/AccountSyncSettings;->lambda$setAccessibilityTitle$1(Ljava/lang/CharSequence;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static synthetic $r8$lambda$VpoGom3LfWvI-zxTjbmv5IWAuKg(Lcom/android/settings/accounts/AccountSyncSettings;Ljava/lang/CharSequence;)Ljava/lang/String;
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/accounts/AccountSyncSettings;->lambda$setAccessibilityTitle$0(Ljava/lang/CharSequence;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method public constructor <init>()V
     .locals 1
 
@@ -397,6 +417,46 @@
     return p0
 .end method
 
+.method private synthetic lambda$setAccessibilityTitle$0(Ljava/lang/CharSequence;)Ljava/lang/String;
+    .locals 2
+
+    const/4 v0, 0x1
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    const/4 v1, 0x0
+
+    aput-object p1, v0, v1
+
+    const p1, 0x7f0401a5
+
+    invoke-virtual {p0, p1, v0}, Landroidx/fragment/app/Fragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private synthetic lambda$setAccessibilityTitle$1(Ljava/lang/CharSequence;)Ljava/lang/String;
+    .locals 2
+
+    const/4 v0, 0x1
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    const/4 v1, 0x0
+
+    aput-object p1, v0, v1
+
+    const p1, 0x7f040118
+
+    invoke-virtual {p0, p1, v0}, Landroidx/fragment/app/Fragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method private requestAccountAccessIfNeeded(Ljava/lang/String;)Z
     .locals 14
 
@@ -639,7 +699,7 @@
 .end method
 
 .method private setAccessibilityTitle()V
-    .locals 4
+    .locals 5
 
     const-string/jumbo v0, "user"
 
@@ -681,26 +741,58 @@
 
     move-result-object v2
 
+    const-class v3, Landroid/app/admin/DevicePolicyManager;
+
+    invoke-virtual {p0, v3}, Lcom/android/settings/SettingsPreferenceFragment;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/app/admin/DevicePolicyManager;
+
+    const/4 v4, 0x1
+
     if-eqz v0, :cond_1
 
-    const v0, 0x7f04017f
+    invoke-virtual {v3}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
+
+    move-result-object v0
+
+    new-instance v3, Lcom/android/settings/accounts/AccountSyncSettings$$ExternalSyntheticLambda0;
+
+    invoke-direct {v3, p0, v2}, Lcom/android/settings/accounts/AccountSyncSettings$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/accounts/AccountSyncSettings;Ljava/lang/CharSequence;)V
+
+    new-array v4, v4, [Ljava/lang/Object;
+
+    aput-object v2, v4, v1
+
+    const-string v1, "Settings.ACCESSIBILITY_WORK_ACCOUNT_TITLE"
+
+    invoke-virtual {v0, v1, v3, v4}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
 
     goto :goto_1
 
     :cond_1
-    const v0, 0x7f040106
-
-    :goto_1
-    const/4 v3, 0x1
-
-    new-array v3, v3, [Ljava/lang/Object;
-
-    aput-object v2, v3, v1
-
-    invoke-virtual {p0, v0, v3}, Landroidx/fragment/app/Fragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {v3}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
 
     move-result-object v0
 
+    new-instance v3, Lcom/android/settings/accounts/AccountSyncSettings$$ExternalSyntheticLambda1;
+
+    invoke-direct {v3, p0, v2}, Lcom/android/settings/accounts/AccountSyncSettings$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/accounts/AccountSyncSettings;Ljava/lang/CharSequence;)V
+
+    new-array v4, v4, [Ljava/lang/Object;
+
+    aput-object v2, v4, v1
+
+    const-string v1, "Settings.ACCESSIBILITY_PERSONAL_ACCOUNT_TITLE"
+
+    invoke-virtual {v0, v1, v3, v4}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    :goto_1
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
 
     move-result-object p0
@@ -925,7 +1017,7 @@
     :goto_5
     if-nez v12, :cond_8
 
-    const v3, 0x7f0413ab
+    const v3, 0x7f041474
 
     invoke-virtual {v8, v3}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -939,7 +1031,7 @@
     :cond_8
     if-eqz v15, :cond_9
 
-    const v3, 0x7f0413b0
+    const v3, 0x7f041479
 
     invoke-virtual {v8, v3}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -964,7 +1056,7 @@
 
     move-result-object v4
 
-    const v6, 0x7f040b60
+    const v6, 0x7f040bc9
 
     move/from16 v16, v0
 
@@ -1086,7 +1178,7 @@
 
     invoke-direct {v1, v2}, Lcom/android/settingslib/widget/FooterPreference$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0413b1
+    const v2, 0x7f04147a
 
     invoke-virtual {v1, v2}, Lcom/android/settingslib/widget/FooterPreference$Builder;->setTitle(I)Lcom/android/settingslib/widget/FooterPreference$Builder;
 
@@ -1475,7 +1567,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a16
+    const p0, 0x7f040a6d
 
     return p0
 .end method
@@ -1757,7 +1849,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/accounts/AccountPreferenceBase;->onCreate(Landroid/os/Bundle;)V
 
-    const p1, 0x7f150014
+    const p1, 0x7f150013
 
     invoke-virtual {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->addPreferencesFromResource(I)V
 
@@ -1791,13 +1883,13 @@
 
     invoke-direct {p1, p0}, Landroidx/appcompat/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const p0, 0x7f040568
+    const p0, 0x7f0405c5
 
     invoke-virtual {p1, p0}, Landroidx/appcompat/app/AlertDialog$Builder;->setTitle(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
     move-result-object p0
 
-    const p1, 0x7f040567
+    const p1, 0x7f0405c4
 
     invoke-virtual {p0, p1}, Landroidx/appcompat/app/AlertDialog$Builder;->setMessage(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
@@ -1820,7 +1912,7 @@
 .method public onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
     .locals 4
 
-    const v0, 0x7f0413b3
+    const v0, 0x7f04147c
 
     invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -1834,7 +1926,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f0413b2
+    const v2, 0x7f04147b
 
     invoke-virtual {p0, v2}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 

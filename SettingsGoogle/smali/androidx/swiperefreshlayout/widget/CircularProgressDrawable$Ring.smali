@@ -137,16 +137,6 @@
 # virtual methods
 .method draw(Landroid/graphics/Canvas;Landroid/graphics/Rect;)V
     .locals 8
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "c",
-            "bounds"
-        }
-    .end annotation
 
     iget-object v6, p0, Landroidx/swiperefreshlayout/widget/CircularProgressDrawable$Ring;->mTempBounds:Landroid/graphics/RectF;
 
@@ -316,20 +306,6 @@
 
 .method drawTriangle(Landroid/graphics/Canvas;FFLandroid/graphics/RectF;)V
     .locals 7
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "c",
-            "startAngle",
-            "sweepAngle",
-            "bounds"
-        }
-    .end annotation
 
     iget-boolean v0, p0, Landroidx/swiperefreshlayout/widget/CircularProgressDrawable$Ring;->mShowArrow:Z
 
@@ -607,14 +583,6 @@
 
 .method setAlpha(I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "alpha"
-        }
-    .end annotation
 
     iput p1, p0, Landroidx/swiperefreshlayout/widget/CircularProgressDrawable$Ring;->mAlpha:I
 
@@ -623,16 +591,6 @@
 
 .method setArrowDimensions(FF)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "width",
-            "height"
-        }
-    .end annotation
 
     float-to-int p1, p1
 
@@ -647,14 +605,6 @@
 
 .method setArrowScale(F)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "scale"
-        }
-    .end annotation
 
     iget v0, p0, Landroidx/swiperefreshlayout/widget/CircularProgressDrawable$Ring;->mArrowScale:F
 
@@ -670,14 +620,6 @@
 
 .method setCenterRadius(F)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "centerRadius"
-        }
-    .end annotation
 
     iput p1, p0, Landroidx/swiperefreshlayout/widget/CircularProgressDrawable$Ring;->mRingCenterRadius:F
 
@@ -686,14 +628,6 @@
 
 .method setColor(I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "color"
-        }
-    .end annotation
 
     iput p1, p0, Landroidx/swiperefreshlayout/widget/CircularProgressDrawable$Ring;->mCurrentColor:I
 
@@ -702,14 +636,6 @@
 
 .method setColorFilter(Landroid/graphics/ColorFilter;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "filter"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/swiperefreshlayout/widget/CircularProgressDrawable$Ring;->mPaint:Landroid/graphics/Paint;
 
@@ -720,14 +646,6 @@
 
 .method setColorIndex(I)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "index"
-        }
-    .end annotation
 
     iput p1, p0, Landroidx/swiperefreshlayout/widget/CircularProgressDrawable$Ring;->mColorIndex:I
 
@@ -742,14 +660,6 @@
 
 .method setColors([I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "colors"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/swiperefreshlayout/widget/CircularProgressDrawable$Ring;->mColors:[I
 
@@ -762,14 +672,6 @@
 
 .method setEndTrim(F)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "endTrim"
-        }
-    .end annotation
 
     iput p1, p0, Landroidx/swiperefreshlayout/widget/CircularProgressDrawable$Ring;->mEndTrim:F
 
@@ -778,14 +680,6 @@
 
 .method setRotation(F)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "rotation"
-        }
-    .end annotation
 
     iput p1, p0, Landroidx/swiperefreshlayout/widget/CircularProgressDrawable$Ring;->mRotation:F
 
@@ -794,14 +688,6 @@
 
 .method setShowArrow(Z)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "show"
-        }
-    .end annotation
 
     iget-boolean v0, p0, Landroidx/swiperefreshlayout/widget/CircularProgressDrawable$Ring;->mShowArrow:Z
 
@@ -815,14 +701,6 @@
 
 .method setStartTrim(F)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "startTrim"
-        }
-    .end annotation
 
     iput p1, p0, Landroidx/swiperefreshlayout/widget/CircularProgressDrawable$Ring;->mStartTrim:F
 
@@ -831,14 +709,6 @@
 
 .method setStrokeWidth(F)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "strokeWidth"
-        }
-    .end annotation
 
     iput p1, p0, Landroidx/swiperefreshlayout/widget/CircularProgressDrawable$Ring;->mStrokeWidth:F
 

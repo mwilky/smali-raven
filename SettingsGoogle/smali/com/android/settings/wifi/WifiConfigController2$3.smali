@@ -48,11 +48,11 @@
 
     iget-object p0, p0, Lcom/android/settings/wifi/WifiConfigController2$3;->this$0:Lcom/android/settings/wifi/WifiConfigController2;
 
-    invoke-static {p0}, Lcom/android/settings/wifi/WifiConfigController2;->access$400(Lcom/android/settings/wifi/WifiConfigController2;)Landroid/content/Context;
+    invoke-static {p0}, Lcom/android/settings/wifi/WifiConfigController2;->-$$Nest$fgetmContext(Lcom/android/settings/wifi/WifiConfigController2;)Landroid/content/Context;
 
     move-result-object p0
 
-    const v0, 0x7f0415dd
+    const v0, 0x7f0416d6
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

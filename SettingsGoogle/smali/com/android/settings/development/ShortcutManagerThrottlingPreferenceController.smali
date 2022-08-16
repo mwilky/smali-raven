@@ -64,7 +64,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f041049
+    const v0, 0x7f0410ef
 
     const/4 v1, 0x0
 
@@ -96,7 +96,7 @@
 .method public getPreferenceKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "reset_shortcut_manager_throttling"
+    const-string/jumbo p0, "reset_shortcut_manager_throttling"
 
     return-object p0
 .end method
@@ -108,7 +108,7 @@
 
     move-result-object p1
 
-    const-string v0, "reset_shortcut_manager_throttling"
+    const-string/jumbo v0, "reset_shortcut_manager_throttling"
 
     invoke-static {v0, p1}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
 

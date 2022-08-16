@@ -137,8 +137,8 @@
         <item quantity="one">%dটি অ্যাপ কানেক্ট করা আছে</item>
     </plurals>
     <plurals name="location_app_permission_summary_location_on">
-        <item quantity="other">%2$dটি অ্যাপের মধ্যে %1$dটি লোকেশন অ্যাক্সেস করতে পারবে</item>
-        <item quantity="one">%2$dটি অ্যাপের মধ্যে %1$dটি লোকেশন অ্যাক্সেস করতে পারবে</item>
+        <item quantity="other">%2$dটির মধ্যে %1$dটি অ্যাপ লোকেশন অ্যাক্সেস করতে পারবে</item>
+        <item quantity="one">%2$dটির মধ্যে %1$dটি অ্যাপ লোকেশন অ্যাক্সেস করতে পারবে</item>
     </plurals>
     <plurals name="location_settings_summary_location_on">
         <item quantity="other">চালু আছে - %1$dটি অ্যাপ লোকেশন অ্যাক্সেস করতে পারবে</item>
@@ -233,12 +233,12 @@
         <item quantity="one">%dটি বিভাগ বন্ধ আছে</item>
     </plurals>
     <plurals name="notifications_sent_daily">
-        <item quantity="other">~%dটি বিজ্ঞপ্তি প্রতিদিন</item>
-        <item quantity="one">~%dটি বিজ্ঞপ্তি প্রতিদিন</item>
+        <item quantity="other">~%,dটি বিজ্ঞপ্তি প্রতিদিন</item>
+        <item quantity="one">~%,dটি বিজ্ঞপ্তি প্রতিদিন</item>
     </plurals>
     <plurals name="notifications_sent_weekly">
-        <item quantity="other">প্রতি সপ্তাহে ~%dটি বিজ্ঞপ্তি</item>
-        <item quantity="one">প্রতি সপ্তাহে ~%dটি বিজ্ঞপ্তি</item>
+        <item quantity="other">প্রতি সপ্তাহে ~%,dটি বিজ্ঞপ্তি</item>
+        <item quantity="one">প্রতি সপ্তাহে ~%,dটি বিজ্ঞপ্তি</item>
     </plurals>
     <plurals name="number_of_device_admins">
         <item quantity="other">%dটি অ্যাপ সক্রিয় আছে</item>
@@ -328,22 +328,6 @@
         <item quantity="other">টি শংসাপত্রের উপরে ভরসা করুন বা সেগুলিকে সরান</item>
         <item quantity="one">টি শংসাপত্রের উপরে ভরসা করুন বা সেগুলিকে সরান</item>
     </plurals>
-    <plurals name="ssl_ca_cert_info_message">
-        <item quantity="other">"%s আপনার অফিস প্রোফাইলের জন্য সার্টিফিকেটের কর্তৃপক্ষগুলিকে ইনস্টল করেছে, যেগুলি তাদেরকে ইমেল, অ্যাপ্লিকেশন, এবং নিরাপদ ওয়েবসাইটগুলি সহ অফিস নেটওয়ার্কের কার্যকলাপকে নিরীক্ষণ করার অনুমতি দিতে পারে৷
-
-এই সার্টিফিকেটগুলির সম্পর্কে আরও তথ্যের জন্য, আপনার প্রশাসকের সাথে যোগাযোগ করুন৷"</item>
-        <item quantity="one">"%sআপনার অফিস প্রোফাইলের জন্য সার্টিফিকেটের কর্তৃপক্ষগুলিকে ইনস্টল করেছে, যেগুলি তাদেরকে ইমেল, অ্যাপ্লিকেশন এবং নিরাপদ ওয়েবসাইটগুলি সহ অফিস নেটওয়ার্কের কার্যকলাপকে নিরীক্ষণ করার অনুমতি দিতে পারে৷
-
-এই সার্টিফিকেটগুলির সম্পর্কে আরও তথ্যের জন্য, আপনার প্রশাসকের সাথে যোগাযোগ করুন৷"</item>
-    </plurals>
-    <plurals name="ssl_ca_cert_info_message_device_owner">
-        <item quantity="other">"%sআপনার ডিভাইসের জন্য একটি সার্টিফিকেট কর্তৃপক্ষকে ইনস্টল করেছে, যেটি তাদেরকে ইমেল, অ্যাপ্লিকেশন, এবং নিরাপদ ওয়েবসাইটগুলি সহ ডিভাইসের নেটওয়ার্ক অ্যাক্টিভিটি নিরীক্ষণ করার অনুমতি দিতে পারে৷
-
-এই সার্টিফিকেটগুলির সম্পর্কে আরও তথ্যের জন্য, আপনার প্রশাসকের সাথে যোগাযোগ করুন৷"</item>
-        <item quantity="one">"%sআপনার ডিভাইসের জন্য একটি সার্টিফিকেট কর্তৃপক্ষকে ইনস্টল করেছে, যেটি তাদেরকে ইমেল, অ্যাপ্লিকেশন এবং নিরাপদ ওয়েবসাইটগুলি সহ ডিভাইসের নেটওয়ার্ক অ্যাক্টিভিটি নিরীক্ষণ করার অনুমতি দিতে পারে৷
-
-এই সার্টিফিকেটগুলির সম্পর্কে আরও তথ্যের জন্য, আপনার প্রশাসকের সাথে যোগাযোগ করুন৷"</item>
-    </plurals>
     <plurals name="ssl_ca_cert_settings_button">
         <item quantity="other">টি সার্টিফিকেট পরীক্ষা করুন</item>
         <item quantity="one">টি সার্টিফিকেট পরীক্ষা করুন</item>
@@ -375,10 +359,6 @@
     <plurals name="wifi_saved_passpoint_access_points_summary">
         <item quantity="other">%dটি সাবস্ক্রিপশন</item>
         <item quantity="one">%dটি সাবস্ক্রিপশন</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$dটি ডিভাইস কানেক্ট রয়েছে</item>
-        <item quantity="one">%1$dটি ডিভাইস কানেক্ট রয়েছে</item>
     </plurals>
     <plurals name="wrong_pin_code">
         <item quantity="other">সিমের পিন কোডটি ভুল, আপনি আর %d বার চেষ্টা করতে পারেন।</item>

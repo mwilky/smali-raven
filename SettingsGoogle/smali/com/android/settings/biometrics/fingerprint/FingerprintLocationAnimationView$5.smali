@@ -39,7 +39,7 @@
 
     iget-object p0, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintLocationAnimationView$5;->this$0:Lcom/android/settings/biometrics/fingerprint/FingerprintLocationAnimationView;
 
-    invoke-static {p0}, Lcom/android/settings/biometrics/fingerprint/FingerprintLocationAnimationView;->access$500(Lcom/android/settings/biometrics/fingerprint/FingerprintLocationAnimationView;)V
+    invoke-static {p0}, Lcom/android/settings/biometrics/fingerprint/FingerprintLocationAnimationView;->-$$Nest$mstartPhase(Lcom/android/settings/biometrics/fingerprint/FingerprintLocationAnimationView;)V
 
     return-void
 .end method

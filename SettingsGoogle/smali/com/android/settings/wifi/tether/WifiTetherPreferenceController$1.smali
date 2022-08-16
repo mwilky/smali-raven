@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onConnectedClientsChanged(Ljava/util/List;)V
-    .locals 5
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -51,7 +51,7 @@
 
     if-eqz v1, :cond_0
 
-    invoke-static {v0}, Lcom/android/settings/wifi/tether/WifiTetherPreferenceController;->access$000(Lcom/android/settings/wifi/tether/WifiTetherPreferenceController;)I
+    invoke-static {v0}, Lcom/android/settings/wifi/tether/WifiTetherPreferenceController;->-$$Nest$fgetmSoftApState(Lcom/android/settings/wifi/tether/WifiTetherPreferenceController;)I
 
     move-result v0
 
@@ -63,37 +63,15 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/tether/WifiTetherPreferenceController;->mPreference:Landroidx/preference/Preference;
 
-    invoke-static {p0}, Lcom/android/settings/wifi/tether/WifiTetherPreferenceController;->access$100(Lcom/android/settings/wifi/tether/WifiTetherPreferenceController;)Landroid/content/Context;
+    invoke-static {p0}, Lcom/android/settings/wifi/tether/WifiTetherPreferenceController;->access$000(Lcom/android/settings/wifi/tether/WifiTetherPreferenceController;)Landroid/content/Context;
 
     move-result-object p0
-
-    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object p0
-
-    const v1, 0x7f12005c
-
-    invoke-interface {p1}, Ljava/util/List;->size()I
-
-    move-result v2
-
-    const/4 v3, 0x1
-
-    new-array v3, v3, [Ljava/lang/Object;
-
-    const/4 v4, 0x0
 
     invoke-interface {p1}, Ljava/util/List;->size()I
 
     move-result p1
 
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object p1
-
-    aput-object p1, v3, v4
-
-    invoke-virtual {p0, v1, v2, v3}, Landroid/content/res/Resources;->getQuantityString(II[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p0, p1}, Lcom/android/settingslib/wifi/WifiUtils;->getWifiTetherSummaryForConnectedDevices(Landroid/content/Context;I)Ljava/lang/String;
 
     move-result-object p0
 
@@ -108,7 +86,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/tether/WifiTetherPreferenceController$1;->this$0:Lcom/android/settings/wifi/tether/WifiTetherPreferenceController;
 
-    invoke-static {v0, p1}, Lcom/android/settings/wifi/tether/WifiTetherPreferenceController;->access$002(Lcom/android/settings/wifi/tether/WifiTetherPreferenceController;I)I
+    invoke-static {v0, p1}, Lcom/android/settings/wifi/tether/WifiTetherPreferenceController;->-$$Nest$fputmSoftApState(Lcom/android/settings/wifi/tether/WifiTetherPreferenceController;I)V
 
     iget-object p0, p0, Lcom/android/settings/wifi/tether/WifiTetherPreferenceController$1;->this$0:Lcom/android/settings/wifi/tether/WifiTetherPreferenceController;
 

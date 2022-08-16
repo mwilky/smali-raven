@@ -21,6 +21,16 @@
 
 .field mPowerAllowlistBackend:Lcom/android/settingslib/fuelgauge/PowerAllowlistBackend;
 
+.field mTestApplicationInfoList:Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/List<",
+            "Landroid/content/pm/ApplicationInfo;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 
 # direct methods
 .method static constructor <clinit>()V
@@ -40,9 +50,13 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 0
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/android/settings/fuelgauge/BatteryBackupHelper;->mTestApplicationInfoList:Ljava/util/List;
 
     invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
@@ -228,7 +242,7 @@
 .end method
 
 .method private getInstalledApplications()Ljava/util/List;
-    .locals 5
+    .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -238,6 +252,13 @@
         }
     .end annotation
 
+    iget-object v0, p0, Lcom/android/settings/fuelgauge/BatteryBackupHelper;->mTestApplicationInfoList:Ljava/util/List;
+
+    if-eqz v0, :cond_0
+
+    return-object v0
+
+    :cond_0
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
@@ -264,13 +285,13 @@
 
     move-result-object v1
 
-    :cond_0
+    :cond_1
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_3
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -287,23 +308,23 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_2
 
-    const v4, 0x408200
+    const-wide/32 v4, 0x408200
 
     goto :goto_1
 
-    :cond_1
-    const v4, 0x8200
+    :cond_2
+    const-wide/32 v4, 0x8200
 
     :goto_1
     iget v2, v2, Landroid/content/pm/UserInfo;->id:I
 
-    invoke-interface {v3, v4, v2}, Landroid/content/pm/IPackageManager;->getInstalledApplications(II)Landroid/content/pm/ParceledListSlice;
+    invoke-interface {v3, v4, v5, v2}, Landroid/content/pm/IPackageManager;->getInstalledApplications(JI)Landroid/content/pm/ParceledListSlice;
 
     move-result-object v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1
 
     invoke-virtual {v2}, Landroid/content/pm/ParceledListSlice;->getList()Ljava/util/List;
 
@@ -328,7 +349,7 @@
 
     return-object p0
 
-    :cond_2
+    :cond_3
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result p0
@@ -336,7 +357,7 @@
     add-int/lit8 p0, p0, -0x1
 
     :goto_2
-    if-ltz p0, :cond_4
+    if-ltz p0, :cond_5
 
     invoke-interface {v0, p0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -348,20 +369,20 @@
 
     const/4 v3, 0x3
 
-    if-eq v2, v3, :cond_3
+    if-eq v2, v3, :cond_4
 
     iget-boolean v1, v1, Landroid/content/pm/ApplicationInfo;->enabled:Z
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_4
 
     invoke-interface {v0, p0}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
-    :cond_3
+    :cond_4
     add-int/lit8 p0, p0, -0x1
 
     goto :goto_2
 
-    :cond_4
+    :cond_5
     return-object v0
 .end method
 
@@ -492,7 +513,7 @@
 
     aput-object p2, p0, p1
 
-    const-string p1, "restore:%s mode=%d"
+    const-string/jumbo p1, "restore:%s mode=%d"
 
     invoke-static {p1, p0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1059,7 +1080,7 @@
 
     aput-object p1, p0, v8
 
-    const-string p1, "restoreOptimizationMode() count=%d in %d/ms"
+    const-string/jumbo p1, "restoreOptimizationMode() count=%d in %d/ms"
 
     invoke-static {p1, p0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 

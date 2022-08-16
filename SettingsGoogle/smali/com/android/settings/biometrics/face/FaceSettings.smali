@@ -24,6 +24,8 @@
     .end annotation
 .end field
 
+.field private mDevicePolicyManager:Landroid/app/admin/DevicePolicyManager;
+
 .field private mEnrollButton:Landroidx/preference/Preference;
 
 .field private mEnrollController:Lcom/android/settings/biometrics/face/FaceSettingsEnrollButtonPreferenceController;
@@ -62,6 +64,24 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$4Exg0QFoH4mTasqOMuBl58JRxts(Lcom/android/settings/biometrics/face/FaceSettings;)Ljava/lang/String;
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/biometrics/face/FaceSettings;->lambda$onCreate$2()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static synthetic $r8$lambda$A7AeKc0lK2dNW4d7Q1it-j6gGTw(Lcom/android/settings/biometrics/face/FaceSettings;Landroid/content/Intent;IIJ)V
+    .locals 0
+
+    invoke-direct/range {p0 .. p5}, Lcom/android/settings/biometrics/face/FaceSettings;->lambda$onActivityResult$3(Landroid/content/Intent;IIJ)V
+
+    return-void
+.end method
+
 .method public static synthetic $r8$lambda$TEoDiWzAgU6GzwUROT5ko2T2ca0(Lcom/android/settings/biometrics/face/FaceSettings;)V
     .locals 0
 
@@ -78,12 +98,14 @@
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$fqkYWjoS2XNHLwkHFgbGJaefe98(Lcom/android/settings/biometrics/face/FaceSettings;Landroid/content/Intent;IIJ)V
+.method static bridge synthetic -$$Nest$smbuildPreferenceControllers(Landroid/content/Context;)Ljava/util/List;
     .locals 0
 
-    invoke-direct/range {p0 .. p5}, Lcom/android/settings/biometrics/face/FaceSettings;->lambda$onActivityResult$2(Landroid/content/Intent;IIJ)V
+    invoke-static {p0}, Lcom/android/settings/biometrics/face/FaceSettings;->buildPreferenceControllers(Landroid/content/Context;)Ljava/util/List;
 
-    return-void
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method static constructor <clinit>()V
@@ -91,7 +113,7 @@
 
     new-instance v0, Lcom/android/settings/biometrics/face/FaceSettings$1;
 
-    const v1, 0x7f1500d6
+    const v1, 0x7f1500db
 
     invoke-direct {v0, v1}, Lcom/android/settings/biometrics/face/FaceSettings$1;-><init>(I)V
 
@@ -105,29 +127,19 @@
 
     invoke-direct {p0}, Lcom/android/settings/dashboard/DashboardFragment;-><init>()V
 
-    new-instance v0, Lcom/android/settings/biometrics/face/FaceSettings$$ExternalSyntheticLambda2;
-
-    invoke-direct {v0, p0}, Lcom/android/settings/biometrics/face/FaceSettings$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/biometrics/face/FaceSettings;)V
-
-    iput-object v0, p0, Lcom/android/settings/biometrics/face/FaceSettings;->mRemovalListener:Lcom/android/settings/biometrics/face/FaceSettingsRemoveButtonPreferenceController$Listener;
-
     new-instance v0, Lcom/android/settings/biometrics/face/FaceSettings$$ExternalSyntheticLambda1;
 
     invoke-direct {v0, p0}, Lcom/android/settings/biometrics/face/FaceSettings$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/biometrics/face/FaceSettings;)V
 
+    iput-object v0, p0, Lcom/android/settings/biometrics/face/FaceSettings;->mRemovalListener:Lcom/android/settings/biometrics/face/FaceSettingsRemoveButtonPreferenceController$Listener;
+
+    new-instance v0, Lcom/android/settings/biometrics/face/FaceSettings$$ExternalSyntheticLambda2;
+
+    invoke-direct {v0, p0}, Lcom/android/settings/biometrics/face/FaceSettings$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/biometrics/face/FaceSettings;)V
+
     iput-object v0, p0, Lcom/android/settings/biometrics/face/FaceSettings;->mEnrollListener:Lcom/android/settings/biometrics/face/FaceSettingsEnrollButtonPreferenceController$Listener;
 
     return-void
-.end method
-
-.method static synthetic access$000(Landroid/content/Context;)Ljava/util/List;
-    .locals 0
-
-    invoke-static {p0}, Lcom/android/settings/biometrics/face/FaceSettings;->buildPreferenceControllers(Landroid/content/Context;)Ljava/util/List;
-
-    move-result-object p0
-
-    return-object p0
 .end method
 
 .method private static buildPreferenceControllers(Landroid/content/Context;)Ljava/util/List;
@@ -291,7 +303,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$onActivityResult$2(Landroid/content/Intent;IIJ)V
+.method private synthetic lambda$onActivityResult$3(Landroid/content/Intent;IIJ)V
     .locals 1
 
     invoke-virtual {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->getPrefContext()Landroid/content/Context;
@@ -333,6 +345,26 @@
     iput-boolean p1, p0, Lcom/android/settings/biometrics/face/FaceSettings;->mConfirmingPassword:Z
 
     return-void
+.end method
+
+.method private synthetic lambda$onCreate$2()Ljava/lang/String;
+    .locals 1
+
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p0
+
+    const v0, 0x7f041212
+
+    invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 
@@ -454,7 +486,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a31
+    const p0, 0x7f040a8a
 
     return p0
 .end method
@@ -478,7 +510,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f1500d6
+    const p0, 0x7f1500db
 
     return p0
 .end method
@@ -596,6 +628,16 @@
 
     iput-object v1, p0, Lcom/android/settings/biometrics/face/FaceSettings;->mFaceManager:Landroid/hardware/face/FaceManager;
 
+    const-class v1, Landroid/app/admin/DevicePolicyManager;
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/app/admin/DevicePolicyManager;
+
+    iput-object v1, p0, Lcom/android/settings/biometrics/face/FaceSettings;->mDevicePolicyManager:Landroid/app/admin/DevicePolicyManager;
+
     invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getIntent()Landroid/content/Intent;
 
     move-result-object v1
@@ -614,7 +656,7 @@
 
     const/4 v3, -0x1
 
-    const-string v4, "sensor_id"
+    const-string/jumbo v4, "sensor_id"
 
     invoke-virtual {v1, v4, v3}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
@@ -688,17 +730,19 @@
 
     move-result-object v1
 
-    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
+    iget-object v3, p0, Lcom/android/settings/biometrics/face/FaceSettings;->mDevicePolicyManager:Landroid/app/admin/DevicePolicyManager;
+
+    invoke-virtual {v3}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
 
     move-result-object v3
 
-    invoke-virtual {v3}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
+    new-instance v4, Lcom/android/settings/biometrics/face/FaceSettings$$ExternalSyntheticLambda3;
 
-    move-result-object v3
+    invoke-direct {v4, p0}, Lcom/android/settings/biometrics/face/FaceSettings$$ExternalSyntheticLambda3;-><init>(Lcom/android/settings/biometrics/face/FaceSettings;)V
 
-    const v4, 0x7f041160
+    const-string v5, "Settings.FACE_SETTINGS_FOR_WORK_TITLE"
 
-    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    invoke-virtual {v3, v5, v4}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
 
     move-result-object v3
 
@@ -737,25 +781,25 @@
 
     invoke-virtual {v0, v1}, Lcom/android/settings/biometrics/face/FaceSettingsPreferenceController;->setUserId(I)V
 
-    const-string v0, "security_settings_face_keyguard"
+    const-string/jumbo v0, "security_settings_face_keyguard"
 
     invoke-virtual {p0, v0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
     move-result-object v1
 
-    const-string v3, "security_settings_face_app"
+    const-string/jumbo v3, "security_settings_face_app"
 
     invoke-virtual {p0, v3}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
     move-result-object v3
 
-    const-string v4, "security_settings_face_require_attention"
+    const-string/jumbo v4, "security_settings_face_require_attention"
 
     invoke-virtual {p0, v4}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
     move-result-object v4
 
-    const-string v5, "security_settings_face_require_confirmation"
+    const-string/jumbo v5, "security_settings_face_require_confirmation"
 
     invoke-virtual {p0, v5}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -805,7 +849,7 @@
 
     iput-object v7, p0, Lcom/android/settings/biometrics/face/FaceSettings;->mTogglePreferences:Ljava/util/List;
 
-    const-string v1, "security_settings_face_delete_faces_container"
+    const-string/jumbo v1, "security_settings_face_delete_faces_container"
 
     invoke-virtual {p0, v1}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -813,7 +857,7 @@
 
     iput-object v1, p0, Lcom/android/settings/biometrics/face/FaceSettings;->mRemoveButton:Landroidx/preference/Preference;
 
-    const-string v1, "security_settings_face_enroll_faces_container"
+    const-string/jumbo v1, "security_settings_face_enroll_faces_container"
 
     invoke-virtual {p0, v1}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -933,7 +977,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f04115f
+    const v1, 0x7f041211
 
     invoke-virtual {p0, v1}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -1024,7 +1068,7 @@
 
     if-nez v0, :cond_2
 
-    const-string v0, "security_settings_face_require_attention"
+    const-string/jumbo v0, "security_settings_face_require_attention"
 
     invoke-virtual {p0, v0}, Lcom/android/settings/SettingsPreferenceFragment;->removePreference(Ljava/lang/String;)Z
 

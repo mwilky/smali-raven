@@ -40,7 +40,7 @@
 
     const/4 p0, 0x0
 
-    invoke-static {p1, p0, p0, p0, p0}, Lcom/android/settings/development/DevelopmentSettingsDashboardFragment;->access$400(Landroid/content/Context;Landroid/app/Activity;Lcom/android/settingslib/core/lifecycle/Lifecycle;Lcom/android/settings/development/DevelopmentSettingsDashboardFragment;Lcom/android/settings/development/BluetoothA2dpConfigStore;)Ljava/util/List;
+    invoke-static {p1, p0, p0, p0, p0}, Lcom/android/settings/development/DevelopmentSettingsDashboardFragment;->-$$Nest$smbuildPreferenceControllers(Landroid/content/Context;Landroid/app/Activity;Lcom/android/settingslib/core/lifecycle/Lifecycle;Lcom/android/settings/development/DevelopmentSettingsDashboardFragment;Lcom/android/settings/development/BluetoothA2dpConfigStore;)Ljava/util/List;
 
     move-result-object p0
 

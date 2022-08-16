@@ -1,35 +1,30 @@
 .class public final synthetic Lcom/android/settings/homepage/contextualcards/ContextualCardManager$$ExternalSyntheticLambda6;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Predicate;
-
-
-# instance fields
-.field public final synthetic f$0:Ljava/util/Set;
+.implements Ljava/util/Comparator;
 
 
 # direct methods
-.method public synthetic constructor <init>(Ljava/util/Set;)V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/settings/homepage/contextualcards/ContextualCardManager$$ExternalSyntheticLambda6;->f$0:Ljava/util/Set;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final test(Ljava/lang/Object;)Z
+.method public final compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/homepage/contextualcards/ContextualCardManager$$ExternalSyntheticLambda6;->f$0:Ljava/util/Set;
 
     check-cast p1, Lcom/android/settings/homepage/contextualcards/ContextualCard;
 
-    invoke-static {p0, p1}, Lcom/android/settings/homepage/contextualcards/ContextualCardManager;->$r8$lambda$dN4wLTAVuRa0ccaT-rdpw8XokPg(Ljava/util/Set;Lcom/android/settings/homepage/contextualcards/ContextualCard;)Z
+    check-cast p2, Lcom/android/settings/homepage/contextualcards/ContextualCard;
+
+    invoke-static {p1, p2}, Lcom/android/settings/homepage/contextualcards/ContextualCardManager;->$r8$lambda$qDAfV4NARwRTTUE1XhLrp3ffWIg(Lcom/android/settings/homepage/contextualcards/ContextualCard;Lcom/android/settings/homepage/contextualcards/ContextualCard;)I
 
     move-result p0
 

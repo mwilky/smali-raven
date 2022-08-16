@@ -54,13 +54,13 @@
 
     iget-object p1, p0, Lcom/google/android/wifitrackerlib/WsuServiceClient$2;->this$0:Lcom/google/android/wifitrackerlib/WsuServiceClient;
 
-    invoke-static {p1}, Lcom/google/android/wifitrackerlib/WsuServiceClient;->access$000(Lcom/google/android/wifitrackerlib/WsuServiceClient;)Landroid/os/Handler;
+    invoke-static {p1}, Lcom/google/android/wifitrackerlib/WsuServiceClient;->-$$Nest$fgetmHandler(Lcom/google/android/wifitrackerlib/WsuServiceClient;)Landroid/os/Handler;
 
     move-result-object p1
 
     iget-object p0, p0, Lcom/google/android/wifitrackerlib/WsuServiceClient$2;->this$0:Lcom/google/android/wifitrackerlib/WsuServiceClient;
 
-    invoke-static {p0}, Lcom/google/android/wifitrackerlib/WsuServiceClient;->access$000(Lcom/google/android/wifitrackerlib/WsuServiceClient;)Landroid/os/Handler;
+    invoke-static {p0}, Lcom/google/android/wifitrackerlib/WsuServiceClient;->-$$Nest$fgetmHandler(Lcom/google/android/wifitrackerlib/WsuServiceClient;)Landroid/os/Handler;
 
     move-result-object p0
 

@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
+.implements Lcom/android/settings/accessibility/AccessibilitySettingsContentObserver$ContentObserverCallback;
 
 
 # instance fields
@@ -22,12 +23,12 @@
 
 
 # virtual methods
-.method public final onClick(Landroid/content/DialogInterface;I)V
+.method public final onChange(Ljava/lang/String;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment$$ExternalSyntheticLambda0;->f$0:Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;
 
-    invoke-virtual {p0, p1, p2}, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;->callOnAlertDialogCheckboxClicked(Landroid/content/DialogInterface;I)V
+    invoke-static {p0, p1}, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;->$r8$lambda$I7HfkfatRuwWwenoopQNoK2Abco(Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;Ljava/lang/String;)V
 
     return-void
 .end method

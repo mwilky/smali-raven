@@ -73,12 +73,6 @@
 
     aput-object v1, v0, v4
 
-    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v4, 0x11
-
-    if-lt v1, v4, :cond_0
-
     invoke-virtual {p0}, Landroid/widget/Button;->getCompoundDrawablesRelative()[Landroid/graphics/drawable/Drawable;
 
     move-result-object p0
@@ -95,7 +89,6 @@
 
     aput-object p0, v0, v1
 
-    :cond_0
     return-object v0
 .end method
 
@@ -111,12 +104,6 @@
     return-void
 
     :cond_0
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x11
-
-    if-lt v0, v1, :cond_3
-
     invoke-virtual {p0}, Landroid/widget/Button;->getCompoundDrawablesRelative()[Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
@@ -133,8 +120,6 @@
     aget-object v3, v0, v2
 
     if-eqz v3, :cond_1
-
-    aget-object v3, v0, v2
 
     invoke-static {v3}, Lcom/google/android/setupdesign/view/NavigationBarButton$TintedDrawable;->wrap(Landroid/graphics/drawable/Drawable;)Lcom/google/android/setupdesign/view/NavigationBarButton$TintedDrawable;
 
@@ -164,7 +149,6 @@
 
     invoke-virtual {p0, v1, v2, v3, v0}, Landroid/widget/Button;->setCompoundDrawablesRelativeWithIntrinsicBounds(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
 
-    :cond_3
     return-void
 .end method
 

@@ -40,7 +40,7 @@
 
     const/4 p1, 0x1
 
-    invoke-static {p0, p1}, Lcom/google/android/settings/biometrics/face/anim/curve/GridState;->access$002(Lcom/google/android/settings/biometrics/face/anim/curve/GridState;I)I
+    invoke-static {p0, p1}, Lcom/google/android/settings/biometrics/face/anim/curve/GridState;->-$$Nest$fputmState(Lcom/google/android/settings/biometrics/face/anim/curve/GridState;I)V
 
     return-void
 .end method

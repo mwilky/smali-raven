@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/settings/utils/ManagedServiceSettings$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/settingslib/applications/ServiceListing$Callback;
+.implements Ljava/util/function/Supplier;
 
 
 # instance fields
@@ -22,12 +23,14 @@
 
 
 # virtual methods
-.method public final onServicesReloaded(Ljava/util/List;)V
+.method public final get()Ljava/lang/Object;
     .locals 0
 
     iget-object p0, p0, Lcom/android/settings/utils/ManagedServiceSettings$$ExternalSyntheticLambda1;->f$0:Lcom/android/settings/utils/ManagedServiceSettings;
 
-    invoke-static {p0, p1}, Lcom/android/settings/utils/ManagedServiceSettings;->$r8$lambda$XfKVju8XNzlp5wKmC3ljb8dSJ6A(Lcom/android/settings/utils/ManagedServiceSettings;Ljava/util/List;)V
+    invoke-static {p0}, Lcom/android/settings/utils/ManagedServiceSettings;->$r8$lambda$b9zqpJvorEjMEmsbORAQ6DuSgwg(Lcom/android/settings/utils/ManagedServiceSettings;)Ljava/lang/String;
 
-    return-void
+    move-result-object p0
+
+    return-object p0
 .end method

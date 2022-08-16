@@ -41,7 +41,7 @@
 
     const-string v1, "others"
 
-    invoke-static {v0, v1}, Lcom/android/settings/panel/PanelFragment;->access$502(Lcom/android/settings/panel/PanelFragment;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v0, v1}, Lcom/android/settings/panel/PanelFragment;->-$$Nest$fputmPanelClosedKey(Lcom/android/settings/panel/PanelFragment;Ljava/lang/String;)V
 
     invoke-virtual {p0}, Lcom/android/settings/panel/PanelFragment$LocalPanelCallback;->getFragmentActivity()Landroidx/fragment/app/FragmentActivity;
 

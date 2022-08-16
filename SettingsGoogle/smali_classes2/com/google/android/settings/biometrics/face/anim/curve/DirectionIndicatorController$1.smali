@@ -56,7 +56,7 @@
 
     iget-object p1, p0, Lcom/google/android/settings/biometrics/face/anim/curve/DirectionIndicatorController$1;->this$0:Lcom/google/android/settings/biometrics/face/anim/curve/DirectionIndicatorController;
 
-    invoke-static {p1}, Lcom/google/android/settings/biometrics/face/anim/curve/DirectionIndicatorController;->access$000(Lcom/google/android/settings/biometrics/face/anim/curve/DirectionIndicatorController;)Z
+    invoke-static {p1}, Lcom/google/android/settings/biometrics/face/anim/curve/DirectionIndicatorController;->-$$Nest$fgetmShouldRepeat(Lcom/google/android/settings/biometrics/face/anim/curve/DirectionIndicatorController;)Z
 
     move-result p1
 

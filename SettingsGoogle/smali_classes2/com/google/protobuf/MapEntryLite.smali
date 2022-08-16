@@ -22,17 +22,6 @@
 .end annotation
 
 
-# instance fields
-.field private final metadata:Lcom/google/protobuf/MapEntryLite$Metadata;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Lcom/google/protobuf/MapEntryLite$Metadata<",
-            "TK;TV;>;"
-        }
-    .end annotation
-.end field
-
-
 # direct methods
 .method static computeSerializedSize(Lcom/google/protobuf/MapEntryLite$Metadata;Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 0
@@ -91,21 +80,21 @@
 
     invoke-static {p1}, Lcom/google/protobuf/CodedOutputStream;->computeTagSize(I)I
 
+    move-result p0
+
+    const/4 p1, 0x0
+
+    invoke-static {p1, p2, p3}, Lcom/google/protobuf/MapEntryLite;->computeSerializedSize(Lcom/google/protobuf/MapEntryLite$Metadata;Ljava/lang/Object;Ljava/lang/Object;)I
+
     move-result p1
 
-    iget-object p0, p0, Lcom/google/protobuf/MapEntryLite;->metadata:Lcom/google/protobuf/MapEntryLite$Metadata;
+    invoke-static {p1}, Lcom/google/protobuf/CodedOutputStream;->computeLengthDelimitedFieldSize(I)I
 
-    invoke-static {p0, p2, p3}, Lcom/google/protobuf/MapEntryLite;->computeSerializedSize(Lcom/google/protobuf/MapEntryLite$Metadata;Ljava/lang/Object;Ljava/lang/Object;)I
+    move-result p1
 
-    move-result p0
+    add-int/2addr p0, p1
 
-    invoke-static {p0}, Lcom/google/protobuf/CodedOutputStream;->computeLengthDelimitedFieldSize(I)I
-
-    move-result p0
-
-    add-int/2addr p1, p0
-
-    return p1
+    return p0
 .end method
 
 .method getMetadata()Lcom/google/protobuf/MapEntryLite$Metadata;
@@ -118,7 +107,7 @@
         }
     .end annotation
 
-    iget-object p0, p0, Lcom/google/protobuf/MapEntryLite;->metadata:Lcom/google/protobuf/MapEntryLite$Metadata;
+    const/4 p0, 0x0
 
     return-object p0
 .end method

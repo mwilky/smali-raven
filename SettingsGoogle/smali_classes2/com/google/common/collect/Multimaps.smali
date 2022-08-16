@@ -6,8 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/google/common/collect/Multimaps$Entries;,
-        Lcom/google/common/collect/Multimaps$CustomSetMultimap;
+        Lcom/google/common/collect/Multimaps$Entries;
     }
 .end annotation
 
@@ -56,33 +55,4 @@
     const/4 p0, 0x0
 
     return p0
-.end method
-
-.method public static newSetMultimap(Ljava/util/Map;Lcom/google/common/base/Supplier;)Lcom/google/common/collect/SetMultimap;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<K:",
-            "Ljava/lang/Object;",
-            "V:",
-            "Ljava/lang/Object;",
-            ">(",
-            "Ljava/util/Map<",
-            "TK;",
-            "Ljava/util/Collection<",
-            "TV;>;>;",
-            "Lcom/google/common/base/Supplier<",
-            "+",
-            "Ljava/util/Set<",
-            "TV;>;>;)",
-            "Lcom/google/common/collect/SetMultimap<",
-            "TK;TV;>;"
-        }
-    .end annotation
-
-    new-instance v0, Lcom/google/common/collect/Multimaps$CustomSetMultimap;
-
-    invoke-direct {v0, p0, p1}, Lcom/google/common/collect/Multimaps$CustomSetMultimap;-><init>(Ljava/util/Map;Lcom/google/common/base/Supplier;)V
-
-    return-object v0
 .end method

@@ -1,4 +1,4 @@
-.class final Lcom/android/settings/accessibility/AccessibilityUtil;
+.class public final Lcom/android/settings/accessibility/AccessibilityUtil;
 .super Ljava/lang/Object;
 .source "AccessibilityUtil.java"
 
@@ -250,12 +250,12 @@
     :cond_0
     if-eqz v1, :cond_1
 
-    const p1, 0x7f0400e2
+    const p1, 0x7f0400e5
 
     goto :goto_0
 
     :cond_1
-    const p1, 0x7f0400e1
+    const p1, 0x7f0400e4
 
     :goto_0
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -423,7 +423,7 @@
 
     move-result-object p0
 
-    const v0, 0x10e0095
+    const v0, 0x10e00a0
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -675,6 +675,22 @@
     move-result-object p2
 
     invoke-static {p0, p1, p2}, Landroid/provider/Settings$Secure;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
+
+    return-void
+.end method
+
+.method public static skipVolumeShortcutDialogTimeoutRestriction(Landroid/content/Context;)V
+    .locals 2
+
+    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object p0
+
+    const-string/jumbo v0, "skip_accessibility_shortcut_dialog_timeout_restriction"
+
+    const/4 v1, 0x1
+
+    invoke-static {p0, v0, v1}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
     return-void
 .end method

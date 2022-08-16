@@ -79,7 +79,7 @@
 .method public onCreateOptionsMenu(Landroid/view/Menu;)Z
     .locals 1
 
-    invoke-super {p0, p1}, Landroid/app/Activity;->onCreateOptionsMenu(Landroid/view/Menu;)Z
+    invoke-super {p0, p1}, Landroidx/activity/ComponentActivity;->onCreateOptionsMenu(Landroid/view/Menu;)Z
 
     move-result v0
 
@@ -126,7 +126,7 @@
 
     if-nez v0, :cond_0
 
-    invoke-super {p0, p1}, Landroid/app/Activity;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
+    invoke-super {p0, p1}, Landroidx/activity/ComponentActivity;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
 
     move-result p0
 

@@ -258,14 +258,6 @@
 # virtual methods
 .method public getInterpolation(F)F
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "input"
-        }
-    .end annotation
 
     sget-object p0, Landroidx/interpolator/view/animation/LinearOutSlowInInterpolator;->VALUES:[F
 

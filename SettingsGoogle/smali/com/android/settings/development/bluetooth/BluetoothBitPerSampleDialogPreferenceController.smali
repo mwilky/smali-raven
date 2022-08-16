@@ -167,13 +167,11 @@
 
     if-ge v2, v4, :cond_1
 
-    aget v4, v3, v2
+    aget v3, v3, v2
 
-    and-int/2addr v4, v1
+    and-int v4, v1, v3
 
     if-eqz v4, :cond_0
-
-    aget v3, v3, v2
 
     invoke-virtual {p0, v3}, Lcom/android/settings/development/bluetooth/BluetoothBitPerSampleDialogPreferenceController;->convertCfgToBtnIndex(I)I
 

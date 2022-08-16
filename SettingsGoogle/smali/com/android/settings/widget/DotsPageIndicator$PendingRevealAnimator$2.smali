@@ -42,13 +42,13 @@
 
     iget-object v0, p1, Lcom/android/settings/widget/DotsPageIndicator$PendingRevealAnimator;->this$0:Lcom/android/settings/widget/DotsPageIndicator;
 
-    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator$PendingRevealAnimator;->access$1700(Lcom/android/settings/widget/DotsPageIndicator$PendingRevealAnimator;)I
+    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator$PendingRevealAnimator;->-$$Nest$fgetdot(Lcom/android/settings/widget/DotsPageIndicator$PendingRevealAnimator;)I
 
     move-result p1
 
     const/4 v1, 0x0
 
-    invoke-static {v0, p1, v1}, Lcom/android/settings/widget/DotsPageIndicator;->access$1600(Lcom/android/settings/widget/DotsPageIndicator;IF)V
+    invoke-static {v0, p1, v1}, Lcom/android/settings/widget/DotsPageIndicator;->-$$Nest$msetDotRevealFraction(Lcom/android/settings/widget/DotsPageIndicator;IF)V
 
     iget-object p0, p0, Lcom/android/settings/widget/DotsPageIndicator$PendingRevealAnimator$2;->this$1:Lcom/android/settings/widget/DotsPageIndicator$PendingRevealAnimator;
 

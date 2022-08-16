@@ -1,41 +1,36 @@
 .class public final synthetic Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
+.implements Lcom/airbnb/lottie/LottieListener;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial$$ExternalSyntheticLambda0;
+# instance fields
+.field public final synthetic f$0:I
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial$$ExternalSyntheticLambda0;
-
-    invoke-direct {v0}, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial$$ExternalSyntheticLambda0;-><init>()V
-
-    sput-object v0, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial$$ExternalSyntheticLambda0;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput p1, p0, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial$$ExternalSyntheticLambda0;->f$0:I
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final onClick(Landroid/content/DialogInterface;I)V
+.method public final onResult(Ljava/lang/Object;)V
     .locals 0
 
-    invoke-static {p1, p2}, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial;->$r8$lambda$f3VyksAhaOn4m_4xARPQYFf1Sk8(Landroid/content/DialogInterface;I)V
+    iget p0, p0, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial$$ExternalSyntheticLambda0;->f$0:I
+
+    check-cast p1, Ljava/lang/Throwable;
+
+    invoke-static {p0, p1}, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial;->$r8$lambda$WGwUtipRqXHoZXyYum0RAkKKLzg(ILjava/lang/Throwable;)V
 
     return-void
 .end method

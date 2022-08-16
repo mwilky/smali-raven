@@ -38,7 +38,7 @@
 
     iget-object p1, p0, Lcom/android/settings/AllInOneTetherSettings$1;->this$0:Lcom/android/settings/AllInOneTetherSettings;
 
-    invoke-static {p1}, Lcom/android/settings/AllInOneTetherSettings;->access$200(Lcom/android/settings/AllInOneTetherSettings;)Z
+    invoke-static {p1}, Lcom/android/settings/AllInOneTetherSettings;->-$$Nest$fgetmRestartWifiApAfterConfigChange(Lcom/android/settings/AllInOneTetherSettings;)Z
 
     move-result p1
 
@@ -48,11 +48,11 @@
 
     const/4 v0, 0x0
 
-    invoke-static {p1, v0}, Lcom/android/settings/AllInOneTetherSettings;->access$202(Lcom/android/settings/AllInOneTetherSettings;Z)Z
+    invoke-static {p1, v0}, Lcom/android/settings/AllInOneTetherSettings;->-$$Nest$fputmRestartWifiApAfterConfigChange(Lcom/android/settings/AllInOneTetherSettings;Z)V
 
     iget-object p0, p0, Lcom/android/settings/AllInOneTetherSettings$1;->this$0:Lcom/android/settings/AllInOneTetherSettings;
 
-    invoke-static {p0}, Lcom/android/settings/AllInOneTetherSettings;->access$300(Lcom/android/settings/AllInOneTetherSettings;)Lcom/android/settings/network/TetherEnabler;
+    invoke-static {p0}, Lcom/android/settings/AllInOneTetherSettings;->-$$Nest$fgetmTetherEnabler(Lcom/android/settings/AllInOneTetherSettings;)Lcom/android/settings/network/TetherEnabler;
 
     move-result-object p0
 
@@ -100,7 +100,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/settings/AllInOneTetherSettings$1;->this$0:Lcom/android/settings/AllInOneTetherSettings;
 
-    invoke-static {v0}, Lcom/android/settings/AllInOneTetherSettings;->access$000(Lcom/android/settings/AllInOneTetherSettings;)V
+    invoke-static {v0}, Lcom/android/settings/AllInOneTetherSettings;->-$$Nest$mupdateDisplayWithNewConfig(Lcom/android/settings/AllInOneTetherSettings;)V
 
     const-string v0, "android.net.conn.TETHER_STATE_CHANGED"
 
@@ -112,7 +112,7 @@
 
     iget-object p1, p0, Lcom/android/settings/AllInOneTetherSettings$1;->this$0:Lcom/android/settings/AllInOneTetherSettings;
 
-    invoke-static {p1}, Lcom/android/settings/AllInOneTetherSettings;->access$100(Lcom/android/settings/AllInOneTetherSettings;)Landroid/net/wifi/WifiManager;
+    invoke-static {p1}, Lcom/android/settings/AllInOneTetherSettings;->-$$Nest$fgetmWifiManager(Lcom/android/settings/AllInOneTetherSettings;)Landroid/net/wifi/WifiManager;
 
     move-result-object p1
 

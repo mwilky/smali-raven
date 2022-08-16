@@ -3,7 +3,7 @@
 .source "TetherSettings.java"
 
 # interfaces
-.implements Landroid/net/EthernetManager$Listener;
+.implements Landroid/net/EthernetManager$InterfaceStateListener;
 
 
 # annotations
@@ -22,14 +22,6 @@
 
 
 # direct methods
-.method public static synthetic $r8$lambda$it9d65v96-Sr-Fc3vqWkAM_o2I4(Lcom/android/settings/TetherSettings$EthernetListener;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/TetherSettings$EthernetListener;->lambda$onAvailabilityChanged$0()V
-
-    return-void
-.end method
-
 .method private constructor <init>(Lcom/android/settings/TetherSettings;)V
     .locals 0
 
@@ -40,7 +32,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settings/TetherSettings;Lcom/android/settings/TetherSettings$1;)V
+.method synthetic constructor <init>(Lcom/android/settings/TetherSettings;Lcom/android/settings/TetherSettings$EthernetListener-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settings/TetherSettings$EthernetListener;-><init>(Lcom/android/settings/TetherSettings;)V
@@ -48,32 +40,38 @@
     return-void
 .end method
 
-.method private synthetic lambda$onAvailabilityChanged$0()V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/TetherSettings$EthernetListener;->this$0:Lcom/android/settings/TetherSettings;
-
-    invoke-static {p0}, Lcom/android/settings/TetherSettings;->access$300(Lcom/android/settings/TetherSettings;)V
-
-    return-void
-.end method
-
 
 # virtual methods
-.method public onAvailabilityChanged(Ljava/lang/String;Z)V
+.method public onInterfaceStateChanged(Ljava/lang/String;IILandroid/net/IpConfiguration;)V
     .locals 0
 
-    iget-object p1, p0, Lcom/android/settings/TetherSettings$EthernetListener;->this$0:Lcom/android/settings/TetherSettings;
+    const/4 p3, 0x2
 
-    invoke-static {p1}, Lcom/android/settings/TetherSettings;->access$1300(Lcom/android/settings/TetherSettings;)Landroid/os/Handler;
+    if-ne p2, p3, :cond_0
 
-    move-result-object p1
+    iget-object p2, p0, Lcom/android/settings/TetherSettings$EthernetListener;->this$0:Lcom/android/settings/TetherSettings;
 
-    new-instance p2, Lcom/android/settings/TetherSettings$EthernetListener$$ExternalSyntheticLambda0;
+    invoke-static {p2}, Lcom/android/settings/TetherSettings;->-$$Nest$fgetmAvailableInterfaces(Lcom/android/settings/TetherSettings;)Ljava/util/HashSet;
 
-    invoke-direct {p2, p0}, Lcom/android/settings/TetherSettings$EthernetListener$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/TetherSettings$EthernetListener;)V
+    move-result-object p2
 
-    invoke-virtual {p1, p2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {p2, p1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+
+    goto :goto_0
+
+    :cond_0
+    iget-object p2, p0, Lcom/android/settings/TetherSettings$EthernetListener;->this$0:Lcom/android/settings/TetherSettings;
+
+    invoke-static {p2}, Lcom/android/settings/TetherSettings;->-$$Nest$fgetmAvailableInterfaces(Lcom/android/settings/TetherSettings;)Ljava/util/HashSet;
+
+    move-result-object p2
+
+    invoke-virtual {p2, p1}, Ljava/util/HashSet;->remove(Ljava/lang/Object;)Z
+
+    :goto_0
+    iget-object p0, p0, Lcom/android/settings/TetherSettings$EthernetListener;->this$0:Lcom/android/settings/TetherSettings;
+
+    invoke-static {p0}, Lcom/android/settings/TetherSettings;->-$$Nest$mupdateBluetoothAndEthernetState(Lcom/android/settings/TetherSettings;)V
 
     return-void
 .end method

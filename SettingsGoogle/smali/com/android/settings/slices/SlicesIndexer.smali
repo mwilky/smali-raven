@@ -195,7 +195,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/net/Uri;->toSafeString()Ljava/lang/String;
+    invoke-virtual {v1}, Landroid/net/Uri;->toString()Ljava/lang/String;
 
     move-result-object v1
 
@@ -229,7 +229,7 @@
 
     move-result-object v1
 
-    const-string v2, "screentitle"
+    const-string/jumbo v2, "screentitle"
 
     invoke-virtual {v0, v2, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 

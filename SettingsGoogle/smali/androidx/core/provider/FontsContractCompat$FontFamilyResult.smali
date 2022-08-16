@@ -23,17 +23,6 @@
 # direct methods
 .method public constructor <init>(I[Landroidx/core/provider/FontsContractCompat$FontInfo;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "statusCode",
-            "fonts"
-        }
-    .end annotation
-
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -48,16 +37,6 @@
 
 .method static create(I[Landroidx/core/provider/FontsContractCompat$FontInfo;)Landroidx/core/provider/FontsContractCompat$FontFamilyResult;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "statusCode",
-            "fonts"
-        }
-    .end annotation
 
     new-instance v0, Landroidx/core/provider/FontsContractCompat$FontFamilyResult;
 

@@ -92,7 +92,7 @@
 .method private maybeShowWarning()V
     .locals 2
 
-    const-string v0, "ro.storage_manager.enabled"
+    const-string/jumbo v0, "ro.storage_manager.enabled"
 
     const/4 v1, 0x0
 

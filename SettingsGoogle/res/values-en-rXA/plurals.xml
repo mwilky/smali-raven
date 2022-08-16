@@ -234,11 +234,11 @@
         <item quantity="one">[%d çåţéĝöŕý ţûŕñéð öƒƒ one two three]</item>
     </plurals>
     <plurals name="notifications_sent_daily">
-        <item quantity="other">[~%d ñöţîƒîçåţîöñš þéŕ ðåý one two three]</item>
+        <item quantity="other">[~%,d ñöţîƒîçåţîöñš þéŕ ðåý one two three]</item>
         <item quantity="one">[~%d ñöţîƒîçåţîöñ þéŕ ðåý one two three]</item>
     </plurals>
     <plurals name="notifications_sent_weekly">
-        <item quantity="other">[~%d ñöţîƒîçåţîöñš þéŕ ŵééķ one two three]</item>
+        <item quantity="other">[~%,d ñöţîƒîçåţîöñš þéŕ ŵééķ one two three]</item>
         <item quantity="one">[~%d ñöţîƒîçåţîöñ þéŕ ŵééķ one two three]</item>
     </plurals>
     <plurals name="number_of_device_admins">
@@ -329,22 +329,6 @@
         <item quantity="other">[Ţŕûšţ öŕ ŕéḿöVé çéŕţîƒîçåţéš one two three four]</item>
         <item quantity="one">[Ţŕûšţ öŕ ŕéḿöVé çéŕţîƒîçåţé one two three four]</item>
     </plurals>
-    <plurals name="ssl_ca_cert_info_message">
-        <item quantity="other">"[%s ĥåš îñšţåļļéð çéŕţîƒîçåţé åûţĥöŕîţîéš ƒöŕ ýöûŕ ŵöŕķ þŕöƒîļé, ŵĥîçĥ ḿåý åļļöŵ ţĥéḿ ţö ḿöñîţöŕ ŵöŕķ ñéţŵöŕķ åçţîVîţý, îñçļûðîñĝ éḿåîļš, åþþš, åñð šéçûŕé ŵéɓšîţéš.
-
-Föŕ ḿöŕé îñƒöŕḿåţîöñ åɓöûţ ţĥéšé çéŕţîƒîçåţéš, çöñţåçţ ýöûŕ åðḿîñ. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fiveteen sixteen seventeen nineteen twenty one two three four five six seven eight nine ten eleven twelve thirteen fourteen fiveteen sixteen seventeen]"</item>
-        <item quantity="one">"[%s ĥåš îñšţåļļéð å çéŕţîƒîçåţé åûţĥöŕîţý ƒöŕ ýöûŕ ŵöŕķ þŕöƒîļé, ŵĥîçĥ ḿåý åļļöŵ ţĥéḿ ţö ḿöñîţöŕ ŵöŕķ ñéţŵöŕķ åçţîVîţý, îñçļûðîñĝ éḿåîļš, åþþš, åñð šéçûŕé ŵéɓšîţéš.
-
-Föŕ ḿöŕé îñƒöŕḿåţîöñ åɓöûţ ţĥîš çéŕţîƒîçåţé, çöñţåçţ ýöûŕ åðḿîñ. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fiveteen sixteen seventeen nineteen twenty one two three four five six seven eight nine ten eleven twelve thirteen fourteen fiveteen sixteen seventeen]"</item>
-    </plurals>
-    <plurals name="ssl_ca_cert_info_message_device_owner">
-        <item quantity="other">"[%s ĥåš îñšţåļļéð çéŕţîƒîçåţé åûţĥöŕîţîéš öñ ýöûŕ ðéVîçé, ŵĥîçĥ ḿåý åļļöŵ ţĥéḿ ţö ḿöñîţöŕ ýöûŕ ðéVîçé ñéţŵöŕķ åçţîVîţý, îñçļûðîñĝ éḿåîļš, åþþš, åñð šéçûŕé ŵéɓšîţéš.
-
-Föŕ ḿöŕé îñƒöŕḿåţîöñ åɓöûţ ţĥéšé çéŕţîƒîçåţéš, çöñţåçţ ýöûŕ åðḿîñ. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fiveteen sixteen seventeen nineteen twenty one two three four five six seven eight nine ten eleven twelve thirteen fourteen fiveteen sixteen seventeen]"</item>
-        <item quantity="one">"[%s ĥåš îñšţåļļéð å çéŕţîƒîçåţé åûţĥöŕîţý öñ ýöûŕ ðéVîçé, ŵĥîçĥ ḿåý åļļöŵ ţĥéḿ ţö ḿöñîţöŕ ýöûŕ ðéVîçé ñéţŵöŕķ åçţîVîţý, îñçļûðîñĝ éḿåîļš, åþþš, åñð šéçûŕé ŵéɓšîţéš.
-
-Föŕ ḿöŕé îñƒöŕḿåţîöñ åɓöûţ ţĥîš çéŕţîƒîçåţé, çöñţåçţ ýöûŕ åðḿîñ. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fiveteen sixteen seventeen nineteen twenty one two three four five six seven eight nine ten eleven twelve thirteen fourteen fiveteen sixteen seventeen]"</item>
-    </plurals>
     <plurals name="ssl_ca_cert_settings_button">
         <item quantity="other">[Çĥéçķ çéŕţîƒîçåţéš one two three]</item>
         <item quantity="one">[Çĥéçķ çéŕţîƒîçåţé one two three]</item>
@@ -376,10 +360,6 @@ Föŕ ḿöŕé îñƒöŕḿåţîöñ åɓöûţ ţĥîš çéŕţîƒîçåţ
     <plurals name="wifi_saved_passpoint_access_points_summary">
         <item quantity="other">[»%d« šûɓšçŕîþţîöñš one two three]</item>
         <item quantity="one">[1 šûɓšçŕîþţîöñ one two three]</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">[»%1$d« ðéVîçéš çöññéçţéð one two three]</item>
-        <item quantity="one">[»%1$d« ðéVîçé çöññéçţéð one two three]</item>
     </plurals>
     <plurals name="wrong_pin_code">
         <item quantity="other">[Îñçöŕŕéçţ ŠÎḾ ÞÎÑ çöðé, ýöû ĥåVé %d ŕéḿåîñîñĝ åţţéḿþţš. one two three four five six]</item>

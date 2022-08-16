@@ -1,43 +1,36 @@
 .class public final synthetic Lcom/android/wifitrackerlib/Utils$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/ToIntFunction;
+.implements Ljava/util/function/Predicate;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/wifitrackerlib/Utils$$ExternalSyntheticLambda1;
+# instance fields
+.field public final synthetic f$0:I
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/wifitrackerlib/Utils$$ExternalSyntheticLambda1;
-
-    invoke-direct {v0}, Lcom/android/wifitrackerlib/Utils$$ExternalSyntheticLambda1;-><init>()V
-
-    sput-object v0, Lcom/android/wifitrackerlib/Utils$$ExternalSyntheticLambda1;->INSTANCE:Lcom/android/wifitrackerlib/Utils$$ExternalSyntheticLambda1;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput p1, p0, Lcom/android/wifitrackerlib/Utils$$ExternalSyntheticLambda1;->f$0:I
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final applyAsInt(Ljava/lang/Object;)I
+.method public final test(Ljava/lang/Object;)Z
     .locals 0
 
-    check-cast p1, Landroid/net/wifi/ScanResult;
+    iget p0, p0, Lcom/android/wifitrackerlib/Utils$$ExternalSyntheticLambda1;->f$0:I
 
-    invoke-static {p1}, Lcom/android/wifitrackerlib/Utils;->$r8$lambda$yrwKQyTBu7eDuDAc8u_W5DCtIec(Landroid/net/wifi/ScanResult;)I
+    check-cast p1, Landroid/telephony/SubscriptionInfo;
+
+    invoke-static {p0, p1}, Lcom/android/wifitrackerlib/Utils;->$r8$lambda$95_ebnvl2VXVMOndznuyQ0oCkTw(ILandroid/telephony/SubscriptionInfo;)Z
 
     move-result p0
 

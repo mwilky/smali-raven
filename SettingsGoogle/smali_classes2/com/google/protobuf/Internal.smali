@@ -12,6 +12,7 @@
         Lcom/google/protobuf/Internal$BooleanList;,
         Lcom/google/protobuf/Internal$IntList;,
         Lcom/google/protobuf/Internal$ProtobufList;,
+        Lcom/google/protobuf/Internal$ListAdapter;,
         Lcom/google/protobuf/Internal$EnumVerifier;,
         Lcom/google/protobuf/Internal$EnumLiteMap;,
         Lcom/google/protobuf/Internal$EnumLite;
@@ -82,7 +83,7 @@
         }
     .end annotation
 
-    invoke-static {p0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     return-object p0
 .end method
@@ -99,9 +100,16 @@
         }
     .end annotation
 
-    invoke-static {p0, p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    if-eqz p0, :cond_0
 
     return-object p0
+
+    :cond_0
+    new-instance p0, Ljava/lang/NullPointerException;
+
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+
+    throw p0
 .end method
 
 .method public static hashBoolean(Z)I

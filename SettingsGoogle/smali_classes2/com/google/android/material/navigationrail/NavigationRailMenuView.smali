@@ -4,6 +4,8 @@
 
 
 # instance fields
+.field private itemMinimumHeight:I
+
 .field private final layoutParams:Landroid/widget/FrameLayout$LayoutParams;
 
 
@@ -13,40 +15,56 @@
 
     invoke-direct {p0, p1}, Lcom/google/android/material/navigation/NavigationBarMenuView;-><init>(Landroid/content/Context;)V
 
-    new-instance p1, Landroid/widget/FrameLayout$LayoutParams;
+    const/4 p1, -0x1
 
-    const/4 v0, -0x1
+    iput p1, p0, Lcom/google/android/material/navigationrail/NavigationRailMenuView;->itemMinimumHeight:I
+
+    new-instance v0, Landroid/widget/FrameLayout$LayoutParams;
 
     const/4 v1, -0x2
 
-    invoke-direct {p1, v0, v1}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V
+    invoke-direct {v0, p1, v1}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V
 
-    iput-object p1, p0, Lcom/google/android/material/navigationrail/NavigationRailMenuView;->layoutParams:Landroid/widget/FrameLayout$LayoutParams;
+    iput-object v0, p0, Lcom/google/android/material/navigationrail/NavigationRailMenuView;->layoutParams:Landroid/widget/FrameLayout$LayoutParams;
 
-    const/16 v0, 0x31
+    const/16 p1, 0x31
 
-    iput v0, p1, Landroid/widget/FrameLayout$LayoutParams;->gravity:I
+    iput p1, v0, Landroid/widget/FrameLayout$LayoutParams;->gravity:I
 
-    invoke-virtual {p0, p1}, Landroid/view/ViewGroup;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {p0, v0}, Landroid/view/ViewGroup;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    const/4 p1, 0x1
+
+    invoke-virtual {p0, p1}, Lcom/google/android/material/navigation/NavigationBarMenuView;->setItemActiveIndicatorResizeable(Z)V
 
     return-void
 .end method
 
 .method private makeSharedHeightSpec(III)I
-    .locals 0
+    .locals 1
 
-    const/4 p0, 0x1
+    const/4 v0, 0x1
 
-    invoke-static {p0, p3}, Ljava/lang/Math;->max(II)I
+    invoke-static {v0, p3}, Ljava/lang/Math;->max(II)I
 
-    move-result p0
+    move-result p3
 
-    div-int/2addr p2, p0
+    div-int/2addr p2, p3
 
+    iget p0, p0, Lcom/google/android/material/navigationrail/NavigationRailMenuView;->itemMinimumHeight:I
+
+    const/4 p3, -0x1
+
+    if-eq p0, p3, :cond_0
+
+    goto :goto_0
+
+    :cond_0
     invoke-static {p1}, Landroid/view/View$MeasureSpec;->getSize(I)I
 
     move-result p0
 
+    :goto_0
     invoke-static {p0, p2}, Ljava/lang/Math;->min(II)I
 
     move-result p0
@@ -190,6 +208,14 @@
     invoke-direct {p0, p1}, Lcom/google/android/material/navigationrail/NavigationRailItemView;-><init>(Landroid/content/Context;)V
 
     return-object p0
+.end method
+
+.method public getItemMinimumHeight()I
+    .locals 0
+
+    iget p0, p0, Lcom/google/android/material/navigationrail/NavigationRailMenuView;->itemMinimumHeight:I
+
+    return p0
 .end method
 
 .method getMenuGravity()I
@@ -338,6 +364,21 @@
 
     invoke-virtual {p0, p1, p2}, Landroid/view/ViewGroup;->setMeasuredDimension(II)V
 
+    return-void
+.end method
+
+.method public setItemMinimumHeight(I)V
+    .locals 1
+
+    iget v0, p0, Lcom/google/android/material/navigationrail/NavigationRailMenuView;->itemMinimumHeight:I
+
+    if-eq v0, p1, :cond_0
+
+    iput p1, p0, Lcom/google/android/material/navigationrail/NavigationRailMenuView;->itemMinimumHeight:I
+
+    invoke-virtual {p0}, Landroid/view/ViewGroup;->requestLayout()V
+
+    :cond_0
     return-void
 .end method
 

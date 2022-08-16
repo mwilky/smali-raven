@@ -29,7 +29,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settingslib/applications/ApplicationsState;Lcom/android/settingslib/applications/ApplicationsState$1;)V
+.method synthetic constructor <init>(Lcom/android/settingslib/applications/ApplicationsState;Lcom/android/settingslib/applications/ApplicationsState$PackageIntentReceiver-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settingslib/applications/ApplicationsState$PackageIntentReceiver;-><init>(Lcom/android/settingslib/applications/ApplicationsState;)V
@@ -211,7 +211,7 @@
 
     move-result p1
 
-    invoke-static {p0, p1}, Lcom/android/settingslib/applications/ApplicationsState;->access$700(Lcom/android/settingslib/applications/ApplicationsState;I)V
+    invoke-static {p0, p1}, Lcom/android/settingslib/applications/ApplicationsState;->-$$Nest$maddUser(Lcom/android/settingslib/applications/ApplicationsState;I)V
 
     goto :goto_6
 
@@ -230,7 +230,7 @@
 
     move-result p1
 
-    invoke-static {p0, p1}, Lcom/android/settingslib/applications/ApplicationsState;->access$800(Lcom/android/settingslib/applications/ApplicationsState;I)V
+    invoke-static {p0, p1}, Lcom/android/settingslib/applications/ApplicationsState;->-$$Nest$mremoveUser(Lcom/android/settingslib/applications/ApplicationsState;I)V
 
     goto :goto_6
 

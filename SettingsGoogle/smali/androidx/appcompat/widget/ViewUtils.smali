@@ -11,12 +11,6 @@
 .method static constructor <clinit>()V
     .locals 5
 
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x12
-
-    if-lt v0, v1, :cond_0
-
     :try_start_0
     const-class v0, Landroid/view/View;
 
@@ -137,12 +131,6 @@
 
     const-string v1, "ViewUtils"
 
-    sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v3, 0x10
-
-    if-lt v2, v3, :cond_1
-
     :try_start_0
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -198,7 +186,6 @@
 
     invoke-static {v1, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_1
     :goto_0
     return-void
 .end method

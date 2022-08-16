@@ -113,23 +113,51 @@
     return-object p0
 .end method
 
-.method private static getMobileTemplateForSubId(Landroid/telephony/TelephonyManager;I)Landroid/net/NetworkTemplate;
-    .locals 0
+.method public static getMobileTemplateForSubId(Landroid/telephony/TelephonyManager;I)Landroid/net/NetworkTemplate;
+    .locals 2
 
     invoke-virtual {p0, p1}, Landroid/telephony/TelephonyManager;->getSubscriberId(I)Ljava/lang/String;
 
     move-result-object p0
 
+    const/4 p1, 0x1
+
     if-eqz p0, :cond_0
 
-    invoke-static {p0}, Landroid/net/NetworkTemplate;->buildTemplateCarrierMetered(Ljava/lang/String;)Landroid/net/NetworkTemplate;
+    new-instance v0, Landroid/net/NetworkTemplate$Builder;
+
+    const/16 v1, 0xa
+
+    invoke-direct {v0, v1}, Landroid/net/NetworkTemplate$Builder;-><init>(I)V
+
+    invoke-static {p0}, Ljava/util/Set;->of(Ljava/lang/Object;)Ljava/util/Set;
+
+    move-result-object p0
+
+    invoke-virtual {v0, p0}, Landroid/net/NetworkTemplate$Builder;->setSubscriberIds(Ljava/util/Set;)Landroid/net/NetworkTemplate$Builder;
+
+    move-result-object p0
+
+    invoke-virtual {p0, p1}, Landroid/net/NetworkTemplate$Builder;->setMeteredness(I)Landroid/net/NetworkTemplate$Builder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroid/net/NetworkTemplate$Builder;->build()Landroid/net/NetworkTemplate;
 
     move-result-object p0
 
     goto :goto_0
 
     :cond_0
-    invoke-static {p0}, Landroid/net/NetworkTemplate;->buildTemplateMobileAll(Ljava/lang/String;)Landroid/net/NetworkTemplate;
+    new-instance p0, Landroid/net/NetworkTemplate$Builder;
+
+    invoke-direct {p0, p1}, Landroid/net/NetworkTemplate$Builder;-><init>(I)V
+
+    invoke-virtual {p0, p1}, Landroid/net/NetworkTemplate$Builder;->setMeteredness(I)Landroid/net/NetworkTemplate$Builder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroid/net/NetworkTemplate$Builder;->build()Landroid/net/NetworkTemplate;
 
     move-result-object p0
 
@@ -167,9 +195,81 @@
     return-object v0
 
     :cond_0
-    invoke-static {v0, p0}, Landroid/net/NetworkTemplate;->normalize(Landroid/net/NetworkTemplate;[Ljava/lang/String;)Landroid/net/NetworkTemplate;
+    invoke-static {v0, p0}, Lcom/android/settings/datausage/lib/DataUsageLib;->normalizeMobileTemplate(Landroid/net/NetworkTemplate;[Ljava/lang/String;)Landroid/net/NetworkTemplate;
 
     move-result-object p0
 
+    return-object p0
+.end method
+
+.method private static normalizeMobileTemplate(Landroid/net/NetworkTemplate;[Ljava/lang/String;)Landroid/net/NetworkTemplate;
+    .locals 2
+
+    invoke-virtual {p0}, Landroid/net/NetworkTemplate;->getSubscriberIds()Ljava/util/Set;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/Set;->isEmpty()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    return-object p0
+
+    :cond_0
+    invoke-virtual {p0}, Landroid/net/NetworkTemplate;->getSubscriberIds()Ljava/util/Set;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    invoke-static {p1}, Ljava/util/Set;->of([Ljava/lang/Object;)Ljava/util/Set;
+
+    move-result-object v1
+
+    invoke-interface {v1, v0}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    new-instance v0, Landroid/net/NetworkTemplate$Builder;
+
+    invoke-virtual {p0}, Landroid/net/NetworkTemplate;->getMatchRule()I
+
+    move-result v1
+
+    invoke-direct {v0, v1}, Landroid/net/NetworkTemplate$Builder;-><init>(I)V
+
+    invoke-static {p1}, Ljava/util/Set;->of([Ljava/lang/Object;)Ljava/util/Set;
+
+    move-result-object p1
+
+    invoke-virtual {v0, p1}, Landroid/net/NetworkTemplate$Builder;->setSubscriberIds(Ljava/util/Set;)Landroid/net/NetworkTemplate$Builder;
+
+    move-result-object p1
+
+    invoke-virtual {p0}, Landroid/net/NetworkTemplate;->getMeteredness()I
+
+    move-result p0
+
+    invoke-virtual {p1, p0}, Landroid/net/NetworkTemplate$Builder;->setMeteredness(I)Landroid/net/NetworkTemplate$Builder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroid/net/NetworkTemplate$Builder;->build()Landroid/net/NetworkTemplate;
+
+    move-result-object p0
+
+    :cond_1
     return-object p0
 .end method

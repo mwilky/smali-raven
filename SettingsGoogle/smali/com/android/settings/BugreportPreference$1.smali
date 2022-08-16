@@ -39,7 +39,7 @@
 
     iget-object v0, p0, Lcom/android/settings/BugreportPreference$1;->this$0:Lcom/android/settings/BugreportPreference;
 
-    invoke-static {v0}, Lcom/android/settings/BugreportPreference;->access$000(Lcom/android/settings/BugreportPreference;)Landroid/widget/CheckedTextView;
+    invoke-static {v0}, Lcom/android/settings/BugreportPreference;->-$$Nest$fgetmFullTitle(Lcom/android/settings/BugreportPreference;)Landroid/widget/CheckedTextView;
 
     move-result-object v0
 
@@ -51,7 +51,7 @@
 
     iget-object v0, p0, Lcom/android/settings/BugreportPreference$1;->this$0:Lcom/android/settings/BugreportPreference;
 
-    invoke-static {v0}, Lcom/android/settings/BugreportPreference;->access$100(Lcom/android/settings/BugreportPreference;)Landroid/widget/TextView;
+    invoke-static {v0}, Lcom/android/settings/BugreportPreference;->-$$Nest$fgetmFullSummary(Lcom/android/settings/BugreportPreference;)Landroid/widget/TextView;
 
     move-result-object v0
 
@@ -60,7 +60,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/settings/BugreportPreference$1;->this$0:Lcom/android/settings/BugreportPreference;
 
-    invoke-static {v0}, Lcom/android/settings/BugreportPreference;->access$200(Lcom/android/settings/BugreportPreference;)Landroid/widget/CheckedTextView;
+    invoke-static {v0}, Lcom/android/settings/BugreportPreference;->-$$Nest$fgetmInteractiveTitle(Lcom/android/settings/BugreportPreference;)Landroid/widget/CheckedTextView;
 
     move-result-object v0
 
@@ -68,7 +68,7 @@
 
     iget-object v0, p0, Lcom/android/settings/BugreportPreference$1;->this$0:Lcom/android/settings/BugreportPreference;
 
-    invoke-static {v0}, Lcom/android/settings/BugreportPreference;->access$000(Lcom/android/settings/BugreportPreference;)Landroid/widget/CheckedTextView;
+    invoke-static {v0}, Lcom/android/settings/BugreportPreference;->-$$Nest$fgetmFullTitle(Lcom/android/settings/BugreportPreference;)Landroid/widget/CheckedTextView;
 
     move-result-object v0
 
@@ -77,7 +77,7 @@
     :cond_1
     iget-object v0, p0, Lcom/android/settings/BugreportPreference$1;->this$0:Lcom/android/settings/BugreportPreference;
 
-    invoke-static {v0}, Lcom/android/settings/BugreportPreference;->access$200(Lcom/android/settings/BugreportPreference;)Landroid/widget/CheckedTextView;
+    invoke-static {v0}, Lcom/android/settings/BugreportPreference;->-$$Nest$fgetmInteractiveTitle(Lcom/android/settings/BugreportPreference;)Landroid/widget/CheckedTextView;
 
     move-result-object v0
 
@@ -85,7 +85,7 @@
 
     iget-object v0, p0, Lcom/android/settings/BugreportPreference$1;->this$0:Lcom/android/settings/BugreportPreference;
 
-    invoke-static {v0}, Lcom/android/settings/BugreportPreference;->access$300(Lcom/android/settings/BugreportPreference;)Landroid/widget/TextView;
+    invoke-static {v0}, Lcom/android/settings/BugreportPreference;->-$$Nest$fgetmInteractiveSummary(Lcom/android/settings/BugreportPreference;)Landroid/widget/TextView;
 
     move-result-object v0
 
@@ -94,7 +94,7 @@
     :cond_2
     iget-object p1, p0, Lcom/android/settings/BugreportPreference$1;->this$0:Lcom/android/settings/BugreportPreference;
 
-    invoke-static {p1}, Lcom/android/settings/BugreportPreference;->access$200(Lcom/android/settings/BugreportPreference;)Landroid/widget/CheckedTextView;
+    invoke-static {p1}, Lcom/android/settings/BugreportPreference;->-$$Nest$fgetmInteractiveTitle(Lcom/android/settings/BugreportPreference;)Landroid/widget/CheckedTextView;
 
     move-result-object p1
 
@@ -102,7 +102,7 @@
 
     iget-object p0, p0, Lcom/android/settings/BugreportPreference$1;->this$0:Lcom/android/settings/BugreportPreference;
 
-    invoke-static {p0}, Lcom/android/settings/BugreportPreference;->access$000(Lcom/android/settings/BugreportPreference;)Landroid/widget/CheckedTextView;
+    invoke-static {p0}, Lcom/android/settings/BugreportPreference;->-$$Nest$fgetmFullTitle(Lcom/android/settings/BugreportPreference;)Landroid/widget/CheckedTextView;
 
     move-result-object p0
 

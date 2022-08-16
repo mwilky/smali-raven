@@ -33,6 +33,14 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmConditionManager(Lcom/android/settings/homepage/contextualcards/conditional/GrayscaleConditionController;)Lcom/android/settings/homepage/contextualcards/conditional/ConditionManager;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/homepage/contextualcards/conditional/GrayscaleConditionController;->mConditionManager:Lcom/android/settings/homepage/contextualcards/conditional/ConditionManager;
+
+    return-object p0
+.end method
+
 .method static constructor <clinit>()V
     .locals 3
 
@@ -91,14 +99,6 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/settings/homepage/contextualcards/conditional/GrayscaleConditionController;)Lcom/android/settings/homepage/contextualcards/conditional/ConditionManager;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/homepage/contextualcards/conditional/GrayscaleConditionController;->mConditionManager:Lcom/android/settings/homepage/contextualcards/conditional/ConditionManager;
-
-    return-object p0
-.end method
-
 .method private sendBroadcast()V
     .locals 3
 
@@ -148,7 +148,7 @@
 
     iget-object v1, p0, Lcom/android/settings/homepage/contextualcards/conditional/GrayscaleConditionController;->mAppContext:Landroid/content/Context;
 
-    const v2, 0x7f040638
+    const v2, 0x7f040696
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -176,7 +176,7 @@
 
     iget-object v2, p0, Lcom/android/settings/homepage/contextualcards/conditional/GrayscaleConditionController;->mAppContext:Landroid/content/Context;
 
-    const v3, 0x7f040633
+    const v3, 0x7f040691
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -208,7 +208,7 @@
 
     iget-object v1, p0, Lcom/android/settings/homepage/contextualcards/conditional/GrayscaleConditionController;->mAppContext:Landroid/content/Context;
 
-    const v2, 0x7f040632
+    const v2, 0x7f040690
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -224,7 +224,7 @@
 
     iget-object p0, p0, Lcom/android/settings/homepage/contextualcards/conditional/GrayscaleConditionController;->mAppContext:Landroid/content/Context;
 
-    const v1, 0x7f0201e9
+    const v1, 0x7f020203
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -234,7 +234,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f06008d
+    const v0, 0x7f060098
 
     invoke-virtual {p0, v0}, Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;->setViewType(I)Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;
 
@@ -263,7 +263,7 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/settings/homepage/contextualcards/conditional/GrayscaleConditionController;->mAppContext:Landroid/content/Context;
 
-    const v1, 0x7f040651
+    const v1, 0x7f0406b0
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

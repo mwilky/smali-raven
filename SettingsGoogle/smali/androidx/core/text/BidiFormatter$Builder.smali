@@ -43,14 +43,6 @@
 
 .method private static getDefaultInstanceFromContext(Z)Landroidx/core/text/BidiFormatter;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "isRtlContext"
-        }
-    .end annotation
 
     if-eqz p0, :cond_0
 
@@ -67,14 +59,6 @@
 
 .method private initialize(Z)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "isRtlContext"
-        }
-    .end annotation
 
     iput-boolean p1, p0, Landroidx/core/text/BidiFormatter$Builder;->mIsRtlContext:Z
 

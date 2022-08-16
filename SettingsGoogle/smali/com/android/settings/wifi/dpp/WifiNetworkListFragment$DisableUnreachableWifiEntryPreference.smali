@@ -1,5 +1,5 @@
 .class Lcom/android/settings/wifi/dpp/WifiNetworkListFragment$DisableUnreachableWifiEntryPreference;
-.super Lcom/android/settingslib/wifi/WifiEntryPreference;
+.super Lcom/android/settings/wifi/WifiEntryPreference;
 .source "WifiNetworkListFragment.java"
 
 
@@ -18,7 +18,7 @@
 .method constructor <init>(Landroid/content/Context;Lcom/android/wifitrackerlib/WifiEntry;)V
     .locals 0
 
-    invoke-direct {p0, p1, p2}, Lcom/android/settingslib/wifi/WifiEntryPreference;-><init>(Landroid/content/Context;Lcom/android/wifitrackerlib/WifiEntry;)V
+    invoke-direct {p0, p1, p2}, Lcom/android/settings/wifi/WifiEntryPreference;-><init>(Landroid/content/Context;Lcom/android/wifitrackerlib/WifiEntry;)V
 
     return-void
 .end method
@@ -28,9 +28,9 @@
 .method public onUpdated()V
     .locals 2
 
-    invoke-super {p0}, Lcom/android/settingslib/wifi/WifiEntryPreference;->onUpdated()V
+    invoke-super {p0}, Lcom/android/settings/wifi/WifiEntryPreference;->onUpdated()V
 
-    invoke-virtual {p0}, Lcom/android/settingslib/wifi/WifiEntryPreference;->getWifiEntry()Lcom/android/wifitrackerlib/WifiEntry;
+    invoke-virtual {p0}, Lcom/android/settings/wifi/WifiEntryPreference;->getWifiEntry()Lcom/android/wifitrackerlib/WifiEntry;
 
     move-result-object v0
 

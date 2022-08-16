@@ -48,7 +48,7 @@
 
 .field private mSubId:I
 
-.field private mSwitchBar:Lcom/android/settings/widget/SettingsMainSwitchBar;
+.field private mSwitchBar:Lcom/android/settings/widget/SettingsMainSwitchPreference;
 
 .field private final mTelephonyCallback:Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub$PhoneTelephonyCallback;
 
@@ -72,6 +72,22 @@
     move-result p0
 
     return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmSubId(Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub;->mSubId:I
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$mupdateBody(Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub;->updateBody()V
+
+    return-void
 .end method
 
 .method public constructor <init>()V
@@ -99,7 +115,7 @@
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, p0, v1}, Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub$PhoneTelephonyCallback;-><init>(Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub;Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub$1;)V
+    invoke-direct {v0, p0, v1}, Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub$PhoneTelephonyCallback;-><init>(Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub;Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub$PhoneTelephonyCallback-IA;)V
 
     iput-object v0, p0, Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub;->mTelephonyCallback:Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub$PhoneTelephonyCallback;
 
@@ -120,30 +136,6 @@
     invoke-direct {v0, p0}, Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub$2;-><init>(Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub;)V
 
     iput-object v0, p0, Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub;->mIntentReceiver:Landroid/content/BroadcastReceiver;
-
-    return-void
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub;)I
-    .locals 0
-
-    iget p0, p0, Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub;->mSubId:I
-
-    return p0
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub;)Lcom/android/settings/widget/SettingsMainSwitchBar;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub;->mSwitchBar:Lcom/android/settings/widget/SettingsMainSwitchBar;
-
-    return-object p0
-.end method
-
-.method static synthetic access$300(Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub;->updateBody()V
 
     return-void
 .end method
@@ -266,23 +258,23 @@
     goto :goto_0
 
     :cond_0
-    const p1, 0x10408cf
+    const p1, 0x1040949
 
     goto :goto_1
 
     :cond_1
-    const p1, 0x10408cd
+    const p1, 0x1040947
 
     goto :goto_1
 
     :cond_2
-    const p1, 0x10408ce
+    const p1, 0x1040948
 
     goto :goto_1
 
     :cond_3
     :goto_0
-    const p1, 0x10408ed
+    const p1, 0x1040967
 
     :goto_1
     invoke-virtual {p0}, Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub;->getResourcesForSubId()Landroid/content/res/Resources;
@@ -395,7 +387,7 @@
 
     iget-object v4, p0, Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub;->mButtonWfcMode:Lcom/android/settings/wifi/calling/ListWithEntrySummaryPreference;
 
-    const v5, 0x7f0415f4
+    const v5, 0x7f0416ed
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -405,7 +397,7 @@
 
     iget-object v4, p0, Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub;->mButtonWfcMode:Lcom/android/settings/wifi/calling/ListWithEntrySummaryPreference;
 
-    const v5, 0x7f0415f3
+    const v5, 0x7f0416ec
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -415,7 +407,7 @@
 
     iget-object v4, p0, Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub;->mButtonWfcRoamingMode:Lcom/android/settings/wifi/calling/ListWithEntrySummaryPreference;
 
-    const v5, 0x7f0415fd
+    const v5, 0x7f0416f6
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -425,7 +417,7 @@
 
     iget-object v4, p0, Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub;->mButtonWfcRoamingMode:Lcom/android/settings/wifi/calling/ListWithEntrySummaryPreference;
 
-    const v5, 0x7f0415fb
+    const v5, 0x7f0416f4
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -437,7 +429,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub;->mButtonWfcMode:Lcom/android/settings/wifi/calling/ListWithEntrySummaryPreference;
 
-    const v4, 0x7f0100d7
+    const v4, 0x7f0100eb
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -447,7 +439,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub;->mButtonWfcMode:Lcom/android/settings/wifi/calling/ListWithEntrySummaryPreference;
 
-    const v4, 0x7f0100dd
+    const v4, 0x7f0100f1
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -457,7 +449,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub;->mButtonWfcMode:Lcom/android/settings/wifi/calling/ListWithEntrySummaryPreference;
 
-    const v5, 0x7f0100db
+    const v5, 0x7f0100ef
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -467,7 +459,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub;->mButtonWfcRoamingMode:Lcom/android/settings/wifi/calling/ListWithEntrySummaryPreference;
 
-    const v6, 0x7f0100d8
+    const v6, 0x7f0100ec
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -496,7 +488,7 @@
     :cond_2
     iget-object v0, p0, Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub;->mButtonWfcMode:Lcom/android/settings/wifi/calling/ListWithEntrySummaryPreference;
 
-    const v4, 0x7f0100da
+    const v4, 0x7f0100ee
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -506,7 +498,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub;->mButtonWfcMode:Lcom/android/settings/wifi/calling/ListWithEntrySummaryPreference;
 
-    const v4, 0x7f0100de
+    const v4, 0x7f0100f2
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -516,7 +508,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub;->mButtonWfcMode:Lcom/android/settings/wifi/calling/ListWithEntrySummaryPreference;
 
-    const v5, 0x7f0100dc
+    const v5, 0x7f0100f0
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -526,7 +518,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub;->mButtonWfcRoamingMode:Lcom/android/settings/wifi/calling/ListWithEntrySummaryPreference;
 
-    const v6, 0x7f0100d9
+    const v6, 0x7f0100ed
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -572,9 +564,9 @@
     move v1, v2
 
     :cond_3
-    iget-object v0, p0, Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub;->mSwitchBar:Lcom/android/settings/widget/SettingsMainSwitchBar;
+    iget-object v0, p0, Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub;->mSwitchBar:Lcom/android/settings/widget/SettingsMainSwitchPreference;
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/widget/SettingsMainSwitchBar;->setChecked(Z)V
+    invoke-virtual {v0, v1}, Lcom/android/settings/widget/SettingsMainSwitchPreference;->setChecked(Z)V
 
     iget-object v0, p0, Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub;->mImsMmTelManager:Landroid/telephony/ims/ImsMmTelManager;
 
@@ -765,7 +757,9 @@
 
     move-result-object p1
 
-    sget-object v1, Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub$$ExternalSyntheticLambda1;->INSTANCE:Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub$$ExternalSyntheticLambda1;
+    new-instance v1, Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub$$ExternalSyntheticLambda1;
+
+    invoke-direct {v1}, Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub$$ExternalSyntheticLambda1;-><init>()V
 
     invoke-interface {p1, v1}, Ljava/util/stream/Stream;->anyMatch(Ljava/util/function/Predicate;)Z
 
@@ -779,13 +773,13 @@
 
     move-result-object p0
 
-    const v2, 0x7f0415f8
+    const v2, 0x7f0416f1
 
     new-array v3, v1, [Ljava/lang/Object;
 
     const/4 v4, 0x0
 
-    const v5, 0x7f0415f9
+    const v5, 0x7f0416f2
 
     invoke-virtual {p0, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1026,30 +1020,6 @@
     return p0
 .end method
 
-.method public onActivityCreated(Landroid/os/Bundle;)V
-    .locals 1
-
-    invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onActivityCreated(Landroid/os/Bundle;)V
-
-    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getView()Landroid/view/View;
-
-    move-result-object p1
-
-    const v0, 0x7f0d0592
-
-    invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object p1
-
-    check-cast p1, Lcom/android/settings/widget/SettingsMainSwitchBar;
-
-    iput-object p1, p0, Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub;->mSwitchBar:Lcom/android/settings/widget/SettingsMainSwitchBar;
-
-    invoke-virtual {p1}, Lcom/android/settingslib/widget/MainSwitchBar;->show()V
-
-    return-void
-.end method
-
 .method public onActivityResult(IILandroid/content/Intent;)V
     .locals 3
 
@@ -1146,7 +1116,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    const v0, 0x7f150113
+    const v0, 0x7f15011b
 
     invoke-virtual {p0, v0}, Lcom/android/settings/SettingsPreferenceFragment;->addPreferencesFromResource(I)V
 
@@ -1204,6 +1174,16 @@
     move-result-object p1
 
     iput-object p1, p0, Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub;->mImsMmTelManager:Landroid/telephony/ims/ImsMmTelManager;
+
+    const-string/jumbo p1, "wifi_calling_switch_bar"
+
+    invoke-virtual {p0, p1}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
+
+    move-result-object p1
+
+    check-cast p1, Lcom/android/settings/widget/SettingsMainSwitchPreference;
+
+    iput-object p1, p0, Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub;->mSwitchBar:Lcom/android/settings/widget/SettingsMainSwitchPreference;
 
     const-string/jumbo p1, "wifi_calling_mode"
 
@@ -1269,7 +1249,7 @@
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 3
 
-    const v0, 0x7f0602b4
+    const v0, 0x7f0602c7
 
     const/4 v1, 0x0
 
@@ -1294,18 +1274,6 @@
     invoke-virtual {v2, p0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     return-object v0
-.end method
-
-.method public onDestroyView()V
-    .locals 0
-
-    invoke-super {p0}, Landroidx/preference/PreferenceFragmentCompat;->onDestroyView()V
-
-    iget-object p0, p0, Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub;->mSwitchBar:Lcom/android/settings/widget/SettingsMainSwitchBar;
-
-    invoke-virtual {p0}, Lcom/android/settingslib/widget/MainSwitchBar;->hide()V
-
-    return-void
 .end method
 
 .method public onPause()V
@@ -1335,9 +1303,9 @@
 
     invoke-virtual {v1, v2}, Landroid/telephony/TelephonyManager;->unregisterTelephonyCallback(Landroid/telephony/TelephonyCallback;)V
 
-    iget-object v1, p0, Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub;->mSwitchBar:Lcom/android/settings/widget/SettingsMainSwitchBar;
+    iget-object v1, p0, Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub;->mSwitchBar:Lcom/android/settings/widget/SettingsMainSwitchPreference;
 
-    invoke-virtual {v1, p0}, Lcom/android/settingslib/widget/MainSwitchBar;->removeOnSwitchChangeListener(Lcom/android/settingslib/widget/OnMainSwitchChangeListener;)V
+    invoke-virtual {v1, p0}, Lcom/android/settings/widget/SettingsMainSwitchPreference;->removeOnSwitchChangeListener(Lcom/android/settingslib/widget/OnMainSwitchChangeListener;)V
 
     :cond_0
     iget-object v1, p0, Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub;->mIntentReceiver:Landroid/content/BroadcastReceiver;
@@ -1515,9 +1483,9 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/telephony/TelephonyManager;->registerTelephonyCallback(Ljava/util/concurrent/Executor;Landroid/telephony/TelephonyCallback;)V
 
-    iget-object v1, p0, Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub;->mSwitchBar:Lcom/android/settings/widget/SettingsMainSwitchBar;
+    iget-object v1, p0, Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub;->mSwitchBar:Lcom/android/settings/widget/SettingsMainSwitchPreference;
 
-    invoke-virtual {v1, p0}, Lcom/android/settingslib/widget/MainSwitchBar;->addOnSwitchChangeListener(Lcom/android/settingslib/widget/OnMainSwitchChangeListener;)V
+    invoke-virtual {v1, p0}, Lcom/android/settings/widget/SettingsMainSwitchPreference;->addOnSwitchChangeListener(Lcom/android/settingslib/widget/OnMainSwitchChangeListener;)V
 
     const/4 v1, 0x1
 
@@ -1528,7 +1496,9 @@
 
     iget-object v2, p0, Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub;->mIntentFilter:Landroid/content/IntentFilter;
 
-    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+    const/4 v3, 0x2
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;I)Landroid/content/Intent;
 
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
 
@@ -1636,7 +1606,7 @@
 
     move-result-object p1
 
-    const p2, 0x7f0415ff
+    const p2, 0x7f0416f8
 
     invoke-virtual {p1, p2}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 

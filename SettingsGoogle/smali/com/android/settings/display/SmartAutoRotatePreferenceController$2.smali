@@ -36,7 +36,7 @@
 
     iget-object v0, p0, Lcom/android/settings/display/SmartAutoRotatePreferenceController$2;->this$0:Lcom/android/settings/display/SmartAutoRotatePreferenceController;
 
-    invoke-static {v0}, Lcom/android/settings/display/SmartAutoRotatePreferenceController;->access$000(Lcom/android/settings/display/SmartAutoRotatePreferenceController;)Landroidx/preference/Preference;
+    invoke-static {v0}, Lcom/android/settings/display/SmartAutoRotatePreferenceController;->-$$Nest$fgetmPreference(Lcom/android/settings/display/SmartAutoRotatePreferenceController;)Landroidx/preference/Preference;
 
     move-result-object v0
 
@@ -44,7 +44,7 @@
 
     iget-object p0, p0, Lcom/android/settings/display/SmartAutoRotatePreferenceController$2;->this$0:Lcom/android/settings/display/SmartAutoRotatePreferenceController;
 
-    invoke-static {p0}, Lcom/android/settings/display/SmartAutoRotatePreferenceController;->access$000(Lcom/android/settings/display/SmartAutoRotatePreferenceController;)Landroidx/preference/Preference;
+    invoke-static {p0}, Lcom/android/settings/display/SmartAutoRotatePreferenceController;->-$$Nest$fgetmPreference(Lcom/android/settings/display/SmartAutoRotatePreferenceController;)Landroidx/preference/Preference;
 
     move-result-object v0
 

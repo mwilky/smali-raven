@@ -24,7 +24,7 @@
 
     const/4 v1, 0x3
 
-    const v2, 0x7f041281
+    const v2, 0x7f04133b
 
     invoke-static {v1, v2}, Lcom/android/settings/sim/SimDialogFragment;->initArguments(II)Landroid/os/Bundle;
 
@@ -58,29 +58,38 @@
 
     invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {p0}, Lcom/android/settings/sim/PreferredSimDialogFragment;->getPreferredSubscription()Landroid/telephony/SubscriptionInfo;
+    iget-boolean v0, p0, Lcom/android/settings/sim/SimDialogFragment;->mWasDismissed:Z
 
-    move-result-object v0
-
-    iget-boolean v1, p0, Lcom/android/settings/sim/SimDialogFragment;->mWasDismissed:Z
-
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
     return-void
 
     :cond_0
-    if-nez v0, :cond_1
+    if-nez p1, :cond_1
 
-    invoke-virtual {p0}, Landroidx/fragment/app/DialogFragment;->dismiss()V
+    const-string v0, "Dialog is null."
+
+    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {p0}, Lcom/android/settings/sim/SimDialogFragment;->dismiss()V
+
+    :cond_1
+    invoke-virtual {p0}, Lcom/android/settings/sim/PreferredSimDialogFragment;->getPreferredSubscription()Landroid/telephony/SubscriptionInfo;
+
+    move-result-object v0
+
+    if-nez v0, :cond_2
+
+    invoke-virtual {p0}, Lcom/android/settings/sim/SimDialogFragment;->dismiss()V
 
     return-void
 
-    :cond_1
+    :cond_2
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
-    const v2, 0x7f041280
+    const v2, 0x7f04133a
 
     const/4 v3, 0x1
 
@@ -220,13 +229,13 @@
 
     move-result-object p1
 
-    const v0, 0x7f0417bb
+    const v0, 0x7f0418b6
 
     invoke-virtual {p1, v0, p0}, Landroidx/appcompat/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 
     move-result-object p1
 
-    const v0, 0x7f040e12
+    const v0, 0x7f040ea1
 
     const/4 v1, 0x0
 

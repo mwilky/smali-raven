@@ -230,7 +230,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0404f4
+    const v1, 0x7f04054d
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -467,7 +467,7 @@
     goto :goto_0
 
     :cond_5
-    const v1, 0x7f0d00f3
+    const v1, 0x7f0d00f9
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -494,7 +494,7 @@
     goto :goto_1
 
     :cond_6
-    const p0, 0x7f0404f7
+    const p0, 0x7f040550
 
     invoke-virtual {p1, p0}, Landroid/widget/TextView;->setText(I)V
 

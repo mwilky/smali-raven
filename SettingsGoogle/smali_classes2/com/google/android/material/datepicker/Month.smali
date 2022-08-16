@@ -313,7 +313,7 @@
     return p0
 .end method
 
-.method getLongName(Landroid/content/Context;)Ljava/lang/String;
+.method getLongName()Ljava/lang/String;
     .locals 2
 
     iget-object v0, p0, Lcom/google/android/material/datepicker/Month;->longName:Ljava/lang/String;
@@ -326,11 +326,11 @@
 
     move-result-wide v0
 
-    invoke-static {p1, v0, v1}, Lcom/google/android/material/datepicker/DateStrings;->getYearMonth(Landroid/content/Context;J)Ljava/lang/String;
+    invoke-static {v0, v1}, Lcom/google/android/material/datepicker/DateStrings;->getYearMonth(J)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    iput-object p1, p0, Lcom/google/android/material/datepicker/Month;->longName:Ljava/lang/String;
+    iput-object v0, p0, Lcom/google/android/material/datepicker/Month;->longName:Ljava/lang/String;
 
     :cond_0
     iget-object p0, p0, Lcom/google/android/material/datepicker/Month;->longName:Ljava/lang/String;

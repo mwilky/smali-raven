@@ -117,7 +117,7 @@
 
     iget-object v2, p0, Lcom/android/settings/notification/app/NotificationPreferenceController;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f040e5d
+    const v3, 0x7f040ef1
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -258,7 +258,7 @@
 
     iget-object v1, p0, Lcom/android/settings/notification/app/ConversationHeaderPreferenceController;->mFragment:Lcom/android/settings/dashboard/DashboardFragment;
 
-    const v3, 0x7f0d0203
+    const v3, 0x7f0d021c
 
     invoke-virtual {p1, v3}, Lcom/android/settingslib/widget/LayoutPreference;->findViewById(I)Landroid/view/View;
 

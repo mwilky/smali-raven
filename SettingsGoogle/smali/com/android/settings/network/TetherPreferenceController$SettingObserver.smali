@@ -60,7 +60,7 @@
 
     iget-object p1, p0, Lcom/android/settings/network/TetherPreferenceController$SettingObserver;->this$0:Lcom/android/settings/network/TetherPreferenceController;
 
-    invoke-static {p1}, Lcom/android/settings/network/TetherPreferenceController;->access$100(Lcom/android/settings/network/TetherPreferenceController;)Landroid/content/Context;
+    invoke-static {p1}, Lcom/android/settings/network/TetherPreferenceController;->access$000(Lcom/android/settings/network/TetherPreferenceController;)Landroid/content/Context;
 
     move-result-object p1
 
@@ -85,7 +85,7 @@
 
     iget-object p0, p0, Lcom/android/settings/network/TetherPreferenceController$SettingObserver;->this$0:Lcom/android/settings/network/TetherPreferenceController;
 
-    invoke-static {p0}, Lcom/android/settings/network/TetherPreferenceController;->access$200(Lcom/android/settings/network/TetherPreferenceController;)V
+    invoke-static {p0}, Lcom/android/settings/network/TetherPreferenceController;->-$$Nest$mupdateSummaryToOff(Lcom/android/settings/network/TetherPreferenceController;)V
 
     :cond_1
     return-void

@@ -11,7 +11,7 @@
 .method static constructor <clinit>()V
     .locals 6
 
-    const-string v0, "s"
+    const-string/jumbo v0, "s"
 
     const-string v1, "e"
 

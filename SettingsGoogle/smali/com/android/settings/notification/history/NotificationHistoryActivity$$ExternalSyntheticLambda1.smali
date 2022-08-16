@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settings/notification/history/NotificationHistoryActivity$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/settings/notification/history/HistoryLoader$OnHistoryLoaderListener;

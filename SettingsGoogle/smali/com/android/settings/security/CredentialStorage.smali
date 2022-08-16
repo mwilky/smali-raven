@@ -20,15 +20,7 @@
 
 
 # direct methods
-.method public constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Landroidx/fragment/app/FragmentActivity;-><init>()V
-
-    return-void
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/security/CredentialStorage;)Lcom/android/internal/widget/LockPatternUtils;
+.method static bridge synthetic -$$Nest$fgetmUtils(Lcom/android/settings/security/CredentialStorage;)Lcom/android/internal/widget/LockPatternUtils;
     .locals 0
 
     iget-object p0, p0, Lcom/android/settings/security/CredentialStorage;->mUtils:Lcom/android/internal/widget/LockPatternUtils;
@@ -36,7 +28,15 @@
     return-object p0
 .end method
 
-.method static synthetic access$300(Lcom/android/settings/security/CredentialStorage;I)Z
+.method static bridge synthetic -$$Nest$mclearLegacyVpnIfEstablished(Lcom/android/settings/security/CredentialStorage;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/security/CredentialStorage;->clearLegacyVpnIfEstablished()V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mconfirmKeyGuard(Lcom/android/settings/security/CredentialStorage;I)Z
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settings/security/CredentialStorage;->confirmKeyGuard(I)Z
@@ -46,18 +46,18 @@
     return p0
 .end method
 
-.method static synthetic access$400(Lcom/android/settings/security/CredentialStorage;)V
+.method static bridge synthetic -$$Nest$monKeyInstalled(Lcom/android/settings/security/CredentialStorage;Ljava/lang/String;IZ)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/settings/security/CredentialStorage;->clearLegacyVpnIfEstablished()V
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/settings/security/CredentialStorage;->onKeyInstalled(Ljava/lang/String;IZ)V
 
     return-void
 .end method
 
-.method static synthetic access$500(Lcom/android/settings/security/CredentialStorage;Ljava/lang/String;IZ)V
+.method public constructor <init>()V
     .locals 0
 
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/settings/security/CredentialStorage;->onKeyInstalled(Ljava/lang/String;IZ)V
+    invoke-direct {p0}, Landroidx/fragment/app/FragmentActivity;-><init>()V
 
     return-void
 .end method
@@ -233,7 +233,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f041570
+    const v0, 0x7f041669
 
     const/4 v1, 0x0
 
@@ -262,7 +262,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f0406be
+    const p1, 0x7f040719
 
     invoke-virtual {v0, p1}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -553,7 +553,7 @@
 
     const/4 p2, 0x0
 
-    invoke-direct {p1, p0, p2}, Lcom/android/settings/security/CredentialStorage$ResetKeyStoreAndKeyChain;-><init>(Lcom/android/settings/security/CredentialStorage;Lcom/android/settings/security/CredentialStorage$1;)V
+    invoke-direct {p1, p0, p2}, Lcom/android/settings/security/CredentialStorage$ResetKeyStoreAndKeyChain;-><init>(Lcom/android/settings/security/CredentialStorage;Lcom/android/settings/security/CredentialStorage$ResetKeyStoreAndKeyChain-IA;)V
 
     const/4 p0, 0x0
 
@@ -641,7 +641,7 @@
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, p0, v1}, Lcom/android/settings/security/CredentialStorage$ResetDialog;-><init>(Lcom/android/settings/security/CredentialStorage;Lcom/android/settings/security/CredentialStorage$1;)V
+    invoke-direct {v0, p0, v1}, Lcom/android/settings/security/CredentialStorage$ResetDialog;-><init>(Lcom/android/settings/security/CredentialStorage;Lcom/android/settings/security/CredentialStorage$ResetDialog-IA;)V
 
     goto :goto_0
 

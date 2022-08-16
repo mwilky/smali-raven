@@ -51,12 +51,6 @@
 .method private updateStickyHeaderPosition()V
     .locals 4
 
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0xb
-
-    if-lt v0, v1, :cond_4
-
     iget-object v0, p0, Lcom/google/android/setupdesign/view/StickyHeaderScrollView;->sticky:Landroid/view/View;
 
     if-eqz v0, :cond_4

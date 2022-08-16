@@ -39,7 +39,7 @@
 
     iget-object v0, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollSidecar$2;->this$0:Lcom/google/android/settings/biometrics/face/FaceEnrollSidecar;
 
-    invoke-static {v0}, Lcom/google/android/settings/biometrics/face/FaceEnrollSidecar;->access$100(Lcom/google/android/settings/biometrics/face/FaceEnrollSidecar;)Z
+    invoke-static {v0}, Lcom/google/android/settings/biometrics/face/FaceEnrollSidecar;->-$$Nest$fgetmEnrolling(Lcom/google/android/settings/biometrics/face/FaceEnrollSidecar;)Z
 
     move-result v0
 

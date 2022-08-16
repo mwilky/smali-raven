@@ -7,10 +7,6 @@
 
 
 # annotations
-.annotation runtime Lcom/google/errorprone/annotations/DoNotMock;
-    value = "Use Optional.of(value) or Optional.absent()"
-.end annotation
-
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "<T:",

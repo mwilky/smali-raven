@@ -147,7 +147,7 @@
 
     iput-object p1, p0, Lcom/android/settings/notification/app/ImportancePreference;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f020113
+    const v0, 0x7f02011c
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -157,7 +157,7 @@
 
     iget-object p1, p0, Lcom/android/settings/notification/app/ImportancePreference;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f020114
+    const v0, 0x7f02011d
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -165,7 +165,7 @@
 
     iput-object p1, p0, Lcom/android/settings/notification/app/ImportancePreference;->unselectedBackground:Landroid/graphics/drawable/Drawable;
 
-    const p1, 0x7f060165
+    const p1, 0x7f06016f
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setLayoutResource(I)V
 
@@ -223,9 +223,9 @@
 
     iget-object p1, p1, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
 
-    new-instance p2, Lcom/android/settings/notification/app/ImportancePreference$$ExternalSyntheticLambda3;
+    new-instance p2, Lcom/android/settings/notification/app/ImportancePreference$$ExternalSyntheticLambda2;
 
-    invoke-direct {p2, p0}, Lcom/android/settings/notification/app/ImportancePreference$$ExternalSyntheticLambda3;-><init>(Lcom/android/settings/notification/app/ImportancePreference;)V
+    invoke-direct {p2, p0}, Lcom/android/settings/notification/app/ImportancePreference$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/notification/app/ImportancePreference;)V
 
     invoke-virtual {p1, p2}, Landroid/view/View;->post(Ljava/lang/Runnable;)Z
 
@@ -283,9 +283,9 @@
 
     iget-object p1, p1, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
 
-    new-instance p2, Lcom/android/settings/notification/app/ImportancePreference$$ExternalSyntheticLambda2;
+    new-instance p2, Lcom/android/settings/notification/app/ImportancePreference$$ExternalSyntheticLambda3;
 
-    invoke-direct {p2, p0}, Lcom/android/settings/notification/app/ImportancePreference$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/notification/app/ImportancePreference;)V
+    invoke-direct {p2, p0}, Lcom/android/settings/notification/app/ImportancePreference$$ExternalSyntheticLambda3;-><init>(Lcom/android/settings/notification/app/ImportancePreference;)V
 
     invoke-virtual {p1, p2}, Landroid/view/View;->post(Ljava/lang/Runnable;)Z
 
@@ -305,7 +305,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setClickable(Z)V
 
-    const v0, 0x7f0d0504
+    const v0, 0x7f0d0546
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -313,7 +313,7 @@
 
     iput-object v0, p0, Lcom/android/settings/notification/app/ImportancePreference;->mSilenceButton:Landroid/view/View;
 
-    const v0, 0x7f0d0075
+    const v0, 0x7f0d0077
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -390,17 +390,17 @@
     :goto_0
     iget-object v0, p0, Lcom/android/settings/notification/app/ImportancePreference;->mSilenceButton:Landroid/view/View;
 
-    new-instance v1, Lcom/android/settings/notification/app/ImportancePreference$$ExternalSyntheticLambda1;
+    new-instance v1, Lcom/android/settings/notification/app/ImportancePreference$$ExternalSyntheticLambda0;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/settings/notification/app/ImportancePreference$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/notification/app/ImportancePreference;Landroidx/preference/PreferenceViewHolder;)V
+    invoke-direct {v1, p0, p1}, Lcom/android/settings/notification/app/ImportancePreference$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/notification/app/ImportancePreference;Landroidx/preference/PreferenceViewHolder;)V
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     iget-object v0, p0, Lcom/android/settings/notification/app/ImportancePreference;->mAlertButton:Landroid/view/View;
 
-    new-instance v1, Lcom/android/settings/notification/app/ImportancePreference$$ExternalSyntheticLambda0;
+    new-instance v1, Lcom/android/settings/notification/app/ImportancePreference$$ExternalSyntheticLambda1;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/settings/notification/app/ImportancePreference$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/notification/app/ImportancePreference;Landroidx/preference/PreferenceViewHolder;)V
+    invoke-direct {v1, p0, p1}, Lcom/android/settings/notification/app/ImportancePreference$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/notification/app/ImportancePreference;Landroidx/preference/PreferenceViewHolder;)V
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
@@ -467,19 +467,19 @@
 
     const/4 v1, 0x0
 
-    const v2, 0x7f0d0507
+    const v2, 0x7f0d0549
 
-    const v3, 0x7f0d0506
+    const v3, 0x7f0d0548
 
-    const v4, 0x7f0d0505
+    const v4, 0x7f0d0547
 
-    const v5, 0x7f0d0078
+    const v5, 0x7f0d007a
 
-    const v6, 0x7f0d0077
+    const v6, 0x7f0d0079
 
     const/16 v7, 0x8
 
-    const v8, 0x7f0d0079
+    const v8, 0x7f0d007b
 
     if-lt p2, v0, :cond_1
 

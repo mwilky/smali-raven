@@ -23,13 +23,15 @@
 
 
 # instance fields
+.field private final mAppCount:I
+
 .field private final mIconResId:I
 
 .field private final mPackageManager:Landroid/content/pm/PackageManager;
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;III)V
+.method public constructor <init>(Landroid/content/Context;IIII)V
     .locals 0
 
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;II)V
@@ -41,6 +43,8 @@
     move-result-object p1
 
     iput-object p1, p0, Lcom/android/settings/display/AppGridView$AppsAdapter;->mPackageManager:Landroid/content/pm/PackageManager;
+
+    iput p5, p0, Lcom/android/settings/display/AppGridView$AppsAdapter;->mAppCount:I
 
     invoke-direct {p0}, Lcom/android/settings/display/AppGridView$AppsAdapter;->loadAllApps()V
 
@@ -74,6 +78,21 @@
 
     move-result-object v0
 
+    iget v3, p0, Lcom/android/settings/display/AppGridView$AppsAdapter;->mAppCount:I
+
+    invoke-interface {v0}, Ljava/util/List;->size()I
+
+    move-result v4
+
+    if-le v3, v4, :cond_0
+
+    const-string v3, "AppGridView"
+
+    const-string v4, "Visible app icon count does not meet the target count."
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
     invoke-virtual {p0}, Landroid/widget/ArrayAdapter;->getContext()Landroid/content/Context;
 
     move-result-object v3
@@ -86,12 +105,12 @@
 
     move-result-object v0
 
-    :cond_0
+    :cond_1
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_3
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -103,7 +122,7 @@
 
     move-result-object v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_2
 
     new-instance v6, Lcom/android/settings/display/AppGridView$ActivityEntry;
 
@@ -115,16 +134,16 @@
 
     invoke-virtual {v2, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    :cond_1
+    :cond_2
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
 
     move-result v4
 
-    const/4 v5, 0x6
+    iget v5, p0, Lcom/android/settings/display/AppGridView$AppsAdapter;->mAppCount:I
 
-    if-lt v4, v5, :cond_0
+    if-lt v4, v5, :cond_1
 
-    :cond_2
+    :cond_3
     invoke-static {v2}, Ljava/util/Collections;->sort(Ljava/util/List;)V
 
     invoke-virtual {p0, v2}, Landroid/widget/ArrayAdapter;->addAll(Ljava/util/Collection;)V

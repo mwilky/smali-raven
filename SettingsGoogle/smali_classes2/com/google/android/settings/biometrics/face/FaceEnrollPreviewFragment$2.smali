@@ -41,11 +41,11 @@
 
     const/4 v0, 0x0
 
-    invoke-static {p1, v0}, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->access$402(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;Z)Z
+    invoke-static {p1, v0}, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->-$$Nest$fputmTextureViewDestroyed(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;Z)V
 
     iget-object p0, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment$2;->this$0:Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;
 
-    invoke-static {p0, p2, p3}, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->access$500(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;II)V
+    invoke-static {p0, p2, p3}, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->-$$Nest$msetUpPreview(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;II)V
 
     return-void
 .end method
@@ -57,7 +57,7 @@
 
     const/4 p1, 0x1
 
-    invoke-static {p0, p1}, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->access$402(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;Z)Z
+    invoke-static {p0, p1}, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->-$$Nest$fputmTextureViewDestroyed(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;Z)V
 
     return p1
 .end method
@@ -67,7 +67,7 @@
 
     iget-object p0, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment$2;->this$0:Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;
 
-    invoke-static {p0, p2, p3}, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->access$600(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;II)V
+    invoke-static {p0, p2, p3}, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->-$$Nest$mconfigureTransform(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;II)V
 
     return-void
 .end method

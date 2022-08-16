@@ -32,7 +32,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settings/TetherSettings;Lcom/android/settings/TetherSettings$1;)V
+.method synthetic constructor <init>(Lcom/android/settings/TetherSettings;Lcom/android/settings/TetherSettings$TetheringEventCallback-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settings/TetherSettings$TetheringEventCallback;-><init>(Lcom/android/settings/TetherSettings;)V
@@ -93,7 +93,7 @@
 
     iget-object p0, p0, Lcom/android/settings/TetherSettings$TetheringEventCallback;->this$0:Lcom/android/settings/TetherSettings;
 
-    invoke-static {p0, p1}, Lcom/android/settings/TetherSettings;->access$1200(Lcom/android/settings/TetherSettings;[Ljava/lang/String;)V
+    invoke-static {p0, p1}, Lcom/android/settings/TetherSettings;->-$$Nest$mupdateBluetoothAndEthernetState(Lcom/android/settings/TetherSettings;[Ljava/lang/String;)V
 
     return-void
 .end method

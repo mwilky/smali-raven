@@ -11,7 +11,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nBuffer.kt\nKotlin\n*S Kotlin\n*F\n+ 1 Buffer.kt\nokio/Buffer\n+ 2 -Util.kt\nokio/-Util\n+ 3 Buffer.kt\nokio/internal/BufferKt\n+ 4 fake.kt\nkotlin/jvm/internal/FakeKt\n*L\n1#1,623:1\n89#2:624\n86#2:657\n86#2:659\n74#2:719\n74#2:745\n83#2:784\n77#2:795\n89#2:982\n74#2:997\n86#2:1098\n89#2:1563\n239#3,32:625\n274#3,10:660\n287#3,18:670\n409#3,2:688\n107#3:690\n411#3:691\n109#3,18:692\n308#3,9:710\n317#3,15:720\n335#3,10:735\n345#3,3:746\n343#3,25:749\n371#3,10:774\n381#3:785\n379#3,9:786\n388#3,7:796\n386#3,20:803\n646#3,57:823\n706#3,56:880\n764#3:936\n767#3:937\n768#3,6:939\n778#3,7:945\n788#3,6:952\n796#3,5:958\n828#3,6:963\n838#3:969\n839#3,11:971\n850#3,5:983\n859#3,9:988\n869#3,61:998\n600#3:1059\n603#3:1060\n604#3,5:1062\n611#3:1067\n614#3,7:1068\n623#3,17:1075\n415#3:1092\n418#3,5:1093\n423#3,10:1099\n434#3,7:1109\n439#3,2:1116\n934#3:1118\n935#3,87:1120\n1025#3,48:1207\n570#3:1255\n577#3,21:1256\n1076#3,7:1277\n1086#3,7:1284\n1096#3,4:1291\n1103#3,8:1295\n1114#3,10:1303\n1127#3,14:1313\n444#3,63:1327\n510#3,40:1390\n553#3:1430\n555#3,13:1432\n1144#3:1445\n1195#3:1446\n1196#3,39:1448\n1237#3,2:1487\n1239#3,4:1490\n1246#3,3:1494\n1250#3,4:1498\n107#3:1502\n1254#3,22:1503\n109#3,18:1525\n1280#3,2:1543\n1282#3,3:1546\n107#3:1549\n1285#3,13:1550\n1298#3,13:1564\n109#3,18:1577\n1315#3,2:1595\n1318#3:1598\n107#3:1599\n1319#3,50:1600\n109#3,18:1650\n1378#3,14:1668\n1395#3,32:1682\n1430#3,12:1714\n1445#3,18:1726\n1467#3:1744\n1468#3:1746\n1473#3,34:1747\n1#4:658\n1#4:938\n1#4:970\n1#4:1061\n1#4:1119\n1#4:1431\n1#4:1447\n1#4:1489\n1#4:1497\n1#4:1545\n1#4:1597\n1#4:1745\n*E\n*S KotlinDebug\n*F\n+ 1 Buffer.kt\nokio/Buffer\n*L\n167#1:624\n197#1:657\n235#1:659\n261#1:719\n264#1:745\n267#1:784\n267#1:795\n335#1:982\n338#1:997\n374#1:1098\n481#1:1563\n181#1,32:625\n252#1,10:660\n255#1,18:670\n258#1,2:688\n258#1:690\n258#1:691\n258#1,18:692\n261#1,9:710\n261#1,15:720\n264#1,10:735\n264#1,3:746\n264#1,25:749\n267#1,10:774\n267#1:785\n267#1,9:786\n267#1,7:796\n267#1,20:803\n279#1,57:823\n282#1,56:880\n284#1:936\n287#1:937\n287#1,6:939\n289#1,7:945\n292#1,6:952\n295#1,5:958\n329#1,6:963\n335#1:969\n335#1,11:971\n335#1,5:983\n338#1,9:988\n338#1,61:998\n340#1:1059\n343#1:1060\n343#1,5:1062\n345#1:1067\n348#1,7:1068\n351#1,17:1075\n371#1:1092\n374#1,5:1093\n374#1,10:1099\n376#1,7:1109\n379#1,2:1116\n384#1:1118\n384#1,87:1120\n387#1,48:1207\n408#1:1255\n414#1,21:1256\n435#1,7:1277\n439#1,7:1284\n441#1,4:1291\n443#1,8:1295\n447#1,10:1303\n451#1,14:1313\n455#1,63:1327\n458#1,40:1390\n461#1:1430\n461#1,13:1432\n463#1:1445\n463#1:1446\n463#1,39:1448\n465#1,2:1487\n465#1,4:1490\n475#1,3:1494\n475#1,4:1498\n475#1:1502\n475#1,22:1503\n475#1,18:1525\n481#1,2:1543\n481#1,3:1546\n481#1:1549\n481#1,13:1550\n481#1,13:1564\n481#1,18:1577\n486#1,2:1595\n486#1:1598\n486#1:1599\n486#1,50:1600\n486#1,18:1650\n496#1,14:1668\n558#1,32:1682\n560#1,12:1714\n568#1,18:1726\n573#1:1744\n573#1:1746\n575#1,34:1747\n287#1:938\n335#1:970\n343#1:1061\n384#1:1119\n461#1:1431\n463#1:1447\n465#1:1489\n475#1:1497\n481#1:1545\n486#1:1597\n573#1:1745\n*E\n"
+    value = "SMAP\nBuffer.kt\nKotlin\n*S Kotlin\n*F\n+ 1 Buffer.kt\nokio/Buffer\n+ 2 -Util.kt\nokio/-Util\n+ 3 Buffer.kt\nokio/internal/BufferKt\n+ 4 fake.kt\nkotlin/jvm/internal/FakeKt\n*L\n1#1,623:1\n89#2:624\n86#2:657\n86#2:659\n74#2:719\n74#2:745\n83#2:784\n77#2:795\n89#2:982\n74#2:997\n86#2:1098\n89#2:1563\n239#3,32:625\n274#3,10:660\n287#3,18:670\n409#3,2:688\n107#3:690\n411#3:691\n109#3,18:692\n308#3,9:710\n317#3,15:720\n335#3,10:735\n345#3,3:746\n343#3,25:749\n371#3,10:774\n381#3:785\n379#3,9:786\n388#3,7:796\n386#3,20:803\n646#3,57:823\n706#3,56:880\n764#3:936\n767#3:937\n768#3,6:939\n778#3,7:945\n788#3,6:952\n796#3,5:958\n828#3,6:963\n838#3:969\n839#3,11:971\n850#3,5:983\n859#3,9:988\n869#3,61:998\n600#3:1059\n603#3:1060\n604#3,5:1062\n611#3:1067\n614#3,7:1068\n623#3,17:1075\n415#3:1092\n418#3,5:1093\n423#3,10:1099\n434#3,7:1109\n439#3,2:1116\n934#3:1118\n935#3,87:1120\n1025#3,48:1207\n570#3:1255\n577#3,21:1256\n1076#3,7:1277\n1086#3,7:1284\n1096#3,4:1291\n1103#3,8:1295\n1114#3,10:1303\n1127#3,14:1313\n444#3,63:1327\n510#3,40:1390\n553#3:1430\n555#3,13:1432\n1144#3:1445\n1195#3:1446\n1196#3,39:1448\n1237#3,2:1487\n1239#3,4:1490\n1246#3,3:1494\n1250#3,4:1498\n107#3:1502\n1254#3,22:1503\n109#3,18:1525\n1280#3,2:1543\n1282#3,3:1546\n107#3:1549\n1285#3,13:1550\n1298#3,13:1564\n109#3,18:1577\n1315#3,2:1595\n1318#3:1598\n107#3:1599\n1319#3,50:1600\n109#3,18:1650\n1378#3,14:1668\n1395#3,32:1682\n1430#3,12:1714\n1445#3,18:1726\n1467#3:1744\n1468#3:1746\n1473#3,34:1747\n1#4:658\n1#4:938\n1#4:970\n1#4:1061\n1#4:1119\n1#4:1431\n1#4:1447\n1#4:1489\n1#4:1497\n1#4:1545\n1#4:1597\n1#4:1745\n*S KotlinDebug\n*F\n+ 1 Buffer.kt\nokio/Buffer\n*L\n167#1:624\n197#1:657\n235#1:659\n261#1:719\n264#1:745\n267#1:784\n267#1:795\n335#1:982\n338#1:997\n374#1:1098\n481#1:1563\n181#1:625,32\n252#1:660,10\n255#1:670,18\n258#1:688,2\n258#1:690\n258#1:691\n258#1:692,18\n261#1:710,9\n261#1:720,15\n264#1:735,10\n264#1:746,3\n264#1:749,25\n267#1:774,10\n267#1:785\n267#1:786,9\n267#1:796,7\n267#1:803,20\n279#1:823,57\n282#1:880,56\n284#1:936\n287#1:937\n287#1:939,6\n289#1:945,7\n292#1:952,6\n295#1:958,5\n329#1:963,6\n335#1:969\n335#1:971,11\n335#1:983,5\n338#1:988,9\n338#1:998,61\n340#1:1059\n343#1:1060\n343#1:1062,5\n345#1:1067\n348#1:1068,7\n351#1:1075,17\n371#1:1092\n374#1:1093,5\n374#1:1099,10\n376#1:1109,7\n379#1:1116,2\n384#1:1118\n384#1:1120,87\n387#1:1207,48\n408#1:1255\n414#1:1256,21\n435#1:1277,7\n439#1:1284,7\n441#1:1291,4\n443#1:1295,8\n447#1:1303,10\n451#1:1313,14\n455#1:1327,63\n458#1:1390,40\n461#1:1430\n461#1:1432,13\n463#1:1445\n463#1:1446\n463#1:1448,39\n465#1:1487,2\n465#1:1490,4\n475#1:1494,3\n475#1:1498,4\n475#1:1502\n475#1:1503,22\n475#1:1525,18\n481#1:1543,2\n481#1:1546,3\n481#1:1549\n481#1:1550,13\n481#1:1564,13\n481#1:1577,18\n486#1:1595,2\n486#1:1598\n486#1:1599\n486#1:1600,50\n486#1:1650,18\n496#1:1668,14\n558#1:1682,32\n560#1:1714,12\n568#1:1726,18\n573#1:1744\n573#1:1746\n575#1:1747,34\n287#1:938\n335#1:970\n343#1:1061\n384#1:1119\n461#1:1431\n463#1:1447\n465#1:1489\n475#1:1497\n481#1:1545\n486#1:1597\n573#1:1745\n*E\n"
 .end annotation
 
 
@@ -164,14 +164,14 @@
     :goto_0
     move v2, v3
 
-    goto/16 :goto_4
+    goto/16 :goto_3
 
     :cond_1
     instance-of v4, v1, Lokio/Buffer;
 
     if-nez v4, :cond_2
 
-    goto/16 :goto_4
+    goto/16 :goto_3
 
     :cond_2
     invoke-virtual/range {p0 .. p0}, Lokio/Buffer;->size()J
@@ -188,7 +188,7 @@
 
     if-eqz v4, :cond_3
 
-    goto/16 :goto_4
+    goto :goto_3
 
     :cond_3
     invoke-virtual/range {p0 .. p0}, Lokio/Buffer;->size()J
@@ -241,13 +241,13 @@
 
     int-to-long v11, v11
 
-    cmp-long v13, v6, v11
-
-    if-gez v13, :cond_7
-
     move-wide v13, v6
 
     :goto_2
+    cmp-long v15, v13, v11
+
+    if-gez v15, :cond_6
+
     const-wide/16 v15, 0x1
 
     add-long/2addr v13, v15
@@ -266,31 +266,19 @@
 
     if-eq v5, v8, :cond_5
 
-    goto :goto_4
-
-    :cond_5
-    cmp-long v5, v13, v11
-
-    if-ltz v5, :cond_6
-
-    move/from16 v5, v16
-
-    move/from16 v8, v17
-
     goto :goto_3
 
-    :cond_6
+    :cond_5
     move/from16 v5, v16
 
     move/from16 v8, v17
 
     goto :goto_2
 
-    :cond_7
-    :goto_3
+    :cond_6
     iget v13, v4, Lokio/Segment;->limit:I
 
-    if-ne v5, v13, :cond_8
+    if-ne v5, v13, :cond_7
 
     iget-object v4, v4, Lokio/Segment;->next:Lokio/Segment;
 
@@ -298,10 +286,10 @@
 
     iget v5, v4, Lokio/Segment;->pos:I
 
-    :cond_8
+    :cond_7
     iget v13, v1, Lokio/Segment;->limit:I
 
-    if-ne v8, v13, :cond_9
+    if-ne v8, v13, :cond_8
 
     iget-object v1, v1, Lokio/Segment;->next:Lokio/Segment;
 
@@ -309,12 +297,12 @@
 
     iget v8, v1, Lokio/Segment;->pos:I
 
-    :cond_9
+    :cond_8
     add-long/2addr v9, v11
 
     goto :goto_1
 
-    :goto_4
+    :goto_3
     return v2
 .end method
 
@@ -407,6 +395,8 @@
     goto :goto_0
 
     :cond_0
+    invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
+
     iget-object p0, v0, Lokio/Segment;->data:[B
 
     iget v0, v0, Lokio/Segment;->pos:I
@@ -433,17 +423,21 @@
 
     sub-int/2addr p0, v3
 
-    int-to-long v4, p0
+    int-to-long v3, p0
 
-    add-long/2addr v4, v1
+    add-long/2addr v3, v1
 
-    cmp-long p0, v4, p1
+    cmp-long p0, v3, p1
 
     if-lez p0, :cond_2
 
+    invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
+
     iget-object p0, v0, Lokio/Segment;->data:[B
 
-    int-to-long v3, v3
+    iget v0, v0, Lokio/Segment;->pos:I
+
+    int-to-long v3, v0
 
     add-long/2addr v3, p1
 
@@ -461,7 +455,7 @@
 
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
 
-    move-wide v1, v4
+    move-wide v1, v3
 
     goto :goto_1
 
@@ -583,7 +577,7 @@
     move v0, v2
 
     :goto_0
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_d
 
     const-wide/16 v4, 0x0
 
@@ -599,7 +593,7 @@
     move v0, v2
 
     :goto_1
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_c
 
     move-object/from16 v0, p0
 
@@ -610,7 +604,7 @@
     :cond_2
     const-wide/16 v7, -0x1
 
-    goto/16 :goto_b
+    goto/16 :goto_9
 
     :cond_3
     invoke-virtual/range {p0 .. p0}, Lokio/Buffer;->size()J
@@ -623,7 +617,7 @@
 
     const-wide/16 v10, 0x1
 
-    if-gez v9, :cond_8
+    if-gez v9, :cond_7
 
     invoke-virtual/range {p0 .. p0}, Lokio/Buffer;->size()J
 
@@ -710,9 +704,9 @@
 
     long-to-int v4, v14
 
-    if-ge v4, v7, :cond_7
-
     :goto_4
+    if-ge v4, v7, :cond_6
+
     add-int/lit8 v5, v4, 0x1
 
     aget-byte v8, v0, v4
@@ -734,20 +728,14 @@
 
     add-long v7, v0, v10
 
-    goto/16 :goto_b
+    goto/16 :goto_9
 
     :cond_5
-    if-lt v5, v7, :cond_6
-
-    goto :goto_6
-
-    :cond_6
     move v4, v5
 
     goto :goto_4
 
-    :cond_7
-    :goto_6
+    :cond_6
     iget v0, v6, Lokio/Segment;->limit:I
 
     iget v4, v6, Lokio/Segment;->pos:I
@@ -766,8 +754,8 @@
 
     goto :goto_3
 
-    :cond_8
-    :goto_7
+    :cond_7
+    :goto_6
     iget v7, v6, Lokio/Segment;->limit:I
 
     iget v8, v6, Lokio/Segment;->pos:I
@@ -780,7 +768,7 @@
 
     cmp-long v9, v7, p2
 
-    if-lez v9, :cond_d
+    if-lez v9, :cond_b
 
     invoke-virtual/range {p1 .. p1}, Lokio/ByteString;->internalArray$external__okio__android_common__okio_lib()[B
 
@@ -806,7 +794,7 @@
 
     move-wide/from16 v4, p2
 
-    :goto_8
+    :goto_7
     cmp-long v0, v10, v8
 
     if-gez v0, :cond_2
@@ -845,14 +833,14 @@
 
     long-to-int v4, v4
 
-    if-ge v4, v3, :cond_c
+    :goto_8
+    if-ge v4, v3, :cond_a
 
-    :goto_9
     add-int/lit8 v5, v4, 0x1
 
     aget-byte v12, v0, v4
 
-    if-ne v12, v2, :cond_9
+    if-ne v12, v2, :cond_8
 
     const/4 v12, 0x1
 
@@ -860,27 +848,21 @@
 
     move-result v13
 
-    if-eqz v13, :cond_a
+    if-eqz v13, :cond_9
 
     goto :goto_5
 
-    :cond_9
+    :cond_8
     const/4 v12, 0x1
 
-    :cond_a
-    if-lt v5, v3, :cond_b
-
-    goto :goto_a
-
-    :cond_b
+    :cond_9
     move v4, v5
 
-    goto :goto_9
+    goto :goto_8
 
-    :cond_c
+    :cond_a
     const/4 v12, 0x1
 
-    :goto_a
     iget v0, v6, Lokio/Segment;->limit:I
 
     iget v3, v6, Lokio/Segment;->pos:I
@@ -899,12 +881,12 @@
 
     move v3, v12
 
-    goto :goto_8
+    goto :goto_7
 
-    :goto_b
+    :goto_9
     return-wide v7
 
-    :cond_d
+    :cond_b
     move v12, v3
 
     iget-object v6, v6, Lokio/Segment;->next:Lokio/Segment;
@@ -913,9 +895,9 @@
 
     move-wide v4, v7
 
-    goto :goto_7
+    goto :goto_6
 
-    :cond_e
+    :cond_c
     invoke-static/range {p2 .. p3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v0
@@ -936,7 +918,7 @@
 
     throw v1
 
-    :cond_f
+    :cond_d
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "bytes is empty"
@@ -1480,8 +1462,6 @@
 
     iput-object p1, p0, Lokio/Buffer;->head:Lokio/Segment;
 
-    sget-object p0, Lokio/SegmentPool;->INSTANCE:Lokio/SegmentPool;
-
     invoke-static {v0}, Lokio/SegmentPool;->recycle(Lokio/Segment;)V
 
     :cond_1
@@ -1563,8 +1543,6 @@
     move-result-object p1
 
     iput-object p1, p0, Lokio/Buffer;->head:Lokio/Segment;
-
-    sget-object p0, Lokio/SegmentPool;->INSTANCE:Lokio/SegmentPool;
 
     invoke-static {v0}, Lokio/SegmentPool;->recycle(Lokio/Segment;)V
 
@@ -1706,8 +1684,6 @@
     move-result-object v2
 
     iput-object v2, p0, Lokio/Buffer;->head:Lokio/Segment;
-
-    sget-object p0, Lokio/SegmentPool;->INSTANCE:Lokio/SegmentPool;
 
     invoke-static {v0}, Lokio/SegmentPool;->recycle(Lokio/Segment;)V
 
@@ -2096,8 +2072,6 @@
 
     iput-object v2, p0, Lokio/Buffer;->head:Lokio/Segment;
 
-    sget-object p0, Lokio/SegmentPool;->INSTANCE:Lokio/SegmentPool;
-
     invoke-static {v0}, Lokio/SegmentPool;->recycle(Lokio/Segment;)V
 
     goto :goto_0
@@ -2231,8 +2205,6 @@
     move-result-object p1
 
     iput-object p1, p0, Lokio/Buffer;->head:Lokio/Segment;
-
-    sget-object p0, Lokio/SegmentPool;->INSTANCE:Lokio/SegmentPool;
 
     invoke-static {v0}, Lokio/SegmentPool;->recycle(Lokio/Segment;)V
 
@@ -2449,8 +2421,6 @@
     move-result-object v1
 
     iput-object v1, p0, Lokio/Buffer;->head:Lokio/Segment;
-
-    sget-object v1, Lokio/SegmentPool;->INSTANCE:Lokio/SegmentPool;
 
     invoke-static {v0}, Lokio/SegmentPool;->recycle(Lokio/Segment;)V
 
@@ -2690,8 +2660,6 @@
 
     if-nez v1, :cond_1
 
-    sget-object p1, Lokio/SegmentPool;->INSTANCE:Lokio/SegmentPool;
-
     invoke-static {}, Lokio/SegmentPool;->take()Lokio/Segment;
 
     move-result-object p1
@@ -2722,8 +2690,6 @@
     if-nez p1, :cond_3
 
     :cond_2
-    sget-object p1, Lokio/SegmentPool;->INSTANCE:Lokio/SegmentPool;
-
     invoke-static {}, Lokio/SegmentPool;->take()Lokio/Segment;
 
     move-result-object p1
@@ -3433,42 +3399,44 @@
 
     if-le v2, v4, :cond_7
 
-    goto :goto_a
+    goto/16 :goto_a
 
     :cond_7
-    add-int/lit8 v6, p2, 0x1
+    add-int/lit8 v4, p2, 0x1
 
-    if-ge v6, p3, :cond_8
+    if-ge v4, p3, :cond_8
 
-    invoke-virtual {p1, v6}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {p1, v4}, Ljava/lang/String;->charAt(I)C
 
-    move-result v7
+    move-result v6
 
     goto :goto_7
 
     :cond_8
-    move v7, v0
+    move v6, v0
 
     :goto_7
-    const v8, 0xdbff
+    const v7, 0xdbff
 
-    if-gt v2, v8, :cond_b
+    if-gt v2, v7, :cond_b
 
-    const v8, 0xdc00
+    const v7, 0xdc00
 
-    if-gt v8, v7, :cond_9
+    if-gt v7, v6, :cond_9
 
-    if-gt v7, v4, :cond_9
+    const v7, 0xe000
 
-    move v4, v1
+    if-ge v6, v7, :cond_9
+
+    move v7, v1
 
     goto :goto_8
 
     :cond_9
-    move v4, v0
+    move v7, v0
 
     :goto_8
-    if-nez v4, :cond_a
+    if-nez v7, :cond_a
 
     goto :goto_9
 
@@ -3479,7 +3447,7 @@
 
     shl-int/lit8 v2, v2, 0xa
 
-    and-int/lit16 v6, v7, 0x3ff
+    and-int/lit16 v6, v6, 0x3ff
 
     or-int/2addr v2, v6
 
@@ -3559,7 +3527,7 @@
     :goto_9
     invoke-virtual {p0, v5}, Lokio/Buffer;->writeByte(I)Lokio/Buffer;
 
-    move p2, v6
+    move p2, v4
 
     goto/16 :goto_3
 

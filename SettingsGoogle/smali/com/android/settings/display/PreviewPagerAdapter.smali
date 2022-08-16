@@ -38,6 +38,30 @@
     return-void
 .end method
 
+.method static bridge synthetic -$$Nest$fgetmAnimationCounter(Lcom/android/settings/display/PreviewPagerAdapter;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/settings/display/PreviewPagerAdapter;->mAnimationCounter:I
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmAnimationCounter(Lcom/android/settings/display/PreviewPagerAdapter;I)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/settings/display/PreviewPagerAdapter;->mAnimationCounter:I
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mrunAnimationEndAction(Lcom/android/settings/display/PreviewPagerAdapter;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/display/PreviewPagerAdapter;->runAnimationEndAction()V
+
+    return-void
+.end method
+
 .method static constructor <clinit>()V
     .locals 1
 
@@ -206,38 +230,6 @@
     return-void
 .end method
 
-.method static synthetic access$108(Lcom/android/settings/display/PreviewPagerAdapter;)I
-    .locals 2
-
-    iget v0, p0, Lcom/android/settings/display/PreviewPagerAdapter;->mAnimationCounter:I
-
-    add-int/lit8 v1, v0, 0x1
-
-    iput v1, p0, Lcom/android/settings/display/PreviewPagerAdapter;->mAnimationCounter:I
-
-    return v0
-.end method
-
-.method static synthetic access$110(Lcom/android/settings/display/PreviewPagerAdapter;)I
-    .locals 2
-
-    iget v0, p0, Lcom/android/settings/display/PreviewPagerAdapter;->mAnimationCounter:I
-
-    add-int/lit8 v1, v0, -0x1
-
-    iput v1, p0, Lcom/android/settings/display/PreviewPagerAdapter;->mAnimationCounter:I
-
-    return v0
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/display/PreviewPagerAdapter;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/display/PreviewPagerAdapter;->runAnimationEndAction()V
-
-    return-void
-.end method
-
 .method private synthetic lambda$new$0(IILandroid/view/ViewStub;Landroid/view/View;)V
     .locals 0
 
@@ -331,7 +323,7 @@
 
     new-instance v0, Lcom/android/settings/display/PreviewPagerAdapter$PreviewFrameAnimatorListener;
 
-    invoke-direct {v0, p0, v1}, Lcom/android/settings/display/PreviewPagerAdapter$PreviewFrameAnimatorListener;-><init>(Lcom/android/settings/display/PreviewPagerAdapter;Lcom/android/settings/display/PreviewPagerAdapter$1;)V
+    invoke-direct {v0, p0, v1}, Lcom/android/settings/display/PreviewPagerAdapter$PreviewFrameAnimatorListener;-><init>(Lcom/android/settings/display/PreviewPagerAdapter;Lcom/android/settings/display/PreviewPagerAdapter$PreviewFrameAnimatorListener-IA;)V
 
     invoke-virtual {p3, v0}, Landroid/view/ViewPropertyAnimator;->setListener(Landroid/animation/Animator$AnimatorListener;)Landroid/view/ViewPropertyAnimator;
 
@@ -366,7 +358,7 @@
 
     new-instance v0, Lcom/android/settings/display/PreviewPagerAdapter$PreviewFrameAnimatorListener;
 
-    invoke-direct {v0, p0, v1}, Lcom/android/settings/display/PreviewPagerAdapter$PreviewFrameAnimatorListener;-><init>(Lcom/android/settings/display/PreviewPagerAdapter;Lcom/android/settings/display/PreviewPagerAdapter$1;)V
+    invoke-direct {v0, p0, v1}, Lcom/android/settings/display/PreviewPagerAdapter$PreviewFrameAnimatorListener;-><init>(Lcom/android/settings/display/PreviewPagerAdapter;Lcom/android/settings/display/PreviewPagerAdapter$PreviewFrameAnimatorListener-IA;)V
 
     invoke-virtual {p3, v0}, Landroid/view/ViewPropertyAnimator;->setListener(Landroid/animation/Animator$AnimatorListener;)Landroid/view/ViewPropertyAnimator;
 
@@ -462,7 +454,7 @@
     return-void
 .end method
 
-.method setPreviewLayer(IIIZ)V
+.method public setPreviewLayer(IIIZ)V
     .locals 8
 
     iget-object v0, p0, Lcom/android/settings/display/PreviewPagerAdapter;->mPreviewFrames:[Landroid/widget/FrameLayout;

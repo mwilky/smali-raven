@@ -98,7 +98,7 @@
 
     move-result p0
 
-    if-eqz p0, :cond_6
+    if-eqz p0, :cond_7
 
     sget-boolean p0, Lcom/android/settings/bluetooth/AvailableMediaBluetoothDeviceUpdater;->DBG:Z
 
@@ -127,9 +127,15 @@
 
     move-result v5
 
+    if-nez v5, :cond_6
+
+    invoke-virtual {p1}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->isConnectedLeAudioDevice()Z
+
+    move-result v5
+
     if-eqz v5, :cond_3
 
-    return v2
+    goto :goto_3
 
     :cond_3
     if-eq v0, v2, :cond_5
@@ -151,7 +157,7 @@
     move-result v3
 
     :goto_2
-    if-eqz p0, :cond_6
+    if-eqz p0, :cond_7
 
     new-instance p0, Ljava/lang/StringBuilder;
 
@@ -179,7 +185,14 @@
 
     invoke-static {v4, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    goto :goto_4
+
     :cond_6
+    :goto_3
+    return v2
+
+    :cond_7
+    :goto_4
     return v3
 .end method
 

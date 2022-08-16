@@ -35,93 +35,79 @@
 .method static constructor <clinit>()V
     .locals 5
 
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+    const/4 v0, 0x1
 
-    const/4 v1, 0x1
-
-    const/4 v2, 0x0
-
-    const/16 v3, 0x15
-
-    if-lt v0, v3, :cond_0
-
-    move v0, v1
-
-    goto :goto_0
-
-    :cond_0
-    move v0, v2
-
-    :goto_0
     sput-boolean v0, Lcom/google/android/material/ripple/RippleUtils;->USE_FRAMEWORK_RIPPLE:Z
 
-    new-array v0, v1, [I
+    new-array v1, v0, [I
 
-    const v3, 0x10100a7
+    const v2, 0x10100a7
 
-    aput v3, v0, v2
+    const/4 v3, 0x0
 
-    sput-object v0, Lcom/google/android/material/ripple/RippleUtils;->PRESSED_STATE_SET:[I
+    aput v2, v1, v3
 
-    const/4 v0, 0x2
+    sput-object v1, Lcom/google/android/material/ripple/RippleUtils;->PRESSED_STATE_SET:[I
 
-    new-array v3, v0, [I
+    const/4 v1, 0x2
 
-    fill-array-data v3, :array_0
+    new-array v2, v1, [I
 
-    sput-object v3, Lcom/google/android/material/ripple/RippleUtils;->HOVERED_FOCUSED_STATE_SET:[I
+    fill-array-data v2, :array_0
 
-    new-array v3, v1, [I
+    sput-object v2, Lcom/google/android/material/ripple/RippleUtils;->HOVERED_FOCUSED_STATE_SET:[I
+
+    new-array v2, v0, [I
 
     const v4, 0x101009c
 
-    aput v4, v3, v2
+    aput v4, v2, v3
 
-    sput-object v3, Lcom/google/android/material/ripple/RippleUtils;->FOCUSED_STATE_SET:[I
+    sput-object v2, Lcom/google/android/material/ripple/RippleUtils;->FOCUSED_STATE_SET:[I
 
-    new-array v3, v1, [I
+    new-array v2, v0, [I
 
     const v4, 0x1010367
 
-    aput v4, v3, v2
+    aput v4, v2, v3
 
-    sput-object v3, Lcom/google/android/material/ripple/RippleUtils;->HOVERED_STATE_SET:[I
+    sput-object v2, Lcom/google/android/material/ripple/RippleUtils;->HOVERED_STATE_SET:[I
 
-    new-array v3, v0, [I
+    new-array v2, v1, [I
 
-    fill-array-data v3, :array_1
+    fill-array-data v2, :array_1
 
-    sput-object v3, Lcom/google/android/material/ripple/RippleUtils;->SELECTED_PRESSED_STATE_SET:[I
+    sput-object v2, Lcom/google/android/material/ripple/RippleUtils;->SELECTED_PRESSED_STATE_SET:[I
 
-    const/4 v3, 0x3
+    const/4 v2, 0x3
 
-    new-array v3, v3, [I
+    new-array v2, v2, [I
 
-    fill-array-data v3, :array_2
+    fill-array-data v2, :array_2
 
-    sput-object v3, Lcom/google/android/material/ripple/RippleUtils;->SELECTED_HOVERED_FOCUSED_STATE_SET:[I
+    sput-object v2, Lcom/google/android/material/ripple/RippleUtils;->SELECTED_HOVERED_FOCUSED_STATE_SET:[I
 
-    new-array v3, v0, [I
+    new-array v2, v1, [I
 
-    fill-array-data v3, :array_3
+    fill-array-data v2, :array_3
 
-    sput-object v3, Lcom/google/android/material/ripple/RippleUtils;->SELECTED_FOCUSED_STATE_SET:[I
+    sput-object v2, Lcom/google/android/material/ripple/RippleUtils;->SELECTED_FOCUSED_STATE_SET:[I
 
-    new-array v3, v0, [I
+    new-array v2, v1, [I
 
-    fill-array-data v3, :array_4
+    fill-array-data v2, :array_4
 
-    sput-object v3, Lcom/google/android/material/ripple/RippleUtils;->SELECTED_HOVERED_STATE_SET:[I
-
-    new-array v1, v1, [I
-
-    const v3, 0x10100a1
-
-    aput v3, v1, v2
-
-    sput-object v1, Lcom/google/android/material/ripple/RippleUtils;->SELECTED_STATE_SET:[I
+    sput-object v2, Lcom/google/android/material/ripple/RippleUtils;->SELECTED_HOVERED_STATE_SET:[I
 
     new-array v0, v0, [I
+
+    const v2, 0x10100a1
+
+    aput v2, v0, v3
+
+    sput-object v0, Lcom/google/android/material/ripple/RippleUtils;->SELECTED_STATE_SET:[I
+
+    new-array v0, v1, [I
 
     fill-array-data v0, :array_5
 
@@ -136,6 +122,8 @@
     sput-object v0, Lcom/google/android/material/ripple/RippleUtils;->LOG_TAG:Ljava/lang/String;
 
     return-void
+
+    nop
 
     :array_0
     .array-data 4
@@ -407,55 +395,16 @@
 .end method
 
 .method public static sanitizeRippleDrawableColor(Landroid/content/res/ColorStateList;)Landroid/content/res/ColorStateList;
-    .locals 3
+    .locals 0
 
-    const/4 v0, 0x0
+    if-eqz p0, :cond_0
 
-    if-eqz p0, :cond_1
-
-    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v2, 0x16
-
-    if-lt v1, v2, :cond_0
-
-    const/16 v2, 0x1b
-
-    if-gt v1, v2, :cond_0
-
-    invoke-virtual {p0}, Landroid/content/res/ColorStateList;->getDefaultColor()I
-
-    move-result v1
-
-    invoke-static {v1}, Landroid/graphics/Color;->alpha(I)I
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    sget-object v1, Lcom/google/android/material/ripple/RippleUtils;->ENABLED_PRESSED_STATE_SET:[I
-
-    invoke-virtual {p0, v1, v0}, Landroid/content/res/ColorStateList;->getColorForState([II)I
-
-    move-result v0
-
-    invoke-static {v0}, Landroid/graphics/Color;->alpha(I)I
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    sget-object v0, Lcom/google/android/material/ripple/RippleUtils;->LOG_TAG:Ljava/lang/String;
-
-    const-string v1, "Use a non-transparent color for the default color as it will be used to finish ripple animations."
-
-    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
     return-object p0
 
-    :cond_1
-    invoke-static {v0}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
+    :cond_0
+    const/4 p0, 0x0
+
+    invoke-static {p0}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
 
     move-result-object p0
 

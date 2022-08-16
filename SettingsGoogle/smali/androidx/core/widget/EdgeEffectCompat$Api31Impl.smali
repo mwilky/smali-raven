@@ -17,16 +17,6 @@
 # direct methods
 .method public static create(Landroid/content/Context;Landroid/util/AttributeSet;)Landroid/widget/EdgeEffect;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "attrs"
-        }
-    .end annotation
 
     :try_start_0
     new-instance v0, Landroid/widget/EdgeEffect;
@@ -47,14 +37,6 @@
 
 .method public static getDistance(Landroid/widget/EdgeEffect;)F
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "edgeEffect"
-        }
-    .end annotation
 
     :try_start_0
     invoke-virtual {p0}, Landroid/widget/EdgeEffect;->getDistance()F
@@ -73,18 +55,6 @@
 
 .method public static onPullDistance(Landroid/widget/EdgeEffect;FF)F
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "edgeEffect",
-            "deltaDistance",
-            "displacement"
-        }
-    .end annotation
 
     :try_start_0
     invoke-virtual {p0, p1, p2}, Landroid/widget/EdgeEffect;->onPullDistance(FF)F

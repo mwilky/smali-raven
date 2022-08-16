@@ -41,7 +41,7 @@
 
     iget-object p0, p0, Lcom/android/settings/notification/app/NotificationPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f040e56
+    const v0, 0x7f040eea
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -68,7 +68,7 @@
     :goto_0
     iget-object p0, p0, Lcom/android/settings/notification/app/NotificationPreferenceController;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f040e42
+    const v1, 0x7f040ed6
 
     const/4 v2, 0x1
 
@@ -295,49 +295,49 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     invoke-virtual {p0}, Lcom/android/settings/notification/app/NotificationPreferenceController;->isChannelBlockable()Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-eqz v0, :cond_0
 
-    invoke-virtual {p1, v1}, Lcom/android/settings/widget/SettingsMainSwitchPreference;->setSwitchBarEnabled(Z)V
+    iget-object v0, p0, Lcom/android/settings/notification/app/NotificationPreferenceController;->mChannel:Landroid/app/NotificationChannel;
 
-    :cond_0
-    iget-object v0, p0, Lcom/android/settings/notification/app/NotificationPreferenceController;->mChannelGroup:Landroid/app/NotificationChannelGroup;
-
-    if-eqz v0, :cond_1
-
-    invoke-virtual {p0}, Lcom/android/settings/notification/app/NotificationPreferenceController;->isChannelGroupBlockable()Z
+    invoke-virtual {p0, v0}, Lcom/android/settings/notification/app/NotificationPreferenceController;->isChannelConfigurable(Landroid/app/NotificationChannel;)Z
 
     move-result v0
 
     if-nez v0, :cond_1
 
+    :cond_0
     invoke-virtual {p1, v1}, Lcom/android/settings/widget/SettingsMainSwitchPreference;->setSwitchBarEnabled(Z)V
 
     :cond_1
+    iget-object v0, p0, Lcom/android/settings/notification/app/NotificationPreferenceController;->mChannelGroup:Landroid/app/NotificationChannelGroup;
+
+    if-eqz v0, :cond_2
+
+    invoke-virtual {p0}, Lcom/android/settings/notification/app/NotificationPreferenceController;->isChannelGroupBlockable()Z
+
+    move-result v0
+
+    if-nez v0, :cond_2
+
+    invoke-virtual {p1, v1}, Lcom/android/settings/widget/SettingsMainSwitchPreference;->setSwitchBarEnabled(Z)V
+
+    :cond_2
     iget-object v0, p0, Lcom/android/settings/notification/app/NotificationPreferenceController;->mChannel:Landroid/app/NotificationChannel;
 
     if-nez v0, :cond_3
 
-    iget-object v0, p0, Lcom/android/settings/notification/app/NotificationPreferenceController;->mAppRow:Lcom/android/settings/notification/NotificationBackend$AppRow;
+    invoke-virtual {p0}, Lcom/android/settings/notification/app/NotificationPreferenceController;->isAppBlockable()Z
 
-    iget-boolean v2, v0, Lcom/android/settings/notification/NotificationBackend$AppRow;->systemApp:Z
+    move-result v0
 
-    if-eqz v2, :cond_3
+    if-nez v0, :cond_3
 
-    iget-boolean v2, v0, Lcom/android/settings/notification/NotificationBackend$AppRow;->banned:Z
-
-    if-eqz v2, :cond_2
-
-    iget-boolean v0, v0, Lcom/android/settings/notification/NotificationBackend$AppRow;->lockedImportance:Z
-
-    if-eqz v0, :cond_3
-
-    :cond_2
     invoke-virtual {p1, v1}, Lcom/android/settings/widget/SettingsMainSwitchPreference;->setSwitchBarEnabled(Z)V
 
     :cond_3

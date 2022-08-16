@@ -33,34 +33,12 @@
 
 .method public onItemRangeChanged(II)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "positionStart",
-            "itemCount"
-        }
-    .end annotation
 
     return-void
 .end method
 
 .method public onItemRangeChanged(IILjava/lang/Object;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "positionStart",
-            "itemCount",
-            "payload"
-        }
-    .end annotation
 
     invoke-virtual {p0, p1, p2}, Landroidx/recyclerview/widget/RecyclerView$AdapterDataObserver;->onItemRangeChanged(II)V
 
@@ -69,50 +47,18 @@
 
 .method public onItemRangeInserted(II)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "positionStart",
-            "itemCount"
-        }
-    .end annotation
 
     return-void
 .end method
 
 .method public onItemRangeMoved(III)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "fromPosition",
-            "toPosition",
-            "itemCount"
-        }
-    .end annotation
 
     return-void
 .end method
 
 .method public onItemRangeRemoved(II)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "positionStart",
-            "itemCount"
-        }
-    .end annotation
 
     return-void
 .end method

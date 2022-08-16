@@ -45,7 +45,7 @@
     :cond_0
     iget-object p0, p0, Lcom/android/settings/IccLockSettings$1;->this$0:Lcom/android/settings/IccLockSettings;
 
-    invoke-static {p0}, Lcom/android/settings/IccLockSettings;->access$000(Lcom/android/settings/IccLockSettings;)V
+    invoke-static {p0}, Lcom/android/settings/IccLockSettings;->-$$Nest$mupdatePreferences(Lcom/android/settings/IccLockSettings;)V
 
     :goto_0
     return-void

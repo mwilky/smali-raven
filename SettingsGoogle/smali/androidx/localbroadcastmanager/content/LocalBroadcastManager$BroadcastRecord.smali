@@ -31,17 +31,6 @@
 # direct methods
 .method constructor <init>(Landroid/content/Intent;Ljava/util/ArrayList;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "_intent",
-            "_receivers"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

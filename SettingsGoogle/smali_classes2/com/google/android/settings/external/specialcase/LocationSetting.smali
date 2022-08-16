@@ -64,7 +64,7 @@
 .method private getIconResource()I
     .locals 0
 
-    const p0, 0x1080544
+    const p0, 0x108054f
 
     return p0
 .end method
@@ -72,7 +72,7 @@
 .method private getScreenTitle(Landroid/content/Context;)Ljava/lang/String;
     .locals 0
 
-    const p0, 0x7f040b9f
+    const p0, 0x7f040c09
 
     invoke-virtual {p1, p0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -193,7 +193,7 @@
 
     const-string v3, "location"
 
-    const v6, 0x7f040d09
+    const v6, 0x7f040d84
 
     move-object v1, p0
 
@@ -275,7 +275,7 @@
 
     const-string v3, "location"
 
-    const v6, 0x7f040d09
+    const v6, 0x7f040d84
 
     move-object v1, p0
 

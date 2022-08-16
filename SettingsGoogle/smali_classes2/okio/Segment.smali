@@ -187,8 +187,6 @@
 
     invoke-virtual {p0}, Lokio/Segment;->pop()Lokio/Segment;
 
-    sget-object v0, Lokio/SegmentPool;->INSTANCE:Lokio/SegmentPool;
-
     invoke-static {p0}, Lokio/SegmentPool;->recycle(Lokio/Segment;)V
 
     return-void
@@ -341,8 +339,6 @@
     goto :goto_1
 
     :cond_1
-    sget-object v0, Lokio/SegmentPool;->INSTANCE:Lokio/SegmentPool;
-
     invoke-static {}, Lokio/SegmentPool;->take()Lokio/Segment;
 
     move-result-object v0

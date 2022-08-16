@@ -17,3 +17,6 @@
 # virtual methods
 .method public abstract dismiss(I)V
 .end method
+
+.method public abstract show()V
+.end method

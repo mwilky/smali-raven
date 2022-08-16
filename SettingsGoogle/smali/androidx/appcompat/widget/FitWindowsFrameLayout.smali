@@ -2,9 +2,6 @@
 .super Landroid/widget/FrameLayout;
 .source "FitWindowsFrameLayout.java"
 
-# interfaces
-.implements Landroidx/appcompat/widget/FitWindowsViewGroup;
-
 
 # instance fields
 .field private mListener:Landroidx/appcompat/widget/FitWindowsViewGroup$OnFitSystemWindowsListener;

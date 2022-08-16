@@ -15,7 +15,7 @@
 
 
 # instance fields
-.field private final mParentFragment:Landroidx/fragment/app/Fragment;
+.field private final mParentFragment:Landroidx/preference/PreferenceFragmentCompat;
 
 .field protected mUserHandle:Landroid/os/UserHandle;
 
@@ -23,7 +23,7 @@
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;Landroidx/fragment/app/Fragment;)V
+.method public constructor <init>(Landroid/content/Context;Landroidx/preference/PreferenceFragmentCompat;)V
     .locals 1
 
     invoke-direct {p0, p1}, Lcom/android/settingslib/core/AbstractPreferenceController;-><init>(Landroid/content/Context;)V
@@ -38,7 +38,7 @@
 
     iput-object p1, p0, Lcom/android/settings/users/AutoSyncDataPreferenceController;->mUserManager:Landroid/os/UserManager;
 
-    iput-object p2, p0, Lcom/android/settings/users/AutoSyncDataPreferenceController;->mParentFragment:Landroidx/fragment/app/Fragment;
+    iput-object p2, p0, Lcom/android/settings/users/AutoSyncDataPreferenceController;->mParentFragment:Landroidx/preference/PreferenceFragmentCompat;
 
     invoke-static {}, Landroid/os/Process;->myUserHandle()Landroid/os/UserHandle;
 
@@ -88,9 +88,9 @@
 
     invoke-static {}, Landroid/app/ActivityManager;->isUserAMonkey()Z
 
-    move-result v1
+    move-result p1
 
-    if-eqz v1, :cond_0
+    if-eqz p1, :cond_0
 
     const-string p0, "AutoSyncDataController"
 
@@ -101,11 +101,23 @@
     goto :goto_0
 
     :cond_0
-    iget-object v1, p0, Lcom/android/settings/users/AutoSyncDataPreferenceController;->mParentFragment:Landroidx/fragment/app/Fragment;
+    iget-object p1, p0, Lcom/android/settings/users/AutoSyncDataPreferenceController;->mUserHandle:Landroid/os/UserHandle;
 
-    iget-object p0, p0, Lcom/android/settings/users/AutoSyncDataPreferenceController;->mUserHandle:Landroid/os/UserHandle;
+    invoke-virtual {p1}, Landroid/os/UserHandle;->getIdentifier()I
 
-    invoke-static {v1, v0, p0, p1}, Lcom/android/settings/users/AutoSyncDataPreferenceController$ConfirmAutoSyncChangeFragment;->show(Landroidx/fragment/app/Fragment;ZLandroid/os/UserHandle;Landroidx/preference/SwitchPreference;)V
+    move-result p1
+
+    invoke-virtual {p0}, Lcom/android/settings/users/AutoSyncDataPreferenceController;->getPreferenceKey()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, p1, v1}, Lcom/android/settings/users/AutoSyncDataPreferenceController$ConfirmAutoSyncChangeFragment;->newInstance(ZILjava/lang/String;)Lcom/android/settings/users/AutoSyncDataPreferenceController$ConfirmAutoSyncChangeFragment;
+
+    move-result-object p1
+
+    iget-object p0, p0, Lcom/android/settings/users/AutoSyncDataPreferenceController;->mParentFragment:Landroidx/preference/PreferenceFragmentCompat;
+
+    invoke-virtual {p1, p0}, Lcom/android/settings/users/AutoSyncDataPreferenceController$ConfirmAutoSyncChangeFragment;->show(Landroidx/preference/PreferenceFragmentCompat;)V
 
     :goto_0
     const/4 p0, 0x1

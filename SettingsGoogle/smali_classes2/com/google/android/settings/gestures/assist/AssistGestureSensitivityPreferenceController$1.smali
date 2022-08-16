@@ -39,7 +39,7 @@
 
     iget-object p0, p0, Lcom/google/android/settings/gestures/assist/AssistGestureSensitivityPreferenceController$1;->this$0:Lcom/google/android/settings/gestures/assist/AssistGestureSensitivityPreferenceController;
 
-    invoke-static {p0}, Lcom/google/android/settings/gestures/assist/AssistGestureSensitivityPreferenceController;->access$000(Lcom/google/android/settings/gestures/assist/AssistGestureSensitivityPreferenceController;)Lcom/google/android/settings/gestures/assist/AssistGestureIndicatorView;
+    invoke-static {p0}, Lcom/google/android/settings/gestures/assist/AssistGestureSensitivityPreferenceController;->-$$Nest$fgetmIndicatorView(Lcom/google/android/settings/gestures/assist/AssistGestureSensitivityPreferenceController;)Lcom/google/android/settings/gestures/assist/AssistGestureIndicatorView;
 
     move-result-object p0
 
@@ -53,7 +53,7 @@
 
     iget-object p0, p0, Lcom/google/android/settings/gestures/assist/AssistGestureSensitivityPreferenceController$1;->this$0:Lcom/google/android/settings/gestures/assist/AssistGestureSensitivityPreferenceController;
 
-    invoke-static {p0}, Lcom/google/android/settings/gestures/assist/AssistGestureSensitivityPreferenceController;->access$000(Lcom/google/android/settings/gestures/assist/AssistGestureSensitivityPreferenceController;)Lcom/google/android/settings/gestures/assist/AssistGestureIndicatorView;
+    invoke-static {p0}, Lcom/google/android/settings/gestures/assist/AssistGestureSensitivityPreferenceController;->-$$Nest$fgetmIndicatorView(Lcom/google/android/settings/gestures/assist/AssistGestureSensitivityPreferenceController;)Lcom/google/android/settings/gestures/assist/AssistGestureIndicatorView;
 
     move-result-object p0
 

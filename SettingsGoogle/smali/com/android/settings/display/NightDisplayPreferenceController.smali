@@ -14,7 +14,7 @@
 
 .field private final mNightDisplayListener:Landroid/hardware/display/NightDisplayListener;
 
-.field private mPreference:Lcom/android/settings/widget/PrimarySwitchPreference;
+.field private mPreference:Lcom/android/settingslib/PrimarySwitchPreference;
 
 .field private final mTimeFormatter:Lcom/android/settings/display/NightDisplayTimeFormatter;
 
@@ -95,18 +95,10 @@
 
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public displayPreference(Landroidx/preference/PreferenceScreen;)V
     .locals 1
 
-    invoke-super {p0, p1}, Lcom/android/settings/core/BasePreferenceController;->displayPreference(Landroidx/preference/PreferenceScreen;)V
+    invoke-super {p0, p1}, Lcom/android/settings/core/TogglePreferenceController;->displayPreference(Landroidx/preference/PreferenceScreen;)V
 
     invoke-virtual {p0}, Lcom/android/settings/core/BasePreferenceController;->getPreferenceKey()Ljava/lang/String;
 
@@ -116,9 +108,9 @@
 
     move-result-object p1
 
-    check-cast p1, Lcom/android/settings/widget/PrimarySwitchPreference;
+    check-cast p1, Lcom/android/settingslib/PrimarySwitchPreference;
 
-    iput-object p1, p0, Lcom/android/settings/display/NightDisplayPreferenceController;->mPreference:Lcom/android/settings/widget/PrimarySwitchPreference;
+    iput-object p1, p0, Lcom/android/settings/display/NightDisplayPreferenceController;->mPreference:Lcom/android/settingslib/PrimarySwitchPreference;
 
     return-void
 .end method
@@ -147,15 +139,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -177,7 +160,7 @@
 .method public getSliceHighlightMenuRes()I
     .locals 0
 
-    const p0, 0x7f040d07
+    const p0, 0x7f040d82
 
     return p0
 .end method
@@ -204,20 +187,10 @@
     return p0
 .end method
 
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
-
-    move-result p0
-
-    return p0
-.end method
-
 .method public onActivated(Z)V
     .locals 0
 
-    iget-object p1, p0, Lcom/android/settings/display/NightDisplayPreferenceController;->mPreference:Lcom/android/settings/widget/PrimarySwitchPreference;
+    iget-object p1, p0, Lcom/android/settings/display/NightDisplayPreferenceController;->mPreference:Lcom/android/settingslib/PrimarySwitchPreference;
 
     invoke-virtual {p0, p1}, Lcom/android/settings/display/NightDisplayPreferenceController;->updateState(Landroidx/preference/Preference;)V
 

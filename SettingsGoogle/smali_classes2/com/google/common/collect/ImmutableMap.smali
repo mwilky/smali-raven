@@ -8,10 +8,6 @@
 
 
 # annotations
-.annotation runtime Lcom/google/errorprone/annotations/DoNotMock;
-    value = "Use ImmutableMap.of or another implementation"
-.end annotation
-
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/google/common/collect/ImmutableMap$SerializedForm;,
@@ -48,9 +44,6 @@
 
 # instance fields
 .field private transient entrySet:Lcom/google/common/collect/ImmutableSet;
-    .annotation runtime Lcom/google/errorprone/annotations/concurrent/LazyInit;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/google/common/collect/ImmutableSet<",
@@ -61,9 +54,6 @@
 .end field
 
 .field private transient keySet:Lcom/google/common/collect/ImmutableSet;
-    .annotation runtime Lcom/google/errorprone/annotations/concurrent/LazyInit;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/google/common/collect/ImmutableSet<",
@@ -73,9 +63,6 @@
 .end field
 
 .field private transient values:Lcom/google/common/collect/ImmutableCollection;
-    .annotation runtime Lcom/google/errorprone/annotations/concurrent/LazyInit;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/google/common/collect/ImmutableCollection<",
@@ -125,103 +112,6 @@
     invoke-direct {v0}, Lcom/google/common/collect/ImmutableMap$Builder;-><init>()V
 
     return-object v0
-.end method
-
-.method public static copyOf(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableMap;
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<K:",
-            "Ljava/lang/Object;",
-            "V:",
-            "Ljava/lang/Object;",
-            ">(",
-            "Ljava/lang/Iterable<",
-            "+",
-            "Ljava/util/Map$Entry<",
-            "+TK;+TV;>;>;)",
-            "Lcom/google/common/collect/ImmutableMap<",
-            "TK;TV;>;"
-        }
-    .end annotation
-
-    instance-of v0, p0, Ljava/util/Collection;
-
-    if-eqz v0, :cond_0
-
-    move-object v0, p0
-
-    check-cast v0, Ljava/util/Collection;
-
-    invoke-interface {v0}, Ljava/util/Collection;->size()I
-
-    move-result v0
-
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x4
-
-    :goto_0
-    new-instance v1, Lcom/google/common/collect/ImmutableMap$Builder;
-
-    invoke-direct {v1, v0}, Lcom/google/common/collect/ImmutableMap$Builder;-><init>(I)V
-
-    invoke-virtual {v1, p0}, Lcom/google/common/collect/ImmutableMap$Builder;->putAll(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableMap$Builder;
-
-    invoke-virtual {v1}, Lcom/google/common/collect/ImmutableMap$Builder;->build()Lcom/google/common/collect/ImmutableMap;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public static copyOf(Ljava/util/Map;)Lcom/google/common/collect/ImmutableMap;
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<K:",
-            "Ljava/lang/Object;",
-            "V:",
-            "Ljava/lang/Object;",
-            ">(",
-            "Ljava/util/Map<",
-            "+TK;+TV;>;)",
-            "Lcom/google/common/collect/ImmutableMap<",
-            "TK;TV;>;"
-        }
-    .end annotation
-
-    instance-of v0, p0, Lcom/google/common/collect/ImmutableMap;
-
-    if-eqz v0, :cond_0
-
-    instance-of v0, p0, Ljava/util/SortedMap;
-
-    if-nez v0, :cond_0
-
-    move-object v0, p0
-
-    check-cast v0, Lcom/google/common/collect/ImmutableMap;
-
-    invoke-virtual {v0}, Lcom/google/common/collect/ImmutableMap;->isPartialView()Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    return-object v0
-
-    :cond_0
-    invoke-interface {p0}, Ljava/util/Map;->entrySet()Ljava/util/Set;
-
-    move-result-object p0
-
-    invoke-static {p0}, Lcom/google/common/collect/ImmutableMap;->copyOf(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableMap;
-
-    move-result-object p0
-
-    return-object p0
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableMap;
@@ -504,7 +394,7 @@
 
     if-eqz p0, :cond_0
 
-    move-object p2, p0
+    return-object p0
 
     :cond_0
     return-object p2
@@ -552,9 +442,6 @@
     return p0
 .end method
 
-.method abstract isPartialView()Z
-.end method
-
 .method public keySet()Lcom/google/common/collect/ImmutableSet;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
@@ -591,9 +478,6 @@
 
 .method public final put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)TV;"
@@ -632,9 +516,6 @@
 
 .method public final remove(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

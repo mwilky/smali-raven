@@ -36,7 +36,7 @@
 
     iget-object p0, p0, Lcom/android/settings/network/telephony/RoamingPreferenceController$1;->this$0:Lcom/android/settings/network/telephony/RoamingPreferenceController;
 
-    invoke-static {p0}, Lcom/android/settings/network/telephony/RoamingPreferenceController;->access$000(Lcom/android/settings/network/telephony/RoamingPreferenceController;)Lcom/android/settingslib/RestrictedSwitchPreference;
+    invoke-static {p0}, Lcom/android/settings/network/telephony/RoamingPreferenceController;->-$$Nest$fgetmSwitchPreference(Lcom/android/settings/network/telephony/RoamingPreferenceController;)Lcom/android/settingslib/RestrictedSwitchPreference;
 
     move-result-object p1
 

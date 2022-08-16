@@ -43,6 +43,22 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmListener(Lcom/android/settings/biometrics/face/ParticleCollection;)Lcom/android/settings/biometrics/face/ParticleCollection$Listener;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/biometrics/face/ParticleCollection;->mListener:Lcom/android/settings/biometrics/face/ParticleCollection$Listener;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmPrimariesInProgress(Lcom/android/settings/biometrics/face/ParticleCollection;)Ljava/util/List;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/biometrics/face/ParticleCollection;->mPrimariesInProgress:Ljava/util/List;
+
+    return-object p0
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Lcom/android/settings/biometrics/face/ParticleCollection$Listener;Landroid/graphics/Rect;I)V
     .locals 15
 
@@ -78,30 +94,6 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a00ad
-
-    invoke-virtual {v2, v3, v1}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
-
-    move-result v3
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-interface {v9, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    const v3, 0x7f0a00ae
-
-    invoke-virtual {v2, v3, v1}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
-
-    move-result v3
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-interface {v9, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
     const v3, 0x7f0a00af
 
     invoke-virtual {v2, v3, v1}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
@@ -115,6 +107,30 @@
     invoke-interface {v9, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     const v3, 0x7f0a00b0
+
+    invoke-virtual {v2, v3, v1}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
+
+    move-result v3
+
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    invoke-interface {v9, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    const v3, 0x7f0a00b1
+
+    invoke-virtual {v2, v3, v1}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
+
+    move-result v3
+
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    invoke-interface {v9, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    const v3, 0x7f0a00b2
 
     invoke-virtual {v2, v3, v1}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 
@@ -246,22 +262,6 @@
         0x4
         0x8
     .end array-data
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/biometrics/face/ParticleCollection;)Ljava/util/List;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/biometrics/face/ParticleCollection;->mPrimariesInProgress:Ljava/util/List;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/biometrics/face/ParticleCollection;)Lcom/android/settings/biometrics/face/ParticleCollection$Listener;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/biometrics/face/ParticleCollection;->mListener:Lcom/android/settings/biometrics/face/ParticleCollection$Listener;
-
-    return-object p0
 .end method
 
 .method private updateState(I)V

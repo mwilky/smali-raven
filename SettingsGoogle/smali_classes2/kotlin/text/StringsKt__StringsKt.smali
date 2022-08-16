@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nStrings.kt\nKotlin\n*S Kotlin\n*F\n+ 1 Strings.kt\nkotlin/text/StringsKt__StringsKt\n+ 2 _Arrays.kt\nkotlin/collections/ArraysKt___ArraysKt\n+ 3 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n+ 4 fake.kt\nkotlin/jvm/internal/FakeKt\n*L\n1#1,1381:1\n71#1,22:1382\n105#1,5:1404\n122#1,5:1409\n71#1,22:1414\n99#1:1436\n71#1,22:1437\n105#1,5:1459\n116#1:1464\n105#1,5:1465\n122#1,5:1470\n133#1:1475\n122#1,5:1476\n71#1,22:1481\n105#1,5:1503\n122#1,5:1508\n12751#2,2:1513\n12751#2,2:1515\n256#3,2:1517\n256#3,2:1519\n1517#3:1522\n1588#3,3:1523\n1517#3:1526\n1588#3,3:1527\n1#4:1521\n*E\n*S KotlinDebug\n*F\n+ 1 Strings.kt\nkotlin/text/StringsKt__StringsKt\n*L\n99#1,22:1382\n116#1,5:1404\n133#1,5:1409\n138#1,22:1414\n143#1:1436\n143#1,22:1437\n148#1,5:1459\n153#1:1464\n153#1,5:1465\n158#1,5:1470\n163#1:1475\n163#1,5:1476\n168#1,22:1481\n179#1,5:1503\n190#1,5:1508\n934#1,2:1513\n958#1,2:1515\n997#1,2:1517\n1003#1,2:1519\n1300#1:1522\n1300#1,3:1523\n1325#1:1526\n1325#1,3:1527\n*E\n"
+    value = "SMAP\nStrings.kt\nKotlin\n*S Kotlin\n*F\n+ 1 Strings.kt\nkotlin/text/StringsKt__StringsKt\n+ 2 _Arrays.kt\nkotlin/collections/ArraysKt___ArraysKt\n+ 3 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n+ 4 fake.kt\nkotlin/jvm/internal/FakeKt\n*L\n1#1,1486:1\n79#1,22:1487\n113#1,5:1509\n130#1,5:1514\n79#1,22:1519\n107#1:1541\n79#1,22:1542\n113#1,5:1564\n124#1:1569\n113#1,5:1570\n130#1,5:1575\n141#1:1580\n130#1,5:1581\n79#1,22:1586\n113#1,5:1608\n130#1,5:1613\n12781#2,2:1618\n12781#2,2:1620\n286#3,2:1622\n286#3,2:1624\n1547#3:1627\n1618#3,3:1628\n1547#3:1631\n1618#3,3:1632\n1#4:1626\n*S KotlinDebug\n*F\n+ 1 Strings.kt\nkotlin/text/StringsKt__StringsKt\n*L\n107#1:1487,22\n124#1:1509,5\n141#1:1514,5\n146#1:1519,22\n151#1:1541\n151#1:1542,22\n156#1:1564,5\n161#1:1569\n161#1:1570,5\n166#1:1575,5\n171#1:1580\n171#1:1581,5\n176#1:1586,22\n187#1:1608,5\n198#1:1613,5\n940#1:1618,2\n964#1:1620,2\n1003#1:1622,2\n1009#1:1624,2\n1309#1:1627\n1309#1:1628,3\n1334#1:1631\n1334#1:1632,3\n*E\n"
 .end annotation
 
 
@@ -21,7 +21,7 @@
         .end annotation
     .end param
 
-    const-string v0, "$this$contains"
+    const-string v0, "<this>"
 
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -119,7 +119,7 @@
     .annotation build Lorg/jetbrains/annotations/NotNull;
     .end annotation
 
-    const-string v0, "$this$indices"
+    const-string v0, "<this>"
 
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -145,7 +145,7 @@
         .end annotation
     .end param
 
-    const-string v0, "$this$lastIndex"
+    const-string v0, "<this>"
 
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -165,7 +165,7 @@
         .end annotation
     .end param
 
-    const-string v0, "$this$indexOf"
+    const-string v0, "<this>"
 
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -215,7 +215,7 @@
         .end annotation
     .end param
 
-    const-string v0, "$this$indexOf"
+    const-string v0, "<this>"
 
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -269,17 +269,17 @@
 .end method
 
 .method private static final indexOf$StringsKt__StringsKt(Ljava/lang/CharSequence;Ljava/lang/CharSequence;IIZZ)I
-    .locals 6
+    .locals 7
 
     const/4 v0, 0x0
 
     if-nez p5, :cond_0
 
+    new-instance p5, Lkotlin/ranges/IntRange;
+
     invoke-static {p2, v0}, Lkotlin/ranges/RangesKt;->coerceAtLeast(II)I
 
     move-result p2
-
-    new-instance p5, Lkotlin/ranges/IntRange;
 
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
@@ -313,11 +313,11 @@
     :goto_0
     instance-of p2, p0, Ljava/lang/String;
 
-    if-eqz p2, :cond_3
+    if-eqz p2, :cond_5
 
     instance-of p2, p1, Ljava/lang/String;
 
-    if-eqz p2, :cond_3
+    if-eqz p2, :cond_5
 
     invoke-virtual {p5}, Lkotlin/ranges/IntProgression;->getFirst()I
 
@@ -331,16 +331,19 @@
 
     move-result p5
 
-    if-ltz p5, :cond_1
+    if-lez p5, :cond_1
 
-    if-gt p2, p3, :cond_6
-
-    goto :goto_1
+    if-le p2, p3, :cond_2
 
     :cond_1
-    if-lt p2, p3, :cond_6
+    if-gez p5, :cond_a
 
+    if-gt p3, p2, :cond_a
+
+    :cond_2
     :goto_1
+    add-int v6, p2, p5
+
     move-object v0, p1
 
     check-cast v0, Ljava/lang/String;
@@ -363,18 +366,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
 
     return p2
 
-    :cond_2
-    if-eq p2, p3, :cond_6
+    :cond_3
+    if-ne p2, p3, :cond_4
 
-    add-int/2addr p2, p5
+    goto :goto_3
+
+    :cond_4
+    move p2, v6
 
     goto :goto_1
 
-    :cond_3
+    :cond_5
     invoke-virtual {p5}, Lkotlin/ranges/IntProgression;->getFirst()I
 
     move-result p2
@@ -387,16 +393,19 @@
 
     move-result p5
 
-    if-ltz p5, :cond_4
+    if-lez p5, :cond_6
 
-    if-gt p2, p3, :cond_6
+    if-le p2, p3, :cond_7
 
-    goto :goto_2
+    :cond_6
+    if-gez p5, :cond_a
 
-    :cond_4
-    if-lt p2, p3, :cond_6
+    if-gt p3, p2, :cond_a
 
+    :cond_7
     :goto_2
+    add-int v6, p2, p5
+
     const/4 v1, 0x0
 
     invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
@@ -415,18 +424,22 @@
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_8
 
     return p2
 
-    :cond_5
-    if-eq p2, p3, :cond_6
+    :cond_8
+    if-ne p2, p3, :cond_9
 
-    add-int/2addr p2, p5
+    goto :goto_3
+
+    :cond_9
+    move p2, v6
 
     goto :goto_2
 
-    :cond_6
+    :cond_a
+    :goto_3
     const/4 p0, -0x1
 
     return p0
@@ -514,7 +527,7 @@
 .end method
 
 .method public static final indexOfAny(Ljava/lang/CharSequence;[CIZ)I
-    .locals 7
+    .locals 8
     .param p0    # Ljava/lang/CharSequence;
         .annotation build Lorg/jetbrains/annotations/NotNull;
         .end annotation
@@ -524,7 +537,7 @@
         .end annotation
     .end param
 
-    const-string v0, "$this$indexOfAny"
+    const-string v0, "<this>"
 
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -567,53 +580,56 @@
 
     move-result v2
 
-    if-gt p2, v2, :cond_4
+    if-gt p2, v2, :cond_5
 
     :goto_0
+    add-int/lit8 v3, p2, 0x1
+
     invoke-interface {p0, p2}, Ljava/lang/CharSequence;->charAt(I)C
 
-    move-result v3
+    move-result v4
 
-    array-length v4, p1
+    array-length v5, p1
 
-    move v5, v1
-
-    :goto_1
-    if-ge v5, v4, :cond_2
-
-    aget-char v6, p1, v5
-
-    invoke-static {v6, v3, p3}, Lkotlin/text/CharsKt__CharKt;->equals(CCZ)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_1
-
-    move v3, v0
-
-    goto :goto_2
+    move v6, v1
 
     :cond_1
-    add-int/lit8 v5, v5, 0x1
+    if-ge v6, v5, :cond_2
+
+    aget-char v7, p1, v6
+
+    add-int/lit8 v6, v6, 0x1
+
+    invoke-static {v7, v4, p3}, Lkotlin/text/CharsKt__CharKt;->equals(CCZ)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_1
+
+    move v4, v0
 
     goto :goto_1
 
     :cond_2
-    move v3, v1
+    move v4, v1
 
-    :goto_2
-    if-eqz v3, :cond_3
+    :goto_1
+    if-eqz v4, :cond_3
 
     return p2
 
     :cond_3
-    if-eq p2, v2, :cond_4
+    if-ne p2, v2, :cond_4
 
-    add-int/lit8 p2, p2, 0x1
+    goto :goto_2
+
+    :cond_4
+    move p2, v3
 
     goto :goto_0
 
-    :cond_4
+    :cond_5
+    :goto_2
     const/4 p0, -0x1
 
     return p0
@@ -626,7 +642,7 @@
         .end annotation
     .end param
 
-    const-string v0, "$this$lastIndexOf"
+    const-string v0, "<this>"
 
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -676,7 +692,7 @@
         .end annotation
     .end param
 
-    const-string v0, "$this$lastIndexOf"
+    const-string v0, "<this>"
 
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -776,7 +792,7 @@
 .end method
 
 .method public static final lastIndexOfAny(Ljava/lang/CharSequence;[CIZ)I
-    .locals 6
+    .locals 7
     .param p0    # Ljava/lang/CharSequence;
         .annotation build Lorg/jetbrains/annotations/NotNull;
         .end annotation
@@ -786,7 +802,7 @@
         .end annotation
     .end param
 
-    const-string v0, "$this$lastIndexOfAny"
+    const-string v0, "<this>"
 
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -827,51 +843,53 @@
 
     move-result p2
 
+    if-ltz p2, :cond_5
+
     :goto_0
-    if-ltz p2, :cond_4
+    add-int/lit8 v1, p2, -0x1
 
     invoke-interface {p0, p2}, Ljava/lang/CharSequence;->charAt(I)C
 
-    move-result v1
+    move-result v2
 
-    array-length v2, p1
+    array-length v3, p1
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    move v4, v3
-
-    :goto_1
-    if-ge v4, v2, :cond_2
-
-    aget-char v5, p1, v4
-
-    invoke-static {v5, v1, p3}, Lkotlin/text/CharsKt__CharKt;->equals(CCZ)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_1
-
-    move v3, v0
-
-    goto :goto_2
+    move v5, v4
 
     :cond_1
-    add-int/lit8 v4, v4, 0x1
+    if-ge v5, v3, :cond_2
 
-    goto :goto_1
+    aget-char v6, p1, v5
+
+    add-int/lit8 v5, v5, 0x1
+
+    invoke-static {v6, v2, p3}, Lkotlin/text/CharsKt__CharKt;->equals(CCZ)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_1
+
+    move v4, v0
 
     :cond_2
-    :goto_2
-    if-eqz v3, :cond_3
+    if-eqz v4, :cond_3
 
     return p2
 
     :cond_3
-    add-int/lit8 p2, p2, -0x1
+    if-gez v1, :cond_4
+
+    goto :goto_1
+
+    :cond_4
+    move p2, v1
 
     goto :goto_0
 
-    :cond_4
+    :cond_5
+    :goto_1
     const/4 p0, -0x1
 
     return p0
@@ -888,7 +906,7 @@
         .end annotation
     .end param
 
-    const-string v0, "$this$regionMatchesImpl"
+    const-string v0, "<this>"
 
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -926,28 +944,30 @@
     :goto_0
     if-ge v1, p4, :cond_2
 
-    add-int v2, p1, v1
+    add-int/lit8 v2, v1, 0x1
 
-    invoke-interface {p0, v2}, Ljava/lang/CharSequence;->charAt(I)C
+    add-int v3, p1, v1
 
-    move-result v2
-
-    add-int v3, p3, v1
-
-    invoke-interface {p2, v3}, Ljava/lang/CharSequence;->charAt(I)C
+    invoke-interface {p0, v3}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v3
 
-    invoke-static {v2, v3, p5}, Lkotlin/text/CharsKt__CharKt;->equals(CCZ)Z
+    add-int/2addr v1, p3
 
-    move-result v2
+    invoke-interface {p2, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
-    if-nez v2, :cond_1
+    move-result v1
+
+    invoke-static {v3, v1, p5}, Lkotlin/text/CharsKt__CharKt;->equals(CCZ)Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
 
     return v0
 
     :cond_1
-    add-int/lit8 v1, v1, 0x1
+    move v1, v2
 
     goto :goto_0
 
@@ -974,7 +994,7 @@
     .annotation build Lorg/jetbrains/annotations/NotNull;
     .end annotation
 
-    const-string v0, "$this$substringAfter"
+    const-string v0, "<this>"
 
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -1015,7 +1035,7 @@
 
     move-result-object p2
 
-    const-string p0, "(this as java.lang.Strin\u2026ing(startIndex, endIndex)"
+    const-string p0, "this as java.lang.String\u2026ing(startIndex, endIndex)"
 
     invoke-static {p2, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -1040,7 +1060,7 @@
     .annotation build Lorg/jetbrains/annotations/NotNull;
     .end annotation
 
-    const-string v0, "$this$substringAfter"
+    const-string v0, "<this>"
 
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -1089,7 +1109,7 @@
 
     move-result-object p2
 
-    const-string p0, "(this as java.lang.Strin\u2026ing(startIndex, endIndex)"
+    const-string p0, "this as java.lang.String\u2026ing(startIndex, endIndex)"
 
     invoke-static {p2, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -1144,7 +1164,7 @@
     .annotation build Lorg/jetbrains/annotations/NotNull;
     .end annotation
 
-    const-string v0, "$this$substringAfterLast"
+    const-string v0, "<this>"
 
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -1185,7 +1205,7 @@
 
     move-result-object p2
 
-    const-string p0, "(this as java.lang.Strin\u2026ing(startIndex, endIndex)"
+    const-string p0, "this as java.lang.String\u2026ing(startIndex, endIndex)"
 
     invoke-static {p2, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 

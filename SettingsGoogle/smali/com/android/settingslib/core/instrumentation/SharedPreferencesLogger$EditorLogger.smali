@@ -115,7 +115,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/core/instrumentation/SharedPreferencesLogger$EditorLogger;->this$0:Lcom/android/settingslib/core/instrumentation/SharedPreferencesLogger;
 
-    invoke-static {v0, p1, p2}, Lcom/android/settingslib/core/instrumentation/SharedPreferencesLogger;->access$300(Lcom/android/settingslib/core/instrumentation/SharedPreferencesLogger;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v0, p1, p2}, Lcom/android/settingslib/core/instrumentation/SharedPreferencesLogger;->-$$Nest$msafeLogValue(Lcom/android/settingslib/core/instrumentation/SharedPreferencesLogger;Ljava/lang/String;Ljava/lang/String;)V
 
     return-object p0
 .end method
@@ -141,7 +141,7 @@
 
     move-result-object p2
 
-    invoke-static {v0, p1, p2}, Lcom/android/settingslib/core/instrumentation/SharedPreferencesLogger;->access$300(Lcom/android/settingslib/core/instrumentation/SharedPreferencesLogger;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v0, p1, p2}, Lcom/android/settingslib/core/instrumentation/SharedPreferencesLogger;->-$$Nest$msafeLogValue(Lcom/android/settingslib/core/instrumentation/SharedPreferencesLogger;Ljava/lang/String;Ljava/lang/String;)V
 
     return-object p0
 .end method

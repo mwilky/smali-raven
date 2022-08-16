@@ -5,7 +5,7 @@
         <ImageView android:id="@id/sud_items_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:contentDescription="@null" />
     </FrameLayout>
     <LinearLayout android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/sud_items_verbose_padding_bottom_extra" android:layout_weight="1.0">
-        <com.google.android.setupdesign.view.RichTextView android:gravity="start" android:id="@id/sud_items_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:textAlignment="viewStart" style="@style/SudItemTitle.Verbose" />
-        <com.google.android.setupdesign.view.RichTextView android:gravity="start" android:id="@id/sud_items_summary" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:textAlignment="viewStart" style="@style/SudItemSummary" />
+        <com.google.android.setupdesign.view.RichTextView android:gravity="start" android:id="@id/sud_items_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:textAlignment="viewStart" style="?sudItemVerboseTitleStyle" />
+        <com.google.android.setupdesign.view.RichTextView android:gravity="start" android:id="@id/sud_items_summary" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:textAlignment="viewStart" style="?sudItemSummaryStyle" />
     </LinearLayout>
 </LinearLayout>

@@ -40,7 +40,7 @@
 
     const/4 p0, 0x0
 
-    invoke-static {p1, p0, p0}, Lcom/android/settings/security/SecuritySettings;->access$000(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;Lcom/android/settings/security/SecuritySettings;)Ljava/util/List;
+    invoke-static {p1, p0, p0}, Lcom/android/settings/security/SecuritySettings;->-$$Nest$smbuildPreferenceControllers(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;Lcom/android/settings/security/SecuritySettings;)Ljava/util/List;
 
     move-result-object p0
 
@@ -62,7 +62,25 @@
 
     move-result p0
 
-    xor-int/lit8 p0, p0, 0x1
+    if-nez p0, :cond_0
 
+    invoke-static {}, Lcom/android/settings/safetycenter/SafetyCenterManagerWrapper;->get()Lcom/android/settings/safetycenter/SafetyCenterManagerWrapper;
+
+    move-result-object p0
+
+    invoke-virtual {p0, p1}, Lcom/android/settings/safetycenter/SafetyCenterManagerWrapper;->isEnabled(Landroid/content/Context;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_0
+
+    const/4 p0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    :goto_0
     return p0
 .end method

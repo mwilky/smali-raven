@@ -132,9 +132,7 @@
 
     if-gt v7, p3, :cond_0
 
-    aget v7, v2, v4
-
-    add-int/2addr v7, v4
+    add-int/lit8 v7, v7, 0x1
 
     aput v7, v2, v4
 
@@ -167,9 +165,7 @@
 
     if-gt v8, p3, :cond_2
 
-    aget v8, v2, v3
-
-    add-int/2addr v8, v4
+    add-int/lit8 v8, v8, 0x1
 
     aput v8, v2, v3
 
@@ -200,9 +196,7 @@
 
     if-gt v6, p3, :cond_4
 
-    aget v6, v2, v4
-
-    add-int/2addr v6, v4
+    add-int/lit8 v6, v6, 0x1
 
     aput v6, v2, v4
 
@@ -233,9 +227,7 @@
 
     if-gt v6, p3, :cond_6
 
-    aget v6, v2, v5
-
-    add-int/2addr v6, v4
+    add-int/lit8 v6, v6, 0x1
 
     aput v6, v2, v5
 
@@ -251,19 +243,17 @@
     return v7
 
     :cond_7
-    aget p2, v2, v3
+    aget p3, v2, v3
 
-    aget p3, v2, v4
+    aget v0, v2, v4
 
-    add-int/2addr p2, p3
+    add-int/2addr p3, v0
 
-    aget p3, v2, v5
+    add-int/2addr p3, p2
 
-    add-int/2addr p2, p3
+    sub-int/2addr p3, p4
 
-    sub-int/2addr p2, p4
-
-    invoke-static {p2}, Ljava/lang/Math;->abs(I)I
+    invoke-static {p3}, Ljava/lang/Math;->abs(I)I
 
     move-result p2
 

@@ -42,6 +42,16 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$1iYrPeG6IvUl1jte4PlIoMd4AA8(Lcom/android/settings/notification/SoundWorkSettingsController;)Ljava/lang/String;
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/notification/SoundWorkSettingsController;->lambda$enableWorkSyncSettings$1()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method public static synthetic $r8$lambda$P0SzRwAeiPwTa8BI6eZcdgUgtaQ(Lcom/android/settings/notification/SoundWorkSettingsController;Landroidx/preference/Preference;Ljava/lang/Object;)Z
     .locals 0
 
@@ -102,13 +112,23 @@
 .end method
 
 .method private disableWorkSync()V
-    .locals 1
+    .locals 4
 
     invoke-direct {p0}, Lcom/android/settings/notification/SoundWorkSettingsController;->getManagedProfileContext()Landroid/content/Context;
 
     move-result-object v0
 
-    invoke-static {v0}, Landroid/media/RingtoneManager;->disableSyncFromParent(Landroid/content/Context;)V
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    iget v1, p0, Lcom/android/settings/notification/SoundWorkSettingsController;->mManagedProfileId:I
+
+    const-string/jumbo v2, "sync_parent_sounds"
+
+    const/4 v3, 0x0
+
+    invoke-static {v0, v2, v3, v1}, Landroid/provider/Settings$Secure;->putIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)Z
 
     invoke-direct {p0}, Lcom/android/settings/notification/SoundWorkSettingsController;->disableWorkSyncSettings()V
 
@@ -141,7 +161,7 @@
 .end method
 
 .method private enableWorkSyncSettings()V
-    .locals 2
+    .locals 3
 
     iget-object v0, p0, Lcom/android/settings/notification/SoundWorkSettingsController;->mWorkUsePersonalSounds:Landroidx/preference/TwoStatePreference;
 
@@ -149,22 +169,44 @@
 
     invoke-virtual {v0, v1}, Landroidx/preference/TwoStatePreference;->setChecked(Z)V
 
-    iget-object v0, p0, Lcom/android/settings/notification/SoundWorkSettingsController;->mWorkPhoneRingtonePreference:Landroidx/preference/Preference;
+    iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0417ac
+    const-class v1, Landroid/app/admin/DevicePolicyManager;
 
-    if-eqz v0, :cond_0
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
-    invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setSummary(I)V
+    move-result-object v0
+
+    check-cast v0, Landroid/app/admin/DevicePolicyManager;
+
+    invoke-virtual {v0}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/android/settings/notification/SoundWorkSettingsController$$ExternalSyntheticLambda1;
+
+    invoke-direct {v1, p0}, Lcom/android/settings/notification/SoundWorkSettingsController$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/notification/SoundWorkSettingsController;)V
+
+    const-string v2, "Settings.WORK_PROFILE_SYNC_WITH_PERSONAL_SOUNDS_ACTIVE_SUMMARY"
+
+    invoke-virtual {v0, v2, v1}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/settings/notification/SoundWorkSettingsController;->mWorkPhoneRingtonePreference:Landroidx/preference/Preference;
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {v1, v0}, Landroidx/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
     :cond_0
-    iget-object v0, p0, Lcom/android/settings/notification/SoundWorkSettingsController;->mWorkNotificationRingtonePreference:Landroidx/preference/Preference;
+    iget-object v1, p0, Lcom/android/settings/notification/SoundWorkSettingsController;->mWorkNotificationRingtonePreference:Landroidx/preference/Preference;
 
-    invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setSummary(I)V
+    invoke-virtual {v1, v0}, Landroidx/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
     iget-object p0, p0, Lcom/android/settings/notification/SoundWorkSettingsController;->mWorkAlarmRingtonePreference:Landroidx/preference/Preference;
 
-    invoke-virtual {p0, v1}, Landroidx/preference/Preference;->setSummary(I)V
+    invoke-virtual {p0, v0}, Landroidx/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
     return-void
 .end method
@@ -208,6 +250,20 @@
     invoke-virtual {p1, p0}, Lcom/android/settings/RingtonePreference;->setUserId(I)V
 
     return-object p1
+.end method
+
+.method private synthetic lambda$enableWorkSyncSettings$1()Ljava/lang/String;
+    .locals 1
+
+    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    const v0, 0x7f0418a7
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method private synthetic lambda$updateWorkPreferences$0(Landroidx/preference/Preference;Ljava/lang/Object;)Z
@@ -291,7 +347,7 @@
     :goto_0
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const p1, 0x7f040c95
+    const p1, 0x7f040d10
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -482,13 +538,23 @@
 .end method
 
 .method enableWorkSync()V
-    .locals 1
+    .locals 4
 
     invoke-direct {p0}, Lcom/android/settings/notification/SoundWorkSettingsController;->getManagedProfileContext()Landroid/content/Context;
 
     move-result-object v0
 
-    invoke-static {v0}, Landroid/media/RingtoneManager;->enableSyncFromParent(Landroid/content/Context;)V
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    iget v1, p0, Lcom/android/settings/notification/SoundWorkSettingsController;->mManagedProfileId:I
+
+    const-string/jumbo v2, "sync_parent_sounds"
+
+    const/4 v3, 0x1
+
+    invoke-static {v0, v2, v3, v1}, Landroid/provider/Settings$Secure;->putIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)Z
 
     invoke-direct {p0}, Lcom/android/settings/notification/SoundWorkSettingsController;->enableWorkSyncSettings()V
 

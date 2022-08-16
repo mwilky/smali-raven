@@ -100,10 +100,35 @@
     return-void
 .end method
 
+.method static newHeader()Lcom/google/common/collect/LinkedHashMultimap$ValueEntry;
+    .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<K:",
+            "Ljava/lang/Object;",
+            "V:",
+            "Ljava/lang/Object;",
+            ">()",
+            "Lcom/google/common/collect/LinkedHashMultimap$ValueEntry<",
+            "TK;TV;>;"
+        }
+    .end annotation
+
+    new-instance v0, Lcom/google/common/collect/LinkedHashMultimap$ValueEntry;
+
+    const/4 v1, 0x0
+
+    const/4 v2, 0x0
+
+    invoke-direct {v0, v1, v1, v2, v1}, Lcom/google/common/collect/LinkedHashMultimap$ValueEntry;-><init>(Ljava/lang/Object;Ljava/lang/Object;ILcom/google/common/collect/LinkedHashMultimap$ValueEntry;)V
+
+    return-object v0
+.end method
+
 
 # virtual methods
 .method public getPredecessorInMultimap()Lcom/google/common/collect/LinkedHashMultimap$ValueEntry;
-    .locals 0
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -113,6 +138,12 @@
     .end annotation
 
     iget-object p0, p0, Lcom/google/common/collect/LinkedHashMultimap$ValueEntry;->predecessorInMultimap:Lcom/google/common/collect/LinkedHashMultimap$ValueEntry;
+
+    invoke-static {p0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-object v0, p0
+
+    check-cast v0, Lcom/google/common/collect/LinkedHashMultimap$ValueEntry;
 
     return-object p0
 .end method
@@ -129,11 +160,15 @@
 
     iget-object p0, p0, Lcom/google/common/collect/LinkedHashMultimap$ValueEntry;->predecessorInValueSet:Lcom/google/common/collect/LinkedHashMultimap$ValueSetLink;
 
+    invoke-static {p0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+
+    check-cast p0, Lcom/google/common/collect/LinkedHashMultimap$ValueSetLink;
+
     return-object p0
 .end method
 
 .method public getSuccessorInMultimap()Lcom/google/common/collect/LinkedHashMultimap$ValueEntry;
-    .locals 0
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -143,6 +178,12 @@
     .end annotation
 
     iget-object p0, p0, Lcom/google/common/collect/LinkedHashMultimap$ValueEntry;->successorInMultimap:Lcom/google/common/collect/LinkedHashMultimap$ValueEntry;
+
+    invoke-static {p0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-object v0, p0
+
+    check-cast v0, Lcom/google/common/collect/LinkedHashMultimap$ValueEntry;
 
     return-object p0
 .end method
@@ -158,6 +199,10 @@
     .end annotation
 
     iget-object p0, p0, Lcom/google/common/collect/LinkedHashMultimap$ValueEntry;->successorInValueSet:Lcom/google/common/collect/LinkedHashMultimap$ValueSetLink;
+
+    invoke-static {p0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+
+    check-cast p0, Lcom/google/common/collect/LinkedHashMultimap$ValueSetLink;
 
     return-object p0
 .end method

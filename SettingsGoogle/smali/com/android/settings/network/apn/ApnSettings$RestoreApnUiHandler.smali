@@ -29,7 +29,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settings/network/apn/ApnSettings;Lcom/android/settings/network/apn/ApnSettings$1;)V
+.method synthetic constructor <init>(Lcom/android/settings/network/apn/ApnSettings;Lcom/android/settings/network/apn/ApnSettings$RestoreApnUiHandler-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settings/network/apn/ApnSettings$RestoreApnUiHandler;-><init>(Lcom/android/settings/network/apn/ApnSettings;)V
@@ -63,14 +63,14 @@
 
     iget-object p0, p0, Lcom/android/settings/network/apn/ApnSettings$RestoreApnUiHandler;->this$0:Lcom/android/settings/network/apn/ApnSettings;
 
-    invoke-static {p0, v0}, Lcom/android/settings/network/apn/ApnSettings;->access$002(Lcom/android/settings/network/apn/ApnSettings;Z)Z
+    invoke-static {p0, v0}, Lcom/android/settings/network/apn/ApnSettings;->-$$Nest$fputmRestoreDefaultApnMode(Lcom/android/settings/network/apn/ApnSettings;Z)V
 
     return-void
 
     :cond_1
     iget-object v1, p0, Lcom/android/settings/network/apn/ApnSettings$RestoreApnUiHandler;->this$0:Lcom/android/settings/network/apn/ApnSettings;
 
-    invoke-static {v1}, Lcom/android/settings/network/apn/ApnSettings;->access$100(Lcom/android/settings/network/apn/ApnSettings;)V
+    invoke-static {v1}, Lcom/android/settings/network/apn/ApnSettings;->-$$Nest$mfillList(Lcom/android/settings/network/apn/ApnSettings;)V
 
     iget-object v1, p0, Lcom/android/settings/network/apn/ApnSettings$RestoreApnUiHandler;->this$0:Lcom/android/settings/network/apn/ApnSettings;
 
@@ -84,31 +84,39 @@
 
     iget-object v1, p0, Lcom/android/settings/network/apn/ApnSettings$RestoreApnUiHandler;->this$0:Lcom/android/settings/network/apn/ApnSettings;
 
-    invoke-static {v1, v0}, Lcom/android/settings/network/apn/ApnSettings;->access$002(Lcom/android/settings/network/apn/ApnSettings;Z)Z
+    invoke-static {v1, v0}, Lcom/android/settings/network/apn/ApnSettings;->-$$Nest$fputmRestoreDefaultApnMode(Lcom/android/settings/network/apn/ApnSettings;Z)V
 
     iget-object v0, p0, Lcom/android/settings/network/apn/ApnSettings$RestoreApnUiHandler;->this$0:Lcom/android/settings/network/apn/ApnSettings;
 
     const/16 v1, 0x3e9
 
-    invoke-static {v0, v1}, Lcom/android/settings/network/apn/ApnSettings;->access$900(Lcom/android/settings/network/apn/ApnSettings;I)V
+    invoke-static {v0, v1}, Lcom/android/settings/network/apn/ApnSettings;->access$100(Lcom/android/settings/network/apn/ApnSettings;I)V
+
+    iget-object v0, p0, Lcom/android/settings/network/apn/ApnSettings$RestoreApnUiHandler;->this$0:Lcom/android/settings/network/apn/ApnSettings;
+
+    invoke-virtual {v0}, Landroidx/fragment/app/Fragment;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const v1, 0x7f0410f3
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {p1, v0, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Landroid/widget/Toast;->show()V
 
     iget-object p0, p0, Lcom/android/settings/network/apn/ApnSettings$RestoreApnUiHandler;->this$0:Lcom/android/settings/network/apn/ApnSettings;
 
-    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getResources()Landroid/content/res/Resources;
+    invoke-static {p0}, Lcom/android/settings/network/apn/ApnSettings;->-$$Nest$fgetmSubId(Lcom/android/settings/network/apn/ApnSettings;)I
 
-    move-result-object p0
+    move-result p1
 
-    const v0, 0x7f04104d
-
-    invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object p0
-
-    invoke-static {p1, p0, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Landroid/widget/Toast;->show()V
+    invoke-static {p0, p1}, Lcom/android/settings/network/apn/ApnSettings;->-$$Nest$mrestartPhoneStateListener(Lcom/android/settings/network/apn/ApnSettings;I)V
 
     :goto_0
     return-void

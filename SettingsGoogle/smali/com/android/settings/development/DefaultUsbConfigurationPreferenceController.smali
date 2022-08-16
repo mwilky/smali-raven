@@ -2,6 +2,9 @@
 .super Lcom/android/settingslib/development/DeveloperOptionsPreferenceController;
 .source "DefaultUsbConfigurationPreferenceController.java"
 
+# interfaces
+.implements Lcom/android/settings/core/PreferenceControllerMixin;
+
 
 # instance fields
 .field private mPreference:Lcom/android/settingslib/RestrictedPreference;

@@ -195,34 +195,21 @@
 .end method
 
 .method public setColor(Landroid/content/res/ColorStateList;)V
-    .locals 2
+    .locals 0
 
     iput-object p1, p0, Lcom/google/android/setupdesign/template/ProgressBarMixin;->color:Landroid/content/res/ColorStateList;
-
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    if-lt v0, v1, :cond_1
 
     invoke-virtual {p0}, Lcom/google/android/setupdesign/template/ProgressBarMixin;->peekProgressBar()Landroid/widget/ProgressBar;
 
     move-result-object p0
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_0
 
     invoke-virtual {p0, p1}, Landroid/widget/ProgressBar;->setIndeterminateTintList(Landroid/content/res/ColorStateList;)V
 
-    const/16 v1, 0x17
-
-    if-ge v0, v1, :cond_0
-
-    if-eqz p1, :cond_1
-
-    :cond_0
     invoke-virtual {p0, p1}, Landroid/widget/ProgressBar;->setProgressBackgroundTintList(Landroid/content/res/ColorStateList;)V
 
-    :cond_1
+    :cond_0
     return-void
 .end method
 

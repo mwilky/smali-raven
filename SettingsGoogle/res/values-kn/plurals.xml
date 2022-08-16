@@ -137,8 +137,8 @@
         <item quantity="one">%d ಆ್ಯಪ್‌ಗಳು ಸಂಪರ್ಕಗೊಂಡಿವೆ</item>
     </plurals>
     <plurals name="location_app_permission_summary_location_on">
-        <item quantity="other">%2$d ರಲ್ಲಿ %1$d ಆ್ಯಪ್‌ಗಳು ಸ್ಥಳಕ್ಕೆ ಪ್ರವೇಶವನ್ನು ಹೊಂದಿದೆ</item>
-        <item quantity="one">%2$d ರಲ್ಲಿ %1$d ಆ್ಯಪ್‌ಗಳು ಸ್ಥಳಕ್ಕೆ ಪ್ರವೇಶವನ್ನು ಹೊಂದಿದೆ</item>
+        <item quantity="other">%2$d ರಲ್ಲಿ %1$d ಆ್ಯಪ್‌ಗಳು ಸ್ಥಳಕ್ಕೆ ಪ್ರವೇಶವನ್ನು ಹೊಂದಿವೆ</item>
+        <item quantity="one">%2$d ರಲ್ಲಿ %1$d ಆ್ಯಪ್‌ಗಳು ಸ್ಥಳಕ್ಕೆ ಪ್ರವೇಶವನ್ನು ಹೊಂದಿವೆ</item>
     </plurals>
     <plurals name="location_settings_summary_location_on">
         <item quantity="other">ಆನ್ ಆಗಿದೆ - %1$d ಆ್ಯಪ್‌ಗಳು ಸ್ಥಳಕ್ಕೆ ಪ್ರವೇಶವನ್ನು ಹೊಂದಿದೆ</item>
@@ -233,12 +233,12 @@
         <item quantity="one">%d ವಿಭಾಗಗಳನ್ನು ಆಫ್ ಮಾಡಲಾಗಿದೆ</item>
     </plurals>
     <plurals name="notifications_sent_daily">
-        <item quantity="other">ಪ್ರತಿ ದಿನಕ್ಕೆ ~%d ಅಧಿಸೂಚನೆಗಳು</item>
-        <item quantity="one">ಪ್ರತಿ ದಿನಕ್ಕೆ ~%d ಅಧಿಸೂಚನೆಗಳು</item>
+        <item quantity="other">ಪ್ರತಿ ದಿನಕ್ಕೆ ~%,d ಅಧಿಸೂಚನೆಗಳು</item>
+        <item quantity="one">ಪ್ರತಿ ದಿನಕ್ಕೆ ~%,d ಅಧಿಸೂಚನೆಗಳು</item>
     </plurals>
     <plurals name="notifications_sent_weekly">
-        <item quantity="other">ಪ್ರತಿ ವಾರಕ್ಕೆ ~%d ಅಧಿಸೂಚನೆಗಳು</item>
-        <item quantity="one">ಪ್ರತಿ ವಾರಕ್ಕೆ ~%d ಅಧಿಸೂಚನೆಗಳು</item>
+        <item quantity="other">ಪ್ರತಿ ವಾರಕ್ಕೆ ~%,d ಅಧಿಸೂಚನೆಗಳು</item>
+        <item quantity="one">ಪ್ರತಿ ವಾರಕ್ಕೆ ~%,d ಅಧಿಸೂಚನೆಗಳು</item>
     </plurals>
     <plurals name="number_of_device_admins">
         <item quantity="other">%d ಸಕ್ರಿಯ ಆ್ಯಪ್</item>
@@ -328,22 +328,6 @@
         <item quantity="other">ನಂಬಿ ಅಥವಾ ಪ್ರಮಾಣಪತ್ರಗಳನ್ನು ತೆಗೆದುಹಾಕಿ</item>
         <item quantity="one">ನಂಬಿ ಅಥವಾ ಪ್ರಮಾಣಪತ್ರಗಳನ್ನು ತೆಗೆದುಹಾಕಿ</item>
     </plurals>
-    <plurals name="ssl_ca_cert_info_message">
-        <item quantity="other">"ನಿಮ್ಮ ಕೆಲಸದ ಪ್ರೊಫೈಲ್‌ಗೆ %s ಪ್ರಮಾಣಪತ್ರ ಅಂಗೀಕಾರಗಳನ್ನು ಸ್ಥಾಪಿಸಿದೆ, ಯಾವುದೇ ಇಮೇಲ್‌ಗಳು, ಅಪ್ಲಿಕೇಶನ್‌ಗಳು ಮತ್ತು ಸುರಕ್ಷಿತ ವೆಬ್‌ಸೈಟ್‌ಗಳು ಸೇರಿದಂತೆ ನೆಟ್‌ವರ್ಕ್ ಚಟುವಟಿಕೆಯ ಕೆಲಸದ ಪರಿವೀಕ್ಷಣೆಗೆ ಅವುಗಳನ್ನು ಅನುಮತಿಸಬಹುದು.
-
-ಈ ಪ್ರಮಾಣಪತ್ರಗಳ ಕುರಿತು ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ, ನಿಮ್ಮ ನಿರ್ವಾಹಕರನ್ನು ಸಂಪರ್ಕಿಸಿ."</item>
-        <item quantity="one">"ನಿಮ್ಮ ಕೆಲಸದ ಪ್ರೊಫೈಲ್‌ಗೆ %s ಪ್ರಮಾಣಪತ್ರ ಅಂಗೀಕಾರಗಳನ್ನು ಸ್ಥಾಪಿಸಿದೆ, ಯಾವುದೇ ಇಮೇಲ್‌ಗಳು, ಅಪ್ಲಿಕೇಶನ್‌ಗಳು ಮತ್ತು ಸುರಕ್ಷಿತ ವೆಬ್‌ಸೈಟ್‌ಗಳು ಸೇರಿದಂತೆ ನೆಟ್‌ವರ್ಕ್ ಚಟುವಟಿಕೆಯ ಕೆಲಸದ ಪರಿವೀಕ್ಷಣೆಗೆ ಅವುಗಳನ್ನು ಅನುಮತಿಸಬಹುದು.
-
-ಈ ಪ್ರಮಾಣಪತ್ರಗಳ ಕುರಿತು ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ, ನಿಮ್ಮ ನಿರ್ವಾಹಕರನ್ನು ಸಂಪರ್ಕಿಸಿ."</item>
-    </plurals>
-    <plurals name="ssl_ca_cert_info_message_device_owner">
-        <item quantity="other">"ನಿಮ್ಮ ಸಾಧನದಲ್ಲಿ %s ಪ್ರಮಾಣಪತ್ರ ಅಂಗೀಕಾರವನ್ನು ಸ್ಥಾಪಿಸಿದೆ, ಯಾವುದೇ ಇಮೇಲ್‌ಗಳು, ಅಪ್ಲಿಕೇಶನ್‌ಗಳು ಮತ್ತು ಸುರಕ್ಷಿತ ವೆಬ್‌ಸೈಟ್‌ಗಳು ಸೇರಿದಂತೆ ನಿಮ್ಮ ಸಾಧನದ ನೆಟ್‌ವರ್ಕ್ ಚಟುವಟಿಕೆಯನ್ನು ಪರಿವೀಕ್ಷಿಸಲು ಅವುಗಳನ್ನು ಅನುಮತಿಸಬಹುದು.
-
-ಈ ಪ್ರಮಾಣಪತ್ರಗಳ ಕುರಿತು ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ, ನಿಮ್ಮ ನಿರ್ವಾಹಕರನ್ನು ಸಂಪರ್ಕಿಸಿ."</item>
-        <item quantity="one">"ನಿಮ್ಮ ಸಾಧನದಲ್ಲಿ %s ಪ್ರಮಾಣಪತ್ರ ಅಂಗೀಕಾರವನ್ನು ಸ್ಥಾಪಿಸಿದೆ, ಯಾವುದೇ ಇಮೇಲ್‌ಗಳು, ಅಪ್ಲಿಕೇಶನ್‌ಗಳು ಮತ್ತು ಸುರಕ್ಷಿತ ವೆಬ್‌ಸೈಟ್‌ಗಳು ಸೇರಿದಂತೆ ನಿಮ್ಮ ಸಾಧನದ ನೆಟ್‌ವರ್ಕ್ ಚಟುವಟಿಕೆಯನ್ನು ಪರಿವೀಕ್ಷಿಸಲು ಅವುಗಳನ್ನು ಅನುಮತಿಸಬಹುದು.
-
-ಈ ಪ್ರಮಾಣಪತ್ರಗಳ ಕುರಿತು ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ, ನಿಮ್ಮ ನಿರ್ವಾಹಕರನ್ನು ಸಂಪರ್ಕಿಸಿ."</item>
-    </plurals>
     <plurals name="ssl_ca_cert_settings_button">
         <item quantity="other">ಪ್ರಮಾಣಪತ್ರಗಳನ್ನು ಪರಿಶೀಲಿಸಿ</item>
         <item quantity="one">ಪ್ರಮಾಣಪತ್ರಗಳನ್ನು ಪರಿಶೀಲಿಸಿ</item>
@@ -375,10 +359,6 @@
     <plurals name="wifi_saved_passpoint_access_points_summary">
         <item quantity="other">%d ಸಬ್‌ಸ್ಕ್ರಿಪ್ಶನ್‌ಗಳು</item>
         <item quantity="one">%d ಸಬ್‌ಸ್ಕ್ರಿಪ್ಶನ್‌ಗಳು</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$d ಸಾಧನಗಳನ್ನು ಸಂಪರ್ಕಿಸಲಾಗಿದೆ</item>
-        <item quantity="one">%1$d ಸಾಧನಗಳನ್ನು ಸಂಪರ್ಕಿಸಲಾಗಿದೆ</item>
     </plurals>
     <plurals name="wrong_pin_code">
         <item quantity="other">ಸಿಮ್‌ ಪಿನ್ ಕೋಡ್‌ ತಪ್ಪಾಗಿದೆ, ನಿಮ್ಮಲ್ಲಿ %d ಪ್ರಯತ್ನಗಳು ಬಾಕಿ ಉಳಿದಿವೆ.</item>

@@ -19,9 +19,13 @@
 
 .field public componentName:Landroid/content/ComponentName;
 
+.field public description:Ljava/lang/CharSequence;
+
 .field public icon:Landroid/graphics/drawable/Drawable;
 
 .field public isActive:Z
+
+.field public previewImage:Landroid/graphics/drawable/Drawable;
 
 .field public settingsComponentName:Landroid/content/ComponentName;
 

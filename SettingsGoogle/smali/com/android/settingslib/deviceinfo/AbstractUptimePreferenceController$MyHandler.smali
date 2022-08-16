@@ -65,7 +65,7 @@
 
     if-ne v1, v2, :cond_1
 
-    invoke-static {v0}, Lcom/android/settingslib/deviceinfo/AbstractUptimePreferenceController;->access$000(Lcom/android/settingslib/deviceinfo/AbstractUptimePreferenceController;)V
+    invoke-static {v0}, Lcom/android/settingslib/deviceinfo/AbstractUptimePreferenceController;->-$$Nest$mupdateTimes(Lcom/android/settingslib/deviceinfo/AbstractUptimePreferenceController;)V
 
     const-wide/16 v0, 0x3e8
 

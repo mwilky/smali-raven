@@ -152,7 +152,7 @@
     return-object p0
 
     :cond_1
-    const p0, 0x7f040774
+    const p0, 0x7f0407b9
 
     const/4 v2, 0x2
 
@@ -299,37 +299,36 @@
 
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public getAvailabilityStatus(I)I
     .locals 0
 
     invoke-static {p1}, Landroid/telephony/SubscriptionManager;->isValidSubscriptionId(I)Z
 
+    move-result p1
+
+    if-eqz p1, :cond_0
+
+    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    invoke-static {p0}, Lcom/android/settings/datausage/DataUsageUtils;->hasMobileData(Landroid/content/Context;)Z
+
     move-result p0
 
-    xor-int/lit8 p0, p0, 0x1
+    if-eqz p0, :cond_0
 
+    const/4 p0, 0x0
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x1
+
+    :goto_0
     return p0
 .end method
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -457,16 +456,6 @@
     iput-object p1, p0, Lcom/android/settings/network/telephony/DataUsagePreferenceController;->mTemplateFuture:Ljava/util/concurrent/Future;
 
     return-void
-.end method
-
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
-
-    move-result p0
-
-    return p0
 .end method
 
 .method public bridge synthetic isPublicSlice()Z

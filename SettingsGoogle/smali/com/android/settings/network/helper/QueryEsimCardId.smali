@@ -111,19 +111,25 @@
 
     move-result-object p0
 
-    sget-object v1, Lcom/android/settings/network/helper/QueryEsimCardId$$ExternalSyntheticLambda1;->INSTANCE:Lcom/android/settings/network/helper/QueryEsimCardId$$ExternalSyntheticLambda1;
+    new-instance v1, Lcom/android/settings/network/helper/QueryEsimCardId$$ExternalSyntheticLambda0;
+
+    invoke-direct {v1}, Lcom/android/settings/network/helper/QueryEsimCardId$$ExternalSyntheticLambda0;-><init>()V
 
     invoke-interface {p0, v1}, Ljava/util/stream/Stream;->filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
 
     move-result-object p0
 
-    sget-object v1, Lcom/android/settings/network/helper/QueryEsimCardId$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/settings/network/helper/QueryEsimCardId$$ExternalSyntheticLambda0;
+    new-instance v1, Lcom/android/settings/network/helper/QueryEsimCardId$$ExternalSyntheticLambda1;
+
+    invoke-direct {v1}, Lcom/android/settings/network/helper/QueryEsimCardId$$ExternalSyntheticLambda1;-><init>()V
 
     invoke-interface {p0, v1}, Ljava/util/stream/Stream;->filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
 
     move-result-object p0
 
-    sget-object v1, Lcom/android/settings/network/helper/QueryEsimCardId$$ExternalSyntheticLambda2;->INSTANCE:Lcom/android/settings/network/helper/QueryEsimCardId$$ExternalSyntheticLambda2;
+    new-instance v1, Lcom/android/settings/network/helper/QueryEsimCardId$$ExternalSyntheticLambda2;
+
+    invoke-direct {v1}, Lcom/android/settings/network/helper/QueryEsimCardId$$ExternalSyntheticLambda2;-><init>()V
 
     invoke-interface {p0, v1}, Ljava/util/stream/Stream;->mapToInt(Ljava/util/function/ToIntFunction;)Ljava/util/stream/IntStream;
 

@@ -25,25 +25,25 @@
 
     const-class v1, Lcom/android/settings/network/telephony/ConfirmDialogFragment$OnConfirmListener;
 
-    const v0, 0x7f041236
+    const v0, 0x7f0412ec
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    const v0, 0x7f041235
+    const v0, 0x7f0412eb
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
     move-result-object v4
 
-    const v0, 0x7f041247
+    const v0, 0x7f041301
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
     move-result-object v5
 
-    const v0, 0x7f04123c
+    const v0, 0x7f0412f2
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -53,7 +53,7 @@
 
     move-object v0, p0
 
-    invoke-static/range {v0 .. v6}, Lcom/android/settings/network/telephony/ConfirmDialogFragment;->show(Landroid/app/Activity;Ljava/lang/Class;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static/range {v0 .. v6}, Lcom/android/settings/network/telephony/ConfirmDialogFragment;->show(Landroidx/fragment/app/FragmentActivity;Ljava/lang/Class;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -63,25 +63,25 @@
 
     const-class v1, Lcom/android/settings/network/telephony/ConfirmDialogFragment$OnConfirmListener;
 
-    const v0, 0x7f04123f
+    const v0, 0x7f0412f5
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    const v0, 0x7f041235
+    const v0, 0x7f0412eb
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
     move-result-object v4
 
-    const v0, 0x7f04123d
+    const v0, 0x7f0412f3
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
     move-result-object v5
 
-    const v0, 0x7f040564
+    const v0, 0x7f0405c1
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -91,7 +91,7 @@
 
     move-object v0, p0
 
-    invoke-static/range {v0 .. v6}, Lcom/android/settings/network/telephony/ConfirmDialogFragment;->show(Landroid/app/Activity;Ljava/lang/Class;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static/range {v0 .. v6}, Lcom/android/settings/network/telephony/ConfirmDialogFragment;->show(Landroidx/fragment/app/FragmentActivity;Ljava/lang/Class;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -111,23 +111,23 @@
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
 
-    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
+    invoke-virtual {p0}, Lcom/android/settings/network/telephony/SubscriptionActionDialogActivity;->finish()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onConfirm(IZ)V
-    .locals 3
+.method public onConfirm(IZI)V
+    .locals 2
 
-    const-string v0, "DsdsDialogActivity"
+    const-string p3, "DsdsDialogActivity"
 
     if-nez p2, :cond_0
 
     const-string p1, "User cancel the dialog to enable DSDS."
 
-    invoke-static {v0, p1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p3, p1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-direct {p0}, Lcom/android/settings/sim/DsdsDialogActivity;->startChooseSimActivity()V
 
@@ -142,13 +142,13 @@
 
     check-cast p2, Landroid/telephony/TelephonyManager;
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    const/4 v2, 0x2
+    const/4 v1, 0x2
 
-    if-eq p1, v1, :cond_2
+    if-eq p1, v0, :cond_2
 
-    if-eq p1, v2, :cond_1
+    if-eq p1, v1, :cond_1
 
     new-instance p0, Ljava/lang/StringBuilder;
 
@@ -164,18 +164,18 @@
 
     move-result-object p0
 
-    invoke-static {v0, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p3, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
     :cond_1
     const-string p1, "User confirmed reboot to enable DSDS."
 
-    invoke-static {v0, p1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p3, p1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {p0, v1}, Lcom/android/settings/sim/SimActivationNotifier;->setShowSimSettingsNotification(Landroid/content/Context;Z)V
+    invoke-static {p0, v0}, Lcom/android/settings/sim/SimActivationNotifier;->setShowSimSettingsNotification(Landroid/content/Context;Z)V
 
-    invoke-virtual {p2, v2}, Landroid/telephony/TelephonyManager;->switchMultiSimConfig(I)V
+    invoke-virtual {p2, v1}, Landroid/telephony/TelephonyManager;->switchMultiSimConfig(I)V
 
     goto :goto_0
 
@@ -188,7 +188,7 @@
 
     const-string p1, "Device does not support reboot free DSDS."
 
-    invoke-static {v0, p1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p3, p1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-direct {p0}, Lcom/android/settings/sim/DsdsDialogActivity;->showRebootConfirmDialog()V
 
@@ -197,9 +197,9 @@
     :cond_3
     const-string p1, "Enabling DSDS without rebooting."
 
-    invoke-static {v0, p1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p3, p1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    const p1, 0x7f04123b
+    const p1, 0x7f0412f1
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -209,7 +209,7 @@
 
     iget-object p0, p0, Lcom/android/settings/sim/DsdsDialogActivity;->mEnableMultiSimSidecar:Lcom/android/settings/network/EnableMultiSimSidecar;
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/network/EnableMultiSimSidecar;->run(I)V
+    invoke-virtual {p0, v1}, Lcom/android/settings/network/EnableMultiSimSidecar;->run(I)V
 
     :goto_0
     return-void
@@ -245,7 +245,7 @@
 
     invoke-virtual {v0, p0}, Lcom/android/settings/SidecarFragment;->removeListener(Lcom/android/settings/SidecarFragment$Listener;)Z
 
-    invoke-super {p0}, Landroid/app/Activity;->onPause()V
+    invoke-super {p0}, Landroidx/fragment/app/FragmentActivity;->onPause()V
 
     return-void
 .end method
@@ -253,7 +253,7 @@
 .method protected onResume()V
     .locals 1
 
-    invoke-super {p0}, Landroid/app/Activity;->onResume()V
+    invoke-super {p0}, Landroidx/fragment/app/FragmentActivity;->onResume()V
 
     iget-object v0, p0, Lcom/android/settings/sim/DsdsDialogActivity;->mEnableMultiSimSidecar:Lcom/android/settings/network/EnableMultiSimSidecar;
 
@@ -296,13 +296,13 @@
 
     invoke-virtual {p0}, Lcom/android/settings/network/telephony/SubscriptionActionDialogActivity;->dismissProgressDialog()V
 
-    const p1, 0x7f040855
+    const p1, 0x7f0408ac
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
     move-result-object p1
 
-    const v0, 0x7f040854
+    const v0, 0x7f0408ab
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -323,7 +323,7 @@
 
     invoke-virtual {p0}, Lcom/android/settings/network/telephony/SubscriptionActionDialogActivity;->dismissProgressDialog()V
 
-    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
+    invoke-virtual {p0}, Lcom/android/settings/network/telephony/SubscriptionActionDialogActivity;->finish()V
 
     :cond_2
     :goto_0

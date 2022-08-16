@@ -23,6 +23,32 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmPolicy(Lcom/android/settings/notification/zen/ZenModeSettingsFooterPreferenceController$ZenCustomSettingsDialog;)Landroid/app/NotificationManager$Policy;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/notification/zen/ZenModeSettingsFooterPreferenceController$ZenCustomSettingsDialog;->mPolicy:Landroid/app/NotificationManager$Policy;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmSummaryBuilder(Lcom/android/settings/notification/zen/ZenModeSettingsFooterPreferenceController$ZenCustomSettingsDialog;)Lcom/android/settings/notification/zen/ZenModeSettings$SummaryBuilder;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/notification/zen/ZenModeSettingsFooterPreferenceController$ZenCustomSettingsDialog;->mSummaryBuilder:Lcom/android/settings/notification/zen/ZenModeSettings$SummaryBuilder;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$mgetAllowRes(Lcom/android/settings/notification/zen/ZenModeSettingsFooterPreferenceController$ZenCustomSettingsDialog;Z)I
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/notification/zen/ZenModeSettingsFooterPreferenceController$ZenCustomSettingsDialog;->getAllowRes(Z)I
+
+    move-result p0
+
+    return p0
+.end method
+
 .method public constructor <init>()V
     .locals 1
 
@@ -35,43 +61,17 @@
     return-void
 .end method
 
-.method static synthetic access$100(Lcom/android/settings/notification/zen/ZenModeSettingsFooterPreferenceController$ZenCustomSettingsDialog;)Landroid/app/NotificationManager$Policy;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/notification/zen/ZenModeSettingsFooterPreferenceController$ZenCustomSettingsDialog;->mPolicy:Landroid/app/NotificationManager$Policy;
-
-    return-object p0
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/notification/zen/ZenModeSettingsFooterPreferenceController$ZenCustomSettingsDialog;)Lcom/android/settings/notification/zen/ZenModeSettings$SummaryBuilder;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/notification/zen/ZenModeSettingsFooterPreferenceController$ZenCustomSettingsDialog;->mSummaryBuilder:Lcom/android/settings/notification/zen/ZenModeSettings$SummaryBuilder;
-
-    return-object p0
-.end method
-
-.method static synthetic access$300(Lcom/android/settings/notification/zen/ZenModeSettingsFooterPreferenceController$ZenCustomSettingsDialog;Z)I
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/notification/zen/ZenModeSettingsFooterPreferenceController$ZenCustomSettingsDialog;->getAllowRes(Z)I
-
-    move-result p0
-
-    return p0
-.end method
-
 .method private getAllowRes(Z)I
     .locals 0
 
     if-eqz p1, :cond_0
 
-    const p0, 0x7f04188e
+    const p0, 0x7f04198c
 
     goto :goto_0
 
     :cond_0
-    const p0, 0x7f04139f
+    const p0, 0x7f041467
 
     :goto_0
     return p0
@@ -119,13 +119,13 @@
 
     invoke-direct {p1, v0}, Landroidx/appcompat/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0417d0
+    const v1, 0x7f0418cb
 
     invoke-virtual {p1, v1}, Landroidx/appcompat/app/AlertDialog$Builder;->setTitle(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
     move-result-object p1
 
-    const v1, 0x7f0417cf
+    const v1, 0x7f0418ca
 
     new-instance v2, Lcom/android/settings/notification/zen/ZenModeSettingsFooterPreferenceController$ZenCustomSettingsDialog$1;
 
@@ -135,7 +135,7 @@
 
     move-result-object p1
 
-    const v1, 0x7f0417ce
+    const v1, 0x7f0418c9
 
     const/4 v2, 0x0
 
@@ -151,7 +151,7 @@
 
     move-result-object v0
 
-    const v3, 0x7f0602c5
+    const v3, 0x7f0602d9
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getLayout(I)Landroid/content/res/XmlResourceParser;
 

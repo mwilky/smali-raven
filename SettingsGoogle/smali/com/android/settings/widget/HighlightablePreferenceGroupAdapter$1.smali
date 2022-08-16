@@ -46,7 +46,7 @@
 
     iget-object v0, p0, Lcom/android/settings/widget/HighlightablePreferenceGroupAdapter$1;->this$0:Lcom/android/settings/widget/HighlightablePreferenceGroupAdapter;
 
-    invoke-static {v0}, Lcom/android/settings/widget/HighlightablePreferenceGroupAdapter;->access$000(Lcom/android/settings/widget/HighlightablePreferenceGroupAdapter;)I
+    invoke-static {v0}, Lcom/android/settings/widget/HighlightablePreferenceGroupAdapter;->-$$Nest$fgetmNormalBackgroundRes(Lcom/android/settings/widget/HighlightablePreferenceGroupAdapter;)I
 
     move-result v0
 

@@ -1,21 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen android:title="@string/financed_privacy_settings"
   xmlns:android="http://schemas.android.com/apk/res/android" xmlns:settings="http://schemas.android.com/apk/res-auto">
-    <PreferenceCategory android:title="@string/financed_privacy_exposure_category" android:key="exposure_category" android:order="200" android:contentDescription="@string/financed_privacy_exposure_category">
-        <Preference android:layout_height="wrap_content" android:title="@string/financed_privacy_data" android:selectable="false" android:key="enterprise_privacy_enterprise_data" android:order="210" />
-        <Preference android:title="@string/enterprise_privacy_installed_packages" android:selectable="false" android:key="enterprise_privacy_installed_packages" android:order="220" />
-        <Preference android:title="@string/enterprise_privacy_usage_stats" android:selectable="false" android:key="enterprise_privacy_usage_stats" android:order="230" />
-        <Preference android:title="@string/enterprise_privacy_network_logs" android:selectable="false" android:key="network_logs" android:order="240" />
-        <Preference android:title="@string/enterprise_privacy_bug_reports" android:selectable="false" android:key="bug_reports" android:order="250" />
-        <Preference android:title="@string/enterprise_privacy_security_logs" android:selectable="false" android:key="security_logs" android:order="260" />
+    <com.android.settingslib.widget.TopIntroPreference android:title="@string/financed_privacy_intro" settings:searchable="false" />
+    <PreferenceCategory android:title="@string/financed_privacy_restrictions_category" android:key="restrictions_category" android:order="100" android:contentDescription="@string/financed_privacy_restrictions_category">
+        <Preference android:layout_height="wrap_content" android:title="@string/financed_privacy_install_apps" android:selectable="false" android:key="financed_privacy_install_apps" android:order="110" />
+        <Preference android:layout_height="wrap_content" android:title="@string/financed_privacy_safe_mode" android:selectable="false" android:key="financed_privacy_safe_mode" android:order="120" />
+        <Preference android:layout_height="wrap_content" android:title="@string/financed_privacy_multi_users" android:selectable="false" android:key="financed_privacy_multi_users" android:order="130" />
+        <Preference android:layout_height="wrap_content" android:title="@string/financed_privacy_config_date_time" android:selectable="false" android:key="financed_privacy_config_date_time" android:order="140" />
+        <Preference android:layout_height="wrap_content" android:title="@string/financed_privacy_developer_options" android:selectable="false" android:key="financed_privacy_developer_options" android:order="150" />
     </PreferenceCategory>
-    <PreferenceCategory android:title="@string/financed_privacy_exposure_changes_category" android:key="exposure_changes_category" android:order="300">
-        <Preference android:title="@string/enterprise_privacy_enterprise_installed_packages" android:key="number_enterprise_installed_packages" android:order="310" android:fragment="com.android.settings.enterprise.ApplicationListFragment$EnterpriseInstalledPackages" />
+    <PreferenceCategory android:title="@string/financed_privacy_credit_provider_capabilities_category" android:key="credit_provider_capabilities_category" android:order="200" android:contentDescription="@string/financed_privacy_credit_provider_capabilities_category">
+        <Preference android:layout_height="wrap_content" android:title="@string/financed_privacy_IMEI" android:selectable="false" android:key="financed_privacy_IMEI" android:order="210" />
+        <Preference android:layout_height="wrap_content" android:title="@string/financed_privacy_factory_reset" android:selectable="false" android:key="financed_privacy_factory_reset" android:order="220" />
     </PreferenceCategory>
-    <PreferenceCategory android:title="@string/enterprise_privacy_device_access_category" android:key="device_access_category" android:order="500">
-        <Preference android:title="@string/financed_privacy_lock_device" android:selectable="false" android:key="enterprise_privacy_lock_device" android:order="510" />
-        <Preference android:title="@string/financed_privacy_wipe_device" android:selectable="false" android:key="enterprise_privacy_wipe_device" android:order="520" />
-        <Preference android:title="@string/financed_privacy_failed_password_wipe_device" android:selectable="false" android:key="failed_password_wipe_current_user" android:order="530" />
+    <PreferenceCategory android:title="@string/financed_privacy_locked_mode_category" android:key="locked_mode_category" android:order="300" android:contentDescription="@string/financed_privacy_locked_mode_category">
+        <Preference android:layout_height="wrap_content" android:title="@string/financed_privacy_emergency_calls" android:selectable="false" android:key="financed_privacy_emergency_calls" android:order="310" />
+        <Preference android:layout_height="wrap_content" android:title="@string/financed_privacy_system_info" android:selectable="false" android:key="financed_privacy_system_info" android:order="320" />
+        <Preference android:layout_height="wrap_content" android:title="@string/financed_privacy_turn_on_off_device" android:selectable="false" android:key="financed_privacy_turn_on_off_device" android:order="330" />
+        <Preference android:layout_height="wrap_content" android:title="@string/financed_privacy_notifications" android:selectable="false" android:key="financed_privacy_notifications" android:order="340" />
+        <Preference android:layout_height="wrap_content" android:title="@string/financed_privacy_allowlisted_apps" android:selectable="false" android:key="financed_privacy_allowlisted_apps" android:order="350" />
     </PreferenceCategory>
-    <com.android.settingslib.widget.FooterPreference android:title="@string/financed_privacy_header" android:selectable="false" android:key="financed_privacy_footer" settings:searchable="false" />
+    <PreferenceCategory android:title="@string/financed_privacy_fully_paid_category" android:key="fully_paid_category" android:order="400" android:contentDescription="@string/financed_privacy_fully_paid_category">
+        <Preference android:layout_height="wrap_content" android:title="@string/financed_privacy_restrictions_removed" android:selectable="false" android:key="financed_privacy_restrictions_removed" android:order="410" />
+        <Preference android:layout_height="wrap_content" android:title="@string/financed_privacy_uninstall_creditor_app" android:selectable="false" android:key="financed_privacy_uninstall_creditor_app" android:order="420" />
+    </PreferenceCategory>
 </PreferenceScreen>

@@ -4,15 +4,6 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/core/app/NotificationCompat;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x9
-    name = "Action"
-.end annotation
-
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroidx/core/app/NotificationCompat$Action$Builder;
@@ -29,6 +20,8 @@
 .end field
 
 .field private mAllowGeneratedReplies:Z
+
+.field private mAuthenticationRequired:Z
 
 .field private final mDataOnlyRemoteInputs:[Landroidx/core/app/RemoteInput;
 
@@ -48,34 +41,8 @@
 
 
 # direct methods
-.method constructor <init>(Landroidx/core/graphics/drawable/IconCompat;Ljava/lang/CharSequence;Landroid/app/PendingIntent;Landroid/os/Bundle;[Landroidx/core/app/RemoteInput;[Landroidx/core/app/RemoteInput;ZIZZ)V
+.method constructor <init>(Landroidx/core/graphics/drawable/IconCompat;Ljava/lang/CharSequence;Landroid/app/PendingIntent;Landroid/os/Bundle;[Landroidx/core/app/RemoteInput;[Landroidx/core/app/RemoteInput;ZIZZZ)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "icon",
-            "title",
-            "intent",
-            "extras",
-            "remoteInputs",
-            "dataOnlyRemoteInputs",
-            "allowGeneratedReplies",
-            "semanticAction",
-            "showsUserInterface",
-            "isContextual"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -134,6 +101,8 @@
 
     iput-boolean p10, p0, Landroidx/core/app/NotificationCompat$Action;->mIsContextual:Z
 
+    iput-boolean p11, p0, Landroidx/core/app/NotificationCompat$Action;->mAuthenticationRequired:Z
+
     return-void
 .end method
 
@@ -153,14 +122,6 @@
     iget-boolean p0, p0, Landroidx/core/app/NotificationCompat$Action;->mAllowGeneratedReplies:Z
 
     return p0
-.end method
-
-.method public getDataOnlyRemoteInputs()[Landroidx/core/app/RemoteInput;
-    .locals 0
-
-    iget-object p0, p0, Landroidx/core/app/NotificationCompat$Action;->mDataOnlyRemoteInputs:[Landroidx/core/app/RemoteInput;
-
-    return-object p0
 .end method
 
 .method public getExtras()Landroid/os/Bundle;
@@ -228,6 +189,14 @@
     iget-object p0, p0, Landroidx/core/app/NotificationCompat$Action;->title:Ljava/lang/CharSequence;
 
     return-object p0
+.end method
+
+.method public isAuthenticationRequired()Z
+    .locals 0
+
+    iget-boolean p0, p0, Landroidx/core/app/NotificationCompat$Action;->mAuthenticationRequired:Z
+
+    return p0
 .end method
 
 .method public isContextual()Z

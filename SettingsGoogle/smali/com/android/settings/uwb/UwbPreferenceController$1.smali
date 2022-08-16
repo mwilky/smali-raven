@@ -63,7 +63,7 @@
 
     iget-object p0, p0, Lcom/android/settings/uwb/UwbPreferenceController$1;->this$0:Lcom/android/settings/uwb/UwbPreferenceController;
 
-    invoke-static {p0}, Lcom/android/settings/uwb/UwbPreferenceController;->access$100(Lcom/android/settings/uwb/UwbPreferenceController;)Landroidx/preference/Preference;
+    invoke-static {p0}, Lcom/android/settings/uwb/UwbPreferenceController;->-$$Nest$fgetmPreference(Lcom/android/settings/uwb/UwbPreferenceController;)Landroidx/preference/Preference;
 
     move-result-object p1
 

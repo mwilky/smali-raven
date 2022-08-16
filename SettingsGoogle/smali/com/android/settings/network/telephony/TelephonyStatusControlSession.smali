@@ -95,16 +95,16 @@
 
     iput-object p1, p0, Lcom/android/settings/network/telephony/TelephonyStatusControlSession;->mControllers:Ljava/util/Collection;
 
-    new-instance v0, Lcom/android/settings/network/telephony/TelephonyStatusControlSession$$ExternalSyntheticLambda1;
+    new-instance v0, Lcom/android/settings/network/telephony/TelephonyStatusControlSession$$ExternalSyntheticLambda0;
 
-    invoke-direct {v0, p0}, Lcom/android/settings/network/telephony/TelephonyStatusControlSession$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/network/telephony/TelephonyStatusControlSession;)V
+    invoke-direct {v0, p0}, Lcom/android/settings/network/telephony/TelephonyStatusControlSession$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/network/telephony/TelephonyStatusControlSession;)V
 
     invoke-interface {p1, v0}, Ljava/util/Collection;->forEach(Ljava/util/function/Consumer;)V
 
     return-void
 .end method
 
-.method synthetic constructor <init>(Ljava/util/Collection;Lcom/android/settings/network/telephony/TelephonyStatusControlSession$1;)V
+.method synthetic constructor <init>(Ljava/util/Collection;Lcom/android/settings/network/telephony/TelephonyStatusControlSession-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settings/network/telephony/TelephonyStatusControlSession;-><init>(Ljava/util/Collection;)V
@@ -132,9 +132,9 @@
 
     iget-object v0, p0, Lcom/android/settings/network/telephony/TelephonyStatusControlSession;->mResult:Ljava/util/Collection;
 
-    new-instance v1, Lcom/android/settings/network/telephony/TelephonyStatusControlSession$$ExternalSyntheticLambda0;
+    new-instance v1, Lcom/android/settings/network/telephony/TelephonyStatusControlSession$$ExternalSyntheticLambda1;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/settings/network/telephony/TelephonyStatusControlSession$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/network/telephony/TelephonyStatusControlSession;Lcom/android/settingslib/core/AbstractPreferenceController;)V
+    invoke-direct {v1, p0, p1}, Lcom/android/settings/network/telephony/TelephonyStatusControlSession$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/network/telephony/TelephonyStatusControlSession;Lcom/android/settingslib/core/AbstractPreferenceController;)V
 
     invoke-static {v1}, Lcom/android/settingslib/utils/ThreadUtils;->postOnBackgroundThread(Ljava/util/concurrent/Callable;)Ljava/util/concurrent/Future;
 
@@ -217,7 +217,9 @@
 
     move-result-object p0
 
-    sget-object p1, Lcom/android/settings/network/telephony/TelephonyStatusControlSession$$ExternalSyntheticLambda4;->INSTANCE:Lcom/android/settings/network/telephony/TelephonyStatusControlSession$$ExternalSyntheticLambda4;
+    new-instance p1, Lcom/android/settings/network/telephony/TelephonyStatusControlSession$$ExternalSyntheticLambda2;
+
+    invoke-direct {p1}, Lcom/android/settings/network/telephony/TelephonyStatusControlSession$$ExternalSyntheticLambda2;-><init>()V
 
     invoke-interface {p0, p1}, Ljava/util/stream/Stream;->filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
 
@@ -233,7 +235,9 @@
 
     move-result-object p0
 
-    sget-object p1, Lcom/android/settings/network/telephony/TelephonyStatusControlSession$$ExternalSyntheticLambda2;->INSTANCE:Lcom/android/settings/network/telephony/TelephonyStatusControlSession$$ExternalSyntheticLambda2;
+    new-instance p1, Lcom/android/settings/network/telephony/TelephonyStatusControlSession$$ExternalSyntheticLambda4;
+
+    invoke-direct {p1}, Lcom/android/settings/network/telephony/TelephonyStatusControlSession$$ExternalSyntheticLambda4;-><init>()V
 
     invoke-interface {p0, p1}, Ljava/util/stream/Stream;->forEach(Ljava/util/function/Consumer;)V
 

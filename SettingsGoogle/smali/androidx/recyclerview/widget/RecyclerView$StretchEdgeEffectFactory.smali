@@ -27,16 +27,6 @@
 # virtual methods
 .method protected createEdgeEffect(Landroidx/recyclerview/widget/RecyclerView;I)Landroid/widget/EdgeEffect;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "view",
-            "direction"
-        }
-    .end annotation
 
     new-instance p0, Landroid/widget/EdgeEffect;
 

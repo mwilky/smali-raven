@@ -1,4 +1,4 @@
-.class final Lcom/google/android/material/slider/RangeSlider$RangeSliderState$1;
+.class Lcom/google/android/material/slider/RangeSlider$RangeSliderState$1;
 .super Ljava/lang/Object;
 .source "RangeSlider.java"
 
@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x0
     name = null
 .end annotation
 

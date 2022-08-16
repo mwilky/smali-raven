@@ -110,7 +110,7 @@
 
     move-result-object v0
 
-    invoke-static {v0, p0}, Lcom/android/settingslib/CustomEditTextPreferenceCompat;->access$000(Lcom/android/settingslib/CustomEditTextPreferenceCompat;Lcom/android/settingslib/CustomEditTextPreferenceCompat$CustomPreferenceDialogFragment;)V
+    invoke-static {v0, p0}, Lcom/android/settingslib/CustomEditTextPreferenceCompat;->-$$Nest$msetFragment(Lcom/android/settingslib/CustomEditTextPreferenceCompat;Lcom/android/settingslib/CustomEditTextPreferenceCompat$CustomPreferenceDialogFragment;)V
 
     invoke-direct {p0}, Lcom/android/settingslib/CustomEditTextPreferenceCompat$CustomPreferenceDialogFragment;->getCustomizablePreference()Lcom/android/settingslib/CustomEditTextPreferenceCompat;
 

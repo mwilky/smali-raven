@@ -12,14 +12,6 @@
 # direct methods
 .method public constructor <init>(Landroidx/slice/Slice;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "s"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -46,14 +38,6 @@
 
 .method public constructor <init>(Landroidx/slice/SliceItem;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "s"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -120,16 +104,6 @@
 
 .method private static getStructure(Landroidx/slice/Slice;Ljava/lang/StringBuilder;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "s",
-            "str"
-        }
-    .end annotation
 
     const-string/jumbo v0, "s{"
 
@@ -170,16 +144,6 @@
 
 .method private static getStructure(Landroidx/slice/SliceItem;Ljava/lang/StringBuilder;)V
     .locals 5
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "item",
-            "str"
-        }
-    .end annotation
 
     invoke-virtual {p0}, Landroidx/slice/SliceItem;->getFormat()Ljava/lang/String;
 
@@ -341,7 +305,7 @@
 
     move-result-object v0
 
-    const-string v1, "range"
+    const-string/jumbo v1, "range"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -372,8 +336,6 @@
     :goto_2
     return-void
 
-    nop
-
     :sswitch_data_0
     .sparse-switch
         -0x54d081ca -> :sswitch_7
@@ -391,14 +353,6 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "obj"
-        }
-    .end annotation
 
     instance-of v0, p1, Landroidx/slice/SliceStructure;
 

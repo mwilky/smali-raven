@@ -125,7 +125,7 @@
 
     if-eqz p0, :cond_0
 
-    const-string v1, "sc"
+    const-string/jumbo v1, "sc"
 
     invoke-virtual {v0, v1, p0}, Landroid/net/Uri$Builder;->appendQueryParameter(Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri$Builder;
 

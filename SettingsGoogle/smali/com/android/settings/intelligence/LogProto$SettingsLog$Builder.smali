@@ -21,7 +21,8 @@
         "Lcom/google/protobuf/GeneratedMessageLite$Builder<",
         "Lcom/android/settings/intelligence/LogProto$SettingsLog;",
         "Lcom/android/settings/intelligence/LogProto$SettingsLog$Builder;",
-        ">;"
+        ">;",
+        "Lcom/google/protobuf/MessageLiteOrBuilder;"
     }
 .end annotation
 
@@ -30,7 +31,7 @@
 .method private constructor <init>()V
     .locals 1
 
-    invoke-static {}, Lcom/android/settings/intelligence/LogProto$SettingsLog;->access$000()Lcom/android/settings/intelligence/LogProto$SettingsLog;
+    invoke-static {}, Lcom/android/settings/intelligence/LogProto$SettingsLog;->-$$Nest$sfgetDEFAULT_INSTANCE()Lcom/android/settings/intelligence/LogProto$SettingsLog;
 
     move-result-object v0
 
@@ -39,7 +40,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settings/intelligence/LogProto$1;)V
+.method synthetic constructor <init>(Lcom/android/settings/intelligence/LogProto$SettingsLog$Builder-IA;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/settings/intelligence/LogProto$SettingsLog$Builder;-><init>()V
@@ -58,7 +59,7 @@
 
     check-cast v0, Lcom/android/settings/intelligence/LogProto$SettingsLog;
 
-    invoke-static {v0, p1}, Lcom/android/settings/intelligence/LogProto$SettingsLog;->access$300(Lcom/android/settings/intelligence/LogProto$SettingsLog;I)V
+    invoke-static {v0, p1}, Lcom/android/settings/intelligence/LogProto$SettingsLog;->-$$Nest$msetAction(Lcom/android/settings/intelligence/LogProto$SettingsLog;I)V
 
     return-object p0
 .end method
@@ -72,7 +73,7 @@
 
     check-cast v0, Lcom/android/settings/intelligence/LogProto$SettingsLog;
 
-    invoke-static {v0, p1}, Lcom/android/settings/intelligence/LogProto$SettingsLog;->access$100(Lcom/android/settings/intelligence/LogProto$SettingsLog;I)V
+    invoke-static {v0, p1}, Lcom/android/settings/intelligence/LogProto$SettingsLog;->-$$Nest$msetAttribution(Lcom/android/settings/intelligence/LogProto$SettingsLog;I)V
 
     return-object p0
 .end method
@@ -86,7 +87,7 @@
 
     check-cast v0, Lcom/android/settings/intelligence/LogProto$SettingsLog;
 
-    invoke-static {v0, p1}, Lcom/android/settings/intelligence/LogProto$SettingsLog;->access$1000(Lcom/android/settings/intelligence/LogProto$SettingsLog;I)V
+    invoke-static {v0, p1}, Lcom/android/settings/intelligence/LogProto$SettingsLog;->-$$Nest$msetChangedPreferenceIntValue(Lcom/android/settings/intelligence/LogProto$SettingsLog;I)V
 
     return-object p0
 .end method
@@ -100,7 +101,7 @@
 
     check-cast v0, Lcom/android/settings/intelligence/LogProto$SettingsLog;
 
-    invoke-static {v0, p1}, Lcom/android/settings/intelligence/LogProto$SettingsLog;->access$700(Lcom/android/settings/intelligence/LogProto$SettingsLog;Ljava/lang/String;)V
+    invoke-static {v0, p1}, Lcom/android/settings/intelligence/LogProto$SettingsLog;->-$$Nest$msetChangedPreferenceKey(Lcom/android/settings/intelligence/LogProto$SettingsLog;Ljava/lang/String;)V
 
     return-object p0
 .end method
@@ -114,7 +115,7 @@
 
     check-cast v0, Lcom/android/settings/intelligence/LogProto$SettingsLog;
 
-    invoke-static {v0, p1}, Lcom/android/settings/intelligence/LogProto$SettingsLog;->access$500(Lcom/android/settings/intelligence/LogProto$SettingsLog;I)V
+    invoke-static {v0, p1}, Lcom/android/settings/intelligence/LogProto$SettingsLog;->-$$Nest$msetPageId(Lcom/android/settings/intelligence/LogProto$SettingsLog;I)V
 
     return-object p0
 .end method
@@ -128,7 +129,7 @@
 
     check-cast v0, Lcom/android/settings/intelligence/LogProto$SettingsLog;
 
-    invoke-static {v0, p1}, Lcom/android/settings/intelligence/LogProto$SettingsLog;->access$1200(Lcom/android/settings/intelligence/LogProto$SettingsLog;Ljava/lang/String;)V
+    invoke-static {v0, p1}, Lcom/android/settings/intelligence/LogProto$SettingsLog;->-$$Nest$msetTimestamp(Lcom/android/settings/intelligence/LogProto$SettingsLog;Ljava/lang/String;)V
 
     return-object p0
 .end method

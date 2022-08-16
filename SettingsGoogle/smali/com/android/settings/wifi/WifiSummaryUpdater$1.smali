@@ -36,7 +36,7 @@
 
     iget-object p1, p0, Lcom/android/settings/wifi/WifiSummaryUpdater$1;->this$0:Lcom/android/settings/wifi/WifiSummaryUpdater;
 
-    invoke-static {p1}, Lcom/android/settings/wifi/WifiSummaryUpdater;->access$000(Lcom/android/settings/wifi/WifiSummaryUpdater;)Lcom/android/settingslib/wifi/WifiStatusTracker;
+    invoke-static {p1}, Lcom/android/settings/wifi/WifiSummaryUpdater;->-$$Nest$fgetmWifiTracker(Lcom/android/settings/wifi/WifiSummaryUpdater;)Lcom/android/settingslib/wifi/WifiStatusTracker;
 
     move-result-object p1
 
@@ -44,7 +44,7 @@
 
     iget-object p0, p0, Lcom/android/settings/wifi/WifiSummaryUpdater$1;->this$0:Lcom/android/settings/wifi/WifiSummaryUpdater;
 
-    invoke-static {p0}, Lcom/android/settings/wifi/WifiSummaryUpdater;->access$100(Lcom/android/settings/wifi/WifiSummaryUpdater;)V
+    invoke-static {p0}, Lcom/android/settings/wifi/WifiSummaryUpdater;->access$000(Lcom/android/settings/wifi/WifiSummaryUpdater;)V
 
     return-void
 .end method

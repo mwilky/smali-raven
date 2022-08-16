@@ -29,7 +29,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settings/accounts/ManagedProfileSettings;Lcom/android/settings/accounts/ManagedProfileSettings$1;)V
+.method synthetic constructor <init>(Lcom/android/settings/accounts/ManagedProfileSettings;Lcom/android/settings/accounts/ManagedProfileSettings$ManagedProfileBroadcastReceiver-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settings/accounts/ManagedProfileSettings$ManagedProfileBroadcastReceiver;-><init>(Lcom/android/settings/accounts/ManagedProfileSettings;)V
@@ -87,7 +87,7 @@
 
     iget-object p2, p0, Lcom/android/settings/accounts/ManagedProfileSettings$ManagedProfileBroadcastReceiver;->this$0:Lcom/android/settings/accounts/ManagedProfileSettings;
 
-    invoke-static {p2}, Lcom/android/settings/accounts/ManagedProfileSettings;->access$100(Lcom/android/settings/accounts/ManagedProfileSettings;)Landroid/os/UserHandle;
+    invoke-static {p2}, Lcom/android/settings/accounts/ManagedProfileSettings;->-$$Nest$fgetmManagedUser(Lcom/android/settings/accounts/ManagedProfileSettings;)Landroid/os/UserHandle;
 
     move-result-object p2
 

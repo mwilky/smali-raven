@@ -19,13 +19,13 @@
 
     invoke-virtual {p1, p2, p3}, Lcom/google/android/setupdesign/GlifRecyclerLayout;->setDividerInsets(II)V
 
-    invoke-static {p0}, Lcom/google/android/setupdesign/util/ThemeHelper;->shouldApplyExtendedPartnerConfig(Landroid/content/Context;)Z
+    invoke-static {p0}, Lcom/google/android/setupdesign/util/ThemeHelper;->shouldApplyMaterialYouStyle(Landroid/content/Context;)Z
 
     move-result p0
 
     if-eqz p0, :cond_0
 
-    const p0, 0x7f0d0576
+    const p0, 0x7f0d05b8
 
     invoke-virtual {p1, p0}, Lcom/google/android/setupdesign/GlifRecyclerLayout;->findManagedViewById(I)Landroid/view/View;
 

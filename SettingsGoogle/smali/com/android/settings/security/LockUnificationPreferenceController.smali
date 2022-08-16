@@ -34,6 +34,16 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$rlu4HqBFbB9XlJvY5BrKyCkP-xk(Lcom/android/settings/security/LockUnificationPreferenceController;)Ljava/lang/String;
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/security/LockUnificationPreferenceController;->lambda$startUnification$0()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method static constructor <clinit>()V
     .locals 1
 
@@ -122,6 +132,20 @@
     return-void
 .end method
 
+.method private synthetic lambda$startUnification$0()Ljava/lang/String;
+    .locals 1
+
+    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    const v0, 0x7f041568
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method private promptForNewDeviceLockAndThenUnify()V
     .locals 3
 
@@ -157,7 +181,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f040bf2
+    const v2, 0x7f040c5b
 
     invoke-virtual {v1, v2}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 
@@ -391,9 +415,9 @@
 
     if-eq v0, v1, :cond_0
 
-    iget-object p0, p0, Lcom/android/settings/security/LockUnificationPreferenceController;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+    iget-object p0, p0, Lcom/android/settings/security/LockUnificationPreferenceController;->mUm:Landroid/os/UserManager;
 
-    invoke-virtual {p0, v0}, Lcom/android/internal/widget/LockPatternUtils;->isSeparateProfileChallengeAllowed(I)Z
+    invoke-virtual {p0, v0}, Landroid/os/UserManager;->isManagedProfile(I)Z
 
     move-result p0
 
@@ -463,7 +487,7 @@
     :cond_1
     iget-object p1, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f04146c
+    const v0, 0x7f041567
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -517,11 +541,19 @@
 .method public startUnification()V
     .locals 4
 
-    iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Lcom/android/settings/security/LockUnificationPreferenceController;->mDpm:Landroid/app/admin/DevicePolicyManager;
 
-    const v1, 0x7f04146d
+    invoke-virtual {v0}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
 
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    move-result-object v0
+
+    new-instance v1, Lcom/android/settings/security/LockUnificationPreferenceController$$ExternalSyntheticLambda0;
+
+    invoke-direct {v1, p0}, Lcom/android/settings/security/LockUnificationPreferenceController$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/security/LockUnificationPreferenceController;)V
+
+    const-string v2, "Settings.WORK_PROFILE_SET_UNLOCK_LAUNCH_PICKER_TITLE"
+
+    invoke-virtual {v0, v2, v1}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
 
     move-result-object v0
 

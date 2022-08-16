@@ -7,7 +7,7 @@
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 2
 
-    const v0, 0x7f050338
+    const v0, 0x7f05038e
 
     const v1, 0x101008e
 

@@ -35,17 +35,17 @@
 
 # virtual methods
 .method public onEndIconChanged(Lcom/google/android/material/textfield/TextInputLayout;I)V
-    .locals 1
+    .locals 2
 
     invoke-virtual {p1}, Lcom/google/android/material/textfield/TextInputLayout;->getEditText()Landroid/widget/EditText;
 
     move-result-object p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1
 
     const/4 v0, 0x2
 
-    if-ne p2, v0, :cond_0
+    if-ne p2, v0, :cond_1
 
     new-instance p2, Lcom/google/android/material/textfield/ClearTextEndIconDelegate$4$1;
 
@@ -57,18 +57,41 @@
 
     move-result-object p2
 
-    iget-object p0, p0, Lcom/google/android/material/textfield/ClearTextEndIconDelegate$4;->this$0:Lcom/google/android/material/textfield/ClearTextEndIconDelegate;
+    iget-object v0, p0, Lcom/google/android/material/textfield/ClearTextEndIconDelegate$4;->this$0:Lcom/google/android/material/textfield/ClearTextEndIconDelegate;
 
-    invoke-static {p0}, Lcom/google/android/material/textfield/ClearTextEndIconDelegate;->access$200(Lcom/google/android/material/textfield/ClearTextEndIconDelegate;)Landroid/view/View$OnFocusChangeListener;
+    invoke-static {v0}, Lcom/google/android/material/textfield/ClearTextEndIconDelegate;->access$200(Lcom/google/android/material/textfield/ClearTextEndIconDelegate;)Landroid/view/View$OnFocusChangeListener;
 
-    move-result-object p0
+    move-result-object v0
 
-    if-ne p2, p0, :cond_0
+    const/4 v1, 0x0
 
-    const/4 p0, 0x0
+    if-ne p2, v0, :cond_0
 
-    invoke-virtual {p1, p0}, Landroid/widget/EditText;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
+    invoke-virtual {p1, v1}, Landroid/widget/EditText;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
 
     :cond_0
+    iget-object p1, p0, Lcom/google/android/material/textfield/ClearTextEndIconDelegate$4;->this$0:Lcom/google/android/material/textfield/ClearTextEndIconDelegate;
+
+    iget-object p1, p1, Lcom/google/android/material/textfield/EndIconDelegate;->endIconView:Lcom/google/android/material/internal/CheckableImageButton;
+
+    invoke-virtual {p1}, Landroid/widget/ImageButton;->getOnFocusChangeListener()Landroid/view/View$OnFocusChangeListener;
+
+    move-result-object p1
+
+    iget-object p2, p0, Lcom/google/android/material/textfield/ClearTextEndIconDelegate$4;->this$0:Lcom/google/android/material/textfield/ClearTextEndIconDelegate;
+
+    invoke-static {p2}, Lcom/google/android/material/textfield/ClearTextEndIconDelegate;->access$200(Lcom/google/android/material/textfield/ClearTextEndIconDelegate;)Landroid/view/View$OnFocusChangeListener;
+
+    move-result-object p2
+
+    if-ne p1, p2, :cond_1
+
+    iget-object p0, p0, Lcom/google/android/material/textfield/ClearTextEndIconDelegate$4;->this$0:Lcom/google/android/material/textfield/ClearTextEndIconDelegate;
+
+    iget-object p0, p0, Lcom/google/android/material/textfield/EndIconDelegate;->endIconView:Lcom/google/android/material/internal/CheckableImageButton;
+
+    invoke-virtual {p0, v1}, Landroid/widget/ImageButton;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
+
+    :cond_1
     return-void
 .end method

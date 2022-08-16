@@ -24,48 +24,70 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 4
+.method private static final synthetic $values()[Lkotlin/coroutines/intrinsics/CoroutineSingletons;
+    .locals 3
 
     const/4 v0, 0x3
 
     new-array v0, v0, [Lkotlin/coroutines/intrinsics/CoroutineSingletons;
 
-    new-instance v1, Lkotlin/coroutines/intrinsics/CoroutineSingletons;
+    sget-object v1, Lkotlin/coroutines/intrinsics/CoroutineSingletons;->COROUTINE_SUSPENDED:Lkotlin/coroutines/intrinsics/CoroutineSingletons;
 
-    const-string v2, "COROUTINE_SUSPENDED"
+    const/4 v2, 0x0
 
-    const/4 v3, 0x0
+    aput-object v1, v0, v2
 
-    invoke-direct {v1, v2, v3}, Lkotlin/coroutines/intrinsics/CoroutineSingletons;-><init>(Ljava/lang/String;I)V
+    sget-object v1, Lkotlin/coroutines/intrinsics/CoroutineSingletons;->UNDECIDED:Lkotlin/coroutines/intrinsics/CoroutineSingletons;
 
-    sput-object v1, Lkotlin/coroutines/intrinsics/CoroutineSingletons;->COROUTINE_SUSPENDED:Lkotlin/coroutines/intrinsics/CoroutineSingletons;
+    const/4 v2, 0x1
 
-    aput-object v1, v0, v3
+    aput-object v1, v0, v2
 
-    new-instance v1, Lkotlin/coroutines/intrinsics/CoroutineSingletons;
+    sget-object v1, Lkotlin/coroutines/intrinsics/CoroutineSingletons;->RESUMED:Lkotlin/coroutines/intrinsics/CoroutineSingletons;
 
-    const-string v2, "UNDECIDED"
+    const/4 v2, 0x2
 
-    const/4 v3, 0x1
+    aput-object v1, v0, v2
 
-    invoke-direct {v1, v2, v3}, Lkotlin/coroutines/intrinsics/CoroutineSingletons;-><init>(Ljava/lang/String;I)V
+    return-object v0
+.end method
 
-    sput-object v1, Lkotlin/coroutines/intrinsics/CoroutineSingletons;->UNDECIDED:Lkotlin/coroutines/intrinsics/CoroutineSingletons;
+.method static constructor <clinit>()V
+    .locals 3
 
-    aput-object v1, v0, v3
+    new-instance v0, Lkotlin/coroutines/intrinsics/CoroutineSingletons;
 
-    new-instance v1, Lkotlin/coroutines/intrinsics/CoroutineSingletons;
+    const-string v1, "COROUTINE_SUSPENDED"
 
-    const-string v2, "RESUMED"
+    const/4 v2, 0x0
 
-    const/4 v3, 0x2
+    invoke-direct {v0, v1, v2}, Lkotlin/coroutines/intrinsics/CoroutineSingletons;-><init>(Ljava/lang/String;I)V
 
-    invoke-direct {v1, v2, v3}, Lkotlin/coroutines/intrinsics/CoroutineSingletons;-><init>(Ljava/lang/String;I)V
+    sput-object v0, Lkotlin/coroutines/intrinsics/CoroutineSingletons;->COROUTINE_SUSPENDED:Lkotlin/coroutines/intrinsics/CoroutineSingletons;
 
-    sput-object v1, Lkotlin/coroutines/intrinsics/CoroutineSingletons;->RESUMED:Lkotlin/coroutines/intrinsics/CoroutineSingletons;
+    new-instance v0, Lkotlin/coroutines/intrinsics/CoroutineSingletons;
 
-    aput-object v1, v0, v3
+    const-string v1, "UNDECIDED"
+
+    const/4 v2, 0x1
+
+    invoke-direct {v0, v1, v2}, Lkotlin/coroutines/intrinsics/CoroutineSingletons;-><init>(Ljava/lang/String;I)V
+
+    sput-object v0, Lkotlin/coroutines/intrinsics/CoroutineSingletons;->UNDECIDED:Lkotlin/coroutines/intrinsics/CoroutineSingletons;
+
+    new-instance v0, Lkotlin/coroutines/intrinsics/CoroutineSingletons;
+
+    const-string v1, "RESUMED"
+
+    const/4 v2, 0x2
+
+    invoke-direct {v0, v1, v2}, Lkotlin/coroutines/intrinsics/CoroutineSingletons;-><init>(Ljava/lang/String;I)V
+
+    sput-object v0, Lkotlin/coroutines/intrinsics/CoroutineSingletons;->RESUMED:Lkotlin/coroutines/intrinsics/CoroutineSingletons;
+
+    invoke-static {}, Lkotlin/coroutines/intrinsics/CoroutineSingletons;->$values()[Lkotlin/coroutines/intrinsics/CoroutineSingletons;
+
+    move-result-object v0
 
     sput-object v0, Lkotlin/coroutines/intrinsics/CoroutineSingletons;->$VALUES:[Lkotlin/coroutines/intrinsics/CoroutineSingletons;
 
@@ -104,7 +126,7 @@
 
     sget-object v0, Lkotlin/coroutines/intrinsics/CoroutineSingletons;->$VALUES:[Lkotlin/coroutines/intrinsics/CoroutineSingletons;
 
-    invoke-virtual {v0}, [Lkotlin/coroutines/intrinsics/CoroutineSingletons;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, [Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

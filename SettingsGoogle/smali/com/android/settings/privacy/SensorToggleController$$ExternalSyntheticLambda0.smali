@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settings/privacy/SensorToggleController$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/settings/utils/SensorPrivacyManagerHelper$Callback;

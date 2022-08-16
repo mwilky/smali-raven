@@ -152,7 +152,7 @@
 .method private initButtons(Landroid/view/View;)V
     .locals 4
 
-    const v0, 0x7f0d02e5
+    const v0, 0x7f0d030d
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -160,7 +160,7 @@
 
     check-cast v0, Landroid/widget/Button;
 
-    const v1, 0x7f0d015b
+    const v1, 0x7f0d016f
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -168,7 +168,7 @@
 
     check-cast v1, Landroid/widget/Button;
 
-    const v2, 0x7f0d0322
+    const v2, 0x7f0d034c
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -214,9 +214,9 @@
 
     invoke-virtual {v0, v2}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    new-instance v2, Lcom/android/settings/applications/appinfo/InstantAppButtonsPreferenceController$$ExternalSyntheticLambda2;
+    new-instance v2, Lcom/android/settings/applications/appinfo/InstantAppButtonsPreferenceController$$ExternalSyntheticLambda0;
 
-    invoke-direct {v2, p0, v0}, Lcom/android/settings/applications/appinfo/InstantAppButtonsPreferenceController$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/applications/appinfo/InstantAppButtonsPreferenceController;Landroid/content/Intent;)V
+    invoke-direct {v2, p0, v0}, Lcom/android/settings/applications/appinfo/InstantAppButtonsPreferenceController$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/applications/appinfo/InstantAppButtonsPreferenceController;Landroid/content/Intent;)V
 
     invoke-virtual {p1, v2}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
@@ -249,9 +249,9 @@
     invoke-virtual {v0, p1}, Landroid/widget/Button;->setEnabled(Z)V
 
     :goto_0
-    new-instance p1, Lcom/android/settings/applications/appinfo/InstantAppButtonsPreferenceController$$ExternalSyntheticLambda0;
+    new-instance p1, Lcom/android/settings/applications/appinfo/InstantAppButtonsPreferenceController$$ExternalSyntheticLambda2;
 
-    invoke-direct {p1, p0}, Lcom/android/settings/applications/appinfo/InstantAppButtonsPreferenceController$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/applications/appinfo/InstantAppButtonsPreferenceController;)V
+    invoke-direct {p1, p0}, Lcom/android/settings/applications/appinfo/InstantAppButtonsPreferenceController$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/applications/appinfo/InstantAppButtonsPreferenceController;)V
 
     invoke-virtual {v1, p1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
@@ -316,14 +316,6 @@
 
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public displayPreference(Landroidx/preference/PreferenceScreen;)V
     .locals 1
 
@@ -339,7 +331,7 @@
 
     iput-object p1, p0, Lcom/android/settings/applications/appinfo/InstantAppButtonsPreferenceController;->mPreference:Lcom/android/settingslib/widget/LayoutPreference;
 
-    const v0, 0x7f0d02e7
+    const v0, 0x7f0d030f
 
     invoke-virtual {p1, v0}, Lcom/android/settingslib/widget/LayoutPreference;->findViewById(I)Landroid/view/View;
 
@@ -380,15 +372,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -421,16 +404,6 @@
     .locals 0
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->hasAsyncUpdate()Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
 
     move-result p0
 
@@ -472,7 +445,7 @@
 
     const/4 p2, 0x2
 
-    const v0, 0x7f040a9c
+    const v0, 0x7f040afa
 
     const/4 v1, 0x0
 

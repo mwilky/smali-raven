@@ -21,7 +21,7 @@
 # instance fields
 .field private final mColumbusGestureHelper:Lcom/google/android/settings/gestures/columbus/ColumbusGestureHelper;
 
-.field private final mHandler:Landroid/os/Handler;
+.field private mHandler:Landroid/os/Handler;
 
 .field private final mMetricsFeatureProvider:Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;
 
@@ -58,6 +58,12 @@
 
     iput-object p2, p0, Lcom/google/android/settings/gestures/columbus/ColumbusEnabledPreferenceController;->mColumbusGestureHelper:Lcom/google/android/settings/gestures/columbus/ColumbusGestureHelper;
 
+    invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
+
+    move-result-object p1
+
+    if-eqz p1, :cond_0
+
     new-instance p1, Landroid/os/Handler;
 
     invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
@@ -68,6 +74,7 @@
 
     iput-object p1, p0, Lcom/google/android/settings/gestures/columbus/ColumbusEnabledPreferenceController;->mHandler:Landroid/os/Handler;
 
+    :cond_0
     return-void
 .end method
 
@@ -80,7 +87,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f0405f0
+    const v0, 0x7f04064c
 
     const/4 v1, 0x0
 
@@ -95,14 +102,6 @@
 
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public displayPreference(Landroidx/preference/PreferenceScreen;)V
     .locals 1
 
@@ -158,15 +157,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -199,16 +189,6 @@
     .locals 0
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->hasAsyncUpdate()Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
 
     move-result p0
 
@@ -310,6 +290,11 @@
 
     iget-object v0, p0, Lcom/google/android/settings/gestures/columbus/ColumbusEnabledPreferenceController;->mHandler:Landroid/os/Handler;
 
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
     new-instance v1, Lcom/google/android/settings/gestures/columbus/ColumbusEnabledPreferenceController$$ExternalSyntheticLambda0;
 
     invoke-direct {v1, p0}, Lcom/google/android/settings/gestures/columbus/ColumbusEnabledPreferenceController$$ExternalSyntheticLambda0;-><init>(Lcom/google/android/settings/gestures/columbus/ColumbusEnabledPreferenceController;)V

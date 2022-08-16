@@ -39,7 +39,7 @@
 
     iget-object p0, p0, Lcom/android/settings/users/UserSettings$7;->this$0:Lcom/android/settings/users/UserSettings;
 
-    invoke-static {p0}, Lcom/android/settings/users/UserSettings;->access$800(Lcom/android/settings/users/UserSettings;)V
+    invoke-static {p0}, Lcom/android/settings/users/UserSettings;->-$$Nest$mlaunchChooseLockscreen(Lcom/android/settings/users/UserSettings;)V
 
     return-void
 .end method

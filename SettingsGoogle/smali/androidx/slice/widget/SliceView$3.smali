@@ -39,16 +39,6 @@
 # virtual methods
 .method public compare(Landroidx/slice/core/SliceAction;Landroidx/slice/core/SliceAction;)I
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "action1",
-            "action2"
-        }
-    .end annotation
 
     invoke-interface {p1}, Landroidx/slice/core/SliceAction;->getPriority()I
 
@@ -96,16 +86,6 @@
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x1000,
-            0x1000
-        }
-        names = {
-            "action1",
-            "action2"
-        }
-    .end annotation
 
     check-cast p1, Landroidx/slice/core/SliceAction;
 

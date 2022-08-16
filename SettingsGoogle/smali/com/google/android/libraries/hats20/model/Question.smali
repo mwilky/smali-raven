@@ -75,7 +75,7 @@
 
     move-result-object v1
 
-    const-string v2, "rating"
+    const-string/jumbo v2, "rating"
 
     invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 

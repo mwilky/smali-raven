@@ -272,19 +272,12 @@
 
     iput-object p1, p0, Lcom/google/android/material/imageview/ShapeableImageView;->shapeAppearanceModel:Lcom/google/android/material/shape/ShapeAppearanceModel;
 
-    sget p1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 p2, 0x15
-
-    if-lt p1, p2, :cond_0
-
     new-instance p1, Lcom/google/android/material/imageview/ShapeableImageView$OutlineProvider;
 
     invoke-direct {p1, p0}, Lcom/google/android/material/imageview/ShapeableImageView$OutlineProvider;-><init>(Lcom/google/android/material/imageview/ShapeableImageView;)V
 
     invoke-virtual {p0, p1}, Landroid/widget/ImageView;->setOutlineProvider(Landroid/view/ViewOutlineProvider;)V
 
-    :cond_0
     return-void
 .end method
 
@@ -405,29 +398,23 @@
 .end method
 
 .method private isRtl()Z
-    .locals 3
-
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/4 v1, 0x1
-
-    const/16 v2, 0x11
-
-    if-lt v0, v2, :cond_0
+    .locals 1
 
     invoke-virtual {p0}, Landroid/widget/ImageView;->getLayoutDirection()I
 
     move-result p0
 
-    if-ne p0, v1, :cond_0
+    const/4 v0, 0x1
+
+    if-ne p0, v0, :cond_0
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     :goto_0
-    return v1
+    return v0
 .end method
 
 .method private updateShapeMask(II)V
@@ -844,63 +831,34 @@
     return-void
 
     :cond_0
-    sget p1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 p2, 0x13
-
-    if-le p1, p2, :cond_1
-
     invoke-virtual {p0}, Landroid/widget/ImageView;->isLayoutDirectionResolved()Z
 
-    move-result p2
+    move-result p1
 
-    if-nez p2, :cond_1
+    if-nez p1, :cond_1
 
     return-void
 
     :cond_1
-    const/4 p2, 0x1
+    const/4 p1, 0x1
 
-    iput-boolean p2, p0, Lcom/google/android/material/imageview/ShapeableImageView;->hasAdjustedPaddingAfterLayoutDirectionResolved:Z
-
-    const/16 p2, 0x15
-
-    if-lt p1, p2, :cond_3
+    iput-boolean p1, p0, Lcom/google/android/material/imageview/ShapeableImageView;->hasAdjustedPaddingAfterLayoutDirectionResolved:Z
 
     invoke-virtual {p0}, Landroid/widget/ImageView;->isPaddingRelative()Z
 
     move-result p1
 
-    if-nez p1, :cond_2
+    if-nez p1, :cond_3
 
     invoke-direct {p0}, Lcom/google/android/material/imageview/ShapeableImageView;->isContentPaddingRelative()Z
 
     move-result p1
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_2
+
+    goto :goto_0
 
     :cond_2
-    invoke-super {p0}, Landroid/widget/ImageView;->getPaddingStart()I
-
-    move-result p1
-
-    invoke-super {p0}, Landroid/widget/ImageView;->getPaddingTop()I
-
-    move-result p2
-
-    invoke-super {p0}, Landroid/widget/ImageView;->getPaddingEnd()I
-
-    move-result v0
-
-    invoke-super {p0}, Landroid/widget/ImageView;->getPaddingBottom()I
-
-    move-result v1
-
-    invoke-virtual {p0, p1, p2, v0, v1}, Lcom/google/android/material/imageview/ShapeableImageView;->setPaddingRelative(IIII)V
-
-    return-void
-
-    :cond_3
     invoke-super {p0}, Landroid/widget/ImageView;->getPaddingLeft()I
 
     move-result p1
@@ -918,6 +876,28 @@
     move-result v1
 
     invoke-virtual {p0, p1, p2, v0, v1}, Lcom/google/android/material/imageview/ShapeableImageView;->setPadding(IIII)V
+
+    return-void
+
+    :cond_3
+    :goto_0
+    invoke-super {p0}, Landroid/widget/ImageView;->getPaddingStart()I
+
+    move-result p1
+
+    invoke-super {p0}, Landroid/widget/ImageView;->getPaddingTop()I
+
+    move-result p2
+
+    invoke-super {p0}, Landroid/widget/ImageView;->getPaddingEnd()I
+
+    move-result v0
+
+    invoke-super {p0}, Landroid/widget/ImageView;->getPaddingBottom()I
+
+    move-result v1
+
+    invoke-virtual {p0, p1, p2, v0, v1}, Lcom/google/android/material/imageview/ShapeableImageView;->setPaddingRelative(IIII)V
 
     return-void
 .end method
@@ -1020,15 +1000,8 @@
 
     invoke-virtual {p0}, Landroid/widget/ImageView;->invalidate()V
 
-    sget p1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v0, 0x15
-
-    if-lt p1, v0, :cond_1
-
     invoke-virtual {p0}, Landroid/widget/ImageView;->invalidateOutline()V
 
-    :cond_1
     return-void
 .end method
 

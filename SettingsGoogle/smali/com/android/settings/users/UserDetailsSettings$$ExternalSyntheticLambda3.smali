@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settings/users/UserDetailsSettings$$ExternalSyntheticLambda3;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/content/DialogInterface$OnClickListener;
@@ -27,7 +28,7 @@
 
     iget-object p0, p0, Lcom/android/settings/users/UserDetailsSettings$$ExternalSyntheticLambda3;->f$0:Lcom/android/settings/users/UserDetailsSettings;
 
-    invoke-static {p0, p1, p2}, Lcom/android/settings/users/UserDetailsSettings;->$r8$lambda$kPzVHYd3hsgHeP5kxvtuKnauaqo(Lcom/android/settings/users/UserDetailsSettings;Landroid/content/DialogInterface;I)V
+    invoke-static {p0, p1, p2}, Lcom/android/settings/users/UserDetailsSettings;->$r8$lambda$O2bt_Jwg1oUsCOc6x81ycuOocaY(Lcom/android/settings/users/UserDetailsSettings;Landroid/content/DialogInterface;I)V
 
     return-void
 .end method

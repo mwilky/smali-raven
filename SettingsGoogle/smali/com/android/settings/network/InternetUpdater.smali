@@ -53,6 +53,30 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmListener(Lcom/android/settings/network/InternetUpdater;)Lcom/android/settings/network/InternetUpdater$InternetChangeListener;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/network/InternetUpdater;->mListener:Lcom/android/settings/network/InternetUpdater$InternetChangeListener;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmWifiManager(Lcom/android/settings/network/InternetUpdater;)Landroid/net/wifi/WifiManager;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/network/InternetUpdater;->mWifiManager:Landroid/net/wifi/WifiManager;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$mfetchActiveNetwork(Lcom/android/settings/network/InternetUpdater;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/network/InternetUpdater;->fetchActiveNetwork()V
+
+    return-void
+.end method
+
 .method static constructor <clinit>()V
     .locals 3
 
@@ -168,30 +192,6 @@
 
     :cond_0
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/network/InternetUpdater;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/network/InternetUpdater;->fetchActiveNetwork()V
-
-    return-void
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/network/InternetUpdater;)Lcom/android/settings/network/InternetUpdater$InternetChangeListener;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/network/InternetUpdater;->mListener:Lcom/android/settings/network/InternetUpdater$InternetChangeListener;
-
-    return-object p0
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/network/InternetUpdater;)Landroid/net/wifi/WifiManager;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/network/InternetUpdater;->mWifiManager:Landroid/net/wifi/WifiManager;
-
-    return-object p0
 .end method
 
 .method private fetchActiveNetwork()V
@@ -335,7 +335,7 @@
 .end method
 
 .method public onResume()V
-    .locals 2
+    .locals 3
     .annotation runtime Landroidx/lifecycle/OnLifecycleEvent;
         value = .enum Landroidx/lifecycle/Lifecycle$Event;->ON_RESUME:Landroidx/lifecycle/Lifecycle$Event;
     .end annotation
@@ -356,7 +356,9 @@
 
     iget-object p0, p0, Lcom/android/settings/network/InternetUpdater;->mWifiStateFilter:Landroid/content/IntentFilter;
 
-    invoke-virtual {v0, v1, p0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+    const/4 v2, 0x2
+
+    invoke-virtual {v0, v1, p0, v2}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;I)Landroid/content/Intent;
 
     return-void
 .end method

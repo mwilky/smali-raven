@@ -1,5 +1,5 @@
 .class Lcom/android/settings/applications/manageapplications/ManageApplications$FilterSpinnerAdapter;
-.super Lcom/android/settingslib/widget/settingsspinner/SettingsSpinnerAdapter;
+.super Lcom/android/settingslib/widget/SettingsSpinnerAdapter;
 .source "ManageApplications.java"
 
 
@@ -15,7 +15,7 @@
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Lcom/android/settingslib/widget/settingsspinner/SettingsSpinnerAdapter<",
+        "Lcom/android/settingslib/widget/SettingsSpinnerAdapter<",
         "Ljava/lang/CharSequence;",
         ">;"
     }
@@ -46,7 +46,7 @@
 
     move-result-object v0
 
-    invoke-direct {p0, v0}, Lcom/android/settingslib/widget/settingsspinner/SettingsSpinnerAdapter;-><init>(Landroid/content/Context;)V
+    invoke-direct {p0, v0}, Lcom/android/settingslib/widget/SettingsSpinnerAdapter;-><init>(Landroid/content/Context;)V
 
     new-instance v0, Ljava/util/ArrayList;
 
@@ -156,7 +156,7 @@
 
     iget-object v2, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$FilterSpinnerAdapter;->mManageApplications:Lcom/android/settings/applications/manageapplications/ManageApplications;
 
-    invoke-static {v2}, Lcom/android/settings/applications/manageapplications/ManageApplications;->access$500(Lcom/android/settings/applications/manageapplications/ManageApplications;)Lcom/android/settings/applications/manageapplications/AppFilterItem;
+    invoke-static {v2}, Lcom/android/settings/applications/manageapplications/ManageApplications;->-$$Nest$fgetmFilter(Lcom/android/settings/applications/manageapplications/ManageApplications;)Lcom/android/settings/applications/manageapplications/AppFilterItem;
 
     move-result-object v2
 
@@ -217,7 +217,7 @@
     :cond_3
     iget-object p1, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$FilterSpinnerAdapter;->mManageApplications:Lcom/android/settings/applications/manageapplications/ManageApplications;
 
-    invoke-static {p1}, Lcom/android/settings/applications/manageapplications/ManageApplications;->access$300(Lcom/android/settings/applications/manageapplications/ManageApplications;)Landroid/widget/Spinner;
+    invoke-static {p1}, Lcom/android/settings/applications/manageapplications/ManageApplications;->-$$Nest$fgetmFilterSpinner(Lcom/android/settings/applications/manageapplications/ManageApplications;)Landroid/widget/Spinner;
 
     move-result-object p1
 
@@ -371,7 +371,7 @@
     :cond_3
     iget-object p1, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$FilterSpinnerAdapter;->mManageApplications:Lcom/android/settings/applications/manageapplications/ManageApplications;
 
-    invoke-static {p1}, Lcom/android/settings/applications/manageapplications/ManageApplications;->access$300(Lcom/android/settings/applications/manageapplications/ManageApplications;)Landroid/widget/Spinner;
+    invoke-static {p1}, Lcom/android/settings/applications/manageapplications/ManageApplications;->-$$Nest$fgetmFilterSpinner(Lcom/android/settings/applications/manageapplications/ManageApplications;)Landroid/widget/Spinner;
 
     move-result-object p1
 
@@ -404,7 +404,7 @@
 
     iget-object v0, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$FilterSpinnerAdapter;->mManageApplications:Lcom/android/settings/applications/manageapplications/ManageApplications;
 
-    invoke-static {v0}, Lcom/android/settings/applications/manageapplications/ManageApplications;->access$400(Lcom/android/settings/applications/manageapplications/ManageApplications;)I
+    invoke-static {v0}, Lcom/android/settings/applications/manageapplications/ManageApplications;->-$$Nest$fgetmFilterType(Lcom/android/settings/applications/manageapplications/ManageApplications;)I
 
     move-result v0
 
@@ -424,7 +424,7 @@
 
     iget-object p1, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$FilterSpinnerAdapter;->mManageApplications:Lcom/android/settings/applications/manageapplications/ManageApplications;
 
-    invoke-static {p1}, Lcom/android/settings/applications/manageapplications/ManageApplications;->access$300(Lcom/android/settings/applications/manageapplications/ManageApplications;)Landroid/widget/Spinner;
+    invoke-static {p1}, Lcom/android/settings/applications/manageapplications/ManageApplications;->-$$Nest$fgetmFilterSpinner(Lcom/android/settings/applications/manageapplications/ManageApplications;)Landroid/widget/Spinner;
 
     move-result-object p1
 

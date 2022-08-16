@@ -48,7 +48,7 @@
 
     iget-object p0, p0, Lcom/android/settings/homepage/contextualcards/conditional/AirplaneModeConditionController$Receiver;->this$0:Lcom/android/settings/homepage/contextualcards/conditional/AirplaneModeConditionController;
 
-    invoke-static {p0}, Lcom/android/settings/homepage/contextualcards/conditional/AirplaneModeConditionController;->access$000(Lcom/android/settings/homepage/contextualcards/conditional/AirplaneModeConditionController;)Lcom/android/settings/homepage/contextualcards/conditional/ConditionManager;
+    invoke-static {p0}, Lcom/android/settings/homepage/contextualcards/conditional/AirplaneModeConditionController;->-$$Nest$fgetmConditionManager(Lcom/android/settings/homepage/contextualcards/conditional/AirplaneModeConditionController;)Lcom/android/settings/homepage/contextualcards/conditional/ConditionManager;
 
     move-result-object p0
 

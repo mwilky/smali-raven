@@ -3,7 +3,7 @@
 .source "PreventRingingGesturePreferenceController.java"
 
 # interfaces
-.implements Lcom/android/settingslib/widget/RadioButtonPreference$OnClickListener;
+.implements Lcom/android/settingslib/widget/SelectorWithWidgetPreference$OnClickListener;
 .implements Lcom/android/settingslib/core/lifecycle/LifecycleObserver;
 .implements Lcom/android/settingslib/core/lifecycle/events/OnResume;
 .implements Lcom/android/settingslib/core/lifecycle/events/OnPause;
@@ -37,7 +37,7 @@
 
 .field private final mContext:Landroid/content/Context;
 
-.field mMutePref:Lcom/android/settingslib/widget/RadioButtonPreference;
+.field mMutePref:Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 .end field
@@ -49,7 +49,7 @@
 
 .field private mSettingObserver:Lcom/android/settings/gestures/PreventRingingGesturePreferenceController$SettingObserver;
 
-.field mVibratePref:Lcom/android/settingslib/widget/RadioButtonPreference;
+.field mVibratePref:Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 .end field
@@ -115,10 +115,10 @@
     return p0
 .end method
 
-.method private makeRadioPreference(Ljava/lang/String;I)Lcom/android/settingslib/widget/RadioButtonPreference;
+.method private makeRadioPreference(Ljava/lang/String;I)Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
     .locals 2
 
-    new-instance v0, Lcom/android/settingslib/widget/RadioButtonPreference;
+    new-instance v0, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     iget-object v1, p0, Lcom/android/settings/gestures/PreventRingingGesturePreferenceController;->mPreferenceCategory:Landroidx/preference/PreferenceCategory;
 
@@ -126,13 +126,13 @@
 
     move-result-object v1
 
-    invoke-direct {v0, v1}, Lcom/android/settingslib/widget/RadioButtonPreference;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, v1}, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;-><init>(Landroid/content/Context;)V
 
     invoke-virtual {v0, p1}, Landroidx/preference/Preference;->setKey(Ljava/lang/String;)V
 
     invoke-virtual {v0, p2}, Landroidx/preference/Preference;->setTitle(I)V
 
-    invoke-virtual {v0, p0}, Lcom/android/settingslib/widget/RadioButtonPreference;->setOnClickListener(Lcom/android/settingslib/widget/RadioButtonPreference$OnClickListener;)V
+    invoke-virtual {v0, p0}, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;->setOnClickListener(Lcom/android/settingslib/widget/SelectorWithWidgetPreference$OnClickListener;)V
 
     iget-object p0, p0, Lcom/android/settings/gestures/PreventRingingGesturePreferenceController;->mPreferenceCategory:Landroidx/preference/PreferenceCategory;
 
@@ -169,25 +169,25 @@
 
     iput-object p1, p0, Lcom/android/settings/gestures/PreventRingingGesturePreferenceController;->mPreferenceCategory:Landroidx/preference/PreferenceCategory;
 
-    const p1, 0x7f040f93
+    const p1, 0x7f04102c
 
     const-string v0, "prevent_ringing_option_vibrate"
 
-    invoke-direct {p0, v0, p1}, Lcom/android/settings/gestures/PreventRingingGesturePreferenceController;->makeRadioPreference(Ljava/lang/String;I)Lcom/android/settingslib/widget/RadioButtonPreference;
+    invoke-direct {p0, v0, p1}, Lcom/android/settings/gestures/PreventRingingGesturePreferenceController;->makeRadioPreference(Ljava/lang/String;I)Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     move-result-object p1
 
-    iput-object p1, p0, Lcom/android/settings/gestures/PreventRingingGesturePreferenceController;->mVibratePref:Lcom/android/settingslib/widget/RadioButtonPreference;
+    iput-object p1, p0, Lcom/android/settings/gestures/PreventRingingGesturePreferenceController;->mVibratePref:Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
-    const p1, 0x7f040f8f
+    const p1, 0x7f041028
 
     const-string v0, "prevent_ringing_option_mute"
 
-    invoke-direct {p0, v0, p1}, Lcom/android/settings/gestures/PreventRingingGesturePreferenceController;->makeRadioPreference(Ljava/lang/String;I)Lcom/android/settingslib/widget/RadioButtonPreference;
+    invoke-direct {p0, v0, p1}, Lcom/android/settings/gestures/PreventRingingGesturePreferenceController;->makeRadioPreference(Ljava/lang/String;I)Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     move-result-object p1
 
-    iput-object p1, p0, Lcom/android/settings/gestures/PreventRingingGesturePreferenceController;->mMutePref:Lcom/android/settingslib/widget/RadioButtonPreference;
+    iput-object p1, p0, Lcom/android/settings/gestures/PreventRingingGesturePreferenceController;->mMutePref:Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     iget-object p1, p0, Lcom/android/settings/gestures/PreventRingingGesturePreferenceController;->mPreferenceCategory:Landroidx/preference/PreferenceCategory;
 
@@ -222,7 +222,7 @@
 
     move-result-object p0
 
-    const v0, 0x111017d
+    const v0, 0x11101f4
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -250,7 +250,7 @@
     return-void
 .end method
 
-.method public onRadioButtonClicked(Lcom/android/settingslib/widget/RadioButtonPreference;)V
+.method public onRadioButtonClicked(Lcom/android/settingslib/widget/SelectorWithWidgetPreference;)V
     .locals 3
 
     invoke-virtual {p1}, Landroidx/preference/Preference;->getKey()Ljava/lang/String;
@@ -357,7 +357,7 @@
     move v3, v0
 
     :goto_1
-    iget-object v4, p0, Lcom/android/settings/gestures/PreventRingingGesturePreferenceController;->mVibratePref:Lcom/android/settingslib/widget/RadioButtonPreference;
+    iget-object v4, p0, Lcom/android/settings/gestures/PreventRingingGesturePreferenceController;->mVibratePref:Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     if-eqz v4, :cond_2
 
@@ -367,12 +367,12 @@
 
     if-eq v4, v2, :cond_2
 
-    iget-object v4, p0, Lcom/android/settings/gestures/PreventRingingGesturePreferenceController;->mVibratePref:Lcom/android/settingslib/widget/RadioButtonPreference;
+    iget-object v4, p0, Lcom/android/settings/gestures/PreventRingingGesturePreferenceController;->mVibratePref:Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     invoke-virtual {v4, v2}, Landroidx/preference/TwoStatePreference;->setChecked(Z)V
 
     :cond_2
-    iget-object v2, p0, Lcom/android/settings/gestures/PreventRingingGesturePreferenceController;->mMutePref:Lcom/android/settingslib/widget/RadioButtonPreference;
+    iget-object v2, p0, Lcom/android/settings/gestures/PreventRingingGesturePreferenceController;->mMutePref:Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     if-eqz v2, :cond_3
 
@@ -382,29 +382,29 @@
 
     if-eq v2, v3, :cond_3
 
-    iget-object v2, p0, Lcom/android/settings/gestures/PreventRingingGesturePreferenceController;->mMutePref:Lcom/android/settingslib/widget/RadioButtonPreference;
+    iget-object v2, p0, Lcom/android/settings/gestures/PreventRingingGesturePreferenceController;->mMutePref:Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     invoke-virtual {v2, v3}, Landroidx/preference/TwoStatePreference;->setChecked(Z)V
 
     :cond_3
     if-nez p1, :cond_4
 
-    iget-object p1, p0, Lcom/android/settings/gestures/PreventRingingGesturePreferenceController;->mVibratePref:Lcom/android/settingslib/widget/RadioButtonPreference;
+    iget-object p1, p0, Lcom/android/settings/gestures/PreventRingingGesturePreferenceController;->mVibratePref:Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     invoke-virtual {p1, v0}, Landroidx/preference/Preference;->setEnabled(Z)V
 
-    iget-object p0, p0, Lcom/android/settings/gestures/PreventRingingGesturePreferenceController;->mMutePref:Lcom/android/settingslib/widget/RadioButtonPreference;
+    iget-object p0, p0, Lcom/android/settings/gestures/PreventRingingGesturePreferenceController;->mMutePref:Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     invoke-virtual {p0, v0}, Landroidx/preference/Preference;->setEnabled(Z)V
 
     goto :goto_2
 
     :cond_4
-    iget-object p1, p0, Lcom/android/settings/gestures/PreventRingingGesturePreferenceController;->mVibratePref:Lcom/android/settingslib/widget/RadioButtonPreference;
+    iget-object p1, p0, Lcom/android/settings/gestures/PreventRingingGesturePreferenceController;->mVibratePref:Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     invoke-virtual {p1, v1}, Landroidx/preference/Preference;->setEnabled(Z)V
 
-    iget-object p0, p0, Lcom/android/settings/gestures/PreventRingingGesturePreferenceController;->mMutePref:Lcom/android/settingslib/widget/RadioButtonPreference;
+    iget-object p0, p0, Lcom/android/settings/gestures/PreventRingingGesturePreferenceController;->mMutePref:Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     invoke-virtual {p0, v1}, Landroidx/preference/Preference;->setEnabled(Z)V
 

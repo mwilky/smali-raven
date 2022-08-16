@@ -41,7 +41,7 @@
 .method public serviceDied(J)V
     .locals 0
 
-    invoke-static {}, Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager;->access$000()Z
+    invoke-static {}, Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager;->-$$Nest$sfgetDEBUG()Z
 
     move-result p1
 

@@ -281,9 +281,9 @@
 
     iget-object p1, p0, Lcom/google/android/settings/biometrics/face/anim/single/RotatingArc;->mColorAnimator:Landroid/animation/ValueAnimator;
 
-    new-instance p2, Lcom/google/android/settings/biometrics/face/anim/single/RotatingArc$$ExternalSyntheticLambda1;
+    new-instance p2, Lcom/google/android/settings/biometrics/face/anim/single/RotatingArc$$ExternalSyntheticLambda0;
 
-    invoke-direct {p2, p0}, Lcom/google/android/settings/biometrics/face/anim/single/RotatingArc$$ExternalSyntheticLambda1;-><init>(Lcom/google/android/settings/biometrics/face/anim/single/RotatingArc;)V
+    invoke-direct {p2, p0}, Lcom/google/android/settings/biometrics/face/anim/single/RotatingArc$$ExternalSyntheticLambda0;-><init>(Lcom/google/android/settings/biometrics/face/anim/single/RotatingArc;)V
 
     invoke-virtual {p1, p2}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
 
@@ -338,9 +338,9 @@
 
     iget-object p1, p0, Lcom/google/android/settings/biometrics/face/anim/single/RotatingArc;->mColorAnimator:Landroid/animation/ValueAnimator;
 
-    new-instance p2, Lcom/google/android/settings/biometrics/face/anim/single/RotatingArc$$ExternalSyntheticLambda0;
+    new-instance p2, Lcom/google/android/settings/biometrics/face/anim/single/RotatingArc$$ExternalSyntheticLambda1;
 
-    invoke-direct {p2, p0}, Lcom/google/android/settings/biometrics/face/anim/single/RotatingArc$$ExternalSyntheticLambda0;-><init>(Lcom/google/android/settings/biometrics/face/anim/single/RotatingArc;)V
+    invoke-direct {p2, p0}, Lcom/google/android/settings/biometrics/face/anim/single/RotatingArc$$ExternalSyntheticLambda1;-><init>(Lcom/google/android/settings/biometrics/face/anim/single/RotatingArc;)V
 
     invoke-virtual {p1, p2}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
 

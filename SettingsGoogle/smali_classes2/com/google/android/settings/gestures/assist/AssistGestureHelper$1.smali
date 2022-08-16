@@ -43,11 +43,11 @@
 
     move-result-object p2
 
-    invoke-static {p1, p2}, Lcom/google/android/settings/gestures/assist/AssistGestureHelper;->access$002(Lcom/google/android/settings/gestures/assist/AssistGestureHelper;Lcom/google/android/systemui/elmyra/IElmyraService;)Lcom/google/android/systemui/elmyra/IElmyraService;
+    invoke-static {p1, p2}, Lcom/google/android/settings/gestures/assist/AssistGestureHelper;->-$$Nest$fputmService(Lcom/google/android/settings/gestures/assist/AssistGestureHelper;Lcom/google/android/systemui/elmyra/IElmyraService;)V
 
     iget-object p1, p0, Lcom/google/android/settings/gestures/assist/AssistGestureHelper$1;->this$0:Lcom/google/android/settings/gestures/assist/AssistGestureHelper;
 
-    invoke-static {p1}, Lcom/google/android/settings/gestures/assist/AssistGestureHelper;->access$100(Lcom/google/android/settings/gestures/assist/AssistGestureHelper;)Lcom/google/android/settings/gestures/assist/AssistGestureHelper$GestureListener;
+    invoke-static {p1}, Lcom/google/android/settings/gestures/assist/AssistGestureHelper;->-$$Nest$fgetmGestureListener(Lcom/google/android/settings/gestures/assist/AssistGestureHelper;)Lcom/google/android/settings/gestures/assist/AssistGestureHelper$GestureListener;
 
     move-result-object p1
 
@@ -56,19 +56,19 @@
     :try_start_0
     iget-object p1, p0, Lcom/google/android/settings/gestures/assist/AssistGestureHelper$1;->this$0:Lcom/google/android/settings/gestures/assist/AssistGestureHelper;
 
-    invoke-static {p1}, Lcom/google/android/settings/gestures/assist/AssistGestureHelper;->access$000(Lcom/google/android/settings/gestures/assist/AssistGestureHelper;)Lcom/google/android/systemui/elmyra/IElmyraService;
+    invoke-static {p1}, Lcom/google/android/settings/gestures/assist/AssistGestureHelper;->-$$Nest$fgetmService(Lcom/google/android/settings/gestures/assist/AssistGestureHelper;)Lcom/google/android/systemui/elmyra/IElmyraService;
 
     move-result-object p1
 
     iget-object p2, p0, Lcom/google/android/settings/gestures/assist/AssistGestureHelper$1;->this$0:Lcom/google/android/settings/gestures/assist/AssistGestureHelper;
 
-    invoke-static {p2}, Lcom/google/android/settings/gestures/assist/AssistGestureHelper;->access$200(Lcom/google/android/settings/gestures/assist/AssistGestureHelper;)Landroid/os/IBinder;
+    invoke-static {p2}, Lcom/google/android/settings/gestures/assist/AssistGestureHelper;->-$$Nest$fgetmToken(Lcom/google/android/settings/gestures/assist/AssistGestureHelper;)Landroid/os/IBinder;
 
     move-result-object p2
 
     iget-object p0, p0, Lcom/google/android/settings/gestures/assist/AssistGestureHelper$1;->this$0:Lcom/google/android/settings/gestures/assist/AssistGestureHelper;
 
-    invoke-static {p0}, Lcom/google/android/settings/gestures/assist/AssistGestureHelper;->access$300(Lcom/google/android/settings/gestures/assist/AssistGestureHelper;)Lcom/google/android/systemui/elmyra/IElmyraServiceGestureListener;
+    invoke-static {p0}, Lcom/google/android/settings/gestures/assist/AssistGestureHelper;->-$$Nest$fgetmElmyraServiceGestureListener(Lcom/google/android/settings/gestures/assist/AssistGestureHelper;)Lcom/google/android/systemui/elmyra/IElmyraServiceGestureListener;
 
     move-result-object p0
 
@@ -101,7 +101,7 @@
 
     const/4 p1, 0x0
 
-    invoke-static {p0, p1}, Lcom/google/android/settings/gestures/assist/AssistGestureHelper;->access$002(Lcom/google/android/settings/gestures/assist/AssistGestureHelper;Lcom/google/android/systemui/elmyra/IElmyraService;)Lcom/google/android/systemui/elmyra/IElmyraService;
+    invoke-static {p0, p1}, Lcom/google/android/settings/gestures/assist/AssistGestureHelper;->-$$Nest$fputmService(Lcom/google/android/settings/gestures/assist/AssistGestureHelper;Lcom/google/android/systemui/elmyra/IElmyraService;)V
 
     return-void
 .end method

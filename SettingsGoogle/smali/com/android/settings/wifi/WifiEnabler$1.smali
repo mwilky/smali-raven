@@ -48,7 +48,7 @@
 
     iget-object p0, p0, Lcom/android/settings/wifi/WifiEnabler$1;->this$0:Lcom/android/settings/wifi/WifiEnabler;
 
-    invoke-static {p0}, Lcom/android/settings/wifi/WifiEnabler;->access$000(Lcom/android/settings/wifi/WifiEnabler;)Landroid/net/wifi/WifiManager;
+    invoke-static {p0}, Lcom/android/settings/wifi/WifiEnabler;->-$$Nest$fgetmWifiManager(Lcom/android/settings/wifi/WifiEnabler;)Landroid/net/wifi/WifiManager;
 
     move-result-object p1
 
@@ -56,7 +56,7 @@
 
     move-result p1
 
-    invoke-static {p0, p1}, Lcom/android/settings/wifi/WifiEnabler;->access$100(Lcom/android/settings/wifi/WifiEnabler;I)V
+    invoke-static {p0, p1}, Lcom/android/settings/wifi/WifiEnabler;->-$$Nest$mhandleWifiStateChanged(Lcom/android/settings/wifi/WifiEnabler;I)V
 
     goto :goto_0
 
@@ -71,7 +71,7 @@
 
     iget-object p1, p0, Lcom/android/settings/wifi/WifiEnabler$1;->this$0:Lcom/android/settings/wifi/WifiEnabler;
 
-    invoke-static {p1}, Lcom/android/settings/wifi/WifiEnabler;->access$200(Lcom/android/settings/wifi/WifiEnabler;)Ljava/util/concurrent/atomic/AtomicBoolean;
+    invoke-static {p1}, Lcom/android/settings/wifi/WifiEnabler;->-$$Nest$fgetmConnected(Lcom/android/settings/wifi/WifiEnabler;)Ljava/util/concurrent/atomic/AtomicBoolean;
 
     move-result-object p1
 
@@ -95,7 +95,7 @@
 
     move-result-object p1
 
-    invoke-static {p0, p1}, Lcom/android/settings/wifi/WifiEnabler;->access$300(Lcom/android/settings/wifi/WifiEnabler;Landroid/net/NetworkInfo$DetailedState;)V
+    invoke-static {p0, p1}, Lcom/android/settings/wifi/WifiEnabler;->-$$Nest$mhandleStateChanged(Lcom/android/settings/wifi/WifiEnabler;Landroid/net/NetworkInfo$DetailedState;)V
 
     goto :goto_0
 
@@ -118,7 +118,7 @@
 
     iget-object p2, p0, Lcom/android/settings/wifi/WifiEnabler$1;->this$0:Lcom/android/settings/wifi/WifiEnabler;
 
-    invoke-static {p2}, Lcom/android/settings/wifi/WifiEnabler;->access$200(Lcom/android/settings/wifi/WifiEnabler;)Ljava/util/concurrent/atomic/AtomicBoolean;
+    invoke-static {p2}, Lcom/android/settings/wifi/WifiEnabler;->-$$Nest$fgetmConnected(Lcom/android/settings/wifi/WifiEnabler;)Ljava/util/concurrent/atomic/AtomicBoolean;
 
     move-result-object p2
 
@@ -134,7 +134,7 @@
 
     move-result-object p1
 
-    invoke-static {p0, p1}, Lcom/android/settings/wifi/WifiEnabler;->access$300(Lcom/android/settings/wifi/WifiEnabler;Landroid/net/NetworkInfo$DetailedState;)V
+    invoke-static {p0, p1}, Lcom/android/settings/wifi/WifiEnabler;->-$$Nest$mhandleStateChanged(Lcom/android/settings/wifi/WifiEnabler;Landroid/net/NetworkInfo$DetailedState;)V
 
     :cond_2
     :goto_0

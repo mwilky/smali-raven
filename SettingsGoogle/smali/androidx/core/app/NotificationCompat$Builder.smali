@@ -3,17 +3,6 @@
 .source "NotificationCompat.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/core/app/NotificationCompat;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x9
-    name = "Builder"
-.end annotation
-
-
 # instance fields
 .field public mActions:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
@@ -30,8 +19,6 @@
 .field mBadgeIcon:I
 
 .field mBigContentView:Landroid/widget/RemoteViews;
-
-.field mBubbleMetadata:Landroidx/core/app/NotificationCompat$BubbleMetadata;
 
 .field mCategory:Ljava/lang/String;
 
@@ -56,6 +43,8 @@
 .field public mContext:Landroid/content/Context;
 
 .field mExtras:Landroid/os/Bundle;
+
+.field mFgsDeferBehavior:I
 
 .field mFullScreenIntent:Landroid/app/PendingIntent;
 
@@ -132,8 +121,6 @@
 
 .field mSortKey:Ljava/lang/String;
 
-.field mStyle:Landroidx/core/app/NotificationCompat$Style;
-
 .field mSubText:Ljava/lang/CharSequence;
 
 .field mTickerView:Landroid/widget/RemoteViews;
@@ -148,16 +135,6 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "channelId"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -194,6 +171,8 @@
     iput v1, p0, Landroidx/core/app/NotificationCompat$Builder;->mBadgeIcon:I
 
     iput v1, p0, Landroidx/core/app/NotificationCompat$Builder;->mGroupAlertBehavior:I
+
+    iput v1, p0, Landroidx/core/app/NotificationCompat$Builder;->mFgsDeferBehavior:I
 
     new-instance v2, Landroid/app/Notification;
 
@@ -232,14 +211,6 @@
 
 .method protected static limitCharSequenceLength(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "cs"
-        }
-    .end annotation
 
     if-nez p0, :cond_0
 
@@ -266,16 +237,6 @@
 
 .method private setFlag(IZ)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "mask",
-            "value"
-        }
-    .end annotation
 
     if-eqz p2, :cond_0
 
@@ -308,14 +269,6 @@
 # virtual methods
 .method public addAction(Landroidx/core/app/NotificationCompat$Action;)Landroidx/core/app/NotificationCompat$Builder;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "action"
-        }
-    .end annotation
 
     if-eqz p1, :cond_0
 
@@ -362,14 +315,6 @@
 
 .method public setColor(I)Landroidx/core/app/NotificationCompat$Builder;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "argb"
-        }
-    .end annotation
 
     iput p1, p0, Landroidx/core/app/NotificationCompat$Builder;->mColor:I
 
@@ -378,14 +323,6 @@
 
 .method public setContentIntent(Landroid/app/PendingIntent;)Landroidx/core/app/NotificationCompat$Builder;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "intent"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/core/app/NotificationCompat$Builder;->mContentIntent:Landroid/app/PendingIntent;
 
@@ -394,14 +331,6 @@
 
 .method public setContentText(Ljava/lang/CharSequence;)Landroidx/core/app/NotificationCompat$Builder;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "text"
-        }
-    .end annotation
 
     invoke-static {p1}, Landroidx/core/app/NotificationCompat$Builder;->limitCharSequenceLength(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
 
@@ -414,14 +343,6 @@
 
 .method public setContentTitle(Ljava/lang/CharSequence;)Landroidx/core/app/NotificationCompat$Builder;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "title"
-        }
-    .end annotation
 
     invoke-static {p1}, Landroidx/core/app/NotificationCompat$Builder;->limitCharSequenceLength(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
 
@@ -434,14 +355,6 @@
 
 .method public setDefaults(I)Landroidx/core/app/NotificationCompat$Builder;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "defaults"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/core/app/NotificationCompat$Builder;->mNotification:Landroid/app/Notification;
 
@@ -463,14 +376,6 @@
 
 .method public setLocalOnly(Z)Landroidx/core/app/NotificationCompat$Builder;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "b"
-        }
-    .end annotation
 
     iput-boolean p1, p0, Landroidx/core/app/NotificationCompat$Builder;->mLocalOnly:Z
 
@@ -479,14 +384,6 @@
 
 .method public setOngoing(Z)Landroidx/core/app/NotificationCompat$Builder;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "ongoing"
-        }
-    .end annotation
 
     const/4 v0, 0x2
 
@@ -497,14 +394,6 @@
 
 .method public setSmallIcon(I)Landroidx/core/app/NotificationCompat$Builder;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "icon"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/core/app/NotificationCompat$Builder;->mNotification:Landroid/app/Notification;
 
@@ -515,14 +404,6 @@
 
 .method public setTicker(Ljava/lang/CharSequence;)Landroidx/core/app/NotificationCompat$Builder;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "tickerText"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/core/app/NotificationCompat$Builder;->mNotification:Landroid/app/Notification;
 

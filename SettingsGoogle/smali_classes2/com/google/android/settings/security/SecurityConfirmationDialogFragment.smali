@@ -155,9 +155,9 @@
 
     move-result v2
 
-    new-instance v3, Lcom/google/android/settings/security/SecurityConfirmationDialogFragment$$ExternalSyntheticLambda1;
+    new-instance v3, Lcom/google/android/settings/security/SecurityConfirmationDialogFragment$$ExternalSyntheticLambda0;
 
-    invoke-direct {v3, p0, p1}, Lcom/google/android/settings/security/SecurityConfirmationDialogFragment$$ExternalSyntheticLambda1;-><init>(Lcom/google/android/settings/security/SecurityConfirmationDialogFragment;Landroid/os/Bundle;)V
+    invoke-direct {v3, p0, p1}, Lcom/google/android/settings/security/SecurityConfirmationDialogFragment$$ExternalSyntheticLambda0;-><init>(Lcom/google/android/settings/security/SecurityConfirmationDialogFragment;Landroid/os/Bundle;)V
 
     invoke-virtual {v1, v2, v3}, Landroidx/appcompat/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 
@@ -169,9 +169,9 @@
 
     move-result v2
 
-    new-instance v3, Lcom/google/android/settings/security/SecurityConfirmationDialogFragment$$ExternalSyntheticLambda0;
+    new-instance v3, Lcom/google/android/settings/security/SecurityConfirmationDialogFragment$$ExternalSyntheticLambda1;
 
-    invoke-direct {v3, p0}, Lcom/google/android/settings/security/SecurityConfirmationDialogFragment$$ExternalSyntheticLambda0;-><init>(Lcom/google/android/settings/security/SecurityConfirmationDialogFragment;)V
+    invoke-direct {v3, p0}, Lcom/google/android/settings/security/SecurityConfirmationDialogFragment$$ExternalSyntheticLambda1;-><init>(Lcom/google/android/settings/security/SecurityConfirmationDialogFragment;)V
 
     invoke-virtual {v1, v2, v3}, Landroidx/appcompat/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 

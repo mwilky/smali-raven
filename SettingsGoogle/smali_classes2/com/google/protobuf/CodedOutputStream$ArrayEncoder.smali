@@ -32,9 +32,7 @@
 
     invoke-direct {p0, v0}, Lcom/google/protobuf/CodedOutputStream;-><init>(Lcom/google/protobuf/CodedOutputStream$1;)V
 
-    const-string v0, "buffer"
-
-    invoke-static {p1, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    if-eqz p1, :cond_1
 
     or-int v0, p2, p3
 
@@ -98,6 +96,15 @@
     move-result-object p1
 
     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+
+    :cond_1
+    new-instance p0, Ljava/lang/NullPointerException;
+
+    const-string p1, "buffer"
+
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
     throw p0
 .end method
@@ -347,8 +354,6 @@
 
     add-int/lit8 v2, v1, 0x1
 
-    iput v2, p0, Lcom/google/protobuf/CodedOutputStream$ArrayEncoder;->position:I
-
     and-int/lit16 v3, p1, 0xff
 
     int-to-byte v3, v3
@@ -356,8 +361,6 @@
     aput-byte v3, v0, v1
 
     add-int/lit8 v1, v2, 0x1
-
-    iput v1, p0, Lcom/google/protobuf/CodedOutputStream$ArrayEncoder;->position:I
 
     shr-int/lit8 v3, p1, 0x8
 
@@ -368,8 +371,6 @@
     aput-byte v3, v0, v2
 
     add-int/lit8 v2, v1, 0x1
-
-    iput v2, p0, Lcom/google/protobuf/CodedOutputStream$ArrayEncoder;->position:I
 
     shr-int/lit8 v3, p1, 0x10
 
@@ -475,8 +476,6 @@
 
     add-int/lit8 v2, v1, 0x1
 
-    iput v2, p0, Lcom/google/protobuf/CodedOutputStream$ArrayEncoder;->position:I
-
     long-to-int v3, p1
 
     and-int/lit16 v3, v3, 0xff
@@ -486,8 +485,6 @@
     aput-byte v3, v0, v1
 
     add-int/lit8 v1, v2, 0x1
-
-    iput v1, p0, Lcom/google/protobuf/CodedOutputStream$ArrayEncoder;->position:I
 
     const/16 v3, 0x8
 
@@ -503,8 +500,6 @@
 
     add-int/lit8 v2, v1, 0x1
 
-    iput v2, p0, Lcom/google/protobuf/CodedOutputStream$ArrayEncoder;->position:I
-
     const/16 v3, 0x10
 
     shr-long v3, p1, v3
@@ -518,8 +513,6 @@
     aput-byte v3, v0, v1
 
     add-int/lit8 v1, v2, 0x1
-
-    iput v1, p0, Lcom/google/protobuf/CodedOutputStream$ArrayEncoder;->position:I
 
     const/16 v3, 0x18
 
@@ -535,8 +528,6 @@
 
     add-int/lit8 v2, v1, 0x1
 
-    iput v2, p0, Lcom/google/protobuf/CodedOutputStream$ArrayEncoder;->position:I
-
     const/16 v3, 0x20
 
     shr-long v3, p1, v3
@@ -551,8 +542,6 @@
 
     add-int/lit8 v1, v2, 0x1
 
-    iput v1, p0, Lcom/google/protobuf/CodedOutputStream$ArrayEncoder;->position:I
-
     const/16 v3, 0x28
 
     shr-long v3, p1, v3
@@ -566,8 +555,6 @@
     aput-byte v3, v0, v2
 
     add-int/lit8 v2, v1, 0x1
-
-    iput v2, p0, Lcom/google/protobuf/CodedOutputStream$ArrayEncoder;->position:I
 
     const/16 v3, 0x30
 

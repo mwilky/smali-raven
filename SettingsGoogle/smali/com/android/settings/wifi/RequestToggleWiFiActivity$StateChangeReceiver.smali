@@ -39,7 +39,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settings/wifi/RequestToggleWiFiActivity;Lcom/android/settings/wifi/RequestToggleWiFiActivity$1;)V
+.method synthetic constructor <init>(Lcom/android/settings/wifi/RequestToggleWiFiActivity;Lcom/android/settings/wifi/RequestToggleWiFiActivity$StateChangeReceiver-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settings/wifi/RequestToggleWiFiActivity$StateChangeReceiver;-><init>(Lcom/android/settings/wifi/RequestToggleWiFiActivity;)V
@@ -71,7 +71,7 @@
     :cond_0
     iget-object p1, p0, Lcom/android/settings/wifi/RequestToggleWiFiActivity$StateChangeReceiver;->this$0:Lcom/android/settings/wifi/RequestToggleWiFiActivity;
 
-    invoke-static {p1}, Lcom/android/settings/wifi/RequestToggleWiFiActivity;->access$100(Lcom/android/settings/wifi/RequestToggleWiFiActivity;)Landroid/net/wifi/WifiManager;
+    invoke-static {p1}, Lcom/android/settings/wifi/RequestToggleWiFiActivity;->-$$Nest$fgetmWiFiManager(Lcom/android/settings/wifi/RequestToggleWiFiActivity;)Landroid/net/wifi/WifiManager;
 
     move-result-object p1
 
@@ -92,7 +92,7 @@
     :cond_1
     iget-object p1, p0, Lcom/android/settings/wifi/RequestToggleWiFiActivity$StateChangeReceiver;->this$0:Lcom/android/settings/wifi/RequestToggleWiFiActivity;
 
-    invoke-static {p1}, Lcom/android/settings/wifi/RequestToggleWiFiActivity;->access$200(Lcom/android/settings/wifi/RequestToggleWiFiActivity;)I
+    invoke-static {p1}, Lcom/android/settings/wifi/RequestToggleWiFiActivity;->-$$Nest$fgetmState(Lcom/android/settings/wifi/RequestToggleWiFiActivity;)I
 
     move-result p1
 
@@ -102,7 +102,7 @@
 
     iget-object p1, p0, Lcom/android/settings/wifi/RequestToggleWiFiActivity$StateChangeReceiver;->this$0:Lcom/android/settings/wifi/RequestToggleWiFiActivity;
 
-    invoke-static {p1}, Lcom/android/settings/wifi/RequestToggleWiFiActivity;->access$200(Lcom/android/settings/wifi/RequestToggleWiFiActivity;)I
+    invoke-static {p1}, Lcom/android/settings/wifi/RequestToggleWiFiActivity;->-$$Nest$fgetmState(Lcom/android/settings/wifi/RequestToggleWiFiActivity;)I
 
     move-result p1
 

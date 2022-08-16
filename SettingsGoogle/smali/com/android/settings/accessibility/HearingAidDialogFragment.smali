@@ -4,6 +4,14 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$MOjCtYEO4ddeebJGre-IIRW8t8M(Lcom/android/settings/accessibility/HearingAidDialogFragment;Landroid/content/DialogInterface;I)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/settings/accessibility/HearingAidDialogFragment;->lambda$onCreateDialog$0(Landroid/content/DialogInterface;I)V
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 0
 
@@ -12,7 +20,7 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/settings/accessibility/HearingAidDialogFragment;)V
+.method private synthetic lambda$onCreateDialog$0(Landroid/content/DialogInterface;I)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/settings/accessibility/HearingAidDialogFragment;->launchBluetoothAddDeviceSetting()V
@@ -73,7 +81,7 @@
 .end method
 
 .method public onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;
-    .locals 2
+    .locals 1
 
     new-instance p1, Landroidx/appcompat/app/AlertDialog$Builder;
 
@@ -83,29 +91,33 @@
 
     invoke-direct {p1, v0}, Landroidx/appcompat/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v0, 0x7f0400e8
+    const v0, 0x7f0400ef
+
+    invoke-virtual {p1, v0}, Landroidx/appcompat/app/AlertDialog$Builder;->setTitle(I)Landroidx/appcompat/app/AlertDialog$Builder;
+
+    move-result-object p1
+
+    const v0, 0x7f0400ee
 
     invoke-virtual {p1, v0}, Landroidx/appcompat/app/AlertDialog$Builder;->setMessage(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
     move-result-object p1
 
-    new-instance v0, Lcom/android/settings/accessibility/HearingAidDialogFragment$2;
+    new-instance v0, Lcom/android/settings/accessibility/HearingAidDialogFragment$$ExternalSyntheticLambda0;
 
-    invoke-direct {v0, p0}, Lcom/android/settings/accessibility/HearingAidDialogFragment$2;-><init>(Lcom/android/settings/accessibility/HearingAidDialogFragment;)V
+    invoke-direct {v0, p0}, Lcom/android/settings/accessibility/HearingAidDialogFragment$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/accessibility/HearingAidDialogFragment;)V
 
-    const v1, 0x7f0400e6
+    const p0, 0x7f0400e9
 
-    invoke-virtual {p1, v1, v0}, Landroidx/appcompat/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
+    invoke-virtual {p1, p0, v0}, Landroidx/appcompat/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 
-    move-result-object p1
+    move-result-object p0
 
-    new-instance v0, Lcom/android/settings/accessibility/HearingAidDialogFragment$1;
+    const/high16 p1, 0x1040000
 
-    invoke-direct {v0, p0}, Lcom/android/settings/accessibility/HearingAidDialogFragment$1;-><init>(Lcom/android/settings/accessibility/HearingAidDialogFragment;)V
+    const/4 v0, 0x0
 
-    const/high16 p0, 0x1040000
-
-    invoke-virtual {p1, p0, v0}, Landroidx/appcompat/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
+    invoke-virtual {p0, p1, v0}, Landroidx/appcompat/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 
     move-result-object p0
 

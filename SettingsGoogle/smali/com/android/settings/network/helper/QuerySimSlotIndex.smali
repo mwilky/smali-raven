@@ -26,30 +26,40 @@
 
 
 # direct methods
-.method public static synthetic $r8$lambda$DiJ2iRsYkdREp3DUZZ6wxQECVAk(Lcom/android/settings/network/helper/QuerySimSlotIndex;Landroid/telephony/UiccSlotInfo;)I
+.method public static synthetic $r8$lambda$24yXkJtBzfazlzI6iN6gES-55iQ(Lcom/android/settings/network/helper/QuerySimSlotIndex;Landroid/telephony/UiccPortInfo;)Z
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/settings/network/helper/QuerySimSlotIndex;->lambda$call$1(Landroid/telephony/UiccSlotInfo;)I
+    invoke-direct {p0, p1}, Lcom/android/settings/network/helper/QuerySimSlotIndex;->lambda$mapToLogicalSlotIndex$2(Landroid/telephony/UiccPortInfo;)Z
 
     move-result p0
 
     return p0
 .end method
 
-.method public static synthetic $r8$lambda$SjxHrUEdjIOI6wOYk3EPJMCadzo(II)Z
+.method public static synthetic $r8$lambda$DFJ3Zu_wqdeRA6E07oN5AYfiXWs(II)Z
     .locals 0
 
-    invoke-static {p0, p1}, Lcom/android/settings/network/helper/QuerySimSlotIndex;->lambda$call$2(II)Z
+    invoke-static {p0, p1}, Lcom/android/settings/network/helper/QuerySimSlotIndex;->lambda$call$1(II)Z
 
     move-result p0
 
     return p0
 .end method
 
-.method public static synthetic $r8$lambda$pvB9BuJwl6H97PMKGRS0qjJRz8M(Lcom/android/settings/network/helper/QuerySimSlotIndex;Landroid/telephony/UiccSlotInfo;)Z
+.method public static synthetic $r8$lambda$IdN46paQ-JALh4yMLklYph7nnKQ(Lcom/android/settings/network/helper/QuerySimSlotIndex;Landroid/telephony/UiccSlotInfo;)Ljava/util/stream/IntStream;
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/settings/network/helper/QuerySimSlotIndex;->lambda$call$0(Landroid/telephony/UiccSlotInfo;)Z
+    invoke-direct {p0, p1}, Lcom/android/settings/network/helper/QuerySimSlotIndex;->lambda$call$0(Landroid/telephony/UiccSlotInfo;)Ljava/util/stream/IntStream;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static synthetic $r8$lambda$q9exwaigir10xEPLQh9_Dhtmmyk(Landroid/telephony/UiccPortInfo;)I
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/settings/network/helper/QuerySimSlotIndex;->lambda$mapToLogicalSlotIndex$3(Landroid/telephony/UiccPortInfo;)I
 
     move-result p0
 
@@ -70,27 +80,17 @@
     return-void
 .end method
 
-.method private synthetic lambda$call$0(Landroid/telephony/UiccSlotInfo;)Z
+.method private synthetic lambda$call$0(Landroid/telephony/UiccSlotInfo;)Ljava/util/stream/IntStream;
     .locals 0
 
-    invoke-virtual {p0, p1}, Lcom/android/settings/network/helper/QuerySimSlotIndex;->filterSlot(Landroid/telephony/UiccSlotInfo;)Z
+    invoke-virtual {p0, p1}, Lcom/android/settings/network/helper/QuerySimSlotIndex;->mapToLogicalSlotIndex(Landroid/telephony/UiccSlotInfo;)Ljava/util/stream/IntStream;
 
-    move-result p0
+    move-result-object p0
 
-    return p0
+    return-object p0
 .end method
 
-.method private synthetic lambda$call$1(Landroid/telephony/UiccSlotInfo;)I
-    .locals 0
-
-    invoke-virtual {p0, p1}, Lcom/android/settings/network/helper/QuerySimSlotIndex;->mapToSlotIndex(Landroid/telephony/UiccSlotInfo;)I
-
-    move-result p0
-
-    return p0
-.end method
-
-.method private static synthetic lambda$call$2(II)Z
+.method private static synthetic lambda$call$1(II)Z
     .locals 0
 
     if-lt p1, p0, :cond_0
@@ -103,6 +103,26 @@
     const/4 p0, 0x0
 
     :goto_0
+    return p0
+.end method
+
+.method private synthetic lambda$mapToLogicalSlotIndex$2(Landroid/telephony/UiccPortInfo;)Z
+    .locals 0
+
+    invoke-virtual {p0, p1}, Lcom/android/settings/network/helper/QuerySimSlotIndex;->filterPort(Landroid/telephony/UiccPortInfo;)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method private static synthetic lambda$mapToLogicalSlotIndex$3(Landroid/telephony/UiccPortInfo;)I
+    .locals 0
+
+    invoke-virtual {p0}, Landroid/telephony/UiccPortInfo;->getLogicalSlotIndex()I
+
+    move-result p0
+
     return p0
 .end method
 
@@ -159,25 +179,17 @@
 
     move-result-object v0
 
-    new-instance v3, Lcom/android/settings/network/helper/QuerySimSlotIndex$$ExternalSyntheticLambda1;
+    new-instance v3, Lcom/android/settings/network/helper/QuerySimSlotIndex$$ExternalSyntheticLambda0;
 
-    invoke-direct {v3, p0}, Lcom/android/settings/network/helper/QuerySimSlotIndex$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/network/helper/QuerySimSlotIndex;)V
+    invoke-direct {v3, p0}, Lcom/android/settings/network/helper/QuerySimSlotIndex$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/network/helper/QuerySimSlotIndex;)V
 
-    invoke-interface {v0, v3}, Ljava/util/stream/Stream;->filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
-
-    move-result-object v0
-
-    new-instance v3, Lcom/android/settings/network/helper/QuerySimSlotIndex$$ExternalSyntheticLambda2;
-
-    invoke-direct {v3, p0}, Lcom/android/settings/network/helper/QuerySimSlotIndex$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/network/helper/QuerySimSlotIndex;)V
-
-    invoke-interface {v0, v3}, Ljava/util/stream/Stream;->mapToInt(Ljava/util/function/ToIntFunction;)Ljava/util/stream/IntStream;
+    invoke-interface {v0, v3}, Ljava/util/stream/Stream;->flatMapToInt(Ljava/util/function/Function;)Ljava/util/stream/IntStream;
 
     move-result-object p0
 
-    new-instance v0, Lcom/android/settings/network/helper/QuerySimSlotIndex$$ExternalSyntheticLambda0;
+    new-instance v0, Lcom/android/settings/network/helper/QuerySimSlotIndex$$ExternalSyntheticLambda1;
 
-    invoke-direct {v0, v1}, Lcom/android/settings/network/helper/QuerySimSlotIndex$$ExternalSyntheticLambda0;-><init>(I)V
+    invoke-direct {v0, v1}, Lcom/android/settings/network/helper/QuerySimSlotIndex$$ExternalSyntheticLambda1;-><init>(I)V
 
     invoke-interface {p0, v0}, Ljava/util/stream/IntStream;->filter(Ljava/util/function/IntPredicate;)Ljava/util/stream/IntStream;
 
@@ -192,7 +204,7 @@
     return-object v2
 .end method
 
-.method protected filterSlot(Landroid/telephony/UiccSlotInfo;)Z
+.method protected filterPort(Landroid/telephony/UiccPortInfo;)Z
     .locals 0
 
     iget-boolean p0, p0, Lcom/android/settings/network/helper/QuerySimSlotIndex;->mDisabledSlotsIncluded:Z
@@ -211,37 +223,65 @@
     return p0
 
     :cond_1
-    invoke-virtual {p1}, Landroid/telephony/UiccSlotInfo;->getIsActive()Z
+    invoke-virtual {p1}, Landroid/telephony/UiccPortInfo;->isActive()Z
 
     move-result p0
 
     return p0
 .end method
 
-.method protected mapToSlotIndex(Landroid/telephony/UiccSlotInfo;)I
-    .locals 2
+.method protected mapToLogicalSlotIndex(Landroid/telephony/UiccSlotInfo;)Ljava/util/stream/IntStream;
+    .locals 3
 
-    const/4 p0, -0x1
+    const/4 v0, -0x1
 
     if-nez p1, :cond_0
 
-    return p0
+    invoke-static {v0}, Ljava/util/stream/IntStream;->of(I)Ljava/util/stream/IntStream;
+
+    move-result-object p0
+
+    return-object p0
 
     :cond_0
     invoke-virtual {p1}, Landroid/telephony/UiccSlotInfo;->getCardStateInfo()I
 
-    move-result v0
+    move-result v1
 
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
-    if-ne v0, v1, :cond_1
+    if-ne v1, v2, :cond_1
 
-    return p0
+    invoke-static {v0}, Ljava/util/stream/IntStream;->of(I)Ljava/util/stream/IntStream;
+
+    move-result-object p0
+
+    return-object p0
 
     :cond_1
-    invoke-virtual {p1}, Landroid/telephony/UiccSlotInfo;->getLogicalSlotIdx()I
+    invoke-virtual {p1}, Landroid/telephony/UiccSlotInfo;->getPorts()Ljava/util/Collection;
 
-    move-result p0
+    move-result-object p1
 
-    return p0
+    invoke-interface {p1}, Ljava/util/Collection;->stream()Ljava/util/stream/Stream;
+
+    move-result-object p1
+
+    new-instance v0, Lcom/android/settings/network/helper/QuerySimSlotIndex$$ExternalSyntheticLambda2;
+
+    invoke-direct {v0, p0}, Lcom/android/settings/network/helper/QuerySimSlotIndex$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/network/helper/QuerySimSlotIndex;)V
+
+    invoke-interface {p1, v0}, Ljava/util/stream/Stream;->filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
+
+    move-result-object p0
+
+    new-instance p1, Lcom/android/settings/network/helper/QuerySimSlotIndex$$ExternalSyntheticLambda3;
+
+    invoke-direct {p1}, Lcom/android/settings/network/helper/QuerySimSlotIndex$$ExternalSyntheticLambda3;-><init>()V
+
+    invoke-interface {p0, p1}, Ljava/util/stream/Stream;->mapToInt(Ljava/util/function/ToIntFunction;)Ljava/util/stream/IntStream;
+
+    move-result-object p0
+
+    return-object p0
 .end method

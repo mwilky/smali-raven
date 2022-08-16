@@ -35,18 +35,6 @@
 # direct methods
 .method constructor <init>(Landroidx/mediarouter/app/MediaRouteButton;ILandroid/content/Context;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x1010,
-            0x0,
-            0x0
-        }
-        names = {
-            "this$0",
-            "resId",
-            "context"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/mediarouter/app/MediaRouteButton$RemoteIndicatorLoader;->this$0:Landroidx/mediarouter/app/MediaRouteButton;
 
@@ -61,14 +49,6 @@
 
 .method private cacheAndReset(Landroid/graphics/drawable/Drawable;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "remoteIndicator"
-        }
-    .end annotation
 
     if-eqz p1, :cond_0
 
@@ -96,14 +76,6 @@
 # virtual methods
 .method protected varargs doInBackground([Ljava/lang/Void;)Landroid/graphics/drawable/Drawable;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "params"
-        }
-    .end annotation
 
     sget-object p1, Landroidx/mediarouter/app/MediaRouteButton;->sRemoteIndicatorCache:Landroid/util/SparseArray;
 
@@ -135,14 +107,6 @@
 
 .method protected bridge synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x1000
-        }
-        names = {
-            "params"
-        }
-    .end annotation
 
     check-cast p1, [Ljava/lang/Void;
 
@@ -155,14 +119,6 @@
 
 .method protected onCancelled(Landroid/graphics/drawable/Drawable;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "remoteIndicator"
-        }
-    .end annotation
 
     invoke-direct {p0, p1}, Landroidx/mediarouter/app/MediaRouteButton$RemoteIndicatorLoader;->cacheAndReset(Landroid/graphics/drawable/Drawable;)V
 
@@ -171,14 +127,6 @@
 
 .method protected bridge synthetic onCancelled(Ljava/lang/Object;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x1000
-        }
-        names = {
-            "remoteIndicator"
-        }
-    .end annotation
 
     check-cast p1, Landroid/graphics/drawable/Drawable;
 
@@ -189,14 +137,6 @@
 
 .method protected onPostExecute(Landroid/graphics/drawable/Drawable;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "remoteIndicator"
-        }
-    .end annotation
 
     if-eqz p1, :cond_0
 
@@ -238,14 +178,6 @@
 
 .method protected bridge synthetic onPostExecute(Ljava/lang/Object;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x1000
-        }
-        names = {
-            "remoteIndicator"
-        }
-    .end annotation
 
     check-cast p1, Landroid/graphics/drawable/Drawable;
 

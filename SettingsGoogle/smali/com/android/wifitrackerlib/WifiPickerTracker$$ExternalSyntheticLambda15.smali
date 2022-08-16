@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/wifitrackerlib/WifiPickerTracker$$ExternalSyntheticLambda15;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Predicate;
@@ -27,9 +28,9 @@
 
     iget-object p0, p0, Lcom/android/wifitrackerlib/WifiPickerTracker$$ExternalSyntheticLambda15;->f$0:Lcom/android/wifitrackerlib/WifiPickerTracker;
 
-    check-cast p1, Ljava/util/Map$Entry;
+    check-cast p1, Lcom/android/wifitrackerlib/StandardWifiEntry;
 
-    invoke-static {p0, p1}, Lcom/android/wifitrackerlib/WifiPickerTracker;->$r8$lambda$uq36BIZ2Zkfhy8UE-YukT-HmKfo(Lcom/android/wifitrackerlib/WifiPickerTracker;Ljava/util/Map$Entry;)Z
+    invoke-static {p0, p1}, Lcom/android/wifitrackerlib/WifiPickerTracker;->$r8$lambda$WwyPnqzV2LFSPv1tf4z69Zj7sXA(Lcom/android/wifitrackerlib/WifiPickerTracker;Lcom/android/wifitrackerlib/StandardWifiEntry;)Z
 
     move-result p0
 

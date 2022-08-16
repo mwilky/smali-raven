@@ -39,7 +39,7 @@
 
     iget-object v0, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintLocationAnimationView$3;->this$0:Lcom/android/settings/biometrics/fingerprint/FingerprintLocationAnimationView;
 
-    invoke-static {v0}, Lcom/android/settings/biometrics/fingerprint/FingerprintLocationAnimationView;->access$300(Lcom/android/settings/biometrics/fingerprint/FingerprintLocationAnimationView;)Landroid/graphics/Paint;
+    invoke-static {v0}, Lcom/android/settings/biometrics/fingerprint/FingerprintLocationAnimationView;->-$$Nest$fgetmPulsePaint(Lcom/android/settings/biometrics/fingerprint/FingerprintLocationAnimationView;)Landroid/graphics/Paint;
 
     move-result-object v0
 

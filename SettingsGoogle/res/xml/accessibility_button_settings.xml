@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen
   xmlns:android="http://schemas.android.com/apk/res/android" xmlns:settings="http://schemas.android.com/apk/res-auto">
+    <com.android.settingslib.widget.TopIntroPreference android:persistent="false" android:title="@string/accessibility_button_intro_text" android:key="accessibility_button_intro" />
     <com.android.settingslib.widget.IllustrationPreference android:persistent="false" android:selectable="false" android:key="accessibility_button_preview" settings:controller="com.android.settings.accessibility.AccessibilityButtonPreviewPreferenceController" settings:searchable="false" />
     <ListPreference android:persistent="false" android:entries="@array/accessibility_button_location_selector_titles" android:title="@string/accessibility_button_location_title" android:key="accessibility_button_location" android:summary="%s" android:entryValues="@array/accessibility_button_location_selector_values" settings:controller="com.android.settings.accessibility.AccessibilityButtonLocationPreferenceController" />
     <ListPreference android:persistent="false" android:entries="@array/accessibility_button_gesture_selector_titles" android:title="@string/accessibility_button_or_gesture_title" android:key="accessibility_button_or_gesture" android:summary="%s" android:entryValues="@array/accessibility_button_gesture_selector_values" settings:controller="com.android.settings.accessibility.AccessibilityButtonGesturePreferenceController" />

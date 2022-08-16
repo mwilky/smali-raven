@@ -82,14 +82,6 @@
 
 .method public setListener(Landroidx/slice/widget/SliceViewPolicy$PolicyChangeListener;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "listener"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/slice/widget/SliceViewPolicy;->mListener:Landroidx/slice/widget/SliceViewPolicy$PolicyChangeListener;
 
@@ -98,14 +90,6 @@
 
 .method public setMaxHeight(I)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "max"
-        }
-    .end annotation
 
     iget v0, p0, Landroidx/slice/widget/SliceViewPolicy;->mMaxHeight:I
 
@@ -125,14 +109,6 @@
 
 .method public setMaxSmallHeight(I)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "maxSmallHeight"
-        }
-    .end annotation
 
     iget v0, p0, Landroidx/slice/widget/SliceViewPolicy;->mMaxSmallHeight:I
 
@@ -152,14 +128,6 @@
 
 .method public setMode(I)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "mode"
-        }
-    .end annotation
 
     iget v0, p0, Landroidx/slice/widget/SliceViewPolicy;->mMode:I
 
@@ -179,14 +147,6 @@
 
 .method public setScrollable(Z)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "scrollable"
-        }
-    .end annotation
 
     iget-boolean v0, p0, Landroidx/slice/widget/SliceViewPolicy;->mScrollable:Z
 

@@ -49,14 +49,6 @@
 # direct methods
 .method public constructor <init>(Landroidx/slice/SliceItem;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "cellItem"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -77,15 +69,6 @@
 
 .method private fillCellItems(Ljava/util/List;)V
     .locals 6
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "items"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -292,14 +275,6 @@
 
 .method private isValidCellContent(Landroidx/slice/SliceItem;)Z
     .locals 5
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "cellItem"
-        }
-    .end annotation
 
     invoke-virtual {p1}, Landroidx/slice/SliceItem;->getFormat()Ljava/lang/String;
 
@@ -585,14 +560,6 @@
 
 .method public populate(Landroidx/slice/SliceItem;)Z
     .locals 10
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "cellItem"
-        }
-    .end annotation
 
     invoke-virtual {p1}, Landroidx/slice/SliceItem;->getFormat()Ljava/lang/String;
 

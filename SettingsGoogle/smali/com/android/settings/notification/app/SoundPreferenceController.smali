@@ -88,7 +88,7 @@
 .method public getPreferenceKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "ringtone"
+    const-string/jumbo p0, "ringtone"
 
     return-object p0
 .end method
@@ -100,7 +100,7 @@
 
     move-result-object v0
 
-    const-string v1, "ringtone"
+    const-string/jumbo v1, "ringtone"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

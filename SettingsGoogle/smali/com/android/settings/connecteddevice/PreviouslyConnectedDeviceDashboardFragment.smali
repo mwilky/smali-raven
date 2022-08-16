@@ -17,7 +17,7 @@
 
     new-instance v0, Lcom/android/settings/search/BaseSearchIndexProvider;
 
-    const v1, 0x7f1500bf
+    const v1, 0x7f1500c1
 
     invoke-direct {v0, v1}, Lcom/android/settings/search/BaseSearchIndexProvider;-><init>(I)V
 
@@ -60,7 +60,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a41
+    const p0, 0x7f040a9a
 
     return p0
 .end method
@@ -84,7 +84,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f1500bf
+    const p0, 0x7f1500c1
 
     return p0
 .end method

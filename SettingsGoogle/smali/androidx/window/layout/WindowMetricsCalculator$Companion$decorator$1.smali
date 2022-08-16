@@ -7,8 +7,8 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroidx/window/layout/WindowMetricsCalculator$Companion;-><clinit>()V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroidx/window/layout/WindowMetricsCalculator$Companion;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;

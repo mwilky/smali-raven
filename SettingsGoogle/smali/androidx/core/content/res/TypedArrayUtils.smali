@@ -6,18 +6,6 @@
 # direct methods
 .method public static getAttr(Landroid/content/Context;II)I
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "attr",
-            "fallbackAttr"
-        }
-    .end annotation
 
     new-instance v0, Landroid/util/TypedValue;
 
@@ -43,20 +31,6 @@
 
 .method public static getBoolean(Landroid/content/res/TypedArray;IIZ)Z
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "a",
-            "index",
-            "fallbackIndex",
-            "defaultValue"
-        }
-    .end annotation
 
     invoke-virtual {p0, p2, p3}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
@@ -71,18 +45,6 @@
 
 .method public static getDrawable(Landroid/content/res/TypedArray;II)Landroid/graphics/drawable/Drawable;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "a",
-            "index",
-            "fallbackIndex"
-        }
-    .end annotation
 
     invoke-virtual {p0, p1}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -100,20 +62,6 @@
 
 .method public static getInt(Landroid/content/res/TypedArray;III)I
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "a",
-            "index",
-            "fallbackIndex",
-            "defaultValue"
-        }
-    .end annotation
 
     invoke-virtual {p0, p2, p3}, Landroid/content/res/TypedArray;->getInt(II)I
 
@@ -128,22 +76,6 @@
 
 .method public static getNamedBoolean(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;IZ)Z
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "a",
-            "parser",
-            "attrName",
-            "resId",
-            "defaultValue"
-        }
-    .end annotation
 
     invoke-static {p1, p2}, Landroidx/core/content/res/TypedArrayUtils;->hasAttribute(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)Z
 
@@ -163,22 +95,6 @@
 
 .method public static getNamedColor(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;II)I
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "a",
-            "parser",
-            "attrName",
-            "resId",
-            "defaultValue"
-        }
-    .end annotation
 
     invoke-static {p1, p2}, Landroidx/core/content/res/TypedArrayUtils;->hasAttribute(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)Z
 
@@ -198,22 +114,6 @@
 
 .method public static getNamedColorStateList(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Landroid/content/res/Resources$Theme;Ljava/lang/String;I)Landroid/content/res/ColorStateList;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "a",
-            "parser",
-            "theme",
-            "attrName",
-            "resId"
-        }
-    .end annotation
 
     invoke-static {p1, p3}, Landroidx/core/content/res/TypedArrayUtils;->hasAttribute(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)Z
 
@@ -299,14 +199,6 @@
 
 .method private static getNamedColorStateListFromInt(Landroid/util/TypedValue;)Landroid/content/res/ColorStateList;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "value"
-        }
-    .end annotation
 
     iget p0, p0, Landroid/util/TypedValue;->data:I
 
@@ -319,24 +211,6 @@
 
 .method public static getNamedComplexColor(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Landroid/content/res/Resources$Theme;Ljava/lang/String;II)Landroidx/core/content/res/ComplexColorCompat;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "a",
-            "parser",
-            "theme",
-            "attrName",
-            "resId",
-            "defaultValue"
-        }
-    .end annotation
 
     invoke-static {p1, p3}, Landroidx/core/content/res/TypedArrayUtils;->hasAttribute(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)Z
 
@@ -397,22 +271,6 @@
 
 .method public static getNamedFloat(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;IF)F
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "a",
-            "parser",
-            "attrName",
-            "resId",
-            "defaultValue"
-        }
-    .end annotation
 
     invoke-static {p1, p2}, Landroidx/core/content/res/TypedArrayUtils;->hasAttribute(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)Z
 
@@ -432,22 +290,6 @@
 
 .method public static getNamedInt(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;II)I
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "a",
-            "parser",
-            "attrName",
-            "resId",
-            "defaultValue"
-        }
-    .end annotation
 
     invoke-static {p1, p2}, Landroidx/core/content/res/TypedArrayUtils;->hasAttribute(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)Z
 
@@ -467,22 +309,6 @@
 
 .method public static getNamedResourceId(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;II)I
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "a",
-            "parser",
-            "attrName",
-            "resId",
-            "defaultValue"
-        }
-    .end annotation
 
     invoke-static {p1, p2}, Landroidx/core/content/res/TypedArrayUtils;->hasAttribute(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)Z
 
@@ -502,20 +328,6 @@
 
 .method public static getNamedString(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;I)Ljava/lang/String;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "a",
-            "parser",
-            "attrName",
-            "resId"
-        }
-    .end annotation
 
     invoke-static {p1, p2}, Landroidx/core/content/res/TypedArrayUtils;->hasAttribute(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)Z
 
@@ -537,20 +349,6 @@
 
 .method public static getResourceId(Landroid/content/res/TypedArray;III)I
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "a",
-            "index",
-            "fallbackIndex",
-            "defaultValue"
-        }
-    .end annotation
 
     invoke-virtual {p0, p2, p3}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
@@ -565,18 +363,6 @@
 
 .method public static getString(Landroid/content/res/TypedArray;II)Ljava/lang/String;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "a",
-            "index",
-            "fallbackIndex"
-        }
-    .end annotation
 
     invoke-virtual {p0, p1}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
 
@@ -594,18 +380,6 @@
 
 .method public static getText(Landroid/content/res/TypedArray;II)Ljava/lang/CharSequence;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "a",
-            "index",
-            "fallbackIndex"
-        }
-    .end annotation
 
     invoke-virtual {p0, p1}, Landroid/content/res/TypedArray;->getText(I)Ljava/lang/CharSequence;
 
@@ -623,18 +397,6 @@
 
 .method public static getTextArray(Landroid/content/res/TypedArray;II)[Ljava/lang/CharSequence;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "a",
-            "index",
-            "fallbackIndex"
-        }
-    .end annotation
 
     invoke-virtual {p0, p1}, Landroid/content/res/TypedArray;->getTextArray(I)[Ljava/lang/CharSequence;
 
@@ -652,16 +414,6 @@
 
 .method public static hasAttribute(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)Z
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "parser",
-            "attrName"
-        }
-    .end annotation
 
     const-string v0, "http://schemas.android.com/apk/res/android"
 
@@ -684,20 +436,6 @@
 
 .method public static obtainAttributes(Landroid/content/res/Resources;Landroid/content/res/Resources$Theme;Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "res",
-            "theme",
-            "set",
-            "attrs"
-        }
-    .end annotation
 
     if-nez p1, :cond_0
 
@@ -711,41 +449,6 @@
     const/4 p0, 0x0
 
     invoke-virtual {p1, p2, p3, p0, p0}, Landroid/content/res/Resources$Theme;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public static peekNamedValue(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;I)Landroid/util/TypedValue;
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "a",
-            "parser",
-            "attrName",
-            "resId"
-        }
-    .end annotation
-
-    invoke-static {p1, p2}, Landroidx/core/content/res/TypedArrayUtils;->hasAttribute(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)Z
-
-    move-result p1
-
-    if-nez p1, :cond_0
-
-    const/4 p0, 0x0
-
-    return-object p0
-
-    :cond_0
-    invoke-virtual {p0, p3}, Landroid/content/res/TypedArray;->peekValue(I)Landroid/util/TypedValue;
 
     move-result-object p0
 

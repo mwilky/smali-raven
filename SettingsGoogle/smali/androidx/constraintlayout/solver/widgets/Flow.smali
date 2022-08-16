@@ -767,426 +767,412 @@
 .end method
 
 .method private measureAligned([Landroidx/constraintlayout/solver/widgets/ConstraintWidget;III[I)V
-    .locals 16
+    .locals 10
 
-    move-object/from16 v0, p0
+    const/4 v0, 0x0
 
-    move-object/from16 v1, p1
+    if-nez p3, :cond_4
 
-    move/from16 v2, p2
+    iget v1, p0, Landroidx/constraintlayout/solver/widgets/Flow;->mMaxElementsWrap:I
 
-    move/from16 v3, p3
+    if-gtz v1, :cond_3
 
-    move/from16 v4, p4
+    move v1, v0
 
-    const/4 v5, 0x0
+    move v2, v1
 
-    if-nez v3, :cond_4
-
-    iget v6, v0, Landroidx/constraintlayout/solver/widgets/Flow;->mMaxElementsWrap:I
-
-    if-gtz v6, :cond_3
-
-    move v6, v5
-
-    move v7, v6
-
-    move v8, v7
+    move v3, v2
 
     :goto_0
-    if-ge v7, v2, :cond_3
+    if-ge v2, p2, :cond_3
 
-    if-lez v7, :cond_0
+    if-lez v2, :cond_0
 
-    iget v9, v0, Landroidx/constraintlayout/solver/widgets/Flow;->mHorizontalGap:I
+    iget v4, p0, Landroidx/constraintlayout/solver/widgets/Flow;->mHorizontalGap:I
 
-    add-int/2addr v8, v9
+    add-int/2addr v3, v4
 
     :cond_0
-    aget-object v9, v1, v7
+    aget-object v4, p1, v2
 
-    if-nez v9, :cond_1
+    if-nez v4, :cond_1
 
     goto :goto_1
 
     :cond_1
-    invoke-direct {v0, v9, v4}, Landroidx/constraintlayout/solver/widgets/Flow;->getWidgetWidth(Landroidx/constraintlayout/solver/widgets/ConstraintWidget;I)I
+    invoke-direct {p0, v4, p4}, Landroidx/constraintlayout/solver/widgets/Flow;->getWidgetWidth(Landroidx/constraintlayout/solver/widgets/ConstraintWidget;I)I
 
-    move-result v9
+    move-result v4
 
-    add-int/2addr v8, v9
+    add-int/2addr v3, v4
 
-    if-le v8, v4, :cond_2
+    if-le v3, p4, :cond_2
 
     goto :goto_2
 
     :cond_2
-    add-int/lit8 v6, v6, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     :goto_1
-    add-int/lit8 v7, v7, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     :cond_3
     :goto_2
-    move v7, v6
+    move v2, v1
 
-    move v6, v5
+    move v1, v0
 
     goto :goto_6
 
     :cond_4
-    iget v6, v0, Landroidx/constraintlayout/solver/widgets/Flow;->mMaxElementsWrap:I
+    iget v1, p0, Landroidx/constraintlayout/solver/widgets/Flow;->mMaxElementsWrap:I
 
-    if-gtz v6, :cond_8
+    if-gtz v1, :cond_8
 
-    move v6, v5
+    move v1, v0
 
-    move v7, v6
+    move v2, v1
 
-    move v8, v7
+    move v3, v2
 
     :goto_3
-    if-ge v7, v2, :cond_8
+    if-ge v2, p2, :cond_8
 
-    if-lez v7, :cond_5
+    if-lez v2, :cond_5
 
-    iget v9, v0, Landroidx/constraintlayout/solver/widgets/Flow;->mVerticalGap:I
+    iget v4, p0, Landroidx/constraintlayout/solver/widgets/Flow;->mVerticalGap:I
 
-    add-int/2addr v8, v9
+    add-int/2addr v3, v4
 
     :cond_5
-    aget-object v9, v1, v7
+    aget-object v4, p1, v2
 
-    if-nez v9, :cond_6
+    if-nez v4, :cond_6
 
     goto :goto_4
 
     :cond_6
-    invoke-direct {v0, v9, v4}, Landroidx/constraintlayout/solver/widgets/Flow;->getWidgetHeight(Landroidx/constraintlayout/solver/widgets/ConstraintWidget;I)I
+    invoke-direct {p0, v4, p4}, Landroidx/constraintlayout/solver/widgets/Flow;->getWidgetHeight(Landroidx/constraintlayout/solver/widgets/ConstraintWidget;I)I
 
-    move-result v9
+    move-result v4
 
-    add-int/2addr v8, v9
+    add-int/2addr v3, v4
 
-    if-le v8, v4, :cond_7
+    if-le v3, p4, :cond_7
 
     goto :goto_5
 
     :cond_7
-    add-int/lit8 v6, v6, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     :goto_4
-    add-int/lit8 v7, v7, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_3
 
     :cond_8
     :goto_5
-    move v7, v5
+    move v2, v0
 
     :goto_6
-    iget-object v8, v0, Landroidx/constraintlayout/solver/widgets/Flow;->mAlignedDimensions:[I
+    iget-object v3, p0, Landroidx/constraintlayout/solver/widgets/Flow;->mAlignedDimensions:[I
 
-    if-nez v8, :cond_9
+    if-nez v3, :cond_9
 
-    const/4 v8, 0x2
+    const/4 v3, 0x2
 
-    new-array v8, v8, [I
+    new-array v3, v3, [I
 
-    iput-object v8, v0, Landroidx/constraintlayout/solver/widgets/Flow;->mAlignedDimensions:[I
+    iput-object v3, p0, Landroidx/constraintlayout/solver/widgets/Flow;->mAlignedDimensions:[I
 
     :cond_9
-    const/4 v8, 0x1
+    const/4 v3, 0x1
 
-    if-nez v6, :cond_a
+    if-nez v1, :cond_a
 
-    if-eq v3, v8, :cond_b
+    if-eq p3, v3, :cond_b
 
     :cond_a
-    if-nez v7, :cond_c
+    if-nez v2, :cond_c
 
-    if-nez v3, :cond_c
+    if-nez p3, :cond_c
 
     :cond_b
-    move v9, v8
+    move v4, v3
 
     goto :goto_7
 
     :cond_c
-    move v9, v5
+    move v4, v0
 
     :goto_7
-    if-nez v9, :cond_22
+    if-nez v4, :cond_22
 
-    if-nez v3, :cond_d
+    if-nez p3, :cond_d
 
-    int-to-float v6, v2
+    int-to-float v1, p2
 
-    int-to-float v10, v7
+    int-to-float v5, v2
 
-    div-float/2addr v6, v10
+    div-float/2addr v1, v5
 
-    float-to-double v10, v6
+    float-to-double v5, v1
 
-    invoke-static {v10, v11}, Ljava/lang/Math;->ceil(D)D
+    invoke-static {v5, v6}, Ljava/lang/Math;->ceil(D)D
 
-    move-result-wide v10
+    move-result-wide v5
 
-    double-to-int v6, v10
+    double-to-int v1, v5
 
     goto :goto_8
 
     :cond_d
-    int-to-float v7, v2
+    int-to-float v2, p2
 
-    int-to-float v10, v6
+    int-to-float v5, v1
 
-    div-float/2addr v7, v10
+    div-float/2addr v2, v5
 
-    float-to-double v10, v7
+    float-to-double v5, v2
 
-    invoke-static {v10, v11}, Ljava/lang/Math;->ceil(D)D
+    invoke-static {v5, v6}, Ljava/lang/Math;->ceil(D)D
 
-    move-result-wide v10
+    move-result-wide v5
 
-    double-to-int v7, v10
+    double-to-int v2, v5
 
     :goto_8
-    iget-object v10, v0, Landroidx/constraintlayout/solver/widgets/Flow;->mAlignedBiggestElementsInCols:[Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
+    iget-object v5, p0, Landroidx/constraintlayout/solver/widgets/Flow;->mAlignedBiggestElementsInCols:[Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
 
-    const/4 v11, 0x0
+    const/4 v6, 0x0
 
-    if-eqz v10, :cond_f
+    if-eqz v5, :cond_f
 
-    array-length v12, v10
+    array-length v7, v5
 
-    if-ge v12, v7, :cond_e
+    if-ge v7, v2, :cond_e
 
     goto :goto_9
 
     :cond_e
-    invoke-static {v10, v11}, Ljava/util/Arrays;->fill([Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static {v5, v6}, Ljava/util/Arrays;->fill([Ljava/lang/Object;Ljava/lang/Object;)V
 
     goto :goto_a
 
     :cond_f
     :goto_9
-    new-array v10, v7, [Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
+    new-array v5, v2, [Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
 
-    iput-object v10, v0, Landroidx/constraintlayout/solver/widgets/Flow;->mAlignedBiggestElementsInCols:[Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
+    iput-object v5, p0, Landroidx/constraintlayout/solver/widgets/Flow;->mAlignedBiggestElementsInCols:[Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
 
     :goto_a
-    iget-object v10, v0, Landroidx/constraintlayout/solver/widgets/Flow;->mAlignedBiggestElementsInRows:[Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
+    iget-object v5, p0, Landroidx/constraintlayout/solver/widgets/Flow;->mAlignedBiggestElementsInRows:[Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
 
-    if-eqz v10, :cond_11
+    if-eqz v5, :cond_11
 
-    array-length v12, v10
+    array-length v7, v5
 
-    if-ge v12, v6, :cond_10
+    if-ge v7, v1, :cond_10
 
     goto :goto_b
 
     :cond_10
-    invoke-static {v10, v11}, Ljava/util/Arrays;->fill([Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static {v5, v6}, Ljava/util/Arrays;->fill([Ljava/lang/Object;Ljava/lang/Object;)V
 
     goto :goto_c
 
     :cond_11
     :goto_b
-    new-array v10, v6, [Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
+    new-array v5, v1, [Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
 
-    iput-object v10, v0, Landroidx/constraintlayout/solver/widgets/Flow;->mAlignedBiggestElementsInRows:[Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
+    iput-object v5, p0, Landroidx/constraintlayout/solver/widgets/Flow;->mAlignedBiggestElementsInRows:[Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
 
     :goto_c
-    move v10, v5
+    move v5, v0
 
     :goto_d
-    if-ge v10, v7, :cond_1a
+    if-ge v5, v2, :cond_1a
 
-    move v11, v5
+    move v6, v0
 
     :goto_e
-    if-ge v11, v6, :cond_19
+    if-ge v6, v1, :cond_19
 
-    mul-int v12, v11, v7
+    mul-int v7, v6, v2
 
-    add-int/2addr v12, v10
+    add-int/2addr v7, v5
 
-    if-ne v3, v8, :cond_12
+    if-ne p3, v3, :cond_12
 
-    mul-int v12, v10, v6
+    mul-int v7, v5, v1
 
-    add-int/2addr v12, v11
+    add-int/2addr v7, v6
 
     :cond_12
-    array-length v13, v1
+    array-length v8, p1
 
-    if-lt v12, v13, :cond_13
+    if-lt v7, v8, :cond_13
 
     goto :goto_f
 
     :cond_13
-    aget-object v12, v1, v12
+    aget-object v7, p1, v7
 
-    if-nez v12, :cond_14
+    if-nez v7, :cond_14
 
     goto :goto_f
 
     :cond_14
-    invoke-direct {v0, v12, v4}, Landroidx/constraintlayout/solver/widgets/Flow;->getWidgetWidth(Landroidx/constraintlayout/solver/widgets/ConstraintWidget;I)I
+    invoke-direct {p0, v7, p4}, Landroidx/constraintlayout/solver/widgets/Flow;->getWidgetWidth(Landroidx/constraintlayout/solver/widgets/ConstraintWidget;I)I
 
-    move-result v13
+    move-result v8
 
-    iget-object v14, v0, Landroidx/constraintlayout/solver/widgets/Flow;->mAlignedBiggestElementsInCols:[Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
+    iget-object v9, p0, Landroidx/constraintlayout/solver/widgets/Flow;->mAlignedBiggestElementsInCols:[Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
 
-    aget-object v15, v14, v10
+    aget-object v9, v9, v5
 
-    if-eqz v15, :cond_15
+    if-eqz v9, :cond_15
 
-    aget-object v14, v14, v10
+    invoke-virtual {v9}, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->getWidth()I
 
-    invoke-virtual {v14}, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->getWidth()I
+    move-result v9
 
-    move-result v14
-
-    if-ge v14, v13, :cond_16
+    if-ge v9, v8, :cond_16
 
     :cond_15
-    iget-object v13, v0, Landroidx/constraintlayout/solver/widgets/Flow;->mAlignedBiggestElementsInCols:[Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
+    iget-object v8, p0, Landroidx/constraintlayout/solver/widgets/Flow;->mAlignedBiggestElementsInCols:[Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
 
-    aput-object v12, v13, v10
+    aput-object v7, v8, v5
 
     :cond_16
-    invoke-direct {v0, v12, v4}, Landroidx/constraintlayout/solver/widgets/Flow;->getWidgetHeight(Landroidx/constraintlayout/solver/widgets/ConstraintWidget;I)I
+    invoke-direct {p0, v7, p4}, Landroidx/constraintlayout/solver/widgets/Flow;->getWidgetHeight(Landroidx/constraintlayout/solver/widgets/ConstraintWidget;I)I
 
-    move-result v13
+    move-result v8
 
-    iget-object v14, v0, Landroidx/constraintlayout/solver/widgets/Flow;->mAlignedBiggestElementsInRows:[Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
+    iget-object v9, p0, Landroidx/constraintlayout/solver/widgets/Flow;->mAlignedBiggestElementsInRows:[Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
 
-    aget-object v15, v14, v11
+    aget-object v9, v9, v6
 
-    if-eqz v15, :cond_17
+    if-eqz v9, :cond_17
 
-    aget-object v14, v14, v11
+    invoke-virtual {v9}, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->getHeight()I
 
-    invoke-virtual {v14}, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->getHeight()I
+    move-result v9
 
-    move-result v14
-
-    if-ge v14, v13, :cond_18
+    if-ge v9, v8, :cond_18
 
     :cond_17
-    iget-object v13, v0, Landroidx/constraintlayout/solver/widgets/Flow;->mAlignedBiggestElementsInRows:[Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
+    iget-object v8, p0, Landroidx/constraintlayout/solver/widgets/Flow;->mAlignedBiggestElementsInRows:[Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
 
-    aput-object v12, v13, v11
+    aput-object v7, v8, v6
 
     :cond_18
     :goto_f
-    add-int/lit8 v11, v11, 0x1
+    add-int/lit8 v6, v6, 0x1
 
     goto :goto_e
 
     :cond_19
-    add-int/lit8 v10, v10, 0x1
+    add-int/lit8 v5, v5, 0x1
 
     goto :goto_d
 
     :cond_1a
-    move v10, v5
+    move v5, v0
 
-    move v11, v10
+    move v6, v5
 
     :goto_10
-    if-ge v10, v7, :cond_1d
+    if-ge v5, v2, :cond_1d
 
-    iget-object v12, v0, Landroidx/constraintlayout/solver/widgets/Flow;->mAlignedBiggestElementsInCols:[Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
+    iget-object v7, p0, Landroidx/constraintlayout/solver/widgets/Flow;->mAlignedBiggestElementsInCols:[Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
 
-    aget-object v12, v12, v10
+    aget-object v7, v7, v5
 
-    if-eqz v12, :cond_1c
+    if-eqz v7, :cond_1c
 
-    if-lez v10, :cond_1b
+    if-lez v5, :cond_1b
 
-    iget v13, v0, Landroidx/constraintlayout/solver/widgets/Flow;->mHorizontalGap:I
+    iget v8, p0, Landroidx/constraintlayout/solver/widgets/Flow;->mHorizontalGap:I
 
-    add-int/2addr v11, v13
+    add-int/2addr v6, v8
 
     :cond_1b
-    invoke-direct {v0, v12, v4}, Landroidx/constraintlayout/solver/widgets/Flow;->getWidgetWidth(Landroidx/constraintlayout/solver/widgets/ConstraintWidget;I)I
+    invoke-direct {p0, v7, p4}, Landroidx/constraintlayout/solver/widgets/Flow;->getWidgetWidth(Landroidx/constraintlayout/solver/widgets/ConstraintWidget;I)I
 
-    move-result v12
+    move-result v7
 
-    add-int/2addr v11, v12
+    add-int/2addr v6, v7
 
     :cond_1c
-    add-int/lit8 v10, v10, 0x1
+    add-int/lit8 v5, v5, 0x1
 
     goto :goto_10
 
     :cond_1d
-    move v10, v5
+    move v5, v0
 
-    move v12, v10
+    move v7, v5
 
     :goto_11
-    if-ge v10, v6, :cond_20
+    if-ge v5, v1, :cond_20
 
-    iget-object v13, v0, Landroidx/constraintlayout/solver/widgets/Flow;->mAlignedBiggestElementsInRows:[Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
+    iget-object v8, p0, Landroidx/constraintlayout/solver/widgets/Flow;->mAlignedBiggestElementsInRows:[Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
 
-    aget-object v13, v13, v10
+    aget-object v8, v8, v5
 
-    if-eqz v13, :cond_1f
+    if-eqz v8, :cond_1f
 
-    if-lez v10, :cond_1e
+    if-lez v5, :cond_1e
 
-    iget v14, v0, Landroidx/constraintlayout/solver/widgets/Flow;->mVerticalGap:I
+    iget v9, p0, Landroidx/constraintlayout/solver/widgets/Flow;->mVerticalGap:I
 
-    add-int/2addr v12, v14
+    add-int/2addr v7, v9
 
     :cond_1e
-    invoke-direct {v0, v13, v4}, Landroidx/constraintlayout/solver/widgets/Flow;->getWidgetHeight(Landroidx/constraintlayout/solver/widgets/ConstraintWidget;I)I
+    invoke-direct {p0, v8, p4}, Landroidx/constraintlayout/solver/widgets/Flow;->getWidgetHeight(Landroidx/constraintlayout/solver/widgets/ConstraintWidget;I)I
 
-    move-result v13
+    move-result v8
 
-    add-int/2addr v12, v13
+    add-int/2addr v7, v8
 
     :cond_1f
-    add-int/lit8 v10, v10, 0x1
+    add-int/lit8 v5, v5, 0x1
 
     goto :goto_11
 
     :cond_20
-    aput v11, p5, v5
+    aput v6, p5, v0
 
-    aput v12, p5, v8
+    aput v7, p5, v3
 
-    if-nez v3, :cond_21
+    if-nez p3, :cond_21
 
-    if-le v11, v4, :cond_b
+    if-le v6, p4, :cond_b
 
-    if-le v7, v8, :cond_b
+    if-le v2, v3, :cond_b
 
-    add-int/lit8 v7, v7, -0x1
+    add-int/lit8 v2, v2, -0x1
 
     goto/16 :goto_7
 
     :cond_21
-    if-le v12, v4, :cond_b
+    if-le v7, p4, :cond_b
 
-    if-le v6, v8, :cond_b
+    if-le v1, v3, :cond_b
 
-    add-int/lit8 v6, v6, -0x1
+    add-int/lit8 v1, v1, -0x1
 
     goto/16 :goto_7
 
     :cond_22
-    iget-object v0, v0, Landroidx/constraintlayout/solver/widgets/Flow;->mAlignedDimensions:[I
+    iget-object p0, p0, Landroidx/constraintlayout/solver/widgets/Flow;->mAlignedDimensions:[I
 
-    aput v7, v0, v5
+    aput v2, p0, v0
 
-    aput v6, v0, v8
+    aput v1, p0, v3
 
     return-void
 .end method

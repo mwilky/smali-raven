@@ -78,13 +78,13 @@
 
     invoke-virtual {v0}, Lcom/android/settings/SidecarFragment;->reset()V
 
-    const v0, 0x7f0408e3
+    const v0, 0x7f040937
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    const v1, 0x7f0408e2
+    const v1, 0x7f040936
 
     invoke-virtual {p0, v1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -105,7 +105,7 @@
 
     invoke-virtual {p0}, Lcom/android/settings/network/telephony/SubscriptionActionDialogActivity;->dismissProgressDialog()V
 
-    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
+    invoke-virtual {p0}, Lcom/android/settings/network/telephony/SubscriptionActionDialogActivity;->finish()V
 
     :goto_0
     return-void
@@ -116,7 +116,7 @@
 
     const-class v1, Lcom/android/settings/network/telephony/ConfirmDialogFragment$OnConfirmListener;
 
-    const v0, 0x7f0408e1
+    const v0, 0x7f040935
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -136,19 +136,19 @@
 
     aput-object v2, v0, v4
 
-    const v2, 0x7f0408e0
+    const v2, 0x7f040934
 
     invoke-virtual {p0, v2, v0}, Landroid/app/Activity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v4
 
-    const v0, 0x7f0408df
+    const v0, 0x7f040933
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
     move-result-object v5
 
-    const v0, 0x7f040564
+    const v0, 0x7f0405c1
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -158,26 +158,26 @@
 
     move-object v0, p0
 
-    invoke-static/range {v0 .. v6}, Lcom/android/settings/network/telephony/ConfirmDialogFragment;->show(Landroid/app/Activity;Ljava/lang/Class;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static/range {v0 .. v6}, Lcom/android/settings/network/telephony/ConfirmDialogFragment;->show(Landroidx/fragment/app/FragmentActivity;Ljava/lang/Class;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onConfirm(IZ)V
-    .locals 1
+.method public onConfirm(IZI)V
+    .locals 0
 
     if-nez p2, :cond_0
 
-    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
+    invoke-virtual {p0}, Lcom/android/settings/network/telephony/SubscriptionActionDialogActivity;->finish()V
 
     return-void
 
     :cond_0
     const/4 p2, 0x1
 
-    const-string v0, "DeleteEuiccSubscriptionDialogActivity"
+    const-string p3, "DeleteEuiccSubscriptionDialogActivity"
 
     if-eq p1, p2, :cond_1
 
@@ -195,16 +195,16 @@
 
     move-result-object p0
 
-    invoke-static {v0, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p3, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
     :cond_1
     const-string p1, "Subscription deletion confirmed"
 
-    invoke-static {v0, p1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p3, p1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    const p1, 0x7f0408e4
+    const p1, 0x7f040938
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -305,7 +305,7 @@
 
     invoke-static {v0, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
+    invoke-virtual {p0}, Lcom/android/settings/network/telephony/SubscriptionActionDialogActivity;->finish()V
 
     return-void
 .end method
@@ -317,7 +317,7 @@
 
     invoke-virtual {v0, p0}, Lcom/android/settings/SidecarFragment;->removeListener(Lcom/android/settings/SidecarFragment$Listener;)Z
 
-    invoke-super {p0}, Landroid/app/Activity;->onPause()V
+    invoke-super {p0}, Landroidx/fragment/app/FragmentActivity;->onPause()V
 
     return-void
 .end method
@@ -325,7 +325,7 @@
 .method protected onResume()V
     .locals 1
 
-    invoke-super {p0}, Landroid/app/Activity;->onResume()V
+    invoke-super {p0}, Landroidx/fragment/app/FragmentActivity;->onResume()V
 
     iget-object v0, p0, Lcom/android/settings/network/telephony/DeleteEuiccSubscriptionDialogActivity;->mDeleteEuiccSubscriptionSidecar:Lcom/android/settings/network/telephony/DeleteEuiccSubscriptionSidecar;
 

@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settingslib/inputmethod/InputMethodPreference$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/content/DialogInterface$OnClickListener;
@@ -27,7 +28,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/inputmethod/InputMethodPreference$$ExternalSyntheticLambda2;->f$0:Lcom/android/settingslib/inputmethod/InputMethodPreference;
 
-    invoke-static {p0, p1, p2}, Lcom/android/settingslib/inputmethod/InputMethodPreference;->$r8$lambda$JiX4hQ5rtmOSIRRwmTYyjutaaCk(Lcom/android/settingslib/inputmethod/InputMethodPreference;Landroid/content/DialogInterface;I)V
+    invoke-static {p0, p1, p2}, Lcom/android/settingslib/inputmethod/InputMethodPreference;->$r8$lambda$siVeSOlubA-0vIkEJyqooYg3vwk(Lcom/android/settingslib/inputmethod/InputMethodPreference;Landroid/content/DialogInterface;I)V
 
     return-void
 .end method

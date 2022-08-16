@@ -29,11 +29,25 @@
 
 # instance fields
 .field final synthetic this$0:Lkotlin/collections/AbstractCollection;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lkotlin/collections/AbstractCollection<",
+            "TE;>;"
+        }
+    .end annotation
+.end field
 
 
 # direct methods
 .method constructor <init>(Lkotlin/collections/AbstractCollection;)V
     .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lkotlin/collections/AbstractCollection<",
+            "+TE;>;)V"
+        }
+    .end annotation
 
     iput-object p1, p0, Lkotlin/collections/AbstractCollection$toString$1;->this$0:Lkotlin/collections/AbstractCollection;
 

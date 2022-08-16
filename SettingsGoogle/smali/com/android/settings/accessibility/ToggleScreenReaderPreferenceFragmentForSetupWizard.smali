@@ -96,7 +96,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0413c2
+    const v1, 0x7f04148b
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -106,7 +106,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f02016f
+    const v2, 0x7f02017f
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -125,6 +125,19 @@
     move-result p1
 
     iput-boolean p1, p0, Lcom/android/settings/accessibility/ToggleScreenReaderPreferenceFragmentForSetupWizard;->mToggleSwitchWasInitiallyChecked:Z
+
+    iget-object p1, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mTopIntroPreference:Lcom/android/settingslib/widget/TopIntroPreference;
+
+    if-eqz p1, :cond_0
+
+    const/4 p2, 0x0
+
+    invoke-virtual {p1, p2}, Landroidx/preference/Preference;->setVisible(Z)V
+
+    :cond_0
+    iget-object p0, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mToggleServiceSwitchPreference:Lcom/android/settings/widget/SettingsMainSwitchPreference;
+
+    invoke-virtual {p0}, Lcom/android/settings/widget/SettingsMainSwitchPreference;->applyPartnerCustomizationPaddingStyle()V
 
     return-void
 .end method

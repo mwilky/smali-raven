@@ -36,7 +36,7 @@
 
     iget-object p3, p0, Lcom/android/settings/deviceinfo/StorageWizardMigrateProgress$1;->this$0:Lcom/android/settings/deviceinfo/StorageWizardMigrateProgress;
 
-    invoke-static {p3}, Lcom/android/settings/deviceinfo/StorageWizardMigrateProgress;->access$000(Lcom/android/settings/deviceinfo/StorageWizardMigrateProgress;)I
+    invoke-static {p3}, Lcom/android/settings/deviceinfo/StorageWizardMigrateProgress;->-$$Nest$fgetmMoveId(Lcom/android/settings/deviceinfo/StorageWizardMigrateProgress;)I
 
     move-result p3
 
@@ -130,7 +130,7 @@
     :cond_1
     iget-object p2, p0, Lcom/android/settings/deviceinfo/StorageWizardMigrateProgress$1;->this$0:Lcom/android/settings/deviceinfo/StorageWizardMigrateProgress;
 
-    const p3, 0x7f040aa2
+    const p3, 0x7f040b00
 
     invoke-virtual {p2, p3}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 

@@ -51,7 +51,7 @@
 
     iget-object p0, p0, Lcom/android/settings/applications/ProcessStatsDetail$5;->val$name:Ljava/lang/String;
 
-    invoke-static {p1, p2, p0}, Lcom/android/settings/applications/ProcessStatsDetail;->access$100(Lcom/android/settings/applications/ProcessStatsDetail;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {p1, p2, p0}, Lcom/android/settings/applications/ProcessStatsDetail;->-$$Nest$mdoStopService(Lcom/android/settings/applications/ProcessStatsDetail;Ljava/lang/String;Ljava/lang/String;)V
 
     return-void
 .end method

@@ -46,18 +46,6 @@
 # virtual methods
 .method public checkRtl(Ljava/lang/CharSequence;II)I
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "cs",
-            "start",
-            "count"
-        }
-    .end annotation
 
     add-int/2addr p3, p2
 

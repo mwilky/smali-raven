@@ -60,7 +60,7 @@
 
     move-result-object p2
 
-    const v0, 0x7f0409c7
+    const v0, 0x7f040a1e
 
     invoke-virtual {p2, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -68,7 +68,7 @@
 
     iput-object v0, p0, Lcom/android/settings/development/graphicsdriver/GraphicsDriverEnableForAllAppsPreferenceController;->mPreferenceDefault:Ljava/lang/String;
 
-    const v0, 0x7f0409c9
+    const v0, 0x7f040a20
 
     invoke-virtual {p2, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -76,7 +76,7 @@
 
     iput-object v0, p0, Lcom/android/settings/development/graphicsdriver/GraphicsDriverEnableForAllAppsPreferenceController;->mPreferenceProductionDriver:Ljava/lang/String;
 
-    const v0, 0x7f0409c8
+    const v0, 0x7f040a1f
 
     invoke-virtual {p2, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -166,13 +166,13 @@
 
     move-result-object v0
 
-    const-string v1, "ro.gfx.driver.1"
+    const-string/jumbo v1, "ro.gfx.driver.1"
 
     invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    const-string v2, "ro.gfx.driver.0"
+    const-string/jumbo v2, "ro.gfx.driver.0"
 
     invoke-static {v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
@@ -182,7 +182,7 @@
 
     invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
 
-    const v4, 0x7f0409c7
+    const v4, 0x7f040a1e
 
     invoke-virtual {v0, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -206,7 +206,7 @@
 
     if-eqz v1, :cond_0
 
-    const v1, 0x7f0409c8
+    const v1, 0x7f040a1f
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -227,7 +227,7 @@
 
     if-eqz p0, :cond_1
 
-    const p0, 0x7f0409c9
+    const p0, 0x7f040a20
 
     invoke-virtual {v0, p0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -238,7 +238,7 @@
     :cond_1
     if-eqz p1, :cond_2
 
-    const p0, 0x7f0409ca
+    const p0, 0x7f040a21
 
     invoke-virtual {v0, p0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -304,14 +304,6 @@
 
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public displayPreference(Landroidx/preference/PreferenceScreen;)V
     .locals 1
 
@@ -382,15 +374,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -423,16 +406,6 @@
     .locals 0
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->hasAsyncUpdate()Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
 
     move-result p0
 

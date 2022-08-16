@@ -116,7 +116,7 @@
 
     iget-object v0, p0, Lcom/android/settings/media/RemoteMediaSlice;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0203a2
+    const v1, 0x7f0203c6
 
     invoke-static {v0, v1}, Landroidx/core/graphics/drawable/IconCompat;->createWithResource(Landroid/content/Context;I)Landroidx/core/graphics/drawable/IconCompat;
 
@@ -124,7 +124,7 @@
 
     iget-object p0, p0, Lcom/android/settings/media/RemoteMediaSlice;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f040cce
+    const v1, 0x7f040d49
 
     const/4 v2, 0x1
 
@@ -226,7 +226,7 @@
 
     iget-object v3, p0, Lcom/android/settings/media/RemoteMediaSlice;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f0412b7
+    const v4, 0x7f041371
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -238,7 +238,7 @@
 
     const/4 v5, 0x0
 
-    const v6, 0x7f040d0e
+    const v6, 0x7f040d8a
 
     move-object v3, p3
 
@@ -402,7 +402,7 @@
     :cond_2
     iget-object v3, p0, Lcom/android/settings/media/RemoteMediaSlice;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f041024
+    const v4, 0x7f0410ca
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -410,7 +410,7 @@
 
     iget-object v4, p0, Lcom/android/settings/media/RemoteMediaSlice;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f0203a2
+    const v5, 0x7f0203c6
 
     invoke-static {v4, v5}, Landroidx/core/graphics/drawable/IconCompat;->createWithResource(Landroid/content/Context;I)Landroidx/core/graphics/drawable/IconCompat;
 
@@ -519,7 +519,7 @@
 
     iget-object v9, p0, Lcom/android/settings/media/RemoteMediaSlice;->mContext:Landroid/content/Context;
 
-    const v10, 0x7f040cce
+    const v10, 0x7f040d49
 
     const/4 v11, 0x1
 
@@ -684,7 +684,7 @@
 .method public getSliceHighlightMenuRes()I
     .locals 0
 
-    const p0, 0x7f040d06
+    const p0, 0x7f040d81
 
     return p0
 .end method

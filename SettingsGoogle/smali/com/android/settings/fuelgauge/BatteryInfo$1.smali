@@ -136,7 +136,7 @@
 
     iget-object v2, p0, Lcom/android/settings/fuelgauge/BatteryInfo$1;->this$0:Lcom/android/settings/fuelgauge/BatteryInfo;
 
-    invoke-static {v2}, Lcom/android/settings/fuelgauge/BatteryInfo;->access$100(Lcom/android/settings/fuelgauge/BatteryInfo;)Z
+    invoke-static {v2}, Lcom/android/settings/fuelgauge/BatteryInfo;->-$$Nest$fgetmCharging(Lcom/android/settings/fuelgauge/BatteryInfo;)Z
 
     move-result v2
 
@@ -177,7 +177,7 @@
 
     iget-object v2, p0, Lcom/android/settings/fuelgauge/BatteryInfo$1;->this$0:Lcom/android/settings/fuelgauge/BatteryInfo;
 
-    invoke-static {v2}, Lcom/android/settings/fuelgauge/BatteryInfo;->access$000(Lcom/android/settings/fuelgauge/BatteryInfo;)J
+    invoke-static {v2}, Lcom/android/settings/fuelgauge/BatteryInfo;->-$$Nest$fgettimePeriod(Lcom/android/settings/fuelgauge/BatteryInfo;)J
 
     move-result-wide v2
 
@@ -195,7 +195,7 @@
 
     iget-object v3, p0, Lcom/android/settings/fuelgauge/BatteryInfo$1;->this$0:Lcom/android/settings/fuelgauge/BatteryInfo;
 
-    invoke-static {v3}, Lcom/android/settings/fuelgauge/BatteryInfo;->access$100(Lcom/android/settings/fuelgauge/BatteryInfo;)Z
+    invoke-static {v3}, Lcom/android/settings/fuelgauge/BatteryInfo;->-$$Nest$fgetmCharging(Lcom/android/settings/fuelgauge/BatteryInfo;)Z
 
     move-result v3
 
@@ -258,7 +258,7 @@
 
     sub-long/2addr p3, p1
 
-    invoke-static {v0, p3, p4}, Lcom/android/settings/fuelgauge/BatteryInfo;->access$002(Lcom/android/settings/fuelgauge/BatteryInfo;J)J
+    invoke-static {v0, p3, p4}, Lcom/android/settings/fuelgauge/BatteryInfo;->-$$Nest$fputtimePeriod(Lcom/android/settings/fuelgauge/BatteryInfo;J)V
 
     iget-object p1, p0, Lcom/android/settings/fuelgauge/BatteryInfo$1;->val$view:Lcom/android/settings/widget/UsageView;
 
@@ -268,7 +268,7 @@
 
     iget-object p0, p0, Lcom/android/settings/fuelgauge/BatteryInfo$1;->this$0:Lcom/android/settings/fuelgauge/BatteryInfo;
 
-    invoke-static {p0}, Lcom/android/settings/fuelgauge/BatteryInfo;->access$000(Lcom/android/settings/fuelgauge/BatteryInfo;)J
+    invoke-static {p0}, Lcom/android/settings/fuelgauge/BatteryInfo;->-$$Nest$fgettimePeriod(Lcom/android/settings/fuelgauge/BatteryInfo;)J
 
     move-result-wide p2
 

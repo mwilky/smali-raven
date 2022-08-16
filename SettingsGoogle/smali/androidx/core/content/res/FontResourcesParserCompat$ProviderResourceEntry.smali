@@ -30,20 +30,6 @@
 # direct methods
 .method public constructor <init>(Landroidx/core/provider/FontRequest;IILjava/lang/String;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "request",
-            "strategy",
-            "timeoutMs",
-            "systemFontFamilyName"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 

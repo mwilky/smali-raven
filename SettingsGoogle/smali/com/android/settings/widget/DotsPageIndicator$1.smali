@@ -41,7 +41,7 @@
 
     const/4 p1, 0x1
 
-    invoke-static {p0, p1}, Lcom/android/settings/widget/DotsPageIndicator;->access$002(Lcom/android/settings/widget/DotsPageIndicator;Z)Z
+    invoke-static {p0, p1}, Lcom/android/settings/widget/DotsPageIndicator;->-$$Nest$fputattachedState(Lcom/android/settings/widget/DotsPageIndicator;Z)V
 
     return-void
 .end method
@@ -53,7 +53,7 @@
 
     const/4 p1, 0x0
 
-    invoke-static {p0, p1}, Lcom/android/settings/widget/DotsPageIndicator;->access$002(Lcom/android/settings/widget/DotsPageIndicator;Z)Z
+    invoke-static {p0, p1}, Lcom/android/settings/widget/DotsPageIndicator;->-$$Nest$fputattachedState(Lcom/android/settings/widget/DotsPageIndicator;Z)V
 
     return-void
 .end method

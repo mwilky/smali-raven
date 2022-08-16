@@ -114,7 +114,7 @@
 
     iget-object p2, p0, Lcom/android/settings/accounts/WorkModePreferenceController$1;->this$0:Lcom/android/settings/accounts/WorkModePreferenceController;
 
-    invoke-static {p2}, Lcom/android/settings/accounts/WorkModePreferenceController;->access$000(Lcom/android/settings/accounts/WorkModePreferenceController;)Landroid/os/UserHandle;
+    invoke-static {p2}, Lcom/android/settings/accounts/WorkModePreferenceController;->-$$Nest$fgetmManagedUser(Lcom/android/settings/accounts/WorkModePreferenceController;)Landroid/os/UserHandle;
 
     move-result-object p2
 
@@ -126,7 +126,7 @@
 
     iget-object p0, p0, Lcom/android/settings/accounts/WorkModePreferenceController$1;->this$0:Lcom/android/settings/accounts/WorkModePreferenceController;
 
-    invoke-static {p0}, Lcom/android/settings/accounts/WorkModePreferenceController;->access$100(Lcom/android/settings/accounts/WorkModePreferenceController;)Landroidx/preference/Preference;
+    invoke-static {p0}, Lcom/android/settings/accounts/WorkModePreferenceController;->-$$Nest$fgetmPreference(Lcom/android/settings/accounts/WorkModePreferenceController;)Landroidx/preference/Preference;
 
     move-result-object p1
 

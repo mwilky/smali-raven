@@ -59,11 +59,16 @@
 .method private getTransitionType(Landroid/content/Intent;)I
     .locals 1
 
-    const-string p0, "page_transition_type"
+    const/4 p0, -0x1
 
-    const/4 v0, -0x1
+    if-nez p1, :cond_0
 
-    invoke-virtual {p1, p0, v0}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    return p0
+
+    :cond_0
+    const-string v0, "page_transition_type"
+
+    invoke-virtual {p1, v0, p0}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result p0
 
@@ -264,37 +269,12 @@
 
     move-result p1
 
-    if-eqz p1, :cond_5
+    if-eqz p1, :cond_3
 
     instance-of v0, p0, Lcom/android/settings/SubSettings;
 
-    if-eqz v0, :cond_5
-
-    invoke-static {p0}, Lcom/google/android/setupdesign/util/ThemeHelper;->trySetDynamicColor(Landroid/content/Context;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_4
-
-    invoke-static {p0}, Lcom/google/android/setupdesign/util/ThemeHelper;->isSetupWizardDayNightEnabled(Landroid/content/Context;)Z
-
-    move-result v0
-
     if-eqz v0, :cond_3
 
-    const v0, 0x7f130212
-
-    goto :goto_0
-
-    :cond_3
-    const v0, 0x7f130211
-
-    :goto_0
-    invoke-virtual {p0, v0}, Landroid/app/Activity;->setTheme(I)V
-
-    goto :goto_1
-
-    :cond_4
     invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
@@ -305,21 +285,26 @@
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->setTheme(I)V
 
-    :cond_5
-    :goto_1
+    const v0, 0x7f130204
+
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->setTheme(I)V
+
+    invoke-static {p0}, Lcom/google/android/setupdesign/util/ThemeHelper;->trySetDynamicColor(Landroid/content/Context;)Z
+
+    :cond_3
     invoke-virtual {p0}, Lcom/android/settings/core/SettingsBaseActivity;->isToolbarEnabled()Z
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_5
 
-    if-nez p1, :cond_7
+    if-nez p1, :cond_5
 
-    const v0, 0x7f06007e
+    const v0, 0x7f060088
 
     invoke-super {p0, v0}, Landroidx/activity/ComponentActivity;->setContentView(I)V
 
-    const v0, 0x7f0d0164
+    const v0, 0x7f0d0178
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -329,7 +314,7 @@
 
     iput-object v0, p0, Lcom/android/settings/core/SettingsBaseActivity;->mCollapsingToolbarLayout:Lcom/google/android/material/appbar/CollapsingToolbarLayout;
 
-    const v0, 0x7f0d0090
+    const v0, 0x7f0d0092
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -341,23 +326,29 @@
 
     iget-object v0, p0, Lcom/android/settings/core/SettingsBaseActivity;->mCollapsingToolbarLayout:Lcom/google/android/material/appbar/CollapsingToolbarLayout;
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_4
 
     const v1, 0x3f8ccccd    # 1.1f
 
     invoke-virtual {v0, v1}, Lcom/google/android/material/appbar/CollapsingToolbarLayout;->setLineSpacingMultiplier(F)V
 
-    :cond_6
+    iget-object v0, p0, Lcom/android/settings/core/SettingsBaseActivity;->mCollapsingToolbarLayout:Lcom/google/android/material/appbar/CollapsingToolbarLayout;
+
+    const/4 v1, 0x3
+
+    invoke-virtual {v0, v1}, Lcom/google/android/material/appbar/CollapsingToolbarLayout;->setHyphenationFrequency(I)V
+
+    :cond_4
     invoke-direct {p0}, Lcom/android/settings/core/SettingsBaseActivity;->disableCollapsingToolbarLayoutScrollingBehavior()V
 
-    goto :goto_2
+    goto :goto_0
 
-    :cond_7
-    const v0, 0x7f060200
+    :cond_5
+    const v0, 0x7f060209
 
     invoke-super {p0, v0}, Landroidx/activity/ComponentActivity;->setContentView(I)V
 
-    :goto_2
+    :goto_0
     const v0, 0x7f0d003d
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
@@ -370,19 +361,19 @@
 
     move-result v1
 
-    if-eqz v1, :cond_9
+    if-eqz v1, :cond_7
 
-    if-eqz p1, :cond_8
+    if-eqz p1, :cond_6
 
-    goto :goto_3
+    goto :goto_1
 
-    :cond_8
+    :cond_6
     invoke-virtual {p0, v0}, Lcom/android/settings/core/SettingsBaseActivity;->setActionBar(Landroid/widget/Toolbar;)V
 
     return-void
 
-    :cond_9
-    :goto_3
+    :cond_7
+    :goto_1
     const/16 p0, 0x8
 
     invoke-virtual {v0, p0}, Landroid/widget/Toolbar;->setVisibility(I)V
@@ -422,7 +413,7 @@
 
     if-ne v0, v1, :cond_0
 
-    const v0, 0x7f07003c
+    const v0, 0x7f07003b
 
     const v1, 0x10a0001
 
@@ -447,7 +438,7 @@
 .method public setContentView(I)V
     .locals 1
 
-    const v0, 0x7f0d0179
+    const v0, 0x7f0d018e
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -472,7 +463,7 @@
 .method public setContentView(Landroid/view/View;)V
     .locals 1
 
-    const v0, 0x7f0d0179
+    const v0, 0x7f0d018e
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -488,7 +479,7 @@
 .method public setContentView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
     .locals 1
 
-    const v0, 0x7f0d0179
+    const v0, 0x7f0d018e
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -617,9 +608,9 @@
 
     if-ne v0, p1, :cond_0
 
-    const p1, 0x7f07003a
+    const p1, 0x7f070039
 
-    const p2, 0x7f07003b
+    const p2, 0x7f07003a
 
     invoke-virtual {p0, p1, p2}, Landroid/app/Activity;->overridePendingTransition(II)V
 
@@ -632,7 +623,7 @@
 
     const/high16 p1, 0x10a0000
 
-    const p2, 0x7f07003c
+    const p2, 0x7f07003b
 
     invoke-virtual {p0, p1, p2}, Landroid/app/Activity;->overridePendingTransition(II)V
 

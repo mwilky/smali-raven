@@ -33,80 +33,12 @@
 .method static constructor <clinit>()V
     .locals 3
 
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x1d
-
-    if-lt v0, v1, :cond_0
-
     new-instance v0, Landroidx/transition/ViewUtilsApi29;
 
     invoke-direct {v0}, Landroidx/transition/ViewUtilsApi29;-><init>()V
 
     sput-object v0, Landroidx/transition/ViewUtils;->IMPL:Landroidx/transition/ViewUtilsBase;
 
-    goto :goto_0
-
-    :cond_0
-    const/16 v1, 0x17
-
-    if-lt v0, v1, :cond_1
-
-    new-instance v0, Landroidx/transition/ViewUtilsApi23;
-
-    invoke-direct {v0}, Landroidx/transition/ViewUtilsApi23;-><init>()V
-
-    sput-object v0, Landroidx/transition/ViewUtils;->IMPL:Landroidx/transition/ViewUtilsBase;
-
-    goto :goto_0
-
-    :cond_1
-    const/16 v1, 0x16
-
-    if-lt v0, v1, :cond_2
-
-    new-instance v0, Landroidx/transition/ViewUtilsApi22;
-
-    invoke-direct {v0}, Landroidx/transition/ViewUtilsApi22;-><init>()V
-
-    sput-object v0, Landroidx/transition/ViewUtils;->IMPL:Landroidx/transition/ViewUtilsBase;
-
-    goto :goto_0
-
-    :cond_2
-    const/16 v1, 0x15
-
-    if-lt v0, v1, :cond_3
-
-    new-instance v0, Landroidx/transition/ViewUtilsApi21;
-
-    invoke-direct {v0}, Landroidx/transition/ViewUtilsApi21;-><init>()V
-
-    sput-object v0, Landroidx/transition/ViewUtils;->IMPL:Landroidx/transition/ViewUtilsBase;
-
-    goto :goto_0
-
-    :cond_3
-    const/16 v1, 0x13
-
-    if-lt v0, v1, :cond_4
-
-    new-instance v0, Landroidx/transition/ViewUtilsApi19;
-
-    invoke-direct {v0}, Landroidx/transition/ViewUtilsApi19;-><init>()V
-
-    sput-object v0, Landroidx/transition/ViewUtils;->IMPL:Landroidx/transition/ViewUtilsBase;
-
-    goto :goto_0
-
-    :cond_4
-    new-instance v0, Landroidx/transition/ViewUtilsBase;
-
-    invoke-direct {v0}, Landroidx/transition/ViewUtilsBase;-><init>()V
-
-    sput-object v0, Landroidx/transition/ViewUtils;->IMPL:Landroidx/transition/ViewUtilsBase;
-
-    :goto_0
     new-instance v0, Landroidx/transition/ViewUtils$1;
 
     const-class v1, Ljava/lang/Float;
@@ -141,26 +73,13 @@
 .end method
 
 .method static getOverlay(Landroid/view/View;)Landroidx/transition/ViewOverlayImpl;
-    .locals 2
-
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x12
-
-    if-lt v0, v1, :cond_0
+    .locals 1
 
     new-instance v0, Landroidx/transition/ViewOverlayApi18;
 
     invoke-direct {v0, p0}, Landroidx/transition/ViewOverlayApi18;-><init>(Landroid/view/View;)V
 
     return-object v0
-
-    :cond_0
-    invoke-static {p0}, Landroidx/transition/ViewOverlayApi14;->createFrom(Landroid/view/View;)Landroidx/transition/ViewOverlayApi14;
-
-    move-result-object p0
-
-    return-object p0
 .end method
 
 .method static getTransitionAlpha(Landroid/view/View;)F
@@ -176,28 +95,11 @@
 .end method
 
 .method static getWindowId(Landroid/view/View;)Landroidx/transition/WindowIdImpl;
-    .locals 2
-
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x12
-
-    if-lt v0, v1, :cond_0
+    .locals 1
 
     new-instance v0, Landroidx/transition/WindowIdApi18;
 
     invoke-direct {v0, p0}, Landroidx/transition/WindowIdApi18;-><init>(Landroid/view/View;)V
-
-    return-object v0
-
-    :cond_0
-    new-instance v0, Landroidx/transition/WindowIdApi14;
-
-    invoke-virtual {p0}, Landroid/view/View;->getWindowToken()Landroid/os/IBinder;
-
-    move-result-object p0
-
-    invoke-direct {v0, p0}, Landroidx/transition/WindowIdApi14;-><init>(Landroid/os/IBinder;)V
 
     return-object v0
 .end method

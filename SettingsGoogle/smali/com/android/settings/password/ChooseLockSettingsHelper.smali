@@ -42,7 +42,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;Landroid/app/Activity;Landroidx/fragment/app/Fragment;Lcom/android/settings/password/ChooseLockSettingsHelper$1;)V
+.method synthetic constructor <init>(Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;Landroid/app/Activity;Landroidx/fragment/app/Fragment;Lcom/android/settings/password/ChooseLockSettingsHelper-IA;)V
     .locals 0
 
     invoke-direct {p0, p1, p2, p3}, Lcom/android/settings/password/ChooseLockSettingsHelper;-><init>(Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;Landroid/app/Activity;Landroidx/fragment/app/Fragment;)V
@@ -164,7 +164,7 @@
 
     invoke-virtual {v0, p2, p7}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    const-string p2, "return_credentials"
+    const-string/jumbo p2, "return_credentials"
 
     invoke-virtual {v0, p2, p6}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
@@ -188,7 +188,7 @@
 
     invoke-virtual {v0, p2, p11}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    const-string p2, "request_gk_pw_handle"
+    const-string/jumbo p2, "request_gk_pw_handle"
 
     invoke-virtual {v0, p2, p13}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
@@ -437,67 +437,67 @@
 
     iget-object v0, p0, Lcom/android/settings/password/ChooseLockSettingsHelper;->mBuilder:Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;
 
-    invoke-static {v0}, Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;->access$100(Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;)I
+    invoke-static {v0}, Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;->-$$Nest$fgetmRequestCode(Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;)I
 
     move-result v2
 
     iget-object v0, p0, Lcom/android/settings/password/ChooseLockSettingsHelper;->mBuilder:Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;
 
-    invoke-static {v0}, Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;->access$200(Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;)Ljava/lang/CharSequence;
+    invoke-static {v0}, Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;->-$$Nest$fgetmTitle(Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;)Ljava/lang/CharSequence;
 
     move-result-object v3
 
     iget-object v0, p0, Lcom/android/settings/password/ChooseLockSettingsHelper;->mBuilder:Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;
 
-    invoke-static {v0}, Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;->access$300(Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;)Ljava/lang/CharSequence;
+    invoke-static {v0}, Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;->-$$Nest$fgetmHeader(Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;)Ljava/lang/CharSequence;
 
     move-result-object v4
 
     iget-object v0, p0, Lcom/android/settings/password/ChooseLockSettingsHelper;->mBuilder:Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;
 
-    invoke-static {v0}, Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;->access$400(Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;)Ljava/lang/CharSequence;
+    invoke-static {v0}, Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;->-$$Nest$fgetmDescription(Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;)Ljava/lang/CharSequence;
 
     move-result-object v5
 
     iget-object v0, p0, Lcom/android/settings/password/ChooseLockSettingsHelper;->mBuilder:Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;
 
-    invoke-static {v0}, Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;->access$500(Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;)Z
+    invoke-static {v0}, Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;->-$$Nest$fgetmReturnCredentials(Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;)Z
 
     move-result v6
 
     iget-object v0, p0, Lcom/android/settings/password/ChooseLockSettingsHelper;->mBuilder:Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;
 
-    invoke-static {v0}, Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;->access$600(Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;)Z
+    invoke-static {v0}, Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;->-$$Nest$fgetmExternal(Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;)Z
 
     move-result v7
 
     iget-object v0, p0, Lcom/android/settings/password/ChooseLockSettingsHelper;->mBuilder:Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;
 
-    invoke-static {v0}, Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;->access$700(Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;)Z
+    invoke-static {v0}, Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;->-$$Nest$fgetmForceVerifyPath(Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;)Z
 
     move-result v8
 
     iget-object v0, p0, Lcom/android/settings/password/ChooseLockSettingsHelper;->mBuilder:Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;
 
-    invoke-static {v0}, Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;->access$800(Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;)I
+    invoke-static {v0}, Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;->-$$Nest$fgetmUserId(Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;)I
 
     move-result v9
 
     iget-object v0, p0, Lcom/android/settings/password/ChooseLockSettingsHelper;->mBuilder:Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;
 
-    invoke-static {v0}, Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;->access$900(Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;)Ljava/lang/CharSequence;
+    invoke-static {v0}, Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;->-$$Nest$fgetmAlternateButton(Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;)Ljava/lang/CharSequence;
 
     move-result-object v10
 
     iget-object v0, p0, Lcom/android/settings/password/ChooseLockSettingsHelper;->mBuilder:Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;
 
-    invoke-static {v0}, Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;->access$1000(Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;)Z
+    invoke-static {v0}, Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;->-$$Nest$fgetmAllowAnyUserId(Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;)Z
 
     move-result v11
 
     iget-object v0, p0, Lcom/android/settings/password/ChooseLockSettingsHelper;->mBuilder:Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;
 
-    invoke-static {v0}, Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;->access$1100(Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;)Z
+    invoke-static {v0}, Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;->-$$Nest$fgetmForegroundOnly(Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;)Z
 
     move-result v12
 

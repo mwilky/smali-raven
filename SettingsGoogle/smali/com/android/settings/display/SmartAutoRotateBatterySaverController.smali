@@ -25,6 +25,14 @@
     return-void
 .end method
 
+.method static bridge synthetic -$$Nest$fgetmPreference(Lcom/android/settings/display/SmartAutoRotateBatterySaverController;)Landroidx/preference/Preference;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/display/SmartAutoRotateBatterySaverController;->mPreference:Landroidx/preference/Preference;
+
+    return-object p0
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;)V
     .locals 0
 
@@ -49,14 +57,6 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/settings/display/SmartAutoRotateBatterySaverController;)Landroidx/preference/Preference;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/display/SmartAutoRotateBatterySaverController;->mPreference:Landroidx/preference/Preference;
-
-    return-object p0
-.end method
-
 .method private synthetic lambda$displayPreference$0(Landroid/view/View;)V
     .locals 0
 
@@ -71,14 +71,6 @@
 
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public displayPreference(Landroidx/preference/PreferenceScreen;)V
     .locals 1
 
@@ -96,7 +88,7 @@
 
     check-cast p1, Lcom/android/settingslib/widget/BannerMessagePreference;
 
-    const v0, 0x7f040208
+    const v0, 0x7f040235
 
     invoke-virtual {p1, v0}, Lcom/android/settingslib/widget/BannerMessagePreference;->setPositiveButtonText(I)Lcom/android/settingslib/widget/BannerMessagePreference;
 
@@ -141,15 +133,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -182,16 +165,6 @@
     .locals 0
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->hasAsyncUpdate()Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
 
     move-result p0
 

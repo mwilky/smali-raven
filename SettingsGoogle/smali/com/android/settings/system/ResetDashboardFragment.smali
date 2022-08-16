@@ -8,12 +8,22 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$smbuildPreferenceControllers(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;)Ljava/util/List;
+    .locals 0
+
+    invoke-static {p0, p1}, Lcom/android/settings/system/ResetDashboardFragment;->buildPreferenceControllers(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;)Ljava/util/List;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method static constructor <clinit>()V
     .locals 2
 
     new-instance v0, Lcom/android/settings/system/ResetDashboardFragment$1;
 
-    const v1, 0x7f1500c8
+    const v1, 0x7f1500cc
 
     invoke-direct {v0, v1}, Lcom/android/settings/system/ResetDashboardFragment$1;-><init>(I)V
 
@@ -28,16 +38,6 @@
     invoke-direct {p0}, Lcom/android/settings/dashboard/DashboardFragment;-><init>()V
 
     return-void
-.end method
-
-.method static synthetic access$000(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;)Ljava/util/List;
-    .locals 0
-
-    invoke-static {p0, p1}, Lcom/android/settings/system/ResetDashboardFragment;->buildPreferenceControllers(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;)Ljava/util/List;
-
-    move-result-object p0
-
-    return-object p0
 .end method
 
 .method private static buildPreferenceControllers(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;)Ljava/util/List;
@@ -124,7 +124,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f1500c8
+    const p0, 0x7f1500cc
 
     return p0
 .end method
@@ -145,4 +145,12 @@
     invoke-virtual {p1, p0}, Lcom/android/settings/network/EraseEuiccDataController;->setFragment(Lcom/android/settings/system/ResetDashboardFragment;)V
 
     return-void
+.end method
+
+.method protected shouldSkipForInitialSUW()Z
+    .locals 0
+
+    const/4 p0, 0x1
+
+    return p0
 .end method

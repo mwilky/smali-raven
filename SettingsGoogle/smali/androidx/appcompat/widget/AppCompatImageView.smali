@@ -2,13 +2,11 @@
 .super Landroid/widget/ImageView;
 .source "AppCompatImageView.java"
 
-# interfaces
-.implements Landroidx/core/view/TintableBackgroundView;
-.implements Landroidx/core/widget/TintableImageSourceView;
-
 
 # instance fields
 .field private final mBackgroundTintHelper:Landroidx/appcompat/widget/AppCompatBackgroundHelper;
+
+.field private mHasLevel:Z
 
 .field private final mImageHelper:Landroidx/appcompat/widget/AppCompatImageHelper;
 
@@ -42,6 +40,10 @@
     move-result-object p1
 
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
+
+    const/4 p1, 0x0
+
+    iput-boolean p1, p0, Landroidx/appcompat/widget/AppCompatImageView;->mHasLevel:Z
 
     invoke-virtual {p0}, Landroid/widget/ImageView;->getContext()Landroid/content/Context;
 
@@ -246,17 +248,50 @@
 .end method
 
 .method public setImageDrawable(Landroid/graphics/drawable/Drawable;)V
-    .locals 0
+    .locals 2
 
+    iget-object v0, p0, Landroidx/appcompat/widget/AppCompatImageView;->mImageHelper:Landroidx/appcompat/widget/AppCompatImageHelper;
+
+    if-eqz v0, :cond_0
+
+    if-eqz p1, :cond_0
+
+    iget-boolean v1, p0, Landroidx/appcompat/widget/AppCompatImageView;->mHasLevel:Z
+
+    if-nez v1, :cond_0
+
+    invoke-virtual {v0, p1}, Landroidx/appcompat/widget/AppCompatImageHelper;->obtainLevelFromDrawable(Landroid/graphics/drawable/Drawable;)V
+
+    :cond_0
     invoke-super {p0, p1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+
+    iget-object p1, p0, Landroidx/appcompat/widget/AppCompatImageView;->mImageHelper:Landroidx/appcompat/widget/AppCompatImageHelper;
+
+    if-eqz p1, :cond_1
+
+    invoke-virtual {p1}, Landroidx/appcompat/widget/AppCompatImageHelper;->applySupportImageTint()V
+
+    iget-boolean p1, p0, Landroidx/appcompat/widget/AppCompatImageView;->mHasLevel:Z
+
+    if-nez p1, :cond_1
 
     iget-object p0, p0, Landroidx/appcompat/widget/AppCompatImageView;->mImageHelper:Landroidx/appcompat/widget/AppCompatImageHelper;
 
-    if-eqz p0, :cond_0
+    invoke-virtual {p0}, Landroidx/appcompat/widget/AppCompatImageHelper;->applyImageLevel()V
 
-    invoke-virtual {p0}, Landroidx/appcompat/widget/AppCompatImageHelper;->applySupportImageTint()V
+    :cond_1
+    return-void
+.end method
 
-    :cond_0
+.method public setImageLevel(I)V
+    .locals 0
+
+    invoke-super {p0, p1}, Landroid/widget/ImageView;->setImageLevel(I)V
+
+    const/4 p1, 0x1
+
+    iput-boolean p1, p0, Landroidx/appcompat/widget/AppCompatImageView;->mHasLevel:Z
+
     return-void
 .end method
 

@@ -102,6 +102,70 @@
     return-void
 .end method
 
+.method static bridge synthetic -$$Nest$fgetmCountdownLatch(Lcom/android/settings/notification/history/NotificationHistoryActivity;)Ljava/util/concurrent/CountDownLatch;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/notification/history/NotificationHistoryActivity;->mCountdownLatch:Ljava/util/concurrent/CountDownLatch;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmDismissView(Lcom/android/settings/notification/history/NotificationHistoryActivity;)Landroid/view/ViewGroup;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/notification/history/NotificationHistoryActivity;->mDismissView:Landroid/view/ViewGroup;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmNm(Lcom/android/settings/notification/history/NotificationHistoryActivity;)Landroid/app/INotificationManager;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/notification/history/NotificationHistoryActivity;->mNm:Landroid/app/INotificationManager;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmPm(Lcom/android/settings/notification/history/NotificationHistoryActivity;)Landroid/content/pm/PackageManager;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/notification/history/NotificationHistoryActivity;->mPm:Landroid/content/pm/PackageManager;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmSnoozeView(Lcom/android/settings/notification/history/NotificationHistoryActivity;)Landroid/view/ViewGroup;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/notification/history/NotificationHistoryActivity;->mSnoozeView:Landroid/view/ViewGroup;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmUiEventLogger(Lcom/android/settings/notification/history/NotificationHistoryActivity;)Lcom/android/internal/logging/UiEventLogger;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/notification/history/NotificationHistoryActivity;->mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmUm(Lcom/android/settings/notification/history/NotificationHistoryActivity;)Landroid/os/UserManager;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/notification/history/NotificationHistoryActivity;->mUm:Landroid/os/UserManager;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$sfgetTAG()Ljava/lang/String;
+    .locals 1
+
+    sget-object v0, Lcom/android/settings/notification/history/NotificationHistoryActivity;->TAG:Ljava/lang/String;
+
+    return-object v0
+.end method
+
 .method static constructor <clinit>()V
     .locals 0
 
@@ -131,9 +195,9 @@
 
     iput-object v0, p0, Lcom/android/settings/notification/history/NotificationHistoryActivity;->mOnHistoryLoaderListener:Lcom/android/settings/notification/history/HistoryLoader$OnHistoryLoaderListener;
 
-    new-instance v0, Lcom/android/settings/notification/history/NotificationHistoryActivity$$ExternalSyntheticLambda3;
+    new-instance v0, Lcom/android/settings/notification/history/NotificationHistoryActivity$$ExternalSyntheticLambda2;
 
-    invoke-direct {v0, p0}, Lcom/android/settings/notification/history/NotificationHistoryActivity$$ExternalSyntheticLambda3;-><init>(Lcom/android/settings/notification/history/NotificationHistoryActivity;)V
+    invoke-direct {v0, p0}, Lcom/android/settings/notification/history/NotificationHistoryActivity$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/notification/history/NotificationHistoryActivity;)V
 
     iput-object v0, p0, Lcom/android/settings/notification/history/NotificationHistoryActivity;->mOnSwitchClickListener:Lcom/android/settingslib/widget/OnMainSwitchChangeListener;
 
@@ -144,70 +208,6 @@
     iput-object v0, p0, Lcom/android/settings/notification/history/NotificationHistoryActivity;->mListener:Landroid/service/notification/NotificationListenerService;
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/notification/history/NotificationHistoryActivity;)Landroid/app/INotificationManager;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/notification/history/NotificationHistoryActivity;->mNm:Landroid/app/INotificationManager;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100()Ljava/lang/String;
-    .locals 1
-
-    sget-object v0, Lcom/android/settings/notification/history/NotificationHistoryActivity;->TAG:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/notification/history/NotificationHistoryActivity;)Landroid/view/ViewGroup;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/notification/history/NotificationHistoryActivity;->mSnoozeView:Landroid/view/ViewGroup;
-
-    return-object p0
-.end method
-
-.method static synthetic access$300(Lcom/android/settings/notification/history/NotificationHistoryActivity;)Landroid/content/pm/PackageManager;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/notification/history/NotificationHistoryActivity;->mPm:Landroid/content/pm/PackageManager;
-
-    return-object p0
-.end method
-
-.method static synthetic access$400(Lcom/android/settings/notification/history/NotificationHistoryActivity;)Landroid/os/UserManager;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/notification/history/NotificationHistoryActivity;->mUm:Landroid/os/UserManager;
-
-    return-object p0
-.end method
-
-.method static synthetic access$500(Lcom/android/settings/notification/history/NotificationHistoryActivity;)Lcom/android/internal/logging/UiEventLogger;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/notification/history/NotificationHistoryActivity;->mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
-
-    return-object p0
-.end method
-
-.method static synthetic access$600(Lcom/android/settings/notification/history/NotificationHistoryActivity;)Landroid/view/ViewGroup;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/notification/history/NotificationHistoryActivity;->mDismissView:Landroid/view/ViewGroup;
-
-    return-object p0
-.end method
-
-.method static synthetic access$700(Lcom/android/settings/notification/history/NotificationHistoryActivity;)Ljava/util/concurrent/CountDownLatch;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/notification/history/NotificationHistoryActivity;->mCountdownLatch:Ljava/util/concurrent/CountDownLatch;
-
-    return-object p0
 .end method
 
 .method private bindSwitch()V
@@ -221,7 +221,7 @@
 
     iget-object v0, p0, Lcom/android/settings/notification/history/NotificationHistoryActivity;->mSwitchBar:Lcom/android/settingslib/widget/MainSwitchBar;
 
-    const v1, 0x7f040e67
+    const v1, 0x7f040efb
 
     invoke-virtual {p0, v1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -326,7 +326,7 @@
 
     if-nez p2, :cond_2
 
-    const p2, 0x7f040630
+    const p2, 0x7f04068e
 
     invoke-virtual {p0, p2}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -335,7 +335,7 @@
     goto :goto_1
 
     :cond_2
-    const p2, 0x7f040631
+    const p2, 0x7f04068f
 
     invoke-virtual {p0, p2}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -415,7 +415,7 @@
 
     move-object/from16 v7, p0
 
-    const v0, 0x7f0d05d7
+    const v0, 0x7f0d061a
 
     invoke-virtual {v7, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -447,7 +447,7 @@
 
     iget-object v0, v7, Lcom/android/settings/notification/history/NotificationHistoryActivity;->mTodayView:Landroid/view/ViewGroup;
 
-    const v1, 0x7f0d00aa
+    const v1, 0x7f0d00ad
 
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -492,7 +492,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f06016c
+    const v1, 0x7f060176
 
     const/4 v2, 0x0
 
@@ -500,7 +500,7 @@
 
     move-result-object v15
 
-    const v0, 0x7f0d03f2
+    const v0, 0x7f0d0423
 
     invoke-virtual {v15, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -508,13 +508,13 @@
 
     invoke-virtual {v2, v8}, Landroid/view/View;->setVisibility(I)V
 
-    const v0, 0x7f0d009b
+    const v0, 0x7f0d009e
 
     invoke-virtual {v15, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v6
 
-    const v0, 0x102029d
+    const v0, 0x10202b6
 
     invoke-virtual {v15, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -548,7 +548,7 @@
 
     if-nez v0, :cond_1
 
-    const v0, 0x7f040630
+    const v0, 0x7f04068e
 
     invoke-virtual {v7, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -557,7 +557,7 @@
     goto :goto_2
 
     :cond_1
-    const v0, 0x7f040631
+    const v0, 0x7f04068f
 
     invoke-virtual {v7, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -566,7 +566,7 @@
     :goto_2
     invoke-virtual {v6, v0}, Landroid/view/View;->setStateDescription(Ljava/lang/CharSequence;)V
 
-    new-instance v5, Lcom/android/settings/notification/history/NotificationHistoryActivity$$ExternalSyntheticLambda0;
+    new-instance v5, Lcom/android/settings/notification/history/NotificationHistoryActivity$$ExternalSyntheticLambda4;
 
     move-object v0, v5
 
@@ -582,11 +582,11 @@
 
     move v6, v12
 
-    invoke-direct/range {v0 .. v6}, Lcom/android/settings/notification/history/NotificationHistoryActivity$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/notification/history/NotificationHistoryActivity;Landroid/view/View;Lcom/android/internal/widget/NotificationExpandButton;Landroid/view/View;Lcom/android/settings/notification/history/NotificationHistoryPackage;I)V
+    invoke-direct/range {v0 .. v6}, Lcom/android/settings/notification/history/NotificationHistoryActivity$$ExternalSyntheticLambda4;-><init>(Lcom/android/settings/notification/history/NotificationHistoryActivity;Landroid/view/View;Lcom/android/internal/widget/NotificationExpandButton;Landroid/view/View;Lcom/android/settings/notification/history/NotificationHistoryPackage;I)V
 
     invoke-virtual {v9, v8}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v0, 0x7f0d0314
+    const v0, 0x7f0d033d
 
     invoke-virtual {v15, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -624,7 +624,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setContentDescription(Ljava/lang/CharSequence;)V
 
-    const v0, 0x7f0d02b1
+    const v0, 0x7f0d02d3
 
     invoke-virtual {v15, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -636,7 +636,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    const v0, 0x7f0d018a
+    const v0, 0x7f0d019f
 
     invoke-virtual {v15, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -678,7 +678,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const v1, 0x7f0d03f1
+    const v1, 0x7f0d0422
 
     invoke-virtual {v15, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -690,9 +690,9 @@
 
     iget-object v3, v7, Lcom/android/settings/notification/history/NotificationHistoryActivity;->mNm:Landroid/app/INotificationManager;
 
-    new-instance v4, Lcom/android/settings/notification/history/NotificationHistoryActivity$$ExternalSyntheticLambda2;
+    new-instance v4, Lcom/android/settings/notification/history/NotificationHistoryActivity$$ExternalSyntheticLambda5;
 
-    invoke-direct {v4, v7, v0, v15}, Lcom/android/settings/notification/history/NotificationHistoryActivity$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/notification/history/NotificationHistoryActivity;Landroid/widget/TextView;Landroid/view/View;)V
+    invoke-direct {v4, v7, v0, v15}, Lcom/android/settings/notification/history/NotificationHistoryActivity$$ExternalSyntheticLambda5;-><init>(Lcom/android/settings/notification/history/NotificationHistoryActivity;Landroid/widget/TextView;Landroid/view/View;)V
 
     iget-object v0, v7, Lcom/android/settings/notification/history/NotificationHistoryActivity;->mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
 
@@ -731,7 +731,7 @@
 .end method
 
 .method private synthetic lambda$new$5(Landroid/widget/Switch;Z)V
-    .locals 3
+    .locals 6
 
     const-string p1, "notification_history_enabled"
 
@@ -754,26 +754,50 @@
     move v1, v0
 
     :goto_0
-    if-eq v1, p2, :cond_1
+    if-eq v1, p2, :cond_2
 
-    invoke-virtual {p0}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    iget-object v1, p0, Lcom/android/settings/notification/history/NotificationHistoryActivity;->mUm:Landroid/os/UserManager;
+
+    invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
+
+    move-result v2
+
+    invoke-virtual {v1, v2, v0}, Landroid/os/UserManager;->getProfileIds(IZ)[I
 
     move-result-object v1
 
-    invoke-static {v1, p1, p2}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    array-length v2, v1
 
-    iget-object p1, p0, Lcom/android/settings/notification/history/NotificationHistoryActivity;->mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
+    move v3, v0
 
-    if-eqz p2, :cond_0
+    :goto_1
+    if-ge v3, v2, :cond_0
 
-    sget-object v1, Lcom/android/settings/notification/history/NotificationHistoryActivity$NotificationHistoryEvent;->NOTIFICATION_HISTORY_ON:Lcom/android/settings/notification/history/NotificationHistoryActivity$NotificationHistoryEvent;
+    aget v4, v1, v3
+
+    invoke-virtual {p0}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v5
+
+    invoke-static {v5, p1, p2, v4}, Landroid/provider/Settings$Secure;->putIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)Z
+
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_1
 
     :cond_0
+    iget-object p1, p0, Lcom/android/settings/notification/history/NotificationHistoryActivity;->mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
+
+    if-eqz p2, :cond_1
+
+    sget-object v1, Lcom/android/settings/notification/history/NotificationHistoryActivity$NotificationHistoryEvent;->NOTIFICATION_HISTORY_ON:Lcom/android/settings/notification/history/NotificationHistoryActivity$NotificationHistoryEvent;
+
+    goto :goto_2
+
+    :cond_1
     sget-object v1, Lcom/android/settings/notification/history/NotificationHistoryActivity$NotificationHistoryEvent;->NOTIFICATION_HISTORY_OFF:Lcom/android/settings/notification/history/NotificationHistoryActivity$NotificationHistoryEvent;
 
-    :goto_1
+    :goto_2
     invoke-interface {p1, v1}, Lcom/android/internal/logging/UiEventLogger;->log(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;)V
 
     sget-object p1, Lcom/android/settings/notification/history/NotificationHistoryActivity;->TAG:Ljava/lang/String;
@@ -794,14 +818,14 @@
 
     invoke-static {p1, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_1
+    :cond_2
     iget-object p1, p0, Lcom/android/settings/notification/history/NotificationHistoryActivity;->mHistoryOn:Landroid/view/ViewGroup;
 
     const/16 v1, 0x8
 
     invoke-virtual {p1, v1}, Landroid/view/ViewGroup;->setVisibility(I)V
 
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_3
 
     iget-object p1, p0, Lcom/android/settings/notification/history/NotificationHistoryActivity;->mHistoryEmpty:Landroid/view/ViewGroup;
 
@@ -811,9 +835,9 @@
 
     invoke-virtual {p1, v1}, Landroid/view/ViewGroup;->setVisibility(I)V
 
-    goto :goto_2
+    goto :goto_3
 
-    :cond_2
+    :cond_3
     iget-object p1, p0, Lcom/android/settings/notification/history/NotificationHistoryActivity;->mHistoryOff:Landroid/view/ViewGroup;
 
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->setVisibility(I)V
@@ -822,7 +846,7 @@
 
     invoke-virtual {p1, v1}, Landroid/view/ViewGroup;->setVisibility(I)V
 
-    :goto_2
+    :goto_3
     iget-object p0, p0, Lcom/android/settings/notification/history/NotificationHistoryActivity;->mTodayView:Landroid/view/ViewGroup;
 
     invoke-virtual {p0}, Landroid/view/ViewGroup;->removeAllViews()V
@@ -841,7 +865,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0d05d7
+    const v0, 0x7f0d061a
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -911,9 +935,9 @@
     invoke-static {v1, v2, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_0
-    new-instance v0, Lcom/android/settings/notification/history/NotificationHistoryActivity$$ExternalSyntheticLambda5;
+    new-instance v0, Lcom/android/settings/notification/history/NotificationHistoryActivity$$ExternalSyntheticLambda3;
 
-    invoke-direct {v0, p0}, Lcom/android/settings/notification/history/NotificationHistoryActivity$$ExternalSyntheticLambda5;-><init>(Lcom/android/settings/notification/history/NotificationHistoryActivity;)V
+    invoke-direct {v0, p0}, Lcom/android/settings/notification/history/NotificationHistoryActivity$$ExternalSyntheticLambda3;-><init>(Lcom/android/settings/notification/history/NotificationHistoryActivity;)V
 
     invoke-static {v0}, Lcom/android/settingslib/utils/ThreadUtils;->postOnMainThread(Ljava/lang/Runnable;)V
 
@@ -1031,15 +1055,15 @@
 
     invoke-super {p0, p1}, Lcom/android/settingslib/collapsingtoolbar/CollapsingToolbarBaseActivity;->onCreate(Landroid/os/Bundle;)V
 
-    const p1, 0x7f040e5e
+    const p1, 0x7f040ef2
 
     invoke-virtual {p0, p1}, Lcom/android/settingslib/collapsingtoolbar/CollapsingToolbarBaseActivity;->setTitle(I)V
 
-    const p1, 0x7f06016b
+    const p1, 0x7f060175
 
     invoke-virtual {p0, p1}, Lcom/android/settingslib/collapsingtoolbar/CollapsingToolbarBaseActivity;->setContentView(I)V
 
-    const p1, 0x7f0d00aa
+    const p1, 0x7f0d00ad
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -1049,7 +1073,7 @@
 
     iput-object p1, p0, Lcom/android/settings/notification/history/NotificationHistoryActivity;->mTodayView:Landroid/view/ViewGroup;
 
-    const p1, 0x7f0d051d
+    const p1, 0x7f0d055f
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -1059,7 +1083,7 @@
 
     iput-object p1, p0, Lcom/android/settings/notification/history/NotificationHistoryActivity;->mSnoozeView:Landroid/view/ViewGroup;
 
-    const p1, 0x7f0d0489
+    const p1, 0x7f0d04c2
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -1069,7 +1093,7 @@
 
     iput-object p1, p0, Lcom/android/settings/notification/history/NotificationHistoryActivity;->mDismissView:Landroid/view/ViewGroup;
 
-    const v0, 0x7f0d03f1
+    const v0, 0x7f0d0422
 
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -1085,7 +1109,7 @@
 
     invoke-direct {p0, p1}, Lcom/android/settings/notification/history/NotificationHistoryActivity;->configureNotificationList(Landroid/view/View;)V
 
-    const p1, 0x7f0d029b
+    const p1, 0x7f0d02bd
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -1095,7 +1119,7 @@
 
     iput-object p1, p0, Lcom/android/settings/notification/history/NotificationHistoryActivity;->mHistoryOff:Landroid/view/ViewGroup;
 
-    const p1, 0x7f0d029e
+    const p1, 0x7f0d02c0
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -1105,7 +1129,7 @@
 
     iput-object p1, p0, Lcom/android/settings/notification/history/NotificationHistoryActivity;->mHistoryOn:Landroid/view/ViewGroup;
 
-    const p1, 0x7f0d029f
+    const p1, 0x7f0d02c1
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -1115,7 +1139,7 @@
 
     iput-object p1, p0, Lcom/android/settings/notification/history/NotificationHistoryActivity;->mHistoryEmpty:Landroid/view/ViewGroup;
 
-    const p1, 0x7f0d034b
+    const p1, 0x7f0d0376
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -1295,9 +1319,9 @@
     :goto_0
     invoke-direct {p0}, Lcom/android/settings/notification/history/NotificationHistoryActivity;->bindSwitch()V
 
-    new-instance v0, Lcom/android/settings/notification/history/NotificationHistoryActivity$$ExternalSyntheticLambda4;
+    new-instance v0, Lcom/android/settings/notification/history/NotificationHistoryActivity$$ExternalSyntheticLambda0;
 
-    invoke-direct {v0, p0}, Lcom/android/settings/notification/history/NotificationHistoryActivity$$ExternalSyntheticLambda4;-><init>(Lcom/android/settings/notification/history/NotificationHistoryActivity;)V
+    invoke-direct {v0, p0}, Lcom/android/settings/notification/history/NotificationHistoryActivity$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/notification/history/NotificationHistoryActivity;)V
 
     invoke-static {v0}, Lcom/android/settingslib/utils/ThreadUtils;->postOnBackgroundThread(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;
 

@@ -31,7 +31,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settings/accessibility/ListDialogPreference;Lcom/android/settings/accessibility/ListDialogPreference$1;)V
+.method synthetic constructor <init>(Lcom/android/settings/accessibility/ListDialogPreference;Lcom/android/settings/accessibility/ListDialogPreference$ListPreferenceAdapter-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settings/accessibility/ListDialogPreference$ListPreferenceAdapter;-><init>(Lcom/android/settings/accessibility/ListDialogPreference;)V
@@ -46,7 +46,7 @@
 
     iget-object p0, p0, Lcom/android/settings/accessibility/ListDialogPreference$ListPreferenceAdapter;->this$0:Lcom/android/settings/accessibility/ListDialogPreference;
 
-    invoke-static {p0}, Lcom/android/settings/accessibility/ListDialogPreference;->access$100(Lcom/android/settings/accessibility/ListDialogPreference;)[I
+    invoke-static {p0}, Lcom/android/settings/accessibility/ListDialogPreference;->-$$Nest$fgetmEntryValues(Lcom/android/settings/accessibility/ListDialogPreference;)[I
 
     move-result-object p0
 
@@ -60,7 +60,7 @@
 
     iget-object p0, p0, Lcom/android/settings/accessibility/ListDialogPreference$ListPreferenceAdapter;->this$0:Lcom/android/settings/accessibility/ListDialogPreference;
 
-    invoke-static {p0}, Lcom/android/settings/accessibility/ListDialogPreference;->access$100(Lcom/android/settings/accessibility/ListDialogPreference;)[I
+    invoke-static {p0}, Lcom/android/settings/accessibility/ListDialogPreference;->-$$Nest$fgetmEntryValues(Lcom/android/settings/accessibility/ListDialogPreference;)[I
 
     move-result-object p0
 
@@ -88,7 +88,7 @@
 
     iget-object p0, p0, Lcom/android/settings/accessibility/ListDialogPreference$ListPreferenceAdapter;->this$0:Lcom/android/settings/accessibility/ListDialogPreference;
 
-    invoke-static {p0}, Lcom/android/settings/accessibility/ListDialogPreference;->access$100(Lcom/android/settings/accessibility/ListDialogPreference;)[I
+    invoke-static {p0}, Lcom/android/settings/accessibility/ListDialogPreference;->-$$Nest$fgetmEntryValues(Lcom/android/settings/accessibility/ListDialogPreference;)[I
 
     move-result-object p0
 
@@ -123,7 +123,7 @@
 
     iget-object v0, p0, Lcom/android/settings/accessibility/ListDialogPreference$ListPreferenceAdapter;->this$0:Lcom/android/settings/accessibility/ListDialogPreference;
 
-    invoke-static {v0}, Lcom/android/settings/accessibility/ListDialogPreference;->access$200(Lcom/android/settings/accessibility/ListDialogPreference;)I
+    invoke-static {v0}, Lcom/android/settings/accessibility/ListDialogPreference;->-$$Nest$fgetmListItemLayout(Lcom/android/settings/accessibility/ListDialogPreference;)I
 
     move-result v0
 

@@ -37,7 +37,7 @@
 
     const/4 p0, 0x0
 
-    iput p0, p1, Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;->transitionType:I
+    iput p0, p1, Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;->mTransitionType:I
 
     return-void
 
@@ -56,7 +56,7 @@
 
     iget-object p0, p0, Lcom/android/settings/core/SubSettingLauncher;->mLaunchRequest:Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;
 
-    iget-object p0, p0, Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;->extras:Landroid/os/Bundle;
+    iget-object p0, p0, Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;->mExtras:Landroid/os/Bundle;
 
     if-eqz p0, :cond_0
 
@@ -73,11 +73,11 @@
 
     iget-object v0, p0, Lcom/android/settings/core/SubSettingLauncher;->mLaunchRequest:Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;
 
-    iget v1, v0, Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;->flags:I
+    iget v1, v0, Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;->mFlags:I
 
     or-int/2addr p1, v1
 
-    iput p1, v0, Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;->flags:I
+    iput p1, v0, Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;->mFlags:I
 
     return-object p0
 .end method
@@ -99,7 +99,7 @@
 
     iget-object v2, p0, Lcom/android/settings/core/SubSettingLauncher;->mLaunchRequest:Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;
 
-    iget-object v2, v2, Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;->userHandle:Landroid/os/UserHandle;
+    iget-object v2, v2, Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;->mUserHandle:Landroid/os/UserHandle;
 
     const/4 v3, 0x0
 
@@ -139,7 +139,7 @@
 
     if-eqz v0, :cond_2
 
-    iget-object v0, v4, Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;->userHandle:Landroid/os/UserHandle;
+    iget-object v0, v4, Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;->mUserHandle:Landroid/os/UserHandle;
 
     iget v2, v4, Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;->mRequestCode:I
 
@@ -152,7 +152,7 @@
 
     if-nez v0, :cond_3
 
-    iget-object v0, v4, Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;->userHandle:Landroid/os/UserHandle;
+    iget-object v0, v4, Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;->mUserHandle:Landroid/os/UserHandle;
 
     invoke-virtual {p0, v1, v0}, Lcom/android/settings/core/SubSettingLauncher;->launchAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
 
@@ -230,7 +230,7 @@
 
     iget-object v0, p0, Lcom/android/settings/core/SubSettingLauncher;->mLaunchRequest:Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;
 
-    iput-object p1, v0, Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;->arguments:Landroid/os/Bundle;
+    iput-object p1, v0, Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;->mArguments:Landroid/os/Bundle;
 
     return-object p0
 .end method
@@ -240,7 +240,7 @@
 
     iget-object v0, p0, Lcom/android/settings/core/SubSettingLauncher;->mLaunchRequest:Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;
 
-    iput-object p1, v0, Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;->destinationName:Ljava/lang/String;
+    iput-object p1, v0, Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;->mDestinationName:Ljava/lang/String;
 
     return-object p0
 .end method
@@ -250,7 +250,17 @@
 
     iget-object v0, p0, Lcom/android/settings/core/SubSettingLauncher;->mLaunchRequest:Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;
 
-    iput-object p1, v0, Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;->extras:Landroid/os/Bundle;
+    iput-object p1, v0, Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;->mExtras:Landroid/os/Bundle;
+
+    return-object p0
+.end method
+
+.method public setIsSecondLayerPage(Z)Lcom/android/settings/core/SubSettingLauncher;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/settings/core/SubSettingLauncher;->mLaunchRequest:Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;
+
+    iput-boolean p1, v0, Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;->mIsSecondLayerPage:Z
 
     return-object p0
 .end method
@@ -272,7 +282,7 @@
 
     iget-object v0, p0, Lcom/android/settings/core/SubSettingLauncher;->mLaunchRequest:Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;
 
-    iput p1, v0, Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;->sourceMetricsCategory:I
+    iput p1, v0, Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;->mSourceMetricsCategory:I
 
     return-object p0
 .end method
@@ -294,13 +304,13 @@
 
     iget-object v0, p0, Lcom/android/settings/core/SubSettingLauncher;->mLaunchRequest:Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;
 
-    iput-object p1, v0, Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;->titleResPackageName:Ljava/lang/String;
+    iput-object p1, v0, Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;->mTitleResPackageName:Ljava/lang/String;
 
-    iput p2, v0, Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;->titleResId:I
+    iput p2, v0, Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;->mTitleResId:I
 
     const/4 p1, 0x0
 
-    iput-object p1, v0, Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;->title:Ljava/lang/CharSequence;
+    iput-object p1, v0, Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;->mTitle:Ljava/lang/CharSequence;
 
     return-object p0
 .end method
@@ -310,7 +320,7 @@
 
     iget-object v0, p0, Lcom/android/settings/core/SubSettingLauncher;->mLaunchRequest:Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;
 
-    iput-object p1, v0, Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;->title:Ljava/lang/CharSequence;
+    iput-object p1, v0, Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;->mTitle:Ljava/lang/CharSequence;
 
     return-object p0
 .end method
@@ -320,7 +330,7 @@
 
     iget-object v0, p0, Lcom/android/settings/core/SubSettingLauncher;->mLaunchRequest:Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;
 
-    iput p1, v0, Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;->transitionType:I
+    iput p1, v0, Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;->mTransitionType:I
 
     return-object p0
 .end method
@@ -330,7 +340,7 @@
 
     iget-object v0, p0, Lcom/android/settings/core/SubSettingLauncher;->mLaunchRequest:Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;
 
-    iput-object p1, v0, Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;->userHandle:Landroid/os/UserHandle;
+    iput-object p1, v0, Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;->mUserHandle:Landroid/os/UserHandle;
 
     return-object p0
 .end method
@@ -354,7 +364,7 @@
 
     iget-object v1, p0, Lcom/android/settings/core/SubSettingLauncher;->mLaunchRequest:Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;
 
-    iget-object v1, v1, Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;->destinationName:Ljava/lang/String;
+    iget-object v1, v1, Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;->mDestinationName:Ljava/lang/String;
 
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -364,7 +374,7 @@
 
     iget-object v1, p0, Lcom/android/settings/core/SubSettingLauncher;->mLaunchRequest:Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;
 
-    iget-object v1, v1, Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;->destinationName:Ljava/lang/String;
+    iget-object v1, v1, Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;->mDestinationName:Ljava/lang/String;
 
     const-string v2, ":settings:show_fragment"
 
@@ -372,7 +382,7 @@
 
     iget-object v1, p0, Lcom/android/settings/core/SubSettingLauncher;->mLaunchRequest:Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;
 
-    iget v1, v1, Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;->sourceMetricsCategory:I
+    iget v1, v1, Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;->mSourceMetricsCategory:I
 
     if-ltz v1, :cond_0
 
@@ -382,7 +392,7 @@
 
     iget-object v1, p0, Lcom/android/settings/core/SubSettingLauncher;->mLaunchRequest:Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;
 
-    iget-object v1, v1, Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;->arguments:Landroid/os/Bundle;
+    iget-object v1, v1, Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;->mArguments:Landroid/os/Bundle;
 
     const-string v2, ":settings:show_fragment_args"
 
@@ -390,7 +400,7 @@
 
     iget-object v1, p0, Lcom/android/settings/core/SubSettingLauncher;->mLaunchRequest:Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;
 
-    iget-object v1, v1, Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;->titleResPackageName:Ljava/lang/String;
+    iget-object v1, v1, Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;->mTitleResPackageName:Ljava/lang/String;
 
     const-string v2, ":settings:show_fragment_title_res_package_name"
 
@@ -398,7 +408,7 @@
 
     iget-object v1, p0, Lcom/android/settings/core/SubSettingLauncher;->mLaunchRequest:Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;
 
-    iget v1, v1, Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;->titleResId:I
+    iget v1, v1, Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;->mTitleResId:I
 
     const-string v2, ":settings:show_fragment_title_resid"
 
@@ -406,7 +416,7 @@
 
     iget-object v1, p0, Lcom/android/settings/core/SubSettingLauncher;->mLaunchRequest:Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;
 
-    iget-object v1, v1, Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;->title:Ljava/lang/CharSequence;
+    iget-object v1, v1, Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;->mTitle:Ljava/lang/CharSequence;
 
     const-string v2, ":settings:show_fragment_title"
 
@@ -414,17 +424,25 @@
 
     iget-object v1, p0, Lcom/android/settings/core/SubSettingLauncher;->mLaunchRequest:Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;
 
-    iget v1, v1, Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;->flags:I
+    iget v1, v1, Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;->mFlags:I
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
+    iget-object v1, p0, Lcom/android/settings/core/SubSettingLauncher;->mLaunchRequest:Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;
+
+    iget v1, v1, Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;->mTransitionType:I
+
+    const-string v2, "page_transition_type"
+
+    invoke-virtual {v0, v2, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+
     iget-object p0, p0, Lcom/android/settings/core/SubSettingLauncher;->mLaunchRequest:Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;
 
-    iget p0, p0, Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;->transitionType:I
+    iget-boolean p0, p0, Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;->mIsSecondLayerPage:Z
 
-    const-string v1, "page_transition_type"
+    const-string v1, ":settings:is_second_layer_page"
 
-    invoke-virtual {v0, v1, p0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+    invoke-virtual {v0, v1, p0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
     return-object v0
 

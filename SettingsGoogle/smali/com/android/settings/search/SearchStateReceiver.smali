@@ -17,9 +17,20 @@
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 2
 
+    const-string/jumbo p0, "settings_search_always_expand"
+
+    invoke-static {p1, p0}, Landroid/util/FeatureFlagUtils;->isEnabled(Landroid/content/Context;Ljava/lang/String;)Z
+
+    move-result p0
+
+    if-eqz p0, :cond_0
+
+    return-void
+
+    :cond_0
     const-string p0, "SearchStateReceiver"
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_1
 
     const-string p1, "Null intent"
 
@@ -27,7 +38,7 @@
 
     return-void
 
-    :cond_0
+    :cond_1
     invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
     move-result-object p1
@@ -38,11 +49,11 @@
 
     move-result-object p1
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_2
 
     return-void
 
-    :cond_1
+    :cond_2
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object p2
@@ -69,7 +80,7 @@
 
     move-result p0
 
-    if-eqz p0, :cond_2
+    if-eqz p0, :cond_3
 
     invoke-virtual {p1}, Lcom/android/settings/homepage/SettingsHomepageActivity;->getMainFragment()Lcom/android/settings/homepage/TopLevelSettings;
 
@@ -81,14 +92,14 @@
 
     goto :goto_0
 
-    :cond_2
+    :cond_3
     const-string p0, "com.android.settings.SEARCH_EXIT"
 
     invoke-static {p0, p2}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
 
     move-result p0
 
-    if-eqz p0, :cond_3
+    if-eqz p0, :cond_4
 
     invoke-virtual {p1}, Lcom/android/settings/homepage/SettingsHomepageActivity;->getMainFragment()Lcom/android/settings/homepage/TopLevelSettings;
 
@@ -98,7 +109,7 @@
 
     invoke-virtual {p0, p1}, Lcom/android/settings/homepage/TopLevelSettings;->setMenuHighlightShowed(Z)V
 
-    :cond_3
+    :cond_4
     :goto_0
     return-void
 .end method

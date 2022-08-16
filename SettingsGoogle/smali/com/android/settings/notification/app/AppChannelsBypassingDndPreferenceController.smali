@@ -34,6 +34,86 @@
     return p0
 .end method
 
+.method static bridge synthetic -$$Nest$fgetmAllNotificationsToggle(Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;)Lcom/android/settingslib/RestrictedSwitchPreference;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;->mAllNotificationsToggle:Lcom/android/settingslib/RestrictedSwitchPreference;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmChannels(Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;)Ljava/util/List;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;->mChannels:Ljava/util/List;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmPreferenceCategory(Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;)Landroidx/preference/PreferenceCategory;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;->mPreferenceCategory:Landroidx/preference/PreferenceCategory;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmChannels(Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;Ljava/util/List;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;->mChannels:Ljava/util/List;
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mareAllChannelsBypassing(Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;)Z
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;->areAllChannelsBypassing()Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$misConversation(Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;Landroid/app/NotificationChannel;)Z
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;->isConversation(Landroid/app/NotificationChannel;)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$mpopulateList(Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;->populateList()V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mshowNotification(Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;Landroid/app/NotificationChannel;)Z
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;->showNotification(Landroid/app/NotificationChannel;)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$mshowNotificationInDnd(Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;Landroid/app/NotificationChannel;)Z
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;->showNotificationInDnd(Landroid/app/NotificationChannel;)Z
+
+    move-result p0
+
+    return p0
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Lcom/android/settings/notification/NotificationBackend;)V
     .locals 0
 
@@ -46,86 +126,6 @@
     iput-object p1, p0, Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;->mChannels:Ljava/util/List;
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;)Ljava/util/List;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;->mChannels:Ljava/util/List;
-
-    return-object p0
-.end method
-
-.method static synthetic access$002(Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;Ljava/util/List;)Ljava/util/List;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;->mChannels:Ljava/util/List;
-
-    return-object p1
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;Landroid/app/NotificationChannel;)Z
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;->showNotification(Landroid/app/NotificationChannel;)Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;)Landroidx/preference/PreferenceCategory;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;->mPreferenceCategory:Landroidx/preference/PreferenceCategory;
-
-    return-object p0
-.end method
-
-.method static synthetic access$300(Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;Landroid/app/NotificationChannel;)Z
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;->showNotificationInDnd(Landroid/app/NotificationChannel;)Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method static synthetic access$400(Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;Landroid/app/NotificationChannel;)Z
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;->isConversation(Landroid/app/NotificationChannel;)Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method static synthetic access$500(Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;->populateList()V
-
-    return-void
-.end method
-
-.method static synthetic access$600(Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;)Z
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;->areAllChannelsBypassing()Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method static synthetic access$700(Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;)Lcom/android/settingslib/RestrictedSwitchPreference;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;->mAllNotificationsToggle:Lcom/android/settingslib/RestrictedSwitchPreference;
-
-    return-object p0
 .end method
 
 .method private areAllChannelsBypassing()Z
@@ -232,7 +232,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f040e52
+    const p1, 0x7f040ee6
 
     invoke-virtual {p0, p1}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 
@@ -304,15 +304,15 @@
 
     check-cast v1, Landroid/app/NotificationChannel;
 
-    new-instance v2, Lcom/android/settings/widget/PrimarySwitchPreference;
+    new-instance v2, Lcom/android/settingslib/PrimarySwitchPreference;
 
     iget-object v3, p0, Lcom/android/settings/notification/app/NotificationPreferenceController;->mContext:Landroid/content/Context;
 
-    invoke-direct {v2, v3}, Lcom/android/settings/widget/PrimarySwitchPreference;-><init>(Landroid/content/Context;)V
+    invoke-direct {v2, v3}, Lcom/android/settingslib/PrimarySwitchPreference;-><init>(Landroid/content/Context;)V
 
     iget-object v3, p0, Lcom/android/settings/notification/app/NotificationPreferenceController;->mAdmin:Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
 
-    invoke-virtual {v2, v3}, Lcom/android/settings/widget/PrimarySwitchPreference;->setDisabledByAdmin(Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;)V
+    invoke-virtual {v2, v3}, Lcom/android/settingslib/PrimarySwitchPreference;->setDisabledByAdmin(Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;)V
 
     iget-object v3, p0, Lcom/android/settings/notification/app/NotificationPreferenceController;->mAdmin:Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
 
@@ -347,7 +347,7 @@
     const/4 v3, 0x0
 
     :goto_1
-    invoke-virtual {v2, v3}, Lcom/android/settings/widget/PrimarySwitchPreference;->setSwitchEnabled(Z)V
+    invoke-virtual {v2, v3}, Lcom/android/settingslib/PrimarySwitchPreference;->setSwitchEnabled(Z)V
 
     invoke-static {}, Landroidx/core/text/BidiFormatter;->getInstance()Landroidx/core/text/BidiFormatter;
 
@@ -367,7 +367,7 @@
 
     move-result v3
 
-    invoke-virtual {v2, v3}, Lcom/android/settings/widget/PrimarySwitchPreference;->setChecked(Z)V
+    invoke-virtual {v2, v3}, Lcom/android/settingslib/PrimarySwitchPreference;->setChecked(Z)V
 
     new-instance v3, Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController$3;
 
@@ -502,7 +502,7 @@
 
     iput-object v1, p0, Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;->mAllNotificationsToggle:Lcom/android/settingslib/RestrictedSwitchPreference;
 
-    const v0, 0x7f0417fe    # 1.7558267E38f
+    const v0, 0x7f0418f9
 
     invoke-virtual {v1, v0}, Landroidx/preference/Preference;->setTitle(I)V
 

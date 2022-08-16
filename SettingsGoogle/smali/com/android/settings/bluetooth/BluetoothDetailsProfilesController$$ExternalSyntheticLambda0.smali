@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settings/bluetooth/BluetoothDetailsProfilesController$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroidx/preference/Preference$OnPreferenceClickListener;
@@ -33,7 +34,7 @@
 
     iget-object p0, p0, Lcom/android/settings/bluetooth/BluetoothDetailsProfilesController$$ExternalSyntheticLambda0;->f$1:Lcom/android/settingslib/bluetooth/A2dpProfile;
 
-    invoke-static {v0, p0, p1}, Lcom/android/settings/bluetooth/BluetoothDetailsProfilesController;->$r8$lambda$zSKqjYJ1hLrDvybZk71hn5xF6C0(Lcom/android/settings/bluetooth/BluetoothDetailsProfilesController;Lcom/android/settingslib/bluetooth/A2dpProfile;Landroidx/preference/Preference;)Z
+    invoke-static {v0, p0, p1}, Lcom/android/settings/bluetooth/BluetoothDetailsProfilesController;->$r8$lambda$Q9iZ4f7lAnzDEj0timA6btVjWzA(Lcom/android/settings/bluetooth/BluetoothDetailsProfilesController;Lcom/android/settingslib/bluetooth/A2dpProfile;Landroidx/preference/Preference;)Z
 
     move-result p0
 

@@ -50,17 +50,6 @@
 
 .method constructor <init>(Landroid/os/Bundle;Ljava/util/List;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "bundle",
-            "controlCategories"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -82,14 +71,6 @@
 
 .method public static fromBundle(Landroid/os/Bundle;)Landroidx/mediarouter/media/MediaRouteSelector;
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "bundle"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -117,14 +98,6 @@
 
 .method public contains(Landroidx/mediarouter/media/MediaRouteSelector;)Z
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "selector"
-        }
-    .end annotation
 
     if-nez p1, :cond_0
 
@@ -186,14 +159,6 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "o"
-        }
-    .end annotation
 
     instance-of v0, p1, Landroidx/mediarouter/media/MediaRouteSelector;
 
@@ -222,7 +187,7 @@
 .end method
 
 .method public getControlCategories()Ljava/util/List;
-    .locals 0
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -234,9 +199,13 @@
 
     invoke-virtual {p0}, Landroidx/mediarouter/media/MediaRouteSelector;->ensureControlCategories()V
 
+    new-instance v0, Ljava/util/ArrayList;
+
     iget-object p0, p0, Landroidx/mediarouter/media/MediaRouteSelector;->mControlCategories:Ljava/util/List;
 
-    return-object p0
+    invoke-direct {v0, p0}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+
+    return-object v0
 .end method
 
 .method public hashCode()I
@@ -294,15 +263,6 @@
 
 .method public matchesControlFilters(Ljava/util/List;)Z
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "filters"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

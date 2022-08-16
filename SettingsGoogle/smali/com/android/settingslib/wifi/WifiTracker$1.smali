@@ -44,7 +44,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/wifi/WifiTracker$1;->this$0:Lcom/android/settingslib/wifi/WifiTracker;
 
-    invoke-static {v0}, Lcom/android/settingslib/wifi/WifiTracker;->access$000(Lcom/android/settingslib/wifi/WifiTracker;)Z
+    invoke-static {v0}, Lcom/android/settingslib/wifi/WifiTracker;->-$$Nest$fgetmRegistered(Lcom/android/settingslib/wifi/WifiTracker;)Z
 
     move-result v0
 
@@ -82,7 +82,7 @@
     :cond_1
     iget-object p0, p0, Lcom/android/settingslib/wifi/WifiTracker$1;->this$0:Lcom/android/settingslib/wifi/WifiTracker;
 
-    invoke-static {p0}, Lcom/android/settingslib/wifi/WifiTracker;->access$100(Lcom/android/settingslib/wifi/WifiTracker;)V
+    invoke-static {p0}, Lcom/android/settingslib/wifi/WifiTracker;->-$$Nest$mupdateNetworkScores(Lcom/android/settingslib/wifi/WifiTracker;)V
 
     return-void
 .end method

@@ -111,7 +111,7 @@
 .end method
 
 .method notifyEnd(Z)V
-    .locals 4
+    .locals 2
 
     iget-object v0, p0, Lcom/airbnb/lottie/utils/BaseLottieAnimator;->listeners:Ljava/util/Set;
 
@@ -124,7 +124,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_0
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -132,22 +132,11 @@
 
     check-cast v1, Landroid/animation/Animator$AnimatorListener;
 
-    sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v3, 0x1a
-
-    if-lt v2, v3, :cond_0
-
     invoke-interface {v1, p0, p1}, Landroid/animation/Animator$AnimatorListener;->onAnimationEnd(Landroid/animation/Animator;Z)V
 
     goto :goto_0
 
     :cond_0
-    invoke-interface {v1, p0}, Landroid/animation/Animator$AnimatorListener;->onAnimationEnd(Landroid/animation/Animator;)V
-
-    goto :goto_0
-
-    :cond_1
     return-void
 .end method
 
@@ -182,7 +171,7 @@
 .end method
 
 .method notifyStart(Z)V
-    .locals 4
+    .locals 2
 
     iget-object v0, p0, Lcom/airbnb/lottie/utils/BaseLottieAnimator;->listeners:Ljava/util/Set;
 
@@ -195,7 +184,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_0
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -203,22 +192,11 @@
 
     check-cast v1, Landroid/animation/Animator$AnimatorListener;
 
-    sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v3, 0x1a
-
-    if-lt v2, v3, :cond_0
-
     invoke-interface {v1, p0, p1}, Landroid/animation/Animator$AnimatorListener;->onAnimationStart(Landroid/animation/Animator;Z)V
 
     goto :goto_0
 
     :cond_0
-    invoke-interface {v1, p0}, Landroid/animation/Animator$AnimatorListener;->onAnimationStart(Landroid/animation/Animator;)V
-
-    goto :goto_0
-
-    :cond_1
     return-void
 .end method
 

@@ -94,7 +94,7 @@
 
     iget-object p0, p0, Lcom/android/settings/RestrictedCheckBox;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f0a00a9
+    const v0, 0x7f0a00a8
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getColor(I)I
 

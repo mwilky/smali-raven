@@ -88,7 +88,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_1
 
     new-instance v5, Lorg/json/JSONArray;
 
@@ -107,7 +107,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_0
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -119,28 +119,10 @@
 
     move-result v7
 
-    invoke-virtual {v3, v7}, Landroid/telephony/TelephonyManager;->createForSubscriptionId(I)Landroid/telephony/TelephonyManager;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Landroid/telephony/TelephonyManager;->getSubscriberId()Ljava/lang/String;
+    invoke-static {v3, v7}, Lcom/android/settings/datausage/lib/DataUsageLib;->getMobileTemplateForSubId(Landroid/telephony/TelephonyManager;I)Landroid/net/NetworkTemplate;
 
     move-result-object v7
 
-    if-eqz v7, :cond_0
-
-    invoke-static {v7}, Landroid/net/NetworkTemplate;->buildTemplateCarrierMetered(Ljava/lang/String;)Landroid/net/NetworkTemplate;
-
-    move-result-object v7
-
-    goto :goto_1
-
-    :cond_0
-    invoke-static {v7}, Landroid/net/NetworkTemplate;->buildTemplateMobileAll(Ljava/lang/String;)Landroid/net/NetworkTemplate;
-
-    move-result-object v7
-
-    :goto_1
     invoke-direct {p0, v7, v1}, Lcom/android/settings/SettingsDumpService;->dumpDataUsage(Landroid/net/NetworkTemplate;Lcom/android/settingslib/net/DataUsageController;)Lorg/json/JSONObject;
 
     move-result-object v7
@@ -157,25 +139,27 @@
 
     goto :goto_0
 
-    :cond_1
+    :cond_0
     const-string v2, "cell"
 
     invoke-virtual {v0, v2, v5}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    :cond_2
+    :cond_1
     const-string v2, "android.hardware.wifi"
 
     invoke-virtual {v4, v2}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_2
 
-    sget-object v2, Landroid/net/NetworkTemplate;->WIFI_NETWORKID_ALL:Ljava/lang/String;
+    new-instance v2, Landroid/net/NetworkTemplate$Builder;
 
-    const/4 v3, 0x0
+    const/4 v3, 0x4
 
-    invoke-static {v2, v3}, Landroid/net/NetworkTemplate;->buildTemplateWifi(Ljava/lang/String;Ljava/lang/String;)Landroid/net/NetworkTemplate;
+    invoke-direct {v2, v3}, Landroid/net/NetworkTemplate$Builder;-><init>(I)V
+
+    invoke-virtual {v2}, Landroid/net/NetworkTemplate$Builder;->build()Landroid/net/NetworkTemplate;
 
     move-result-object v2
 
@@ -187,16 +171,22 @@
 
     invoke-virtual {v0, v3, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    :cond_3
+    :cond_2
     const-string v2, "android.hardware.ethernet"
 
     invoke-virtual {v4, v2}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_3
 
-    invoke-static {}, Landroid/net/NetworkTemplate;->buildTemplateEthernet()Landroid/net/NetworkTemplate;
+    new-instance v2, Landroid/net/NetworkTemplate$Builder;
+
+    const/4 v3, 0x5
+
+    invoke-direct {v2, v3}, Landroid/net/NetworkTemplate$Builder;-><init>(I)V
+
+    invoke-virtual {v2}, Landroid/net/NetworkTemplate$Builder;->build()Landroid/net/NetworkTemplate;
 
     move-result-object v2
 
@@ -208,7 +198,7 @@
 
     invoke-virtual {v0, v1, p0}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    :cond_4
+    :cond_3
     return-object v0
 .end method
 
@@ -468,7 +458,7 @@
     invoke-direct {p1}, Lorg/json/JSONObject;-><init>()V
 
     :try_start_0
-    const-string p3, "service"
+    const-string/jumbo p3, "service"
 
     const-string v0, "Settings State"
 

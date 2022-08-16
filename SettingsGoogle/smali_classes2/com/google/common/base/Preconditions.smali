@@ -394,8 +394,6 @@
 
 .method public static checkElementIndex(II)I
     .locals 1
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
 
     const-string v0, "index"
 
@@ -408,8 +406,6 @@
 
 .method public static checkElementIndex(IILjava/lang/String;)I
     .locals 1
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
 
     if-ltz p0, :cond_0
 
@@ -431,9 +427,6 @@
 
 .method public static checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -442,16 +435,13 @@
         }
     .end annotation
 
-    invoke-static {p0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     return-object p0
 .end method
 
 .method public static checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -480,8 +470,6 @@
 
 .method public static checkPositionIndex(II)I
     .locals 1
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
 
     const-string v0, "index"
 
@@ -494,8 +482,6 @@
 
 .method public static checkPositionIndex(IILjava/lang/String;)I
     .locals 1
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
 
     if-ltz p0, :cond_0
 

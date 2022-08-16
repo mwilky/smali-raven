@@ -4,10 +4,6 @@
 
 
 # annotations
-.annotation runtime Lcom/google/errorprone/annotations/DoNotMock;
-    value = "Use FluentFuture.from(Futures.immediate*Future) or SettableFuture"
-.end annotation
-
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/google/common/util/concurrent/FluentFuture$TrustedFuture;

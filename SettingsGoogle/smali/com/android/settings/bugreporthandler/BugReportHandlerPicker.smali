@@ -18,6 +18,26 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$TezaLTfLFvyRenoXH4ag_hJoc4U(Landroid/content/Context;)Ljava/lang/String;
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/settings/bugreporthandler/BugReportHandlerPicker;->lambda$getDescription$0(Landroid/content/Context;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static synthetic $r8$lambda$upUkCUVdnkgzuNDBojAB-DUouZA(Landroid/content/Context;)Ljava/lang/String;
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/settings/bugreporthandler/BugReportHandlerPicker;->lambda$getDescription$1(Landroid/content/Context;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method public constructor <init>()V
     .locals 0
 
@@ -60,7 +80,7 @@
 
     if-eqz p1, :cond_0
 
-    const p0, 0x7f0413bd
+    const p0, 0x7f041486
 
     invoke-virtual {v0, p0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -94,6 +114,14 @@
 
     move-result-object p0
 
+    const-class p1, Landroid/app/admin/DevicePolicyManager;
+
+    invoke-virtual {v0, p1}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Landroid/app/admin/DevicePolicyManager;
+
     if-eqz p0, :cond_2
 
     invoke-virtual {p0}, Landroid/content/pm/UserInfo;->isManagedProfile()Z
@@ -102,18 +130,34 @@
 
     if-eqz p0, :cond_2
 
-    const p0, 0x7f0417a5
+    invoke-virtual {p1}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
 
-    invoke-virtual {v0, p0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    move-result-object p0
+
+    new-instance p1, Lcom/android/settings/bugreporthandler/BugReportHandlerPicker$$ExternalSyntheticLambda0;
+
+    invoke-direct {p1, v0}, Lcom/android/settings/bugreporthandler/BugReportHandlerPicker$$ExternalSyntheticLambda0;-><init>(Landroid/content/Context;)V
+
+    const-string p2, "Settings.WORK_PROFILE_APP_SUBTEXT"
+
+    invoke-virtual {p0, p2, p1}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
 
     move-result-object p0
 
     return-object p0
 
     :cond_2
-    const p0, 0x7f040f08
+    invoke-virtual {p1}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
 
-    invoke-virtual {v0, p0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    move-result-object p0
+
+    new-instance p1, Lcom/android/settings/bugreporthandler/BugReportHandlerPicker$$ExternalSyntheticLambda1;
+
+    invoke-direct {p1, v0}, Lcom/android/settings/bugreporthandler/BugReportHandlerPicker$$ExternalSyntheticLambda1;-><init>(Landroid/content/Context;)V
+
+    const-string p2, "Settings.PERSONAL_PROFILE_APP_SUBTEXT"
+
+    invoke-virtual {p0, p2, p1}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
 
     move-result-object p0
 
@@ -197,6 +241,30 @@
     return-object p0
 .end method
 
+.method private static synthetic lambda$getDescription$0(Landroid/content/Context;)Ljava/lang/String;
+    .locals 1
+
+    const v0, 0x7f0418a0
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private static synthetic lambda$getDescription$1(Landroid/content/Context;)Ljava/lang/String;
+    .locals 1
+
+    const v0, 0x7f040f9e
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 
 # virtual methods
 .method protected addStaticPreferences(Landroidx/preference/PreferenceScreen;)V
@@ -216,7 +284,7 @@
 
     iput-object v0, p0, Lcom/android/settings/bugreporthandler/BugReportHandlerPicker;->mFooter:Lcom/android/settingslib/widget/FooterPreference;
 
-    const v1, 0x7f020231
+    const v1, 0x7f02024f
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setIcon(I)V
 
@@ -228,7 +296,7 @@
 
     iget-object v0, p0, Lcom/android/settings/bugreporthandler/BugReportHandlerPicker;->mFooter:Lcom/android/settingslib/widget/FooterPreference;
 
-    const v2, 0x7f040534
+    const v2, 0x7f040593
 
     invoke-virtual {v0, v2}, Landroidx/preference/Preference;->setTitle(I)V
 
@@ -244,14 +312,14 @@
     return-void
 .end method
 
-.method public bindPreferenceExtra(Lcom/android/settingslib/widget/RadioButtonPreference;Ljava/lang/String;Lcom/android/settingslib/widget/CandidateInfo;Ljava/lang/String;Ljava/lang/String;)V
+.method public bindPreferenceExtra(Lcom/android/settingslib/widget/SelectorWithWidgetPreference;Ljava/lang/String;Lcom/android/settingslib/widget/CandidateInfo;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
 
-    invoke-super/range {p0 .. p5}, Lcom/android/settings/applications/defaultapps/DefaultAppPickerFragment;->bindPreferenceExtra(Lcom/android/settingslib/widget/RadioButtonPreference;Ljava/lang/String;Lcom/android/settingslib/widget/CandidateInfo;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-super/range {p0 .. p5}, Lcom/android/settings/applications/defaultapps/DefaultAppPickerFragment;->bindPreferenceExtra(Lcom/android/settingslib/widget/SelectorWithWidgetPreference;Ljava/lang/String;Lcom/android/settingslib/widget/CandidateInfo;Ljava/lang/String;Ljava/lang/String;)V
 
     const/16 p0, 0x8
 
-    invoke-virtual {p1, p0}, Lcom/android/settingslib/widget/RadioButtonPreference;->setAppendixVisibility(I)V
+    invoke-virtual {p1, p0}, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;->setAppendixVisibility(I)V
 
     return-void
 .end method
@@ -407,7 +475,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f15003f
+    const p0, 0x7f150041
 
     return p0
 .end method

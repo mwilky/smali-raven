@@ -29,12 +29,32 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$smgetCanonicalZoneId(Landroid/icu/util/TimeZone;)Ljava/lang/String;
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/settings/datetime/timezone/TimeZoneInfo;->getCanonicalZoneId(Landroid/icu/util/TimeZone;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$smtoJavaTimeZone(Ljava/lang/String;)Ljava/util/TimeZone;
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/settings/datetime/timezone/TimeZoneInfo;->toJavaTimeZone(Ljava/lang/String;)Ljava/util/TimeZone;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method public constructor <init>(Lcom/android/settings/datetime/timezone/TimeZoneInfo$Builder;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    invoke-static {p1}, Lcom/android/settings/datetime/timezone/TimeZoneInfo$Builder;->access$000(Lcom/android/settings/datetime/timezone/TimeZoneInfo$Builder;)Landroid/icu/util/TimeZone;
+    invoke-static {p1}, Lcom/android/settings/datetime/timezone/TimeZoneInfo$Builder;->-$$Nest$fgetmTimeZone(Lcom/android/settings/datetime/timezone/TimeZoneInfo$Builder;)Landroid/icu/util/TimeZone;
 
     move-result-object v0
 
@@ -46,37 +66,66 @@
 
     iput-object v0, p0, Lcom/android/settings/datetime/timezone/TimeZoneInfo;->mId:Ljava/lang/String;
 
-    invoke-static {p1}, Lcom/android/settings/datetime/timezone/TimeZoneInfo$Builder;->access$100(Lcom/android/settings/datetime/timezone/TimeZoneInfo$Builder;)Ljava/lang/String;
+    invoke-static {p1}, Lcom/android/settings/datetime/timezone/TimeZoneInfo$Builder;->-$$Nest$fgetmGenericName(Lcom/android/settings/datetime/timezone/TimeZoneInfo$Builder;)Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/settings/datetime/timezone/TimeZoneInfo;->mGenericName:Ljava/lang/String;
 
-    invoke-static {p1}, Lcom/android/settings/datetime/timezone/TimeZoneInfo$Builder;->access$200(Lcom/android/settings/datetime/timezone/TimeZoneInfo$Builder;)Ljava/lang/String;
+    invoke-static {p1}, Lcom/android/settings/datetime/timezone/TimeZoneInfo$Builder;->-$$Nest$fgetmStandardName(Lcom/android/settings/datetime/timezone/TimeZoneInfo$Builder;)Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/settings/datetime/timezone/TimeZoneInfo;->mStandardName:Ljava/lang/String;
 
-    invoke-static {p1}, Lcom/android/settings/datetime/timezone/TimeZoneInfo$Builder;->access$300(Lcom/android/settings/datetime/timezone/TimeZoneInfo$Builder;)Ljava/lang/String;
+    invoke-static {p1}, Lcom/android/settings/datetime/timezone/TimeZoneInfo$Builder;->-$$Nest$fgetmDaylightName(Lcom/android/settings/datetime/timezone/TimeZoneInfo$Builder;)Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/settings/datetime/timezone/TimeZoneInfo;->mDaylightName:Ljava/lang/String;
 
-    invoke-static {p1}, Lcom/android/settings/datetime/timezone/TimeZoneInfo$Builder;->access$400(Lcom/android/settings/datetime/timezone/TimeZoneInfo$Builder;)Ljava/lang/String;
+    invoke-static {p1}, Lcom/android/settings/datetime/timezone/TimeZoneInfo$Builder;->-$$Nest$fgetmExemplarLocation(Lcom/android/settings/datetime/timezone/TimeZoneInfo$Builder;)Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/settings/datetime/timezone/TimeZoneInfo;->mExemplarLocation:Ljava/lang/String;
 
-    invoke-static {p1}, Lcom/android/settings/datetime/timezone/TimeZoneInfo$Builder;->access$500(Lcom/android/settings/datetime/timezone/TimeZoneInfo$Builder;)Ljava/lang/CharSequence;
+    invoke-static {p1}, Lcom/android/settings/datetime/timezone/TimeZoneInfo$Builder;->-$$Nest$fgetmGmtOffset(Lcom/android/settings/datetime/timezone/TimeZoneInfo$Builder;)Ljava/lang/CharSequence;
 
     move-result-object p1
 
     iput-object p1, p0, Lcom/android/settings/datetime/timezone/TimeZoneInfo;->mGmtOffset:Ljava/lang/CharSequence;
 
     return-void
+.end method
+
+.method private static getCanonicalZoneId(Landroid/icu/util/TimeZone;)Ljava/lang/String;
+    .locals 1
+
+    invoke-virtual {p0}, Landroid/icu/util/TimeZone;->getID()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-static {p0}, Landroid/icu/util/TimeZone;->getCanonicalID(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    return-object v0
+
+    :cond_0
+    return-object p0
+.end method
+
+.method private static toJavaTimeZone(Ljava/lang/String;)Ljava/util/TimeZone;
+    .locals 0
+
+    invoke-static {p0}, Ljava/util/TimeZone;->getTimeZone(Ljava/lang/String;)Ljava/util/TimeZone;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 
@@ -117,6 +166,22 @@
     .locals 0
 
     iget-object p0, p0, Lcom/android/settings/datetime/timezone/TimeZoneInfo;->mId:Ljava/lang/String;
+
+    return-object p0
+.end method
+
+.method getJavaTimeZone()Ljava/util/TimeZone;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/datetime/timezone/TimeZoneInfo;->mTimeZone:Landroid/icu/util/TimeZone;
+
+    invoke-static {p0}, Lcom/android/settings/datetime/timezone/TimeZoneInfo;->getCanonicalZoneId(Landroid/icu/util/TimeZone;)Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-static {p0}, Lcom/android/settings/datetime/timezone/TimeZoneInfo;->toJavaTimeZone(Ljava/lang/String;)Ljava/util/TimeZone;
+
+    move-result-object p0
 
     return-object p0
 .end method

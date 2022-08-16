@@ -6,13 +6,15 @@
 # instance fields
 .field context:Landroid/content/Context;
 
+.field final customEndIcon:I
+
 .field endIconView:Lcom/google/android/material/internal/CheckableImageButton;
 
 .field textInputLayout:Lcom/google/android/material/textfield/TextInputLayout;
 
 
 # direct methods
-.method constructor <init>(Lcom/google/android/material/textfield/TextInputLayout;)V
+.method constructor <init>(Lcom/google/android/material/textfield/TextInputLayout;I)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,6 +32,8 @@
     move-result-object p1
 
     iput-object p1, p0, Lcom/google/android/material/textfield/EndIconDelegate;->endIconView:Lcom/google/android/material/internal/CheckableImageButton;
+
+    iput p2, p0, Lcom/google/android/material/textfield/EndIconDelegate;->customEndIcon:I
 
     return-void
 .end method

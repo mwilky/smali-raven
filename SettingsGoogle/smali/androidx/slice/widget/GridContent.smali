@@ -44,16 +44,6 @@
 # direct methods
 .method public constructor <init>(Landroidx/slice/SliceItem;I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "gridItem",
-            "position"
-        }
-    .end annotation
 
     invoke-direct {p0, p1, p2}, Landroidx/slice/widget/SliceContent;-><init>(Landroidx/slice/SliceItem;I)V
 
@@ -80,15 +70,6 @@
 
 .method private filterAndProcessItems(Ljava/util/List;)Ljava/util/List;
     .locals 12
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "items"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -124,7 +105,7 @@
 
     const/4 v4, 0x0
 
-    const-string v5, "see_more"
+    const-string/jumbo v5, "see_more"
 
     invoke-static {v3, v4, v5, v4}, Landroidx/slice/core/SliceQuery;->find(Landroidx/slice/SliceItem;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroidx/slice/SliceItem;
 
@@ -146,7 +127,7 @@
 
     const-string/jumbo v6, "shortcut"
 
-    const-string v7, "see_more"
+    const-string/jumbo v7, "see_more"
 
     const-string v8, "keywords"
 
@@ -206,18 +187,10 @@
 
 .method private populate(Landroidx/slice/SliceItem;)Z
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "gridItem"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
-    const-string v1, "see_more"
+    const-string/jumbo v1, "see_more"
 
     invoke-static {p1, v0, v1, v0}, Landroidx/slice/core/SliceQuery;->find(Landroidx/slice/SliceItem;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroidx/slice/SliceItem;
 
@@ -367,14 +340,6 @@
 
 .method private processContent(Landroidx/slice/widget/GridContent$CellContent;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "cc"
-        }
-    .end annotation
 
     invoke-virtual {p1}, Landroidx/slice/widget/GridContent$CellContent;->isValid()Z
 
@@ -483,14 +448,6 @@
 
 .method public getFirstImageSize(Landroid/content/Context;)Landroid/graphics/Point;
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "context"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/slice/widget/GridContent;->mFirstImage:Landroidx/core/graphics/drawable/IconCompat;
 
@@ -551,16 +508,6 @@
 
 .method public getHeight(Landroidx/slice/widget/SliceStyle;Landroidx/slice/widget/SliceViewPolicy;)I
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "style",
-            "policy"
-        }
-    .end annotation
 
     invoke-virtual {p1, p0, p2}, Landroidx/slice/widget/SliceStyle;->getGridHeight(Landroidx/slice/widget/GridContent;Landroidx/slice/widget/SliceViewPolicy;)I
 
@@ -657,14 +604,6 @@
 
 .method public setIsLastIndex(Z)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "isLast"
-        }
-    .end annotation
 
     iput-boolean p1, p0, Landroidx/slice/widget/GridContent;->mIsLastIndex:Z
 

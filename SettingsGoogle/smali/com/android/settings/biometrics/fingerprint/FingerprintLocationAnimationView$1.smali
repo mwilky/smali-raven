@@ -49,7 +49,7 @@
 
     move-result p1
 
-    invoke-static {v0, p1}, Lcom/android/settings/biometrics/fingerprint/FingerprintLocationAnimationView;->access$002(Lcom/android/settings/biometrics/fingerprint/FingerprintLocationAnimationView;F)F
+    invoke-static {v0, p1}, Lcom/android/settings/biometrics/fingerprint/FingerprintLocationAnimationView;->-$$Nest$fputmPulseRadius(Lcom/android/settings/biometrics/fingerprint/FingerprintLocationAnimationView;F)V
 
     iget-object p0, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintLocationAnimationView$1;->this$0:Lcom/android/settings/biometrics/fingerprint/FingerprintLocationAnimationView;
 

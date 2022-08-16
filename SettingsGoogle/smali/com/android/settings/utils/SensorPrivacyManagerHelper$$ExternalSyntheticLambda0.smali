@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settings/utils/SensorPrivacyManagerHelper$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/hardware/SensorPrivacyManager$OnSensorPrivacyChangedListener;

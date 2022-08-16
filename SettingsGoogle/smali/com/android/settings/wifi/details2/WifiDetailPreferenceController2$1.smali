@@ -34,7 +34,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2$1;->this$0:Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;
 
-    invoke-static {v0}, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;->access$800(Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;)Landroid/net/NetworkCapabilities;
+    invoke-static {v0}, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;->-$$Nest$fgetmNetworkCapabilities(Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;)Landroid/net/NetworkCapabilities;
 
     move-result-object v0
 
@@ -47,7 +47,7 @@
     :cond_0
     iget-object p0, p0, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2$1;->this$0:Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;
 
-    invoke-static {p0}, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;->access$800(Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;)Landroid/net/NetworkCapabilities;
+    invoke-static {p0}, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;->-$$Nest$fgetmNetworkCapabilities(Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;)Landroid/net/NetworkCapabilities;
 
     move-result-object p0
 
@@ -75,7 +75,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2$1;->this$0:Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;
 
-    invoke-static {v0}, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;->access$800(Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;)Landroid/net/NetworkCapabilities;
+    invoke-static {v0}, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;->-$$Nest$fgetmNetworkCapabilities(Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;)Landroid/net/NetworkCapabilities;
 
     move-result-object v0
 
@@ -88,7 +88,7 @@
     :cond_0
     iget-object p0, p0, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2$1;->this$0:Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;
 
-    invoke-static {p0}, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;->access$800(Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;)Landroid/net/NetworkCapabilities;
+    invoke-static {p0}, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;->-$$Nest$fgetmNetworkCapabilities(Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;)Landroid/net/NetworkCapabilities;
 
     move-result-object p0
 
@@ -118,7 +118,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2$1;->this$0:Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;
 
-    invoke-static {v0}, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;->access$300(Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;)Landroid/net/Network;
+    invoke-static {v0}, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;->-$$Nest$fgetmNetwork(Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;)Landroid/net/Network;
 
     move-result-object v0
 
@@ -130,7 +130,7 @@
 
     iget-object p1, p0, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2$1;->this$0:Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;
 
-    invoke-static {p1}, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;->access$800(Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;)Landroid/net/NetworkCapabilities;
+    invoke-static {p1}, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;->-$$Nest$fgetmNetworkCapabilities(Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;)Landroid/net/NetworkCapabilities;
 
     move-result-object p1
 
@@ -173,20 +173,20 @@
     :cond_0
     iget-object p1, p0, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2$1;->this$0:Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;
 
-    invoke-static {p1}, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;->access$500(Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;)V
+    invoke-static {p1}, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;->-$$Nest$mrefreshEntityHeader(Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;)V
 
     :cond_1
     iget-object p1, p0, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2$1;->this$0:Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;
 
-    invoke-static {p1, p2}, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;->access$802(Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;Landroid/net/NetworkCapabilities;)Landroid/net/NetworkCapabilities;
+    invoke-static {p1, p2}, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;->-$$Nest$fputmNetworkCapabilities(Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;Landroid/net/NetworkCapabilities;)V
 
     iget-object p1, p0, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2$1;->this$0:Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;
 
-    invoke-static {p1}, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;->access$600(Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;)V
+    invoke-static {p1}, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;->-$$Nest$mrefreshButtons(Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;)V
 
     iget-object p0, p0, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2$1;->this$0:Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;
 
-    invoke-static {p0}, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;->access$700(Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;)V
+    invoke-static {p0}, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;->-$$Nest$mrefreshIpLayerInfo(Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;)V
 
     :cond_2
     return-void
@@ -197,7 +197,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2$1;->this$0:Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;
 
-    invoke-static {v0}, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;->access$300(Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;)Landroid/net/Network;
+    invoke-static {v0}, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;->-$$Nest$fgetmNetwork(Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;)Landroid/net/Network;
 
     move-result-object v0
 
@@ -209,7 +209,7 @@
 
     iget-object p1, p0, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2$1;->this$0:Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;
 
-    invoke-static {p1}, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;->access$400(Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;)Landroid/net/LinkProperties;
+    invoke-static {p1}, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;->-$$Nest$fgetmLinkProperties(Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;)Landroid/net/LinkProperties;
 
     move-result-object p1
 
@@ -221,19 +221,19 @@
 
     iget-object p1, p0, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2$1;->this$0:Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;
 
-    invoke-static {p1, p2}, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;->access$402(Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;Landroid/net/LinkProperties;)Landroid/net/LinkProperties;
+    invoke-static {p1, p2}, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;->-$$Nest$fputmLinkProperties(Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;Landroid/net/LinkProperties;)V
 
     iget-object p1, p0, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2$1;->this$0:Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;
 
-    invoke-static {p1}, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;->access$500(Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;)V
+    invoke-static {p1}, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;->-$$Nest$mrefreshEntityHeader(Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;)V
 
     iget-object p1, p0, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2$1;->this$0:Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;
 
-    invoke-static {p1}, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;->access$600(Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;)V
+    invoke-static {p1}, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;->-$$Nest$mrefreshButtons(Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;)V
 
     iget-object p0, p0, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2$1;->this$0:Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;
 
-    invoke-static {p0}, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;->access$700(Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;)V
+    invoke-static {p0}, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;->-$$Nest$mrefreshIpLayerInfo(Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;)V
 
     :cond_0
     return-void
@@ -244,7 +244,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2$1;->this$0:Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;
 
-    invoke-static {v0}, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;->access$900(Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;)Lcom/android/wifitrackerlib/WifiEntry;
+    invoke-static {v0}, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;->-$$Nest$fgetmWifiEntry(Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;)Lcom/android/wifitrackerlib/WifiEntry;
 
     move-result-object v0
 
@@ -256,7 +256,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2$1;->this$0:Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;
 
-    invoke-static {v0}, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;->access$300(Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;)Landroid/net/Network;
+    invoke-static {v0}, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;->-$$Nest$fgetmNetwork(Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;)Landroid/net/Network;
 
     move-result-object v0
 
@@ -266,7 +266,7 @@
 
     if-eqz p1, :cond_1
 
-    invoke-static {}, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;->access$1000()Z
+    invoke-static {}, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;->-$$Nest$sfgetDEBUG()Z
 
     move-result p1
 
@@ -281,7 +281,7 @@
     :cond_0
     iget-object p0, p0, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2$1;->this$0:Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;
 
-    invoke-static {p0}, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;->access$1100(Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;)Landroidx/preference/PreferenceFragmentCompat;
+    invoke-static {p0}, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;->-$$Nest$fgetmFragment(Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;)Landroidx/preference/PreferenceFragmentCompat;
 
     move-result-object p0
 

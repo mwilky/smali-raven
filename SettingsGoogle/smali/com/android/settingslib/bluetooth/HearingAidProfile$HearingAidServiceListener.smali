@@ -32,7 +32,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settingslib/bluetooth/HearingAidProfile;Lcom/android/settingslib/bluetooth/HearingAidProfile$1;)V
+.method synthetic constructor <init>(Lcom/android/settingslib/bluetooth/HearingAidProfile;Lcom/android/settingslib/bluetooth/HearingAidProfile$HearingAidServiceListener-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settingslib/bluetooth/HearingAidProfile$HearingAidServiceListener;-><init>(Lcom/android/settingslib/bluetooth/HearingAidProfile;)V
@@ -49,11 +49,11 @@
 
     check-cast p2, Landroid/bluetooth/BluetoothHearingAid;
 
-    invoke-static {p1, p2}, Lcom/android/settingslib/bluetooth/HearingAidProfile;->access$002(Lcom/android/settingslib/bluetooth/HearingAidProfile;Landroid/bluetooth/BluetoothHearingAid;)Landroid/bluetooth/BluetoothHearingAid;
+    invoke-static {p1, p2}, Lcom/android/settingslib/bluetooth/HearingAidProfile;->-$$Nest$fputmService(Lcom/android/settingslib/bluetooth/HearingAidProfile;Landroid/bluetooth/BluetoothHearingAid;)V
 
     iget-object p1, p0, Lcom/android/settingslib/bluetooth/HearingAidProfile$HearingAidServiceListener;->this$0:Lcom/android/settingslib/bluetooth/HearingAidProfile;
 
-    invoke-static {p1}, Lcom/android/settingslib/bluetooth/HearingAidProfile;->access$000(Lcom/android/settingslib/bluetooth/HearingAidProfile;)Landroid/bluetooth/BluetoothHearingAid;
+    invoke-static {p1}, Lcom/android/settingslib/bluetooth/HearingAidProfile;->-$$Nest$fgetmService(Lcom/android/settingslib/bluetooth/HearingAidProfile;)Landroid/bluetooth/BluetoothHearingAid;
 
     move-result-object p1
 
@@ -78,7 +78,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/bluetooth/HearingAidProfile$HearingAidServiceListener;->this$0:Lcom/android/settingslib/bluetooth/HearingAidProfile;
 
-    invoke-static {v0}, Lcom/android/settingslib/bluetooth/HearingAidProfile;->access$100(Lcom/android/settingslib/bluetooth/HearingAidProfile;)Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
+    invoke-static {v0}, Lcom/android/settingslib/bluetooth/HearingAidProfile;->-$$Nest$fgetmDeviceManager(Lcom/android/settingslib/bluetooth/HearingAidProfile;)Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
 
     move-result-object v0
 
@@ -88,7 +88,7 @@
 
     if-nez v0, :cond_1
 
-    invoke-static {}, Lcom/android/settingslib/bluetooth/HearingAidProfile;->access$200()Z
+    invoke-static {}, Lcom/android/settingslib/bluetooth/HearingAidProfile;->-$$Nest$sfgetV()Z
 
     move-result v0
 
@@ -115,7 +115,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/settingslib/bluetooth/HearingAidProfile$HearingAidServiceListener;->this$0:Lcom/android/settingslib/bluetooth/HearingAidProfile;
 
-    invoke-static {v0}, Lcom/android/settingslib/bluetooth/HearingAidProfile;->access$100(Lcom/android/settingslib/bluetooth/HearingAidProfile;)Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
+    invoke-static {v0}, Lcom/android/settingslib/bluetooth/HearingAidProfile;->-$$Nest$fgetmDeviceManager(Lcom/android/settingslib/bluetooth/HearingAidProfile;)Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
 
     move-result-object v0
 
@@ -137,7 +137,7 @@
     :cond_2
     iget-object p1, p0, Lcom/android/settingslib/bluetooth/HearingAidProfile$HearingAidServiceListener;->this$0:Lcom/android/settingslib/bluetooth/HearingAidProfile;
 
-    invoke-static {p1}, Lcom/android/settingslib/bluetooth/HearingAidProfile;->access$100(Lcom/android/settingslib/bluetooth/HearingAidProfile;)Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
+    invoke-static {p1}, Lcom/android/settingslib/bluetooth/HearingAidProfile;->-$$Nest$fgetmDeviceManager(Lcom/android/settingslib/bluetooth/HearingAidProfile;)Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
 
     move-result-object p1
 
@@ -147,11 +147,11 @@
 
     const/4 p2, 0x1
 
-    invoke-static {p1, p2}, Lcom/android/settingslib/bluetooth/HearingAidProfile;->access$302(Lcom/android/settingslib/bluetooth/HearingAidProfile;Z)Z
+    invoke-static {p1, p2}, Lcom/android/settingslib/bluetooth/HearingAidProfile;->-$$Nest$fputmIsProfileReady(Lcom/android/settingslib/bluetooth/HearingAidProfile;Z)V
 
     iget-object p0, p0, Lcom/android/settingslib/bluetooth/HearingAidProfile$HearingAidServiceListener;->this$0:Lcom/android/settingslib/bluetooth/HearingAidProfile;
 
-    invoke-static {p0}, Lcom/android/settingslib/bluetooth/HearingAidProfile;->access$400(Lcom/android/settingslib/bluetooth/HearingAidProfile;)Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
+    invoke-static {p0}, Lcom/android/settingslib/bluetooth/HearingAidProfile;->-$$Nest$fgetmProfileManager(Lcom/android/settingslib/bluetooth/HearingAidProfile;)Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
 
     move-result-object p0
 
@@ -167,7 +167,7 @@
 
     const/4 p1, 0x0
 
-    invoke-static {p0, p1}, Lcom/android/settingslib/bluetooth/HearingAidProfile;->access$302(Lcom/android/settingslib/bluetooth/HearingAidProfile;Z)Z
+    invoke-static {p0, p1}, Lcom/android/settingslib/bluetooth/HearingAidProfile;->-$$Nest$fputmIsProfileReady(Lcom/android/settingslib/bluetooth/HearingAidProfile;Z)V
 
     return-void
 .end method

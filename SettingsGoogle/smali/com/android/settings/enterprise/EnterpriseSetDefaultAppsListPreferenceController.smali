@@ -42,12 +42,32 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$5VQhUMFjyIi9mvc1if9V0JQH4nk(Lcom/android/settings/enterprise/EnterpriseSetDefaultAppsListPreferenceController;)Ljava/lang/String;
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/enterprise/EnterpriseSetDefaultAppsListPreferenceController;->lambda$updateUi$2()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method public static synthetic $r8$lambda$gMJKDCUe8r3-8wLlwT3iCHQbgFE(Lcom/android/settings/enterprise/EnterpriseSetDefaultAppsListPreferenceController;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/settings/enterprise/EnterpriseSetDefaultAppsListPreferenceController;->lambda$buildAppList$0()V
 
     return-void
+.end method
+
+.method public static synthetic $r8$lambda$srYbugvG6w12X5WZM7BDJHP-w2g(Lcom/android/settings/enterprise/EnterpriseSetDefaultAppsListPreferenceController;)Ljava/lang/String;
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/enterprise/EnterpriseSetDefaultAppsListPreferenceController;->lambda$updateUi$1()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Lcom/android/settings/SettingsPreferenceFragment;Landroid/content/pm/PackageManager;)V
@@ -320,7 +340,7 @@
 
     if-ne p0, p2, :cond_2
 
-    const p0, 0x7f04025a
+    const p0, 0x7f04028d
 
     new-array p2, p2, [Ljava/lang/Object;
 
@@ -339,7 +359,7 @@
     return-object p0
 
     :cond_2
-    const p0, 0x7f04025b
+    const p0, 0x7f04028e
 
     const/4 v3, 0x3
 
@@ -516,7 +536,7 @@
     return-object p0
 
     :pswitch_2
-    const p0, 0x7f0407b6
+    const p0, 0x7f0407fa
 
     invoke-virtual {p1, p0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -538,7 +558,7 @@
     return-object p0
 
     :pswitch_4
-    const p0, 0x7f0407ad
+    const p0, 0x7f0407f1
 
     invoke-virtual {p1, p0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -547,7 +567,7 @@
     return-object p0
 
     :pswitch_5
-    const p0, 0x7f0407ac
+    const p0, 0x7f0407f0
 
     invoke-virtual {p1, p0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -556,7 +576,7 @@
     return-object p0
 
     :pswitch_6
-    const p0, 0x7f0407aa
+    const p0, 0x7f0407ee
 
     invoke-virtual {p1, p0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -584,8 +604,36 @@
     return-void
 .end method
 
+.method private synthetic lambda$updateUi$1()Ljava/lang/String;
+    .locals 1
+
+    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    const v0, 0x7f0405f6
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private synthetic lambda$updateUi$2()Ljava/lang/String;
+    .locals 1
+
+    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    const v0, 0x7f0405f5
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method private updateUi()V
-    .locals 5
+    .locals 8
 
     iget-object v0, p0, Lcom/android/settings/enterprise/EnterpriseSetDefaultAppsListPreferenceController;->mParent:Lcom/android/settings/SettingsPreferenceFragment;
 
@@ -641,58 +689,92 @@
     goto :goto_2
 
     :cond_1
-    :goto_0
-    iget-object v2, p0, Lcom/android/settings/enterprise/EnterpriseSetDefaultAppsListPreferenceController;->mUsers:Ljava/util/List;
+    iget-object v2, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    invoke-interface {v2}, Ljava/util/List;->size()I
+    const-class v4, Landroid/app/admin/DevicePolicyManager;
 
-    move-result v2
-
-    if-ge v3, v2, :cond_3
-
-    iget-object v2, p0, Lcom/android/settings/enterprise/EnterpriseSetDefaultAppsListPreferenceController;->mUsers:Ljava/util/List;
-
-    invoke-interface {v2, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-virtual {v2, v4}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v2
 
-    check-cast v2, Landroid/content/pm/UserInfo;
+    check-cast v2, Landroid/app/admin/DevicePolicyManager;
 
-    new-instance v4, Landroidx/preference/PreferenceCategory;
+    :goto_0
+    iget-object v4, p0, Lcom/android/settings/enterprise/EnterpriseSetDefaultAppsListPreferenceController;->mUsers:Ljava/util/List;
 
-    invoke-direct {v4, v0}, Landroidx/preference/PreferenceCategory;-><init>(Landroid/content/Context;)V
+    invoke-interface {v4}, Ljava/util/List;->size()I
 
-    invoke-virtual {v1, v4}, Landroidx/preference/PreferenceGroup;->addPreference(Landroidx/preference/Preference;)Z
+    move-result v4
 
-    invoke-virtual {v2}, Landroid/content/pm/UserInfo;->isManagedProfile()Z
+    if-ge v3, v4, :cond_3
 
-    move-result v2
+    iget-object v4, p0, Lcom/android/settings/enterprise/EnterpriseSetDefaultAppsListPreferenceController;->mUsers:Ljava/util/List;
 
-    if-eqz v2, :cond_2
+    invoke-interface {v4, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    const v2, 0x7f040599
+    move-result-object v4
 
-    invoke-virtual {v4, v2}, Landroidx/preference/Preference;->setTitle(I)V
+    check-cast v4, Landroid/content/pm/UserInfo;
+
+    new-instance v5, Landroidx/preference/PreferenceCategory;
+
+    invoke-direct {v5, v0}, Landroidx/preference/PreferenceCategory;-><init>(Landroid/content/Context;)V
+
+    invoke-virtual {v1, v5}, Landroidx/preference/PreferenceGroup;->addPreference(Landroidx/preference/Preference;)Z
+
+    invoke-virtual {v4}, Landroid/content/pm/UserInfo;->isManagedProfile()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_2
+
+    invoke-virtual {v2}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
+
+    move-result-object v4
+
+    new-instance v6, Lcom/android/settings/enterprise/EnterpriseSetDefaultAppsListPreferenceController$$ExternalSyntheticLambda1;
+
+    invoke-direct {v6, p0}, Lcom/android/settings/enterprise/EnterpriseSetDefaultAppsListPreferenceController$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/enterprise/EnterpriseSetDefaultAppsListPreferenceController;)V
+
+    const-string v7, "Settings.WORK_CATEGORY_HEADER"
+
+    invoke-virtual {v4, v7, v6}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v5, v4}, Landroidx/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
 
     goto :goto_1
 
     :cond_2
-    const v2, 0x7f040598
+    invoke-virtual {v2}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
 
-    invoke-virtual {v4, v2}, Landroidx/preference/Preference;->setTitle(I)V
+    move-result-object v4
+
+    new-instance v6, Lcom/android/settings/enterprise/EnterpriseSetDefaultAppsListPreferenceController$$ExternalSyntheticLambda2;
+
+    invoke-direct {v6, p0}, Lcom/android/settings/enterprise/EnterpriseSetDefaultAppsListPreferenceController$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/enterprise/EnterpriseSetDefaultAppsListPreferenceController;)V
+
+    const-string v7, "Settings.PERSONAL_CATEGORY_HEADER"
+
+    invoke-virtual {v4, v7, v6}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v5, v4}, Landroidx/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
 
     :goto_1
-    invoke-virtual {v4, v3}, Landroidx/preference/Preference;->setOrder(I)V
+    invoke-virtual {v5, v3}, Landroidx/preference/Preference;->setOrder(I)V
 
-    iget-object v2, p0, Lcom/android/settings/enterprise/EnterpriseSetDefaultAppsListPreferenceController;->mApps:Ljava/util/List;
+    iget-object v4, p0, Lcom/android/settings/enterprise/EnterpriseSetDefaultAppsListPreferenceController;->mApps:Ljava/util/List;
 
-    invoke-interface {v2, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v4, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v4
 
-    check-cast v2, Ljava/util/EnumMap;
+    check-cast v4, Ljava/util/EnumMap;
 
-    invoke-direct {p0, v0, v4, v2}, Lcom/android/settings/enterprise/EnterpriseSetDefaultAppsListPreferenceController;->createPreferences(Landroid/content/Context;Landroidx/preference/PreferenceGroup;Ljava/util/EnumMap;)V
+    invoke-direct {p0, v0, v5, v4}, Lcom/android/settings/enterprise/EnterpriseSetDefaultAppsListPreferenceController;->createPreferences(Landroid/content/Context;Landroidx/preference/PreferenceGroup;Ljava/util/EnumMap;)V
 
     add-int/lit8 v3, v3, 0x1
 

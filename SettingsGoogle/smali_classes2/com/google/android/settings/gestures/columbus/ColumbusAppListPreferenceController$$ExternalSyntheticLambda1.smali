@@ -1,45 +1,38 @@
 .class public final synthetic Lcom/google/android/settings/gestures/columbus/ColumbusAppListPreferenceController$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Function;
+.implements Ljava/util/function/Predicate;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/google/android/settings/gestures/columbus/ColumbusAppListPreferenceController$$ExternalSyntheticLambda1;
+# instance fields
+.field public final synthetic f$0:Landroid/content/pm/LauncherActivityInfo;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/google/android/settings/gestures/columbus/ColumbusAppListPreferenceController$$ExternalSyntheticLambda1;
-
-    invoke-direct {v0}, Lcom/google/android/settings/gestures/columbus/ColumbusAppListPreferenceController$$ExternalSyntheticLambda1;-><init>()V
-
-    sput-object v0, Lcom/google/android/settings/gestures/columbus/ColumbusAppListPreferenceController$$ExternalSyntheticLambda1;->INSTANCE:Lcom/google/android/settings/gestures/columbus/ColumbusAppListPreferenceController$$ExternalSyntheticLambda1;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Landroid/content/pm/LauncherActivityInfo;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/google/android/settings/gestures/columbus/ColumbusAppListPreferenceController$$ExternalSyntheticLambda1;->f$0:Landroid/content/pm/LauncherActivityInfo;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
+.method public final test(Ljava/lang/Object;)Z
     .locals 0
 
-    check-cast p1, Landroid/content/pm/LauncherActivityInfo;
+    iget-object p0, p0, Lcom/google/android/settings/gestures/columbus/ColumbusAppListPreferenceController$$ExternalSyntheticLambda1;->f$0:Landroid/content/pm/LauncherActivityInfo;
 
-    invoke-static {p1}, Lcom/google/android/settings/gestures/columbus/ColumbusAppListPreferenceController;->$r8$lambda$B9IZ-qTU2qAe5SwMbFhqiPe8KMs(Landroid/content/pm/LauncherActivityInfo;)Ljava/lang/String;
+    check-cast p1, Landroid/content/pm/ShortcutInfo;
 
-    move-result-object p0
+    invoke-static {p0, p1}, Lcom/google/android/settings/gestures/columbus/ColumbusAppListPreferenceController;->$r8$lambda$i1v_SCTva_jnO0UWWCRjzwsFgdc(Landroid/content/pm/LauncherActivityInfo;Landroid/content/pm/ShortcutInfo;)Z
 
-    return-object p0
+    move-result p0
+
+    return p0
 .end method

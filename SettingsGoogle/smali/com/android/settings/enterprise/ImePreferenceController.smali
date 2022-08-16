@@ -11,6 +11,16 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$g7WpeE6CFCo-md2orzdJWwifyvs(Lcom/android/settings/enterprise/ImePreferenceController;)Ljava/lang/String;
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/enterprise/ImePreferenceController;->lambda$updateState$0()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
 
@@ -27,6 +37,38 @@
     iput-object p1, p0, Lcom/android/settings/enterprise/ImePreferenceController;->mFeatureProvider:Lcom/android/settings/enterprise/EnterprisePrivacyFeatureProvider;
 
     return-void
+.end method
+
+.method private synthetic lambda$updateState$0()Ljava/lang/String;
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const/4 v1, 0x1
+
+    new-array v1, v1, [Ljava/lang/Object;
+
+    iget-object p0, p0, Lcom/android/settings/enterprise/ImePreferenceController;->mFeatureProvider:Lcom/android/settings/enterprise/EnterprisePrivacyFeatureProvider;
+
+    invoke-interface {p0}, Lcom/android/settings/enterprise/EnterprisePrivacyFeatureProvider;->getImeLabelIfOwnerSet()Ljava/lang/String;
+
+    move-result-object p0
+
+    const/4 v2, 0x0
+
+    aput-object p0, v1, v2
+
+    const p0, 0x7f040923
+
+    invoke-virtual {v0, p0, v1}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 
@@ -62,17 +104,29 @@
 .end method
 
 .method public updateState(Landroidx/preference/Preference;)V
-    .locals 3
+    .locals 4
 
     iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    const-class v1, Landroid/app/admin/DevicePolicyManager;
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v0
 
-    const/4 v1, 0x1
+    check-cast v0, Landroid/app/admin/DevicePolicyManager;
 
-    new-array v1, v1, [Ljava/lang/Object;
+    invoke-virtual {v0}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/android/settings/enterprise/ImePreferenceController$$ExternalSyntheticLambda0;
+
+    invoke-direct {v1, p0}, Lcom/android/settings/enterprise/ImePreferenceController$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/enterprise/ImePreferenceController;)V
+
+    const/4 v2, 0x1
+
+    new-array v2, v2, [Ljava/lang/Object;
 
     iget-object p0, p0, Lcom/android/settings/enterprise/ImePreferenceController;->mFeatureProvider:Lcom/android/settings/enterprise/EnterprisePrivacyFeatureProvider;
 
@@ -80,13 +134,13 @@
 
     move-result-object p0
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    aput-object p0, v1, v2
+    aput-object p0, v2, v3
 
-    const p0, 0x7f0408cf
+    const-string p0, "Settings.ADMIN_ACTION_SET_INPUT_METHOD_NAME"
 
-    invoke-virtual {v0, p0, v1}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {v0, p0, v1, v2}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object p0
 

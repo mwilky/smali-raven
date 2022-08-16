@@ -128,7 +128,7 @@
         }
     .end annotation
 
-    invoke-static {}, Lcom/android/settings/notification/zen/ZenModeBackend;->access$000()Ljava/util/List;
+    invoke-static {}, Lcom/android/settings/notification/zen/ZenModeBackend;->-$$Nest$smgetDefaultRuleIds()Ljava/util/List;
 
     move-result-object v0
 
@@ -140,7 +140,7 @@
 
     move-result v0
 
-    invoke-static {}, Lcom/android/settings/notification/zen/ZenModeBackend;->access$000()Ljava/util/List;
+    invoke-static {}, Lcom/android/settings/notification/zen/ZenModeBackend;->-$$Nest$smgetDefaultRuleIds()Ljava/util/List;
 
     move-result-object v1
 

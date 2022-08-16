@@ -39,7 +39,7 @@
 
     iget-object p0, p0, Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment$2;->this$0:Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;
 
-    invoke-static {p0, p2, p3}, Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;->access$100(Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;II)V
+    invoke-static {p0, p2, p3}, Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;->-$$Nest$mopenCamera(Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;II)V
 
     return-void
 .end method
@@ -57,7 +57,7 @@
 
     iget-object p0, p0, Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment$2;->this$0:Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;
 
-    invoke-static {p0, p2, p3}, Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;->access$200(Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;II)V
+    invoke-static {p0, p2, p3}, Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;->-$$Nest$mconfigureTransform(Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;II)V
 
     return-void
 .end method

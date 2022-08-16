@@ -98,6 +98,104 @@
     return-void
 .end method
 
+.method static bridge synthetic -$$Nest$fgetmHandler(Lcom/google/android/wifitrackerlib/WsuServiceClient;)Landroid/os/Handler;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/wifitrackerlib/WsuServiceClient;->mHandler:Landroid/os/Handler;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmNetworkGroups(Lcom/google/android/wifitrackerlib/WsuServiceClient;)Ljava/util/Map;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/wifitrackerlib/WsuServiceClient;->mNetworkGroups:Ljava/util/Map;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmProvisionStatusListener(Lcom/google/android/wifitrackerlib/WsuServiceClient;)Lcom/android/wsuinterface/ISubscriptionProvisionStatusListener;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/wifitrackerlib/WsuServiceClient;->mProvisionStatusListener:Lcom/android/wsuinterface/ISubscriptionProvisionStatusListener;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmWsuManager(Lcom/google/android/wifitrackerlib/WsuServiceClient;)Lcom/google/android/wifitrackerlib/WsuManager;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/wifitrackerlib/WsuServiceClient;->mWsuManager:Lcom/google/android/wifitrackerlib/WsuManager;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmWsuService(Lcom/google/android/wifitrackerlib/WsuServiceClient;)Lcom/android/wsuinterface/IWsuService;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/wifitrackerlib/WsuServiceClient;->mWsuService:Lcom/android/wsuinterface/IWsuService;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmNetworkGroups(Lcom/google/android/wifitrackerlib/WsuServiceClient;Ljava/util/Map;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/google/android/wifitrackerlib/WsuServiceClient;->mNetworkGroups:Ljava/util/Map;
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fputmWsuService(Lcom/google/android/wifitrackerlib/WsuServiceClient;Lcom/android/wsuinterface/IWsuService;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/google/android/wifitrackerlib/WsuServiceClient;->mWsuService:Lcom/android/wsuinterface/IWsuService;
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mgetWsuProvider(Lcom/google/android/wifitrackerlib/WsuServiceClient;Lcom/android/wsuinterface/NetworkGroupSubscription;)Lcom/google/android/wifitrackerlib/WsuProvider;
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/google/android/wifitrackerlib/WsuServiceClient;->getWsuProvider(Lcom/android/wsuinterface/NetworkGroupSubscription;)Lcom/google/android/wifitrackerlib/WsuProvider;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$mloadNetworkGroups(Lcom/google/android/wifitrackerlib/WsuServiceClient;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/google/android/wifitrackerlib/WsuServiceClient;->loadNetworkGroups()V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mloadNetworkGroups(Lcom/google/android/wifitrackerlib/WsuServiceClient;Ljava/lang/String;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/google/android/wifitrackerlib/WsuServiceClient;->loadNetworkGroups(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mlogd(Lcom/google/android/wifitrackerlib/WsuServiceClient;Ljava/lang/String;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/google/android/wifitrackerlib/WsuServiceClient;->logd(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mtryToConnectBestMatchingProvisionedNetwork(Lcom/google/android/wifitrackerlib/WsuServiceClient;Lcom/android/wsuinterface/NetworkGroupSubscription;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/google/android/wifitrackerlib/WsuServiceClient;->tryToConnectBestMatchingProvisionedNetwork(Lcom/android/wsuinterface/NetworkGroupSubscription;)V
+
+    return-void
+.end method
+
 .method constructor <init>(Landroid/content/Context;Landroid/os/Handler;Landroid/net/wifi/WifiManager;Lcom/google/android/wifitrackerlib/WsuManager;Ljava/lang/String;)V
     .locals 1
 
@@ -148,104 +246,6 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/google/android/wifitrackerlib/WsuServiceClient;)Landroid/os/Handler;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/wifitrackerlib/WsuServiceClient;->mHandler:Landroid/os/Handler;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/google/android/wifitrackerlib/WsuServiceClient;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/google/android/wifitrackerlib/WsuServiceClient;->loadNetworkGroups()V
-
-    return-void
-.end method
-
-.method static synthetic access$200(Lcom/google/android/wifitrackerlib/WsuServiceClient;)Ljava/util/Map;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/wifitrackerlib/WsuServiceClient;->mNetworkGroups:Ljava/util/Map;
-
-    return-object p0
-.end method
-
-.method static synthetic access$202(Lcom/google/android/wifitrackerlib/WsuServiceClient;Ljava/util/Map;)Ljava/util/Map;
-    .locals 0
-
-    iput-object p1, p0, Lcom/google/android/wifitrackerlib/WsuServiceClient;->mNetworkGroups:Ljava/util/Map;
-
-    return-object p1
-.end method
-
-.method static synthetic access$300(Lcom/google/android/wifitrackerlib/WsuServiceClient;Ljava/lang/String;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/google/android/wifitrackerlib/WsuServiceClient;->logd(Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method static synthetic access$400(Lcom/google/android/wifitrackerlib/WsuServiceClient;Lcom/android/wsuinterface/NetworkGroupSubscription;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/google/android/wifitrackerlib/WsuServiceClient;->tryToConnectBestMatchingProvisionedNetwork(Lcom/android/wsuinterface/NetworkGroupSubscription;)V
-
-    return-void
-.end method
-
-.method static synthetic access$500(Lcom/google/android/wifitrackerlib/WsuServiceClient;)Lcom/google/android/wifitrackerlib/WsuManager;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/wifitrackerlib/WsuServiceClient;->mWsuManager:Lcom/google/android/wifitrackerlib/WsuManager;
-
-    return-object p0
-.end method
-
-.method static synthetic access$600(Lcom/google/android/wifitrackerlib/WsuServiceClient;Ljava/lang/String;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/google/android/wifitrackerlib/WsuServiceClient;->loadNetworkGroups(Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method static synthetic access$700(Lcom/google/android/wifitrackerlib/WsuServiceClient;Lcom/android/wsuinterface/NetworkGroupSubscription;)Lcom/google/android/wifitrackerlib/WsuProvider;
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/google/android/wifitrackerlib/WsuServiceClient;->getWsuProvider(Lcom/android/wsuinterface/NetworkGroupSubscription;)Lcom/google/android/wifitrackerlib/WsuProvider;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method static synthetic access$800(Lcom/google/android/wifitrackerlib/WsuServiceClient;)Lcom/android/wsuinterface/IWsuService;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/wifitrackerlib/WsuServiceClient;->mWsuService:Lcom/android/wsuinterface/IWsuService;
-
-    return-object p0
-.end method
-
-.method static synthetic access$802(Lcom/google/android/wifitrackerlib/WsuServiceClient;Lcom/android/wsuinterface/IWsuService;)Lcom/android/wsuinterface/IWsuService;
-    .locals 0
-
-    iput-object p1, p0, Lcom/google/android/wifitrackerlib/WsuServiceClient;->mWsuService:Lcom/android/wsuinterface/IWsuService;
-
-    return-object p1
-.end method
-
-.method static synthetic access$900(Lcom/google/android/wifitrackerlib/WsuServiceClient;)Lcom/android/wsuinterface/ISubscriptionProvisionStatusListener;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/wifitrackerlib/WsuServiceClient;->mProvisionStatusListener:Lcom/android/wsuinterface/ISubscriptionProvisionStatusListener;
-
-    return-object p0
-.end method
-
 .method private createManageSubscriptionAction(Lcom/android/wsuinterface/NetworkGroupSubscription;)Lcom/android/wifitrackerlib/WifiEntry$ManageSubscriptionAction;
     .locals 2
 
@@ -275,16 +275,16 @@
 
     if-lt v0, v1, :cond_0
 
-    new-instance v0, Lcom/google/android/wifitrackerlib/WsuServiceClient$$ExternalSyntheticLambda0;
+    new-instance v0, Lcom/google/android/wifitrackerlib/WsuServiceClient$$ExternalSyntheticLambda3;
 
-    invoke-direct {v0, p0, p1}, Lcom/google/android/wifitrackerlib/WsuServiceClient$$ExternalSyntheticLambda0;-><init>(Lcom/google/android/wifitrackerlib/WsuServiceClient;Lcom/android/wsuinterface/NetworkGroupSubscription;)V
+    invoke-direct {v0, p0, p1}, Lcom/google/android/wifitrackerlib/WsuServiceClient$$ExternalSyntheticLambda3;-><init>(Lcom/google/android/wifitrackerlib/WsuServiceClient;Lcom/android/wsuinterface/NetworkGroupSubscription;)V
 
     return-object v0
 
     :cond_0
-    new-instance v0, Lcom/google/android/wifitrackerlib/WsuServiceClient$$ExternalSyntheticLambda1;
+    new-instance v0, Lcom/google/android/wifitrackerlib/WsuServiceClient$$ExternalSyntheticLambda4;
 
-    invoke-direct {v0, p0, p1}, Lcom/google/android/wifitrackerlib/WsuServiceClient$$ExternalSyntheticLambda1;-><init>(Lcom/google/android/wifitrackerlib/WsuServiceClient;Lcom/android/wsuinterface/NetworkGroupSubscription;)V
+    invoke-direct {v0, p0, p1}, Lcom/google/android/wifitrackerlib/WsuServiceClient$$ExternalSyntheticLambda4;-><init>(Lcom/google/android/wifitrackerlib/WsuServiceClient;Lcom/android/wsuinterface/NetworkGroupSubscription;)V
 
     return-object v0
 .end method
@@ -296,9 +296,9 @@
 
     iget-object v1, p1, Lcom/android/wsuinterface/NetworkGroupSubscription;->uniqueIdentifier:Ljava/lang/String;
 
-    new-instance v2, Lcom/google/android/wifitrackerlib/WsuServiceClient$$ExternalSyntheticLambda4;
+    new-instance v2, Lcom/google/android/wifitrackerlib/WsuServiceClient$$ExternalSyntheticLambda2;
 
-    invoke-direct {v2, p0, p1}, Lcom/google/android/wifitrackerlib/WsuServiceClient$$ExternalSyntheticLambda4;-><init>(Lcom/google/android/wifitrackerlib/WsuServiceClient;Lcom/android/wsuinterface/NetworkGroupSubscription;)V
+    invoke-direct {v2, p0, p1}, Lcom/google/android/wifitrackerlib/WsuServiceClient$$ExternalSyntheticLambda2;-><init>(Lcom/google/android/wifitrackerlib/WsuServiceClient;Lcom/android/wsuinterface/NetworkGroupSubscription;)V
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->computeIfAbsent(Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;
 
@@ -1201,16 +1201,16 @@
 
     if-lt v1, v2, :cond_1
 
-    new-instance p1, Lcom/google/android/wifitrackerlib/WsuServiceClient$$ExternalSyntheticLambda2;
+    new-instance p1, Lcom/google/android/wifitrackerlib/WsuServiceClient$$ExternalSyntheticLambda0;
 
-    invoke-direct {p1, p0, v0}, Lcom/google/android/wifitrackerlib/WsuServiceClient$$ExternalSyntheticLambda2;-><init>(Lcom/google/android/wifitrackerlib/WsuServiceClient;Lcom/android/wsuinterface/NetworkGroupSubscription;)V
+    invoke-direct {p1, p0, v0}, Lcom/google/android/wifitrackerlib/WsuServiceClient$$ExternalSyntheticLambda0;-><init>(Lcom/google/android/wifitrackerlib/WsuServiceClient;Lcom/android/wsuinterface/NetworkGroupSubscription;)V
 
     return-object p1
 
     :cond_1
-    new-instance v0, Lcom/google/android/wifitrackerlib/WsuServiceClient$$ExternalSyntheticLambda3;
+    new-instance v0, Lcom/google/android/wifitrackerlib/WsuServiceClient$$ExternalSyntheticLambda1;
 
-    invoke-direct {v0, p0, p1}, Lcom/google/android/wifitrackerlib/WsuServiceClient$$ExternalSyntheticLambda3;-><init>(Lcom/google/android/wifitrackerlib/WsuServiceClient;Ljava/lang/String;)V
+    invoke-direct {v0, p0, p1}, Lcom/google/android/wifitrackerlib/WsuServiceClient$$ExternalSyntheticLambda1;-><init>(Lcom/google/android/wifitrackerlib/WsuServiceClient;Ljava/lang/String;)V
 
     return-object v0
 .end method

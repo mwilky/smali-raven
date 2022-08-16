@@ -39,16 +39,6 @@
 # virtual methods
 .method public compare(Landroidx/recyclerview/widget/DiffUtil$Diagonal;Landroidx/recyclerview/widget/DiffUtil$Diagonal;)I
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "o1",
-            "o2"
-        }
-    .end annotation
 
     iget p0, p1, Landroidx/recyclerview/widget/DiffUtil$Diagonal;->x:I
 
@@ -61,16 +51,6 @@
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x1000,
-            0x1000
-        }
-        names = {
-            "o1",
-            "o2"
-        }
-    .end annotation
 
     check-cast p1, Landroidx/recyclerview/widget/DiffUtil$Diagonal;
 

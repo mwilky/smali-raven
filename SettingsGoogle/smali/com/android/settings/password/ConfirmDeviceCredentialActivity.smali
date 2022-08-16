@@ -50,10 +50,142 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$3V-4hQuacFhnzFwKkZEpzl7GDfU(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;)Ljava/lang/String;
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->lambda$getDetailsFromCredentialType$5()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static synthetic $r8$lambda$Jy_iXGs43b1YKZ4PclJstZE2Ue4(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;)Ljava/lang/String;
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->lambda$getDetailsFromCredentialType$6()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static synthetic $r8$lambda$OlEUedJN06AubNIwYwU0OCWNNtA(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;)Ljava/lang/String;
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->lambda$getDetailsFromCredentialType$4()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static synthetic $r8$lambda$QHEZDoj6DST2ibImPw9rtFjkS3k(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;)Ljava/lang/String;
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->lambda$getTitleFromCredentialType$3()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static synthetic $r8$lambda$ZNd_2fMeSe-cUAiatMbcV9Xgsa8(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;)Ljava/lang/String;
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->lambda$getTitleFromCredentialType$1()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static synthetic $r8$lambda$hKqLKW9gAZtqNsmTlzn5DM8hTwc(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;)Ljava/lang/String;
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->lambda$getTitleFromCredentialType$2()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method public static synthetic $r8$lambda$vqWjji12vU8obsewHeXLRaLb9pg(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;Ljava/lang/Runnable;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->lambda$new$0(Ljava/lang/Runnable;)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmDevicePolicyManager(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;)Landroid/app/admin/DevicePolicyManager;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->mDevicePolicyManager:Landroid/app/admin/DevicePolicyManager;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmGoingToBackground(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->mGoingToBackground:Z
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmLockPatternUtils(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;)Lcom/android/internal/widget/LockPatternUtils;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmTrustManager(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;)Landroid/app/trust/TrustManager;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->mTrustManager:Landroid/app/trust/TrustManager;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmUserId(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->mUserId:I
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmUserManager(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;)Landroid/os/UserManager;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->mUserManager:Landroid/os/UserManager;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmWaitingForBiometricCallback(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->mWaitingForBiometricCallback:Z
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmWaitingForBiometricCallback(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->mWaitingForBiometricCallback:Z
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mshowConfirmCredentials(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->showConfirmCredentials()V
 
     return-void
 .end method
@@ -94,106 +226,6 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->mGoingToBackground:Z
-
-    return p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->mWaitingForBiometricCallback:Z
-
-    return p0
-.end method
-
-.method static synthetic access$102(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->mWaitingForBiometricCallback:Z
-
-    return p1
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->showConfirmCredentials()V
-
-    return-void
-.end method
-
-.method static synthetic access$300(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;)I
-    .locals 0
-
-    iget p0, p0, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->mUserId:I
-
-    return p0
-.end method
-
-.method static synthetic access$400(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;)Landroid/app/trust/TrustManager;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->mTrustManager:Landroid/app/trust/TrustManager;
-
-    return-object p0
-.end method
-
-.method static synthetic access$500(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;)Lcom/android/internal/widget/LockPatternUtils;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
-
-    return-object p0
-.end method
-
-.method static synthetic access$600(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;)Landroid/os/UserManager;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->mUserManager:Landroid/os/UserManager;
-
-    return-object p0
-.end method
-
-.method static synthetic access$700(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;)Landroid/app/admin/DevicePolicyManager;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->mDevicePolicyManager:Landroid/app/admin/DevicePolicyManager;
-
-    return-object p0
-.end method
-
-.method public static createIntent(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Landroid/content/Intent;
-    .locals 3
-
-    new-instance v0, Landroid/content/Intent;
-
-    invoke-direct {v0}, Landroid/content/Intent;-><init>()V
-
-    const-class v1, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;
-
-    invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
-
-    move-result-object v1
-
-    const-string v2, "com.android.settings"
-
-    invoke-virtual {v0, v2, v1}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
-    const-string v1, "android.app.extra.TITLE"
-
-    invoke-virtual {v0, v1, p0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/CharSequence;)Landroid/content/Intent;
-
-    const-string p0, "android.app.extra.DESCRIPTION"
-
-    invoke-virtual {v0, p0, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/CharSequence;)Landroid/content/Intent;
-
-    return-object v0
-.end method
-
 .method private getDetailsFromCredentialType(IZ)Ljava/lang/String;
     .locals 1
 
@@ -216,64 +248,91 @@
     :cond_0
     if-eqz p2, :cond_1
 
-    const p1, 0x7f040c1c
+    iget-object p1, p0, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->mDevicePolicyManager:Landroid/app/admin/DevicePolicyManager;
 
-    invoke-virtual {p0, p1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
+    invoke-virtual {p1}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
+
+    move-result-object p1
+
+    new-instance p2, Lcom/android/settings/password/ConfirmDeviceCredentialActivity$$ExternalSyntheticLambda6;
+
+    invoke-direct {p2, p0}, Lcom/android/settings/password/ConfirmDeviceCredentialActivity$$ExternalSyntheticLambda6;-><init>(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;)V
+
+    const-string p0, "Settings.WORK_PROFILE_CONFIRM_PASSWORD"
+
+    invoke-virtual {p1, p0, p2}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
 
     move-result-object p0
 
-    goto :goto_0
+    return-object p0
 
     :cond_1
-    const p1, 0x7f040c1b
+    const p1, 0x7f040c82
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
     move-result-object p0
 
-    :goto_0
     return-object p0
 
     :cond_2
     if-eqz p2, :cond_3
 
-    const p1, 0x7f040c26
+    iget-object p1, p0, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->mDevicePolicyManager:Landroid/app/admin/DevicePolicyManager;
 
-    invoke-virtual {p0, p1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
+    invoke-virtual {p1}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
+
+    move-result-object p1
+
+    new-instance p2, Lcom/android/settings/password/ConfirmDeviceCredentialActivity$$ExternalSyntheticLambda4;
+
+    invoke-direct {p2, p0}, Lcom/android/settings/password/ConfirmDeviceCredentialActivity$$ExternalSyntheticLambda4;-><init>(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;)V
+
+    const-string p0, "Settings.WORK_PROFILE_CONFIRM_PIN"
+
+    invoke-virtual {p1, p0, p2}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
 
     move-result-object p0
 
-    goto :goto_1
+    return-object p0
 
     :cond_3
-    const p1, 0x7f040c25
+    const p1, 0x7f040c8c
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
     move-result-object p0
 
-    :goto_1
     return-object p0
 
     :cond_4
     if-eqz p2, :cond_5
 
-    const p1, 0x7f040c21
+    iget-object p1, p0, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->mDevicePolicyManager:Landroid/app/admin/DevicePolicyManager;
 
-    invoke-virtual {p0, p1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
+    invoke-virtual {p1}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
+
+    move-result-object p1
+
+    new-instance p2, Lcom/android/settings/password/ConfirmDeviceCredentialActivity$$ExternalSyntheticLambda5;
+
+    invoke-direct {p2, p0}, Lcom/android/settings/password/ConfirmDeviceCredentialActivity$$ExternalSyntheticLambda5;-><init>(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;)V
+
+    const-string p0, "Settings.WORK_PROFILE_CONFIRM_PATTERN"
+
+    invoke-virtual {p1, p0, p2}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
 
     move-result-object p0
 
-    goto :goto_2
+    return-object p0
 
     :cond_5
-    const p1, 0x7f040c20
+    const p1, 0x7f040c87
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
     move-result-object p0
 
-    :goto_2
     return-object p0
 .end method
 
@@ -299,64 +358,91 @@
     :cond_0
     if-eqz p2, :cond_1
 
-    const p1, 0x7f040c29
+    iget-object p1, p0, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->mDevicePolicyManager:Landroid/app/admin/DevicePolicyManager;
 
-    invoke-virtual {p0, p1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
+    invoke-virtual {p1}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
+
+    move-result-object p1
+
+    new-instance p2, Lcom/android/settings/password/ConfirmDeviceCredentialActivity$$ExternalSyntheticLambda3;
+
+    invoke-direct {p2, p0}, Lcom/android/settings/password/ConfirmDeviceCredentialActivity$$ExternalSyntheticLambda3;-><init>(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;)V
+
+    const-string p0, "Settings.CONFIRM_WORK_PROFILE_PASSWORD_HEADER"
+
+    invoke-virtual {p1, p0, p2}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
 
     move-result-object p0
 
-    goto :goto_0
+    return-object p0
 
     :cond_1
-    const p1, 0x7f040c1d
+    const p1, 0x7f040c84
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
     move-result-object p0
 
-    :goto_0
     return-object p0
 
     :cond_2
     if-eqz p2, :cond_3
 
-    const p1, 0x7f040c2b
+    iget-object p1, p0, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->mDevicePolicyManager:Landroid/app/admin/DevicePolicyManager;
 
-    invoke-virtual {p0, p1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
+    invoke-virtual {p1}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
+
+    move-result-object p1
+
+    new-instance p2, Lcom/android/settings/password/ConfirmDeviceCredentialActivity$$ExternalSyntheticLambda1;
+
+    invoke-direct {p2, p0}, Lcom/android/settings/password/ConfirmDeviceCredentialActivity$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;)V
+
+    const-string p0, "Settings.CONFIRM_WORK_PROFILE_PIN_HEADER"
+
+    invoke-virtual {p1, p0, p2}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
 
     move-result-object p0
 
-    goto :goto_1
+    return-object p0
 
     :cond_3
-    const p1, 0x7f040c27
+    const p1, 0x7f040c8e
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
     move-result-object p0
 
-    :goto_1
     return-object p0
 
     :cond_4
     if-eqz p2, :cond_5
 
-    const p1, 0x7f040c2a
+    iget-object p1, p0, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->mDevicePolicyManager:Landroid/app/admin/DevicePolicyManager;
 
-    invoke-virtual {p0, p1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
+    invoke-virtual {p1}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
+
+    move-result-object p1
+
+    new-instance p2, Lcom/android/settings/password/ConfirmDeviceCredentialActivity$$ExternalSyntheticLambda2;
+
+    invoke-direct {p2, p0}, Lcom/android/settings/password/ConfirmDeviceCredentialActivity$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;)V
+
+    const-string p0, "Settings.CONFIRM_WORK_PROFILE_PATTERN_HEADER"
+
+    invoke-virtual {p1, p0, p2}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
 
     move-result-object p0
 
-    goto :goto_2
+    return-object p0
 
     :cond_5
-    const p1, 0x7f040c22
+    const p1, 0x7f040c89
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
     move-result-object p0
 
-    :goto_2
     return-object p0
 .end method
 
@@ -465,6 +551,78 @@
 
     :goto_1
     return p0
+.end method
+
+.method private synthetic lambda$getDetailsFromCredentialType$4()Ljava/lang/String;
+    .locals 1
+
+    const v0, 0x7f040c8d
+
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private synthetic lambda$getDetailsFromCredentialType$5()Ljava/lang/String;
+    .locals 1
+
+    const v0, 0x7f040c88
+
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private synthetic lambda$getDetailsFromCredentialType$6()Ljava/lang/String;
+    .locals 1
+
+    const v0, 0x7f040c83
+
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private synthetic lambda$getTitleFromCredentialType$1()Ljava/lang/String;
+    .locals 1
+
+    const v0, 0x7f040c92
+
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private synthetic lambda$getTitleFromCredentialType$2()Ljava/lang/String;
+    .locals 1
+
+    const v0, 0x7f040c91
+
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private synthetic lambda$getTitleFromCredentialType$3()Ljava/lang/String;
+    .locals 1
+
+    const v0, 0x7f040c90
+
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method private synthetic lambda$new$0(Ljava/lang/Runnable;)V

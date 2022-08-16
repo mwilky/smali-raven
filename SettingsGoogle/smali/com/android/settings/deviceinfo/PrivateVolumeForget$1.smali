@@ -39,7 +39,7 @@
 
     iget-object p0, p0, Lcom/android/settings/deviceinfo/PrivateVolumeForget$1;->this$0:Lcom/android/settings/deviceinfo/PrivateVolumeForget;
 
-    invoke-static {p0}, Lcom/android/settings/deviceinfo/PrivateVolumeForget;->access$000(Lcom/android/settings/deviceinfo/PrivateVolumeForget;)Landroid/os/storage/VolumeRecord;
+    invoke-static {p0}, Lcom/android/settings/deviceinfo/PrivateVolumeForget;->-$$Nest$fgetmRecord(Lcom/android/settings/deviceinfo/PrivateVolumeForget;)Landroid/os/storage/VolumeRecord;
 
     move-result-object p1
 

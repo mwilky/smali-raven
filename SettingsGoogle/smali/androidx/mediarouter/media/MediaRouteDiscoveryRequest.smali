@@ -12,16 +12,6 @@
 # direct methods
 .method public constructor <init>(Landroidx/mediarouter/media/MediaRouteSelector;Z)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "selector",
-            "activeScan"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -39,7 +29,7 @@
 
     move-result-object p0
 
-    const-string p1, "selector"
+    const-string/jumbo p1, "selector"
 
     invoke-virtual {v0, p1, p0}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
 
@@ -52,7 +42,7 @@
     :cond_0
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string p1, "selector must not be null"
+    const-string/jumbo p1, "selector must not be null"
 
     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
@@ -68,7 +58,7 @@
 
     iget-object v0, p0, Landroidx/mediarouter/media/MediaRouteDiscoveryRequest;->mBundle:Landroid/os/Bundle;
 
-    const-string v1, "selector"
+    const-string/jumbo v1, "selector"
 
     invoke-virtual {v0, v1}, Landroid/os/Bundle;->getBundle(Ljava/lang/String;)Landroid/os/Bundle;
 
@@ -102,14 +92,6 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "o"
-        }
-    .end annotation
 
     instance-of v0, p1, Landroidx/mediarouter/media/MediaRouteDiscoveryRequest;
 

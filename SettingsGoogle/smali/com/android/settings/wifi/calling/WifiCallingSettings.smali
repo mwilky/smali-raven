@@ -1,9 +1,6 @@
 .class public Lcom/android/settings/wifi/calling/WifiCallingSettings;
-.super Lcom/android/settings/core/InstrumentedFragment;
+.super Lcom/android/settings/SettingsPreferenceFragment;
 .source "WifiCallingSettings.java"
-
-# interfaces
-.implements Lcom/android/settings/support/actionbar/HelpResourceProvider;
 
 
 # annotations
@@ -62,6 +59,22 @@
     return p0
 .end method
 
+.method static bridge synthetic -$$Nest$fgetmSil(Lcom/android/settings/wifi/calling/WifiCallingSettings;)Ljava/util/List;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/wifi/calling/WifiCallingSettings;->mSil:Ljava/util/List;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$mupdateTitleForCurrentSub(Lcom/android/settings/wifi/calling/WifiCallingSettings;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/wifi/calling/WifiCallingSettings;->updateTitleForCurrentSub()V
+
+    return-void
+.end method
+
 .method static constructor <clinit>()V
     .locals 1
 
@@ -77,25 +90,9 @@
 .method public constructor <init>()V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/settings/core/InstrumentedFragment;-><init>()V
+    invoke-direct {p0}, Lcom/android/settings/SettingsPreferenceFragment;-><init>()V
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/wifi/calling/WifiCallingSettings;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/wifi/calling/WifiCallingSettings;->updateTitleForCurrentSub()V
-
-    return-void
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/wifi/calling/WifiCallingSettings;)Ljava/util/List;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/wifi/calling/WifiCallingSettings;->mSil:Ljava/util/List;
-
-    return-object p0
 .end method
 
 .method private getConstructionSubId(Landroid/os/Bundle;)I
@@ -343,7 +340,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0415ff
+    const v1, 0x7f0416f8
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -372,9 +369,9 @@
 
     move-result-object p0
 
-    new-instance p1, Lcom/android/settings/wifi/calling/WifiCallingSettings$$ExternalSyntheticLambda0;
+    new-instance p1, Lcom/android/settings/wifi/calling/WifiCallingSettings$$ExternalSyntheticLambda1;
 
-    invoke-direct {p1, p2}, Lcom/android/settings/wifi/calling/WifiCallingSettings$$ExternalSyntheticLambda0;-><init>(I)V
+    invoke-direct {p1, p2}, Lcom/android/settings/wifi/calling/WifiCallingSettings$$ExternalSyntheticLambda1;-><init>(I)V
 
     invoke-interface {p0, p1}, Ljava/util/stream/IntStream;->anyMatch(Ljava/util/function/IntPredicate;)Z
 
@@ -383,47 +380,10 @@
     return p0
 .end method
 
-.method protected finish()V
-    .locals 2
-
-    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
-
-    move-result-object v0
-
-    if-nez v0, :cond_0
-
-    return-void
-
-    :cond_0
-    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getFragmentManager()Landroidx/fragment/app/FragmentManager;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroidx/fragment/app/FragmentManager;->getBackStackEntryCount()I
-
-    move-result v1
-
-    if-lez v1, :cond_1
-
-    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getFragmentManager()Landroidx/fragment/app/FragmentManager;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Landroidx/fragment/app/FragmentManager;->popBackStack()V
-
-    goto :goto_0
-
-    :cond_1
-    invoke-virtual {v0}, Landroid/app/Activity;->finish()V
-
-    :goto_0
-    return-void
-.end method
-
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a12
+    const p0, 0x7f040a69
 
     return p0
 .end method
@@ -479,7 +439,7 @@
 
     iput v0, p0, Lcom/android/settings/wifi/calling/WifiCallingSettings;->mConstructionSubId:I
 
-    invoke-super {p0, p1}, Lcom/android/settingslib/core/lifecycle/ObservableFragment;->onCreate(Landroid/os/Bundle;)V
+    invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
     new-instance p1, Ljava/lang/StringBuilder;
 
@@ -530,7 +490,7 @@
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 1
 
-    const p3, 0x7f0602b5
+    const p3, 0x7f0602c8
 
     const/4 v0, 0x0
 
@@ -538,7 +498,7 @@
 
     move-result-object p1
 
-    const p2, 0x7f0d0516
+    const p2, 0x7f0d0558
 
     invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -548,7 +508,7 @@
 
     iput-object p2, p0, Lcom/android/settings/wifi/calling/WifiCallingSettings;->mTabLayout:Lcom/android/settings/widget/SlidingTabLayout;
 
-    const p2, 0x7f0d0629
+    const p2, 0x7f0d0668
 
     invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -580,7 +540,7 @@
 
     const/4 v0, 0x0
 
-    invoke-direct {p3, p0, v0}, Lcom/android/settings/wifi/calling/WifiCallingSettings$InternalViewPagerListener;-><init>(Lcom/android/settings/wifi/calling/WifiCallingSettings;Lcom/android/settings/wifi/calling/WifiCallingSettings$1;)V
+    invoke-direct {p3, p0, v0}, Lcom/android/settings/wifi/calling/WifiCallingSettings$InternalViewPagerListener;-><init>(Lcom/android/settings/wifi/calling/WifiCallingSettings;Lcom/android/settings/wifi/calling/WifiCallingSettings$InternalViewPagerListener-IA;)V
 
     invoke-virtual {p2, p3}, Landroidx/viewpager/widget/ViewPager;->addOnPageChangeListener(Landroidx/viewpager/widget/ViewPager$OnPageChangeListener;)V
 
@@ -592,7 +552,7 @@
 .method public onSaveInstanceState(Landroid/os/Bundle;)V
     .locals 1
 
-    invoke-super {p0, p1}, Lcom/android/settingslib/core/lifecycle/ObservableFragment;->onSaveInstanceState(Landroid/os/Bundle;)V
+    invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onSaveInstanceState(Landroid/os/Bundle;)V
 
     iget p0, p0, Lcom/android/settings/wifi/calling/WifiCallingSettings;->mConstructionSubId:I
 
@@ -606,7 +566,7 @@
 .method public onStart()V
     .locals 2
 
-    invoke-super {p0}, Lcom/android/settingslib/core/lifecycle/ObservableFragment;->onStart()V
+    invoke-super {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->onStart()V
 
     iget-object v0, p0, Lcom/android/settings/wifi/calling/WifiCallingSettings;->mSil:Ljava/util/List;
 
@@ -658,7 +618,7 @@
     invoke-virtual {v0}, Lcom/android/settings/network/ActiveSubscriptionsListener;->stop()V
 
     :cond_0
-    invoke-super {p0}, Lcom/android/settingslib/core/lifecycle/ObservableFragment;->onStop()V
+    invoke-super {p0}, Lcom/android/settingslib/core/lifecycle/ObservablePreferenceFragment;->onStop()V
 
     return-void
 .end method
@@ -779,7 +739,7 @@
     iput-object p1, p0, Lcom/android/settings/wifi/calling/WifiCallingSettings;->mSubscriptionChangeListener:Lcom/android/settings/network/ActiveSubscriptionsListener;
 
     :cond_4
-    invoke-virtual {p0}, Lcom/android/settings/wifi/calling/WifiCallingSettings;->finish()V
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->finishFragment()V
 
     return-void
 .end method
@@ -820,7 +780,9 @@
 
     move-result-object p0
 
-    sget-object p1, Lcom/android/settings/wifi/calling/WifiCallingSettings$$ExternalSyntheticLambda1;->INSTANCE:Lcom/android/settings/wifi/calling/WifiCallingSettings$$ExternalSyntheticLambda1;
+    new-instance p1, Lcom/android/settings/wifi/calling/WifiCallingSettings$$ExternalSyntheticLambda0;
+
+    invoke-direct {p1}, Lcom/android/settings/wifi/calling/WifiCallingSettings$$ExternalSyntheticLambda0;-><init>()V
 
     invoke-interface {p0, p1}, Ljava/util/stream/Stream;->mapToInt(Ljava/util/function/ToIntFunction;)Ljava/util/stream/IntStream;
 

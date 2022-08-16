@@ -20,7 +20,7 @@
 
 .field private static final SAVE_HIGHLIGHTED_KEY:Ljava/lang/String; = "android:preference_highlighted"
 
-.field private static final TAG:Ljava/lang/String; = "SettingsPreference"
+.field private static final TAG:Ljava/lang/String; = "SettingsPreferenceFragment"
 
 
 # instance fields
@@ -35,6 +35,8 @@
 .field private mCurrentRootAdapter:Landroidx/recyclerview/widget/RecyclerView$Adapter;
 
 .field private mDataSetObserver:Landroidx/recyclerview/widget/RecyclerView$AdapterDataObserver;
+
+.field protected mDevicePolicyManager:Landroid/app/admin/DevicePolicyManager;
 
 .field private mDialogFragment:Lcom/android/settings/SettingsPreferenceFragment$SettingsDialogFragment;
 
@@ -63,6 +65,52 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$FFGWfeURtkj7jyyhK9ecnRScHcw(Lcom/android/settings/SettingsPreferenceFragment;I)Ljava/lang/String;
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->lambda$replaceEnterpriseStringSummary$1(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static synthetic $r8$lambda$_jaSzET1U39YQUPgZKPm1DARJVc(Lcom/android/settings/SettingsPreferenceFragment;I)Ljava/lang/String;
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->lambda$replaceEnterprisePreferenceScreenTitle$0(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static synthetic $r8$lambda$xn8tk0_VDqb2zXmnJ9mYMK0yLZc(Lcom/android/settings/SettingsPreferenceFragment;I)Ljava/lang/String;
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->lambda$replaceEnterpriseStringTitle$2(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmDialogFragment(Lcom/android/settings/SettingsPreferenceFragment;)Lcom/android/settings/SettingsPreferenceFragment$SettingsDialogFragment;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/SettingsPreferenceFragment;->mDialogFragment:Lcom/android/settings/SettingsPreferenceFragment$SettingsDialogFragment;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmDialogFragment(Lcom/android/settings/SettingsPreferenceFragment;Lcom/android/settings/SettingsPreferenceFragment$SettingsDialogFragment;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/settings/SettingsPreferenceFragment;->mDialogFragment:Lcom/android/settings/SettingsPreferenceFragment$SettingsDialogFragment;
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 2
 
@@ -81,22 +129,6 @@
     iput-boolean v0, p0, Lcom/android/settings/SettingsPreferenceFragment;->mPreferenceHighlighted:Z
 
     return-void
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/SettingsPreferenceFragment;)Lcom/android/settings/SettingsPreferenceFragment$SettingsDialogFragment;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/SettingsPreferenceFragment;->mDialogFragment:Lcom/android/settings/SettingsPreferenceFragment$SettingsDialogFragment;
-
-    return-object p0
-.end method
-
-.method static synthetic access$202(Lcom/android/settings/SettingsPreferenceFragment;Lcom/android/settings/SettingsPreferenceFragment$SettingsDialogFragment;)Lcom/android/settings/SettingsPreferenceFragment$SettingsDialogFragment;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/settings/SettingsPreferenceFragment;->mDialogFragment:Lcom/android/settings/SettingsPreferenceFragment$SettingsDialogFragment;
-
-    return-object p1
 .end method
 
 .method private addPreferenceToTop(Lcom/android/settingslib/widget/LayoutPreference;)V
@@ -120,6 +152,36 @@
 
     :cond_0
     return-void
+.end method
+
+.method private synthetic lambda$replaceEnterprisePreferenceScreenTitle$0(I)Ljava/lang/String;
+    .locals 0
+
+    invoke-virtual {p0, p1}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private synthetic lambda$replaceEnterpriseStringSummary$1(I)Ljava/lang/String;
+    .locals 0
+
+    invoke-virtual {p0, p1}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private synthetic lambda$replaceEnterpriseStringTitle$2(I)Ljava/lang/String;
+    .locals 0
+
+    invoke-virtual {p0, p1}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 
@@ -616,6 +678,63 @@
     return-void
 .end method
 
+.method public onAttach(Landroid/content/Context;)V
+    .locals 2
+
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->shouldSkipForInitialSUW()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/google/android/setupcompat/util/WizardManagerHelper;->isDeviceProvisioned(Landroid/content/Context;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "Skip "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v1, " before SUW completed."
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "SettingsPreferenceFragment"
+
+    invoke-static {v1, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->finish()V
+
+    :cond_0
+    invoke-super {p0, p1}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->onAttach(Landroid/content/Context;)V
+
+    return-void
+.end method
+
 .method protected onBindPreferences()V
     .locals 0
 
@@ -625,9 +744,23 @@
 .end method
 
 .method public onCreate(Landroid/os/Bundle;)V
-    .locals 1
+    .locals 2
 
     invoke-super {p0, p1}, Lcom/android/settingslib/core/lifecycle/ObservablePreferenceFragment;->onCreate(Landroid/os/Bundle;)V
+
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    const-class v1, Landroid/app/admin/DevicePolicyManager;
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/app/admin/DevicePolicyManager;
+
+    iput-object v0, p0, Lcom/android/settings/SettingsPreferenceFragment;->mDevicePolicyManager:Landroid/app/admin/DevicePolicyManager;
 
     if-eqz p1, :cond_0
 
@@ -708,7 +841,7 @@
 
     move-result-object p1
 
-    const p2, 0x7f0d0446
+    const p2, 0x7f0d0476
 
     invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -722,7 +855,7 @@
 
     move-result-object p2
 
-    const p3, 0x7f0d0090
+    const p3, 0x7f0d0092
 
     invoke-virtual {p2, p3}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -1092,6 +1225,130 @@
     return p0
 .end method
 
+.method protected replaceEnterprisePreferenceScreenTitle(Ljava/lang/String;I)V
+    .locals 3
+
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/settings/SettingsPreferenceFragment;->mDevicePolicyManager:Landroid/app/admin/DevicePolicyManager;
+
+    invoke-virtual {v1}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
+
+    move-result-object v1
+
+    new-instance v2, Lcom/android/settings/SettingsPreferenceFragment$$ExternalSyntheticLambda2;
+
+    invoke-direct {v2, p0, p2}, Lcom/android/settings/SettingsPreferenceFragment$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/SettingsPreferenceFragment;I)V
+
+    invoke-virtual {v1, p1, v2}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {v0, p0}, Landroid/app/Activity;->setTitle(Ljava/lang/CharSequence;)V
+
+    return-void
+.end method
+
+.method protected replaceEnterpriseStringSummary(Ljava/lang/String;Ljava/lang/String;I)V
+    .locals 2
+
+    invoke-virtual {p0, p1}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
+
+    move-result-object v0
+
+    if-nez v0, :cond_0
+
+    new-instance p0, Ljava/lang/StringBuilder;
+
+    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string p2, "Could not find enterprise preference "
+
+    invoke-virtual {p0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    const-string p1, "SettingsPreferenceFragment"
+
+    invoke-static {p1, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_0
+    iget-object p1, p0, Lcom/android/settings/SettingsPreferenceFragment;->mDevicePolicyManager:Landroid/app/admin/DevicePolicyManager;
+
+    invoke-virtual {p1}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
+
+    move-result-object p1
+
+    new-instance v1, Lcom/android/settings/SettingsPreferenceFragment$$ExternalSyntheticLambda0;
+
+    invoke-direct {v1, p0, p3}, Lcom/android/settings/SettingsPreferenceFragment$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/SettingsPreferenceFragment;I)V
+
+    invoke-virtual {p1, p2, v1}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {v0, p0}, Landroidx/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
+
+    return-void
+.end method
+
+.method protected replaceEnterpriseStringTitle(Ljava/lang/String;Ljava/lang/String;I)V
+    .locals 2
+
+    invoke-virtual {p0, p1}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
+
+    move-result-object v0
+
+    if-nez v0, :cond_0
+
+    new-instance p0, Ljava/lang/StringBuilder;
+
+    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string p2, "Could not find enterprise preference "
+
+    invoke-virtual {p0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    const-string p1, "SettingsPreferenceFragment"
+
+    invoke-static {p1, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_0
+    iget-object p1, p0, Lcom/android/settings/SettingsPreferenceFragment;->mDevicePolicyManager:Landroid/app/admin/DevicePolicyManager;
+
+    invoke-virtual {p1}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
+
+    move-result-object p1
+
+    new-instance v1, Lcom/android/settings/SettingsPreferenceFragment$$ExternalSyntheticLambda1;
+
+    invoke-direct {v1, p0, p3}, Lcom/android/settings/SettingsPreferenceFragment$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/SettingsPreferenceFragment;I)V
+
+    invoke-virtual {p1, p2, v1}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {v0, p0}, Landroidx/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
+
+    return-void
+.end method
+
 .method protected setAnimationAllowed(Z)V
     .locals 0
 
@@ -1174,7 +1431,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0338
+    const v1, 0x7f0d0364
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1198,7 +1455,7 @@
 
     if-eqz p0, :cond_0
 
-    invoke-static {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment$SettingsDialogFragment;->access$002(Lcom/android/settings/SettingsPreferenceFragment$SettingsDialogFragment;Landroid/content/DialogInterface$OnCancelListener;)Landroid/content/DialogInterface$OnCancelListener;
+    invoke-static {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment$SettingsDialogFragment;->-$$Nest$fputmOnCancelListener(Lcom/android/settings/SettingsPreferenceFragment$SettingsDialogFragment;Landroid/content/DialogInterface$OnCancelListener;)V
 
     :cond_0
     return-void
@@ -1211,7 +1468,7 @@
 
     if-eqz p0, :cond_0
 
-    invoke-static {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment$SettingsDialogFragment;->access$102(Lcom/android/settings/SettingsPreferenceFragment$SettingsDialogFragment;Landroid/content/DialogInterface$OnDismissListener;)Landroid/content/DialogInterface$OnDismissListener;
+    invoke-static {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment$SettingsDialogFragment;->-$$Nest$fputmOnDismissListener(Lcom/android/settings/SettingsPreferenceFragment$SettingsDialogFragment;Landroid/content/DialogInterface$OnDismissListener;)V
 
     :cond_0
     return-void
@@ -1329,6 +1586,14 @@
     return-void
 .end method
 
+.method protected shouldSkipForInitialSUW()Z
+    .locals 0
+
+    const/4 p0, 0x0
+
+    return p0
+.end method
+
 .method protected showDialog(I)V
     .locals 2
 
@@ -1336,7 +1601,7 @@
 
     if-eqz v0, :cond_0
 
-    const-string v0, "SettingsPreference"
+    const-string v0, "SettingsPreferenceFragment"
 
     const-string v1, "Old dialog fragment not null!"
 

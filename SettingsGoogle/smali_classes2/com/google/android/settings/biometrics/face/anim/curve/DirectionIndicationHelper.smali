@@ -394,19 +394,15 @@
 
     if-ge p0, v1, :cond_1
 
-    aget-object v1, v0, p0
+    aget-object v0, v0, p0
 
-    aget v1, v1, v2
+    aget v0, v0, v2
 
-    aget-boolean v1, p1, v1
+    aget-boolean v1, p1, v0
 
     if-nez v1, :cond_0
 
-    aget-object p0, v0, p0
-
-    aget p0, p0, v2
-
-    return p0
+    return v0
 
     :cond_0
     add-int/lit8 p0, p0, 0x1
@@ -433,17 +429,15 @@
 
     if-ge v0, v2, :cond_1
 
-    aget-object v2, v1, v0
+    aget-object v1, v1, v0
 
-    aget v2, v2, v3
+    aget v2, v1, v3
 
     aget-boolean v2, p1, v2
 
     if-nez v2, :cond_0
 
-    aget-object p1, v1, v0
-
-    aget p0, p1, p0
+    aget p0, v1, p0
 
     return p0
 

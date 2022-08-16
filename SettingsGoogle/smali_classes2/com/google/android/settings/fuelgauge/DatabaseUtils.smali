@@ -178,37 +178,32 @@
 
     const-wide/high16 v4, -0x8000000000000000L
 
-    cmp-long p0, p0, v4
+    cmp-long p2, p0, v4
 
-    const-wide/16 p1, 0x0
+    const-wide/16 v4, 0x0
 
-    if-nez p0, :cond_3
+    if-nez p2, :cond_3
 
-    move-wide v4, p1
+    move-wide p0, v4
+
+    :cond_3
+    aput-wide p0, v0, v3
+
+    aget-wide p0, v0, v2
+
+    const-wide v6, 0x7fffffffffffffffL
+
+    cmp-long p2, p0, v6
+
+    if-nez p2, :cond_4
 
     goto :goto_1
 
-    :cond_3
-    aget-wide v4, v0, v3
+    :cond_4
+    move-wide v4, p0
 
     :goto_1
-    aput-wide v4, v0, v3
-
-    aget-wide v3, v0, v2
-
-    const-wide v5, 0x7fffffffffffffffL
-
-    cmp-long p0, v3, v5
-
-    if-nez p0, :cond_4
-
-    goto :goto_2
-
-    :cond_4
-    aget-wide p1, v0, v2
-
-    :goto_2
-    aput-wide p1, v0, v2
+    aput-wide v4, v0, v2
 
     return-object v0
 
@@ -1360,13 +1355,15 @@
 
     move-result-object v5
 
-    sget-object v6, Lcom/google/android/settings/fuelgauge/DatabaseUtils$$ExternalSyntheticLambda1;->INSTANCE:Lcom/google/android/settings/fuelgauge/DatabaseUtils$$ExternalSyntheticLambda1;
+    new-instance v6, Lcom/google/android/settings/fuelgauge/DatabaseUtils$$ExternalSyntheticLambda0;
+
+    invoke-direct {v6}, Lcom/google/android/settings/fuelgauge/DatabaseUtils$$ExternalSyntheticLambda0;-><init>()V
 
     invoke-interface {v5, v6}, Ljava/util/stream/Stream;->filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
 
     move-result-object v11
 
-    new-instance v12, Lcom/google/android/settings/fuelgauge/DatabaseUtils$$ExternalSyntheticLambda0;
+    new-instance v12, Lcom/google/android/settings/fuelgauge/DatabaseUtils$$ExternalSyntheticLambda1;
 
     move-object v5, v12
 
@@ -1394,7 +1391,7 @@
 
     move-wide/from16 v13, v17
 
-    invoke-direct/range {v5 .. v14}, Lcom/google/android/settings/fuelgauge/DatabaseUtils$$ExternalSyntheticLambda0;-><init>(Ljava/util/List;Landroid/os/BatteryUsageStats;IIIJJ)V
+    invoke-direct/range {v5 .. v14}, Lcom/google/android/settings/fuelgauge/DatabaseUtils$$ExternalSyntheticLambda1;-><init>(Ljava/util/List;Landroid/os/BatteryUsageStats;IIIJJ)V
 
     invoke-interface {v3, v1}, Ljava/util/stream/Stream;->forEach(Ljava/util/function/Consumer;)V
 

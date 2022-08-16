@@ -341,7 +341,7 @@
 .end method
 
 .method public show(II)V
-    .locals 4
+    .locals 3
 
     invoke-virtual {p0}, Landroidx/appcompat/widget/ListPopupWindow;->isShowing()Z
 
@@ -363,17 +363,10 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/ListView;->setChoiceMode(I)V
 
-    sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v3, 0x11
-
-    if-lt v2, v3, :cond_0
-
     invoke-virtual {v1, p1}, Landroid/widget/ListView;->setTextDirection(I)V
 
     invoke-virtual {v1, p2}, Landroid/widget/ListView;->setTextAlignment(I)V
 
-    :cond_0
     iget-object p1, p0, Landroidx/appcompat/widget/AppCompatSpinner$DropdownPopup;->this$0:Landroidx/appcompat/widget/AppCompatSpinner;
 
     invoke-virtual {p1}, Landroid/widget/Spinner;->getSelectedItemPosition()I
@@ -382,18 +375,18 @@
 
     invoke-virtual {p0, p1}, Landroidx/appcompat/widget/ListPopupWindow;->setSelection(I)V
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     return-void
 
-    :cond_1
+    :cond_0
     iget-object p1, p0, Landroidx/appcompat/widget/AppCompatSpinner$DropdownPopup;->this$0:Landroidx/appcompat/widget/AppCompatSpinner;
 
     invoke-virtual {p1}, Landroid/widget/Spinner;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
 
     move-result-object p1
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_1
 
     new-instance p2, Landroidx/appcompat/widget/AppCompatSpinner$DropdownPopup$2;
 
@@ -407,6 +400,6 @@
 
     invoke-virtual {p0, p1}, Landroidx/appcompat/widget/ListPopupWindow;->setOnDismissListener(Landroid/widget/PopupWindow$OnDismissListener;)V
 
-    :cond_2
+    :cond_1
     return-void
 .end method

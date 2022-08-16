@@ -116,7 +116,7 @@
 
     iget-object p0, p0, Lcom/android/settings/MainClearConfirm$1;->this$0:Lcom/android/settings/MainClearConfirm;
 
-    invoke-static {p0}, Lcom/android/settings/MainClearConfirm;->access$000(Lcom/android/settings/MainClearConfirm;)V
+    invoke-static {p0}, Lcom/android/settings/MainClearConfirm;->-$$Nest$mdoMainClear(Lcom/android/settings/MainClearConfirm;)V
 
     :cond_0
     return-void
@@ -127,7 +127,7 @@
 
     iget-object v0, p0, Lcom/android/settings/MainClearConfirm$1$1;->this$1:Lcom/android/settings/MainClearConfirm$1;
 
-    invoke-static {v0}, Lcom/android/settings/MainClearConfirm$1;->access$100(Lcom/android/settings/MainClearConfirm$1;)Landroid/app/ProgressDialog;
+    invoke-static {v0}, Lcom/android/settings/MainClearConfirm$1;->-$$Nest$mgetProgressDialog(Lcom/android/settings/MainClearConfirm$1;)Landroid/app/ProgressDialog;
 
     move-result-object v0
 

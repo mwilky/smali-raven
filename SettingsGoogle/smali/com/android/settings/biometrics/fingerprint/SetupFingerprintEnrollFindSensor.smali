@@ -45,7 +45,7 @@
 
     iget v1, p0, Lcom/android/settings/biometrics/BiometricEnrollBase;->mSensorId:I
 
-    const-string v2, "sensor_id"
+    const-string/jumbo v2, "sensor_id"
 
     invoke-virtual {v0, v2, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 

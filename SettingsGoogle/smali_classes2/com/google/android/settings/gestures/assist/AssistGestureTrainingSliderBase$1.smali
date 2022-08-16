@@ -73,7 +73,7 @@
 
     iget-object p0, p0, Lcom/google/android/settings/gestures/assist/AssistGestureTrainingSliderBase$1;->this$0:Lcom/google/android/settings/gestures/assist/AssistGestureTrainingSliderBase;
 
-    invoke-static {p0, p1}, Lcom/google/android/settings/gestures/assist/AssistGestureTrainingSliderBase;->access$300(Lcom/google/android/settings/gestures/assist/AssistGestureTrainingSliderBase;Landroid/view/View;)V
+    invoke-static {p0, p1}, Lcom/google/android/settings/gestures/assist/AssistGestureTrainingSliderBase;->-$$Nest$mfadeOutView(Lcom/google/android/settings/gestures/assist/AssistGestureTrainingSliderBase;Landroid/view/View;)V
 
     goto :goto_0
 
@@ -84,14 +84,14 @@
 
     iget-object p0, p0, Lcom/google/android/settings/gestures/assist/AssistGestureTrainingSliderBase$1;->this$0:Lcom/google/android/settings/gestures/assist/AssistGestureTrainingSliderBase;
 
-    invoke-static {p0, p1}, Lcom/google/android/settings/gestures/assist/AssistGestureTrainingSliderBase;->access$200(Lcom/google/android/settings/gestures/assist/AssistGestureTrainingSliderBase;Landroid/view/View;)V
+    invoke-static {p0, p1}, Lcom/google/android/settings/gestures/assist/AssistGestureTrainingSliderBase;->-$$Nest$mfadeInView(Lcom/google/android/settings/gestures/assist/AssistGestureTrainingSliderBase;Landroid/view/View;)V
 
     goto :goto_0
 
     :pswitch_4
     iget-object p0, p0, Lcom/google/android/settings/gestures/assist/AssistGestureTrainingSliderBase$1;->this$0:Lcom/google/android/settings/gestures/assist/AssistGestureTrainingSliderBase;
 
-    invoke-static {p0}, Lcom/google/android/settings/gestures/assist/AssistGestureTrainingSliderBase;->access$000(Lcom/google/android/settings/gestures/assist/AssistGestureTrainingSliderBase;)V
+    invoke-static {p0}, Lcom/google/android/settings/gestures/assist/AssistGestureTrainingSliderBase;->-$$Nest$mclearMessage(Lcom/google/android/settings/gestures/assist/AssistGestureTrainingSliderBase;)V
 
     goto :goto_0
 
@@ -100,7 +100,7 @@
 
     iget v1, p1, Landroid/os/Message;->arg1:I
 
-    invoke-static {v0, v1}, Lcom/google/android/settings/gestures/assist/AssistGestureTrainingSliderBase;->access$100(Lcom/google/android/settings/gestures/assist/AssistGestureTrainingSliderBase;I)Ljava/lang/String;
+    invoke-static {v0, v1}, Lcom/google/android/settings/gestures/assist/AssistGestureTrainingSliderBase;->-$$Nest$mgetErrorString(Lcom/google/android/settings/gestures/assist/AssistGestureTrainingSliderBase;I)Ljava/lang/String;
 
     move-result-object v0
 
@@ -115,7 +115,7 @@
     :pswitch_6
     iget-object p1, p0, Lcom/google/android/settings/gestures/assist/AssistGestureTrainingSliderBase$1;->this$0:Lcom/google/android/settings/gestures/assist/AssistGestureTrainingSliderBase;
 
-    invoke-static {p1}, Lcom/google/android/settings/gestures/assist/AssistGestureTrainingSliderBase;->access$000(Lcom/google/android/settings/gestures/assist/AssistGestureTrainingSliderBase;)V
+    invoke-static {p1}, Lcom/google/android/settings/gestures/assist/AssistGestureTrainingSliderBase;->-$$Nest$mclearMessage(Lcom/google/android/settings/gestures/assist/AssistGestureTrainingSliderBase;)V
 
     iget-object p0, p0, Lcom/google/android/settings/gestures/assist/AssistGestureTrainingSliderBase$1;->this$0:Lcom/google/android/settings/gestures/assist/AssistGestureTrainingSliderBase;
 

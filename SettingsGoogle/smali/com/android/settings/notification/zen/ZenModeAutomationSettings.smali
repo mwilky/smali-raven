@@ -20,12 +20,38 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmDeleteDialogChecked(Lcom/android/settings/notification/zen/ZenModeAutomationSettings;)[Z
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/notification/zen/ZenModeAutomationSettings;->mDeleteDialogChecked:[Z
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmDeleteDialogRuleIds(Lcom/android/settings/notification/zen/ZenModeAutomationSettings;)[Ljava/lang/String;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/notification/zen/ZenModeAutomationSettings;->mDeleteDialogRuleIds:[Ljava/lang/String;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$smbuildPreferenceControllers(Landroid/content/Context;Landroidx/fragment/app/Fragment;Lcom/android/settings/utils/ZenServiceListing;Lcom/android/settingslib/core/lifecycle/Lifecycle;)Ljava/util/List;
+    .locals 0
+
+    invoke-static {p0, p1, p2, p3}, Lcom/android/settings/notification/zen/ZenModeAutomationSettings;->buildPreferenceControllers(Landroid/content/Context;Landroidx/fragment/app/Fragment;Lcom/android/settings/utils/ZenServiceListing;Lcom/android/settingslib/core/lifecycle/Lifecycle;)Ljava/util/List;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method static constructor <clinit>()V
     .locals 2
 
     new-instance v0, Lcom/android/settings/notification/zen/ZenModeAutomationSettings$3;
 
-    const v1, 0x7f15011f
+    const v1, 0x7f150127
 
     invoke-direct {v0, v1}, Lcom/android/settings/notification/zen/ZenModeAutomationSettings$3;-><init>(I)V
 
@@ -50,32 +76,6 @@
     iput v0, p0, Lcom/android/settings/notification/zen/ZenModeAutomationSettings;->DELETE_RULES:I
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/notification/zen/ZenModeAutomationSettings;)[Z
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/notification/zen/ZenModeAutomationSettings;->mDeleteDialogChecked:[Z
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/notification/zen/ZenModeAutomationSettings;)[Ljava/lang/String;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/notification/zen/ZenModeAutomationSettings;->mDeleteDialogRuleIds:[Ljava/lang/String;
-
-    return-object p0
-.end method
-
-.method static synthetic access$200(Landroid/content/Context;Landroidx/fragment/app/Fragment;Lcom/android/settings/utils/ZenServiceListing;Lcom/android/settingslib/core/lifecycle/Lifecycle;)Ljava/util/List;
-    .locals 0
-
-    invoke-static {p0, p1, p2, p3}, Lcom/android/settings/notification/zen/ZenModeAutomationSettings;->buildPreferenceControllers(Landroid/content/Context;Landroidx/fragment/app/Fragment;Lcom/android/settings/utils/ZenServiceListing;Lcom/android/settingslib/core/lifecycle/Lifecycle;)Ljava/util/List;
-
-    move-result-object p0
-
-    return-object p0
 .end method
 
 .method private static buildPreferenceControllers(Landroid/content/Context;Landroidx/fragment/app/Fragment;Lcom/android/settings/utils/ZenServiceListing;Lcom/android/settingslib/core/lifecycle/Lifecycle;)Ljava/util/List;
@@ -206,7 +206,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f15011f
+    const p0, 0x7f150127
 
     return p0
 .end method
@@ -251,7 +251,7 @@
 
     const/4 v1, 0x1
 
-    const v2, 0x7f04181f
+    const v2, 0x7f04191a
 
     invoke-interface {p1, v0, v1, v0, v2}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -348,7 +348,7 @@
 
     invoke-direct {v0, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f04181f
+    const v2, 0x7f04191a
 
     invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -366,7 +366,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f041876
+    const v2, 0x7f041974
 
     new-instance v3, Lcom/android/settings/notification/zen/ZenModeAutomationSettings$1;
 

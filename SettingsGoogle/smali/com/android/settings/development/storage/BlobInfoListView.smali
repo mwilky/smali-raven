@@ -30,20 +30,20 @@
     return-void
 .end method
 
+.method static bridge synthetic -$$Nest$fgetmInflater(Lcom/android/settings/development/storage/BlobInfoListView;)Landroid/view/LayoutInflater;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/development/storage/BlobInfoListView;->mInflater:Landroid/view/LayoutInflater;
+
+    return-object p0
+.end method
+
 .method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Landroid/app/ListActivity;-><init>()V
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/development/storage/BlobInfoListView;)Landroid/view/LayoutInflater;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/development/storage/BlobInfoListView;->mInflater:Landroid/view/LayoutInflater;
-
-    return-object p0
 .end method
 
 .method private getDialogOnClickListener(Landroid/app/blob/BlobInfo;)Landroid/content/DialogInterface$OnClickListener;
@@ -93,7 +93,7 @@
 
     invoke-static {p2, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    const p1, 0x7f04120d
+    const p1, 0x7f0412c2
 
     const/4 p2, 0x1
 
@@ -154,7 +154,7 @@
 
     invoke-static {v1, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v0, 0x7f041210
+    const v0, 0x7f0412c5
 
     const/4 v1, 0x1
 
@@ -179,7 +179,7 @@
 
     invoke-direct {v0, v1}, Landroidx/appcompat/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f04120e
+    const v1, 0x7f0412c3
 
     invoke-virtual {v0, v1}, Landroidx/appcompat/app/AlertDialog$Builder;->setMessage(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
@@ -227,7 +227,7 @@
 
     if-ne p2, p1, :cond_0
 
-    const p1, 0x7f04120d
+    const p1, 0x7f0412c2
 
     const/4 p2, 0x1
 

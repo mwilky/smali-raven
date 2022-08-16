@@ -107,7 +107,7 @@
 
     aget-object v11, p1, v10
 
-    invoke-static {v11}, Lcom/android/settings/utils/AnnotationSpan$LinkInfo;->access$000(Lcom/android/settings/utils/AnnotationSpan$LinkInfo;)Ljava/lang/String;
+    invoke-static {v11}, Lcom/android/settings/utils/AnnotationSpan$LinkInfo;->-$$Nest$fgetmAnnotation(Lcom/android/settings/utils/AnnotationSpan$LinkInfo;)Ljava/lang/String;
 
     move-result-object v12
 
@@ -119,7 +119,7 @@
 
     new-instance v8, Lcom/android/settings/utils/AnnotationSpan;
 
-    invoke-static {v11}, Lcom/android/settings/utils/AnnotationSpan$LinkInfo;->access$100(Lcom/android/settings/utils/AnnotationSpan$LinkInfo;)Landroid/view/View$OnClickListener;
+    invoke-static {v11}, Lcom/android/settings/utils/AnnotationSpan$LinkInfo;->-$$Nest$fgetmListener(Lcom/android/settings/utils/AnnotationSpan$LinkInfo;)Landroid/view/View$OnClickListener;
 
     move-result-object v6
 

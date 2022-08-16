@@ -36,7 +36,7 @@
 
     iget-object p1, p0, Lcom/android/settings/gestures/LongPressPowerSensitivityPreferenceController$1;->this$0:Lcom/android/settings/gestures/LongPressPowerSensitivityPreferenceController;
 
-    invoke-static {p1}, Lcom/android/settings/gestures/LongPressPowerSensitivityPreferenceController;->access$000(Lcom/android/settings/gestures/LongPressPowerSensitivityPreferenceController;)Lcom/android/settings/widget/LabeledSeekBarPreference;
+    invoke-static {p1}, Lcom/android/settings/gestures/LongPressPowerSensitivityPreferenceController;->-$$Nest$fgetmPreference(Lcom/android/settings/gestures/LongPressPowerSensitivityPreferenceController;)Lcom/android/settings/widget/LabeledSeekBarPreference;
 
     move-result-object p1
 
@@ -44,7 +44,7 @@
 
     iget-object p0, p0, Lcom/android/settings/gestures/LongPressPowerSensitivityPreferenceController$1;->this$0:Lcom/android/settings/gestures/LongPressPowerSensitivityPreferenceController;
 
-    invoke-static {p0}, Lcom/android/settings/gestures/LongPressPowerSensitivityPreferenceController;->access$000(Lcom/android/settings/gestures/LongPressPowerSensitivityPreferenceController;)Lcom/android/settings/widget/LabeledSeekBarPreference;
+    invoke-static {p0}, Lcom/android/settings/gestures/LongPressPowerSensitivityPreferenceController;->-$$Nest$fgetmPreference(Lcom/android/settings/gestures/LongPressPowerSensitivityPreferenceController;)Lcom/android/settings/widget/LabeledSeekBarPreference;
 
     move-result-object p1
 

@@ -45,7 +45,7 @@
 
     iget-object p0, p0, Lcom/android/settings/wifi/tether/WifiTetherBasePreferenceController;->mPreference:Landroidx/preference/Preference;
 
-    const v0, 0x7f0413e6
+    const v0, 0x7f0414e0
 
     invoke-virtual {p0, v0}, Landroidx/preference/Preference;->setTitle(I)V
 
@@ -54,7 +54,7 @@
     :cond_0
     iget-object p0, p0, Lcom/android/settings/wifi/tether/WifiTetherBasePreferenceController;->mPreference:Landroidx/preference/Preference;
 
-    const v0, 0x7f0413e5
+    const v0, 0x7f0414df
 
     invoke-virtual {p0, v0}, Landroidx/preference/Preference;->setTitle(I)V
 

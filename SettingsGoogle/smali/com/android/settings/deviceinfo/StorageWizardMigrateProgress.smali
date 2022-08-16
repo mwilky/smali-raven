@@ -10,6 +10,14 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmMoveId(Lcom/android/settings/deviceinfo/StorageWizardMigrateProgress;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/settings/deviceinfo/StorageWizardMigrateProgress;->mMoveId:I
+
+    return p0
+.end method
+
 .method public constructor <init>()V
     .locals 1
 
@@ -22,14 +30,6 @@
     iput-object v0, p0, Lcom/android/settings/deviceinfo/StorageWizardMigrateProgress;->mCallback:Landroid/content/pm/PackageManager$MoveCallback;
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/deviceinfo/StorageWizardMigrateProgress;)I
-    .locals 0
-
-    iget p0, p0, Lcom/android/settings/deviceinfo/StorageWizardMigrateProgress;->mMoveId:I
-
-    return p0
 .end method
 
 
@@ -48,7 +48,7 @@
     return-void
 
     :cond_0
-    const p1, 0x7f06022a
+    const p1, 0x7f060236
 
     invoke-virtual {p0, p1}, Lcom/android/settings/deviceinfo/StorageWizardBase;->setContentView(I)V
 
@@ -66,11 +66,11 @@
 
     iput p1, p0, Lcom/android/settings/deviceinfo/StorageWizardMigrateProgress;->mMoveId:I
 
-    const p1, 0x7f020384
+    const p1, 0x7f0203a9
 
     invoke-virtual {p0, p1}, Lcom/android/settings/deviceinfo/StorageWizardBase;->setIcon(I)V
 
-    const p1, 0x7f041359
+    const p1, 0x7f04141c
 
     const/4 v0, 0x0
 

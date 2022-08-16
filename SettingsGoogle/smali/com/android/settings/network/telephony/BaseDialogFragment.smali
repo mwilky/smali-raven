@@ -1,5 +1,5 @@
 .class public abstract Lcom/android/settings/network/telephony/BaseDialogFragment;
-.super Landroid/app/DialogFragment;
+.super Landroidx/fragment/app/DialogFragment;
 .source "BaseDialogFragment.java"
 
 
@@ -7,12 +7,12 @@
 .method public constructor <init>()V
     .locals 0
 
-    invoke-direct {p0}, Landroid/app/DialogFragment;-><init>()V
+    invoke-direct {p0}, Landroidx/fragment/app/DialogFragment;-><init>()V
 
     return-void
 .end method
 
-.method private static checkValidity(Landroid/app/Activity;Landroid/app/Fragment;Ljava/lang/Class;)V
+.method private static checkValidity(Landroid/app/Activity;Landroidx/fragment/app/Fragment;Ljava/lang/Class;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -20,7 +20,7 @@
             "Ljava/lang/Object;",
             ">(",
             "Landroid/app/Activity;",
-            "Landroid/app/Fragment;",
+            "Landroidx/fragment/app/Fragment;",
             "Ljava/lang/Class<",
             "TT;>;)V"
         }
@@ -65,7 +65,7 @@
     throw p0
 .end method
 
-.method protected static setListener(Landroid/app/Activity;Landroid/app/Fragment;Ljava/lang/Class;ILandroid/os/Bundle;)V
+.method protected static setListener(Landroid/app/Activity;Landroidx/fragment/app/Fragment;Ljava/lang/Class;ILandroid/os/Bundle;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -73,7 +73,7 @@
             "Ljava/lang/Object;",
             ">(",
             "Landroid/app/Activity;",
-            "Landroid/app/Fragment;",
+            "Landroidx/fragment/app/Fragment;",
             "Ljava/lang/Class<",
             "TT;>;I",
             "Landroid/os/Bundle;",
@@ -81,11 +81,11 @@
         }
     .end annotation
 
-    invoke-static {p0, p1, p2}, Lcom/android/settings/network/telephony/BaseDialogFragment;->checkValidity(Landroid/app/Activity;Landroid/app/Fragment;Ljava/lang/Class;)V
+    invoke-static {p0, p1, p2}, Lcom/android/settings/network/telephony/BaseDialogFragment;->checkValidity(Landroid/app/Activity;Landroidx/fragment/app/Fragment;Ljava/lang/Class;)V
 
     if-eqz p1, :cond_1
 
-    invoke-virtual {p1}, Landroid/app/Fragment;->getParentFragment()Landroid/app/Fragment;
+    invoke-virtual {p1}, Landroidx/fragment/app/Fragment;->getParentFragment()Landroidx/fragment/app/Fragment;
 
     move-result-object p0
 
@@ -110,7 +110,7 @@
 
     if-eqz p1, :cond_2
 
-    invoke-virtual {p1}, Landroid/app/Fragment;->getTag()Ljava/lang/String;
+    invoke-virtual {p1}, Landroidx/fragment/app/Fragment;->getTag()Ljava/lang/String;
 
     move-result-object p0
 
@@ -136,7 +136,7 @@
         }
     .end annotation
 
-    invoke-virtual {p0}, Landroid/app/DialogFragment;->getArguments()Landroid/os/Bundle;
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v0
 
@@ -148,14 +148,14 @@
 
     if-nez v0, :cond_0
 
-    invoke-virtual {p0}, Landroid/app/DialogFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
 
     move-result-object p0
 
     goto :goto_0
 
     :cond_0
-    invoke-virtual {p0}, Landroid/app/DialogFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
 
     move-result-object p0
 
@@ -189,7 +189,7 @@
 .method protected getTagInCaller()I
     .locals 1
 
-    invoke-virtual {p0}, Landroid/app/DialogFragment;->getArguments()Landroid/os/Bundle;
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object p0
 

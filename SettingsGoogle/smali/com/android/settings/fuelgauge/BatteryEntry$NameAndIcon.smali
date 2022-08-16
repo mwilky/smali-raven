@@ -15,13 +15,13 @@
 
 
 # instance fields
-.field public final icon:Landroid/graphics/drawable/Drawable;
+.field public final mIcon:Landroid/graphics/drawable/Drawable;
 
-.field public final iconId:I
+.field public final mIconId:I
 
-.field public final name:Ljava/lang/String;
+.field public final mName:Ljava/lang/String;
 
-.field public final packageName:Ljava/lang/String;
+.field public final mPackageName:Ljava/lang/String;
 
 
 # direct methods
@@ -40,13 +40,13 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/settings/fuelgauge/BatteryEntry$NameAndIcon;->name:Ljava/lang/String;
+    iput-object p1, p0, Lcom/android/settings/fuelgauge/BatteryEntry$NameAndIcon;->mName:Ljava/lang/String;
 
-    iput-object p3, p0, Lcom/android/settings/fuelgauge/BatteryEntry$NameAndIcon;->icon:Landroid/graphics/drawable/Drawable;
+    iput-object p3, p0, Lcom/android/settings/fuelgauge/BatteryEntry$NameAndIcon;->mIcon:Landroid/graphics/drawable/Drawable;
 
-    iput p4, p0, Lcom/android/settings/fuelgauge/BatteryEntry$NameAndIcon;->iconId:I
+    iput p4, p0, Lcom/android/settings/fuelgauge/BatteryEntry$NameAndIcon;->mIconId:I
 
-    iput-object p2, p0, Lcom/android/settings/fuelgauge/BatteryEntry$NameAndIcon;->packageName:Ljava/lang/String;
+    iput-object p2, p0, Lcom/android/settings/fuelgauge/BatteryEntry$NameAndIcon;->mPackageName:Ljava/lang/String;
 
     return-void
 .end method

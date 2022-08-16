@@ -252,9 +252,9 @@
 
     move-result-object v4
 
-    new-instance v5, Lcom/android/settings/homepage/contextualcards/ContextualCardLoader$$ExternalSyntheticLambda2;
+    new-instance v5, Lcom/android/settings/homepage/contextualcards/ContextualCardLoader$$ExternalSyntheticLambda0;
 
-    invoke-direct {v5, p0}, Lcom/android/settings/homepage/contextualcards/ContextualCardLoader$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/homepage/contextualcards/ContextualCardLoader;)V
+    invoke-direct {v5, p0}, Lcom/android/settings/homepage/contextualcards/ContextualCardLoader$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/homepage/contextualcards/ContextualCardLoader;)V
 
     invoke-interface {v4, v5}, Ljava/util/stream/Stream;->map(Ljava/util/function/Function;)Ljava/util/stream/Stream;
 
@@ -451,9 +451,9 @@
 
     move-result v3
 
-    new-instance v4, Lcom/android/settings/homepage/contextualcards/ContextualCardLoader$$ExternalSyntheticLambda0;
+    new-instance v4, Lcom/android/settings/homepage/contextualcards/ContextualCardLoader$$ExternalSyntheticLambda1;
 
-    invoke-direct {v4, v0, v3, v2}, Lcom/android/settings/homepage/contextualcards/ContextualCardLoader$$ExternalSyntheticLambda0;-><init>(Ljava/util/List;ILjava/util/List;)V
+    invoke-direct {v4, v0, v3, v2}, Lcom/android/settings/homepage/contextualcards/ContextualCardLoader$$ExternalSyntheticLambda1;-><init>(Ljava/util/List;ILjava/util/List;)V
 
     invoke-interface {p1, v4}, Ljava/util/List;->forEach(Ljava/util/function/Consumer;)V
 
@@ -463,9 +463,9 @@
 
     sub-int/2addr v3, v4
 
-    new-instance v4, Lcom/android/settings/homepage/contextualcards/ContextualCardLoader$$ExternalSyntheticLambda1;
+    new-instance v4, Lcom/android/settings/homepage/contextualcards/ContextualCardLoader$$ExternalSyntheticLambda2;
 
-    invoke-direct {v4, v1, v3, v2}, Lcom/android/settings/homepage/contextualcards/ContextualCardLoader$$ExternalSyntheticLambda1;-><init>(Ljava/util/List;ILjava/util/List;)V
+    invoke-direct {v4, v1, v3, v2}, Lcom/android/settings/homepage/contextualcards/ContextualCardLoader$$ExternalSyntheticLambda2;-><init>(Ljava/util/List;ILjava/util/List;)V
 
     invoke-interface {p1, v4}, Ljava/util/List;->forEach(Ljava/util/function/Consumer;)V
 
@@ -536,7 +536,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090064
+    const v2, 0x7f090065
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
 

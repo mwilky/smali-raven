@@ -24,6 +24,46 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmLabels(Lcom/android/settings/widget/LabeledSeekBar;)[Ljava/lang/String;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/widget/LabeledSeekBar;->mLabels:[Ljava/lang/String;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmLastProgress(Lcom/android/settings/widget/LabeledSeekBar;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/settings/widget/LabeledSeekBar;->mLastProgress:I
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmOnSeekBarChangeListener(Lcom/android/settings/widget/LabeledSeekBar;)Landroid/widget/SeekBar$OnSeekBarChangeListener;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/widget/LabeledSeekBar;->mOnSeekBarChangeListener:Landroid/widget/SeekBar$OnSeekBarChangeListener;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmLastProgress(Lcom/android/settings/widget/LabeledSeekBar;I)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/settings/widget/LabeledSeekBar;->mLastProgress:I
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$msendClickEventForAccessibility(Lcom/android/settings/widget/LabeledSeekBar;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/widget/LabeledSeekBar;->sendClickEventForAccessibility(I)V
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
 
@@ -70,46 +110,6 @@
     invoke-super {p0, p1}, Landroid/widget/SeekBar;->setOnSeekBarChangeListener(Landroid/widget/SeekBar$OnSeekBarChangeListener;)V
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/widget/LabeledSeekBar;)Landroid/widget/SeekBar$OnSeekBarChangeListener;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/widget/LabeledSeekBar;->mOnSeekBarChangeListener:Landroid/widget/SeekBar$OnSeekBarChangeListener;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/widget/LabeledSeekBar;I)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/widget/LabeledSeekBar;->sendClickEventForAccessibility(I)V
-
-    return-void
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/widget/LabeledSeekBar;)I
-    .locals 0
-
-    iget p0, p0, Lcom/android/settings/widget/LabeledSeekBar;->mLastProgress:I
-
-    return p0
-.end method
-
-.method static synthetic access$202(Lcom/android/settings/widget/LabeledSeekBar;I)I
-    .locals 0
-
-    iput p1, p0, Lcom/android/settings/widget/LabeledSeekBar;->mLastProgress:I
-
-    return p1
-.end method
-
-.method static synthetic access$300(Lcom/android/settings/widget/LabeledSeekBar;)[Ljava/lang/String;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/widget/LabeledSeekBar;->mLabels:[Ljava/lang/String;
-
-    return-object p0
 .end method
 
 .method private sendClickEventForAccessibility(I)V

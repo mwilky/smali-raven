@@ -90,7 +90,7 @@
 
     iget-object p0, p0, Lcom/android/settings/applications/assist/AssistScreenshotPreferenceController$SettingObserver;->this$0:Lcom/android/settings/applications/assist/AssistScreenshotPreferenceController;
 
-    invoke-static {p0}, Lcom/android/settings/applications/assist/AssistScreenshotPreferenceController;->access$000(Lcom/android/settings/applications/assist/AssistScreenshotPreferenceController;)V
+    invoke-static {p0}, Lcom/android/settings/applications/assist/AssistScreenshotPreferenceController;->-$$Nest$mupdatePreference(Lcom/android/settings/applications/assist/AssistScreenshotPreferenceController;)V
 
     return-void
 .end method

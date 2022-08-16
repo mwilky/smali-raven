@@ -34,6 +34,24 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$misAdbWifiEnabled(Lcom/android/settings/development/WirelessDebuggingEnabler;)Z
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/development/WirelessDebuggingEnabler;->isAdbWifiEnabled()Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$monWirelessDebuggingEnabled(Lcom/android/settings/development/WirelessDebuggingEnabler;Z)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/development/WirelessDebuggingEnabler;->onWirelessDebuggingEnabled(Z)V
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Lcom/android/settings/widget/SwitchWidgetController;Lcom/android/settings/development/WirelessDebuggingEnabler$OnEnabledListener;Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
     .locals 2
 
@@ -79,24 +97,6 @@
     invoke-direct {p1, p0, v0}, Lcom/android/settings/development/WirelessDebuggingEnabler$1;-><init>(Lcom/android/settings/development/WirelessDebuggingEnabler;Landroid/os/Handler;)V
 
     iput-object p1, p0, Lcom/android/settings/development/WirelessDebuggingEnabler;->mSettingsObserver:Landroid/database/ContentObserver;
-
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/development/WirelessDebuggingEnabler;)Z
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/development/WirelessDebuggingEnabler;->isAdbWifiEnabled()Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/development/WirelessDebuggingEnabler;Z)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/development/WirelessDebuggingEnabler;->onWirelessDebuggingEnabled(Z)V
 
     return-void
 .end method
@@ -222,7 +222,7 @@
 
     iget-object p1, p0, Lcom/android/settings/development/WirelessDebuggingEnabler;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0401c8
+    const v1, 0x7f0401ef
 
     invoke-static {p1, v1, v0}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 

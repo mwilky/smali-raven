@@ -58,7 +58,7 @@
 
     iget-object p1, p0, Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController$1;->this$0:Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;
 
-    invoke-static {p1}, Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;->access$000(Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;)Lcom/android/settings/notification/NotificationBackend;
+    invoke-static {p1}, Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;->-$$Nest$fgetmNotificationBackend(Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;)Lcom/android/settings/notification/NotificationBackend;
 
     move-result-object p1
 
@@ -114,11 +114,11 @@
     :cond_2
     iget-object p1, p0, Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController$1;->this$0:Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;
 
-    invoke-static {p1, v1}, Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;->access$102(Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;I)I
+    invoke-static {p1, v1}, Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;->-$$Nest$fputmNumConversations(Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;I)V
 
     iget-object p1, p0, Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController$1;->this$0:Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;
 
-    invoke-static {p1}, Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;->access$000(Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;)Lcom/android/settings/notification/NotificationBackend;
+    invoke-static {p1}, Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;->-$$Nest$fgetmNotificationBackend(Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;)Lcom/android/settings/notification/NotificationBackend;
 
     move-result-object p1
 
@@ -169,7 +169,7 @@
     :cond_4
     iget-object p0, p0, Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController$1;->this$0:Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;
 
-    invoke-static {p0, v0}, Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;->access$202(Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;I)I
+    invoke-static {p0, v0}, Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;->-$$Nest$fputmNumImportantConversations(Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;I)V
 
     const/4 p0, 0x0
 
@@ -191,7 +191,7 @@
 
     iget-object p1, p0, Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController$1;->this$0:Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;
 
-    invoke-static {p1}, Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;->access$300(Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;)Landroid/content/Context;
+    invoke-static {p1}, Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;->access$000(Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;)Landroid/content/Context;
 
     move-result-object p1
 
@@ -202,7 +202,7 @@
     :cond_0
     iget-object p0, p0, Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController$1;->this$0:Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;
 
-    invoke-static {p0}, Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;->access$400(Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;)Landroidx/preference/PreferenceCategory;
+    invoke-static {p0}, Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;->-$$Nest$fgetmPreferenceCategory(Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;)Landroidx/preference/PreferenceCategory;
 
     move-result-object p1
 

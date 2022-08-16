@@ -30,6 +30,8 @@
 
 .field private mForegroundOpacity:Lcom/android/settings/accessibility/ColorPreference;
 
+.field private final mHandler:Landroid/os/Handler;
+
 .field private final mLayoutChangeListener:Landroid/view/View$OnLayoutChangeListener;
 
 .field private final mPreferenceList:Ljava/util/List;
@@ -60,12 +62,36 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmHandler(Lcom/android/settings/accessibility/CaptionAppearanceFragment;)Landroid/os/Handler;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/accessibility/CaptionAppearanceFragment;->mHandler:Landroid/os/Handler;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmPreviewViewport(Lcom/android/settings/accessibility/CaptionAppearanceFragment;)Landroid/view/View;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/accessibility/CaptionAppearanceFragment;->mPreviewViewport:Landroid/view/View;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$mrefreshPreviewText(Lcom/android/settings/accessibility/CaptionAppearanceFragment;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/accessibility/CaptionAppearanceFragment;->refreshPreviewText()V
+
+    return-void
+.end method
+
 .method static constructor <clinit>()V
     .locals 2
 
     new-instance v0, Lcom/android/settings/search/BaseSearchIndexProvider;
 
-    const v1, 0x7f150040
+    const v1, 0x7f150043
 
     invoke-direct {v0, v1}, Lcom/android/settings/search/BaseSearchIndexProvider;-><init>(I)V
 
@@ -75,7 +101,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .locals 2
 
     invoke-direct {p0}, Lcom/android/settings/dashboard/DashboardFragment;-><init>()V
 
@@ -85,27 +111,21 @@
 
     iput-object v0, p0, Lcom/android/settings/accessibility/CaptionAppearanceFragment;->mPreferenceList:Ljava/util/List;
 
+    new-instance v0, Landroid/os/Handler;
+
+    invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
+
+    iput-object v0, p0, Lcom/android/settings/accessibility/CaptionAppearanceFragment;->mHandler:Landroid/os/Handler;
+
     new-instance v0, Lcom/android/settings/accessibility/CaptionAppearanceFragment$1;
 
     invoke-direct {v0, p0}, Lcom/android/settings/accessibility/CaptionAppearanceFragment$1;-><init>(Lcom/android/settings/accessibility/CaptionAppearanceFragment;)V
 
     iput-object v0, p0, Lcom/android/settings/accessibility/CaptionAppearanceFragment;->mLayoutChangeListener:Landroid/view/View$OnLayoutChangeListener;
-
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/accessibility/CaptionAppearanceFragment;)Landroid/view/View;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/accessibility/CaptionAppearanceFragment;->mPreviewViewport:Landroid/view/View;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/accessibility/CaptionAppearanceFragment;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/accessibility/CaptionAppearanceFragment;->refreshPreviewText()V
 
     return-void
 .end method
@@ -164,7 +184,7 @@
 
     move-result-object p2
 
-    const v1, 0x7f0b00b4
+    const v1, 0x7f0b00d1
 
     invoke-virtual {p2, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -179,7 +199,7 @@
 
     move-result-object p0
 
-    const p2, 0x7f040576
+    const p2, 0x7f0405d3
 
     if-eqz p0, :cond_1
 
@@ -198,6 +218,33 @@
     return-void
 .end method
 
+.method private enableCaptioningManager()V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/settings/accessibility/CaptionAppearanceFragment;->mCaptioningManager:Landroid/view/accessibility/CaptioningManager;
+
+    invoke-virtual {v0}, Landroid/view/accessibility/CaptioningManager;->isEnabled()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    return-void
+
+    :cond_0
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object p0
+
+    const/4 v0, 0x1
+
+    const-string v1, "accessibility_captioning_enabled"
+
+    invoke-static {p0, v1, v0}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    return-void
+.end method
+
 .method private initializeAllPreferences()V
     .locals 9
 
@@ -209,7 +256,7 @@
 
     check-cast v0, Lcom/android/settingslib/widget/LayoutPreference;
 
-    const v1, 0x7f0d0453
+    const v1, 0x7f0d0485
 
     invoke-virtual {v0, v1}, Lcom/android/settingslib/widget/LayoutPreference;->findViewById(I)Landroid/view/View;
 
@@ -219,7 +266,7 @@
 
     iput-object v1, p0, Lcom/android/settings/accessibility/CaptionAppearanceFragment;->mPreviewText:Lcom/android/internal/widget/SubtitleView;
 
-    const v1, 0x7f0d0456
+    const v1, 0x7f0d0488
 
     invoke-virtual {v0, v1}, Lcom/android/settingslib/widget/LayoutPreference;->findViewById(I)Landroid/view/View;
 
@@ -227,7 +274,7 @@
 
     iput-object v1, p0, Lcom/android/settings/accessibility/CaptionAppearanceFragment;->mPreviewWindow:Landroid/view/View;
 
-    const v1, 0x7f0d0455
+    const v1, 0x7f0d0487
 
     invoke-virtual {v0, v1}, Lcom/android/settingslib/widget/LayoutPreference;->findViewById(I)Landroid/view/View;
 
@@ -243,13 +290,13 @@
 
     move-result-object v0
 
-    const v1, 0x7f010055
+    const v1, 0x7f010056
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getIntArray(I)[I
 
     move-result-object v1
 
-    const v2, 0x7f010054
+    const v2, 0x7f010055
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -305,13 +352,13 @@
 
     iput-boolean v1, p0, Lcom/android/settings/accessibility/CaptionAppearanceFragment;->mShowingCustom:Z
 
-    const v2, 0x7f01004c
+    const v2, 0x7f01004e
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getIntArray(I)[I
 
     move-result-object v2
 
-    const v3, 0x7f01004b
+    const v3, 0x7f01004d
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -335,13 +382,13 @@
 
     invoke-virtual {v4, v2}, Lcom/android/settings/accessibility/ListDialogPreference;->setValues([I)V
 
-    const v4, 0x7f010053
+    const v4, 0x7f010054
 
     invoke-virtual {v0, v4}, Landroid/content/res/Resources;->getIntArray(I)[I
 
     move-result-object v4
 
-    const v5, 0x7f010052
+    const v5, 0x7f010053
 
     invoke-virtual {v0, v5}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -407,7 +454,7 @@
 
     aput v8, v5, v8
 
-    const v1, 0x7f0405e4
+    const v1, 0x7f040640
 
     invoke-virtual {p0, v1}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -702,7 +749,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f040577
+    const v3, 0x7f0405d4
 
     if-eqz v2, :cond_1
 
@@ -940,7 +987,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a24
+    const p0, 0x7f040a7d
 
     return p0
 .end method
@@ -964,7 +1011,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150040
+    const p0, 0x7f150043
 
     return p0
 .end method
@@ -1020,6 +1067,8 @@
 
     invoke-direct {p0}, Lcom/android/settings/accessibility/CaptionAppearanceFragment;->refreshPreviewText()V
 
+    invoke-direct {p0}, Lcom/android/settings/accessibility/CaptionAppearanceFragment;->enableCaptioningManager()V
+
     goto :goto_0
 
     :cond_0
@@ -1038,6 +1087,8 @@
     invoke-static {v0, p2, p1}, Landroid/provider/Settings$Secure;->putFloat(Landroid/content/ContentResolver;Ljava/lang/String;F)Z
 
     invoke-direct {p0}, Lcom/android/settings/accessibility/CaptionAppearanceFragment;->refreshPreviewText()V
+
+    invoke-direct {p0}, Lcom/android/settings/accessibility/CaptionAppearanceFragment;->enableCaptioningManager()V
 
     :cond_1
     :goto_0
@@ -1167,6 +1218,8 @@
     :cond_8
     :goto_3
     invoke-direct {p0}, Lcom/android/settings/accessibility/CaptionAppearanceFragment;->refreshPreviewText()V
+
+    invoke-direct {p0}, Lcom/android/settings/accessibility/CaptionAppearanceFragment;->enableCaptioningManager()V
 
     return-void
 .end method

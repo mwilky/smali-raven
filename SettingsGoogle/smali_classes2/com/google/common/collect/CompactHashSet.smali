@@ -66,6 +66,16 @@
     return p0
 .end method
 
+.method static synthetic access$100(Lcom/google/common/collect/CompactHashSet;I)Ljava/lang/Object;
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/google/common/collect/CompactHashSet;->element(I)Ljava/lang/Object;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method private createHashFloodingResistantDelegate(I)Ljava/util/Set;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
@@ -83,6 +93,35 @@
     invoke-direct {p0, p1, v0}, Ljava/util/LinkedHashSet;-><init>(IF)V
 
     return-object p0
+.end method
+
+.method private element(I)Ljava/lang/Object;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(I)TE;"
+        }
+    .end annotation
+
+    invoke-direct {p0}, Lcom/google/common/collect/CompactHashSet;->requireElements()[Ljava/lang/Object;
+
+    move-result-object p0
+
+    aget-object p0, p0, p1
+
+    return-object p0
+.end method
+
+.method private entry(I)I
+    .locals 0
+
+    invoke-direct {p0}, Lcom/google/common/collect/CompactHashSet;->requireEntries()[I
+
+    move-result-object p0
+
+    aget p0, p0, p1
+
+    return p0
 .end method
 
 .method private hashTableMask()I
@@ -160,10 +199,46 @@
     throw p0
 .end method
 
+.method private requireElements()[Ljava/lang/Object;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/common/collect/CompactHashSet;->elements:[Ljava/lang/Object;
+
+    invoke-static {p0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+
+    check-cast p0, [Ljava/lang/Object;
+
+    return-object p0
+.end method
+
+.method private requireEntries()[I
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/common/collect/CompactHashSet;->entries:[I
+
+    invoke-static {p0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+
+    check-cast p0, [I
+
+    return-object p0
+.end method
+
+.method private requireTable()Ljava/lang/Object;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/common/collect/CompactHashSet;->table:Ljava/lang/Object;
+
+    invoke-static {p0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+
+    return-object p0
+.end method
+
 .method private resizeMeMaybe(I)V
     .locals 3
 
-    iget-object v0, p0, Lcom/google/common/collect/CompactHashSet;->entries:[I
+    invoke-direct {p0}, Lcom/google/common/collect/CompactHashSet;->requireEntries()[I
+
+    move-result-object v0
 
     array-length v0, v0
 
@@ -197,8 +272,6 @@
 
 .method private resizeTable(IIII)I
     .locals 8
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
 
     invoke-static {p2}, Lcom/google/common/collect/CompactHashing;->createTable(I)Ljava/lang/Object;
 
@@ -215,9 +288,13 @@
     invoke-static {v0, p3, p4}, Lcom/google/common/collect/CompactHashing;->tableSet(Ljava/lang/Object;II)V
 
     :cond_0
-    iget-object p3, p0, Lcom/google/common/collect/CompactHashSet;->table:Ljava/lang/Object;
+    invoke-direct {p0}, Lcom/google/common/collect/CompactHashSet;->requireTable()Ljava/lang/Object;
 
-    iget-object p4, p0, Lcom/google/common/collect/CompactHashSet;->entries:[I
+    move-result-object p3
+
+    invoke-direct {p0}, Lcom/google/common/collect/CompactHashSet;->requireEntries()[I
+
+    move-result-object p4
 
     const/4 v1, 0x0
 
@@ -272,6 +349,35 @@
     invoke-direct {p0, p2}, Lcom/google/common/collect/CompactHashSet;->setHashTableMask(I)V
 
     return p2
+.end method
+
+.method private setElement(ILjava/lang/Object;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(ITE;)V"
+        }
+    .end annotation
+
+    invoke-direct {p0}, Lcom/google/common/collect/CompactHashSet;->requireElements()[Ljava/lang/Object;
+
+    move-result-object p0
+
+    aput-object p2, p0, p1
+
+    return-void
+.end method
+
+.method private setEntry(II)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/google/common/collect/CompactHashSet;->requireEntries()[I
+
+    move-result-object p0
+
+    aput p2, p0, p1
+
+    return-void
 .end method
 
 .method private setHashTableMask(I)V
@@ -339,9 +445,6 @@
 # virtual methods
 .method public add(Ljava/lang/Object;)Z
     .locals 13
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)Z"
@@ -370,9 +473,13 @@
     return p0
 
     :cond_1
-    iget-object v0, p0, Lcom/google/common/collect/CompactHashSet;->entries:[I
+    invoke-direct {p0}, Lcom/google/common/collect/CompactHashSet;->requireEntries()[I
 
-    iget-object v1, p0, Lcom/google/common/collect/CompactHashSet;->elements:[Ljava/lang/Object;
+    move-result-object v0
+
+    invoke-direct {p0}, Lcom/google/common/collect/CompactHashSet;->requireElements()[Ljava/lang/Object;
+
+    move-result-object v1
 
     iget v2, p0, Lcom/google/common/collect/CompactHashSet;->size:I
 
@@ -388,7 +495,9 @@
 
     and-int v6, v4, v5
 
-    iget-object v7, p0, Lcom/google/common/collect/CompactHashSet;->table:Ljava/lang/Object;
+    invoke-direct {p0}, Lcom/google/common/collect/CompactHashSet;->requireTable()Ljava/lang/Object;
+
+    move-result-object v7
 
     invoke-static {v7, v6}, Lcom/google/common/collect/CompactHashing;->tableGet(Ljava/lang/Object;I)I
 
@@ -411,7 +520,9 @@
     goto :goto_1
 
     :cond_2
-    iget-object v0, p0, Lcom/google/common/collect/CompactHashSet;->table:Ljava/lang/Object;
+    invoke-direct {p0}, Lcom/google/common/collect/CompactHashSet;->requireTable()Ljava/lang/Object;
+
+    move-result-object v0
 
     invoke-static {v0, v6, v3}, Lcom/google/common/collect/CompactHashing;->tableSet(Ljava/lang/Object;II)V
 
@@ -517,8 +628,6 @@
 
 .method allocArrays()I
     .locals 3
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
 
     invoke-virtual {p0}, Lcom/google/common/collect/CompactHashSet;->needsAllocArrays()Z
 
@@ -602,17 +711,23 @@
     goto :goto_0
 
     :cond_1
-    iget-object v0, p0, Lcom/google/common/collect/CompactHashSet;->elements:[Ljava/lang/Object;
+    invoke-direct {p0}, Lcom/google/common/collect/CompactHashSet;->requireElements()[Ljava/lang/Object;
+
+    move-result-object v0
 
     iget v3, p0, Lcom/google/common/collect/CompactHashSet;->size:I
 
     invoke-static {v0, v2, v3, v1}, Ljava/util/Arrays;->fill([Ljava/lang/Object;IILjava/lang/Object;)V
 
-    iget-object v0, p0, Lcom/google/common/collect/CompactHashSet;->table:Ljava/lang/Object;
+    invoke-direct {p0}, Lcom/google/common/collect/CompactHashSet;->requireTable()Ljava/lang/Object;
+
+    move-result-object v0
 
     invoke-static {v0}, Lcom/google/common/collect/CompactHashing;->tableClear(Ljava/lang/Object;)V
 
-    iget-object v0, p0, Lcom/google/common/collect/CompactHashSet;->entries:[I
+    invoke-direct {p0}, Lcom/google/common/collect/CompactHashSet;->requireEntries()[I
+
+    move-result-object v0
 
     iget v1, p0, Lcom/google/common/collect/CompactHashSet;->size:I
 
@@ -659,7 +774,9 @@
 
     move-result v2
 
-    iget-object v3, p0, Lcom/google/common/collect/CompactHashSet;->table:Ljava/lang/Object;
+    invoke-direct {p0}, Lcom/google/common/collect/CompactHashSet;->requireTable()Ljava/lang/Object;
+
+    move-result-object v3
 
     and-int v4, v0, v2
 
@@ -681,9 +798,9 @@
 
     sub-int/2addr v3, v4
 
-    iget-object v5, p0, Lcom/google/common/collect/CompactHashSet;->entries:[I
+    invoke-direct {p0, v3}, Lcom/google/common/collect/CompactHashSet;->entry(I)I
 
-    aget v5, v5, v3
+    move-result v5
 
     invoke-static {v5, v2}, Lcom/google/common/collect/CompactHashing;->getHashPrefix(II)I
 
@@ -691,9 +808,9 @@
 
     if-ne v6, v0, :cond_4
 
-    iget-object v6, p0, Lcom/google/common/collect/CompactHashSet;->elements:[Ljava/lang/Object;
+    invoke-direct {p0, v3}, Lcom/google/common/collect/CompactHashSet;->element(I)Ljava/lang/Object;
 
-    aget-object v3, v6, v3
+    move-result-object v3
 
     invoke-static {p1, v3}, Lcom/google/common/base/Objects;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
 
@@ -715,9 +832,6 @@
 
 .method convertToHashFloodingResistantImplementation()Ljava/util/Set;
     .locals 3
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -743,9 +857,9 @@
     :goto_0
     if-ltz v1, :cond_0
 
-    iget-object v2, p0, Lcom/google/common/collect/CompactHashSet;->elements:[Ljava/lang/Object;
+    invoke-direct {p0, v1}, Lcom/google/common/collect/CompactHashSet;->element(I)Ljava/lang/Object;
 
-    aget-object v2, v2, v1
+    move-result-object v2
 
     invoke-interface {v0, v2}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
@@ -876,26 +990,22 @@
 .end method
 
 .method insertEntry(ILjava/lang/Object;II)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(ITE;II)V"
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/google/common/collect/CompactHashSet;->entries:[I
+    const/4 v0, 0x0
 
-    const/4 v1, 0x0
-
-    invoke-static {p3, v1, p4}, Lcom/google/common/collect/CompactHashing;->maskCombine(III)I
+    invoke-static {p3, v0, p4}, Lcom/google/common/collect/CompactHashing;->maskCombine(III)I
 
     move-result p3
 
-    aput p3, v0, p1
+    invoke-direct {p0, p1, p3}, Lcom/google/common/collect/CompactHashSet;->setEntry(II)V
 
-    iget-object p0, p0, Lcom/google/common/collect/CompactHashSet;->elements:[Ljava/lang/Object;
-
-    aput-object p2, p0, p1
+    invoke-direct {p0, p1, p2}, Lcom/google/common/collect/CompactHashSet;->setElement(ILjava/lang/Object;)V
 
     return-void
 .end method
@@ -971,99 +1081,95 @@
 .end method
 
 .method moveLastEntry(II)V
-    .locals 5
+    .locals 6
+
+    invoke-direct {p0}, Lcom/google/common/collect/CompactHashSet;->requireTable()Ljava/lang/Object;
+
+    move-result-object v0
+
+    invoke-direct {p0}, Lcom/google/common/collect/CompactHashSet;->requireEntries()[I
+
+    move-result-object v1
+
+    invoke-direct {p0}, Lcom/google/common/collect/CompactHashSet;->requireElements()[Ljava/lang/Object;
+
+    move-result-object v2
 
     invoke-virtual {p0}, Lcom/google/common/collect/CompactHashSet;->size()I
 
-    move-result v0
+    move-result p0
 
-    add-int/lit8 v0, v0, -0x1
+    add-int/lit8 p0, p0, -0x1
 
-    const/4 v1, 0x0
+    const/4 v3, 0x0
 
-    const/4 v2, 0x0
+    const/4 v4, 0x0
 
-    if-ge p1, v0, :cond_2
+    if-ge p1, p0, :cond_2
 
-    iget-object v3, p0, Lcom/google/common/collect/CompactHashSet;->elements:[Ljava/lang/Object;
+    aget-object v5, v2, p0
 
-    aget-object v4, v3, v0
+    aput-object v5, v2, p1
 
-    aput-object v4, v3, p1
+    aput-object v4, v2, p0
 
-    aput-object v2, v3, v0
+    aget v2, v1, p0
 
-    iget-object v2, p0, Lcom/google/common/collect/CompactHashSet;->entries:[I
+    aput v2, v1, p1
 
-    aget v3, v2, v0
+    aput v3, v1, p0
 
-    aput v3, v2, p1
-
-    aput v1, v2, v0
-
-    invoke-static {v4}, Lcom/google/common/collect/Hashing;->smearedHash(Ljava/lang/Object;)I
-
-    move-result v1
-
-    and-int/2addr v1, p2
-
-    iget-object v2, p0, Lcom/google/common/collect/CompactHashSet;->table:Ljava/lang/Object;
-
-    invoke-static {v2, v1}, Lcom/google/common/collect/CompactHashing;->tableGet(Ljava/lang/Object;I)I
+    invoke-static {v5}, Lcom/google/common/collect/Hashing;->smearedHash(Ljava/lang/Object;)I
 
     move-result v2
 
-    add-int/lit8 v0, v0, 0x1
+    and-int/2addr v2, p2
 
-    if-ne v2, v0, :cond_0
+    invoke-static {v0, v2}, Lcom/google/common/collect/CompactHashing;->tableGet(Ljava/lang/Object;I)I
 
-    iget-object p0, p0, Lcom/google/common/collect/CompactHashSet;->table:Ljava/lang/Object;
+    move-result v3
+
+    add-int/lit8 p0, p0, 0x1
+
+    if-ne v3, p0, :cond_0
 
     add-int/lit8 p1, p1, 0x1
 
-    invoke-static {p0, v1, p1}, Lcom/google/common/collect/CompactHashing;->tableSet(Ljava/lang/Object;II)V
+    invoke-static {v0, v2, p1}, Lcom/google/common/collect/CompactHashing;->tableSet(Ljava/lang/Object;II)V
 
     goto :goto_1
 
     :cond_0
     :goto_0
-    add-int/lit8 v2, v2, -0x1
+    add-int/lit8 v3, v3, -0x1
 
-    iget-object v1, p0, Lcom/google/common/collect/CompactHashSet;->entries:[I
+    aget v0, v1, v3
 
-    aget v1, v1, v2
+    invoke-static {v0, p2}, Lcom/google/common/collect/CompactHashing;->getNext(II)I
 
-    invoke-static {v1, p2}, Lcom/google/common/collect/CompactHashing;->getNext(II)I
+    move-result v2
 
-    move-result v3
-
-    if-ne v3, v0, :cond_1
-
-    iget-object p0, p0, Lcom/google/common/collect/CompactHashSet;->entries:[I
+    if-ne v2, p0, :cond_1
 
     add-int/lit8 p1, p1, 0x1
 
-    invoke-static {v1, p1, p2}, Lcom/google/common/collect/CompactHashing;->maskCombine(III)I
+    invoke-static {v0, p1, p2}, Lcom/google/common/collect/CompactHashing;->maskCombine(III)I
 
-    move-result p1
+    move-result p0
 
-    aput p1, p0, v2
+    aput p0, v1, v3
 
     goto :goto_1
 
     :cond_1
-    move v2, v3
+    move v3, v2
 
     goto :goto_0
 
     :cond_2
-    iget-object p2, p0, Lcom/google/common/collect/CompactHashSet;->elements:[Ljava/lang/Object;
+    aput-object v4, v2, p1
 
-    aput-object v2, p2, p1
-
-    iget-object p0, p0, Lcom/google/common/collect/CompactHashSet;->entries:[I
-
-    aput v1, p0, p1
+    aput v3, v1, p1
 
     :goto_1
     return-void
@@ -1089,8 +1195,6 @@
 
 .method public remove(Ljava/lang/Object;)Z
     .locals 9
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
 
     invoke-virtual {p0}, Lcom/google/common/collect/CompactHashSet;->needsAllocArrays()Z
 
@@ -1122,11 +1226,17 @@
 
     const/4 v3, 0x0
 
-    iget-object v5, p0, Lcom/google/common/collect/CompactHashSet;->table:Ljava/lang/Object;
+    invoke-direct {p0}, Lcom/google/common/collect/CompactHashSet;->requireTable()Ljava/lang/Object;
 
-    iget-object v6, p0, Lcom/google/common/collect/CompactHashSet;->entries:[I
+    move-result-object v5
 
-    iget-object v7, p0, Lcom/google/common/collect/CompactHashSet;->elements:[Ljava/lang/Object;
+    invoke-direct {p0}, Lcom/google/common/collect/CompactHashSet;->requireEntries()[I
+
+    move-result-object v6
+
+    invoke-direct {p0}, Lcom/google/common/collect/CompactHashSet;->requireElements()[Ljava/lang/Object;
+
+    move-result-object v7
 
     const/4 v8, 0x0
 
@@ -1163,7 +1273,9 @@
 .method resizeEntries(I)V
     .locals 1
 
-    iget-object v0, p0, Lcom/google/common/collect/CompactHashSet;->entries:[I
+    invoke-direct {p0}, Lcom/google/common/collect/CompactHashSet;->requireEntries()[I
+
+    move-result-object v0
 
     invoke-static {v0, p1}, Ljava/util/Arrays;->copyOf([II)[I
 
@@ -1171,7 +1283,9 @@
 
     iput-object v0, p0, Lcom/google/common/collect/CompactHashSet;->entries:[I
 
-    iget-object v0, p0, Lcom/google/common/collect/CompactHashSet;->elements:[Ljava/lang/Object;
+    invoke-direct {p0}, Lcom/google/common/collect/CompactHashSet;->requireElements()[Ljava/lang/Object;
+
+    move-result-object v0
 
     invoke-static {v0, p1}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
 
@@ -1233,7 +1347,9 @@
     goto :goto_0
 
     :cond_1
-    iget-object v0, p0, Lcom/google/common/collect/CompactHashSet;->elements:[Ljava/lang/Object;
+    invoke-direct {p0}, Lcom/google/common/collect/CompactHashSet;->requireElements()[Ljava/lang/Object;
+
+    move-result-object v0
 
     iget p0, p0, Lcom/google/common/collect/CompactHashSet;->size:I
 
@@ -1247,9 +1363,6 @@
 
 .method public toArray([Ljava/lang/Object;)[Ljava/lang/Object;
     .locals 2
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -1291,7 +1404,9 @@
     goto :goto_0
 
     :cond_2
-    iget-object v0, p0, Lcom/google/common/collect/CompactHashSet;->elements:[Ljava/lang/Object;
+    invoke-direct {p0}, Lcom/google/common/collect/CompactHashSet;->requireElements()[Ljava/lang/Object;
+
+    move-result-object v0
 
     iget p0, p0, Lcom/google/common/collect/CompactHashSet;->size:I
 

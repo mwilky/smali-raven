@@ -231,12 +231,12 @@
 
     if-ne p0, v0, :cond_0
 
-    const p0, 0x7f040528
+    const p0, 0x7f040587
 
     goto :goto_0
 
     :cond_0
-    const p0, 0x7f040525
+    const p0, 0x7f040584
 
     :goto_0
     return p0

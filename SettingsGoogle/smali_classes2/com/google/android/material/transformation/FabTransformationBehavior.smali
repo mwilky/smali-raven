@@ -1315,7 +1315,7 @@
 .end method
 
 .method private createPostFillRadialExpansion(Landroid/view/View;JJJIIFLjava/util/List;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1326,12 +1326,6 @@
             ">;)V"
         }
     .end annotation
-
-    sget p0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v0, 0x15
-
-    if-lt p0, v0, :cond_0
 
     add-long/2addr p2, p4
 
@@ -1367,12 +1361,6 @@
             ">;)V"
         }
     .end annotation
-
-    sget p0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v0, 0x15
-
-    if-lt p0, v0, :cond_0
 
     const-wide/16 v0, 0x0
 
@@ -1702,12 +1690,6 @@
 
     invoke-direct {v14}, Ljava/util/ArrayList;-><init>()V
 
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    if-lt v0, v1, :cond_1
-
     move-object v0, p0
 
     move-object/from16 v1, p1
@@ -1726,7 +1708,6 @@
 
     invoke-direct/range {v0 .. v7}, Lcom/google/android/material/transformation/FabTransformationBehavior;->createElevationAnimation(Landroid/view/View;Landroid/view/View;ZZLcom/google/android/material/transformation/FabTransformationBehavior$FabTransformationSpec;Ljava/util/List;Ljava/util/List;)V
 
-    :cond_1
     iget-object v9, v10, Lcom/google/android/material/transformation/FabTransformationBehavior;->tmpRectF1:Landroid/graphics/RectF;
 
     move-object v0, p0
@@ -1810,7 +1791,7 @@
     move-result v2
 
     :goto_0
-    if-ge v1, v2, :cond_2
+    if-ge v1, v2, :cond_1
 
     invoke-interface {v14, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -1824,7 +1805,7 @@
 
     goto :goto_0
 
-    :cond_2
+    :cond_1
     return-object v0
 .end method
 

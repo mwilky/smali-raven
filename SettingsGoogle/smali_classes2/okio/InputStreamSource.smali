@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nJvmOkio.kt\nKotlin\n*S Kotlin\n*F\n+ 1 JvmOkio.kt\nokio/InputStreamSource\n+ 2 fake.kt\nkotlin/jvm/internal/FakeKt\n+ 3 -Util.kt\nokio/-Util\n*L\n1#1,236:1\n1#2:237\n86#3:238\n*E\n*S KotlinDebug\n*F\n+ 1 JvmOkio.kt\nokio/InputStreamSource\n*L\n92#1:238\n*E\n"
+    value = "SMAP\nJvmOkio.kt\nKotlin\n*S Kotlin\n*F\n+ 1 JvmOkio.kt\nokio/InputStreamSource\n+ 2 fake.kt\nkotlin/jvm/internal/FakeKt\n+ 3 -Util.kt\nokio/-Util\n*L\n1#1,236:1\n1#2:237\n86#3:238\n*S KotlinDebug\n*F\n+ 1 JvmOkio.kt\nokio/InputStreamSource\n*L\n92#1:238\n*E\n"
 .end annotation
 
 
@@ -145,8 +145,6 @@
     move-result-object p0
 
     iput-object p0, p1, Lokio/Buffer;->head:Lokio/Segment;
-
-    sget-object p0, Lokio/SegmentPool;->INSTANCE:Lokio/SegmentPool;
 
     invoke-static {v0}, Lokio/SegmentPool;->recycle(Lokio/Segment;)V
 

@@ -43,19 +43,6 @@
 # direct methods
 .method constructor <init>(ILjava/lang/Class;I)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "tagKey",
-            "type",
-            "frameworkMinimumSdk"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -73,21 +60,6 @@
 
 .method constructor <init>(ILjava/lang/Class;II)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "tagKey",
-            "type",
-            "contentChangeType",
-            "frameworkMinimumSdk"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -110,22 +82,10 @@
 .end method
 
 .method private extrasAvailable()Z
-    .locals 1
-
-    sget p0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v0, 0x13
-
-    if-lt p0, v0, :cond_0
+    .locals 0
 
     const/4 p0, 0x1
 
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
     return p0
 .end method
 
@@ -152,62 +112,56 @@
 
 # virtual methods
 .method booleanNullToFalseEquals(Ljava/lang/Boolean;Ljava/lang/Boolean;)Z
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "a",
-            "b"
-        }
-    .end annotation
+    .locals 1
 
-    const/4 p0, 0x0
+    const/4 p0, 0x1
 
-    if-nez p1, :cond_0
+    const/4 v0, 0x0
+
+    if-eqz p1, :cond_0
+
+    invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result p1
+
+    if-eqz p1, :cond_0
 
     move p1, p0
 
     goto :goto_0
 
     :cond_0
-    invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result p1
+    move p1, v0
 
     :goto_0
-    if-nez p2, :cond_1
+    if-eqz p2, :cond_1
+
+    invoke-virtual {p2}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result p2
+
+    if-eqz p2, :cond_1
 
     move p2, p0
 
     goto :goto_1
 
     :cond_1
-    invoke-virtual {p2}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result p2
+    move p2, v0
 
     :goto_1
     if-ne p1, p2, :cond_2
 
-    const/4 p0, 0x1
+    goto :goto_2
 
     :cond_2
+    move p0, v0
+
+    :goto_2
     return p0
 .end method
 
 .method abstract frameworkGet(Landroid/view/View;)Ljava/lang/Object;
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "view"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -218,17 +172,6 @@
 .end method
 
 .method abstract frameworkSet(Landroid/view/View;Ljava/lang/Object;)V
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "view",
-            "value"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -240,15 +183,6 @@
 
 .method get(Landroid/view/View;)Ljava/lang/Object;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "view"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -300,17 +234,6 @@
 
 .method set(Landroid/view/View;Ljava/lang/Object;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "view",
-            "value"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -346,7 +269,7 @@
 
     if-eqz v0, :cond_1
 
-    invoke-static {p1}, Landroidx/core/view/ViewCompat;->getOrCreateAccessibilityDelegateCompat(Landroid/view/View;)Landroidx/core/view/AccessibilityDelegateCompat;
+    invoke-static {p1}, Landroidx/core/view/ViewCompat;->ensureAccessibilityDelegateCompat(Landroid/view/View;)V
 
     iget v0, p0, Landroidx/core/view/ViewCompat$AccessibilityViewProperty;->mTagKey:I
 
@@ -362,17 +285,6 @@
 .end method
 
 .method abstract shouldUpdate(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "oldValue",
-            "newValue"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;TT;)Z"

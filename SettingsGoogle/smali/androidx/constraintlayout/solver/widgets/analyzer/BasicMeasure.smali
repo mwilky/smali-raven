@@ -539,7 +539,7 @@
     :goto_7
     if-eqz v2, :cond_b
 
-    sget-object v11, Landroidx/constraintlayout/solver/LinearSystem;->sMetrics:Landroidx/constraintlayout/solver/Metrics;
+    sget v11, Landroidx/constraintlayout/solver/LinearSystem;->$r8$clinit:I
 
     :cond_b
     const/high16 v11, 0x40000000    # 2.0f

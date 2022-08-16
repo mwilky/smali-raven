@@ -41,6 +41,22 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmMetricsCategory(Lcom/android/settings/panel/PanelSlicesAdapter;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/settings/panel/PanelSlicesAdapter;->mMetricsCategory:I
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmPanelFragment(Lcom/android/settings/panel/PanelSlicesAdapter;)Lcom/android/settings/panel/PanelFragment;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/panel/PanelSlicesAdapter;->mPanelFragment:Lcom/android/settings/panel/PanelFragment;
+
+    return-object p0
+.end method
+
 .method public constructor <init>(Lcom/android/settings/panel/PanelFragment;Ljava/util/Map;I)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
@@ -72,22 +88,6 @@
     iput p3, p0, Lcom/android/settings/panel/PanelSlicesAdapter;->mMetricsCategory:I
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/panel/PanelSlicesAdapter;)Lcom/android/settings/panel/PanelFragment;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/panel/PanelSlicesAdapter;->mPanelFragment:Lcom/android/settings/panel/PanelFragment;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/panel/PanelSlicesAdapter;)I
-    .locals 0
-
-    iget p0, p0, Lcom/android/settings/panel/PanelSlicesAdapter;->mMetricsCategory:I
-
-    return p0
 .end method
 
 
@@ -202,7 +202,7 @@
 
     if-ne p2, v2, :cond_0
 
-    const p2, 0x7f060183
+    const p2, 0x7f06018d
 
     invoke-virtual {v0, p2, p1, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -211,7 +211,7 @@
     goto :goto_0
 
     :cond_0
-    const p2, 0x7f060182
+    const p2, 0x7f06018c
 
     invoke-virtual {v0, p2, p1, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 

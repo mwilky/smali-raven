@@ -221,7 +221,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "sKeepSliceShow = "
+    const-string/jumbo v1, "sKeepSliceShow = "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -306,7 +306,7 @@
 
     iget-object v2, p0, Lcom/android/settings/homepage/contextualcards/slices/DarkThemeSlice;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f02011f
+    const v6, 0x7f020129
 
     invoke-static {v2, v6}, Landroidx/core/graphics/drawable/IconCompat;->createWithResource(Landroid/content/Context;I)Landroidx/core/graphics/drawable/IconCompat;
 
@@ -343,7 +343,7 @@
 
     iget-object v5, p0, Lcom/android/settings/homepage/contextualcards/slices/DarkThemeSlice;->mContext:Landroid/content/Context;
 
-    const v7, 0x7f0406ef
+    const v7, 0x7f04072f
 
     invoke-virtual {v5, v7}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -359,7 +359,7 @@
 
     iget-object p0, p0, Lcom/android/settings/homepage/contextualcards/slices/DarkThemeSlice;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0406ee
+    const v3, 0x7f04072e
 
     invoke-virtual {p0, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -413,7 +413,7 @@
 .method public getSliceHighlightMenuRes()I
     .locals 0
 
-    const p0, 0x7f040d07
+    const p0, 0x7f040d82
 
     return p0
 .end method

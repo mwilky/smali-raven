@@ -21,14 +21,6 @@
 # direct methods
 .method constructor <init>(Landroidx/mediarouter/media/MediaRoute2Provider;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x1010
-        }
-        names = {
-            "this$0"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/mediarouter/media/MediaRoute2Provider$ControllerCallback;->this$0:Landroidx/mediarouter/media/MediaRoute2Provider;
 
@@ -41,14 +33,6 @@
 # virtual methods
 .method public onControllerUpdated(Landroid/media/MediaRouter2$RoutingController;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "routingController"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/mediarouter/media/MediaRoute2Provider$ControllerCallback;->this$0:Landroidx/mediarouter/media/MediaRoute2Provider;
 

@@ -227,7 +227,7 @@
 
     if-nez p0, :cond_4
 
-    const-string p0, "security"
+    const-string/jumbo p0, "security"
 
     invoke-virtual {p1, p0, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
@@ -847,7 +847,7 @@
 
     if-nez v0, :cond_1
 
-    const-string v0, "security"
+    const-string/jumbo v0, "security"
 
     invoke-virtual {p0, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
@@ -897,7 +897,7 @@
 
     invoke-direct {p1, p0}, Landroid/hardware/biometrics/BiometricPrompt$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f041658
+    const v2, 0x7f041751
 
     invoke-virtual {p0, v2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 

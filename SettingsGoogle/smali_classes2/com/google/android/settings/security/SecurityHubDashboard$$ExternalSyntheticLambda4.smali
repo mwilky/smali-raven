@@ -1,37 +1,36 @@
 .class public final synthetic Lcom/google/android/settings/security/SecurityHubDashboard$$ExternalSyntheticLambda4;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Function;
+.implements Ljava/util/function/Consumer;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/google/android/settings/security/SecurityHubDashboard;
+.field public final synthetic f$0:Landroidx/preference/PreferenceScreen;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/google/android/settings/security/SecurityHubDashboard;)V
+.method public synthetic constructor <init>(Landroidx/preference/PreferenceScreen;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/google/android/settings/security/SecurityHubDashboard$$ExternalSyntheticLambda4;->f$0:Lcom/google/android/settings/security/SecurityHubDashboard;
+    iput-object p1, p0, Lcom/google/android/settings/security/SecurityHubDashboard$$ExternalSyntheticLambda4;->f$0:Landroidx/preference/PreferenceScreen;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
+.method public final accept(Ljava/lang/Object;)V
     .locals 0
 
-    iget-object p0, p0, Lcom/google/android/settings/security/SecurityHubDashboard$$ExternalSyntheticLambda4;->f$0:Lcom/google/android/settings/security/SecurityHubDashboard;
+    iget-object p0, p0, Lcom/google/android/settings/security/SecurityHubDashboard$$ExternalSyntheticLambda4;->f$0:Landroidx/preference/PreferenceScreen;
 
-    check-cast p1, Lcom/google/android/settings/security/SecurityContentManager$Entry;
+    check-cast p1, Landroidx/preference/Preference;
 
-    invoke-static {p0, p1}, Lcom/google/android/settings/security/SecurityHubDashboard;->$r8$lambda$ibDOEvLVyVQpWWW6Edsq4KafiV0(Lcom/google/android/settings/security/SecurityHubDashboard;Lcom/google/android/settings/security/SecurityContentManager$Entry;)Landroidx/preference/Preference;
+    invoke-virtual {p0, p1}, Landroidx/preference/PreferenceGroup;->removePreference(Landroidx/preference/Preference;)Z
 
-    move-result-object p0
-
-    return-object p0
+    return-void
 .end method

@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settings/fuelgauge/PowerUsageSummary$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/settings/fuelgauge/batterytip/BatteryTipPreferenceController$BatteryTipListener;

@@ -25,32 +25,6 @@
 # direct methods
 .method constructor <init>(Landroidx/recyclerview/widget/ItemTouchHelper;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;IIFFFFILandroidx/recyclerview/widget/RecyclerView$ViewHolder;)V
     .locals 8
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x8010,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x1010,
-            0x1010
-        }
-        names = {
-            "this$0",
-            "viewHolder",
-            "animationType",
-            "actionState",
-            "startDx",
-            "startDy",
-            "targetX",
-            "targetY",
-            "val$swipeDir",
-            "val$prevSelected"
-        }
-    .end annotation
 
     move-object v0, p0
 
@@ -89,14 +63,6 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "animation"
-        }
-    .end annotation
 
     invoke-super {p0, p1}, Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;->onAnimationEnd(Landroid/animation/Animator;)V
 

@@ -3,14 +3,6 @@
 .source "AudioAttributesImplApi26.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Landroidx/media/AudioAttributesImplApi26$Builder;
-    }
-.end annotation
-
-
 # direct methods
 .method public constructor <init>()V
     .locals 0
@@ -22,14 +14,6 @@
 
 .method constructor <init>(Landroid/media/AudioAttributes;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "audioAttributes"
-        }
-    .end annotation
 
     const/4 v0, -0x1
 

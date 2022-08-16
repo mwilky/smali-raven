@@ -3429,12 +3429,6 @@
 
     iput-boolean v1, v0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mNeedsFireTransitionCompleted:Z
 
-    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v2, 0x12
-
-    if-lt v1, v2, :cond_23
-
     if-eqz v8, :cond_23
 
     invoke-virtual/range {p0 .. p0}, Landroid/view/ViewGroup;->isInLayout()Z
@@ -4494,7 +4488,7 @@
 
     iget-object p5, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mScene:Landroidx/constraintlayout/motion/widget/MotionScene;
 
-    if-eqz p5, :cond_b
+    if-eqz p5, :cond_a
 
     iget-object p5, p5, Landroidx/constraintlayout/motion/widget/MotionScene;->mCurrentTransition:Landroidx/constraintlayout/motion/widget/MotionScene$Transition;
 
@@ -4591,7 +4585,7 @@
 
     const/4 v0, 0x1
 
-    if-eqz p1, :cond_8
+    if-eqz p1, :cond_7
 
     iget-object p1, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mScene:Landroidx/constraintlayout/motion/widget/MotionScene;
 
@@ -4607,7 +4601,7 @@
 
     and-int/2addr p1, v0
 
-    if-eqz p1, :cond_8
+    if-eqz p1, :cond_7
 
     iget-object p1, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mScene:Landroidx/constraintlayout/motion/widget/MotionScene;
 
@@ -4632,19 +4626,13 @@
     :cond_5
     cmpl-float v1, v1, v2
 
-    if-ltz v1, :cond_8
+    if-ltz v1, :cond_7
 
     cmpl-float p1, p1, v3
 
-    if-lez p1, :cond_8
+    if-lez p1, :cond_7
 
     :cond_6
-    sget p1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 p2, 0x15
-
-    if-lt p1, p2, :cond_7
-
     iget-object p1, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mScrollTarget:Landroid/view/View;
 
     invoke-virtual {p1, p5}, Landroid/view/View;->setNestedScrollingEnabled(Z)V
@@ -4657,10 +4645,9 @@
 
     invoke-virtual {p1, p2}, Landroid/view/View;->post(Ljava/lang/Runnable;)Z
 
-    :cond_7
     return-void
 
-    :cond_8
+    :cond_7
     iget p1, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mTransitionPosition:F
 
     invoke-virtual {p0}, Landroidx/constraintlayout/motion/widget/MotionLayout;->getNanoTime()J
@@ -4699,27 +4686,27 @@
 
     cmpl-float p1, p1, v1
 
-    if-eqz p1, :cond_9
+    if-eqz p1, :cond_8
 
     aput p2, p4, p5
 
     aput p3, p4, v0
 
-    :cond_9
+    :cond_8
     invoke-virtual {p0, p5}, Landroidx/constraintlayout/motion/widget/MotionLayout;->evaluate(Z)V
 
     aget p1, p4, p5
 
-    if-nez p1, :cond_a
+    if-nez p1, :cond_9
 
     aget p1, p4, v0
 
-    if-eqz p1, :cond_b
+    if-eqz p1, :cond_a
 
-    :cond_a
+    :cond_9
     iput-boolean v0, p0, Landroidx/constraintlayout/motion/widget/MotionLayout;->mUndergoingMotion:Z
 
-    :cond_b
+    :cond_a
     :goto_0
     return-void
 .end method

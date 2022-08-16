@@ -1,43 +1,34 @@
 .class public final synthetic Lcom/android/settings/accessibility/ShortcutPreference$$ExternalSyntheticLambda3;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/view/View$OnTouchListener;
+.implements Landroid/view/View$OnClickListener;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/settings/accessibility/ShortcutPreference$$ExternalSyntheticLambda3;
+# instance fields
+.field public final synthetic f$0:Lcom/android/settings/accessibility/ShortcutPreference;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/settings/accessibility/ShortcutPreference$$ExternalSyntheticLambda3;
-
-    invoke-direct {v0}, Lcom/android/settings/accessibility/ShortcutPreference$$ExternalSyntheticLambda3;-><init>()V
-
-    sput-object v0, Lcom/android/settings/accessibility/ShortcutPreference$$ExternalSyntheticLambda3;->INSTANCE:Lcom/android/settings/accessibility/ShortcutPreference$$ExternalSyntheticLambda3;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Lcom/android/settings/accessibility/ShortcutPreference;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/settings/accessibility/ShortcutPreference$$ExternalSyntheticLambda3;->f$0:Lcom/android/settings/accessibility/ShortcutPreference;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
+.method public final onClick(Landroid/view/View;)V
     .locals 0
 
-    invoke-static {p1, p2}, Lcom/android/settings/accessibility/ShortcutPreference;->$r8$lambda$lgzoBUDALjr3HbCWHGRdOVIJex0(Landroid/view/View;Landroid/view/MotionEvent;)Z
+    iget-object p0, p0, Lcom/android/settings/accessibility/ShortcutPreference$$ExternalSyntheticLambda3;->f$0:Lcom/android/settings/accessibility/ShortcutPreference;
 
-    move-result p0
+    invoke-static {p0, p1}, Lcom/android/settings/accessibility/ShortcutPreference;->$r8$lambda$VBgzr--NkOk2L_3UE1fB9OvlBjs(Lcom/android/settings/accessibility/ShortcutPreference;Landroid/view/View;)V
 
-    return p0
+    return-void
 .end method

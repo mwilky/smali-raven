@@ -10,6 +10,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Landroidx/core/widget/NestedScrollView$Api21Impl;,
         Landroidx/core/widget/NestedScrollView$AccessibilityDelegate;,
         Landroidx/core/widget/NestedScrollView$SavedState;,
         Landroidx/core/widget/NestedScrollView$OnScrollChangeListener;
@@ -104,14 +105,6 @@
 
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "context"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -122,16 +115,6 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "attrs"
-        }
-    .end annotation
 
     sget v0, Landroidx/core/R$attr;->nestedScrollViewStyle:I
 
@@ -142,18 +125,6 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "attrs",
-            "defStyleAttr"
-        }
-    .end annotation
 
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
@@ -256,6 +227,35 @@
     return-void
 .end method
 
+.method private canOverScroll()Z
+    .locals 2
+
+    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getOverScrollMode()I
+
+    move-result v0
+
+    const/4 v1, 0x1
+
+    if-eqz v0, :cond_1
+
+    if-ne v0, v1, :cond_0
+
+    invoke-virtual {p0}, Landroidx/core/widget/NestedScrollView;->getScrollRange()I
+
+    move-result p0
+
+    if-lez p0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v1, 0x0
+
+    :cond_1
+    :goto_0
+    return v1
+.end method
+
 .method private canScroll()Z
     .locals 4
 
@@ -315,18 +315,6 @@
 
 .method private static clamp(III)I
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "n",
-            "my",
-            "child"
-        }
-    .end annotation
 
     if-ge p1, p2, :cond_2
 
@@ -355,14 +343,6 @@
 
 .method private doScrollY(I)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "delta"
-        }
-    .end annotation
 
     if-eqz p1, :cond_1
 
@@ -385,23 +365,19 @@
 .end method
 
 .method private edgeEffectFling(I)Z
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "velocityY"
-        }
-    .end annotation
+    .locals 2
 
     iget-object v0, p0, Landroidx/core/widget/NestedScrollView;->mEdgeGlowTop:Landroid/widget/EdgeEffect;
 
-    invoke-virtual {v0}, Landroid/widget/EdgeEffect;->isFinished()Z
+    invoke-static {v0}, Landroidx/core/widget/EdgeEffectCompat;->getDistance(Landroid/widget/EdgeEffect;)F
 
     move-result v0
 
-    if-nez v0, :cond_0
+    const/4 v1, 0x0
+
+    cmpl-float v0, v0, v1
+
+    if-eqz v0, :cond_0
 
     iget-object p0, p0, Landroidx/core/widget/NestedScrollView;->mEdgeGlowTop:Landroid/widget/EdgeEffect;
 
@@ -412,11 +388,13 @@
     :cond_0
     iget-object v0, p0, Landroidx/core/widget/NestedScrollView;->mEdgeGlowBottom:Landroid/widget/EdgeEffect;
 
-    invoke-virtual {v0}, Landroid/widget/EdgeEffect;->isFinished()Z
+    invoke-static {v0}, Landroidx/core/widget/EdgeEffectCompat;->getDistance(Landroid/widget/EdgeEffect;)F
 
     move-result v0
 
-    if-nez v0, :cond_1
+    cmpl-float v0, v0, v1
+
+    if-eqz v0, :cond_1
 
     iget-object p0, p0, Landroidx/core/widget/NestedScrollView;->mEdgeGlowBottom:Landroid/widget/EdgeEffect;
 
@@ -460,18 +438,6 @@
 
 .method private findFocusableViewInBounds(ZII)Landroid/view/View;
     .locals 11
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "topFocus",
-            "top",
-            "bottom"
-        }
-    .end annotation
 
     const/4 v0, 0x2
 
@@ -661,16 +627,6 @@
 
 .method private inChild(II)Z
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "x",
-            "y"
-        }
-    .end annotation
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getChildCount()I
 
@@ -817,14 +773,6 @@
 
 .method private isOffScreen(Landroid/view/View;)Z
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "descendant"
-        }
-    .end annotation
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getHeight()I
 
@@ -843,16 +791,6 @@
 
 .method private static isViewDescendantOf(Landroid/view/View;Landroid/view/View;)Z
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "child",
-            "parent"
-        }
-    .end annotation
 
     const/4 v0, 0x1
 
@@ -888,18 +826,6 @@
 
 .method private isWithinDeltaOfScreen(Landroid/view/View;II)Z
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "descendant",
-            "delta",
-            "height"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/core/widget/NestedScrollView;->mTempRect:Landroid/graphics/Rect;
 
@@ -948,18 +874,6 @@
 
 .method private onNestedScrollInternal(II[I)V
     .locals 10
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "dyUnconsumed",
-            "type",
-            "consumed"
-        }
-    .end annotation
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getScrollY()I
 
@@ -1007,14 +921,6 @@
 
 .method private onSecondaryPointerUp(Landroid/view/MotionEvent;)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "ev"
-        }
-    .end annotation
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionIndex()I
 
@@ -1081,16 +987,6 @@
 
 .method private releaseVerticalGlow(IF)I
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "deltaY",
-            "x"
-        }
-    .end annotation
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getWidth()I
 
@@ -1213,14 +1109,6 @@
 
 .method private runAnimatedScroll(Z)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "participateInNestedScrolling"
-        }
-    .end annotation
 
     const/4 v0, 0x1
 
@@ -1249,18 +1137,6 @@
 
 .method private scrollAndFocus(III)Z
     .locals 6
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "direction",
-            "top",
-            "bottom"
-        }
-    .end annotation
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getHeight()I
 
@@ -1333,14 +1209,6 @@
 
 .method private scrollToChild(Landroid/view/View;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "child"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/core/widget/NestedScrollView;->mTempRect:Landroid/graphics/Rect;
 
@@ -1368,16 +1236,6 @@
 
 .method private scrollToChildRect(Landroid/graphics/Rect;Z)Z
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "rect",
-            "immediate"
-        }
-    .end annotation
 
     invoke-virtual {p0, p1}, Landroidx/core/widget/NestedScrollView;->computeScrollDeltaToGetChildRectOnScreen(Landroid/graphics/Rect;)I
 
@@ -1413,20 +1271,6 @@
 
 .method private smoothScrollBy(IIIZ)V
     .locals 8
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "dx",
-            "dy",
-            "scrollDurationMs",
-            "withNestedScrolling"
-        }
-    .end annotation
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getChildCount()I
 
@@ -1555,14 +1399,6 @@
 
 .method private stopGlowAnimations(Landroid/view/MotionEvent;)Z
     .locals 5
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "e"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/core/widget/NestedScrollView;->mEdgeGlowTop:Landroid/widget/EdgeEffect;
 
@@ -1580,11 +1416,11 @@
 
     iget-object v0, p0, Landroidx/core/widget/NestedScrollView;->mEdgeGlowTop:Landroid/widget/EdgeEffect;
 
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
     move-result v3
 
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getHeight()I
+    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getWidth()I
 
     move-result v4
 
@@ -1616,11 +1452,11 @@
 
     const/high16 v3, 0x3f800000    # 1.0f
 
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
     move-result p1
 
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getHeight()I
+    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getWidth()I
 
     move-result p0
 
@@ -1645,14 +1481,6 @@
 # virtual methods
 .method public addView(Landroid/view/View;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "child"
-        }
-    .end annotation
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getChildCount()I
 
@@ -1676,16 +1504,6 @@
 
 .method public addView(Landroid/view/View;I)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "child",
-            "index"
-        }
-    .end annotation
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getChildCount()I
 
@@ -1709,18 +1527,6 @@
 
 .method public addView(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "child",
-            "index",
-            "params"
-        }
-    .end annotation
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getChildCount()I
 
@@ -1744,16 +1550,6 @@
 
 .method public addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "child",
-            "params"
-        }
-    .end annotation
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getChildCount()I
 
@@ -1777,14 +1573,6 @@
 
 .method public arrowScroll(I)Z
     .locals 7
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "direction"
-        }
-    .end annotation
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->findFocus()Landroid/view/View;
 
@@ -2201,14 +1989,6 @@
 
 .method protected computeScrollDeltaToGetChildRectOnScreen(Landroid/graphics/Rect;)I
     .locals 10
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "rect"
-        }
-    .end annotation
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getChildCount()I
 
@@ -2468,14 +2248,6 @@
 
 .method public dispatchKeyEvent(Landroid/view/KeyEvent;)Z
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "event"
-        }
-    .end annotation
 
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
 
@@ -2506,18 +2278,6 @@
 
 .method public dispatchNestedFling(FFZ)Z
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "velocityX",
-            "velocityY",
-            "consumed"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/core/widget/NestedScrollView;->mChildHelper:Landroidx/core/view/NestedScrollingChildHelper;
 
@@ -2530,16 +2290,6 @@
 
 .method public dispatchNestedPreFling(FF)Z
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "velocityX",
-            "velocityY"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/core/widget/NestedScrollView;->mChildHelper:Landroidx/core/view/NestedScrollingChildHelper;
 
@@ -2552,20 +2302,6 @@
 
 .method public dispatchNestedPreScroll(II[I[I)Z
     .locals 6
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "dx",
-            "dy",
-            "consumed",
-            "offsetInWindow"
-        }
-    .end annotation
 
     const/4 v5, 0x0
 
@@ -2588,22 +2324,6 @@
 
 .method public dispatchNestedPreScroll(II[I[II)Z
     .locals 6
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "dx",
-            "dy",
-            "consumed",
-            "offsetInWindow",
-            "type"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/core/widget/NestedScrollView;->mChildHelper:Landroidx/core/view/NestedScrollingChildHelper;
 
@@ -2626,26 +2346,6 @@
 
 .method public dispatchNestedScroll(IIII[II[I)V
     .locals 8
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "dxConsumed",
-            "dyConsumed",
-            "dxUnconsumed",
-            "dyUnconsumed",
-            "offsetInWindow",
-            "type",
-            "consumed"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/core/widget/NestedScrollView;->mChildHelper:Landroidx/core/view/NestedScrollingChildHelper;
 
@@ -2670,22 +2370,6 @@
 
 .method public dispatchNestedScroll(IIII[I)Z
     .locals 6
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "dxConsumed",
-            "dyConsumed",
-            "dxUnconsumed",
-            "dyUnconsumed",
-            "offsetInWindow"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/core/widget/NestedScrollView;->mChildHelper:Landroidx/core/view/NestedScrollingChildHelper;
 
@@ -2707,15 +2391,7 @@
 .end method
 
 .method public draw(Landroid/graphics/Canvas;)V
-    .locals 10
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "canvas"
-        }
-    .end annotation
+    .locals 9
 
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->draw(Landroid/graphics/Canvas;)V
 
@@ -2731,9 +2407,7 @@
 
     const/4 v2, 0x0
 
-    const/16 v3, 0x15
-
-    if-nez v1, :cond_4
+    if-nez v1, :cond_3
 
     invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
 
@@ -2741,151 +2415,57 @@
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getWidth()I
 
-    move-result v4
+    move-result v3
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getHeight()I
 
-    move-result v5
+    move-result v4
 
     invoke-static {v2, v0}, Ljava/lang/Math;->min(II)I
 
+    move-result v5
+
+    invoke-static {p0}, Landroidx/core/widget/NestedScrollView$Api21Impl;->getClipToPadding(Landroid/view/ViewGroup;)Z
+
     move-result v6
 
-    sget v7, Landroid/os/Build$VERSION;->SDK_INT:I
+    if-eqz v6, :cond_0
 
-    if-lt v7, v3, :cond_1
+    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getPaddingLeft()I
 
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getClipToPadding()Z
+    move-result v6
 
-    move-result v8
+    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getPaddingRight()I
 
-    if-eqz v8, :cond_0
+    move-result v7
+
+    add-int/2addr v6, v7
+
+    sub-int/2addr v3, v6
+
+    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getPaddingLeft()I
+
+    move-result v6
+
+    add-int/2addr v6, v2
 
     goto :goto_0
 
     :cond_0
-    move v8, v2
+    move v6, v2
 
-    goto :goto_1
-
-    :cond_1
     :goto_0
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getPaddingLeft()I
-
-    move-result v8
-
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getPaddingRight()I
-
-    move-result v9
-
-    add-int/2addr v8, v9
-
-    sub-int/2addr v4, v8
-
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getPaddingLeft()I
-
-    move-result v8
-
-    add-int/2addr v8, v2
-
-    :goto_1
-    if-lt v7, v3, :cond_2
-
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getClipToPadding()Z
+    invoke-static {p0}, Landroidx/core/widget/NestedScrollView$Api21Impl;->getClipToPadding(Landroid/view/ViewGroup;)Z
 
     move-result v7
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_1
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getPaddingTop()I
 
     move-result v7
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getPaddingBottom()I
-
-    move-result v9
-
-    add-int/2addr v7, v9
-
-    sub-int/2addr v5, v7
-
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getPaddingTop()I
-
-    move-result v7
-
-    add-int/2addr v6, v7
-
-    :cond_2
-    int-to-float v7, v8
-
-    int-to-float v6, v6
-
-    invoke-virtual {p1, v7, v6}, Landroid/graphics/Canvas;->translate(FF)V
-
-    iget-object v6, p0, Landroidx/core/widget/NestedScrollView;->mEdgeGlowTop:Landroid/widget/EdgeEffect;
-
-    invoke-virtual {v6, v4, v5}, Landroid/widget/EdgeEffect;->setSize(II)V
-
-    iget-object v4, p0, Landroidx/core/widget/NestedScrollView;->mEdgeGlowTop:Landroid/widget/EdgeEffect;
-
-    invoke-virtual {v4, p1}, Landroid/widget/EdgeEffect;->draw(Landroid/graphics/Canvas;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_3
-
-    invoke-static {p0}, Landroidx/core/view/ViewCompat;->postInvalidateOnAnimation(Landroid/view/View;)V
-
-    :cond_3
-    invoke-virtual {p1, v1}, Landroid/graphics/Canvas;->restoreToCount(I)V
-
-    :cond_4
-    iget-object v1, p0, Landroidx/core/widget/NestedScrollView;->mEdgeGlowBottom:Landroid/widget/EdgeEffect;
-
-    invoke-virtual {v1}, Landroid/widget/EdgeEffect;->isFinished()Z
-
-    move-result v1
-
-    if-nez v1, :cond_9
-
-    invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
-
-    move-result v1
-
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getWidth()I
-
-    move-result v4
-
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getHeight()I
-
-    move-result v5
-
-    invoke-virtual {p0}, Landroidx/core/widget/NestedScrollView;->getScrollRange()I
-
-    move-result v6
-
-    invoke-static {v6, v0}, Ljava/lang/Math;->max(II)I
-
-    move-result v0
-
-    add-int/2addr v0, v5
-
-    sget v6, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    if-lt v6, v3, :cond_5
-
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getClipToPadding()Z
-
-    move-result v7
-
-    if-eqz v7, :cond_6
-
-    :cond_5
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getPaddingLeft()I
-
-    move-result v7
-
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getPaddingRight()I
 
     move-result v8
 
@@ -2893,41 +2473,118 @@
 
     sub-int/2addr v4, v7
 
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getPaddingLeft()I
+    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getPaddingTop()I
 
     move-result v7
 
-    add-int/2addr v2, v7
+    add-int/2addr v5, v7
 
-    :cond_6
-    if-lt v6, v3, :cond_7
+    :cond_1
+    int-to-float v6, v6
 
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getClipToPadding()Z
+    int-to-float v5, v5
+
+    invoke-virtual {p1, v6, v5}, Landroid/graphics/Canvas;->translate(FF)V
+
+    iget-object v5, p0, Landroidx/core/widget/NestedScrollView;->mEdgeGlowTop:Landroid/widget/EdgeEffect;
+
+    invoke-virtual {v5, v3, v4}, Landroid/widget/EdgeEffect;->setSize(II)V
+
+    iget-object v3, p0, Landroidx/core/widget/NestedScrollView;->mEdgeGlowTop:Landroid/widget/EdgeEffect;
+
+    invoke-virtual {v3, p1}, Landroid/widget/EdgeEffect;->draw(Landroid/graphics/Canvas;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_7
+    if-eqz v3, :cond_2
+
+    invoke-static {p0}, Landroidx/core/view/ViewCompat;->postInvalidateOnAnimation(Landroid/view/View;)V
+
+    :cond_2
+    invoke-virtual {p1, v1}, Landroid/graphics/Canvas;->restoreToCount(I)V
+
+    :cond_3
+    iget-object v1, p0, Landroidx/core/widget/NestedScrollView;->mEdgeGlowBottom:Landroid/widget/EdgeEffect;
+
+    invoke-virtual {v1}, Landroid/widget/EdgeEffect;->isFinished()Z
+
+    move-result v1
+
+    if-nez v1, :cond_7
+
+    invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
+
+    move-result v1
+
+    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getWidth()I
+
+    move-result v3
+
+    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getHeight()I
+
+    move-result v4
+
+    invoke-virtual {p0}, Landroidx/core/widget/NestedScrollView;->getScrollRange()I
+
+    move-result v5
+
+    invoke-static {v5, v0}, Ljava/lang/Math;->max(II)I
+
+    move-result v0
+
+    add-int/2addr v0, v4
+
+    invoke-static {p0}, Landroidx/core/widget/NestedScrollView$Api21Impl;->getClipToPadding(Landroid/view/ViewGroup;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_4
+
+    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getPaddingLeft()I
+
+    move-result v5
+
+    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getPaddingRight()I
+
+    move-result v6
+
+    add-int/2addr v5, v6
+
+    sub-int/2addr v3, v5
+
+    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getPaddingLeft()I
+
+    move-result v5
+
+    add-int/2addr v2, v5
+
+    :cond_4
+    invoke-static {p0}, Landroidx/core/widget/NestedScrollView$Api21Impl;->getClipToPadding(Landroid/view/ViewGroup;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_5
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getPaddingTop()I
 
-    move-result v3
+    move-result v5
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getPaddingBottom()I
 
     move-result v6
 
-    add-int/2addr v3, v6
+    add-int/2addr v5, v6
 
-    sub-int/2addr v5, v3
+    sub-int/2addr v4, v5
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getPaddingBottom()I
 
-    move-result v3
+    move-result v5
 
-    sub-int/2addr v0, v3
+    sub-int/2addr v0, v5
 
-    :cond_7
-    sub-int/2addr v2, v4
+    :cond_5
+    sub-int/2addr v2, v3
 
     int-to-float v2, v2
 
@@ -2937,15 +2594,15 @@
 
     const/high16 v0, 0x43340000    # 180.0f
 
-    int-to-float v2, v4
+    int-to-float v2, v3
 
-    const/4 v3, 0x0
+    const/4 v5, 0x0
 
-    invoke-virtual {p1, v0, v2, v3}, Landroid/graphics/Canvas;->rotate(FFF)V
+    invoke-virtual {p1, v0, v2, v5}, Landroid/graphics/Canvas;->rotate(FFF)V
 
     iget-object v0, p0, Landroidx/core/widget/NestedScrollView;->mEdgeGlowBottom:Landroid/widget/EdgeEffect;
 
-    invoke-virtual {v0, v4, v5}, Landroid/widget/EdgeEffect;->setSize(II)V
+    invoke-virtual {v0, v3, v4}, Landroid/widget/EdgeEffect;->setSize(II)V
 
     iget-object v0, p0, Landroidx/core/widget/NestedScrollView;->mEdgeGlowBottom:Landroid/widget/EdgeEffect;
 
@@ -2953,27 +2610,19 @@
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_6
 
     invoke-static {p0}, Landroidx/core/view/ViewCompat;->postInvalidateOnAnimation(Landroid/view/View;)V
 
-    :cond_8
+    :cond_6
     invoke-virtual {p1, v1}, Landroid/graphics/Canvas;->restoreToCount(I)V
 
-    :cond_9
+    :cond_7
     return-void
 .end method
 
 .method public executeKeyEvent(Landroid/view/KeyEvent;)Z
     .locals 5
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "event"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/core/widget/NestedScrollView;->mTempRect:Landroid/graphics/Rect;
 
@@ -3121,14 +2770,6 @@
 
 .method public fling(I)V
     .locals 12
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "velocityY"
-        }
-    .end annotation
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getChildCount()I
 
@@ -3174,14 +2815,6 @@
 
 .method public fullScroll(I)Z
     .locals 5
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "direction"
-        }
-    .end annotation
 
     const/4 v0, 0x1
 
@@ -3482,14 +3115,6 @@
 
 .method public hasNestedScrollingParent(I)Z
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "type"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/core/widget/NestedScrollView;->mChildHelper:Landroidx/core/view/NestedScrollingChildHelper;
 
@@ -3514,18 +3139,6 @@
 
 .method protected measureChild(Landroid/view/View;II)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "child",
-            "parentWidthMeasureSpec",
-            "parentHeightMeasureSpec"
-        }
-    .end annotation
 
     invoke-virtual {p1}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
@@ -3560,22 +3173,6 @@
 
 .method protected measureChildWithMargins(Landroid/view/View;IIII)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "child",
-            "parentWidthMeasureSpec",
-            "widthUsed",
-            "parentHeightMeasureSpec",
-            "heightUsed"
-        }
-    .end annotation
 
     invoke-virtual {p1}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
@@ -3639,113 +3236,225 @@
 .end method
 
 .method public onGenericMotionEvent(Landroid/view/MotionEvent;)Z
-    .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "event"
-        }
-    .end annotation
-
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getSource()I
-
-    move-result v0
-
-    and-int/lit8 v0, v0, 0x2
-
-    const/4 v1, 0x0
-
-    if-eqz v0, :cond_3
+    .locals 8
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v0
 
+    const/4 v1, 0x0
+
     const/16 v2, 0x8
 
-    if-eq v0, v2, :cond_0
+    if-ne v0, v2, :cond_9
 
-    goto :goto_1
-
-    :cond_0
     iget-boolean v0, p0, Landroidx/core/widget/NestedScrollView;->mIsBeingDragged:Z
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_9
+
+    const/4 v0, 0x2
+
+    invoke-static {p1, v0}, Landroidx/core/view/MotionEventCompat;->isFromSource(Landroid/view/MotionEvent;I)Z
+
+    move-result v0
+
+    const/4 v2, 0x0
+
+    if-eqz v0, :cond_0
 
     const/16 v0, 0x9
 
     invoke-virtual {p1, v0}, Landroid/view/MotionEvent;->getAxisValue(I)F
 
-    move-result p1
+    move-result v0
 
-    const/4 v0, 0x0
+    goto :goto_0
 
-    cmpl-float v0, p1, v0
+    :cond_0
+    const/high16 v0, 0x400000
 
-    if-eqz v0, :cond_3
-
-    invoke-direct {p0}, Landroidx/core/widget/NestedScrollView;->getVerticalScrollFactorCompat()F
+    invoke-static {p1, v0}, Landroidx/core/view/MotionEventCompat;->isFromSource(Landroid/view/MotionEvent;I)Z
 
     move-result v0
 
-    mul-float/2addr p1, v0
+    if-eqz v0, :cond_1
 
-    float-to-int p1, p1
+    const/16 v0, 0x1a
 
-    invoke-virtual {p0}, Landroidx/core/widget/NestedScrollView;->getScrollRange()I
+    invoke-virtual {p1, v0}, Landroid/view/MotionEvent;->getAxisValue(I)F
 
     move-result v0
-
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getScrollY()I
-
-    move-result v2
-
-    sub-int p1, v2, p1
-
-    if-gez p1, :cond_1
-
-    move v0, v1
 
     goto :goto_0
 
     :cond_1
-    if-le p1, v0, :cond_2
-
-    goto :goto_0
-
-    :cond_2
-    move v0, p1
+    move v0, v2
 
     :goto_0
-    if-eq v0, v2, :cond_3
+    cmpl-float v2, v0, v2
+
+    if-eqz v2, :cond_9
+
+    invoke-direct {p0}, Landroidx/core/widget/NestedScrollView;->getVerticalScrollFactorCompat()F
+
+    move-result v2
+
+    mul-float/2addr v0, v2
+
+    float-to-int v0, v0
+
+    invoke-virtual {p0}, Landroidx/core/widget/NestedScrollView;->getScrollRange()I
+
+    move-result v2
+
+    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getScrollY()I
+
+    move-result v3
+
+    sub-int v0, v3, v0
+
+    const/high16 v4, 0x3f000000    # 0.5f
+
+    const/16 v5, 0x2002
+
+    const/4 v6, 0x1
+
+    if-gez v0, :cond_4
+
+    invoke-direct {p0}, Landroidx/core/widget/NestedScrollView;->canOverScroll()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    invoke-static {p1, v5}, Landroidx/core/view/MotionEventCompat;->isFromSource(Landroid/view/MotionEvent;I)Z
+
+    move-result p1
+
+    if-nez p1, :cond_2
+
+    move p1, v6
+
+    goto :goto_1
+
+    :cond_2
+    move p1, v1
+
+    :goto_1
+    if-eqz p1, :cond_3
+
+    iget-object p1, p0, Landroidx/core/widget/NestedScrollView;->mEdgeGlowTop:Landroid/widget/EdgeEffect;
+
+    int-to-float v0, v0
+
+    neg-float v0, v0
+
+    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getHeight()I
+
+    move-result v2
+
+    int-to-float v2, v2
+
+    div-float/2addr v0, v2
+
+    invoke-static {p1, v0, v4}, Landroidx/core/widget/EdgeEffectCompat;->onPullDistance(Landroid/widget/EdgeEffect;FF)F
+
+    iget-object p1, p0, Landroidx/core/widget/NestedScrollView;->mEdgeGlowTop:Landroid/widget/EdgeEffect;
+
+    invoke-virtual {p1}, Landroid/widget/EdgeEffect;->onRelease()V
+
+    invoke-virtual {p0}, Landroid/widget/FrameLayout;->invalidate()V
+
+    move p1, v6
+
+    goto :goto_3
+
+    :cond_3
+    move p1, v1
+
+    goto :goto_3
+
+    :cond_4
+    if-le v0, v2, :cond_7
+
+    invoke-direct {p0}, Landroidx/core/widget/NestedScrollView;->canOverScroll()Z
+
+    move-result v7
+
+    if-eqz v7, :cond_5
+
+    invoke-static {p1, v5}, Landroidx/core/view/MotionEventCompat;->isFromSource(Landroid/view/MotionEvent;I)Z
+
+    move-result p1
+
+    if-nez p1, :cond_5
+
+    move p1, v6
+
+    goto :goto_2
+
+    :cond_5
+    move p1, v1
+
+    :goto_2
+    if-eqz p1, :cond_6
+
+    iget-object p1, p0, Landroidx/core/widget/NestedScrollView;->mEdgeGlowBottom:Landroid/widget/EdgeEffect;
+
+    sub-int/2addr v0, v2
+
+    int-to-float v0, v0
+
+    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getHeight()I
+
+    move-result v1
+
+    int-to-float v1, v1
+
+    div-float/2addr v0, v1
+
+    invoke-static {p1, v0, v4}, Landroidx/core/widget/EdgeEffectCompat;->onPullDistance(Landroid/widget/EdgeEffect;FF)F
+
+    iget-object p1, p0, Landroidx/core/widget/NestedScrollView;->mEdgeGlowBottom:Landroid/widget/EdgeEffect;
+
+    invoke-virtual {p1}, Landroid/widget/EdgeEffect;->onRelease()V
+
+    invoke-virtual {p0}, Landroid/widget/FrameLayout;->invalidate()V
+
+    move v1, v6
+
+    :cond_6
+    move p1, v1
+
+    move v1, v2
+
+    goto :goto_3
+
+    :cond_7
+    move p1, v1
+
+    move v1, v0
+
+    :goto_3
+    if-eq v1, v3, :cond_8
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getScrollX()I
 
     move-result p1
 
-    invoke-super {p0, p1, v0}, Landroid/widget/FrameLayout;->scrollTo(II)V
+    invoke-super {p0, p1, v1}, Landroid/widget/FrameLayout;->scrollTo(II)V
 
-    const/4 p0, 0x1
+    return v6
 
-    return p0
+    :cond_8
+    return p1
 
-    :cond_3
-    :goto_1
+    :cond_9
     return v1
 .end method
 
 .method public onInterceptTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 11
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "ev"
-        }
-    .end annotation
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
@@ -4017,22 +3726,6 @@
 
 .method protected onLayout(ZIIII)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "changed",
-            "l",
-            "t",
-            "r",
-            "b"
-        }
-    .end annotation
 
     invoke-super/range {p0 .. p5}, Landroid/widget/FrameLayout;->onLayout(ZIIII)V
 
@@ -4159,16 +3852,6 @@
 
 .method protected onMeasure(II)V
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "widthMeasureSpec",
-            "heightMeasureSpec"
-        }
-    .end annotation
 
     invoke-super {p0, p1, p2}, Landroid/widget/FrameLayout;->onMeasure(II)V
 
@@ -4274,20 +3957,6 @@
 
 .method public onNestedFling(Landroid/view/View;FFZ)Z
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "target",
-            "velocityX",
-            "velocityY",
-            "consumed"
-        }
-    .end annotation
 
     if-nez p4, :cond_0
 
@@ -4311,18 +3980,6 @@
 
 .method public onNestedPreFling(Landroid/view/View;FF)Z
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "target",
-            "velocityX",
-            "velocityY"
-        }
-    .end annotation
 
     invoke-virtual {p0, p2, p3}, Landroidx/core/widget/NestedScrollView;->dispatchNestedPreFling(FF)Z
 
@@ -4333,20 +3990,6 @@
 
 .method public onNestedPreScroll(Landroid/view/View;II[I)V
     .locals 6
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "target",
-            "dx",
-            "dy",
-            "consumed"
-        }
-    .end annotation
 
     const/4 v5, 0x0
 
@@ -4367,22 +4010,6 @@
 
 .method public onNestedPreScroll(Landroid/view/View;II[II)V
     .locals 6
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "target",
-            "dx",
-            "dy",
-            "consumed",
-            "type"
-        }
-    .end annotation
 
     const/4 v4, 0x0
 
@@ -4403,22 +4030,6 @@
 
 .method public onNestedScroll(Landroid/view/View;IIII)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "target",
-            "dxConsumed",
-            "dyConsumed",
-            "dxUnconsumed",
-            "dyUnconsumed"
-        }
-    .end annotation
 
     const/4 p1, 0x0
 
@@ -4431,24 +4042,6 @@
 
 .method public onNestedScroll(Landroid/view/View;IIIII)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "target",
-            "dxConsumed",
-            "dyConsumed",
-            "dxUnconsumed",
-            "dyUnconsumed",
-            "type"
-        }
-    .end annotation
 
     const/4 p1, 0x0
 
@@ -4459,26 +4052,6 @@
 
 .method public onNestedScroll(Landroid/view/View;IIIII[I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "target",
-            "dxConsumed",
-            "dyConsumed",
-            "dxUnconsumed",
-            "dyUnconsumed",
-            "type",
-            "consumed"
-        }
-    .end annotation
 
     invoke-direct {p0, p5, p6, p7}, Landroidx/core/widget/NestedScrollView;->onNestedScrollInternal(II[I)V
 
@@ -4487,18 +4060,6 @@
 
 .method public onNestedScrollAccepted(Landroid/view/View;Landroid/view/View;I)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "child",
-            "target",
-            "nestedScrollAxes"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -4509,20 +4070,6 @@
 
 .method public onNestedScrollAccepted(Landroid/view/View;Landroid/view/View;II)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "child",
-            "target",
-            "axes",
-            "type"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/core/widget/NestedScrollView;->mParentHelper:Landroidx/core/view/NestedScrollingParentHelper;
 
@@ -4537,20 +4084,6 @@
 
 .method protected onOverScrolled(IIZZ)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "scrollX",
-            "scrollY",
-            "clampedX",
-            "clampedY"
-        }
-    .end annotation
 
     invoke-super {p0, p1, p2}, Landroid/widget/FrameLayout;->scrollTo(II)V
 
@@ -4559,16 +4092,6 @@
 
 .method protected onRequestFocusInDescendants(ILandroid/graphics/Rect;)Z
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "direction",
-            "previouslyFocusedRect"
-        }
-    .end annotation
 
     const/4 v0, 0x2
 
@@ -4636,14 +4159,6 @@
 
 .method protected onRestoreInstanceState(Landroid/os/Parcelable;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "state"
-        }
-    .end annotation
 
     instance-of v0, p1, Landroidx/core/widget/NestedScrollView$SavedState;
 
@@ -4691,20 +4206,6 @@
 
 .method protected onScrollChanged(IIII)V
     .locals 6
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "l",
-            "t",
-            "oldl",
-            "oldt"
-        }
-    .end annotation
 
     invoke-super {p0, p1, p2, p3, p4}, Landroid/widget/FrameLayout;->onScrollChanged(IIII)V
 
@@ -4730,20 +4231,6 @@
 
 .method protected onSizeChanged(IIII)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "w",
-            "h",
-            "oldw",
-            "oldh"
-        }
-    .end annotation
 
     invoke-super {p0, p1, p2, p3, p4}, Landroid/widget/FrameLayout;->onSizeChanged(IIII)V
 
@@ -4789,18 +4276,6 @@
 
 .method public onStartNestedScroll(Landroid/view/View;Landroid/view/View;I)Z
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "child",
-            "target",
-            "nestedScrollAxes"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -4813,20 +4288,6 @@
 
 .method public onStartNestedScroll(Landroid/view/View;Landroid/view/View;II)Z
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "child",
-            "target",
-            "axes",
-            "type"
-        }
-    .end annotation
 
     and-int/lit8 p0, p3, 0x2
 
@@ -4845,14 +4306,6 @@
 
 .method public onStopNestedScroll(Landroid/view/View;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "target"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -4863,16 +4316,6 @@
 
 .method public onStopNestedScroll(Landroid/view/View;I)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "target",
-            "type"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/core/widget/NestedScrollView;->mParentHelper:Landroidx/core/view/NestedScrollingParentHelper;
 
@@ -4885,14 +4328,6 @@
 
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 23
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "ev"
-        }
-    .end annotation
 
     move-object/from16 v10, p0
 
@@ -5284,15 +4719,13 @@
 
     iget-object v1, v10, Landroidx/core/widget/NestedScrollView;->mScrollOffset:[I
 
-    aget v2, v1, v14
+    aget v1, v1, v14
 
-    sub-int/2addr v0, v2
+    sub-int/2addr v0, v1
 
     iput v0, v10, Landroidx/core/widget/NestedScrollView;->mLastMotionY:I
 
     iget v0, v10, Landroidx/core/widget/NestedScrollView;->mNestedYOffset:I
-
-    aget v1, v1, v14
 
     add-int/2addr v0, v1
 
@@ -5586,30 +5019,6 @@
 
 .method overScrollByCompat(IIIIIIIIZ)Z
     .locals 12
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "deltaX",
-            "deltaY",
-            "scrollX",
-            "scrollY",
-            "scrollRangeX",
-            "scrollRangeY",
-            "maxOverScrollX",
-            "maxOverScrollY",
-            "isTouchEvent"
-        }
-    .end annotation
 
     move-object v0, p0
 
@@ -5819,14 +5228,6 @@
 
 .method public pageScroll(I)Z
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "direction"
-        }
-    .end annotation
 
     const/4 v0, 0x1
 
@@ -5944,16 +5345,6 @@
 
 .method public requestChildFocus(Landroid/view/View;Landroid/view/View;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "child",
-            "focused"
-        }
-    .end annotation
 
     iget-boolean v0, p0, Landroidx/core/widget/NestedScrollView;->mIsLayoutDirty:Z
 
@@ -5974,18 +5365,6 @@
 
 .method public requestChildRectangleOnScreen(Landroid/view/View;Landroid/graphics/Rect;Z)Z
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "child",
-            "rectangle",
-            "immediate"
-        }
-    .end annotation
 
     invoke-virtual {p1}, Landroid/view/View;->getLeft()I
 
@@ -6018,14 +5397,6 @@
 
 .method public requestDisallowInterceptTouchEvent(Z)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "disallowIntercept"
-        }
-    .end annotation
 
     if-eqz p1, :cond_0
 
@@ -6051,16 +5422,6 @@
 
 .method public scrollTo(II)V
     .locals 6
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "x",
-            "y"
-        }
-    .end annotation
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getChildCount()I
 
@@ -6165,14 +5526,6 @@
 
 .method public setFillViewport(Z)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "fillViewport"
-        }
-    .end annotation
 
     iget-boolean v0, p0, Landroidx/core/widget/NestedScrollView;->mFillViewport:Z
 
@@ -6188,14 +5541,6 @@
 
 .method public setNestedScrollingEnabled(Z)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "enabled"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/core/widget/NestedScrollView;->mChildHelper:Landroidx/core/view/NestedScrollingChildHelper;
 
@@ -6206,14 +5551,6 @@
 
 .method public setOnScrollChangeListener(Landroidx/core/widget/NestedScrollView$OnScrollChangeListener;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "l"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/core/widget/NestedScrollView;->mOnScrollChangeListener:Landroidx/core/widget/NestedScrollView$OnScrollChangeListener;
 
@@ -6222,14 +5559,6 @@
 
 .method public setSmoothScrollingEnabled(Z)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "smoothScrollingEnabled"
-        }
-    .end annotation
 
     iput-boolean p1, p0, Landroidx/core/widget/NestedScrollView;->mSmoothScrollingEnabled:Z
 
@@ -6246,16 +5575,6 @@
 
 .method public final smoothScrollBy(II)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "dx",
-            "dy"
-        }
-    .end annotation
 
     const/16 v0, 0xfa
 
@@ -6268,20 +5587,6 @@
 
 .method smoothScrollTo(IIIZ)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "x",
-            "y",
-            "scrollDurationMs",
-            "withNestedScrolling"
-        }
-    .end annotation
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getScrollX()I
 
@@ -6302,18 +5607,6 @@
 
 .method smoothScrollTo(IIZ)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "x",
-            "y",
-            "withNestedScrolling"
-        }
-    .end annotation
 
     const/16 v0, 0xfa
 
@@ -6324,14 +5617,6 @@
 
 .method public startNestedScroll(I)Z
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "axes"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -6344,16 +5629,6 @@
 
 .method public startNestedScroll(II)Z
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "axes",
-            "type"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/core/widget/NestedScrollView;->mChildHelper:Landroidx/core/view/NestedScrollingChildHelper;
 
@@ -6376,14 +5651,6 @@
 
 .method public stopNestedScroll(I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "type"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/core/widget/NestedScrollView;->mChildHelper:Landroidx/core/view/NestedScrollingChildHelper;
 

@@ -54,18 +54,18 @@
 
     iget-object v1, p0, Lcom/android/settings/notification/app/BubblePreference$ButtonViewHolder;->this$0:Lcom/android/settings/notification/app/BubblePreference;
 
-    invoke-static {v1}, Lcom/android/settings/notification/app/BubblePreference;->access$000(Lcom/android/settings/notification/app/BubblePreference;)Landroid/content/Context;
+    invoke-static {v1}, Lcom/android/settings/notification/app/BubblePreference;->-$$Nest$fgetmContext(Lcom/android/settings/notification/app/BubblePreference;)Landroid/content/Context;
 
     move-result-object v1
 
     if-eqz p2, :cond_0
 
-    const v2, 0x7f020113
+    const v2, 0x7f02011c
 
     goto :goto_0
 
     :cond_0
-    const v2, 0x7f020114
+    const v2, 0x7f02011d
 
     :goto_0
     invoke-virtual {v1, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;

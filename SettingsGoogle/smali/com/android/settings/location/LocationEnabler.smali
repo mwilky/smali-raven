@@ -88,7 +88,7 @@
 
 
 # virtual methods
-.method getShareLocationEnforcedAdmin(I)Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
+.method public getShareLocationEnforcedAdmin(I)Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
     .locals 2
 
     iget-object v0, p0, Lcom/android/settings/location/LocationEnabler;->mContext:Landroid/content/Context;
@@ -113,7 +113,7 @@
     return-object v0
 .end method
 
-.method hasShareLocationRestriction(I)Z
+.method public hasShareLocationRestriction(I)Z
     .locals 1
 
     iget-object p0, p0, Lcom/android/settings/location/LocationEnabler;->mContext:Landroid/content/Context;
@@ -127,7 +127,7 @@
     return p0
 .end method
 
-.method isEnabled(I)Z
+.method public isEnabled(I)Z
     .locals 0
 
     if-eqz p1, :cond_0
@@ -149,7 +149,7 @@
     return p0
 .end method
 
-.method isManagedProfileRestrictedByBase()Z
+.method public isManagedProfileRestrictedByBase()Z
     .locals 1
 
     iget-object v0, p0, Lcom/android/settings/location/LocationEnabler;->mUserManager:Landroid/os/UserManager;
@@ -220,7 +220,7 @@
     return-void
 .end method
 
-.method refreshLocationMode()V
+.method public refreshLocationMode()V
     .locals 3
 
     iget-object v0, p0, Lcom/android/settings/location/LocationEnabler;->mContext:Landroid/content/Context;
@@ -266,7 +266,7 @@
     return-void
 .end method
 
-.method setLocationEnabled(Z)V
+.method public setLocationEnabled(Z)V
     .locals 3
 
     iget-object v0, p0, Lcom/android/settings/location/LocationEnabler;->mContext:Landroid/content/Context;

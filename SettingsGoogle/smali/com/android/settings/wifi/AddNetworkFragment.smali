@@ -187,7 +187,7 @@
 
     move-result v0
 
-    const v1, 0x7f0d0533
+    const v1, 0x7f0d0575
 
     if-ne v0, v1, :cond_2
 
@@ -195,7 +195,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0532
+    const v1, 0x7f0d0574
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -239,7 +239,7 @@
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 1
 
-    const p3, 0x7f0602b1
+    const p3, 0x7f0602c4
 
     const/4 v0, 0x0
 
@@ -282,7 +282,7 @@
 
     iput-object p2, p0, Lcom/android/settings/wifi/AddNetworkFragment;->mCancelBtn:Landroid/widget/Button;
 
-    const p2, 0x7f0d0533
+    const p2, 0x7f0d0575
 
     invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -311,6 +311,18 @@
     invoke-direct {p2, p0, p1, p3, v0}, Lcom/android/settings/wifi/WifiConfigController2;-><init>(Lcom/android/settings/wifi/WifiConfigUiBase2;Landroid/view/View;Lcom/android/wifitrackerlib/WifiEntry;I)V
 
     iput-object p2, p0, Lcom/android/settings/wifi/AddNetworkFragment;->mUIController:Lcom/android/settings/wifi/WifiConfigController2;
+
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
+
+    move-result-object p0
+
+    const/16 p2, 0x10
+
+    invoke-virtual {p0, p2}, Landroid/view/Window;->setSoftInputMode(I)V
 
     return-object p1
 .end method

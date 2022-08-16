@@ -36,11 +36,11 @@
 
     iget-object p1, p0, Lcom/android/settings/network/InternetUpdater$2;->this$0:Lcom/android/settings/network/InternetUpdater;
 
-    invoke-static {p1}, Lcom/android/settings/network/InternetUpdater;->access$000(Lcom/android/settings/network/InternetUpdater;)V
+    invoke-static {p1}, Lcom/android/settings/network/InternetUpdater;->-$$Nest$mfetchActiveNetwork(Lcom/android/settings/network/InternetUpdater;)V
 
     iget-object p1, p0, Lcom/android/settings/network/InternetUpdater$2;->this$0:Lcom/android/settings/network/InternetUpdater;
 
-    invoke-static {p1}, Lcom/android/settings/network/InternetUpdater;->access$100(Lcom/android/settings/network/InternetUpdater;)Lcom/android/settings/network/InternetUpdater$InternetChangeListener;
+    invoke-static {p1}, Lcom/android/settings/network/InternetUpdater;->-$$Nest$fgetmListener(Lcom/android/settings/network/InternetUpdater;)Lcom/android/settings/network/InternetUpdater$InternetChangeListener;
 
     move-result-object p1
 
@@ -48,13 +48,13 @@
 
     iget-object p1, p0, Lcom/android/settings/network/InternetUpdater$2;->this$0:Lcom/android/settings/network/InternetUpdater;
 
-    invoke-static {p1}, Lcom/android/settings/network/InternetUpdater;->access$100(Lcom/android/settings/network/InternetUpdater;)Lcom/android/settings/network/InternetUpdater$InternetChangeListener;
+    invoke-static {p1}, Lcom/android/settings/network/InternetUpdater;->-$$Nest$fgetmListener(Lcom/android/settings/network/InternetUpdater;)Lcom/android/settings/network/InternetUpdater$InternetChangeListener;
 
     move-result-object p1
 
     iget-object p0, p0, Lcom/android/settings/network/InternetUpdater$2;->this$0:Lcom/android/settings/network/InternetUpdater;
 
-    invoke-static {p0}, Lcom/android/settings/network/InternetUpdater;->access$200(Lcom/android/settings/network/InternetUpdater;)Landroid/net/wifi/WifiManager;
+    invoke-static {p0}, Lcom/android/settings/network/InternetUpdater;->-$$Nest$fgetmWifiManager(Lcom/android/settings/network/InternetUpdater;)Landroid/net/wifi/WifiManager;
 
     move-result-object p0
 

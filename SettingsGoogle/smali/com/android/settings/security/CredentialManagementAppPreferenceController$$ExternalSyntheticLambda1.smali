@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settings/security/CredentialManagementAppPreferenceController$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -33,7 +34,7 @@
 
     iget-object p0, p0, Lcom/android/settings/security/CredentialManagementAppPreferenceController$$ExternalSyntheticLambda1;->f$1:Landroidx/preference/Preference;
 
-    invoke-static {v0, p0}, Lcom/android/settings/security/CredentialManagementAppPreferenceController;->$r8$lambda$vqAMPq1OjcCYIp45UdTrHavb6-k(Lcom/android/settings/security/CredentialManagementAppPreferenceController;Landroidx/preference/Preference;)V
+    invoke-static {v0, p0}, Lcom/android/settings/security/CredentialManagementAppPreferenceController;->$r8$lambda$FzIiTRYyZvlV2793po4gfhIQhJ0(Lcom/android/settings/security/CredentialManagementAppPreferenceController;Landroidx/preference/Preference;)V
 
     return-void
 .end method

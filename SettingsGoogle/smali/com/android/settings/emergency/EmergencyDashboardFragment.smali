@@ -11,11 +11,11 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    new-instance v0, Lcom/android/settings/search/BaseSearchIndexProvider;
+    new-instance v0, Lcom/android/settings/emergency/EmergencyDashboardFragment$1;
 
-    const v1, 0x7f15006c
+    const v1, 0x7f150070
 
-    invoke-direct {v0, v1}, Lcom/android/settings/search/BaseSearchIndexProvider;-><init>(I)V
+    invoke-direct {v0, v1}, Lcom/android/settings/emergency/EmergencyDashboardFragment$1;-><init>(I)V
 
     sput-object v0, Lcom/android/settings/emergency/EmergencyDashboardFragment;->SEARCH_INDEX_DATA_PROVIDER:Lcom/android/settings/search/BaseSearchIndexProvider;
 
@@ -99,7 +99,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f15006c
+    const p0, 0x7f150070
 
     return p0
 .end method

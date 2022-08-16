@@ -186,7 +186,7 @@
     goto :goto_3
 
     :sswitch_5
-    const-string v0, "rp"
+    const-string/jumbo v0, "rp"
 
     invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -202,7 +202,7 @@
     goto :goto_3
 
     :sswitch_6
-    const-string v0, "rc"
+    const-string/jumbo v0, "rc"
 
     invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settings/accessibility/AccessibilityHearingAidPreferenceController$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/concurrent/Callable;
@@ -27,7 +28,7 @@
 
     iget-object p0, p0, Lcom/android/settings/accessibility/AccessibilityHearingAidPreferenceController$$ExternalSyntheticLambda0;->f$0:Lcom/android/settings/accessibility/AccessibilityHearingAidPreferenceController;
 
-    invoke-static {p0}, Lcom/android/settings/accessibility/AccessibilityHearingAidPreferenceController;->$r8$lambda$TVLycApdki9r46zAjRbMOJl1WRM(Lcom/android/settings/accessibility/AccessibilityHearingAidPreferenceController;)Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
+    invoke-static {p0}, Lcom/android/settings/accessibility/AccessibilityHearingAidPreferenceController;->$r8$lambda$asH1co4k-DupEs15xsWjiLnv5KQ(Lcom/android/settings/accessibility/AccessibilityHearingAidPreferenceController;)Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
 
     move-result-object p0
 

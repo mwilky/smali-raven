@@ -300,7 +300,7 @@
 .end method
 
 .method private findIntersectingTextView()V
-    .locals 6
+    .locals 7
 
     iget-object v0, p0, Lcom/google/android/material/timepicker/ClockFaceView;->clockHandView:Lcom/google/android/material/timepicker/ClockHandView;
 
@@ -310,92 +310,107 @@
 
     const/4 v1, 0x0
 
+    move v2, v1
+
     :goto_0
-    iget-object v2, p0, Lcom/google/android/material/timepicker/ClockFaceView;->textViewPool:Landroid/util/SparseArray;
+    iget-object v3, p0, Lcom/google/android/material/timepicker/ClockFaceView;->textViewPool:Landroid/util/SparseArray;
 
-    invoke-virtual {v2}, Landroid/util/SparseArray;->size()I
+    invoke-virtual {v3}, Landroid/util/SparseArray;->size()I
 
-    move-result v2
+    move-result v3
 
-    if-ge v1, v2, :cond_1
+    if-ge v2, v3, :cond_2
 
-    iget-object v2, p0, Lcom/google/android/material/timepicker/ClockFaceView;->textViewPool:Landroid/util/SparseArray;
+    iget-object v3, p0, Lcom/google/android/material/timepicker/ClockFaceView;->textViewPool:Landroid/util/SparseArray;
 
-    invoke-virtual {v2, v1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/widget/TextView;
-
-    if-nez v2, :cond_0
-
-    goto :goto_1
-
-    :cond_0
-    iget-object v3, p0, Lcom/google/android/material/timepicker/ClockFaceView;->textViewRect:Landroid/graphics/Rect;
-
-    invoke-virtual {v2, v3}, Landroid/widget/TextView;->getDrawingRect(Landroid/graphics/Rect;)V
-
-    iget-object v3, p0, Lcom/google/android/material/timepicker/ClockFaceView;->textViewRect:Landroid/graphics/Rect;
-
-    invoke-virtual {v2}, Landroid/widget/TextView;->getPaddingLeft()I
-
-    move-result v4
-
-    invoke-virtual {v2}, Landroid/widget/TextView;->getPaddingTop()I
-
-    move-result v5
-
-    invoke-virtual {v3, v4, v5}, Landroid/graphics/Rect;->offset(II)V
-
-    iget-object v3, p0, Lcom/google/android/material/timepicker/ClockFaceView;->textViewRect:Landroid/graphics/Rect;
-
-    invoke-virtual {p0, v2, v3}, Landroid/view/ViewGroup;->offsetDescendantRectToMyCoords(Landroid/view/View;Landroid/graphics/Rect;)V
-
-    iget-object v3, p0, Lcom/google/android/material/timepicker/ClockFaceView;->scratch:Landroid/graphics/RectF;
-
-    iget-object v4, p0, Lcom/google/android/material/timepicker/ClockFaceView;->textViewRect:Landroid/graphics/Rect;
-
-    invoke-virtual {v3, v4}, Landroid/graphics/RectF;->set(Landroid/graphics/Rect;)V
-
-    iget-object v3, p0, Lcom/google/android/material/timepicker/ClockFaceView;->scratch:Landroid/graphics/RectF;
-
-    invoke-direct {p0, v0, v3}, Lcom/google/android/material/timepicker/ClockFaceView;->getGradientForTextView(Landroid/graphics/RectF;Landroid/graphics/RectF;)Landroid/graphics/RadialGradient;
+    invoke-virtual {v3, v2}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
     move-result-object v3
 
-    invoke-virtual {v2}, Landroid/widget/TextView;->getPaint()Landroid/text/TextPaint;
+    check-cast v3, Landroid/widget/TextView;
+
+    if-nez v3, :cond_0
+
+    goto :goto_2
+
+    :cond_0
+    iget-object v4, p0, Lcom/google/android/material/timepicker/ClockFaceView;->textViewRect:Landroid/graphics/Rect;
+
+    invoke-virtual {v3, v4}, Landroid/widget/TextView;->getDrawingRect(Landroid/graphics/Rect;)V
+
+    iget-object v4, p0, Lcom/google/android/material/timepicker/ClockFaceView;->textViewRect:Landroid/graphics/Rect;
+
+    invoke-virtual {v3}, Landroid/widget/TextView;->getPaddingLeft()I
+
+    move-result v5
+
+    invoke-virtual {v3}, Landroid/widget/TextView;->getPaddingTop()I
+
+    move-result v6
+
+    invoke-virtual {v4, v5, v6}, Landroid/graphics/Rect;->offset(II)V
+
+    iget-object v4, p0, Lcom/google/android/material/timepicker/ClockFaceView;->textViewRect:Landroid/graphics/Rect;
+
+    invoke-virtual {p0, v3, v4}, Landroid/view/ViewGroup;->offsetDescendantRectToMyCoords(Landroid/view/View;Landroid/graphics/Rect;)V
+
+    iget-object v4, p0, Lcom/google/android/material/timepicker/ClockFaceView;->scratch:Landroid/graphics/RectF;
+
+    iget-object v5, p0, Lcom/google/android/material/timepicker/ClockFaceView;->textViewRect:Landroid/graphics/Rect;
+
+    invoke-virtual {v4, v5}, Landroid/graphics/RectF;->set(Landroid/graphics/Rect;)V
+
+    iget-object v4, p0, Lcom/google/android/material/timepicker/ClockFaceView;->scratch:Landroid/graphics/RectF;
+
+    invoke-static {v0, v4}, Landroid/graphics/RectF;->intersects(Landroid/graphics/RectF;Landroid/graphics/RectF;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    invoke-virtual {v3}, Landroid/widget/TextView;->getPaint()Landroid/text/TextPaint;
 
     move-result-object v4
 
-    invoke-virtual {v4, v3}, Landroid/text/TextPaint;->setShader(Landroid/graphics/Shader;)Landroid/graphics/Shader;
+    invoke-direct {p0, v0}, Lcom/google/android/material/timepicker/ClockFaceView;->getGradient(Landroid/graphics/RectF;)Landroid/graphics/RadialGradient;
 
-    invoke-virtual {v2}, Landroid/widget/TextView;->invalidate()V
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Landroid/text/TextPaint;->setShader(Landroid/graphics/Shader;)Landroid/graphics/Shader;
+
+    const/4 v4, 0x1
+
+    invoke-virtual {v3, v4}, Landroid/widget/TextView;->setSelected(Z)V
+
+    goto :goto_1
+
+    :cond_1
+    invoke-virtual {v3}, Landroid/widget/TextView;->getPaint()Landroid/text/TextPaint;
+
+    move-result-object v4
+
+    const/4 v5, 0x0
+
+    invoke-virtual {v4, v5}, Landroid/text/TextPaint;->setShader(Landroid/graphics/Shader;)Landroid/graphics/Shader;
+
+    invoke-virtual {v3, v1}, Landroid/widget/TextView;->setSelected(Z)V
 
     :goto_1
-    add-int/lit8 v1, v1, 0x1
+    invoke-virtual {v3}, Landroid/widget/TextView;->invalidate()V
+
+    :goto_2
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     return-void
 .end method
 
-.method private getGradientForTextView(Landroid/graphics/RectF;Landroid/graphics/RectF;)Landroid/graphics/RadialGradient;
-    .locals 7
+.method private getGradient(Landroid/graphics/RectF;)Landroid/graphics/RadialGradient;
+    .locals 8
 
-    invoke-static {p1, p2}, Landroid/graphics/RectF;->intersects(Landroid/graphics/RectF;Landroid/graphics/RectF;)Z
-
-    move-result p2
-
-    if-nez p2, :cond_0
-
-    const/4 p0, 0x0
-
-    return-object p0
-
-    :cond_0
-    new-instance p2, Landroid/graphics/RadialGradient;
+    new-instance v7, Landroid/graphics/RadialGradient;
 
     invoke-virtual {p1}, Landroid/graphics/RectF;->centerX()F
 
@@ -431,11 +446,11 @@
 
     sget-object v6, Landroid/graphics/Shader$TileMode;->CLAMP:Landroid/graphics/Shader$TileMode;
 
-    move-object v0, p2
+    move-object v0, v7
 
     invoke-direct/range {v0 .. v6}, Landroid/graphics/RadialGradient;-><init>(FFF[I[FLandroid/graphics/Shader$TileMode;)V
 
-    return-object p2
+    return-object v7
 .end method
 
 .method private static max3(FFF)F

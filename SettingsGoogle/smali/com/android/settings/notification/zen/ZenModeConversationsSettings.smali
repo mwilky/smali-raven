@@ -12,12 +12,22 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$smbuildPreferenceControllers(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;Lcom/android/settings/notification/NotificationBackend;)Ljava/util/List;
+    .locals 0
+
+    invoke-static {p0, p1, p2}, Lcom/android/settings/notification/zen/ZenModeConversationsSettings;->buildPreferenceControllers(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;Lcom/android/settings/notification/NotificationBackend;)Ljava/util/List;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method static constructor <clinit>()V
     .locals 2
 
     new-instance v0, Lcom/android/settings/notification/zen/ZenModeConversationsSettings$1;
 
-    const v1, 0x7f150123
+    const v1, 0x7f15012b
 
     invoke-direct {v0, v1}, Lcom/android/settings/notification/zen/ZenModeConversationsSettings$1;-><init>(I)V
 
@@ -38,16 +48,6 @@
     iput-object v0, p0, Lcom/android/settings/notification/zen/ZenModeConversationsSettings;->mNotificationBackend:Lcom/android/settings/notification/NotificationBackend;
 
     return-void
-.end method
-
-.method static synthetic access$000(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;Lcom/android/settings/notification/NotificationBackend;)Ljava/util/List;
-    .locals 0
-
-    invoke-static {p0, p1, p2}, Lcom/android/settings/notification/zen/ZenModeConversationsSettings;->buildPreferenceControllers(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;Lcom/android/settings/notification/NotificationBackend;)Ljava/util/List;
-
-    move-result-object p0
-
-    return-object p0
 .end method
 
 .method private static buildPreferenceControllers(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;Lcom/android/settings/notification/NotificationBackend;)Ljava/util/List;
@@ -127,7 +127,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150123
+    const p0, 0x7f15012b
 
     return p0
 .end method

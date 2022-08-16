@@ -22,6 +22,38 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmAdapter(Lcom/android/settings/localepicker/LocaleListEditor;)Lcom/android/settings/localepicker/LocaleDragAndDropAdapter;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/localepicker/LocaleListEditor;->mAdapter:Lcom/android/settings/localepicker/LocaleDragAndDropAdapter;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmRemoveMode(Lcom/android/settings/localepicker/LocaleListEditor;Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/settings/localepicker/LocaleListEditor;->mRemoveMode:Z
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fputmShowingRemoveDialog(Lcom/android/settings/localepicker/LocaleListEditor;Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/settings/localepicker/LocaleListEditor;->mShowingRemoveDialog:Z
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$msetRemoveMode(Lcom/android/settings/localepicker/LocaleListEditor;Z)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/localepicker/LocaleListEditor;->setRemoveMode(Z)V
+
+    return-void
+.end method
+
 .method static constructor <clinit>()V
     .locals 1
 
@@ -44,42 +76,10 @@
     return-void
 .end method
 
-.method static synthetic access$002(Lcom/android/settings/localepicker/LocaleListEditor;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/settings/localepicker/LocaleListEditor;->mShowingRemoveDialog:Z
-
-    return p1
-.end method
-
-.method static synthetic access$102(Lcom/android/settings/localepicker/LocaleListEditor;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/settings/localepicker/LocaleListEditor;->mRemoveMode:Z
-
-    return p1
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/localepicker/LocaleListEditor;)Lcom/android/settings/localepicker/LocaleDragAndDropAdapter;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/localepicker/LocaleListEditor;->mAdapter:Lcom/android/settings/localepicker/LocaleDragAndDropAdapter;
-
-    return-object p0
-.end method
-
-.method static synthetic access$300(Lcom/android/settings/localepicker/LocaleListEditor;Z)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/localepicker/LocaleListEditor;->setRemoveMode(Z)V
-
-    return-void
-.end method
-
 .method private configureDragAndDrop(Landroid/view/View;)V
     .locals 4
 
-    const v0, 0x7f0d01e4
+    const v0, 0x7f0d01fd
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -113,7 +113,7 @@
 
     invoke-virtual {v0, v1}, Landroidx/recyclerview/widget/RecyclerView;->setAdapter(Landroidx/recyclerview/widget/RecyclerView$Adapter;)V
 
-    const v0, 0x7f0d005c
+    const v0, 0x7f0d005d
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -349,7 +349,7 @@
 
     const/4 v1, 0x2
 
-    const v2, 0x7f040b7c
+    const v2, 0x7f040be6
 
     invoke-interface {p1, v0, v1, v0, v2}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -359,7 +359,7 @@
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setShowAsAction(I)V
 
-    const v1, 0x7f0201b4
+    const v1, 0x7f0201cf
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -383,7 +383,7 @@
 
     check-cast p3, Landroid/view/ViewGroup;
 
-    const v0, 0x7f060119
+    const v0, 0x7f06011e
 
     invoke-virtual {p1, v0, p3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -471,7 +471,7 @@
 
     if-nez v0, :cond_0
 
-    const v0, 0x7f040b59
+    const v0, 0x7f040bc2
 
     invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(I)V
 
@@ -607,13 +607,13 @@
 
     invoke-direct {v0, v1}, Landroidx/appcompat/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f040829
+    const v1, 0x7f040873
 
     invoke-virtual {v0, v1}, Landroidx/appcompat/app/AlertDialog$Builder;->setTitle(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f040828
+    const v1, 0x7f040872
 
     invoke-virtual {v0, v1}, Landroidx/appcompat/app/AlertDialog$Builder;->setMessage(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
@@ -674,7 +674,7 @@
 
     if-eqz v2, :cond_2
 
-    const v2, 0x7f04082a
+    const v2, 0x7f040874
 
     invoke-virtual {v1, v2}, Landroidx/appcompat/app/AlertDialog$Builder;->setMessage(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
@@ -693,7 +693,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040b7c
+    const v1, 0x7f040be6
 
     new-instance v2, Lcom/android/settings/localepicker/LocaleListEditor$4;
 

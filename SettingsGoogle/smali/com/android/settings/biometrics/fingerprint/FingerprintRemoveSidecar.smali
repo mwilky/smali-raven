@@ -13,9 +13,9 @@
 
 
 # instance fields
-.field mFingerprintManager:Landroid/hardware/fingerprint/FingerprintManager;
-
 .field private mFingerprintRemoving:Landroid/hardware/fingerprint/Fingerprint;
+
+.field private mFingerprintUpdater:Lcom/android/settings/biometrics/fingerprint/FingerprintUpdater;
 
 .field private mFingerprintsRemoved:Ljava/util/Queue;
     .annotation system Ldalvik/annotation/Signature;
@@ -33,6 +33,30 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmFingerprintsRemoved(Lcom/android/settings/biometrics/fingerprint/FingerprintRemoveSidecar;)Ljava/util/Queue;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintRemoveSidecar;->mFingerprintsRemoved:Ljava/util/Queue;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmListener(Lcom/android/settings/biometrics/fingerprint/FingerprintRemoveSidecar;)Lcom/android/settings/biometrics/fingerprint/FingerprintRemoveSidecar$Listener;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintRemoveSidecar;->mListener:Lcom/android/settings/biometrics/fingerprint/FingerprintRemoveSidecar$Listener;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmFingerprintRemoving(Lcom/android/settings/biometrics/fingerprint/FingerprintRemoveSidecar;Landroid/hardware/fingerprint/Fingerprint;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintRemoveSidecar;->mFingerprintRemoving:Landroid/hardware/fingerprint/Fingerprint;
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 1
 
@@ -51,30 +75,6 @@
     iput-object v0, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintRemoveSidecar;->mFingerprintsRemoved:Ljava/util/Queue;
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/biometrics/fingerprint/FingerprintRemoveSidecar;)Lcom/android/settings/biometrics/fingerprint/FingerprintRemoveSidecar$Listener;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintRemoveSidecar;->mListener:Lcom/android/settings/biometrics/fingerprint/FingerprintRemoveSidecar$Listener;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/biometrics/fingerprint/FingerprintRemoveSidecar;)Ljava/util/Queue;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintRemoveSidecar;->mFingerprintsRemoved:Ljava/util/Queue;
-
-    return-object p0
-.end method
-
-.method static synthetic access$202(Lcom/android/settings/biometrics/fingerprint/FingerprintRemoveSidecar;Landroid/hardware/fingerprint/Fingerprint;)Landroid/hardware/fingerprint/Fingerprint;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintRemoveSidecar;->mFingerprintRemoving:Landroid/hardware/fingerprint/Fingerprint;
-
-    return-object p1
 .end method
 
 
@@ -145,10 +145,10 @@
     return-void
 .end method
 
-.method public setFingerprintManager(Landroid/hardware/fingerprint/FingerprintManager;)V
+.method public setFingerprintUpdater(Lcom/android/settings/biometrics/fingerprint/FingerprintUpdater;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintRemoveSidecar;->mFingerprintManager:Landroid/hardware/fingerprint/FingerprintManager;
+    iput-object p1, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintRemoveSidecar;->mFingerprintUpdater:Lcom/android/settings/biometrics/fingerprint/FingerprintUpdater;
 
     return-void
 .end method
@@ -229,11 +229,11 @@
     :cond_0
     iput-object p1, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintRemoveSidecar;->mFingerprintRemoving:Landroid/hardware/fingerprint/Fingerprint;
 
-    iget-object v0, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintRemoveSidecar;->mFingerprintManager:Landroid/hardware/fingerprint/FingerprintManager;
+    iget-object v0, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintRemoveSidecar;->mFingerprintUpdater:Lcom/android/settings/biometrics/fingerprint/FingerprintUpdater;
 
     iget-object p0, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintRemoveSidecar;->mRemoveCallback:Landroid/hardware/fingerprint/FingerprintManager$RemovalCallback;
 
-    invoke-virtual {v0, p1, p2, p0}, Landroid/hardware/fingerprint/FingerprintManager;->remove(Landroid/hardware/fingerprint/Fingerprint;ILandroid/hardware/fingerprint/FingerprintManager$RemovalCallback;)V
+    invoke-virtual {v0, p1, p2, p0}, Lcom/android/settings/biometrics/fingerprint/FingerprintUpdater;->remove(Landroid/hardware/fingerprint/Fingerprint;ILandroid/hardware/fingerprint/FingerprintManager$RemovalCallback;)V
 
     return-void
 .end method

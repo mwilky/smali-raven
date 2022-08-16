@@ -17,14 +17,6 @@
 # direct methods
 .method public static getDescription(Ljava/lang/Object;)Ljava/lang/CharSequence;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "routeObj"
-        }
-    .end annotation
 
     check-cast p0, Landroid/media/MediaRouter$RouteInfo;
 
@@ -37,14 +29,6 @@
 
 .method public static isConnecting(Ljava/lang/Object;)Z
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "routeObj"
-        }
-    .end annotation
 
     check-cast p0, Landroid/media/MediaRouter$RouteInfo;
 

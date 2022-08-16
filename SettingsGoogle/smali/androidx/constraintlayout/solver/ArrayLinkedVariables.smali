@@ -103,7 +103,7 @@
 
 # virtual methods
 .method final add(Landroidx/constraintlayout/solver/SolverVariable;FZ)V
-    .locals 9
+    .locals 8
 
     invoke-static {p2}, Ljava/lang/Math;->abs(F)F
 
@@ -201,11 +201,11 @@
 
     iget-object v6, p0, Landroidx/constraintlayout/solver/ArrayLinkedVariables;->mArrayIndices:[I
 
-    aget v7, v6, v0
+    aget v6, v6, v0
 
-    iget v8, p1, Landroidx/constraintlayout/solver/SolverVariable;->id:I
+    iget v7, p1, Landroidx/constraintlayout/solver/SolverVariable;->id:I
 
-    if-ne v7, v8, :cond_8
+    if-ne v6, v7, :cond_8
 
     iget-object v1, p0, Landroidx/constraintlayout/solver/ArrayLinkedVariables;->mArrayValues:[F
 
@@ -215,9 +215,7 @@
 
     aput v2, v1, v0
 
-    aget p2, v1, v0
-
-    invoke-static {p2}, Ljava/lang/Math;->abs(F)F
+    invoke-static {v2}, Ljava/lang/Math;->abs(F)F
 
     move-result p2
 
@@ -292,9 +290,7 @@
     return-void
 
     :cond_8
-    aget v6, v6, v0
-
-    if-ge v6, v8, :cond_9
+    if-ge v6, v7, :cond_9
 
     move v5, v0
 
@@ -1136,7 +1132,7 @@
 .end method
 
 .method public final put(Landroidx/constraintlayout/solver/SolverVariable;F)V
-    .locals 9
+    .locals 8
 
     const/4 v0, 0x0
 
@@ -1232,11 +1228,11 @@
 
     iget-object v6, p0, Landroidx/constraintlayout/solver/ArrayLinkedVariables;->mArrayIndices:[I
 
-    aget v7, v6, v0
+    aget v6, v6, v0
 
-    iget v8, p1, Landroidx/constraintlayout/solver/SolverVariable;->id:I
+    iget v7, p1, Landroidx/constraintlayout/solver/SolverVariable;->id:I
 
-    if-ne v7, v8, :cond_3
+    if-ne v6, v7, :cond_3
 
     iget-object p0, p0, Landroidx/constraintlayout/solver/ArrayLinkedVariables;->mArrayValues:[F
 
@@ -1245,9 +1241,7 @@
     return-void
 
     :cond_3
-    aget v6, v6, v0
-
-    if-ge v6, v8, :cond_4
+    if-ge v6, v7, :cond_4
 
     move v5, v0
 

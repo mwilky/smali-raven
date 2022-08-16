@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settingslib/users/EditUserInfoController$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/content/DialogInterface$OnClickListener;
@@ -55,7 +56,7 @@
 
     move v6, p2
 
-    invoke-static/range {v0 .. v6}, Lcom/android/settingslib/users/EditUserInfoController;->$r8$lambda$td0Vm6FdkwUDLFeBBFLth5nTFcw(Lcom/android/settingslib/users/EditUserInfoController;Landroid/graphics/drawable/Drawable;Landroid/widget/EditText;Ljava/lang/String;Ljava/util/function/BiConsumer;Landroid/content/DialogInterface;I)V
+    invoke-static/range {v0 .. v6}, Lcom/android/settingslib/users/EditUserInfoController;->$r8$lambda$uu_jPOOXorxwdG6HFHdLVYh022Q(Lcom/android/settingslib/users/EditUserInfoController;Landroid/graphics/drawable/Drawable;Landroid/widget/EditText;Ljava/lang/String;Ljava/util/function/BiConsumer;Landroid/content/DialogInterface;I)V
 
     return-void
 .end method

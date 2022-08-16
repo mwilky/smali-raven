@@ -16,36 +16,12 @@
 
 # virtual methods
 .method public abstract getChildAt(I)Landroid/view/View;
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "index"
-        }
-    .end annotation
 .end method
 
 .method public abstract getChildEnd(Landroid/view/View;)I
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "view"
-        }
-    .end annotation
 .end method
 
 .method public abstract getChildStart(Landroid/view/View;)I
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "view"
-        }
-    .end annotation
 .end method
 
 .method public abstract getParentEnd()I

@@ -271,7 +271,7 @@
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 2
 
-    const p3, 0x7f0602b1
+    const p3, 0x7f0602c4
 
     const/4 v0, 0x0
 
@@ -344,21 +344,33 @@
 
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
 
-    move-result-object p0
+    move-result-object p2
 
-    invoke-virtual {p0}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
+    invoke-virtual {p2}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
 
-    move-result-object p0
+    move-result-object p2
 
-    if-eqz p0, :cond_1
+    if-eqz p2, :cond_1
 
-    invoke-virtual {p0, v0}, Landroid/app/ActionBar;->setDisplayHomeAsUpEnabled(Z)V
+    invoke-virtual {p2, v0}, Landroid/app/ActionBar;->setDisplayHomeAsUpEnabled(Z)V
 
-    invoke-virtual {p0, v0}, Landroid/app/ActionBar;->setHomeButtonEnabled(Z)V
+    invoke-virtual {p2, v0}, Landroid/app/ActionBar;->setHomeButtonEnabled(Z)V
 
-    invoke-virtual {p0, v0}, Landroid/app/ActionBar;->setDisplayShowHomeEnabled(Z)V
+    invoke-virtual {p2, v0}, Landroid/app/ActionBar;->setDisplayShowHomeEnabled(Z)V
 
     :cond_1
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
+
+    move-result-object p0
+
+    const/16 p2, 0x10
+
+    invoke-virtual {p0, p2}, Landroid/view/Window;->setSoftInputMode(I)V
+
     return-object p1
 .end method
 

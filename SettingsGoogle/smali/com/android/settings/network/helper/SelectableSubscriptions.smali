@@ -147,35 +147,41 @@
 
     if-eqz p2, :cond_0
 
-    new-instance v0, Lcom/android/settings/network/helper/SelectableSubscriptions$$ExternalSyntheticLambda8;
+    new-instance v0, Lcom/android/settings/network/helper/SelectableSubscriptions$$ExternalSyntheticLambda3;
 
-    invoke-direct {v0, p0, p1}, Lcom/android/settings/network/helper/SelectableSubscriptions$$ExternalSyntheticLambda8;-><init>(Lcom/android/settings/network/helper/SelectableSubscriptions;Landroid/content/Context;)V
+    invoke-direct {v0, p0, p1}, Lcom/android/settings/network/helper/SelectableSubscriptions$$ExternalSyntheticLambda3;-><init>(Lcom/android/settings/network/helper/SelectableSubscriptions;Landroid/content/Context;)V
 
     goto :goto_0
 
     :cond_0
-    new-instance v0, Lcom/android/settings/network/helper/SelectableSubscriptions$$ExternalSyntheticLambda9;
+    new-instance v0, Lcom/android/settings/network/helper/SelectableSubscriptions$$ExternalSyntheticLambda4;
 
-    invoke-direct {v0, p0, p1}, Lcom/android/settings/network/helper/SelectableSubscriptions$$ExternalSyntheticLambda9;-><init>(Lcom/android/settings/network/helper/SelectableSubscriptions;Landroid/content/Context;)V
+    invoke-direct {v0, p0, p1}, Lcom/android/settings/network/helper/SelectableSubscriptions$$ExternalSyntheticLambda4;-><init>(Lcom/android/settings/network/helper/SelectableSubscriptions;Landroid/content/Context;)V
 
     :goto_0
     iput-object v0, p0, Lcom/android/settings/network/helper/SelectableSubscriptions;->mSubscriptions:Ljava/util/function/Supplier;
 
     if-eqz p2, :cond_1
 
-    sget-object p1, Lcom/android/settings/network/helper/SelectableSubscriptions$$ExternalSyntheticLambda7;->INSTANCE:Lcom/android/settings/network/helper/SelectableSubscriptions$$ExternalSyntheticLambda7;
+    new-instance p1, Lcom/android/settings/network/helper/SelectableSubscriptions$$ExternalSyntheticLambda5;
+
+    invoke-direct {p1}, Lcom/android/settings/network/helper/SelectableSubscriptions$$ExternalSyntheticLambda5;-><init>()V
 
     iput-object p1, p0, Lcom/android/settings/network/helper/SelectableSubscriptions;->mFilter:Ljava/util/function/Predicate;
 
     goto :goto_1
 
     :cond_1
-    sget-object p1, Lcom/android/settings/network/helper/SelectableSubscriptions$$ExternalSyntheticLambda6;->INSTANCE:Lcom/android/settings/network/helper/SelectableSubscriptions$$ExternalSyntheticLambda6;
+    new-instance p1, Lcom/android/settings/network/helper/SelectableSubscriptions$$ExternalSyntheticLambda6;
+
+    invoke-direct {p1}, Lcom/android/settings/network/helper/SelectableSubscriptions$$ExternalSyntheticLambda6;-><init>()V
 
     iput-object p1, p0, Lcom/android/settings/network/helper/SelectableSubscriptions;->mFilter:Ljava/util/function/Predicate;
 
     :goto_1
-    sget-object p1, Lcom/android/settings/network/helper/SelectableSubscriptions$$ExternalSyntheticLambda3;->INSTANCE:Lcom/android/settings/network/helper/SelectableSubscriptions$$ExternalSyntheticLambda3;
+    new-instance p1, Lcom/android/settings/network/helper/SelectableSubscriptions$$ExternalSyntheticLambda7;
+
+    invoke-direct {p1}, Lcom/android/settings/network/helper/SelectableSubscriptions$$ExternalSyntheticLambda7;-><init>()V
 
     iput-object p1, p0, Lcom/android/settings/network/helper/SelectableSubscriptions;->mFinisher:Ljava/util/function/Function;
 
@@ -217,9 +223,9 @@
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/settings/network/helper/SelectableSubscriptions$$ExternalSyntheticLambda5;
+    new-instance v1, Lcom/android/settings/network/helper/SelectableSubscriptions$$ExternalSyntheticLambda2;
 
-    invoke-direct {v1, p0}, Lcom/android/settings/network/helper/SelectableSubscriptions$$ExternalSyntheticLambda5;-><init>(Ljava/util/concurrent/atomic/AtomicIntegerArray;)V
+    invoke-direct {v1, p0}, Lcom/android/settings/network/helper/SelectableSubscriptions$$ExternalSyntheticLambda2;-><init>(Ljava/util/concurrent/atomic/AtomicIntegerArray;)V
 
     invoke-interface {v0, v1}, Ljava/util/stream/IntStream;->map(Ljava/util/function/IntUnaryOperator;)Ljava/util/stream/IntStream;
 
@@ -484,17 +490,17 @@
 
     move-result-object v4
 
-    new-instance v5, Lcom/android/settings/network/helper/SelectableSubscriptions$$ExternalSyntheticLambda4;
+    new-instance v5, Lcom/android/settings/network/helper/SelectableSubscriptions$$ExternalSyntheticLambda0;
 
-    invoke-direct {v5, v3}, Lcom/android/settings/network/helper/SelectableSubscriptions$$ExternalSyntheticLambda4;-><init>(Ljava/util/List;)V
+    invoke-direct {v5, v3}, Lcom/android/settings/network/helper/SelectableSubscriptions$$ExternalSyntheticLambda0;-><init>(Ljava/util/List;)V
 
     invoke-interface {v4, v5}, Ljava/util/stream/IntStream;->mapToObj(Ljava/util/function/IntFunction;)Ljava/util/stream/Stream;
 
     move-result-object v3
 
-    new-instance v4, Lcom/android/settings/network/helper/SelectableSubscriptions$$ExternalSyntheticLambda0;
+    new-instance v4, Lcom/android/settings/network/helper/SelectableSubscriptions$$ExternalSyntheticLambda1;
 
-    invoke-direct {v4, p0, v1, v2, v0}, Lcom/android/settings/network/helper/SelectableSubscriptions$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/network/helper/SelectableSubscriptions;Ljava/util/List;Ljava/util/List;Ljava/util/List;)V
+    invoke-direct {v4, p0, v1, v2, v0}, Lcom/android/settings/network/helper/SelectableSubscriptions$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/network/helper/SelectableSubscriptions;Ljava/util/List;Ljava/util/List;Ljava/util/List;)V
 
     invoke-interface {v3, v4}, Ljava/util/stream/Stream;->map(Ljava/util/function/Function;)Ljava/util/stream/Stream;
 
@@ -555,7 +561,9 @@
         }
     .end annotation
 
-    sget-object v0, Lcom/android/settings/network/helper/SelectableSubscriptions$$ExternalSyntheticLambda1;->INSTANCE:Lcom/android/settings/network/helper/SelectableSubscriptions$$ExternalSyntheticLambda1;
+    new-instance v0, Lcom/android/settings/network/helper/SelectableSubscriptions$$ExternalSyntheticLambda9;
+
+    invoke-direct {v0}, Lcom/android/settings/network/helper/SelectableSubscriptions$$ExternalSyntheticLambda9;-><init>()V
 
     invoke-virtual {p0, p1, v0}, Lcom/android/settings/network/helper/SelectableSubscriptions;->getSubInfoList(Landroid/content/Context;Ljava/util/function/Function;)Ljava/util/List;
 
@@ -577,7 +585,9 @@
         }
     .end annotation
 
-    sget-object v0, Lcom/android/settings/network/helper/SelectableSubscriptions$$ExternalSyntheticLambda2;->INSTANCE:Lcom/android/settings/network/helper/SelectableSubscriptions$$ExternalSyntheticLambda2;
+    new-instance v0, Lcom/android/settings/network/helper/SelectableSubscriptions$$ExternalSyntheticLambda8;
+
+    invoke-direct {v0}, Lcom/android/settings/network/helper/SelectableSubscriptions$$ExternalSyntheticLambda8;-><init>()V
 
     invoke-virtual {p0, p1, v0}, Lcom/android/settings/network/helper/SelectableSubscriptions;->getSubInfoList(Landroid/content/Context;Ljava/util/function/Function;)Ljava/util/List;
 
@@ -609,9 +619,7 @@
 
     if-nez p0, :cond_0
 
-    invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
-
-    move-result-object p0
+    const/4 p0, 0x0
 
     goto :goto_0
 
@@ -623,6 +631,13 @@
     check-cast p0, Ljava/util/List;
 
     :goto_0
+    if-nez p0, :cond_1
+
+    invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
+
+    move-result-object p0
+
+    :cond_1
     return-object p0
 .end method
 

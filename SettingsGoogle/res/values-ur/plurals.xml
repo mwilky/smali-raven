@@ -233,11 +233,11 @@
         <item quantity="one">%d زمرہ کو بند کر دیا گیا</item>
     </plurals>
     <plurals name="notifications_sent_daily">
-        <item quantity="other">~%d اطلاعات فی دن</item>
+        <item quantity="other">~%,d اطلاعات فی دن</item>
         <item quantity="one">~%d اطلاع فی دن</item>
     </plurals>
     <plurals name="notifications_sent_weekly">
-        <item quantity="other">~%d اطلاعات فی ہفتہ</item>
+        <item quantity="other">~%,d اطلاعات فی ہفتہ</item>
         <item quantity="one">~%d اطلاع فی ہفتہ</item>
     </plurals>
     <plurals name="number_of_device_admins">
@@ -328,22 +328,6 @@
         <item quantity="other">بھروسہ کریں یا سرٹیفیکیٹس ہٹائیں</item>
         <item quantity="one">بھروسہ کریں یا سرٹیفیکیٹ ہٹائیں</item>
     </plurals>
-    <plurals name="ssl_ca_cert_info_message">
-        <item quantity="other">"%s نے آپ کے دفتری پروفائل کیلئے سرٹیفیکیٹ اتھارٹیز انسٹال کی ہیں جو انہیں دفتری نیٹ ورک کی سرگرمی بشمول ای میلز، ایپس اور محفوظ ویب سائٹس مانیٹر کرنے کی اجازت دے سکتی ہیں۔
-
-ان سرٹیفیکیٹس سے متعلق مزید معلومات کیلئے اپنے منتظم سے رابطہ کریں۔"</item>
-        <item quantity="one">"%s نے آپ کے دفتری پروفائل کیلئے سرٹیفیکیٹ اتھارٹی انسٹال کی ہے جو انہیں دفتری نیٹ ورک کی سرگرمی بشمول ای میلز، ایپس اور محفوظ ویب سائٹس مانیٹر کرنے کی اجازت دے سکتی ہے۔
-
-اس سرٹیفیکیٹ سے متعلق مزید معلومات کیلئے اپنے منتظم سے رابطہ کریں۔"</item>
-    </plurals>
-    <plurals name="ssl_ca_cert_info_message_device_owner">
-        <item quantity="other">"%s نے آپ کے آلہ پر سرٹیفیکیٹ اتھارٹیز انسٹال کی ہیں جو انہیں آپ کے آلہ کی نیٹ ورک کی سرگرمی بشمول ای میلز، ایپس اور محفوظ ویب سائٹس مانیٹر کرنے کی اجازت دے سکتی ہیں۔
-
-ان سرٹیفیکیٹس سے متعلق مزید معلومات کیلئے اپنے منتظم سے رابطہ کریں۔"</item>
-        <item quantity="one">"%s نے آپ کے آلہ پر ایک سرٹیفیکیٹ اتھارٹی انسٹال کی ہے جو انہیں آپ کے آلہ کی نیٹ ورک کی سرگرمی بشمول ای میلز، ایپس اور محفوظ ویب سائٹس مانیٹر کرنے کی اجازت دے سکتی ہے۔
-
-اس سرٹیفیکیٹ سے متعلق مزید معلومات کیلئے اپنے منتظم سے رابطہ کریں۔"</item>
-    </plurals>
     <plurals name="ssl_ca_cert_settings_button">
         <item quantity="other">سرٹیفکیٹس چیک کریں</item>
         <item quantity="one">سرٹیفیکیٹ چیک کریں</item>
@@ -375,10 +359,6 @@
     <plurals name="wifi_saved_passpoint_access_points_summary">
         <item quantity="other">‏‎%d سبسکرپشنز</item>
         <item quantity="one">1 سبسکرپشن</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">‏%1$d آلات منسلک ہیں</item>
-        <item quantity="one">‏%1$d آلہ منسلک ہے</item>
     </plurals>
     <plurals name="wrong_pin_code">
         <item quantity="other">‏غلط SIM PIN کوڈ، آپ کے پاس %d کوششیں بچی ہیں۔</item>

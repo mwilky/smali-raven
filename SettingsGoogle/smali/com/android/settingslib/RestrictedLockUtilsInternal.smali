@@ -547,9 +547,9 @@
 .method public static checkIfKeyguardFeaturesDisabled(Landroid/content/Context;II)Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
     .locals 1
 
-    new-instance v0, Lcom/android/settingslib/RestrictedLockUtilsInternal$$ExternalSyntheticLambda0;
+    new-instance v0, Lcom/android/settingslib/RestrictedLockUtilsInternal$$ExternalSyntheticLambda1;
 
-    invoke-direct {v0, p2, p1}, Lcom/android/settingslib/RestrictedLockUtilsInternal$$ExternalSyntheticLambda0;-><init>(II)V
+    invoke-direct {v0, p2, p1}, Lcom/android/settingslib/RestrictedLockUtilsInternal$$ExternalSyntheticLambda1;-><init>(II)V
 
     invoke-static {p0}, Landroid/os/UserManager;->get(Landroid/content/Context;)Landroid/os/UserManager;
 
@@ -598,7 +598,9 @@
 
     move-result v0
 
-    sget-object v1, Lcom/android/settingslib/RestrictedLockUtilsInternal$$ExternalSyntheticLambda2;->INSTANCE:Lcom/android/settingslib/RestrictedLockUtilsInternal$$ExternalSyntheticLambda2;
+    new-instance v1, Lcom/android/settingslib/RestrictedLockUtilsInternal$$ExternalSyntheticLambda0;
+
+    invoke-direct {v1}, Lcom/android/settingslib/RestrictedLockUtilsInternal$$ExternalSyntheticLambda0;-><init>()V
 
     invoke-static {p0, v0, v1}, Lcom/android/settingslib/RestrictedLockUtilsInternal;->checkForLockSetting(Landroid/content/Context;ILcom/android/settingslib/RestrictedLockUtilsInternal$LockSettingCheck;)Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
 
@@ -653,7 +655,9 @@
 .method public static checkIfPasswordQualityIsSet(Landroid/content/Context;I)Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
     .locals 6
 
-    sget-object v0, Lcom/android/settingslib/RestrictedLockUtilsInternal$$ExternalSyntheticLambda1;->INSTANCE:Lcom/android/settingslib/RestrictedLockUtilsInternal$$ExternalSyntheticLambda1;
+    new-instance v0, Lcom/android/settingslib/RestrictedLockUtilsInternal$$ExternalSyntheticLambda2;
+
+    invoke-direct {v0}, Lcom/android/settingslib/RestrictedLockUtilsInternal$$ExternalSyntheticLambda2;-><init>()V
 
     const-string v1, "device_policy"
 
@@ -1469,6 +1473,26 @@
     return-object v0
 .end method
 
+.method private static getShowRestrictedSettingsIntent(Ljava/lang/String;I)Landroid/content/Intent;
+    .locals 2
+
+    new-instance v0, Landroid/content/Intent;
+
+    const-string v1, "android.settings.SHOW_RESTRICTED_SETTING_DIALOG"
+
+    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    const-string v1, "android.intent.extra.PACKAGE_NAME"
+
+    invoke-virtual {v0, v1, p0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    const-string p0, "android.intent.extra.UID"
+
+    invoke-virtual {v0, p0, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+
+    return-object v0
+.end method
+
 .method private static getUserHandleOf(I)Landroid/os/UserHandle;
     .locals 1
 
@@ -1706,6 +1730,18 @@
     goto :goto_1
 
     :cond_1
+    return-void
+.end method
+
+.method public static sendShowRestrictedSettingDialogIntent(Landroid/content/Context;Ljava/lang/String;I)V
+    .locals 0
+
+    invoke-static {p1, p2}, Lcom/android/settingslib/RestrictedLockUtilsInternal;->getShowRestrictedSettingsIntent(Ljava/lang/String;I)Landroid/content/Intent;
+
+    move-result-object p1
+
+    invoke-virtual {p0, p1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
+
     return-void
 .end method
 

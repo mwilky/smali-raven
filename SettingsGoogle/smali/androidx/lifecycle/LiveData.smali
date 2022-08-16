@@ -616,7 +616,7 @@
         }
     .end annotation
 
-    const-string v0, "removeObserver"
+    const-string/jumbo v0, "removeObserver"
 
     invoke-static {v0}, Landroidx/lifecycle/LiveData;->assertMainThread(Ljava/lang/String;)V
 
@@ -645,7 +645,7 @@
 .method public removeObservers(Landroidx/lifecycle/LifecycleOwner;)V
     .locals 3
 
-    const-string v0, "removeObservers"
+    const-string/jumbo v0, "removeObservers"
 
     invoke-static {v0}, Landroidx/lifecycle/LiveData;->assertMainThread(Ljava/lang/String;)V
 

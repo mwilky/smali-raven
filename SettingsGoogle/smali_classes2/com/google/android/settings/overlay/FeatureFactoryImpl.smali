@@ -20,13 +20,11 @@
 
 .field private mBatteryStatusFeatureProvider:Lcom/android/settings/fuelgauge/BatteryStatusFeatureProvider;
 
+.field private mBluetoothFeatureProvider:Lcom/android/settings/bluetooth/BluetoothFeatureProvider;
+
 .field private mDockUpdaterFeatureProvider:Lcom/android/settings/overlay/DockUpdaterFeatureProvider;
 
-.field private mExtraAppInfoFeatureProvider:Lcom/android/settings/applications/appinfo/ExtraAppInfoFeatureProvider;
-
 .field private mFaceFeatureProvider:Lcom/android/settings/biometrics/face/FaceFeatureProvider;
-
-.field private mGameSettingsFeatureProvider:Lcom/android/settings/applications/GameSettingsFeatureProvider;
 
 .field private mMetricsFeatureProvider:Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;
 
@@ -236,6 +234,29 @@
     return-object p0
 .end method
 
+.method public getBluetoothFeatureProvider()Lcom/android/settings/bluetooth/BluetoothFeatureProvider;
+    .locals 2
+
+    iget-object v0, p0, Lcom/google/android/settings/overlay/FeatureFactoryImpl;->mBluetoothFeatureProvider:Lcom/android/settings/bluetooth/BluetoothFeatureProvider;
+
+    if-nez v0, :cond_0
+
+    new-instance v0, Lcom/google/android/settings/bluetooth/BluetoothFeatureProviderGoogleImpl;
+
+    invoke-static {}, Lcom/android/settings/overlay/FeatureFactory;->getAppContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Lcom/google/android/settings/bluetooth/BluetoothFeatureProviderGoogleImpl;-><init>(Landroid/content/Context;)V
+
+    iput-object v0, p0, Lcom/google/android/settings/overlay/FeatureFactoryImpl;->mBluetoothFeatureProvider:Lcom/android/settings/bluetooth/BluetoothFeatureProvider;
+
+    :cond_0
+    iget-object p0, p0, Lcom/google/android/settings/overlay/FeatureFactoryImpl;->mBluetoothFeatureProvider:Lcom/android/settings/bluetooth/BluetoothFeatureProvider;
+
+    return-object p0
+.end method
+
 .method public getDockUpdaterFeatureProvider()Lcom/android/settings/overlay/DockUpdaterFeatureProvider;
     .locals 1
 
@@ -255,25 +276,6 @@
     return-object p0
 .end method
 
-.method public getExtraAppInfoFeatureProvider()Lcom/android/settings/applications/appinfo/ExtraAppInfoFeatureProvider;
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/settings/overlay/FeatureFactoryImpl;->mExtraAppInfoFeatureProvider:Lcom/android/settings/applications/appinfo/ExtraAppInfoFeatureProvider;
-
-    if-nez v0, :cond_0
-
-    new-instance v0, Lcom/google/android/settings/gamemode/GameModeFeatureProviderGoogleImpl;
-
-    invoke-direct {v0}, Lcom/google/android/settings/gamemode/GameModeFeatureProviderGoogleImpl;-><init>()V
-
-    iput-object v0, p0, Lcom/google/android/settings/overlay/FeatureFactoryImpl;->mExtraAppInfoFeatureProvider:Lcom/android/settings/applications/appinfo/ExtraAppInfoFeatureProvider;
-
-    :cond_0
-    iget-object p0, p0, Lcom/google/android/settings/overlay/FeatureFactoryImpl;->mExtraAppInfoFeatureProvider:Lcom/android/settings/applications/appinfo/ExtraAppInfoFeatureProvider;
-
-    return-object p0
-.end method
-
 .method public getFaceFeatureProvider()Lcom/android/settings/biometrics/face/FaceFeatureProvider;
     .locals 1
 
@@ -289,25 +291,6 @@
 
     :cond_0
     iget-object p0, p0, Lcom/google/android/settings/overlay/FeatureFactoryImpl;->mFaceFeatureProvider:Lcom/android/settings/biometrics/face/FaceFeatureProvider;
-
-    return-object p0
-.end method
-
-.method public getGameSettingsFeatureProvider()Lcom/android/settings/applications/GameSettingsFeatureProvider;
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/settings/overlay/FeatureFactoryImpl;->mGameSettingsFeatureProvider:Lcom/android/settings/applications/GameSettingsFeatureProvider;
-
-    if-nez v0, :cond_0
-
-    new-instance v0, Lcom/google/android/settings/games/GameSettingsFeatureProviderGoogleImpl;
-
-    invoke-direct {v0}, Lcom/google/android/settings/games/GameSettingsFeatureProviderGoogleImpl;-><init>()V
-
-    iput-object v0, p0, Lcom/google/android/settings/overlay/FeatureFactoryImpl;->mGameSettingsFeatureProvider:Lcom/android/settings/applications/GameSettingsFeatureProvider;
-
-    :cond_0
-    iget-object p0, p0, Lcom/google/android/settings/overlay/FeatureFactoryImpl;->mGameSettingsFeatureProvider:Lcom/android/settings/applications/GameSettingsFeatureProvider;
 
     return-object p0
 .end method

@@ -310,17 +310,6 @@
 .method private static shouldApplyPartnerResource(Landroid/content/Context;)Z
     .locals 5
 
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/4 v1, 0x0
-
-    const/16 v2, 0x1d
-
-    if-ge v0, v2, :cond_0
-
-    return v1
-
-    :cond_0
     invoke-static {p0}, Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;->get(Landroid/content/Context;)Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;
 
     move-result-object v0
@@ -329,11 +318,13 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    const/4 v1, 0x0
+
+    if-nez v0, :cond_0
 
     return v1
 
-    :cond_1
+    :cond_0
     const/4 v0, 0x0
 
     :try_start_0
@@ -341,7 +332,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1
 
     invoke-static {v0}, Lcom/google/android/setupdesign/util/PartnerStyleHelper;->findLayoutFromActivity(Landroid/app/Activity;)Lcom/google/android/setupcompat/internal/TemplateLayout;
 
@@ -349,7 +340,7 @@
 
     instance-of v3, v2, Lcom/google/android/setupcompat/PartnerCustomizationLayout;
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_1
 
     check-cast v2, Lcom/google/android/setupcompat/PartnerCustomizationLayout;
 
@@ -363,8 +354,8 @@
     return p0
 
     :catch_0
-    :cond_2
-    if-eqz v0, :cond_3
+    :cond_1
+    if-eqz v0, :cond_2
 
     invoke-virtual {v0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
@@ -376,7 +367,7 @@
 
     goto :goto_0
 
-    :cond_3
+    :cond_2
     move v0, v1
 
     :goto_0
@@ -398,14 +389,14 @@
 
     invoke-virtual {p0}, Landroid/content/res/TypedArray;->recycle()V
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_3
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_4
 
-    :cond_4
+    :cond_3
     move v1, v2
 
-    :cond_5
+    :cond_4
     return v1
 .end method
 

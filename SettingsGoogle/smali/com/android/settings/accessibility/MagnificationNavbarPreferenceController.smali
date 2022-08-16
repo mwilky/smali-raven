@@ -22,14 +22,6 @@
 
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public getAvailabilityStatus()I
     .locals 0
 
@@ -58,15 +50,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -88,7 +71,7 @@
 .method public getSliceHighlightMenuRes()I
     .locals 0
 
-    const p0, 0x7f040d02
+    const p0, 0x7f040d7d
 
     return p0
 .end method
@@ -100,7 +83,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f040112
+    const v0, 0x7f04012b
 
     goto :goto_0
 
@@ -111,12 +94,12 @@
 
     if-eqz v0, :cond_1
 
-    const v0, 0x7f0400e2
+    const v0, 0x7f0400e5
 
     goto :goto_0
 
     :cond_1
-    const v0, 0x7f0400e1
+    const v0, 0x7f0400e4
 
     :goto_0
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
@@ -155,7 +138,7 @@
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    const v0, 0x7f040114
+    const v0, 0x7f04012d
 
     const-string/jumbo v1, "title_res"
 
@@ -163,7 +146,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f040113
+    const v1, 0x7f04012c
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -225,16 +208,6 @@
     return p0
 .end method
 
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
-
-    move-result p0
-
-    return p0
-.end method
-
 .method public isPublicSlice()Z
     .locals 0
 
@@ -250,7 +223,7 @@
 
     move-result-object p0
 
-    const-string v0, "screen_magnification_navbar_preference_screen"
+    const-string/jumbo v0, "screen_magnification_navbar_preference_screen"
 
     invoke-static {p0, v0}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
 

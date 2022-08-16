@@ -67,14 +67,6 @@
 
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "context"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -85,16 +77,6 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "attrs"
-        }
-    .end annotation
 
     invoke-direct {p0, p1, p2}, Landroidx/slice/widget/SliceChildView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
@@ -215,18 +197,6 @@
 
 .method private addCell(Landroidx/slice/widget/GridContent$CellContent;II)V
     .locals 28
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "cell",
-            "index",
-            "total"
-        }
-    .end annotation
 
     move-object/from16 v6, p0
 
@@ -793,20 +763,6 @@
 
 .method private addPickerItem(Landroidx/slice/SliceItem;Landroid/view/ViewGroup;IZ)Z
     .locals 9
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "pickerItem",
-            "container",
-            "padding",
-            "isDatePicker"
-        }
-    .end annotation
 
     const-string v0, "long"
 
@@ -911,17 +867,8 @@
 
     invoke-virtual {p2, v0}, Landroid/view/ViewGroup;->setClickable(Z)V
 
-    const v1, 0x101030e
-
-    sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v3, 0x15
-
-    if-lt v2, v3, :cond_3
-
     const v1, 0x101045c
 
-    :cond_3
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getContext()Landroid/content/Context;
 
     move-result-object v2
@@ -941,14 +888,6 @@
 
 .method private addSeeMoreCount(I)V
     .locals 12
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "numExtra"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/slice/widget/GridRowView;->mViewContainer:Landroid/widget/LinearLayout;
 
@@ -1218,18 +1157,6 @@
 
 .method private addTextItem(Landroidx/slice/SliceItem;Landroid/view/ViewGroup;I)Z
     .locals 7
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "item",
-            "container",
-            "padding"
-        }
-    .end annotation
 
     invoke-virtual {p1}, Landroidx/slice/SliceItem;->getFormat()Ljava/lang/String;
 
@@ -1382,14 +1309,6 @@
 
 .method private determinePadding(Landroidx/slice/SliceItem;)I
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "prevItem"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -1459,17 +1378,7 @@
 .end method
 
 .method private makeClickable(Landroid/view/View;Z)V
-    .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "layout",
-            "isClickable"
-        }
-    .end annotation
+    .locals 2
 
     const/4 v0, 0x0
 
@@ -1485,18 +1394,9 @@
     :goto_0
     invoke-virtual {p1, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v1, 0x101030e
-
-    sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v3, 0x15
-
-    if-lt v2, v3, :cond_1
-
     const v1, 0x101045c
 
-    :cond_1
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_1
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getContext()Landroid/content/Context;
 
@@ -1506,7 +1406,7 @@
 
     move-result-object v0
 
-    :cond_2
+    :cond_1
     invoke-virtual {p1, v0}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
     invoke-virtual {p1, p2}, Landroid/view/View;->setClickable(Z)V
@@ -1516,14 +1416,6 @@
 
 .method private makeEntireGridClickable(Z)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "isClickable"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/slice/widget/GridRowView;->mViewContainer:Landroid/widget/LinearLayout;
 
@@ -1572,110 +1464,97 @@
     :cond_2
     invoke-virtual {v0, v1}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    iget-object p0, p0, Landroidx/slice/widget/GridRowView;->mViewContainer:Landroid/widget/LinearLayout;
+    iget-object v0, p0, Landroidx/slice/widget/GridRowView;->mViewContainer:Landroid/widget/LinearLayout;
 
-    invoke-virtual {p0, p1}, Landroid/widget/LinearLayout;->setClickable(Z)V
+    invoke-virtual {v0, p1}, Landroid/widget/LinearLayout;->setClickable(Z)V
+
+    invoke-virtual {p0, p1}, Landroid/widget/FrameLayout;->setClickable(Z)V
 
     return-void
 .end method
 
 .method private onForegroundActivated(Landroid/view/MotionEvent;)V
     .locals 5
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "event"
-        }
-    .end annotation
-
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/4 v1, 0x0
-
-    const/4 v2, 0x1
-
-    const/16 v3, 0x15
-
-    if-lt v0, v3, :cond_0
 
     iget-object v0, p0, Landroidx/slice/widget/GridRowView;->mForeground:Landroid/view/View;
 
-    iget-object v3, p0, Landroidx/slice/widget/GridRowView;->mLoc:[I
+    iget-object v1, p0, Landroidx/slice/widget/GridRowView;->mLoc:[I
 
-    invoke-virtual {v0, v3}, Landroid/view/View;->getLocationOnScreen([I)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->getLocationOnScreen([I)V
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getRawX()F
 
     move-result v0
 
-    iget-object v3, p0, Landroidx/slice/widget/GridRowView;->mLoc:[I
+    iget-object v1, p0, Landroidx/slice/widget/GridRowView;->mLoc:[I
 
-    aget v3, v3, v1
+    const/4 v2, 0x0
 
-    int-to-float v3, v3
+    aget v1, v1, v2
 
-    sub-float/2addr v0, v3
+    int-to-float v1, v1
+
+    sub-float/2addr v0, v1
 
     float-to-int v0, v0
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getRawY()F
 
-    move-result v3
+    move-result v1
 
-    iget-object v4, p0, Landroidx/slice/widget/GridRowView;->mLoc:[I
+    iget-object v3, p0, Landroidx/slice/widget/GridRowView;->mLoc:[I
 
-    aget v4, v4, v2
+    const/4 v4, 0x1
 
-    int-to-float v4, v4
-
-    sub-float/2addr v3, v4
-
-    float-to-int v3, v3
-
-    iget-object v4, p0, Landroidx/slice/widget/GridRowView;->mForeground:Landroid/view/View;
-
-    invoke-virtual {v4}, Landroid/view/View;->getBackground()Landroid/graphics/drawable/Drawable;
-
-    move-result-object v4
-
-    int-to-float v0, v0
+    aget v3, v3, v4
 
     int-to-float v3, v3
 
-    invoke-virtual {v4, v0, v3}, Landroid/graphics/drawable/Drawable;->setHotspot(FF)V
+    sub-float/2addr v1, v3
 
-    :cond_0
+    float-to-int v1, v1
+
+    iget-object v3, p0, Landroidx/slice/widget/GridRowView;->mForeground:Landroid/view/View;
+
+    invoke-virtual {v3}, Landroid/view/View;->getBackground()Landroid/graphics/drawable/Drawable;
+
+    move-result-object v3
+
+    int-to-float v0, v0
+
+    int-to-float v1, v1
+
+    invoke-virtual {v3, v0, v1}, Landroid/graphics/drawable/Drawable;->setHotspot(FF)V
+
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
 
     move-result p1
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_0
 
+    iget-object p0, p0, Landroidx/slice/widget/GridRowView;->mForeground:Landroid/view/View;
+
+    invoke-virtual {p0, v4}, Landroid/view/View;->setPressed(Z)V
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x3
+
+    if-eq p1, v0, :cond_1
+
+    if-eq p1, v4, :cond_1
+
+    const/4 v0, 0x2
+
+    if-ne p1, v0, :cond_2
+
+    :cond_1
     iget-object p0, p0, Landroidx/slice/widget/GridRowView;->mForeground:Landroid/view/View;
 
     invoke-virtual {p0, v2}, Landroid/view/View;->setPressed(Z)V
 
-    goto :goto_0
-
-    :cond_1
-    const/4 v0, 0x3
-
-    if-eq p1, v0, :cond_2
-
-    if-eq p1, v2, :cond_2
-
-    const/4 v0, 0x2
-
-    if-ne p1, v0, :cond_3
-
     :cond_2
-    iget-object p0, p0, Landroidx/slice/widget/GridRowView;->mForeground:Landroid/view/View;
-
-    invoke-virtual {p0, v1}, Landroid/view/View;->setPressed(Z)V
-
-    :cond_3
     :goto_0
     return-void
 .end method
@@ -1684,22 +1563,6 @@
 # virtual methods
 .method protected addImageItem(Landroidx/slice/SliceItem;Landroidx/slice/SliceItem;ILandroid/view/ViewGroup;Z)Z
     .locals 8
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "item",
-            "overlayItem",
-            "color",
-            "container",
-            "isSingle"
-        }
-    .end annotation
 
     invoke-virtual {p1}, Landroidx/slice/SliceItem;->getFormat()Ljava/lang/String;
 
@@ -1789,7 +1652,7 @@
     invoke-virtual {v4, v0}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
     :goto_1
-    const-string v0, "raw"
+    const-string/jumbo v0, "raw"
 
     invoke-virtual {p1, v0}, Landroidx/slice/SliceItem;->hasHint(Ljava/lang/String;)Z
 
@@ -2203,14 +2066,6 @@
 
 .method public onClick(Landroid/view/View;)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "view"
-        }
-    .end annotation
 
     invoke-virtual {p1}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
@@ -2267,16 +2122,6 @@
 
 .method protected onMeasure(II)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "widthMeasureSpec",
-            "heightMeasureSpec"
-        }
-    .end annotation
 
     iget-object p2, p0, Landroidx/slice/widget/GridRowView;->mGridContent:Landroidx/slice/widget/GridContent;
 
@@ -2317,16 +2162,6 @@
 
 .method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "view",
-            "event"
-        }
-    .end annotation
 
     invoke-direct {p0, p2}, Landroidx/slice/widget/GridRowView;->onForegroundActivated(Landroid/view/MotionEvent;)V
 
@@ -2645,20 +2480,6 @@
 
 .method public setInsets(IIII)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "l",
-            "t",
-            "r",
-            "b"
-        }
-    .end annotation
 
     invoke-super {p0, p1, p2, p3, p4}, Landroidx/slice/widget/SliceChildView;->setInsets(IIII)V
 
@@ -2683,22 +2504,6 @@
 
 .method public setSliceItem(Landroidx/slice/widget/SliceContent;ZIILandroidx/slice/widget/SliceView$OnSliceActionListener;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "slice",
-            "isHeader",
-            "rowIndex",
-            "rowCount",
-            "observer"
-        }
-    .end annotation
 
     invoke-virtual {p0}, Landroidx/slice/widget/GridRowView;->resetView()V
 
@@ -2750,14 +2555,6 @@
 
 .method public setTint(I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "tintColor"
-        }
-    .end annotation
 
     invoke-super {p0, p1}, Landroidx/slice/widget/SliceChildView;->setTint(I)V
 

@@ -8,8 +8,6 @@
 
 
 # instance fields
-.field protected final mDPM:Landroid/app/admin/DevicePolicyManager;
-
 .field protected final mHost:Lcom/android/settings/SettingsPreferenceFragment;
 
 .field protected final mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
@@ -19,6 +17,8 @@
 .field protected mPreference:Lcom/android/settingslib/RestrictedPreference;
 
 .field protected final mProfileChallengeUserId:I
+
+.field private final mScreenLockPreferenceDetailUtils:Lcom/android/settings/security/ScreenLockPreferenceDetailsUtils;
 
 .field protected final mUm:Landroid/os/UserManager;
 
@@ -47,16 +47,6 @@
 
     iput-object v1, p0, Lcom/android/settings/security/ChangeScreenLockPreferenceController;->mUm:Landroid/os/UserManager;
 
-    const-string v2, "device_policy"
-
-    invoke-virtual {p1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/app/admin/DevicePolicyManager;
-
-    iput-object v2, p0, Lcom/android/settings/security/ChangeScreenLockPreferenceController;->mDPM:Landroid/app/admin/DevicePolicyManager;
-
     invoke-static {p1}, Lcom/android/settings/overlay/FeatureFactory;->getFactory(Landroid/content/Context;)Lcom/android/settings/overlay/FeatureFactory;
 
     move-result-object v2
@@ -81,13 +71,19 @@
 
     invoke-static {p1}, Lcom/android/settings/overlay/FeatureFactory;->getFactory(Landroid/content/Context;)Lcom/android/settings/overlay/FeatureFactory;
 
-    move-result-object p1
+    move-result-object p2
 
-    invoke-virtual {p1}, Lcom/android/settings/overlay/FeatureFactory;->getMetricsFeatureProvider()Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;
+    invoke-virtual {p2}, Lcom/android/settings/overlay/FeatureFactory;->getMetricsFeatureProvider()Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;
 
-    move-result-object p1
+    move-result-object p2
 
-    iput-object p1, p0, Lcom/android/settings/security/ChangeScreenLockPreferenceController;->mMetricsFeatureProvider:Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;
+    iput-object p2, p0, Lcom/android/settings/security/ChangeScreenLockPreferenceController;->mMetricsFeatureProvider:Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;
+
+    new-instance p2, Lcom/android/settings/security/ScreenLockPreferenceDetailsUtils;
+
+    invoke-direct {p2, p1}, Lcom/android/settings/security/ScreenLockPreferenceDetailsUtils;-><init>(Landroid/content/Context;)V
+
+    iput-object p2, p0, Lcom/android/settings/security/ChangeScreenLockPreferenceController;->mScreenLockPreferenceDetailUtils:Lcom/android/settings/security/ScreenLockPreferenceDetailsUtils;
 
     return-void
 .end method
@@ -95,7 +91,7 @@
 
 # virtual methods
 .method disableIfPasswordQualityManaged(I)V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
@@ -103,27 +99,13 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+    iget-object v1, p0, Lcom/android/settings/security/ChangeScreenLockPreferenceController;->mScreenLockPreferenceDetailUtils:Lcom/android/settings/security/ScreenLockPreferenceDetailsUtils;
 
-    const-string v2, "device_policy"
-
-    invoke-virtual {v1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/app/admin/DevicePolicyManager;
-
-    if-eqz v0, :cond_0
-
-    iget-object v2, v0, Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;->component:Landroid/content/ComponentName;
-
-    invoke-virtual {v1, v2, p1}, Landroid/app/admin/DevicePolicyManager;->getPasswordQuality(Landroid/content/ComponentName;I)I
+    invoke-virtual {v1, p1, v0}, Lcom/android/settings/security/ScreenLockPreferenceDetailsUtils;->isPasswordQualityManaged(ILcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;)Z
 
     move-result p1
 
-    const/high16 v1, 0x80000
-
-    if-ne p1, v1, :cond_0
+    if-eqz p1, :cond_0
 
     iget-object p0, p0, Lcom/android/settings/security/ChangeScreenLockPreferenceController;->mPreference:Lcom/android/settingslib/RestrictedPreference;
 
@@ -185,58 +167,7 @@
     return p0
 
     :cond_0
-    iget p1, p0, Lcom/android/settings/security/ChangeScreenLockPreferenceController;->mProfileChallengeUserId:I
-
-    const/16 v0, -0x2710
-
-    if-eq p1, v0, :cond_1
-
-    iget-object v0, p0, Lcom/android/settings/security/ChangeScreenLockPreferenceController;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
-
-    invoke-virtual {v0, p1}, Lcom/android/internal/widget/LockPatternUtils;->isSeparateProfileChallengeEnabled(I)Z
-
-    move-result p1
-
-    if-nez p1, :cond_1
-
-    invoke-static {}, Landroid/os/storage/StorageManager;->isFileEncryptedNativeOnly()Z
-
-    move-result p1
-
-    if-eqz p1, :cond_1
-
-    iget-object p1, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
-
-    iget-object v0, p0, Lcom/android/settings/security/ChangeScreenLockPreferenceController;->mUm:Landroid/os/UserManager;
-
-    iget v1, p0, Lcom/android/settings/security/ChangeScreenLockPreferenceController;->mProfileChallengeUserId:I
-
-    invoke-static {p1, v0, v1}, Lcom/android/settings/Utils;->startQuietModeDialogIfNecessary(Landroid/content/Context;Landroid/os/UserManager;I)Z
-
-    move-result p1
-
-    if-eqz p1, :cond_1
-
-    const/4 p0, 0x0
-
-    return p0
-
-    :cond_1
-    new-instance p1, Lcom/android/settings/core/SubSettingLauncher;
-
-    iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
-
-    invoke-direct {p1, v0}, Lcom/android/settings/core/SubSettingLauncher;-><init>(Landroid/content/Context;)V
-
-    const-class v0, Lcom/android/settings/password/ChooseLockGeneric$ChooseLockGenericFragment;
-
-    invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {p1, v0}, Lcom/android/settings/core/SubSettingLauncher;->setDestination(Ljava/lang/String;)Lcom/android/settings/core/SubSettingLauncher;
-
-    move-result-object p1
+    iget-object p1, p0, Lcom/android/settings/security/ChangeScreenLockPreferenceController;->mScreenLockPreferenceDetailUtils:Lcom/android/settings/security/ScreenLockPreferenceDetailsUtils;
 
     iget-object p0, p0, Lcom/android/settings/security/ChangeScreenLockPreferenceController;->mHost:Lcom/android/settings/SettingsPreferenceFragment;
 
@@ -244,33 +175,19 @@
 
     move-result p0
 
-    invoke-virtual {p1, p0}, Lcom/android/settings/core/SubSettingLauncher;->setSourceMetricsCategory(I)Lcom/android/settings/core/SubSettingLauncher;
+    invoke-virtual {p1, p0}, Lcom/android/settings/security/ScreenLockPreferenceDetailsUtils;->openChooseLockGenericFragment(I)Z
 
-    move-result-object p0
+    move-result p0
 
-    const/4 p1, 0x1
-
-    invoke-virtual {p0, p1}, Lcom/android/settings/core/SubSettingLauncher;->setTransitionType(I)Lcom/android/settings/core/SubSettingLauncher;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Lcom/android/settings/core/SubSettingLauncher;->launch()V
-
-    return p1
+    return p0
 .end method
 
 .method public isAvailable()Z
-    .locals 1
+    .locals 0
 
-    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+    iget-object p0, p0, Lcom/android/settings/security/ChangeScreenLockPreferenceController;->mScreenLockPreferenceDetailUtils:Lcom/android/settings/security/ScreenLockPreferenceDetailsUtils;
 
-    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object p0
-
-    const v0, 0x7f090057
-
-    invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
+    invoke-virtual {p0}, Lcom/android/settings/security/ScreenLockPreferenceDetailsUtils;->isAvailable()Z
 
     move-result p0
 
@@ -308,21 +225,7 @@
 
     invoke-virtual {v0, p1, v1}, Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;->logClickedPreference(Landroidx/preference/Preference;I)Z
 
-    new-instance p1, Lcom/android/settings/core/SubSettingLauncher;
-
-    iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
-
-    invoke-direct {p1, v0}, Lcom/android/settings/core/SubSettingLauncher;-><init>(Landroid/content/Context;)V
-
-    const-class v0, Lcom/android/settings/security/screenlock/ScreenLockSettings;
-
-    invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {p1, v0}, Lcom/android/settings/core/SubSettingLauncher;->setDestination(Ljava/lang/String;)Lcom/android/settings/core/SubSettingLauncher;
-
-    move-result-object p1
+    iget-object p1, p0, Lcom/android/settings/security/ChangeScreenLockPreferenceController;->mScreenLockPreferenceDetailUtils:Lcom/android/settings/security/ScreenLockPreferenceDetailsUtils;
 
     iget-object p0, p0, Lcom/android/settings/security/ChangeScreenLockPreferenceController;->mHost:Lcom/android/settings/SettingsPreferenceFragment;
 
@@ -330,11 +233,7 @@
 
     move-result p0
 
-    invoke-virtual {p1, p0}, Lcom/android/settings/core/SubSettingLauncher;->setSourceMetricsCategory(I)Lcom/android/settings/core/SubSettingLauncher;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Lcom/android/settings/core/SubSettingLauncher;->launch()V
+    invoke-virtual {p1, p0}, Lcom/android/settings/security/ScreenLockPreferenceDetailsUtils;->openScreenLockSettings(I)V
 
     :cond_0
     return-void
@@ -351,11 +250,9 @@
 
     if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lcom/android/settings/security/ChangeScreenLockPreferenceController;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+    iget-object v0, p0, Lcom/android/settings/security/ChangeScreenLockPreferenceController;->mScreenLockPreferenceDetailUtils:Lcom/android/settings/security/ScreenLockPreferenceDetailsUtils;
 
-    iget v1, p0, Lcom/android/settings/security/ChangeScreenLockPreferenceController;->mUserId:I
-
-    invoke-virtual {v0, v1}, Lcom/android/internal/widget/LockPatternUtils;->isSecure(I)Z
+    invoke-virtual {v0}, Lcom/android/settings/security/ScreenLockPreferenceDetailsUtils;->shouldShowGearMenu()Z
 
     move-result v0
 
@@ -409,100 +306,14 @@
 .method protected updateSummary(Landroidx/preference/Preference;I)V
     .locals 1
 
-    iget-object v0, p0, Lcom/android/settings/security/ChangeScreenLockPreferenceController;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+    iget-object v0, p0, Lcom/android/settings/security/ChangeScreenLockPreferenceController;->mScreenLockPreferenceDetailUtils:Lcom/android/settings/security/ScreenLockPreferenceDetailsUtils;
 
-    invoke-virtual {v0, p2}, Lcom/android/internal/widget/LockPatternUtils;->isSecure(I)Z
+    invoke-virtual {v0, p2}, Lcom/android/settings/security/ScreenLockPreferenceDetailsUtils;->getSummary(I)Ljava/lang/String;
 
-    move-result v0
+    move-result-object p2
 
-    if-nez v0, :cond_2
+    invoke-virtual {p1, p2}, Landroidx/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
-    iget v0, p0, Lcom/android/settings/security/ChangeScreenLockPreferenceController;->mProfileChallengeUserId:I
-
-    if-eq p2, v0, :cond_1
-
-    iget-object v0, p0, Lcom/android/settings/security/ChangeScreenLockPreferenceController;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
-
-    invoke-virtual {v0, p2}, Lcom/android/internal/widget/LockPatternUtils;->isLockScreenDisabled(I)Z
-
-    move-result p2
-
-    if-eqz p2, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    const p2, 0x7f04146e
-
-    invoke-virtual {p1, p2}, Landroidx/preference/Preference;->setSummary(I)V
-
-    goto :goto_1
-
-    :cond_1
-    :goto_0
-    const p2, 0x7f04146f
-
-    invoke-virtual {p1, p2}, Landroidx/preference/Preference;->setSummary(I)V
-
-    goto :goto_1
-
-    :cond_2
-    iget-object v0, p0, Lcom/android/settings/security/ChangeScreenLockPreferenceController;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
-
-    invoke-virtual {v0, p2}, Lcom/android/internal/widget/LockPatternUtils;->getKeyguardStoredPasswordQuality(I)I
-
-    move-result p2
-
-    const/high16 v0, 0x10000
-
-    if-eq p2, v0, :cond_5
-
-    const/high16 v0, 0x20000
-
-    if-eq p2, v0, :cond_4
-
-    const/high16 v0, 0x30000
-
-    if-eq p2, v0, :cond_4
-
-    const/high16 v0, 0x40000
-
-    if-eq p2, v0, :cond_3
-
-    const/high16 v0, 0x50000
-
-    if-eq p2, v0, :cond_3
-
-    const/high16 v0, 0x60000
-
-    if-eq p2, v0, :cond_3
-
-    const/high16 v0, 0x80000
-
-    if-eq p2, v0, :cond_3
-
-    goto :goto_1
-
-    :cond_3
-    const p2, 0x7f041470
-
-    invoke-virtual {p1, p2}, Landroidx/preference/Preference;->setSummary(I)V
-
-    goto :goto_1
-
-    :cond_4
-    const p2, 0x7f041472
-
-    invoke-virtual {p1, p2}, Landroidx/preference/Preference;->setSummary(I)V
-
-    goto :goto_1
-
-    :cond_5
-    const p2, 0x7f041471
-
-    invoke-virtual {p1, p2}, Landroidx/preference/Preference;->setSummary(I)V
-
-    :goto_1
     iget-object p0, p0, Lcom/android/settings/security/ChangeScreenLockPreferenceController;->mPreference:Lcom/android/settingslib/RestrictedPreference;
 
     const/4 p1, 0x1

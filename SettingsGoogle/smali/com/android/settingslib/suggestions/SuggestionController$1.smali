@@ -43,11 +43,11 @@
 
     move-result-object p2
 
-    invoke-static {p1, p2}, Lcom/android/settingslib/suggestions/SuggestionController;->access$002(Lcom/android/settingslib/suggestions/SuggestionController;Landroid/service/settings/suggestions/ISuggestionService;)Landroid/service/settings/suggestions/ISuggestionService;
+    invoke-static {p1, p2}, Lcom/android/settingslib/suggestions/SuggestionController;->-$$Nest$fputmRemoteService(Lcom/android/settingslib/suggestions/SuggestionController;Landroid/service/settings/suggestions/ISuggestionService;)V
 
     iget-object p1, p0, Lcom/android/settingslib/suggestions/SuggestionController$1;->this$0:Lcom/android/settingslib/suggestions/SuggestionController;
 
-    invoke-static {p1}, Lcom/android/settingslib/suggestions/SuggestionController;->access$100(Lcom/android/settingslib/suggestions/SuggestionController;)Lcom/android/settingslib/suggestions/SuggestionController$ServiceConnectionListener;
+    invoke-static {p1}, Lcom/android/settingslib/suggestions/SuggestionController;->-$$Nest$fgetmConnectionListener(Lcom/android/settingslib/suggestions/SuggestionController;)Lcom/android/settingslib/suggestions/SuggestionController$ServiceConnectionListener;
 
     move-result-object p1
 
@@ -55,7 +55,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/suggestions/SuggestionController$1;->this$0:Lcom/android/settingslib/suggestions/SuggestionController;
 
-    invoke-static {p0}, Lcom/android/settingslib/suggestions/SuggestionController;->access$100(Lcom/android/settingslib/suggestions/SuggestionController;)Lcom/android/settingslib/suggestions/SuggestionController$ServiceConnectionListener;
+    invoke-static {p0}, Lcom/android/settingslib/suggestions/SuggestionController;->-$$Nest$fgetmConnectionListener(Lcom/android/settingslib/suggestions/SuggestionController;)Lcom/android/settingslib/suggestions/SuggestionController$ServiceConnectionListener;
 
     move-result-object p0
 
@@ -70,7 +70,7 @@
 
     iget-object p1, p0, Lcom/android/settingslib/suggestions/SuggestionController$1;->this$0:Lcom/android/settingslib/suggestions/SuggestionController;
 
-    invoke-static {p1}, Lcom/android/settingslib/suggestions/SuggestionController;->access$100(Lcom/android/settingslib/suggestions/SuggestionController;)Lcom/android/settingslib/suggestions/SuggestionController$ServiceConnectionListener;
+    invoke-static {p1}, Lcom/android/settingslib/suggestions/SuggestionController;->-$$Nest$fgetmConnectionListener(Lcom/android/settingslib/suggestions/SuggestionController;)Lcom/android/settingslib/suggestions/SuggestionController$ServiceConnectionListener;
 
     move-result-object p1
 
@@ -80,11 +80,11 @@
 
     const/4 v0, 0x0
 
-    invoke-static {p1, v0}, Lcom/android/settingslib/suggestions/SuggestionController;->access$002(Lcom/android/settingslib/suggestions/SuggestionController;Landroid/service/settings/suggestions/ISuggestionService;)Landroid/service/settings/suggestions/ISuggestionService;
+    invoke-static {p1, v0}, Lcom/android/settingslib/suggestions/SuggestionController;->-$$Nest$fputmRemoteService(Lcom/android/settingslib/suggestions/SuggestionController;Landroid/service/settings/suggestions/ISuggestionService;)V
 
     iget-object p0, p0, Lcom/android/settingslib/suggestions/SuggestionController$1;->this$0:Lcom/android/settingslib/suggestions/SuggestionController;
 
-    invoke-static {p0}, Lcom/android/settingslib/suggestions/SuggestionController;->access$100(Lcom/android/settingslib/suggestions/SuggestionController;)Lcom/android/settingslib/suggestions/SuggestionController$ServiceConnectionListener;
+    invoke-static {p0}, Lcom/android/settingslib/suggestions/SuggestionController;->-$$Nest$fgetmConnectionListener(Lcom/android/settingslib/suggestions/SuggestionController;)Lcom/android/settingslib/suggestions/SuggestionController$ServiceConnectionListener;
 
     move-result-object p0
 

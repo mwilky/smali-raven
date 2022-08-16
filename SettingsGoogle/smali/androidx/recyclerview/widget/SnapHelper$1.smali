@@ -23,14 +23,6 @@
 # direct methods
 .method constructor <init>(Landroidx/recyclerview/widget/SnapHelper;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x8010
-        }
-        names = {
-            "this$0"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/recyclerview/widget/SnapHelper$1;->this$0:Landroidx/recyclerview/widget/SnapHelper;
 
@@ -47,16 +39,6 @@
 # virtual methods
 .method public onScrollStateChanged(Landroidx/recyclerview/widget/RecyclerView;I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "recyclerView",
-            "newState"
-        }
-    .end annotation
 
     invoke-super {p0, p1, p2}, Landroidx/recyclerview/widget/RecyclerView$OnScrollListener;->onScrollStateChanged(Landroidx/recyclerview/widget/RecyclerView;I)V
 
@@ -80,18 +62,6 @@
 
 .method public onScrolled(Landroidx/recyclerview/widget/RecyclerView;II)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "recyclerView",
-            "dx",
-            "dy"
-        }
-    .end annotation
 
     if-nez p2, :cond_0
 

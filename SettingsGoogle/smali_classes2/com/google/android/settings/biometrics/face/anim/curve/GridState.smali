@@ -24,6 +24,22 @@
     return-void
 .end method
 
+.method static bridge synthetic -$$Nest$fgetmHandler(Lcom/google/android/settings/biometrics/face/anim/curve/GridState;)Landroid/os/Handler;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/settings/biometrics/face/anim/curve/GridState;->mHandler:Landroid/os/Handler;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmState(Lcom/google/android/settings/biometrics/face/anim/curve/GridState;I)V
+    .locals 0
+
+    iput p1, p0, Lcom/google/android/settings/biometrics/face/anim/curve/GridState;->mState:I
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Landroid/os/Handler;)V
     .locals 1
 
@@ -37,7 +53,7 @@
 
     iput-object p2, p0, Lcom/google/android/settings/biometrics/face/anim/curve/GridState;->mEdgePaint:Landroid/graphics/Paint;
 
-    const v0, 0x7f0a00bc
+    const v0, 0x7f0a00be
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getColor(I)I
 
@@ -70,22 +86,6 @@
     iput-object p1, p0, Lcom/google/android/settings/biometrics/face/anim/curve/GridState;->mAnimatorUpdateListener:Landroid/animation/ValueAnimator$AnimatorUpdateListener;
 
     return-void
-.end method
-
-.method static synthetic access$002(Lcom/google/android/settings/biometrics/face/anim/curve/GridState;I)I
-    .locals 0
-
-    iput p1, p0, Lcom/google/android/settings/biometrics/face/anim/curve/GridState;->mState:I
-
-    return p1
-.end method
-
-.method static synthetic access$100(Lcom/google/android/settings/biometrics/face/anim/curve/GridState;)Landroid/os/Handler;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/settings/biometrics/face/anim/curve/GridState;->mHandler:Landroid/os/Handler;
-
-    return-object p0
 .end method
 
 .method private synthetic lambda$new$0(Landroid/animation/ValueAnimator;)V

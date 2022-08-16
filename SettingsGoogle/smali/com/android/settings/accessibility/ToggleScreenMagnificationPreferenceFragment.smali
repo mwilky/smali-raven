@@ -13,9 +13,11 @@
 # instance fields
 .field private mDialogDelegate:Lcom/android/settings/DialogCreatable;
 
-.field private mHardwareTypeCheckBox:Landroid/widget/CheckBox;
+.field private mFollowTypingPreferenceController:Lcom/android/settings/accessibility/MagnificationFollowTypingPreferenceController;
 
-.field private mModePreferenceController:Lcom/android/settings/accessibility/MagnificationModePreferenceController;
+.field protected mFollowingTypingSwitchPreference:Landroidx/preference/SwitchPreference;
+
+.field private mHardwareTypeCheckBox:Landroid/widget/CheckBox;
 
 .field private mSoftwareTypeCheckBox:Landroid/widget/CheckBox;
 
@@ -29,6 +31,14 @@
     .locals 0
 
     invoke-static {p0, p1}, Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment;->lambda$setDialogTextAreaClickListener$1(Landroid/widget/CheckBox;Landroid/view/View;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$S9xpuW122TzLvvIwtWahGbZj130(Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment;Ljava/lang/String;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment;->lambda$registerKeysToObserverCallback$2(Ljava/lang/String;)V
 
     return-void
 .end method
@@ -72,7 +82,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f040144
+    const v0, 0x7f04015f
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -81,7 +91,7 @@
     goto :goto_0
 
     :cond_0
-    const v0, 0x7f040143
+    const v0, 0x7f04015e
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -98,7 +108,7 @@
 
     move-result v0
 
-    const v1, 0x7f040136
+    const v1, 0x7f040151
 
     if-eqz v0, :cond_0
 
@@ -111,7 +121,7 @@
 
     if-eqz v0, :cond_1
 
-    const v1, 0x7f040137
+    const v1, 0x7f040152
 
     :cond_1
     :goto_0
@@ -326,6 +336,14 @@
     move-result-object p0
 
     invoke-virtual {p1, p0}, Landroidx/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
+
+    return-void
+.end method
+
+.method private synthetic lambda$registerKeysToObserverCallback$2(Ljava/lang/String;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment;->updateFollowTypingState()V
 
     return-void
 .end method
@@ -604,17 +622,27 @@
 .method private setDialogTextAreaClickListener(Landroid/view/View;Landroid/widget/CheckBox;)V
     .locals 0
 
-    const p0, 0x7f0d0173
+    const p0, 0x7f0d0188
 
     invoke-virtual {p1, p0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object p0
 
-    new-instance p1, Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment$$ExternalSyntheticLambda1;
+    new-instance p1, Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment$$ExternalSyntheticLambda3;
 
-    invoke-direct {p1, p2}, Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment$$ExternalSyntheticLambda1;-><init>(Landroid/widget/CheckBox;)V
+    invoke-direct {p1, p2}, Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment$$ExternalSyntheticLambda3;-><init>(Landroid/widget/CheckBox;)V
 
     invoke-virtual {p0, p1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    return-void
+.end method
+
+.method private updateFollowTypingState()V
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment;->mFollowTypingPreferenceController:Lcom/android/settings/accessibility/MagnificationFollowTypingPreferenceController;
+
+    invoke-virtual {p0}, Lcom/android/settings/accessibility/MagnificationFollowTypingPreferenceController;->updateState()V
 
     return-void
 .end method
@@ -626,7 +654,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f04010d
+    const v1, 0x7f040123
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -636,7 +664,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f04010e
+    const v2, 0x7f040126
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -781,10 +809,25 @@
 
     invoke-virtual {p0, p2}, Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment;->getShortcutTypeSummary(Landroid/content/Context;)Ljava/lang/CharSequence;
 
+    move-result-object p2
+
+    invoke-virtual {p1, p2}, Landroidx/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
+
+    iget-object p1, p0, Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment;->mHardwareTypeCheckBox:Landroid/widget/CheckBox;
+
+    invoke-virtual {p1}, Landroid/widget/CheckBox;->isChecked()Z
+
+    move-result p1
+
+    if-eqz p1, :cond_1
+
+    invoke-virtual {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->getPrefContext()Landroid/content/Context;
+
     move-result-object p0
 
-    invoke-virtual {p1, p0}, Landroidx/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-static {p0}, Lcom/android/settings/accessibility/AccessibilityUtil;->skipVolumeShortcutDialogTimeoutRestriction(Landroid/content/Context;)V
 
+    :cond_1
     return-void
 .end method
 
@@ -838,32 +881,10 @@
     return p0
 .end method
 
-.method protected getFeatureSettingsKeys()Ljava/util/List;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List<",
-            "Ljava/lang/String;",
-            ">;"
-        }
-    .end annotation
-
-    invoke-super {p0}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->getFeatureSettingsKeys()Ljava/util/List;
-
-    move-result-object p0
-
-    const-string v0, "accessibility_display_magnification_enabled"
-
-    invoke-interface {p0, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    return-object p0
-.end method
-
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a3a
+    const p0, 0x7f040a93
 
     return p0
 .end method
@@ -874,6 +895,40 @@
     const/4 p0, 0x7
 
     return p0
+.end method
+
+.method protected getShortcutFeatureSettingsKeys()Ljava/util/List;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+
+    invoke-super {p0}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->getShortcutFeatureSettingsKeys()Ljava/util/List;
+
+    move-result-object p0
+
+    const-string v0, "accessibility_display_magnification_enabled"
+
+    invoke-interface {p0, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    return-object p0
+.end method
+
+.method protected getShortcutTitle()Ljava/lang/CharSequence;
+    .locals 1
+
+    const v0, 0x7f04012f
+
+    invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method protected getShortcutTypeCheckBoxValue()I
@@ -936,7 +991,7 @@
 
     if-nez v0, :cond_0
 
-    const p0, 0x7f04139f
+    const p0, 0x7f041467
 
     invoke-virtual {p1, p0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -978,7 +1033,7 @@
 
     if-eqz v1, :cond_2
 
-    const v1, 0x7f040138
+    const v1, 0x7f040153
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -995,7 +1050,7 @@
 
     if-eqz p0, :cond_3
 
-    const p0, 0x7f04013d
+    const p0, 0x7f040158
 
     invoke-virtual {p1, p0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -1046,6 +1101,22 @@
     return-object p0
 .end method
 
+.method getTileComponentName()Landroid/content/ComponentName;
+    .locals 0
+
+    const/4 p0, 0x0
+
+    return-object p0
+.end method
+
+.method getTileTooltipContent(I)Ljava/lang/CharSequence;
+    .locals 0
+
+    const/4 p0, 0x0
+
+    return-object p0
+.end method
+
 .method getUserShortcutTypes()I
     .locals 0
 
@@ -1061,7 +1132,7 @@
 .end method
 
 .method protected initSettingsPreference()V
-    .locals 3
+    .locals 4
 
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
 
@@ -1071,42 +1142,68 @@
 
     move-result-object v0
 
-    const v1, 0x1110107
+    const v1, 0x1110175
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    const/4 v1, 0x0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v0
+
+    const-string v2, "android.software.window_magnification"
+
+    invoke-virtual {v0, v2}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    move v0, v1
+
+    :goto_0
+    if-nez v0, :cond_1
 
     return-void
 
-    :cond_0
+    :cond_1
     new-instance v0, Landroidx/preference/Preference;
 
     invoke-virtual {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->getPrefContext()Landroid/content/Context;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-direct {v0, v1}, Landroidx/preference/Preference;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, v2}, Landroidx/preference/Preference;-><init>(Landroid/content/Context;)V
 
     iput-object v0, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mSettingsPreference:Landroidx/preference/Preference;
 
-    const v1, 0x7f0400f7
+    const v2, 0x7f040100
 
-    invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setTitle(I)V
-
-    iget-object v0, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mSettingsPreference:Landroidx/preference/Preference;
-
-    const-string v1, "screen_magnification_mode"
-
-    invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setKey(Ljava/lang/String;)V
+    invoke-virtual {v0, v2}, Landroidx/preference/Preference;->setTitle(I)V
 
     iget-object v0, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mSettingsPreference:Landroidx/preference/Preference;
 
-    const/4 v2, 0x0
+    const-string/jumbo v2, "screen_magnification_mode"
 
-    invoke-virtual {v0, v2}, Landroidx/preference/Preference;->setPersistent(Z)V
+    invoke-virtual {v0, v2}, Landroidx/preference/Preference;->setKey(Ljava/lang/String;)V
+
+    iget-object v0, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mSettingsPreference:Landroidx/preference/Preference;
+
+    invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setPersistent(Z)V
 
     const-string v0, "general_categories"
 
@@ -1116,37 +1213,87 @@
 
     check-cast v0, Landroidx/preference/PreferenceCategory;
 
-    iget-object v2, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mSettingsPreference:Landroidx/preference/Preference;
+    iget-object v1, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mSettingsPreference:Landroidx/preference/Preference;
 
-    invoke-virtual {v0, v2}, Landroidx/preference/PreferenceGroup;->addPreference(Landroidx/preference/Preference;)Z
+    invoke-virtual {v0, v1}, Landroidx/preference/PreferenceGroup;->addPreference(Landroidx/preference/Preference;)Z
 
-    new-instance v0, Lcom/android/settings/accessibility/MagnificationModePreferenceController;
+    new-instance v1, Lcom/android/settings/accessibility/MagnificationModePreferenceController;
 
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
 
+    move-result-object v3
+
+    invoke-direct {v1, v3, v2}, Lcom/android/settings/accessibility/MagnificationModePreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;)V
+
+    invoke-virtual {v1, p0}, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->setDialogHelper(Lcom/android/settings/accessibility/MagnificationModePreferenceController$DialogHelper;)V
+
+    invoke-virtual {p0}, Lcom/android/settingslib/core/lifecycle/ObservablePreferenceFragment;->getSettingsLifecycle()Lcom/android/settingslib/core/lifecycle/Lifecycle;
+
     move-result-object v2
 
-    invoke-direct {v0, v2, v1}, Lcom/android/settings/accessibility/MagnificationModePreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;)V
+    invoke-virtual {v2, v1}, Lcom/android/settingslib/core/lifecycle/Lifecycle;->addObserver(Landroidx/lifecycle/LifecycleObserver;)V
 
-    iput-object v0, p0, Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment;->mModePreferenceController:Lcom/android/settings/accessibility/MagnificationModePreferenceController;
+    invoke-virtual {p0}, Landroidx/preference/PreferenceFragmentCompat;->getPreferenceScreen()Landroidx/preference/PreferenceScreen;
 
-    invoke-virtual {v0, p0}, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->setDialogHelper(Lcom/android/settings/accessibility/MagnificationModePreferenceController$DialogHelper;)V
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->displayPreference(Landroidx/preference/PreferenceScreen;)V
+
+    new-instance v1, Landroidx/preference/SwitchPreference;
+
+    invoke-virtual {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->getPrefContext()Landroid/content/Context;
+
+    move-result-object v2
+
+    invoke-direct {v1, v2}, Landroidx/preference/SwitchPreference;-><init>(Landroid/content/Context;)V
+
+    iput-object v1, p0, Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment;->mFollowingTypingSwitchPreference:Landroidx/preference/SwitchPreference;
+
+    const v2, 0x7f040125
+
+    invoke-virtual {v1, v2}, Landroidx/preference/Preference;->setTitle(I)V
+
+    iget-object v1, p0, Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment;->mFollowingTypingSwitchPreference:Landroidx/preference/SwitchPreference;
+
+    const v2, 0x7f040124
+
+    invoke-virtual {v1, v2}, Landroidx/preference/Preference;->setSummary(I)V
+
+    iget-object v1, p0, Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment;->mFollowingTypingSwitchPreference:Landroidx/preference/SwitchPreference;
+
+    const-string v2, "magnification_follow_typing"
+
+    invoke-virtual {v1, v2}, Landroidx/preference/Preference;->setKey(Ljava/lang/String;)V
+
+    iget-object v1, p0, Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment;->mFollowingTypingSwitchPreference:Landroidx/preference/SwitchPreference;
+
+    invoke-virtual {v0, v1}, Landroidx/preference/PreferenceGroup;->addPreference(Landroidx/preference/Preference;)Z
+
+    new-instance v0, Lcom/android/settings/accessibility/MagnificationFollowTypingPreferenceController;
+
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1, v2}, Lcom/android/settings/accessibility/MagnificationFollowTypingPreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;)V
+
+    iput-object v0, p0, Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment;->mFollowTypingPreferenceController:Lcom/android/settings/accessibility/MagnificationFollowTypingPreferenceController;
 
     invoke-virtual {p0}, Lcom/android/settingslib/core/lifecycle/ObservablePreferenceFragment;->getSettingsLifecycle()Lcom/android/settingslib/core/lifecycle/Lifecycle;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment;->mModePreferenceController:Lcom/android/settings/accessibility/MagnificationModePreferenceController;
+    iget-object v1, p0, Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment;->mFollowTypingPreferenceController:Lcom/android/settings/accessibility/MagnificationFollowTypingPreferenceController;
 
     invoke-virtual {v0, v1}, Lcom/android/settingslib/core/lifecycle/Lifecycle;->addObserver(Landroidx/lifecycle/LifecycleObserver;)V
 
-    iget-object v0, p0, Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment;->mModePreferenceController:Lcom/android/settings/accessibility/MagnificationModePreferenceController;
+    iget-object v0, p0, Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment;->mFollowTypingPreferenceController:Lcom/android/settings/accessibility/MagnificationFollowTypingPreferenceController;
 
     invoke-virtual {p0}, Landroidx/preference/PreferenceFragmentCompat;->getPreferenceScreen()Landroidx/preference/PreferenceScreen;
 
     move-result-object p0
 
-    invoke-virtual {v0, p0}, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->displayPreference(Landroidx/preference/PreferenceScreen;)V
+    invoke-virtual {v0, p0}, Lcom/android/settings/accessibility/MagnificationFollowTypingPreferenceController;->displayPreference(Landroidx/preference/PreferenceScreen;)V
 
     return-void
 .end method
@@ -1174,43 +1321,33 @@
 
     invoke-virtual {p0}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->getShortcutPreferenceKey()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v0, v2}, Landroidx/preference/Preference;->setKey(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setKey(Ljava/lang/String;)V
 
     iget-object v0, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mShortcutPreference:Lcom/android/settings/accessibility/ShortcutPreference;
 
     invoke-virtual {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->getPrefContext()Landroid/content/Context;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment;->getShortcutTypeSummary(Landroid/content/Context;)Ljava/lang/CharSequence;
+    invoke-virtual {p0, v1}, Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment;->getShortcutTypeSummary(Landroid/content/Context;)Ljava/lang/CharSequence;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v0, v2}, Landroidx/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
     iget-object v0, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mShortcutPreference:Lcom/android/settings/accessibility/ShortcutPreference;
 
     invoke-virtual {v0, p0}, Lcom/android/settings/accessibility/ShortcutPreference;->setOnClickCallback(Lcom/android/settings/accessibility/ShortcutPreference$OnClickCallback;)V
 
-    const/4 v0, 0x1
+    iget-object v0, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mShortcutPreference:Lcom/android/settings/accessibility/ShortcutPreference;
 
-    new-array v0, v0, [Ljava/lang/Object;
+    invoke-virtual {p0}, Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment;->getShortcutTitle()Ljava/lang/CharSequence;
 
-    iget-object v2, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mPackageName:Ljava/lang/CharSequence;
+    move-result-object v1
 
-    aput-object v2, v0, v1
-
-    const v1, 0x7f04013c
-
-    invoke-virtual {p0, v1, v0}, Landroidx/fragment/app/Fragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mShortcutPreference:Lcom/android/settings/accessibility/ShortcutPreference;
-
-    invoke-virtual {v1, v0}, Landroidx/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
 
     const-string v0, "general_categories"
 
@@ -1236,7 +1373,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f040119
+    const p1, 0x7f040132
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->setTitle(I)V
 
@@ -1244,7 +1381,7 @@
 .end method
 
 .method public onCreateDialog(I)Landroid/app/Dialog;
-    .locals 4
+    .locals 3
 
     iget-object v0, p0, Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment;->mDialogDelegate:Lcom/android/settings/DialogCreatable;
 
@@ -1287,23 +1424,7 @@
     return-object p0
 
     :cond_2
-    invoke-virtual {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->getPrefContext()Landroid/content/Context;
-
-    move-result-object p1
-
-    const v0, 0x7f04013c
-
-    const/4 v1, 0x1
-
-    new-array v1, v1, [Ljava/lang/Object;
-
-    const/4 v2, 0x0
-
-    iget-object v3, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mPackageName:Ljava/lang/CharSequence;
-
-    aput-object v3, v1, v2
-
-    invoke-virtual {p1, v0, v1}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {p0}, Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment;->getShortcutTitle()Ljava/lang/CharSequence;
 
     move-result-object p1
 
@@ -1329,9 +1450,9 @@
 
     move-result-object v1
 
-    new-instance v2, Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment$$ExternalSyntheticLambda0;
+    new-instance v2, Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment$$ExternalSyntheticLambda2;
 
-    invoke-direct {v2, p0}, Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment;)V
+    invoke-direct {v2, p0}, Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment;)V
 
     invoke-static {v1, v0, p1, v2}, Lcom/android/settings/accessibility/AccessibilityDialogUtils;->showEditShortcutDialog(Landroid/content/Context;ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog;
 
@@ -1349,7 +1470,7 @@
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 2
 
-    const v0, 0x7f040119
+    const v0, 0x7f040132
 
     invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -1395,9 +1516,9 @@
 
     iput-object v0, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mImageUri:Landroid/net/Uri;
 
-    new-instance v0, Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment$$ExternalSyntheticLambda2;
+    new-instance v0, Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment$$ExternalSyntheticLambda1;
 
-    invoke-direct {v0, p0}, Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment;)V
+    invoke-direct {v0, p0}, Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment;)V
 
     iput-object v0, p0, Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment;->mTouchExplorationStateChangeListener:Landroid/view/accessibility/AccessibilityManager$TouchExplorationStateChangeListener;
 
@@ -1563,6 +1684,28 @@
     return-void
 .end method
 
+.method protected registerKeysToObserverCallback(Lcom/android/settings/accessibility/AccessibilitySettingsContentObserver;)V
+    .locals 2
+
+    invoke-super {p0, p1}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->registerKeysToObserverCallback(Lcom/android/settings/accessibility/AccessibilitySettingsContentObserver;)V
+
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    const-string v1, "accessibility_magnification_follow_typing_enabled"
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    new-instance v1, Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment$$ExternalSyntheticLambda0;
+
+    invoke-direct {v1, p0}, Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment;)V
+
+    invoke-virtual {p1, v0, v1}, Lcom/android/settings/accessibility/AccessibilitySettingsContentObserver;->registerKeysToObserverCallback(Ljava/util/List;Lcom/android/settings/accessibility/AccessibilitySettingsContentObserver$ContentObserverCallback;)V
+
+    return-void
+.end method
+
 .method saveNonEmptyUserShortcutType(I)V
     .locals 2
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
@@ -1601,13 +1744,13 @@
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 
-    const v0, 0x7f0d051f
+    const v0, 0x7f0d0561
 
     invoke-virtual {p1, v0}, Landroid/app/Dialog;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    const v1, 0x7f0d014a
+    const v1, 0x7f0d015e
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1619,7 +1762,7 @@
 
     invoke-direct {p0, v0, v2}, Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment;->setDialogTextAreaClickListener(Landroid/view/View;Landroid/widget/CheckBox;)V
 
-    const v0, 0x7f0d0268
+    const v0, 0x7f0d028a
 
     invoke-virtual {p1, v0}, Landroid/app/Dialog;->findViewById(I)Landroid/view/View;
 
@@ -1635,7 +1778,7 @@
 
     invoke-direct {p0, v0, v2}, Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment;->setDialogTextAreaClickListener(Landroid/view/View;Landroid/widget/CheckBox;)V
 
-    const v0, 0x7f0d05ec
+    const v0, 0x7f0d062e
 
     invoke-virtual {p1, v0}, Landroid/app/Dialog;->findViewById(I)Landroid/view/View;
 
@@ -1651,7 +1794,7 @@
 
     invoke-direct {p0, v0, v1}, Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment;->setDialogTextAreaClickListener(Landroid/view/View;Landroid/widget/CheckBox;)V
 
-    const v1, 0x7f0d0072
+    const v1, 0x7f0d0073
 
     invoke-virtual {p1, v1}, Landroid/app/Dialog;->findViewById(I)Landroid/view/View;
 
@@ -1755,15 +1898,5 @@
     invoke-static {p0, v1}, Lcom/android/settings/accessibility/PreferredShortcuts;->saveUserShortcutType(Landroid/content/Context;Lcom/android/settings/accessibility/PreferredShortcut;)V
 
     :cond_0
-    return-void
-.end method
-
-.method protected updateShortcutTitle(Lcom/android/settings/accessibility/ShortcutPreference;)V
-    .locals 0
-
-    const p0, 0x7f040116
-
-    invoke-virtual {p1, p0}, Landroidx/preference/Preference;->setTitle(I)V
-
     return-void
 .end method

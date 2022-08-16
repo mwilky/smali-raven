@@ -51,7 +51,7 @@
 
     iget-object p0, p0, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment$2;->this$0:Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;
 
-    invoke-static {p0, p1}, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;->access$500(Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;I)V
+    invoke-static {p0, p1}, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;->-$$Nest$msetPagerIndicatorContentDescription(Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;I)V
 
     return-void
 .end method

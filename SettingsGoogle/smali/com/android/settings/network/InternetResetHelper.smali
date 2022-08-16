@@ -7,20 +7,12 @@
 .implements Lcom/android/settingslib/connectivity/ConnectivitySubsystemsRecoveryManager$RecoveryStatusCallback;
 
 
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/android/settings/network/InternetResetHelper$HandlerInjector;
-    }
-.end annotation
-
-
 # instance fields
 .field protected mConnectivitySubsystemsRecoveryManager:Lcom/android/settingslib/connectivity/ConnectivitySubsystemsRecoveryManager;
 
 .field protected final mContext:Landroid/content/Context;
 
-.field protected mHandlerInjector:Lcom/android/settings/network/InternetResetHelper$HandlerInjector;
+.field protected mHandlerInjector:Lcom/android/settingslib/utils/HandlerInjector;
 
 .field protected mIsRecoveryReady:Z
 
@@ -89,25 +81,29 @@
 
     iput-object v0, p0, Lcom/android/settings/network/InternetResetHelper;->mWifiStateReceiver:Landroid/content/BroadcastReceiver;
 
-    new-instance v0, Lcom/android/settings/network/InternetResetHelper$$ExternalSyntheticLambda1;
-
-    invoke-direct {v0, p0}, Lcom/android/settings/network/InternetResetHelper$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/network/InternetResetHelper;)V
-
-    iput-object v0, p0, Lcom/android/settings/network/InternetResetHelper;->mResumeRunnable:Ljava/lang/Runnable;
-
     new-instance v0, Lcom/android/settings/network/InternetResetHelper$$ExternalSyntheticLambda0;
 
     invoke-direct {v0, p0}, Lcom/android/settings/network/InternetResetHelper$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/network/InternetResetHelper;)V
+
+    iput-object v0, p0, Lcom/android/settings/network/InternetResetHelper;->mResumeRunnable:Ljava/lang/Runnable;
+
+    new-instance v0, Lcom/android/settings/network/InternetResetHelper$$ExternalSyntheticLambda1;
+
+    invoke-direct {v0, p0}, Lcom/android/settings/network/InternetResetHelper$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/network/InternetResetHelper;)V
 
     iput-object v0, p0, Lcom/android/settings/network/InternetResetHelper;->mTimeoutRunnable:Ljava/lang/Runnable;
 
     iput-object p1, p0, Lcom/android/settings/network/InternetResetHelper;->mContext:Landroid/content/Context;
 
-    new-instance v0, Lcom/android/settings/network/InternetResetHelper$HandlerInjector;
+    new-instance v0, Lcom/android/settingslib/utils/HandlerInjector;
 
-    invoke-direct {v0, p1}, Lcom/android/settings/network/InternetResetHelper$HandlerInjector;-><init>(Landroid/content/Context;)V
+    invoke-virtual {p1}, Landroid/content/Context;->getMainThreadHandler()Landroid/os/Handler;
 
-    iput-object v0, p0, Lcom/android/settings/network/InternetResetHelper;->mHandlerInjector:Lcom/android/settings/network/InternetResetHelper$HandlerInjector;
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Lcom/android/settingslib/utils/HandlerInjector;-><init>(Landroid/os/Handler;)V
+
+    iput-object v0, p0, Lcom/android/settings/network/InternetResetHelper;->mHandlerInjector:Lcom/android/settingslib/utils/HandlerInjector;
 
     const-class v0, Landroid/net/wifi/WifiManager;
 
@@ -226,17 +222,17 @@
         value = .enum Landroidx/lifecycle/Lifecycle$Event;->ON_DESTROY:Landroidx/lifecycle/Lifecycle$Event;
     .end annotation
 
-    iget-object v0, p0, Lcom/android/settings/network/InternetResetHelper;->mHandlerInjector:Lcom/android/settings/network/InternetResetHelper$HandlerInjector;
+    iget-object v0, p0, Lcom/android/settings/network/InternetResetHelper;->mHandlerInjector:Lcom/android/settingslib/utils/HandlerInjector;
 
     iget-object v1, p0, Lcom/android/settings/network/InternetResetHelper;->mResumeRunnable:Ljava/lang/Runnable;
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/network/InternetResetHelper$HandlerInjector;->removeCallbacks(Ljava/lang/Runnable;)V
+    invoke-virtual {v0, v1}, Lcom/android/settingslib/utils/HandlerInjector;->removeCallbacks(Ljava/lang/Runnable;)V
 
-    iget-object v0, p0, Lcom/android/settings/network/InternetResetHelper;->mHandlerInjector:Lcom/android/settings/network/InternetResetHelper$HandlerInjector;
+    iget-object v0, p0, Lcom/android/settings/network/InternetResetHelper;->mHandlerInjector:Lcom/android/settingslib/utils/HandlerInjector;
 
     iget-object v1, p0, Lcom/android/settings/network/InternetResetHelper;->mTimeoutRunnable:Ljava/lang/Runnable;
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/network/InternetResetHelper$HandlerInjector;->removeCallbacks(Ljava/lang/Runnable;)V
+    invoke-virtual {v0, v1}, Lcom/android/settingslib/utils/HandlerInjector;->removeCallbacks(Ljava/lang/Runnable;)V
 
     iget-object p0, p0, Lcom/android/settings/network/InternetResetHelper;->mWorkerThread:Landroid/os/HandlerThread;
 
@@ -261,7 +257,7 @@
 .end method
 
 .method public onResume()V
-    .locals 2
+    .locals 3
     .annotation runtime Landroidx/lifecycle/OnLifecycleEvent;
         value = .enum Landroidx/lifecycle/Lifecycle$Event;->ON_RESUME:Landroidx/lifecycle/Lifecycle$Event;
     .end annotation
@@ -272,7 +268,9 @@
 
     iget-object p0, p0, Lcom/android/settings/network/InternetResetHelper;->mWifiStateFilter:Landroid/content/IntentFilter;
 
-    invoke-virtual {v0, v1, p0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+    const/4 v2, 0x2
+
+    invoke-virtual {v0, v1, p0, v2}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;I)Landroid/content/Intent;
 
     return-void
 .end method
@@ -306,13 +304,13 @@
 
     iput-boolean v0, p0, Lcom/android/settings/network/InternetResetHelper;->mIsRecoveryReady:Z
 
-    iget-object v0, p0, Lcom/android/settings/network/InternetResetHelper;->mHandlerInjector:Lcom/android/settings/network/InternetResetHelper$HandlerInjector;
+    iget-object v0, p0, Lcom/android/settings/network/InternetResetHelper;->mHandlerInjector:Lcom/android/settingslib/utils/HandlerInjector;
 
     iget-object p0, p0, Lcom/android/settings/network/InternetResetHelper;->mResumeRunnable:Ljava/lang/Runnable;
 
     const-wide/16 v1, 0x0
 
-    invoke-virtual {v0, p0, v1, v2}, Lcom/android/settings/network/InternetResetHelper$HandlerInjector;->postDelayed(Ljava/lang/Runnable;J)V
+    invoke-virtual {v0, p0, v1, v2}, Lcom/android/settingslib/utils/HandlerInjector;->postDelayed(Ljava/lang/Runnable;J)V
 
     :cond_0
     return-void
@@ -358,13 +356,13 @@
 
     iput-boolean v0, p0, Lcom/android/settings/network/InternetResetHelper;->mIsWifiReady:Z
 
-    iget-object v0, p0, Lcom/android/settings/network/InternetResetHelper;->mHandlerInjector:Lcom/android/settings/network/InternetResetHelper$HandlerInjector;
+    iget-object v0, p0, Lcom/android/settings/network/InternetResetHelper;->mHandlerInjector:Lcom/android/settingslib/utils/HandlerInjector;
 
     iget-object v1, p0, Lcom/android/settings/network/InternetResetHelper;->mTimeoutRunnable:Ljava/lang/Runnable;
 
     const-wide/16 v2, 0x3a98
 
-    invoke-virtual {v0, v1, v2, v3}, Lcom/android/settings/network/InternetResetHelper$HandlerInjector;->postDelayed(Ljava/lang/Runnable;J)V
+    invoke-virtual {v0, v1, v2, v3}, Lcom/android/settingslib/utils/HandlerInjector;->postDelayed(Ljava/lang/Runnable;J)V
 
     iget-object v0, p0, Lcom/android/settings/network/InternetResetHelper;->mConnectivitySubsystemsRecoveryManager:Lcom/android/settingslib/connectivity/ConnectivitySubsystemsRecoveryManager;
 
@@ -382,7 +380,9 @@
 
     const/4 v1, 0x0
 
-    const-string v2, "InternetResetHelper"
+    const/4 v2, 0x1
+
+    const-string v3, "InternetResetHelper"
 
     if-eqz v0, :cond_0
 
@@ -392,11 +392,11 @@
 
     const-string v0, "Resume the Mobile Network controller"
 
-    invoke-static {v2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v0, p0, Lcom/android/settings/network/InternetResetHelper;->mMobileNetworkController:Lcom/android/settings/network/NetworkMobileProviderController;
 
-    invoke-virtual {v0, v1, v1}, Lcom/android/settings/network/NetworkMobileProviderController;->hidePreference(ZZ)V
+    invoke-virtual {v0, v1, v2}, Lcom/android/settings/network/NetworkMobileProviderController;->hidePreference(ZZ)V
 
     :cond_0
     iget-boolean v0, p0, Lcom/android/settings/network/InternetResetHelper;->mIsWifiReady:Z
@@ -409,13 +409,11 @@
 
     const-string v0, "Resume the Wi-Fi preferences"
 
-    invoke-static {v2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v0, p0, Lcom/android/settings/network/InternetResetHelper;->mWifiTogglePreferences:Landroidx/preference/Preference;
 
-    const/4 v3, 0x1
-
-    invoke-virtual {v0, v3}, Landroidx/preference/Preference;->setVisible(Z)V
+    invoke-virtual {v0, v2}, Landroidx/preference/Preference;->setVisible(Z)V
 
     iget-object v0, p0, Lcom/android/settings/network/InternetResetHelper;->mWifiNetworkPreferences:Ljava/util/List;
 
@@ -436,7 +434,7 @@
 
     check-cast v4, Landroidx/preference/PreferenceCategory;
 
-    invoke-virtual {v4, v3}, Landroidx/preference/Preference;->setVisible(Z)V
+    invoke-virtual {v4, v2}, Landroidx/preference/Preference;->setVisible(Z)V
 
     goto :goto_0
 
@@ -449,11 +447,11 @@
 
     if-eqz v0, :cond_2
 
-    iget-object v0, p0, Lcom/android/settings/network/InternetResetHelper;->mHandlerInjector:Lcom/android/settings/network/InternetResetHelper$HandlerInjector;
+    iget-object v0, p0, Lcom/android/settings/network/InternetResetHelper;->mHandlerInjector:Lcom/android/settingslib/utils/HandlerInjector;
 
-    iget-object v3, p0, Lcom/android/settings/network/InternetResetHelper;->mTimeoutRunnable:Ljava/lang/Runnable;
+    iget-object v2, p0, Lcom/android/settings/network/InternetResetHelper;->mTimeoutRunnable:Ljava/lang/Runnable;
 
-    invoke-virtual {v0, v3}, Lcom/android/settings/network/InternetResetHelper$HandlerInjector;->removeCallbacks(Ljava/lang/Runnable;)V
+    invoke-virtual {v0, v2}, Lcom/android/settingslib/utils/HandlerInjector;->removeCallbacks(Ljava/lang/Runnable;)V
 
     iget-object v0, p0, Lcom/android/settings/network/InternetResetHelper;->mResettingPreference:Landroidx/preference/Preference;
 
@@ -461,7 +459,7 @@
 
     const-string v0, "Resume the Resetting preference"
 
-    invoke-static {v2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object p0, p0, Lcom/android/settings/network/InternetResetHelper;->mResettingPreference:Landroidx/preference/Preference;
 
@@ -583,13 +581,13 @@
 
     iput-boolean v0, p0, Lcom/android/settings/network/InternetResetHelper;->mIsWifiReady:Z
 
-    iget-object v0, p0, Lcom/android/settings/network/InternetResetHelper;->mHandlerInjector:Lcom/android/settings/network/InternetResetHelper$HandlerInjector;
+    iget-object v0, p0, Lcom/android/settings/network/InternetResetHelper;->mHandlerInjector:Lcom/android/settingslib/utils/HandlerInjector;
 
     iget-object p0, p0, Lcom/android/settings/network/InternetResetHelper;->mResumeRunnable:Ljava/lang/Runnable;
 
     const-wide/16 v1, 0x0
 
-    invoke-virtual {v0, p0, v1, v2}, Lcom/android/settings/network/InternetResetHelper$HandlerInjector;->postDelayed(Ljava/lang/Runnable;J)V
+    invoke-virtual {v0, p0, v1, v2}, Lcom/android/settingslib/utils/HandlerInjector;->postDelayed(Ljava/lang/Runnable;J)V
 
     :cond_0
     return-void

@@ -52,16 +52,6 @@
 # direct methods
 .method public constructor <init>(Landroidx/slice/SliceItem;I)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "rowSlice",
-            "position"
-        }
-    .end annotation
 
     invoke-direct {p0, p1, p2}, Landroidx/slice/widget/SliceContent;-><init>(Landroidx/slice/SliceItem;I)V
 
@@ -93,14 +83,6 @@
 
 .method private determineStartAndPrimaryAction(Landroidx/slice/SliceItem;)V
     .locals 9
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "rowSlice"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -286,15 +268,6 @@
 
 .method private static filterInvalidItems(Landroidx/slice/SliceItem;)Ljava/util/ArrayList;
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "rowSlice"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -352,14 +325,6 @@
 
 .method private static hasText(Landroidx/slice/SliceItem;)Z
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "textSlice"
-        }
-    .end annotation
 
     if-eqz p0, :cond_1
 
@@ -395,14 +360,6 @@
 
 .method private static isValidRow(Landroidx/slice/SliceItem;)Z
     .locals 5
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "rowSlice"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -444,7 +401,7 @@
 
     move-result-object v1
 
-    const-string v2, "see_more"
+    const-string/jumbo v2, "see_more"
 
     invoke-virtual {p0, v2}, Landroidx/slice/SliceItem;->hasHint(Ljava/lang/String;)Z
 
@@ -497,16 +454,6 @@
 
 .method private static isValidRowContent(Landroidx/slice/SliceItem;Landroidx/slice/SliceItem;)Z
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "slice",
-            "item"
-        }
-    .end annotation
 
     const-string v0, "keywords"
 
@@ -544,7 +491,7 @@
 
     move-result-object v0
 
-    const-string v2, "selection_option_key"
+    const-string/jumbo v2, "selection_option_key"
 
     invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -556,7 +503,7 @@
 
     move-result-object v0
 
-    const-string v2, "selection_option_value"
+    const-string/jumbo v2, "selection_option_value"
 
     invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -631,7 +578,7 @@
 
     move-result-object p0
 
-    const-string p1, "range"
+    const-string/jumbo p1, "range"
 
     invoke-virtual {p1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -649,16 +596,6 @@
 
 .method private populate(Landroidx/slice/SliceItem;Z)Z
     .locals 8
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "rowSlice",
-            "isHeader"
-        }
-    .end annotation
 
     const-string v0, "end_of_section"
 
@@ -795,7 +732,7 @@
 
     move-result-object v5
 
-    const-string v6, "range"
+    const-string/jumbo v6, "range"
 
     invoke-virtual {v6, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -891,7 +828,7 @@
 
     move-result-object v2
 
-    const-string v5, "selection"
+    const-string/jumbo v5, "selection"
 
     invoke-virtual {v5, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1144,16 +1081,6 @@
 
 .method private processContent(Landroidx/slice/SliceItem;Z)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "item",
-            "isAction"
-        }
-    .end annotation
 
     if-eqz p2, :cond_0
 
@@ -1199,16 +1126,6 @@
 
 .method public getHeight(Landroidx/slice/widget/SliceStyle;Landroidx/slice/widget/SliceViewPolicy;)I
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "style",
-            "policy"
-        }
-    .end annotation
 
     invoke-virtual {p1, p0, p2}, Landroidx/slice/widget/SliceStyle;->getRowHeight(Landroidx/slice/widget/RowContent;Landroidx/slice/widget/SliceViewPolicy;)I
 
@@ -1432,7 +1349,7 @@
 
     move-result-object v0
 
-    const-string v1, "see_more"
+    const-string/jumbo v1, "see_more"
 
     invoke-virtual {v0, v1}, Landroidx/slice/Slice;->hasHint(Ljava/lang/String;)Z
 
@@ -1528,14 +1445,6 @@
 
 .method public setIsHeader(Z)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "isHeader"
-        }
-    .end annotation
 
     iput-boolean p1, p0, Landroidx/slice/widget/RowContent;->mIsHeader:Z
 
@@ -1544,14 +1453,6 @@
 
 .method public showActionDivider(Z)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "enabled"
-        }
-    .end annotation
 
     iput-boolean p1, p0, Landroidx/slice/widget/RowContent;->mShowActionDivider:Z
 
@@ -1560,14 +1461,6 @@
 
 .method public showBottomDivider(Z)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "enabled"
-        }
-    .end annotation
 
     iput-boolean p1, p0, Landroidx/slice/widget/RowContent;->mShowBottomDivider:Z
 
@@ -1576,14 +1469,6 @@
 
 .method public showTitleItems(Z)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "enabled"
-        }
-    .end annotation
 
     iput-boolean p1, p0, Landroidx/slice/widget/RowContent;->mShowTitleItems:Z
 

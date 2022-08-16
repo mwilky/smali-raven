@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settings/notification/app/ConversationPriorityPreference$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/view/View$OnClickListener;
@@ -33,7 +34,7 @@
 
     iget-object p0, p0, Lcom/android/settings/notification/app/ConversationPriorityPreference$$ExternalSyntheticLambda1;->f$1:Landroidx/preference/PreferenceViewHolder;
 
-    invoke-static {v0, p0, p1}, Lcom/android/settings/notification/app/ConversationPriorityPreference;->$r8$lambda$dUjmhbq-NInoH81YtUqr0USw65s(Lcom/android/settings/notification/app/ConversationPriorityPreference;Landroidx/preference/PreferenceViewHolder;Landroid/view/View;)V
+    invoke-static {v0, p0, p1}, Lcom/android/settings/notification/app/ConversationPriorityPreference;->$r8$lambda$gpknmwVrJ3d5veYoDUW6E-V7wsY(Lcom/android/settings/notification/app/ConversationPriorityPreference;Landroidx/preference/PreferenceViewHolder;Landroid/view/View;)V
 
     return-void
 .end method

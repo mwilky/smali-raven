@@ -32,22 +32,6 @@
 # direct methods
 .method constructor <init>(Landroidx/slice/widget/GridRowView;Ljava/util/Date;ZLandroidx/slice/SliceItem;I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x8010,
-            0x1010,
-            0x1010,
-            0x1010,
-            0x1010
-        }
-        names = {
-            "this$0",
-            "val$date",
-            "val$isDatePicker",
-            "val$pickerItem",
-            "val$rowIndex"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/slice/widget/GridRowView$1;->this$0:Landroidx/slice/widget/GridRowView;
 
@@ -68,14 +52,6 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 17
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "view"
-        }
-    .end annotation
 
     move-object/from16 v0, p0
 

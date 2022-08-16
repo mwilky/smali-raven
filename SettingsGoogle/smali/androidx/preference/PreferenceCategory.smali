@@ -59,90 +59,16 @@
 .end method
 
 .method public onBindViewHolder(Landroidx/preference/PreferenceViewHolder;)V
-    .locals 4
+    .locals 0
 
     invoke-super {p0, p1}, Landroidx/preference/Preference;->onBindViewHolder(Landroidx/preference/PreferenceViewHolder;)V
 
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/4 v1, 0x1
-
-    const/16 v2, 0x1c
-
-    if-lt v0, v2, :cond_0
-
     iget-object p0, p1, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
 
-    invoke-virtual {p0, v1}, Landroid/view/View;->setAccessibilityHeading(Z)V
+    const/4 p1, 0x1
 
-    goto :goto_0
+    invoke-virtual {p0, p1}, Landroid/view/View;->setAccessibilityHeading(Z)V
 
-    :cond_0
-    const/16 v2, 0x15
-
-    if-ge v0, v2, :cond_4
-
-    new-instance v0, Landroid/util/TypedValue;
-
-    invoke-direct {v0}, Landroid/util/TypedValue;-><init>()V
-
-    invoke-virtual {p0}, Landroidx/preference/Preference;->getContext()Landroid/content/Context;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
-
-    move-result-object v2
-
-    sget v3, Landroidx/appcompat/R$attr;->colorAccent:I
-
-    invoke-virtual {v2, v3, v0, v1}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
-
-    move-result v1
-
-    if-nez v1, :cond_1
-
-    return-void
-
-    :cond_1
-    const v1, 0x1020016
-
-    invoke-virtual {p1, v1}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
-
-    move-result-object p1
-
-    check-cast p1, Landroid/widget/TextView;
-
-    if-nez p1, :cond_2
-
-    return-void
-
-    :cond_2
-    invoke-virtual {p0}, Landroidx/preference/Preference;->getContext()Landroid/content/Context;
-
-    move-result-object p0
-
-    sget v1, Landroidx/preference/R$color;->preference_fallback_accent_color:I
-
-    invoke-static {p0, v1}, Landroidx/core/content/ContextCompat;->getColor(Landroid/content/Context;I)I
-
-    move-result p0
-
-    invoke-virtual {p1}, Landroid/widget/TextView;->getCurrentTextColor()I
-
-    move-result v1
-
-    if-eq v1, p0, :cond_3
-
-    return-void
-
-    :cond_3
-    iget p0, v0, Landroid/util/TypedValue;->data:I
-
-    invoke-virtual {p1, p0}, Landroid/widget/TextView;->setTextColor(I)V
-
-    :cond_4
-    :goto_0
     return-void
 .end method
 

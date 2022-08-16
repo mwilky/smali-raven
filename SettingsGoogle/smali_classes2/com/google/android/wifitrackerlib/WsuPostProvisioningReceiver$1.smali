@@ -64,7 +64,7 @@
 
     iget-object v2, p0, Lcom/google/android/wifitrackerlib/WsuPostProvisioningReceiver$1;->val$provisioningAppPackageName:Ljava/lang/String;
 
-    invoke-static {v0, v1, v2}, Lcom/google/android/wifitrackerlib/WsuPostProvisioningReceiver;->access$000(Lcom/google/android/wifitrackerlib/WsuPostProvisioningReceiver;Ljava/util/Optional;Ljava/lang/String;)V
+    invoke-static {v0, v1, v2}, Lcom/google/android/wifitrackerlib/WsuPostProvisioningReceiver;->-$$Nest$mconnectToCandidate(Lcom/google/android/wifitrackerlib/WsuPostProvisioningReceiver;Ljava/util/Optional;Ljava/lang/String;)V
 
     iget-object v0, p0, Lcom/google/android/wifitrackerlib/WsuPostProvisioningReceiver$1;->this$0:Lcom/google/android/wifitrackerlib/WsuPostProvisioningReceiver;
 

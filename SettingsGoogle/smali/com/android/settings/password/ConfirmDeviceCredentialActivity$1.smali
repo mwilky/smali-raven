@@ -36,21 +36,21 @@
 
     iget-object p2, p0, Lcom/android/settings/password/ConfirmDeviceCredentialActivity$1;->this$0:Lcom/android/settings/password/ConfirmDeviceCredentialActivity;
 
-    invoke-static {p2}, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->access$000(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;)Z
+    invoke-static {p2}, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->-$$Nest$fgetmGoingToBackground(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;)Z
 
     move-result p2
 
     const/4 v0, 0x0
 
-    if-nez p2, :cond_2
+    if-nez p2, :cond_3
 
     iget-object p2, p0, Lcom/android/settings/password/ConfirmDeviceCredentialActivity$1;->this$0:Lcom/android/settings/password/ConfirmDeviceCredentialActivity;
 
-    invoke-static {p2, v0}, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->access$102(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;Z)Z
+    invoke-static {p2, v0}, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->-$$Nest$fputmWaitingForBiometricCallback(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;Z)V
 
     const/16 p2, 0xa
 
-    if-eq p1, p2, :cond_1
+    if-eq p1, p2, :cond_2
 
     const/4 p2, 0x5
 
@@ -59,13 +59,62 @@
     goto :goto_0
 
     :cond_0
+    iget-object p1, p0, Lcom/android/settings/password/ConfirmDeviceCredentialActivity$1;->this$0:Lcom/android/settings/password/ConfirmDeviceCredentialActivity;
+
+    invoke-static {p1}, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->-$$Nest$fgetmUserManager(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;)Landroid/os/UserManager;
+
+    move-result-object p1
+
+    iget-object p2, p0, Lcom/android/settings/password/ConfirmDeviceCredentialActivity$1;->this$0:Lcom/android/settings/password/ConfirmDeviceCredentialActivity;
+
+    invoke-static {p2}, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->-$$Nest$fgetmUserId(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;)I
+
+    move-result p2
+
+    invoke-virtual {p1, p2}, Landroid/os/UserManager;->getUserInfo(I)Landroid/content/pm/UserInfo;
+
+    move-result-object p1
+
+    if-nez p1, :cond_1
+
+    sget-object p1, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->TAG:Ljava/lang/String;
+
+    new-instance p2, Ljava/lang/StringBuilder;
+
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v0, "Finishing, user no longer valid: "
+
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v0, p0, Lcom/android/settings/password/ConfirmDeviceCredentialActivity$1;->this$0:Lcom/android/settings/password/ConfirmDeviceCredentialActivity;
+
+    invoke-static {v0}, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->-$$Nest$fgetmUserId(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;)I
+
+    move-result v0
+
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p2
+
+    invoke-static {p1, p2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
     iget-object p0, p0, Lcom/android/settings/password/ConfirmDeviceCredentialActivity$1;->this$0:Lcom/android/settings/password/ConfirmDeviceCredentialActivity;
 
-    invoke-static {p0}, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->access$200(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;)V
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     goto :goto_1
 
     :cond_1
+    iget-object p0, p0, Lcom/android/settings/password/ConfirmDeviceCredentialActivity$1;->this$0:Lcom/android/settings/password/ConfirmDeviceCredentialActivity;
+
+    invoke-static {p0}, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->-$$Nest$mshowConfirmCredentials(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;)V
+
+    goto :goto_1
+
+    :cond_2
     :goto_0
     iget-object p0, p0, Lcom/android/settings/password/ConfirmDeviceCredentialActivity$1;->this$0:Lcom/android/settings/password/ConfirmDeviceCredentialActivity;
 
@@ -73,24 +122,24 @@
 
     goto :goto_1
 
-    :cond_2
+    :cond_3
     iget-object p1, p0, Lcom/android/settings/password/ConfirmDeviceCredentialActivity$1;->this$0:Lcom/android/settings/password/ConfirmDeviceCredentialActivity;
 
-    invoke-static {p1}, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->access$100(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;)Z
+    invoke-static {p1}, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->-$$Nest$fgetmWaitingForBiometricCallback(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;)Z
 
     move-result p1
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_4
 
     iget-object p1, p0, Lcom/android/settings/password/ConfirmDeviceCredentialActivity$1;->this$0:Lcom/android/settings/password/ConfirmDeviceCredentialActivity;
 
-    invoke-static {p1, v0}, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->access$102(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;Z)Z
+    invoke-static {p1, v0}, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->-$$Nest$fputmWaitingForBiometricCallback(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;Z)V
 
     iget-object p0, p0, Lcom/android/settings/password/ConfirmDeviceCredentialActivity$1;->this$0:Lcom/android/settings/password/ConfirmDeviceCredentialActivity;
 
     invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
-    :cond_3
+    :cond_4
     :goto_1
     return-void
 .end method
@@ -102,17 +151,17 @@
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->access$102(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;Z)Z
+    invoke-static {v0, v1}, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->-$$Nest$fputmWaitingForBiometricCallback(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;Z)V
 
     iget-object v0, p0, Lcom/android/settings/password/ConfirmDeviceCredentialActivity$1;->this$0:Lcom/android/settings/password/ConfirmDeviceCredentialActivity;
 
-    invoke-static {v0}, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->access$700(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;)Landroid/app/admin/DevicePolicyManager;
+    invoke-static {v0}, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->-$$Nest$fgetmDevicePolicyManager(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;)Landroid/app/admin/DevicePolicyManager;
 
     move-result-object v0
 
     iget-object p0, p0, Lcom/android/settings/password/ConfirmDeviceCredentialActivity$1;->this$0:Lcom/android/settings/password/ConfirmDeviceCredentialActivity;
 
-    invoke-static {p0}, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->access$300(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;)I
+    invoke-static {p0}, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->-$$Nest$fgetmUserId(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;)I
 
     move-result p0
 
@@ -128,17 +177,17 @@
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->access$102(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;Z)Z
+    invoke-static {v0, v1}, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->-$$Nest$fputmWaitingForBiometricCallback(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;Z)V
 
     iget-object v0, p0, Lcom/android/settings/password/ConfirmDeviceCredentialActivity$1;->this$0:Lcom/android/settings/password/ConfirmDeviceCredentialActivity;
 
-    invoke-static {v0}, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->access$400(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;)Landroid/app/trust/TrustManager;
+    invoke-static {v0}, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->-$$Nest$fgetmTrustManager(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;)Landroid/app/trust/TrustManager;
 
     move-result-object v0
 
     iget-object v2, p0, Lcom/android/settings/password/ConfirmDeviceCredentialActivity$1;->this$0:Lcom/android/settings/password/ConfirmDeviceCredentialActivity;
 
-    invoke-static {v2}, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->access$300(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;)I
+    invoke-static {v2}, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->-$$Nest$fgetmUserId(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;)I
 
     move-result v2
 
@@ -157,25 +206,25 @@
     :cond_0
     iget-object p1, p0, Lcom/android/settings/password/ConfirmDeviceCredentialActivity$1;->this$0:Lcom/android/settings/password/ConfirmDeviceCredentialActivity;
 
-    invoke-static {p1}, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->access$500(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;)Lcom/android/internal/widget/LockPatternUtils;
+    invoke-static {p1}, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->-$$Nest$fgetmLockPatternUtils(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;)Lcom/android/internal/widget/LockPatternUtils;
 
     move-result-object p1
 
     iget-object v0, p0, Lcom/android/settings/password/ConfirmDeviceCredentialActivity$1;->this$0:Lcom/android/settings/password/ConfirmDeviceCredentialActivity;
 
-    invoke-static {v0}, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->access$600(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;)Landroid/os/UserManager;
+    invoke-static {v0}, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->-$$Nest$fgetmUserManager(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;)Landroid/os/UserManager;
 
     move-result-object v0
 
     iget-object v2, p0, Lcom/android/settings/password/ConfirmDeviceCredentialActivity$1;->this$0:Lcom/android/settings/password/ConfirmDeviceCredentialActivity;
 
-    invoke-static {v2}, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->access$700(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;)Landroid/app/admin/DevicePolicyManager;
+    invoke-static {v2}, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->-$$Nest$fgetmDevicePolicyManager(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;)Landroid/app/admin/DevicePolicyManager;
 
     move-result-object v2
 
     iget-object v3, p0, Lcom/android/settings/password/ConfirmDeviceCredentialActivity$1;->this$0:Lcom/android/settings/password/ConfirmDeviceCredentialActivity;
 
-    invoke-static {v3}, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->access$300(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;)I
+    invoke-static {v3}, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->-$$Nest$fgetmUserId(Lcom/android/settings/password/ConfirmDeviceCredentialActivity;)I
 
     move-result v3
 

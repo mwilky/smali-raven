@@ -53,7 +53,7 @@
     :try_start_1
     iget-object v3, p0, Lcom/android/settings/notification/history/NotificationHistoryActivity$2;->this$0:Lcom/android/settings/notification/history/NotificationHistoryActivity;
 
-    invoke-static {v3}, Lcom/android/settings/notification/history/NotificationHistoryActivity;->access$000(Lcom/android/settings/notification/history/NotificationHistoryActivity;)Landroid/app/INotificationManager;
+    invoke-static {v3}, Lcom/android/settings/notification/history/NotificationHistoryActivity;->-$$Nest$fgetmNm(Lcom/android/settings/notification/history/NotificationHistoryActivity;)Landroid/app/INotificationManager;
 
     move-result-object v3
 
@@ -84,7 +84,7 @@
     move-object v2, v0
 
     :catch_1
-    invoke-static {}, Lcom/android/settings/notification/history/NotificationHistoryActivity;->access$100()Ljava/lang/String;
+    invoke-static {}, Lcom/android/settings/notification/history/NotificationHistoryActivity;->-$$Nest$sfgetTAG()Ljava/lang/String;
 
     move-result-object v3
 
@@ -95,11 +95,11 @@
     :goto_0
     iget-object v3, p0, Lcom/android/settings/notification/history/NotificationHistoryActivity$2;->this$0:Lcom/android/settings/notification/history/NotificationHistoryActivity;
 
-    invoke-static {v3}, Lcom/android/settings/notification/history/NotificationHistoryActivity;->access$200(Lcom/android/settings/notification/history/NotificationHistoryActivity;)Landroid/view/ViewGroup;
+    invoke-static {v3}, Lcom/android/settings/notification/history/NotificationHistoryActivity;->-$$Nest$fgetmSnoozeView(Lcom/android/settings/notification/history/NotificationHistoryActivity;)Landroid/view/ViewGroup;
 
     move-result-object v3
 
-    const v4, 0x7f0d03f1
+    const v4, 0x7f0d0422
 
     invoke-virtual {v3, v4}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -125,13 +125,13 @@
 
     iget-object v6, p0, Lcom/android/settings/notification/history/NotificationHistoryActivity$2;->this$0:Lcom/android/settings/notification/history/NotificationHistoryActivity;
 
-    invoke-static {v6}, Lcom/android/settings/notification/history/NotificationHistoryActivity;->access$300(Lcom/android/settings/notification/history/NotificationHistoryActivity;)Landroid/content/pm/PackageManager;
+    invoke-static {v6}, Lcom/android/settings/notification/history/NotificationHistoryActivity;->-$$Nest$fgetmPm(Lcom/android/settings/notification/history/NotificationHistoryActivity;)Landroid/content/pm/PackageManager;
 
     move-result-object v7
 
     iget-object v5, p0, Lcom/android/settings/notification/history/NotificationHistoryActivity$2;->this$0:Lcom/android/settings/notification/history/NotificationHistoryActivity;
 
-    invoke-static {v5}, Lcom/android/settings/notification/history/NotificationHistoryActivity;->access$400(Lcom/android/settings/notification/history/NotificationHistoryActivity;)Landroid/os/UserManager;
+    invoke-static {v5}, Lcom/android/settings/notification/history/NotificationHistoryActivity;->-$$Nest$fgetmUm(Lcom/android/settings/notification/history/NotificationHistoryActivity;)Landroid/os/UserManager;
 
     move-result-object v8
 
@@ -139,7 +139,7 @@
 
     iget-object v5, p0, Lcom/android/settings/notification/history/NotificationHistoryActivity$2;->this$0:Lcom/android/settings/notification/history/NotificationHistoryActivity;
 
-    invoke-static {v5}, Lcom/android/settings/notification/history/NotificationHistoryActivity;->access$500(Lcom/android/settings/notification/history/NotificationHistoryActivity;)Lcom/android/internal/logging/UiEventLogger;
+    invoke-static {v5}, Lcom/android/settings/notification/history/NotificationHistoryActivity;->-$$Nest$fgetmUiEventLogger(Lcom/android/settings/notification/history/NotificationHistoryActivity;)Lcom/android/internal/logging/UiEventLogger;
 
     move-result-object v10
 
@@ -188,7 +188,7 @@
     :goto_1
     iget-object v2, p0, Lcom/android/settings/notification/history/NotificationHistoryActivity$2;->this$0:Lcom/android/settings/notification/history/NotificationHistoryActivity;
 
-    invoke-static {v2}, Lcom/android/settings/notification/history/NotificationHistoryActivity;->access$200(Lcom/android/settings/notification/history/NotificationHistoryActivity;)Landroid/view/ViewGroup;
+    invoke-static {v2}, Lcom/android/settings/notification/history/NotificationHistoryActivity;->-$$Nest$fgetmSnoozeView(Lcom/android/settings/notification/history/NotificationHistoryActivity;)Landroid/view/ViewGroup;
 
     move-result-object v2
 
@@ -197,7 +197,7 @@
     :goto_2
     iget-object v2, p0, Lcom/android/settings/notification/history/NotificationHistoryActivity$2;->this$0:Lcom/android/settings/notification/history/NotificationHistoryActivity;
 
-    invoke-static {v2}, Lcom/android/settings/notification/history/NotificationHistoryActivity;->access$600(Lcom/android/settings/notification/history/NotificationHistoryActivity;)Landroid/view/ViewGroup;
+    invoke-static {v2}, Lcom/android/settings/notification/history/NotificationHistoryActivity;->-$$Nest$fgetmDismissView(Lcom/android/settings/notification/history/NotificationHistoryActivity;)Landroid/view/ViewGroup;
 
     move-result-object v2
 
@@ -225,13 +225,13 @@
 
     iget-object v5, p0, Lcom/android/settings/notification/history/NotificationHistoryActivity$2;->this$0:Lcom/android/settings/notification/history/NotificationHistoryActivity;
 
-    invoke-static {v5}, Lcom/android/settings/notification/history/NotificationHistoryActivity;->access$300(Lcom/android/settings/notification/history/NotificationHistoryActivity;)Landroid/content/pm/PackageManager;
+    invoke-static {v5}, Lcom/android/settings/notification/history/NotificationHistoryActivity;->-$$Nest$fgetmPm(Lcom/android/settings/notification/history/NotificationHistoryActivity;)Landroid/content/pm/PackageManager;
 
     move-result-object v6
 
     iget-object v4, p0, Lcom/android/settings/notification/history/NotificationHistoryActivity$2;->this$0:Lcom/android/settings/notification/history/NotificationHistoryActivity;
 
-    invoke-static {v4}, Lcom/android/settings/notification/history/NotificationHistoryActivity;->access$400(Lcom/android/settings/notification/history/NotificationHistoryActivity;)Landroid/os/UserManager;
+    invoke-static {v4}, Lcom/android/settings/notification/history/NotificationHistoryActivity;->-$$Nest$fgetmUm(Lcom/android/settings/notification/history/NotificationHistoryActivity;)Landroid/os/UserManager;
 
     move-result-object v7
 
@@ -239,7 +239,7 @@
 
     iget-object v4, p0, Lcom/android/settings/notification/history/NotificationHistoryActivity$2;->this$0:Lcom/android/settings/notification/history/NotificationHistoryActivity;
 
-    invoke-static {v4}, Lcom/android/settings/notification/history/NotificationHistoryActivity;->access$500(Lcom/android/settings/notification/history/NotificationHistoryActivity;)Lcom/android/internal/logging/UiEventLogger;
+    invoke-static {v4}, Lcom/android/settings/notification/history/NotificationHistoryActivity;->-$$Nest$fgetmUiEventLogger(Lcom/android/settings/notification/history/NotificationHistoryActivity;)Lcom/android/internal/logging/UiEventLogger;
 
     move-result-object v9
 
@@ -264,7 +264,7 @@
     :cond_2
     iget-object v2, p0, Lcom/android/settings/notification/history/NotificationHistoryActivity$2;->this$0:Lcom/android/settings/notification/history/NotificationHistoryActivity;
 
-    invoke-static {v2}, Lcom/android/settings/notification/history/NotificationHistoryActivity;->access$600(Lcom/android/settings/notification/history/NotificationHistoryActivity;)Landroid/view/ViewGroup;
+    invoke-static {v2}, Lcom/android/settings/notification/history/NotificationHistoryActivity;->-$$Nest$fgetmDismissView(Lcom/android/settings/notification/history/NotificationHistoryActivity;)Landroid/view/ViewGroup;
 
     move-result-object v2
 
@@ -294,7 +294,7 @@
     :goto_3
     iget-object v0, p0, Lcom/android/settings/notification/history/NotificationHistoryActivity$2;->this$0:Lcom/android/settings/notification/history/NotificationHistoryActivity;
 
-    invoke-static {v0}, Lcom/android/settings/notification/history/NotificationHistoryActivity;->access$600(Lcom/android/settings/notification/history/NotificationHistoryActivity;)Landroid/view/ViewGroup;
+    invoke-static {v0}, Lcom/android/settings/notification/history/NotificationHistoryActivity;->-$$Nest$fgetmDismissView(Lcom/android/settings/notification/history/NotificationHistoryActivity;)Landroid/view/ViewGroup;
 
     move-result-object v0
 
@@ -303,7 +303,7 @@
     :goto_4
     iget-object p0, p0, Lcom/android/settings/notification/history/NotificationHistoryActivity$2;->this$0:Lcom/android/settings/notification/history/NotificationHistoryActivity;
 
-    invoke-static {p0}, Lcom/android/settings/notification/history/NotificationHistoryActivity;->access$700(Lcom/android/settings/notification/history/NotificationHistoryActivity;)Ljava/util/concurrent/CountDownLatch;
+    invoke-static {p0}, Lcom/android/settings/notification/history/NotificationHistoryActivity;->-$$Nest$fgetmCountdownLatch(Lcom/android/settings/notification/history/NotificationHistoryActivity;)Ljava/util/concurrent/CountDownLatch;
 
     move-result-object p0
 
@@ -339,7 +339,7 @@
 
     iget-object p0, p0, Lcom/android/settings/notification/history/NotificationHistoryActivity$2;->this$0:Lcom/android/settings/notification/history/NotificationHistoryActivity;
 
-    invoke-static {p0}, Lcom/android/settings/notification/history/NotificationHistoryActivity;->access$200(Lcom/android/settings/notification/history/NotificationHistoryActivity;)Landroid/view/ViewGroup;
+    invoke-static {p0}, Lcom/android/settings/notification/history/NotificationHistoryActivity;->-$$Nest$fgetmSnoozeView(Lcom/android/settings/notification/history/NotificationHistoryActivity;)Landroid/view/ViewGroup;
 
     move-result-object p0
 
@@ -360,7 +360,7 @@
 
     iget-object p0, p0, Lcom/android/settings/notification/history/NotificationHistoryActivity$2;->this$0:Lcom/android/settings/notification/history/NotificationHistoryActivity;
 
-    invoke-static {p0}, Lcom/android/settings/notification/history/NotificationHistoryActivity;->access$600(Lcom/android/settings/notification/history/NotificationHistoryActivity;)Landroid/view/ViewGroup;
+    invoke-static {p0}, Lcom/android/settings/notification/history/NotificationHistoryActivity;->-$$Nest$fgetmDismissView(Lcom/android/settings/notification/history/NotificationHistoryActivity;)Landroid/view/ViewGroup;
 
     move-result-object p0
 

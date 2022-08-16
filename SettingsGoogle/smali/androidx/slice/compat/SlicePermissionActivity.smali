@@ -28,16 +28,6 @@
 
 .method private loadSafeLabel(Landroid/content/pm/PackageManager;Landroid/content/pm/ApplicationInfo;)Ljava/lang/CharSequence;
     .locals 5
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "pm",
-            "appInfo"
-        }
-    .end annotation
 
     invoke-virtual {p2, p1}, Landroid/content/pm/ApplicationInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
 
@@ -177,16 +167,6 @@
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "dialog",
-            "which"
-        }
-    .end annotation
 
     const/4 p1, -0x1
 
@@ -224,14 +204,6 @@
 
 .method protected onCreate(Landroid/os/Bundle;)V
     .locals 5
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "savedInstanceState"
-        }
-    .end annotation
 
     invoke-super {p0, p1}, Landroidx/fragment/app/FragmentActivity;->onCreate(Landroid/os/Bundle;)V
 
@@ -478,14 +450,6 @@
 
 .method public onDismiss(Landroid/content/DialogInterface;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "dialog"
-        }
-    .end annotation
 
     invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 

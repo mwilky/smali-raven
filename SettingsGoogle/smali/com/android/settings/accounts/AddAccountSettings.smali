@@ -22,6 +22,30 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmPendingIntent(Lcom/android/settings/accounts/AddAccountSettings;)Landroid/app/PendingIntent;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/accounts/AddAccountSettings;->mPendingIntent:Landroid/app/PendingIntent;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmUserHandle(Lcom/android/settings/accounts/AddAccountSettings;)Landroid/os/UserHandle;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/accounts/AddAccountSettings;->mUserHandle:Landroid/os/UserHandle;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmPendingIntent(Lcom/android/settings/accounts/AddAccountSettings;Landroid/app/PendingIntent;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/settings/accounts/AddAccountSettings;->mPendingIntent:Landroid/app/PendingIntent;
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 1
 
@@ -38,30 +62,6 @@
     iput-boolean v0, p0, Lcom/android/settings/accounts/AddAccountSettings;->mAddAccountCalled:Z
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/accounts/AddAccountSettings;)Landroid/app/PendingIntent;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/accounts/AddAccountSettings;->mPendingIntent:Landroid/app/PendingIntent;
-
-    return-object p0
-.end method
-
-.method static synthetic access$002(Lcom/android/settings/accounts/AddAccountSettings;Landroid/app/PendingIntent;)Landroid/app/PendingIntent;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/settings/accounts/AddAccountSettings;->mPendingIntent:Landroid/app/PendingIntent;
-
-    return-object p1
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/accounts/AddAccountSettings;)Landroid/os/UserHandle;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/accounts/AddAccountSettings;->mUserHandle:Landroid/os/UserHandle;
-
-    return-object p0
 .end method
 
 .method private addAccount(Ljava/lang/String;)V
@@ -256,7 +256,7 @@
     return-void
 
     :cond_6
-    const-string p1, "selected_account"
+    const-string/jumbo p1, "selected_account"
 
     invoke-virtual {p3, p1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
@@ -293,7 +293,7 @@
 
     if-eqz p1, :cond_0
 
-    const-string p1, "restored"
+    const-string/jumbo p1, "restored"
 
     invoke-static {v0, p1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -334,7 +334,7 @@
 
     if-eqz v0, :cond_1
 
-    const p1, 0x7f0414e3
+    const p1, 0x7f0415e0
 
     const/4 v0, 0x1
 
@@ -398,7 +398,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f04146c
+    const v0, 0x7f041567
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -452,7 +452,7 @@
 
     if-eqz p1, :cond_0
 
-    const-string p1, "saved"
+    const-string/jumbo p1, "saved"
 
     invoke-static {p0, p1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 

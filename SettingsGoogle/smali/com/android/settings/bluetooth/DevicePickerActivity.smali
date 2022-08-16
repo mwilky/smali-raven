@@ -27,7 +27,7 @@
 
     invoke-virtual {p1, v0}, Landroid/view/Window;->addSystemFlags(I)V
 
-    const p1, 0x7f06006c
+    const p1, 0x7f060072
 
     invoke-virtual {p0, p1}, Landroidx/activity/ComponentActivity;->setContentView(I)V
 

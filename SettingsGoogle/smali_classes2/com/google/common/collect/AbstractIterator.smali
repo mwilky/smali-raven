@@ -91,9 +91,6 @@
 
 .method protected final endOfData()Ljava/lang/Object;
     .locals 1
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -111,8 +108,6 @@
 
 .method public final hasNext()Z
     .locals 4
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
 
     iget-object v0, p0, Lcom/google/common/collect/AbstractIterator;->state:Lcom/google/common/collect/AbstractIterator$State;
 
@@ -165,9 +160,6 @@
 
 .method public final next()Ljava/lang/Object;
     .locals 2
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -185,6 +177,10 @@
     iput-object v0, p0, Lcom/google/common/collect/AbstractIterator;->state:Lcom/google/common/collect/AbstractIterator$State;
 
     iget-object v0, p0, Lcom/google/common/collect/AbstractIterator;->next:Ljava/lang/Object;
+
+    invoke-static {v0}, Lcom/google/common/collect/NullnessCasts;->uncheckedCastNullableTToT(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
 
     const/4 v1, 0x0
 

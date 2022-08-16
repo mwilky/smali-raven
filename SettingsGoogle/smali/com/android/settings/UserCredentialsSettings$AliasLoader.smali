@@ -40,7 +40,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settings/UserCredentialsSettings;Lcom/android/settings/UserCredentialsSettings$1;)V
+.method synthetic constructor <init>(Lcom/android/settings/UserCredentialsSettings;Lcom/android/settings/UserCredentialsSettings$AliasLoader-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settings/UserCredentialsSettings$AliasLoader;-><init>(Lcom/android/settings/UserCredentialsSettings;)V
@@ -439,7 +439,7 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    const v1, 0x7f0414ea
+    const v1, 0x7f0415e9
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 

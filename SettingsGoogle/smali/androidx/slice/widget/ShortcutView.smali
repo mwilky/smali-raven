@@ -28,14 +28,6 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "context"
-        }
-    .end annotation
 
     invoke-direct {p0, p1}, Landroidx/slice/widget/SliceChildView;-><init>(Landroid/content/Context;)V
 
@@ -185,15 +177,6 @@
 
 .method public setLoadingActions(Ljava/util/Set;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "actions"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -210,14 +193,6 @@
 
 .method public setSliceContent(Landroidx/slice/widget/ListContent;)V
     .locals 5
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "sliceContent"
-        }
-    .end annotation
 
     invoke-virtual {p0}, Landroidx/slice/widget/ShortcutView;->resetView()V
 

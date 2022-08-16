@@ -35,15 +35,15 @@
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    const-string v1, "request_gk_pw_handle"
+    const-string/jumbo v1, "request_gk_pw_handle"
 
     const/4 v2, 0x0
 
-    invoke-static {p0, v0, v1, v2}, Lcom/android/settings/password/ChooseLockTypeDialogFragment;->access$000(Landroid/content/Intent;Landroid/content/Intent;Ljava/lang/String;Z)V
+    invoke-static {p0, v0, v1, v2}, Lcom/android/settings/password/ChooseLockTypeDialogFragment;->-$$Nest$smcopyBooleanExtra(Landroid/content/Intent;Landroid/content/Intent;Ljava/lang/String;Z)V
 
     const-string/jumbo v1, "show_options_button"
 
-    invoke-static {p0, v0, v1, v2}, Lcom/android/settings/password/ChooseLockTypeDialogFragment;->access$000(Landroid/content/Intent;Landroid/content/Intent;Ljava/lang/String;Z)V
+    invoke-static {p0, v0, v1, v2}, Lcom/android/settings/password/ChooseLockTypeDialogFragment;->-$$Nest$smcopyBooleanExtra(Landroid/content/Intent;Landroid/content/Intent;Ljava/lang/String;Z)V
 
     const-string v1, "choose_lock_generic_extras"
 

@@ -98,6 +98,30 @@
     return-void
 .end method
 
+.method static bridge synthetic -$$Nest$fgetmSubsPrefCtrlInjector(Lcom/android/settings/network/SubscriptionsPreferenceController;)Lcom/android/settings/network/SubscriptionsPreferenceController$SubsPrefCtrlInjector;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/network/SubscriptionsPreferenceController;->mSubsPrefCtrlInjector:Lcom/android/settings/network/SubscriptionsPreferenceController$SubsPrefCtrlInjector;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmConfig(Lcom/android/settings/network/SubscriptionsPreferenceController;Lcom/android/settingslib/mobile/MobileMappings$Config;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/settings/network/SubscriptionsPreferenceController;->mConfig:Lcom/android/settingslib/mobile/MobileMappings$Config;
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mupdate(Lcom/android/settings/network/SubscriptionsPreferenceController;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/network/SubscriptionsPreferenceController;->update()V
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Landroidx/lifecycle/Lifecycle;Lcom/android/settings/network/SubscriptionsPreferenceController$UpdateListener;Ljava/lang/String;I)V
     .locals 2
 
@@ -212,15 +236,7 @@
     return-void
 .end method
 
-.method static synthetic access$002(Lcom/android/settings/network/SubscriptionsPreferenceController;Lcom/android/settingslib/mobile/MobileMappings$Config;)Lcom/android/settingslib/mobile/MobileMappings$Config;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/settings/network/SubscriptionsPreferenceController;->mConfig:Lcom/android/settingslib/mobile/MobileMappings$Config;
-
-    return-object p1
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/network/SubscriptionsPreferenceController;)Landroid/content/Context;
+.method static synthetic access$000(Lcom/android/settings/network/SubscriptionsPreferenceController;)Landroid/content/Context;
     .locals 0
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
@@ -228,177 +244,23 @@
     return-object p0
 .end method
 
-.method static synthetic access$200(Lcom/android/settings/network/SubscriptionsPreferenceController;)Lcom/android/settings/network/SubscriptionsPreferenceController$SubsPrefCtrlInjector;
+.method private getCarrierNetworkLevel()I
     .locals 0
 
-    iget-object p0, p0, Lcom/android/settings/network/SubscriptionsPreferenceController;->mSubsPrefCtrlInjector:Lcom/android/settings/network/SubscriptionsPreferenceController$SubsPrefCtrlInjector;
+    iget-object p0, p0, Lcom/android/settings/network/SubscriptionsPreferenceController;->mWifiPickerTrackerHelper:Lcom/android/settings/wifi/WifiPickerTrackerHelper;
 
-    return-object p0
-.end method
+    if-nez p0, :cond_0
 
-.method static synthetic access$300(Lcom/android/settings/network/SubscriptionsPreferenceController;)V
-    .locals 0
+    const/4 p0, 0x0
 
-    invoke-direct {p0}, Lcom/android/settings/network/SubscriptionsPreferenceController;->update()V
-
-    return-void
-.end method
-
-.method private getIcon(I)Landroid/graphics/drawable/Drawable;
-    .locals 8
-
-    iget-object v0, p0, Lcom/android/settings/network/SubscriptionsPreferenceController;->mTelephonyManager:Landroid/telephony/TelephonyManager;
-
-    invoke-virtual {v0, p1}, Landroid/telephony/TelephonyManager;->createForSubscriptionId(I)Landroid/telephony/TelephonyManager;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/telephony/TelephonyManager;->getSignalStrength()Landroid/telephony/SignalStrength;
-
-    move-result-object v1
-
-    const/4 v2, 0x0
-
-    if-nez v1, :cond_0
-
-    move v1, v2
-
-    goto :goto_0
+    return p0
 
     :cond_0
-    invoke-virtual {v1}, Landroid/telephony/SignalStrength;->getLevel()I
-
-    move-result v1
-
-    :goto_0
-    invoke-virtual {p0}, Lcom/android/settings/network/SubscriptionsPreferenceController;->isCarrierNetworkActive()Z
-
-    move-result v3
-
-    invoke-virtual {p0, p1}, Lcom/android/settings/network/SubscriptionsPreferenceController;->shouldInflateSignalStrength(I)Z
-
-    move-result p1
-
-    const/4 v4, 0x5
-
-    if-nez p1, :cond_1
-
-    if-eqz v3, :cond_3
-
-    :cond_1
-    if-eqz v3, :cond_2
-
-    move v1, v4
-
-    goto :goto_1
-
-    :cond_2
-    add-int/lit8 v1, v1, 0x1
-
-    :goto_1
-    const/4 v4, 0x6
-
-    :cond_3
-    iget-object p1, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
-
-    const v5, 0x7f020369
-
-    invoke-virtual {p1, v5}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
-
-    move-result-object p1
-
-    invoke-virtual {v0}, Landroid/telephony/TelephonyManager;->getServiceState()Landroid/telephony/ServiceState;
-
-    move-result-object v5
-
-    const/4 v6, 0x1
-
-    if-nez v5, :cond_4
-
-    const/4 v7, 0x0
-
-    goto :goto_2
-
-    :cond_4
-    const/4 v7, 0x2
-
-    invoke-virtual {v5, v7, v6}, Landroid/telephony/ServiceState;->getNetworkRegistrationInfo(II)Landroid/telephony/NetworkRegistrationInfo;
-
-    move-result-object v7
-
-    :goto_2
-    if-nez v7, :cond_5
-
-    move v7, v2
-
-    goto :goto_3
-
-    :cond_5
-    invoke-virtual {v7}, Landroid/telephony/NetworkRegistrationInfo;->isRegistered()Z
-
-    move-result v7
-
-    :goto_3
-    if-nez v5, :cond_6
-
-    goto :goto_4
-
-    :cond_6
-    invoke-virtual {v5}, Landroid/telephony/ServiceState;->getState()I
-
-    move-result v5
-
-    if-nez v5, :cond_7
-
-    move v2, v6
-
-    :cond_7
-    :goto_4
-    if-nez v7, :cond_8
-
-    if-nez v2, :cond_8
-
-    if-eqz v3, :cond_9
-
-    :cond_8
-    iget-object p1, p0, Lcom/android/settings/network/SubscriptionsPreferenceController;->mSubsPrefCtrlInjector:Lcom/android/settings/network/SubscriptionsPreferenceController$SubsPrefCtrlInjector;
-
-    iget-object v2, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v0}, Landroid/telephony/TelephonyManager;->isDataEnabled()Z
-
-    move-result v0
-
-    xor-int/2addr v0, v6
-
-    invoke-virtual {p1, v2, v1, v4, v0}, Lcom/android/settings/network/SubscriptionsPreferenceController$SubsPrefCtrlInjector;->getIcon(Landroid/content/Context;IIZ)Landroid/graphics/drawable/Drawable;
-
-    move-result-object p1
-
-    :cond_9
-    iget-object v0, p0, Lcom/android/settings/network/SubscriptionsPreferenceController;->mSubsPrefCtrlInjector:Lcom/android/settings/network/SubscriptionsPreferenceController$SubsPrefCtrlInjector;
-
-    iget-object v1, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v0, v1}, Lcom/android/settings/network/SubscriptionsPreferenceController$SubsPrefCtrlInjector;->isActiveCellularNetwork(Landroid/content/Context;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_a
-
-    if-eqz v3, :cond_b
-
-    :cond_a
-    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
-
-    invoke-static {p0}, Lcom/android/settingslib/Utils;->getColorAccentDefaultColor(Landroid/content/Context;)I
+    invoke-virtual {p0}, Lcom/android/settings/wifi/WifiPickerTrackerHelper;->getCarrierNetworkLevel()I
 
     move-result p0
 
-    invoke-virtual {p1, p0}, Landroid/graphics/drawable/Drawable;->setTint(I)V
-
-    :cond_b
-    return-object p1
+    return p0
 .end method
 
 .method private getMobilePreferenceSummary(I)Ljava/lang/CharSequence;
@@ -418,7 +280,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const p1, 0x7f040d34
+    const p1, 0x7f040db0
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -496,11 +358,11 @@
     goto :goto_2
 
     :cond_3
-    if-nez v0, :cond_5
+    if-nez v0, :cond_6
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const p1, 0x7f040d32
+    const p1, 0x7f040dae
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -510,19 +372,28 @@
 
     :cond_4
     :goto_2
-    const-string v0, "SubscriptionsPrefCntrlr"
+    invoke-virtual {p1}, Ljava/lang/String;->isEmpty()Z
 
-    const-string v4, "Active cellular network or active carrier network."
+    move-result v0
 
-    invoke-static {v0, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    const v4, 0x7f040daa
+
+    if-eqz v0, :cond_5
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f040f5b
+    invoke-virtual {p0, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object p1
+
+    goto :goto_3
+
+    :cond_5
+    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    const v0, 0x7f040ff4
 
     new-array v2, v2, [Ljava/lang/Object;
-
-    const v4, 0x7f040d2e
 
     invoke-virtual {p0, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -536,7 +407,7 @@
 
     move-result-object p1
 
-    :cond_5
+    :cond_6
     :goto_3
     invoke-static {p1, v3}, Landroid/text/Html;->fromHtml(Ljava/lang/String;I)Landroid/text/Spanned;
 
@@ -578,11 +449,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    invoke-virtual {p1}, Landroid/telephony/SubscriptionInfo;->getSubscriptionId()I
-
-    move-result p1
-
-    invoke-static {p0, p1}, Lcom/android/settings/network/SubscriptionsPreferenceController;->startMobileNetworkActivity(Landroid/content/Context;I)V
+    invoke-static {p0, p1}, Lcom/android/settings/network/telephony/MobileNetworkUtils;->launchMobileNetworkSettings(Landroid/content/Context;Landroid/telephony/SubscriptionInfo;)V
 
     return-void
 .end method
@@ -607,45 +474,6 @@
     iget-object p0, p0, Lcom/android/settings/network/SubscriptionsPreferenceController;->mConnectionChangeReceiver:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {v1, p0, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
-
-    return-void
-.end method
-
-.method private resetProviderPreferenceSummary()V
-    .locals 1
-
-    iget-object p0, p0, Lcom/android/settings/network/SubscriptionsPreferenceController;->mSubsGearPref:Lcom/android/settings/widget/MutableGearPreference;
-
-    if-nez p0, :cond_0
-
-    return-void
-
-    :cond_0
-    const-string v0, ""
-
-    invoke-virtual {p0, v0}, Landroidx/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
-
-    return-void
-.end method
-
-.method private static startMobileNetworkActivity(Landroid/content/Context;I)V
-    .locals 2
-
-    new-instance v0, Landroid/content/Intent;
-
-    const-class v1, Lcom/android/settings/network/telephony/MobileNetworkActivity;
-
-    invoke-direct {v0, p0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
-
-    const-string v1, "android.provider.extra.SUB_ID"
-
-    invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
-
-    const/4 p1, 0x0
-
-    invoke-static {p0, v0, p1}, Lcom/android/settings/network/MobileNetworkTwoPaneUtils;->registerTwoPaneForMobileNetwork(Landroid/content/Context;Landroid/content/Intent;Ljava/lang/String;)V
-
-    invoke-virtual {p0, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
     return-void
 .end method
@@ -780,21 +608,21 @@
 
     iput-object v1, p0, Lcom/android/settings/network/SubscriptionsPreferenceController;->mSubsGearPref:Lcom/android/settings/widget/MutableGearPreference;
 
-    new-instance v2, Lcom/android/settings/network/SubscriptionsPreferenceController$$ExternalSyntheticLambda0;
+    new-instance v2, Lcom/android/settings/network/SubscriptionsPreferenceController$$ExternalSyntheticLambda1;
 
-    invoke-direct {v2, p0}, Lcom/android/settings/network/SubscriptionsPreferenceController$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/network/SubscriptionsPreferenceController;)V
+    invoke-direct {v2, p0}, Lcom/android/settings/network/SubscriptionsPreferenceController$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/network/SubscriptionsPreferenceController;)V
 
     invoke-virtual {v1, v2}, Landroidx/preference/Preference;->setOnPreferenceClickListener(Landroidx/preference/Preference$OnPreferenceClickListener;)V
 
+    :cond_5
     iget-object v1, p0, Lcom/android/settings/network/SubscriptionsPreferenceController;->mSubsGearPref:Lcom/android/settings/widget/MutableGearPreference;
 
-    new-instance v2, Lcom/android/settings/network/SubscriptionsPreferenceController$$ExternalSyntheticLambda1;
+    new-instance v2, Lcom/android/settings/network/SubscriptionsPreferenceController$$ExternalSyntheticLambda2;
 
-    invoke-direct {v2, p0, v0}, Lcom/android/settings/network/SubscriptionsPreferenceController$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/network/SubscriptionsPreferenceController;Landroid/telephony/SubscriptionInfo;)V
+    invoke-direct {v2, p0, v0}, Lcom/android/settings/network/SubscriptionsPreferenceController$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/network/SubscriptionsPreferenceController;Landroid/telephony/SubscriptionInfo;)V
 
     invoke-virtual {v1, v2}, Lcom/android/settings/widget/GearPreference;->setOnGearClickListener(Lcom/android/settings/widget/GearPreference$OnGearClickListener;)V
 
-    :cond_5
     iget-object v1, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
     const-class v2, Landroid/os/UserManager;
@@ -852,7 +680,7 @@
 
     move-result v2
 
-    invoke-direct {p0, v2}, Lcom/android/settings/network/SubscriptionsPreferenceController;->getIcon(I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {p0, v2}, Lcom/android/settings/network/SubscriptionsPreferenceController;->getIcon(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v2
 
@@ -949,6 +777,162 @@
     return-void
 .end method
 
+.method getIcon(I)Landroid/graphics/drawable/Drawable;
+    .locals 8
+
+    iget-object v0, p0, Lcom/android/settings/network/SubscriptionsPreferenceController;->mTelephonyManager:Landroid/telephony/TelephonyManager;
+
+    invoke-virtual {v0, p1}, Landroid/telephony/TelephonyManager;->createForSubscriptionId(I)Landroid/telephony/TelephonyManager;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/telephony/TelephonyManager;->getSignalStrength()Landroid/telephony/SignalStrength;
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    if-nez v1, :cond_0
+
+    move v1, v2
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {v1}, Landroid/telephony/SignalStrength;->getLevel()I
+
+    move-result v1
+
+    :goto_0
+    invoke-virtual {p0}, Lcom/android/settings/network/SubscriptionsPreferenceController;->isCarrierNetworkActive()Z
+
+    move-result v3
+
+    const/4 v4, 0x5
+
+    if-eqz v3, :cond_1
+
+    invoke-direct {p0}, Lcom/android/settings/network/SubscriptionsPreferenceController;->getCarrierNetworkLevel()I
+
+    move-result v1
+
+    goto :goto_1
+
+    :cond_1
+    invoke-virtual {p0, p1}, Lcom/android/settings/network/SubscriptionsPreferenceController;->shouldInflateSignalStrength(I)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_2
+
+    add-int/lit8 v1, v1, 0x1
+
+    const/4 v4, 0x6
+
+    :cond_2
+    :goto_1
+    iget-object p1, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    const v5, 0x7f02038e
+
+    invoke-virtual {p1, v5}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object p1
+
+    invoke-virtual {v0}, Landroid/telephony/TelephonyManager;->getServiceState()Landroid/telephony/ServiceState;
+
+    move-result-object v5
+
+    const/4 v6, 0x1
+
+    if-nez v5, :cond_3
+
+    const/4 v7, 0x0
+
+    goto :goto_2
+
+    :cond_3
+    const/4 v7, 0x2
+
+    invoke-virtual {v5, v7, v6}, Landroid/telephony/ServiceState;->getNetworkRegistrationInfo(II)Landroid/telephony/NetworkRegistrationInfo;
+
+    move-result-object v7
+
+    :goto_2
+    if-nez v7, :cond_4
+
+    move v7, v2
+
+    goto :goto_3
+
+    :cond_4
+    invoke-virtual {v7}, Landroid/telephony/NetworkRegistrationInfo;->isRegistered()Z
+
+    move-result v7
+
+    :goto_3
+    if-nez v5, :cond_5
+
+    goto :goto_4
+
+    :cond_5
+    invoke-virtual {v5}, Landroid/telephony/ServiceState;->getState()I
+
+    move-result v5
+
+    if-nez v5, :cond_6
+
+    move v2, v6
+
+    :cond_6
+    :goto_4
+    if-nez v7, :cond_7
+
+    if-nez v2, :cond_7
+
+    if-eqz v3, :cond_8
+
+    :cond_7
+    iget-object p1, p0, Lcom/android/settings/network/SubscriptionsPreferenceController;->mSubsPrefCtrlInjector:Lcom/android/settings/network/SubscriptionsPreferenceController$SubsPrefCtrlInjector;
+
+    iget-object v2, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/telephony/TelephonyManager;->isDataEnabled()Z
+
+    move-result v0
+
+    xor-int/2addr v0, v6
+
+    invoke-virtual {p1, v2, v1, v4, v0}, Lcom/android/settings/network/SubscriptionsPreferenceController$SubsPrefCtrlInjector;->getIcon(Landroid/content/Context;IIZ)Landroid/graphics/drawable/Drawable;
+
+    move-result-object p1
+
+    :cond_8
+    iget-object v0, p0, Lcom/android/settings/network/SubscriptionsPreferenceController;->mSubsPrefCtrlInjector:Lcom/android/settings/network/SubscriptionsPreferenceController$SubsPrefCtrlInjector;
+
+    iget-object v1, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0, v1}, Lcom/android/settings/network/SubscriptionsPreferenceController$SubsPrefCtrlInjector;->isActiveCellularNetwork(Landroid/content/Context;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_9
+
+    if-eqz v3, :cond_a
+
+    :cond_9
+    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    invoke-static {p0}, Lcom/android/settingslib/Utils;->getColorAccentDefaultColor(Landroid/content/Context;)I
+
+    move-result p0
+
+    invoke-virtual {p1, p0}, Landroid/graphics/drawable/Drawable;->setTint(I)V
+
+    :cond_a
+    return-object p1
+.end method
+
 .method public getPreferenceKey()Ljava/lang/String;
     .locals 0
 
@@ -1003,9 +987,9 @@
 
     move-result-object v0
 
-    new-instance v2, Lcom/android/settings/network/SubscriptionsPreferenceController$$ExternalSyntheticLambda2;
+    new-instance v2, Lcom/android/settings/network/SubscriptionsPreferenceController$$ExternalSyntheticLambda0;
 
-    invoke-direct {v2, p0}, Lcom/android/settings/network/SubscriptionsPreferenceController$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/network/SubscriptionsPreferenceController;)V
+    invoke-direct {v2, p0}, Lcom/android/settings/network/SubscriptionsPreferenceController$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/network/SubscriptionsPreferenceController;)V
 
     invoke-interface {v0, v2}, Ljava/util/stream/Stream;->filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
 
@@ -1103,8 +1087,6 @@
 
     invoke-direct {p0}, Lcom/android/settings/network/SubscriptionsPreferenceController;->unRegisterReceiver()V
 
-    invoke-direct {p0}, Lcom/android/settings/network/SubscriptionsPreferenceController;->resetProviderPreferenceSummary()V
-
     return-void
 .end method
 
@@ -1186,10 +1168,21 @@
     return-void
 .end method
 
-.method public onTelephonyDisplayInfoChanged(Landroid/telephony/TelephonyDisplayInfo;)V
-    .locals 0
+.method public onTelephonyDisplayInfoChanged(ILandroid/telephony/TelephonyDisplayInfo;)V
+    .locals 1
 
-    iput-object p1, p0, Lcom/android/settings/network/SubscriptionsPreferenceController;->mTelephonyDisplayInfo:Landroid/telephony/TelephonyDisplayInfo;
+    iget-object v0, p0, Lcom/android/settings/network/SubscriptionsPreferenceController;->mSubsPrefCtrlInjector:Lcom/android/settings/network/SubscriptionsPreferenceController$SubsPrefCtrlInjector;
+
+    invoke-virtual {v0}, Lcom/android/settings/network/SubscriptionsPreferenceController$SubsPrefCtrlInjector;->getDefaultDataSubscriptionId()I
+
+    move-result v0
+
+    if-eq p1, v0, :cond_0
+
+    return-void
+
+    :cond_0
+    iput-object p2, p0, Lcom/android/settings/network/SubscriptionsPreferenceController;->mTelephonyDisplayInfo:Landroid/telephony/TelephonyDisplayInfo;
 
     invoke-direct {p0}, Lcom/android/settings/network/SubscriptionsPreferenceController;->update()V
 

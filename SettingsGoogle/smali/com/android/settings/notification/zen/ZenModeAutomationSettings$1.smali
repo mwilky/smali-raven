@@ -52,7 +52,7 @@
 
     iget-object p2, p0, Lcom/android/settings/notification/zen/ZenModeAutomationSettings$1;->this$0:Lcom/android/settings/notification/zen/ZenModeAutomationSettings;
 
-    invoke-static {p2}, Lcom/android/settings/notification/zen/ZenModeAutomationSettings;->access$000(Lcom/android/settings/notification/zen/ZenModeAutomationSettings;)[Z
+    invoke-static {p2}, Lcom/android/settings/notification/zen/ZenModeAutomationSettings;->-$$Nest$fgetmDeleteDialogChecked(Lcom/android/settings/notification/zen/ZenModeAutomationSettings;)[Z
 
     move-result-object p2
 
@@ -64,7 +64,7 @@
 
     iget-object v0, p2, Lcom/android/settings/notification/zen/ZenModeSettingsBase;->mBackend:Lcom/android/settings/notification/zen/ZenModeBackend;
 
-    invoke-static {p2}, Lcom/android/settings/notification/zen/ZenModeAutomationSettings;->access$100(Lcom/android/settings/notification/zen/ZenModeAutomationSettings;)[Ljava/lang/String;
+    invoke-static {p2}, Lcom/android/settings/notification/zen/ZenModeAutomationSettings;->-$$Nest$fgetmDeleteDialogRuleIds(Lcom/android/settings/notification/zen/ZenModeAutomationSettings;)[Ljava/lang/String;
 
     move-result-object p2
 

@@ -12,6 +12,22 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmAdaptiveChargingManager(Lcom/google/android/settings/fuelgauge/BatteryStatusFeatureProviderGoogleImpl;)Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/settings/fuelgauge/BatteryStatusFeatureProviderGoogleImpl;->mAdaptiveChargingManager:Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$mrefreshAdaptiveChargingEnabled(Lcom/google/android/settings/fuelgauge/BatteryStatusFeatureProviderGoogleImpl;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/google/android/settings/fuelgauge/BatteryStatusFeatureProviderGoogleImpl;->refreshAdaptiveChargingEnabled()V
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 3
 
@@ -56,23 +72,7 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/google/android/settings/fuelgauge/BatteryStatusFeatureProviderGoogleImpl;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/google/android/settings/fuelgauge/BatteryStatusFeatureProviderGoogleImpl;->refreshAdaptiveChargingEnabled()V
-
-    return-void
-.end method
-
-.method static synthetic access$100(Lcom/google/android/settings/fuelgauge/BatteryStatusFeatureProviderGoogleImpl;)Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/settings/fuelgauge/BatteryStatusFeatureProviderGoogleImpl;->mAdaptiveChargingManager:Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager;
-
-    return-object p0
-.end method
-
-.method static synthetic access$200(Lcom/google/android/settings/fuelgauge/BatteryStatusFeatureProviderGoogleImpl;)Landroid/content/Context;
+.method static synthetic access$000(Lcom/google/android/settings/fuelgauge/BatteryStatusFeatureProviderGoogleImpl;)Landroid/content/Context;
     .locals 0
 
     iget-object p0, p0, Lcom/android/settings/fuelgauge/BatteryStatusFeatureProviderImpl;->mContext:Landroid/content/Context;
@@ -141,12 +141,12 @@
 
     if-eqz v3, :cond_0
 
-    const v3, 0x7f04106f
+    const v3, 0x7f041115
 
     goto :goto_0
 
     :cond_0
-    const v3, 0x7f04106e
+    const v3, 0x7f041114
 
     :goto_0
     invoke-virtual {v0, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
@@ -164,7 +164,7 @@
     :cond_1
     iget-object p0, p0, Lcom/android/settings/fuelgauge/BatteryStatusFeatureProviderImpl;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f0403b4
+    const v4, 0x7f0403f2
 
     const/4 v5, 0x2
 

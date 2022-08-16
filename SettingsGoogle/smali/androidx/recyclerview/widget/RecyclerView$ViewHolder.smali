@@ -114,14 +114,6 @@
 
 .method public constructor <init>(Landroid/view/View;)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "itemView"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -204,14 +196,6 @@
 # virtual methods
 .method addChangePayload(Ljava/lang/Object;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "payload"
-        }
-    .end annotation
 
     const/16 v0, 0x400
 
@@ -241,14 +225,6 @@
 
 .method addFlags(I)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "flags"
-        }
-    .end annotation
 
     iget v0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mFlags:I
 
@@ -344,18 +320,6 @@
 
 .method flagRemovedAndOffsetPosition(IIZ)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "mNewPosition",
-            "offset",
-            "applyToPreLayout"
-        }
-    .end annotation
 
     const/16 v0, 0x8
 
@@ -534,14 +498,6 @@
 
 .method hasAnyOfTheFlags(I)Z
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "flags"
-        }
-    .end annotation
 
     iget p0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mFlags:I
 
@@ -790,16 +746,6 @@
 
 .method offsetPosition(IZ)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "offset",
-            "applyToPreLayout"
-        }
-    .end annotation
 
     iget v0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mOldPosition:I
 
@@ -862,14 +808,6 @@
 
 .method onEnteredHiddenState(Landroidx/recyclerview/widget/RecyclerView;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "parent"
-        }
-    .end annotation
 
     iget v0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mPendingAccessibilityState:I
 
@@ -900,14 +838,6 @@
 
 .method onLeftHiddenState(Landroidx/recyclerview/widget/RecyclerView;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "parent"
-        }
-    .end annotation
 
     iget v0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mWasImportantForAccessibilityBeforeHidden:I
 
@@ -977,16 +907,6 @@
 
 .method setFlags(II)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "flags",
-            "mask"
-        }
-    .end annotation
 
     iget v0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mFlags:I
 
@@ -1005,14 +925,6 @@
 
 .method public final setIsRecyclable(Z)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "recyclable"
-        }
-    .end annotation
 
     const/4 v0, 0x1
 
@@ -1087,16 +999,6 @@
 
 .method setScrapContainer(Landroidx/recyclerview/widget/RecyclerView$Recycler;Z)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "recycler",
-            "isChangeScrap"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mScrapContainer:Landroidx/recyclerview/widget/RecyclerView$Recycler;
 

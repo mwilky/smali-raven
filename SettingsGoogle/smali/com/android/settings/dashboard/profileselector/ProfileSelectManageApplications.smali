@@ -90,7 +90,7 @@
     return-object p0
 .end method
 
-.method getTitleResId()I
+.method public getTitleResId()I
     .locals 1
 
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;

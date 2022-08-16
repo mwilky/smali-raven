@@ -35,6 +35,14 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetlistener(Lcom/google/android/setupdesign/items/RecyclerItemAdapter;)Lcom/google/android/setupdesign/items/RecyclerItemAdapter$OnItemSelectedListener;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/setupdesign/items/RecyclerItemAdapter;->listener:Lcom/google/android/setupdesign/items/RecyclerItemAdapter$OnItemSelectedListener;
+
+    return-object p0
+.end method
+
 .method public constructor <init>(Lcom/google/android/setupdesign/items/ItemHierarchy;ZZ)V
     .locals 0
 
@@ -49,14 +57,6 @@
     invoke-interface {p1, p0}, Lcom/google/android/setupdesign/items/ItemHierarchy;->registerObserver(Lcom/google/android/setupdesign/items/ItemHierarchy$Observer;)V
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/google/android/setupdesign/items/RecyclerItemAdapter;)Lcom/google/android/setupdesign/items/RecyclerItemAdapter$OnItemSelectedListener;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/setupdesign/items/RecyclerItemAdapter;->listener:Lcom/google/android/setupdesign/items/RecyclerItemAdapter$OnItemSelectedListener;
-
-    return-object p0
 .end method
 
 

@@ -65,7 +65,15 @@
     invoke-virtual {p0, v1}, Lcom/google/android/setupdesign/template/ListMixin;->setAdapter(Landroid/widget/ListAdapter;)V
 
     :cond_0
-    invoke-direct {p0, v0}, Lcom/google/android/setupdesign/template/ListMixin;->isDividerShown(Landroid/content/Context;)Z
+    sget p3, Lcom/google/android/setupdesign/R$styleable;->SudListMixin_sudDividerShown:I
+
+    const/4 v1, 0x1
+
+    invoke-virtual {p2, p3, v1}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
+
+    move-result p3
+
+    invoke-direct {p0, v0, p3}, Lcom/google/android/setupdesign/template/ListMixin;->isDividerShown(Landroid/content/Context;Z)Z
 
     move-result p3
 
@@ -152,7 +160,17 @@
     :cond_3
     invoke-virtual {p0, p3, v1}, Lcom/google/android/setupdesign/template/ListMixin;->setDividerInsets(II)V
 
+    goto :goto_0
+
     :cond_4
+    invoke-virtual {p0}, Lcom/google/android/setupdesign/template/ListMixin;->getListView()Landroid/widget/ListView;
+
+    move-result-object p0
+
+    const/4 p1, 0x0
+
+    invoke-virtual {p0, p1}, Landroid/widget/ListView;->setDivider(Landroid/graphics/drawable/Drawable;)V
+
     :goto_0
     invoke-virtual {p2}, Landroid/content/res/TypedArray;->recycle()V
 
@@ -188,53 +206,41 @@
     return-object p0
 .end method
 
-.method private isDividerShown(Landroid/content/Context;)Z
-    .locals 3
+.method private isDividerShown(Landroid/content/Context;Z)Z
+    .locals 1
 
-    iget-object v0, p0, Lcom/google/android/setupdesign/template/ListMixin;->templateLayout:Lcom/google/android/setupcompat/internal/TemplateLayout;
+    iget-object p0, p0, Lcom/google/android/setupdesign/template/ListMixin;->templateLayout:Lcom/google/android/setupcompat/internal/TemplateLayout;
 
-    invoke-static {v0}, Lcom/google/android/setupdesign/util/PartnerStyleHelper;->shouldApplyPartnerResource(Landroid/view/View;)Z
+    invoke-static {p0}, Lcom/google/android/setupdesign/util/PartnerStyleHelper;->shouldApplyPartnerResource(Landroid/view/View;)Z
 
-    move-result v0
+    move-result p0
 
-    const/4 v1, 0x1
-
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
     invoke-static {p1}, Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;->get(Landroid/content/Context;)Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;
-
-    move-result-object v0
-
-    sget-object v2, Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;->CONFIG_ITEMS_DIVIDER_SHOWN:Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;
-
-    invoke-virtual {v0, v2}, Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;->isPartnerConfigAvailable(Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    invoke-static {p1}, Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;->get(Landroid/content/Context;)Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p1, v2, v1}, Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;->getBoolean(Landroid/content/Context;Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;Z)Z
-
-    move-result p1
-
-    if-nez p1, :cond_0
-
-    invoke-virtual {p0}, Lcom/google/android/setupdesign/template/ListMixin;->getListView()Landroid/widget/ListView;
 
     move-result-object p0
 
-    const/4 v0, 0x0
+    sget-object v0, Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;->CONFIG_ITEMS_DIVIDER_SHOWN:Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;
 
-    invoke-virtual {p0, v0}, Landroid/widget/ListView;->setDivider(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {p0, v0}, Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;->isPartnerConfigAvailable(Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;)Z
 
-    return p1
+    move-result p0
+
+    if-eqz p0, :cond_0
+
+    invoke-static {p1}, Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;->get(Landroid/content/Context;)Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;
+
+    move-result-object p0
+
+    const/4 p2, 0x1
+
+    invoke-virtual {p0, p1, v0, p2}, Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;->getBoolean(Landroid/content/Context;Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;Z)Z
+
+    move-result p2
 
     :cond_0
-    return v1
+    return p2
 .end method
 
 .method private updateDivider()V
@@ -249,26 +255,17 @@
     return-void
 
     :cond_0
-    const/4 v1, 0x1
-
-    sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v3, 0x13
-
-    if-lt v2, v3, :cond_1
-
     iget-object v1, p0, Lcom/google/android/setupdesign/template/ListMixin;->templateLayout:Lcom/google/android/setupcompat/internal/TemplateLayout;
 
     invoke-virtual {v1}, Landroid/widget/FrameLayout;->isLayoutDirectionResolved()Z
 
     move-result v1
 
-    :cond_1
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_2
 
     iget-object v1, p0, Lcom/google/android/setupdesign/template/ListMixin;->defaultDivider:Landroid/graphics/drawable/Drawable;
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_1
 
     invoke-virtual {v0}, Landroid/widget/ListView;->getDivider()Landroid/graphics/drawable/Drawable;
 
@@ -276,10 +273,10 @@
 
     iput-object v1, p0, Lcom/google/android/setupdesign/template/ListMixin;->defaultDivider:Landroid/graphics/drawable/Drawable;
 
-    :cond_2
+    :cond_1
     iget-object v2, p0, Lcom/google/android/setupdesign/template/ListMixin;->defaultDivider:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_2
 
     iget v3, p0, Lcom/google/android/setupdesign/template/ListMixin;->dividerInsetStart:I
 
@@ -299,7 +296,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ListView;->setDivider(Landroid/graphics/drawable/Drawable;)V
 
-    :cond_3
+    :cond_2
     return-void
 .end method
 

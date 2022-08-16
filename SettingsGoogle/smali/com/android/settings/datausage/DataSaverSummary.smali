@@ -35,7 +35,7 @@
 
     new-instance v0, Lcom/android/settings/datausage/DataSaverSummary$1;
 
-    const v1, 0x7f150054
+    const v1, 0x7f150057
 
     invoke-direct {v0, v1}, Lcom/android/settings/datausage/DataSaverSummary$1;-><init>(I)V
 
@@ -57,7 +57,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a2b
+    const p0, 0x7f040a84
 
     return p0
 .end method
@@ -91,7 +91,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f04071e
+    const v1, 0x7f040763
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -127,7 +127,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    const p1, 0x7f150054
+    const p1, 0x7f150057
 
     invoke-virtual {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->addPreferencesFromResource(I)V
 
@@ -395,7 +395,9 @@
 
     iget-object p0, p0, Lcom/android/settings/datausage/DataSaverSummary;->mDataUsageBridge:Lcom/android/settings/datausage/AppStateDataUsageBridge;
 
-    invoke-virtual {p0}, Lcom/android/settings/applications/AppStateBaseBridge;->resume()V
+    const/4 v0, 0x1
+
+    invoke-virtual {p0, v0}, Lcom/android/settings/applications/AppStateBaseBridge;->resume(Z)V
 
     return-void
 .end method

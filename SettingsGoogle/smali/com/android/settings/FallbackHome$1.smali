@@ -55,7 +55,7 @@
 
     move-result v1
 
-    invoke-static {v0, p1, v1}, Lcom/android/settings/FallbackHome;->access$000(Lcom/android/settings/FallbackHome;Landroid/app/WallpaperColors;I)I
+    invoke-static {v0, p1, v1}, Lcom/android/settings/FallbackHome;->-$$Nest$mupdateVisibilityFlagsFromColors(Lcom/android/settings/FallbackHome;Landroid/app/WallpaperColors;I)I
 
     move-result p1
 
@@ -63,7 +63,7 @@
 
     iget-object p1, p0, Lcom/android/settings/FallbackHome$1;->this$0:Lcom/android/settings/FallbackHome;
 
-    invoke-static {p1}, Lcom/android/settings/FallbackHome;->access$100(Lcom/android/settings/FallbackHome;)Landroid/app/WallpaperManager;
+    invoke-static {p1}, Lcom/android/settings/FallbackHome;->-$$Nest$fgetmWallManager(Lcom/android/settings/FallbackHome;)Landroid/app/WallpaperManager;
 
     move-result-object p1
 

@@ -55,7 +55,7 @@
 
     iget-object v2, p0, Lcom/android/settings/accounts/AccountTypePreferenceLoader$1;->val$acccountType:Ljava/lang/String;
 
-    invoke-static {v0, v1, p1, v2}, Lcom/android/settings/accounts/AccountTypePreferenceLoader;->access$000(Lcom/android/settings/accounts/AccountTypePreferenceLoader;Landroid/content/pm/PackageManager;Landroid/content/Intent;Ljava/lang/String;)Z
+    invoke-static {v0, v1, p1, v2}, Lcom/android/settings/accounts/AccountTypePreferenceLoader;->-$$Nest$misSafeIntent(Lcom/android/settings/accounts/AccountTypePreferenceLoader;Landroid/content/pm/PackageManager;Landroid/content/Intent;Ljava/lang/String;)Z
 
     move-result v0
 
@@ -63,7 +63,7 @@
 
     iget-object v0, p0, Lcom/android/settings/accounts/AccountTypePreferenceLoader$1;->this$0:Lcom/android/settings/accounts/AccountTypePreferenceLoader;
 
-    invoke-static {v0}, Lcom/android/settings/accounts/AccountTypePreferenceLoader;->access$200(Lcom/android/settings/accounts/AccountTypePreferenceLoader;)Landroidx/preference/PreferenceFragmentCompat;
+    invoke-static {v0}, Lcom/android/settings/accounts/AccountTypePreferenceLoader;->-$$Nest$fgetmFragment(Lcom/android/settings/accounts/AccountTypePreferenceLoader;)Landroidx/preference/PreferenceFragmentCompat;
 
     move-result-object v0
 
@@ -73,7 +73,7 @@
 
     iget-object p0, p0, Lcom/android/settings/accounts/AccountTypePreferenceLoader$1;->this$0:Lcom/android/settings/accounts/AccountTypePreferenceLoader;
 
-    invoke-static {p0}, Lcom/android/settings/accounts/AccountTypePreferenceLoader;->access$100(Lcom/android/settings/accounts/AccountTypePreferenceLoader;)Landroid/os/UserHandle;
+    invoke-static {p0}, Lcom/android/settings/accounts/AccountTypePreferenceLoader;->-$$Nest$fgetmUserHandle(Lcom/android/settings/accounts/AccountTypePreferenceLoader;)Landroid/os/UserHandle;
 
     move-result-object p0
 

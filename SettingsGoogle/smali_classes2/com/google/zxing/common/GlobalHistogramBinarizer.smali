@@ -71,16 +71,14 @@
 
     if-le v6, v3, :cond_0
 
-    aget v3, p0, v2
-
     move v5, v2
 
-    :cond_0
-    aget v6, p0, v2
+    move v3, v6
 
+    :cond_0
     if-le v6, v4, :cond_1
 
-    aget v4, p0, v2
+    move v4, v6
 
     :cond_1
     add-int/lit8 v2, v2, 0x1

@@ -77,7 +77,7 @@
     move-result-object p2
 
     :cond_0
-    const p3, 0x7f0d05f3
+    const p3, 0x7f0d0635
 
     invoke-virtual {p2, p3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

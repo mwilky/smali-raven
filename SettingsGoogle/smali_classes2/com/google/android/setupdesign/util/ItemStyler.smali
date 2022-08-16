@@ -245,15 +245,9 @@
 
     cmpl-float v3, v2, v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_3
 
     :cond_2
-    sget v3, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v4, 0x11
-
-    if-lt v3, v4, :cond_3
-
     invoke-virtual {p0}, Landroid/view/View;->getPaddingStart()I
 
     move-result v3
@@ -268,25 +262,7 @@
 
     invoke-virtual {p0, v3, v1, v4, v2}, Landroid/view/View;->setPadding(IIII)V
 
-    goto :goto_2
-
     :cond_3
-    invoke-virtual {p0}, Landroid/view/View;->getPaddingLeft()I
-
-    move-result v3
-
-    float-to-int v1, v1
-
-    invoke-virtual {p0}, Landroid/view/View;->getPaddingRight()I
-
-    move-result v4
-
-    float-to-int v2, v2
-
-    invoke-virtual {p0, v3, v1, v4, v2}, Landroid/view/View;->setPadding(IIII)V
-
-    :cond_4
-    :goto_2
     invoke-static {v0}, Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;->get(Landroid/content/Context;)Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;
 
     move-result-object v1
@@ -297,7 +273,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_4
 
     invoke-static {v0}, Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;->get(Landroid/content/Context;)Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;
 
@@ -311,6 +287,6 @@
 
     invoke-virtual {p0, v0}, Landroid/view/View;->setMinimumHeight(I)V
 
-    :cond_5
+    :cond_4
     return-void
 .end method

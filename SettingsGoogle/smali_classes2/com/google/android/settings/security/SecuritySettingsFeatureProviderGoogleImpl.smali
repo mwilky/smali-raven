@@ -64,6 +64,20 @@
 
 
 # virtual methods
+.method public getAlternativeAdvancedSettingsCategoryKey()Ljava/lang/String;
+    .locals 1
+
+    iget-object p0, p0, Lcom/google/android/settings/security/SecuritySettingsFeatureProviderGoogleImpl;->mContext:Landroid/content/Context;
+
+    const v0, 0x7f04069e
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method public getAlternativeSecuritySettingsFragmentClassname()Ljava/lang/String;
     .locals 0
 

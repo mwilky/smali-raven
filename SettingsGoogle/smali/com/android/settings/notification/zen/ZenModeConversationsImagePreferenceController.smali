@@ -26,6 +26,30 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmConversationDrawables(Lcom/android/settings/notification/zen/ZenModeConversationsImagePreferenceController;)Ljava/util/ArrayList;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/notification/zen/ZenModeConversationsImagePreferenceController;->mConversationDrawables:Ljava/util/ArrayList;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmNotificationBackend(Lcom/android/settings/notification/zen/ZenModeConversationsImagePreferenceController;)Lcom/android/settings/notification/NotificationBackend;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/notification/zen/ZenModeConversationsImagePreferenceController;->mNotificationBackend:Lcom/android/settings/notification/NotificationBackend;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmPreference(Lcom/android/settings/notification/zen/ZenModeConversationsImagePreferenceController;)Lcom/android/settingslib/widget/LayoutPreference;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/notification/zen/ZenModeConversationsImagePreferenceController;->mPreference:Lcom/android/settingslib/widget/LayoutPreference;
+
+    return-object p0
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;Lcom/android/settingslib/core/lifecycle/Lifecycle;Lcom/android/settings/notification/NotificationBackend;)V
     .locals 0
 
@@ -45,7 +69,7 @@
 
     move-result-object p1
 
-    const p2, 0x7f0b0406
+    const p2, 0x7f0b0503
 
     invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -59,7 +83,7 @@
 
     move-result-object p1
 
-    const p2, 0x7f0b0405
+    const p2, 0x7f0b0502
 
     invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -70,10 +94,10 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/settings/notification/zen/ZenModeConversationsImagePreferenceController;)Lcom/android/settings/notification/NotificationBackend;
+.method static synthetic access$000(Lcom/android/settings/notification/zen/ZenModeConversationsImagePreferenceController;)Landroid/content/Context;
     .locals 0
 
-    iget-object p0, p0, Lcom/android/settings/notification/zen/ZenModeConversationsImagePreferenceController;->mNotificationBackend:Lcom/android/settings/notification/NotificationBackend;
+    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
     return-object p0
 .end method
@@ -82,30 +106,6 @@
     .locals 0
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
-
-    return-object p0
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/notification/zen/ZenModeConversationsImagePreferenceController;)Landroid/content/Context;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
-
-    return-object p0
-.end method
-
-.method static synthetic access$300(Lcom/android/settings/notification/zen/ZenModeConversationsImagePreferenceController;)Ljava/util/ArrayList;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/notification/zen/ZenModeConversationsImagePreferenceController;->mConversationDrawables:Ljava/util/ArrayList;
-
-    return-object p0
-.end method
-
-.method static synthetic access$400(Lcom/android/settings/notification/zen/ZenModeConversationsImagePreferenceController;)Lcom/android/settingslib/widget/LayoutPreference;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/notification/zen/ZenModeConversationsImagePreferenceController;->mPreference:Lcom/android/settingslib/widget/LayoutPreference;
 
     return-object p0
 .end method
@@ -143,7 +143,7 @@
 
     iput-object p1, p0, Lcom/android/settings/notification/zen/ZenModeConversationsImagePreferenceController;->mPreference:Lcom/android/settingslib/widget/LayoutPreference;
 
-    const v0, 0x7f0d0667
+    const v0, 0x7f0d06a3
 
     invoke-virtual {p1, v0}, Lcom/android/settingslib/widget/LayoutPreference;->findViewById(I)Landroid/view/View;
 
@@ -203,7 +203,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f04183a
+    const v3, 0x7f041935
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -226,7 +226,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f04183d
+    const v3, 0x7f041938
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

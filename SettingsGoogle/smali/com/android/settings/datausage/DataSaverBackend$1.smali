@@ -50,7 +50,7 @@
 
     iget-object p0, p0, Lcom/android/settings/datausage/DataSaverBackend$1;->this$0:Lcom/android/settings/datausage/DataSaverBackend;
 
-    invoke-static {p0, p1}, Lcom/android/settings/datausage/DataSaverBackend;->access$000(Lcom/android/settings/datausage/DataSaverBackend;Z)V
+    invoke-static {p0, p1}, Lcom/android/settings/datausage/DataSaverBackend;->-$$Nest$mhandleRestrictBackgroundChanged(Lcom/android/settings/datausage/DataSaverBackend;Z)V
 
     return-void
 .end method
@@ -60,7 +60,7 @@
 
     iget-object p0, p0, Lcom/android/settings/datausage/DataSaverBackend$1;->this$0:Lcom/android/settings/datausage/DataSaverBackend;
 
-    invoke-static {p0, p1, p2}, Lcom/android/settings/datausage/DataSaverBackend;->access$100(Lcom/android/settings/datausage/DataSaverBackend;II)V
+    invoke-static {p0, p1, p2}, Lcom/android/settings/datausage/DataSaverBackend;->-$$Nest$mhandleUidPoliciesChanged(Lcom/android/settings/datausage/DataSaverBackend;II)V
 
     return-void
 .end method

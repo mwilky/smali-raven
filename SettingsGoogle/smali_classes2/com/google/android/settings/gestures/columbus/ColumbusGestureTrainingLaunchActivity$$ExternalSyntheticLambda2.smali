@@ -1,45 +1,34 @@
 .class public final synthetic Lcom/google/android/settings/gestures/columbus/ColumbusGestureTrainingLaunchActivity$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Function;
+.implements Landroid/view/View$OnClickListener;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/google/android/settings/gestures/columbus/ColumbusGestureTrainingLaunchActivity$$ExternalSyntheticLambda2;
+# instance fields
+.field public final synthetic f$0:Lcom/google/android/settings/gestures/columbus/ColumbusGestureTrainingLaunchActivity;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/google/android/settings/gestures/columbus/ColumbusGestureTrainingLaunchActivity$$ExternalSyntheticLambda2;
-
-    invoke-direct {v0}, Lcom/google/android/settings/gestures/columbus/ColumbusGestureTrainingLaunchActivity$$ExternalSyntheticLambda2;-><init>()V
-
-    sput-object v0, Lcom/google/android/settings/gestures/columbus/ColumbusGestureTrainingLaunchActivity$$ExternalSyntheticLambda2;->INSTANCE:Lcom/google/android/settings/gestures/columbus/ColumbusGestureTrainingLaunchActivity$$ExternalSyntheticLambda2;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Lcom/google/android/settings/gestures/columbus/ColumbusGestureTrainingLaunchActivity;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/google/android/settings/gestures/columbus/ColumbusGestureTrainingLaunchActivity$$ExternalSyntheticLambda2;->f$0:Lcom/google/android/settings/gestures/columbus/ColumbusGestureTrainingLaunchActivity;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
+.method public final onClick(Landroid/view/View;)V
     .locals 0
 
-    check-cast p1, Landroid/content/pm/LauncherActivityInfo;
+    iget-object p0, p0, Lcom/google/android/settings/gestures/columbus/ColumbusGestureTrainingLaunchActivity$$ExternalSyntheticLambda2;->f$0:Lcom/google/android/settings/gestures/columbus/ColumbusGestureTrainingLaunchActivity;
 
-    invoke-static {p1}, Lcom/google/android/settings/gestures/columbus/ColumbusGestureTrainingLaunchActivity;->$r8$lambda$mkWDjjYREzoon-kZpN4-43SmDTs(Landroid/content/pm/LauncherActivityInfo;)Ljava/lang/String;
+    invoke-static {p0, p1}, Lcom/google/android/settings/gestures/columbus/ColumbusGestureTrainingLaunchActivity;->$r8$lambda$mQwV1pQBBGkk6Vz26UuDnL3Re1Y(Lcom/google/android/settings/gestures/columbus/ColumbusGestureTrainingLaunchActivity;Landroid/view/View;)V
 
-    move-result-object p0
-
-    return-object p0
+    return-void
 .end method

@@ -70,45 +70,7 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/settingslib/applications/ApplicationsState;Lcom/android/settingslib/applications/ApplicationsState$Callbacks;Landroidx/lifecycle/Lifecycle;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/settingslib/applications/ApplicationsState$Session;->this$0:Lcom/android/settingslib/applications/ApplicationsState;
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    new-instance p1, Ljava/lang/Object;
-
-    invoke-direct {p1}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/settingslib/applications/ApplicationsState$Session;->mRebuildSync:Ljava/lang/Object;
-
-    const/16 p1, 0xf
-
-    iput p1, p0, Lcom/android/settingslib/applications/ApplicationsState$Session;->mFlags:I
-
-    iput-object p2, p0, Lcom/android/settingslib/applications/ApplicationsState$Session;->mCallbacks:Lcom/android/settingslib/applications/ApplicationsState$Callbacks;
-
-    if-eqz p3, :cond_0
-
-    invoke-virtual {p3, p0}, Landroidx/lifecycle/Lifecycle;->addObserver(Landroidx/lifecycle/LifecycleObserver;)V
-
-    const/4 p1, 0x1
-
-    iput-boolean p1, p0, Lcom/android/settingslib/applications/ApplicationsState$Session;->mHasLifecycle:Z
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p1, 0x0
-
-    iput-boolean p1, p0, Lcom/android/settingslib/applications/ApplicationsState$Session;->mHasLifecycle:Z
-
-    :goto_0
-    return-void
-.end method
-
-.method static synthetic access$300(Lcom/android/settingslib/applications/ApplicationsState$Session;)I
+.method static bridge synthetic -$$Nest$fgetmFlags(Lcom/android/settingslib/applications/ApplicationsState$Session;)I
     .locals 0
 
     iget p0, p0, Lcom/android/settingslib/applications/ApplicationsState$Session;->mFlags:I
@@ -116,8 +78,137 @@
     return p0
 .end method
 
+.method constructor <init>(Lcom/android/settingslib/applications/ApplicationsState;Lcom/android/settingslib/applications/ApplicationsState$Callbacks;Landroidx/lifecycle/Lifecycle;)V
+    .locals 1
+
+    iput-object p1, p0, Lcom/android/settingslib/applications/ApplicationsState$Session;->this$0:Lcom/android/settingslib/applications/ApplicationsState;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    new-instance v0, Ljava/lang/Object;
+
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
+
+    iput-object v0, p0, Lcom/android/settingslib/applications/ApplicationsState$Session;->mRebuildSync:Ljava/lang/Object;
+
+    const/16 v0, 0xf
+
+    iput v0, p0, Lcom/android/settingslib/applications/ApplicationsState$Session;->mFlags:I
+
+    iput-object p2, p0, Lcom/android/settingslib/applications/ApplicationsState$Session;->mCallbacks:Lcom/android/settingslib/applications/ApplicationsState$Callbacks;
+
+    if-eqz p3, :cond_0
+
+    invoke-virtual {p3, p0}, Landroidx/lifecycle/Lifecycle;->addObserver(Landroidx/lifecycle/LifecycleObserver;)V
+
+    const/4 p2, 0x1
+
+    iput-boolean p2, p0, Lcom/android/settingslib/applications/ApplicationsState$Session;->mHasLifecycle:Z
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p2, 0x0
+
+    iput-boolean p2, p0, Lcom/android/settingslib/applications/ApplicationsState$Session;->mHasLifecycle:Z
+
+    :goto_0
+    iget-object p1, p1, Lcom/android/settingslib/applications/ApplicationsState;->mContext:Landroid/content/Context;
+
+    invoke-static {p1}, Lcom/android/settingslib/applications/ApplicationsState;->-$$Nest$smisAppIconCacheEnabled(Landroid/content/Context;)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_1
+
+    iget p1, p0, Lcom/android/settingslib/applications/ApplicationsState$Session;->mFlags:I
+
+    and-int/lit8 p1, p1, -0x3
+
+    iput p1, p0, Lcom/android/settingslib/applications/ApplicationsState$Session;->mFlags:I
+
+    :cond_1
+    return-void
+.end method
+
 
 # virtual methods
+.method public activateSession()V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/settingslib/applications/ApplicationsState$Session;->this$0:Lcom/android/settingslib/applications/ApplicationsState;
+
+    iget-object v0, v0, Lcom/android/settingslib/applications/ApplicationsState;->mEntriesMap:Landroid/util/SparseArray;
+
+    monitor-enter v0
+
+    :try_start_0
+    iget-boolean v1, p0, Lcom/android/settingslib/applications/ApplicationsState$Session;->mResumed:Z
+
+    if-nez v1, :cond_0
+
+    const/4 v1, 0x1
+
+    iput-boolean v1, p0, Lcom/android/settingslib/applications/ApplicationsState$Session;->mResumed:Z
+
+    iget-object p0, p0, Lcom/android/settingslib/applications/ApplicationsState$Session;->this$0:Lcom/android/settingslib/applications/ApplicationsState;
+
+    iput-boolean v1, p0, Lcom/android/settingslib/applications/ApplicationsState;->mSessionsChanged:Z
+
+    :cond_0
+    monitor-exit v0
+
+    return-void
+
+    :catchall_0
+    move-exception p0
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw p0
+.end method
+
+.method public deactivateSession()V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/settingslib/applications/ApplicationsState$Session;->this$0:Lcom/android/settingslib/applications/ApplicationsState;
+
+    iget-object v0, v0, Lcom/android/settingslib/applications/ApplicationsState;->mEntriesMap:Landroid/util/SparseArray;
+
+    monitor-enter v0
+
+    :try_start_0
+    iget-boolean v1, p0, Lcom/android/settingslib/applications/ApplicationsState$Session;->mResumed:Z
+
+    if-eqz v1, :cond_0
+
+    const/4 v1, 0x0
+
+    iput-boolean v1, p0, Lcom/android/settingslib/applications/ApplicationsState$Session;->mResumed:Z
+
+    iget-object p0, p0, Lcom/android/settingslib/applications/ApplicationsState$Session;->this$0:Lcom/android/settingslib/applications/ApplicationsState;
+
+    const/4 v1, 0x1
+
+    iput-boolean v1, p0, Lcom/android/settingslib/applications/ApplicationsState;->mSessionsChanged:Z
+
+    :cond_0
+    monitor-exit v0
+
+    return-void
+
+    :catchall_0
+    move-exception p0
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw p0
+.end method
+
 .method public getAllApps()Ljava/util/ArrayList;
     .locals 2
     .annotation system Ldalvik/annotation/Signature;

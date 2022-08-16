@@ -32,7 +32,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settingslib/bluetooth/MapClientProfile;Lcom/android/settingslib/bluetooth/MapClientProfile$1;)V
+.method synthetic constructor <init>(Lcom/android/settingslib/bluetooth/MapClientProfile;Lcom/android/settingslib/bluetooth/MapClientProfile$MapClientServiceListener-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settingslib/bluetooth/MapClientProfile$MapClientServiceListener;-><init>(Lcom/android/settingslib/bluetooth/MapClientProfile;)V
@@ -49,11 +49,11 @@
 
     check-cast p2, Landroid/bluetooth/BluetoothMapClient;
 
-    invoke-static {p1, p2}, Lcom/android/settingslib/bluetooth/MapClientProfile;->access$002(Lcom/android/settingslib/bluetooth/MapClientProfile;Landroid/bluetooth/BluetoothMapClient;)Landroid/bluetooth/BluetoothMapClient;
+    invoke-static {p1, p2}, Lcom/android/settingslib/bluetooth/MapClientProfile;->-$$Nest$fputmService(Lcom/android/settingslib/bluetooth/MapClientProfile;Landroid/bluetooth/BluetoothMapClient;)V
 
     iget-object p1, p0, Lcom/android/settingslib/bluetooth/MapClientProfile$MapClientServiceListener;->this$0:Lcom/android/settingslib/bluetooth/MapClientProfile;
 
-    invoke-static {p1}, Lcom/android/settingslib/bluetooth/MapClientProfile;->access$000(Lcom/android/settingslib/bluetooth/MapClientProfile;)Landroid/bluetooth/BluetoothMapClient;
+    invoke-static {p1}, Lcom/android/settingslib/bluetooth/MapClientProfile;->-$$Nest$fgetmService(Lcom/android/settingslib/bluetooth/MapClientProfile;)Landroid/bluetooth/BluetoothMapClient;
 
     move-result-object p1
 
@@ -78,7 +78,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/bluetooth/MapClientProfile$MapClientServiceListener;->this$0:Lcom/android/settingslib/bluetooth/MapClientProfile;
 
-    invoke-static {v0}, Lcom/android/settingslib/bluetooth/MapClientProfile;->access$100(Lcom/android/settingslib/bluetooth/MapClientProfile;)Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
+    invoke-static {v0}, Lcom/android/settingslib/bluetooth/MapClientProfile;->-$$Nest$fgetmDeviceManager(Lcom/android/settingslib/bluetooth/MapClientProfile;)Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
 
     move-result-object v0
 
@@ -108,7 +108,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/bluetooth/MapClientProfile$MapClientServiceListener;->this$0:Lcom/android/settingslib/bluetooth/MapClientProfile;
 
-    invoke-static {v0}, Lcom/android/settingslib/bluetooth/MapClientProfile;->access$100(Lcom/android/settingslib/bluetooth/MapClientProfile;)Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
+    invoke-static {v0}, Lcom/android/settingslib/bluetooth/MapClientProfile;->-$$Nest$fgetmDeviceManager(Lcom/android/settingslib/bluetooth/MapClientProfile;)Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
 
     move-result-object v0
 
@@ -130,7 +130,7 @@
     :cond_1
     iget-object p1, p0, Lcom/android/settingslib/bluetooth/MapClientProfile$MapClientServiceListener;->this$0:Lcom/android/settingslib/bluetooth/MapClientProfile;
 
-    invoke-static {p1}, Lcom/android/settingslib/bluetooth/MapClientProfile;->access$200(Lcom/android/settingslib/bluetooth/MapClientProfile;)Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
+    invoke-static {p1}, Lcom/android/settingslib/bluetooth/MapClientProfile;->-$$Nest$fgetmProfileManager(Lcom/android/settingslib/bluetooth/MapClientProfile;)Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
 
     move-result-object p1
 
@@ -140,7 +140,7 @@
 
     const/4 p1, 0x1
 
-    invoke-static {p0, p1}, Lcom/android/settingslib/bluetooth/MapClientProfile;->access$302(Lcom/android/settingslib/bluetooth/MapClientProfile;Z)Z
+    invoke-static {p0, p1}, Lcom/android/settingslib/bluetooth/MapClientProfile;->-$$Nest$fputmIsProfileReady(Lcom/android/settingslib/bluetooth/MapClientProfile;Z)V
 
     return-void
 .end method
@@ -150,7 +150,7 @@
 
     iget-object p1, p0, Lcom/android/settingslib/bluetooth/MapClientProfile$MapClientServiceListener;->this$0:Lcom/android/settingslib/bluetooth/MapClientProfile;
 
-    invoke-static {p1}, Lcom/android/settingslib/bluetooth/MapClientProfile;->access$200(Lcom/android/settingslib/bluetooth/MapClientProfile;)Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
+    invoke-static {p1}, Lcom/android/settingslib/bluetooth/MapClientProfile;->-$$Nest$fgetmProfileManager(Lcom/android/settingslib/bluetooth/MapClientProfile;)Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
 
     move-result-object p1
 
@@ -160,7 +160,7 @@
 
     const/4 p1, 0x0
 
-    invoke-static {p0, p1}, Lcom/android/settingslib/bluetooth/MapClientProfile;->access$302(Lcom/android/settingslib/bluetooth/MapClientProfile;Z)Z
+    invoke-static {p0, p1}, Lcom/android/settingslib/bluetooth/MapClientProfile;->-$$Nest$fputmIsProfileReady(Lcom/android/settingslib/bluetooth/MapClientProfile;Z)V
 
     return-void
 .end method

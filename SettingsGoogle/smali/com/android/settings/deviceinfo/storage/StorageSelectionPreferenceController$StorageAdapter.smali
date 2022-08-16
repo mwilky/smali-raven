@@ -1,5 +1,5 @@
 .class Lcom/android/settings/deviceinfo/storage/StorageSelectionPreferenceController$StorageAdapter;
-.super Lcom/android/settingslib/widget/settingsspinner/SettingsSpinnerAdapter;
+.super Lcom/android/settingslib/widget/SettingsSpinnerAdapter;
 .source "StorageSelectionPreferenceController.java"
 
 
@@ -15,7 +15,7 @@
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Lcom/android/settingslib/widget/settingsspinner/SettingsSpinnerAdapter<",
+        "Lcom/android/settingslib/widget/SettingsSpinnerAdapter<",
         "Lcom/android/settings/deviceinfo/storage/StorageEntry;",
         ">;"
     }
@@ -32,7 +32,7 @@
 
     iput-object p1, p0, Lcom/android/settings/deviceinfo/storage/StorageSelectionPreferenceController$StorageAdapter;->this$0:Lcom/android/settings/deviceinfo/storage/StorageSelectionPreferenceController;
 
-    invoke-direct {p0, p2}, Lcom/android/settingslib/widget/settingsspinner/SettingsSpinnerAdapter;-><init>(Landroid/content/Context;)V
+    invoke-direct {p0, p2}, Lcom/android/settingslib/widget/SettingsSpinnerAdapter;-><init>(Landroid/content/Context;)V
 
     return-void
 .end method
@@ -44,7 +44,7 @@
 
     if-nez p2, :cond_0
 
-    invoke-virtual {p0, p1, p2, p3}, Lcom/android/settingslib/widget/settingsspinner/SettingsSpinnerAdapter;->getDefaultDropDownView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
+    invoke-virtual {p0, p1, p2, p3}, Lcom/android/settingslib/widget/SettingsSpinnerAdapter;->getDefaultDropDownView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object p2
 
@@ -85,7 +85,7 @@
 
     if-nez p2, :cond_0
 
-    invoke-virtual {p0, p1, p2, p3}, Lcom/android/settingslib/widget/settingsspinner/SettingsSpinnerAdapter;->getDefaultView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
+    invoke-virtual {p0, p1, p2, p3}, Lcom/android/settingslib/widget/SettingsSpinnerAdapter;->getDefaultView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object p2
 

@@ -54,9 +54,13 @@
 
 # virtual methods
 .method protected varargs doInBackground([Ljava/lang/Void;)Lcom/android/settings/fuelgauge/BatteryInfo;
-    .locals 2
+    .locals 3
 
     iget-object p1, p0, Lcom/android/settings/fuelgauge/BatteryInfo$2;->val$batteryUsageStats:Landroid/os/BatteryUsageStats;
+
+    const-string v0, "BatteryInfo"
+
+    const/4 v1, 0x0
 
     if-eqz p1, :cond_0
 
@@ -66,9 +70,9 @@
     :try_start_0
     iget-object p1, p0, Lcom/android/settings/fuelgauge/BatteryInfo$2;->val$context:Landroid/content/Context;
 
-    const-class v0, Landroid/os/BatteryStatsManager;
+    const-class v2, Landroid/os/BatteryStatsManager;
 
-    invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-virtual {p1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -80,38 +84,54 @@
     :try_end_0
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
+    const/4 v1, 0x1
+
     goto :goto_0
 
     :catch_0
     move-exception p1
 
-    const-string v0, "BatteryInfo"
+    const-string v2, "getBatteryInfo() from getBatteryUsageStats()"
 
-    const-string v1, "getBatteryInfo() from getBatteryUsageStats()"
-
-    invoke-static {v0, v1, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v0, v2, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     new-instance p1, Landroid/os/BatteryUsageStats$Builder;
 
-    const/4 v0, 0x0
+    new-array v2, v1, [Ljava/lang/String;
 
-    new-array v1, v0, [Ljava/lang/String;
-
-    invoke-direct {p1, v1, v0}, Landroid/os/BatteryUsageStats$Builder;-><init>([Ljava/lang/String;Z)V
+    invoke-direct {p1, v2}, Landroid/os/BatteryUsageStats$Builder;-><init>([Ljava/lang/String;)V
 
     invoke-virtual {p1}, Landroid/os/BatteryUsageStats$Builder;->build()Landroid/os/BatteryUsageStats;
 
     move-result-object p1
 
     :goto_0
-    iget-object v0, p0, Lcom/android/settings/fuelgauge/BatteryInfo$2;->val$context:Landroid/content/Context;
+    iget-object v2, p0, Lcom/android/settings/fuelgauge/BatteryInfo$2;->val$context:Landroid/content/Context;
 
     iget-boolean p0, p0, Lcom/android/settings/fuelgauge/BatteryInfo$2;->val$shortString:Z
 
-    invoke-static {v0, p1, p0}, Lcom/android/settings/fuelgauge/BatteryInfo;->getBatteryInfo(Landroid/content/Context;Landroid/os/BatteryUsageStats;Z)Lcom/android/settings/fuelgauge/BatteryInfo;
+    invoke-static {v2, p1, p0}, Lcom/android/settings/fuelgauge/BatteryInfo;->getBatteryInfo(Landroid/content/Context;Landroid/os/BatteryUsageStats;Z)Lcom/android/settings/fuelgauge/BatteryInfo;
 
     move-result-object p0
 
+    if-eqz v1, :cond_1
+
+    :try_start_1
+    invoke-virtual {p1}, Landroid/os/BatteryUsageStats;->close()V
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+
+    goto :goto_1
+
+    :catch_1
+    move-exception p1
+
+    const-string v1, "BatteryUsageStats.close() failed"
+
+    invoke-static {v0, v1, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    :cond_1
+    :goto_1
     return-object p0
 .end method
 

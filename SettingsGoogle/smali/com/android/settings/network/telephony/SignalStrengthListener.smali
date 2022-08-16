@@ -32,6 +32,14 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmCallback(Lcom/android/settings/network/telephony/SignalStrengthListener;)Lcom/android/settings/network/telephony/SignalStrengthListener$Callback;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/network/telephony/SignalStrengthListener;->mCallback:Lcom/android/settings/network/telephony/SignalStrengthListener$Callback;
+
+    return-object p0
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Lcom/android/settings/network/telephony/SignalStrengthListener$Callback;)V
     .locals 1
 
@@ -58,14 +66,6 @@
     iput-object p1, p0, Lcom/android/settings/network/telephony/SignalStrengthListener;->mTelephonyCallbacks:Ljava/util/Map;
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/network/telephony/SignalStrengthListener;)Lcom/android/settings/network/telephony/SignalStrengthListener$Callback;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/network/telephony/SignalStrengthListener;->mCallback:Lcom/android/settings/network/telephony/SignalStrengthListener$Callback;
-
-    return-object p0
 .end method
 
 .method private startListening(I)V

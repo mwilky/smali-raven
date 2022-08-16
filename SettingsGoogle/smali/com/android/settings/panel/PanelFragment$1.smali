@@ -47,7 +47,7 @@
 
     iget-object v1, p0, Lcom/android/settings/panel/PanelFragment$1;->this$0:Lcom/android/settings/panel/PanelFragment;
 
-    invoke-static {v1}, Lcom/android/settings/panel/PanelFragment;->access$000(Lcom/android/settings/panel/PanelFragment;)I
+    invoke-static {v1}, Lcom/android/settings/panel/PanelFragment;->-$$Nest$fgetmMaxHeight(Lcom/android/settings/panel/PanelFragment;)I
 
     move-result v1
 
@@ -63,7 +63,7 @@
 
     iget-object v1, p0, Lcom/android/settings/panel/PanelFragment$1;->this$0:Lcom/android/settings/panel/PanelFragment;
 
-    invoke-static {v1}, Lcom/android/settings/panel/PanelFragment;->access$000(Lcom/android/settings/panel/PanelFragment;)I
+    invoke-static {v1}, Lcom/android/settings/panel/PanelFragment;->-$$Nest$fgetmMaxHeight(Lcom/android/settings/panel/PanelFragment;)I
 
     move-result v1
 

@@ -24,6 +24,8 @@
 
 .field private mHapticFeedbackMode:I
 
+.field private final mJankMonitor:Lcom/android/internal/jank/InteractionJankMonitor;
+
 .field private mMax:I
 
 .field private mMin:I
@@ -52,6 +54,22 @@
     return-void
 .end method
 
+.method static bridge synthetic -$$Nest$fgetmAccessibilityRangeInfoType(Lcom/android/settings/widget/SeekBarPreference;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/settings/widget/SeekBarPreference;->mAccessibilityRangeInfoType:I
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmOverrideSeekBarStateDescription(Lcom/android/settings/widget/SeekBarPreference;)Ljava/lang/CharSequence;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/widget/SeekBarPreference;->mOverrideSeekBarStateDescription:Ljava/lang/CharSequence;
+
+    return-object p0
+.end method
+
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
 
@@ -65,9 +83,9 @@
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 2
 
-    const v0, 0x7f05036d
+    const v0, 0x7f0503c3
 
-    const v1, 0x11200d8
+    const v1, 0x11200d9
 
     invoke-static {p1, v0, v1}, Landroidx/core/content/res/TypedArrayUtils;->getAttr(Landroid/content/Context;II)I
 
@@ -92,6 +110,12 @@
     .locals 4
 
     invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/settingslib/RestrictedPreference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
+
+    invoke-static {}, Lcom/android/internal/jank/InteractionJankMonitor;->getInstance()Lcom/android/internal/jank/InteractionJankMonitor;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/settings/widget/SeekBarPreference;->mJankMonitor:Lcom/android/internal/jank/InteractionJankMonitor;
 
     const/4 v0, 0x0
 
@@ -135,51 +159,21 @@
 
     invoke-virtual {p1, p2, v1, p3, p4}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
 
-    move-result-object v1
-
-    const v2, 0x10900e4
-
-    invoke-virtual {v1, v0, v2}, Landroid/content/res/TypedArray;->getResourceId(II)I
-
-    move-result v2
-
-    invoke-virtual {v1}, Landroid/content/res/TypedArray;->recycle()V
-
-    sget-object v1, Lcom/android/internal/R$styleable;->Preference:[I
-
-    invoke-virtual {p1, p2, v1, p3, p4}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
-
     move-result-object p1
 
-    const/4 p2, 0x5
+    const p2, 0x10900ef
 
-    invoke-virtual {p1, p2, v0}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
+    invoke-virtual {p1, v0, p2}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
     move-result p2
 
-    invoke-virtual {p0, p2}, Landroidx/preference/Preference;->setSelectable(Z)V
-
     invoke-virtual {p1}, Landroid/content/res/TypedArray;->recycle()V
 
-    invoke-virtual {p0, v2}, Landroidx/preference/Preference;->setLayoutResource(I)V
+    invoke-virtual {p0, v0}, Landroidx/preference/Preference;->setSelectable(Z)V
+
+    invoke-virtual {p0, p2}, Landroidx/preference/Preference;->setLayoutResource(I)V
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/widget/SeekBarPreference;)I
-    .locals 0
-
-    iget p0, p0, Lcom/android/settings/widget/SeekBarPreference;->mAccessibilityRangeInfoType:I
-
-    return p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/widget/SeekBarPreference;)Ljava/lang/CharSequence;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/widget/SeekBarPreference;->mOverrideSeekBarStateDescription:Ljava/lang/CharSequence;
-
-    return-object p0
 .end method
 
 .method private synthetic lambda$onBindViewHolder$0(Landroid/view/View;)V
@@ -286,14 +280,6 @@
     return p0
 .end method
 
-.method public getSummary()Ljava/lang/CharSequence;
-    .locals 0
-
-    const/4 p0, 0x0
-
-    return-object p0
-.end method
-
 .method public isSelectable()Z
     .locals 1
 
@@ -324,7 +310,7 @@
 
     invoke-virtual {v0, p0}, Landroid/view/View;->setOnKeyListener(Landroid/view/View$OnKeyListener;)V
 
-    const v0, 0x1020469
+    const v0, 0x1020499
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -477,7 +463,7 @@
     return v0
 
     :cond_0
-    const p0, 0x1020469
+    const p0, 0x1020499
 
     invoke-virtual {p1, p0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -624,11 +610,29 @@
 .end method
 
 .method public onStartTrackingTouch(Landroid/widget/SeekBar;)V
-    .locals 0
+    .locals 2
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    iput-boolean p1, p0, Lcom/android/settings/widget/SeekBarPreference;->mTrackingTouch:Z
+    iput-boolean v0, p0, Lcom/android/settings/widget/SeekBarPreference;->mTrackingTouch:Z
+
+    iget-object v0, p0, Lcom/android/settings/widget/SeekBarPreference;->mJankMonitor:Lcom/android/internal/jank/InteractionJankMonitor;
+
+    const/16 v1, 0x35
+
+    invoke-static {v1, p1}, Lcom/android/internal/jank/InteractionJankMonitor$Configuration$Builder;->withView(ILandroid/view/View;)Lcom/android/internal/jank/InteractionJankMonitor$Configuration$Builder;
+
+    move-result-object p1
+
+    invoke-virtual {p0}, Landroidx/preference/Preference;->getKey()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {p1, p0}, Lcom/android/internal/jank/InteractionJankMonitor$Configuration$Builder;->setTag(Ljava/lang/String;)Lcom/android/internal/jank/InteractionJankMonitor$Configuration$Builder;
+
+    move-result-object p0
+
+    invoke-virtual {v0, p0}, Lcom/android/internal/jank/InteractionJankMonitor;->begin(Lcom/android/internal/jank/InteractionJankMonitor$Configuration$Builder;)Z
 
     return-void
 .end method
@@ -651,6 +655,12 @@
     invoke-virtual {p0, p1}, Lcom/android/settings/widget/SeekBarPreference;->syncProgress(Landroid/widget/SeekBar;)V
 
     :cond_0
+    iget-object p0, p0, Lcom/android/settings/widget/SeekBarPreference;->mJankMonitor:Lcom/android/internal/jank/InteractionJankMonitor;
+
+    const/16 p1, 0x35
+
+    invoke-virtual {p0, p1}, Lcom/android/internal/jank/InteractionJankMonitor;->end(I)Z
+
     return-void
 .end method
 

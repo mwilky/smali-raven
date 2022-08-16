@@ -11,7 +11,7 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    const/4 v0, 0x7
+    const/16 v0, 0x8
 
     new-array v0, v0, [I
 
@@ -21,17 +21,16 @@
 
     return-void
 
-    nop
-
     :array_0
     .array-data 4
-        0x7f041170
-        0x7f041182
-        0x7f041188
-        0x7f0411a5
-        0x7f0411a6
-        0x7f0411a7
-        0x7f0411a8
+        0x7f041222
+        0x7f041233
+        0x7f041239
+        0x7f041258
+        0x7f041259
+        0x7f04125a
+        0x7f04125b
+        0x7f04125c
     .end array-data
 .end method
 
@@ -50,7 +49,7 @@
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    const-string v1, "sensor_modality"
+    const-string/jumbo v1, "sensor_modality"
 
     const/4 v2, 0x2
 
@@ -78,7 +77,7 @@
 .method protected getFooterMessage2()I
     .locals 0
 
-    const p0, 0x7f0411a5
+    const p0, 0x7f041258
 
     return p0
 .end method
@@ -86,7 +85,7 @@
 .method protected getFooterMessage3()I
     .locals 0
 
-    const p0, 0x7f0411a6
+    const p0, 0x7f041259
 
     return p0
 .end method
@@ -94,7 +93,7 @@
 .method protected getFooterMessage4()I
     .locals 0
 
-    const p0, 0x7f0411a7
+    const p0, 0x7f04125a
 
     return p0
 .end method
@@ -102,7 +101,15 @@
 .method protected getFooterMessage5()I
     .locals 0
 
-    const p0, 0x7f0411a8
+    const p0, 0x7f04125b
+
+    return p0
+.end method
+
+.method protected getFooterMessage6()I
+    .locals 0
+
+    const p0, 0x7f04125c
 
     return p0
 .end method
@@ -110,7 +117,7 @@
 .method protected getFooterTitle1()I
     .locals 0
 
-    const p0, 0x7f041188
+    const p0, 0x7f041239
 
     return p0
 .end method
@@ -118,7 +125,7 @@
 .method protected getHeaderResDefault()I
     .locals 0
 
-    const p0, 0x7f041170
+    const p0, 0x7f041222
 
     return p0
 .end method
@@ -136,7 +143,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollIntroduction;->onCreate(Landroid/os/Bundle;)V
 
-    const p1, 0x7f041182
+    const p1, 0x7f041233
 
     invoke-virtual {p0, p1}, Lcom/android/settings/biometrics/BiometricEnrollBase;->setDescriptionText(I)V
 

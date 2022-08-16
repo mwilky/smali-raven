@@ -5,7 +5,6 @@
         <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:paddingLeft="24.0dip" android:paddingRight="24.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
             <ImageView android:id="@id/permissionDialog_icon" style="@style/AccessibilityDialogServiceIcon" />
             <TextView android:id="@id/permissionDialog_title" style="@style/AccessibilityDialogTitle" />
-            <TextView android:textAppearance="?android:textAppearanceMedium" android:id="@id/encryption_warning" android:padding="10.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:textAlignment="viewStart" />
             <TextView android:id="@id/permissionDialog_description" android:text="@string/accessibility_service_warning_description" style="@style/AccessibilityDialogDescription" />
             <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="24.0dip">
                 <ImageView android:id="@id/controlScreen_icon" android:src="@drawable/ic_visibility_18dp" style="@style/AccessibilityDialogIcon" />

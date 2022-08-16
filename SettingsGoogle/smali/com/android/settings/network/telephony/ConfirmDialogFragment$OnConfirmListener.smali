@@ -15,5 +15,5 @@
 
 
 # virtual methods
-.method public abstract onConfirm(IZ)V
+.method public abstract onConfirm(IZI)V
 .end method

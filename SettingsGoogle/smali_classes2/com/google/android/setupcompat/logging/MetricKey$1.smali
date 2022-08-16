@@ -52,7 +52,7 @@
 
     const/4 v1, 0x0
 
-    invoke-direct {p0, v0, p1, v1}, Lcom/google/android/setupcompat/logging/MetricKey;-><init>(Ljava/lang/String;Ljava/lang/String;Lcom/google/android/setupcompat/logging/MetricKey$1;)V
+    invoke-direct {p0, v0, p1, v1}, Lcom/google/android/setupcompat/logging/MetricKey;-><init>(Ljava/lang/String;Ljava/lang/String;Lcom/google/android/setupcompat/logging/MetricKey-IA;)V
 
     return-object p0
 .end method

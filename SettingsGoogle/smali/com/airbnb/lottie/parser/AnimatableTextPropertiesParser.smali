@@ -27,7 +27,7 @@
 
     const-string v0, "fc"
 
-    const-string v1, "sc"
+    const-string/jumbo v1, "sc"
 
     const-string/jumbo v2, "sw"
 

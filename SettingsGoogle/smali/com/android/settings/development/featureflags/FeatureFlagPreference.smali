@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public setChecked(Z)V
-    .locals 1
+    .locals 2
 
     invoke-super {p0, p1}, Landroidx/preference/TwoStatePreference;->setChecked(Z)V
 
@@ -61,9 +61,9 @@
 
     move-result-object v0
 
-    iget-object p0, p0, Lcom/android/settings/development/featureflags/FeatureFlagPreference;->mKey:Ljava/lang/String;
+    iget-object v1, p0, Lcom/android/settings/development/featureflags/FeatureFlagPreference;->mKey:Ljava/lang/String;
 
-    invoke-static {v0, p0, p1}, Lcom/android/settings/development/featureflags/FeatureFlagPersistent;->setEnabled(Landroid/content/Context;Ljava/lang/String;Z)V
+    invoke-static {v0, v1, p1}, Lcom/android/settings/development/featureflags/FeatureFlagPersistent;->setEnabled(Landroid/content/Context;Ljava/lang/String;Z)V
 
     goto :goto_0
 
@@ -72,10 +72,37 @@
 
     move-result-object v0
 
-    iget-object p0, p0, Lcom/android/settings/development/featureflags/FeatureFlagPreference;->mKey:Ljava/lang/String;
+    iget-object v1, p0, Lcom/android/settings/development/featureflags/FeatureFlagPreference;->mKey:Ljava/lang/String;
 
-    invoke-static {v0, p0, p1}, Landroid/util/FeatureFlagUtils;->setEnabled(Landroid/content/Context;Ljava/lang/String;Z)V
+    invoke-static {v0, v1, p1}, Landroid/util/FeatureFlagUtils;->setEnabled(Landroid/content/Context;Ljava/lang/String;Z)V
 
     :goto_0
+    iget-object v0, p0, Lcom/android/settings/development/featureflags/FeatureFlagPreference;->mKey:Ljava/lang/String;
+
+    const-string/jumbo v1, "settings_hide_second_layer_page_navigate_up_button_in_two_pane"
+
+    invoke-static {v0, v1}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    invoke-virtual {p0}, Landroidx/preference/Preference;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    iget-object p0, p0, Lcom/android/settings/development/featureflags/FeatureFlagPreference;->mKey:Ljava/lang/String;
+
+    invoke-static {p1}, Ljava/lang/String;->valueOf(Z)Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-static {v0, p0, p1}, Landroid/provider/Settings$Global;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
+
+    :cond_1
     return-void
 .end method

@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/settings/network/ProxySubscriptionManager$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/BiFunction;
+.implements Ljava/util/function/Function;
 
 
 # instance fields
@@ -22,16 +23,14 @@
 
 
 # virtual methods
-.method public final apply(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
 
     iget-object p0, p0, Lcom/android/settings/network/ProxySubscriptionManager$$ExternalSyntheticLambda0;->f$0:Lcom/android/settings/network/ProxySubscriptionManager;
 
-    check-cast p1, Ljava/lang/Integer;
+    check-cast p1, Lcom/android/settings/network/ProxySubscriptionManager$OnActiveSubscriptionChangedListener;
 
-    check-cast p2, Ljava/util/List;
-
-    invoke-static {p0, p1, p2}, Lcom/android/settings/network/ProxySubscriptionManager;->$r8$lambda$-2ymInt0eHsjcPfGM7fbGjfpKtE(Lcom/android/settings/network/ProxySubscriptionManager;Ljava/lang/Integer;Ljava/util/List;)Ljava/util/List;
+    invoke-static {p0, p1}, Lcom/android/settings/network/ProxySubscriptionManager;->$r8$lambda$1mEVhIdSVT8fIXoY_5NpeUWCPqg(Lcom/android/settings/network/ProxySubscriptionManager;Lcom/android/settings/network/ProxySubscriptionManager$OnActiveSubscriptionChangedListener;)Ljava/lang/Integer;
 
     move-result-object p0
 

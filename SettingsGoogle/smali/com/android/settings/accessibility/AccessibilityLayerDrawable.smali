@@ -27,7 +27,7 @@
 .method public static createLayerDrawable(Landroid/content/Context;II)Lcom/android/settings/accessibility/AccessibilityLayerDrawable;
     .locals 4
 
-    const v0, 0x7f0200f0
+    const v0, 0x7f0200ef
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

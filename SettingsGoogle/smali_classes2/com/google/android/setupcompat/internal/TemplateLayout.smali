@@ -26,6 +26,22 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetpreDrawListener(Lcom/google/android/setupcompat/internal/TemplateLayout;)Landroid/view/ViewTreeObserver$OnPreDrawListener;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/setupcompat/internal/TemplateLayout;->preDrawListener:Landroid/view/ViewTreeObserver$OnPreDrawListener;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetxFraction(Lcom/google/android/setupcompat/internal/TemplateLayout;)F
+    .locals 0
+
+    iget p0, p0, Lcom/google/android/setupcompat/internal/TemplateLayout;->xFraction:F
+
+    return p0
+.end method
+
 .method public constructor <init>(Landroid/content/Context;II)V
     .locals 1
 
@@ -85,22 +101,6 @@
     invoke-direct {p0, p1, p1, p2, p3}, Lcom/google/android/setupcompat/internal/TemplateLayout;->init(IILandroid/util/AttributeSet;I)V
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/google/android/setupcompat/internal/TemplateLayout;)Landroid/view/ViewTreeObserver$OnPreDrawListener;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/setupcompat/internal/TemplateLayout;->preDrawListener:Landroid/view/ViewTreeObserver$OnPreDrawListener;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/google/android/setupcompat/internal/TemplateLayout;)F
-    .locals 0
-
-    iget p0, p0, Lcom/google/android/setupcompat/internal/TemplateLayout;->xFraction:F
-
-    return p0
 .end method
 
 .method private addViewInternal(Landroid/view/View;)V

@@ -58,18 +58,6 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;ILandroidx/slice/widget/SliceStyle;)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "resId",
-            "sliceStyle"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -394,16 +382,6 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroidx/slice/widget/SliceStyle;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "sliceStyle"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -470,16 +448,6 @@
 
 .method private static getOptionalColor(Landroid/content/res/TypedArray;I)Ljava/lang/Integer;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "a",
-            "colorRes"
-        }
-    .end annotation
 
     invoke-virtual {p0, p1}, Landroid/content/res/TypedArray;->hasValue(I)Z
 

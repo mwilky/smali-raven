@@ -25,6 +25,36 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$mgetColor(Lcom/android/settings/network/telephony/RenameMobileNetworkDialogFragment$Color;)I
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/network/telephony/RenameMobileNetworkDialogFragment$Color;->getColor()I
+
+    move-result p0
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$mgetDrawable(Lcom/android/settings/network/telephony/RenameMobileNetworkDialogFragment$Color;Z)Landroid/graphics/drawable/ShapeDrawable;
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/network/telephony/RenameMobileNetworkDialogFragment$Color;->getDrawable(Z)Landroid/graphics/drawable/ShapeDrawable;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$mgetLabel(Lcom/android/settings/network/telephony/RenameMobileNetworkDialogFragment$Color;)Ljava/lang/String;
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/network/telephony/RenameMobileNetworkDialogFragment$Color;->getLabel()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method private constructor <init>(Lcom/android/settings/network/telephony/RenameMobileNetworkDialogFragment;Ljava/lang/String;III)V
     .locals 0
 
@@ -83,42 +113,12 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settings/network/telephony/RenameMobileNetworkDialogFragment;Ljava/lang/String;IIILcom/android/settings/network/telephony/RenameMobileNetworkDialogFragment$1;)V
+.method synthetic constructor <init>(Lcom/android/settings/network/telephony/RenameMobileNetworkDialogFragment;Ljava/lang/String;IIILcom/android/settings/network/telephony/RenameMobileNetworkDialogFragment$Color-IA;)V
     .locals 0
 
     invoke-direct/range {p0 .. p5}, Lcom/android/settings/network/telephony/RenameMobileNetworkDialogFragment$Color;-><init>(Lcom/android/settings/network/telephony/RenameMobileNetworkDialogFragment;Ljava/lang/String;III)V
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/network/telephony/RenameMobileNetworkDialogFragment$Color;Z)Landroid/graphics/drawable/ShapeDrawable;
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/network/telephony/RenameMobileNetworkDialogFragment$Color;->getDrawable(Z)Landroid/graphics/drawable/ShapeDrawable;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/network/telephony/RenameMobileNetworkDialogFragment$Color;)Ljava/lang/String;
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/network/telephony/RenameMobileNetworkDialogFragment$Color;->getLabel()Ljava/lang/String;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method static synthetic access$400(Lcom/android/settings/network/telephony/RenameMobileNetworkDialogFragment$Color;)I
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/network/telephony/RenameMobileNetworkDialogFragment$Color;->getColor()I
-
-    move-result p0
-
-    return p0
 .end method
 
 .method private getColor()I
@@ -144,7 +144,7 @@
 
     iget v1, p0, Lcom/android/settings/network/telephony/RenameMobileNetworkDialogFragment$Color;->mColor:I
 
-    invoke-static {v0, v1}, Lcom/android/settings/network/telephony/RenameMobileNetworkDialogFragment;->access$300(Lcom/android/settings/network/telephony/RenameMobileNetworkDialogFragment;I)I
+    invoke-static {v0, v1}, Lcom/android/settings/network/telephony/RenameMobileNetworkDialogFragment;->-$$Nest$mgetDarkColor(Lcom/android/settings/network/telephony/RenameMobileNetworkDialogFragment;I)I
 
     move-result v0
 

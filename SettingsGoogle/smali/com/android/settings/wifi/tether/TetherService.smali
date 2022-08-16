@@ -62,6 +62,86 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmCurrentTethers(Lcom/android/settings/wifi/tether/TetherService;)Ljava/util/ArrayList;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/wifi/tether/TetherService;->mCurrentTethers:Ljava/util/ArrayList;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmCurrentTypeIndex(Lcom/android/settings/wifi/tether/TetherService;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/settings/wifi/tether/TetherService;->mCurrentTypeIndex:I
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmExpectedProvisionResponseAction(Lcom/android/settings/wifi/tether/TetherService;)Ljava/lang/String;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/wifi/tether/TetherService;->mExpectedProvisionResponseAction:Ljava/lang/String;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmInProvisionCheck(Lcom/android/settings/wifi/tether/TetherService;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/settings/wifi/tether/TetherService;->mInProvisionCheck:Z
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmCurrentTypeIndex(Lcom/android/settings/wifi/tether/TetherService;I)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/settings/wifi/tether/TetherService;->mCurrentTypeIndex:I
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fputmInProvisionCheck(Lcom/android/settings/wifi/tether/TetherService;Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/settings/wifi/tether/TetherService;->mInProvisionCheck:Z
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mdisableTethering(Lcom/android/settings/wifi/tether/TetherService;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/wifi/tether/TetherService;->disableTethering(I)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mfireCallbacksForType(Lcom/android/settings/wifi/tether/TetherService;II)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/settings/wifi/tether/TetherService;->fireCallbacksForType(II)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mstartProvisioning(Lcom/android/settings/wifi/tether/TetherService;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/wifi/tether/TetherService;->startProvisioning(I)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$sfgetDEBUG()Z
+    .locals 1
+
+    sget-boolean v0, Lcom/android/settings/wifi/tether/TetherService;->DEBUG:Z
+
+    return v0
+.end method
+
 .method static constructor <clinit>()V
     .locals 2
 
@@ -100,92 +180,26 @@
     return-void
 .end method
 
-.method static synthetic access$000()Z
-    .locals 1
-
-    sget-boolean v0, Lcom/android/settings/wifi/tether/TetherService;->DEBUG:Z
-
-    return v0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/wifi/tether/TetherService;)Ljava/lang/String;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/wifi/tether/TetherService;->mExpectedProvisionResponseAction:Ljava/lang/String;
-
-    return-object p0
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/wifi/tether/TetherService;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/settings/wifi/tether/TetherService;->mInProvisionCheck:Z
-
-    return p0
-.end method
-
-.method static synthetic access$202(Lcom/android/settings/wifi/tether/TetherService;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/settings/wifi/tether/TetherService;->mInProvisionCheck:Z
-
-    return p1
-.end method
-
-.method static synthetic access$300(Lcom/android/settings/wifi/tether/TetherService;)I
-    .locals 0
-
-    iget p0, p0, Lcom/android/settings/wifi/tether/TetherService;->mCurrentTypeIndex:I
-
-    return p0
-.end method
-
-.method static synthetic access$304(Lcom/android/settings/wifi/tether/TetherService;)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/settings/wifi/tether/TetherService;->mCurrentTypeIndex:I
-
-    add-int/lit8 v0, v0, 0x1
-
-    iput v0, p0, Lcom/android/settings/wifi/tether/TetherService;->mCurrentTypeIndex:I
-
-    return v0
-.end method
-
-.method static synthetic access$400(Lcom/android/settings/wifi/tether/TetherService;)Ljava/util/ArrayList;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/wifi/tether/TetherService;->mCurrentTethers:Ljava/util/ArrayList;
-
-    return-object p0
-.end method
-
-.method static synthetic access$500(Lcom/android/settings/wifi/tether/TetherService;I)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/wifi/tether/TetherService;->disableTethering(I)V
-
-    return-void
-.end method
-
-.method static synthetic access$600(Lcom/android/settings/wifi/tether/TetherService;II)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/settings/wifi/tether/TetherService;->fireCallbacksForType(II)V
-
-    return-void
-.end method
-
-.method static synthetic access$700(Lcom/android/settings/wifi/tether/TetherService;I)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/wifi/tether/TetherService;->startProvisioning(I)V
-
-    return-void
-.end method
-
 .method private disableTethering(I)V
-    .locals 1
+    .locals 2
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "Disable tethering, type:"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "TetherService"
+
+    invoke-static {v1, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     const-string/jumbo v0, "tethering"
 
@@ -357,7 +371,7 @@
 .end method
 
 .method private maybeRegisterReceiver(Ljava/lang/String;)V
-    .locals 4
+    .locals 7
 
     iget-object v0, p0, Lcom/android/settings/wifi/tether/TetherService;->mExpectedProvisionResponseAction:Ljava/lang/String;
 
@@ -379,17 +393,21 @@
     invoke-virtual {p0, v0}, Landroid/app/Service;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
     :cond_1
-    iget-object v0, p0, Lcom/android/settings/wifi/tether/TetherService;->mReceiver:Landroid/content/BroadcastReceiver;
+    iget-object v2, p0, Lcom/android/settings/wifi/tether/TetherService;->mReceiver:Landroid/content/BroadcastReceiver;
 
-    new-instance v1, Landroid/content/IntentFilter;
+    new-instance v3, Landroid/content/IntentFilter;
 
-    invoke-direct {v1, p1}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
+    invoke-direct {v3, p1}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
 
-    const/4 v2, 0x0
+    const/4 v5, 0x0
 
-    const-string v3, "android.permission.TETHER_PRIVILEGED"
+    const/4 v6, 0x2
 
-    invoke-virtual {p0, v0, v1, v3, v2}, Landroid/app/Service;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
+    const-string v4, "android.permission.TETHER_PRIVILEGED"
+
+    move-object v1, p0
+
+    invoke-virtual/range {v1 .. v6}, Landroid/app/Service;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;I)Landroid/content/Intent;
 
     iput-object p1, p0, Lcom/android/settings/wifi/tether/TetherService;->mExpectedProvisionResponseAction:Ljava/lang/String;
 
@@ -401,7 +419,7 @@
 
     invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v0, "registerReceiver "
+    const-string/jumbo v0, "registerReceiver "
 
     invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

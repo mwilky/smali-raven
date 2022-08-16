@@ -204,7 +204,7 @@
 
     iget-object p1, p0, Lcom/android/settings/fuelgauge/batterytip/BatteryTipPolicy;->mParser:Landroid/util/KeyValueListParser;
 
-    const-string p2, "reduced_battery_enabled"
+    const-string/jumbo p2, "reduced_battery_enabled"
 
     invoke-virtual {p1, p2, v1}, Landroid/util/KeyValueListParser;->getBoolean(Ljava/lang/String;Z)Z
 
@@ -216,7 +216,7 @@
 
     const/16 p2, 0x32
 
-    const-string v3, "reduced_battery_percent"
+    const-string/jumbo v3, "reduced_battery_percent"
 
     invoke-virtual {p1, v3, p2}, Landroid/util/KeyValueListParser;->getInt(Ljava/lang/String;I)I
 

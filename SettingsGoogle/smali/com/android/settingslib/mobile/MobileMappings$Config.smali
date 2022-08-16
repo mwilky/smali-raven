@@ -27,6 +27,8 @@
 
 .field public show4gForLte:Z
 
+.field public show4glteForLte:Z
+
 .field public showAtLeast3G:Z
 
 
@@ -45,6 +47,8 @@
     iput-boolean v0, p0, Lcom/android/settingslib/mobile/MobileMappings$Config;->alwaysShowCdmaRssi:Z
 
     iput-boolean v0, p0, Lcom/android/settingslib/mobile/MobileMappings$Config;->show4gForLte:Z
+
+    iput-boolean v0, p0, Lcom/android/settingslib/mobile/MobileMappings$Config;->show4glteForLte:Z
 
     iput-boolean v0, p0, Lcom/android/settingslib/mobile/MobileMappings$Config;->hideLtePlus:Z
 
@@ -72,7 +76,7 @@
 
     iput-boolean v2, v0, Lcom/android/settingslib/mobile/MobileMappings$Config;->showAtLeast3G:Z
 
-    const v2, 0x1110023
+    const v2, 0x1110026
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -123,6 +127,14 @@
     move-result v1
 
     iput-boolean v1, v0, Lcom/android/settingslib/mobile/MobileMappings$Config;->show4gForLte:Z
+
+    const-string/jumbo v1, "show_4glte_for_lte_data_icon_bool"
+
+    invoke-virtual {p0, v1}, Landroid/os/PersistableBundle;->getBoolean(Ljava/lang/String;)Z
+
+    move-result v1
+
+    iput-boolean v1, v0, Lcom/android/settingslib/mobile/MobileMappings$Config;->show4glteForLte:Z
 
     const-string/jumbo v1, "show_4g_for_3g_data_icon_bool"
 

@@ -12,6 +12,22 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmCheckBox(Lcom/android/settings/widget/PrimaryCheckBoxPreference;)Landroid/widget/CheckBox;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/widget/PrimaryCheckBoxPreference;->mCheckBox:Landroid/widget/CheckBox;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmChecked(Lcom/android/settings/widget/PrimaryCheckBoxPreference;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/settings/widget/PrimaryCheckBoxPreference;->mChecked:Z
+
+    return p0
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 0
 
@@ -48,23 +64,7 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/settings/widget/PrimaryCheckBoxPreference;)Landroid/widget/CheckBox;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/widget/PrimaryCheckBoxPreference;->mCheckBox:Landroid/widget/CheckBox;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/widget/PrimaryCheckBoxPreference;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/settings/widget/PrimaryCheckBoxPreference;->mChecked:Z
-
-    return p0
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/widget/PrimaryCheckBoxPreference;Z)Z
+.method static synthetic access$000(Lcom/android/settings/widget/PrimaryCheckBoxPreference;Z)Z
     .locals 0
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->persistBoolean(Z)Z
@@ -79,7 +79,7 @@
 .method protected getSecondTargetResId()I
     .locals 0
 
-    const p0, 0x7f0601bd
+    const p0, 0x7f0601c9
 
     return p0
 .end method
@@ -104,7 +104,7 @@
     invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     :cond_0
-    const v0, 0x7f0d014b
+    const v0, 0x7f0d015f
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 

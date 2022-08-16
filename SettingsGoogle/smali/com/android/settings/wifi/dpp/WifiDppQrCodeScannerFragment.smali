@@ -4,7 +4,7 @@
 
 # interfaces
 .implements Landroid/view/TextureView$SurfaceTextureListener;
-.implements Lcom/android/settings/wifi/qrcode/QrCamera$ScannerCallback;
+.implements Lcom/android/settingslib/qrcode/QrCamera$ScannerCallback;
 .implements Landroid/net/wifi/WifiManager$ActionListener;
 
 
@@ -18,9 +18,9 @@
 
 
 # instance fields
-.field private mCamera:Lcom/android/settings/wifi/qrcode/QrCamera;
+.field private mCamera:Lcom/android/settingslib/qrcode/QrCamera;
 
-.field private mDecorateView:Lcom/android/settings/wifi/qrcode/QrDecorateView;
+.field private mDecorateView:Lcom/android/settingslib/qrcode/QrDecorateView;
 
 .field private mEnrolleeWifiConfiguration:Landroid/net/wifi/WifiConfiguration;
 
@@ -37,6 +37,8 @@
 .field private mSsid:Ljava/lang/String;
 
 .field private mTextureView:Landroid/view/TextureView;
+
+.field private mWifiPermissionChecker:Lcom/android/settingslib/wifi/WifiPermissionChecker;
 
 .field private mWifiPickerTracker:Lcom/android/wifitrackerlib/WifiPickerTracker;
 
@@ -58,6 +60,112 @@
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->lambda$onCreate$0(Lcom/android/settings/wifi/dpp/WifiDppInitiatorViewModel;Ljava/lang/Integer;)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmDecorateView(Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;)Lcom/android/settingslib/qrcode/QrDecorateView;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->mDecorateView:Lcom/android/settingslib/qrcode/QrDecorateView;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmErrorMessage(Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;)Landroid/widget/TextView;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->mErrorMessage:Landroid/widget/TextView;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmIsConfiguratorMode(Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->mIsConfiguratorMode:Z
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmLatestStatusCode(Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->mLatestStatusCode:I
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmScanWifiDppSuccessListener(Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;)Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment$OnScanWifiDppSuccessListener;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->mScanWifiDppSuccessListener:Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment$OnScanWifiDppSuccessListener;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmWifiQrCode(Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;)Lcom/android/settings/wifi/dpp/WifiQrCode;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->mWifiQrCode:Lcom/android/settings/wifi/dpp/WifiQrCode;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmEnrolleeWifiConfiguration(Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;Landroid/net/wifi/WifiConfiguration;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->mEnrolleeWifiConfiguration:Landroid/net/wifi/WifiConfiguration;
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fputmLatestStatusCode(Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;I)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->mLatestStatusCode:I
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$misReachableWifiNetwork(Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;Landroid/net/wifi/WifiConfiguration;)Z
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->isReachableWifiNetwork(Landroid/net/wifi/WifiConfiguration;)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$mnotifyUserForQrCodeRecognition(Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->notifyUserForQrCodeRecognition()V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mrestartCamera(Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->restartCamera()V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mstartWifiDppEnrolleeInitiator(Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;Lcom/android/settings/wifi/dpp/WifiQrCode;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->startWifiDppEnrolleeInitiator(Lcom/android/settings/wifi/dpp/WifiQrCode;)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mupdateEnrolleeSummary(Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->updateEnrolleeSummary()V
 
     return-void
 .end method
@@ -106,31 +214,7 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;)Landroid/widget/TextView;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->mErrorMessage:Landroid/widget/TextView;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;)Lcom/android/settings/wifi/qrcode/QrDecorateView;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->mDecorateView:Lcom/android/settings/wifi/qrcode/QrDecorateView;
-
-    return-object p0
-.end method
-
-.method static synthetic access$1000(Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;I)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->showErrorMessageAndRestartCamera(I)V
-
-    return-void
-.end method
-
-.method static synthetic access$1100(Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;)Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;
+.method static synthetic access$000(Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;)Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;
     .locals 0
 
     iget-object p0, p0, Lcom/android/settings/core/InstrumentedFragment;->mMetricsFeatureProvider:Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;
@@ -138,116 +222,26 @@
     return-object p0
 .end method
 
-.method static synthetic access$1200(Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;)Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;
+.method static synthetic access$100(Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;)Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;
     .locals 0
 
     iget-object p0, p0, Lcom/android/settings/core/InstrumentedFragment;->mMetricsFeatureProvider:Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;
 
     return-object p0
-.end method
-
-.method static synthetic access$1300(Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;)I
-    .locals 0
-
-    iget p0, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->mLatestStatusCode:I
-
-    return p0
-.end method
-
-.method static synthetic access$1302(Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;I)I
-    .locals 0
-
-    iput p1, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->mLatestStatusCode:I
-
-    return p1
-.end method
-
-.method static synthetic access$1400(Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;)Lcom/android/settings/wifi/dpp/WifiQrCode;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->mWifiQrCode:Lcom/android/settings/wifi/dpp/WifiQrCode;
-
-    return-object p0
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->restartCamera()V
-
-    return-void
-.end method
-
-.method static synthetic access$300(Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;)Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment$OnScanWifiDppSuccessListener;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->mScanWifiDppSuccessListener:Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment$OnScanWifiDppSuccessListener;
-
-    return-object p0
-.end method
-
-.method static synthetic access$400(Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->mIsConfiguratorMode:Z
-
-    return p0
-.end method
-
-.method static synthetic access$500(Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;Lcom/android/settings/wifi/dpp/WifiQrCode;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->startWifiDppEnrolleeInitiator(Lcom/android/settings/wifi/dpp/WifiQrCode;)V
-
-    return-void
-.end method
-
-.method static synthetic access$600(Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->updateEnrolleeSummary()V
-
-    return-void
-.end method
-
-.method static synthetic access$700(Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->notifyUserForQrCodeRecognition()V
-
-    return-void
-.end method
-
-.method static synthetic access$800(Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;Landroid/net/wifi/WifiConfiguration;)Z
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->isReachableWifiNetwork(Landroid/net/wifi/WifiConfiguration;)Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method static synthetic access$902(Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;Landroid/net/wifi/WifiConfiguration;)Landroid/net/wifi/WifiConfiguration;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->mEnrolleeWifiConfiguration:Landroid/net/wifi/WifiConfiguration;
-
-    return-object p1
 .end method
 
 .method private destroyCamera()V
     .locals 1
 
-    iget-object v0, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->mCamera:Lcom/android/settings/wifi/qrcode/QrCamera;
+    iget-object v0, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->mCamera:Lcom/android/settingslib/qrcode/QrCamera;
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {v0}, Lcom/android/settings/wifi/qrcode/QrCamera;->stop()V
+    invoke-virtual {v0}, Lcom/android/settingslib/qrcode/QrCamera;->stop()V
 
     const/4 v0, 0x0
 
-    iput-object v0, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->mCamera:Lcom/android/settings/wifi/qrcode/QrCamera;
+    iput-object v0, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->mCamera:Lcom/android/settingslib/qrcode/QrCamera;
 
     :cond_0
     return-void
@@ -324,19 +318,19 @@
 .method private initCamera(Landroid/graphics/SurfaceTexture;)V
     .locals 2
 
-    iget-object v0, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->mCamera:Lcom/android/settings/wifi/qrcode/QrCamera;
+    iget-object v0, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->mCamera:Lcom/android/settingslib/qrcode/QrCamera;
 
     if-nez v0, :cond_1
 
-    new-instance v0, Lcom/android/settings/wifi/qrcode/QrCamera;
+    new-instance v0, Lcom/android/settingslib/qrcode/QrCamera;
 
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
-    invoke-direct {v0, v1, p0}, Lcom/android/settings/wifi/qrcode/QrCamera;-><init>(Landroid/content/Context;Lcom/android/settings/wifi/qrcode/QrCamera$ScannerCallback;)V
+    invoke-direct {v0, v1, p0}, Lcom/android/settingslib/qrcode/QrCamera;-><init>(Landroid/content/Context;Lcom/android/settingslib/qrcode/QrCamera$ScannerCallback;)V
 
-    iput-object v0, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->mCamera:Lcom/android/settings/wifi/qrcode/QrCamera;
+    iput-object v0, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->mCamera:Lcom/android/settingslib/qrcode/QrCamera;
 
     invoke-direct {p0}, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->isWifiDppHandshaking()Z
 
@@ -344,20 +338,20 @@
 
     if-eqz v0, :cond_0
 
-    iget-object p0, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->mDecorateView:Lcom/android/settings/wifi/qrcode/QrDecorateView;
+    iget-object p0, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->mDecorateView:Lcom/android/settingslib/qrcode/QrDecorateView;
 
     if-eqz p0, :cond_1
 
     const/4 p1, 0x1
 
-    invoke-virtual {p0, p1}, Lcom/android/settings/wifi/qrcode/QrDecorateView;->setFocused(Z)V
+    invoke-virtual {p0, p1}, Lcom/android/settingslib/qrcode/QrDecorateView;->setFocused(Z)V
 
     goto :goto_0
 
     :cond_0
-    iget-object p0, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->mCamera:Lcom/android/settings/wifi/qrcode/QrCamera;
+    iget-object p0, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->mCamera:Lcom/android/settingslib/qrcode/QrCamera;
 
-    invoke-virtual {p0, p1}, Lcom/android/settings/wifi/qrcode/QrCamera;->start(Landroid/graphics/SurfaceTexture;)V
+    invoke-virtual {p0, p1}, Lcom/android/settingslib/qrcode/QrCamera;->start(Landroid/graphics/SurfaceTexture;)V
 
     :cond_1
     :goto_0
@@ -494,7 +488,7 @@
 
     const/4 v0, 0x0
 
-    invoke-direct {p1, p0, v0}, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment$EasyConnectEnrolleeStatusCallback;-><init>(Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment$1;)V
+    invoke-direct {p1, p0, v0}, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment$EasyConnectEnrolleeStatusCallback;-><init>(Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment$EasyConnectEnrolleeStatusCallback-IA;)V
 
     invoke-virtual {p2}, Ljava/lang/Integer;->intValue()I
 
@@ -543,7 +537,7 @@
 
     const/4 v0, 0x0
 
-    invoke-direct {p2, p0, v0}, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment$EasyConnectEnrolleeStatusCallback;-><init>(Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment$1;)V
+    invoke-direct {p2, p0, v0}, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment$EasyConnectEnrolleeStatusCallback;-><init>(Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment$EasyConnectEnrolleeStatusCallback-IA;)V
 
     invoke-virtual {p2, p1}, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment$EasyConnectEnrolleeStatusCallback;->onFailure(I)V
 
@@ -553,18 +547,18 @@
 .method private notifyUserForQrCodeRecognition()V
     .locals 2
 
-    iget-object v0, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->mCamera:Lcom/android/settings/wifi/qrcode/QrCamera;
+    iget-object v0, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->mCamera:Lcom/android/settingslib/qrcode/QrCamera;
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {v0}, Lcom/android/settings/wifi/qrcode/QrCamera;->stop()V
+    invoke-virtual {v0}, Lcom/android/settingslib/qrcode/QrCamera;->stop()V
 
     :cond_0
-    iget-object v0, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->mDecorateView:Lcom/android/settings/wifi/qrcode/QrDecorateView;
+    iget-object v0, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->mDecorateView:Lcom/android/settingslib/qrcode/QrDecorateView;
 
     const/4 v1, 0x1
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/wifi/qrcode/QrDecorateView;->setFocused(Z)V
+    invoke-virtual {v0, v1}, Lcom/android/settingslib/qrcode/QrDecorateView;->setFocused(Z)V
 
     iget-object v0, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->mErrorMessage:Landroid/widget/TextView;
 
@@ -584,7 +578,7 @@
 .method private restartCamera()V
     .locals 1
 
-    iget-object v0, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->mCamera:Lcom/android/settings/wifi/qrcode/QrCamera;
+    iget-object v0, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->mCamera:Lcom/android/settingslib/qrcode/QrCamera;
 
     if-nez v0, :cond_0
 
@@ -597,15 +591,15 @@
     return-void
 
     :cond_0
-    invoke-virtual {v0}, Lcom/android/settings/wifi/qrcode/QrCamera;->isDecodeTaskAlive()Z
+    invoke-virtual {v0}, Lcom/android/settingslib/qrcode/QrCamera;->isDecodeTaskAlive()Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->mCamera:Lcom/android/settings/wifi/qrcode/QrCamera;
+    iget-object v0, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->mCamera:Lcom/android/settingslib/qrcode/QrCamera;
 
-    invoke-virtual {v0}, Lcom/android/settings/wifi/qrcode/QrCamera;->stop()V
+    invoke-virtual {v0}, Lcom/android/settingslib/qrcode/QrCamera;->stop()V
 
     :cond_1
     iget-object v0, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->mTextureView:Landroid/view/TextureView;
@@ -616,9 +610,9 @@
 
     if-eqz v0, :cond_2
 
-    iget-object p0, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->mCamera:Lcom/android/settings/wifi/qrcode/QrCamera;
+    iget-object p0, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->mCamera:Lcom/android/settingslib/qrcode/QrCamera;
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/wifi/qrcode/QrCamera;->start(Landroid/graphics/SurfaceTexture;)V
+    invoke-virtual {p0, v0}, Lcom/android/settingslib/qrcode/QrCamera;->start(Landroid/graphics/SurfaceTexture;)V
 
     return-void
 
@@ -646,30 +640,6 @@
     invoke-virtual {v0, p1, p0}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object p0
-
-    invoke-virtual {p0}, Landroid/os/Message;->sendToTarget()V
-
-    return-void
-.end method
-
-.method private showErrorMessageAndRestartCamera(I)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->mHandler:Landroid/os/Handler;
-
-    invoke-virtual {p0, p1}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
-
-    move-result-object p0
-
-    const/4 p1, 0x2
-
-    invoke-virtual {v0, p1, p0}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
-
-    move-result-object p0
-
-    const/4 p1, 0x1
-
-    iput p1, p0, Landroid/os/Message;->arg1:I
 
     invoke-virtual {p0}, Landroid/os/Message;->sendToTarget()V
 
@@ -711,7 +681,7 @@
 
     iget-object p0, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeBaseFragment;->mSummary:Landroid/widget/TextView;
 
-    const v0, 0x7f04164c
+    const v0, 0x7f041745
 
     invoke-virtual {p0, v0}, Landroid/widget/TextView;->setText(I)V
 
@@ -730,7 +700,7 @@
 
     if-eqz v0, :cond_1
 
-    const v0, 0x7f04165d
+    const v0, 0x7f041756
 
     new-array v2, v2, [Ljava/lang/Object;
 
@@ -745,7 +715,7 @@
     goto :goto_0
 
     :cond_1
-    const v0, 0x7f04165c
+    const v0, 0x7f041755
 
     new-array v2, v2, [Ljava/lang/Object;
 
@@ -768,6 +738,88 @@
 
 
 # virtual methods
+.method canConnectWifi(Ljava/lang/String;)Z
+    .locals 4
+
+    iget-object v0, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->mWifiPickerTracker:Lcom/android/wifitrackerlib/WifiPickerTracker;
+
+    invoke-virtual {v0}, Lcom/android/wifitrackerlib/WifiPickerTracker;->getWifiEntries()Ljava/util/List;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v0
+
+    :cond_0
+    :goto_0
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/wifitrackerlib/WifiEntry;
+
+    invoke-virtual {v1}, Lcom/android/wifitrackerlib/WifiEntry;->getSsid()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {p1}, Landroid/net/wifi/WifiInfo;->sanitizeSsid(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_1
+
+    goto :goto_0
+
+    :cond_1
+    invoke-virtual {v1}, Lcom/android/wifitrackerlib/WifiEntry;->canConnect()Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "Wi-Fi is not allowed to connect by your organization. SSID:"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    const-string v0, "WifiDppQrCodeScanner"
+
+    invoke-static {v0, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    const p1, 0x7f040ec0
+
+    invoke-virtual {p0, p1}, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->showErrorMessageAndRestartCamera(I)V
+
+    const/4 p0, 0x0
+
+    return p0
+
+    :cond_2
+    const/4 p0, 0x1
+
+    return p0
+.end method
+
 .method public getFramePosition(Landroid/util/Size;I)Landroid/graphics/Rect;
     .locals 1
 
@@ -879,11 +931,11 @@
 .method protected isDecodeTaskAlive()Z
     .locals 0
 
-    iget-object p0, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->mCamera:Lcom/android/settings/wifi/qrcode/QrCamera;
+    iget-object p0, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->mCamera:Lcom/android/settingslib/qrcode/QrCamera;
 
     if-eqz p0, :cond_0
 
-    invoke-virtual {p0}, Lcom/android/settings/wifi/qrcode/QrCamera;->isDecodeTaskAlive()Z
+    invoke-virtual {p0}, Lcom/android/settingslib/qrcode/QrCamera;->isDecodeTaskAlive()Z
 
     move-result p0
 
@@ -913,7 +965,7 @@
 
     const/4 v0, 0x0
 
-    const v1, 0x7f041659
+    const v1, 0x7f041752
 
     :try_start_0
     new-instance v2, Lcom/android/settings/wifi/dpp/WifiQrCode;
@@ -1052,7 +1104,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f041644
+    const p1, 0x7f04173d
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->setTitle(I)V
 
@@ -1063,7 +1115,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f04165b
+    const p1, 0x7f041754
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->setTitle(I)V
 
@@ -1133,9 +1185,9 @@
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment$$ExternalSyntheticLambda1;
+    new-instance v1, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment$$ExternalSyntheticLambda0;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;Lcom/android/settings/wifi/dpp/WifiDppInitiatorViewModel;)V
+    invoke-direct {v1, p0, p1}, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;Lcom/android/settings/wifi/dpp/WifiDppInitiatorViewModel;)V
 
     invoke-virtual {v0, p0, v1}, Landroidx/lifecycle/LiveData;->observe(Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Observer;)V
 
@@ -1143,9 +1195,9 @@
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment$$ExternalSyntheticLambda0;
+    new-instance v1, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment$$ExternalSyntheticLambda1;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;Lcom/android/settings/wifi/dpp/WifiDppInitiatorViewModel;)V
+    invoke-direct {v1, p0, p1}, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;Lcom/android/settings/wifi/dpp/WifiDppInitiatorViewModel;)V
 
     invoke-virtual {v0, p0, v1}, Landroidx/lifecycle/LiveData;->observe(Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Observer;)V
 
@@ -1167,7 +1219,7 @@
 .method public final onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 0
 
-    const p0, 0x7f0602be
+    const p0, 0x7f0602d1
 
     const/4 p3, 0x0
 
@@ -1223,9 +1275,9 @@
 
     invoke-static {v0, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const p1, 0x7f041647
+    const p1, 0x7f041740
 
-    invoke-direct {p0, p1}, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->showErrorMessageAndRestartCamera(I)V
+    invoke-virtual {p0, p1}, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->showErrorMessageAndRestartCamera(I)V
 
     return-void
 .end method
@@ -1233,11 +1285,11 @@
 .method public onPause()V
     .locals 1
 
-    iget-object v0, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->mCamera:Lcom/android/settings/wifi/qrcode/QrCamera;
+    iget-object v0, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->mCamera:Lcom/android/settingslib/qrcode/QrCamera;
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {v0}, Lcom/android/settings/wifi/qrcode/QrCamera;->stop()V
+    invoke-virtual {v0}, Lcom/android/settingslib/qrcode/QrCamera;->stop()V
 
     :cond_0
     invoke-super {p0}, Lcom/android/settingslib/core/lifecycle/ObservableFragment;->onPause()V
@@ -1289,7 +1341,7 @@
 .end method
 
 .method public onSuccess()V
-    .locals 3
+    .locals 10
 
     new-instance v0, Landroid/content/Intent;
 
@@ -1303,13 +1355,113 @@
 
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
 
+    move-result-object v1
+
+    if-nez v1, :cond_0
+
+    return-void
+
+    :cond_0
+    iget-object v2, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->mWifiPermissionChecker:Lcom/android/settingslib/wifi/WifiPermissionChecker;
+
+    if-nez v2, :cond_1
+
+    new-instance v2, Lcom/android/settingslib/wifi/WifiPermissionChecker;
+
+    invoke-direct {v2, v1}, Lcom/android/settingslib/wifi/WifiPermissionChecker;-><init>(Landroid/app/Activity;)V
+
+    iput-object v2, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->mWifiPermissionChecker:Lcom/android/settingslib/wifi/WifiPermissionChecker;
+
+    :cond_1
+    iget-object v2, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->mWifiPermissionChecker:Lcom/android/settingslib/wifi/WifiPermissionChecker;
+
+    invoke-virtual {v2}, Lcom/android/settingslib/wifi/WifiPermissionChecker;->canAccessWifiState()Z
+
+    move-result v2
+
+    const/4 v3, 0x2
+
+    const/4 v4, 0x1
+
+    const-string v5, "187176859"
+
+    const/4 v6, 0x0
+
+    const/4 v7, 0x3
+
+    const v8, 0x534e4554
+
+    const-string v9, "WifiDppQrCodeScanner"
+
+    if-nez v2, :cond_2
+
+    const-string v0, "Calling package does not have ACCESS_WIFI_STATE permission for result."
+
+    invoke-static {v9, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-array v0, v7, [Ljava/lang/Object;
+
+    aput-object v5, v0, v6
+
+    iget-object p0, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->mWifiPermissionChecker:Lcom/android/settingslib/wifi/WifiPermissionChecker;
+
+    invoke-virtual {p0}, Lcom/android/settingslib/wifi/WifiPermissionChecker;->getLaunchedPackage()Ljava/lang/String;
+
     move-result-object p0
 
-    const/4 v1, -0x1
+    aput-object p0, v0, v4
 
-    invoke-virtual {p0, v1, v0}, Landroid/app/Activity;->setResult(ILandroid/content/Intent;)V
+    const-string p0, "no ACCESS_WIFI_STATE permission"
 
-    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
+    aput-object p0, v0, v3
+
+    invoke-static {v8, v0}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
+
+    invoke-virtual {v1}, Landroid/app/Activity;->finish()V
+
+    return-void
+
+    :cond_2
+    iget-object v2, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->mWifiPermissionChecker:Lcom/android/settingslib/wifi/WifiPermissionChecker;
+
+    invoke-virtual {v2}, Lcom/android/settingslib/wifi/WifiPermissionChecker;->canAccessFineLocation()Z
+
+    move-result v2
+
+    if-nez v2, :cond_3
+
+    const-string v0, "Calling package does not have ACCESS_FINE_LOCATION permission for result."
+
+    invoke-static {v9, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-array v0, v7, [Ljava/lang/Object;
+
+    aput-object v5, v0, v6
+
+    iget-object p0, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->mWifiPermissionChecker:Lcom/android/settingslib/wifi/WifiPermissionChecker;
+
+    invoke-virtual {p0}, Lcom/android/settingslib/wifi/WifiPermissionChecker;->getLaunchedPackage()Ljava/lang/String;
+
+    move-result-object p0
+
+    aput-object p0, v0, v4
+
+    const-string p0, "no ACCESS_FINE_LOCATION permission"
+
+    aput-object p0, v0, v3
+
+    invoke-static {v8, v0}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
+
+    invoke-virtual {v1}, Landroid/app/Activity;->finish()V
+
+    return-void
+
+    :cond_3
+    const/4 p0, -0x1
+
+    invoke-virtual {v1, p0, v0}, Landroid/app/Activity;->setResult(ILandroid/content/Intent;)V
+
+    invoke-virtual {v1}, Landroid/app/Activity;->finish()V
 
     return-void
 .end method
@@ -1349,7 +1501,7 @@
 
     invoke-super {p0, p1, p2}, Lcom/android/settings/wifi/dpp/WifiDppQrCodeBaseFragment;->onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
 
-    const p2, 0x7f0d057f
+    const p2, 0x7f0d05c1
 
     invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1359,7 +1511,7 @@
 
     iput-object p2, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeBaseFragment;->mSummary:Landroid/widget/TextView;
 
-    const p2, 0x7f0d0454
+    const p2, 0x7f0d0486
 
     invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1371,15 +1523,15 @@
 
     invoke-virtual {p2, p0}, Landroid/view/TextureView;->setSurfaceTextureListener(Landroid/view/TextureView$SurfaceTextureListener;)V
 
-    const p2, 0x7f0d01ab
+    const p2, 0x7f0d01c0
 
     invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object p2
 
-    check-cast p2, Lcom/android/settings/wifi/qrcode/QrDecorateView;
+    check-cast p2, Lcom/android/settingslib/qrcode/QrDecorateView;
 
-    iput-object p2, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->mDecorateView:Lcom/android/settings/wifi/qrcode/QrDecorateView;
+    iput-object p2, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->mDecorateView:Lcom/android/settingslib/qrcode/QrDecorateView;
 
     invoke-direct {p0}, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->isWifiDppHandshaking()Z
 
@@ -1393,7 +1545,7 @@
 
     if-eqz p2, :cond_1
 
-    const p2, 0x7f041644
+    const p2, 0x7f04173d
 
     new-array v1, v0, [Ljava/lang/Object;
 
@@ -1417,7 +1569,7 @@
 
     iget-object v1, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeBaseFragment;->mSummary:Landroid/widget/TextView;
 
-    const v2, 0x7f041646
+    const v2, 0x7f04173f
 
     const/4 v3, 0x1
 
@@ -1447,7 +1599,7 @@
     throw p0
 
     :cond_1
-    const p2, 0x7f04165b
+    const p2, 0x7f041754
 
     new-array v0, v0, [Ljava/lang/Object;
 
@@ -1456,7 +1608,7 @@
     invoke-direct {p0}, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->updateEnrolleeSummary()V
 
     :goto_0
-    const p2, 0x7f0d0212
+    const p2, 0x7f0d022b
 
     invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1475,6 +1627,30 @@
     iget-object p0, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->mTextureView:Landroid/view/TextureView;
 
     invoke-virtual {p0, p1}, Landroid/view/TextureView;->setTransform(Landroid/graphics/Matrix;)V
+
+    return-void
+.end method
+
+.method showErrorMessageAndRestartCamera(I)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->mHandler:Landroid/os/Handler;
+
+    invoke-virtual {p0, p1}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    const/4 p1, 0x2
+
+    invoke-virtual {v0, p1, p0}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+
+    move-result-object p0
+
+    const/4 p1, 0x1
+
+    iput p1, p0, Landroid/os/Message;->arg1:I
+
+    invoke-virtual {p0}, Landroid/os/Message;->sendToTarget()V
 
     return-void
 .end method

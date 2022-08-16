@@ -45,7 +45,7 @@
 
     iget-object p0, p0, Lcom/android/settings/display/TimeoutListPreference$1;->this$0:Lcom/android/settings/display/TimeoutListPreference;
 
-    invoke-static {p0}, Lcom/android/settings/display/TimeoutListPreference;->access$000(Lcom/android/settings/display/TimeoutListPreference;)Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
+    invoke-static {p0}, Lcom/android/settings/display/TimeoutListPreference;->-$$Nest$fgetmAdmin(Lcom/android/settings/display/TimeoutListPreference;)Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
 
     move-result-object p0
 

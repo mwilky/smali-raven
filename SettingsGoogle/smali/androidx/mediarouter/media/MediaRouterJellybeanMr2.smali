@@ -15,20 +15,6 @@
 # direct methods
 .method public static addCallback(Ljava/lang/Object;ILjava/lang/Object;I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "routerObj",
-            "types",
-            "callbackObj",
-            "flags"
-        }
-    .end annotation
 
     check-cast p0, Landroid/media/MediaRouter;
 
@@ -41,14 +27,6 @@
 
 .method public static getDefaultRoute(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "routerObj"
-        }
-    .end annotation
 
     check-cast p0, Landroid/media/MediaRouter;
 

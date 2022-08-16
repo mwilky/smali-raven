@@ -72,7 +72,7 @@
 
     iget-object v0, p0, Lcom/android/settings/homepage/contextualcards/slices/LowStorageSlice;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f041304
+    const v1, 0x7f0413c8
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -196,7 +196,7 @@
 
     iget-object v5, p0, Lcom/android/settings/homepage/contextualcards/slices/LowStorageSlice;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f020373
+    const v6, 0x7f020398
 
     invoke-static {v5, v6}, Landroidx/core/graphics/drawable/IconCompat;->createWithResource(Landroid/content/Context;I)Landroidx/core/graphics/drawable/IconCompat;
 
@@ -216,7 +216,7 @@
 
     iget-object v3, p0, Lcom/android/settings/homepage/contextualcards/slices/LowStorageSlice;->mContext:Landroid/content/Context;
 
-    const v8, 0x7f04131e
+    const v8, 0x7f0413e2
 
     invoke-virtual {v3, v8}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -224,7 +224,7 @@
 
     iget-object v8, p0, Lcom/android/settings/homepage/contextualcards/slices/LowStorageSlice;->mContext:Landroid/content/Context;
 
-    const v9, 0x7f041324
+    const v9, 0x7f0413e8
 
     new-array v6, v6, [Ljava/lang/Object;
 
@@ -257,7 +257,7 @@
     :cond_0
     iget-object v3, p0, Lcom/android/settings/homepage/contextualcards/slices/LowStorageSlice;->mContext:Landroid/content/Context;
 
-    const v8, 0x7f04130e
+    const v8, 0x7f0413d2
 
     invoke-virtual {v3, v8}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -265,7 +265,7 @@
 
     iget-object v8, p0, Lcom/android/settings/homepage/contextualcards/slices/LowStorageSlice;->mContext:Landroid/content/Context;
 
-    const v9, 0x7f040c70
+    const v9, 0x7f040cda
 
     new-array v6, v6, [Ljava/lang/Object;
 
@@ -295,7 +295,7 @@
 .method public getSliceHighlightMenuRes()I
     .locals 0
 
-    const p0, 0x7f040d0f
+    const p0, 0x7f040d8b
 
     return p0
 .end method

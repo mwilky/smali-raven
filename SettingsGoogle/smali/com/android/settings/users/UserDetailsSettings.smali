@@ -14,6 +14,8 @@
 # instance fields
 .field mAppAndContentAccessPref:Landroidx/preference/Preference;
 
+.field mAppCopyingPref:Landroidx/preference/Preference;
+
 .field private mDefaultGuestRestrictions:Landroid/os/Bundle;
 
 .field private final mExecutor:Ljava/util/concurrent/ExecutorService;
@@ -36,6 +38,14 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$4UyOLihnka6HrbLNnMr_msa1JC4(Lcom/android/settings/users/UserDetailsSettings;Landroid/content/DialogInterface;I)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/settings/users/UserDetailsSettings;->lambda$onCreateDialog$5(Landroid/content/DialogInterface;I)V
+
+    return-void
+.end method
+
 .method public static synthetic $r8$lambda$6_MPbOQpvCGs8hFVWSENLGO9T74(Lcom/android/settings/users/UserDetailsSettings;Landroid/content/DialogInterface;I)V
     .locals 0
 
@@ -307,6 +317,14 @@
     return-void
 .end method
 
+.method private synthetic lambda$onCreateDialog$5(Landroid/content/DialogInterface;I)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/users/UserDetailsSettings;->resetGuest()V
+
+    return-void
+.end method
+
 .method private openAppAndContentAccessScreen(Z)V
     .locals 3
 
@@ -348,7 +366,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f041522
+    const v0, 0x7f04161e
 
     invoke-virtual {p1, v0}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 
@@ -363,6 +381,12 @@
     move-result-object p0
 
     invoke-virtual {p0}, Lcom/android/settings/core/SubSettingLauncher;->launch()V
+
+    return-void
+.end method
+
+.method private openAppCopyingScreen()V
+    .locals 0
 
     return-void
 .end method
@@ -586,7 +610,7 @@
 .end method
 
 .method initialize(Landroid/content/Context;Landroid/os/Bundle;)V
-    .locals 10
+    .locals 11
 
     const/16 v0, -0x2710
 
@@ -642,7 +666,7 @@
 
     iput-object v3, p0, Lcom/android/settings/users/UserDetailsSettings;->mPhonePref:Landroidx/preference/SwitchPreference;
 
-    const-string v3, "remove_user"
+    const-string/jumbo v3, "remove_user"
 
     invoke-virtual {p0, v3}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -658,67 +682,73 @@
 
     iput-object v5, p0, Lcom/android/settings/users/UserDetailsSettings;->mAppAndContentAccessPref:Landroidx/preference/Preference;
 
-    iget-object v5, p0, Lcom/android/settings/users/UserDetailsSettings;->mSwitchUserPref:Lcom/android/settingslib/RestrictedPreference;
+    const-string v5, "app_copying"
 
-    const v6, 0x7f04152f
-
-    const/4 v7, 0x1
-
-    new-array v8, v7, [Ljava/lang/Object;
-
-    iget-object v9, p0, Lcom/android/settings/users/UserDetailsSettings;->mUserInfo:Landroid/content/pm/UserInfo;
-
-    invoke-static {p1, v9}, Lcom/android/settings/users/UserSettings;->getUserName(Landroid/content/Context;Landroid/content/pm/UserInfo;)Ljava/lang/String;
-
-    move-result-object v9
-
-    aput-object v9, v8, v2
-
-    invoke-virtual {p1, v6, v8}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {p0, v5}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
     move-result-object v6
 
-    invoke-virtual {v5, v6}, Landroidx/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
+    iput-object v6, p0, Lcom/android/settings/users/UserDetailsSettings;->mAppCopyingPref:Landroidx/preference/Preference;
 
-    iget-object v5, p0, Lcom/android/settings/users/UserDetailsSettings;->mUserCaps:Lcom/android/settings/users/UserCapabilities;
+    iget-object v6, p0, Lcom/android/settings/users/UserDetailsSettings;->mSwitchUserPref:Lcom/android/settingslib/RestrictedPreference;
 
-    iget-boolean v5, v5, Lcom/android/settings/users/UserCapabilities;->mDisallowSwitchUser:Z
+    const v7, 0x7f04162b
 
-    if-eqz v5, :cond_1
+    const/4 v8, 0x1
 
-    iget-object v5, p0, Lcom/android/settings/users/UserDetailsSettings;->mSwitchUserPref:Lcom/android/settingslib/RestrictedPreference;
+    new-array v9, v8, [Ljava/lang/Object;
+
+    iget-object v10, p0, Lcom/android/settings/users/UserDetailsSettings;->mUserInfo:Landroid/content/pm/UserInfo;
+
+    iget-object v10, v10, Landroid/content/pm/UserInfo;->name:Ljava/lang/String;
+
+    aput-object v10, v9, v2
+
+    invoke-virtual {p1, v7, v9}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-virtual {v6, v7}, Landroidx/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
+
+    iget-object v6, p0, Lcom/android/settings/users/UserDetailsSettings;->mUserCaps:Lcom/android/settings/users/UserCapabilities;
+
+    iget-boolean v6, v6, Lcom/android/settings/users/UserCapabilities;->mDisallowSwitchUser:Z
+
+    if-eqz v6, :cond_1
+
+    iget-object v6, p0, Lcom/android/settings/users/UserDetailsSettings;->mSwitchUserPref:Lcom/android/settingslib/RestrictedPreference;
 
     invoke-static {p1}, Lcom/android/settingslib/RestrictedLockUtilsInternal;->getDeviceOwner(Landroid/content/Context;)Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v5, v6}, Lcom/android/settingslib/RestrictedPreference;->setDisabledByAdmin(Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;)V
+    invoke-virtual {v6, v7}, Lcom/android/settingslib/RestrictedPreference;->setDisabledByAdmin(Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;)V
 
     goto :goto_1
 
     :cond_1
-    iget-object v5, p0, Lcom/android/settings/users/UserDetailsSettings;->mSwitchUserPref:Lcom/android/settingslib/RestrictedPreference;
+    iget-object v6, p0, Lcom/android/settings/users/UserDetailsSettings;->mSwitchUserPref:Lcom/android/settingslib/RestrictedPreference;
 
-    const/4 v6, 0x0
+    const/4 v7, 0x0
 
-    invoke-virtual {v5, v6}, Lcom/android/settingslib/RestrictedPreference;->setDisabledByAdmin(Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;)V
+    invoke-virtual {v6, v7}, Lcom/android/settingslib/RestrictedPreference;->setDisabledByAdmin(Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;)V
 
-    iget-object v5, p0, Lcom/android/settings/users/UserDetailsSettings;->mSwitchUserPref:Lcom/android/settingslib/RestrictedPreference;
+    iget-object v6, p0, Lcom/android/settings/users/UserDetailsSettings;->mSwitchUserPref:Lcom/android/settingslib/RestrictedPreference;
 
-    invoke-virtual {v5, v7}, Landroidx/preference/Preference;->setSelectable(Z)V
+    invoke-virtual {v6, v8}, Landroidx/preference/Preference;->setSelectable(Z)V
 
-    iget-object v5, p0, Lcom/android/settings/users/UserDetailsSettings;->mSwitchUserPref:Lcom/android/settingslib/RestrictedPreference;
+    iget-object v6, p0, Lcom/android/settings/users/UserDetailsSettings;->mSwitchUserPref:Lcom/android/settingslib/RestrictedPreference;
 
-    invoke-virtual {v5, p0}, Landroidx/preference/Preference;->setOnPreferenceClickListener(Landroidx/preference/Preference$OnPreferenceClickListener;)V
+    invoke-virtual {v6, p0}, Landroidx/preference/Preference;->setOnPreferenceClickListener(Landroidx/preference/Preference$OnPreferenceClickListener;)V
 
     :goto_1
-    iget-object v5, p0, Lcom/android/settings/users/UserDetailsSettings;->mUserManager:Landroid/os/UserManager;
+    iget-object v6, p0, Lcom/android/settings/users/UserDetailsSettings;->mUserManager:Landroid/os/UserManager;
 
-    invoke-virtual {v5}, Landroid/os/UserManager;->isAdminUser()Z
+    invoke-virtual {v6}, Landroid/os/UserManager;->isAdminUser()Z
 
-    move-result v5
+    move-result v6
 
-    if-nez v5, :cond_2
+    if-nez v6, :cond_2
 
     invoke-virtual {p0, v0}, Lcom/android/settings/SettingsPreferenceFragment;->removePreference(Ljava/lang/String;)Z
 
@@ -726,31 +756,33 @@
 
     invoke-virtual {p0, v4}, Lcom/android/settings/SettingsPreferenceFragment;->removePreference(Ljava/lang/String;)Z
 
+    invoke-virtual {p0, v5}, Lcom/android/settings/SettingsPreferenceFragment;->removePreference(Ljava/lang/String;)Z
+
     goto/16 :goto_5
 
     :cond_2
     invoke-static {p1}, Lcom/android/settings/Utils;->isVoiceCapable(Landroid/content/Context;)Z
 
-    move-result v5
+    move-result v6
 
-    if-nez v5, :cond_3
+    if-nez v6, :cond_3
 
     invoke-virtual {p0, v0}, Lcom/android/settings/SettingsPreferenceFragment;->removePreference(Ljava/lang/String;)Z
 
     :cond_3
-    iget-object v5, p0, Lcom/android/settings/users/UserDetailsSettings;->mUserInfo:Landroid/content/pm/UserInfo;
+    iget-object v6, p0, Lcom/android/settings/users/UserDetailsSettings;->mUserInfo:Landroid/content/pm/UserInfo;
 
-    invoke-virtual {v5}, Landroid/content/pm/UserInfo;->isRestricted()Z
+    invoke-virtual {v6}, Landroid/content/pm/UserInfo;->isRestricted()Z
 
-    move-result v5
+    move-result v6
 
-    if-eqz v5, :cond_4
+    if-eqz v6, :cond_4
 
     invoke-virtual {p0, v0}, Lcom/android/settings/SettingsPreferenceFragment;->removePreference(Ljava/lang/String;)Z
 
     if-eqz p2, :cond_5
 
-    invoke-direct {p0, v7}, Lcom/android/settings/users/UserDetailsSettings;->openAppAndContentAccessScreen(Z)V
+    invoke-direct {p0, v8}, Lcom/android/settings/users/UserDetailsSettings;->openAppAndContentAccessScreen(Z)V
 
     goto :goto_2
 
@@ -767,11 +799,11 @@
 
     const-string v0, "no_outgoing_calls"
 
-    if-eqz p2, :cond_8
+    if-eqz p2, :cond_9
 
     iget-object p2, p0, Lcom/android/settings/users/UserDetailsSettings;->mPhonePref:Landroidx/preference/SwitchPreference;
 
-    const v1, 0x7f041505
+    const v1, 0x7f041604
 
     invoke-virtual {p2, v1}, Landroidx/preference/Preference;->setTitle(I)V
 
@@ -789,7 +821,7 @@
 
     move-result p2
 
-    xor-int/2addr p2, v7
+    xor-int/2addr p2, v8
 
     invoke-virtual {v1, p2}, Landroidx/preference/TwoStatePreference;->setChecked(Z)V
 
@@ -799,19 +831,19 @@
 
     if-eqz v0, :cond_6
 
-    const v0, 0x7f0409d3
+    const v0, 0x7f040a2b
 
     goto :goto_3
 
     :cond_6
-    const v0, 0x7f04150e
+    const v0, 0x7f040a27
 
     :goto_3
     invoke-virtual {p2, v0}, Landroidx/preference/Preference;->setTitle(I)V
 
     iget-boolean p2, p0, Lcom/android/settings/users/UserDetailsSettings;->mGuestUserAutoCreated:Z
 
-    if-eqz p2, :cond_9
+    if-eqz p2, :cond_8
 
     iget-object p2, p0, Lcom/android/settings/users/UserDetailsSettings;->mRemoveUserPref:Landroidx/preference/Preference;
 
@@ -823,14 +855,17 @@
 
     if-eqz v0, :cond_7
 
-    move v2, v7
+    move v2, v8
 
     :cond_7
     invoke-virtual {p2, v2}, Landroidx/preference/Preference;->setEnabled(Z)V
 
+    :cond_8
+    invoke-virtual {p0, v5}, Lcom/android/settings/SettingsPreferenceFragment;->removePreference(Ljava/lang/String;)Z
+
     goto :goto_4
 
-    :cond_8
+    :cond_9
     iget-object p2, p0, Lcom/android/settings/users/UserDetailsSettings;->mPhonePref:Landroidx/preference/SwitchPreference;
 
     iget-object v2, p0, Lcom/android/settings/users/UserDetailsSettings;->mUserManager:Landroid/os/UserManager;
@@ -843,17 +878,18 @@
 
     move-result v0
 
-    xor-int/2addr v0, v7
+    xor-int/2addr v0, v8
 
     invoke-virtual {p2, v0}, Landroidx/preference/TwoStatePreference;->setChecked(Z)V
 
     iget-object p2, p0, Lcom/android/settings/users/UserDetailsSettings;->mRemoveUserPref:Landroidx/preference/Preference;
 
-    const v0, 0x7f04151e
+    const v0, 0x7f04161a
 
     invoke-virtual {p2, v0}, Landroidx/preference/Preference;->setTitle(I)V
 
-    :cond_9
+    invoke-virtual {p0, v5}, Lcom/android/settings/SettingsPreferenceFragment;->removePreference(Ljava/lang/String;)Z
+
     :goto_4
     invoke-static {}, Landroid/os/UserHandle;->myUserId()I
 
@@ -879,6 +915,10 @@
     invoke-virtual {p1, p0}, Landroidx/preference/Preference;->setOnPreferenceChangeListener(Landroidx/preference/Preference$OnPreferenceChangeListener;)V
 
     iget-object p1, p0, Lcom/android/settings/users/UserDetailsSettings;->mAppAndContentAccessPref:Landroidx/preference/Preference;
+
+    invoke-virtual {p1, p0}, Landroidx/preference/Preference;->setOnPreferenceClickListener(Landroidx/preference/Preference$OnPreferenceClickListener;)V
+
+    iget-object p1, p0, Lcom/android/settings/users/UserDetailsSettings;->mAppCopyingPref:Landroidx/preference/Preference;
 
     invoke-virtual {p1, p0}, Landroidx/preference/Preference;->setOnPreferenceClickListener(Landroidx/preference/Preference$OnPreferenceClickListener;)V
 
@@ -920,7 +960,7 @@
 
     iput-object v0, p0, Lcom/android/settings/users/UserDetailsSettings;->mUserCaps:Lcom/android/settings/users/UserCapabilities;
 
-    const v0, 0x7f150103
+    const v0, 0x7f15010b
 
     invoke-virtual {p0, v0}, Lcom/android/settings/SettingsPreferenceFragment;->addPreferencesFromResource(I)V
 
@@ -932,7 +972,7 @@
 
     move-result-object v0
 
-    const v1, 0x11100f1
+    const v1, 0x1110159
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -965,31 +1005,35 @@
     :cond_0
     const/4 v0, 0x1
 
-    if-eq p1, v0, :cond_5
+    if-eq p1, v0, :cond_6
 
     const/4 v0, 0x2
 
-    if-eq p1, v0, :cond_4
+    if-eq p1, v0, :cond_5
 
     const/4 v0, 0x3
 
-    if-eq p1, v0, :cond_3
+    if-eq p1, v0, :cond_4
 
     const/4 v0, 0x4
 
-    if-eq p1, v0, :cond_2
+    if-eq p1, v0, :cond_3
 
     const/4 v0, 0x5
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v0, :cond_2
+
+    iget-boolean p1, p0, Lcom/android/settings/users/UserDetailsSettings;->mGuestUserAutoCreated:Z
+
+    if-eqz p1, :cond_1
 
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
 
     move-result-object p1
 
-    new-instance v0, Lcom/android/settings/users/UserDetailsSettings$$ExternalSyntheticLambda0;
+    new-instance v0, Lcom/android/settings/users/UserDetailsSettings$$ExternalSyntheticLambda4;
 
-    invoke-direct {v0, p0}, Lcom/android/settings/users/UserDetailsSettings$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/users/UserDetailsSettings;)V
+    invoke-direct {v0, p0}, Lcom/android/settings/users/UserDetailsSettings$$ExternalSyntheticLambda4;-><init>(Lcom/android/settings/users/UserDetailsSettings;)V
 
     invoke-static {p1, v0}, Lcom/android/settings/users/UserDialogs;->createResetGuestDialog(Landroid/content/Context;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/Dialog;
 
@@ -998,6 +1042,21 @@
     return-object p0
 
     :cond_1
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
+
+    move-result-object p1
+
+    new-instance v0, Lcom/android/settings/users/UserDetailsSettings$$ExternalSyntheticLambda5;
+
+    invoke-direct {v0, p0}, Lcom/android/settings/users/UserDetailsSettings$$ExternalSyntheticLambda5;-><init>(Lcom/android/settings/users/UserDetailsSettings;)V
+
+    invoke-static {p1, v0}, Lcom/android/settings/users/UserDialogs;->createRemoveGuestDialog(Landroid/content/Context;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/Dialog;
+
+    move-result-object p0
+
+    return-object p0
+
+    :cond_2
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1018,14 +1077,14 @@
 
     throw p0
 
-    :cond_2
+    :cond_3
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
 
     move-result-object p1
 
-    new-instance v0, Lcom/android/settings/users/UserDetailsSettings$$ExternalSyntheticLambda1;
+    new-instance v0, Lcom/android/settings/users/UserDetailsSettings$$ExternalSyntheticLambda3;
 
-    invoke-direct {v0, p0}, Lcom/android/settings/users/UserDetailsSettings$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/users/UserDetailsSettings;)V
+    invoke-direct {v0, p0}, Lcom/android/settings/users/UserDetailsSettings$$ExternalSyntheticLambda3;-><init>(Lcom/android/settings/users/UserDetailsSettings;)V
 
     invoke-static {p1, v0}, Lcom/android/settings/users/UserDialogs;->createSetupUserDialog(Landroid/content/Context;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/Dialog;
 
@@ -1033,7 +1092,7 @@
 
     return-object p0
 
-    :cond_3
+    :cond_4
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
 
     move-result-object p1
@@ -1048,14 +1107,14 @@
 
     return-object p0
 
-    :cond_4
+    :cond_5
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
 
     move-result-object p1
 
-    new-instance v0, Lcom/android/settings/users/UserDetailsSettings$$ExternalSyntheticLambda3;
+    new-instance v0, Lcom/android/settings/users/UserDetailsSettings$$ExternalSyntheticLambda1;
 
-    invoke-direct {v0, p0}, Lcom/android/settings/users/UserDetailsSettings$$ExternalSyntheticLambda3;-><init>(Lcom/android/settings/users/UserDetailsSettings;)V
+    invoke-direct {v0, p0}, Lcom/android/settings/users/UserDetailsSettings$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/users/UserDetailsSettings;)V
 
     invoke-static {p1, v0}, Lcom/android/settings/users/UserDialogs;->createEnablePhoneCallsDialog(Landroid/content/Context;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/Dialog;
 
@@ -1063,7 +1122,7 @@
 
     return-object p0
 
-    :cond_5
+    :cond_6
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
 
     move-result-object p1
@@ -1072,9 +1131,9 @@
 
     iget v0, v0, Landroid/content/pm/UserInfo;->id:I
 
-    new-instance v1, Lcom/android/settings/users/UserDetailsSettings$$ExternalSyntheticLambda4;
+    new-instance v1, Lcom/android/settings/users/UserDetailsSettings$$ExternalSyntheticLambda0;
 
-    invoke-direct {v1, p0}, Lcom/android/settings/users/UserDetailsSettings$$ExternalSyntheticLambda4;-><init>(Lcom/android/settings/users/UserDetailsSettings;)V
+    invoke-direct {v1, p0}, Lcom/android/settings/users/UserDetailsSettings$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/users/UserDetailsSettings;)V
 
     invoke-static {p1, v0, v1}, Lcom/android/settings/users/UserDialogs;->createRemoveDialog(Landroid/content/Context;ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/Dialog;
 
@@ -1139,7 +1198,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_5
 
     iget-object p1, p0, Lcom/android/settings/users/UserDetailsSettings;->mUserInfo:Landroid/content/pm/UserInfo;
 
@@ -1170,7 +1229,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_5
 
     invoke-direct {p0}, Lcom/android/settings/users/UserDetailsSettings;->shouldShowSetupPromptDialog()Z
 
@@ -1200,6 +1259,15 @@
     return v2
 
     :cond_4
+    iget-object v0, p0, Lcom/android/settings/users/UserDetailsSettings;->mAppCopyingPref:Landroidx/preference/Preference;
+
+    if-ne p1, v0, :cond_5
+
+    invoke-direct {p0}, Lcom/android/settings/users/UserDetailsSettings;->openAppCopyingScreen()V
+
+    return v2
+
+    :cond_5
     return v1
 .end method
 
@@ -1254,6 +1322,10 @@
 
 .method switchUser()V
     .locals 4
+
+    const-string v0, "UserDetailSettings.switchUser"
+
+    invoke-static {v0}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
 
     :try_start_0
     iget-object v0, p0, Lcom/android/settings/users/UserDetailsSettings;->mUserInfo:Landroid/content/pm/UserInfo;
@@ -1310,11 +1382,15 @@
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     :goto_0
+    invoke-static {}, Landroid/os/Trace;->endSection()V
+
     invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->finishFragment()V
 
     return-void
 
     :goto_1
+    invoke-static {}, Landroid/os/Trace;->endSection()V
+
     invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->finishFragment()V
 
     throw v0

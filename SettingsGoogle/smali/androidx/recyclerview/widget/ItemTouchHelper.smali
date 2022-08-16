@@ -115,14 +115,6 @@
 # direct methods
 .method public constructor <init>(Landroidx/recyclerview/widget/ItemTouchHelper$Callback;)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "callback"
-        }
-    .end annotation
 
     invoke-direct {p0}, Landroidx/recyclerview/widget/RecyclerView$ItemDecoration;-><init>()V
 
@@ -180,49 +172,13 @@
 .end method
 
 .method private addChildDrawingOrderCallback()V
-    .locals 2
-
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    if-lt v0, v1, :cond_0
-
-    return-void
-
-    :cond_0
-    iget-object v0, p0, Landroidx/recyclerview/widget/ItemTouchHelper;->mChildDrawingOrderCallback:Landroidx/recyclerview/widget/RecyclerView$ChildDrawingOrderCallback;
-
-    if-nez v0, :cond_1
-
-    new-instance v0, Landroidx/recyclerview/widget/ItemTouchHelper$5;
-
-    invoke-direct {v0, p0}, Landroidx/recyclerview/widget/ItemTouchHelper$5;-><init>(Landroidx/recyclerview/widget/ItemTouchHelper;)V
-
-    iput-object v0, p0, Landroidx/recyclerview/widget/ItemTouchHelper;->mChildDrawingOrderCallback:Landroidx/recyclerview/widget/RecyclerView$ChildDrawingOrderCallback;
-
-    :cond_1
-    iget-object v0, p0, Landroidx/recyclerview/widget/ItemTouchHelper;->mRecyclerView:Landroidx/recyclerview/widget/RecyclerView;
-
-    iget-object p0, p0, Landroidx/recyclerview/widget/ItemTouchHelper;->mChildDrawingOrderCallback:Landroidx/recyclerview/widget/RecyclerView$ChildDrawingOrderCallback;
-
-    invoke-virtual {v0, p0}, Landroidx/recyclerview/widget/RecyclerView;->setChildDrawingOrderCallback(Landroidx/recyclerview/widget/RecyclerView$ChildDrawingOrderCallback;)V
+    .locals 0
 
     return-void
 .end method
 
 .method private checkHorizontalSwipe(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;I)I
     .locals 8
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "viewHolder",
-            "flags"
-        }
-    .end annotation
 
     and-int/lit8 v0, p2, 0xc
 
@@ -369,16 +325,6 @@
 
 .method private checkVerticalSwipe(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;I)I
     .locals 8
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "viewHolder",
-            "flags"
-        }
-    .end annotation
 
     and-int/lit8 v0, p2, 0x3
 
@@ -597,15 +543,6 @@
 
 .method private findSwapTargets(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)Ljava/util/List;
     .locals 16
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "viewHolder"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -884,14 +821,6 @@
 
 .method private findSwipedView(Landroid/view/MotionEvent;)Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
     .locals 6
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "motionEvent"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/recyclerview/widget/ItemTouchHelper;->mRecyclerView:Landroidx/recyclerview/widget/RecyclerView;
 
@@ -1001,14 +930,6 @@
 
 .method private getSelectedDxDy([F)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "outPosition"
-        }
-    .end annotation
 
     iget v0, p0, Landroidx/recyclerview/widget/ItemTouchHelper;->mSelectedFlags:I
 
@@ -1099,22 +1020,6 @@
 
 .method private static hitTest(Landroid/view/View;FFFF)Z
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "child",
-            "x",
-            "y",
-            "left",
-            "top"
-        }
-    .end annotation
 
     cmpl-float v0, p1, p3
 
@@ -1266,14 +1171,6 @@
 
 .method private swipeIfNecessary(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)I
     .locals 5
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "viewHolder"
-        }
-    .end annotation
 
     iget v0, p0, Landroidx/recyclerview/widget/ItemTouchHelper;->mActionState:I
 
@@ -1414,14 +1311,6 @@
 # virtual methods
 .method public attachToRecyclerView(Landroidx/recyclerview/widget/RecyclerView;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "recyclerView"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/recyclerview/widget/ItemTouchHelper;->mRecyclerView:Landroidx/recyclerview/widget/RecyclerView;
 
@@ -1467,18 +1356,6 @@
 
 .method checkSelectForSwipe(ILandroid/view/MotionEvent;I)V
     .locals 8
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "action",
-            "motionEvent",
-            "pointerIndex"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/recyclerview/widget/ItemTouchHelper;->mSelected:Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
 
@@ -1656,16 +1533,6 @@
 
 .method endRecoverAnimation(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;Z)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "viewHolder",
-            "override"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/recyclerview/widget/ItemTouchHelper;->mRecoverAnimations:Ljava/util/List;
 
@@ -1720,14 +1587,6 @@
 
 .method findAnimation(Landroid/view/MotionEvent;)Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "event"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/recyclerview/widget/ItemTouchHelper;->mRecoverAnimations:Ljava/util/List;
 
@@ -1784,14 +1643,6 @@
 
 .method findChildView(Landroid/view/MotionEvent;)Landroid/view/View;
     .locals 5
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "event"
-        }
-    .end annotation
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
@@ -1880,20 +1731,6 @@
 
 .method public getItemOffsets(Landroid/graphics/Rect;Landroid/view/View;Landroidx/recyclerview/widget/RecyclerView;Landroidx/recyclerview/widget/RecyclerView$State;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "outRect",
-            "view",
-            "parent",
-            "state"
-        }
-    .end annotation
 
     invoke-virtual {p1}, Landroid/graphics/Rect;->setEmpty()V
 
@@ -1943,14 +1780,6 @@
 
 .method moveIfNecessary(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)V
     .locals 10
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "viewHolder"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/recyclerview/widget/ItemTouchHelper;->mRecyclerView:Landroidx/recyclerview/widget/RecyclerView;
 
@@ -2136,28 +1965,12 @@
 
 .method public onChildViewAttachedToWindow(Landroid/view/View;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "view"
-        }
-    .end annotation
 
     return-void
 .end method
 
 .method public onChildViewDetachedFromWindow(Landroid/view/View;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "view"
-        }
-    .end annotation
 
     invoke-virtual {p0, p1}, Landroidx/recyclerview/widget/ItemTouchHelper;->removeChildDrawingOrderCallbackIfNecessary(Landroid/view/View;)V
 
@@ -2212,18 +2025,6 @@
 
 .method public onDraw(Landroid/graphics/Canvas;Landroidx/recyclerview/widget/RecyclerView;Landroidx/recyclerview/widget/RecyclerView$State;)V
     .locals 9
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "c",
-            "parent",
-            "state"
-        }
-    .end annotation
 
     const/4 p3, -0x1
 
@@ -2280,18 +2081,6 @@
 
 .method public onDrawOver(Landroid/graphics/Canvas;Landroidx/recyclerview/widget/RecyclerView;Landroidx/recyclerview/widget/RecyclerView$State;)V
     .locals 9
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "c",
-            "parent",
-            "state"
-        }
-    .end annotation
 
     iget-object p3, p0, Landroidx/recyclerview/widget/ItemTouchHelper;->mSelected:Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
 
@@ -2344,16 +2133,6 @@
 
 .method postDispatchSwipe(Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;I)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x10,
-            0x10
-        }
-        names = {
-            "anim",
-            "swipeDir"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/recyclerview/widget/ItemTouchHelper;->mRecyclerView:Landroidx/recyclerview/widget/RecyclerView;
 
@@ -2368,14 +2147,6 @@
 
 .method removeChildDrawingOrderCallbackIfNecessary(Landroid/view/View;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "view"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/recyclerview/widget/ItemTouchHelper;->mOverdrawChild:Landroid/view/View;
 
@@ -2734,16 +2505,6 @@
 
 .method select(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;I)V
     .locals 23
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "selected",
-            "actionState"
-        }
-    .end annotation
 
     move-object/from16 v11, p0
 
@@ -3134,14 +2895,6 @@
 
 .method public startDrag(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "viewHolder"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/recyclerview/widget/ItemTouchHelper;->mCallback:Landroidx/recyclerview/widget/ItemTouchHelper$Callback;
 
@@ -3196,18 +2949,6 @@
 
 .method updateDxDy(Landroid/view/MotionEvent;II)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "ev",
-            "directionFlags",
-            "pointerIndex"
-        }
-    .end annotation
 
     invoke-virtual {p1, p3}, Landroid/view/MotionEvent;->getX(I)F
 

@@ -21,22 +21,6 @@
 
 
 # direct methods
-.method constructor <init>(Landroid/widget/TextView;)V
-    .locals 1
-
-    invoke-direct {p0, p1}, Landroidx/customview/widget/ExploreByTouchHelper;-><init>(Landroid/view/View;)V
-
-    new-instance v0, Landroid/graphics/Rect;
-
-    invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
-
-    iput-object v0, p0, Lcom/google/android/setupdesign/accessibility/LinkAccessibilityHelper$PreOLinkAccessibilityHelper;->tempRect:Landroid/graphics/Rect;
-
-    iput-object p1, p0, Lcom/google/android/setupdesign/accessibility/LinkAccessibilityHelper$PreOLinkAccessibilityHelper;->view:Landroid/widget/TextView;
-
-    return-void
-.end method
-
 .method private static convertToLocalHorizontalCoordinate(Landroid/widget/TextView;F)F
     .locals 2
 

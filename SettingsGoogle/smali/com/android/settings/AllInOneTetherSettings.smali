@@ -82,12 +82,70 @@
     return-void
 .end method
 
+.method static bridge synthetic -$$Nest$fgetmBluetoothPan(Lcom/android/settings/AllInOneTetherSettings;)Ljava/util/concurrent/atomic/AtomicReference;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/AllInOneTetherSettings;->mBluetoothPan:Ljava/util/concurrent/atomic/AtomicReference;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmRestartWifiApAfterConfigChange(Lcom/android/settings/AllInOneTetherSettings;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/settings/AllInOneTetherSettings;->mRestartWifiApAfterConfigChange:Z
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmTetherEnabler(Lcom/android/settings/AllInOneTetherSettings;)Lcom/android/settings/network/TetherEnabler;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/AllInOneTetherSettings;->mTetherEnabler:Lcom/android/settings/network/TetherEnabler;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmWifiManager(Lcom/android/settings/AllInOneTetherSettings;)Landroid/net/wifi/WifiManager;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/AllInOneTetherSettings;->mWifiManager:Landroid/net/wifi/WifiManager;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmRestartWifiApAfterConfigChange(Lcom/android/settings/AllInOneTetherSettings;Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/settings/AllInOneTetherSettings;->mRestartWifiApAfterConfigChange:Z
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mupdateDisplayWithNewConfig(Lcom/android/settings/AllInOneTetherSettings;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/AllInOneTetherSettings;->updateDisplayWithNewConfig()V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$smbuildPreferenceControllers(Landroid/content/Context;Lcom/android/settings/wifi/tether/WifiTetherBasePreferenceController$OnTetherConfigUpdateListener;)Ljava/util/List;
+    .locals 0
+
+    invoke-static {p0, p1}, Lcom/android/settings/AllInOneTetherSettings;->buildPreferenceControllers(Landroid/content/Context;Lcom/android/settings/wifi/tether/WifiTetherBasePreferenceController$OnTetherConfigUpdateListener;)Ljava/util/List;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method static constructor <clinit>()V
     .locals 2
 
     new-instance v0, Lcom/android/settings/AllInOneTetherSettings$3;
 
-    const v1, 0x7f15001f
+    const v1, 0x7f15001e
 
     invoke-direct {v0, v1}, Lcom/android/settings/AllInOneTetherSettings$3;-><init>(I)V
 
@@ -132,64 +190,6 @@
     iput-object v0, p0, Lcom/android/settings/AllInOneTetherSettings;->mProfileServiceListener:Landroid/bluetooth/BluetoothProfile$ServiceListener;
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/AllInOneTetherSettings;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/AllInOneTetherSettings;->updateDisplayWithNewConfig()V
-
-    return-void
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/AllInOneTetherSettings;)Landroid/net/wifi/WifiManager;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/AllInOneTetherSettings;->mWifiManager:Landroid/net/wifi/WifiManager;
-
-    return-object p0
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/AllInOneTetherSettings;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/settings/AllInOneTetherSettings;->mRestartWifiApAfterConfigChange:Z
-
-    return p0
-.end method
-
-.method static synthetic access$202(Lcom/android/settings/AllInOneTetherSettings;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/settings/AllInOneTetherSettings;->mRestartWifiApAfterConfigChange:Z
-
-    return p1
-.end method
-
-.method static synthetic access$300(Lcom/android/settings/AllInOneTetherSettings;)Lcom/android/settings/network/TetherEnabler;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/AllInOneTetherSettings;->mTetherEnabler:Lcom/android/settings/network/TetherEnabler;
-
-    return-object p0
-.end method
-
-.method static synthetic access$400(Lcom/android/settings/AllInOneTetherSettings;)Ljava/util/concurrent/atomic/AtomicReference;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/AllInOneTetherSettings;->mBluetoothPan:Ljava/util/concurrent/atomic/AtomicReference;
-
-    return-object p0
-.end method
-
-.method static synthetic access$500(Landroid/content/Context;Lcom/android/settings/wifi/tether/WifiTetherBasePreferenceController$OnTetherConfigUpdateListener;)Ljava/util/List;
-    .locals 0
-
-    invoke-static {p0, p1}, Lcom/android/settings/AllInOneTetherSettings;->buildPreferenceControllers(Landroid/content/Context;Lcom/android/settings/wifi/tether/WifiTetherBasePreferenceController$OnTetherConfigUpdateListener;)Ljava/util/List;
-
-    move-result-object p0
-
-    return-object p0
 .end method
 
 .method private buildNewConfig()Landroid/net/wifi/SoftApConfiguration;
@@ -385,7 +385,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a4a
+    const p0, 0x7f040aa3
 
     return p0
 .end method
@@ -454,7 +454,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f15001f
+    const p0, 0x7f15001e
 
     return p0
 .end method
@@ -869,7 +869,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0413eb
+    const v1, 0x7f0414e5
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 

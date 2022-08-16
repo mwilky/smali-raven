@@ -241,8 +241,6 @@
 
     int-to-float v3, v3
 
-    aget-object v7, v5, v1
-
     invoke-virtual {v7}, Lcom/google/zxing/ResultPoint;->getY()F
 
     move-result v7
@@ -254,11 +252,9 @@
     float-to-int v3, v3
 
     :cond_2
-    aget-object v7, v5, v6
-
-    if-eqz v7, :cond_1
-
     aget-object v5, v5, v6
+
+    if-eqz v5, :cond_1
 
     invoke-virtual {v5}, Lcom/google/zxing/ResultPoint;->getY()F
 
@@ -292,8 +288,6 @@
     aget-object v5, v4, v3
 
     if-eqz v5, :cond_6
-
-    aget-object v5, v4, v3
 
     invoke-virtual {v5}, Lcom/google/zxing/ResultPoint;->getX()F
 
@@ -824,9 +818,7 @@
 
     if-eqz v1, :cond_0
 
-    aget-object p1, v8, v0
-
-    invoke-virtual {p1}, Lcom/google/zxing/ResultPoint;->getX()F
+    invoke-virtual {v1}, Lcom/google/zxing/ResultPoint;->getX()F
 
     move-result p1
 

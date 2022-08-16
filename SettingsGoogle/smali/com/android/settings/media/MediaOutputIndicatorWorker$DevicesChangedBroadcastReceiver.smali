@@ -29,7 +29,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settings/media/MediaOutputIndicatorWorker;Lcom/android/settings/media/MediaOutputIndicatorWorker$1;)V
+.method synthetic constructor <init>(Lcom/android/settings/media/MediaOutputIndicatorWorker;Lcom/android/settings/media/MediaOutputIndicatorWorker$DevicesChangedBroadcastReceiver-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settings/media/MediaOutputIndicatorWorker$DevicesChangedBroadcastReceiver;-><init>(Lcom/android/settings/media/MediaOutputIndicatorWorker;)V
@@ -56,7 +56,7 @@
 
     iget-object p0, p0, Lcom/android/settings/media/MediaOutputIndicatorWorker$DevicesChangedBroadcastReceiver;->this$0:Lcom/android/settings/media/MediaOutputIndicatorWorker;
 
-    invoke-static {p0}, Lcom/android/settings/media/MediaOutputIndicatorWorker;->access$100(Lcom/android/settings/media/MediaOutputIndicatorWorker;)V
+    invoke-static {p0}, Lcom/android/settings/media/MediaOutputIndicatorWorker;->access$000(Lcom/android/settings/media/MediaOutputIndicatorWorker;)V
 
     :cond_0
     return-void

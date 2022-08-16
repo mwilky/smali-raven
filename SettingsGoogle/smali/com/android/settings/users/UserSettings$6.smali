@@ -49,7 +49,7 @@
     const/4 p1, 0x2
 
     :goto_0
-    invoke-static {p0, p1}, Lcom/android/settings/users/UserSettings;->access$700(Lcom/android/settings/users/UserSettings;I)V
+    invoke-static {p0, p1}, Lcom/android/settings/users/UserSettings;->-$$Nest$monAddUserClicked(Lcom/android/settings/users/UserSettings;I)V
 
     return-void
 .end method

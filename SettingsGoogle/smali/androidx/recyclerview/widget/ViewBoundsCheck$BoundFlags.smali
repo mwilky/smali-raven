@@ -43,14 +43,6 @@
 # virtual methods
 .method addFlags(I)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "flags"
-        }
-    .end annotation
 
     iget v0, p0, Landroidx/recyclerview/widget/ViewBoundsCheck$BoundFlags;->mBoundFlags:I
 
@@ -165,16 +157,6 @@
 
 .method compare(II)I
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "x",
-            "y"
-        }
-    .end annotation
 
     if-le p1, p2, :cond_0
 
@@ -207,20 +189,6 @@
 
 .method setBounds(IIII)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "rvStart",
-            "rvEnd",
-            "childStart",
-            "childEnd"
-        }
-    .end annotation
 
     iput p1, p0, Landroidx/recyclerview/widget/ViewBoundsCheck$BoundFlags;->mRvStart:I
 

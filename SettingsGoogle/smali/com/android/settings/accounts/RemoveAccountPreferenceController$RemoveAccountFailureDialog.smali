@@ -15,12 +15,34 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$rsqkt8WoOBuJ1VwREPsq8Y-rkWQ(Lcom/android/settings/accounts/RemoveAccountPreferenceController$RemoveAccountFailureDialog;)Ljava/lang/String;
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/accounts/RemoveAccountPreferenceController$RemoveAccountFailureDialog;->lambda$onCreateDialog$0()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/settings/core/instrumentation/InstrumentedDialogFragment;-><init>()V
 
     return-void
+.end method
+
+.method private synthetic lambda$onCreateDialog$0()Ljava/lang/String;
+    .locals 1
+
+    const v0, 0x7f0410cb
+
+    invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method public static show(Landroidx/fragment/app/Fragment;)V
@@ -48,7 +70,7 @@
 
     move-result-object p0
 
-    const-string v1, "removeAccountFailed"
+    const-string/jumbo v1, "removeAccountFailed"
 
     invoke-virtual {v0, p0, v1}, Landroidx/fragment/app/DialogFragment;->show(Landroidx/fragment/app/FragmentManager;Ljava/lang/String;)V
     :try_end_0
@@ -96,25 +118,49 @@
 .end method
 
 .method public onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;
-    .locals 1
+    .locals 2
 
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
 
+    move-result-object p1
+
+    new-instance v0, Landroidx/appcompat/app/AlertDialog$Builder;
+
+    invoke-direct {v0, p1}, Landroidx/appcompat/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+
+    const p1, 0x7f0410cc
+
+    invoke-virtual {v0, p1}, Landroidx/appcompat/app/AlertDialog$Builder;->setTitle(I)Landroidx/appcompat/app/AlertDialog$Builder;
+
+    move-result-object p1
+
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    const-class v1, Landroid/app/admin/DevicePolicyManager;
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/app/admin/DevicePolicyManager;
+
+    invoke-virtual {v0}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/android/settings/accounts/RemoveAccountPreferenceController$RemoveAccountFailureDialog$$ExternalSyntheticLambda0;
+
+    invoke-direct {v1, p0}, Lcom/android/settings/accounts/RemoveAccountPreferenceController$RemoveAccountFailureDialog$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/accounts/RemoveAccountPreferenceController$RemoveAccountFailureDialog;)V
+
+    const-string p0, "Settings.REMOVE_ACCOUNT_FAILED_ADMIN_RESTRICTION"
+
+    invoke-virtual {v0, p0, v1}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
+
     move-result-object p0
 
-    new-instance p1, Landroidx/appcompat/app/AlertDialog$Builder;
-
-    invoke-direct {p1, p0}, Landroidx/appcompat/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
-
-    const p0, 0x7f041026
-
-    invoke-virtual {p1, p0}, Landroidx/appcompat/app/AlertDialog$Builder;->setTitle(I)Landroidx/appcompat/app/AlertDialog$Builder;
-
-    move-result-object p0
-
-    const p1, 0x7f041025
-
-    invoke-virtual {p0, p1}, Landroidx/appcompat/app/AlertDialog$Builder;->setMessage(I)Landroidx/appcompat/app/AlertDialog$Builder;
+    invoke-virtual {p1, p0}, Landroidx/appcompat/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroidx/appcompat/app/AlertDialog$Builder;
 
     move-result-object p0
 

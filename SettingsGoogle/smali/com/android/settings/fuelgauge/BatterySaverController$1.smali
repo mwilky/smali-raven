@@ -36,7 +36,7 @@
 
     iget-object p0, p0, Lcom/android/settings/fuelgauge/BatterySaverController$1;->this$0:Lcom/android/settings/fuelgauge/BatterySaverController;
 
-    invoke-static {p0}, Lcom/android/settings/fuelgauge/BatterySaverController;->access$000(Lcom/android/settings/fuelgauge/BatterySaverController;)V
+    invoke-static {p0}, Lcom/android/settings/fuelgauge/BatterySaverController;->-$$Nest$mupdateSummary(Lcom/android/settings/fuelgauge/BatterySaverController;)V
 
     return-void
 .end method

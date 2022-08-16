@@ -350,16 +350,18 @@
 .end method
 
 .method private getAppInfoForUser(Ljava/lang/String;ILandroid/os/UserHandle;)Landroid/content/pm/ApplicationInfo;
-    .locals 0
+    .locals 2
 
     :try_start_0
     iget-object p0, p0, Lcom/android/settingslib/users/AppRestrictionsHelper;->mIPm:Landroid/content/pm/IPackageManager;
 
+    int-to-long v0, p2
+
     invoke-virtual {p3}, Landroid/os/UserHandle;->getIdentifier()I
 
-    move-result p3
+    move-result p2
 
-    invoke-interface {p0, p1, p2, p3}, Landroid/content/pm/IPackageManager;->getApplicationInfo(Ljava/lang/String;II)Landroid/content/pm/ApplicationInfo;
+    invoke-interface {p0, p1, v0, v1, p2}, Landroid/content/pm/IPackageManager;->getApplicationInfo(Ljava/lang/String;JI)Landroid/content/pm/ApplicationInfo;
 
     move-result-object p0
     :try_end_0
@@ -417,7 +419,7 @@
 
 # virtual methods
 .method public applyUserAppState(Ljava/lang/String;ZLcom/android/settingslib/users/AppRestrictionsHelper$OnDisableUiForPackageListener;)V
-    .locals 11
+    .locals 10
 
     iget-object v0, p0, Lcom/android/settingslib/users/AppRestrictionsHelper;->mUser:Landroid/os/UserHandle;
 
@@ -427,64 +429,62 @@
 
     const/4 v1, 0x1
 
-    const/4 v2, 0x0
-
     if-eqz p2, :cond_2
 
     :try_start_0
     iget-object p2, p0, Lcom/android/settingslib/users/AppRestrictionsHelper;->mIPm:Landroid/content/pm/IPackageManager;
 
-    const/high16 v3, 0x400000
+    const-wide/32 v2, 0x400000
 
-    invoke-interface {p2, p1, v3, v0}, Landroid/content/pm/IPackageManager;->getApplicationInfo(Ljava/lang/String;II)Landroid/content/pm/ApplicationInfo;
+    invoke-interface {p2, p1, v2, v3, v0}, Landroid/content/pm/IPackageManager;->getApplicationInfo(Ljava/lang/String;JI)Landroid/content/pm/ApplicationInfo;
 
     move-result-object p2
 
-    const/high16 v3, 0x800000
+    const/high16 v2, 0x800000
 
     if-eqz p2, :cond_0
 
-    iget-boolean v4, p2, Landroid/content/pm/ApplicationInfo;->enabled:Z
+    iget-boolean v3, p2, Landroid/content/pm/ApplicationInfo;->enabled:Z
 
-    if-eqz v4, :cond_0
+    if-eqz v3, :cond_0
 
-    iget v4, p2, Landroid/content/pm/ApplicationInfo;->flags:I
+    iget v3, p2, Landroid/content/pm/ApplicationInfo;->flags:I
 
-    and-int/2addr v4, v3
+    and-int/2addr v3, v2
 
-    if-nez v4, :cond_1
+    if-nez v3, :cond_1
 
     :cond_0
-    iget-object v5, p0, Lcom/android/settingslib/users/AppRestrictionsHelper;->mIPm:Landroid/content/pm/IPackageManager;
+    iget-object v4, p0, Lcom/android/settingslib/users/AppRestrictionsHelper;->mIPm:Landroid/content/pm/IPackageManager;
 
-    iget-object v4, p0, Lcom/android/settingslib/users/AppRestrictionsHelper;->mUser:Landroid/os/UserHandle;
+    iget-object v3, p0, Lcom/android/settingslib/users/AppRestrictionsHelper;->mUser:Landroid/os/UserHandle;
 
-    invoke-virtual {v4}, Landroid/os/UserHandle;->getIdentifier()I
+    invoke-virtual {v3}, Landroid/os/UserHandle;->getIdentifier()I
 
-    move-result v7
+    move-result v6
 
-    const/high16 v8, 0x400000
+    const/high16 v7, 0x400000
+
+    const/4 v8, 0x0
 
     const/4 v9, 0x0
 
-    const/4 v10, 0x0
+    move-object v5, p1
 
-    move-object v6, p1
-
-    invoke-interface/range {v5 .. v10}, Landroid/content/pm/IPackageManager;->installExistingPackageAsUser(Ljava/lang/String;IIILjava/util/List;)I
+    invoke-interface/range {v4 .. v9}, Landroid/content/pm/IPackageManager;->installExistingPackageAsUser(Ljava/lang/String;IIILjava/util/List;)I
 
     :cond_1
     if-eqz p2, :cond_4
 
-    iget v4, p2, Landroid/content/pm/ApplicationInfo;->privateFlags:I
+    iget v3, p2, Landroid/content/pm/ApplicationInfo;->privateFlags:I
 
-    and-int/2addr v1, v4
+    and-int/2addr v1, v3
 
     if-eqz v1, :cond_4
 
     iget p2, p2, Landroid/content/pm/ApplicationInfo;->flags:I
 
-    and-int/2addr p2, v3
+    and-int/2addr p2, v2
 
     if-eqz p2, :cond_4
 
@@ -492,14 +492,18 @@
 
     iget-object p0, p0, Lcom/android/settingslib/users/AppRestrictionsHelper;->mIPm:Landroid/content/pm/IPackageManager;
 
-    invoke-interface {p0, p1, v2, v0}, Landroid/content/pm/IPackageManager;->setApplicationHiddenSettingAsUser(Ljava/lang/String;ZI)Z
+    const/4 p2, 0x0
+
+    invoke-interface {p0, p1, p2, v0}, Landroid/content/pm/IPackageManager;->setApplicationHiddenSettingAsUser(Ljava/lang/String;ZI)Z
 
     goto :goto_0
 
     :cond_2
     iget-object p2, p0, Lcom/android/settingslib/users/AppRestrictionsHelper;->mIPm:Landroid/content/pm/IPackageManager;
 
-    invoke-interface {p2, p1, v2, v0}, Landroid/content/pm/IPackageManager;->getApplicationInfo(Ljava/lang/String;II)Landroid/content/pm/ApplicationInfo;
+    const-wide/16 v2, 0x0
+
+    invoke-interface {p2, p1, v2, v3, v0}, Landroid/content/pm/IPackageManager;->getApplicationInfo(Ljava/lang/String;JI)Landroid/content/pm/ApplicationInfo;
 
     move-result-object p2
 
@@ -777,18 +781,18 @@
     goto :goto_1
 
     :cond_4
-    const/16 v2, 0x2000
+    const-wide/16 v2, 0x2000
 
-    const/4 v3, 0x0
+    const/4 v5, 0x0
 
     :try_start_1
-    iget-object v5, p0, Lcom/android/settingslib/users/AppRestrictionsHelper;->mUser:Landroid/os/UserHandle;
+    iget-object v6, p0, Lcom/android/settingslib/users/AppRestrictionsHelper;->mUser:Landroid/os/UserHandle;
 
-    invoke-virtual {v5}, Landroid/os/UserHandle;->getIdentifier()I
+    invoke-virtual {v6}, Landroid/os/UserHandle;->getIdentifier()I
 
-    move-result v5
+    move-result v6
 
-    invoke-interface {v1, v2, v5}, Landroid/content/pm/IPackageManager;->getInstalledApplications(II)Landroid/content/pm/ParceledListSlice;
+    invoke-interface {v1, v2, v3, v6}, Landroid/content/pm/IPackageManager;->getInstalledApplications(JI)Landroid/content/pm/ParceledListSlice;
 
     move-result-object v1
 
@@ -804,7 +808,7 @@
 
     :catch_1
     :cond_5
-    move-object v1, v3
+    move-object v1, v5
 
     :goto_2
     if-eqz v1, :cond_8
@@ -827,48 +831,48 @@
 
     check-cast v2, Landroid/content/pm/ApplicationInfo;
 
-    iget v5, v2, Landroid/content/pm/ApplicationInfo;->flags:I
+    iget v3, v2, Landroid/content/pm/ApplicationInfo;->flags:I
 
-    and-int v6, v5, v4
+    and-int v6, v3, v4
 
     if-nez v6, :cond_7
 
     goto :goto_3
 
     :cond_7
-    and-int/lit8 v6, v5, 0x1
+    and-int/lit8 v6, v3, 0x1
 
     if-nez v6, :cond_6
 
-    and-int/lit16 v5, v5, 0x80
+    and-int/lit16 v3, v3, 0x80
 
-    if-nez v5, :cond_6
+    if-nez v3, :cond_6
 
-    new-instance v5, Lcom/android/settingslib/users/AppRestrictionsHelper$SelectableAppInfo;
+    new-instance v3, Lcom/android/settingslib/users/AppRestrictionsHelper$SelectableAppInfo;
 
-    invoke-direct {v5}, Lcom/android/settingslib/users/AppRestrictionsHelper$SelectableAppInfo;-><init>()V
+    invoke-direct {v3}, Lcom/android/settingslib/users/AppRestrictionsHelper$SelectableAppInfo;-><init>()V
 
     iget-object v6, v2, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
-    iput-object v6, v5, Lcom/android/settingslib/users/AppRestrictionsHelper$SelectableAppInfo;->packageName:Ljava/lang/String;
+    iput-object v6, v3, Lcom/android/settingslib/users/AppRestrictionsHelper$SelectableAppInfo;->packageName:Ljava/lang/String;
 
     invoke-virtual {v2, v0}, Landroid/content/pm/ApplicationInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
 
     move-result-object v6
 
-    iput-object v6, v5, Lcom/android/settingslib/users/AppRestrictionsHelper$SelectableAppInfo;->appName:Ljava/lang/CharSequence;
+    iput-object v6, v3, Lcom/android/settingslib/users/AppRestrictionsHelper$SelectableAppInfo;->appName:Ljava/lang/CharSequence;
 
-    iput-object v6, v5, Lcom/android/settingslib/users/AppRestrictionsHelper$SelectableAppInfo;->activityName:Ljava/lang/CharSequence;
+    iput-object v6, v3, Lcom/android/settingslib/users/AppRestrictionsHelper$SelectableAppInfo;->activityName:Ljava/lang/CharSequence;
 
     invoke-virtual {v2, v0}, Landroid/content/pm/ApplicationInfo;->loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v2
 
-    iput-object v2, v5, Lcom/android/settingslib/users/AppRestrictionsHelper$SelectableAppInfo;->icon:Landroid/graphics/drawable/Drawable;
+    iput-object v2, v3, Lcom/android/settingslib/users/AppRestrictionsHelper$SelectableAppInfo;->icon:Landroid/graphics/drawable/Drawable;
 
     iget-object v2, p0, Lcom/android/settingslib/users/AppRestrictionsHelper;->mVisibleApps:Ljava/util/List;
 
-    invoke-interface {v2, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_3
 
@@ -877,7 +881,7 @@
 
     new-instance v1, Lcom/android/settingslib/users/AppRestrictionsHelper$AppLabelComparator;
 
-    invoke-direct {v1, v3}, Lcom/android/settingslib/users/AppRestrictionsHelper$AppLabelComparator;-><init>(Lcom/android/settingslib/users/AppRestrictionsHelper$1;)V
+    invoke-direct {v1, v5}, Lcom/android/settingslib/users/AppRestrictionsHelper$AppLabelComparator;-><init>(Lcom/android/settingslib/users/AppRestrictionsHelper$AppLabelComparator-IA;)V
 
     invoke-static {v0, v1}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
 

@@ -15,5 +15,5 @@
 
 
 # virtual methods
-.method public abstract onTelephonyDisplayInfoChanged(Landroid/telephony/TelephonyDisplayInfo;)V
+.method public abstract onTelephonyDisplayInfoChanged(ILandroid/telephony/TelephonyDisplayInfo;)V
 .end method

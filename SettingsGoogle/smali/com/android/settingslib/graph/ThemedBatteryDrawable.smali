@@ -6,8 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/settingslib/graph/ThemedBatteryDrawable$Companion;,
-        Lcom/android/settingslib/graph/ThemedBatteryDrawable$sam$java_lang_Runnable$0;
+        Lcom/android/settingslib/graph/ThemedBatteryDrawable$Companion;
     }
 .end annotation
 
@@ -315,7 +314,7 @@
 
     move-result-object v0
 
-    const v1, 0x10e002e
+    const v1, 0x10e0034
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -354,8 +353,6 @@
     sget-object v4, Landroid/graphics/Paint$Join;->ROUND:Landroid/graphics/Paint$Join;
 
     invoke-virtual {v0, v4}, Landroid/graphics/Paint;->setStrokeJoin(Landroid/graphics/Paint$Join;)V
-
-    sget-object v4, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     iput-object v0, p0, Lcom/android/settingslib/graph/ThemedBatteryDrawable;->fillColorStrokePaint:Landroid/graphics/Paint;
 
@@ -503,13 +500,13 @@
 
     iput-object v1, p0, Lcom/android/settingslib/graph/ThemedBatteryDrawable;->colorLevels:[I
 
-    if-lez v0, :cond_2
-
     const/4 v1, 0x0
 
     move v2, v1
 
     :goto_0
+    if-ge v2, v0, :cond_1
+
     add-int/lit8 v3, v2, 0x1
 
     iget-object v4, p0, Lcom/android/settingslib/graph/ThemedBatteryDrawable;->colorLevels:[I
@@ -560,17 +557,11 @@
     aput v2, v4, v5
 
     :goto_1
-    if-lt v3, v0, :cond_1
-
-    goto :goto_2
-
-    :cond_1
     move v2, v3
 
     goto :goto_0
 
-    :cond_2
-    :goto_2
+    :cond_1
     invoke-virtual {p2}, Landroid/content/res/TypedArray;->recycle()V
 
     invoke-virtual {p1}, Landroid/content/res/TypedArray;->recycle()V
@@ -661,7 +652,7 @@
 
     move-result-object v0
 
-    const v1, 0x10401f8
+    const v1, 0x1040213
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -691,7 +682,7 @@
 
     move-result-object v0
 
-    const v1, 0x10401f6
+    const v1, 0x1040211
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -719,7 +710,7 @@
 
     move-result-object v0
 
-    const v1, 0x10401f7
+    const v1, 0x1040212
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -745,7 +736,7 @@
 
     move-result-object v0
 
-    const v1, 0x10401f5
+    const v1, 0x1040210
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -765,7 +756,7 @@
 
     move-result-object v0
 
-    const v1, 0x10401f9
+    const v1, 0x1040214
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -785,7 +776,7 @@
 
     move-result-object v0
 
-    const v1, 0x1110037
+    const v1, 0x1110039
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 

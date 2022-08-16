@@ -93,7 +93,7 @@
 
     if-nez p2, :cond_0
 
-    const p2, 0x7f0d04bf
+    const p2, 0x7f0d04fb
 
     invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -103,18 +103,18 @@
 
     iput-object p2, p0, Lcom/android/settings/password/SetupChooseLockPattern$SetupChooseLockPatternFragment;->mOptionsButton:Landroid/widget/Button;
 
-    new-instance p3, Lcom/android/settings/password/SetupChooseLockPattern$SetupChooseLockPatternFragment$$ExternalSyntheticLambda1;
+    new-instance p3, Lcom/android/settings/password/SetupChooseLockPattern$SetupChooseLockPatternFragment$$ExternalSyntheticLambda0;
 
-    invoke-direct {p3, p0}, Lcom/android/settings/password/SetupChooseLockPattern$SetupChooseLockPatternFragment$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/password/SetupChooseLockPattern$SetupChooseLockPatternFragment;)V
+    invoke-direct {p3, p0}, Lcom/android/settings/password/SetupChooseLockPattern$SetupChooseLockPatternFragment$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/password/SetupChooseLockPattern$SetupChooseLockPatternFragment;)V
 
     invoke-virtual {p2, p3}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     :cond_0
     iget-object p2, p0, Lcom/android/settings/password/ChooseLockPattern$ChooseLockPatternFragment;->mSkipOrClearButton:Lcom/google/android/setupcompat/template/FooterButton;
 
-    new-instance p3, Lcom/android/settings/password/SetupChooseLockPattern$SetupChooseLockPatternFragment$$ExternalSyntheticLambda0;
+    new-instance p3, Lcom/android/settings/password/SetupChooseLockPattern$SetupChooseLockPatternFragment$$ExternalSyntheticLambda1;
 
-    invoke-direct {p3, p0}, Lcom/android/settings/password/SetupChooseLockPattern$SetupChooseLockPatternFragment$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/password/SetupChooseLockPattern$SetupChooseLockPatternFragment;)V
+    invoke-direct {p3, p0}, Lcom/android/settings/password/SetupChooseLockPattern$SetupChooseLockPatternFragment$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/password/SetupChooseLockPattern$SetupChooseLockPatternFragment;)V
 
     invoke-virtual {p2, p3}, Lcom/google/android/setupcompat/template/FooterButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
@@ -267,23 +267,23 @@
 
     if-ne p1, v0, :cond_3
 
-    iget-object v0, p0, Lcom/android/settings/password/ChooseLockPattern$ChooseLockPatternFragment;->mSkipOrClearButton:Lcom/google/android/setupcompat/template/FooterButton;
+    iget-object p1, p0, Lcom/android/settings/password/ChooseLockPattern$ChooseLockPatternFragment;->mSkipOrClearButton:Lcom/google/android/setupcompat/template/FooterButton;
 
-    invoke-virtual {v0, v1}, Lcom/google/android/setupcompat/template/FooterButton;->setVisibility(I)V
+    invoke-virtual {p1, v1}, Lcom/google/android/setupcompat/template/FooterButton;->setVisibility(I)V
 
-    iget-object v0, p0, Lcom/android/settings/password/ChooseLockPattern$ChooseLockPatternFragment;->mSkipOrClearButton:Lcom/google/android/setupcompat/template/FooterButton;
+    iget-object p1, p0, Lcom/android/settings/password/ChooseLockPattern$ChooseLockPatternFragment;->mSkipOrClearButton:Lcom/google/android/setupcompat/template/FooterButton;
 
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
 
-    move-result-object v1
+    move-result-object v0
 
-    const v2, 0x7f041291
+    const v1, 0x7f04134b
 
-    invoke-virtual {v0, v1, v2}, Lcom/google/android/setupcompat/template/FooterButton;->setText(Landroid/content/Context;I)V
+    invoke-virtual {p1, v0, v1}, Lcom/google/android/setupcompat/template/FooterButton;->setText(Landroid/content/Context;I)V
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    iput-boolean v0, p0, Lcom/android/settings/password/SetupChooseLockPattern$SetupChooseLockPatternFragment;->mLeftButtonIsSkip:Z
+    iput-boolean p1, p0, Lcom/android/settings/password/SetupChooseLockPattern$SetupChooseLockPatternFragment;->mLeftButtonIsSkip:Z
 
     goto :goto_2
 
@@ -295,29 +295,17 @@
 
     move-result-object p0
 
-    const v0, 0x7f0d04f1
+    const p1, 0x7f0d0533
 
-    invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object p0
 
     check-cast p0, Lcom/google/android/setupdesign/GlifLayout;
 
-    iget p1, p1, Lcom/android/settings/password/ChooseLockPattern$ChooseLockPatternFragment$Stage;->message:I
-
-    const/4 v0, -0x1
-
-    if-ne p1, v0, :cond_4
-
     const-string p1, ""
 
     invoke-virtual {p0, p1}, Lcom/google/android/setupdesign/GlifLayout;->setDescriptionText(Ljava/lang/CharSequence;)V
 
-    goto :goto_3
-
-    :cond_4
-    invoke-virtual {p0, p1}, Lcom/google/android/setupdesign/GlifLayout;->setDescriptionText(I)V
-
-    :goto_3
     return-void
 .end method

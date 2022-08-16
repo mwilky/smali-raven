@@ -96,24 +96,24 @@
 
     if-eqz v1, :cond_0
 
-    sget v0, Lcom/google/android/setupdesign/R$style;->SudDynamicColorThemeGlifV3_DayNight:I
+    sget v0, Lcom/google/android/setupdesign/R$style;->SudDynamicColorTheme_DayNight:I
 
     goto :goto_2
 
     :cond_0
-    sget v0, Lcom/google/android/setupdesign/R$style;->SudDynamicColorThemeGlifV3_Light:I
+    sget v0, Lcom/google/android/setupdesign/R$style;->SudDynamicColorTheme_Light:I
 
     goto :goto_2
 
     :cond_1
     if-eqz v1, :cond_2
 
-    sget v0, Lcom/google/android/setupdesign/R$style;->SudFullDynamicColorThemeGlifV3_DayNight:I
+    sget v0, Lcom/google/android/setupdesign/R$style;->SudFullDynamicColorTheme_DayNight:I
 
     goto :goto_0
 
     :cond_2
-    sget v0, Lcom/google/android/setupdesign/R$style;->SudFullDynamicColorThemeGlifV3_Light:I
+    sget v0, Lcom/google/android/setupdesign/R$style;->SudFullDynamicColorTheme_Light:I
 
     :goto_0
     sget-object v2, Lcom/google/android/setupdesign/util/ThemeHelper;->LOG:Lcom/google/android/setupcompat/util/Logger;
@@ -128,12 +128,12 @@
 
     if-eqz v1, :cond_3
 
-    const-string v1, "SudFullDynamicColorThemeGlifV3_DayNight"
+    const-string v1, "SudFullDynamicColorTheme_DayNight"
 
     goto :goto_1
 
     :cond_3
-    const-string v1, "SudFullDynamicColorThemeGlifV3_Light"
+    const-string v1, "SudFullDynamicColorTheme_Light"
 
     :goto_1
     invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -237,8 +237,6 @@
 
     invoke-static {p0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    check-cast p0, Ljava/lang/String;
-
     invoke-virtual {v0, p0}, Lcom/google/android/setupcompat/util/Logger;->e(Ljava/lang/String;)V
 
     const/4 p0, 0x0
@@ -266,10 +264,10 @@
     return p0
 .end method
 
-.method public static shouldApplyExtendedPartnerConfig(Landroid/content/Context;)Z
+.method public static shouldApplyMaterialYouStyle(Landroid/content/Context;)Z
     .locals 0
 
-    invoke-static {p0}, Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;->shouldApplyExtendedPartnerConfig(Landroid/content/Context;)Z
+    invoke-static {p0}, Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;->shouldApplyMaterialYouStyle(Landroid/content/Context;)Z
 
     move-result p0
 
@@ -349,8 +347,6 @@
     move-result-object p0
 
     invoke-static {p0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    check-cast p0, Ljava/lang/String;
 
     invoke-virtual {v0, p0}, Lcom/google/android/setupcompat/util/Logger;->e(Ljava/lang/String;)V
 

@@ -39,14 +39,57 @@
     return-void
 .end method
 
+.method private formatExpiryTime(J)Ljava/lang/String;
+    .locals 3
+
+    const-wide/16 v0, 0x0
+
+    cmp-long v0, p1, v0
+
+    if-nez v0, :cond_0
+
+    iget-object p0, p0, Lcom/android/settings/development/storage/BlobInfoListView$BlobListAdapter;->this$0:Lcom/android/settings/development/storage/BlobInfoListView;
+
+    const p1, 0x7f040455
+
+    invoke-virtual {p0, p1}, Landroid/app/ListActivity;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
+    :cond_0
+    iget-object p0, p0, Lcom/android/settings/development/storage/BlobInfoListView$BlobListAdapter;->this$0:Lcom/android/settings/development/storage/BlobInfoListView;
+
+    const v0, 0x7f040453
+
+    const/4 v1, 0x1
+
+    new-array v1, v1, [Ljava/lang/Object;
+
+    const/4 v2, 0x0
+
+    invoke-static {p1, p2}, Lcom/android/settings/development/storage/SharedDataUtils;->formatTime(J)Ljava/lang/String;
+
+    move-result-object p1
+
+    aput-object p1, v1, v2
+
+    invoke-virtual {p0, v0, v1}, Landroid/app/ListActivity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 
 # virtual methods
 .method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
-    .locals 6
+    .locals 5
 
     iget-object p3, p0, Lcom/android/settings/development/storage/BlobInfoListView$BlobListAdapter;->this$0:Lcom/android/settings/development/storage/BlobInfoListView;
 
-    invoke-static {p3}, Lcom/android/settings/development/storage/BlobInfoListView;->access$000(Lcom/android/settings/development/storage/BlobInfoListView;)Landroid/view/LayoutInflater;
+    invoke-static {p3}, Lcom/android/settings/development/storage/BlobInfoListView;->-$$Nest$fgetmInflater(Lcom/android/settings/development/storage/BlobInfoListView;)Landroid/view/LayoutInflater;
 
     move-result-object p3
 
@@ -76,23 +119,23 @@
 
     const/4 v2, 0x1
 
-    new-array v3, v2, [Ljava/lang/Object;
+    new-array v2, v2, [Ljava/lang/Object;
 
     invoke-virtual {p1}, Landroid/app/blob/BlobInfo;->getId()J
 
-    move-result-wide v4
+    move-result-wide v3
 
-    invoke-static {v4, v5}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    invoke-static {v3, v4}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v4
+    move-result-object v3
 
-    const/4 v5, 0x0
+    const/4 v4, 0x0
 
-    aput-object v4, v3, v5
+    aput-object v3, v2, v4
 
-    const v4, 0x7f040416
+    const v3, 0x7f040454
 
-    invoke-virtual {v1, v4, v3}, Landroid/app/ListActivity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {v1, v3, v2}, Landroid/app/ListActivity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -100,23 +143,11 @@
 
     iget-object v0, p2, Lcom/android/settings/development/storage/BlobInfoViewHolder;->blobExpiry:Landroid/widget/TextView;
 
-    iget-object p0, p0, Lcom/android/settings/development/storage/BlobInfoListView$BlobListAdapter;->this$0:Lcom/android/settings/development/storage/BlobInfoListView;
-
-    new-array v1, v2, [Ljava/lang/Object;
-
     invoke-virtual {p1}, Landroid/app/blob/BlobInfo;->getExpiryTimeMs()J
 
-    move-result-wide v2
+    move-result-wide v1
 
-    invoke-static {v2, v3}, Lcom/android/settings/development/storage/SharedDataUtils;->formatTime(J)Ljava/lang/String;
-
-    move-result-object v2
-
-    aput-object v2, v1, v5
-
-    const v2, 0x7f040415
-
-    invoke-virtual {p0, v2, v1}, Landroid/app/ListActivity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-direct {p0, v1, v2}, Lcom/android/settings/development/storage/BlobInfoListView$BlobListAdapter;->formatExpiryTime(J)Ljava/lang/String;
 
     move-result-object p0
 

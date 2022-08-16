@@ -57,7 +57,7 @@
 .method public getIconId()I
     .locals 1
 
-    const v0, 0x7f020190
+    const v0, 0x7f0201a9
 
     iput v0, p0, Lcom/android/settings/fuelgauge/batterytip/tips/BatteryTip;->mState:I
 
@@ -67,7 +67,7 @@
 .method public getIconTintColorId()I
     .locals 1
 
-    const v0, 0x7f0a0042
+    const v0, 0x7f0a0045
 
     iput v0, p0, Lcom/android/settings/fuelgauge/batterytip/tips/BatteryTip;->mState:I
 
@@ -77,7 +77,7 @@
 .method public getSummary(Landroid/content/Context;)Ljava/lang/CharSequence;
     .locals 1
 
-    const v0, 0x7f0403d4
+    const v0, 0x7f040412
 
     iput v0, p0, Lcom/android/settings/fuelgauge/batterytip/tips/BatteryTip;->mState:I
 
@@ -91,7 +91,7 @@
 .method public getTitle(Landroid/content/Context;)Ljava/lang/CharSequence;
     .locals 1
 
-    const v0, 0x7f0403d5
+    const v0, 0x7f040413
 
     iput v0, p0, Lcom/android/settings/fuelgauge/batterytip/tips/BatteryTip;->mState:I
 

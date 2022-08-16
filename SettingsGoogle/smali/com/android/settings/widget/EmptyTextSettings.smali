@@ -45,7 +45,7 @@
 
     move-result-object p2
 
-    const v0, 0x7f0b0160
+    const v0, 0x7f0b0184
 
     invoke-virtual {p2, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -81,23 +81,37 @@
 
     invoke-virtual {v0, p2}, Landroid/widget/TextView;->setTextAppearance(I)V
 
-    const p2, 0x102003f
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
 
-    invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    move-result-object p2
+
+    invoke-virtual {p2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p2
+
+    const v0, 0x7f0b0183
+
+    invoke-virtual {p2, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result p2
+
+    const v0, 0x102003f
+
+    invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object p1
 
     check-cast p1, Landroid/view/ViewGroup;
 
-    iget-object p2, p0, Lcom/android/settings/widget/EmptyTextSettings;->mEmpty:Landroid/widget/TextView;
+    iget-object v0, p0, Lcom/android/settings/widget/EmptyTextSettings;->mEmpty:Landroid/widget/TextView;
 
-    new-instance v0, Landroid/view/ViewGroup$LayoutParams;
+    new-instance v1, Landroid/view/ViewGroup$LayoutParams;
 
-    const/4 v1, -0x1
+    const/4 v2, -0x1
 
-    invoke-direct {v0, v1, v1}, Landroid/view/ViewGroup$LayoutParams;-><init>(II)V
+    invoke-direct {v1, v2, p2}, Landroid/view/ViewGroup$LayoutParams;-><init>(II)V
 
-    invoke-virtual {p1, p2, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {p1, v0, v1}, Landroid/view/ViewGroup;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
     iget-object p1, p0, Lcom/android/settings/widget/EmptyTextSettings;->mEmpty:Landroid/widget/TextView;
 

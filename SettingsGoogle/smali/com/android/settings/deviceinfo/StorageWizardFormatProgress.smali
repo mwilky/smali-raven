@@ -19,20 +19,20 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmFormatPrivate(Lcom/android/settings/deviceinfo/StorageWizardFormatProgress;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/settings/deviceinfo/StorageWizardFormatProgress;->mFormatPrivate:Z
+
+    return p0
+.end method
+
 .method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/settings/deviceinfo/StorageWizardBase;-><init>()V
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/deviceinfo/StorageWizardFormatProgress;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/settings/deviceinfo/StorageWizardFormatProgress;->mFormatPrivate:Z
-
-    return p0
 .end method
 
 
@@ -51,7 +51,7 @@
     return-void
 
     :cond_0
-    const p1, 0x7f06022a
+    const p1, 0x7f060236
 
     invoke-virtual {p0, p1}, Lcom/android/settings/deviceinfo/StorageWizardBase;->setContentView(I)V
 
@@ -73,7 +73,7 @@
 
     iput-boolean v0, p0, Lcom/android/settings/deviceinfo/StorageWizardFormatProgress;->mFormatPrivate:Z
 
-    const v0, 0x7f041342
+    const v0, 0x7f041405
 
     new-array v1, p1, [Ljava/lang/CharSequence;
 
@@ -85,7 +85,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/android/settings/deviceinfo/StorageWizardBase;->setHeaderText(I[Ljava/lang/CharSequence;)V
 
-    const v0, 0x7f041341
+    const v0, 0x7f041404
 
     new-array p1, p1, [Ljava/lang/CharSequence;
 

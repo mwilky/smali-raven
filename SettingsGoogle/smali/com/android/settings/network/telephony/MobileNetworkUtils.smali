@@ -732,7 +732,7 @@
     :goto_0
     if-eqz p1, :cond_1
 
-    const p1, 0x7f04055a
+    const p1, 0x7f0405b8
 
     invoke-static {p0, p1}, Lcom/android/settings/network/telephony/MobileNetworkUtils;->setSummaryResId(Landroid/content/Context;I)Ljava/lang/String;
 
@@ -770,7 +770,7 @@
     :goto_0
     if-eqz p1, :cond_1
 
-    const p1, 0x7f04055a
+    const p1, 0x7f0405b8
 
     invoke-static {p0, p1}, Lcom/android/settings/network/telephony/MobileNetworkUtils;->setSummaryResId(Landroid/content/Context;I)Ljava/lang/String;
 
@@ -1220,7 +1220,7 @@
 
     move-result-object p4
 
-    const v0, 0x7f0b0332
+    const v0, 0x7f0b03f8
 
     invoke-virtual {p4, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1295,7 +1295,7 @@
 .end method
 
 .method public static isCdmaOptions(Landroid/content/Context;I)Z
-    .locals 6
+    .locals 5
 
     const/4 v0, 0x0
 
@@ -1306,6 +1306,37 @@
     return v0
 
     :cond_0
+    invoke-static {p0}, Lcom/android/settings/network/CarrierConfigCache;->getInstance(Landroid/content/Context;)Lcom/android/settings/network/CarrierConfigCache;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Lcom/android/settings/network/CarrierConfigCache;->getConfigForSubId(I)Landroid/os/PersistableBundle;
+
+    move-result-object v1
+
+    const/4 v2, 0x1
+
+    if-eqz v1, :cond_1
+
+    const-string v3, "hide_carrier_network_settings_bool"
+
+    invoke-virtual {v1, v3}, Landroid/os/PersistableBundle;->getBoolean(Ljava/lang/String;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_1
+
+    const-string/jumbo v3, "world_phone_bool"
+
+    invoke-virtual {v1, v3}, Landroid/os/PersistableBundle;->getBoolean(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    return v2
+
+    :cond_1
     const-class v1, Landroid/telephony/TelephonyManager;
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
@@ -1318,83 +1349,48 @@
 
     move-result-object v1
 
-    const-class v2, Landroid/telephony/CarrierConfigManager;
-
-    invoke-virtual {p0, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/telephony/CarrierConfigManager;
-
-    invoke-virtual {v2, p1}, Landroid/telephony/CarrierConfigManager;->getConfigForSubId(I)Landroid/os/PersistableBundle;
-
-    move-result-object v2
-
     invoke-virtual {v1}, Landroid/telephony/TelephonyManager;->getPhoneType()I
 
     move-result v3
 
     const/4 v4, 0x2
 
-    const/4 v5, 0x1
+    if-ne v3, v4, :cond_2
 
-    if-ne v3, v4, :cond_1
-
-    return v5
-
-    :cond_1
-    if-eqz v2, :cond_2
-
-    const-string v3, "hide_carrier_network_settings_bool"
-
-    invoke-virtual {v2, v3}, Landroid/os/PersistableBundle;->getBoolean(Ljava/lang/String;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_2
-
-    const-string/jumbo v3, "world_phone_bool"
-
-    invoke-virtual {v2, v3}, Landroid/os/PersistableBundle;->getBoolean(Ljava/lang/String;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_2
-
-    return v5
+    return v2
 
     :cond_2
     invoke-static {p0, p1}, Lcom/android/settings/network/telephony/MobileNetworkUtils;->isWorldMode(Landroid/content/Context;I)Z
 
-    move-result v2
+    move-result v3
 
-    if-eqz v2, :cond_5
+    if-eqz v3, :cond_5
 
     invoke-virtual {v1, v0}, Landroid/telephony/TelephonyManager;->getAllowedNetworkTypesForReason(I)J
 
-    move-result-wide v1
+    move-result-wide v3
 
-    long-to-int v1, v1
+    long-to-int v1, v3
 
     invoke-static {v1}, Lcom/android/settings/network/telephony/MobileNetworkUtils;->getNetworkTypeFromRaf(I)I
 
     move-result v1
 
-    const/16 v2, 0x9
+    const/16 v3, 0x9
 
-    if-eq v1, v2, :cond_4
+    if-eq v1, v3, :cond_4
 
-    const/16 v2, 0x8
+    const/16 v3, 0x8
 
-    if-eq v1, v2, :cond_4
+    if-eq v1, v3, :cond_4
 
-    const/16 v2, 0x1a
+    const/16 v3, 0x1a
 
-    if-eq v1, v2, :cond_4
+    if-eq v1, v3, :cond_4
 
-    const/16 v2, 0x19
+    const/16 v3, 0x19
 
-    if-ne v1, v2, :cond_3
+    if-ne v1, v3, :cond_3
 
     goto :goto_0
 
@@ -1407,7 +1403,7 @@
 
     :cond_4
     :goto_0
-    return v5
+    return v2
 
     :cond_5
     return v0
@@ -1487,19 +1483,19 @@
 .end method
 
 .method public static isContactDiscoveryVisible(Landroid/content/Context;I)Z
-    .locals 1
+    .locals 2
 
-    const-class v0, Landroid/telephony/CarrierConfigManager;
-
-    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-static {p0}, Lcom/android/settings/network/CarrierConfigCache;->getInstance(Landroid/content/Context;)Lcom/android/settings/network/CarrierConfigCache;
 
     move-result-object p0
 
-    check-cast p0, Landroid/telephony/CarrierConfigManager;
+    invoke-virtual {p0}, Lcom/android/settings/network/CarrierConfigCache;->hasCarrierConfigManager()Z
 
-    const/4 v0, 0x0
+    move-result v0
 
-    if-nez p0, :cond_0
+    const/4 v1, 0x0
+
+    if-nez v0, :cond_0
 
     const-string p0, "MobileNetworkUtils"
 
@@ -1507,16 +1503,16 @@
 
     invoke-static {p0, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v0
+    return v1
 
     :cond_0
-    invoke-virtual {p0, p1}, Landroid/telephony/CarrierConfigManager;->getConfigForSubId(I)Landroid/os/PersistableBundle;
+    invoke-virtual {p0, p1}, Lcom/android/settings/network/CarrierConfigCache;->getConfigForSubId(I)Landroid/os/PersistableBundle;
 
     move-result-object p0
 
     const-string/jumbo p1, "use_rcs_presence_bool"
 
-    invoke-virtual {p0, p1, v0}, Landroid/os/PersistableBundle;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-virtual {p0, p1, v1}, Landroid/os/PersistableBundle;->getBoolean(Ljava/lang/String;Z)Z
 
     move-result p1
 
@@ -1524,17 +1520,17 @@
 
     const-string p1, "ims.rcs_bulk_capability_exchange_bool"
 
-    invoke-virtual {p0, p1, v0}, Landroid/os/PersistableBundle;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-virtual {p0, p1, v1}, Landroid/os/PersistableBundle;->getBoolean(Ljava/lang/String;Z)Z
 
     move-result p0
 
     if-eqz p0, :cond_2
 
     :cond_1
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
     :cond_2
-    return v0
+    return v1
 .end method
 
 .method private static isCurrentCountrySupported(Landroid/content/Context;)Z
@@ -1695,62 +1691,58 @@
 .end method
 
 .method private static isGsmBasicOptions(Landroid/content/Context;I)Z
-    .locals 2
+    .locals 3
 
+    invoke-static {p0}, Lcom/android/settings/network/CarrierConfigCache;->getInstance(Landroid/content/Context;)Lcom/android/settings/network/CarrierConfigCache;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Lcom/android/settings/network/CarrierConfigCache;->getConfigForSubId(I)Landroid/os/PersistableBundle;
+
+    move-result-object v0
+
+    const/4 v1, 0x1
+
+    if-eqz v0, :cond_0
+
+    const-string v2, "hide_carrier_network_settings_bool"
+
+    invoke-virtual {v0, v2}, Landroid/os/PersistableBundle;->getBoolean(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    const-string/jumbo v2, "world_phone_bool"
+
+    invoke-virtual {v0, v2}, Landroid/os/PersistableBundle;->getBoolean(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    return v1
+
+    :cond_0
     const-class v0, Landroid/telephony/TelephonyManager;
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Landroid/telephony/TelephonyManager;
+    check-cast p0, Landroid/telephony/TelephonyManager;
 
-    invoke-virtual {v0, p1}, Landroid/telephony/TelephonyManager;->createForSubscriptionId(I)Landroid/telephony/TelephonyManager;
-
-    move-result-object v0
-
-    const-class v1, Landroid/telephony/CarrierConfigManager;
-
-    invoke-virtual {p0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Landroid/telephony/TelephonyManager;->createForSubscriptionId(I)Landroid/telephony/TelephonyManager;
 
     move-result-object p0
 
-    check-cast p0, Landroid/telephony/CarrierConfigManager;
-
-    invoke-virtual {p0, p1}, Landroid/telephony/CarrierConfigManager;->getConfigForSubId(I)Landroid/os/PersistableBundle;
-
-    move-result-object p0
-
-    invoke-virtual {v0}, Landroid/telephony/TelephonyManager;->getPhoneType()I
-
-    move-result p1
-
-    const/4 v0, 0x1
-
-    if-ne p1, v0, :cond_0
-
-    return v0
-
-    :cond_0
-    if-eqz p0, :cond_1
-
-    const-string p1, "hide_carrier_network_settings_bool"
-
-    invoke-virtual {p0, p1}, Landroid/os/PersistableBundle;->getBoolean(Ljava/lang/String;)Z
-
-    move-result p1
-
-    if-nez p1, :cond_1
-
-    const-string/jumbo p1, "world_phone_bool"
-
-    invoke-virtual {p0, p1}, Landroid/os/PersistableBundle;->getBoolean(Ljava/lang/String;)Z
+    invoke-virtual {p0}, Landroid/telephony/TelephonyManager;->getPhoneType()I
 
     move-result p0
 
-    if-eqz p0, :cond_1
+    if-ne p0, v1, :cond_1
 
-    return v0
+    return v1
 
     :cond_1
     const/4 p0, 0x0
@@ -1911,15 +1903,11 @@
 .method private static isTdscdmaSupported(Landroid/content/Context;Landroid/telephony/TelephonyManager;)Z
     .locals 5
 
-    const-class v0, Landroid/telephony/CarrierConfigManager;
-
-    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-static {p0}, Lcom/android/settings/network/CarrierConfigCache;->getInstance(Landroid/content/Context;)Lcom/android/settings/network/CarrierConfigCache;
 
     move-result-object p0
 
-    check-cast p0, Landroid/telephony/CarrierConfigManager;
-
-    invoke-virtual {p0}, Landroid/telephony/CarrierConfigManager;->getConfig()Landroid/os/PersistableBundle;
+    invoke-virtual {p0}, Lcom/android/settings/network/CarrierConfigCache;->getConfig()Landroid/os/PersistableBundle;
 
     move-result-object p0
 
@@ -1943,11 +1931,22 @@
     return v2
 
     :cond_1
+    const-string/jumbo v1, "support_tdscdma_roaming_networks_string_array"
+
+    invoke-virtual {p0, v1}, Landroid/os/PersistableBundle;->getStringArray(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object p0
+
+    if-nez p0, :cond_2
+
+    return v0
+
+    :cond_2
     invoke-virtual {p1}, Landroid/telephony/TelephonyManager;->getServiceState()Landroid/telephony/ServiceState;
 
     move-result-object p1
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_3
 
     invoke-virtual {p1}, Landroid/telephony/ServiceState;->getOperatorNumeric()Ljava/lang/String;
 
@@ -1955,29 +1954,21 @@
 
     goto :goto_0
 
-    :cond_2
+    :cond_3
     const/4 p1, 0x0
 
     :goto_0
-    const-string/jumbo v1, "support_tdscdma_roaming_networks_string_array"
+    if-nez p1, :cond_4
 
-    invoke-virtual {p0, v1}, Landroid/os/PersistableBundle;->getStringArray(Ljava/lang/String;)[Ljava/lang/String;
+    return v0
 
-    move-result-object p0
-
-    if-eqz p0, :cond_5
-
-    if-nez p1, :cond_3
-
-    goto :goto_2
-
-    :cond_3
+    :cond_4
     array-length v1, p0
 
     move v3, v0
 
     :goto_1
-    if-ge v3, v1, :cond_5
+    if-ge v3, v1, :cond_6
 
     aget-object v4, p0, v3
 
@@ -1985,17 +1976,16 @@
 
     move-result v4
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_5
 
     return v2
 
-    :cond_4
+    :cond_5
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_1
 
-    :cond_5
-    :goto_2
+    :cond_6
     return v0
 .end method
 
@@ -2072,17 +2062,13 @@
 .end method
 
 .method public static isWorldMode(Landroid/content/Context;I)Z
-    .locals 1
+    .locals 0
 
-    const-class v0, Landroid/telephony/CarrierConfigManager;
-
-    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-static {p0}, Lcom/android/settings/network/CarrierConfigCache;->getInstance(Landroid/content/Context;)Lcom/android/settings/network/CarrierConfigCache;
 
     move-result-object p0
 
-    check-cast p0, Landroid/telephony/CarrierConfigManager;
-
-    invoke-virtual {p0, p1}, Landroid/telephony/CarrierConfigManager;->getConfigForSubId(I)Landroid/os/PersistableBundle;
+    invoke-virtual {p0, p1}, Lcom/android/settings/network/CarrierConfigCache;->getConfigForSubId(I)Landroid/os/PersistableBundle;
 
     move-result-object p0
 
@@ -2132,6 +2118,87 @@
     sget-object p0, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
 
     return-object p0
+.end method
+
+.method public static launchMobileNetworkSettings(Landroid/content/Context;Landroid/telephony/SubscriptionInfo;)V
+    .locals 4
+
+    invoke-virtual {p1}, Landroid/telephony/SubscriptionInfo;->getSubscriptionId()I
+
+    move-result v0
+
+    const-string v1, "MobileNetworkUtils"
+
+    const/4 v2, -0x1
+
+    if-ne v0, v2, :cond_0
+
+    const-string p0, "launchMobileNetworkSettings fail, subId is invalid."
+
+    invoke-static {v1, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_0
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "launchMobileNetworkSettings for subId: "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-instance v1, Landroid/os/Bundle;
+
+    invoke-direct {v1}, Landroid/os/Bundle;-><init>()V
+
+    const-string v2, "android.provider.extra.SUB_ID"
+
+    invoke-virtual {v1, v2, v0}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
+
+    new-instance v0, Lcom/android/settings/core/SubSettingLauncher;
+
+    invoke-direct {v0, p0}, Lcom/android/settings/core/SubSettingLauncher;-><init>(Landroid/content/Context;)V
+
+    invoke-static {p1, p0}, Lcom/android/settings/network/SubscriptionUtil;->getUniqueSubscriptionDisplayName(Landroid/telephony/SubscriptionInfo;Landroid/content/Context;)Ljava/lang/CharSequence;
+
+    move-result-object p0
+
+    invoke-virtual {v0, p0}, Lcom/android/settings/core/SubSettingLauncher;->setTitleText(Ljava/lang/CharSequence;)Lcom/android/settings/core/SubSettingLauncher;
+
+    move-result-object p0
+
+    const-class p1, Lcom/android/settings/network/telephony/MobileNetworkSettings;
+
+    invoke-virtual {p1}, Ljava/lang/Class;->getCanonicalName()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {p0, p1}, Lcom/android/settings/core/SubSettingLauncher;->setDestination(Ljava/lang/String;)Lcom/android/settings/core/SubSettingLauncher;
+
+    move-result-object p0
+
+    const/4 p1, 0x0
+
+    invoke-virtual {p0, p1}, Lcom/android/settings/core/SubSettingLauncher;->setSourceMetricsCategory(I)Lcom/android/settings/core/SubSettingLauncher;
+
+    move-result-object p0
+
+    invoke-virtual {p0, v1}, Lcom/android/settings/core/SubSettingLauncher;->setArguments(Landroid/os/Bundle;)Lcom/android/settings/core/SubSettingLauncher;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Lcom/android/settings/core/SubSettingLauncher;->launch()V
+
+    return-void
 .end method
 
 .method public static setContactDiscoveryEnabled(Landroid/telephony/ims/ImsManager;IZ)V
@@ -2304,15 +2371,11 @@
 
     move-result-object v0
 
-    const-class v1, Landroid/telephony/CarrierConfigManager;
-
-    invoke-virtual {p0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-static {p0}, Lcom/android/settings/network/CarrierConfigCache;->getInstance(Landroid/content/Context;)Lcom/android/settings/network/CarrierConfigCache;
 
     move-result-object v1
 
-    check-cast v1, Landroid/telephony/CarrierConfigManager;
-
-    invoke-virtual {v1, p1}, Landroid/telephony/CarrierConfigManager;->getConfigForSubId(I)Landroid/os/PersistableBundle;
+    invoke-virtual {v1, p1}, Lcom/android/settings/network/CarrierConfigCache;->getConfigForSubId(I)Landroid/os/PersistableBundle;
 
     move-result-object v1
 
@@ -2357,6 +2420,12 @@
     goto :goto_0
 
     :cond_0
+    invoke-static {p0, p1}, Lcom/android/settings/network/telephony/MobileNetworkUtils;->isWorldMode(Landroid/content/Context;I)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_3
+
     invoke-virtual {v0, v2}, Landroid/telephony/TelephonyManager;->getAllowedNetworkTypesForReason(I)J
 
     move-result-wide v0
@@ -2371,12 +2440,6 @@
 
     if-ne v0, v1, :cond_1
 
-    invoke-static {p0, p1}, Lcom/android/settings/network/telephony/MobileNetworkUtils;->isWorldMode(Landroid/content/Context;I)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
     return v2
 
     :cond_1
@@ -2389,28 +2452,20 @@
     return v2
 
     :cond_2
-    invoke-static {p0, p1}, Lcom/android/settings/network/telephony/MobileNetworkUtils;->isGsmBasicOptions(Landroid/content/Context;I)Z
+    const/16 v1, 0x9
 
-    move-result v1
+    if-ne v0, v1, :cond_3
 
-    const/4 v3, 0x1
+    const/4 p0, 0x1
 
-    if-eqz v1, :cond_3
-
-    return v3
+    return p0
 
     :cond_3
-    invoke-static {p0, p1}, Lcom/android/settings/network/telephony/MobileNetworkUtils;->isWorldMode(Landroid/content/Context;I)Z
+    invoke-static {p0, p1}, Lcom/android/settings/network/telephony/MobileNetworkUtils;->isGsmBasicOptions(Landroid/content/Context;I)Z
 
     move-result p0
 
-    if-eqz p0, :cond_4
-
-    const/16 p0, 0x9
-
-    if-ne v0, p0, :cond_4
-
-    return v3
+    return p0
 
     :cond_4
     :goto_0
@@ -2420,6 +2475,17 @@
 .method static shouldSpeciallyUpdateGsmCdma(Landroid/content/Context;I)Z
     .locals 4
 
+    invoke-static {p0, p1}, Lcom/android/settings/network/telephony/MobileNetworkUtils;->isWorldMode(Landroid/content/Context;I)Z
+
+    move-result v0
+
+    const/4 v1, 0x0
+
+    if-nez v0, :cond_0
+
+    return v1
+
+    :cond_0
     const-class v0, Landroid/telephony/TelephonyManager;
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
@@ -2431,8 +2497,6 @@
     invoke-virtual {v0, p1}, Landroid/telephony/TelephonyManager;->createForSubscriptionId(I)Landroid/telephony/TelephonyManager;
 
     move-result-object v0
-
-    const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/telephony/TelephonyManager;->getAllowedNetworkTypesForReason(I)J
 
@@ -2446,46 +2510,40 @@
 
     const/16 v2, 0x11
 
-    if-eq v0, v2, :cond_0
+    if-eq v0, v2, :cond_1
 
     const/16 v2, 0x14
 
-    if-eq v0, v2, :cond_0
+    if-eq v0, v2, :cond_1
 
     const/16 v2, 0xf
 
-    if-eq v0, v2, :cond_0
+    if-eq v0, v2, :cond_1
 
     const/16 v2, 0x13
 
-    if-eq v0, v2, :cond_0
+    if-eq v0, v2, :cond_1
 
     const/16 v2, 0x16
 
-    if-eq v0, v2, :cond_0
+    if-eq v0, v2, :cond_1
 
     const/16 v2, 0xa
 
-    if-ne v0, v2, :cond_1
+    if-ne v0, v2, :cond_2
 
-    :cond_0
+    :cond_1
     invoke-static {p0, p1}, Lcom/android/settings/network/telephony/MobileNetworkUtils;->isTdscdmaSupported(Landroid/content/Context;I)Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    invoke-static {p0, p1}, Lcom/android/settings/network/telephony/MobileNetworkUtils;->isWorldMode(Landroid/content/Context;I)Z
 
     move-result p0
 
-    if-eqz p0, :cond_1
+    if-nez p0, :cond_2
 
     const/4 p0, 0x1
 
     return p0
 
-    :cond_1
+    :cond_2
     return v1
 .end method
 
@@ -2598,7 +2656,7 @@
 
     move-result-object v0
 
-    const-string v2, "ro.setupwizard.esim_cid_ignore"
+    const-string/jumbo v2, "ro.setupwizard.esim_cid_ignore"
 
     const-string v3, ""
 
@@ -2616,7 +2674,7 @@
 
     move-result-object v2
 
-    const-string v3, "ro.boot.cid"
+    const-string/jumbo v3, "ro.boot.cid"
 
     invoke-static {v3}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 

@@ -18,7 +18,8 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroidx/constraintlayout/solver/Pools$Pool<",
-            "*>;"
+            "Ljava/lang/Object;",
+            ">;"
         }
     .end annotation
 .end field

@@ -29,6 +29,10 @@
 
 .field private callback:Landroidx/appcompat/view/menu/MenuPresenter$Callback;
 
+.field dividerInsetEnd:I
+
+.field dividerInsetStart:I
+
 .field hasCustomItemIconSize:Z
 
 .field headerLayout:Landroid/widget/LinearLayout;
@@ -49,6 +53,8 @@
 
 .field private itemMaxLines:I
 
+.field itemVerticalPadding:I
+
 .field layoutInflater:Landroid/view/LayoutInflater;
 
 .field menu:Landroidx/appcompat/view/menu/MenuBuilder;
@@ -63,9 +69,15 @@
 
 .field private paddingTopDefault:I
 
-.field textAppearance:I
+.field subheaderColor:Landroid/content/res/ColorStateList;
 
-.field textAppearanceSet:Z
+.field subheaderInsetEnd:I
+
+.field subheaderInsetStart:I
+
+.field subheaderTextAppearance:I
+
+.field textAppearance:I
 
 .field textColor:Landroid/content/res/ColorStateList;
 
@@ -75,6 +87,12 @@
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    const/4 v0, 0x0
+
+    iput v0, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->subheaderTextAppearance:I
+
+    iput v0, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->textAppearance:I
 
     const/4 v0, 0x1
 
@@ -232,6 +250,22 @@
     return-object p0
 .end method
 
+.method public getDividerInsetEnd()I
+    .locals 0
+
+    iget p0, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->dividerInsetEnd:I
+
+    return p0
+.end method
+
+.method public getDividerInsetStart()I
+    .locals 0
+
+    iget p0, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->dividerInsetStart:I
+
+    return p0
+.end method
+
 .method public getHeaderCount()I
     .locals 0
 
@@ -298,6 +332,14 @@
     iget-object p0, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->iconTintList:Landroid/content/res/ColorStateList;
 
     return-object p0
+.end method
+
+.method public getItemVerticalPadding()I
+    .locals 0
+
+    iget p0, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->itemVerticalPadding:I
+
+    return p0
 .end method
 
 .method public getMenuView(Landroid/view/ViewGroup;)Landroidx/appcompat/view/menu/MenuView;
@@ -375,6 +417,22 @@
     iget-object p0, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->menuView:Lcom/google/android/material/internal/NavigationMenuView;
 
     return-object p0
+.end method
+
+.method public getSubheaderInsetEnd()I
+    .locals 0
+
+    iget p0, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->subheaderInsetEnd:I
+
+    return p0
+.end method
+
+.method public getSubheaderInsetStart()I
+    .locals 0
+
+    iget p0, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->subheaderInsetStart:I
+
+    return p0
 .end method
 
 .method public inflateHeaderView(I)Landroid/view/View;
@@ -575,6 +633,30 @@
     return-void
 .end method
 
+.method public setDividerInsetEnd(I)V
+    .locals 0
+
+    iput p1, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->dividerInsetEnd:I
+
+    const/4 p1, 0x0
+
+    invoke-virtual {p0, p1}, Lcom/google/android/material/internal/NavigationMenuPresenter;->updateMenuView(Z)V
+
+    return-void
+.end method
+
+.method public setDividerInsetStart(I)V
+    .locals 0
+
+    iput p1, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->dividerInsetStart:I
+
+    const/4 p1, 0x0
+
+    invoke-virtual {p0, p1}, Lcom/google/android/material/internal/NavigationMenuPresenter;->updateMenuView(Z)V
+
+    return-void
+.end method
+
 .method public setId(I)V
     .locals 0
 
@@ -669,10 +751,6 @@
 
     iput p1, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->textAppearance:I
 
-    const/4 p1, 0x1
-
-    iput-boolean p1, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->textAppearanceSet:Z
-
     const/4 p1, 0x0
 
     invoke-virtual {p0, p1}, Lcom/google/android/material/internal/NavigationMenuPresenter;->updateMenuView(Z)V
@@ -684,6 +762,18 @@
     .locals 0
 
     iput-object p1, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->textColor:Landroid/content/res/ColorStateList;
+
+    const/4 p1, 0x0
+
+    invoke-virtual {p0, p1}, Lcom/google/android/material/internal/NavigationMenuPresenter;->updateMenuView(Z)V
+
+    return-void
+.end method
+
+.method public setItemVerticalPadding(I)V
+    .locals 0
+
+    iput p1, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->itemVerticalPadding:I
 
     const/4 p1, 0x0
 
@@ -704,6 +794,42 @@
     invoke-virtual {p0, p1}, Landroid/view/ViewGroup;->setOverScrollMode(I)V
 
     :cond_0
+    return-void
+.end method
+
+.method public setSubheaderColor(Landroid/content/res/ColorStateList;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->subheaderColor:Landroid/content/res/ColorStateList;
+
+    const/4 p1, 0x0
+
+    invoke-virtual {p0, p1}, Lcom/google/android/material/internal/NavigationMenuPresenter;->updateMenuView(Z)V
+
+    return-void
+.end method
+
+.method public setSubheaderInsetStart(I)V
+    .locals 0
+
+    iput p1, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->subheaderInsetStart:I
+
+    const/4 p1, 0x0
+
+    invoke-virtual {p0, p1}, Lcom/google/android/material/internal/NavigationMenuPresenter;->updateMenuView(Z)V
+
+    return-void
+.end method
+
+.method public setSubheaderTextAppearance(I)V
+    .locals 0
+
+    iput p1, p0, Lcom/google/android/material/internal/NavigationMenuPresenter;->subheaderTextAppearance:I
+
+    const/4 p1, 0x0
+
+    invoke-virtual {p0, p1}, Lcom/google/android/material/internal/NavigationMenuPresenter;->updateMenuView(Z)V
+
     return-void
 .end method
 

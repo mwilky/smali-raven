@@ -29,7 +29,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settings/TetherSettings;Lcom/android/settings/TetherSettings$1;)V
+.method synthetic constructor <init>(Lcom/android/settings/TetherSettings;Lcom/android/settings/TetherSettings$TetherChangeReceiver-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settings/TetherSettings$TetherChangeReceiver;-><init>(Lcom/android/settings/TetherSettings;)V
@@ -46,7 +46,7 @@
 
     move-result-object p1
 
-    invoke-static {}, Lcom/android/settings/TetherSettings;->access$000()Z
+    invoke-static {}, Lcom/android/settings/TetherSettings;->-$$Nest$sfgetDEBUG()Z
 
     move-result v0
 
@@ -93,7 +93,7 @@
 
     iget-object v0, p0, Lcom/android/settings/TetherSettings$TetherChangeReceiver;->this$0:Lcom/android/settings/TetherSettings;
 
-    invoke-static {v0}, Lcom/android/settings/TetherSettings;->access$100(Lcom/android/settings/TetherSettings;)V
+    invoke-static {v0}, Lcom/android/settings/TetherSettings;->-$$Nest$mupdateBluetoothState(Lcom/android/settings/TetherSettings;)V
 
     iget-object p0, p0, Lcom/android/settings/TetherSettings$TetherChangeReceiver;->this$0:Lcom/android/settings/TetherSettings;
 
@@ -138,15 +138,15 @@
 
     const/4 p2, 0x1
 
-    invoke-static {p1, p2}, Lcom/android/settings/TetherSettings;->access$202(Lcom/android/settings/TetherSettings;Z)Z
+    invoke-static {p1, p2}, Lcom/android/settings/TetherSettings;->-$$Nest$fputmMassStorageActive(Lcom/android/settings/TetherSettings;Z)V
 
     iget-object p1, p0, Lcom/android/settings/TetherSettings$TetherChangeReceiver;->this$0:Lcom/android/settings/TetherSettings;
 
-    invoke-static {p1}, Lcom/android/settings/TetherSettings;->access$300(Lcom/android/settings/TetherSettings;)V
+    invoke-static {p1}, Lcom/android/settings/TetherSettings;->-$$Nest$mupdateBluetoothAndEthernetState(Lcom/android/settings/TetherSettings;)V
 
     iget-object p0, p0, Lcom/android/settings/TetherSettings$TetherChangeReceiver;->this$0:Lcom/android/settings/TetherSettings;
 
-    invoke-static {p0}, Lcom/android/settings/TetherSettings;->access$400(Lcom/android/settings/TetherSettings;)V
+    invoke-static {p0}, Lcom/android/settings/TetherSettings;->-$$Nest$mupdateUsbPreference(Lcom/android/settings/TetherSettings;)V
 
     goto/16 :goto_1
 
@@ -163,15 +163,15 @@
 
     iget-object p1, p0, Lcom/android/settings/TetherSettings$TetherChangeReceiver;->this$0:Lcom/android/settings/TetherSettings;
 
-    invoke-static {p1, v1}, Lcom/android/settings/TetherSettings;->access$202(Lcom/android/settings/TetherSettings;Z)Z
+    invoke-static {p1, v1}, Lcom/android/settings/TetherSettings;->-$$Nest$fputmMassStorageActive(Lcom/android/settings/TetherSettings;Z)V
 
     iget-object p1, p0, Lcom/android/settings/TetherSettings$TetherChangeReceiver;->this$0:Lcom/android/settings/TetherSettings;
 
-    invoke-static {p1}, Lcom/android/settings/TetherSettings;->access$300(Lcom/android/settings/TetherSettings;)V
+    invoke-static {p1}, Lcom/android/settings/TetherSettings;->-$$Nest$mupdateBluetoothAndEthernetState(Lcom/android/settings/TetherSettings;)V
 
     iget-object p0, p0, Lcom/android/settings/TetherSettings$TetherChangeReceiver;->this$0:Lcom/android/settings/TetherSettings;
 
-    invoke-static {p0}, Lcom/android/settings/TetherSettings;->access$400(Lcom/android/settings/TetherSettings;)V
+    invoke-static {p0}, Lcom/android/settings/TetherSettings;->-$$Nest$mupdateUsbPreference(Lcom/android/settings/TetherSettings;)V
 
     goto :goto_1
 
@@ -192,15 +192,15 @@
 
     move-result p2
 
-    invoke-static {p1, p2}, Lcom/android/settings/TetherSettings;->access$502(Lcom/android/settings/TetherSettings;Z)Z
+    invoke-static {p1, p2}, Lcom/android/settings/TetherSettings;->-$$Nest$fputmUsbConnected(Lcom/android/settings/TetherSettings;Z)V
 
     iget-object p1, p0, Lcom/android/settings/TetherSettings$TetherChangeReceiver;->this$0:Lcom/android/settings/TetherSettings;
 
-    invoke-static {p1}, Lcom/android/settings/TetherSettings;->access$300(Lcom/android/settings/TetherSettings;)V
+    invoke-static {p1}, Lcom/android/settings/TetherSettings;->-$$Nest$mupdateBluetoothAndEthernetState(Lcom/android/settings/TetherSettings;)V
 
     iget-object p0, p0, Lcom/android/settings/TetherSettings$TetherChangeReceiver;->this$0:Lcom/android/settings/TetherSettings;
 
-    invoke-static {p0}, Lcom/android/settings/TetherSettings;->access$400(Lcom/android/settings/TetherSettings;)V
+    invoke-static {p0}, Lcom/android/settings/TetherSettings;->-$$Nest$mupdateUsbPreference(Lcom/android/settings/TetherSettings;)V
 
     goto :goto_1
 
@@ -215,7 +215,7 @@
 
     iget-object p1, p0, Lcom/android/settings/TetherSettings$TetherChangeReceiver;->this$0:Lcom/android/settings/TetherSettings;
 
-    invoke-static {p1}, Lcom/android/settings/TetherSettings;->access$600(Lcom/android/settings/TetherSettings;)Z
+    invoke-static {p1}, Lcom/android/settings/TetherSettings;->-$$Nest$fgetmBluetoothEnableForTether(Lcom/android/settings/TetherSettings;)Z
 
     move-result p1
 
@@ -246,24 +246,24 @@
 
     const/4 p2, 0x2
 
-    invoke-static {p1, p2}, Lcom/android/settings/TetherSettings;->access$700(Lcom/android/settings/TetherSettings;I)V
+    invoke-static {p1, p2}, Lcom/android/settings/TetherSettings;->-$$Nest$mstartTethering(Lcom/android/settings/TetherSettings;I)V
 
     iget-object p1, p0, Lcom/android/settings/TetherSettings$TetherChangeReceiver;->this$0:Lcom/android/settings/TetherSettings;
 
-    invoke-static {p1, v1}, Lcom/android/settings/TetherSettings;->access$602(Lcom/android/settings/TetherSettings;Z)Z
+    invoke-static {p1, v1}, Lcom/android/settings/TetherSettings;->-$$Nest$fputmBluetoothEnableForTether(Lcom/android/settings/TetherSettings;Z)V
 
     goto :goto_0
 
     :cond_6
     iget-object p1, p0, Lcom/android/settings/TetherSettings$TetherChangeReceiver;->this$0:Lcom/android/settings/TetherSettings;
 
-    invoke-static {p1, v1}, Lcom/android/settings/TetherSettings;->access$602(Lcom/android/settings/TetherSettings;Z)Z
+    invoke-static {p1, v1}, Lcom/android/settings/TetherSettings;->-$$Nest$fputmBluetoothEnableForTether(Lcom/android/settings/TetherSettings;Z)V
 
     :cond_7
     :goto_0
     iget-object p0, p0, Lcom/android/settings/TetherSettings$TetherChangeReceiver;->this$0:Lcom/android/settings/TetherSettings;
 
-    invoke-static {p0}, Lcom/android/settings/TetherSettings;->access$300(Lcom/android/settings/TetherSettings;)V
+    invoke-static {p0}, Lcom/android/settings/TetherSettings;->-$$Nest$mupdateBluetoothAndEthernetState(Lcom/android/settings/TetherSettings;)V
 
     goto :goto_1
 
@@ -278,7 +278,7 @@
 
     iget-object p0, p0, Lcom/android/settings/TetherSettings$TetherChangeReceiver;->this$0:Lcom/android/settings/TetherSettings;
 
-    invoke-static {p0}, Lcom/android/settings/TetherSettings;->access$300(Lcom/android/settings/TetherSettings;)V
+    invoke-static {p0}, Lcom/android/settings/TetherSettings;->-$$Nest$mupdateBluetoothAndEthernetState(Lcom/android/settings/TetherSettings;)V
 
     :cond_9
     :goto_1

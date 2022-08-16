@@ -8,7 +8,7 @@
 
 .field private static final FOOTER_HINT_KEY:Ljava/lang/String; = "power_menu_power_volume_up_hint"
 
-.field private static final KEY_CHORD_POWER_VOLUME_UP_DEFAULT_VALUE_RESOURCE:I = 0x10e0071
+.field private static final KEY_CHORD_POWER_VOLUME_UP_DEFAULT_VALUE_RESOURCE:I = 0x10e007a
 
 .field static final KEY_CHORD_POWER_VOLUME_UP_GLOBAL_ACTIONS:I = 0x2
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
@@ -60,7 +60,7 @@
 
     move-result-object p0
 
-    const v1, 0x10e0071
+    const v1, 0x10e007a
 
     invoke-virtual {p0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -107,7 +107,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f040f3c
+    const v1, 0x7f040fd3
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -119,7 +119,7 @@
 
     move-result-object v1
 
-    const v2, 0x111017d
+    const v2, 0x11101f4
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -139,7 +139,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f040f3b
+    const v2, 0x7f040fd2
 
     invoke-virtual {v0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -198,7 +198,7 @@
 
     move-result-object p1
 
-    const v2, 0x10e007d
+    const v2, 0x10e0086
 
     invoke-virtual {p1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -262,7 +262,7 @@
 
     move-result-object p1
 
-    const v1, 0x10e0071
+    const v1, 0x10e007a
 
     invoke-virtual {p1, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -283,18 +283,10 @@
 
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public displayPreference(Landroidx/preference/PreferenceScreen;)V
     .locals 1
 
-    invoke-super {p0, p1}, Lcom/android/settings/core/BasePreferenceController;->displayPreference(Landroidx/preference/PreferenceScreen;)V
+    invoke-super {p0, p1}, Lcom/android/settings/core/TogglePreferenceController;->displayPreference(Landroidx/preference/PreferenceScreen;)V
 
     const-string v0, "power_menu_power_volume_up_hint"
 
@@ -326,7 +318,7 @@
 
     move-result-object p0
 
-    const v0, 0x1110106
+    const v0, 0x1110172
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -347,15 +339,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -377,7 +360,7 @@
 .method public getSliceHighlightMenuRes()I
     .locals 0
 
-    const p0, 0x7f040d11
+    const p0, 0x7f040d8d
 
     return p0
 .end method
@@ -397,7 +380,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f040f3f
+    const v0, 0x7f040fd6
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -412,7 +395,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f040f3e
+    const v0, 0x7f040fd5
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -423,7 +406,7 @@
     :cond_1
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f040f3d
+    const v0, 0x7f040fd4
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -448,16 +431,6 @@
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
     invoke-static {p0}, Lcom/android/settings/gestures/PowerMenuSettingsUtils;->isLongPressPowerForAssistEnabled(Landroid/content/Context;)Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
 
     move-result p0
 

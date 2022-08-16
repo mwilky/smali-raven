@@ -56,7 +56,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settingslib/core/AbstractPreferenceController;->displayPreference(Landroidx/preference/PreferenceScreen;)V
 
-    const-string v0, "remove_account"
+    const-string/jumbo v0, "remove_account"
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceGroup;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -66,7 +66,7 @@
 
     iput-object p1, p0, Lcom/android/settings/accounts/RemoveAccountPreferenceController;->mRemoveAccountPreference:Lcom/android/settingslib/widget/LayoutPreference;
 
-    const v0, 0x7f0d0123
+    const v0, 0x7f0d0132
 
     invoke-virtual {p1, v0}, Lcom/android/settingslib/widget/LayoutPreference;->findViewById(I)Landroid/view/View;
 
@@ -82,7 +82,7 @@
 .method public getPreferenceKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "remove_account"
+    const-string/jumbo p0, "remove_account"
 
     return-object p0
 .end method

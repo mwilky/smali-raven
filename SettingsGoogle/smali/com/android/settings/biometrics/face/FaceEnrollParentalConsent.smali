@@ -23,14 +23,14 @@
 
     :array_0
     .array-data 4
-        0x7f041119
-        0x7f041135
-        0x7f04113e
-        0x7f04113f
-        0x7f04113d
-        0x7f04113a
-        0x7f041137
-        0x7f041136
+        0x7f0411cb
+        0x7f0411e7
+        0x7f0411f0
+        0x7f0411f1
+        0x7f0411ef
+        0x7f0411ec
+        0x7f0411e9
+        0x7f0411e8
     .end array-data
 .end method
 
@@ -49,7 +49,7 @@
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    const-string v1, "sensor_modality"
+    const-string/jumbo v1, "sensor_modality"
 
     const/16 v2, 0x8
 
@@ -85,7 +85,7 @@
 .method protected getHeaderResDefault()I
     .locals 0
 
-    const p0, 0x7f041119
+    const p0, 0x7f0411cb
 
     return p0
 .end method
@@ -93,7 +93,7 @@
 .method protected getHowMessage()I
     .locals 0
 
-    const p0, 0x7f04113a
+    const p0, 0x7f0411ec
 
     return p0
 .end method
@@ -101,7 +101,7 @@
 .method protected getInControlMessage()I
     .locals 0
 
-    const p0, 0x7f041136
+    const p0, 0x7f0411e8
 
     return p0
 .end method
@@ -109,7 +109,7 @@
 .method protected getInControlTitle()I
     .locals 0
 
-    const p0, 0x7f041137
+    const p0, 0x7f0411e9
 
     return p0
 .end method
@@ -117,7 +117,7 @@
 .method protected getInfoMessageGlasses()I
     .locals 0
 
-    const p0, 0x7f04113e
+    const p0, 0x7f0411f0
 
     return p0
 .end method
@@ -125,7 +125,7 @@
 .method protected getInfoMessageLooking()I
     .locals 0
 
-    const p0, 0x7f04113f
+    const p0, 0x7f0411f1
 
     return p0
 .end method
@@ -133,7 +133,7 @@
 .method protected getInfoMessageRequireEyes()I
     .locals 0
 
-    const p0, 0x7f04113d
+    const p0, 0x7f0411ef
 
     return p0
 .end method
@@ -151,7 +151,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/biometrics/face/FaceEnrollIntroduction;->onCreate(Landroid/os/Bundle;)V
 
-    const p1, 0x7f041135
+    const p1, 0x7f0411e7
 
     invoke-virtual {p0, p1}, Lcom/android/settings/biometrics/BiometricEnrollBase;->setDescriptionText(I)V
 

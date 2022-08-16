@@ -12,6 +12,24 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$-wUDRj95zy5FF__oB1ofm7JsT-g()Ljava/lang/String;
+    .locals 1
+
+    invoke-static {}, Lcom/android/settings/display/TimeoutListPreference;->lambda$updateTextOnDialog$0()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmAdmin(Lcom/android/settings/display/TimeoutListPreference;)Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/display/TimeoutListPreference;->mAdmin:Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
+
+    return-object p0
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 0
 
@@ -32,12 +50,79 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/settings/display/TimeoutListPreference;)Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
-    .locals 0
+.method private static synthetic lambda$updateTextOnDialog$0()Ljava/lang/String;
+    .locals 1
 
-    iget-object p0, p0, Lcom/android/settings/display/TimeoutListPreference;->mAdmin:Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
+    const/4 v0, 0x0
 
-    return-object p0
+    return-object v0
+.end method
+
+.method private updateTextOnDialog(Landroidx/appcompat/app/AlertDialog$Builder;)V
+    .locals 3
+
+    invoke-virtual {p0}, Landroidx/preference/Preference;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    const-class v1, Landroid/view/LayoutInflater;
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/view/LayoutInflater;
+
+    invoke-virtual {p0}, Landroidx/preference/Preference;->getContext()Landroid/content/Context;
+
+    move-result-object p0
+
+    const-class v1, Landroid/app/admin/DevicePolicyManager;
+
+    invoke-virtual {p0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Landroid/app/admin/DevicePolicyManager;
+
+    const v1, 0x7f060043
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v1, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroidx/appcompat/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroidx/appcompat/app/AlertDialog$Builder;
+
+    const p1, 0x7f0d0067
+
+    invoke-virtual {v0, p1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object p1
+
+    check-cast p1, Landroid/widget/TextView;
+
+    invoke-virtual {p0}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
+
+    move-result-object p0
+
+    new-instance v0, Lcom/android/settings/display/TimeoutListPreference$$ExternalSyntheticLambda0;
+
+    invoke-direct {v0}, Lcom/android/settings/display/TimeoutListPreference$$ExternalSyntheticLambda0;-><init>()V
+
+    const-string v1, "Settings.OTHER_OPTIONS_DISABLED_BY_ADMIN"
+
+    invoke-virtual {p0, v1, v0}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
+
+    move-result-object p0
+
+    if-eqz p0, :cond_0
+
+    invoke-virtual {p1, p0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    :cond_0
+    return-void
 .end method
 
 
@@ -59,7 +144,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f0d0068
+    const v0, 0x7f0d0069
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -80,13 +165,11 @@
 
     invoke-super {p0, p1, p2}, Lcom/android/settings/RestrictedListPreference;->onPrepareDialogBuilder(Landroidx/appcompat/app/AlertDialog$Builder;Landroid/content/DialogInterface$OnClickListener;)V
 
-    iget-object p0, p0, Lcom/android/settings/display/TimeoutListPreference;->mAdmin:Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
+    iget-object p2, p0, Lcom/android/settings/display/TimeoutListPreference;->mAdmin:Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
 
-    if-eqz p0, :cond_0
+    if-eqz p2, :cond_0
 
-    const p0, 0x7f06003f
-
-    invoke-virtual {p1, p0}, Landroidx/appcompat/app/AlertDialog$Builder;->setView(I)Landroidx/appcompat/app/AlertDialog$Builder;
+    invoke-direct {p0, p1}, Lcom/android/settings/display/TimeoutListPreference;->updateTextOnDialog(Landroidx/appcompat/app/AlertDialog$Builder;)V
 
     goto :goto_0
 

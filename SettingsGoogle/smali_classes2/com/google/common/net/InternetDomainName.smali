@@ -3,11 +3,6 @@
 .source "InternetDomainName.java"
 
 
-# annotations
-.annotation runtime Lcom/google/errorprone/annotations/Immutable;
-.end annotation
-
-
 # static fields
 .field private static final DASH_MATCHER:Lcom/google/common/base/CharMatcher;
 

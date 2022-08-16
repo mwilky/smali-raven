@@ -193,7 +193,7 @@
     goto/16 :goto_0
 
     :sswitch_3
-    const-string v0, "rotation"
+    const-string/jumbo v0, "rotation"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -209,7 +209,7 @@
     goto/16 :goto_0
 
     :sswitch_4
-    const-string v0, "scaleY"
+    const-string/jumbo v0, "scaleY"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -225,7 +225,7 @@
     goto :goto_0
 
     :sswitch_5
-    const-string v0, "scaleX"
+    const-string/jumbo v0, "scaleX"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -305,7 +305,7 @@
     goto :goto_0
 
     :sswitch_a
-    const-string v0, "rotationY"
+    const-string/jumbo v0, "rotationY"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -321,7 +321,7 @@
     goto :goto_0
 
     :sswitch_b
-    const-string v0, "rotationX"
+    const-string/jumbo v0, "rotationX"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -427,6 +427,8 @@
     invoke-virtual {p0, p1, p2}, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->setStartTime(J)V
 
     return-object p0
+
+    nop
 
     :sswitch_data_0
     .sparse-switch
@@ -724,7 +726,7 @@
 .end method
 
 .method public setPoint(IFFIF)V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->mTimePoints:[I
 
@@ -734,23 +736,19 @@
 
     iget-object p1, p0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->mValues:[[F
 
-    aget-object v0, p1, v1
-
-    const/4 v2, 0x0
-
-    aput p2, v0, v2
-
-    aget-object p2, p1, v1
-
-    const/4 v0, 0x1
-
-    aput p3, p2, v0
-
     aget-object p1, p1, v1
 
-    const/4 p2, 0x2
+    const/4 v0, 0x0
 
-    aput p5, p1, p2
+    aput p2, p1, v0
+
+    const/4 p2, 0x1
+
+    aput p3, p1, p2
+
+    const/4 p3, 0x2
+
+    aput p5, p1, p3
 
     iget p1, p0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->mWaveShape:I
 
@@ -762,7 +760,7 @@
 
     iget p1, p0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->count:I
 
-    add-int/2addr p1, v0
+    add-int/2addr p1, p2
 
     iput p1, p0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->count:I
 
@@ -917,27 +915,19 @@
 
     iget-object v8, p0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->mValues:[[F
 
-    aget-object v9, v8, v2
+    aget-object v8, v8, v2
 
-    aget v9, v9, v4
+    aget v9, v8, v4
 
     float-to-double v9, v9
 
     aput-wide v9, v7, v4
 
-    aget-object v7, v1, v6
-
-    aget-object v9, v8, v2
-
-    aget v9, v9, v3
+    aget v9, v8, v3
 
     float-to-double v9, v9
 
     aput-wide v9, v7, v3
-
-    aget-object v7, v1, v6
-
-    aget-object v8, v8, v2
 
     aget v8, v8, v5
 

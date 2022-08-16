@@ -6,8 +6,6 @@
 # static fields
 .field protected static final DEBUG:Z
 
-.field private static final RDN:Landroid/hardware/google/pixel/vendor/PixelAtoms$ReverseDomainNames;
-
 
 # direct methods
 .method static constructor <clinit>()V
@@ -23,18 +21,6 @@
 
     sput-boolean v0, Lcom/google/android/systemui/reversecharging/ReverseChargingMetrics;->DEBUG:Z
 
-    invoke-static {}, Landroid/hardware/google/pixel/vendor/PixelAtoms$ReverseDomainNames;->newBuilder()Landroid/hardware/google/pixel/vendor/PixelAtoms$ReverseDomainNames$Builder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/google/protobuf/GeneratedMessageLite$Builder;->build()Lcom/google/protobuf/GeneratedMessageLite;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/hardware/google/pixel/vendor/PixelAtoms$ReverseDomainNames;
-
-    sput-object v0, Lcom/google/android/systemui/reversecharging/ReverseChargingMetrics;->RDN:Landroid/hardware/google/pixel/vendor/PixelAtoms$ReverseDomainNames;
-
     return-void
 .end method
 
@@ -45,11 +31,7 @@
 
     invoke-direct {v0}, Landroid/frameworks/stats/VendorAtom;-><init>()V
 
-    sget-object v1, Lcom/google/android/systemui/reversecharging/ReverseChargingMetrics;->RDN:Landroid/hardware/google/pixel/vendor/PixelAtoms$ReverseDomainNames;
-
-    invoke-virtual {v1}, Landroid/hardware/google/pixel/vendor/PixelAtoms$ReverseDomainNames;->getPixel()Ljava/lang/String;
-
-    move-result-object v1
+    const-string v1, ""
 
     iput-object v1, v0, Landroid/frameworks/stats/VendorAtom;->reverseDomainName:Ljava/lang/String;
 

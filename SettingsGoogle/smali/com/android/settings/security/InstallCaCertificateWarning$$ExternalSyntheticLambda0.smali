@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settings/security/InstallCaCertificateWarning$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/view/View$OnClickListener;
@@ -27,7 +28,7 @@
 
     iget-object p0, p0, Lcom/android/settings/security/InstallCaCertificateWarning$$ExternalSyntheticLambda0;->f$0:Lcom/android/settings/security/InstallCaCertificateWarning;
 
-    invoke-static {p0, p1}, Lcom/android/settings/security/InstallCaCertificateWarning;->$r8$lambda$uM6MGAsdF_dk3JXGEMCQPYqJBH0(Lcom/android/settings/security/InstallCaCertificateWarning;Landroid/view/View;)V
+    invoke-static {p0, p1}, Lcom/android/settings/security/InstallCaCertificateWarning;->$r8$lambda$wDMkfIz9WL3ID66z2BfcJQDEoJU(Lcom/android/settings/security/InstallCaCertificateWarning;Landroid/view/View;)V
 
     return-void
 .end method

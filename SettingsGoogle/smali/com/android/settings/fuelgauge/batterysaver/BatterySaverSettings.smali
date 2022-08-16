@@ -25,7 +25,7 @@
 
     new-instance v0, Lcom/android/settings/search/BaseSearchIndexProvider;
 
-    const v1, 0x7f150036
+    const v1, 0x7f150037
 
     invoke-direct {v0, v1}, Lcom/android/settings/search/BaseSearchIndexProvider;-><init>(I)V
 
@@ -63,7 +63,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f040a22
+    const v0, 0x7f040a7b
 
     invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -99,23 +99,19 @@
 
     if-eqz v0, :cond_0
 
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setSelectable(Z)V
-
     new-instance v1, Lcom/android/settings/fuelgauge/batterysaver/BatterySaverSettings$$ExternalSyntheticLambda0;
 
     invoke-direct {v1, p0}, Lcom/android/settings/fuelgauge/batterysaver/BatterySaverSettings$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/fuelgauge/batterysaver/BatterySaverSettings;)V
 
     invoke-virtual {v0, v1}, Lcom/android/settingslib/widget/FooterPreference;->setLearnMoreAction(Landroid/view/View$OnClickListener;)V
 
-    const v1, 0x7f0403a1
+    const v1, 0x7f0403df
 
     invoke-virtual {p0, v1}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
     move-result-object p0
 
-    invoke-virtual {v0, p0}, Lcom/android/settingslib/widget/FooterPreference;->setLearnMoreContentDescription(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, p0}, Lcom/android/settingslib/widget/FooterPreference;->setLearnMoreText(Ljava/lang/CharSequence;)V
 
     :cond_0
     return-void
@@ -124,7 +120,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a22
+    const p0, 0x7f040a7b
 
     return p0
 .end method
@@ -148,7 +144,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150036
+    const p0, 0x7f150037
 
     return p0
 .end method
@@ -166,7 +162,7 @@
 .method setupFooter()V
     .locals 1
 
-    const v0, 0x7f040a22
+    const v0, 0x7f040a7b
 
     invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 

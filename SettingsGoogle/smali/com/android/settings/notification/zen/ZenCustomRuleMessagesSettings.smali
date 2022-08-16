@@ -15,7 +15,7 @@
 
 # virtual methods
 .method protected createPreferenceControllers(Landroid/content/Context;)Ljava/util/List;
-    .locals 5
+    .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -33,33 +33,27 @@
 
     iput-object v0, p0, Lcom/android/settings/notification/zen/ZenCustomRuleSettingsBase;->mControllers:Ljava/util/List;
 
-    new-instance v1, Lcom/android/settings/notification/zen/ZenRuleMessagesPreferenceController;
+    new-instance v7, Lcom/android/settings/notification/zen/ZenRulePrioritySendersPreferenceController;
 
     invoke-virtual {p0}, Lcom/android/settingslib/core/lifecycle/ObservablePreferenceFragment;->getSettingsLifecycle()Lcom/android/settingslib/core/lifecycle/Lifecycle;
 
-    move-result-object v2
+    move-result-object v4
 
-    const-string/jumbo v3, "zen_mode_messages"
+    new-instance v6, Lcom/android/settings/notification/NotificationBackend;
 
-    invoke-direct {v1, p1, v3, v2}, Lcom/android/settings/notification/zen/ZenRuleMessagesPreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
+    invoke-direct {v6}, Lcom/android/settings/notification/NotificationBackend;-><init>()V
 
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    const-string/jumbo v3, "zen_mode_settings_category_messages"
 
-    iget-object v0, p0, Lcom/android/settings/notification/zen/ZenCustomRuleSettingsBase;->mControllers:Ljava/util/List;
+    const/4 v5, 0x1
 
-    new-instance v1, Lcom/android/settings/notification/zen/ZenRuleStarredContactsPreferenceController;
+    move-object v1, v7
 
-    invoke-virtual {p0}, Lcom/android/settingslib/core/lifecycle/ObservablePreferenceFragment;->getSettingsLifecycle()Lcom/android/settingslib/core/lifecycle/Lifecycle;
+    move-object v2, p1
 
-    move-result-object v2
+    invoke-direct/range {v1 .. v6}, Lcom/android/settings/notification/zen/ZenRulePrioritySendersPreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;Lcom/android/settingslib/core/lifecycle/Lifecycle;ZLcom/android/settings/notification/NotificationBackend;)V
 
-    const/4 v3, 0x2
-
-    const-string/jumbo v4, "zen_mode_starred_contacts_messages"
-
-    invoke-direct {v1, p1, v2, v3, v4}, Lcom/android/settings/notification/zen/ZenRuleStarredContactsPreferenceController;-><init>(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;ILjava/lang/String;)V
-
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v7}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     iget-object p0, p0, Lcom/android/settings/notification/zen/ZenCustomRuleSettingsBase;->mControllers:Ljava/util/List;
 
@@ -95,7 +89,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150126
+    const p0, 0x7f15012e
 
     return p0
 .end method
@@ -159,7 +153,7 @@
 
     aput-object p0, v2, v3
 
-    const p0, 0x7f04181e
+    const p0, 0x7f041919
 
     invoke-virtual {v1, p0, v2}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

@@ -1,5 +1,6 @@
 .class public final synthetic Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroidx/mediarouter/media/RegisteredMediaRouteProvider$ControllerCallback;

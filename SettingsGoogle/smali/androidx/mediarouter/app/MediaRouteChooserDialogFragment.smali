@@ -41,7 +41,7 @@
 
     if-eqz v0, :cond_0
 
-    const-string v1, "selector"
+    const-string/jumbo v1, "selector"
 
     invoke-virtual {v0, v1}, Landroid/os/Bundle;->getBundle(Ljava/lang/String;)Landroid/os/Bundle;
 
@@ -80,14 +80,6 @@
 
 .method public onConfigurationChanged(Landroid/content/res/Configuration;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "newConfig"
-        }
-    .end annotation
 
     invoke-super {p0, p1}, Landroidx/fragment/app/Fragment;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
@@ -119,16 +111,6 @@
 
 .method public onCreateChooserDialog(Landroid/content/Context;Landroid/os/Bundle;)Landroidx/mediarouter/app/MediaRouteChooserDialog;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "savedInstanceState"
-        }
-    .end annotation
 
     new-instance p0, Landroidx/mediarouter/app/MediaRouteChooserDialog;
 
@@ -139,14 +121,6 @@
 
 .method public onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "savedInstanceState"
-        }
-    .end annotation
 
     iget-boolean v0, p0, Landroidx/mediarouter/app/MediaRouteChooserDialogFragment;->mUseDynamicGroup:Z
 
@@ -162,7 +136,9 @@
 
     iput-object p1, p0, Landroidx/mediarouter/app/MediaRouteChooserDialogFragment;->mDialog:Landroid/app/Dialog;
 
-    check-cast p1, Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog;
+    move-object v0, p1
+
+    check-cast v0, Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog;
 
     invoke-virtual {p0}, Landroidx/mediarouter/app/MediaRouteChooserDialogFragment;->getRouteSelector()Landroidx/mediarouter/media/MediaRouteSelector;
 
@@ -183,7 +159,9 @@
 
     iput-object p1, p0, Landroidx/mediarouter/app/MediaRouteChooserDialogFragment;->mDialog:Landroid/app/Dialog;
 
-    check-cast p1, Landroidx/mediarouter/app/MediaRouteChooserDialog;
+    move-object v0, p1
+
+    check-cast v0, Landroidx/mediarouter/app/MediaRouteChooserDialog;
 
     invoke-virtual {p0}, Landroidx/mediarouter/app/MediaRouteChooserDialogFragment;->getRouteSelector()Landroidx/mediarouter/media/MediaRouteSelector;
 
@@ -199,14 +177,6 @@
 
 .method public onCreateDynamicChooserDialog(Landroid/content/Context;)Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "context"
-        }
-    .end annotation
 
     new-instance p0, Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog;
 
@@ -217,14 +187,6 @@
 
 .method public setRouteSelector(Landroidx/mediarouter/media/MediaRouteSelector;)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "selector"
-        }
-    .end annotation
 
     if-eqz p1, :cond_3
 
@@ -255,7 +217,7 @@
 
     move-result-object v1
 
-    const-string v2, "selector"
+    const-string/jumbo v2, "selector"
 
     invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
 
@@ -287,7 +249,7 @@
     :cond_3
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string p1, "selector must not be null"
+    const-string/jumbo p1, "selector must not be null"
 
     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
@@ -296,14 +258,6 @@
 
 .method setUseDynamicGroup(Z)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "useDynamicGroup"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteChooserDialogFragment;->mDialog:Landroid/app/Dialog;
 

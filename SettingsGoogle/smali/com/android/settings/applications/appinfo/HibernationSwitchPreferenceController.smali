@@ -3,8 +3,6 @@
 .source "HibernationSwitchPreferenceController.java"
 
 # interfaces
-.implements Landroidx/lifecycle/LifecycleObserver;
-.implements Landroid/app/AppOpsManager$OnOpChangedListener;
 .implements Landroidx/preference/Preference$OnPreferenceChangeListener;
 
 
@@ -15,6 +13,10 @@
 # instance fields
 .field private final mAppOpsManager:Landroid/app/AppOpsManager;
 
+.field private mHibernationEligibility:I
+
+.field private mHibernationEligibilityLoaded:Z
+
 .field private mIsPackageExemptByDefault:Z
 
 .field mIsPackageSet:Z
@@ -23,22 +25,46 @@
 
 .field private mPackageUid:I
 
+.field private final mPermissionControllerManager:Landroid/permission/PermissionControllerManager;
+
 
 # direct methods
+.method public static synthetic $r8$lambda$BNLGCyHiU-GTXpzRMAp70PRIt0o(Lcom/android/settings/applications/appinfo/HibernationSwitchPreferenceController;Landroidx/preference/Preference;I)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/settings/applications/appinfo/HibernationSwitchPreferenceController;->lambda$updateState$0(Landroidx/preference/Preference;I)V
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/settings/applications/appinfo/AppInfoPreferenceControllerBase;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
+    const/4 p2, -0x1
+
+    iput p2, p0, Lcom/android/settings/applications/appinfo/HibernationSwitchPreferenceController;->mHibernationEligibility:I
+
     const-class p2, Landroid/app/AppOpsManager;
+
+    invoke-virtual {p1, p2}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object p2
+
+    check-cast p2, Landroid/app/AppOpsManager;
+
+    iput-object p2, p0, Lcom/android/settings/applications/appinfo/HibernationSwitchPreferenceController;->mAppOpsManager:Landroid/app/AppOpsManager;
+
+    const-class p2, Landroid/permission/PermissionControllerManager;
 
     invoke-virtual {p1, p2}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object p1
 
-    check-cast p1, Landroid/app/AppOpsManager;
+    check-cast p1, Landroid/permission/PermissionControllerManager;
 
-    iput-object p1, p0, Lcom/android/settings/applications/appinfo/HibernationSwitchPreferenceController;->mAppOpsManager:Landroid/app/AppOpsManager;
+    iput-object p1, p0, Lcom/android/settings/applications/appinfo/HibernationSwitchPreferenceController;->mPermissionControllerManager:Landroid/permission/PermissionControllerManager;
 
     return-void
 .end method
@@ -59,6 +85,32 @@
     return v0
 .end method
 
+.method private isAppEligibleForHibernation()Z
+    .locals 2
+
+    iget-boolean v0, p0, Lcom/android/settings/applications/appinfo/HibernationSwitchPreferenceController;->mHibernationEligibilityLoaded:Z
+
+    const/4 v1, 0x1
+
+    if-eqz v0, :cond_0
+
+    iget p0, p0, Lcom/android/settings/applications/appinfo/HibernationSwitchPreferenceController;->mHibernationEligibility:I
+
+    if-eq p0, v1, :cond_0
+
+    const/4 v0, -0x1
+
+    if-eq p0, v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v1, 0x0
+
+    :goto_0
+    return v1
+.end method
+
 .method private static isHibernationEnabled()Z
     .locals 3
 
@@ -75,16 +127,22 @@
     return v0
 .end method
 
-
-# virtual methods
-.method public bridge synthetic copy()V
+.method private synthetic lambda$updateState$0(Landroidx/preference/Preference;I)V
     .locals 0
 
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
+    iput p2, p0, Lcom/android/settings/applications/appinfo/HibernationSwitchPreferenceController;->mHibernationEligibility:I
+
+    const/4 p2, 0x1
+
+    iput-boolean p2, p0, Lcom/android/settings/applications/appinfo/HibernationSwitchPreferenceController;->mHibernationEligibilityLoaded:Z
+
+    invoke-virtual {p0, p1}, Lcom/android/settings/applications/appinfo/HibernationSwitchPreferenceController;->updateState(Landroidx/preference/Preference;)V
 
     return-void
 .end method
 
+
+# virtual methods
 .method public getAvailabilityStatus()I
     .locals 1
 
@@ -111,15 +169,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -152,16 +201,6 @@
     .locals 0
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->hasAsyncUpdate()Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
 
     move-result p0
 
@@ -232,46 +271,6 @@
     return p0
 .end method
 
-.method public onOpChanged(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 1
-
-    const-string v0, "android:auto_revoke_permissions_if_unused"
-
-    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p1
-
-    if-eqz p1, :cond_0
-
-    iget-object p1, p0, Lcom/android/settings/applications/appinfo/HibernationSwitchPreferenceController;->mPackageName:Ljava/lang/String;
-
-    invoke-static {p1, p2}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
-
-    move-result p1
-
-    if-eqz p1, :cond_0
-
-    iget-object p1, p0, Lcom/android/settings/applications/appinfo/AppInfoPreferenceControllerBase;->mPreference:Landroidx/preference/Preference;
-
-    invoke-virtual {p0, p1}, Lcom/android/settings/applications/appinfo/HibernationSwitchPreferenceController;->updateState(Landroidx/preference/Preference;)V
-
-    :cond_0
-    return-void
-.end method
-
-.method public onPause()V
-    .locals 1
-    .annotation runtime Landroidx/lifecycle/OnLifecycleEvent;
-        value = .enum Landroidx/lifecycle/Lifecycle$Event;->ON_PAUSE:Landroidx/lifecycle/Lifecycle$Event;
-    .end annotation
-
-    iget-object v0, p0, Lcom/android/settings/applications/appinfo/HibernationSwitchPreferenceController;->mAppOpsManager:Landroid/app/AppOpsManager;
-
-    invoke-virtual {v0, p0}, Landroid/app/AppOpsManager;->stopWatchingMode(Landroid/app/AppOpsManager$OnOpChangedListener;)V
-
-    return-void
-.end method
-
 .method public onPreferenceChange(Landroidx/preference/Preference;Ljava/lang/Object;)Z
     .locals 5
 
@@ -331,28 +330,6 @@
 
     :catch_0
     return p1
-.end method
-
-.method public onResume()V
-    .locals 3
-    .annotation runtime Landroidx/lifecycle/OnLifecycleEvent;
-        value = .enum Landroidx/lifecycle/Lifecycle$Event;->ON_RESUME:Landroidx/lifecycle/Lifecycle$Event;
-    .end annotation
-
-    iget-boolean v0, p0, Lcom/android/settings/applications/appinfo/HibernationSwitchPreferenceController;->mIsPackageSet:Z
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/settings/applications/appinfo/HibernationSwitchPreferenceController;->mAppOpsManager:Landroid/app/AppOpsManager;
-
-    iget-object v1, p0, Lcom/android/settings/applications/appinfo/HibernationSwitchPreferenceController;->mPackageName:Ljava/lang/String;
-
-    const-string v2, "android:auto_revoke_permissions_if_unused"
-
-    invoke-virtual {v0, v2, v1, p0}, Landroid/app/AppOpsManager;->startWatchingMode(Ljava/lang/String;Ljava/lang/String;Landroid/app/AppOpsManager$OnOpChangedListener;)V
-
-    :cond_0
-    return-void
 .end method
 
 .method setPackage(Ljava/lang/String;)V
@@ -454,20 +431,63 @@
 .end method
 
 .method public updateState(Landroidx/preference/Preference;)V
-    .locals 0
+    .locals 4
 
     invoke-super {p0, p1}, Lcom/android/settingslib/core/AbstractPreferenceController;->updateState(Landroidx/preference/Preference;)V
 
-    check-cast p1, Landroidx/preference/SwitchPreference;
+    move-object v0, p1
+
+    check-cast v0, Landroidx/preference/SwitchPreference;
+
+    invoke-direct {p0}, Lcom/android/settings/applications/appinfo/HibernationSwitchPreferenceController;->isAppEligibleForHibernation()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
 
     invoke-virtual {p0}, Lcom/android/settings/applications/appinfo/HibernationSwitchPreferenceController;->isPackageHibernationExemptByUser()Z
 
-    move-result p0
+    move-result v1
 
-    xor-int/lit8 p0, p0, 0x1
+    if-nez v1, :cond_0
 
-    invoke-virtual {p1, p0}, Landroidx/preference/TwoStatePreference;->setChecked(Z)V
+    const/4 v1, 0x1
 
+    goto :goto_0
+
+    :cond_0
+    const/4 v1, 0x0
+
+    :goto_0
+    invoke-virtual {v0, v1}, Landroidx/preference/TwoStatePreference;->setChecked(Z)V
+
+    invoke-direct {p0}, Lcom/android/settings/applications/appinfo/HibernationSwitchPreferenceController;->isAppEligibleForHibernation()Z
+
+    move-result v0
+
+    invoke-virtual {p1, v0}, Landroidx/preference/Preference;->setEnabled(Z)V
+
+    iget-boolean v0, p0, Lcom/android/settings/applications/appinfo/HibernationSwitchPreferenceController;->mHibernationEligibilityLoaded:Z
+
+    if-nez v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/settings/applications/appinfo/HibernationSwitchPreferenceController;->mPermissionControllerManager:Landroid/permission/PermissionControllerManager;
+
+    iget-object v1, p0, Lcom/android/settings/applications/appinfo/HibernationSwitchPreferenceController;->mPackageName:Ljava/lang/String;
+
+    iget-object v2, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getMainExecutor()Ljava/util/concurrent/Executor;
+
+    move-result-object v2
+
+    new-instance v3, Lcom/android/settings/applications/appinfo/HibernationSwitchPreferenceController$$ExternalSyntheticLambda0;
+
+    invoke-direct {v3, p0, p1}, Lcom/android/settings/applications/appinfo/HibernationSwitchPreferenceController$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/applications/appinfo/HibernationSwitchPreferenceController;Landroidx/preference/Preference;)V
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/permission/PermissionControllerManager;->getHibernationEligibility(Ljava/lang/String;Ljava/util/concurrent/Executor;Ljava/util/function/IntConsumer;)V
+
+    :cond_1
     return-void
 .end method
 

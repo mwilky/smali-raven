@@ -131,9 +131,15 @@
 .method public getHideApplicationSummary(Landroid/content/Context;)[Ljava/lang/CharSequence;
     .locals 0
 
-    const/4 p0, 0x0
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    new-array p0, p0, [Ljava/lang/CharSequence;
+    move-result-object p0
+
+    const p1, 0x7f01000f
+
+    invoke-virtual {p0, p1}, Landroid/content/res/Resources;->getTextArray(I)[Ljava/lang/CharSequence;
+
+    move-result-object p0
 
     return-object p0
 .end method
@@ -151,9 +157,9 @@
         }
     .end annotation
 
-    new-instance p0, Ljava/util/HashSet;
+    new-instance p0, Landroid/util/ArraySet;
 
-    invoke-direct {p0}, Ljava/util/HashSet;-><init>()V
+    invoke-direct {p0}, Landroid/util/ArraySet;-><init>()V
 
     return-object p0
 .end method
@@ -207,7 +213,7 @@
 
     move-result-object p0
 
-    const v0, 0x111013b
+    const v0, 0x11101ae
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 

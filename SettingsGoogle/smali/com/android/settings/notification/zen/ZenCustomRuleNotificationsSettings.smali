@@ -113,7 +113,7 @@
 .method getPreferenceCategoryKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "restrict_category"
+    const-string/jumbo p0, "restrict_category"
 
     return-object p0
 .end method
@@ -121,7 +121,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f15012b
+    const p0, 0x7f150133
 
     return p0
 .end method

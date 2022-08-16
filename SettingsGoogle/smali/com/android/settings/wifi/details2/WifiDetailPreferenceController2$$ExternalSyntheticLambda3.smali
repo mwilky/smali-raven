@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2$$ExternalSyntheticLambda3;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/view/View$OnClickListener;
@@ -27,7 +28,7 @@
 
     iget-object p0, p0, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2$$ExternalSyntheticLambda3;->f$0:Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;
 
-    invoke-static {p0, p1}, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;->$r8$lambda$buRB3udqNwk4WjTno9gdmxTxewA(Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;Landroid/view/View;)V
+    invoke-static {p0, p1}, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;->$r8$lambda$fRJi_UQ10yjT9qd_6GP7qSwa30c(Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;Landroid/view/View;)V
 
     return-void
 .end method

@@ -18,17 +18,15 @@
 
     aget-object v2, p1, v1
 
-    iget-object v2, v2, Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask$SlotUTData;->mQueryCallWaiting:Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask$QueryCallWaitingCommand;
+    iget-object v3, v2, Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask$SlotUTData;->mQueryCallWaiting:Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask$QueryCallWaitingCommand;
 
-    iget v2, v2, Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask$QueryCallWaitingCommand;->result:I
+    iget v3, v3, Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask$QueryCallWaitingCommand;->result:I
 
-    aget-object v3, p1, v1
-
-    iget v3, v3, Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask$SlotUTData;->subId:I
+    iget v2, v2, Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask$SlotUTData;->subId:I
 
     const/4 v4, 0x1
 
-    if-ne v2, v4, :cond_0
+    if-ne v3, v4, :cond_0
 
     goto :goto_1
 
@@ -36,19 +34,17 @@
     move v4, v0
 
     :goto_1
-    invoke-static {p0, v3, v4}, Lcom/android/settings/sim/smartForwarding/SmartForwardingUtils;->saveCallWaitingStatus(Landroid/content/Context;IZ)V
+    invoke-static {p0, v2, v4}, Lcom/android/settings/sim/smartForwarding/SmartForwardingUtils;->saveCallWaitingStatus(Landroid/content/Context;IZ)V
 
     aget-object v2, p1, v1
 
-    iget v2, v2, Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask$SlotUTData;->subId:I
+    iget v3, v2, Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask$SlotUTData;->subId:I
 
-    aget-object v3, p1, v1
+    iget-object v2, v2, Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask$SlotUTData;->mQueryCallForwarding:Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask$QueryCallForwardingCommand;
 
-    iget-object v3, v3, Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask$SlotUTData;->mQueryCallForwarding:Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask$QueryCallForwardingCommand;
+    iget-object v2, v2, Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask$QueryCallForwardingCommand;->result:Landroid/telephony/CallForwardingInfo;
 
-    iget-object v3, v3, Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask$QueryCallForwardingCommand;->result:Landroid/telephony/CallForwardingInfo;
-
-    invoke-static {p0, v2, v3}, Lcom/android/settings/sim/smartForwarding/SmartForwardingUtils;->saveCallForwardingStatus(Landroid/content/Context;ILandroid/telephony/CallForwardingInfo;)V
+    invoke-static {p0, v3, v2}, Lcom/android/settings/sim/smartForwarding/SmartForwardingUtils;->saveCallForwardingStatus(Landroid/content/Context;ILandroid/telephony/CallForwardingInfo;)V
 
     add-int/lit8 v1, v1, 0x1
 

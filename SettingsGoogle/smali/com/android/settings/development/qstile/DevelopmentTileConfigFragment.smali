@@ -13,7 +13,7 @@
 
     new-instance v0, Lcom/android/settings/development/qstile/DevelopmentTileConfigFragment$1;
 
-    const v1, 0x7f15005f
+    const v1, 0x7f150062
 
     invoke-direct {v0, v1}, Lcom/android/settings/development/qstile/DevelopmentTileConfigFragment$1;-><init>(I)V
 
@@ -51,7 +51,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f15005f
+    const p0, 0x7f150062
 
     return p0
 .end method

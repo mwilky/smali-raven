@@ -67,7 +67,7 @@
 
     iget-object p1, p0, Lcom/android/settings/development/OverlayCategoryPreferenceController$1;->this$0:Lcom/android/settings/development/OverlayCategoryPreferenceController;
 
-    invoke-static {p1}, Lcom/android/settings/development/OverlayCategoryPreferenceController;->access$000(Lcom/android/settings/development/OverlayCategoryPreferenceController;)Landroid/content/om/IOverlayManager;
+    invoke-static {p1}, Lcom/android/settings/development/OverlayCategoryPreferenceController;->-$$Nest$fgetmOverlayManager(Lcom/android/settings/development/OverlayCategoryPreferenceController;)Landroid/content/om/IOverlayManager;
 
     move-result-object p1
 
@@ -86,7 +86,7 @@
     :cond_0
     iget-object p1, p0, Lcom/android/settings/development/OverlayCategoryPreferenceController$1;->this$0:Lcom/android/settings/development/OverlayCategoryPreferenceController;
 
-    invoke-static {p1}, Lcom/android/settings/development/OverlayCategoryPreferenceController;->access$000(Lcom/android/settings/development/OverlayCategoryPreferenceController;)Landroid/content/om/IOverlayManager;
+    invoke-static {p1}, Lcom/android/settings/development/OverlayCategoryPreferenceController;->-$$Nest$fgetmOverlayManager(Lcom/android/settings/development/OverlayCategoryPreferenceController;)Landroid/content/om/IOverlayManager;
 
     move-result-object p1
 
@@ -137,7 +137,7 @@
 
     iget-object v0, p0, Lcom/android/settings/development/OverlayCategoryPreferenceController$1;->this$0:Lcom/android/settings/development/OverlayCategoryPreferenceController;
 
-    invoke-static {v0}, Lcom/android/settings/development/OverlayCategoryPreferenceController;->access$100(Lcom/android/settings/development/OverlayCategoryPreferenceController;)Landroidx/preference/ListPreference;
+    invoke-static {v0}, Lcom/android/settings/development/OverlayCategoryPreferenceController;->-$$Nest$fgetmPreference(Lcom/android/settings/development/OverlayCategoryPreferenceController;)Landroidx/preference/ListPreference;
 
     move-result-object v1
 
@@ -151,11 +151,11 @@
 
     iget-object p0, p0, Lcom/android/settings/development/OverlayCategoryPreferenceController$1;->this$0:Lcom/android/settings/development/OverlayCategoryPreferenceController;
 
-    invoke-static {p0}, Lcom/android/settings/development/OverlayCategoryPreferenceController;->access$200(Lcom/android/settings/development/OverlayCategoryPreferenceController;)Landroid/content/Context;
+    invoke-static {p0}, Lcom/android/settings/development/OverlayCategoryPreferenceController;->access$000(Lcom/android/settings/development/OverlayCategoryPreferenceController;)Landroid/content/Context;
 
     move-result-object p0
 
-    const p1, 0x7f040eee
+    const p1, 0x7f040f83
 
     const/4 v0, 0x1
 

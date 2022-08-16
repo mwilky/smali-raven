@@ -6,9 +6,6 @@
 # direct methods
 .method public static getUninterruptibly(Ljava/util/concurrent/Future;)Ljava/lang/Object;
     .locals 1
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<V:",

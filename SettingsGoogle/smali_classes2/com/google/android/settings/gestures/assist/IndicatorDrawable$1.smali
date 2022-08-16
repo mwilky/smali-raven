@@ -49,7 +49,7 @@
     :cond_0
     iget-object p0, p0, Lcom/google/android/settings/gestures/assist/IndicatorDrawable$1;->this$0:Lcom/google/android/settings/gestures/assist/IndicatorDrawable;
 
-    invoke-static {p0}, Lcom/google/android/settings/gestures/assist/IndicatorDrawable;->access$000(Lcom/google/android/settings/gestures/assist/IndicatorDrawable;)Landroid/animation/TimeAnimator;
+    invoke-static {p0}, Lcom/google/android/settings/gestures/assist/IndicatorDrawable;->-$$Nest$fgetmTimeAnimator(Lcom/google/android/settings/gestures/assist/IndicatorDrawable;)Landroid/animation/TimeAnimator;
 
     move-result-object p0
 
@@ -60,7 +60,7 @@
     :cond_1
     iget-object p0, p0, Lcom/google/android/settings/gestures/assist/IndicatorDrawable$1;->this$0:Lcom/google/android/settings/gestures/assist/IndicatorDrawable;
 
-    invoke-static {p0}, Lcom/google/android/settings/gestures/assist/IndicatorDrawable;->access$000(Lcom/google/android/settings/gestures/assist/IndicatorDrawable;)Landroid/animation/TimeAnimator;
+    invoke-static {p0}, Lcom/google/android/settings/gestures/assist/IndicatorDrawable;->-$$Nest$fgetmTimeAnimator(Lcom/google/android/settings/gestures/assist/IndicatorDrawable;)Landroid/animation/TimeAnimator;
 
     move-result-object p0
 

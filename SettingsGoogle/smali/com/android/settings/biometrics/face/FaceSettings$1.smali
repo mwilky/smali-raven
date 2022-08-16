@@ -95,7 +95,7 @@
 
     if-eqz p0, :cond_0
 
-    invoke-static {p1}, Lcom/android/settings/biometrics/face/FaceSettings;->access$000(Landroid/content/Context;)Ljava/util/List;
+    invoke-static {p1}, Lcom/android/settings/biometrics/face/FaceSettings;->-$$Nest$smbuildPreferenceControllers(Landroid/content/Context;)Ljava/util/List;
 
     move-result-object p0
 
@@ -164,12 +164,12 @@
 
     if-eqz v1, :cond_0
 
-    const-string v1, "security_settings_face_enroll_faces_container"
+    const-string/jumbo v1, "security_settings_face_enroll_faces_container"
 
     goto :goto_0
 
     :cond_0
-    const-string v1, "security_settings_face_delete_faces_container"
+    const-string/jumbo v1, "security_settings_face_delete_faces_container"
 
     :goto_0
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
@@ -181,7 +181,7 @@
 
     if-nez p0, :cond_2
 
-    const-string p0, "security_settings_face_require_attention"
+    const-string/jumbo p0, "security_settings_face_require_attention"
 
     invoke-interface {v0, p0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 

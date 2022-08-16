@@ -205,6 +205,7 @@
         <item>По-стари от 60 дни</item>
         <item>По-стари от 90 дни</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>0%</item>
         <item>50%</item>
@@ -348,17 +349,10 @@
         <item>Изпъкнали</item>
         <item>Вдлъбнати</item>
     </string-array>
-    <string-array name="captioning_font_size_selector_summaries">
-        <item>Много малък размер на текста</item>
-        <item>Малък размер на текста</item>
-        <item>Стандартен размер на текста</item>
-        <item>Голям размер на текста</item>
-        <item>Много голям размер на текста</item>
-    </string-array>
     <string-array name="captioning_font_size_selector_titles">
         <item>Много малък</item>
         <item>Малък</item>
-        <item>По подразбиране</item>
+        <item>Среден</item>
         <item>Голям</item>
         <item>Много голям</item>
     </string-array>
@@ -422,7 +416,7 @@
         <item>Цикъл на пренос...</item>
     </string-array>
     <string-array name="debug_hw_overdraw_entries">
-        <item>Изключено</item>
+        <item>Изкл.</item>
         <item>Области за преизчертаване: Показв.</item>
         <item>Показване на областите за деутеранопия</item>
     </string-array>
@@ -489,6 +483,14 @@
         <item>SPN</item>
         <item>IMSI</item>
         <item>GID</item>
+    </string-array>
+    <string-array name="nfc_payment_favor">
+        <item>Винаги</item>
+        <item>Освен при отворено друго приложение за плащане</item>
+    </string-array>
+    <string-array name="nfc_payment_favor_values">
+        <item>0</item>
+        <item>1</item>
     </string-array>
     <string-array name="overlay_display_devices_entries">
         <item>Няма</item>
@@ -616,6 +618,17 @@
     <string-array name="swipe_direction_values">
         <item>1</item>
         <item>0</item>
+    </string-array>
+    <string-array name="switch_to_user_zero_when_docked_timeout_entries">
+        <item>Никога</item>
+        <item>След 1 минута</item>
+        <item>След 5 минути</item>
+    </string-array>
+    <string-array name="tare_modifiers_subfactors">
+        <item>Зареждане</item>
+        <item>Режим на дрямка</item>
+        <item>Режим за пестене на захранване</item>
+        <item>Състояние на обработване</item>
     </string-array>
     <string-array name="timezone_filters">
         <item>Америка</item>

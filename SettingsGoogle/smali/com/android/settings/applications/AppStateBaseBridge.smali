@@ -23,6 +23,8 @@
 
 .field protected final mCallback:Lcom/android/settings/applications/AppStateBaseBridge$Callback;
 
+.field private mForceLoadAllApps:Z
+
 .field protected final mHandler:Lcom/android/settings/applications/AppStateBaseBridge$BackgroundHandler;
 
 .field protected final mMainHandler:Lcom/android/settings/applications/AppStateBaseBridge$MainHandler;
@@ -177,12 +179,24 @@
 .end method
 
 .method public pause()V
-    .locals 0
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/settings/applications/AppStateBaseBridge;->mForceLoadAllApps:Z
+
+    if-eqz v0, :cond_0
 
     iget-object p0, p0, Lcom/android/settings/applications/AppStateBaseBridge;->mAppSession:Lcom/android/settingslib/applications/ApplicationsState$Session;
 
     invoke-virtual {p0}, Lcom/android/settingslib/applications/ApplicationsState$Session;->onPause()V
 
+    goto :goto_0
+
+    :cond_0
+    iget-object p0, p0, Lcom/android/settings/applications/AppStateBaseBridge;->mAppSession:Lcom/android/settingslib/applications/ApplicationsState$Session;
+
+    invoke-virtual {p0}, Lcom/android/settingslib/applications/ApplicationsState$Session;->deactivateSession()V
+
+    :goto_0
     return-void
 .end method
 
@@ -196,19 +210,25 @@
     return-void
 .end method
 
-.method public resume()V
-    .locals 2
+.method public resume(Z)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/settings/applications/AppStateBaseBridge;->mHandler:Lcom/android/settings/applications/AppStateBaseBridge$BackgroundHandler;
+    iput-boolean p1, p0, Lcom/android/settings/applications/AppStateBaseBridge;->mForceLoadAllApps:Z
 
-    const/4 v1, 0x1
-
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
+    if-eqz p1, :cond_0
 
     iget-object p0, p0, Lcom/android/settings/applications/AppStateBaseBridge;->mAppSession:Lcom/android/settingslib/applications/ApplicationsState$Session;
 
     invoke-virtual {p0}, Lcom/android/settingslib/applications/ApplicationsState$Session;->onResume()V
 
+    goto :goto_0
+
+    :cond_0
+    iget-object p0, p0, Lcom/android/settings/applications/AppStateBaseBridge;->mAppSession:Lcom/android/settingslib/applications/ApplicationsState$Session;
+
+    invoke-virtual {p0}, Lcom/android/settingslib/applications/ApplicationsState$Session;->activateSession()V
+
+    :goto_0
     return-void
 .end method
 

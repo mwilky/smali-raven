@@ -49,7 +49,7 @@
 
     move-result p1
 
-    invoke-static {v0, p0, p1}, Lcom/android/settings/widget/DotsPageIndicator;->access$600(Lcom/android/settings/widget/DotsPageIndicator;IF)V
+    invoke-static {v0, p0, p1}, Lcom/android/settings/widget/DotsPageIndicator;->-$$Nest$msetJoiningFraction(Lcom/android/settings/widget/DotsPageIndicator;IF)V
 
     return-void
 .end method

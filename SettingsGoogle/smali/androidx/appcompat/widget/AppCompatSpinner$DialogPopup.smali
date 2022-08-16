@@ -256,17 +256,10 @@
 
     move-result-object v0
 
-    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v2, 0x11
-
-    if-lt v1, v2, :cond_2
-
     invoke-virtual {v0, p1}, Landroid/widget/ListView;->setTextDirection(I)V
 
     invoke-virtual {v0, p2}, Landroid/widget/ListView;->setTextAlignment(I)V
 
-    :cond_2
     iget-object p0, p0, Landroidx/appcompat/widget/AppCompatSpinner$DialogPopup;->mPopup:Landroidx/appcompat/app/AlertDialog;
 
     invoke-virtual {p0}, Landroid/app/Dialog;->show()V

@@ -155,7 +155,7 @@
     goto/16 :goto_0
 
     :sswitch_4
-    const-string v0, "rotation"
+    const-string/jumbo v0, "rotation"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -187,7 +187,7 @@
     goto/16 :goto_0
 
     :sswitch_6
-    const-string v0, "scaleY"
+    const-string/jumbo v0, "scaleY"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -203,7 +203,7 @@
     goto :goto_0
 
     :sswitch_7
-    const-string v0, "scaleX"
+    const-string/jumbo v0, "scaleX"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -283,7 +283,7 @@
     goto :goto_0
 
     :sswitch_c
-    const-string v0, "rotationY"
+    const-string/jumbo v0, "rotationY"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -299,7 +299,7 @@
     goto :goto_0
 
     :sswitch_d
-    const-string v0, "rotationX"
+    const-string/jumbo v0, "rotationX"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -416,8 +416,6 @@
     invoke-direct {p0}, Landroidx/constraintlayout/motion/widget/SplineSet$RotationXset;-><init>()V
 
     return-object p0
-
-    nop
 
     :sswitch_data_0
     .sparse-switch

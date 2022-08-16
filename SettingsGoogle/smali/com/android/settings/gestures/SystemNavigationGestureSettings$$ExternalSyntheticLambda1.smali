@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/settings/gestures/SystemNavigationGestureSettings$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnDismissListener;
+.implements Landroid/view/View$OnClickListener;
 
 
 # instance fields
@@ -22,12 +23,12 @@
 
 
 # virtual methods
-.method public final onDismiss(Landroid/content/DialogInterface;)V
+.method public final onClick(Landroid/view/View;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/settings/gestures/SystemNavigationGestureSettings$$ExternalSyntheticLambda1;->f$0:Lcom/android/settings/gestures/SystemNavigationGestureSettings;
 
-    invoke-static {p0, p1}, Lcom/android/settings/gestures/SystemNavigationGestureSettings;->$r8$lambda$u_3F231sE5Ohf4LS8TZB54wCbOw(Lcom/android/settings/gestures/SystemNavigationGestureSettings;Landroid/content/DialogInterface;)V
+    invoke-static {p0, p1}, Lcom/android/settings/gestures/SystemNavigationGestureSettings;->$r8$lambda$y6D0CBeWiF08Ze-aAvZJed_E6Pk(Lcom/android/settings/gestures/SystemNavigationGestureSettings;Landroid/view/View;)V
 
     return-void
 .end method

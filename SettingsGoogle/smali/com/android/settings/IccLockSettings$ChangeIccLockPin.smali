@@ -47,7 +47,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settings/IccLockSettings;Ljava/lang/String;Ljava/lang/String;Lcom/android/settings/IccLockSettings$1;)V
+.method synthetic constructor <init>(Lcom/android/settings/IccLockSettings;Ljava/lang/String;Ljava/lang/String;Lcom/android/settings/IccLockSettings$ChangeIccLockPin-IA;)V
     .locals 0
 
     invoke-direct {p0, p1, p2, p3}, Lcom/android/settings/IccLockSettings$ChangeIccLockPin;-><init>(Lcom/android/settings/IccLockSettings;Ljava/lang/String;Ljava/lang/String;)V
@@ -62,13 +62,13 @@
 
     iget-object p1, p0, Lcom/android/settings/IccLockSettings$ChangeIccLockPin;->this$0:Lcom/android/settings/IccLockSettings;
 
-    invoke-static {p1}, Lcom/android/settings/IccLockSettings;->access$300(Lcom/android/settings/IccLockSettings;)Landroid/telephony/TelephonyManager;
+    invoke-static {p1}, Lcom/android/settings/IccLockSettings;->-$$Nest$fgetmTelephonyManager(Lcom/android/settings/IccLockSettings;)Landroid/telephony/TelephonyManager;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/settings/IccLockSettings$ChangeIccLockPin;->this$0:Lcom/android/settings/IccLockSettings;
 
-    invoke-static {v1}, Lcom/android/settings/IccLockSettings;->access$400(Lcom/android/settings/IccLockSettings;)I
+    invoke-static {v1}, Lcom/android/settings/IccLockSettings;->-$$Nest$fgetmSubId(Lcom/android/settings/IccLockSettings;)I
 
     move-result v1
 
@@ -76,11 +76,11 @@
 
     move-result-object v0
 
-    invoke-static {p1, v0}, Lcom/android/settings/IccLockSettings;->access$302(Lcom/android/settings/IccLockSettings;Landroid/telephony/TelephonyManager;)Landroid/telephony/TelephonyManager;
+    invoke-static {p1, v0}, Lcom/android/settings/IccLockSettings;->-$$Nest$fputmTelephonyManager(Lcom/android/settings/IccLockSettings;Landroid/telephony/TelephonyManager;)V
 
     iget-object p1, p0, Lcom/android/settings/IccLockSettings$ChangeIccLockPin;->this$0:Lcom/android/settings/IccLockSettings;
 
-    invoke-static {p1}, Lcom/android/settings/IccLockSettings;->access$300(Lcom/android/settings/IccLockSettings;)Landroid/telephony/TelephonyManager;
+    invoke-static {p1}, Lcom/android/settings/IccLockSettings;->-$$Nest$fgetmTelephonyManager(Lcom/android/settings/IccLockSettings;)Landroid/telephony/TelephonyManager;
 
     move-result-object p1
 
@@ -130,7 +130,7 @@
 
     move-result p1
 
-    invoke-static {p0, v0, p1}, Lcom/android/settings/IccLockSettings;->access$700(Lcom/android/settings/IccLockSettings;ZI)V
+    invoke-static {p0, v0, p1}, Lcom/android/settings/IccLockSettings;->-$$Nest$miccPinChanged(Lcom/android/settings/IccLockSettings;ZI)V
 
     return-void
 .end method

@@ -226,7 +226,7 @@
 
     check-cast p2, Landroid/content/res/XmlResourceParser;
 
-    const-string v1, "resizeClip"
+    const-string/jumbo v1, "resizeClip"
 
     invoke-static {p1, p2, v1, v0, v0}, Landroidx/core/content/res/TypedArrayUtils;->getNamedBoolean(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;IZ)Z
 
@@ -1058,21 +1058,17 @@
 
     int-to-float v2, v2
 
-    const/4 v12, 0x1
+    const/4 v11, 0x1
 
-    aget v13, v10, v12
+    aget v10, v10, v11
 
-    sub-int/2addr v0, v13
+    sub-int/2addr v0, v10
 
     int-to-float v0, v0
 
-    aget v13, v10, v11
-
-    sub-int/2addr v3, v13
+    sub-int/2addr v3, v12
 
     int-to-float v3, v3
-
-    aget v10, v10, v12
 
     sub-int/2addr v1, v10
 
@@ -1088,9 +1084,11 @@
 
     move-result-object v0
 
-    new-array v1, v12, [Landroid/animation/PropertyValuesHolder;
+    new-array v1, v11, [Landroid/animation/PropertyValuesHolder;
 
-    aput-object v0, v1, v11
+    const/4 v2, 0x0
+
+    aput-object v0, v1, v2
 
     invoke-static {v6, v1}, Landroid/animation/ObjectAnimator;->ofPropertyValuesHolder(Ljava/lang/Object;[Landroid/animation/PropertyValuesHolder;)Landroid/animation/ObjectAnimator;
 

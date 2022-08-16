@@ -315,7 +315,7 @@
 .method getDeviceCpu()Ljava/lang/String;
     .locals 1
 
-    const-string p0, "ro.product.cpu.abi"
+    const-string/jumbo p0, "ro.product.cpu.abi"
 
     invoke-static {p0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
@@ -342,7 +342,7 @@
 .method getDeviceOs()I
     .locals 2
 
-    const-string v0, "ro.system.build.version.release"
+    const-string/jumbo v0, "ro.system.build.version.release"
 
     invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
@@ -360,7 +360,7 @@
 .method getDeviceSPL()Ljava/util/Date;
     .locals 3
 
-    const-string p0, "ro.build.version.security_patch"
+    const-string/jumbo p0, "ro.build.version.security_patch"
 
     invoke-static {p0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
@@ -399,7 +399,7 @@
 .method getDeviceVndk()I
     .locals 2
 
-    const-string v0, "ro.vndk.version"
+    const-string/jumbo v0, "ro.vndk.version"
 
     invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 

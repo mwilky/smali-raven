@@ -34,10 +34,20 @@
     return-object p0
 .end method
 
-.method public static synthetic $r8$lambda$EtEBqMA7v0An2bNifSbSCeE79Kk(I)[Ljava/lang/CharSequence;
+.method public static synthetic $r8$lambda$FV1LEFDMCg-6hU8rQ64DJKOYi14(Ljava/lang/Integer;)Ljava/lang/String;
     .locals 0
 
-    invoke-static {p0}, Lcom/android/settings/wifi/tether/WifiTetherSecurityPreferenceController;->lambda$updateDisplay$2(I)[Ljava/lang/CharSequence;
+    invoke-static {p0}, Lcom/android/settings/wifi/tether/WifiTetherSecurityPreferenceController;->lambda$updateDisplay$2(Ljava/lang/Integer;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static synthetic $r8$lambda$KoCZMFdTDemR4YdlHqAa8aziqb4(I)[Ljava/lang/CharSequence;
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/settings/wifi/tether/WifiTetherSecurityPreferenceController;->lambda$updateDisplay$3(I)[Ljava/lang/CharSequence;
 
     move-result-object p0
 
@@ -75,7 +85,7 @@
 
     move-result-object p2
 
-    const v0, 0x7f0100f1
+    const v0, 0x7f010105
 
     invoke-virtual {p2, v0}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -87,7 +97,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0100f2
+    const v1, 0x7f010106
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -160,7 +170,21 @@
     return-object p0
 .end method
 
-.method private static synthetic lambda$updateDisplay$2(I)[Ljava/lang/CharSequence;
+.method private static synthetic lambda$updateDisplay$2(Ljava/lang/Integer;)Ljava/lang/String;
+    .locals 0
+
+    invoke-virtual {p0}, Ljava/lang/Integer;->intValue()I
+
+    move-result p0
+
+    invoke-static {p0}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private static synthetic lambda$updateDisplay$3(I)[Ljava/lang/CharSequence;
     .locals 0
 
     new-array p0, p0, [Ljava/lang/CharSequence;
@@ -295,7 +319,9 @@
 
     move-result-object v1
 
-    sget-object v2, Lcom/android/settings/wifi/tether/WifiTetherSecurityPreferenceController$$ExternalSyntheticLambda3;->INSTANCE:Lcom/android/settings/wifi/tether/WifiTetherSecurityPreferenceController$$ExternalSyntheticLambda3;
+    new-instance v2, Lcom/android/settings/wifi/tether/WifiTetherSecurityPreferenceController$$ExternalSyntheticLambda0;
+
+    invoke-direct {v2}, Lcom/android/settings/wifi/tether/WifiTetherSecurityPreferenceController$$ExternalSyntheticLambda0;-><init>()V
 
     invoke-interface {v1, v2}, Ljava/util/Set;->removeIf(Ljava/util/function/Predicate;)Z
 
@@ -313,7 +339,9 @@
 
     move-result-object v1
 
-    sget-object v2, Lcom/android/settings/wifi/tether/WifiTetherSecurityPreferenceController$$ExternalSyntheticLambda1;->INSTANCE:Lcom/android/settings/wifi/tether/WifiTetherSecurityPreferenceController$$ExternalSyntheticLambda1;
+    new-instance v2, Lcom/android/settings/wifi/tether/WifiTetherSecurityPreferenceController$$ExternalSyntheticLambda1;
+
+    invoke-direct {v2}, Lcom/android/settings/wifi/tether/WifiTetherSecurityPreferenceController$$ExternalSyntheticLambda1;-><init>()V
 
     invoke-interface {v1, v2}, Ljava/util/stream/Stream;->toArray(Ljava/util/function/IntFunction;)[Ljava/lang/Object;
 
@@ -333,13 +361,17 @@
 
     move-result-object v1
 
-    sget-object v2, Lcom/android/settings/wifi/tether/WifiTetherSecurityPreferenceController$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/settings/wifi/tether/WifiTetherSecurityPreferenceController$$ExternalSyntheticLambda0;
+    new-instance v2, Lcom/android/settings/wifi/tether/WifiTetherSecurityPreferenceController$$ExternalSyntheticLambda2;
+
+    invoke-direct {v2}, Lcom/android/settings/wifi/tether/WifiTetherSecurityPreferenceController$$ExternalSyntheticLambda2;-><init>()V
 
     invoke-interface {v1, v2}, Ljava/util/stream/Stream;->map(Ljava/util/function/Function;)Ljava/util/stream/Stream;
 
     move-result-object v1
 
-    sget-object v2, Lcom/android/settings/wifi/tether/WifiTetherSecurityPreferenceController$$ExternalSyntheticLambda2;->INSTANCE:Lcom/android/settings/wifi/tether/WifiTetherSecurityPreferenceController$$ExternalSyntheticLambda2;
+    new-instance v2, Lcom/android/settings/wifi/tether/WifiTetherSecurityPreferenceController$$ExternalSyntheticLambda3;
+
+    invoke-direct {v2}, Lcom/android/settings/wifi/tether/WifiTetherSecurityPreferenceController$$ExternalSyntheticLambda3;-><init>()V
 
     invoke-interface {v1, v2}, Ljava/util/stream/Stream;->toArray(Ljava/util/function/IntFunction;)[Ljava/lang/Object;
 

@@ -3,34 +3,20 @@
 .source "ViewParentCompat.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Landroidx/core/view/ViewParentCompat$Api21Impl;
+    }
+.end annotation
+
+
 # direct methods
 .method public static onNestedFling(Landroid/view/ViewParent;Landroid/view/View;FFZ)Z
-    .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "parent",
-            "target",
-            "velocityX",
-            "velocityY",
-            "consumed"
-        }
-    .end annotation
-
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    if-lt v0, v1, :cond_0
+    .locals 0
 
     :try_start_0
-    invoke-interface {p0, p1, p2, p3, p4}, Landroid/view/ViewParent;->onNestedFling(Landroid/view/View;FFZ)Z
+    invoke-static {p0, p1, p2, p3, p4}, Landroidx/core/view/ViewParentCompat$Api21Impl;->onNestedFling(Landroid/view/ViewParent;Landroid/view/View;FFZ)Z
 
     move-result p0
     :try_end_0
@@ -63,53 +49,16 @@
 
     invoke-static {p2, p0, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_0
-
-    :cond_0
-    instance-of v0, p0, Landroidx/core/view/NestedScrollingParent;
-
-    if-eqz v0, :cond_1
-
-    check-cast p0, Landroidx/core/view/NestedScrollingParent;
-
-    invoke-interface {p0, p1, p2, p3, p4}, Landroidx/core/view/NestedScrollingParent;->onNestedFling(Landroid/view/View;FFZ)Z
-
-    move-result p0
-
-    return p0
-
-    :cond_1
-    :goto_0
     const/4 p0, 0x0
 
     return p0
 .end method
 
 .method public static onNestedPreFling(Landroid/view/ViewParent;Landroid/view/View;FF)Z
-    .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "parent",
-            "target",
-            "velocityX",
-            "velocityY"
-        }
-    .end annotation
-
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    if-lt v0, v1, :cond_0
+    .locals 0
 
     :try_start_0
-    invoke-interface {p0, p1, p2, p3}, Landroid/view/ViewParent;->onNestedPreFling(Landroid/view/View;FF)Z
+    invoke-static {p0, p1, p2, p3}, Landroidx/core/view/ViewParentCompat$Api21Impl;->onNestedPreFling(Landroid/view/ViewParent;Landroid/view/View;FF)Z
 
     move-result p0
     :try_end_0
@@ -142,23 +91,6 @@
 
     invoke-static {p2, p0, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_0
-
-    :cond_0
-    instance-of v0, p0, Landroidx/core/view/NestedScrollingParent;
-
-    if-eqz v0, :cond_1
-
-    check-cast p0, Landroidx/core/view/NestedScrollingParent;
-
-    invoke-interface {p0, p1, p2, p3}, Landroidx/core/view/NestedScrollingParent;->onNestedPreFling(Landroid/view/View;FF)Z
-
-    move-result p0
-
-    return p0
-
-    :cond_1
-    :goto_0
     const/4 p0, 0x0
 
     return p0
@@ -166,24 +98,6 @@
 
 .method public static onNestedPreScroll(Landroid/view/ViewParent;Landroid/view/View;II[II)V
     .locals 7
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "parent",
-            "target",
-            "dx",
-            "dy",
-            "consumed",
-            "type"
-        }
-    .end annotation
 
     instance-of v0, p0, Landroidx/core/view/NestedScrollingParent2;
 
@@ -208,16 +122,10 @@
     goto :goto_0
 
     :cond_0
-    if-nez p5, :cond_2
-
-    sget p5, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v0, 0x15
-
-    if-lt p5, v0, :cond_1
+    if-nez p5, :cond_1
 
     :try_start_0
-    invoke-interface {p0, p1, p2, p3, p4}, Landroid/view/ViewParent;->onNestedPreScroll(Landroid/view/View;II[I)V
+    invoke-static {p0, p1, p2, p3, p4}, Landroidx/core/view/ViewParentCompat$Api21Impl;->onNestedPreScroll(Landroid/view/ViewParent;Landroid/view/View;II[I)V
     :try_end_0
     .catch Ljava/lang/AbstractMethodError; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -248,46 +156,13 @@
 
     invoke-static {p2, p0, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_0
-
     :cond_1
-    instance-of p5, p0, Landroidx/core/view/NestedScrollingParent;
-
-    if-eqz p5, :cond_2
-
-    check-cast p0, Landroidx/core/view/NestedScrollingParent;
-
-    invoke-interface {p0, p1, p2, p3, p4}, Landroidx/core/view/NestedScrollingParent;->onNestedPreScroll(Landroid/view/View;II[I)V
-
-    :cond_2
     :goto_0
     return-void
 .end method
 
 .method public static onNestedScroll(Landroid/view/ViewParent;Landroid/view/View;IIIII[I)V
     .locals 10
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "parent",
-            "target",
-            "dxConsumed",
-            "dyConsumed",
-            "dxUnconsumed",
-            "dyUnconsumed",
-            "type",
-            "consumed"
-        }
-    .end annotation
 
     move-object v1, p0
 
@@ -357,16 +232,10 @@
     goto :goto_0
 
     :cond_1
-    if-nez p6, :cond_3
-
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v2, 0x15
-
-    if-lt v0, v2, :cond_2
+    if-nez p6, :cond_2
 
     :try_start_0
-    invoke-interface/range {p0 .. p5}, Landroid/view/ViewParent;->onNestedScroll(Landroid/view/View;IIII)V
+    invoke-static/range {p0 .. p5}, Landroidx/core/view/ViewParentCompat$Api21Impl;->onNestedScroll(Landroid/view/ViewParent;Landroid/view/View;IIII)V
     :try_end_0
     .catch Ljava/lang/AbstractMethodError; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -399,52 +268,13 @@
 
     invoke-static {v1, v0, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_0
-
     :cond_2
-    instance-of v0, v1, Landroidx/core/view/NestedScrollingParent;
-
-    if-eqz v0, :cond_3
-
-    move-object v3, v1
-
-    check-cast v3, Landroidx/core/view/NestedScrollingParent;
-
-    move-object v4, p1
-
-    move v5, p2
-
-    move v6, p3
-
-    move v7, p4
-
-    move v8, p5
-
-    invoke-interface/range {v3 .. v8}, Landroidx/core/view/NestedScrollingParent;->onNestedScroll(Landroid/view/View;IIII)V
-
-    :cond_3
     :goto_0
     return-void
 .end method
 
 .method public static onNestedScrollAccepted(Landroid/view/ViewParent;Landroid/view/View;Landroid/view/View;II)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "parent",
-            "child",
-            "target",
-            "nestedScrollAxes",
-            "type"
-        }
-    .end annotation
 
     instance-of v0, p0, Landroidx/core/view/NestedScrollingParent2;
 
@@ -457,16 +287,10 @@
     goto :goto_0
 
     :cond_0
-    if-nez p4, :cond_2
-
-    sget p4, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v0, 0x15
-
-    if-lt p4, v0, :cond_1
+    if-nez p4, :cond_1
 
     :try_start_0
-    invoke-interface {p0, p1, p2, p3}, Landroid/view/ViewParent;->onNestedScrollAccepted(Landroid/view/View;Landroid/view/View;I)V
+    invoke-static {p0, p1, p2, p3}, Landroidx/core/view/ViewParentCompat$Api21Impl;->onNestedScrollAccepted(Landroid/view/ViewParent;Landroid/view/View;Landroid/view/View;I)V
     :try_end_0
     .catch Ljava/lang/AbstractMethodError; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -497,40 +321,13 @@
 
     invoke-static {p2, p0, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_0
-
     :cond_1
-    instance-of p4, p0, Landroidx/core/view/NestedScrollingParent;
-
-    if-eqz p4, :cond_2
-
-    check-cast p0, Landroidx/core/view/NestedScrollingParent;
-
-    invoke-interface {p0, p1, p2, p3}, Landroidx/core/view/NestedScrollingParent;->onNestedScrollAccepted(Landroid/view/View;Landroid/view/View;I)V
-
-    :cond_2
     :goto_0
     return-void
 .end method
 
 .method public static onStartNestedScroll(Landroid/view/ViewParent;Landroid/view/View;Landroid/view/View;II)Z
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "parent",
-            "child",
-            "target",
-            "nestedScrollAxes",
-            "type"
-        }
-    .end annotation
 
     instance-of v0, p0, Landroidx/core/view/NestedScrollingParent2;
 
@@ -545,16 +342,10 @@
     return p0
 
     :cond_0
-    if-nez p4, :cond_2
-
-    sget p4, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v0, 0x15
-
-    if-lt p4, v0, :cond_1
+    if-nez p4, :cond_1
 
     :try_start_0
-    invoke-interface {p0, p1, p2, p3}, Landroid/view/ViewParent;->onStartNestedScroll(Landroid/view/View;Landroid/view/View;I)Z
+    invoke-static {p0, p1, p2, p3}, Landroidx/core/view/ViewParentCompat$Api21Impl;->onStartNestedScroll(Landroid/view/ViewParent;Landroid/view/View;Landroid/view/View;I)Z
 
     move-result p0
     :try_end_0
@@ -587,23 +378,7 @@
 
     invoke-static {p2, p0, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_0
-
     :cond_1
-    instance-of p4, p0, Landroidx/core/view/NestedScrollingParent;
-
-    if-eqz p4, :cond_2
-
-    check-cast p0, Landroidx/core/view/NestedScrollingParent;
-
-    invoke-interface {p0, p1, p2, p3}, Landroidx/core/view/NestedScrollingParent;->onStartNestedScroll(Landroid/view/View;Landroid/view/View;I)Z
-
-    move-result p0
-
-    return p0
-
-    :cond_2
-    :goto_0
     const/4 p0, 0x0
 
     return p0
@@ -611,18 +386,6 @@
 
 .method public static onStopNestedScroll(Landroid/view/ViewParent;Landroid/view/View;I)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "parent",
-            "target",
-            "type"
-        }
-    .end annotation
 
     instance-of v0, p0, Landroidx/core/view/NestedScrollingParent2;
 
@@ -635,16 +398,10 @@
     goto :goto_0
 
     :cond_0
-    if-nez p2, :cond_2
-
-    sget p2, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v0, 0x15
-
-    if-lt p2, v0, :cond_1
+    if-nez p2, :cond_1
 
     :try_start_0
-    invoke-interface {p0, p1}, Landroid/view/ViewParent;->onStopNestedScroll(Landroid/view/View;)V
+    invoke-static {p0, p1}, Landroidx/core/view/ViewParentCompat$Api21Impl;->onStopNestedScroll(Landroid/view/ViewParent;Landroid/view/View;)V
     :try_end_0
     .catch Ljava/lang/AbstractMethodError; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -675,18 +432,7 @@
 
     invoke-static {p2, p0, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_0
-
     :cond_1
-    instance-of p2, p0, Landroidx/core/view/NestedScrollingParent;
-
-    if-eqz p2, :cond_2
-
-    check-cast p0, Landroidx/core/view/NestedScrollingParent;
-
-    invoke-interface {p0, p1}, Landroidx/core/view/NestedScrollingParent;->onStopNestedScroll(Landroid/view/View;)V
-
-    :cond_2
     :goto_0
     return-void
 .end method

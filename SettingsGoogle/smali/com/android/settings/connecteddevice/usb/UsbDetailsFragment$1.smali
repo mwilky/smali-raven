@@ -46,7 +46,7 @@
 
     const/4 v1, 0x0
 
-    invoke-static {p1, v0, v1}, Lcom/android/settings/connecteddevice/usb/UsbDetailsFragment;->access$000(Landroid/content/Context;Lcom/android/settings/connecteddevice/usb/UsbBackend;Lcom/android/settings/connecteddevice/usb/UsbDetailsFragment;)Ljava/util/List;
+    invoke-static {p1, v0, v1}, Lcom/android/settings/connecteddevice/usb/UsbDetailsFragment;->-$$Nest$smcreateControllerList(Landroid/content/Context;Lcom/android/settings/connecteddevice/usb/UsbBackend;Lcom/android/settings/connecteddevice/usb/UsbDetailsFragment;)Ljava/util/List;
 
     move-result-object p1
 

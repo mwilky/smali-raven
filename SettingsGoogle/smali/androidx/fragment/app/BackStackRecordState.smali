@@ -281,7 +281,7 @@
 
     add-int/lit8 v4, v5, 0x1
 
-    iget-boolean v6, v3, Landroidx/fragment/app/FragmentTransaction$Op;->mTopmostFragment:Z
+    iget-boolean v6, v3, Landroidx/fragment/app/FragmentTransaction$Op;->mFromExpandedOp:Z
 
     aput v6, v2, v5
 
@@ -499,7 +499,7 @@
     move v4, v0
 
     :goto_1
-    iput-boolean v4, v3, Landroidx/fragment/app/FragmentTransaction$Op;->mTopmostFragment:Z
+    iput-boolean v4, v3, Landroidx/fragment/app/FragmentTransaction$Op;->mFromExpandedOp:Z
 
     add-int/lit8 v4, v5, 0x1
 

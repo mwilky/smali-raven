@@ -21,6 +21,30 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetheaderAutoSizeLineExtraSpacingInPx(Lcom/google/android/setupdesign/template/HeaderMixin;)F
+    .locals 0
+
+    iget p0, p0, Lcom/google/android/setupdesign/template/HeaderMixin;->headerAutoSizeLineExtraSpacingInPx:F
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetheaderAutoSizeMaxLineOfMaxSize(Lcom/google/android/setupdesign/template/HeaderMixin;)I
+    .locals 0
+
+    iget p0, p0, Lcom/google/android/setupdesign/template/HeaderMixin;->headerAutoSizeMaxLineOfMaxSize:I
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetheaderAutoSizeMinTextSizeInPx(Lcom/google/android/setupdesign/template/HeaderMixin;)F
+    .locals 0
+
+    iget p0, p0, Lcom/google/android/setupdesign/template/HeaderMixin;->headerAutoSizeMinTextSizeInPx:F
+
+    return p0
+.end method
+
 .method public constructor <init>(Lcom/google/android/setupcompat/internal/TemplateLayout;Landroid/util/AttributeSet;I)V
     .locals 2
 
@@ -71,30 +95,6 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/google/android/setupdesign/template/HeaderMixin;)I
-    .locals 0
-
-    iget p0, p0, Lcom/google/android/setupdesign/template/HeaderMixin;->headerAutoSizeMaxLineOfMaxSize:I
-
-    return p0
-.end method
-
-.method static synthetic access$100(Lcom/google/android/setupdesign/template/HeaderMixin;)F
-    .locals 0
-
-    iget p0, p0, Lcom/google/android/setupdesign/template/HeaderMixin;->headerAutoSizeMinTextSizeInPx:F
-
-    return p0
-.end method
-
-.method static synthetic access$200(Lcom/google/android/setupdesign/template/HeaderMixin;)F
-    .locals 0
-
-    iget p0, p0, Lcom/google/android/setupdesign/template/HeaderMixin;->headerAutoSizeLineExtraSpacingInPx:F
-
-    return p0
-.end method
-
 .method private autoAdjustTextSize(Landroid/widget/TextView;)V
     .locals 2
 
@@ -109,12 +109,6 @@
 
     invoke-virtual {p1, v0, v1}, Landroid/widget/TextView;->setTextSize(IF)V
 
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x1c
-
-    if-lt v0, v1, :cond_1
-
     iget v0, p0, Lcom/google/android/setupdesign/template/HeaderMixin;->headerAutoSizeLineExtraSpacingInPx:F
 
     iget v1, p0, Lcom/google/android/setupdesign/template/HeaderMixin;->headerAutoSizeMaxTextSizeInPx:F
@@ -127,7 +121,6 @@
 
     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setLineHeight(I)V
 
-    :cond_1
     const/4 v0, 0x6
 
     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setMaxLines(I)V

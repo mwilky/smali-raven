@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/settings/wifi/WifiSettings$$ExternalSyntheticLambda6;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Lcom/android/settings/LinkifyUtils$OnClickListener;
 
 
 # instance fields
@@ -22,12 +23,12 @@
 
 
 # virtual methods
-.method public final run()V
+.method public final onClick()V
     .locals 0
 
     iget-object p0, p0, Lcom/android/settings/wifi/WifiSettings$$ExternalSyntheticLambda6;->f$0:Lcom/android/settings/wifi/WifiSettings;
 
-    invoke-static {p0}, Lcom/android/settings/wifi/WifiSettings;->$r8$lambda$z5vGw_dNO-mh6fi44D4BLLcz8ug(Lcom/android/settings/wifi/WifiSettings;)V
+    invoke-static {p0}, Lcom/android/settings/wifi/WifiSettings;->$r8$lambda$ESqXBRHAZLyfZHkfnWbIF4rxP-w(Lcom/android/settings/wifi/WifiSettings;)V
 
     return-void
 .end method

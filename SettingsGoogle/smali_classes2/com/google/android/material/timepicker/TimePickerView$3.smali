@@ -32,19 +32,7 @@
 
 # virtual methods
 .method public onDoubleTap(Landroid/view/MotionEvent;)Z
-    .locals 1
-
-    invoke-super {p0, p1}, Landroid/view/GestureDetector$SimpleOnGestureListener;->onDoubleTap(Landroid/view/MotionEvent;)Z
-
-    move-result p1
-
-    iget-object v0, p0, Lcom/google/android/material/timepicker/TimePickerView$3;->this$0:Lcom/google/android/material/timepicker/TimePickerView;
-
-    invoke-static {v0}, Lcom/google/android/material/timepicker/TimePickerView;->access$200(Lcom/google/android/material/timepicker/TimePickerView;)Lcom/google/android/material/timepicker/TimePickerView$OnDoubleTapListener;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
+    .locals 0
 
     iget-object p0, p0, Lcom/google/android/material/timepicker/TimePickerView$3;->this$0:Lcom/google/android/material/timepicker/TimePickerView;
 
@@ -52,8 +40,16 @@
 
     move-result-object p0
 
+    if-eqz p0, :cond_0
+
     invoke-interface {p0}, Lcom/google/android/material/timepicker/TimePickerView$OnDoubleTapListener;->onDoubleTap()V
 
+    const/4 p0, 0x1
+
+    return p0
+
     :cond_0
-    return p1
+    const/4 p0, 0x0
+
+    return p0
 .end method

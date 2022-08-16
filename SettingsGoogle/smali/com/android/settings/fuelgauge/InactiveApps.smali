@@ -202,6 +202,59 @@
     return-object p0
 .end method
 
+.method private getAllowableBuckets(Ljava/lang/String;[Ljava/lang/CharSequence;)[Ljava/lang/CharSequence;
+    .locals 1
+
+    iget-object p0, p0, Lcom/android/settings/fuelgauge/InactiveApps;->mUsageStats:Landroid/app/usage/UsageStatsManager;
+
+    invoke-virtual {p0, p1}, Landroid/app/usage/UsageStatsManager;->getAppMinStandbyBucket(Ljava/lang/String;)I
+
+    move-result p0
+
+    const/16 p1, 0x2d
+
+    if-le p0, p1, :cond_0
+
+    return-object p2
+
+    :cond_0
+    const/16 p1, 0xa
+
+    const/4 v0, 0x0
+
+    if-ge p0, p1, :cond_1
+
+    new-array p0, v0, [Ljava/lang/CharSequence;
+
+    return-object p0
+
+    :cond_1
+    sget-object p1, Lcom/android/settings/fuelgauge/InactiveApps;->FULL_SETTABLE_BUCKETS_VALUES:[Ljava/lang/CharSequence;
+
+    invoke-static {p0}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-static {p1, p0}, Ljava/util/Arrays;->binarySearch([Ljava/lang/Object;Ljava/lang/Object;)I
+
+    move-result p0
+
+    if-gez p0, :cond_2
+
+    return-object p2
+
+    :cond_2
+    add-int/lit8 p0, p0, 0x1
+
+    invoke-static {p2, v0, p0}, Ljava/util/Arrays;->copyOfRange([Ljava/lang/Object;II)[Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, [Ljava/lang/CharSequence;
+
+    return-object p0
+.end method
+
 .method private init()V
     .locals 11
 
@@ -326,9 +379,17 @@
 
     invoke-virtual {v9, v8}, Landroidx/preference/Preference;->setKey(Ljava/lang/String;)V
 
-    invoke-virtual {v9, v4}, Landroidx/preference/ListPreference;->setEntries([Ljava/lang/CharSequence;)V
+    invoke-direct {p0, v8, v4}, Lcom/android/settings/fuelgauge/InactiveApps;->getAllowableBuckets(Ljava/lang/String;[Ljava/lang/CharSequence;)[Ljava/lang/CharSequence;
 
-    invoke-virtual {v9, v5}, Landroidx/preference/ListPreference;->setEntryValues([Ljava/lang/CharSequence;)V
+    move-result-object v7
+
+    invoke-virtual {v9, v7}, Landroidx/preference/ListPreference;->setEntries([Ljava/lang/CharSequence;)V
+
+    invoke-direct {p0, v8, v5}, Lcom/android/settings/fuelgauge/InactiveApps;->getAllowableBuckets(Ljava/lang/String;[Ljava/lang/CharSequence;)[Ljava/lang/CharSequence;
+
+    move-result-object v7
+
+    invoke-virtual {v9, v7}, Landroidx/preference/ListPreference;->setEntryValues([Ljava/lang/CharSequence;)V
 
     invoke-direct {p0, v9}, Lcom/android/settings/fuelgauge/InactiveApps;->updateSummary(Landroidx/preference/ListPreference;)V
 
@@ -384,7 +445,7 @@
 
     aput-object v1, v3, v4
 
-    const v1, 0x7f0412d0
+    const v1, 0x7f041395
 
     invoke-virtual {v0, v1, v3}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -449,7 +510,7 @@
 
     iput-object p1, p0, Lcom/android/settings/fuelgauge/InactiveApps;->mUsageStats:Landroid/app/usage/UsageStatsManager;
 
-    const p1, 0x7f1500b5
+    const p1, 0x7f1500b7
 
     invoke-virtual {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->addPreferencesFromResource(I)V
 
@@ -457,7 +518,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f040a85
+    const p1, 0x7f040ade
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->setTitle(I)V
 

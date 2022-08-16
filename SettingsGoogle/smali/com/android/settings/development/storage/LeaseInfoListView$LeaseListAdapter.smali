@@ -40,7 +40,7 @@
 
     iput-object p2, p0, Lcom/android/settings/development/storage/LeaseInfoListView$LeaseListAdapter;->mContext:Landroid/content/Context;
 
-    invoke-static {p1}, Lcom/android/settings/development/storage/LeaseInfoListView;->access$000(Lcom/android/settings/development/storage/LeaseInfoListView;)Landroid/app/blob/BlobInfo;
+    invoke-static {p1}, Lcom/android/settings/development/storage/LeaseInfoListView;->-$$Nest$fgetmBlobInfo(Lcom/android/settings/development/storage/LeaseInfoListView;)Landroid/app/blob/BlobInfo;
 
     move-result-object p1
 
@@ -62,10 +62,53 @@
     return-void
 .end method
 
+.method private formatExpiryTime(J)Ljava/lang/String;
+    .locals 3
+
+    const-wide/16 v0, 0x0
+
+    cmp-long v0, p1, v0
+
+    if-nez v0, :cond_0
+
+    iget-object p0, p0, Lcom/android/settings/development/storage/LeaseInfoListView$LeaseListAdapter;->this$0:Lcom/android/settings/development/storage/LeaseInfoListView;
+
+    const p1, 0x7f0401a9
+
+    invoke-virtual {p0, p1}, Landroid/app/ListActivity;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
+    :cond_0
+    iget-object p0, p0, Lcom/android/settings/development/storage/LeaseInfoListView$LeaseListAdapter;->this$0:Lcom/android/settings/development/storage/LeaseInfoListView;
+
+    const v0, 0x7f0401a7
+
+    const/4 v1, 0x1
+
+    new-array v1, v1, [Ljava/lang/Object;
+
+    const/4 v2, 0x0
+
+    invoke-static {p1, p2}, Lcom/android/settings/development/storage/SharedDataUtils;->formatTime(J)Ljava/lang/String;
+
+    move-result-object p1
+
+    aput-object p1, v1, v2
+
+    invoke-virtual {p0, v0, v1}, Landroid/app/ListActivity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method private getDescriptionString(Landroid/app/blob/LeaseInfo;)Ljava/lang/String;
     .locals 4
 
-    const v0, 0x7f040183
+    const v0, 0x7f0401aa
 
     const/4 v1, 0x0
 
@@ -155,11 +198,11 @@
 
 # virtual methods
 .method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
-    .locals 5
+    .locals 2
 
     iget-object p3, p0, Lcom/android/settings/development/storage/LeaseInfoListView$LeaseListAdapter;->this$0:Lcom/android/settings/development/storage/LeaseInfoListView;
 
-    invoke-static {p3}, Lcom/android/settings/development/storage/LeaseInfoListView;->access$100(Lcom/android/settings/development/storage/LeaseInfoListView;)Landroid/view/LayoutInflater;
+    invoke-static {p3}, Lcom/android/settings/development/storage/LeaseInfoListView;->-$$Nest$fgetmInflater(Lcom/android/settings/development/storage/LeaseInfoListView;)Landroid/view/LayoutInflater;
 
     move-result-object p3
 
@@ -180,75 +223,61 @@
     check-cast p1, Landroid/app/blob/LeaseInfo;
 
     :try_start_0
-    iget-object v1, p0, Lcom/android/settings/development/storage/LeaseInfoListView$LeaseListAdapter;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Lcom/android/settings/development/storage/LeaseInfoListView$LeaseListAdapter;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {v0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v1
+    move-result-object v0
 
     invoke-virtual {p1}, Landroid/app/blob/LeaseInfo;->getPackageName()Ljava/lang/String;
 
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Landroid/content/pm/PackageManager;->getApplicationIcon(Ljava/lang/String;)Landroid/graphics/drawable/Drawable;
-
     move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/content/pm/PackageManager;->getApplicationIcon(Ljava/lang/String;)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v0
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
     :catch_0
-    iget-object v1, p0, Lcom/android/settings/development/storage/LeaseInfoListView$LeaseListAdapter;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Lcom/android/settings/development/storage/LeaseInfoListView$LeaseListAdapter;->mContext:Landroid/content/Context;
 
-    const v2, 0x1080093
+    const v1, 0x1080093
 
-    invoke-virtual {v1, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
-    move-result-object v1
+    move-result-object v0
 
     :goto_0
-    iget-object v2, p2, Lcom/android/settings/development/storage/LeaseInfoViewHolder;->appIcon:Landroid/widget/ImageView;
+    iget-object v1, p2, Lcom/android/settings/development/storage/LeaseInfoViewHolder;->appIcon:Landroid/widget/ImageView;
 
-    invoke-virtual {v2, v1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {v1, v0}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    iget-object v1, p2, Lcom/android/settings/development/storage/LeaseInfoViewHolder;->leasePackageName:Landroid/widget/TextView;
+    iget-object v0, p2, Lcom/android/settings/development/storage/LeaseInfoViewHolder;->leasePackageName:Landroid/widget/TextView;
 
     invoke-virtual {p1}, Landroid/app/blob/LeaseInfo;->getPackageName()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    iget-object v1, p2, Lcom/android/settings/development/storage/LeaseInfoViewHolder;->leaseDescription:Landroid/widget/TextView;
+    iget-object v0, p2, Lcom/android/settings/development/storage/LeaseInfoViewHolder;->leaseDescription:Landroid/widget/TextView;
 
     invoke-direct {p0, p1}, Lcom/android/settings/development/storage/LeaseInfoListView$LeaseListAdapter;->getDescriptionString(Landroid/app/blob/LeaseInfo;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     iget-object p2, p2, Lcom/android/settings/development/storage/LeaseInfoViewHolder;->leaseExpiry:Landroid/widget/TextView;
 
-    iget-object p0, p0, Lcom/android/settings/development/storage/LeaseInfoListView$LeaseListAdapter;->this$0:Lcom/android/settings/development/storage/LeaseInfoListView;
-
-    const v1, 0x7f040181
-
-    const/4 v2, 0x1
-
-    new-array v2, v2, [Ljava/lang/Object;
-
     invoke-virtual {p1}, Landroid/app/blob/LeaseInfo;->getExpiryTimeMillis()J
 
-    move-result-wide v3
+    move-result-wide v0
 
-    invoke-static {v3, v4}, Lcom/android/settings/development/storage/SharedDataUtils;->formatTime(J)Ljava/lang/String;
-
-    move-result-object p1
-
-    aput-object p1, v2, v0
-
-    invoke-virtual {p0, v1, v2}, Landroid/app/ListActivity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-direct {p0, v0, v1}, Lcom/android/settings/development/storage/LeaseInfoListView$LeaseListAdapter;->formatExpiryTime(J)Ljava/lang/String;
 
     move-result-object p0
 

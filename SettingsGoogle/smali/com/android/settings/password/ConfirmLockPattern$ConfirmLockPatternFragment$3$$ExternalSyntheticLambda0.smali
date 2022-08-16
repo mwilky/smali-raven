@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settings/password/ConfirmLockPattern$ConfirmLockPatternFragment$3$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/internal/widget/LockPatternChecker$OnVerifyCallback;

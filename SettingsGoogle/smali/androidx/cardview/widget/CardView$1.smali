@@ -26,14 +26,6 @@
 # direct methods
 .method constructor <init>(Landroidx/cardview/widget/CardView;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x8010
-        }
-        names = {
-            "this$0"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/cardview/widget/CardView$1;->this$0:Landroidx/cardview/widget/CardView;
 
@@ -86,14 +78,6 @@
 
 .method public setCardBackground(Landroid/graphics/drawable/Drawable;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "drawable"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/cardview/widget/CardView$1;->mCardBackground:Landroid/graphics/drawable/Drawable;
 
@@ -104,56 +88,8 @@
     return-void
 .end method
 
-.method public setMinWidthHeightInternal(II)V
-    .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "width",
-            "height"
-        }
-    .end annotation
-
-    iget-object v0, p0, Landroidx/cardview/widget/CardView$1;->this$0:Landroidx/cardview/widget/CardView;
-
-    iget v1, v0, Landroidx/cardview/widget/CardView;->mUserSetMinWidth:I
-
-    if-le p1, v1, :cond_0
-
-    invoke-static {v0, p1}, Landroidx/cardview/widget/CardView;->access$101(Landroidx/cardview/widget/CardView;I)V
-
-    :cond_0
-    iget-object p0, p0, Landroidx/cardview/widget/CardView$1;->this$0:Landroidx/cardview/widget/CardView;
-
-    iget p1, p0, Landroidx/cardview/widget/CardView;->mUserSetMinHeight:I
-
-    if-le p2, p1, :cond_1
-
-    invoke-static {p0, p2}, Landroidx/cardview/widget/CardView;->access$201(Landroidx/cardview/widget/CardView;I)V
-
-    :cond_1
-    return-void
-.end method
-
 .method public setShadowPadding(IIII)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "left",
-            "top",
-            "right",
-            "bottom"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/cardview/widget/CardView$1;->this$0:Landroidx/cardview/widget/CardView;
 

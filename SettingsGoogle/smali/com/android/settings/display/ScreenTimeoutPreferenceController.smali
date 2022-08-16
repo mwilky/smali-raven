@@ -14,6 +14,16 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$hZQ8Ge0xL4iDBWRbZ5ikXJ2XJpk(Lcom/android/settings/display/ScreenTimeoutPreferenceController;)Ljava/lang/String;
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/display/ScreenTimeoutPreferenceController;->lambda$updateState$0()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method static constructor <clinit>()V
     .locals 0
 
@@ -61,7 +71,7 @@
 
     move-result-object p0
 
-    const-string v0, "screen_off_timeout"
+    const-string/jumbo v0, "screen_off_timeout"
 
     const-wide/16 v1, 0x7530
 
@@ -327,7 +337,7 @@
 
     aput-object p1, p2, v0
 
-    const p1, 0x7f0410c9
+    const p1, 0x7f041177
 
     invoke-virtual {p0, p1, p2}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -336,16 +346,22 @@
     return-object p0
 .end method
 
+.method private synthetic lambda$updateState$0()Ljava/lang/String;
+    .locals 1
 
-# virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
+    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
+    const v0, 0x7f040851
 
-    return-void
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
+
+# virtual methods
 .method public getAvailabilityStatus()I
     .locals 0
 
@@ -356,15 +372,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -397,16 +404,6 @@
     .locals 0
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->hasAsyncUpdate()Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
 
     move-result p0
 
@@ -454,11 +451,27 @@
 
     invoke-virtual {p1, v0}, Landroidx/preference/Preference;->setEnabled(Z)V
 
-    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f040808
+    const-class v1, Landroid/app/admin/DevicePolicyManager;
 
-    invoke-virtual {p0, v0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/app/admin/DevicePolicyManager;
+
+    invoke-virtual {v0}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/android/settings/display/ScreenTimeoutPreferenceController$$ExternalSyntheticLambda0;
+
+    invoke-direct {v1, p0}, Lcom/android/settings/display/ScreenTimeoutPreferenceController$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/display/ScreenTimeoutPreferenceController;)V
+
+    const-string p0, "Settings.DISABLED_BY_IT_ADMIN_TITLE"
+
+    invoke-virtual {v0, p0, v1}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
 
     move-result-object p0
 

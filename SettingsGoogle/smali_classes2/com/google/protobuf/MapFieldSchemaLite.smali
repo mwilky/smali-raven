@@ -165,7 +165,7 @@
 
     invoke-virtual {p1}, Lcom/google/protobuf/MapEntryLite;->getMetadata()Lcom/google/protobuf/MapEntryLite$Metadata;
 
-    move-result-object p0
+    const/4 p0, 0x0
 
     return-object p0
 .end method

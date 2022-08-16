@@ -3,7 +3,7 @@
 .source "ZenModePriorityConversationsPreferenceController.java"
 
 # interfaces
-.implements Lcom/android/settingslib/widget/RadioButtonPreference$OnClickListener;
+.implements Lcom/android/settingslib/widget/SelectorWithWidgetPreference$OnClickListener;
 
 
 # annotations
@@ -34,14 +34,14 @@
 
 
 # virtual methods
-.method public onRadioButtonClicked(Lcom/android/settingslib/widget/RadioButtonPreference;)V
+.method public onRadioButtonClicked(Lcom/android/settingslib/widget/SelectorWithWidgetPreference;)V
     .locals 1
 
     invoke-virtual {p1}, Landroidx/preference/Preference;->getKey()Ljava/lang/String;
 
     move-result-object p1
 
-    invoke-static {p1}, Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;->access$600(Ljava/lang/String;)I
+    invoke-static {p1}, Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;->-$$Nest$smkeyToSetting(Ljava/lang/String;)I
 
     move-result p1
 

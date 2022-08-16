@@ -6,14 +6,6 @@
 # direct methods
 .method public static isValidRemoteMessenger(Landroid/os/Messenger;)Z
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "messenger"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 

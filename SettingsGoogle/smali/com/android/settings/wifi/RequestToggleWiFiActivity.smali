@@ -42,6 +42,22 @@
     return-void
 .end method
 
+.method static bridge synthetic -$$Nest$fgetmState(Lcom/android/settings/wifi/RequestToggleWiFiActivity;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/settings/wifi/RequestToggleWiFiActivity;->mState:I
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmWiFiManager(Lcom/android/settings/wifi/RequestToggleWiFiActivity;)Landroid/net/wifi/WifiManager;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/wifi/RequestToggleWiFiActivity;->mWiFiManager:Landroid/net/wifi/WifiManager;
+
+    return-object p0
+.end method
+
 .method public constructor <init>()V
     .locals 2
 
@@ -51,7 +67,7 @@
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, p0, v1}, Lcom/android/settings/wifi/RequestToggleWiFiActivity$StateChangeReceiver;-><init>(Lcom/android/settings/wifi/RequestToggleWiFiActivity;Lcom/android/settings/wifi/RequestToggleWiFiActivity$1;)V
+    invoke-direct {v0, p0, v1}, Lcom/android/settings/wifi/RequestToggleWiFiActivity$StateChangeReceiver;-><init>(Lcom/android/settings/wifi/RequestToggleWiFiActivity;Lcom/android/settings/wifi/RequestToggleWiFiActivity$StateChangeReceiver-IA;)V
 
     iput-object v0, p0, Lcom/android/settings/wifi/RequestToggleWiFiActivity;->mReceiver:Lcom/android/settings/wifi/RequestToggleWiFiActivity$StateChangeReceiver;
 
@@ -74,22 +90,6 @@
     iput v0, p0, Lcom/android/settings/wifi/RequestToggleWiFiActivity;->mLastUpdateState:I
 
     return-void
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/wifi/RequestToggleWiFiActivity;)Landroid/net/wifi/WifiManager;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/wifi/RequestToggleWiFiActivity;->mWiFiManager:Landroid/net/wifi/WifiManager;
-
-    return-object p0
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/wifi/RequestToggleWiFiActivity;)I
-    .locals 0
-
-    iget p0, p0, Lcom/android/settings/wifi/RequestToggleWiFiActivity;->mState:I
-
-    return p0
 .end method
 
 .method private synthetic lambda$new$0()V
@@ -167,9 +167,9 @@
 
     const/4 v0, 0x0
 
-    const v2, 0x7f0407c8
+    const v2, 0x7f04080d
 
-    const v3, 0x7f0401f9
+    const v3, 0x7f040222
 
     const/4 v4, 0x1
 
@@ -214,7 +214,7 @@
 
     iput-object v8, v0, Lcom/android/internal/app/AlertController$AlertParams;->mNegativeButtonListener:Landroid/content/DialogInterface$OnClickListener;
 
-    const v1, 0x7f04172d
+    const v1, 0x7f041827
 
     invoke-virtual {p0, v1}, Lcom/android/internal/app/AlertActivity;->getString(I)Ljava/lang/String;
 
@@ -247,7 +247,7 @@
 
     iput-object p0, v1, Lcom/android/internal/app/AlertController$AlertParams;->mNegativeButtonListener:Landroid/content/DialogInterface$OnClickListener;
 
-    const v2, 0x7f0415e8
+    const v2, 0x7f0416e1
 
     new-array v3, v4, [Ljava/lang/Object;
 
@@ -282,7 +282,7 @@
 
     iput-object v8, v0, Lcom/android/internal/app/AlertController$AlertParams;->mNegativeButtonListener:Landroid/content/DialogInterface$OnClickListener;
 
-    const v1, 0x7f041721
+    const v1, 0x7f04181b
 
     invoke-virtual {p0, v1}, Lcom/android/internal/app/AlertActivity;->getString(I)Ljava/lang/String;
 
@@ -315,7 +315,7 @@
 
     iput-object p0, v1, Lcom/android/internal/app/AlertController$AlertParams;->mNegativeButtonListener:Landroid/content/DialogInterface$OnClickListener;
 
-    const v2, 0x7f0415e9
+    const v2, 0x7f0416e2
 
     new-array v3, v4, [Ljava/lang/Object;
 

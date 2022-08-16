@@ -36,16 +36,6 @@
 # direct methods
 .method private constructor <init>(Landroid/content/Context;Landroidx/slice/Slice;)V
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "slice"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -240,16 +230,6 @@
 
 .method public static from(Landroid/content/Context;Landroidx/slice/Slice;)Landroidx/slice/SliceMetadata;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "slice"
-        }
-    .end annotation
 
     new-instance v0, Landroidx/slice/SliceMetadata;
 
@@ -260,15 +240,6 @@
 
 .method public static getSliceActions(Landroidx/slice/Slice;)Ljava/util/List;
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "slice"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

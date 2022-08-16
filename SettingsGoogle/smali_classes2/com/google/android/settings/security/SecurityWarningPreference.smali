@@ -85,11 +85,11 @@
 .method private static synthetic lambda$setSecurityWarning$2(Landroid/os/Bundle;Lcom/android/settings/SettingsPreferenceFragment;Landroid/view/View;)V
     .locals 3
 
-    const p2, 0x7f041110
+    const p2, 0x7f0411c0
 
     const/4 v0, 0x0
 
-    const v1, 0x7f04110f
+    const v1, 0x7f0411bf
 
     const/high16 v2, 0x1040000
 
@@ -151,9 +151,9 @@
 
     if-eqz v0, :cond_0
 
-    new-instance v1, Lcom/google/android/settings/security/SecurityWarningPreference$$ExternalSyntheticLambda3;
+    new-instance v1, Lcom/google/android/settings/security/SecurityWarningPreference$$ExternalSyntheticLambda0;
 
-    invoke-direct {v1, p0, v0, p2}, Lcom/google/android/settings/security/SecurityWarningPreference$$ExternalSyntheticLambda3;-><init>(Lcom/google/android/settings/security/SecurityWarningPreference;Landroid/os/Bundle;Lcom/android/settings/SettingsPreferenceFragment;)V
+    invoke-direct {v1, p0, v0, p2}, Lcom/google/android/settings/security/SecurityWarningPreference$$ExternalSyntheticLambda0;-><init>(Lcom/google/android/settings/security/SecurityWarningPreference;Landroid/os/Bundle;Lcom/android/settings/SettingsPreferenceFragment;)V
 
     invoke-virtual {p0, v1}, Lcom/android/settingslib/widget/BannerMessagePreference;->setPositiveButtonOnClickListener(Landroid/view/View$OnClickListener;)Lcom/android/settingslib/widget/BannerMessagePreference;
 
@@ -170,9 +170,9 @@
 
     if-eqz v0, :cond_1
 
-    new-instance v1, Lcom/google/android/settings/security/SecurityWarningPreference$$ExternalSyntheticLambda2;
+    new-instance v1, Lcom/google/android/settings/security/SecurityWarningPreference$$ExternalSyntheticLambda1;
 
-    invoke-direct {v1, p0, v0, p2}, Lcom/google/android/settings/security/SecurityWarningPreference$$ExternalSyntheticLambda2;-><init>(Lcom/google/android/settings/security/SecurityWarningPreference;Landroid/os/Bundle;Lcom/android/settings/SettingsPreferenceFragment;)V
+    invoke-direct {v1, p0, v0, p2}, Lcom/google/android/settings/security/SecurityWarningPreference$$ExternalSyntheticLambda1;-><init>(Lcom/google/android/settings/security/SecurityWarningPreference;Landroid/os/Bundle;Lcom/android/settings/SettingsPreferenceFragment;)V
 
     invoke-virtual {p0, v1}, Lcom/android/settingslib/widget/BannerMessagePreference;->setNegativeButtonOnClickListener(Landroid/view/View$OnClickListener;)Lcom/android/settingslib/widget/BannerMessagePreference;
 
@@ -195,18 +195,18 @@
 
     if-eqz v1, :cond_2
 
-    new-instance v1, Lcom/google/android/settings/security/SecurityWarningPreference$$ExternalSyntheticLambda0;
+    new-instance v1, Lcom/google/android/settings/security/SecurityWarningPreference$$ExternalSyntheticLambda2;
 
-    invoke-direct {v1, v0, p2}, Lcom/google/android/settings/security/SecurityWarningPreference$$ExternalSyntheticLambda0;-><init>(Landroid/os/Bundle;Lcom/android/settings/SettingsPreferenceFragment;)V
+    invoke-direct {v1, v0, p2}, Lcom/google/android/settings/security/SecurityWarningPreference$$ExternalSyntheticLambda2;-><init>(Landroid/os/Bundle;Lcom/android/settings/SettingsPreferenceFragment;)V
 
     invoke-virtual {p0, v1}, Lcom/android/settingslib/widget/BannerMessagePreference;->setDismissButtonOnClickListener(Landroid/view/View$OnClickListener;)Lcom/android/settingslib/widget/BannerMessagePreference;
 
     goto :goto_0
 
     :cond_2
-    new-instance v1, Lcom/google/android/settings/security/SecurityWarningPreference$$ExternalSyntheticLambda1;
+    new-instance v1, Lcom/google/android/settings/security/SecurityWarningPreference$$ExternalSyntheticLambda3;
 
-    invoke-direct {v1, p0, v0, p2}, Lcom/google/android/settings/security/SecurityWarningPreference$$ExternalSyntheticLambda1;-><init>(Lcom/google/android/settings/security/SecurityWarningPreference;Landroid/os/Bundle;Lcom/android/settings/SettingsPreferenceFragment;)V
+    invoke-direct {v1, p0, v0, p2}, Lcom/google/android/settings/security/SecurityWarningPreference$$ExternalSyntheticLambda3;-><init>(Lcom/google/android/settings/security/SecurityWarningPreference;Landroid/os/Bundle;Lcom/android/settings/SettingsPreferenceFragment;)V
 
     invoke-virtual {p0, v1}, Lcom/android/settingslib/widget/BannerMessagePreference;->setDismissButtonOnClickListener(Landroid/view/View$OnClickListener;)Lcom/android/settingslib/widget/BannerMessagePreference;
 

@@ -35,7 +35,7 @@
 
 .field private mEnrollmentTypeVendorCode:I
 
-.field private mFaceManager:Landroid/hardware/face/FaceManager;
+.field private mFaceUpdater:Lcom/android/settings/biometrics/face/FaceUpdater;
 
 .field private mHandler:Landroid/os/Handler;
 
@@ -69,6 +69,14 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmEnrolling(Lcom/google/android/settings/biometrics/face/FaceEnrollSidecar;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollSidecar;->mEnrolling:Z
+
+    return p0
+.end method
+
 .method public constructor <init>()V
     .locals 2
 
@@ -115,14 +123,6 @@
     iput-object v0, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollSidecar;->mQueuedEvents:Ljava/util/ArrayList;
 
     return-void
-.end method
-
-.method static synthetic access$100(Lcom/google/android/settings/biometrics/face/FaceEnrollSidecar;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollSidecar;->mEnrolling:Z
-
-    return p0
 .end method
 
 .method private logEnrollmentError()V
@@ -424,17 +424,15 @@
 
     if-ge v2, v6, :cond_2
 
-    aget v6, v5, v2
+    aget v5, v5, v2
 
-    if-ne v6, v1, :cond_0
+    if-ne v5, v1, :cond_0
 
     move v3, v0
 
     goto :goto_1
 
     :cond_0
-    aget v5, v5, v2
-
     const/4 v6, 0x2
 
     if-ne v5, v6, :cond_1
@@ -607,15 +605,11 @@
 
     iput v0, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollSidecar;->mUserId:I
 
-    const-class v0, Landroid/hardware/face/FaceManager;
+    new-instance v0, Lcom/android/settings/biometrics/face/FaceUpdater;
 
-    invoke-virtual {p1, v0}, Landroid/app/Activity;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-direct {v0, p1}, Lcom/android/settings/biometrics/face/FaceUpdater;-><init>(Landroid/content/Context;)V
 
-    move-result-object p1
-
-    check-cast p1, Landroid/hardware/face/FaceManager;
-
-    iput-object p1, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollSidecar;->mFaceManager:Landroid/hardware/face/FaceManager;
+    iput-object v0, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollSidecar;->mFaceUpdater:Lcom/android/settings/biometrics/face/FaceUpdater;
 
     return-void
 .end method
@@ -933,7 +927,7 @@
     :goto_2
     move-object v9, v0
 
-    iget-object v3, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollSidecar;->mFaceManager:Landroid/hardware/face/FaceManager;
+    iget-object v3, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollSidecar;->mFaceUpdater:Lcom/android/settings/biometrics/face/FaceUpdater;
 
     iget v4, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollSidecar;->mUserId:I
 
@@ -947,7 +941,7 @@
 
     iget-boolean v10, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollSidecar;->mDebugConsent:Z
 
-    invoke-virtual/range {v3 .. v10}, Landroid/hardware/face/FaceManager;->enroll(I[BLandroid/os/CancellationSignal;Landroid/hardware/face/FaceManager$EnrollmentCallback;[ILandroid/view/Surface;Z)V
+    invoke-virtual/range {v3 .. v10}, Lcom/android/settings/biometrics/face/FaceUpdater;->enroll(I[BLandroid/os/CancellationSignal;Landroid/hardware/face/FaceManager$EnrollmentCallback;[ILandroid/view/Surface;Z)V
 
     return-void
 .end method

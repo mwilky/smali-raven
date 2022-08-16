@@ -21,11 +21,11 @@
 
     move-result-object v0
 
-    const v1, 0x7f0602a0
+    const v1, 0x7f0602b0
 
     invoke-virtual {v0, v1, p0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
-    const v0, 0x7f0d0609
+    const v0, 0x7f0d064b
 
     invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
@@ -39,7 +39,7 @@
 
     new-array v1, v0, [Landroid/widget/TextView;
 
-    const v2, 0x7f0d0316
+    const v2, 0x7f0d033f
 
     invoke-virtual {p0, v2}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
@@ -51,7 +51,7 @@
 
     aput-object v2, v1, v3
 
-    const v2, 0x7f0d0319
+    const v2, 0x7f0d0343
 
     invoke-virtual {p0, v2}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
@@ -63,7 +63,7 @@
 
     aput-object v2, v1, v4
 
-    const v2, 0x7f0d031b
+    const v2, 0x7f0d0345
 
     invoke-virtual {p0, v2}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
@@ -79,7 +79,7 @@
 
     new-array v2, v5, [Landroid/widget/TextView;
 
-    const v6, 0x7f0d031a
+    const v6, 0x7f0d0344
 
     invoke-virtual {p0, v6}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
@@ -89,7 +89,7 @@
 
     aput-object v6, v2, v3
 
-    const v6, 0x7f0d0317
+    const v6, 0x7f0d0340
 
     invoke-virtual {p0, v6}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
@@ -183,9 +183,9 @@
 
     move-result p2
 
-    const v0, 0x7f0d0107
+    const v0, 0x7f0d010d
 
-    const v1, 0x7f0d0260
+    const v1, 0x7f0d0282
 
     if-eqz p2, :cond_6
 
@@ -203,7 +203,7 @@
 
     check-cast p2, Landroid/widget/LinearLayout;
 
-    const v5, 0x7f0d0318
+    const v5, 0x7f0d0342
 
     invoke-virtual {p0, v5}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
@@ -223,7 +223,7 @@
 
     check-cast p2, Landroid/widget/LinearLayout;
 
-    const v2, 0x7f0d0108
+    const v2, 0x7f0d010e
 
     invoke-virtual {p2, v2}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -470,11 +470,11 @@
 .method public setSideLabelWeights(FF)V
     .locals 1
 
-    const v0, 0x7f0d0524
+    const v0, 0x7f0d0566
 
     invoke-direct {p0, v0, p1}, Lcom/android/settings/widget/UsageView;->setWeight(IF)V
 
-    const p1, 0x7f0d0525
+    const p1, 0x7f0d0567
 
     invoke-direct {p0, p1, p2}, Lcom/android/settings/widget/UsageView;->setWeight(IF)V
 

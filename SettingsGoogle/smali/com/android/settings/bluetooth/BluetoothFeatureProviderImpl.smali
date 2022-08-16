@@ -6,23 +6,27 @@
 .implements Lcom/android/settings/bluetooth/BluetoothFeatureProvider;
 
 
-# instance fields
-.field private mContext:Landroid/content/Context;
-
-
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/settings/bluetooth/BluetoothFeatureProviderImpl;->mContext:Landroid/content/Context;
-
     return-void
 .end method
 
 
 # virtual methods
+.method public getBluetoothDeviceControlUri(Landroid/bluetooth/BluetoothDevice;)Ljava/lang/String;
+    .locals 0
+
+    invoke-static {p1}, Lcom/android/settingslib/bluetooth/BluetoothUtils;->getControlUriMetaData(Landroid/bluetooth/BluetoothDevice;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method public getBluetoothDeviceSettingsUri(Landroid/bluetooth/BluetoothDevice;)Landroid/net/Uri;
     .locals 0
 
@@ -48,5 +52,21 @@
     move-result-object p0
 
     :goto_0
+    return-object p0
+.end method
+
+.method public getRelatedTools()Ljava/util/List;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List<",
+            "Landroid/content/ComponentName;",
+            ">;"
+        }
+    .end annotation
+
+    const/4 p0, 0x0
+
     return-object p0
 .end method

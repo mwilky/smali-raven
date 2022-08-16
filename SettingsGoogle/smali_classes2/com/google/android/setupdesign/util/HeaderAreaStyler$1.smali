@@ -49,7 +49,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Lcom/google/android/setupdesign/util/HeaderAreaStyler$1;->val$imageView:Landroid/widget/ImageView;
 
@@ -57,13 +57,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_2
-
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    if-lt v0, v1, :cond_0
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Lcom/google/android/setupdesign/util/HeaderAreaStyler$1;->val$imageView:Landroid/widget/ImageView;
 
@@ -73,9 +67,8 @@
 
     instance-of v0, v0, Landroid/graphics/drawable/VectorDrawable;
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_1
 
-    :cond_0
     iget-object v0, p0, Lcom/google/android/setupdesign/util/HeaderAreaStyler$1;->val$imageView:Landroid/widget/ImageView;
 
     invoke-virtual {v0}, Landroid/widget/ImageView;->getDrawable()Landroid/graphics/drawable/Drawable;
@@ -84,7 +77,7 @@
 
     instance-of v0, v0, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat;
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_1
 
     sget-object v0, Landroid/os/Build;->TYPE:Ljava/lang/String;
 
@@ -94,7 +87,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_0
 
     const-string v1, "eng"
 
@@ -102,9 +95,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1
 
-    :cond_1
+    :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -133,7 +126,7 @@
 
     invoke-static {v0, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_2
+    :cond_1
     const/4 p0, 0x1
 
     return p0

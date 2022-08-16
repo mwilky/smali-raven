@@ -70,7 +70,7 @@
 
     check-cast p0, Lcom/android/settings/wifi/WifiScanModeActivity;
 
-    invoke-static {p0}, Lcom/android/settings/wifi/WifiScanModeActivity;->access$000(Lcom/android/settings/wifi/WifiScanModeActivity;)V
+    invoke-static {p0}, Lcom/android/settings/wifi/WifiScanModeActivity;->-$$Nest$mdoNegativeClick(Lcom/android/settings/wifi/WifiScanModeActivity;)V
 
     return-void
 .end method
@@ -94,7 +94,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0416e0
+    const v0, 0x7f0417d9
 
     invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -103,7 +103,7 @@
     goto :goto_0
 
     :cond_0
-    const v0, 0x7f0416e2
+    const v0, 0x7f0417db
 
     const/4 v1, 0x1
 
@@ -124,7 +124,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f0416de
+    const v0, 0x7f0417d7
 
     new-instance v1, Lcom/android/settings/wifi/WifiScanModeActivity$AlertDialogFragment$2;
 
@@ -134,7 +134,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f0416df
+    const v0, 0x7f0417d8
 
     new-instance v1, Lcom/android/settings/wifi/WifiScanModeActivity$AlertDialogFragment$1;
 

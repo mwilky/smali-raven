@@ -136,14 +136,6 @@
 .method public abstract getUri()Landroid/net/Uri;
 .end method
 
-.method public isSliceable()Z
-    .locals 0
-
-    const/4 p0, 0x1
-
-    return p0
-.end method
-
 .method public onNotifyChange(Landroid/content/Intent;)V
     .locals 0
 

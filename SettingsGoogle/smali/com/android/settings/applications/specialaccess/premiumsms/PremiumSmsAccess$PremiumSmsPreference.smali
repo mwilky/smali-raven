@@ -21,6 +21,14 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmAppEntry(Lcom/android/settings/applications/specialaccess/premiumsms/PremiumSmsAccess$PremiumSmsPreference;)Lcom/android/settingslib/applications/ApplicationsState$AppEntry;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/applications/specialaccess/premiumsms/PremiumSmsAccess$PremiumSmsPreference;->mAppEntry:Lcom/android/settingslib/applications/ApplicationsState$AppEntry;
+
+    return-object p0
+.end method
+
 .method public constructor <init>(Lcom/android/settings/applications/specialaccess/premiumsms/PremiumSmsAccess;Lcom/android/settingslib/applications/ApplicationsState$AppEntry;Landroid/content/Context;)V
     .locals 2
 
@@ -43,7 +51,7 @@
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setIcon(Landroid/graphics/drawable/Drawable;)V
 
     :cond_0
-    const p1, 0x7f0100ac
+    const p1, 0x7f0100b6
 
     invoke-virtual {p0, p1}, Landroidx/preference/ListPreference;->setEntries(I)V
 
@@ -92,14 +100,6 @@
     invoke-virtual {p0, p1}, Landroidx/preference/ListPreference;->setSummary(Ljava/lang/CharSequence;)V
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/applications/specialaccess/premiumsms/PremiumSmsAccess$PremiumSmsPreference;)Lcom/android/settingslib/applications/ApplicationsState$AppEntry;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/applications/specialaccess/premiumsms/PremiumSmsAccess$PremiumSmsPreference;->mAppEntry:Lcom/android/settingslib/applications/ApplicationsState$AppEntry;
-
-    return-object p0
 .end method
 
 .method private getCurrentValue()I

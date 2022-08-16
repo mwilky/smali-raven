@@ -175,17 +175,21 @@
 .end method
 
 .method public getIntent()Landroid/content/Intent;
-    .locals 2
+    .locals 1
 
-    new-instance v0, Landroid/content/Intent;
+    new-instance p0, Landroid/content/Intent;
 
-    iget-object p0, p0, Lcom/android/settings/network/telephony/MobileDataSlice;->mContext:Landroid/content/Context;
+    const-string v0, "android.settings.NETWORK_OPERATOR_SETTINGS"
 
-    const-class v1, Lcom/android/settings/network/telephony/MobileNetworkActivity;
+    invoke-direct {p0, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    invoke-direct {v0, p0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+    const-string v0, "com.android.settings"
 
-    return-object v0
+    invoke-virtual {p0, v0}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method public getIntentFilter()Landroid/content/IntentFilter;
@@ -207,7 +211,7 @@
 
     iget-object v0, p0, Lcom/android/settings/network/telephony/MobileDataSlice;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0202dd
+    const v1, 0x7f0202fe
 
     invoke-static {v0, v1}, Landroidx/core/graphics/drawable/IconCompat;->createWithResource(Landroid/content/Context;I)Landroidx/core/graphics/drawable/IconCompat;
 
@@ -215,7 +219,7 @@
 
     iget-object v1, p0, Lcom/android/settings/network/telephony/MobileDataSlice;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f040d38
+    const v2, 0x7f040db4
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -336,7 +340,7 @@
 .method public getSliceHighlightMenuRes()I
     .locals 0
 
-    const p0, 0x7f040d0a
+    const p0, 0x7f040d85
 
     return p0
 .end method

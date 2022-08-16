@@ -39,7 +39,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wfd/WifiDisplaySettings$13;->this$0:Lcom/android/settings/wfd/WifiDisplaySettings;
 
-    invoke-static {v0}, Lcom/android/settings/wfd/WifiDisplaySettings;->access$1000(Lcom/android/settings/wfd/WifiDisplaySettings;)I
+    invoke-static {v0}, Lcom/android/settings/wfd/WifiDisplaySettings;->-$$Nest$fgetmPendingChanges(Lcom/android/settings/wfd/WifiDisplaySettings;)I
 
     move-result v0
 
@@ -47,11 +47,11 @@
 
     const/4 v2, 0x0
 
-    invoke-static {v1, v2}, Lcom/android/settings/wfd/WifiDisplaySettings;->access$1002(Lcom/android/settings/wfd/WifiDisplaySettings;I)I
+    invoke-static {v1, v2}, Lcom/android/settings/wfd/WifiDisplaySettings;->-$$Nest$fputmPendingChanges(Lcom/android/settings/wfd/WifiDisplaySettings;I)V
 
     iget-object p0, p0, Lcom/android/settings/wfd/WifiDisplaySettings$13;->this$0:Lcom/android/settings/wfd/WifiDisplaySettings;
 
-    invoke-static {p0, v0}, Lcom/android/settings/wfd/WifiDisplaySettings;->access$1100(Lcom/android/settings/wfd/WifiDisplaySettings;I)V
+    invoke-static {p0, v0}, Lcom/android/settings/wfd/WifiDisplaySettings;->-$$Nest$mupdate(Lcom/android/settings/wfd/WifiDisplaySettings;I)V
 
     return-void
 .end method

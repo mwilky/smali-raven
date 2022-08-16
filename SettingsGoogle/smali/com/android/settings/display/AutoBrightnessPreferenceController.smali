@@ -15,7 +15,7 @@
 
     invoke-direct {p0, p1, p2}, Lcom/android/settings/core/TogglePreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
-    const-string p1, "screen_brightness_mode"
+    const-string/jumbo p1, "screen_brightness_mode"
 
     iput-object p1, p0, Lcom/android/settings/display/AutoBrightnessPreferenceController;->SYSTEM_KEY:Ljava/lang/String;
 
@@ -28,14 +28,6 @@
 
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public getAvailabilityStatus()I
     .locals 1
 
@@ -45,7 +37,7 @@
 
     move-result-object p0
 
-    const v0, 0x1110030
+    const v0, 0x1110033
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -66,15 +58,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -96,7 +79,7 @@
 .method public getSliceHighlightMenuRes()I
     .locals 0
 
-    const p0, 0x7f040d07
+    const p0, 0x7f040d82
 
     return p0
 .end method
@@ -112,12 +95,12 @@
 
     if-eqz p0, :cond_0
 
-    const p0, 0x7f0402d7
+    const p0, 0x7f04030d
 
     goto :goto_0
 
     :cond_0
-    const p0, 0x7f0402d6
+    const p0, 0x7f04030c
 
     :goto_0
     invoke-virtual {v0, p0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
@@ -146,7 +129,7 @@
 
     move-result-object p0
 
-    const-string v0, "screen_brightness_mode"
+    const-string/jumbo v0, "screen_brightness_mode"
 
     const/4 v1, 0x0
 
@@ -162,16 +145,6 @@
     return v1
 .end method
 
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
-
-    move-result p0
-
-    return p0
-.end method
-
 .method public setChecked(Z)Z
     .locals 1
 
@@ -181,7 +154,7 @@
 
     move-result-object p0
 
-    const-string v0, "screen_brightness_mode"
+    const-string/jumbo v0, "screen_brightness_mode"
 
     invoke-static {p0, v0, p1}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 

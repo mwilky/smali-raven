@@ -47,7 +47,7 @@
 
     iget-object p0, p0, Lcom/android/settings/wifi/tether/WifiTetherSoftApManager$1;->this$0:Lcom/android/settings/wifi/tether/WifiTetherSoftApManager;
 
-    invoke-static {p0}, Lcom/android/settings/wifi/tether/WifiTetherSoftApManager;->access$000(Lcom/android/settings/wifi/tether/WifiTetherSoftApManager;)Lcom/android/settings/wifi/tether/WifiTetherSoftApManager$WifiTetherSoftApCallback;
+    invoke-static {p0}, Lcom/android/settings/wifi/tether/WifiTetherSoftApManager;->-$$Nest$fgetmWifiTetherSoftApCallback(Lcom/android/settings/wifi/tether/WifiTetherSoftApManager;)Lcom/android/settings/wifi/tether/WifiTetherSoftApManager$WifiTetherSoftApCallback;
 
     move-result-object p0
 
@@ -61,7 +61,7 @@
 
     iget-object p0, p0, Lcom/android/settings/wifi/tether/WifiTetherSoftApManager$1;->this$0:Lcom/android/settings/wifi/tether/WifiTetherSoftApManager;
 
-    invoke-static {p0}, Lcom/android/settings/wifi/tether/WifiTetherSoftApManager;->access$000(Lcom/android/settings/wifi/tether/WifiTetherSoftApManager;)Lcom/android/settings/wifi/tether/WifiTetherSoftApManager$WifiTetherSoftApCallback;
+    invoke-static {p0}, Lcom/android/settings/wifi/tether/WifiTetherSoftApManager;->-$$Nest$fgetmWifiTetherSoftApCallback(Lcom/android/settings/wifi/tether/WifiTetherSoftApManager;)Lcom/android/settings/wifi/tether/WifiTetherSoftApManager$WifiTetherSoftApCallback;
 
     move-result-object p0
 

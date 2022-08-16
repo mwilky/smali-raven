@@ -46,16 +46,6 @@
 # virtual methods
 .method public addPosition(II)V
     .locals 5
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "layoutPosition",
-            "pixelDistance"
-        }
-    .end annotation
 
     if-ltz p1, :cond_3
 
@@ -156,16 +146,6 @@
 
 .method collectPrefetchPositionsFromView(Landroidx/recyclerview/widget/RecyclerView;Z)V
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "view",
-            "nested"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -251,14 +231,6 @@
 
 .method lastPrefetchIncludedPosition(I)Z
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "position"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/recyclerview/widget/GapWorker$LayoutPrefetchRegistryImpl;->mPrefetchArray:[I
 
@@ -296,16 +268,6 @@
 
 .method setPrefetchVector(II)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "dx",
-            "dy"
-        }
-    .end annotation
 
     iput p1, p0, Landroidx/recyclerview/widget/GapWorker$LayoutPrefetchRegistryImpl;->mPrefetchDx:I
 

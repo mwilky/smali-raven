@@ -88,9 +88,6 @@
 
 # virtual methods
 .method public abstract compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;TT;)I"

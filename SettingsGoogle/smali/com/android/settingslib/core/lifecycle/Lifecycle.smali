@@ -26,6 +26,46 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$monDestroy(Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settingslib/core/lifecycle/Lifecycle;->onDestroy()V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$monPause(Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settingslib/core/lifecycle/Lifecycle;->onPause()V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$monResume(Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settingslib/core/lifecycle/Lifecycle;->onResume()V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$monStart(Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settingslib/core/lifecycle/Lifecycle;->onStart()V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$monStop(Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settingslib/core/lifecycle/Lifecycle;->onStop()V
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroidx/lifecycle/LifecycleOwner;)V
     .locals 1
 
@@ -41,51 +81,11 @@
 
     const/4 v0, 0x0
 
-    invoke-direct {p1, p0, v0}, Lcom/android/settingslib/core/lifecycle/Lifecycle$LifecycleProxy;-><init>(Lcom/android/settingslib/core/lifecycle/Lifecycle;Lcom/android/settingslib/core/lifecycle/Lifecycle$1;)V
+    invoke-direct {p1, p0, v0}, Lcom/android/settingslib/core/lifecycle/Lifecycle$LifecycleProxy;-><init>(Lcom/android/settingslib/core/lifecycle/Lifecycle;Lcom/android/settingslib/core/lifecycle/Lifecycle$LifecycleProxy-IA;)V
 
     iput-object p1, p0, Lcom/android/settingslib/core/lifecycle/Lifecycle;->mProxy:Lcom/android/settingslib/core/lifecycle/Lifecycle$LifecycleProxy;
 
     invoke-virtual {p0, p1}, Lcom/android/settingslib/core/lifecycle/Lifecycle;->addObserver(Landroidx/lifecycle/LifecycleObserver;)V
-
-    return-void
-.end method
-
-.method static synthetic access$100(Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settingslib/core/lifecycle/Lifecycle;->onStart()V
-
-    return-void
-.end method
-
-.method static synthetic access$200(Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settingslib/core/lifecycle/Lifecycle;->onResume()V
-
-    return-void
-.end method
-
-.method static synthetic access$300(Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settingslib/core/lifecycle/Lifecycle;->onPause()V
-
-    return-void
-.end method
-
-.method static synthetic access$400(Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settingslib/core/lifecycle/Lifecycle;->onStop()V
-
-    return-void
-.end method
-
-.method static synthetic access$500(Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settingslib/core/lifecycle/Lifecycle;->onDestroy()V
 
     return-void
 .end method

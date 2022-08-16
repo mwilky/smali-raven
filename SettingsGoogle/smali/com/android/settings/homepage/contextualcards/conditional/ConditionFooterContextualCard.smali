@@ -20,7 +20,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settings/homepage/contextualcards/conditional/ConditionFooterContextualCard$Builder;Lcom/android/settings/homepage/contextualcards/conditional/ConditionFooterContextualCard$1;)V
+.method synthetic constructor <init>(Lcom/android/settings/homepage/contextualcards/conditional/ConditionFooterContextualCard$Builder;Lcom/android/settings/homepage/contextualcards/conditional/ConditionFooterContextualCard-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settings/homepage/contextualcards/conditional/ConditionFooterContextualCard;-><init>(Lcom/android/settings/homepage/contextualcards/conditional/ConditionFooterContextualCard$Builder;)V

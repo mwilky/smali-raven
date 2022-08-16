@@ -11,7 +11,7 @@
 
 .field private mColumbusWasEnabled:Z
 
-.field private mEnableColumbusOnPause:Ljava/lang/Boolean;
+.field private mEnableColumbusOnPause:Z
 
 .field private mLaunchedFrom:Ljava/lang/String;
 
@@ -180,11 +180,7 @@
 
     invoke-virtual {v0}, Lcom/google/android/settings/gestures/columbus/ColumbusGestureHelper;->unbindFromColumbusServiceProxy()V
 
-    iget-object v0, p0, Lcom/google/android/settings/gestures/columbus/ColumbusGestureTrainingBase;->mEnableColumbusOnPause:Ljava/lang/Boolean;
-
-    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result v0
+    iget-boolean v0, p0, Lcom/google/android/settings/gestures/columbus/ColumbusGestureTrainingBase;->mEnableColumbusOnPause:Z
 
     if-nez v0, :cond_0
 
@@ -262,9 +258,9 @@
 .method protected setEnableColumbusOnPause()V
     .locals 1
 
-    sget-object v0, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
+    const/4 v0, 0x1
 
-    iput-object v0, p0, Lcom/google/android/settings/gestures/columbus/ColumbusGestureTrainingBase;->mEnableColumbusOnPause:Ljava/lang/Boolean;
+    iput-boolean v0, p0, Lcom/google/android/settings/gestures/columbus/ColumbusGestureTrainingBase;->mEnableColumbusOnPause:Z
 
     return-void
 .end method

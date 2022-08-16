@@ -16,18 +16,4 @@
 
 # virtual methods
 .method public abstract onAnimationEnd(Landroidx/dynamicanimation/animation/DynamicAnimation;ZFF)V
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "animation",
-            "canceled",
-            "value",
-            "velocity"
-        }
-    .end annotation
 .end method

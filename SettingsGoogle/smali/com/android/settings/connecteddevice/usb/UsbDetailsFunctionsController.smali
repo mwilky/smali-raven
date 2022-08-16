@@ -3,7 +3,7 @@
 .source "UsbDetailsFunctionsController.java"
 
 # interfaces
-.implements Lcom/android/settingslib/widget/RadioButtonPreference$OnClickListener;
+.implements Lcom/android/settingslib/widget/SelectorWithWidgetPreference$OnClickListener;
 
 
 # annotations
@@ -67,7 +67,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0414c7
+    const v2, 0x7f0415c4
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -81,7 +81,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0414cc
+    const v2, 0x7f0415c9
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -95,7 +95,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0414c3
+    const v2, 0x7f0415c0
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -109,7 +109,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0414c9
+    const v2, 0x7f0415c6
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -123,7 +123,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0414c5
+    const v2, 0x7f0415c2
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -176,7 +176,7 @@
     return-void
 .end method
 
-.method private getProfilePreference(Ljava/lang/String;I)Lcom/android/settingslib/widget/RadioButtonPreference;
+.method private getProfilePreference(Ljava/lang/String;I)Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
     .locals 2
 
     iget-object v0, p0, Lcom/android/settings/connecteddevice/usb/UsbDetailsFunctionsController;->mProfilesContainer:Landroidx/preference/PreferenceCategory;
@@ -185,11 +185,11 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/android/settingslib/widget/RadioButtonPreference;
+    check-cast v0, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     if-nez v0, :cond_0
 
-    new-instance v0, Lcom/android/settingslib/widget/RadioButtonPreference;
+    new-instance v0, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     iget-object v1, p0, Lcom/android/settings/connecteddevice/usb/UsbDetailsFunctionsController;->mProfilesContainer:Landroidx/preference/PreferenceCategory;
 
@@ -197,7 +197,7 @@
 
     move-result-object v1
 
-    invoke-direct {v0, v1}, Lcom/android/settingslib/widget/RadioButtonPreference;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, v1}, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;-><init>(Landroid/content/Context;)V
 
     invoke-virtual {v0, p1}, Landroidx/preference/Preference;->setKey(Ljava/lang/String;)V
 
@@ -207,7 +207,7 @@
 
     invoke-virtual {v0, p1}, Landroidx/preference/Preference;->setSingleLineTitle(Z)V
 
-    invoke-virtual {v0, p0}, Lcom/android/settingslib/widget/RadioButtonPreference;->setOnClickListener(Lcom/android/settingslib/widget/RadioButtonPreference$OnClickListener;)V
+    invoke-virtual {v0, p0}, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;->setOnClickListener(Lcom/android/settingslib/widget/SelectorWithWidgetPreference$OnClickListener;)V
 
     iget-object p0, p0, Lcom/android/settings/connecteddevice/usb/UsbDetailsFunctionsController;->mProfilesContainer:Landroidx/preference/PreferenceCategory;
 
@@ -325,7 +325,7 @@
     return p0
 .end method
 
-.method public onRadioButtonClicked(Lcom/android/settingslib/widget/RadioButtonPreference;)V
+.method public onRadioButtonClicked(Lcom/android/settingslib/widget/SelectorWithWidgetPreference;)V
     .locals 7
 
     invoke-virtual {p1}, Landroidx/preference/Preference;->getKey()Ljava/lang/String;
@@ -417,7 +417,7 @@
 
     move-result-object v2
 
-    check-cast v2, Lcom/android/settingslib/widget/RadioButtonPreference;
+    check-cast v2, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     const/4 v3, 0x1
 
@@ -481,7 +481,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "refresh() connected : "
+    const-string/jumbo v1, "refresh() connected : "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -587,7 +587,7 @@
 
     move-result-object v3
 
-    invoke-direct {p0, v3, p5}, Lcom/android/settings/connecteddevice/usb/UsbDetailsFunctionsController;->getProfilePreference(Ljava/lang/String;I)Lcom/android/settingslib/widget/RadioButtonPreference;
+    invoke-direct {p0, v3, p5}, Lcom/android/settings/connecteddevice/usb/UsbDetailsFunctionsController;->getProfilePreference(Ljava/lang/String;I)Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     move-result-object p5
 

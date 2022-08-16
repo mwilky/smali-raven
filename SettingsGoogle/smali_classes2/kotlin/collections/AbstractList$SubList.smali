@@ -40,6 +40,9 @@
             "TE;>;"
         }
     .end annotation
+
+    .annotation build Lorg/jetbrains/annotations/NotNull;
+    .end annotation
 .end field
 
 

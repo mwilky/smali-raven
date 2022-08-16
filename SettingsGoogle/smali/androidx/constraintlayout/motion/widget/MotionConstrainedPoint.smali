@@ -348,7 +348,7 @@
     goto/16 :goto_1
 
     :sswitch_3
-    const-string v4, "rotation"
+    const-string/jumbo v4, "rotation"
 
     invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -364,7 +364,7 @@
     goto/16 :goto_1
 
     :sswitch_4
-    const-string v4, "scaleY"
+    const-string/jumbo v4, "scaleY"
 
     invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -380,7 +380,7 @@
     goto :goto_1
 
     :sswitch_5
-    const-string v4, "scaleX"
+    const-string/jumbo v4, "scaleX"
 
     invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -460,7 +460,7 @@
     goto :goto_1
 
     :sswitch_a
-    const-string v4, "rotationY"
+    const-string/jumbo v4, "rotationY"
 
     invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -476,7 +476,7 @@
     goto :goto_1
 
     :sswitch_b
-    const-string v4, "rotationX"
+    const-string/jumbo v4, "rotationX"
 
     invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -842,8 +842,6 @@
     :cond_1b
     return-void
 
-    nop
-
     :sswitch_data_0
     .sparse-switch
         -0x4a771f66 -> :sswitch_b
@@ -878,7 +876,7 @@
 .end method
 
 .method public applyParameters(Landroid/view/View;)V
-    .locals 3
+    .locals 1
 
     invoke-virtual {p1}, Landroid/view/View;->getVisibility()I
 
@@ -908,74 +906,65 @@
 
     iput-boolean v0, p0, Landroidx/constraintlayout/motion/widget/MotionConstrainedPoint;->applyElevation:Z
 
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    if-lt v0, v1, :cond_1
-
     invoke-virtual {p1}, Landroid/view/View;->getElevation()F
 
-    move-result v2
+    move-result v0
 
-    iput v2, p0, Landroidx/constraintlayout/motion/widget/MotionConstrainedPoint;->elevation:F
+    iput v0, p0, Landroidx/constraintlayout/motion/widget/MotionConstrainedPoint;->elevation:F
 
-    :cond_1
     invoke-virtual {p1}, Landroid/view/View;->getRotation()F
 
-    move-result v2
+    move-result v0
 
-    iput v2, p0, Landroidx/constraintlayout/motion/widget/MotionConstrainedPoint;->rotation:F
+    iput v0, p0, Landroidx/constraintlayout/motion/widget/MotionConstrainedPoint;->rotation:F
 
     invoke-virtual {p1}, Landroid/view/View;->getRotationX()F
 
-    move-result v2
+    move-result v0
 
-    iput v2, p0, Landroidx/constraintlayout/motion/widget/MotionConstrainedPoint;->rotationX:F
+    iput v0, p0, Landroidx/constraintlayout/motion/widget/MotionConstrainedPoint;->rotationX:F
 
     invoke-virtual {p1}, Landroid/view/View;->getRotationY()F
 
-    move-result v2
+    move-result v0
 
-    iput v2, p0, Landroidx/constraintlayout/motion/widget/MotionConstrainedPoint;->rotationY:F
+    iput v0, p0, Landroidx/constraintlayout/motion/widget/MotionConstrainedPoint;->rotationY:F
 
     invoke-virtual {p1}, Landroid/view/View;->getScaleX()F
 
-    move-result v2
+    move-result v0
 
-    iput v2, p0, Landroidx/constraintlayout/motion/widget/MotionConstrainedPoint;->scaleX:F
+    iput v0, p0, Landroidx/constraintlayout/motion/widget/MotionConstrainedPoint;->scaleX:F
 
     invoke-virtual {p1}, Landroid/view/View;->getScaleY()F
 
-    move-result v2
+    move-result v0
 
-    iput v2, p0, Landroidx/constraintlayout/motion/widget/MotionConstrainedPoint;->scaleY:F
+    iput v0, p0, Landroidx/constraintlayout/motion/widget/MotionConstrainedPoint;->scaleY:F
 
     invoke-virtual {p1}, Landroid/view/View;->getPivotX()F
 
-    move-result v2
+    move-result v0
 
-    iput v2, p0, Landroidx/constraintlayout/motion/widget/MotionConstrainedPoint;->mPivotX:F
+    iput v0, p0, Landroidx/constraintlayout/motion/widget/MotionConstrainedPoint;->mPivotX:F
 
     invoke-virtual {p1}, Landroid/view/View;->getPivotY()F
 
-    move-result v2
+    move-result v0
 
-    iput v2, p0, Landroidx/constraintlayout/motion/widget/MotionConstrainedPoint;->mPivotY:F
+    iput v0, p0, Landroidx/constraintlayout/motion/widget/MotionConstrainedPoint;->mPivotY:F
 
     invoke-virtual {p1}, Landroid/view/View;->getTranslationX()F
 
-    move-result v2
+    move-result v0
 
-    iput v2, p0, Landroidx/constraintlayout/motion/widget/MotionConstrainedPoint;->translationX:F
+    iput v0, p0, Landroidx/constraintlayout/motion/widget/MotionConstrainedPoint;->translationX:F
 
     invoke-virtual {p1}, Landroid/view/View;->getTranslationY()F
 
-    move-result v2
+    move-result v0
 
-    iput v2, p0, Landroidx/constraintlayout/motion/widget/MotionConstrainedPoint;->translationY:F
-
-    if-lt v0, v1, :cond_2
+    iput v0, p0, Landroidx/constraintlayout/motion/widget/MotionConstrainedPoint;->translationY:F
 
     invoke-virtual {p1}, Landroid/view/View;->getTranslationZ()F
 
@@ -983,7 +972,6 @@
 
     iput p1, p0, Landroidx/constraintlayout/motion/widget/MotionConstrainedPoint;->translationZ:F
 
-    :cond_2
     return-void
 .end method
 
@@ -1236,7 +1224,7 @@
 
     if-eqz v0, :cond_4
 
-    const-string v0, "rotation"
+    const-string/jumbo v0, "rotation"
 
     invoke-virtual {p2, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
@@ -1295,7 +1283,7 @@
 
     if-eqz v0, :cond_9
 
-    const-string v0, "rotationX"
+    const-string/jumbo v0, "rotationX"
 
     invoke-virtual {p2, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
@@ -1310,7 +1298,7 @@
 
     if-eqz v0, :cond_a
 
-    const-string v0, "rotationY"
+    const-string/jumbo v0, "rotationY"
 
     invoke-virtual {p2, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
@@ -1325,7 +1313,7 @@
 
     if-eqz v0, :cond_b
 
-    const-string v0, "scaleX"
+    const-string/jumbo v0, "scaleX"
 
     invoke-virtual {p2, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
@@ -1340,7 +1328,7 @@
 
     if-eqz v0, :cond_c
 
-    const-string v0, "scaleY"
+    const-string/jumbo v0, "scaleY"
 
     invoke-virtual {p2, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 

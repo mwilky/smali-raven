@@ -1,4 +1,4 @@
-.class final Lcom/google/android/material/datepicker/SingleDateSelector$2;
+.class Lcom/google/android/material/datepicker/SingleDateSelector$2;
 .super Ljava/lang/Object;
 .source "SingleDateSelector.java"
 
@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x0
     name = null
 .end annotation
 

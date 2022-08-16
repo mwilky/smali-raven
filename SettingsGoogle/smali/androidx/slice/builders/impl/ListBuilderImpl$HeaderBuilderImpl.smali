@@ -29,14 +29,6 @@
 # direct methods
 .method constructor <init>(Landroidx/slice/builders/impl/ListBuilderImpl;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "parent"
-        }
-    .end annotation
 
     invoke-virtual {p1}, Landroidx/slice/builders/impl/TemplateBuilderImpl;->createChildBuilder()Landroidx/slice/Slice$Builder;
 
@@ -51,14 +43,6 @@
 
 .method private setContentDescription(Ljava/lang/CharSequence;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "description"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/slice/builders/impl/ListBuilderImpl$HeaderBuilderImpl;->mContentDescr:Ljava/lang/CharSequence;
 
@@ -67,14 +51,6 @@
 
 .method private setLayoutDirection(I)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "layoutDirection"
-        }
-    .end annotation
 
     invoke-virtual {p0}, Landroidx/slice/builders/impl/TemplateBuilderImpl;->getBuilder()Landroidx/slice/Slice$Builder;
 
@@ -93,14 +69,6 @@
 
 .method private setPrimaryAction(Landroidx/slice/builders/SliceAction;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "action"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/slice/builders/impl/ListBuilderImpl$HeaderBuilderImpl;->mPrimaryAction:Landroidx/slice/builders/SliceAction;
 
@@ -109,16 +77,6 @@
 
 .method private setSubtitle(Ljava/lang/CharSequence;Z)V
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "subtitle",
-            "isLoading"
-        }
-    .end annotation
 
     new-instance v0, Landroidx/slice/SliceItem;
 
@@ -146,16 +104,6 @@
 
 .method private setSummary(Ljava/lang/CharSequence;Z)V
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "summarySubtitle",
-            "isLoading"
-        }
-    .end annotation
 
     new-instance v0, Landroidx/slice/SliceItem;
 
@@ -185,16 +133,6 @@
 
 .method private setTitle(Ljava/lang/CharSequence;Z)V
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "title",
-            "isLoading"
-        }
-    .end annotation
 
     new-instance v0, Landroidx/slice/SliceItem;
 
@@ -226,14 +164,6 @@
 # virtual methods
 .method public apply(Landroidx/slice/Slice$Builder;)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "b"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/slice/builders/impl/ListBuilderImpl$HeaderBuilderImpl;->mTitleItem:Landroidx/slice/SliceItem;
 
@@ -302,14 +232,6 @@
 
 .method fillFrom(Landroidx/slice/builders/ListBuilder$HeaderBuilder;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "builder"
-        }
-    .end annotation
 
     invoke-virtual {p1}, Landroidx/slice/builders/ListBuilder$HeaderBuilder;->getUri()Landroid/net/Uri;
 

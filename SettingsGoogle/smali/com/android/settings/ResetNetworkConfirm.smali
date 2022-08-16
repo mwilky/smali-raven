@@ -40,6 +40,84 @@
     return-void
 .end method
 
+.method static bridge synthetic -$$Nest$fgetmProgressDialog(Lcom/android/settings/ResetNetworkConfirm;)Landroid/app/ProgressDialog;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/ResetNetworkConfirm;->mProgressDialog:Landroid/app/ProgressDialog;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmSubId(Lcom/android/settings/ResetNetworkConfirm;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/settings/ResetNetworkConfirm;->mSubId:I
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmAlertDialog(Lcom/android/settings/ResetNetworkConfirm;Landroidx/appcompat/app/AlertDialog;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/settings/ResetNetworkConfirm;->mAlertDialog:Landroidx/appcompat/app/AlertDialog;
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fputmProgressDialog(Lcom/android/settings/ResetNetworkConfirm;Landroid/app/ProgressDialog;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/settings/ResetNetworkConfirm;->mProgressDialog:Landroid/app/ProgressDialog;
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mgetProgressDialog(Lcom/android/settings/ResetNetworkConfirm;Landroid/content/Context;)Landroid/app/ProgressDialog;
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/ResetNetworkConfirm;->getProgressDialog(Landroid/content/Context;)Landroid/app/ProgressDialog;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$mgetSubscriptionManager(Lcom/android/settings/ResetNetworkConfirm;)Landroid/telephony/SubscriptionManager;
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/ResetNetworkConfirm;->getSubscriptionManager()Landroid/telephony/SubscriptionManager;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$misSubscriptionRemainActive(Lcom/android/settings/ResetNetworkConfirm;Landroid/telephony/SubscriptionManager;I)Z
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/settings/ResetNetworkConfirm;->isSubscriptionRemainActive(Landroid/telephony/SubscriptionManager;I)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$mrestoreDefaultApn(Lcom/android/settings/ResetNetworkConfirm;Landroid/content/Context;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/ResetNetworkConfirm;->restoreDefaultApn(Landroid/content/Context;)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mstopMonitorSubscriptionChange(Lcom/android/settings/ResetNetworkConfirm;Landroid/telephony/SubscriptionManager;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/ResetNetworkConfirm;->stopMonitorSubscriptionChange(Landroid/telephony/SubscriptionManager;)V
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 1
 
@@ -58,90 +136,12 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/settings/ResetNetworkConfirm;)I
-    .locals 0
-
-    iget p0, p0, Lcom/android/settings/ResetNetworkConfirm;->mSubId:I
-
-    return p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/ResetNetworkConfirm;Landroid/content/Context;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/ResetNetworkConfirm;->restoreDefaultApn(Landroid/content/Context;)V
-
-    return-void
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/ResetNetworkConfirm;)Landroid/app/ProgressDialog;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/ResetNetworkConfirm;->mProgressDialog:Landroid/app/ProgressDialog;
-
-    return-object p0
-.end method
-
-.method static synthetic access$202(Lcom/android/settings/ResetNetworkConfirm;Landroid/app/ProgressDialog;)Landroid/app/ProgressDialog;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/settings/ResetNetworkConfirm;->mProgressDialog:Landroid/app/ProgressDialog;
-
-    return-object p1
-.end method
-
-.method static synthetic access$302(Lcom/android/settings/ResetNetworkConfirm;Landroidx/appcompat/app/AlertDialog;)Landroidx/appcompat/app/AlertDialog;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/settings/ResetNetworkConfirm;->mAlertDialog:Landroidx/appcompat/app/AlertDialog;
-
-    return-object p1
-.end method
-
-.method static synthetic access$400(Lcom/android/settings/ResetNetworkConfirm;)Landroid/telephony/SubscriptionManager;
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/ResetNetworkConfirm;->getSubscriptionManager()Landroid/telephony/SubscriptionManager;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method static synthetic access$500(Lcom/android/settings/ResetNetworkConfirm;Landroid/telephony/SubscriptionManager;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/ResetNetworkConfirm;->stopMonitorSubscriptionChange(Landroid/telephony/SubscriptionManager;)V
-
-    return-void
-.end method
-
-.method static synthetic access$600(Lcom/android/settings/ResetNetworkConfirm;Landroid/telephony/SubscriptionManager;I)Z
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/settings/ResetNetworkConfirm;->isSubscriptionRemainActive(Landroid/telephony/SubscriptionManager;I)Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method static synthetic access$700(Lcom/android/settings/ResetNetworkConfirm;Landroid/content/Context;)Landroid/app/ProgressDialog;
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/ResetNetworkConfirm;->getProgressDialog(Landroid/content/Context;)Landroid/app/ProgressDialog;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
 .method private establishFinalConfirmationState()V
     .locals 2
 
     iget-object v0, p0, Lcom/android/settings/ResetNetworkConfirm;->mContentView:Landroid/view/View;
 
-    const v1, 0x7f0d0219
+    const v1, 0x7f0d0231
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -169,7 +169,7 @@
 
     invoke-virtual {p0, v0}, Landroid/app/ProgressDialog;->setCancelable(Z)V
 
-    const v0, 0x7f040c7f
+    const v0, 0x7f040cfa
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -436,7 +436,7 @@
 
     if-eqz p3, :cond_0
 
-    const p0, 0x7f060160
+    const p0, 0x7f06016a
 
     invoke-virtual {p1, p0, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -476,7 +476,7 @@
     return-object p1
 
     :cond_1
-    const p2, 0x7f0601df
+    const p2, 0x7f0601ec
 
     invoke-virtual {p1, p2, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -578,7 +578,7 @@
 
     iget-object p0, p0, Lcom/android/settings/ResetNetworkConfirm;->mContentView:Landroid/view/View;
 
-    const v0, 0x7f0d0498
+    const v0, 0x7f0d04d5
 
     invoke-virtual {p0, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -586,7 +586,7 @@
 
     check-cast p0, Landroid/widget/TextView;
 
-    const v0, 0x7f041046
+    const v0, 0x7f0410ec
 
     invoke-virtual {p0, v0}, Landroid/widget/TextView;->setText(I)V
 

@@ -10,6 +10,34 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$eRgsAz-qRHrazmI27Iw5rBCanFc(Lcom/android/settings/deviceinfo/StorageWizardMoveProgress;)Ljava/lang/String;
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/deviceinfo/StorageWizardMoveProgress;->lambda$moveStatusToMessage$0()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmMoveId(Lcom/android/settings/deviceinfo/StorageWizardMoveProgress;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/settings/deviceinfo/StorageWizardMoveProgress;->mMoveId:I
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$mmoveStatusToMessage(Lcom/android/settings/deviceinfo/StorageWizardMoveProgress;I)Ljava/lang/CharSequence;
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/deviceinfo/StorageWizardMoveProgress;->moveStatusToMessage(I)Ljava/lang/CharSequence;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method public constructor <init>()V
     .locals 1
 
@@ -24,18 +52,12 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/settings/deviceinfo/StorageWizardMoveProgress;)I
-    .locals 0
+.method private synthetic lambda$moveStatusToMessage$0()Ljava/lang/String;
+    .locals 1
 
-    iget p0, p0, Lcom/android/settings/deviceinfo/StorageWizardMoveProgress;->mMoveId:I
+    const v0, 0x7f040ddb
 
-    return p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/deviceinfo/StorageWizardMoveProgress;I)Ljava/lang/CharSequence;
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/deviceinfo/StorageWizardMoveProgress;->moveStatusToMessage(I)Ljava/lang/CharSequence;
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
     move-result-object p0
 
@@ -63,7 +85,7 @@
 
     const/4 v0, -0x1
 
-    const v1, 0x7f040aa2
+    const v1, 0x7f040b00
 
     if-eq p1, v0, :cond_0
 
@@ -81,7 +103,7 @@
     return-object p0
 
     :cond_1
-    const p1, 0x7f040842
+    const p1, 0x7f04088c
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -90,7 +112,7 @@
     return-object p0
 
     :cond_2
-    const p1, 0x7f0413be
+    const p1, 0x7f041487
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -99,7 +121,7 @@
     return-object p0
 
     :cond_3
-    const p1, 0x7f040ac2
+    const p1, 0x7f040b20
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -108,9 +130,25 @@
     return-object p0
 
     :cond_4
-    const p1, 0x7f040d5f
+    const-class p1, Landroid/app/admin/DevicePolicyManager;
 
-    invoke-virtual {p0, p1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, p1}, Landroid/app/Activity;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Landroid/app/admin/DevicePolicyManager;
+
+    invoke-virtual {p1}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
+
+    move-result-object p1
+
+    new-instance v0, Lcom/android/settings/deviceinfo/StorageWizardMoveProgress$$ExternalSyntheticLambda0;
+
+    invoke-direct {v0, p0}, Lcom/android/settings/deviceinfo/StorageWizardMoveProgress$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/deviceinfo/StorageWizardMoveProgress;)V
+
+    const-string p0, "Settings.ERROR_MOVE_DEVICE_ADMIN"
+
+    invoke-virtual {p1, p0, v0}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
 
     move-result-object p0
 
@@ -133,7 +171,7 @@
     return-void
 
     :cond_0
-    const p1, 0x7f06022a
+    const p1, 0x7f060236
 
     invoke-virtual {p0, p1}, Lcom/android/settings/deviceinfo/StorageWizardBase;->setContentView(I)V
 
@@ -169,11 +207,11 @@
 
     move-result-object v0
 
-    const v1, 0x7f020384
+    const v1, 0x7f0203a9
 
     invoke-virtual {p0, v1}, Lcom/android/settings/deviceinfo/StorageWizardBase;->setIcon(I)V
 
-    const v1, 0x7f041367
+    const v1, 0x7f04142a
 
     const/4 v2, 0x1
 
@@ -185,7 +223,7 @@
 
     invoke-virtual {p0, v1, v3}, Lcom/android/settings/deviceinfo/StorageWizardBase;->setHeaderText(I[Ljava/lang/CharSequence;)V
 
-    const v1, 0x7f041365
+    const v1, 0x7f041428
 
     const/4 v3, 0x2
 

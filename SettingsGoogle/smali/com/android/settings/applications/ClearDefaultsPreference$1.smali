@@ -43,7 +43,7 @@
 
     iget-object p1, p0, Lcom/android/settings/applications/ClearDefaultsPreference$1;->this$0:Lcom/android/settings/applications/ClearDefaultsPreference;
 
-    invoke-static {p1}, Lcom/android/settings/applications/ClearDefaultsPreference;->access$000(Lcom/android/settings/applications/ClearDefaultsPreference;)Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
+    invoke-static {p1}, Lcom/android/settings/applications/ClearDefaultsPreference;->-$$Nest$fgetmAppsControlDisallowedAdmin(Lcom/android/settings/applications/ClearDefaultsPreference;)Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
 
     move-result-object p1
 
@@ -51,7 +51,7 @@
 
     iget-object p1, p0, Lcom/android/settings/applications/ClearDefaultsPreference$1;->this$0:Lcom/android/settings/applications/ClearDefaultsPreference;
 
-    invoke-static {p1}, Lcom/android/settings/applications/ClearDefaultsPreference;->access$100(Lcom/android/settings/applications/ClearDefaultsPreference;)Z
+    invoke-static {p1}, Lcom/android/settings/applications/ClearDefaultsPreference;->-$$Nest$fgetmAppsControlDisallowedBySystem(Lcom/android/settings/applications/ClearDefaultsPreference;)Z
 
     move-result p1
 
@@ -65,7 +65,7 @@
 
     iget-object p0, p0, Lcom/android/settings/applications/ClearDefaultsPreference$1;->this$0:Lcom/android/settings/applications/ClearDefaultsPreference;
 
-    invoke-static {p0}, Lcom/android/settings/applications/ClearDefaultsPreference;->access$000(Lcom/android/settings/applications/ClearDefaultsPreference;)Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
+    invoke-static {p0}, Lcom/android/settings/applications/ClearDefaultsPreference;->-$$Nest$fgetmAppsControlDisallowedAdmin(Lcom/android/settings/applications/ClearDefaultsPreference;)Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
 
     move-result-object p0
 
@@ -76,7 +76,7 @@
     :cond_0
     iget-object p1, p0, Lcom/android/settings/applications/ClearDefaultsPreference$1;->this$0:Lcom/android/settings/applications/ClearDefaultsPreference;
 
-    invoke-static {p1}, Lcom/android/settings/applications/ClearDefaultsPreference;->access$200(Lcom/android/settings/applications/ClearDefaultsPreference;)Landroid/hardware/usb/IUsbManager;
+    invoke-static {p1}, Lcom/android/settings/applications/ClearDefaultsPreference;->-$$Nest$fgetmUsbManager(Lcom/android/settings/applications/ClearDefaultsPreference;)Landroid/hardware/usb/IUsbManager;
 
     move-result-object p1
 
@@ -88,13 +88,13 @@
 
     iget-object v0, p0, Lcom/android/settings/applications/ClearDefaultsPreference$1;->this$0:Lcom/android/settings/applications/ClearDefaultsPreference;
 
-    invoke-static {v0}, Lcom/android/settings/applications/ClearDefaultsPreference;->access$400(Lcom/android/settings/applications/ClearDefaultsPreference;)Landroid/content/pm/PackageManager;
+    invoke-static {v0}, Lcom/android/settings/applications/ClearDefaultsPreference;->-$$Nest$fgetmPm(Lcom/android/settings/applications/ClearDefaultsPreference;)Landroid/content/pm/PackageManager;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/settings/applications/ClearDefaultsPreference$1;->this$0:Lcom/android/settings/applications/ClearDefaultsPreference;
 
-    invoke-static {v1}, Lcom/android/settings/applications/ClearDefaultsPreference;->access$300(Lcom/android/settings/applications/ClearDefaultsPreference;)Ljava/lang/String;
+    invoke-static {v1}, Lcom/android/settings/applications/ClearDefaultsPreference;->-$$Nest$fgetmPackageName(Lcom/android/settings/applications/ClearDefaultsPreference;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -108,7 +108,7 @@
 
     iget-object v1, p0, Lcom/android/settings/applications/ClearDefaultsPreference$1;->this$0:Lcom/android/settings/applications/ClearDefaultsPreference;
 
-    invoke-static {v1}, Lcom/android/settings/applications/ClearDefaultsPreference;->access$300(Lcom/android/settings/applications/ClearDefaultsPreference;)Ljava/lang/String;
+    invoke-static {v1}, Lcom/android/settings/applications/ClearDefaultsPreference;->-$$Nest$fgetmPackageName(Lcom/android/settings/applications/ClearDefaultsPreference;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -120,7 +120,7 @@
 
     iget-object v0, p0, Lcom/android/settings/applications/ClearDefaultsPreference$1;->this$0:Lcom/android/settings/applications/ClearDefaultsPreference;
 
-    invoke-static {v0}, Lcom/android/settings/applications/ClearDefaultsPreference;->access$400(Lcom/android/settings/applications/ClearDefaultsPreference;)Landroid/content/pm/PackageManager;
+    invoke-static {v0}, Lcom/android/settings/applications/ClearDefaultsPreference;->-$$Nest$fgetmPm(Lcom/android/settings/applications/ClearDefaultsPreference;)Landroid/content/pm/PackageManager;
 
     move-result-object v0
 
@@ -132,13 +132,13 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/settings/applications/ClearDefaultsPreference$1;->this$0:Lcom/android/settings/applications/ClearDefaultsPreference;
 
-    invoke-static {v0}, Lcom/android/settings/applications/ClearDefaultsPreference;->access$200(Lcom/android/settings/applications/ClearDefaultsPreference;)Landroid/hardware/usb/IUsbManager;
+    invoke-static {v0}, Lcom/android/settings/applications/ClearDefaultsPreference;->-$$Nest$fgetmUsbManager(Lcom/android/settings/applications/ClearDefaultsPreference;)Landroid/hardware/usb/IUsbManager;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/settings/applications/ClearDefaultsPreference$1;->this$0:Lcom/android/settings/applications/ClearDefaultsPreference;
 
-    invoke-static {v1}, Lcom/android/settings/applications/ClearDefaultsPreference;->access$300(Lcom/android/settings/applications/ClearDefaultsPreference;)Ljava/lang/String;
+    invoke-static {v1}, Lcom/android/settings/applications/ClearDefaultsPreference;->-$$Nest$fgetmPackageName(Lcom/android/settings/applications/ClearDefaultsPreference;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -160,13 +160,13 @@
     :goto_0
     iget-object p1, p0, Lcom/android/settings/applications/ClearDefaultsPreference$1;->this$0:Lcom/android/settings/applications/ClearDefaultsPreference;
 
-    invoke-static {p1}, Lcom/android/settings/applications/ClearDefaultsPreference;->access$500(Lcom/android/settings/applications/ClearDefaultsPreference;)Landroid/appwidget/AppWidgetManager;
+    invoke-static {p1}, Lcom/android/settings/applications/ClearDefaultsPreference;->-$$Nest$fgetmAppWidgetManager(Lcom/android/settings/applications/ClearDefaultsPreference;)Landroid/appwidget/AppWidgetManager;
 
     move-result-object p1
 
     iget-object v0, p0, Lcom/android/settings/applications/ClearDefaultsPreference$1;->this$0:Lcom/android/settings/applications/ClearDefaultsPreference;
 
-    invoke-static {v0}, Lcom/android/settings/applications/ClearDefaultsPreference;->access$300(Lcom/android/settings/applications/ClearDefaultsPreference;)Ljava/lang/String;
+    invoke-static {v0}, Lcom/android/settings/applications/ClearDefaultsPreference;->-$$Nest$fgetmPackageName(Lcom/android/settings/applications/ClearDefaultsPreference;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -176,7 +176,7 @@
 
     iget-object p1, p0, Lcom/android/settings/applications/ClearDefaultsPreference$1;->val$view:Landroidx/preference/PreferenceViewHolder;
 
-    const v0, 0x7f0d00bb
+    const v0, 0x7f0d00bf
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -186,7 +186,7 @@
 
     iget-object p0, p0, Lcom/android/settings/applications/ClearDefaultsPreference$1;->this$0:Lcom/android/settings/applications/ClearDefaultsPreference;
 
-    invoke-static {p0, p1}, Lcom/android/settings/applications/ClearDefaultsPreference;->access$600(Lcom/android/settings/applications/ClearDefaultsPreference;Landroid/widget/TextView;)V
+    invoke-static {p0, p1}, Lcom/android/settings/applications/ClearDefaultsPreference;->-$$Nest$mresetLaunchDefaultsUi(Lcom/android/settings/applications/ClearDefaultsPreference;Landroid/widget/TextView;)V
 
     :cond_2
     return-void

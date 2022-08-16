@@ -47,47 +47,32 @@
 .end method
 
 .method private synthetic lambda$onProvisioningComplete$2()V
-    .locals 1
+    .locals 0
 
     iget-object p0, p0, Lcom/android/settingslib/wifi/AccessPoint$AccessPointProvisioningCallback;->this$0:Lcom/android/settingslib/wifi/AccessPoint;
 
-    iget-object v0, p0, Lcom/android/settingslib/wifi/AccessPoint;->mAccessPointListener:Lcom/android/settingslib/wifi/AccessPoint$AccessPointListener;
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    if-eqz v0, :cond_0
-
-    invoke-interface {v0, p0}, Lcom/android/settingslib/wifi/AccessPoint$AccessPointListener;->onAccessPointChanged(Lcom/android/settingslib/wifi/AccessPoint;)V
-
-    :cond_0
     return-void
 .end method
 
 .method private synthetic lambda$onProvisioningFailure$0()V
-    .locals 1
+    .locals 0
 
     iget-object p0, p0, Lcom/android/settingslib/wifi/AccessPoint$AccessPointProvisioningCallback;->this$0:Lcom/android/settingslib/wifi/AccessPoint;
 
-    iget-object v0, p0, Lcom/android/settingslib/wifi/AccessPoint;->mAccessPointListener:Lcom/android/settingslib/wifi/AccessPoint$AccessPointListener;
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    if-eqz v0, :cond_0
-
-    invoke-interface {v0, p0}, Lcom/android/settingslib/wifi/AccessPoint$AccessPointListener;->onAccessPointChanged(Lcom/android/settingslib/wifi/AccessPoint;)V
-
-    :cond_0
     return-void
 .end method
 
 .method private synthetic lambda$onProvisioningStatus$1()V
-    .locals 1
+    .locals 0
 
     iget-object p0, p0, Lcom/android/settingslib/wifi/AccessPoint$AccessPointProvisioningCallback;->this$0:Lcom/android/settingslib/wifi/AccessPoint;
 
-    iget-object v0, p0, Lcom/android/settingslib/wifi/AccessPoint;->mAccessPointListener:Lcom/android/settingslib/wifi/AccessPoint$AccessPointListener;
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    if-eqz v0, :cond_0
-
-    invoke-interface {v0, p0}, Lcom/android/settingslib/wifi/AccessPoint$AccessPointListener;->onAccessPointChanged(Lcom/android/settingslib/wifi/AccessPoint;)V
-
-    :cond_0
     return-void
 .end method
 
@@ -100,33 +85,33 @@
 
     const/4 v1, 0x1
 
-    invoke-static {v0, v1}, Lcom/android/settingslib/wifi/AccessPoint;->access$302(Lcom/android/settingslib/wifi/AccessPoint;Z)Z
+    invoke-static {v0, v1}, Lcom/android/settingslib/wifi/AccessPoint;->-$$Nest$fputmOsuProvisioningComplete(Lcom/android/settingslib/wifi/AccessPoint;Z)V
 
     iget-object v0, p0, Lcom/android/settingslib/wifi/AccessPoint$AccessPointProvisioningCallback;->this$0:Lcom/android/settingslib/wifi/AccessPoint;
 
     const/4 v2, 0x0
 
-    invoke-static {v0, v2}, Lcom/android/settingslib/wifi/AccessPoint;->access$202(Lcom/android/settingslib/wifi/AccessPoint;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v0, v2}, Lcom/android/settingslib/wifi/AccessPoint;->-$$Nest$fputmOsuFailure(Lcom/android/settingslib/wifi/AccessPoint;Ljava/lang/String;)V
 
     iget-object v0, p0, Lcom/android/settingslib/wifi/AccessPoint$AccessPointProvisioningCallback;->this$0:Lcom/android/settingslib/wifi/AccessPoint;
 
-    invoke-static {v0, v2}, Lcom/android/settingslib/wifi/AccessPoint;->access$002(Lcom/android/settingslib/wifi/AccessPoint;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v0, v2}, Lcom/android/settingslib/wifi/AccessPoint;->-$$Nest$fputmOsuStatus(Lcom/android/settingslib/wifi/AccessPoint;Ljava/lang/String;)V
 
-    new-instance v0, Lcom/android/settingslib/wifi/AccessPoint$AccessPointProvisioningCallback$$ExternalSyntheticLambda0;
+    new-instance v0, Lcom/android/settingslib/wifi/AccessPoint$AccessPointProvisioningCallback$$ExternalSyntheticLambda1;
 
-    invoke-direct {v0, p0}, Lcom/android/settingslib/wifi/AccessPoint$AccessPointProvisioningCallback$$ExternalSyntheticLambda0;-><init>(Lcom/android/settingslib/wifi/AccessPoint$AccessPointProvisioningCallback;)V
+    invoke-direct {v0, p0}, Lcom/android/settingslib/wifi/AccessPoint$AccessPointProvisioningCallback$$ExternalSyntheticLambda1;-><init>(Lcom/android/settingslib/wifi/AccessPoint$AccessPointProvisioningCallback;)V
 
     invoke-static {v0}, Lcom/android/settingslib/utils/ThreadUtils;->postOnMainThread(Ljava/lang/Runnable;)V
 
     iget-object v0, p0, Lcom/android/settingslib/wifi/AccessPoint$AccessPointProvisioningCallback;->this$0:Lcom/android/settingslib/wifi/AccessPoint;
 
-    invoke-static {v0}, Lcom/android/settingslib/wifi/AccessPoint;->access$500(Lcom/android/settingslib/wifi/AccessPoint;)Landroid/net/wifi/WifiManager;
+    invoke-static {v0}, Lcom/android/settingslib/wifi/AccessPoint;->-$$Nest$mgetWifiManager(Lcom/android/settingslib/wifi/AccessPoint;)Landroid/net/wifi/WifiManager;
 
     move-result-object v0
 
     iget-object v2, p0, Lcom/android/settingslib/wifi/AccessPoint$AccessPointProvisioningCallback;->this$0:Lcom/android/settingslib/wifi/AccessPoint;
 
-    invoke-static {v2}, Lcom/android/settingslib/wifi/AccessPoint;->access$400(Lcom/android/settingslib/wifi/AccessPoint;)Landroid/net/wifi/hotspot2/OsuProvider;
+    invoke-static {v2}, Lcom/android/settingslib/wifi/AccessPoint;->-$$Nest$fgetmOsuProvider(Lcom/android/settingslib/wifi/AccessPoint;)Landroid/net/wifi/hotspot2/OsuProvider;
 
     move-result-object v2
 
@@ -140,7 +125,7 @@
 
     iget-object v3, p0, Lcom/android/settingslib/wifi/AccessPoint$AccessPointProvisioningCallback;->this$0:Lcom/android/settingslib/wifi/AccessPoint;
 
-    invoke-static {v3}, Lcom/android/settingslib/wifi/AccessPoint;->access$400(Lcom/android/settingslib/wifi/AccessPoint;)Landroid/net/wifi/hotspot2/OsuProvider;
+    invoke-static {v3}, Lcom/android/settingslib/wifi/AccessPoint;->-$$Nest$fgetmOsuProvider(Lcom/android/settingslib/wifi/AccessPoint;)Landroid/net/wifi/hotspot2/OsuProvider;
 
     move-result-object v3
 
@@ -162,7 +147,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/wifi/AccessPoint$AccessPointProvisioningCallback;->this$0:Lcom/android/settingslib/wifi/AccessPoint;
 
-    invoke-static {v0}, Lcom/android/settingslib/wifi/AccessPoint;->access$600(Lcom/android/settingslib/wifi/AccessPoint;)Landroid/net/wifi/WifiManager$ActionListener;
+    invoke-static {v0}, Lcom/android/settingslib/wifi/AccessPoint;->-$$Nest$fgetmConnectListener(Lcom/android/settingslib/wifi/AccessPoint;)Landroid/net/wifi/WifiManager$ActionListener;
 
     move-result-object v0
 
@@ -170,7 +155,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/wifi/AccessPoint$AccessPointProvisioningCallback;->this$0:Lcom/android/settingslib/wifi/AccessPoint;
 
-    invoke-static {p0}, Lcom/android/settingslib/wifi/AccessPoint;->access$600(Lcom/android/settingslib/wifi/AccessPoint;)Landroid/net/wifi/WifiManager$ActionListener;
+    invoke-static {p0}, Lcom/android/settingslib/wifi/AccessPoint;->-$$Nest$fgetmConnectListener(Lcom/android/settingslib/wifi/AccessPoint;)Landroid/net/wifi/WifiManager$ActionListener;
 
     move-result-object p0
 
@@ -255,7 +240,7 @@
 
     iget-object v4, p0, Lcom/android/settingslib/wifi/AccessPoint$AccessPointProvisioningCallback;->this$0:Lcom/android/settingslib/wifi/AccessPoint;
 
-    invoke-static {v4}, Lcom/android/settingslib/wifi/AccessPoint;->access$100(Lcom/android/settingslib/wifi/AccessPoint;)Landroid/content/Context;
+    invoke-static {v4}, Lcom/android/settingslib/wifi/AccessPoint;->-$$Nest$fgetmContext(Lcom/android/settingslib/wifi/AccessPoint;)Landroid/content/Context;
 
     move-result-object v4
 
@@ -267,7 +252,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/wifi/AccessPoint$AccessPointProvisioningCallback;->this$0:Lcom/android/settingslib/wifi/AccessPoint;
 
-    invoke-static {p0}, Lcom/android/settingslib/wifi/AccessPoint;->access$600(Lcom/android/settingslib/wifi/AccessPoint;)Landroid/net/wifi/WifiManager$ActionListener;
+    invoke-static {p0}, Lcom/android/settingslib/wifi/AccessPoint;->-$$Nest$fgetmConnectListener(Lcom/android/settingslib/wifi/AccessPoint;)Landroid/net/wifi/WifiManager$ActionListener;
 
     move-result-object p0
 
@@ -278,7 +263,7 @@
     :cond_3
     iget-object v0, p0, Lcom/android/settingslib/wifi/AccessPoint$AccessPointProvisioningCallback;->this$0:Lcom/android/settingslib/wifi/AccessPoint;
 
-    invoke-static {v0}, Lcom/android/settingslib/wifi/AccessPoint;->access$600(Lcom/android/settingslib/wifi/AccessPoint;)Landroid/net/wifi/WifiManager$ActionListener;
+    invoke-static {v0}, Lcom/android/settingslib/wifi/AccessPoint;->-$$Nest$fgetmConnectListener(Lcom/android/settingslib/wifi/AccessPoint;)Landroid/net/wifi/WifiManager$ActionListener;
 
     move-result-object v0
 
@@ -286,7 +271,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/wifi/AccessPoint$AccessPointProvisioningCallback;->this$0:Lcom/android/settingslib/wifi/AccessPoint;
 
-    invoke-static {p0}, Lcom/android/settingslib/wifi/AccessPoint;->access$600(Lcom/android/settingslib/wifi/AccessPoint;)Landroid/net/wifi/WifiManager$ActionListener;
+    invoke-static {p0}, Lcom/android/settingslib/wifi/AccessPoint;->-$$Nest$fgetmConnectListener(Lcom/android/settingslib/wifi/AccessPoint;)Landroid/net/wifi/WifiManager$ActionListener;
 
     move-result-object p0
 
@@ -301,13 +286,13 @@
 
     iget-object p1, p0, Lcom/android/settingslib/wifi/AccessPoint$AccessPointProvisioningCallback;->this$0:Lcom/android/settingslib/wifi/AccessPoint;
 
-    invoke-static {p1}, Lcom/android/settingslib/wifi/AccessPoint;->access$000(Lcom/android/settingslib/wifi/AccessPoint;)Ljava/lang/String;
+    invoke-static {p1}, Lcom/android/settingslib/wifi/AccessPoint;->-$$Nest$fgetmOsuStatus(Lcom/android/settingslib/wifi/AccessPoint;)Ljava/lang/String;
 
     move-result-object p1
 
     iget-object v0, p0, Lcom/android/settingslib/wifi/AccessPoint$AccessPointProvisioningCallback;->this$0:Lcom/android/settingslib/wifi/AccessPoint;
 
-    invoke-static {v0}, Lcom/android/settingslib/wifi/AccessPoint;->access$100(Lcom/android/settingslib/wifi/AccessPoint;)Landroid/content/Context;
+    invoke-static {v0}, Lcom/android/settingslib/wifi/AccessPoint;->-$$Nest$fgetmContext(Lcom/android/settingslib/wifi/AccessPoint;)Landroid/content/Context;
 
     move-result-object v0
 
@@ -325,7 +310,7 @@
 
     iget-object p1, p0, Lcom/android/settingslib/wifi/AccessPoint$AccessPointProvisioningCallback;->this$0:Lcom/android/settingslib/wifi/AccessPoint;
 
-    invoke-static {p1}, Lcom/android/settingslib/wifi/AccessPoint;->access$100(Lcom/android/settingslib/wifi/AccessPoint;)Landroid/content/Context;
+    invoke-static {p1}, Lcom/android/settingslib/wifi/AccessPoint;->-$$Nest$fgetmContext(Lcom/android/settingslib/wifi/AccessPoint;)Landroid/content/Context;
 
     move-result-object v0
 
@@ -335,14 +320,14 @@
 
     move-result-object v0
 
-    invoke-static {p1, v0}, Lcom/android/settingslib/wifi/AccessPoint;->access$202(Lcom/android/settingslib/wifi/AccessPoint;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {p1, v0}, Lcom/android/settingslib/wifi/AccessPoint;->-$$Nest$fputmOsuFailure(Lcom/android/settingslib/wifi/AccessPoint;Ljava/lang/String;)V
 
     goto :goto_0
 
     :cond_0
     iget-object p1, p0, Lcom/android/settingslib/wifi/AccessPoint$AccessPointProvisioningCallback;->this$0:Lcom/android/settingslib/wifi/AccessPoint;
 
-    invoke-static {p1}, Lcom/android/settingslib/wifi/AccessPoint;->access$100(Lcom/android/settingslib/wifi/AccessPoint;)Landroid/content/Context;
+    invoke-static {p1}, Lcom/android/settingslib/wifi/AccessPoint;->-$$Nest$fgetmContext(Lcom/android/settingslib/wifi/AccessPoint;)Landroid/content/Context;
 
     move-result-object v0
 
@@ -352,24 +337,24 @@
 
     move-result-object v0
 
-    invoke-static {p1, v0}, Lcom/android/settingslib/wifi/AccessPoint;->access$202(Lcom/android/settingslib/wifi/AccessPoint;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {p1, v0}, Lcom/android/settingslib/wifi/AccessPoint;->-$$Nest$fputmOsuFailure(Lcom/android/settingslib/wifi/AccessPoint;Ljava/lang/String;)V
 
     :goto_0
     iget-object p1, p0, Lcom/android/settingslib/wifi/AccessPoint$AccessPointProvisioningCallback;->this$0:Lcom/android/settingslib/wifi/AccessPoint;
 
     const/4 v0, 0x0
 
-    invoke-static {p1, v0}, Lcom/android/settingslib/wifi/AccessPoint;->access$002(Lcom/android/settingslib/wifi/AccessPoint;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {p1, v0}, Lcom/android/settingslib/wifi/AccessPoint;->-$$Nest$fputmOsuStatus(Lcom/android/settingslib/wifi/AccessPoint;Ljava/lang/String;)V
 
     iget-object p1, p0, Lcom/android/settingslib/wifi/AccessPoint$AccessPointProvisioningCallback;->this$0:Lcom/android/settingslib/wifi/AccessPoint;
 
     const/4 v0, 0x0
 
-    invoke-static {p1, v0}, Lcom/android/settingslib/wifi/AccessPoint;->access$302(Lcom/android/settingslib/wifi/AccessPoint;Z)Z
+    invoke-static {p1, v0}, Lcom/android/settingslib/wifi/AccessPoint;->-$$Nest$fputmOsuProvisioningComplete(Lcom/android/settingslib/wifi/AccessPoint;Z)V
 
-    new-instance p1, Lcom/android/settingslib/wifi/AccessPoint$AccessPointProvisioningCallback$$ExternalSyntheticLambda1;
+    new-instance p1, Lcom/android/settingslib/wifi/AccessPoint$AccessPointProvisioningCallback$$ExternalSyntheticLambda2;
 
-    invoke-direct {p1, p0}, Lcom/android/settingslib/wifi/AccessPoint$AccessPointProvisioningCallback$$ExternalSyntheticLambda1;-><init>(Lcom/android/settingslib/wifi/AccessPoint$AccessPointProvisioningCallback;)V
+    invoke-direct {p1, p0}, Lcom/android/settingslib/wifi/AccessPoint$AccessPointProvisioningCallback$$ExternalSyntheticLambda2;-><init>(Lcom/android/settingslib/wifi/AccessPoint$AccessPointProvisioningCallback;)V
 
     invoke-static {p1}, Lcom/android/settingslib/utils/ThreadUtils;->postOnMainThread(Ljava/lang/Runnable;)V
 
@@ -394,7 +379,7 @@
     :pswitch_0
     iget-object p1, p0, Lcom/android/settingslib/wifi/AccessPoint$AccessPointProvisioningCallback;->this$0:Lcom/android/settingslib/wifi/AccessPoint;
 
-    invoke-static {p1}, Lcom/android/settingslib/wifi/AccessPoint;->access$100(Lcom/android/settingslib/wifi/AccessPoint;)Landroid/content/Context;
+    invoke-static {p1}, Lcom/android/settingslib/wifi/AccessPoint;->-$$Nest$fgetmContext(Lcom/android/settingslib/wifi/AccessPoint;)Landroid/content/Context;
 
     move-result-object p1
 
@@ -409,7 +394,7 @@
     :pswitch_1
     iget-object p1, p0, Lcom/android/settingslib/wifi/AccessPoint$AccessPointProvisioningCallback;->this$0:Lcom/android/settingslib/wifi/AccessPoint;
 
-    invoke-static {p1}, Lcom/android/settingslib/wifi/AccessPoint;->access$100(Lcom/android/settingslib/wifi/AccessPoint;)Landroid/content/Context;
+    invoke-static {p1}, Lcom/android/settingslib/wifi/AccessPoint;->-$$Nest$fgetmContext(Lcom/android/settingslib/wifi/AccessPoint;)Landroid/content/Context;
 
     move-result-object p1
 
@@ -423,7 +408,7 @@
 
     iget-object v4, p0, Lcom/android/settingslib/wifi/AccessPoint$AccessPointProvisioningCallback;->this$0:Lcom/android/settingslib/wifi/AccessPoint;
 
-    invoke-static {v4}, Lcom/android/settingslib/wifi/AccessPoint;->access$400(Lcom/android/settingslib/wifi/AccessPoint;)Landroid/net/wifi/hotspot2/OsuProvider;
+    invoke-static {v4}, Lcom/android/settingslib/wifi/AccessPoint;->-$$Nest$fgetmOsuProvider(Lcom/android/settingslib/wifi/AccessPoint;)Landroid/net/wifi/hotspot2/OsuProvider;
 
     move-result-object v4
 
@@ -440,7 +425,7 @@
     :goto_0
     iget-object v3, p0, Lcom/android/settingslib/wifi/AccessPoint$AccessPointProvisioningCallback;->this$0:Lcom/android/settingslib/wifi/AccessPoint;
 
-    invoke-static {v3}, Lcom/android/settingslib/wifi/AccessPoint;->access$000(Lcom/android/settingslib/wifi/AccessPoint;)Ljava/lang/String;
+    invoke-static {v3}, Lcom/android/settingslib/wifi/AccessPoint;->-$$Nest$fgetmOsuStatus(Lcom/android/settingslib/wifi/AccessPoint;)Ljava/lang/String;
 
     move-result-object v3
 
@@ -452,21 +437,21 @@
 
     iget-object v3, p0, Lcom/android/settingslib/wifi/AccessPoint$AccessPointProvisioningCallback;->this$0:Lcom/android/settingslib/wifi/AccessPoint;
 
-    invoke-static {v3, p1}, Lcom/android/settingslib/wifi/AccessPoint;->access$002(Lcom/android/settingslib/wifi/AccessPoint;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v3, p1}, Lcom/android/settingslib/wifi/AccessPoint;->-$$Nest$fputmOsuStatus(Lcom/android/settingslib/wifi/AccessPoint;Ljava/lang/String;)V
 
     iget-object p1, p0, Lcom/android/settingslib/wifi/AccessPoint$AccessPointProvisioningCallback;->this$0:Lcom/android/settingslib/wifi/AccessPoint;
 
-    invoke-static {p1, v2}, Lcom/android/settingslib/wifi/AccessPoint;->access$202(Lcom/android/settingslib/wifi/AccessPoint;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {p1, v2}, Lcom/android/settingslib/wifi/AccessPoint;->-$$Nest$fputmOsuFailure(Lcom/android/settingslib/wifi/AccessPoint;Ljava/lang/String;)V
 
     iget-object p1, p0, Lcom/android/settingslib/wifi/AccessPoint$AccessPointProvisioningCallback;->this$0:Lcom/android/settingslib/wifi/AccessPoint;
 
-    invoke-static {p1, v0}, Lcom/android/settingslib/wifi/AccessPoint;->access$302(Lcom/android/settingslib/wifi/AccessPoint;Z)Z
+    invoke-static {p1, v0}, Lcom/android/settingslib/wifi/AccessPoint;->-$$Nest$fputmOsuProvisioningComplete(Lcom/android/settingslib/wifi/AccessPoint;Z)V
 
     if-eqz v1, :cond_0
 
-    new-instance p1, Lcom/android/settingslib/wifi/AccessPoint$AccessPointProvisioningCallback$$ExternalSyntheticLambda2;
+    new-instance p1, Lcom/android/settingslib/wifi/AccessPoint$AccessPointProvisioningCallback$$ExternalSyntheticLambda0;
 
-    invoke-direct {p1, p0}, Lcom/android/settingslib/wifi/AccessPoint$AccessPointProvisioningCallback$$ExternalSyntheticLambda2;-><init>(Lcom/android/settingslib/wifi/AccessPoint$AccessPointProvisioningCallback;)V
+    invoke-direct {p1, p0}, Lcom/android/settingslib/wifi/AccessPoint$AccessPointProvisioningCallback$$ExternalSyntheticLambda0;-><init>(Lcom/android/settingslib/wifi/AccessPoint$AccessPointProvisioningCallback;)V
 
     invoke-static {p1}, Lcom/android/settingslib/utils/ThreadUtils;->postOnMainThread(Ljava/lang/Runnable;)V
 

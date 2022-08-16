@@ -121,7 +121,7 @@
 
     move-result-object v0
 
-    const v1, 0x111000d
+    const v1, 0x111000f
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -283,7 +283,7 @@
 
     iget-object v0, p0, Lcom/android/settings/display/AdaptiveSleepPreferenceController;->mPreference:Lcom/android/settingslib/RestrictedSwitchPreference;
 
-    const v1, 0x7f0401a9
+    const v1, 0x7f0401d0
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setSummary(I)V
 

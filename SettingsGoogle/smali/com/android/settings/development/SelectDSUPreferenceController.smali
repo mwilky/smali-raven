@@ -18,7 +18,7 @@
 .method private isDSURunning()Z
     .locals 1
 
-    const-string p0, "ro.gsid.image_running"
+    const-string/jumbo p0, "ro.gsid.image_running"
 
     const/4 v0, 0x0
 
@@ -94,12 +94,12 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f040858
+    const v0, 0x7f0408af
 
     goto :goto_0
 
     :cond_0
-    const v0, 0x7f040859
+    const v0, 0x7f0408b0
 
     :goto_0
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;

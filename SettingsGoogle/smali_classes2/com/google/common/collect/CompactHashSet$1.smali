@@ -139,17 +139,21 @@
 
     iget-object v1, p0, Lcom/google/common/collect/CompactHashSet$1;->this$0:Lcom/google/common/collect/CompactHashSet;
 
-    iget-object v2, v1, Lcom/google/common/collect/CompactHashSet;->elements:[Ljava/lang/Object;
+    invoke-static {v1, v0}, Lcom/google/common/collect/CompactHashSet;->access$100(Lcom/google/common/collect/CompactHashSet;I)Ljava/lang/Object;
 
-    aget-object v2, v2, v0
+    move-result-object v0
 
-    invoke-virtual {v1, v0}, Lcom/google/common/collect/CompactHashSet;->getSuccessor(I)I
+    iget-object v1, p0, Lcom/google/common/collect/CompactHashSet$1;->this$0:Lcom/google/common/collect/CompactHashSet;
 
-    move-result v0
+    iget v2, p0, Lcom/google/common/collect/CompactHashSet$1;->currentIndex:I
 
-    iput v0, p0, Lcom/google/common/collect/CompactHashSet$1;->currentIndex:I
+    invoke-virtual {v1, v2}, Lcom/google/common/collect/CompactHashSet;->getSuccessor(I)I
 
-    return-object v2
+    move-result v1
+
+    iput v1, p0, Lcom/google/common/collect/CompactHashSet$1;->currentIndex:I
+
+    return-object v0
 
     :cond_0
     new-instance p0, Ljava/util/NoSuchElementException;
@@ -182,11 +186,11 @@
 
     iget-object v0, p0, Lcom/google/common/collect/CompactHashSet$1;->this$0:Lcom/google/common/collect/CompactHashSet;
 
-    iget-object v1, v0, Lcom/google/common/collect/CompactHashSet;->elements:[Ljava/lang/Object;
+    iget v1, p0, Lcom/google/common/collect/CompactHashSet$1;->indexToRemove:I
 
-    iget v2, p0, Lcom/google/common/collect/CompactHashSet$1;->indexToRemove:I
+    invoke-static {v0, v1}, Lcom/google/common/collect/CompactHashSet;->access$100(Lcom/google/common/collect/CompactHashSet;I)Ljava/lang/Object;
 
-    aget-object v1, v1, v2
+    move-result-object v1
 
     invoke-virtual {v0, v1}, Lcom/google/common/collect/CompactHashSet;->remove(Ljava/lang/Object;)Z
 

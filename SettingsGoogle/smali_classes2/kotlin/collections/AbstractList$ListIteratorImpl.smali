@@ -28,6 +28,13 @@
 
 # instance fields
 .field final synthetic this$0:Lkotlin/collections/AbstractList;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lkotlin/collections/AbstractList<",
+            "TE;>;"
+        }
+    .end annotation
+.end field
 
 
 # direct methods
@@ -38,6 +45,10 @@
             "(I)V"
         }
     .end annotation
+
+    const-string v0, "this$0"
+
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     iput-object p1, p0, Lkotlin/collections/AbstractList$ListIteratorImpl;->this$0:Lkotlin/collections/AbstractList;
 

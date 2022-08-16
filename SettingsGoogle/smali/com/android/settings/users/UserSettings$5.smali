@@ -49,7 +49,7 @@
 
     const/16 p2, 0xa
 
-    invoke-static {p1, p2}, Lcom/android/settings/users/UserSettings;->access$600(Lcom/android/settings/users/UserSettings;I)V
+    invoke-static {p1, p2}, Lcom/android/settings/users/UserSettings;->access$000(Lcom/android/settings/users/UserSettings;I)V
 
     iget-boolean p1, p0, Lcom/android/settings/users/UserSettings$5;->val$longMessageDisplayed:Z
 

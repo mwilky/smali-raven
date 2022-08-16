@@ -187,6 +187,16 @@
     return-void
 .end method
 
+.method public setCustomTitle(Landroid/view/View;)V
+    .locals 0
+
+    iget-object p0, p0, Landroidx/appcompat/app/AlertDialog;->mAlert:Landroidx/appcompat/app/AlertController;
+
+    invoke-virtual {p0, p1}, Landroidx/appcompat/app/AlertController;->setCustomTitle(Landroid/view/View;)V
+
+    return-void
+.end method
+
 .method public setMessage(Ljava/lang/CharSequence;)V
     .locals 0
 

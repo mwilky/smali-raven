@@ -72,7 +72,7 @@
     return-void
 .end method
 
-.method static synthetic access$700(Lcom/android/settings/print/PrintSettingsFragment$PrintJobsLoader;)V
+.method static synthetic access$200(Lcom/android/settings/print/PrintSettingsFragment$PrintJobsLoader;)V
     .locals 0
 
     invoke-virtual {p0}, Landroidx/loader/content/AsyncTaskLoader;->onForceLoad()V

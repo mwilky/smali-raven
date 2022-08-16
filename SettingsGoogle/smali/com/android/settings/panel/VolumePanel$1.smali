@@ -48,7 +48,7 @@
 
     iget-object p0, p0, Lcom/android/settings/panel/VolumePanel$1;->this$0:Lcom/android/settings/panel/VolumePanel;
 
-    invoke-static {p0}, Lcom/android/settings/panel/VolumePanel;->access$000(Lcom/android/settings/panel/VolumePanel;)Lcom/android/settings/panel/PanelContentCallback;
+    invoke-static {p0}, Lcom/android/settings/panel/VolumePanel;->-$$Nest$fgetmCallback(Lcom/android/settings/panel/VolumePanel;)Lcom/android/settings/panel/PanelContentCallback;
 
     move-result-object p0
 

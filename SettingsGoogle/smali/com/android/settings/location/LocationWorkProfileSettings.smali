@@ -17,7 +17,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a38
+    const p0, 0x7f040a91
 
     return p0
 .end method
@@ -41,7 +41,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150093
+    const p0, 0x7f150094
 
     return p0
 .end method
@@ -112,6 +112,22 @@
     invoke-virtual {v0, p0}, Lcom/android/settings/location/LocationBasePreferenceController;->init(Lcom/android/settings/dashboard/DashboardFragment;)V
 
     invoke-virtual {v0, p1}, Lcom/android/settings/location/RecentLocationAccessPreferenceController;->setProfileType(I)V
+
+    return-void
+.end method
+
+.method public onCreate(Landroid/os/Bundle;)V
+    .locals 2
+
+    invoke-super {p0, p1}, Lcom/android/settings/dashboard/DashboardFragment;->onCreate(Landroid/os/Bundle;)V
+
+    const-string p1, "managed_profile_location_switch"
+
+    const-string v0, "Settings.WORK_PROFILE_LOCATION_SWITCH_TITLE"
+
+    const v1, 0x7f040d0f
+
+    invoke-virtual {p0, p1, v0, v1}, Lcom/android/settings/SettingsPreferenceFragment;->replaceEnterpriseStringTitle(Ljava/lang/String;Ljava/lang/String;I)V
 
     return-void
 .end method

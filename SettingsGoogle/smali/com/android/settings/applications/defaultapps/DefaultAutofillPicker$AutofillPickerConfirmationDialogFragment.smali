@@ -34,7 +34,7 @@
 
     check-cast v0, Lcom/android/settings/applications/defaultapps/DefaultAutofillPicker;
 
-    invoke-static {v0}, Lcom/android/settings/applications/defaultapps/DefaultAutofillPicker;->access$000(Lcom/android/settings/applications/defaultapps/DefaultAutofillPicker;)Landroid/content/DialogInterface$OnClickListener;
+    invoke-static {v0}, Lcom/android/settings/applications/defaultapps/DefaultAutofillPicker;->-$$Nest$fgetmCancelListener(Lcom/android/settings/applications/defaultapps/DefaultAutofillPicker;)Landroid/content/DialogInterface$OnClickListener;
 
     move-result-object v0
 

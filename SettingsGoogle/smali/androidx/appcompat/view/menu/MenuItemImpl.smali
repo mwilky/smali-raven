@@ -102,8 +102,6 @@
 
     iput v1, p0, Landroidx/appcompat/view/menu/MenuItemImpl;->mFlags:I
 
-    iput v0, p0, Landroidx/appcompat/view/menu/MenuItemImpl;->mShowAsAction:I
-
     iput-boolean v0, p0, Landroidx/appcompat/view/menu/MenuItemImpl;->mIsActionViewExpanded:Z
 
     iput-object p1, p0, Landroidx/appcompat/view/menu/MenuItemImpl;->mMenu:Landroidx/appcompat/view/menu/MenuBuilder;
@@ -714,7 +712,7 @@
 .end method
 
 .method public getTitleCondensed()Ljava/lang/CharSequence;
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Landroidx/appcompat/view/menu/MenuItemImpl;->mTitleCondensed:Ljava/lang/CharSequence;
 
@@ -726,25 +724,6 @@
     iget-object v0, p0, Landroidx/appcompat/view/menu/MenuItemImpl;->mTitle:Ljava/lang/CharSequence;
 
     :goto_0
-    sget p0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x12
-
-    if-ge p0, v1, :cond_1
-
-    if-eqz v0, :cond_1
-
-    instance-of p0, v0, Ljava/lang/String;
-
-    if-nez p0, :cond_1
-
-    invoke-interface {v0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
-
-    move-result-object p0
-
-    return-object p0
-
-    :cond_1
     return-object v0
 .end method
 

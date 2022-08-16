@@ -45,15 +45,15 @@
 
     new-instance p2, Landroid/content/Intent;
 
-    const-string p3, "android.intent.action.MANAGE_RESTRICTED_SETTING"
+    const-string p3, "android.settings.MANAGE_SUPERVISOR_RESTRICTED_SETTING"
 
     invoke-direct {p2, p3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    const-string p3, "extra_setting"
+    const-string p3, "android.provider.extra.SUPERVISOR_RESTRICTED_SETTING_KEY"
 
-    const-string v0, "biometric_disabled_by_admin_controller"
+    const/4 v0, 0x1
 
-    invoke-virtual {p2, p3, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {p2, p3, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
     move-result-object p2
 

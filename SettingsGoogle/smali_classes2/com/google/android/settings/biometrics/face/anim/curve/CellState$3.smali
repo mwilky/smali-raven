@@ -38,11 +38,11 @@
 
     const/4 v0, 0x3
 
-    invoke-static {p1, v0}, Lcom/google/android/settings/biometrics/face/anim/curve/CellState;->access$402(Lcom/google/android/settings/biometrics/face/anim/curve/CellState;I)I
+    invoke-static {p1, v0}, Lcom/google/android/settings/biometrics/face/anim/curve/CellState;->-$$Nest$fputmCursorState(Lcom/google/android/settings/biometrics/face/anim/curve/CellState;I)V
 
     iget-object p1, p0, Lcom/google/android/settings/biometrics/face/anim/curve/CellState$3;->this$0:Lcom/google/android/settings/biometrics/face/anim/curve/CellState;
 
-    invoke-static {p1}, Lcom/google/android/settings/biometrics/face/anim/curve/CellState;->access$500(Lcom/google/android/settings/biometrics/face/anim/curve/CellState;)I
+    invoke-static {p1}, Lcom/google/android/settings/biometrics/face/anim/curve/CellState;->-$$Nest$fgetmScrimAnimationState(Lcom/google/android/settings/biometrics/face/anim/curve/CellState;)I
 
     move-result p1
 
@@ -67,7 +67,7 @@
 
     iget-object v1, p0, Lcom/google/android/settings/biometrics/face/anim/curve/CellState$3;->this$0:Lcom/google/android/settings/biometrics/face/anim/curve/CellState;
 
-    invoke-static {v1}, Lcom/google/android/settings/biometrics/face/anim/curve/CellState;->access$600(Lcom/google/android/settings/biometrics/face/anim/curve/CellState;)I
+    invoke-static {v1}, Lcom/google/android/settings/biometrics/face/anim/curve/CellState;->-$$Nest$fgetmIndex(Lcom/google/android/settings/biometrics/face/anim/curve/CellState;)I
 
     move-result v1
 
@@ -88,7 +88,7 @@
     :goto_0
     iget-object p0, p0, Lcom/google/android/settings/biometrics/face/anim/curve/CellState$3;->this$0:Lcom/google/android/settings/biometrics/face/anim/curve/CellState;
 
-    invoke-static {p0}, Lcom/google/android/settings/biometrics/face/anim/curve/CellState;->access$700(Lcom/google/android/settings/biometrics/face/anim/curve/CellState;)Landroid/os/Handler;
+    invoke-static {p0}, Lcom/google/android/settings/biometrics/face/anim/curve/CellState;->-$$Nest$fgetmHandler(Lcom/google/android/settings/biometrics/face/anim/curve/CellState;)Landroid/os/Handler;
 
     move-result-object p0
 

@@ -32,7 +32,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settings/wifi/WifiSettings;Lcom/android/settings/wifi/WifiSettings$1;)V
+.method synthetic constructor <init>(Lcom/android/settings/wifi/WifiSettings;Lcom/android/settings/wifi/WifiSettings$WifiConnectActionListener-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settings/wifi/WifiSettings$WifiConnectActionListener;-><init>(Lcom/android/settings/wifi/WifiSettings;)V
@@ -47,7 +47,7 @@
 
     iget-object p1, p0, Lcom/android/settings/wifi/WifiSettings$WifiConnectActionListener;->this$0:Lcom/android/settings/wifi/WifiSettings;
 
-    invoke-static {p1}, Lcom/android/settings/wifi/WifiSettings;->access$200(Lcom/android/settings/wifi/WifiSettings;)Z
+    invoke-static {p1}, Lcom/android/settings/wifi/WifiSettings;->access$000(Lcom/android/settings/wifi/WifiSettings;)Z
 
     move-result p1
 
@@ -62,7 +62,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f041673
+    const p1, 0x7f04176a
 
     const/4 v0, 0x0
 
@@ -82,7 +82,7 @@
 
     const/4 v0, 0x1
 
-    invoke-static {p0, v0}, Lcom/android/settings/wifi/WifiSettings;->access$102(Lcom/android/settings/wifi/WifiSettings;Z)Z
+    invoke-static {p0, v0}, Lcom/android/settings/wifi/WifiSettings;->-$$Nest$fputmClickedConnect(Lcom/android/settings/wifi/WifiSettings;Z)V
 
     return-void
 .end method

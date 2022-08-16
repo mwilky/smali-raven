@@ -178,8 +178,37 @@
 
     move-result p1
 
+    if-eqz p1, :cond_4
+
+    const-string/jumbo p1, "settings_search_always_expand"
+
+    invoke-static {p0, p1}, Landroid/util/FeatureFlagUtils;->isEnabled(Landroid/content/Context;Ljava/lang/String;)Z
+
+    move-result p1
+
     if-eqz p1, :cond_3
 
+    invoke-static {v0, v1}, Lcom/android/settings/SettingsActivity;->getTrampolineIntent(Landroid/content/Intent;Ljava/lang/String;)Landroid/content/Intent;
+
+    move-result-object p1
+
+    const-class v0, Lcom/android/settings/homepage/DeepLinkHomepageActivityInternal;
+
+    invoke-virtual {p1, p0, v0}, Landroid/content/Intent;->setClass(Landroid/content/Context;Ljava/lang/Class;)Landroid/content/Intent;
+
+    move-result-object p1
+
+    const/high16 v0, 0x10800000
+
+    invoke-virtual {p1, v0}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+
+    move-result-object p1
+
+    invoke-virtual {p0, p1}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
+
+    goto :goto_1
+
+    :cond_3
     invoke-static {p0, v4}, Lcom/android/settings/activityembedding/ActivityEmbeddingRulesController;->registerSubSettingsPairRule(Landroid/content/Context;Z)V
 
     invoke-virtual {v0}, Landroid/content/Intent;->getFlags()I
@@ -204,7 +233,7 @@
 
     move-result-object p1
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_5
 
     invoke-virtual {p1}, Lcom/android/settings/homepage/SettingsHomepageActivity;->getMainFragment()Lcom/android/settings/homepage/TopLevelSettings;
 
@@ -214,7 +243,7 @@
 
     goto :goto_1
 
-    :cond_3
+    :cond_4
     invoke-static {v0, v1}, Lcom/android/settings/SettingsActivity;->getTrampolineIntent(Landroid/content/Intent;Ljava/lang/String;)Landroid/content/Intent;
 
     move-result-object p1
@@ -227,7 +256,7 @@
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
 
-    :cond_4
+    :cond_5
     :goto_1
     invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 

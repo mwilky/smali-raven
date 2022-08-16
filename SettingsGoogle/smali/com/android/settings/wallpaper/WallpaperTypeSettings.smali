@@ -17,7 +17,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a11
+    const p0, 0x7f040a68
 
     return p0
 .end method
@@ -41,7 +41,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f15010e
+    const p0, 0x7f150116
 
     return p0
 .end method

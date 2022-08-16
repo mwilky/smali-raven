@@ -50,11 +50,20 @@
 
     const-string v1, "com.android.wsuinterface.ISubscriptionProvisionStatusListener"
 
+    if-lt p1, v0, :cond_0
+
+    const v2, 0xffffff
+
+    if-gt p1, v2, :cond_0
+
+    invoke-virtual {p2, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    :cond_0
     const v2, 0x5f4e5446
 
-    if-eq p1, v2, :cond_1
+    if-eq p1, v2, :cond_2
 
-    if-eq p1, v0, :cond_0
+    if-eq p1, v0, :cond_1
 
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
@@ -62,9 +71,7 @@
 
     return p0
 
-    :cond_0
-    invoke-virtual {p2, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
+    :cond_1
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object p1
@@ -77,7 +84,7 @@
 
     return v0
 
-    :cond_1
+    :cond_2
     invoke-virtual {p3, v1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     return v0

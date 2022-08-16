@@ -36,7 +36,7 @@
 
     iget-object p0, p0, Lcom/android/settings/FallbackHome$4;->this$0:Lcom/android/settings/FallbackHome;
 
-    invoke-static {p0}, Lcom/android/settings/FallbackHome;->access$200(Lcom/android/settings/FallbackHome;)V
+    invoke-static {p0}, Lcom/android/settings/FallbackHome;->-$$Nest$mmaybeFinish(Lcom/android/settings/FallbackHome;)V
 
     return-void
 .end method

@@ -83,14 +83,6 @@
 
 .method static isRtlText(I)I
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "directionality"
-        }
-    .end annotation
 
     const/4 v0, 0x1
 
@@ -115,14 +107,6 @@
 
 .method static isRtlTextOrFormat(I)I
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "directionality"
-        }
-    .end annotation
 
     const/4 v0, 0x1
 

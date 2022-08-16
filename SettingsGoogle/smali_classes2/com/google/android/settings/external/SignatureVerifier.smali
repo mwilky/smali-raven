@@ -4,6 +4,8 @@
 
 
 # static fields
+.field private static final DEBUG_DIGEST_ASSISTANT_DEV_APP:[B
+
 .field private static final DEBUG_DIGEST_GMSCORE:[B
 
 .field private static final DEBUG_DIGEST_LAUNCHER:[B
@@ -69,15 +71,19 @@
 
     sput-object v1, Lcom/google/android/settings/external/SignatureVerifier;->DEBUG_DIGEST_SECURITY_HUB:[B
 
+    new-array v1, v0, [B
+
+    fill-array-data v1, :array_7
+
+    sput-object v1, Lcom/google/android/settings/external/SignatureVerifier;->RELEASE_DIGEST_SECURITY_HUB:[B
+
     new-array v0, v0, [B
 
-    fill-array-data v0, :array_7
+    fill-array-data v0, :array_8
 
-    sput-object v0, Lcom/google/android/settings/external/SignatureVerifier;->RELEASE_DIGEST_SECURITY_HUB:[B
+    sput-object v0, Lcom/google/android/settings/external/SignatureVerifier;->DEBUG_DIGEST_ASSISTANT_DEV_APP:[B
 
     return-void
-
-    nop
 
     :array_0
     .array-data 1
@@ -366,6 +372,42 @@
         0x10t
         -0x4at
     .end array-data
+
+    :array_8
+    .array-data 1
+        0x19t
+        0x75t
+        -0x4et
+        -0xft
+        0x71t
+        0x77t
+        -0x44t
+        -0x77t
+        -0x5bt
+        -0x21t
+        -0xdt
+        0x1ft
+        -0x62t
+        0x64t
+        -0x5at
+        -0x36t
+        -0x1et
+        -0x7ft
+        -0x5bt
+        0x3dt
+        -0x3ft
+        -0x2ft
+        -0x2bt
+        -0x65t
+        0x1dt
+        0x14t
+        0x7ft
+        -0x1ft
+        -0x38t
+        0x2at
+        -0x6t
+        0x0t
+    .end array-data
 .end method
 
 .method private static getDigestBytes(Ljava/lang/String;Z)[B
@@ -395,7 +437,7 @@
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x2
+    const/4 v1, 0x3
 
     goto :goto_0
 
@@ -411,7 +453,7 @@
     goto :goto_0
 
     :cond_1
-    const/4 v1, 0x1
+    const/4 v1, 0x2
 
     goto :goto_0
 
@@ -427,66 +469,88 @@
     goto :goto_0
 
     :cond_2
+    const/4 v1, 0x1
+
+    goto :goto_0
+
+    :sswitch_3
+    const-string v0, "com.google.android.apps.search.assistant.surfaces.voice.devapp"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_3
+
+    goto :goto_0
+
+    :cond_3
     const/4 v1, 0x0
 
     :goto_0
     packed-switch v1, :pswitch_data_0
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_4
 
     sget-object p0, Lcom/google/android/settings/external/SignatureVerifier;->DEBUG_DIGEST_GMSCORE:[B
 
     goto :goto_1
 
-    :cond_3
+    :cond_4
     sget-object p0, Lcom/google/android/settings/external/SignatureVerifier;->RELEASE_DIGEST_GMSCORE:[B
 
     :goto_1
     return-object p0
 
     :pswitch_0
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_5
 
     sget-object p0, Lcom/google/android/settings/external/SignatureVerifier;->DEBUG_DIGEST_LAUNCHER:[B
 
     goto :goto_2
 
-    :cond_4
+    :cond_5
     sget-object p0, Lcom/google/android/settings/external/SignatureVerifier;->RELEASE_DIGEST_LAUNCHER:[B
 
     :goto_2
     return-object p0
 
     :pswitch_1
-    if-eqz p1, :cond_5
+    if-eqz p1, :cond_6
 
     sget-object p0, Lcom/google/android/settings/external/SignatureVerifier;->DEBUG_DIGEST_TIPS:[B
 
     goto :goto_3
 
-    :cond_5
+    :cond_6
     sget-object p0, Lcom/google/android/settings/external/SignatureVerifier;->RELEASE_DIGEST_TIPS:[B
 
     :goto_3
     return-object p0
 
     :pswitch_2
-    if-eqz p1, :cond_6
+    if-eqz p1, :cond_7
 
     sget-object p0, Lcom/google/android/settings/external/SignatureVerifier;->DEBUG_DIGEST_SECURITY_HUB:[B
 
     goto :goto_4
 
-    :cond_6
+    :cond_7
     sget-object p0, Lcom/google/android/settings/external/SignatureVerifier;->RELEASE_DIGEST_SECURITY_HUB:[B
 
     :goto_4
+    return-object p0
+
+    :pswitch_3
+    sget-object p0, Lcom/google/android/settings/external/SignatureVerifier;->DEBUG_DIGEST_ASSISTANT_DEV_APP:[B
+
     return-object p0
 
     nop
 
     :sswitch_data_0
     .sparse-switch
+        -0x2b969651 -> :sswitch_3
         -0x1c555964 -> :sswitch_2
         0x2709fcd -> :sswitch_1
         0x185e7faa -> :sswitch_0
@@ -494,6 +558,7 @@
 
     :pswitch_data_0
     .packed-switch 0x0
+        :pswitch_3
         :pswitch_2
         :pswitch_1
         :pswitch_0
@@ -738,7 +803,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2
 
     const-string v0, "com.google.android.gms"
 
@@ -746,7 +811,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2
 
     const-string v0, "com.google.android.apps.tips"
 
@@ -754,7 +819,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2
 
     const-string v0, "com.google.android.apps.nexuslauncher"
 
@@ -762,7 +827,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2
 
     const-string v0, "com.google.android.apps.security.securityhub"
 
@@ -770,11 +835,24 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2
 
     sget-boolean v0, Landroid/os/Build;->IS_DEBUGGABLE:Z
 
     if-eqz v0, :cond_0
+
+    const-string v0, "com.google.android.apps.search.assistant.surfaces.voice.devapp"
+
+    invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_2
+
+    :cond_0
+    sget-boolean v0, Landroid/os/Build;->IS_DEBUGGABLE:Z
+
+    if-eqz v0, :cond_1
 
     const-string v0, "com.google.android.settings.api.tester"
 
@@ -782,16 +860,16 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_1
 
     goto :goto_0
 
-    :cond_0
+    :cond_1
     const/4 p0, 0x0
 
     goto :goto_1
 
-    :cond_1
+    :cond_2
     :goto_0
     const/4 p0, 0x1
 

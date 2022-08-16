@@ -4,13 +4,9 @@
 
 
 # instance fields
-.field private final KEY:Ljava/lang/String;
-
 .field private mController:Lcom/android/settings/widget/EntityHeaderController;
 
 .field private final mFragment:Landroidx/preference/PreferenceFragmentCompat;
-
-.field private mId:Ljava/lang/String;
 
 .field private mRule:Landroid/app/AutomaticZenRule;
 
@@ -22,8 +18,6 @@
     const-string v0, "pref_app_header"
 
     invoke-direct {p0, p1, v0, p3}, Lcom/android/settings/notification/zen/AbstractZenModePreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
-
-    iput-object v0, p0, Lcom/android/settings/notification/zen/ZenAutomaticRuleHeaderPreferenceController;->KEY:Ljava/lang/String;
 
     iput-object p2, p0, Lcom/android/settings/notification/zen/ZenAutomaticRuleHeaderPreferenceController;->mFragment:Landroidx/preference/PreferenceFragmentCompat;
 
@@ -76,7 +70,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f02038e
+    const v0, 0x7f0203b2
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -99,7 +93,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f0201c6
+    const v0, 0x7f0201e3
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -156,12 +150,10 @@
     return p0
 .end method
 
-.method protected onResume(Landroid/app/AutomaticZenRule;Ljava/lang/String;)V
+.method setRule(Landroid/app/AutomaticZenRule;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/settings/notification/zen/ZenAutomaticRuleHeaderPreferenceController;->mRule:Landroid/app/AutomaticZenRule;
-
-    iput-object p2, p0, Lcom/android/settings/notification/zen/ZenAutomaticRuleHeaderPreferenceController;->mId:Ljava/lang/String;
 
     return-void
 .end method
@@ -192,7 +184,7 @@
 
     iget-object v1, p0, Lcom/android/settings/notification/zen/ZenAutomaticRuleHeaderPreferenceController;->mFragment:Landroidx/preference/PreferenceFragmentCompat;
 
-    const v2, 0x7f0d0203
+    const v2, 0x7f0d021c
 
     invoke-virtual {p1, v2}, Lcom/android/settingslib/widget/LayoutPreference;->findViewById(I)Landroid/view/View;
 

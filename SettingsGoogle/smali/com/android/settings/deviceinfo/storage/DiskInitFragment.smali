@@ -155,13 +155,13 @@
 
     invoke-direct {v1, p0, p1, v2}, Lcom/android/settings/deviceinfo/storage/DiskInitFragment$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/deviceinfo/storage/DiskInitFragment;Landroid/content/Context;Ljava/lang/String;)V
 
-    const p0, 0x7f041313
+    const p0, 0x7f0413d7
 
     invoke-virtual {v0, p0, v1}, Landroidx/appcompat/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 
     move-result-object p0
 
-    const p1, 0x7f040564
+    const p1, 0x7f0405c1
 
     const/4 v0, 0x0
 

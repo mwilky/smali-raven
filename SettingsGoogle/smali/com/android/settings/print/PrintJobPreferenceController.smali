@@ -14,25 +14,8 @@
 
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -65,16 +48,6 @@
     .locals 0
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->hasAsyncUpdate()Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
 
     move-result p0
 
@@ -156,7 +129,7 @@
 
     if-eq v3, v8, :cond_7
 
-    const v10, 0x7f040f9b
+    const v10, 0x7f041034
 
     if-eq v3, v7, :cond_5
 
@@ -173,7 +146,7 @@
 
     iget-object v3, v0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v10, 0x7f040f9d
+    const v10, 0x7f041036
 
     new-array v11, v8, [Ljava/lang/Object;
 
@@ -206,7 +179,7 @@
 
     iget-object v3, v0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v10, 0x7f040f99
+    const v10, 0x7f041032
 
     new-array v11, v8, [Ljava/lang/Object;
 
@@ -260,7 +233,7 @@
 
     iget-object v3, v0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v10, 0x7f040faa
+    const v10, 0x7f041043
 
     new-array v11, v8, [Ljava/lang/Object;
 
@@ -304,7 +277,7 @@
 
     iget-object v3, v0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v10, 0x7f040f9c
+    const v10, 0x7f041035
 
     new-array v11, v8, [Ljava/lang/Object;
 
@@ -325,7 +298,7 @@
 
     iget-object v3, v0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v10, 0x7f040fa0
+    const v10, 0x7f041039
 
     new-array v11, v7, [Ljava/lang/Object;
 
@@ -394,7 +367,7 @@
     :cond_8
     iget-object v1, v0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v2, 0x108051e
+    const v2, 0x1080529
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -411,7 +384,7 @@
     :cond_9
     iget-object v1, v0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v2, 0x108051d
+    const v2, 0x1080528
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

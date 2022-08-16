@@ -27,7 +27,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    const p1, 0x7f1500f5
+    const p1, 0x7f1500fb
 
     invoke-virtual {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->addPreferencesFromResource(I)V
 
@@ -45,7 +45,7 @@
 
     if-nez p1, :cond_0
 
-    const-string p1, "radio_info_settings"
+    const-string/jumbo p1, "radio_info_settings"
 
     invoke-virtual {p0, p1}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 

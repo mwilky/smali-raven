@@ -16,7 +16,7 @@
 
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
-    const-string v0, "regulatory_info"
+    const-string/jumbo v0, "regulatory_info"
 
     iput-object v0, p0, Lcom/android/settings/RegulatoryInfoDisplayActivity;->REGULATORY_INFO_RESOURCE:Ljava/lang/String;
 
@@ -26,7 +26,7 @@
 .method private getCoo()Ljava/lang/String;
     .locals 1
 
-    const-string p0, "ro.boot.hardware.coo"
+    const-string/jumbo p0, "ro.boot.hardware.coo"
 
     const-string v0, ""
 
@@ -81,7 +81,7 @@
 .method private getSku()Ljava/lang/String;
     .locals 1
 
-    const-string p0, "ro.boot.hardware.sku"
+    const-string/jumbo p0, "ro.boot.hardware.sku"
 
     const-string v0, ""
 
@@ -105,7 +105,7 @@
 
     move-result-object v1
 
-    const-string v2, "regulatory_info"
+    const-string/jumbo v2, "regulatory_info"
 
     const-string v3, "drawable"
 
@@ -121,7 +121,7 @@
 
     move-result v2
 
-    const-string v4, "regulatory_info_"
+    const-string/jumbo v4, "regulatory_info_"
 
     if-nez v2, :cond_0
 
@@ -229,7 +229,7 @@
 
     invoke-direct {p1, p0}, Landroidx/appcompat/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v0, 0x7f041022
+    const v0, 0x7f0410c8
 
     invoke-virtual {p1, v0}, Landroidx/appcompat/app/AlertDialog$Builder;->setTitle(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
@@ -323,7 +323,7 @@
 
     move-result-object v2
 
-    const v4, 0x7f041021
+    const v4, 0x7f0410c7
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -335,13 +335,13 @@
 
     move-result-object p0
 
-    const v2, 0x7f0601d7
+    const v2, 0x7f0601e4
 
     invoke-virtual {p0, v2, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object p0
 
-    const v1, 0x7f0d048d
+    const v1, 0x7f0d04c6
 
     invoke-virtual {p0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

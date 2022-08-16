@@ -41,7 +41,7 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/wifitrackerlib/OsuWifiEntry$OsuWifiEntryProvisioningCallback;->this$0:Lcom/android/wifitrackerlib/OsuWifiEntry;
 
-    invoke-static {v1}, Lcom/android/wifitrackerlib/OsuWifiEntry;->access$100(Lcom/android/wifitrackerlib/OsuWifiEntry;)Landroid/content/Context;
+    invoke-static {v1}, Lcom/android/wifitrackerlib/OsuWifiEntry;->-$$Nest$fgetmContext(Lcom/android/wifitrackerlib/OsuWifiEntry;)Landroid/content/Context;
 
     move-result-object v2
 
@@ -51,7 +51,7 @@
 
     move-result-object v2
 
-    invoke-static {v1, v2}, Lcom/android/wifitrackerlib/OsuWifiEntry;->access$002(Lcom/android/wifitrackerlib/OsuWifiEntry;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v1, v2}, Lcom/android/wifitrackerlib/OsuWifiEntry;->-$$Nest$fputmOsuStatusString(Lcom/android/wifitrackerlib/OsuWifiEntry;Ljava/lang/String;)V
 
     monitor-exit v0
     :try_end_0
@@ -65,7 +65,7 @@
 
     iget-object v1, v0, Lcom/android/wifitrackerlib/WifiEntry;->mWifiManager:Landroid/net/wifi/WifiManager;
 
-    invoke-static {v0}, Lcom/android/wifitrackerlib/OsuWifiEntry;->access$200(Lcom/android/wifitrackerlib/OsuWifiEntry;)Landroid/net/wifi/hotspot2/OsuProvider;
+    invoke-static {v0}, Lcom/android/wifitrackerlib/OsuWifiEntry;->-$$Nest$fgetmOsuProvider(Lcom/android/wifitrackerlib/OsuWifiEntry;)Landroid/net/wifi/hotspot2/OsuProvider;
 
     move-result-object v0
 
@@ -79,7 +79,7 @@
 
     iget-object v1, p0, Lcom/android/wifitrackerlib/OsuWifiEntry$OsuWifiEntryProvisioningCallback;->this$0:Lcom/android/wifitrackerlib/OsuWifiEntry;
 
-    invoke-static {v1}, Lcom/android/wifitrackerlib/OsuWifiEntry;->access$200(Lcom/android/wifitrackerlib/OsuWifiEntry;)Landroid/net/wifi/hotspot2/OsuProvider;
+    invoke-static {v1}, Lcom/android/wifitrackerlib/OsuWifiEntry;->-$$Nest$fgetmOsuProvider(Lcom/android/wifitrackerlib/OsuWifiEntry;)Landroid/net/wifi/hotspot2/OsuProvider;
 
     move-result-object v1
 
@@ -273,13 +273,13 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/wifitrackerlib/OsuWifiEntry$OsuWifiEntryProvisioningCallback;->this$0:Lcom/android/wifitrackerlib/OsuWifiEntry;
 
-    invoke-static {v0}, Lcom/android/wifitrackerlib/OsuWifiEntry;->access$000(Lcom/android/wifitrackerlib/OsuWifiEntry;)Ljava/lang/String;
+    invoke-static {v0}, Lcom/android/wifitrackerlib/OsuWifiEntry;->-$$Nest$fgetmOsuStatusString(Lcom/android/wifitrackerlib/OsuWifiEntry;)Ljava/lang/String;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/wifitrackerlib/OsuWifiEntry$OsuWifiEntryProvisioningCallback;->this$0:Lcom/android/wifitrackerlib/OsuWifiEntry;
 
-    invoke-static {v1}, Lcom/android/wifitrackerlib/OsuWifiEntry;->access$100(Lcom/android/wifitrackerlib/OsuWifiEntry;)Landroid/content/Context;
+    invoke-static {v1}, Lcom/android/wifitrackerlib/OsuWifiEntry;->-$$Nest$fgetmContext(Lcom/android/wifitrackerlib/OsuWifiEntry;)Landroid/content/Context;
 
     move-result-object v1
 
@@ -297,7 +297,7 @@
 
     iget-object v0, p0, Lcom/android/wifitrackerlib/OsuWifiEntry$OsuWifiEntryProvisioningCallback;->this$0:Lcom/android/wifitrackerlib/OsuWifiEntry;
 
-    invoke-static {v0}, Lcom/android/wifitrackerlib/OsuWifiEntry;->access$100(Lcom/android/wifitrackerlib/OsuWifiEntry;)Landroid/content/Context;
+    invoke-static {v0}, Lcom/android/wifitrackerlib/OsuWifiEntry;->-$$Nest$fgetmContext(Lcom/android/wifitrackerlib/OsuWifiEntry;)Landroid/content/Context;
 
     move-result-object v1
 
@@ -307,14 +307,14 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Lcom/android/wifitrackerlib/OsuWifiEntry;->access$002(Lcom/android/wifitrackerlib/OsuWifiEntry;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v0, v1}, Lcom/android/wifitrackerlib/OsuWifiEntry;->-$$Nest$fputmOsuStatusString(Lcom/android/wifitrackerlib/OsuWifiEntry;Ljava/lang/String;)V
 
     goto :goto_0
 
     :cond_0
     iget-object v0, p0, Lcom/android/wifitrackerlib/OsuWifiEntry$OsuWifiEntryProvisioningCallback;->this$0:Lcom/android/wifitrackerlib/OsuWifiEntry;
 
-    invoke-static {v0}, Lcom/android/wifitrackerlib/OsuWifiEntry;->access$100(Lcom/android/wifitrackerlib/OsuWifiEntry;)Landroid/content/Context;
+    invoke-static {v0}, Lcom/android/wifitrackerlib/OsuWifiEntry;->-$$Nest$fgetmContext(Lcom/android/wifitrackerlib/OsuWifiEntry;)Landroid/content/Context;
 
     move-result-object v1
 
@@ -324,7 +324,7 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Lcom/android/wifitrackerlib/OsuWifiEntry;->access$002(Lcom/android/wifitrackerlib/OsuWifiEntry;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v0, v1}, Lcom/android/wifitrackerlib/OsuWifiEntry;->-$$Nest$fputmOsuStatusString(Lcom/android/wifitrackerlib/OsuWifiEntry;Ljava/lang/String;)V
 
     :goto_0
     monitor-exit p1
@@ -375,7 +375,7 @@
     :pswitch_0
     iget-object p1, p0, Lcom/android/wifitrackerlib/OsuWifiEntry$OsuWifiEntryProvisioningCallback;->this$0:Lcom/android/wifitrackerlib/OsuWifiEntry;
 
-    invoke-static {p1}, Lcom/android/wifitrackerlib/OsuWifiEntry;->access$100(Lcom/android/wifitrackerlib/OsuWifiEntry;)Landroid/content/Context;
+    invoke-static {p1}, Lcom/android/wifitrackerlib/OsuWifiEntry;->-$$Nest$fgetmContext(Lcom/android/wifitrackerlib/OsuWifiEntry;)Landroid/content/Context;
 
     move-result-object p1
 
@@ -390,7 +390,7 @@
     :pswitch_1
     iget-object p1, p0, Lcom/android/wifitrackerlib/OsuWifiEntry$OsuWifiEntryProvisioningCallback;->this$0:Lcom/android/wifitrackerlib/OsuWifiEntry;
 
-    invoke-static {p1}, Lcom/android/wifitrackerlib/OsuWifiEntry;->access$100(Lcom/android/wifitrackerlib/OsuWifiEntry;)Landroid/content/Context;
+    invoke-static {p1}, Lcom/android/wifitrackerlib/OsuWifiEntry;->-$$Nest$fgetmContext(Lcom/android/wifitrackerlib/OsuWifiEntry;)Landroid/content/Context;
 
     move-result-object p1
 
@@ -422,7 +422,7 @@
     :try_start_0
     iget-object v3, p0, Lcom/android/wifitrackerlib/OsuWifiEntry$OsuWifiEntryProvisioningCallback;->this$0:Lcom/android/wifitrackerlib/OsuWifiEntry;
 
-    invoke-static {v3}, Lcom/android/wifitrackerlib/OsuWifiEntry;->access$000(Lcom/android/wifitrackerlib/OsuWifiEntry;)Ljava/lang/String;
+    invoke-static {v3}, Lcom/android/wifitrackerlib/OsuWifiEntry;->-$$Nest$fgetmOsuStatusString(Lcom/android/wifitrackerlib/OsuWifiEntry;)Ljava/lang/String;
 
     move-result-object v3
 
@@ -437,7 +437,7 @@
     :cond_0
     iget-object v1, p0, Lcom/android/wifitrackerlib/OsuWifiEntry$OsuWifiEntryProvisioningCallback;->this$0:Lcom/android/wifitrackerlib/OsuWifiEntry;
 
-    invoke-static {v1, p1}, Lcom/android/wifitrackerlib/OsuWifiEntry;->access$002(Lcom/android/wifitrackerlib/OsuWifiEntry;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v1, p1}, Lcom/android/wifitrackerlib/OsuWifiEntry;->-$$Nest$fputmOsuStatusString(Lcom/android/wifitrackerlib/OsuWifiEntry;Ljava/lang/String;)V
 
     if-eqz v0, :cond_1
 

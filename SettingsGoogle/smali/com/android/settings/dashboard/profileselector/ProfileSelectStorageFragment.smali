@@ -6,9 +6,13 @@
 # instance fields
 .field private mFragments:[Landroidx/fragment/app/Fragment;
 
+.field private mIsLoadedFromCache:Z
+
 .field private mOptionMenuController:Lcom/android/settings/deviceinfo/VolumeOptionMenuController;
 
 .field private mSelectedStorageEntry:Lcom/android/settings/deviceinfo/storage/StorageEntry;
+
+.field private mStorageCacheHelper:Lcom/android/settings/deviceinfo/storage/StorageCacheHelper;
 
 .field private final mStorageEntries:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
@@ -38,6 +42,46 @@
     return-void
 .end method
 
+.method static bridge synthetic -$$Nest$fgetmSelectedStorageEntry(Lcom/android/settings/dashboard/profileselector/ProfileSelectStorageFragment;)Lcom/android/settings/deviceinfo/storage/StorageEntry;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/dashboard/profileselector/ProfileSelectStorageFragment;->mSelectedStorageEntry:Lcom/android/settings/deviceinfo/storage/StorageEntry;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmStorageEntries(Lcom/android/settings/dashboard/profileselector/ProfileSelectStorageFragment;)Ljava/util/List;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/dashboard/profileselector/ProfileSelectStorageFragment;->mStorageEntries:Ljava/util/List;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmStorageManager(Lcom/android/settings/dashboard/profileselector/ProfileSelectStorageFragment;)Landroid/os/storage/StorageManager;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/dashboard/profileselector/ProfileSelectStorageFragment;->mStorageManager:Landroid/os/storage/StorageManager;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmSelectedStorageEntry(Lcom/android/settings/dashboard/profileselector/ProfileSelectStorageFragment;Lcom/android/settings/deviceinfo/storage/StorageEntry;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/settings/dashboard/profileselector/ProfileSelectStorageFragment;->mSelectedStorageEntry:Lcom/android/settings/deviceinfo/storage/StorageEntry;
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mrefreshUi(Lcom/android/settings/dashboard/profileselector/ProfileSelectStorageFragment;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/dashboard/profileselector/ProfileSelectStorageFragment;->refreshUi()V
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 1
 
@@ -56,46 +100,6 @@
     iput-object v0, p0, Lcom/android/settings/dashboard/profileselector/ProfileSelectStorageFragment;->mStorageEventListener:Landroid/os/storage/StorageEventListener;
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/dashboard/profileselector/ProfileSelectStorageFragment;)Ljava/util/List;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/dashboard/profileselector/ProfileSelectStorageFragment;->mStorageEntries:Ljava/util/List;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/dashboard/profileselector/ProfileSelectStorageFragment;)Lcom/android/settings/deviceinfo/storage/StorageEntry;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/dashboard/profileselector/ProfileSelectStorageFragment;->mSelectedStorageEntry:Lcom/android/settings/deviceinfo/storage/StorageEntry;
-
-    return-object p0
-.end method
-
-.method static synthetic access$102(Lcom/android/settings/dashboard/profileselector/ProfileSelectStorageFragment;Lcom/android/settings/deviceinfo/storage/StorageEntry;)Lcom/android/settings/deviceinfo/storage/StorageEntry;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/settings/dashboard/profileselector/ProfileSelectStorageFragment;->mSelectedStorageEntry:Lcom/android/settings/deviceinfo/storage/StorageEntry;
-
-    return-object p1
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/dashboard/profileselector/ProfileSelectStorageFragment;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/dashboard/profileselector/ProfileSelectStorageFragment;->refreshUi()V
-
-    return-void
-.end method
-
-.method static synthetic access$300(Lcom/android/settings/dashboard/profileselector/ProfileSelectStorageFragment;)Landroid/os/storage/StorageManager;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/dashboard/profileselector/ProfileSelectStorageFragment;->mStorageManager:Landroid/os/storage/StorageManager;
-
-    return-object p0
 .end method
 
 .method private synthetic lambda$onAttach$0(Lcom/android/settings/deviceinfo/storage/StorageEntry;)V
@@ -136,7 +140,7 @@
 
     :cond_1
     :goto_0
-    const v0, 0x7f0412f3
+    const v0, 0x7f0413b7
 
     invoke-virtual {p1}, Lcom/android/settings/deviceinfo/storage/StorageEntry;->getDiskId()Ljava/lang/String;
 
@@ -280,7 +284,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a48
+    const p0, 0x7f040aa1
 
     return p0
 .end method
@@ -304,7 +308,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f1500ee
+    const p0, 0x7f1500f4
 
     return p0
 .end method
@@ -338,9 +342,23 @@
 .end method
 
 .method public onAttach(Landroid/content/Context;)V
-    .locals 1
+    .locals 2
 
     invoke-super {p0, p1}, Lcom/android/settings/dashboard/DashboardFragment;->onAttach(Landroid/content/Context;)V
+
+    new-instance p1, Lcom/android/settings/deviceinfo/storage/StorageCacheHelper;
+
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
+
+    move-result v1
+
+    invoke-direct {p1, v0, v1}, Lcom/android/settings/deviceinfo/storage/StorageCacheHelper;-><init>(Landroid/content/Context;I)V
+
+    iput-object p1, p0, Lcom/android/settings/dashboard/profileselector/ProfileSelectStorageFragment;->mStorageCacheHelper:Lcom/android/settings/deviceinfo/storage/StorageCacheHelper;
 
     const-class p1, Lcom/android/settings/deviceinfo/storage/AutomaticStorageManagementSwitchPreferenceController;
 
@@ -443,7 +461,7 @@
     goto :goto_1
 
     :cond_1
-    const-string v1, "selected_storage_entry_key"
+    const-string/jumbo v1, "selected_storage_entry_key"
 
     invoke-virtual {p1, v1}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
 
@@ -456,6 +474,39 @@
     :goto_1
     invoke-virtual {p0, v0}, Lcom/android/settings/dashboard/profileselector/ProfileSelectStorageFragment;->initializeOptionsMenu(Landroid/app/Activity;)V
 
+    iget-object p1, p0, Lcom/android/settings/dashboard/profileselector/ProfileSelectStorageFragment;->mStorageCacheHelper:Lcom/android/settings/deviceinfo/storage/StorageCacheHelper;
+
+    invoke-virtual {p1}, Lcom/android/settings/deviceinfo/storage/StorageCacheHelper;->hasCachedSizeInfo()Z
+
+    move-result p1
+
+    if-eqz p1, :cond_2
+
+    const/4 p1, 0x1
+
+    iput-boolean p1, p0, Lcom/android/settings/dashboard/profileselector/ProfileSelectStorageFragment;->mIsLoadedFromCache:Z
+
+    iget-object p1, p0, Lcom/android/settings/dashboard/profileselector/ProfileSelectStorageFragment;->mStorageEntries:Ljava/util/List;
+
+    invoke-interface {p1}, Ljava/util/List;->clear()V
+
+    iget-object p1, p0, Lcom/android/settings/dashboard/profileselector/ProfileSelectStorageFragment;->mStorageEntries:Ljava/util/List;
+
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/settings/dashboard/profileselector/ProfileSelectStorageFragment;->mStorageManager:Landroid/os/storage/StorageManager;
+
+    invoke-static {v0, v1}, Lcom/android/settings/deviceinfo/storage/StorageUtils;->getAllStorageEntries(Landroid/content/Context;Landroid/os/storage/StorageManager;)Ljava/util/List;
+
+    move-result-object v0
+
+    invoke-interface {p1, v0}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
+
+    invoke-direct {p0}, Lcom/android/settings/dashboard/profileselector/ProfileSelectStorageFragment;->refreshUi()V
+
+    :cond_2
     return-void
 .end method
 
@@ -478,6 +529,17 @@
 
     invoke-super {p0}, Lcom/android/settings/dashboard/DashboardFragment;->onResume()V
 
+    iget-boolean v0, p0, Lcom/android/settings/dashboard/profileselector/ProfileSelectStorageFragment;->mIsLoadedFromCache:Z
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/settings/dashboard/profileselector/ProfileSelectStorageFragment;->mIsLoadedFromCache:Z
+
+    goto :goto_0
+
+    :cond_0
     iget-object v0, p0, Lcom/android/settings/dashboard/profileselector/ProfileSelectStorageFragment;->mStorageEntries:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->clear()V
@@ -498,6 +560,7 @@
 
     invoke-direct {p0}, Lcom/android/settings/dashboard/profileselector/ProfileSelectStorageFragment;->refreshUi()V
 
+    :goto_0
     iget-object v0, p0, Lcom/android/settings/dashboard/profileselector/ProfileSelectStorageFragment;->mStorageManager:Landroid/os/storage/StorageManager;
 
     iget-object p0, p0, Lcom/android/settings/dashboard/profileselector/ProfileSelectStorageFragment;->mStorageEventListener:Landroid/os/storage/StorageEventListener;
@@ -512,7 +575,7 @@
 
     iget-object v0, p0, Lcom/android/settings/dashboard/profileselector/ProfileSelectStorageFragment;->mSelectedStorageEntry:Lcom/android/settings/deviceinfo/storage/StorageEntry;
 
-    const-string v1, "selected_storage_entry_key"
+    const-string/jumbo v1, "selected_storage_entry_key"
 
     invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 

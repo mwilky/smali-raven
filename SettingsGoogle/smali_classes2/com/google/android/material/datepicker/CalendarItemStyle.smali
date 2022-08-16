@@ -185,7 +185,7 @@
 .end method
 
 .method styleItem(Landroid/widget/TextView;)V
-    .locals 10
+    .locals 9
 
     new-instance v0, Lcom/google/android/material/shape/MaterialShapeDrawable;
 
@@ -219,47 +219,33 @@
 
     invoke-virtual {p1, v2}, Landroid/widget/TextView;->setTextColor(Landroid/content/res/ColorStateList;)V
 
-    sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
+    new-instance v4, Landroid/graphics/drawable/RippleDrawable;
 
-    const/16 v3, 0x15
+    iget-object v2, p0, Lcom/google/android/material/datepicker/CalendarItemStyle;->textColor:Landroid/content/res/ColorStateList;
 
-    if-lt v2, v3, :cond_0
+    const/16 v3, 0x1e
 
-    new-instance v2, Landroid/graphics/drawable/RippleDrawable;
+    invoke-virtual {v2, v3}, Landroid/content/res/ColorStateList;->withAlpha(I)Landroid/content/res/ColorStateList;
 
-    iget-object v3, p0, Lcom/google/android/material/datepicker/CalendarItemStyle;->textColor:Landroid/content/res/ColorStateList;
+    move-result-object v2
 
-    const/16 v4, 0x1e
+    invoke-direct {v4, v2, v0, v1}, Landroid/graphics/drawable/RippleDrawable;-><init>(Landroid/content/res/ColorStateList;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
 
-    invoke-virtual {v3, v4}, Landroid/content/res/ColorStateList;->withAlpha(I)Landroid/content/res/ColorStateList;
-
-    move-result-object v3
-
-    invoke-direct {v2, v3, v0, v1}, Landroid/graphics/drawable/RippleDrawable;-><init>(Landroid/content/res/ColorStateList;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
-
-    move-object v5, v2
-
-    goto :goto_0
-
-    :cond_0
-    move-object v5, v0
-
-    :goto_0
     new-instance v0, Landroid/graphics/drawable/InsetDrawable;
 
     iget-object p0, p0, Lcom/google/android/material/datepicker/CalendarItemStyle;->insets:Landroid/graphics/Rect;
 
-    iget v6, p0, Landroid/graphics/Rect;->left:I
+    iget v5, p0, Landroid/graphics/Rect;->left:I
 
-    iget v7, p0, Landroid/graphics/Rect;->top:I
+    iget v6, p0, Landroid/graphics/Rect;->top:I
 
-    iget v8, p0, Landroid/graphics/Rect;->right:I
+    iget v7, p0, Landroid/graphics/Rect;->right:I
 
-    iget v9, p0, Landroid/graphics/Rect;->bottom:I
+    iget v8, p0, Landroid/graphics/Rect;->bottom:I
 
-    move-object v4, v0
+    move-object v3, v0
 
-    invoke-direct/range {v4 .. v9}, Landroid/graphics/drawable/InsetDrawable;-><init>(Landroid/graphics/drawable/Drawable;IIII)V
+    invoke-direct/range {v3 .. v8}, Landroid/graphics/drawable/InsetDrawable;-><init>(Landroid/graphics/drawable/Drawable;IIII)V
 
     invoke-static {p1, v0}, Landroidx/core/view/ViewCompat;->setBackground(Landroid/view/View;Landroid/graphics/drawable/Drawable;)V
 

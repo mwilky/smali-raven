@@ -99,14 +99,6 @@
 # virtual methods
 .method assertLayoutStep(I)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "accepted"
-        }
-    .end annotation
 
     iget v0, p0, Landroidx/recyclerview/widget/RecyclerView$State;->mLayoutStep:I
 
@@ -214,14 +206,6 @@
 
 .method prepareForNestedPrefetch(Landroidx/recyclerview/widget/RecyclerView$Adapter;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "adapter"
-        }
-    .end annotation
 
     const/4 v0, 0x1
 

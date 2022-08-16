@@ -32,7 +32,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settingslib/bluetooth/PanProfile;Lcom/android/settingslib/bluetooth/PanProfile$1;)V
+.method synthetic constructor <init>(Lcom/android/settingslib/bluetooth/PanProfile;Lcom/android/settingslib/bluetooth/PanProfile$PanServiceListener-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settingslib/bluetooth/PanProfile$PanServiceListener;-><init>(Lcom/android/settingslib/bluetooth/PanProfile;)V
@@ -49,13 +49,13 @@
 
     check-cast p2, Landroid/bluetooth/BluetoothPan;
 
-    invoke-static {p1, p2}, Lcom/android/settingslib/bluetooth/PanProfile;->access$002(Lcom/android/settingslib/bluetooth/PanProfile;Landroid/bluetooth/BluetoothPan;)Landroid/bluetooth/BluetoothPan;
+    invoke-static {p1, p2}, Lcom/android/settingslib/bluetooth/PanProfile;->-$$Nest$fputmService(Lcom/android/settingslib/bluetooth/PanProfile;Landroid/bluetooth/BluetoothPan;)V
 
     iget-object p0, p0, Lcom/android/settingslib/bluetooth/PanProfile$PanServiceListener;->this$0:Lcom/android/settingslib/bluetooth/PanProfile;
 
     const/4 p1, 0x1
 
-    invoke-static {p0, p1}, Lcom/android/settingslib/bluetooth/PanProfile;->access$102(Lcom/android/settingslib/bluetooth/PanProfile;Z)Z
+    invoke-static {p0, p1}, Lcom/android/settingslib/bluetooth/PanProfile;->-$$Nest$fputmIsProfileReady(Lcom/android/settingslib/bluetooth/PanProfile;Z)V
 
     return-void
 .end method
@@ -67,7 +67,7 @@
 
     const/4 p1, 0x0
 
-    invoke-static {p0, p1}, Lcom/android/settingslib/bluetooth/PanProfile;->access$102(Lcom/android/settingslib/bluetooth/PanProfile;Z)Z
+    invoke-static {p0, p1}, Lcom/android/settingslib/bluetooth/PanProfile;->-$$Nest$fputmIsProfileReady(Lcom/android/settingslib/bluetooth/PanProfile;Z)V
 
     return-void
 .end method

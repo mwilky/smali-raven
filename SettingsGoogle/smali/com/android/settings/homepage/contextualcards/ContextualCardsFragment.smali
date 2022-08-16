@@ -38,6 +38,22 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$mresetSession(Lcom/android/settings/homepage/contextualcards/ContextualCardsFragment;Landroid/content/Context;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/homepage/contextualcards/ContextualCardsFragment;->resetSession(Landroid/content/Context;)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$sfgetDEBUG()Z
+    .locals 1
+
+    sget-boolean v0, Lcom/android/settings/homepage/contextualcards/ContextualCardsFragment;->DEBUG:Z
+
+    return v0
+.end method
+
 .method static constructor <clinit>()V
     .locals 1
 
@@ -52,22 +68,6 @@
     .locals 0
 
     invoke-direct {p0}, Lcom/android/settings/core/InstrumentedFragment;-><init>()V
-
-    return-void
-.end method
-
-.method static synthetic access$000()Z
-    .locals 1
-
-    sget-boolean v0, Lcom/android/settings/homepage/contextualcards/ContextualCardsFragment;->DEBUG:Z
-
-    return v0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/homepage/contextualcards/ContextualCardsFragment;Landroid/content/Context;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/homepage/contextualcards/ContextualCardsFragment;->resetSession(Landroid/content/Context;)V
 
     return-void
 .end method
@@ -87,7 +87,9 @@
 
     invoke-direct {v1, v2}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0, p0, v1}, Landroid/app/Activity;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+    const/4 v2, 0x2
+
+    invoke-virtual {v0, p0, v1, v2}, Landroid/app/Activity;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;I)Landroid/content/Intent;
 
     return-void
 .end method
@@ -246,7 +248,7 @@
 
     move-result-object p3
 
-    const v0, 0x7f060203
+    const v0, 0x7f06020c
 
     const/4 v1, 0x0
 
@@ -254,7 +256,7 @@
 
     move-result-object p1
 
-    const p2, 0x7f0d013c
+    const p2, 0x7f0d014d
 
     invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

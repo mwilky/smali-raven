@@ -94,7 +94,7 @@
 
     iget-object p0, p0, Lcom/android/settings/bugreporthandler/BugReportHandlerPicker$BugreportHandlerAppInfo;->mContext:Landroid/content/Context;
 
-    const v0, 0x1040124
+    const v0, 0x1040131
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

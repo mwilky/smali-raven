@@ -49,11 +49,11 @@
     :cond_0
     iget-object p1, p0, Lcom/android/settings/gestures/BackGestureIndicatorDrawable$1;->this$0:Lcom/android/settings/gestures/BackGestureIndicatorDrawable;
 
-    invoke-static {p1}, Lcom/android/settings/gestures/BackGestureIndicatorDrawable;->access$100(Lcom/android/settings/gestures/BackGestureIndicatorDrawable;)F
+    invoke-static {p1}, Lcom/android/settings/gestures/BackGestureIndicatorDrawable;->-$$Nest$fgetmFinalWidth(Lcom/android/settings/gestures/BackGestureIndicatorDrawable;)F
 
     move-result v0
 
-    invoke-static {p1, v0}, Lcom/android/settings/gestures/BackGestureIndicatorDrawable;->access$302(Lcom/android/settings/gestures/BackGestureIndicatorDrawable;F)F
+    invoke-static {p1, v0}, Lcom/android/settings/gestures/BackGestureIndicatorDrawable;->-$$Nest$fputmCurrentWidth(Lcom/android/settings/gestures/BackGestureIndicatorDrawable;F)V
 
     invoke-virtual {p0, v1}, Landroid/os/Handler;->removeMessages(I)V
 
@@ -76,7 +76,7 @@
     :cond_1
     iget-object v0, p0, Lcom/android/settings/gestures/BackGestureIndicatorDrawable$1;->this$0:Lcom/android/settings/gestures/BackGestureIndicatorDrawable;
 
-    invoke-static {v0}, Lcom/android/settings/gestures/BackGestureIndicatorDrawable;->access$000(Lcom/android/settings/gestures/BackGestureIndicatorDrawable;)Landroid/animation/TimeAnimator;
+    invoke-static {v0}, Lcom/android/settings/gestures/BackGestureIndicatorDrawable;->-$$Nest$fgetmTimeAnimator(Lcom/android/settings/gestures/BackGestureIndicatorDrawable;)Landroid/animation/TimeAnimator;
 
     move-result-object v0
 
@@ -88,17 +88,17 @@
 
     int-to-float p1, p1
 
-    invoke-static {v0, p1}, Lcom/android/settings/gestures/BackGestureIndicatorDrawable;->access$102(Lcom/android/settings/gestures/BackGestureIndicatorDrawable;F)F
+    invoke-static {v0, p1}, Lcom/android/settings/gestures/BackGestureIndicatorDrawable;->-$$Nest$fputmFinalWidth(Lcom/android/settings/gestures/BackGestureIndicatorDrawable;F)V
 
     iget-object p1, p0, Lcom/android/settings/gestures/BackGestureIndicatorDrawable$1;->this$0:Lcom/android/settings/gestures/BackGestureIndicatorDrawable;
 
-    invoke-static {p1}, Lcom/android/settings/gestures/BackGestureIndicatorDrawable;->access$300(Lcom/android/settings/gestures/BackGestureIndicatorDrawable;)F
+    invoke-static {p1}, Lcom/android/settings/gestures/BackGestureIndicatorDrawable;->-$$Nest$fgetmCurrentWidth(Lcom/android/settings/gestures/BackGestureIndicatorDrawable;)F
 
     move-result v0
 
     iget-object v1, p0, Lcom/android/settings/gestures/BackGestureIndicatorDrawable$1;->this$0:Lcom/android/settings/gestures/BackGestureIndicatorDrawable;
 
-    invoke-static {v1}, Lcom/android/settings/gestures/BackGestureIndicatorDrawable;->access$100(Lcom/android/settings/gestures/BackGestureIndicatorDrawable;)F
+    invoke-static {v1}, Lcom/android/settings/gestures/BackGestureIndicatorDrawable;->-$$Nest$fgetmFinalWidth(Lcom/android/settings/gestures/BackGestureIndicatorDrawable;)F
 
     move-result v1
 
@@ -112,11 +112,11 @@
 
     div-float/2addr v0, v1
 
-    invoke-static {p1, v0}, Lcom/android/settings/gestures/BackGestureIndicatorDrawable;->access$202(Lcom/android/settings/gestures/BackGestureIndicatorDrawable;F)F
+    invoke-static {p1, v0}, Lcom/android/settings/gestures/BackGestureIndicatorDrawable;->-$$Nest$fputmWidthChangePerMs(Lcom/android/settings/gestures/BackGestureIndicatorDrawable;F)V
 
     iget-object p0, p0, Lcom/android/settings/gestures/BackGestureIndicatorDrawable$1;->this$0:Lcom/android/settings/gestures/BackGestureIndicatorDrawable;
 
-    invoke-static {p0}, Lcom/android/settings/gestures/BackGestureIndicatorDrawable;->access$000(Lcom/android/settings/gestures/BackGestureIndicatorDrawable;)Landroid/animation/TimeAnimator;
+    invoke-static {p0}, Lcom/android/settings/gestures/BackGestureIndicatorDrawable;->-$$Nest$fgetmTimeAnimator(Lcom/android/settings/gestures/BackGestureIndicatorDrawable;)Landroid/animation/TimeAnimator;
 
     move-result-object p0
 

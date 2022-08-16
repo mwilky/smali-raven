@@ -5,6 +5,7 @@
     <bool name="auto_confirm_bluetooth_activation_dialog">false</bool>
     <bool name="config_additional_system_update_setting_enable">false</bool>
     <bool name="config_allow_edit_carrier_enabled">false</bool>
+    <bool name="config_battery_combine_system_components">false</bool>
     <bool name="config_connectivity_helper_call_quality_default_value">true</bool>
     <bool name="config_connectivity_helper_d2d_default_value">false</bool>
     <bool name="config_disable_uninstall_update">false</bool>
@@ -20,7 +21,6 @@
     <bool name="config_force_rounded_icon_TopLevelSettings">true</bool>
     <bool name="config_gesture_settings_enabled">true</bool>
     <bool name="config_handle_sim_slot_change">true</bool>
-    <bool name="config_has_help">true</bool>
     <bool name="config_hide_none_security_option">false</bool>
     <bool name="config_hide_swipe_security_option">false</bool>
     <bool name="config_hspa_data_distinguishable">false</bool>
@@ -32,8 +32,8 @@
     <bool name="config_network_selection_list_aggregation_enabled">false</bool>
     <bool name="config_nfc_detection_point">false</bool>
     <bool name="config_night_light_suggestion_enabled">false</bool>
+    <bool name="config_offer_restricted_profiles">false</bool>
     <bool name="config_showMin3G">false</bool>
-    <bool name="config_showOperatorNameInStatusBar">false</bool>
     <bool name="config_show_adaptive_connectivity">true</bool>
     <bool name="config_show_alarm_volume">true</bool>
     <bool name="config_show_app_info_settings_battery">true</bool>
@@ -52,6 +52,7 @@
     <bool name="config_show_device_name">true</bool>
     <bool name="config_show_emergency_gesture_settings">true</bool>
     <bool name="config_show_emergency_info_in_device_info">true</bool>
+    <bool name="config_show_emergency_settings">true</bool>
     <bool name="config_show_enabled_vr_listeners">true</bool>
     <bool name="config_show_encryption_and_credentials_encryption_status">true</bool>
     <bool name="config_show_high_power_apps">true</bool>
@@ -99,9 +100,9 @@
     <bool name="config_suc_use_partner_resource">true</bool>
     <bool name="config_support_enabled">true</bool>
     <bool name="config_supported_large_screen">false</bool>
-    <bool name="config_suw_supported_two_panes">false</bool>
+    <bool name="config_use_compact_battery_status">false</bool>
     <bool name="config_use_legacy_suggestion">false</bool>
-    <bool name="config_vibration_supports_multiple_intensities">false</bool>
+    <bool name="dream_setup_supported">false</bool>
     <bool name="has_boot_sounds">false</bool>
     <bool name="has_dock_settings">false</bool>
     <bool name="has_silent_mode">true</bool>

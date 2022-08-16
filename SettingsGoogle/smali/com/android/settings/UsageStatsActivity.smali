@@ -29,23 +29,15 @@
 
 
 # direct methods
-.method public constructor <init>()V
+.method static bridge synthetic -$$Nest$fgetmInflater(Lcom/android/settings/UsageStatsActivity;)Landroid/view/LayoutInflater;
     .locals 0
 
-    invoke-direct {p0}, Landroid/app/Activity;-><init>()V
-
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/UsageStatsActivity;)Landroid/app/usage/UsageStatsManager;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/UsageStatsActivity;->mUsageStatsManager:Landroid/app/usage/UsageStatsManager;
+    iget-object p0, p0, Lcom/android/settings/UsageStatsActivity;->mInflater:Landroid/view/LayoutInflater;
 
     return-object p0
 .end method
 
-.method static synthetic access$100(Lcom/android/settings/UsageStatsActivity;)Landroid/content/pm/PackageManager;
+.method static bridge synthetic -$$Nest$fgetmPm(Lcom/android/settings/UsageStatsActivity;)Landroid/content/pm/PackageManager;
     .locals 0
 
     iget-object p0, p0, Lcom/android/settings/UsageStatsActivity;->mPm:Landroid/content/pm/PackageManager;
@@ -53,12 +45,20 @@
     return-object p0
 .end method
 
-.method static synthetic access$200(Lcom/android/settings/UsageStatsActivity;)Landroid/view/LayoutInflater;
+.method static bridge synthetic -$$Nest$fgetmUsageStatsManager(Lcom/android/settings/UsageStatsActivity;)Landroid/app/usage/UsageStatsManager;
     .locals 0
 
-    iget-object p0, p0, Lcom/android/settings/UsageStatsActivity;->mInflater:Landroid/view/LayoutInflater;
+    iget-object p0, p0, Lcom/android/settings/UsageStatsActivity;->mUsageStatsManager:Landroid/app/usage/UsageStatsManager;
 
     return-object p0
+.end method
+
+.method public constructor <init>()V
+    .locals 0
+
+    invoke-direct {p0}, Landroid/app/Activity;-><init>()V
+
+    return-void
 .end method
 
 
@@ -68,7 +68,7 @@
 
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
-    const p1, 0x7f06029e
+    const p1, 0x7f0602ae
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->setContentView(I)V
 
@@ -98,7 +98,7 @@
 
     iput-object p1, p0, Lcom/android/settings/UsageStatsActivity;->mPm:Landroid/content/pm/PackageManager;
 
-    const p1, 0x7f0d05f6
+    const p1, 0x7f0d0638
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -108,7 +108,7 @@
 
     invoke-virtual {p1, p0}, Landroid/widget/Spinner;->setOnItemSelectedListener(Landroid/widget/AdapterView$OnItemSelectedListener;)V
 
-    const p1, 0x7f0d0447
+    const p1, 0x7f0d0477
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 

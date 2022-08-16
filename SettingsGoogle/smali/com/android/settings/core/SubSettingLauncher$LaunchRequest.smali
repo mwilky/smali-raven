@@ -15,29 +15,31 @@
 
 
 # instance fields
-.field arguments:Landroid/os/Bundle;
+.field mArguments:Landroid/os/Bundle;
 
-.field destinationName:Ljava/lang/String;
+.field mDestinationName:Ljava/lang/String;
 
-.field extras:Landroid/os/Bundle;
+.field mExtras:Landroid/os/Bundle;
 
-.field flags:I
+.field mFlags:I
+
+.field mIsSecondLayerPage:Z
 
 .field mRequestCode:I
 
 .field mResultListener:Landroidx/fragment/app/Fragment;
 
-.field sourceMetricsCategory:I
+.field mSourceMetricsCategory:I
 
-.field title:Ljava/lang/CharSequence;
+.field mTitle:Ljava/lang/CharSequence;
 
-.field titleResId:I
+.field mTitleResId:I
 
-.field titleResPackageName:Ljava/lang/String;
+.field mTitleResPackageName:Ljava/lang/String;
 
-.field transitionType:I
+.field mTransitionType:I
 
-.field userHandle:Landroid/os/UserHandle;
+.field mUserHandle:Landroid/os/UserHandle;
 
 
 # direct methods
@@ -48,7 +50,7 @@
 
     const/16 v0, -0x64
 
-    iput v0, p0, Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;->sourceMetricsCategory:I
+    iput v0, p0, Lcom/android/settings/core/SubSettingLauncher$LaunchRequest;->mSourceMetricsCategory:I
 
     return-void
 .end method

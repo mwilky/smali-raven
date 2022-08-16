@@ -28,7 +28,7 @@
 
     iput-object p1, p0, Lcom/android/settings/notification/zen/ZenModeSettingsBase$SettingsObserver;->this$0:Lcom/android/settings/notification/zen/ZenModeSettingsBase;
 
-    invoke-static {p1}, Lcom/android/settings/notification/zen/ZenModeSettingsBase;->access$100(Lcom/android/settings/notification/zen/ZenModeSettingsBase;)Landroid/os/Handler;
+    invoke-static {p1}, Lcom/android/settings/notification/zen/ZenModeSettingsBase;->-$$Nest$fgetmHandler(Lcom/android/settings/notification/zen/ZenModeSettingsBase;)Landroid/os/Handler;
 
     move-result-object p1
 
@@ -53,7 +53,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settings/notification/zen/ZenModeSettingsBase;Lcom/android/settings/notification/zen/ZenModeSettingsBase$1;)V
+.method synthetic constructor <init>(Lcom/android/settings/notification/zen/ZenModeSettingsBase;Lcom/android/settings/notification/zen/ZenModeSettingsBase$SettingsObserver-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settings/notification/zen/ZenModeSettingsBase$SettingsObserver;-><init>(Lcom/android/settings/notification/zen/ZenModeSettingsBase;)V
@@ -80,7 +80,7 @@
 
     const/4 v0, 0x1
 
-    invoke-static {p1, v0}, Lcom/android/settings/notification/zen/ZenModeSettingsBase;->access$500(Lcom/android/settings/notification/zen/ZenModeSettingsBase;Z)V
+    invoke-static {p1, v0}, Lcom/android/settings/notification/zen/ZenModeSettingsBase;->-$$Nest$mupdateZenMode(Lcom/android/settings/notification/zen/ZenModeSettingsBase;Z)V
 
     :cond_0
     iget-object p1, p0, Lcom/android/settings/notification/zen/ZenModeSettingsBase$SettingsObserver;->ZEN_MODE_CONFIG_ETAG_URI:Landroid/net/Uri;
@@ -110,7 +110,7 @@
 
     iget-object v0, p0, Lcom/android/settings/notification/zen/ZenModeSettingsBase$SettingsObserver;->this$0:Lcom/android/settings/notification/zen/ZenModeSettingsBase;
 
-    invoke-static {v0}, Lcom/android/settings/notification/zen/ZenModeSettingsBase;->access$200(Lcom/android/settings/notification/zen/ZenModeSettingsBase;)Landroid/content/ContentResolver;
+    invoke-static {v0}, Lcom/android/settings/notification/zen/ZenModeSettingsBase;->access$000(Lcom/android/settings/notification/zen/ZenModeSettingsBase;)Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -122,7 +122,7 @@
 
     iget-object v0, p0, Lcom/android/settings/notification/zen/ZenModeSettingsBase$SettingsObserver;->this$0:Lcom/android/settings/notification/zen/ZenModeSettingsBase;
 
-    invoke-static {v0}, Lcom/android/settings/notification/zen/ZenModeSettingsBase;->access$300(Lcom/android/settings/notification/zen/ZenModeSettingsBase;)Landroid/content/ContentResolver;
+    invoke-static {v0}, Lcom/android/settings/notification/zen/ZenModeSettingsBase;->access$100(Lcom/android/settings/notification/zen/ZenModeSettingsBase;)Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -138,7 +138,7 @@
 
     iget-object v0, p0, Lcom/android/settings/notification/zen/ZenModeSettingsBase$SettingsObserver;->this$0:Lcom/android/settings/notification/zen/ZenModeSettingsBase;
 
-    invoke-static {v0}, Lcom/android/settings/notification/zen/ZenModeSettingsBase;->access$400(Lcom/android/settings/notification/zen/ZenModeSettingsBase;)Landroid/content/ContentResolver;
+    invoke-static {v0}, Lcom/android/settings/notification/zen/ZenModeSettingsBase;->access$200(Lcom/android/settings/notification/zen/ZenModeSettingsBase;)Landroid/content/ContentResolver;
 
     move-result-object v0
 

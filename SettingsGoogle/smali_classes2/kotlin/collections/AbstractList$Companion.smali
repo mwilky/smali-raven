@@ -178,7 +178,7 @@
 .end method
 
 .method public final orderedEquals$kotlin_stdlib(Ljava/util/Collection;Ljava/util/Collection;)Z
-    .locals 3
+    .locals 2
     .param p1    # Ljava/util/Collection;
         .annotation build Lorg/jetbrains/annotations/NotNull;
         .end annotation
@@ -233,8 +233,6 @@
 
     move-result p2
 
-    const/4 v0, 0x1
-
     if-eqz p2, :cond_2
 
     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -243,20 +241,20 @@
 
     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-static {p2, v2}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result p2
 
-    xor-int/2addr p2, v0
-
-    if-eqz p2, :cond_1
+    if-nez p2, :cond_1
 
     return v1
 
     :cond_2
-    return v0
+    const/4 p0, 0x1
+
+    return p0
 .end method
 
 .method public final orderedHashCode$kotlin_stdlib(Ljava/util/Collection;)I
@@ -296,16 +294,16 @@
 
     mul-int/lit8 p1, p1, 0x1f
 
-    if-eqz v0, :cond_0
+    if-nez v0, :cond_0
 
-    invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
-
-    move-result v0
+    const/4 v0, 0x0
 
     goto :goto_1
 
     :cond_0
-    const/4 v0, 0x0
+    invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
+
+    move-result v0
 
     :goto_1
     add-int/2addr p1, v0

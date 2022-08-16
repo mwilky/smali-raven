@@ -5,8 +5,8 @@
         <item quantity="one">Siku %d iliyopita</item>
     </plurals>
     <plurals name="abc_slice_duration_min">
-        <item quantity="other">Dakika %d zilizopita</item>
-        <item quantity="one">Dakika %d iliyopita</item>
+        <item quantity="other">Dak %d zilizopita</item>
+        <item quantity="one">Dak %d iliyopita</item>
     </plurals>
     <plurals name="abc_slice_duration_years">
         <item quantity="other">Miaka %d iliyopita</item>
@@ -233,11 +233,11 @@
         <item quantity="one">Imezima aina %d</item>
     </plurals>
     <plurals name="notifications_sent_daily">
-        <item quantity="other">Takriban arifa %d kwa siku</item>
+        <item quantity="other">Takriban arifa %,d kwa siku</item>
         <item quantity="one">Takriban arifa %d kwa siku</item>
     </plurals>
     <plurals name="notifications_sent_weekly">
-        <item quantity="other">Takriban arifa %d kwa wiki</item>
+        <item quantity="other">Takriban arifa %,d kwa wiki</item>
         <item quantity="one">Takriban arifa %d kwa wiki</item>
     </plurals>
     <plurals name="number_of_device_admins">
@@ -328,22 +328,6 @@
         <item quantity="other">Tumia au uondoe vyeti</item>
         <item quantity="one">Tumia au uondoe cheti</item>
     </plurals>
-    <plurals name="ssl_ca_cert_info_message">
-        <item quantity="other">"%samesakinisha mamlaka ya cheti kwenye wasifu wako wa kazini, huenda hali hii ikaruhusu kuchunguza shughuli za mtandao wa kazini, ikiwa ni pamoja na barua pepe, programu na tovuti salama.
-
-Kwa maelezo zaidi kuhusu vyeti hivi, wasiliana na msimamizi wako."</item>
-        <item quantity="one">"%s amesakinisha mamlaka ya cheti kwenye wasifu wako wa kazini, huenda hali hii ikaruhusu kuchunguza shughuli za mtandao wa kazini, ikiwa ni pamoja na barua pepe, programu na tovuti salama.
-
-Kwa maelezo zaidi kuhusu cheti hiki, wasiliana na msimamizi wako."</item>
-    </plurals>
-    <plurals name="ssl_ca_cert_info_message_device_owner">
-        <item quantity="other">"%s amesakinisha mamlaka ya cheti kwenye kifaa chako, huenda hali hii ikaruhusu kuchunguza shughuli za mtandao wa kifaa chako, ikiwa ni pamoja na barua pepe, programu na tovuti salama.
-
-Kwa maelezo zaidi kuhusu vyeti hivi, wasiliana na msimamizi wako."</item>
-        <item quantity="one">"%s amesakinisha mamlaka ya cheti kwenye kifaa chako, huenda hali hii ikaruhusu kuchunguza shughuli za mtandao wa kifaa chako, ikiwa ni pamoja na barua pepe, programu na tovuti salama.
-
-Kwa maelezo zaidi kuhusu cheti hiki, wasiliana na msimamizi wako."</item>
-    </plurals>
     <plurals name="ssl_ca_cert_settings_button">
         <item quantity="other">Angalia vyeti</item>
         <item quantity="one">Angalia cheti</item>
@@ -375,10 +359,6 @@ Kwa maelezo zaidi kuhusu cheti hiki, wasiliana na msimamizi wako."</item>
     <plurals name="wifi_saved_passpoint_access_points_summary">
         <item quantity="other">Umehifadhi %d</item>
         <item quantity="one">Umehifadhi 1</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">Vifaa %1$d vimeunganishwa</item>
-        <item quantity="one">Kifaa %1$d kimeunganishwa</item>
     </plurals>
     <plurals name="wrong_pin_code">
         <item quantity="other">Nambari ya PIN ya SIM si sahihi. Una nafasi zingine %d za kujaribu.</item>

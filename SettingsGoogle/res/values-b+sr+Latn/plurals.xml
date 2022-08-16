@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="abc_slice_duration_days">
-        <item quantity="other">pre %d dana</item>
-        <item quantity="one">pre %d dan</item>
-        <item quantity="few">pre %d dana</item>
+        <item quantity="other">Pre %d dana</item>
+        <item quantity="one">Pre %d dan</item>
+        <item quantity="few">Pre %d dana</item>
     </plurals>
     <plurals name="abc_slice_duration_min">
-        <item quantity="other">pre %d min</item>
-        <item quantity="one">pre %d min</item>
-        <item quantity="few">pre %d min</item>
+        <item quantity="other">Pre %d min</item>
+        <item quantity="one">Pre %d min</item>
+        <item quantity="few">Pre %d min</item>
     </plurals>
     <plurals name="abc_slice_duration_years">
-        <item quantity="other">pre %d god</item>
-        <item quantity="one">pre %d god</item>
-        <item quantity="few">pre %d god</item>
+        <item quantity="other">Pre %d god</item>
+        <item quantity="one">Pre %d god</item>
+        <item quantity="few">Pre %d god</item>
     </plurals>
     <plurals name="accessibility_usage_summary">
         <item quantity="other">%1$d aplikacija ima potpun pristup uređaju</item>
@@ -291,14 +291,14 @@
         <item quantity="few">Isključene su %d kategorije</item>
     </plurals>
     <plurals name="notifications_sent_daily">
-        <item quantity="other">~%d obaveštenja dnevno</item>
-        <item quantity="one">~%d obaveštenje dnevno</item>
-        <item quantity="few">~%d obaveštenja dnevno</item>
+        <item quantity="other">~%,d obaveštenja dnevno</item>
+        <item quantity="one">~%,d obaveštenje dnevno</item>
+        <item quantity="few">~%,d obaveštenja dnevno</item>
     </plurals>
     <plurals name="notifications_sent_weekly">
-        <item quantity="other">~%d obaveštenja nedeljno</item>
-        <item quantity="one">~%d obaveštenje nedeljno</item>
-        <item quantity="few">~%d obaveštenja nedeljno</item>
+        <item quantity="other">~%,d obaveštenja nedeljno</item>
+        <item quantity="one">~%,d obaveštenje nedeljno</item>
+        <item quantity="few">~%,d obaveštenja nedeljno</item>
     </plurals>
     <plurals name="number_of_device_admins">
         <item quantity="other">%d aktivnih aplikacija</item>
@@ -410,28 +410,6 @@
         <item quantity="one">Označite sertifikate kao pouzdane ili ih uklonite</item>
         <item quantity="few">Označite sertifikate kao pouzdane ili ih uklonite</item>
     </plurals>
-    <plurals name="ssl_ca_cert_info_message">
-        <item quantity="other">"%s su instalirala autoritete za izdavanje sertifikata na uređaju, što može da im omogući da prate aktivnosti uređaja na mreži, uključujući imejlove, aplikacije i bezbedne veb-sajtove.
-
-Kontaktirajte administratora da biste dobili više informacija o ovim sertifikatima."</item>
-        <item quantity="one">"%s je instalirao autoritete za izdavanje sertifikata za poslovni profil, što može da mu omogući da prati aktivnosti na poslovnoj mreži, uključujući imejlove, aplikacije i bezbedne veb-sajtove.
-
-Kontaktirajte administratora da biste dobili više informacija o ovim sertifikatima."</item>
-        <item quantity="few">"%s su instalirala autoritete za izdavanje sertifikata na uređaju, što može da im omogući da prate aktivnosti uređaja na mreži, uključujući imejlove, aplikacije i bezbedne veb-sajtove.
-
-Kontaktirajte administratora da biste dobili više informacija o ovim sertifikatima."</item>
-    </plurals>
-    <plurals name="ssl_ca_cert_info_message_device_owner">
-        <item quantity="other">"%s su instalirala autoritete za izdavanje sertifikata na uređaju, što može da im omogući da prate aktivnosti uređaja na mreži, uključujući imejlove, aplikacije i bezbedne veb-sajtove.
-
-Kontaktirajte administratora da biste dobili više informacija o ovim sertifikatima."</item>
-        <item quantity="one">"%s je instalirao autoritete za izdavanje sertifikata na uređaju, što može da mu omogući da prati aktivnosti uređaja na mreži, uključujući imejlove, aplikacije i bezbedne veb-sajtove.
-
-Kontaktirajte administratora da biste dobili više informacija o ovim sertifikatima."</item>
-        <item quantity="few">"%s su instalirala autoritete za izdavanje sertifikata na uređaju, što može da im omogući da prate aktivnosti uređaja na mreži, uključujući imejlove, aplikacije i bezbedne veb-sajtove.
-
-Kontaktirajte administratora da biste dobili više informacija o ovim sertifikatima."</item>
-    </plurals>
     <plurals name="ssl_ca_cert_settings_button">
         <item quantity="other">Proveri sertifikate</item>
         <item quantity="one">Proveri sertifikate</item>
@@ -471,11 +449,6 @@ Kontaktirajte administratora da biste dobili više informacija o ovim sertifikat
         <item quantity="other">%d prijava</item>
         <item quantity="one">%d prijava</item>
         <item quantity="few">%d prijave</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">Povezano je %1$d uređaja</item>
-        <item quantity="one">Povezan je %1$d uređaj</item>
-        <item quantity="few">Povezana su %1$d uređaja</item>
     </plurals>
     <plurals name="wrong_pin_code">
         <item quantity="other">Netačan PIN kôd za SIM. Imate još %d pokušaja.</item>

@@ -59,359 +59,483 @@
 .end method
 
 .method public static getTheme(Landroid/content/Context;Landroid/content/Intent;)I
-    .locals 13
+    .locals 18
 
-    invoke-static {p1}, Lcom/android/settings/SetupWizardUtils;->getThemeString(Landroid/content/Intent;)Ljava/lang/String;
+    invoke-static/range {p1 .. p1}, Lcom/android/settings/SetupWizardUtils;->getThemeString(Landroid/content/Intent;)Ljava/lang/String;
 
     move-result-object v0
 
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_17
 
-    invoke-static {p1}, Lcom/google/android/setupcompat/util/WizardManagerHelper;->isAnySetupWizard(Landroid/content/Intent;)Z
+    invoke-static/range {p1 .. p1}, Lcom/google/android/setupcompat/util/WizardManagerHelper;->isAnySetupWizard(Landroid/content/Intent;)Z
 
-    move-result p1
+    move-result v1
 
-    const v1, 0x7f130134
+    const v2, 0x7f130163
 
-    const v2, 0x7f13013c
+    const v3, 0x7f13016b
 
-    const/4 v3, 0x3
+    const v4, 0x7f130175
 
-    const-string v4, "glif_v3"
+    const-string v6, "glif_v4"
 
-    const/4 v5, 0x2
+    const-string v8, "glif_v3"
 
-    const-string v6, "glif_v2"
+    const/4 v9, 0x3
 
-    const/4 v7, 0x1
+    const-string v10, "glif_v2"
 
-    const-string v8, "glif_v3_light"
+    const/4 v11, 0x2
 
-    const/4 v9, 0x0
+    const-string v12, "glif_v4_light"
 
-    const-string v10, "glif_v2_light"
+    const/4 v13, 0x1
 
-    const/4 v11, -0x1
+    const-string v14, "glif_v3_light"
 
-    if-eqz p1, :cond_c
+    const/4 v15, 0x0
 
-    invoke-static {p0}, Lcom/google/android/setupdesign/util/ThemeHelper;->isSetupWizardDayNightEnabled(Landroid/content/Context;)Z
+    const-string v5, "glif_v2_light"
 
-    move-result p0
+    const/16 v16, -0x1
 
-    const/4 p1, 0x4
+    if-eqz v1, :cond_10
 
-    const-string v12, "glif_light"
+    invoke-static/range {p0 .. p0}, Lcom/google/android/setupdesign/util/ThemeHelper;->isSetupWizardDayNightEnabled(Landroid/content/Context;)Z
 
-    if-eqz p0, :cond_6
+    move-result v1
+
+    const/16 v17, 0x6
+
+    const-string v7, "glif_light"
+
+    if-eqz v1, :cond_8
 
     invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
 
-    move-result p0
+    move-result v1
 
-    sparse-switch p0, :sswitch_data_0
+    sparse-switch v1, :sswitch_data_0
 
     :goto_0
-    move v3, v11
+    move/from16 v5, v16
 
     goto :goto_1
 
     :sswitch_0
-    invoke-virtual {v0, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result p0
+    move-result v0
 
-    if-nez p0, :cond_0
+    if-nez v0, :cond_0
 
     goto :goto_0
 
     :cond_0
-    const/4 v3, 0x5
+    const/4 v5, 0x7
 
     goto :goto_1
 
     :sswitch_1
-    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result p0
+    move-result v0
 
-    if-nez p0, :cond_1
+    if-nez v0, :cond_1
 
     goto :goto_0
 
     :cond_1
-    move v3, p1
+    move/from16 v5, v17
 
     goto :goto_1
 
     :sswitch_2
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result p0
+    move-result v0
 
-    if-nez p0, :cond_5
-
-    goto :goto_0
-
-    :sswitch_3
-    const-string p0, "glif"
-
-    invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p0
-
-    if-nez p0, :cond_2
+    if-nez v0, :cond_2
 
     goto :goto_0
 
     :cond_2
-    move v3, v5
+    const/4 v5, 0x5
 
     goto :goto_1
 
-    :sswitch_4
-    invoke-virtual {v0, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    :sswitch_3
+    invoke-virtual {v0, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result p0
+    move-result v0
 
-    if-nez p0, :cond_3
+    if-nez v0, :cond_3
 
     goto :goto_0
 
     :cond_3
-    move v3, v7
+    const/4 v5, 0x4
 
     goto :goto_1
 
-    :sswitch_5
-    invoke-virtual {v0, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    :sswitch_4
+    const-string v1, "glif"
 
-    move-result p0
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    if-nez p0, :cond_4
+    move-result v0
+
+    if-nez v0, :cond_4
 
     goto :goto_0
 
     :cond_4
-    move v3, v9
+    move v5, v9
+
+    goto :goto_1
+
+    :sswitch_5
+    invoke-virtual {v0, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_5
+
+    goto :goto_0
 
     :cond_5
+    move v5, v11
+
+    goto :goto_1
+
+    :sswitch_6
+    invoke-virtual {v0, v14}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_6
+
+    goto :goto_0
+
+    :cond_6
+    move v5, v13
+
+    goto :goto_1
+
+    :sswitch_7
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_7
+
+    goto :goto_0
+
+    :cond_7
+    move v5, v15
+
     :goto_1
-    packed-switch v3, :pswitch_data_0
+    packed-switch v5, :pswitch_data_0
 
     goto/16 :goto_6
 
     :pswitch_0
-    const p0, 0x7f130132
+    const v0, 0x7f130161
 
-    return p0
+    return v0
 
     :pswitch_1
-    const p0, 0x7f13013d
+    const v0, 0x7f130176
 
-    return p0
+    return v0
 
     :pswitch_2
-    const p0, 0x7f130135
+    const v0, 0x7f13016c
 
-    return p0
+    return v0
 
-    :cond_6
-    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+    :pswitch_3
+    const v0, 0x7f130164
 
-    move-result p0
-
-    sparse-switch p0, :sswitch_data_1
-
-    :goto_2
-    move v3, v11
-
-    goto :goto_3
-
-    :sswitch_6
-    invoke-virtual {v0, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p0
-
-    if-nez p0, :cond_7
-
-    goto :goto_2
-
-    :cond_7
-    move v3, p1
-
-    goto :goto_3
-
-    :sswitch_7
-    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p0
-
-    if-nez p0, :cond_b
-
-    goto :goto_2
-
-    :sswitch_8
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p0
-
-    if-nez p0, :cond_8
-
-    goto :goto_2
+    return v0
 
     :cond_8
-    move v3, v5
+    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+
+    move-result v1
+
+    sparse-switch v1, :sswitch_data_1
+
+    :goto_2
+    move/from16 v5, v16
 
     goto :goto_3
 
-    :sswitch_9
-    invoke-virtual {v0, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    :sswitch_8
+    invoke-virtual {v0, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result p0
+    move-result v0
 
-    if-nez p0, :cond_9
+    if-nez v0, :cond_9
 
     goto :goto_2
 
     :cond_9
-    move v3, v7
+    move/from16 v5, v17
 
     goto :goto_3
 
-    :sswitch_a
-    invoke-virtual {v0, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    :sswitch_9
+    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result p0
+    move-result v0
 
-    if-nez p0, :cond_a
+    if-nez v0, :cond_a
 
     goto :goto_2
 
     :cond_a
-    move v3, v9
+    const/4 v5, 0x5
 
-    :cond_b
-    :goto_3
-    packed-switch v3, :pswitch_data_1
+    goto :goto_3
 
-    goto :goto_6
-
-    :pswitch_3
-    const p0, 0x7f130133
-
-    return p0
-
-    :pswitch_4
-    return v2
-
-    :pswitch_5
-    return v1
-
-    :pswitch_6
-    const p0, 0x7f130141
-
-    return p0
-
-    :pswitch_7
-    const p0, 0x7f130137
-
-    return p0
-
-    :cond_c
-    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
-
-    move-result p0
-
-    sparse-switch p0, :sswitch_data_2
-
-    :goto_4
-    move v3, v11
-
-    goto :goto_5
-
-    :sswitch_b
-    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p0
-
-    if-nez p0, :cond_10
-
-    goto :goto_4
-
-    :sswitch_c
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p0
-
-    if-nez p0, :cond_d
-
-    goto :goto_4
-
-    :cond_d
-    move v3, v5
-
-    goto :goto_5
-
-    :sswitch_d
+    :sswitch_a
     invoke-virtual {v0, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result p0
+    move-result v0
 
-    if-nez p0, :cond_e
+    if-nez v0, :cond_b
 
-    goto :goto_4
+    goto :goto_2
+
+    :cond_b
+    const/4 v5, 0x4
+
+    goto :goto_3
+
+    :sswitch_b
+    invoke-virtual {v0, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_c
+
+    goto :goto_2
+
+    :cond_c
+    move v5, v9
+
+    goto :goto_3
+
+    :sswitch_c
+    invoke-virtual {v0, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_d
+
+    goto :goto_2
+
+    :cond_d
+    move v5, v11
+
+    goto :goto_3
+
+    :sswitch_d
+    invoke-virtual {v0, v14}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_e
+
+    goto :goto_2
 
     :cond_e
-    move v3, v7
+    move v5, v13
+
+    goto :goto_3
+
+    :sswitch_e
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_f
+
+    goto :goto_2
+
+    :cond_f
+    move v5, v15
+
+    :goto_3
+    packed-switch v5, :pswitch_data_1
+
+    goto/16 :goto_6
+
+    :pswitch_4
+    const v0, 0x7f130162
+
+    return v0
+
+    :pswitch_5
+    return v4
+
+    :pswitch_6
+    return v3
+
+    :pswitch_7
+    return v2
+
+    :pswitch_8
+    const v0, 0x7f130177
+
+    return v0
+
+    :pswitch_9
+    const v0, 0x7f130170
+
+    return v0
+
+    :pswitch_a
+    const v0, 0x7f130166
+
+    return v0
+
+    :cond_10
+    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+
+    move-result v1
+
+    sparse-switch v1, :sswitch_data_2
+
+    :goto_4
+    move/from16 v5, v16
 
     goto :goto_5
 
-    :sswitch_e
-    invoke-virtual {v0, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    :sswitch_f
+    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result p0
+    move-result v0
 
-    if-nez p0, :cond_f
+    if-nez v0, :cond_11
 
     goto :goto_4
 
-    :cond_f
-    move v3, v9
+    :cond_11
+    const/4 v5, 0x5
 
-    :cond_10
+    goto :goto_5
+
+    :sswitch_10
+    invoke-virtual {v0, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_12
+
+    goto :goto_4
+
+    :cond_12
+    const/4 v5, 0x4
+
+    goto :goto_5
+
+    :sswitch_11
+    invoke-virtual {v0, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_13
+
+    goto :goto_4
+
+    :cond_13
+    move v5, v9
+
+    goto :goto_5
+
+    :sswitch_12
+    invoke-virtual {v0, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_14
+
+    goto :goto_4
+
+    :cond_14
+    move v5, v11
+
+    goto :goto_5
+
+    :sswitch_13
+    invoke-virtual {v0, v14}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_15
+
+    goto :goto_4
+
+    :cond_15
+    move v5, v13
+
+    goto :goto_5
+
+    :sswitch_14
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_16
+
+    goto :goto_4
+
+    :cond_16
+    move v5, v15
+
     :goto_5
-    packed-switch v3, :pswitch_data_2
+    packed-switch v5, :pswitch_data_2
 
     goto :goto_6
 
-    :pswitch_8
+    :pswitch_b
+    return v4
+
+    :pswitch_c
+    return v3
+
+    :pswitch_d
     return v2
 
-    :pswitch_9
-    return v1
-
-    :cond_11
+    :cond_17
     :goto_6
-    const p0, 0x7f130131
+    const v0, 0x7f130160
 
-    return p0
+    return v0
+
+    nop
 
     :sswitch_data_0
     .sparse-switch
-        -0x7edf2f90 -> :sswitch_5
-        -0x49f8f44f -> :sswitch_4
-        0x3074c2 -> :sswitch_3
-        0x6e4af19 -> :sswitch_2
-        0x6e4af1a -> :sswitch_1
+        -0x7edf2f90 -> :sswitch_7
+        -0x49f8f44f -> :sswitch_6
+        -0x1512b90e -> :sswitch_5
+        0x3074c2 -> :sswitch_4
+        0x6e4af19 -> :sswitch_3
+        0x6e4af1a -> :sswitch_2
+        0x6e4af1b -> :sswitch_1
         0x2dc1f359 -> :sswitch_0
     .end sparse-switch
 
     :pswitch_data_0
     .packed-switch 0x0
+        :pswitch_3
         :pswitch_2
         :pswitch_1
         :pswitch_0
+        :pswitch_3
         :pswitch_2
         :pswitch_1
         :pswitch_0
@@ -419,36 +543,44 @@
 
     :sswitch_data_1
     .sparse-switch
-        -0x7edf2f90 -> :sswitch_a
-        -0x49f8f44f -> :sswitch_9
-        0x6e4af19 -> :sswitch_8
-        0x6e4af1a -> :sswitch_7
-        0x2dc1f359 -> :sswitch_6
+        -0x7edf2f90 -> :sswitch_e
+        -0x49f8f44f -> :sswitch_d
+        -0x1512b90e -> :sswitch_c
+        0x6e4af19 -> :sswitch_b
+        0x6e4af1a -> :sswitch_a
+        0x6e4af1b -> :sswitch_9
+        0x2dc1f359 -> :sswitch_8
     .end sparse-switch
 
     :pswitch_data_1
     .packed-switch 0x0
+        :pswitch_a
+        :pswitch_9
+        :pswitch_8
         :pswitch_7
         :pswitch_6
         :pswitch_5
         :pswitch_4
-        :pswitch_3
     .end packed-switch
 
     :sswitch_data_2
     .sparse-switch
-        -0x7edf2f90 -> :sswitch_e
-        -0x49f8f44f -> :sswitch_d
-        0x6e4af19 -> :sswitch_c
-        0x6e4af1a -> :sswitch_b
+        -0x7edf2f90 -> :sswitch_14
+        -0x49f8f44f -> :sswitch_13
+        -0x1512b90e -> :sswitch_12
+        0x6e4af19 -> :sswitch_11
+        0x6e4af1a -> :sswitch_10
+        0x6e4af1b -> :sswitch_f
     .end sparse-switch
 
     :pswitch_data_2
     .packed-switch 0x0
-        :pswitch_9
-        :pswitch_8
-        :pswitch_9
-        :pswitch_8
+        :pswitch_d
+        :pswitch_c
+        :pswitch_b
+        :pswitch_d
+        :pswitch_c
+        :pswitch_b
     .end packed-switch
 .end method
 
@@ -490,9 +622,9 @@
 
     move-result p0
 
-    const v0, 0x7f130136
+    const v0, 0x7f130165
 
-    const v1, 0x7f130138
+    const v1, 0x7f130167
 
     if-eqz p0, :cond_0
 
@@ -504,32 +636,32 @@
     move p0, v1
 
     :goto_0
-    const v2, 0x7f13013d
+    const v2, 0x7f13016c
 
     if-ne p1, v2, :cond_1
 
-    const v0, 0x7f13013f
+    const v0, 0x7f13016e
 
     goto :goto_1
 
     :cond_1
-    const v2, 0x7f130141
+    const v2, 0x7f130170
 
     if-ne p1, v2, :cond_2
 
-    const v0, 0x7f130143
+    const v0, 0x7f130172
 
     goto :goto_1
 
     :cond_2
-    const v2, 0x7f130135
+    const v2, 0x7f130164
 
     if-ne p1, v2, :cond_3
 
     goto :goto_1
 
     :cond_3
-    const v0, 0x7f130137
+    const v0, 0x7f130166
 
     if-ne p1, v0, :cond_4
 
@@ -538,47 +670,47 @@
     goto :goto_1
 
     :cond_4
-    const v0, 0x7f130132
+    const v0, 0x7f130161
 
     if-ne p1, v0, :cond_5
 
-    const v0, 0x7f1301cd
+    const v0, 0x7f13020f
 
     goto :goto_1
 
     :cond_5
-    const v0, 0x7f130133
+    const v0, 0x7f130162
 
     if-ne p1, v0, :cond_6
 
-    const v0, 0x7f1301ce
+    const v0, 0x7f130210
 
     goto :goto_1
 
     :cond_6
-    const v0, 0x7f13013c
+    const v0, 0x7f13016b
 
     if-ne p1, v0, :cond_7
 
-    const v0, 0x7f130145
+    const v0, 0x7f130174
 
     goto :goto_1
 
     :cond_7
-    const v0, 0x7f130134
+    const v0, 0x7f130163
 
     if-ne p1, v0, :cond_8
 
-    const v0, 0x7f130139
+    const v0, 0x7f130168
 
     goto :goto_1
 
     :cond_8
-    const v0, 0x7f130131
+    const v0, 0x7f130160
 
     if-ne p1, v0, :cond_9
 
-    const v0, 0x7f1301cf
+    const v0, 0x7f130211
 
     goto :goto_1
 

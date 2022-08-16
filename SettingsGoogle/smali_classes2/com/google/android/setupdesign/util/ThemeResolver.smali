@@ -43,7 +43,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(ILjava/lang/String;Lcom/google/android/setupdesign/util/ThemeResolver$ThemeSupplier;ZLcom/google/android/setupdesign/util/ThemeResolver$1;)V
+.method synthetic constructor <init>(ILjava/lang/String;Lcom/google/android/setupdesign/util/ThemeResolver$ThemeSupplier;ZLcom/google/android/setupdesign/util/ThemeResolver-IA;)V
     .locals 0
 
     invoke-direct {p0, p1, p2, p3, p4}, Lcom/google/android/setupdesign/util/ThemeResolver;-><init>(ILjava/lang/String;Lcom/google/android/setupdesign/util/ThemeResolver$ThemeSupplier;Z)V
@@ -82,7 +82,7 @@
 
     const/4 v0, 0x0
 
-    if-eqz p0, :cond_8
+    if-eqz p0, :cond_a
 
     const/4 v1, -0x1
 
@@ -103,12 +103,12 @@
 
     if-nez p0, :cond_0
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :cond_0
-    const/4 v1, 0x7
+    const/16 v1, 0x9
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :sswitch_1
     const-string v2, "material"
@@ -119,15 +119,15 @@
 
     if-nez p0, :cond_1
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :cond_1
-    const/4 v1, 0x6
+    const/16 v1, 0x8
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :sswitch_2
-    const-string v2, "glif_v3"
+    const-string v2, "glif_v4"
 
     invoke-virtual {p0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -138,12 +138,12 @@
     goto :goto_0
 
     :cond_2
-    const/4 v1, 0x5
+    const/4 v1, 0x7
 
     goto :goto_0
 
     :sswitch_3
-    const-string v2, "glif_v2"
+    const-string v2, "glif_v3"
 
     invoke-virtual {p0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -154,12 +154,12 @@
     goto :goto_0
 
     :cond_3
-    const/4 v1, 0x4
+    const/4 v1, 0x6
 
     goto :goto_0
 
     :sswitch_4
-    const-string v2, "glif"
+    const-string v2, "glif_v2"
 
     invoke-virtual {p0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -170,12 +170,12 @@
     goto :goto_0
 
     :cond_4
-    const/4 v1, 0x3
+    const/4 v1, 0x5
 
     goto :goto_0
 
     :sswitch_5
-    const-string v2, "glif_v3_light"
+    const-string v2, "glif"
 
     invoke-virtual {p0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -186,12 +186,12 @@
     goto :goto_0
 
     :cond_5
-    const/4 v1, 0x2
+    const/4 v1, 0x4
 
     goto :goto_0
 
     :sswitch_6
-    const-string v2, "material_light"
+    const-string v2, "glif_v4_light"
 
     invoke-virtual {p0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -202,12 +202,12 @@
     goto :goto_0
 
     :cond_6
-    const/4 v1, 0x1
+    const/4 v1, 0x3
 
     goto :goto_0
 
     :sswitch_7
-    const-string v2, "glif_v2_light"
+    const-string v2, "glif_v3_light"
 
     invoke-virtual {p0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -218,6 +218,38 @@
     goto :goto_0
 
     :cond_7
+    const/4 v1, 0x2
+
+    goto :goto_0
+
+    :sswitch_8
+    const-string v2, "material_light"
+
+    invoke-virtual {p0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_8
+
+    goto :goto_0
+
+    :cond_8
+    const/4 v1, 0x1
+
+    goto :goto_0
+
+    :sswitch_9
+    const-string v2, "glif_v2_light"
+
+    invoke-virtual {p0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_9
+
+    goto :goto_0
+
+    :cond_9
     move v1, v0
 
     :goto_0
@@ -231,47 +263,54 @@
     return p0
 
     :pswitch_1
-    sget p0, Lcom/google/android/setupdesign/R$style;->SudThemeGlifV3_DayNight:I
+    sget p0, Lcom/google/android/setupdesign/R$style;->SudThemeGlifV4_DayNight:I
 
     return p0
 
     :pswitch_2
-    sget p0, Lcom/google/android/setupdesign/R$style;->SudThemeMaterial_DayNight:I
+    sget p0, Lcom/google/android/setupdesign/R$style;->SudThemeGlifV3_DayNight:I
 
     return p0
 
     :pswitch_3
+    sget p0, Lcom/google/android/setupdesign/R$style;->SudThemeMaterial_DayNight:I
+
+    return p0
+
+    :pswitch_4
     sget p0, Lcom/google/android/setupdesign/R$style;->SudThemeGlifV2_DayNight:I
 
     return p0
 
-    :cond_8
+    :cond_a
     :goto_1
     return v0
 
-    nop
-
     :sswitch_data_0
     .sparse-switch
-        -0x7edf2f90 -> :sswitch_7
-        -0x4bb9bc02 -> :sswitch_6
-        -0x49f8f44f -> :sswitch_5
-        0x3074c2 -> :sswitch_4
-        0x6e4af19 -> :sswitch_3
-        0x6e4af1a -> :sswitch_2
+        -0x7edf2f90 -> :sswitch_9
+        -0x4bb9bc02 -> :sswitch_8
+        -0x49f8f44f -> :sswitch_7
+        -0x1512b90e -> :sswitch_6
+        0x3074c2 -> :sswitch_5
+        0x6e4af19 -> :sswitch_4
+        0x6e4af1a -> :sswitch_3
+        0x6e4af1b -> :sswitch_2
         0x11d36527 -> :sswitch_1
         0x2dc1f359 -> :sswitch_0
     .end sparse-switch
 
     :pswitch_data_0
     .packed-switch 0x0
+        :pswitch_4
         :pswitch_3
         :pswitch_2
         :pswitch_1
         :pswitch_0
-        :pswitch_3
-        :pswitch_1
+        :pswitch_4
         :pswitch_2
+        :pswitch_1
+        :pswitch_3
         :pswitch_0
     .end packed-switch
 .end method
@@ -316,7 +355,7 @@
 
     const/4 v0, 0x0
 
-    if-eqz p0, :cond_8
+    if-eqz p0, :cond_a
 
     const/4 v1, -0x1
 
@@ -337,12 +376,12 @@
 
     if-nez p0, :cond_0
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :cond_0
-    const/4 v1, 0x7
+    const/16 v1, 0x9
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :sswitch_1
     const-string v2, "material"
@@ -353,15 +392,15 @@
 
     if-nez p0, :cond_1
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :cond_1
-    const/4 v1, 0x6
+    const/16 v1, 0x8
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :sswitch_2
-    const-string v2, "glif_v3"
+    const-string v2, "glif_v4"
 
     invoke-virtual {p0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -372,12 +411,12 @@
     goto :goto_0
 
     :cond_2
-    const/4 v1, 0x5
+    const/4 v1, 0x7
 
     goto :goto_0
 
     :sswitch_3
-    const-string v2, "glif_v2"
+    const-string v2, "glif_v3"
 
     invoke-virtual {p0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -388,12 +427,12 @@
     goto :goto_0
 
     :cond_3
-    const/4 v1, 0x4
+    const/4 v1, 0x6
 
     goto :goto_0
 
     :sswitch_4
-    const-string v2, "glif"
+    const-string v2, "glif_v2"
 
     invoke-virtual {p0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -404,12 +443,12 @@
     goto :goto_0
 
     :cond_4
-    const/4 v1, 0x3
+    const/4 v1, 0x5
 
     goto :goto_0
 
     :sswitch_5
-    const-string v2, "glif_v3_light"
+    const-string v2, "glif"
 
     invoke-virtual {p0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -420,12 +459,12 @@
     goto :goto_0
 
     :cond_5
-    const/4 v1, 0x2
+    const/4 v1, 0x4
 
     goto :goto_0
 
     :sswitch_6
-    const-string v2, "material_light"
+    const-string v2, "glif_v4_light"
 
     invoke-virtual {p0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -436,12 +475,12 @@
     goto :goto_0
 
     :cond_6
-    const/4 v1, 0x1
+    const/4 v1, 0x3
 
     goto :goto_0
 
     :sswitch_7
-    const-string v2, "glif_v2_light"
+    const-string v2, "glif_v3_light"
 
     invoke-virtual {p0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -452,6 +491,38 @@
     goto :goto_0
 
     :cond_7
+    const/4 v1, 0x2
+
+    goto :goto_0
+
+    :sswitch_8
+    const-string v2, "material_light"
+
+    invoke-virtual {p0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_8
+
+    goto :goto_0
+
+    :cond_8
+    const/4 v1, 0x1
+
+    goto :goto_0
+
+    :sswitch_9
+    const-string v2, "glif_v2_light"
+
+    invoke-virtual {p0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_9
+
+    goto :goto_0
+
+    :cond_9
     move v1, v0
 
     :goto_0
@@ -470,36 +541,46 @@
     return p0
 
     :pswitch_2
-    sget p0, Lcom/google/android/setupdesign/R$style;->SudThemeGlifV3:I
+    sget p0, Lcom/google/android/setupdesign/R$style;->SudThemeGlifV4:I
 
     return p0
 
     :pswitch_3
-    sget p0, Lcom/google/android/setupdesign/R$style;->SudThemeGlifV2:I
+    sget p0, Lcom/google/android/setupdesign/R$style;->SudThemeGlifV3:I
 
     return p0
 
     :pswitch_4
-    sget p0, Lcom/google/android/setupdesign/R$style;->SudThemeGlif:I
+    sget p0, Lcom/google/android/setupdesign/R$style;->SudThemeGlifV2:I
 
     return p0
 
     :pswitch_5
-    sget p0, Lcom/google/android/setupdesign/R$style;->SudThemeGlifV3_Light:I
+    sget p0, Lcom/google/android/setupdesign/R$style;->SudThemeGlif:I
 
     return p0
 
     :pswitch_6
-    sget p0, Lcom/google/android/setupdesign/R$style;->SudThemeMaterial_Light:I
+    sget p0, Lcom/google/android/setupdesign/R$style;->SudThemeGlifV4_Light:I
 
     return p0
 
     :pswitch_7
+    sget p0, Lcom/google/android/setupdesign/R$style;->SudThemeGlifV3_Light:I
+
+    return p0
+
+    :pswitch_8
+    sget p0, Lcom/google/android/setupdesign/R$style;->SudThemeMaterial_Light:I
+
+    return p0
+
+    :pswitch_9
     sget p0, Lcom/google/android/setupdesign/R$style;->SudThemeGlifV2_Light:I
 
     return p0
 
-    :cond_8
+    :cond_a
     :goto_1
     return v0
 
@@ -507,18 +588,22 @@
 
     :sswitch_data_0
     .sparse-switch
-        -0x7edf2f90 -> :sswitch_7
-        -0x4bb9bc02 -> :sswitch_6
-        -0x49f8f44f -> :sswitch_5
-        0x3074c2 -> :sswitch_4
-        0x6e4af19 -> :sswitch_3
-        0x6e4af1a -> :sswitch_2
+        -0x7edf2f90 -> :sswitch_9
+        -0x4bb9bc02 -> :sswitch_8
+        -0x49f8f44f -> :sswitch_7
+        -0x1512b90e -> :sswitch_6
+        0x3074c2 -> :sswitch_5
+        0x6e4af19 -> :sswitch_4
+        0x6e4af1a -> :sswitch_3
+        0x6e4af1b -> :sswitch_2
         0x11d36527 -> :sswitch_1
         0x2dc1f359 -> :sswitch_0
     .end sparse-switch
 
     :pswitch_data_0
     .packed-switch 0x0
+        :pswitch_9
+        :pswitch_8
         :pswitch_7
         :pswitch_6
         :pswitch_5
@@ -531,23 +616,25 @@
 .end method
 
 .method private static getThemeVersion(Ljava/lang/String;)I
-    .locals 6
+    .locals 7
 
     const/4 v0, -0x1
 
-    if-eqz p0, :cond_8
+    if-eqz p0, :cond_a
 
     invoke-virtual {p0}, Ljava/lang/String;->hashCode()I
 
     move-result v1
 
-    const/4 v2, 0x4
+    const/4 v2, 0x5
 
-    const/4 v3, 0x3
+    const/4 v3, 0x4
 
-    const/4 v4, 0x2
+    const/4 v4, 0x3
 
-    const/4 v5, 0x1
+    const/4 v5, 0x2
+
+    const/4 v6, 0x1
 
     sparse-switch v1, :sswitch_data_0
 
@@ -568,9 +655,9 @@
     goto :goto_0
 
     :cond_0
-    const/4 p0, 0x7
+    const/16 p0, 0x9
 
-    goto :goto_1
+    goto/16 :goto_1
 
     :sswitch_1
     const-string v1, "material"
@@ -584,12 +671,12 @@
     goto :goto_0
 
     :cond_1
-    const/4 p0, 0x6
+    const/16 p0, 0x8
 
-    goto :goto_1
+    goto/16 :goto_1
 
     :sswitch_2
-    const-string v1, "glif_v3"
+    const-string v1, "glif_v4"
 
     invoke-virtual {p0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -600,12 +687,12 @@
     goto :goto_0
 
     :cond_2
-    const/4 p0, 0x5
+    const/4 p0, 0x7
 
     goto :goto_1
 
     :sswitch_3
-    const-string v1, "glif_v2"
+    const-string v1, "glif_v3"
 
     invoke-virtual {p0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -616,12 +703,12 @@
     goto :goto_0
 
     :cond_3
-    move p0, v2
+    const/4 p0, 0x6
 
     goto :goto_1
 
     :sswitch_4
-    const-string v1, "glif"
+    const-string v1, "glif_v2"
 
     invoke-virtual {p0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -632,12 +719,12 @@
     goto :goto_0
 
     :cond_4
-    move p0, v3
+    move p0, v2
 
     goto :goto_1
 
     :sswitch_5
-    const-string v1, "glif_v3_light"
+    const-string v1, "glif"
 
     invoke-virtual {p0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -648,12 +735,12 @@
     goto :goto_0
 
     :cond_5
-    move p0, v4
+    move p0, v3
 
     goto :goto_1
 
     :sswitch_6
-    const-string v1, "material_light"
+    const-string v1, "glif_v4_light"
 
     invoke-virtual {p0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -664,12 +751,12 @@
     goto :goto_0
 
     :cond_6
-    move p0, v5
+    move p0, v4
 
     goto :goto_1
 
     :sswitch_7
-    const-string v1, "glif_v2_light"
+    const-string v1, "glif_v3_light"
 
     invoke-virtual {p0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -680,6 +767,38 @@
     goto :goto_0
 
     :cond_7
+    move p0, v5
+
+    goto :goto_1
+
+    :sswitch_8
+    const-string v1, "material_light"
+
+    invoke-virtual {p0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_8
+
+    goto :goto_0
+
+    :cond_8
+    move p0, v6
+
+    goto :goto_1
+
+    :sswitch_9
+    const-string v1, "glif_v2_light"
+
+    invoke-virtual {p0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_9
+
+    goto :goto_0
+
+    :cond_9
     const/4 p0, 0x0
 
     :goto_1
@@ -688,18 +807,21 @@
     goto :goto_2
 
     :pswitch_0
-    return v4
+    return v5
 
     :pswitch_1
     return v2
 
     :pswitch_2
-    return v5
-
-    :pswitch_3
     return v3
 
-    :cond_8
+    :pswitch_3
+    return v6
+
+    :pswitch_4
+    return v4
+
+    :cond_a
     :goto_2
     return v0
 
@@ -707,25 +829,29 @@
 
     :sswitch_data_0
     .sparse-switch
-        -0x7edf2f90 -> :sswitch_7
-        -0x4bb9bc02 -> :sswitch_6
-        -0x49f8f44f -> :sswitch_5
-        0x3074c2 -> :sswitch_4
-        0x6e4af19 -> :sswitch_3
-        0x6e4af1a -> :sswitch_2
+        -0x7edf2f90 -> :sswitch_9
+        -0x4bb9bc02 -> :sswitch_8
+        -0x49f8f44f -> :sswitch_7
+        -0x1512b90e -> :sswitch_6
+        0x3074c2 -> :sswitch_5
+        0x6e4af19 -> :sswitch_4
+        0x6e4af1a -> :sswitch_3
+        0x6e4af1b -> :sswitch_2
         0x11d36527 -> :sswitch_1
         0x2dc1f359 -> :sswitch_0
     .end sparse-switch
 
     :pswitch_data_0
     .packed-switch 0x0
+        :pswitch_4
         :pswitch_3
         :pswitch_2
         :pswitch_1
         :pswitch_0
-        :pswitch_3
-        :pswitch_1
+        :pswitch_4
         :pswitch_2
+        :pswitch_1
+        :pswitch_3
         :pswitch_0
     .end packed-switch
 .end method
@@ -770,6 +896,26 @@
     invoke-virtual {p1, p0}, Landroid/app/Activity;->setTheme(I)V
 
     return-void
+.end method
+
+.method public resolve(Landroid/content/Intent;)I
+    .locals 1
+
+    const-string v0, "theme"
+
+    invoke-virtual {p1, v0}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {p1}, Lcom/google/android/setupcompat/util/WizardManagerHelper;->isAnySetupWizard(Landroid/content/Intent;)Z
+
+    move-result p1
+
+    invoke-virtual {p0, v0, p1}, Lcom/google/android/setupdesign/util/ThemeResolver;->resolve(Ljava/lang/String;Z)I
+
+    move-result p0
+
+    return p0
 .end method
 
 .method public resolve(Landroid/content/Intent;Z)I

@@ -2,9 +2,6 @@
 .super Landroid/graphics/drawable/Drawable;
 .source "VectorDrawableCommon.java"
 
-# interfaces
-.implements Landroidx/core/graphics/drawable/TintAwareDrawable;
-
 
 # instance fields
 .field mDelegateDrawable:Landroid/graphics/drawable/Drawable;

@@ -252,11 +252,11 @@
     return-void
 
     :cond_2
-    const p1, 0x7f060088
+    const p1, 0x7f060093
 
     invoke-virtual {p0, p1}, Landroidx/activity/ComponentActivity;->setContentView(I)V
 
-    const p1, 0x7f0d0324
+    const p1, 0x7f0d034e
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -264,7 +264,7 @@
 
     check-cast p1, Lcom/google/android/setupdesign/GlifLayout;
 
-    const v0, 0x7f040603
+    const v0, 0x7f04065f
 
     invoke-virtual {p1, v0}, Lcom/google/android/setupdesign/GlifLayout;->setDescriptionText(I)V
 
@@ -280,15 +280,15 @@
 
     invoke-direct {v0, p0}, Lcom/google/android/setupcompat/template/FooterButton$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0405f4
+    const v1, 0x7f040650
 
     invoke-virtual {v0, v1}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setText(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
     move-result-object v0
 
-    new-instance v1, Lcom/google/android/settings/gestures/columbus/ColumbusGestureTrainingIntroActivity$$ExternalSyntheticLambda1;
+    new-instance v1, Lcom/google/android/settings/gestures/columbus/ColumbusGestureTrainingIntroActivity$$ExternalSyntheticLambda0;
 
-    invoke-direct {v1, p0}, Lcom/google/android/settings/gestures/columbus/ColumbusGestureTrainingIntroActivity$$ExternalSyntheticLambda1;-><init>(Lcom/google/android/settings/gestures/columbus/ColumbusGestureTrainingIntroActivity;)V
+    invoke-direct {v1, p0}, Lcom/google/android/settings/gestures/columbus/ColumbusGestureTrainingIntroActivity$$ExternalSyntheticLambda0;-><init>(Lcom/google/android/settings/gestures/columbus/ColumbusGestureTrainingIntroActivity;)V
 
     invoke-virtual {v0, v1}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setListener(Landroid/view/View$OnClickListener;)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -300,7 +300,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f13021c
+    const v1, 0x7f130283
 
     invoke-virtual {v0, v1}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setTheme(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -316,15 +316,15 @@
 
     invoke-direct {v0, p0}, Lcom/google/android/setupcompat/template/FooterButton$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0405f2
+    const v1, 0x7f04064e
 
     invoke-virtual {v0, v1}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setText(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
     move-result-object v0
 
-    new-instance v1, Lcom/google/android/settings/gestures/columbus/ColumbusGestureTrainingIntroActivity$$ExternalSyntheticLambda0;
+    new-instance v1, Lcom/google/android/settings/gestures/columbus/ColumbusGestureTrainingIntroActivity$$ExternalSyntheticLambda1;
 
-    invoke-direct {v1, p0}, Lcom/google/android/settings/gestures/columbus/ColumbusGestureTrainingIntroActivity$$ExternalSyntheticLambda0;-><init>(Lcom/google/android/settings/gestures/columbus/ColumbusGestureTrainingIntroActivity;)V
+    invoke-direct {v1, p0}, Lcom/google/android/settings/gestures/columbus/ColumbusGestureTrainingIntroActivity$$ExternalSyntheticLambda1;-><init>(Lcom/google/android/settings/gestures/columbus/ColumbusGestureTrainingIntroActivity;)V
 
     invoke-virtual {v0, v1}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setListener(Landroid/view/View$OnClickListener;)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -336,7 +336,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f13021d
+    const v0, 0x7f130284
 
     invoke-virtual {p0, v0}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setTheme(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 

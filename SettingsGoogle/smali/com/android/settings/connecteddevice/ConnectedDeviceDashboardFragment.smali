@@ -29,7 +29,7 @@
 
     new-instance v0, Lcom/android/settings/search/BaseSearchIndexProvider;
 
-    const v1, 0x7f15004b
+    const v1, 0x7f15004e
 
     invoke-direct {v0, v1}, Lcom/android/settings/search/BaseSearchIndexProvider;-><init>(I)V
 
@@ -51,7 +51,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a28
+    const p0, 0x7f040a81
 
     return p0
 .end method
@@ -75,9 +75,49 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f15004b
+    const p0, 0x7f15004e
 
     return p0
+.end method
+
+.method isAlwaysDiscoverable(Ljava/lang/String;Ljava/lang/String;)Z
+    .locals 0
+
+    const-string p0, "com.android.settings.SEARCH_RESULT_TRAMPOLINE"
+
+    invoke-static {p0, p2}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+
+    move-result p0
+
+    const/4 p2, 0x0
+
+    if-eqz p0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    const-string p0, "com.android.settings"
+
+    invoke-static {p0, p1}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_1
+
+    const-string p0, "com.android.systemui"
+
+    invoke-static {p0, p1}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+
+    move-result p0
+
+    if-eqz p0, :cond_2
+
+    :cond_1
+    const/4 p2, 0x1
+
+    :cond_2
+    :goto_0
+    return p2
 .end method
 
 .method public onAttach(Landroid/content/Context;)V
@@ -107,9 +147,29 @@
 
     move-result-object v0
 
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getIntent()Landroid/content/Intent;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getIntent()Landroid/content/Intent;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+
+    move-result-object v1
+
+    goto :goto_0
+
+    :cond_0
+    const-string v1, ""
+
+    :goto_0
     sget-boolean v2, Lcom/android/settings/connecteddevice/ConnectedDeviceDashboardFragment;->DEBUG:Z
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1
 
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -121,6 +181,12 @@
 
     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    const-string v3, ", action : "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v2
@@ -129,7 +195,7 @@
 
     invoke-static {v3, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_0
+    :cond_1
     const-class v2, Lcom/android/settings/connecteddevice/AvailableMediaDeviceGroupController;
 
     invoke-virtual {p0, v2}, Lcom/android/settings/dashboard/DashboardFragment;->use(Ljava/lang/Class;)Lcom/android/settingslib/core/AbstractPreferenceController;
@@ -168,9 +234,9 @@
 
     check-cast v2, Lcom/android/settings/slices/SlicePreferenceController;
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_2
 
-    const p1, 0x7f040654
+    const p1, 0x7f0406b3
 
     invoke-virtual {p0, p1}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -180,46 +246,27 @@
 
     move-result-object p1
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_1
+    :cond_2
     const/4 p1, 0x0
 
-    :goto_0
+    :goto_1
     invoke-virtual {v2, p1}, Lcom/android/settings/slices/SlicePreferenceController;->setSliceUri(Landroid/net/Uri;)V
 
     const-class p1, Lcom/android/settings/connecteddevice/DiscoverableFooterPreferenceController;
 
     invoke-virtual {p0, p1}, Lcom/android/settings/dashboard/DashboardFragment;->use(Ljava/lang/Class;)Lcom/android/settingslib/core/AbstractPreferenceController;
 
-    move-result-object p0
+    move-result-object p1
 
-    check-cast p0, Lcom/android/settings/connecteddevice/DiscoverableFooterPreferenceController;
+    check-cast p1, Lcom/android/settings/connecteddevice/DiscoverableFooterPreferenceController;
 
-    const-string p1, "com.android.settings"
+    invoke-virtual {p0, v0, v1}, Lcom/android/settings/connecteddevice/ConnectedDeviceDashboardFragment;->isAlwaysDiscoverable(Ljava/lang/String;Ljava/lang/String;)Z
 
-    invoke-static {p1, v0}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+    move-result p0
 
-    move-result p1
-
-    if-nez p1, :cond_3
-
-    const-string p1, "com.android.systemui"
-
-    invoke-static {p1, v0}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
-
-    move-result p1
-
-    if-eqz p1, :cond_2
-
-    goto :goto_1
-
-    :cond_2
-    const/4 v1, 0x0
-
-    :cond_3
-    :goto_1
-    invoke-virtual {p0, v1}, Lcom/android/settings/connecteddevice/DiscoverableFooterPreferenceController;->setAlwaysDiscoverable(Z)V
+    invoke-virtual {p1, p0}, Lcom/android/settings/connecteddevice/DiscoverableFooterPreferenceController;->setAlwaysDiscoverable(Z)V
 
     return-void
 .end method

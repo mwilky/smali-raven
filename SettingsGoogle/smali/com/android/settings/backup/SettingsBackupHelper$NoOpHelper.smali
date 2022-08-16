@@ -34,7 +34,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settings/backup/SettingsBackupHelper$1;)V
+.method synthetic constructor <init>(Lcom/android/settings/backup/SettingsBackupHelper$NoOpHelper-IA;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/settings/backup/SettingsBackupHelper$NoOpHelper;-><init>()V

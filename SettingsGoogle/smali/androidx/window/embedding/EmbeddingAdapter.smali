@@ -8,113 +8,34 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nEmbeddingAdapter.kt\nKotlin\n*S Kotlin\n*F\n+ 1 EmbeddingAdapter.kt\nandroidx/window/embedding/EmbeddingAdapter\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n*L\n1#1,190:1\n1547#2:191\n1618#2,3:192\n1547#2:195\n1618#2,3:196\n1741#2,3:199\n1741#2,3:202\n1741#2,3:205\n1741#2,3:208\n*S KotlinDebug\n*F\n+ 1 EmbeddingAdapter.kt\nandroidx/window/embedding/EmbeddingAdapter\n*L\n39#1:191\n39#1:192,3\n164#1:195\n164#1:196,3\n73#1:199,3\n83#1:202,3\n103#1:205,3\n113#1:208,3\n*E\n"
+    value = "SMAP\nEmbeddingAdapter.kt\nKotlin\n*S Kotlin\n*F\n+ 1 EmbeddingAdapter.kt\nandroidx/window/embedding/EmbeddingAdapter\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n*L\n1#1,185:1\n1547#2:186\n1618#2,3:187\n1547#2:190\n1618#2,3:191\n*S KotlinDebug\n*F\n+ 1 EmbeddingAdapter.kt\nandroidx/window/embedding/EmbeddingAdapter\n*L\n43#1:186\n43#1:187,3\n175#1:190\n175#1:191,3\n*E\n"
 .end annotation
 
 
+# instance fields
+.field private final predicateAdapter:Landroidx/window/core/PredicateAdapter;
+    .annotation build Lorg/jetbrains/annotations/NotNull;
+    .end annotation
+.end field
+
+
 # direct methods
-.method public static synthetic $r8$lambda$-QlFe7fckaSVTLCegr9_8uxVaa4(Ljava/util/Set;Landroid/app/Activity;)Z
-    .locals 0
+.method public constructor <init>(Landroidx/window/core/PredicateAdapter;)V
+    .locals 1
+    .param p1    # Landroidx/window/core/PredicateAdapter;
+        .annotation build Lorg/jetbrains/annotations/NotNull;
+        .end annotation
+    .end param
 
-    invoke-static {p0, p1}, Landroidx/window/embedding/EmbeddingAdapter;->translateActivityPredicates$lambda-6(Ljava/util/Set;Landroid/app/Activity;)Z
+    const-string v0, "predicateAdapter"
 
-    move-result p0
-
-    return p0
-.end method
-
-.method public static synthetic $r8$lambda$nSea4sfI4EFFkXqov0va87aZ_68(Landroidx/window/embedding/SplitRule;Landroid/view/WindowMetrics;)Z
-    .locals 0
-
-    invoke-static {p0, p1}, Landroidx/window/embedding/EmbeddingAdapter;->translateParentMetricsPredicate$lambda-4(Landroidx/window/embedding/SplitRule;Landroid/view/WindowMetrics;)Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public static synthetic $r8$lambda$x8eGFLpnqP7STokqkg3obw9dl5Q(Landroidx/window/embedding/EmbeddingAdapter;Ljava/util/Set;Landroid/util/Pair;)Z
-    .locals 0
-
-    invoke-static {p0, p1, p2}, Landroidx/window/embedding/EmbeddingAdapter;->translateActivityIntentPredicates$lambda-3(Landroidx/window/embedding/EmbeddingAdapter;Ljava/util/Set;Landroid/util/Pair;)Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public static synthetic $r8$lambda$xf-Lop7h3ngH6EmzyuDyOYtb8Lk(Landroidx/window/embedding/EmbeddingAdapter;Ljava/util/Set;Landroid/util/Pair;)Z
-    .locals 0
-
-    invoke-static {p0, p1, p2}, Landroidx/window/embedding/EmbeddingAdapter;->translateActivityPairPredicates$lambda-1(Landroidx/window/embedding/EmbeddingAdapter;Ljava/util/Set;Landroid/util/Pair;)Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public static synthetic $r8$lambda$yScxR8XDNmwEhhX_T4Oe1hesc-c(Ljava/util/Set;Landroid/content/Intent;)Z
-    .locals 0
-
-    invoke-static {p0, p1}, Landroidx/window/embedding/EmbeddingAdapter;->translateIntentPredicates$lambda-8(Ljava/util/Set;Landroid/content/Intent;)Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public constructor <init>()V
-    .locals 0
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    iput-object p1, p0, Landroidx/window/embedding/EmbeddingAdapter;->predicateAdapter:Landroidx/window/core/PredicateAdapter;
+
     return-void
-.end method
-
-.method private final component1(Landroid/util/Pair;)Ljava/lang/Object;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<F:",
-            "Ljava/lang/Object;",
-            "S:",
-            "Ljava/lang/Object;",
-            ">(",
-            "Landroid/util/Pair<",
-            "TF;TS;>;)TF;"
-        }
-    .end annotation
-
-    const-string p0, "<this>"
-
-    invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    iget-object p0, p1, Landroid/util/Pair;->first:Ljava/lang/Object;
-
-    return-object p0
-.end method
-
-.method private final component2(Landroid/util/Pair;)Ljava/lang/Object;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<F:",
-            "Ljava/lang/Object;",
-            "S:",
-            "Ljava/lang/Object;",
-            ">(",
-            "Landroid/util/Pair<",
-            "TF;TS;>;)TS;"
-        }
-    .end annotation
-
-    const-string p0, "<this>"
-
-    invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    iget-object p0, p1, Landroid/util/Pair;->second:Ljava/lang/Object;
-
-    return-object p0
 .end method
 
 .method private final translate(Landroidx/window/extensions/embedding/SplitInfo;)Landroidx/window/embedding/SplitInfo;
@@ -177,7 +98,7 @@
 
     move-result-object p0
 
-    const-string v3, "secondaryActivityStack.activities"
+    const-string/jumbo v3, "secondaryActivityStack.activities"
 
     invoke-static {p0, v3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -194,356 +115,391 @@
     return-object p0
 .end method
 
-.method private static final translateActivityIntentPredicates$lambda-3(Landroidx/window/embedding/EmbeddingAdapter;Ljava/util/Set;Landroid/util/Pair;)Z
-    .locals 2
+.method private final translateActivityIntentPredicates(Ljava/util/Set;)Ljava/lang/Object;
+    .locals 3
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "ClassVerificationFailure",
+            "NewApi"
+        }
+    .end annotation
 
-    const-string/jumbo v0, "this$0"
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Set<",
+            "Landroidx/window/embedding/SplitPairFilter;",
+            ">;)",
+            "Ljava/lang/Object;"
+        }
+    .end annotation
 
-    invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    iget-object p0, p0, Landroidx/window/embedding/EmbeddingAdapter;->predicateAdapter:Landroidx/window/core/PredicateAdapter;
 
-    const-string v0, "$splitPairFilters"
+    const-class v0, Landroid/app/Activity;
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "(first, second)"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    invoke-direct {p0, p2}, Landroidx/window/embedding/EmbeddingAdapter;->component1(Landroid/util/Pair;)Ljava/lang/Object;
+    invoke-static {v0}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
 
     move-result-object v0
 
-    check-cast v0, Landroid/app/Activity;
+    const-class v1, Landroid/content/Intent;
 
-    invoke-direct {p0, p2}, Landroidx/window/embedding/EmbeddingAdapter;->component2(Landroid/util/Pair;)Ljava/lang/Object;
+    invoke-static {v1}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
+
+    move-result-object v1
+
+    new-instance v2, Landroidx/window/embedding/EmbeddingAdapter$translateActivityIntentPredicates$1;
+
+    invoke-direct {v2, p1}, Landroidx/window/embedding/EmbeddingAdapter$translateActivityIntentPredicates$1;-><init>(Ljava/util/Set;)V
+
+    invoke-virtual {p0, v0, v1, v2}, Landroidx/window/core/PredicateAdapter;->buildPairPredicate(Lkotlin/reflect/KClass;Lkotlin/reflect/KClass;Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
 
     move-result-object p0
 
-    check-cast p0, Landroid/content/Intent;
+    return-object p0
+.end method
 
-    instance-of p2, p1, Ljava/util/Collection;
+.method private final translateActivityPairPredicates(Ljava/util/Set;)Ljava/lang/Object;
+    .locals 3
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "ClassVerificationFailure",
+            "NewApi"
+        }
+    .end annotation
 
-    const/4 v1, 0x0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Set<",
+            "Landroidx/window/embedding/SplitPairFilter;",
+            ">;)",
+            "Ljava/lang/Object;"
+        }
+    .end annotation
 
-    if-eqz p2, :cond_0
+    const-class v0, Landroid/app/Activity;
 
-    invoke-interface {p1}, Ljava/util/Collection;->isEmpty()Z
+    iget-object p0, p0, Landroidx/window/embedding/EmbeddingAdapter;->predicateAdapter:Landroidx/window/core/PredicateAdapter;
 
-    move-result p2
+    invoke-static {v0}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
 
-    if-eqz p2, :cond_0
+    move-result-object v1
 
-    goto :goto_0
+    invoke-static {v0}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
 
-    :cond_0
-    invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    move-result-object v0
 
-    move-result-object p1
+    new-instance v2, Landroidx/window/embedding/EmbeddingAdapter$translateActivityPairPredicates$1;
 
-    :cond_1
-    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-direct {v2, p1}, Landroidx/window/embedding/EmbeddingAdapter$translateActivityPairPredicates$1;-><init>(Ljava/util/Set;)V
 
-    move-result p2
+    invoke-virtual {p0, v1, v0, v2}, Landroidx/window/core/PredicateAdapter;->buildPairPredicate(Lkotlin/reflect/KClass;Lkotlin/reflect/KClass;Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
 
-    if-eqz p2, :cond_2
+    move-result-object p0
 
-    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    return-object p0
+.end method
+
+.method private final translateActivityPredicates(Ljava/util/Set;)Ljava/lang/Object;
+    .locals 2
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "ClassVerificationFailure",
+            "NewApi"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Set<",
+            "Landroidx/window/embedding/ActivityFilter;",
+            ">;)",
+            "Ljava/lang/Object;"
+        }
+    .end annotation
+
+    iget-object p0, p0, Landroidx/window/embedding/EmbeddingAdapter;->predicateAdapter:Landroidx/window/core/PredicateAdapter;
+
+    const-class v0, Landroid/app/Activity;
+
+    invoke-static {v0}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
+
+    move-result-object v0
+
+    new-instance v1, Landroidx/window/embedding/EmbeddingAdapter$translateActivityPredicates$1;
+
+    invoke-direct {v1, p1}, Landroidx/window/embedding/EmbeddingAdapter$translateActivityPredicates$1;-><init>(Ljava/util/Set;)V
+
+    invoke-virtual {p0, v0, v1}, Landroidx/window/core/PredicateAdapter;->buildPredicate(Lkotlin/reflect/KClass;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private final translateActivityRule(Landroidx/window/embedding/ActivityRule;Ljava/lang/Class;)Landroidx/window/extensions/embedding/ActivityRule;
+    .locals 5
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroidx/window/embedding/ActivityRule;",
+            "Ljava/lang/Class<",
+            "*>;)",
+            "Landroidx/window/extensions/embedding/ActivityRule;"
+        }
+    .end annotation
+
+    const-class v0, Landroidx/window/extensions/embedding/ActivityRule$Builder;
+
+    const/4 v1, 0x2
+
+    new-array v2, v1, [Ljava/lang/Class;
+
+    const/4 v3, 0x0
+
+    aput-object p2, v2, v3
+
+    const/4 v4, 0x1
+
+    aput-object p2, v2, v4
+
+    invoke-virtual {v0, v2}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
 
     move-result-object p2
 
-    check-cast p2, Landroidx/window/embedding/SplitPairFilter;
+    new-array v0, v1, [Ljava/lang/Object;
 
-    invoke-virtual {p2, v0, p0}, Landroidx/window/embedding/SplitPairFilter;->matchesActivityIntentPair(Landroid/app/Activity;Landroid/content/Intent;)Z
+    invoke-virtual {p1}, Landroidx/window/embedding/ActivityRule;->getFilters()Ljava/util/Set;
 
-    move-result p2
+    move-result-object v1
 
-    if-eqz p2, :cond_1
+    invoke-direct {p0, v1}, Landroidx/window/embedding/EmbeddingAdapter;->translateActivityPredicates(Ljava/util/Set;)Ljava/lang/Object;
 
-    const/4 v1, 0x1
+    move-result-object v1
 
-    :cond_2
-    :goto_0
-    return v1
+    aput-object v1, v0, v3
+
+    invoke-virtual {p1}, Landroidx/window/embedding/ActivityRule;->getFilters()Ljava/util/Set;
+
+    move-result-object v1
+
+    invoke-direct {p0, v1}, Landroidx/window/embedding/EmbeddingAdapter;->translateIntentPredicates(Ljava/util/Set;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    aput-object p0, v0, v4
+
+    invoke-virtual {p2, v0}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Landroidx/window/extensions/embedding/ActivityRule$Builder;
+
+    invoke-virtual {p1}, Landroidx/window/embedding/ActivityRule;->getAlwaysExpand()Z
+
+    move-result p1
+
+    invoke-virtual {p0, p1}, Landroidx/window/extensions/embedding/ActivityRule$Builder;->setShouldAlwaysExpand(Z)Landroidx/window/extensions/embedding/ActivityRule$Builder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroidx/window/extensions/embedding/ActivityRule$Builder;->build()Landroidx/window/extensions/embedding/ActivityRule;
+
+    move-result-object p0
+
+    const-string p1, "ActivityRuleBuilder::cla\u2026and)\n            .build()"
+
+    invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+
+    return-object p0
 .end method
 
-.method private static final translateActivityPairPredicates$lambda-1(Landroidx/window/embedding/EmbeddingAdapter;Ljava/util/Set;Landroid/util/Pair;)Z
+.method private final translateIntentPredicates(Ljava/util/Set;)Ljava/lang/Object;
     .locals 2
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "ClassVerificationFailure",
+            "NewApi"
+        }
+    .end annotation
 
-    const-string/jumbo v0, "this$0"
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Set<",
+            "Landroidx/window/embedding/ActivityFilter;",
+            ">;)",
+            "Ljava/lang/Object;"
+        }
+    .end annotation
 
-    invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    iget-object p0, p0, Landroidx/window/embedding/EmbeddingAdapter;->predicateAdapter:Landroidx/window/core/PredicateAdapter;
 
-    const-string v0, "$splitPairFilters"
+    const-class v0, Landroid/content/Intent;
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "(first, second)"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    invoke-direct {p0, p2}, Landroidx/window/embedding/EmbeddingAdapter;->component1(Landroid/util/Pair;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/app/Activity;
-
-    invoke-direct {p0, p2}, Landroidx/window/embedding/EmbeddingAdapter;->component2(Landroid/util/Pair;)Ljava/lang/Object;
-
-    move-result-object p0
-
-    check-cast p0, Landroid/app/Activity;
-
-    instance-of p2, p1, Ljava/util/Collection;
-
-    const/4 v1, 0x0
-
-    if-eqz p2, :cond_0
-
-    invoke-interface {p1}, Ljava/util/Collection;->isEmpty()Z
-
-    move-result p2
-
-    if-eqz p2, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object p1
-
-    :cond_1
-    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result p2
-
-    if-eqz p2, :cond_2
-
-    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object p2
-
-    check-cast p2, Landroidx/window/embedding/SplitPairFilter;
-
-    invoke-virtual {p2, v0, p0}, Landroidx/window/embedding/SplitPairFilter;->matchesActivityPair(Landroid/app/Activity;Landroid/app/Activity;)Z
-
-    move-result p2
-
-    if-eqz p2, :cond_1
-
-    const/4 v1, 0x1
-
-    :cond_2
-    :goto_0
-    return v1
-.end method
-
-.method private static final translateActivityPredicates$lambda-6(Ljava/util/Set;Landroid/app/Activity;)Z
-    .locals 3
-
-    const-string v0, "$activityFilters"
-
-    invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    instance-of v0, p0, Ljava/util/Collection;
-
-    const/4 v1, 0x0
-
-    if-eqz v0, :cond_0
-
-    invoke-interface {p0}, Ljava/util/Collection;->isEmpty()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object p0
-
-    :cond_1
-    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-static {v0}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
 
     move-result-object v0
 
-    check-cast v0, Landroidx/window/embedding/ActivityFilter;
+    new-instance v1, Landroidx/window/embedding/EmbeddingAdapter$translateIntentPredicates$1;
 
-    const-string v2, "activity"
+    invoke-direct {v1, p1}, Landroidx/window/embedding/EmbeddingAdapter$translateIntentPredicates$1;-><init>(Ljava/util/Set;)V
 
-    invoke-static {p1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    invoke-virtual {v0, p1}, Landroidx/window/embedding/ActivityFilter;->matchesActivity(Landroid/app/Activity;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    const/4 v1, 0x1
-
-    :cond_2
-    :goto_0
-    return v1
-.end method
-
-.method private static final translateIntentPredicates$lambda-8(Ljava/util/Set;Landroid/content/Intent;)Z
-    .locals 3
-
-    const-string v0, "$activityFilters"
-
-    invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    instance-of v0, p0, Ljava/util/Collection;
-
-    const/4 v1, 0x0
-
-    if-eqz v0, :cond_0
-
-    invoke-interface {p0}, Ljava/util/Collection;->isEmpty()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-virtual {p0, v0, v1}, Landroidx/window/core/PredicateAdapter;->buildPredicate(Lkotlin/reflect/KClass;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
 
     move-result-object p0
 
-    :cond_1
-    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+    return-object p0
+.end method
 
-    move-result v0
+.method private final translateParentMetricsPredicate(Landroidx/window/embedding/SplitRule;)Ljava/lang/Object;
+    .locals 2
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "ClassVerificationFailure",
+            "NewApi"
+        }
+    .end annotation
 
-    if-eqz v0, :cond_2
+    iget-object p0, p0, Landroidx/window/embedding/EmbeddingAdapter;->predicateAdapter:Landroidx/window/core/PredicateAdapter;
 
-    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    const-class v0, Landroid/view/WindowMetrics;
+
+    invoke-static {v0}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
 
     move-result-object v0
 
-    check-cast v0, Landroidx/window/embedding/ActivityFilter;
+    new-instance v1, Landroidx/window/embedding/EmbeddingAdapter$translateParentMetricsPredicate$1;
 
-    const-string v2, "intent"
+    invoke-direct {v1, p1}, Landroidx/window/embedding/EmbeddingAdapter$translateParentMetricsPredicate$1;-><init>(Landroidx/window/embedding/SplitRule;)V
 
-    invoke-static {p1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-virtual {p0, v0, v1}, Landroidx/window/core/PredicateAdapter;->buildPredicate(Lkotlin/reflect/KClass;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
 
-    invoke-virtual {v0, p1}, Landroidx/window/embedding/ActivityFilter;->matchesIntent(Landroid/content/Intent;)Z
+    move-result-object p0
 
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    const/4 v1, 0x1
-
-    :cond_2
-    :goto_0
-    return v1
+    return-object p0
 .end method
 
-.method private static final translateParentMetricsPredicate$lambda-4(Landroidx/window/embedding/SplitRule;Landroid/view/WindowMetrics;)Z
-    .locals 1
-
-    const-string v0, "$splitRule"
-
-    invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string/jumbo v0, "windowMetrics"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    invoke-virtual {p0, p1}, Landroidx/window/embedding/SplitRule;->checkParentMetrics(Landroid/view/WindowMetrics;)Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method private final translateSplitPairRule(Landroidx/window/embedding/SplitPairRule;)Landroidx/window/extensions/embedding/SplitPairRule;
-    .locals 3
+.method private final translateSplitPairRule(Landroidx/window/embedding/SplitPairRule;Ljava/lang/Class;)Landroidx/window/extensions/embedding/SplitPairRule;
+    .locals 6
     .annotation build Landroid/annotation/SuppressLint;
         value = {
             "WrongConstant"
         }
     .end annotation
 
-    new-instance v0, Landroidx/window/extensions/embedding/SplitPairRule$Builder;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroidx/window/embedding/SplitPairRule;",
+            "Ljava/lang/Class<",
+            "*>;)",
+            "Landroidx/window/extensions/embedding/SplitPairRule;"
+        }
+    .end annotation
+
+    const-class v0, Landroidx/window/extensions/embedding/SplitPairRule$Builder;
+
+    const/4 v1, 0x3
+
+    new-array v2, v1, [Ljava/lang/Class;
+
+    const/4 v3, 0x0
+
+    aput-object p2, v2, v3
+
+    const/4 v4, 0x1
+
+    aput-object p2, v2, v4
+
+    const/4 v5, 0x2
+
+    aput-object p2, v2, v5
+
+    invoke-virtual {v0, v2}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
+
+    move-result-object p2
+
+    new-array v0, v1, [Ljava/lang/Object;
 
     invoke-virtual {p1}, Landroidx/window/embedding/SplitPairRule;->getFilters()Ljava/util/Set;
 
     move-result-object v1
 
-    invoke-virtual {p0, v1}, Landroidx/window/embedding/EmbeddingAdapter;->translateActivityPairPredicates(Ljava/util/Set;)Ljava/util/function/Predicate;
+    invoke-direct {p0, v1}, Landroidx/window/embedding/EmbeddingAdapter;->translateActivityPairPredicates(Ljava/util/Set;)Ljava/lang/Object;
 
     move-result-object v1
 
+    aput-object v1, v0, v3
+
     invoke-virtual {p1}, Landroidx/window/embedding/SplitPairRule;->getFilters()Ljava/util/Set;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {p0, v2}, Landroidx/window/embedding/EmbeddingAdapter;->translateActivityIntentPredicates(Ljava/util/Set;)Ljava/util/function/Predicate;
+    invoke-direct {p0, v1}, Landroidx/window/embedding/EmbeddingAdapter;->translateActivityIntentPredicates(Ljava/util/Set;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {p0, p1}, Landroidx/window/embedding/EmbeddingAdapter;->translateParentMetricsPredicate(Landroidx/window/embedding/SplitRule;)Ljava/util/function/Predicate;
+    aput-object v1, v0, v4
+
+    invoke-direct {p0, p1}, Landroidx/window/embedding/EmbeddingAdapter;->translateParentMetricsPredicate(Landroidx/window/embedding/SplitRule;)Ljava/lang/Object;
 
     move-result-object p0
 
-    invoke-direct {v0, v1, v2, p0}, Landroidx/window/extensions/embedding/SplitPairRule$Builder;-><init>(Ljava/util/function/Predicate;Ljava/util/function/Predicate;Ljava/util/function/Predicate;)V
+    aput-object p0, v0, v5
+
+    invoke-virtual {p2, v0}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Landroidx/window/extensions/embedding/SplitPairRule$Builder;
 
     invoke-virtual {p1}, Landroidx/window/embedding/SplitRule;->getSplitRatio()F
 
-    move-result p0
+    move-result p2
 
-    invoke-virtual {v0, p0}, Landroidx/window/extensions/embedding/SplitPairRule$Builder;->setSplitRatio(F)Landroidx/window/extensions/embedding/SplitPairRule$Builder;
+    invoke-virtual {p0, p2}, Landroidx/window/extensions/embedding/SplitPairRule$Builder;->setSplitRatio(F)Landroidx/window/extensions/embedding/SplitPairRule$Builder;
 
     move-result-object p0
 
     invoke-virtual {p1}, Landroidx/window/embedding/SplitRule;->getLayoutDirection()I
 
-    move-result v0
+    move-result p2
 
-    invoke-virtual {p0, v0}, Landroidx/window/extensions/embedding/SplitPairRule$Builder;->setLayoutDirection(I)Landroidx/window/extensions/embedding/SplitPairRule$Builder;
+    invoke-virtual {p0, p2}, Landroidx/window/extensions/embedding/SplitPairRule$Builder;->setLayoutDirection(I)Landroidx/window/extensions/embedding/SplitPairRule$Builder;
 
     move-result-object p0
 
     invoke-virtual {p1}, Landroidx/window/embedding/SplitPairRule;->getClearTop()Z
 
-    move-result v0
+    move-result p2
 
-    invoke-virtual {p0, v0}, Landroidx/window/extensions/embedding/SplitPairRule$Builder;->setShouldClearTop(Z)Landroidx/window/extensions/embedding/SplitPairRule$Builder;
+    invoke-virtual {p0, p2}, Landroidx/window/extensions/embedding/SplitPairRule$Builder;->setShouldClearTop(Z)Landroidx/window/extensions/embedding/SplitPairRule$Builder;
 
     move-result-object p0
 
-    const-string v0, "SplitPairRuleBuilder(\n  \u2026ldClearTop(rule.clearTop)"
-
-    invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    :try_start_0
     invoke-virtual {p1}, Landroidx/window/embedding/SplitPairRule;->getFinishPrimaryWithSecondary()I
 
-    move-result v0
+    move-result p2
 
-    invoke-virtual {p0, v0}, Landroidx/window/extensions/embedding/SplitPairRule$Builder;->setFinishPrimaryWithSecondary(I)Landroidx/window/extensions/embedding/SplitPairRule$Builder;
+    invoke-virtual {p0, p2}, Landroidx/window/extensions/embedding/SplitPairRule$Builder;->setFinishPrimaryWithSecondary(I)Landroidx/window/extensions/embedding/SplitPairRule$Builder;
+
+    move-result-object p0
 
     invoke-virtual {p1}, Landroidx/window/embedding/SplitPairRule;->getFinishSecondaryWithPrimary()I
 
     move-result p1
 
     invoke-virtual {p0, p1}, Landroidx/window/extensions/embedding/SplitPairRule$Builder;->setFinishSecondaryWithPrimary(I)Landroidx/window/extensions/embedding/SplitPairRule$Builder;
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodError; {:try_start_0 .. :try_end_0} :catch_0
 
-    :catch_0
+    move-result-object p0
+
+    const-string p1, "SplitPairRuleBuilder::cl\u2026nishSecondaryWithPrimary)"
+
+    invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+
     invoke-virtual {p0}, Landroidx/window/extensions/embedding/SplitPairRule$Builder;->build()Landroidx/window/extensions/embedding/SplitPairRule;
 
     move-result-object p0
@@ -555,78 +511,128 @@
     return-object p0
 .end method
 
-.method private final translateSplitPlaceholderRule(Landroidx/window/embedding/SplitPlaceholderRule;)Landroidx/window/extensions/embedding/SplitPlaceholderRule;
-    .locals 4
+.method private final translateSplitPlaceholderRule(Landroidx/window/embedding/SplitPlaceholderRule;Ljava/lang/Class;)Landroidx/window/extensions/embedding/SplitPlaceholderRule;
+    .locals 7
     .annotation build Landroid/annotation/SuppressLint;
         value = {
             "WrongConstant"
         }
     .end annotation
 
-    new-instance v0, Landroidx/window/extensions/embedding/SplitPlaceholderRule$Builder;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroidx/window/embedding/SplitPlaceholderRule;",
+            "Ljava/lang/Class<",
+            "*>;)",
+            "Landroidx/window/extensions/embedding/SplitPlaceholderRule;"
+        }
+    .end annotation
+
+    const-class v0, Landroidx/window/extensions/embedding/SplitPlaceholderRule$Builder;
+
+    const/4 v1, 0x4
+
+    new-array v2, v1, [Ljava/lang/Class;
+
+    const-class v3, Landroid/content/Intent;
+
+    const/4 v4, 0x0
+
+    aput-object v3, v2, v4
+
+    const/4 v3, 0x1
+
+    aput-object p2, v2, v3
+
+    const/4 v5, 0x2
+
+    aput-object p2, v2, v5
+
+    const/4 v6, 0x3
+
+    aput-object p2, v2, v6
+
+    invoke-virtual {v0, v2}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
+
+    move-result-object p2
+
+    new-array v0, v1, [Ljava/lang/Object;
 
     invoke-virtual {p1}, Landroidx/window/embedding/SplitPlaceholderRule;->getPlaceholderIntent()Landroid/content/Intent;
 
     move-result-object v1
 
-    invoke-virtual {p1}, Landroidx/window/embedding/SplitPlaceholderRule;->getFilters()Ljava/util/Set;
-
-    move-result-object v2
-
-    invoke-virtual {p0, v2}, Landroidx/window/embedding/EmbeddingAdapter;->translateActivityPredicates(Ljava/util/Set;)Ljava/util/function/Predicate;
-
-    move-result-object v2
+    aput-object v1, v0, v4
 
     invoke-virtual {p1}, Landroidx/window/embedding/SplitPlaceholderRule;->getFilters()Ljava/util/Set;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-virtual {p0, v3}, Landroidx/window/embedding/EmbeddingAdapter;->translateIntentPredicates(Ljava/util/Set;)Ljava/util/function/Predicate;
+    invoke-direct {p0, v1}, Landroidx/window/embedding/EmbeddingAdapter;->translateActivityPredicates(Ljava/util/Set;)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-virtual {p0, p1}, Landroidx/window/embedding/EmbeddingAdapter;->translateParentMetricsPredicate(Landroidx/window/embedding/SplitRule;)Ljava/util/function/Predicate;
+    aput-object v1, v0, v3
+
+    invoke-virtual {p1}, Landroidx/window/embedding/SplitPlaceholderRule;->getFilters()Ljava/util/Set;
+
+    move-result-object v1
+
+    invoke-direct {p0, v1}, Landroidx/window/embedding/EmbeddingAdapter;->translateIntentPredicates(Ljava/util/Set;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    aput-object v1, v0, v5
+
+    invoke-direct {p0, p1}, Landroidx/window/embedding/EmbeddingAdapter;->translateParentMetricsPredicate(Landroidx/window/embedding/SplitRule;)Ljava/lang/Object;
 
     move-result-object p0
 
-    invoke-direct {v0, v1, v2, v3, p0}, Landroidx/window/extensions/embedding/SplitPlaceholderRule$Builder;-><init>(Landroid/content/Intent;Ljava/util/function/Predicate;Ljava/util/function/Predicate;Ljava/util/function/Predicate;)V
+    aput-object p0, v0, v6
+
+    invoke-virtual {p2, v0}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Landroidx/window/extensions/embedding/SplitPlaceholderRule$Builder;
 
     invoke-virtual {p1}, Landroidx/window/embedding/SplitRule;->getSplitRatio()F
 
-    move-result p0
+    move-result p2
 
-    invoke-virtual {v0, p0}, Landroidx/window/extensions/embedding/SplitPlaceholderRule$Builder;->setSplitRatio(F)Landroidx/window/extensions/embedding/SplitPlaceholderRule$Builder;
+    invoke-virtual {p0, p2}, Landroidx/window/extensions/embedding/SplitPlaceholderRule$Builder;->setSplitRatio(F)Landroidx/window/extensions/embedding/SplitPlaceholderRule$Builder;
 
     move-result-object p0
 
     invoke-virtual {p1}, Landroidx/window/embedding/SplitRule;->getLayoutDirection()I
 
-    move-result v0
+    move-result p2
 
-    invoke-virtual {p0, v0}, Landroidx/window/extensions/embedding/SplitPlaceholderRule$Builder;->setLayoutDirection(I)Landroidx/window/extensions/embedding/SplitPlaceholderRule$Builder;
+    invoke-virtual {p0, p2}, Landroidx/window/extensions/embedding/SplitPlaceholderRule$Builder;->setLayoutDirection(I)Landroidx/window/extensions/embedding/SplitPlaceholderRule$Builder;
 
     move-result-object p0
 
-    const-string v0, "SplitPlaceholderRuleBuil\u2026ion(rule.layoutDirection)"
-
-    invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    :try_start_0
     invoke-virtual {p1}, Landroidx/window/embedding/SplitPlaceholderRule;->isSticky()Z
 
-    move-result v0
+    move-result p2
 
-    invoke-virtual {p0, v0}, Landroidx/window/extensions/embedding/SplitPlaceholderRule$Builder;->setSticky(Z)Landroidx/window/extensions/embedding/SplitPlaceholderRule$Builder;
+    invoke-virtual {p0, p2}, Landroidx/window/extensions/embedding/SplitPlaceholderRule$Builder;->setSticky(Z)Landroidx/window/extensions/embedding/SplitPlaceholderRule$Builder;
+
+    move-result-object p0
 
     invoke-virtual {p1}, Landroidx/window/embedding/SplitPlaceholderRule;->getFinishPrimaryWithSecondary()I
 
     move-result p1
 
     invoke-virtual {p0, p1}, Landroidx/window/extensions/embedding/SplitPlaceholderRule$Builder;->setFinishPrimaryWithSecondary(I)Landroidx/window/extensions/embedding/SplitPlaceholderRule$Builder;
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodError; {:try_start_0 .. :try_end_0} :catch_0
 
-    :catch_0
+    move-result-object p0
+
+    const-string p1, "SplitPlaceholderRuleBuil\u2026nishPrimaryWithSecondary)"
+
+    invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+
     invoke-virtual {p0}, Landroidx/window/extensions/embedding/SplitPlaceholderRule$Builder;->build()Landroidx/window/extensions/embedding/SplitPlaceholderRule;
 
     move-result-object p0
@@ -665,6 +671,8 @@
     const-string/jumbo v0, "splitInfoList"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    check-cast p1, Ljava/lang/Iterable;
 
     new-instance v0, Ljava/util/ArrayList;
 
@@ -706,7 +714,7 @@
 .end method
 
 .method public final translate(Ljava/util/Set;)Ljava/util/Set;
-    .locals 5
+    .locals 4
     .param p1    # Ljava/util/Set;
         .annotation build Lorg/jetbrains/annotations/NotNull;
         .end annotation
@@ -727,19 +735,36 @@
     .annotation build Lorg/jetbrains/annotations/NotNull;
     .end annotation
 
-    const-string v0, "rules"
+    const-string/jumbo v0, "rules"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    new-instance v0, Ljava/util/ArrayList;
+    iget-object v0, p0, Landroidx/window/embedding/EmbeddingAdapter;->predicateAdapter:Landroidx/window/core/PredicateAdapter;
 
-    const/16 v1, 0xa
+    invoke-virtual {v0}, Landroidx/window/core/PredicateAdapter;->predicateClassOrNull$window_release()Ljava/lang/Class;
 
-    invoke-static {p1, v1}, Lkotlin/collections/CollectionsKt;->collectionSizeOrDefault(Ljava/lang/Iterable;I)I
+    move-result-object v0
 
-    move-result v1
+    if-nez v0, :cond_0
 
-    invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(I)V
+    invoke-static {}, Lkotlin/collections/SetsKt;->emptySet()Ljava/util/Set;
+
+    move-result-object p0
+
+    return-object p0
+
+    :cond_0
+    check-cast p1, Ljava/lang/Iterable;
+
+    new-instance v1, Ljava/util/ArrayList;
+
+    const/16 v2, 0xa
+
+    invoke-static {p1, v2}, Lkotlin/collections/CollectionsKt;->collectionSizeOrDefault(Ljava/lang/Iterable;I)I
+
+    move-result v2
+
+    invoke-direct {v1, v2}, Ljava/util/ArrayList;-><init>(I)V
 
     invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
@@ -748,96 +773,64 @@
     :goto_0
     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_3
+    if-eqz v2, :cond_4
 
     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v2
 
-    check-cast v1, Landroidx/window/embedding/EmbeddingRule;
+    check-cast v2, Landroidx/window/embedding/EmbeddingRule;
 
-    instance-of v2, v1, Landroidx/window/embedding/SplitPairRule;
+    instance-of v3, v2, Landroidx/window/embedding/SplitPairRule;
 
-    if-eqz v2, :cond_0
+    if-eqz v3, :cond_1
 
-    check-cast v1, Landroidx/window/embedding/SplitPairRule;
+    check-cast v2, Landroidx/window/embedding/SplitPairRule;
 
-    invoke-direct {p0, v1}, Landroidx/window/embedding/EmbeddingAdapter;->translateSplitPairRule(Landroidx/window/embedding/SplitPairRule;)Landroidx/window/extensions/embedding/SplitPairRule;
+    invoke-direct {p0, v2, v0}, Landroidx/window/embedding/EmbeddingAdapter;->translateSplitPairRule(Landroidx/window/embedding/SplitPairRule;Ljava/lang/Class;)Landroidx/window/extensions/embedding/SplitPairRule;
 
-    move-result-object v1
+    move-result-object v2
 
-    check-cast v1, Landroidx/window/extensions/embedding/EmbeddingRule;
-
-    goto :goto_1
-
-    :cond_0
-    instance-of v2, v1, Landroidx/window/embedding/SplitPlaceholderRule;
-
-    if-eqz v2, :cond_1
-
-    check-cast v1, Landroidx/window/embedding/SplitPlaceholderRule;
-
-    invoke-direct {p0, v1}, Landroidx/window/embedding/EmbeddingAdapter;->translateSplitPlaceholderRule(Landroidx/window/embedding/SplitPlaceholderRule;)Landroidx/window/extensions/embedding/SplitPlaceholderRule;
-
-    move-result-object v1
-
-    check-cast v1, Landroidx/window/extensions/embedding/EmbeddingRule;
+    check-cast v2, Landroidx/window/extensions/embedding/EmbeddingRule;
 
     goto :goto_1
 
     :cond_1
-    instance-of v2, v1, Landroidx/window/embedding/ActivityRule;
+    instance-of v3, v2, Landroidx/window/embedding/SplitPlaceholderRule;
 
-    if-eqz v2, :cond_2
+    if-eqz v3, :cond_2
 
-    new-instance v2, Landroidx/window/extensions/embedding/ActivityRule$Builder;
+    check-cast v2, Landroidx/window/embedding/SplitPlaceholderRule;
 
-    check-cast v1, Landroidx/window/embedding/ActivityRule;
+    invoke-direct {p0, v2, v0}, Landroidx/window/embedding/EmbeddingAdapter;->translateSplitPlaceholderRule(Landroidx/window/embedding/SplitPlaceholderRule;Ljava/lang/Class;)Landroidx/window/extensions/embedding/SplitPlaceholderRule;
 
-    invoke-virtual {v1}, Landroidx/window/embedding/ActivityRule;->getFilters()Ljava/util/Set;
+    move-result-object v2
 
-    move-result-object v3
+    check-cast v2, Landroidx/window/extensions/embedding/EmbeddingRule;
 
-    invoke-virtual {p0, v3}, Landroidx/window/embedding/EmbeddingAdapter;->translateActivityPredicates(Ljava/util/Set;)Ljava/util/function/Predicate;
+    goto :goto_1
 
-    move-result-object v3
+    :cond_2
+    instance-of v3, v2, Landroidx/window/embedding/ActivityRule;
 
-    invoke-virtual {v1}, Landroidx/window/embedding/ActivityRule;->getFilters()Ljava/util/Set;
+    if-eqz v3, :cond_3
 
-    move-result-object v4
+    check-cast v2, Landroidx/window/embedding/ActivityRule;
 
-    invoke-virtual {p0, v4}, Landroidx/window/embedding/EmbeddingAdapter;->translateIntentPredicates(Ljava/util/Set;)Ljava/util/function/Predicate;
+    invoke-direct {p0, v2, v0}, Landroidx/window/embedding/EmbeddingAdapter;->translateActivityRule(Landroidx/window/embedding/ActivityRule;Ljava/lang/Class;)Landroidx/window/extensions/embedding/ActivityRule;
 
-    move-result-object v4
+    move-result-object v2
 
-    invoke-direct {v2, v3, v4}, Landroidx/window/extensions/embedding/ActivityRule$Builder;-><init>(Ljava/util/function/Predicate;Ljava/util/function/Predicate;)V
-
-    invoke-virtual {v1}, Landroidx/window/embedding/ActivityRule;->getAlwaysExpand()Z
-
-    move-result v1
-
-    invoke-virtual {v2, v1}, Landroidx/window/extensions/embedding/ActivityRule$Builder;->setShouldAlwaysExpand(Z)Landroidx/window/extensions/embedding/ActivityRule$Builder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroidx/window/extensions/embedding/ActivityRule$Builder;->build()Landroidx/window/extensions/embedding/ActivityRule;
-
-    move-result-object v1
-
-    const-string v2, "ActivityRuleBuilder(\n   \u2026                 .build()"
-
-    invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    check-cast v1, Landroidx/window/extensions/embedding/EmbeddingRule;
+    check-cast v2, Landroidx/window/extensions/embedding/EmbeddingRule;
 
     :goto_1
-    invoke-interface {v0, v1}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, v2}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
-    :cond_2
+    :cond_3
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "Unsupported rule type"
@@ -846,208 +839,10 @@
 
     throw p0
 
-    :cond_3
-    invoke-static {v0}, Lkotlin/collections/CollectionsKt;->toSet(Ljava/lang/Iterable;)Ljava/util/Set;
+    :cond_4
+    invoke-static {v1}, Lkotlin/collections/CollectionsKt;->toSet(Ljava/lang/Iterable;)Ljava/util/Set;
 
     move-result-object p0
-
-    return-object p0
-.end method
-
-.method public final translateActivityIntentPredicates(Ljava/util/Set;)Ljava/util/function/Predicate;
-    .locals 1
-    .param p1    # Ljava/util/Set;
-        .annotation build Lorg/jetbrains/annotations/NotNull;
-        .end annotation
-    .end param
-    .annotation build Landroid/annotation/SuppressLint;
-        value = {
-            "ClassVerificationFailure",
-            "NewApi"
-        }
-    .end annotation
-
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/Set<",
-            "Landroidx/window/embedding/SplitPairFilter;",
-            ">;)",
-            "Ljava/util/function/Predicate<",
-            "Landroid/util/Pair<",
-            "Landroid/app/Activity;",
-            "Landroid/content/Intent;",
-            ">;>;"
-        }
-    .end annotation
-
-    .annotation build Lorg/jetbrains/annotations/NotNull;
-    .end annotation
-
-    const-string/jumbo v0, "splitPairFilters"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    new-instance v0, Landroidx/window/embedding/EmbeddingAdapter$$ExternalSyntheticLambda0;
-
-    invoke-direct {v0, p0, p1}, Landroidx/window/embedding/EmbeddingAdapter$$ExternalSyntheticLambda0;-><init>(Landroidx/window/embedding/EmbeddingAdapter;Ljava/util/Set;)V
-
-    return-object v0
-.end method
-
-.method public final translateActivityPairPredicates(Ljava/util/Set;)Ljava/util/function/Predicate;
-    .locals 1
-    .param p1    # Ljava/util/Set;
-        .annotation build Lorg/jetbrains/annotations/NotNull;
-        .end annotation
-    .end param
-    .annotation build Landroid/annotation/SuppressLint;
-        value = {
-            "ClassVerificationFailure",
-            "NewApi"
-        }
-    .end annotation
-
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/Set<",
-            "Landroidx/window/embedding/SplitPairFilter;",
-            ">;)",
-            "Ljava/util/function/Predicate<",
-            "Landroid/util/Pair<",
-            "Landroid/app/Activity;",
-            "Landroid/app/Activity;",
-            ">;>;"
-        }
-    .end annotation
-
-    .annotation build Lorg/jetbrains/annotations/NotNull;
-    .end annotation
-
-    const-string/jumbo v0, "splitPairFilters"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    new-instance v0, Landroidx/window/embedding/EmbeddingAdapter$$ExternalSyntheticLambda1;
-
-    invoke-direct {v0, p0, p1}, Landroidx/window/embedding/EmbeddingAdapter$$ExternalSyntheticLambda1;-><init>(Landroidx/window/embedding/EmbeddingAdapter;Ljava/util/Set;)V
-
-    return-object v0
-.end method
-
-.method public final translateActivityPredicates(Ljava/util/Set;)Ljava/util/function/Predicate;
-    .locals 0
-    .param p1    # Ljava/util/Set;
-        .annotation build Lorg/jetbrains/annotations/NotNull;
-        .end annotation
-    .end param
-    .annotation build Landroid/annotation/SuppressLint;
-        value = {
-            "ClassVerificationFailure",
-            "NewApi"
-        }
-    .end annotation
-
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/Set<",
-            "Landroidx/window/embedding/ActivityFilter;",
-            ">;)",
-            "Ljava/util/function/Predicate<",
-            "Landroid/app/Activity;",
-            ">;"
-        }
-    .end annotation
-
-    .annotation build Lorg/jetbrains/annotations/NotNull;
-    .end annotation
-
-    const-string p0, "activityFilters"
-
-    invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    new-instance p0, Landroidx/window/embedding/EmbeddingAdapter$$ExternalSyntheticLambda3;
-
-    invoke-direct {p0, p1}, Landroidx/window/embedding/EmbeddingAdapter$$ExternalSyntheticLambda3;-><init>(Ljava/util/Set;)V
-
-    return-object p0
-.end method
-
-.method public final translateIntentPredicates(Ljava/util/Set;)Ljava/util/function/Predicate;
-    .locals 0
-    .param p1    # Ljava/util/Set;
-        .annotation build Lorg/jetbrains/annotations/NotNull;
-        .end annotation
-    .end param
-    .annotation build Landroid/annotation/SuppressLint;
-        value = {
-            "ClassVerificationFailure",
-            "NewApi"
-        }
-    .end annotation
-
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/Set<",
-            "Landroidx/window/embedding/ActivityFilter;",
-            ">;)",
-            "Ljava/util/function/Predicate<",
-            "Landroid/content/Intent;",
-            ">;"
-        }
-    .end annotation
-
-    .annotation build Lorg/jetbrains/annotations/NotNull;
-    .end annotation
-
-    const-string p0, "activityFilters"
-
-    invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    new-instance p0, Landroidx/window/embedding/EmbeddingAdapter$$ExternalSyntheticLambda4;
-
-    invoke-direct {p0, p1}, Landroidx/window/embedding/EmbeddingAdapter$$ExternalSyntheticLambda4;-><init>(Ljava/util/Set;)V
-
-    return-object p0
-.end method
-
-.method public final translateParentMetricsPredicate(Landroidx/window/embedding/SplitRule;)Ljava/util/function/Predicate;
-    .locals 0
-    .param p1    # Landroidx/window/embedding/SplitRule;
-        .annotation build Lorg/jetbrains/annotations/NotNull;
-        .end annotation
-    .end param
-    .annotation build Landroid/annotation/SuppressLint;
-        value = {
-            "ClassVerificationFailure",
-            "NewApi"
-        }
-    .end annotation
-
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroidx/window/embedding/SplitRule;",
-            ")",
-            "Ljava/util/function/Predicate<",
-            "Landroid/view/WindowMetrics;",
-            ">;"
-        }
-    .end annotation
-
-    .annotation build Lorg/jetbrains/annotations/NotNull;
-    .end annotation
-
-    const-string/jumbo p0, "splitRule"
-
-    invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    new-instance p0, Landroidx/window/embedding/EmbeddingAdapter$$ExternalSyntheticLambda2;
-
-    invoke-direct {p0, p1}, Landroidx/window/embedding/EmbeddingAdapter$$ExternalSyntheticLambda2;-><init>(Landroidx/window/embedding/SplitRule;)V
 
     return-object p0
 .end method

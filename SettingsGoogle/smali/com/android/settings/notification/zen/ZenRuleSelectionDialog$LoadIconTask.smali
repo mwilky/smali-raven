@@ -64,7 +64,7 @@
 
     aget-object p0, p1, p0
 
-    invoke-static {}, Lcom/android/settings/notification/zen/ZenRuleSelectionDialog;->access$200()Landroid/content/pm/PackageManager;
+    invoke-static {}, Lcom/android/settings/notification/zen/ZenRuleSelectionDialog;->-$$Nest$sfgetmPm()Landroid/content/pm/PackageManager;
 
     move-result-object p1
 

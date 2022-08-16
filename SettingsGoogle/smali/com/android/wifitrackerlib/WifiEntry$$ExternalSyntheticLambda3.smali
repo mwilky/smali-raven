@@ -1,28 +1,13 @@
 .class public final synthetic Lcom/android/wifitrackerlib/WifiEntry$$ExternalSyntheticLambda3;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Consumer;
-
-
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/wifitrackerlib/WifiEntry$$ExternalSyntheticLambda3;
+.implements Ljava/util/function/Function;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/wifitrackerlib/WifiEntry$$ExternalSyntheticLambda3;
-
-    invoke-direct {v0}, Lcom/android/wifitrackerlib/WifiEntry$$ExternalSyntheticLambda3;-><init>()V
-
-    sput-object v0, Lcom/android/wifitrackerlib/WifiEntry$$ExternalSyntheticLambda3;->INSTANCE:Lcom/android/wifitrackerlib/WifiEntry$$ExternalSyntheticLambda3;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,12 +17,14 @@
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
+.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
 
-    check-cast p1, Lcom/android/wifitrackerlib/WifiEntry$ManageSubscriptionAction;
+    check-cast p1, Lcom/android/wifitrackerlib/WifiEntry;
 
-    invoke-interface {p1}, Lcom/android/wifitrackerlib/WifiEntry$ManageSubscriptionAction;->onExecute()V
+    invoke-static {p1}, Lcom/android/wifitrackerlib/WifiEntry;->$r8$lambda$NuxOg7rRMQLu_sJChsKxPlgb8vg(Lcom/android/wifitrackerlib/WifiEntry;)Ljava/lang/Boolean;
 
-    return-void
+    move-result-object p0
+
+    return-object p0
 .end method

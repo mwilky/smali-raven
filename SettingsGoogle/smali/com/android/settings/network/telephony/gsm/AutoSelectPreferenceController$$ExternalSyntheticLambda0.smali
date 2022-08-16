@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/settings/network/AllowedNetworkTypesListener$OnAllowedNetworkTypesListener;
+.implements Ljava/lang/Runnable;
 
 
 # instance fields
@@ -22,12 +23,12 @@
 
 
 # virtual methods
-.method public final onAllowedNetworkTypesChanged()V
+.method public final run()V
     .locals 0
 
     iget-object p0, p0, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController$$ExternalSyntheticLambda0;->f$0:Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;
 
-    invoke-static {p0}, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;->$r8$lambda$9-mMb8wYerllkkx6GDiwgoNKAtQ(Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;)V
+    invoke-static {p0}, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;->$r8$lambda$JK_RfKgpFQpm-DzI8yCS698m_7Q(Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;)V
 
     return-void
 .end method

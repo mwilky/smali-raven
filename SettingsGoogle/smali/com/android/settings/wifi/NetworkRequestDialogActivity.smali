@@ -15,13 +15,13 @@
 
 .field private final mHandler:Landroid/os/Handler;
 
-.field private mIsSpecifiedSsid:Z
+.field mIsSpecifiedSsid:Z
 
 .field private mMatchedConfig:Landroid/net/wifi/WifiConfiguration;
 
 .field mProgressDialog:Landroid/app/ProgressDialog;
 
-.field private mShowingErrorDialog:Z
+.field mShowingErrorDialog:Z
 
 .field private mUserSelectionCallback:Landroid/net/wifi/WifiManager$NetworkRequestUserSelectionCallback;
 
@@ -47,36 +47,10 @@
     return-void
 .end method
 
-.method private dismissDialogs()V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/settings/wifi/NetworkRequestDialogActivity;->mDialogFragment:Lcom/android/settings/wifi/NetworkRequestDialogBaseFragment;
-
-    const/4 v1, 0x0
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {v0}, Landroidx/fragment/app/DialogFragment;->dismiss()V
-
-    iput-object v1, p0, Lcom/android/settings/wifi/NetworkRequestDialogActivity;->mDialogFragment:Lcom/android/settings/wifi/NetworkRequestDialogBaseFragment;
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/settings/wifi/NetworkRequestDialogActivity;->mProgressDialog:Landroid/app/ProgressDialog;
-
-    if-eqz v0, :cond_1
-
-    invoke-virtual {v0}, Landroid/app/ProgressDialog;->dismiss()V
-
-    iput-object v1, p0, Lcom/android/settings/wifi/NetworkRequestDialogActivity;->mProgressDialog:Landroid/app/ProgressDialog;
-
-    :cond_1
-    return-void
-.end method
-
 .method private showProgressDialog(Ljava/lang/String;)V
     .locals 2
 
-    invoke-direct {p0}, Lcom/android/settings/wifi/NetworkRequestDialogActivity;->dismissDialogs()V
+    invoke-virtual {p0}, Lcom/android/settings/wifi/NetworkRequestDialogActivity;->dismissDialogs()V
 
     new-instance v0, Landroid/app/ProgressDialog;
 
@@ -108,7 +82,7 @@
 .method private showSingleSsidRequestDialog(Ljava/lang/String;Z)V
     .locals 2
 
-    invoke-direct {p0}, Lcom/android/settings/wifi/NetworkRequestDialogActivity;->dismissDialogs()V
+    invoke-virtual {p0}, Lcom/android/settings/wifi/NetworkRequestDialogActivity;->dismissDialogs()V
 
     new-instance v0, Lcom/android/settings/wifi/NetworkRequestSingleSsidDialogFragment;
 
@@ -147,6 +121,32 @@
 
 
 # virtual methods
+.method dismissDialogs()V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/settings/wifi/NetworkRequestDialogActivity;->mDialogFragment:Lcom/android/settings/wifi/NetworkRequestDialogBaseFragment;
+
+    const/4 v1, 0x0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Landroidx/fragment/app/DialogFragment;->dismiss()V
+
+    iput-object v1, p0, Lcom/android/settings/wifi/NetworkRequestDialogActivity;->mDialogFragment:Lcom/android/settings/wifi/NetworkRequestDialogBaseFragment;
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/settings/wifi/NetworkRequestDialogActivity;->mProgressDialog:Landroid/app/ProgressDialog;
+
+    if-eqz v0, :cond_1
+
+    invoke-virtual {v0}, Landroid/app/ProgressDialog;->dismiss()V
+
+    iput-object v1, p0, Lcom/android/settings/wifi/NetworkRequestDialogActivity;->mProgressDialog:Landroid/app/ProgressDialog;
+
+    :cond_1
+    return-void
+.end method
+
 .method public onAbort()V
     .locals 1
 
@@ -160,7 +160,7 @@
 .method public onCancel()V
     .locals 1
 
-    invoke-direct {p0}, Lcom/android/settings/wifi/NetworkRequestDialogActivity;->dismissDialogs()V
+    invoke-virtual {p0}, Lcom/android/settings/wifi/NetworkRequestDialogActivity;->dismissDialogs()V
 
     iget-object v0, p0, Lcom/android/settings/wifi/NetworkRequestDialogActivity;->mUserSelectionCallback:Landroid/net/wifi/WifiManager$NetworkRequestUserSelectionCallback;
 
@@ -185,7 +185,7 @@
 
     invoke-interface {v0, v1}, Landroid/net/wifi/WifiManager$NetworkRequestUserSelectionCallback;->select(Landroid/net/wifi/WifiConfiguration;)V
 
-    const v0, 0x7f040db4
+    const v0, 0x7f040e31
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -218,7 +218,7 @@
 
     iput-object v0, p0, Lcom/android/settings/wifi/NetworkRequestDialogActivity;->mMatchedConfig:Landroid/net/wifi/WifiConfiguration;
 
-    const v0, 0x7f040db9
+    const v0, 0x7f040e36
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -273,7 +273,7 @@
 
     if-eqz p1, :cond_1
 
-    const p1, 0x7f040db9
+    const p1, 0x7f040e36
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -362,8 +362,11 @@
     :cond_2
     iget-object p0, p0, Lcom/android/settings/wifi/NetworkRequestDialogActivity;->mDialogFragment:Lcom/android/settings/wifi/NetworkRequestDialogBaseFragment;
 
+    if-eqz p0, :cond_3
+
     invoke-virtual {p0, p1}, Lcom/android/settings/wifi/NetworkRequestDialogBaseFragment;->onMatch(Ljava/util/List;)V
 
+    :cond_3
     return-void
 .end method
 
@@ -443,8 +446,11 @@
     :cond_0
     iget-object p0, p0, Lcom/android/settings/wifi/NetworkRequestDialogActivity;->mDialogFragment:Lcom/android/settings/wifi/NetworkRequestDialogBaseFragment;
 
+    if-eqz p0, :cond_1
+
     invoke-virtual {p0, p1}, Lcom/android/settings/wifi/NetworkRequestDialogBaseFragment;->onUserSelectionCallbackRegistration(Landroid/net/wifi/WifiManager$NetworkRequestUserSelectionCallback;)V
 
+    :cond_1
     return-void
 .end method
 
@@ -457,7 +463,7 @@
 
     if-nez p1, :cond_0
 
-    const p1, 0x7f040db2
+    const p1, 0x7f040e2f
 
     const/4 v0, 0x0
 
@@ -486,7 +492,7 @@
 
     if-nez p1, :cond_0
 
-    const p1, 0x7f040db3
+    const p1, 0x7f040e30
 
     const/4 v0, 0x0
 
@@ -509,7 +515,7 @@
 .method protected stopScanningAndPopErrorDialog(Lcom/android/settings/wifi/NetworkRequestErrorDialogFragment$ERROR_DIALOG_TYPE;)V
     .locals 3
 
-    invoke-direct {p0}, Lcom/android/settings/wifi/NetworkRequestDialogActivity;->dismissDialogs()V
+    invoke-virtual {p0}, Lcom/android/settings/wifi/NetworkRequestDialogActivity;->dismissDialogs()V
 
     invoke-static {}, Lcom/android/settings/wifi/NetworkRequestErrorDialogFragment;->newInstance()Lcom/android/settings/wifi/NetworkRequestErrorDialogFragment;
 

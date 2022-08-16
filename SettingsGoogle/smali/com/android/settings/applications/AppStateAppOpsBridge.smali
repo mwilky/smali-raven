@@ -650,9 +650,9 @@
 
     iget-object v4, p0, Lcom/android/settings/applications/AppStateAppOpsBridge;->mPermissions:[Ljava/lang/String;
 
-    const/4 v5, 0x0
+    const-wide/16 v5, 0x0
 
-    invoke-interface {v3, v4, v5, v1}, Landroid/content/pm/IPackageManager;->getPackagesHoldingPermissions([Ljava/lang/String;II)Landroid/content/pm/ParceledListSlice;
+    invoke-interface {v3, v4, v5, v6, v1}, Landroid/content/pm/IPackageManager;->getPackagesHoldingPermissions([Ljava/lang/String;JI)Landroid/content/pm/ParceledListSlice;
 
     move-result-object v1
 
@@ -660,27 +660,29 @@
 
     move-result-object v1
 
+    const/4 v3, 0x0
+
     if-eqz v1, :cond_3
 
     invoke-interface {v1}, Ljava/util/List;->size()I
 
-    move-result v3
+    move-result v4
 
     goto :goto_1
 
     :cond_3
-    move v3, v5
+    move v4, v3
 
     :goto_1
-    if-ge v5, v3, :cond_1
+    if-ge v3, v4, :cond_1
 
-    invoke-interface {v1, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v1, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v5
 
-    check-cast v4, Landroid/content/pm/PackageInfo;
+    check-cast v5, Landroid/content/pm/PackageInfo;
 
-    iget-object v6, v4, Landroid/content/pm/PackageInfo;->packageName:Ljava/lang/String;
+    iget-object v6, v5, Landroid/content/pm/PackageInfo;->packageName:Ljava/lang/String;
 
     invoke-virtual {v2, v6}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -690,16 +692,16 @@
 
     if-eqz v6, :cond_4
 
-    iput-object v4, v6, Lcom/android/settings/applications/AppStateAppOpsBridge$PermissionState;->packageInfo:Landroid/content/pm/PackageInfo;
+    iput-object v5, v6, Lcom/android/settings/applications/AppStateAppOpsBridge$PermissionState;->packageInfo:Landroid/content/pm/PackageInfo;
 
-    const/4 v4, 0x1
+    const/4 v5, 0x1
 
-    iput-boolean v4, v6, Lcom/android/settings/applications/AppStateAppOpsBridge$PermissionState;->staticPermissionGranted:Z
+    iput-boolean v5, v6, Lcom/android/settings/applications/AppStateAppOpsBridge$PermissionState;->staticPermissionGranted:Z
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     :cond_4
-    add-int/lit8 v5, v5, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_1
 
@@ -790,15 +792,15 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/settings/applications/AppStateAppOpsBridge;->mIPackageManager:Landroid/content/pm/IPackageManager;
 
-    const v2, 0x401000
+    const-wide/32 v2, 0x401000
 
-    iget-object v3, v0, Lcom/android/settings/applications/AppStateAppOpsBridge$PermissionState;->userHandle:Landroid/os/UserHandle;
+    iget-object v4, v0, Lcom/android/settings/applications/AppStateAppOpsBridge$PermissionState;->userHandle:Landroid/os/UserHandle;
 
-    invoke-virtual {v3}, Landroid/os/UserHandle;->getIdentifier()I
+    invoke-virtual {v4}, Landroid/os/UserHandle;->getIdentifier()I
 
-    move-result v3
+    move-result v4
 
-    invoke-interface {v1, p1, v2, v3}, Landroid/content/pm/IPackageManager;->getPackageInfo(Ljava/lang/String;II)Landroid/content/pm/PackageInfo;
+    invoke-interface {v1, p1, v2, v3, v4}, Landroid/content/pm/IPackageManager;->getPackageInfo(Ljava/lang/String;JI)Landroid/content/pm/PackageInfo;
 
     move-result-object v1
 

@@ -12,6 +12,22 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmDisk(Lcom/android/settings/deviceinfo/PrivateVolumeFormat;)Landroid/os/storage/DiskInfo;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/deviceinfo/PrivateVolumeFormat;->mDisk:Landroid/os/storage/DiskInfo;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmVolume(Lcom/android/settings/deviceinfo/PrivateVolumeFormat;)Landroid/os/storage/VolumeInfo;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/deviceinfo/PrivateVolumeFormat;->mVolume:Landroid/os/storage/VolumeInfo;
+
+    return-object p0
+.end method
+
 .method public constructor <init>()V
     .locals 1
 
@@ -24,22 +40,6 @@
     iput-object v0, p0, Lcom/android/settings/deviceinfo/PrivateVolumeFormat;->mConfirmListener:Landroid/view/View$OnClickListener;
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/deviceinfo/PrivateVolumeFormat;)Landroid/os/storage/DiskInfo;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/deviceinfo/PrivateVolumeFormat;->mDisk:Landroid/os/storage/DiskInfo;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/deviceinfo/PrivateVolumeFormat;)Landroid/os/storage/VolumeInfo;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/deviceinfo/PrivateVolumeFormat;->mVolume:Landroid/os/storage/VolumeInfo;
-
-    return-object p0
 .end method
 
 
@@ -93,7 +93,7 @@
 
     iput-object p3, p0, Lcom/android/settings/deviceinfo/PrivateVolumeFormat;->mDisk:Landroid/os/storage/DiskInfo;
 
-    const p3, 0x7f060223
+    const p3, 0x7f060230
 
     const/4 v0, 0x0
 
@@ -101,7 +101,7 @@
 
     move-result-object p1
 
-    const p2, 0x7f0d0103
+    const p2, 0x7f0d0109
 
     invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -109,7 +109,7 @@
 
     check-cast p2, Landroid/widget/TextView;
 
-    const p3, 0x7f0d016f
+    const p3, 0x7f0d0184
 
     invoke-virtual {p1, p3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -117,7 +117,7 @@
 
     check-cast p3, Landroid/widget/Button;
 
-    const v1, 0x7f041301
+    const v1, 0x7f0413c5
 
     invoke-virtual {p0, v1}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 

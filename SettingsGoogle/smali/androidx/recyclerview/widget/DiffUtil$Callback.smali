@@ -26,43 +26,13 @@
 
 # virtual methods
 .method public abstract areContentsTheSame(II)Z
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "oldItemPosition",
-            "newItemPosition"
-        }
-    .end annotation
 .end method
 
 .method public abstract areItemsTheSame(II)Z
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "oldItemPosition",
-            "newItemPosition"
-        }
-    .end annotation
 .end method
 
 .method public getChangePayload(II)Ljava/lang/Object;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "oldItemPosition",
-            "newItemPosition"
-        }
-    .end annotation
 
     const/4 p0, 0x0
 

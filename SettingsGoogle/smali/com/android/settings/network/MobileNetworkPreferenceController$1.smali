@@ -36,7 +36,7 @@
 
     iget-object p0, p0, Lcom/android/settings/network/MobileNetworkPreferenceController$1;->this$0:Lcom/android/settings/network/MobileNetworkPreferenceController;
 
-    invoke-static {p0}, Lcom/android/settings/network/MobileNetworkPreferenceController;->access$000(Lcom/android/settings/network/MobileNetworkPreferenceController;)Landroidx/preference/Preference;
+    invoke-static {p0}, Lcom/android/settings/network/MobileNetworkPreferenceController;->-$$Nest$fgetmPreference(Lcom/android/settings/network/MobileNetworkPreferenceController;)Landroidx/preference/Preference;
 
     move-result-object p1
 

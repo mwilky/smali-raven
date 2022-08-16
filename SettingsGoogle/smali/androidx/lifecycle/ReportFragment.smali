@@ -66,21 +66,8 @@
 .end method
 
 .method private dispatch(Landroidx/lifecycle/Lifecycle$Event;)V
-    .locals 2
+    .locals 0
 
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x1d
-
-    if-ge v0, v1, :cond_0
-
-    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
-
-    move-result-object p0
-
-    invoke-static {p0, p1}, Landroidx/lifecycle/ReportFragment;->dispatch(Landroid/app/Activity;Landroidx/lifecycle/Lifecycle$Event;)V
-
-    :cond_0
     return-void
 .end method
 
@@ -117,36 +104,11 @@
     return-void
 .end method
 
-.method static get(Landroid/app/Activity;)Landroidx/lifecycle/ReportFragment;
-    .locals 1
-
-    invoke-virtual {p0}, Landroid/app/Activity;->getFragmentManager()Landroid/app/FragmentManager;
-
-    move-result-object p0
-
-    const-string v0, "androidx.lifecycle.LifecycleDispatcher.report_fragment_tag"
-
-    invoke-virtual {p0, v0}, Landroid/app/FragmentManager;->findFragmentByTag(Ljava/lang/String;)Landroid/app/Fragment;
-
-    move-result-object p0
-
-    check-cast p0, Landroidx/lifecycle/ReportFragment;
-
-    return-object p0
-.end method
-
 .method public static injectIfNeededIn(Landroid/app/Activity;)V
     .locals 3
 
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x1d
-
-    if-lt v0, v1, :cond_0
-
     invoke-static {p0}, Landroidx/lifecycle/ReportFragment$LifecycleCallbacks;->registerIn(Landroid/app/Activity;)V
 
-    :cond_0
     invoke-virtual {p0}, Landroid/app/Activity;->getFragmentManager()Landroid/app/FragmentManager;
 
     move-result-object p0
@@ -157,7 +119,7 @@
 
     move-result-object v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_0
 
     invoke-virtual {p0}, Landroid/app/FragmentManager;->beginTransaction()Landroid/app/FragmentTransaction;
 
@@ -175,7 +137,7 @@
 
     invoke-virtual {p0}, Landroid/app/FragmentManager;->executePendingTransactions()Z
 
-    :cond_1
+    :cond_0
     return-void
 .end method
 
@@ -265,14 +227,6 @@
     sget-object v0, Landroidx/lifecycle/Lifecycle$Event;->ON_STOP:Landroidx/lifecycle/Lifecycle$Event;
 
     invoke-direct {p0, v0}, Landroidx/lifecycle/ReportFragment;->dispatch(Landroidx/lifecycle/Lifecycle$Event;)V
-
-    return-void
-.end method
-
-.method setProcessListener(Landroidx/lifecycle/ReportFragment$ActivityInitializationListener;)V
-    .locals 0
-
-    iput-object p1, p0, Landroidx/lifecycle/ReportFragment;->mProcessListener:Landroidx/lifecycle/ReportFragment$ActivityInitializationListener;
 
     return-void
 .end method

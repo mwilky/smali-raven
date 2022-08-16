@@ -233,12 +233,12 @@
         <item quantity="one">Slökkt á %d flokki</item>
     </plurals>
     <plurals name="notifications_sent_daily">
-        <item quantity="other">~%d tilkynningar á dag</item>
-        <item quantity="one">~%d tilkynning á dag</item>
+        <item quantity="other">~%,d tilkynningar á dag</item>
+        <item quantity="one">~%,d tilkynning á dag</item>
     </plurals>
     <plurals name="notifications_sent_weekly">
-        <item quantity="other">~%d tilkynningar á viku</item>
-        <item quantity="one">~%d tilkynning á viku</item>
+        <item quantity="other">~%,d tilkynningar á viku</item>
+        <item quantity="one">~%,d tilkynning á viku</item>
     </plurals>
     <plurals name="number_of_device_admins">
         <item quantity="other">%d virk forrit</item>
@@ -328,22 +328,6 @@
         <item quantity="other">Treysta eða fjarlægja vottorð</item>
         <item quantity="one">Treysta eða fjarlægja vottorð</item>
     </plurals>
-    <plurals name="ssl_ca_cert_info_message">
-        <item quantity="other">"%s hefur sett upp CA-vottorð fyrir vinnusniðið þitt sem geta mögulega fylgst með netnotkuninni á vinnusniðinu, þar á meðal tölvupósti, forritum og öruggum vefsvæðum.
-
-Til að fá frekari upplýsingar um þessi vottorð skaltu hafa samband við kerfisstjórann."</item>
-        <item quantity="one">"%s hefur sett upp CA-vottorð fyrir vinnusniðið þitt sem getur mögulega fylgst með netnotkuninni á vinnusniðinu, þar á meðal tölvupósti, forritum og öruggum vefsvæðum.
-
-Til að fá frekari upplýsingar um þessi vottorð skaltu hafa samband við kerfisstjórann."</item>
-    </plurals>
-    <plurals name="ssl_ca_cert_info_message_device_owner">
-        <item quantity="other">"%s hefur sett upp CA-vottorð fyrir tækið þitt sem geta mögulega fylgst með netnotkuninni á tækinu, þar á meðal tölvupósti, forritum og öruggum vefsvæðum.
-
-Til að fá frekari upplýsingar um þessi vottorð skaltu hafa samband við kerfisstjórann."</item>
-        <item quantity="one">"%s hefur sett upp CA-vottorð fyrir tækið þitt sem geta mögulega fylgst með netnotkuninni á tækinu, þar á meðal tölvupósti, forritum og öruggum vefsvæðum.
-
-Til að fá frekari upplýsingar um þessi vottorð skaltu hafa samband við kerfisstjórann."</item>
-    </plurals>
     <plurals name="ssl_ca_cert_settings_button">
         <item quantity="other">Athuga vottorð</item>
         <item quantity="one">Athuga vottorð</item>
@@ -375,10 +359,6 @@ Til að fá frekari upplýsingar um þessi vottorð skaltu hafa samband við ker
     <plurals name="wifi_saved_passpoint_access_points_summary">
         <item quantity="other">%d áskriftir</item>
         <item quantity="one">%d áskrift</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$d tæki tengd</item>
-        <item quantity="one">%1$d tæki tengt</item>
     </plurals>
     <plurals name="wrong_pin_code">
         <item quantity="other">Rangt PIN-númer SIM-korts. Þú átt %d tilraunir eftir.</item>

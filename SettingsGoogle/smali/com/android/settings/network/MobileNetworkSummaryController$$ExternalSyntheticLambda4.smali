@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/settings/network/MobileNetworkSummaryController$$ExternalSyntheticLambda4;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Consumer;
+.implements Landroidx/preference/Preference$OnPreferenceClickListener;
 
 
 # instance fields
@@ -22,14 +23,14 @@
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
+.method public final onPreferenceClick(Landroidx/preference/Preference;)Z
     .locals 0
 
     iget-object p0, p0, Lcom/android/settings/network/MobileNetworkSummaryController$$ExternalSyntheticLambda4;->f$0:Lcom/android/settings/network/MobileNetworkSummaryController;
 
-    check-cast p1, Lcom/android/settings/network/MobileNetworkSummaryStatus;
+    invoke-static {p0, p1}, Lcom/android/settings/network/MobileNetworkSummaryController;->$r8$lambda$Qfd_T5tA7vD_ChhIibGzbgjGIg4(Lcom/android/settings/network/MobileNetworkSummaryController;Landroidx/preference/Preference;)Z
 
-    invoke-static {p0, p1}, Lcom/android/settings/network/MobileNetworkSummaryController;->$r8$lambda$b68eCQwsxO3eDcITZJJa_lGCmsU(Lcom/android/settings/network/MobileNetworkSummaryController;Lcom/android/settings/network/MobileNetworkSummaryStatus;)V
+    move-result p0
 
-    return-void
+    return p0
 .end method

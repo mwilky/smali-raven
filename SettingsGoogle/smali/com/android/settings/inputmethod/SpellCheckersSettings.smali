@@ -26,6 +26,32 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$mchangeCurrentSpellChecker(Lcom/android/settings/inputmethod/SpellCheckersSettings;Landroid/view/textservice/SpellCheckerInfo;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/inputmethod/SpellCheckersSettings;->changeCurrentSpellChecker(Landroid/view/textservice/SpellCheckerInfo;)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mupdatePreferenceScreen(Lcom/android/settings/inputmethod/SpellCheckersSettings;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/inputmethod/SpellCheckersSettings;->updatePreferenceScreen()V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$smconvertDialogItemIdToSubtypeIndex(I)I
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/settings/inputmethod/SpellCheckersSettings;->convertDialogItemIdToSubtypeIndex(I)I
+
+    move-result p0
+
+    return p0
+.end method
+
 .method static constructor <clinit>()V
     .locals 1
 
@@ -52,17 +78,7 @@
     return-void
 .end method
 
-.method static synthetic access$000(I)I
-    .locals 0
-
-    invoke-static {p0}, Lcom/android/settings/inputmethod/SpellCheckersSettings;->convertDialogItemIdToSubtypeIndex(I)I
-
-    move-result p0
-
-    return p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/inputmethod/SpellCheckersSettings;)Landroid/content/ContentResolver;
+.method static synthetic access$000(Lcom/android/settings/inputmethod/SpellCheckersSettings;)Landroid/content/ContentResolver;
     .locals 0
 
     invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
@@ -70,22 +86,6 @@
     move-result-object p0
 
     return-object p0
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/inputmethod/SpellCheckersSettings;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/inputmethod/SpellCheckersSettings;->updatePreferenceScreen()V
-
-    return-void
-.end method
-
-.method static synthetic access$300(Lcom/android/settings/inputmethod/SpellCheckersSettings;Landroid/view/textservice/SpellCheckerInfo;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/inputmethod/SpellCheckersSettings;->changeCurrentSpellChecker(Landroid/view/textservice/SpellCheckerInfo;)V
-
-    return-void
 .end method
 
 .method private changeCurrentSpellChecker(Landroid/view/textservice/SpellCheckerInfo;)V
@@ -99,7 +99,7 @@
 
     move-result-object p1
 
-    const-string v1, "selected_spell_checker"
+    const-string/jumbo v1, "selected_spell_checker"
 
     invoke-static {v0, v1, p1}, Landroid/provider/Settings$Secure;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
 
@@ -107,7 +107,7 @@
 
     move-result-object p1
 
-    const-string v0, "selected_spell_checker_subtype"
+    const-string/jumbo v0, "selected_spell_checker_subtype"
 
     const/4 v1, 0x0
 
@@ -139,7 +139,7 @@
 
     if-nez p1, :cond_0
 
-    const p1, 0x7f0412c6
+    const p1, 0x7f041389
 
     invoke-virtual {p0, p1}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -150,7 +150,7 @@
     :cond_0
     if-nez p2, :cond_1
 
-    const p1, 0x7f0414d3
+    const p1, 0x7f0415d0
 
     invoke-virtual {p0, p1}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -193,7 +193,7 @@
 
     invoke-direct {v0, v1, v2}, Lcom/android/settings/inputmethod/SpellCheckerPreference;-><init>(Landroid/content/Context;[Landroid/view/textservice/SpellCheckerInfo;)V
 
-    const v1, 0x7f0407bc
+    const v1, 0x7f040800
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setTitle(I)V
 
@@ -218,7 +218,7 @@
     goto :goto_1
 
     :cond_1
-    const v1, 0x7f0412c6
+    const v1, 0x7f041389
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -283,7 +283,7 @@
 
     invoke-direct {v3, v4}, Landroidx/appcompat/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v4, 0x7f040f09
+    const v4, 0x7f040f9f
 
     invoke-virtual {v3, v4}, Landroidx/appcompat/app/AlertDialog$Builder;->setTitle(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
@@ -383,7 +383,7 @@
 
     invoke-virtual {v0, v1}, Landroidx/appcompat/app/AlertDialog$Builder;->setTitle(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
-    const v1, 0x7f0412ca
+    const v1, 0x7f04138d
 
     const/4 v2, 0x1
 
@@ -551,7 +551,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    const p1, 0x7f1500e6
+    const p1, 0x7f1500ec
 
     invoke-virtual {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->addPreferencesFromResource(I)V
 
@@ -697,7 +697,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0412c7
+    const v2, 0x7f04138a
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

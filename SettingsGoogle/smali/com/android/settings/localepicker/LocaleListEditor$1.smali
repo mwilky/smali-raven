@@ -41,7 +41,7 @@
 
     const/4 p1, 0x0
 
-    invoke-static {p0, p1}, Lcom/android/settings/localepicker/LocaleListEditor;->access$002(Lcom/android/settings/localepicker/LocaleListEditor;Z)Z
+    invoke-static {p0, p1}, Lcom/android/settings/localepicker/LocaleListEditor;->-$$Nest$fputmShowingRemoveDialog(Lcom/android/settings/localepicker/LocaleListEditor;Z)V
 
     return-void
 .end method

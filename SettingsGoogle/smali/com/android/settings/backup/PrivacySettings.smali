@@ -13,7 +13,7 @@
 
     new-instance v0, Lcom/android/settings/backup/PrivacySettings$1;
 
-    const v1, 0x7f1500c3
+    const v1, 0x7f1500c7
 
     invoke-direct {v0, v1}, Lcom/android/settings/backup/PrivacySettings$1;-><init>(I)V
 
@@ -54,7 +54,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a1e
+    const p0, 0x7f040a77
 
     return p0
 .end method
@@ -78,7 +78,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f1500c3
+    const p0, 0x7f1500c7
 
     return p0
 .end method

@@ -67,6 +67,8 @@
 
 .field private mDividerView:Landroid/view/View;
 
+.field final mEnableGroupVolumeUX:Z
+
 .field private mExpandableAreaLayout:Landroid/widget/FrameLayout;
 
 .field private mFastOutSlowInInterpolator:Landroid/view/animation/Interpolator;
@@ -165,7 +167,7 @@
 
 .field private mVolumeControlEnabled:Z
 
-.field private mVolumeControlLayout:Landroid/widget/LinearLayout;
+.field mVolumeControlLayout:Landroid/widget/LinearLayout;
 
 .field mVolumeGroupAdapter:Landroidx/mediarouter/app/MediaRouteControllerDialog$VolumeGroupAdapter;
 
@@ -224,14 +226,6 @@
 
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "context"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -242,16 +236,6 @@
 
 .method public constructor <init>(Landroid/content/Context;I)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "theme"
-        }
-    .end annotation
 
     const/4 v0, 0x1
 
@@ -292,6 +276,12 @@
     move-result-object p2
 
     iput-object p2, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mRouter:Landroidx/mediarouter/media/MediaRouter;
+
+    invoke-static {}, Landroidx/mediarouter/media/MediaRouter;->isGroupVolumeUxEnabled()Z
+
+    move-result v0
+
+    iput-boolean v0, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mEnableGroupVolumeUX:Z
 
     new-instance v0, Landroidx/mediarouter/app/MediaRouteControllerDialog$MediaRouterCallback;
 
@@ -337,12 +327,6 @@
 
     iput-object p2, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mAccessibilityManager:Landroid/view/accessibility/AccessibilityManager;
 
-    sget p2, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v0, 0x15
-
-    if-lt p2, v0, :cond_0
-
     sget p2, Landroidx/mediarouter/R$interpolator;->mr_linear_out_slow_in:I
 
     invoke-static {p1, p2}, Landroid/view/animation/AnimationUtils;->loadInterpolator(Landroid/content/Context;I)Landroid/view/animation/Interpolator;
@@ -359,7 +343,6 @@
 
     iput-object p1, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mFastOutSlowInInterpolator:Landroid/view/animation/Interpolator;
 
-    :cond_0
     new-instance p1, Landroid/view/animation/AccelerateDecelerateInterpolator;
 
     invoke-direct {p1}, Landroid/view/animation/AccelerateDecelerateInterpolator;-><init>()V
@@ -371,17 +354,6 @@
 
 .method private animateGroupListItems(Ljava/util/Map;Ljava/util/Map;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x10,
-            0x10
-        }
-        names = {
-            "previousRouteBoundMap",
-            "previousRouteBitmapMap"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -427,16 +399,6 @@
 
 .method private animateLayoutHeight(Landroid/view/View;I)V
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x10,
-            0x0
-        }
-        names = {
-            "view",
-            "targetHeight"
-        }
-    .end annotation
 
     invoke-static {p1}, Landroidx/mediarouter/app/MediaRouteControllerDialog;->getLayoutHeight(Landroid/view/View;)I
 
@@ -452,17 +414,10 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/view/animation/Animation;->setDuration(J)V
 
-    sget p2, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v0, 0x15
-
-    if-lt p2, v0, :cond_0
-
     iget-object p0, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mInterpolator:Landroid/view/animation/Interpolator;
 
     invoke-virtual {v1, p0}, Landroid/view/animation/Animation;->setInterpolator(Landroid/view/animation/Interpolator;)V
 
-    :cond_0
     invoke-virtual {p1, v1}, Landroid/view/View;->startAnimation(Landroid/view/animation/Animation;)V
 
     return-void
@@ -587,14 +542,6 @@
 
 .method private static getLayoutHeight(Landroid/view/View;)I
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "view"
-        }
-    .end annotation
 
     invoke-virtual {p0}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
@@ -607,14 +554,6 @@
 
 .method private getMainControllerHeight(Z)I
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "showPlaybackControl"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -697,14 +636,6 @@
 
 .method static isBitmapRecycled(Landroid/graphics/Bitmap;)Z
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "bitmap"
-        }
-    .end annotation
 
     if-eqz p0, :cond_0
 
@@ -723,6 +654,40 @@
 
     :goto_0
     return p0
+.end method
+
+.method private isGroup()Z
+    .locals 2
+
+    iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mRoute:Landroidx/mediarouter/media/MediaRouter$RouteInfo;
+
+    invoke-virtual {v0}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->isGroup()Z
+
+    move-result v0
+
+    const/4 v1, 0x1
+
+    if-eqz v0, :cond_0
+
+    iget-object p0, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mRoute:Landroidx/mediarouter/media/MediaRouter$RouteInfo;
+
+    invoke-virtual {p0}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->getMemberRoutes()Ljava/util/List;
+
+    move-result-object p0
+
+    invoke-interface {p0}, Ljava/util/List;->size()I
+
+    move-result p0
+
+    if-le p0, v1, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v1, 0x0
+
+    :goto_0
+    return v1
 .end method
 
 .method private isIconChanged()Z
@@ -809,14 +774,6 @@
 
 .method private rebuildVolumeGroupList(Z)V
     .locals 6
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "animate"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mRoute:Landroidx/mediarouter/media/MediaRouter$RouteInfo;
 
@@ -963,16 +920,6 @@
 
 .method static setLayoutHeight(Landroid/view/View;I)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "view",
-            "height"
-        }
-    .end annotation
 
     invoke-virtual {p0}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
@@ -987,14 +934,6 @@
 
 .method private setMediaSession(Landroid/support/v4/media/session/MediaSessionCompat$Token;)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "sessionToken"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mMediaController:Landroid/support/v4/media/session/MediaControllerCompat;
 
@@ -1070,14 +1009,6 @@
 
 .method private updateMediaControlVisibility(Z)V
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "canShowPlaybackControlLayout"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mDividerView:Landroid/view/View;
 
@@ -1427,29 +1358,75 @@
 .method private updateVolumeControlLayout()V
     .locals 4
 
+    iget-boolean v0, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mEnableGroupVolumeUX:Z
+
+    const/4 v1, 0x0
+
+    const/16 v2, 0x8
+
+    if-nez v0, :cond_0
+
+    invoke-direct {p0}, Landroidx/mediarouter/app/MediaRouteControllerDialog;->isGroup()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mVolumeControlLayout:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v0, v2}, Landroid/widget/LinearLayout;->setVisibility(I)V
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mIsGroupExpanded:Z
+
+    iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mVolumeGroupList:Landroidx/mediarouter/app/OverlayListView;
+
+    invoke-virtual {v0, v1}, Landroid/widget/ListView;->setVisibility(I)V
+
+    invoke-virtual {p0}, Landroidx/mediarouter/app/MediaRouteControllerDialog;->loadInterpolator()V
+
+    invoke-virtual {p0, v1}, Landroidx/mediarouter/app/MediaRouteControllerDialog;->updateLayoutHeight(Z)V
+
+    return-void
+
+    :cond_0
+    iget-boolean v0, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mIsGroupExpanded:Z
+
+    if-eqz v0, :cond_1
+
+    iget-boolean v0, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mEnableGroupVolumeUX:Z
+
+    if-eqz v0, :cond_2
+
+    :cond_1
     iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mRoute:Landroidx/mediarouter/media/MediaRouter$RouteInfo;
 
     invoke-virtual {p0, v0}, Landroidx/mediarouter/app/MediaRouteControllerDialog;->isVolumeControlAvailable(Landroidx/mediarouter/media/MediaRouter$RouteInfo;)Z
 
     move-result v0
 
-    const/16 v1, 0x8
+    if-nez v0, :cond_3
 
-    if-eqz v0, :cond_1
+    :cond_2
+    iget-object p0, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mVolumeControlLayout:Landroid/widget/LinearLayout;
 
+    invoke-virtual {p0, v2}, Landroid/widget/LinearLayout;->setVisibility(I)V
+
+    goto :goto_1
+
+    :cond_3
     iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mVolumeControlLayout:Landroid/widget/LinearLayout;
 
     invoke-virtual {v0}, Landroid/widget/LinearLayout;->getVisibility()I
 
     move-result v0
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v2, :cond_5
 
     iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mVolumeControlLayout:Landroid/widget/LinearLayout;
 
-    const/4 v2, 0x0
-
-    invoke-virtual {v0, v2}, Landroid/widget/LinearLayout;->setVisibility(I)V
+    invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
     iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mVolumeSlider:Landroid/widget/SeekBar;
 
@@ -1473,43 +1450,27 @@
 
     iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mGroupExpandCollapseButton:Landroidx/mediarouter/app/MediaRouteExpandCollapseButton;
 
-    iget-object p0, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mRoute:Landroidx/mediarouter/media/MediaRouter$RouteInfo;
-
-    invoke-virtual {p0}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->isGroup()Z
+    invoke-direct {p0}, Landroidx/mediarouter/app/MediaRouteControllerDialog;->isGroup()Z
 
     move-result p0
 
-    if-eqz p0, :cond_0
-
-    move v1, v2
-
-    :cond_0
-    invoke-virtual {v0, v1}, Landroid/widget/ImageButton;->setVisibility(I)V
+    if-eqz p0, :cond_4
 
     goto :goto_0
 
-    :cond_1
-    iget-object p0, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mVolumeControlLayout:Landroid/widget/LinearLayout;
+    :cond_4
+    move v1, v2
 
-    invoke-virtual {p0, v1}, Landroid/widget/LinearLayout;->setVisibility(I)V
-
-    :cond_2
     :goto_0
+    invoke-virtual {v0, v1}, Landroid/widget/ImageButton;->setVisibility(I)V
+
+    :cond_5
+    :goto_1
     return-void
 .end method
 
 .method private static uriEquals(Landroid/net/Uri;Landroid/net/Uri;)Z
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "uri1",
-            "uri2"
-        }
-    .end annotation
 
     const/4 v0, 0x1
 
@@ -1540,17 +1501,6 @@
 # virtual methods
 .method animateGroupListItemsInternal(Ljava/util/Map;Ljava/util/Map;)V
     .locals 16
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "previousRouteBoundMap",
-            "previousRouteBitmapMap"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1862,14 +1812,6 @@
 
 .method clearGroupListAnimation(Z)V
     .locals 10
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "exceptAddedRoutes"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mVolumeGroupList:Landroidx/mediarouter/app/OverlayListView;
 
@@ -2001,14 +1943,6 @@
 
 .method finishAnimation(Z)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "animate"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -2040,16 +1974,6 @@
 
 .method getDesiredArtHeight(II)I
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "originalWidth",
-            "originalHeight"
-        }
-    .end annotation
 
     const/high16 v0, 0x3f000000    # 0.5f
 
@@ -2180,14 +2104,6 @@
 
 .method isVolumeControlAvailable(Landroidx/mediarouter/media/MediaRouter$RouteInfo;)Z
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "route"
-        }
-    .end annotation
 
     iget-boolean p0, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mVolumeControlEnabled:Z
 
@@ -2211,13 +2127,7 @@
 .end method
 
 .method loadInterpolator()V
-    .locals 2
-
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    if-lt v0, v1, :cond_1
+    .locals 1
 
     iget-boolean v0, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mIsGroupExpanded:Z
 
@@ -2233,14 +2143,6 @@
     :goto_0
     iput-object v0, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mInterpolator:Landroid/view/animation/Interpolator;
 
-    goto :goto_1
-
-    :cond_1
-    iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mAccelerateDecelerateInterpolator:Landroid/view/animation/Interpolator;
-
-    iput-object v0, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mInterpolator:Landroid/view/animation/Interpolator;
-
-    :goto_1
     return-void
 .end method
 
@@ -2276,14 +2178,6 @@
 
 .method protected onCreate(Landroid/os/Bundle;)V
     .locals 5
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "savedInstanceState"
-        }
-    .end annotation
 
     invoke-super {p0, p1}, Landroidx/appcompat/app/AlertDialog;->onCreate(Landroid/os/Bundle;)V
 
@@ -2603,9 +2497,7 @@
 
     iget-object v2, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mVolumeGroupList:Landroidx/mediarouter/app/OverlayListView;
 
-    iget-object v3, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mRoute:Landroidx/mediarouter/media/MediaRouter$RouteInfo;
-
-    invoke-virtual {v3}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->isGroup()Z
+    invoke-direct {p0}, Landroidx/mediarouter/app/MediaRouteControllerDialog;->isGroup()Z
 
     move-result v3
 
@@ -2723,14 +2615,6 @@
 
 .method public onCreateMediaControlView(Landroid/os/Bundle;)Landroid/view/View;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "savedInstanceState"
-        }
-    .end annotation
 
     const/4 p0, 0x0
 
@@ -2761,16 +2645,6 @@
 
 .method public onKeyDown(ILandroid/view/KeyEvent;)Z
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "keyCode",
-            "event"
-        }
-    .end annotation
 
     const/16 v0, 0x19
 
@@ -2791,37 +2665,37 @@
 
     :cond_1
     :goto_0
+    iget-boolean p2, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mEnableGroupVolumeUX:Z
+
+    const/4 v1, 0x1
+
+    if-nez p2, :cond_2
+
+    iget-boolean p2, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mIsGroupExpanded:Z
+
+    if-nez p2, :cond_4
+
+    :cond_2
     iget-object p0, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mRoute:Landroidx/mediarouter/media/MediaRouter$RouteInfo;
 
-    const/4 p2, 0x1
-
-    if-ne p1, v0, :cond_2
+    if-ne p1, v0, :cond_3
 
     const/4 p1, -0x1
 
     goto :goto_1
 
-    :cond_2
-    move p1, p2
+    :cond_3
+    move p1, v1
 
     :goto_1
     invoke-virtual {p0, p1}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->requestUpdateVolume(I)V
 
-    return p2
+    :cond_4
+    return v1
 .end method
 
 .method public onKeyUp(ILandroid/view/KeyEvent;)Z
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "keyCode",
-            "event"
-        }
-    .end annotation
 
     const/16 v0, 0x19
 
@@ -2901,14 +2775,6 @@
 
 .method update(Z)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "animate"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mRouteInVolumeSliderTouched:Landroidx/mediarouter/media/MediaRouter$RouteInfo;
 
@@ -3068,6 +2934,16 @@
 
     move-result v0
 
+    if-eqz v0, :cond_2
+
+    invoke-direct {p0}, Landroidx/mediarouter/app/MediaRouteControllerDialog;->isGroup()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-boolean v0, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mEnableGroupVolumeUX:Z
+
     if-nez v0, :cond_0
 
     goto :goto_0
@@ -3185,14 +3061,6 @@
 
 .method updateLayoutHeight(Z)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x10
-        }
-        names = {
-            "animate"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mDefaultControlLayout:Landroid/widget/FrameLayout;
 
@@ -3215,14 +3083,6 @@
 
 .method updateLayoutHeightInternal(Z)V
     .locals 9
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "animate"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mMediaMainControlLayout:Landroid/widget/LinearLayout;
 
@@ -3356,9 +3216,7 @@
 
     move-result v4
 
-    iget-object v5, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mRoute:Landroidx/mediarouter/media/MediaRouter$RouteInfo;
-
-    invoke-virtual {v5}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->isGroup()Z
+    invoke-direct {p0}, Landroidx/mediarouter/app/MediaRouteControllerDialog;->isGroup()Z
 
     move-result v5
 
@@ -3622,14 +3480,6 @@
 
 .method updateVolumeGroupItemHeight(Landroid/view/View;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "item"
-        }
-    .end annotation
 
     sget v0, Landroidx/mediarouter/R$id;->volume_item_container:I
 

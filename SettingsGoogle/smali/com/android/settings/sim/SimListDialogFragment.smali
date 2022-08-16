@@ -2,9 +2,6 @@
 .super Lcom/android/settings/sim/SimDialogFragment;
 .source "SimListDialogFragment.java"
 
-# interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
-
 
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
@@ -37,7 +34,7 @@
     return-void
 .end method
 
-.method public static newInstance(IIZ)Lcom/android/settings/sim/SimListDialogFragment;
+.method public static newInstance(IIZZ)Lcom/android/settings/sim/SimListDialogFragment;
     .locals 1
 
     new-instance v0, Lcom/android/settings/sim/SimListDialogFragment;
@@ -51,6 +48,10 @@
     const-string p1, "include_ask_every_time"
 
     invoke-virtual {p0, p1, p2}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
+
+    const-string/jumbo p1, "show_cancel_item"
+
+    invoke-virtual {p0, p1, p3}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
     invoke-virtual {v0, p0}, Landroidx/fragment/app/Fragment;->setArguments(Landroid/os/Bundle;)V
 
@@ -97,54 +98,56 @@
     return p0
 .end method
 
-.method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 1
+.method public onClick(I)V
+    .locals 2
 
-    if-ltz p2, :cond_1
-
-    iget-object p1, p0, Lcom/android/settings/sim/SimListDialogFragment;->mSubscriptions:Ljava/util/List;
-
-    invoke-interface {p1}, Ljava/util/List;->size()I
-
-    move-result p1
-
-    if-ge p2, p1, :cond_1
-
-    const/4 p1, -0x1
+    if-ltz p1, :cond_1
 
     iget-object v0, p0, Lcom/android/settings/sim/SimListDialogFragment;->mSubscriptions:Ljava/util/List;
 
-    invoke-interface {v0, p2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/List;->size()I
 
-    move-result-object p2
+    move-result v0
 
-    check-cast p2, Landroid/telephony/SubscriptionInfo;
+    if-ge p1, v0, :cond_1
 
-    if-eqz p2, :cond_0
+    const/4 v0, -0x1
 
-    invoke-virtual {p2}, Landroid/telephony/SubscriptionInfo;->getSubscriptionId()I
+    iget-object v1, p0, Lcom/android/settings/sim/SimListDialogFragment;->mSubscriptions:Ljava/util/List;
 
-    move-result p1
+    invoke-interface {v1, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Landroid/telephony/SubscriptionInfo;
+
+    if-eqz p1, :cond_0
+
+    invoke-virtual {p1}, Landroid/telephony/SubscriptionInfo;->getSubscriptionId()I
+
+    move-result v0
 
     :cond_0
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
 
-    move-result-object p2
+    move-result-object p1
 
-    check-cast p2, Lcom/android/settings/sim/SimDialogActivity;
+    check-cast p1, Lcom/android/settings/sim/SimDialogActivity;
 
     invoke-virtual {p0}, Lcom/android/settings/sim/SimDialogFragment;->getDialogType()I
 
-    move-result p0
+    move-result v1
 
-    invoke-virtual {p2, p0, p1}, Lcom/android/settings/sim/SimDialogActivity;->onSubscriptionSelected(II)V
+    invoke-virtual {p1, v1, v0}, Lcom/android/settings/sim/SimDialogActivity;->onSubscriptionSelected(II)V
 
     :cond_1
+    invoke-virtual {p0}, Lcom/android/settings/sim/SimDialogFragment;->dismiss()V
+
     return-void
 .end method
 
 .method public onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;
-    .locals 3
+    .locals 4
 
     new-instance p1, Ljava/util/ArrayList;
 
@@ -160,11 +163,45 @@
 
     invoke-direct {p1, v0}, Landroidx/appcompat/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-static {v0}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
+
+    move-result-object v0
+
+    const v1, 0x7f060228
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v1, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+
+    move-result-object v0
+
+    const v1, 0x7f0d0612
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/TextView;
+
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
     invoke-virtual {p0}, Lcom/android/settings/sim/SimDialogFragment;->getTitleResId()I
 
-    move-result v0
+    move-result v3
 
-    invoke-virtual {p1, v0}, Landroidx/appcompat/app/AlertDialog$Builder;->setTitle(I)Landroidx/appcompat/app/AlertDialog$Builder;
+    invoke-virtual {v1, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    invoke-virtual {p1, v0}, Landroidx/appcompat/app/AlertDialog$Builder;->setCustomTitle(Landroid/view/View;)Landroidx/appcompat/app/AlertDialog$Builder;
 
     new-instance v0, Lcom/android/settings/sim/SimListDialogFragment$SelectSubscriptionAdapter;
 
@@ -172,35 +209,77 @@
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/android/settings/sim/SimListDialogFragment;->mSubscriptions:Ljava/util/List;
+    iget-object v3, p0, Lcom/android/settings/sim/SimListDialogFragment;->mSubscriptions:Ljava/util/List;
 
-    invoke-direct {v0, v1, v2}, Lcom/android/settings/sim/SimListDialogFragment$SelectSubscriptionAdapter;-><init>(Landroid/content/Context;Ljava/util/List;)V
+    invoke-direct {v0, v1, v3}, Lcom/android/settings/sim/SimListDialogFragment$SelectSubscriptionAdapter;-><init>(Landroid/content/Context;Ljava/util/List;)V
 
     iput-object v0, p0, Lcom/android/settings/sim/SimListDialogFragment;->mAdapter:Lcom/android/settings/sim/SimListDialogFragment$SelectSubscriptionAdapter;
-
-    invoke-virtual {p0, p1}, Lcom/android/settings/sim/SimListDialogFragment;->setAdapter(Landroidx/appcompat/app/AlertDialog$Builder;)V
 
     invoke-virtual {p1}, Landroidx/appcompat/app/AlertDialog$Builder;->create()Landroidx/appcompat/app/AlertDialog;
 
     move-result-object p1
+
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-static {v0}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
+
+    move-result-object v0
+
+    const v1, 0x7f060227
+
+    invoke-virtual {v0, v1, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    const v1, 0x7f0d014f
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    move-object v2, v1
+
+    check-cast v2, Landroid/widget/ListView;
+
+    :cond_0
+    if-eqz v2, :cond_1
+
+    invoke-virtual {p0, v2}, Lcom/android/settings/sim/SimListDialogFragment;->setAdapter(Landroid/widget/ListView;)V
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v2, v1}, Landroid/widget/ListView;->setVisibility(I)V
+
+    new-instance v1, Lcom/android/settings/sim/SimListDialogFragment$1;
+
+    invoke-direct {v1, p0}, Lcom/android/settings/sim/SimListDialogFragment$1;-><init>(Lcom/android/settings/sim/SimListDialogFragment;)V
+
+    invoke-virtual {v2, v1}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
+
+    :cond_1
+    invoke-virtual {p1, v0}, Landroidx/appcompat/app/AlertDialog;->setView(Landroid/view/View;)V
 
     invoke-virtual {p0}, Lcom/android/settings/sim/SimListDialogFragment;->updateDialog()V
 
     return-object p1
 .end method
 
-.method setAdapter(Landroidx/appcompat/app/AlertDialog$Builder;)V
-    .locals 1
+.method setAdapter(Landroid/widget/ListView;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/settings/sim/SimListDialogFragment;->mAdapter:Lcom/android/settings/sim/SimListDialogFragment$SelectSubscriptionAdapter;
+    iget-object p0, p0, Lcom/android/settings/sim/SimListDialogFragment;->mAdapter:Lcom/android/settings/sim/SimListDialogFragment$SelectSubscriptionAdapter;
 
-    invoke-virtual {p1, v0, p0}, Landroidx/appcompat/app/AlertDialog$Builder;->setAdapter(Landroid/widget/ListAdapter;Landroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
+    invoke-virtual {p1, p0}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V
 
     return-void
 .end method
 
 .method public updateDialog()V
-    .locals 3
+    .locals 5
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -222,19 +301,21 @@
 
     invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    iget-boolean v0, p0, Lcom/android/settings/sim/SimDialogFragment;->mWasDismissed:Z
+
+    if-eqz v0, :cond_0
+
+    return-void
+
+    :cond_0
     invoke-virtual {p0}, Lcom/android/settings/sim/SimListDialogFragment;->getCurrentSubscriptions()Ljava/util/List;
 
     move-result-object v0
 
     if-nez v0, :cond_1
 
-    iget-boolean v0, p0, Lcom/android/settings/sim/SimDialogFragment;->mWasDismissed:Z
+    invoke-virtual {p0}, Lcom/android/settings/sim/SimDialogFragment;->dismiss()V
 
-    if-nez v0, :cond_0
-
-    invoke-virtual {p0}, Landroidx/fragment/app/DialogFragment;->dismiss()V
-
-    :cond_0
     return-void
 
     :cond_1
@@ -248,38 +329,61 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getArguments()Landroid/os/Bundle;
 
-    new-instance v1, Ljava/util/ArrayList;
+    move-result-object v2
 
-    invoke-interface {v0}, Ljava/util/List;->size()I
+    const-string/jumbo v3, "show_cancel_item"
+
+    invoke-virtual {v2, v3}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
 
     move-result v2
 
-    add-int/lit8 v2, v2, 0x1
+    if-nez v1, :cond_2
 
-    invoke-direct {v1, v2}, Ljava/util/ArrayList;-><init>(I)V
-
-    const/4 v2, 0x0
-
-    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    invoke-interface {v1, v0}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
-
-    move-object v0, v1
+    if-eqz v2, :cond_5
 
     :cond_2
+    invoke-interface {v0}, Ljava/util/List;->size()I
+
+    move-result v3
+
+    add-int/2addr v3, v1
+
+    add-int/2addr v3, v2
+
+    new-instance v4, Ljava/util/ArrayList;
+
+    invoke-direct {v4, v3}, Ljava/util/ArrayList;-><init>(I)V
+
+    const/4 v3, 0x0
+
+    if-eqz v1, :cond_3
+
+    invoke-interface {v4, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    :cond_3
+    invoke-interface {v4, v0}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
+
+    if-eqz v2, :cond_4
+
+    invoke-interface {v4, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    :cond_4
+    move-object v0, v4
+
+    :cond_5
     iget-object v1, p0, Lcom/android/settings/sim/SimListDialogFragment;->mSubscriptions:Ljava/util/List;
 
     invoke-interface {v0, v1}, Ljava/util/List;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_6
 
     return-void
 
-    :cond_3
+    :cond_6
     iget-object v1, p0, Lcom/android/settings/sim/SimListDialogFragment;->mSubscriptions:Ljava/util/List;
 
     invoke-interface {v1}, Ljava/util/List;->clear()V

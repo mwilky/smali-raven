@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settings/network/MobileNetworkSummaryStatus$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/concurrent/Callable;
@@ -33,7 +34,7 @@
 
     iget-object p0, p0, Lcom/android/settings/network/MobileNetworkSummaryStatus$$ExternalSyntheticLambda0;->f$1:Landroid/content/Context;
 
-    invoke-static {v0, p0}, Lcom/android/settings/network/MobileNetworkSummaryStatus;->$r8$lambda$8loh5WhHQ_JJpl5BWQ2mSZrEfPk(Lcom/android/settings/network/MobileNetworkSummaryStatus;Landroid/content/Context;)Ljava/lang/Object;
+    invoke-static {v0, p0}, Lcom/android/settings/network/MobileNetworkSummaryStatus;->$r8$lambda$NExqnNvvqersvhsDBMRaE_uuvCU(Lcom/android/settings/network/MobileNetworkSummaryStatus;Landroid/content/Context;)Ljava/lang/Object;
 
     move-result-object p0
 

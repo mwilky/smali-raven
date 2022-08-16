@@ -132,7 +132,7 @@
     return-void
 
     :cond_0
-    const p1, 0x7f0d0532
+    const p1, 0x7f0d0574
 
     invoke-virtual {p0, p1}, Landroidx/appcompat/app/AppCompatDialog;->findViewById(I)Landroid/view/View;
 
@@ -276,7 +276,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0602b7
+    const v1, 0x7f0602ca
 
     const/4 v2, 0x0
 
@@ -345,7 +345,7 @@
 .method protected onStart()V
     .locals 2
 
-    const v0, 0x7f0d0533
+    const v0, 0x7f0d0575
 
     invoke-virtual {p0, v0}, Landroidx/appcompat/app/AppCompatDialog;->findViewById(I)Landroid/view/View;
 

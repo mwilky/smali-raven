@@ -36,25 +36,25 @@
 
     iget-object v0, p0, Lcom/android/settings/wfd/WifiDisplaySettings$2;->this$0:Lcom/android/settings/wfd/WifiDisplaySettings;
 
-    invoke-static {v0}, Lcom/android/settings/wfd/WifiDisplaySettings;->access$100(Lcom/android/settings/wfd/WifiDisplaySettings;)Z
+    invoke-static {v0}, Lcom/android/settings/wfd/WifiDisplaySettings;->-$$Nest$fgetmListen(Lcom/android/settings/wfd/WifiDisplaySettings;)Z
 
     move-result v1
 
     xor-int/lit8 v1, v1, 0x1
 
-    invoke-static {v0, v1}, Lcom/android/settings/wfd/WifiDisplaySettings;->access$102(Lcom/android/settings/wfd/WifiDisplaySettings;Z)Z
+    invoke-static {v0, v1}, Lcom/android/settings/wfd/WifiDisplaySettings;->-$$Nest$fputmListen(Lcom/android/settings/wfd/WifiDisplaySettings;Z)V
 
     iget-object v0, p0, Lcom/android/settings/wfd/WifiDisplaySettings$2;->this$0:Lcom/android/settings/wfd/WifiDisplaySettings;
 
-    invoke-static {v0}, Lcom/android/settings/wfd/WifiDisplaySettings;->access$100(Lcom/android/settings/wfd/WifiDisplaySettings;)Z
+    invoke-static {v0}, Lcom/android/settings/wfd/WifiDisplaySettings;->-$$Nest$fgetmListen(Lcom/android/settings/wfd/WifiDisplaySettings;)Z
 
     move-result v1
 
-    invoke-static {v0, v1}, Lcom/android/settings/wfd/WifiDisplaySettings;->access$200(Lcom/android/settings/wfd/WifiDisplaySettings;Z)V
+    invoke-static {v0, v1}, Lcom/android/settings/wfd/WifiDisplaySettings;->-$$Nest$msetListenMode(Lcom/android/settings/wfd/WifiDisplaySettings;Z)V
 
     iget-object v0, p0, Lcom/android/settings/wfd/WifiDisplaySettings$2;->this$0:Lcom/android/settings/wfd/WifiDisplaySettings;
 
-    invoke-static {v0}, Lcom/android/settings/wfd/WifiDisplaySettings;->access$100(Lcom/android/settings/wfd/WifiDisplaySettings;)Z
+    invoke-static {v0}, Lcom/android/settings/wfd/WifiDisplaySettings;->-$$Nest$fgetmListen(Lcom/android/settings/wfd/WifiDisplaySettings;)Z
 
     move-result v0
 

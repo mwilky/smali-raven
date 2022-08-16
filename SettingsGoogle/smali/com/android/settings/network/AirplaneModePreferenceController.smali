@@ -11,8 +11,6 @@
 
 
 # static fields
-.field private static final EXIT_ECM_RESULT:Ljava/lang/String; = "exit_ecm_result"
-
 .field public static final REQUEST_CODE_EXIT_ECM:I = 0x1
 
 .field public static final SLICE_URI:Landroid/net/Uri;
@@ -99,7 +97,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f09004e
+    const v1, 0x7f09004f
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -132,18 +130,10 @@
 
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public displayPreference(Landroidx/preference/PreferenceScreen;)V
     .locals 1
 
-    invoke-super {p0, p1}, Lcom/android/settings/core/BasePreferenceController;->displayPreference(Landroidx/preference/PreferenceScreen;)V
+    invoke-super {p0, p1}, Lcom/android/settings/core/TogglePreferenceController;->displayPreference(Landroidx/preference/PreferenceScreen;)V
 
     invoke-virtual {p0}, Lcom/android/settings/core/BasePreferenceController;->getPreferenceKey()Ljava/lang/String;
 
@@ -184,15 +174,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -214,7 +195,7 @@
 .method public getSliceHighlightMenuRes()I
     .locals 0
 
-    const p0, 0x7f040d0a
+    const p0, 0x7f040d85
 
     return p0
 .end method
@@ -297,16 +278,6 @@
     return p0
 .end method
 
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
-
-    move-result p0
-
-    return p0
-.end method
-
 .method public isPublicSlice()Z
     .locals 0
 
@@ -318,19 +289,21 @@
 .method public onActivityResult(IILandroid/content/Intent;)V
     .locals 0
 
-    const/4 p2, 0x1
+    const/4 p3, 0x1
 
-    if-ne p1, p2, :cond_0
+    if-ne p1, p3, :cond_1
 
-    const/4 p1, 0x0
+    const/4 p1, -0x1
 
-    const-string p2, "exit_ecm_result"
+    if-ne p2, p1, :cond_0
 
-    invoke-virtual {p3, p2, p1}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+    goto :goto_0
 
-    move-result p1
+    :cond_0
+    const/4 p3, 0x0
 
-    iget-object p2, p0, Lcom/android/settings/network/AirplaneModePreferenceController;->mAirplaneModeEnabler:Lcom/android/settings/AirplaneModeEnabler;
+    :goto_0
+    iget-object p1, p0, Lcom/android/settings/network/AirplaneModePreferenceController;->mAirplaneModeEnabler:Lcom/android/settings/AirplaneModeEnabler;
 
     iget-object p0, p0, Lcom/android/settings/network/AirplaneModePreferenceController;->mAirplaneModePreference:Landroidx/preference/SwitchPreference;
 
@@ -338,9 +311,9 @@
 
     move-result p0
 
-    invoke-virtual {p2, p1, p0}, Lcom/android/settings/AirplaneModeEnabler;->setAirplaneModeInECM(ZZ)V
+    invoke-virtual {p1, p3, p0}, Lcom/android/settings/AirplaneModeEnabler;->setAirplaneModeInECM(ZZ)V
 
-    :cond_0
+    :cond_1
     return-void
 .end method
 

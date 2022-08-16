@@ -75,7 +75,7 @@
 
     const/4 p1, 0x1
 
-    invoke-static {p0, p1}, Lcom/android/settings/EncryptionInterstitial$EncryptionInterstitialFragment;->access$100(Lcom/android/settings/EncryptionInterstitial$EncryptionInterstitialFragment;Z)V
+    invoke-static {p0, p1}, Lcom/android/settings/EncryptionInterstitial$EncryptionInterstitialFragment;->-$$Nest$msetRequirePasswordState(Lcom/android/settings/EncryptionInterstitial$EncryptionInterstitialFragment;Z)V
 
     invoke-virtual {p0}, Lcom/android/settings/EncryptionInterstitial$EncryptionInterstitialFragment;->startLockIntent()V
 
@@ -88,7 +88,7 @@
 
     const/4 p1, 0x0
 
-    invoke-static {p0, p1}, Lcom/android/settings/EncryptionInterstitial$EncryptionInterstitialFragment;->access$100(Lcom/android/settings/EncryptionInterstitial$EncryptionInterstitialFragment;Z)V
+    invoke-static {p0, p1}, Lcom/android/settings/EncryptionInterstitial$EncryptionInterstitialFragment;->-$$Nest$msetRequirePasswordState(Lcom/android/settings/EncryptionInterstitial$EncryptionInterstitialFragment;Z)V
 
     :cond_1
     :goto_0
@@ -120,23 +120,23 @@
 
     if-eq p1, v0, :cond_0
 
-    const p1, 0x7f04089d
+    const p1, 0x7f0408f1
 
-    const v0, 0x7f04089a
+    const v0, 0x7f0408ee
 
     goto :goto_0
 
     :cond_0
-    const p1, 0x7f04089f
+    const p1, 0x7f0408f3
 
-    const v0, 0x7f04089c
+    const v0, 0x7f0408f0
 
     goto :goto_0
 
     :cond_1
-    const p1, 0x7f04089e
+    const p1, 0x7f0408f2
 
-    const v0, 0x7f04089b
+    const v0, 0x7f0408ef
 
     :goto_0
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;

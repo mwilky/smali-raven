@@ -271,12 +271,6 @@
     goto/16 :goto_1
 
     :pswitch_1
-    sget v3, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v4, 0x15
-
-    if-lt v3, v4, :cond_3
-
     invoke-static {p0}, Landroidx/constraintlayout/motion/widget/KeyCycle;->access$1700(Landroidx/constraintlayout/motion/widget/KeyCycle;)F
 
     move-result v3

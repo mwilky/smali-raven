@@ -119,59 +119,6 @@
     return-object v0
 .end method
 
-.method public static on(Ljava/lang/String;)Lcom/google/common/base/Splitter;
-    .locals 4
-
-    invoke-virtual {p0}, Ljava/lang/String;->length()I
-
-    move-result v0
-
-    const/4 v1, 0x1
-
-    const/4 v2, 0x0
-
-    if-eqz v0, :cond_0
-
-    move v0, v1
-
-    goto :goto_0
-
-    :cond_0
-    move v0, v2
-
-    :goto_0
-    const-string v3, "The separator may not be the empty string."
-
-    invoke-static {v0, v3}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/Object;)V
-
-    invoke-virtual {p0}, Ljava/lang/String;->length()I
-
-    move-result v0
-
-    if-ne v0, v1, :cond_1
-
-    invoke-virtual {p0, v2}, Ljava/lang/String;->charAt(I)C
-
-    move-result p0
-
-    invoke-static {p0}, Lcom/google/common/base/Splitter;->on(C)Lcom/google/common/base/Splitter;
-
-    move-result-object p0
-
-    return-object p0
-
-    :cond_1
-    new-instance v0, Lcom/google/common/base/Splitter;
-
-    new-instance v1, Lcom/google/common/base/Splitter$2;
-
-    invoke-direct {v1, p0}, Lcom/google/common/base/Splitter$2;-><init>(Ljava/lang/String;)V
-
-    invoke-direct {v0, v1}, Lcom/google/common/base/Splitter;-><init>(Lcom/google/common/base/Splitter$Strategy;)V
-
-    return-object v0
-.end method
-
 .method private splittingIterator(Ljava/lang/CharSequence;)Ljava/util/Iterator;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
@@ -222,24 +169,6 @@
     iget-object p0, p0, Lcom/google/common/base/Splitter;->trimmer:Lcom/google/common/base/CharMatcher;
 
     invoke-direct {v0, v1, v2, p0, p1}, Lcom/google/common/base/Splitter;-><init>(Lcom/google/common/base/Splitter$Strategy;ZLcom/google/common/base/CharMatcher;I)V
-
-    return-object v0
-.end method
-
-.method public omitEmptyStrings()Lcom/google/common/base/Splitter;
-    .locals 4
-
-    new-instance v0, Lcom/google/common/base/Splitter;
-
-    iget-object v1, p0, Lcom/google/common/base/Splitter;->strategy:Lcom/google/common/base/Splitter$Strategy;
-
-    iget-object v2, p0, Lcom/google/common/base/Splitter;->trimmer:Lcom/google/common/base/CharMatcher;
-
-    iget p0, p0, Lcom/google/common/base/Splitter;->limit:I
-
-    const/4 v3, 0x1
-
-    invoke-direct {v0, v1, v3, v2, p0}, Lcom/google/common/base/Splitter;-><init>(Lcom/google/common/base/Splitter$Strategy;ZLcom/google/common/base/CharMatcher;I)V
 
     return-object v0
 .end method

@@ -89,7 +89,7 @@
     :cond_1
     iget-object p0, p0, Lcom/android/settings/notification/app/NotificationSettings$DependentFieldListener;->this$0:Lcom/android/settings/notification/app/NotificationSettings;
 
-    invoke-static {p0}, Lcom/android/settings/notification/app/NotificationSettings;->access$300(Lcom/android/settings/notification/app/NotificationSettings;)V
+    invoke-static {p0}, Lcom/android/settings/notification/app/NotificationSettings;->access$000(Lcom/android/settings/notification/app/NotificationSettings;)V
 
     return-void
 .end method

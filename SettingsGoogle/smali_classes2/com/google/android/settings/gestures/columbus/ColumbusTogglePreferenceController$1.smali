@@ -41,7 +41,7 @@
 
     iget-object p1, p0, Lcom/google/android/settings/gestures/columbus/ColumbusTogglePreferenceController$1;->this$0:Lcom/google/android/settings/gestures/columbus/ColumbusTogglePreferenceController;
 
-    invoke-static {p1}, Lcom/google/android/settings/gestures/columbus/ColumbusTogglePreferenceController;->access$000(Lcom/google/android/settings/gestures/columbus/ColumbusTogglePreferenceController;)Lcom/google/android/settings/gestures/columbus/ColumbusTogglePreferenceController$SettingObserver;
+    invoke-static {p1}, Lcom/google/android/settings/gestures/columbus/ColumbusTogglePreferenceController;->-$$Nest$fgetmSettingObserver(Lcom/google/android/settings/gestures/columbus/ColumbusTogglePreferenceController;)Lcom/google/android/settings/gestures/columbus/ColumbusTogglePreferenceController$SettingObserver;
 
     move-result-object p1
 
@@ -49,7 +49,7 @@
 
     iget-object p1, p0, Lcom/google/android/settings/gestures/columbus/ColumbusTogglePreferenceController$1;->this$0:Lcom/google/android/settings/gestures/columbus/ColumbusTogglePreferenceController;
 
-    invoke-static {p1}, Lcom/google/android/settings/gestures/columbus/ColumbusTogglePreferenceController;->access$000(Lcom/google/android/settings/gestures/columbus/ColumbusTogglePreferenceController;)Lcom/google/android/settings/gestures/columbus/ColumbusTogglePreferenceController$SettingObserver;
+    invoke-static {p1}, Lcom/google/android/settings/gestures/columbus/ColumbusTogglePreferenceController;->-$$Nest$fgetmSettingObserver(Lcom/google/android/settings/gestures/columbus/ColumbusTogglePreferenceController;)Lcom/google/android/settings/gestures/columbus/ColumbusTogglePreferenceController$SettingObserver;
 
     move-result-object p1
 
@@ -57,7 +57,7 @@
 
     iget-object p0, p0, Lcom/google/android/settings/gestures/columbus/ColumbusTogglePreferenceController$1;->this$0:Lcom/google/android/settings/gestures/columbus/ColumbusTogglePreferenceController;
 
-    invoke-static {p0}, Lcom/google/android/settings/gestures/columbus/ColumbusTogglePreferenceController;->access$000(Lcom/google/android/settings/gestures/columbus/ColumbusTogglePreferenceController;)Lcom/google/android/settings/gestures/columbus/ColumbusTogglePreferenceController$SettingObserver;
+    invoke-static {p0}, Lcom/google/android/settings/gestures/columbus/ColumbusTogglePreferenceController;->-$$Nest$fgetmSettingObserver(Lcom/google/android/settings/gestures/columbus/ColumbusTogglePreferenceController;)Lcom/google/android/settings/gestures/columbus/ColumbusTogglePreferenceController$SettingObserver;
 
     move-result-object p0
 

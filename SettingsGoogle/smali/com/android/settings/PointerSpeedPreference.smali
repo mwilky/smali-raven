@@ -17,6 +17,8 @@
 # instance fields
 .field private final mIm:Landroid/hardware/input/InputManager;
 
+.field private final mJankMonitor:Lcom/android/internal/jank/InteractionJankMonitor;
+
 .field private mLastProgress:I
 
 .field private mOldSpeed:I
@@ -31,10 +33,24 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$monSpeedChanged(Lcom/android/settings/PointerSpeedPreference;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/PointerSpeedPreference;->onSpeedChanged()V
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/settings/SeekBarDialogPreference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
+
+    invoke-static {}, Lcom/android/internal/jank/InteractionJankMonitor;->getInstance()Lcom/android/internal/jank/InteractionJankMonitor;
+
+    move-result-object p1
+
+    iput-object p1, p0, Lcom/android/settings/PointerSpeedPreference;->mJankMonitor:Lcom/android/internal/jank/InteractionJankMonitor;
 
     const/4 p1, -0x1
 
@@ -63,14 +79,6 @@
     check-cast p1, Landroid/hardware/input/InputManager;
 
     iput-object p1, p0, Lcom/android/settings/PointerSpeedPreference;->mIm:Landroid/hardware/input/InputManager;
-
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/PointerSpeedPreference;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/PointerSpeedPreference;->onSpeedChanged()V
 
     return-void
 .end method
@@ -375,11 +383,29 @@
 .end method
 
 .method public onStartTrackingTouch(Landroid/widget/SeekBar;)V
-    .locals 0
+    .locals 2
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    iput-boolean p1, p0, Lcom/android/settings/PointerSpeedPreference;->mTouchInProgress:Z
+    iput-boolean v0, p0, Lcom/android/settings/PointerSpeedPreference;->mTouchInProgress:Z
+
+    iget-object v0, p0, Lcom/android/settings/PointerSpeedPreference;->mJankMonitor:Lcom/android/internal/jank/InteractionJankMonitor;
+
+    const/16 v1, 0x35
+
+    invoke-static {v1, p1}, Lcom/android/internal/jank/InteractionJankMonitor$Configuration$Builder;->withView(ILandroid/view/View;)Lcom/android/internal/jank/InteractionJankMonitor$Configuration$Builder;
+
+    move-result-object p1
+
+    invoke-virtual {p0}, Landroidx/preference/Preference;->getKey()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {p1, p0}, Lcom/android/internal/jank/InteractionJankMonitor$Configuration$Builder;->setTag(Ljava/lang/String;)Lcom/android/internal/jank/InteractionJankMonitor$Configuration$Builder;
+
+    move-result-object p0
+
+    invoke-virtual {v0, p0}, Lcom/android/internal/jank/InteractionJankMonitor;->begin(Lcom/android/internal/jank/InteractionJankMonitor$Configuration$Builder;)Z
 
     return-void
 .end method
@@ -391,7 +417,7 @@
 
     iput-boolean v0, p0, Lcom/android/settings/PointerSpeedPreference;->mTouchInProgress:Z
 
-    iget-object p0, p0, Lcom/android/settings/PointerSpeedPreference;->mIm:Landroid/hardware/input/InputManager;
+    iget-object v0, p0, Lcom/android/settings/PointerSpeedPreference;->mIm:Landroid/hardware/input/InputManager;
 
     invoke-virtual {p1}, Landroid/widget/SeekBar;->getProgress()I
 
@@ -399,7 +425,13 @@
 
     add-int/lit8 p1, p1, -0x7
 
-    invoke-virtual {p0, p1}, Landroid/hardware/input/InputManager;->tryPointerSpeed(I)V
+    invoke-virtual {v0, p1}, Landroid/hardware/input/InputManager;->tryPointerSpeed(I)V
+
+    iget-object p0, p0, Lcom/android/settings/PointerSpeedPreference;->mJankMonitor:Lcom/android/internal/jank/InteractionJankMonitor;
+
+    const/16 p1, 0x35
+
+    invoke-virtual {p0, p1}, Lcom/android/internal/jank/InteractionJankMonitor;->end(I)Z
 
     return-void
 .end method

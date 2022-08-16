@@ -39,7 +39,7 @@
 
     iget-object p0, p0, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2$2;->this$0:Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;
 
-    invoke-static {p0}, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;->access$1100(Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;)Landroidx/preference/PreferenceFragmentCompat;
+    invoke-static {p0}, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;->-$$Nest$fgetmFragment(Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;)Landroidx/preference/PreferenceFragmentCompat;
 
     move-result-object p0
 
@@ -49,7 +49,7 @@
 
     if-eqz p0, :cond_0
 
-    const p1, 0x7f041675
+    const p1, 0x7f04176c
 
     const/4 v0, 0x0
 

@@ -97,7 +97,7 @@
     return-object p0
 .end method
 
-.method getHandler()Landroid/os/Handler;
+.method public getHandler()Landroid/os/Handler;
     .locals 0
 
     iget-object p0, p0, Landroidx/fragment/app/FragmentHostCallback;->mHandler:Landroid/os/Handler;
@@ -153,14 +153,6 @@
     .end annotation
 
     return-void
-.end method
-
-.method public onShouldSaveFragmentState(Landroidx/fragment/app/Fragment;)Z
-    .locals 0
-
-    const/4 p0, 0x1
-
-    return p0
 .end method
 
 .method public onShouldShowRequestPermissionRationale(Ljava/lang/String;)Z

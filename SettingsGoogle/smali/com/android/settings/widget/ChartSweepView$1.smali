@@ -39,7 +39,7 @@
 
     iget-object p0, p0, Lcom/android/settings/widget/ChartSweepView$1;->this$0:Lcom/android/settings/widget/ChartSweepView;
 
-    invoke-static {p0}, Lcom/android/settings/widget/ChartSweepView;->access$000(Lcom/android/settings/widget/ChartSweepView;)V
+    invoke-static {p0}, Lcom/android/settings/widget/ChartSweepView;->-$$Nest$mdispatchRequestEdit(Lcom/android/settings/widget/ChartSweepView;)V
 
     return-void
 .end method

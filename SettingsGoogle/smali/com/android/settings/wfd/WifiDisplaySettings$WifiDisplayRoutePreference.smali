@@ -41,7 +41,7 @@
 .method protected getSecondTargetResId()I
     .locals 0
 
-    const p0, 0x7f0601b8
+    const p0, 0x7f0601c4
 
     return p0
 .end method
@@ -51,7 +51,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settingslib/widget/TwoTargetPreference;->onBindViewHolder(Landroidx/preference/PreferenceViewHolder;)V
 
-    const v0, 0x7f0d04e6
+    const v0, 0x7f0d0526
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -112,7 +112,7 @@
 
     iget-object p0, p0, Lcom/android/settings/wfd/WifiDisplaySettings$WifiDisplayRoutePreference;->mDisplay:Landroid/hardware/display/WifiDisplay;
 
-    invoke-static {p1, p0}, Lcom/android/settings/wfd/WifiDisplaySettings;->access$1400(Lcom/android/settings/wfd/WifiDisplaySettings;Landroid/hardware/display/WifiDisplay;)V
+    invoke-static {p1, p0}, Lcom/android/settings/wfd/WifiDisplaySettings;->-$$Nest$mshowWifiDisplayOptionsDialog(Lcom/android/settings/wfd/WifiDisplaySettings;Landroid/hardware/display/WifiDisplay;)V
 
     return-void
 .end method

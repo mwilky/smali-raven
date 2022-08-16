@@ -3,11 +3,11 @@
 .source "ZenModeVisEffectsNonePreferenceController.java"
 
 # interfaces
-.implements Lcom/android/settingslib/widget/RadioButtonPreference$OnClickListener;
+.implements Lcom/android/settingslib/widget/SelectorWithWidgetPreference$OnClickListener;
 
 
 # instance fields
-.field private mPreference:Lcom/android/settingslib/widget/RadioButtonPreference;
+.field private mPreference:Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
 
 # direct methods
@@ -34,11 +34,11 @@
 
     move-result-object p1
 
-    check-cast p1, Lcom/android/settingslib/widget/RadioButtonPreference;
+    check-cast p1, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
-    iput-object p1, p0, Lcom/android/settings/notification/zen/ZenModeVisEffectsNonePreferenceController;->mPreference:Lcom/android/settingslib/widget/RadioButtonPreference;
+    iput-object p1, p0, Lcom/android/settings/notification/zen/ZenModeVisEffectsNonePreferenceController;->mPreference:Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
-    invoke-virtual {p1, p0}, Lcom/android/settingslib/widget/RadioButtonPreference;->setOnClickListener(Lcom/android/settingslib/widget/RadioButtonPreference$OnClickListener;)V
+    invoke-virtual {p1, p0}, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;->setOnClickListener(Lcom/android/settingslib/widget/SelectorWithWidgetPreference$OnClickListener;)V
 
     return-void
 .end method
@@ -51,7 +51,7 @@
     return p0
 .end method
 
-.method public onRadioButtonClicked(Lcom/android/settingslib/widget/RadioButtonPreference;)V
+.method public onRadioButtonClicked(Lcom/android/settingslib/widget/SelectorWithWidgetPreference;)V
     .locals 3
 
     iget-object p1, p0, Lcom/android/settings/notification/zen/AbstractZenModePreferenceController;->mMetricsFeatureProvider:Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;
@@ -96,7 +96,7 @@
     const/4 p1, 0x0
 
     :goto_0
-    iget-object p0, p0, Lcom/android/settings/notification/zen/ZenModeVisEffectsNonePreferenceController;->mPreference:Lcom/android/settingslib/widget/RadioButtonPreference;
+    iget-object p0, p0, Lcom/android/settings/notification/zen/ZenModeVisEffectsNonePreferenceController;->mPreference:Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     invoke-virtual {p0, p1}, Landroidx/preference/TwoStatePreference;->setChecked(Z)V
 

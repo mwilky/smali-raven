@@ -31,6 +31,22 @@
     return-void
 .end method
 
+.method static bridge synthetic -$$Nest$fgetmAnnotation(Lcom/android/settings/utils/AnnotationSpan$LinkInfo;)Ljava/lang/String;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/utils/AnnotationSpan$LinkInfo;->mAnnotation:Ljava/lang/String;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmListener(Lcom/android/settings/utils/AnnotationSpan$LinkInfo;)Landroid/view/View$OnClickListener;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/utils/AnnotationSpan$LinkInfo;->mListener:Landroid/view/View$OnClickListener;
+
+    return-object p0
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;Landroid/content/Intent;)V
     .locals 0
 
@@ -108,22 +124,6 @@
     iput-object p1, p0, Lcom/android/settings/utils/AnnotationSpan$LinkInfo;->mActionable:Ljava/lang/Boolean;
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/utils/AnnotationSpan$LinkInfo;)Ljava/lang/String;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/utils/AnnotationSpan$LinkInfo;->mAnnotation:Ljava/lang/String;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/utils/AnnotationSpan$LinkInfo;)Landroid/view/View$OnClickListener;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/utils/AnnotationSpan$LinkInfo;->mListener:Landroid/view/View$OnClickListener;
-
-    return-object p0
 .end method
 
 .method private static synthetic lambda$new$0(Landroid/content/Intent;Landroid/view/View;)V

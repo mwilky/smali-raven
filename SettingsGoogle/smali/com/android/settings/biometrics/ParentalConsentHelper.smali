@@ -251,7 +251,7 @@
 
     const/4 v0, 0x0
 
-    const-string v1, "sensor_modality"
+    const-string/jumbo v1, "sensor_modality"
 
     invoke-virtual {p4, v1, v0}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 

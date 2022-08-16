@@ -47,6 +47,14 @@
 
     const-class v0, Lcom/android/settings/applications/specialaccess/pictureinpicture/PictureInPictureDetails;
 
+    iget-object p1, p0, Lcom/android/settings/applications/specialaccess/pictureinpicture/PictureInPictureSettings$1;->this$0:Lcom/android/settings/applications/specialaccess/pictureinpicture/PictureInPictureSettings;
+
+    const v1, 0x7f040fa6
+
+    invoke-virtual {p1, v1}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
     iget-object v2, p0, Lcom/android/settings/applications/specialaccess/pictureinpicture/PictureInPictureSettings$1;->val$packageName:Ljava/lang/String;
 
     iget-object p1, p0, Lcom/android/settings/applications/specialaccess/pictureinpicture/PictureInPictureSettings$1;->val$appInfo:Landroid/content/pm/ApplicationInfo;
@@ -59,11 +67,9 @@
 
     move-result v6
 
-    const v1, 0x7f040f10
-
     const/4 v5, -0x1
 
-    invoke-static/range {v0 .. v6}, Lcom/android/settings/applications/AppInfoBase;->startAppInfoFragment(Ljava/lang/Class;ILjava/lang/String;ILandroidx/fragment/app/Fragment;II)V
+    invoke-static/range {v0 .. v6}, Lcom/android/settings/applications/AppInfoBase;->startAppInfoFragment(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;ILandroidx/fragment/app/Fragment;II)V
 
     const/4 p0, 0x1
 

@@ -88,7 +88,7 @@
 .end method
 
 .method private isSimSlotStateValid(Landroid/content/Context;)Z
-    .locals 9
+    .locals 10
 
     const-class v0, Landroid/telephony/TelephonyManager;
 
@@ -124,7 +124,7 @@
     :goto_0
     array-length v6, v0
 
-    if-ge v4, v6, :cond_7
+    if-ge v4, v6, :cond_8
 
     aget-object v6, v0, v4
 
@@ -139,7 +139,7 @@
 
     const/4 v8, 0x3
 
-    if-eq v7, v8, :cond_6
+    if-eq v7, v8, :cond_7
 
     invoke-virtual {v6}, Landroid/telephony/UiccSlotInfo;->getCardStateInfo()I
 
@@ -149,7 +149,7 @@
 
     if-ne v7, v8, :cond_2
 
-    goto :goto_2
+    goto :goto_3
 
     :cond_2
     invoke-direct {p0, p1, v4}, Lcom/android/settings/sim/receivers/SimSlotChangeReceiver;->findUiccCardInfoBySlot(Landroid/telephony/TelephonyManager;I)Landroid/telephony/UiccCardInfo;
@@ -158,40 +158,64 @@
 
     if-nez v7, :cond_3
 
-    goto :goto_1
+    goto :goto_2
 
     :cond_3
-    invoke-virtual {v6}, Landroid/telephony/UiccSlotInfo;->getCardId()Ljava/lang/String;
+    invoke-virtual {v7}, Landroid/telephony/UiccCardInfo;->getPorts()Ljava/util/Collection;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-static {v6}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-interface {v7}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
-    move-result v6
-
-    if-eqz v6, :cond_4
-
-    invoke-virtual {v7}, Landroid/telephony/UiccCardInfo;->getIccId()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v6}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v6
-
-    if-nez v6, :cond_5
+    move-result-object v7
 
     :cond_4
-    move v5, v2
+    :goto_1
+    invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v8
+
+    if-eqz v8, :cond_6
+
+    invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v8
+
+    check-cast v8, Landroid/telephony/UiccPortInfo;
+
+    invoke-virtual {v6}, Landroid/telephony/UiccSlotInfo;->getCardId()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v9}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v9
+
+    if-eqz v9, :cond_5
+
+    invoke-virtual {v8}, Landroid/telephony/UiccPortInfo;->getIccId()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v8}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v8
+
+    if-nez v8, :cond_4
 
     :cond_5
-    :goto_1
+    move v5, v2
+
+    goto :goto_1
+
+    :cond_6
+    :goto_2
     add-int/lit8 v4, v4, 0x1
 
     goto :goto_0
 
-    :cond_6
-    :goto_2
+    :cond_7
+    :goto_3
     new-instance p0, Ljava/lang/StringBuilder;
 
     invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
@@ -210,8 +234,8 @@
 
     return v2
 
-    :cond_7
-    if-eqz v5, :cond_8
+    :cond_8
+    if-eqz v5, :cond_9
 
     const-string p0, "All UICC card strings are empty. Drop this event."
 
@@ -219,14 +243,14 @@
 
     return v2
 
-    :cond_8
+    :cond_9
     return v3
 .end method
 
 .method private static synthetic lambda$findUiccCardInfoBySlot$1(ILandroid/telephony/UiccCardInfo;)Z
     .locals 0
 
-    invoke-virtual {p1}, Landroid/telephony/UiccCardInfo;->getSlotIndex()I
+    invoke-virtual {p1}, Landroid/telephony/UiccCardInfo;->getPhysicalSlotIndex()I
 
     move-result p1
 
@@ -272,9 +296,9 @@
 
     invoke-static {p2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    new-instance p0, Lcom/android/settings/sim/receivers/SimSlotChangeReceiver$$ExternalSyntheticLambda0;
+    new-instance p0, Lcom/android/settings/sim/receivers/SimSlotChangeReceiver$$ExternalSyntheticLambda1;
 
-    invoke-direct {p0, p2}, Lcom/android/settings/sim/receivers/SimSlotChangeReceiver$$ExternalSyntheticLambda0;-><init>(Landroid/content/BroadcastReceiver$PendingResult;)V
+    invoke-direct {p0, p2}, Lcom/android/settings/sim/receivers/SimSlotChangeReceiver$$ExternalSyntheticLambda1;-><init>(Landroid/content/BroadcastReceiver$PendingResult;)V
 
     invoke-static {p0}, Lcom/android/settingslib/utils/ThreadUtils;->postOnMainThread(Ljava/lang/Runnable;)V
 
@@ -298,7 +322,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090013
+    const v1, 0x7f090014
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -417,9 +441,9 @@
 
     move-result-object p2
 
-    new-instance v0, Lcom/android/settings/sim/receivers/SimSlotChangeReceiver$$ExternalSyntheticLambda1;
+    new-instance v0, Lcom/android/settings/sim/receivers/SimSlotChangeReceiver$$ExternalSyntheticLambda0;
 
-    invoke-direct {v0, p0, p1, p2}, Lcom/android/settings/sim/receivers/SimSlotChangeReceiver$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/sim/receivers/SimSlotChangeReceiver;Landroid/content/Context;Landroid/content/BroadcastReceiver$PendingResult;)V
+    invoke-direct {v0, p0, p1, p2}, Lcom/android/settings/sim/receivers/SimSlotChangeReceiver$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/sim/receivers/SimSlotChangeReceiver;Landroid/content/Context;Landroid/content/BroadcastReceiver$PendingResult;)V
 
     invoke-static {v0}, Lcom/android/settingslib/utils/ThreadUtils;->postOnBackgroundThread(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;
 

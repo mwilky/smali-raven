@@ -20,6 +20,8 @@
 # instance fields
 .field protected volatile mBluetoothA2dp:Landroid/bluetooth/BluetoothA2dp;
 
+.field mBluetoothAdapter:Landroid/bluetooth/BluetoothAdapter;
+
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;Lcom/android/settings/development/BluetoothA2dpConfigStore;)V
@@ -32,11 +34,63 @@
     invoke-virtual {p2, p0}, Lcom/android/settingslib/core/lifecycle/Lifecycle;->addObserver(Landroidx/lifecycle/LifecycleObserver;)V
 
     :cond_0
+    const-class p2, Landroid/bluetooth/BluetoothManager;
+
+    invoke-virtual {p1, p2}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Landroid/bluetooth/BluetoothManager;
+
+    invoke-virtual {p1}, Landroid/bluetooth/BluetoothManager;->getAdapter()Landroid/bluetooth/BluetoothAdapter;
+
+    move-result-object p1
+
+    iput-object p1, p0, Lcom/android/settings/development/bluetooth/AbstractBluetoothPreferenceController;->mBluetoothAdapter:Landroid/bluetooth/BluetoothAdapter;
+
     return-void
 .end method
 
 
 # virtual methods
+.method protected getA2dpActiveDevice()Landroid/bluetooth/BluetoothDevice;
+    .locals 2
+
+    iget-object p0, p0, Lcom/android/settings/development/bluetooth/AbstractBluetoothPreferenceController;->mBluetoothAdapter:Landroid/bluetooth/BluetoothAdapter;
+
+    const/4 v0, 0x0
+
+    if-nez p0, :cond_0
+
+    return-object v0
+
+    :cond_0
+    const/4 v1, 0x2
+
+    invoke-virtual {p0, v1}, Landroid/bluetooth/BluetoothAdapter;->getActiveDevices(I)Ljava/util/List;
+
+    move-result-object p0
+
+    invoke-interface {p0}, Ljava/util/List;->size()I
+
+    move-result v1
+
+    if-lez v1, :cond_1
+
+    const/4 v0, 0x0
+
+    invoke-interface {p0, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object p0
+
+    move-object v0, p0
+
+    check-cast v0, Landroid/bluetooth/BluetoothDevice;
+
+    :cond_1
+    return-object v0
+.end method
+
 .method public onBluetoothCodecUpdated()V
     .locals 1
 

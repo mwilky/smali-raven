@@ -11,6 +11,10 @@
 .end annotation
 
 
+# static fields
+.field private static final RESOLUTION:J
+
+
 # instance fields
 .field private mEnd:J
 
@@ -36,6 +40,26 @@
     .locals 0
 
     invoke-direct {p0, p1, p2, p3}, Lcom/android/settings/datausage/ChartDataUsagePreference;->lambda$getDensedStatsData$0(Ljava/util/List;Ljava/lang/Integer;Ljava/util/List;)V
+
+    return-void
+.end method
+
+.method static constructor <clinit>()V
+    .locals 4
+
+    sget-object v0, Landroid/util/DataUnit;->MEBIBYTES:Landroid/util/DataUnit;
+
+    const-wide/16 v1, 0x1
+
+    invoke-virtual {v0, v1, v2}, Landroid/util/DataUnit;->toBytes(J)J
+
+    move-result-wide v0
+
+    const-wide/16 v2, 0x2
+
+    div-long/2addr v0, v2
+
+    sput-wide v0, Lcom/android/settings/datausage/ChartDataUsagePreference;->RESOLUTION:J
 
     return-void
 .end method
@@ -71,7 +95,7 @@
 
     iput p1, p0, Lcom/android/settings/datausage/ChartDataUsagePreference;->mWarningColor:I
 
-    const p1, 0x7f0600b8
+    const p1, 0x7f0600b5
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setLayoutResource(I)V
 
@@ -104,7 +128,7 @@
 
     const/4 v7, 0x2
 
-    const v8, 0x7f04076d
+    const v8, 0x7f0407b2
 
     invoke-direct {p0, v1, v2, v8, v5}, Lcom/android/settings/datausage/ChartDataUsagePreference;->getLabel(JII)Ljava/lang/CharSequence;
 
@@ -124,7 +148,7 @@
 
     if-eqz v3, :cond_2
 
-    const-wide/32 v3, 0x80000
+    sget-wide v3, Lcom/android/settings/datausage/ChartDataUsagePreference;->RESOLUTION:J
 
     div-long/2addr v1, v3
 
@@ -154,7 +178,7 @@
 
     iget-wide v1, p2, Landroid/net/NetworkPolicy;->warningBytes:J
 
-    const p2, 0x7f04076e
+    const p2, 0x7f0407b3
 
     invoke-direct {p0, v1, v2, p2, v6}, Lcom/android/settings/datausage/ChartDataUsagePreference;->getLabel(JII)Ljava/lang/CharSequence;
 
@@ -231,7 +255,9 @@
 
     move-result-object v0
 
-    sget-object v1, Lcom/android/settings/datausage/ChartDataUsagePreference$$ExternalSyntheticLambda4;->INSTANCE:Lcom/android/settings/datausage/ChartDataUsagePreference$$ExternalSyntheticLambda4;
+    new-instance v1, Lcom/android/settings/datausage/ChartDataUsagePreference$$ExternalSyntheticLambda4;
+
+    invoke-direct {v1}, Lcom/android/settings/datausage/ChartDataUsagePreference$$ExternalSyntheticLambda4;-><init>()V
 
     invoke-interface {v0, v1}, Ljava/util/stream/Stream;->mapToLong(Ljava/util/function/ToLongFunction;)Ljava/util/stream/LongStream;
 
@@ -249,7 +275,9 @@
 
     move-result-object v0
 
-    sget-object v1, Lcom/android/settings/datausage/ChartDataUsagePreference$$ExternalSyntheticLambda3;->INSTANCE:Lcom/android/settings/datausage/ChartDataUsagePreference$$ExternalSyntheticLambda3;
+    new-instance v1, Lcom/android/settings/datausage/ChartDataUsagePreference$$ExternalSyntheticLambda5;
+
+    invoke-direct {v1}, Lcom/android/settings/datausage/ChartDataUsagePreference$$ExternalSyntheticLambda5;-><init>()V
 
     invoke-interface {v0, v1}, Ljava/util/stream/Stream;->mapToLong(Ljava/util/function/ToLongFunction;)Ljava/util/stream/LongStream;
 
@@ -339,7 +367,7 @@
 
     aput-object v1, v3, v11
 
-    const v0, 0x7f040737
+    const v0, 0x7f04077c
 
     invoke-virtual {v2, v0, v3}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -454,7 +482,7 @@
     :goto_3
     iget-object p0, p0, Lcom/android/settings/datausage/ChartDataUsagePreference;->mResources:Landroid/content/res/Resources;
 
-    const p2, 0x7f040738
+    const p2, 0x7f04077d
 
     invoke-virtual {p0, p2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -585,21 +613,25 @@
 
     move-result v5
 
-    const-wide/32 v6, 0x80000
+    sget-wide v6, Lcom/android/settings/datausage/ChartDataUsagePreference;->RESOLUTION:J
 
-    div-long v6, v3, v6
+    div-long v11, v3, v6
 
-    long-to-int v6, v6
+    long-to-int v8, v11
 
-    invoke-virtual {v0, v5, v6}, Landroid/util/SparseIntArray;->put(II)V
+    invoke-virtual {v0, v5, v8}, Landroid/util/SparseIntArray;->put(II)V
 
-    iget-wide v7, p0, Lcom/android/settings/datausage/ChartDataUsagePreference;->mStart:J
+    iget-wide v11, p0, Lcom/android/settings/datausage/ChartDataUsagePreference;->mStart:J
 
-    sub-long/2addr v9, v7
+    sub-long/2addr v9, v11
 
     invoke-direct {p0, v9, v10}, Lcom/android/settings/datausage/ChartDataUsagePreference;->toInt(J)I
 
     move-result v5
+
+    div-long v6, v3, v6
+
+    long-to-int v6, v6
 
     invoke-virtual {v0, v5, v6}, Landroid/util/SparseIntArray;->put(II)V
 
@@ -641,7 +673,9 @@
 
     move-result-object v1
 
-    sget-object v2, Lcom/android/settings/datausage/ChartDataUsagePreference$$ExternalSyntheticLambda5;->INSTANCE:Lcom/android/settings/datausage/ChartDataUsagePreference$$ExternalSyntheticLambda5;
+    new-instance v2, Lcom/android/settings/datausage/ChartDataUsagePreference$$ExternalSyntheticLambda0;
+
+    invoke-direct {v2}, Lcom/android/settings/datausage/ChartDataUsagePreference$$ExternalSyntheticLambda0;-><init>()V
 
     invoke-interface {v1, v2}, Ljava/util/stream/Stream;->mapToLong(Ljava/util/function/ToLongFunction;)Ljava/util/stream/LongStream;
 
@@ -715,7 +749,9 @@
 
     move-result-object v0
 
-    sget-object v1, Lcom/android/settings/datausage/ChartDataUsagePreference$$ExternalSyntheticLambda1;->INSTANCE:Lcom/android/settings/datausage/ChartDataUsagePreference$$ExternalSyntheticLambda1;
+    new-instance v1, Lcom/android/settings/datausage/ChartDataUsagePreference$$ExternalSyntheticLambda1;
+
+    invoke-direct {v1}, Lcom/android/settings/datausage/ChartDataUsagePreference$$ExternalSyntheticLambda1;-><init>()V
 
     invoke-static {v1}, Ljava/util/stream/Collectors;->groupingBy(Ljava/util/function/Function;)Ljava/util/stream/Collector;
 
@@ -731,11 +767,11 @@
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
-    new-instance v2, Lcom/android/settings/datausage/ChartDataUsagePreference$$ExternalSyntheticLambda0;
+    new-instance v2, Lcom/android/settings/datausage/ChartDataUsagePreference$$ExternalSyntheticLambda2;
 
     move-object/from16 v3, p0
 
-    invoke-direct {v2, v3, v1}, Lcom/android/settings/datausage/ChartDataUsagePreference$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/datausage/ChartDataUsagePreference;Ljava/util/List;)V
+    invoke-direct {v2, v3, v1}, Lcom/android/settings/datausage/ChartDataUsagePreference$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/datausage/ChartDataUsagePreference;Ljava/util/List;)V
 
     invoke-interface {v0, v2}, Ljava/util/Map;->forEach(Ljava/util/function/BiConsumer;)V
 
@@ -743,7 +779,9 @@
 
     move-result-object v0
 
-    sget-object v1, Lcom/android/settings/datausage/ChartDataUsagePreference$$ExternalSyntheticLambda2;->INSTANCE:Lcom/android/settings/datausage/ChartDataUsagePreference$$ExternalSyntheticLambda2;
+    new-instance v1, Lcom/android/settings/datausage/ChartDataUsagePreference$$ExternalSyntheticLambda3;
+
+    invoke-direct {v1}, Lcom/android/settings/datausage/ChartDataUsagePreference$$ExternalSyntheticLambda3;-><init>()V
 
     invoke-static {v1}, Ljava/util/Comparator;->comparingInt(Ljava/util/function/ToIntFunction;)Ljava/util/Comparator;
 
@@ -813,7 +851,7 @@
 
     move-result-wide v0
 
-    const-wide/32 v2, 0x80000
+    sget-wide v2, Lcom/android/settings/datausage/ChartDataUsagePreference;->RESOLUTION:J
 
     div-long/2addr v0, v2
 
@@ -827,7 +865,7 @@
 
     invoke-super {p0, p1}, Landroidx/preference/Preference;->onBindViewHolder(Landroidx/preference/PreferenceViewHolder;)V
 
-    const v0, 0x7f0d01a5
+    const v0, 0x7f0d01ba
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 

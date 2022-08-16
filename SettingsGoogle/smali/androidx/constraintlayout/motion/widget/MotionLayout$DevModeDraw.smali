@@ -306,22 +306,20 @@
 
     iget-object v3, p0, Landroidx/constraintlayout/motion/widget/MotionLayout$DevModeDraw;->mPathMode:[I
 
-    aget v4, v3, v0
-
-    const/4 v5, 0x1
-
-    if-ne v4, v5, :cond_0
-
-    move v1, v5
-
-    :cond_0
     aget v3, v3, v0
 
-    const/4 v4, 0x2
+    const/4 v4, 0x1
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_0
 
-    move v2, v5
+    move v1, v4
+
+    :cond_0
+    const/4 v5, 0x2
+
+    if-ne v3, v5, :cond_1
+
+    move v2, v4
 
     :cond_1
     add-int/lit8 v0, v0, 0x1
@@ -1255,9 +1253,9 @@
 
     iget-object v0, v6, Landroidx/constraintlayout/motion/widget/MotionLayout$DevModeDraw;->mPathMode:[I
 
-    aget v2, v0, v1
+    aget v0, v0, v1
 
-    if-ne v2, v13, :cond_3
+    if-ne v0, v13, :cond_3
 
     sub-float v0, v5, v16
 
@@ -1276,9 +1274,7 @@
     goto :goto_3
 
     :cond_3
-    aget v2, v0, v1
-
-    if-ne v2, v15, :cond_4
+    if-ne v0, v15, :cond_4
 
     sub-float v0, v5, v16
 
@@ -1289,8 +1285,6 @@
     goto :goto_2
 
     :cond_4
-    aget v0, v0, v1
-
     if-ne v0, v3, :cond_2
 
     sub-float v2, v5, v16

@@ -24,17 +24,6 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/Object;Landroidx/dynamicanimation/animation/FloatPropertyCompat;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "object",
-            "property"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -125,14 +114,6 @@
 # virtual methods
 .method public animateToFinalPosition(F)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "finalPosition"
-        }
-    .end annotation
 
     invoke-virtual {p0}, Landroidx/dynamicanimation/animation/DynamicAnimation;->isRunning()Z
 
@@ -166,53 +147,32 @@
     return-void
 .end method
 
-.method public cancel()V
-    .locals 3
+.method public canSkipToEnd()Z
+    .locals 4
 
-    invoke-super {p0}, Landroidx/dynamicanimation/animation/DynamicAnimation;->cancel()V
+    iget-object p0, p0, Landroidx/dynamicanimation/animation/SpringAnimation;->mSpring:Landroidx/dynamicanimation/animation/SpringForce;
 
-    iget v0, p0, Landroidx/dynamicanimation/animation/SpringAnimation;->mPendingPosition:F
+    iget-wide v0, p0, Landroidx/dynamicanimation/animation/SpringForce;->mDampingRatio:D
 
-    const v1, 0x7f7fffff    # Float.MAX_VALUE
+    const-wide/16 v2, 0x0
 
-    cmpl-float v2, v0, v1
+    cmpl-double p0, v0, v2
 
-    if-eqz v2, :cond_1
+    if-lez p0, :cond_0
 
-    iget-object v2, p0, Landroidx/dynamicanimation/animation/SpringAnimation;->mSpring:Landroidx/dynamicanimation/animation/SpringForce;
-
-    if-nez v2, :cond_0
-
-    new-instance v2, Landroidx/dynamicanimation/animation/SpringForce;
-
-    invoke-direct {v2, v0}, Landroidx/dynamicanimation/animation/SpringForce;-><init>(F)V
-
-    iput-object v2, p0, Landroidx/dynamicanimation/animation/SpringAnimation;->mSpring:Landroidx/dynamicanimation/animation/SpringForce;
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    invoke-virtual {v2, v0}, Landroidx/dynamicanimation/animation/SpringForce;->setFinalPosition(F)Landroidx/dynamicanimation/animation/SpringForce;
+    const/4 p0, 0x0
 
     :goto_0
-    iput v1, p0, Landroidx/dynamicanimation/animation/SpringAnimation;->mPendingPosition:F
-
-    :cond_1
-    return-void
+    return p0
 .end method
 
 .method isAtEquilibrium(FF)Z
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "value",
-            "velocity"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/dynamicanimation/animation/SpringAnimation;->mSpring:Landroidx/dynamicanimation/animation/SpringForce;
 
@@ -225,18 +185,59 @@
 
 .method public setSpring(Landroidx/dynamicanimation/animation/SpringForce;)Landroidx/dynamicanimation/animation/SpringAnimation;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "force"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/dynamicanimation/animation/SpringAnimation;->mSpring:Landroidx/dynamicanimation/animation/SpringForce;
 
     return-object p0
+.end method
+
+.method public skipToEnd()V
+    .locals 1
+
+    invoke-virtual {p0}, Landroidx/dynamicanimation/animation/SpringAnimation;->canSkipToEnd()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    invoke-virtual {p0}, Landroidx/dynamicanimation/animation/DynamicAnimation;->getAnimationHandler()Landroidx/dynamicanimation/animation/AnimationHandler;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroidx/dynamicanimation/animation/AnimationHandler;->isCurrentThread()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    iget-boolean v0, p0, Landroidx/dynamicanimation/animation/DynamicAnimation;->mRunning:Z
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Landroidx/dynamicanimation/animation/SpringAnimation;->mEndRequested:Z
+
+    :cond_0
+    return-void
+
+    :cond_1
+    new-instance p0, Landroid/util/AndroidRuntimeException;
+
+    const-string v0, "Animations may only be started on the same thread as the animation handler"
+
+    invoke-direct {p0, v0}, Landroid/util/AndroidRuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+
+    :cond_2
+    new-instance p0, Ljava/lang/UnsupportedOperationException;
+
+    const-string v0, "Spring animations can only come to an end when there is damping"
+
+    invoke-direct {p0, v0}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+
+    throw p0
 .end method
 
 .method public start()V
@@ -261,14 +262,6 @@
 
 .method updateValueAndVelocity(J)Z
     .locals 20
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "deltaT"
-        }
-    .end annotation
 
     move-object/from16 v0, p0
 

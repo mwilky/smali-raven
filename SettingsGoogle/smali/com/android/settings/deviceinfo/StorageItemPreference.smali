@@ -12,6 +12,24 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$C_29wY1A9awaXoqy91-nLxzdjr8(Lcom/android/settings/deviceinfo/StorageItemPreference;JLandroid/animation/ValueAnimator;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/settings/deviceinfo/StorageItemPreference;->lambda$setStorageSize$1(JLandroid/animation/ValueAnimator;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$S6_7RuVDkO9didILylqGngm4Fqc(FLjava/lang/Long;Ljava/lang/Long;)Ljava/lang/Long;
+    .locals 0
+
+    invoke-static {p0, p1, p2}, Lcom/android/settings/deviceinfo/StorageItemPreference;->lambda$setStorageSize$0(FLjava/lang/Long;Ljava/lang/Long;)Ljava/lang/Long;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
 
@@ -31,9 +49,118 @@
 
     iput p1, p0, Lcom/android/settings/deviceinfo/StorageItemPreference;->mProgressPercent:I
 
-    const p1, 0x7f060225
+    const p1, 0x7f060232
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setLayoutResource(I)V
+
+    return-void
+.end method
+
+.method private static synthetic lambda$setStorageSize$0(FLjava/lang/Long;Ljava/lang/Long;)Ljava/lang/Long;
+    .locals 4
+
+    const/high16 v0, 0x3f800000    # 1.0f
+
+    cmpl-float v0, p0, v0
+
+    if-ltz v0, :cond_0
+
+    invoke-virtual {p2}, Ljava/lang/Long;->longValue()J
+
+    move-result-wide v0
+
+    const-wide/16 v2, 0x0
+
+    cmp-long v0, v0, v2
+
+    if-nez v0, :cond_0
+
+    return-object p2
+
+    :cond_0
+    invoke-virtual {p1}, Ljava/lang/Long;->longValue()J
+
+    move-result-wide v0
+
+    invoke-virtual {p2}, Ljava/lang/Long;->longValue()J
+
+    move-result-wide v2
+
+    invoke-virtual {p1}, Ljava/lang/Long;->longValue()J
+
+    move-result-wide p1
+
+    sub-long/2addr v2, p1
+
+    long-to-float p1, v2
+
+    mul-float/2addr p0, p1
+
+    float-to-long p0, p0
+
+    add-long/2addr v0, p0
+
+    invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private synthetic lambda$setStorageSize$1(JLandroid/animation/ValueAnimator;)V
+    .locals 2
+
+    invoke-virtual {p3}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
+
+    move-result-object p3
+
+    check-cast p3, Ljava/lang/Long;
+
+    invoke-virtual {p3}, Ljava/lang/Long;->longValue()J
+
+    move-result-wide v0
+
+    invoke-direct {p0, v0, v1, p1, p2}, Lcom/android/settings/deviceinfo/StorageItemPreference;->updateProgressBarAndSizeInfo(JJ)V
+
+    return-void
+.end method
+
+.method private updateProgressBarAndSizeInfo(JJ)V
+    .locals 2
+
+    invoke-virtual {p0}, Landroidx/preference/Preference;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-static {v0, p1, p2}, Lcom/android/settings/deviceinfo/storage/StorageUtils;->getStorageSizeLabel(Landroid/content/Context;J)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Landroidx/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
+
+    const-wide/16 v0, 0x0
+
+    cmp-long v0, p3, v0
+
+    if-nez v0, :cond_0
+
+    const/4 p1, 0x0
+
+    goto :goto_0
+
+    :cond_0
+    const-wide/16 v0, 0x64
+
+    mul-long/2addr p1, v0
+
+    div-long/2addr p1, p3
+
+    long-to-int p1, p1
+
+    :goto_0
+    iput p1, p0, Lcom/android/settings/deviceinfo/StorageItemPreference;->mProgressPercent:I
+
+    invoke-virtual {p0}, Lcom/android/settings/deviceinfo/StorageItemPreference;->updateProgressBar()V
 
     return-void
 .end method
@@ -68,46 +195,60 @@
     return-void
 .end method
 
-.method public setStorageSize(JJ)V
-    .locals 2
+.method public setStorageSize(JJZ)V
+    .locals 4
 
-    iput-wide p1, p0, Lcom/android/settings/deviceinfo/StorageItemPreference;->mStorageSize:J
+    if-eqz p5, :cond_0
 
-    invoke-virtual {p0}, Landroidx/preference/Preference;->getContext()Landroid/content/Context;
+    new-instance p5, Lcom/android/settings/deviceinfo/StorageItemPreference$$ExternalSyntheticLambda0;
 
-    move-result-object v0
+    invoke-direct {p5}, Lcom/android/settings/deviceinfo/StorageItemPreference$$ExternalSyntheticLambda0;-><init>()V
 
-    invoke-static {v0, p1, p2}, Lcom/android/settings/deviceinfo/storage/StorageUtils;->getStorageSizeLabel(Landroid/content/Context;J)Ljava/lang/String;
+    const/4 v0, 0x2
 
-    move-result-object v0
+    new-array v0, v0, [Ljava/lang/Object;
 
-    invoke-virtual {p0, v0}, Landroidx/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
+    const/4 v1, 0x0
 
-    const-wide/16 v0, 0x0
+    iget-wide v2, p0, Lcom/android/settings/deviceinfo/StorageItemPreference;->mStorageSize:J
 
-    cmp-long v0, p3, v0
+    invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    if-nez v0, :cond_0
+    move-result-object v2
 
-    const/4 p1, 0x0
+    aput-object v2, v0, v1
 
-    iput p1, p0, Lcom/android/settings/deviceinfo/StorageItemPreference;->mProgressPercent:I
+    const/4 v1, 0x1
+
+    invoke-static {p1, p2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v2
+
+    aput-object v2, v0, v1
+
+    invoke-static {p5, v0}, Landroid/animation/ValueAnimator;->ofObject(Landroid/animation/TypeEvaluator;[Ljava/lang/Object;)Landroid/animation/ValueAnimator;
+
+    move-result-object p5
+
+    const-wide/16 v0, 0x3e8
+
+    invoke-virtual {p5, v0, v1}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
+
+    new-instance v0, Lcom/android/settings/deviceinfo/StorageItemPreference$$ExternalSyntheticLambda1;
+
+    invoke-direct {v0, p0, p3, p4}, Lcom/android/settings/deviceinfo/StorageItemPreference$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/deviceinfo/StorageItemPreference;J)V
+
+    invoke-virtual {p5, v0}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
+
+    invoke-virtual {p5}, Landroid/animation/ValueAnimator;->start()V
 
     goto :goto_0
 
     :cond_0
-    const-wide/16 v0, 0x64
-
-    mul-long/2addr p1, v0
-
-    div-long/2addr p1, p3
-
-    long-to-int p1, p1
-
-    iput p1, p0, Lcom/android/settings/deviceinfo/StorageItemPreference;->mProgressPercent:I
+    invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/settings/deviceinfo/StorageItemPreference;->updateProgressBarAndSizeInfo(JJ)V
 
     :goto_0
-    invoke-virtual {p0}, Lcom/android/settings/deviceinfo/StorageItemPreference;->updateProgressBar()V
+    iput-wide p1, p0, Lcom/android/settings/deviceinfo/StorageItemPreference;->mStorageSize:J
 
     return-void
 .end method

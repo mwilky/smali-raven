@@ -33,7 +33,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settings/notification/RingVolumePreferenceController;Lcom/android/settings/notification/RingVolumePreferenceController$1;)V
+.method synthetic constructor <init>(Lcom/android/settings/notification/RingVolumePreferenceController;Lcom/android/settings/notification/RingVolumePreferenceController$H-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settings/notification/RingVolumePreferenceController$H;-><init>(Lcom/android/settings/notification/RingVolumePreferenceController;)V
@@ -61,14 +61,14 @@
     :cond_0
     iget-object p0, p0, Lcom/android/settings/notification/RingVolumePreferenceController$H;->this$0:Lcom/android/settings/notification/RingVolumePreferenceController;
 
-    invoke-static {p0}, Lcom/android/settings/notification/RingVolumePreferenceController;->access$300(Lcom/android/settings/notification/RingVolumePreferenceController;)V
+    invoke-static {p0}, Lcom/android/settings/notification/RingVolumePreferenceController;->-$$Nest$mupdateRingerMode(Lcom/android/settings/notification/RingVolumePreferenceController;)V
 
     goto :goto_0
 
     :cond_1
     iget-object p0, p0, Lcom/android/settings/notification/RingVolumePreferenceController$H;->this$0:Lcom/android/settings/notification/RingVolumePreferenceController;
 
-    invoke-static {p0}, Lcom/android/settings/notification/RingVolumePreferenceController;->access$200(Lcom/android/settings/notification/RingVolumePreferenceController;)V
+    invoke-static {p0}, Lcom/android/settings/notification/RingVolumePreferenceController;->-$$Nest$mupdateEffectsSuppressor(Lcom/android/settings/notification/RingVolumePreferenceController;)V
 
     :goto_0
     return-void

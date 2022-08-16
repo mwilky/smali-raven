@@ -67,13 +67,19 @@
     invoke-interface {v0, v1, p1}, Lcom/android/settings/password/SaveChosenLockWorkerBase$Listener;->onChosenLockSaveFinished(ZLandroid/content/Intent;)V
 
     :cond_0
-    iget-object p0, p0, Lcom/android/settings/password/SaveChosenLockWorkerBase;->mUnificationProfileCredential:Lcom/android/internal/widget/LockscreenCredential;
+    iget-object p1, p0, Lcom/android/settings/password/SaveChosenLockWorkerBase;->mUnificationProfileCredential:Lcom/android/internal/widget/LockscreenCredential;
 
-    if-eqz p0, :cond_1
+    if-eqz p1, :cond_1
 
-    invoke-virtual {p0}, Lcom/android/internal/widget/LockscreenCredential;->zeroize()V
+    invoke-virtual {p1}, Lcom/android/internal/widget/LockscreenCredential;->zeroize()V
 
     :cond_1
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
+
+    move-result-object p0
+
+    invoke-static {p0}, Lcom/android/settings/safetycenter/LockScreenSafetySource;->onLockScreenChange(Landroid/content/Context;)V
+
     return-void
 .end method
 
@@ -229,7 +235,7 @@
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, p0, v1}, Lcom/android/settings/password/SaveChosenLockWorkerBase$Task;-><init>(Lcom/android/settings/password/SaveChosenLockWorkerBase;Lcom/android/settings/password/SaveChosenLockWorkerBase$1;)V
+    invoke-direct {v0, p0, v1}, Lcom/android/settings/password/SaveChosenLockWorkerBase$Task;-><init>(Lcom/android/settings/password/SaveChosenLockWorkerBase;Lcom/android/settings/password/SaveChosenLockWorkerBase$Task-IA;)V
 
     const/4 p0, 0x0
 

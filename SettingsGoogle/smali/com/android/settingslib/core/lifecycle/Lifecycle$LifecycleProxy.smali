@@ -32,7 +32,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settingslib/core/lifecycle/Lifecycle;Lcom/android/settingslib/core/lifecycle/Lifecycle$1;)V
+.method synthetic constructor <init>(Lcom/android/settingslib/core/lifecycle/Lifecycle;Lcom/android/settingslib/core/lifecycle/Lifecycle$LifecycleProxy-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settingslib/core/lifecycle/Lifecycle$LifecycleProxy;-><init>(Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
@@ -72,35 +72,35 @@
     :pswitch_1
     iget-object p0, p0, Lcom/android/settingslib/core/lifecycle/Lifecycle$LifecycleProxy;->this$0:Lcom/android/settingslib/core/lifecycle/Lifecycle;
 
-    invoke-static {p0}, Lcom/android/settingslib/core/lifecycle/Lifecycle;->access$500(Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
+    invoke-static {p0}, Lcom/android/settingslib/core/lifecycle/Lifecycle;->-$$Nest$monDestroy(Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
 
     goto :goto_0
 
     :pswitch_2
     iget-object p0, p0, Lcom/android/settingslib/core/lifecycle/Lifecycle$LifecycleProxy;->this$0:Lcom/android/settingslib/core/lifecycle/Lifecycle;
 
-    invoke-static {p0}, Lcom/android/settingslib/core/lifecycle/Lifecycle;->access$400(Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
+    invoke-static {p0}, Lcom/android/settingslib/core/lifecycle/Lifecycle;->-$$Nest$monStop(Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
 
     goto :goto_0
 
     :pswitch_3
     iget-object p0, p0, Lcom/android/settingslib/core/lifecycle/Lifecycle$LifecycleProxy;->this$0:Lcom/android/settingslib/core/lifecycle/Lifecycle;
 
-    invoke-static {p0}, Lcom/android/settingslib/core/lifecycle/Lifecycle;->access$300(Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
+    invoke-static {p0}, Lcom/android/settingslib/core/lifecycle/Lifecycle;->-$$Nest$monPause(Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
 
     goto :goto_0
 
     :pswitch_4
     iget-object p0, p0, Lcom/android/settingslib/core/lifecycle/Lifecycle$LifecycleProxy;->this$0:Lcom/android/settingslib/core/lifecycle/Lifecycle;
 
-    invoke-static {p0}, Lcom/android/settingslib/core/lifecycle/Lifecycle;->access$200(Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
+    invoke-static {p0}, Lcom/android/settingslib/core/lifecycle/Lifecycle;->-$$Nest$monResume(Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
 
     goto :goto_0
 
     :pswitch_5
     iget-object p0, p0, Lcom/android/settingslib/core/lifecycle/Lifecycle$LifecycleProxy;->this$0:Lcom/android/settingslib/core/lifecycle/Lifecycle;
 
-    invoke-static {p0}, Lcom/android/settingslib/core/lifecycle/Lifecycle;->access$100(Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
+    invoke-static {p0}, Lcom/android/settingslib/core/lifecycle/Lifecycle;->-$$Nest$monStart(Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
 
     :goto_0
     return-void

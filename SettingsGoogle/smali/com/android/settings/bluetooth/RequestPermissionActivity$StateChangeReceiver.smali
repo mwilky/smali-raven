@@ -74,7 +74,7 @@
 
     iget-object p0, p0, Lcom/android/settings/bluetooth/RequestPermissionActivity$StateChangeReceiver;->this$0:Lcom/android/settings/bluetooth/RequestPermissionActivity;
 
-    invoke-static {p0}, Lcom/android/settings/bluetooth/RequestPermissionActivity;->access$200(Lcom/android/settings/bluetooth/RequestPermissionActivity;)V
+    invoke-static {p0}, Lcom/android/settings/bluetooth/RequestPermissionActivity;->-$$Nest$mcancelAndFinish(Lcom/android/settings/bluetooth/RequestPermissionActivity;)V
 
     :cond_0
     return-void
@@ -100,7 +100,7 @@
 
     iget-object p2, p0, Lcom/android/settings/bluetooth/RequestPermissionActivity$StateChangeReceiver;->this$0:Lcom/android/settings/bluetooth/RequestPermissionActivity;
 
-    invoke-static {p2}, Lcom/android/settings/bluetooth/RequestPermissionActivity;->access$000(Lcom/android/settings/bluetooth/RequestPermissionActivity;)I
+    invoke-static {p2}, Lcom/android/settings/bluetooth/RequestPermissionActivity;->-$$Nest$fgetmRequest(Lcom/android/settings/bluetooth/RequestPermissionActivity;)I
 
     move-result p2
 
@@ -125,7 +125,7 @@
 
     iget-object p0, p0, Lcom/android/settings/bluetooth/RequestPermissionActivity$StateChangeReceiver;->this$0:Lcom/android/settings/bluetooth/RequestPermissionActivity;
 
-    invoke-static {p0}, Lcom/android/settings/bluetooth/RequestPermissionActivity;->access$100(Lcom/android/settings/bluetooth/RequestPermissionActivity;)V
+    invoke-static {p0}, Lcom/android/settings/bluetooth/RequestPermissionActivity;->-$$Nest$mproceedAndFinish(Lcom/android/settings/bluetooth/RequestPermissionActivity;)V
 
     goto :goto_0
 
@@ -136,7 +136,7 @@
 
     iget-object p0, p0, Lcom/android/settings/bluetooth/RequestPermissionActivity$StateChangeReceiver;->this$0:Lcom/android/settings/bluetooth/RequestPermissionActivity;
 
-    invoke-static {p0}, Lcom/android/settings/bluetooth/RequestPermissionActivity;->access$100(Lcom/android/settings/bluetooth/RequestPermissionActivity;)V
+    invoke-static {p0}, Lcom/android/settings/bluetooth/RequestPermissionActivity;->-$$Nest$mproceedAndFinish(Lcom/android/settings/bluetooth/RequestPermissionActivity;)V
 
     :cond_3
     :goto_0

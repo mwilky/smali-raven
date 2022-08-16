@@ -44,6 +44,4 @@
 
 .field public static final abc_search_view:I = 0x7f06001a
 
-.field public static final abc_tooltip:I = 0x7f06002f
-
-.field public static final support_simple_spinner_dropdown_item:I = 0x7f060271
+.field public static final support_simple_spinner_dropdown_item:I = 0x7f06027f

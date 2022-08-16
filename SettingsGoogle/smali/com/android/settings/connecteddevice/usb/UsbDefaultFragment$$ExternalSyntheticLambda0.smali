@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settings/connecteddevice/usb/UsbDefaultFragment$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/settings/connecteddevice/usb/UsbConnectionBroadcastReceiver$UsbConnectionListener;
@@ -22,8 +23,8 @@
 
 
 # virtual methods
-.method public final onUsbConnectionChanged(ZJII)V
-    .locals 6
+.method public final onUsbConnectionChanged(ZJIIZ)V
+    .locals 7
 
     iget-object v0, p0, Lcom/android/settings/connecteddevice/usb/UsbDefaultFragment$$ExternalSyntheticLambda0;->f$0:Lcom/android/settings/connecteddevice/usb/UsbDefaultFragment;
 
@@ -35,7 +36,9 @@
 
     move v5, p5
 
-    invoke-static/range {v0 .. v5}, Lcom/android/settings/connecteddevice/usb/UsbDefaultFragment;->$r8$lambda$u6VHd0vO93yma-FOaPJQYmANie8(Lcom/android/settings/connecteddevice/usb/UsbDefaultFragment;ZJII)V
+    move v6, p6
+
+    invoke-static/range {v0 .. v6}, Lcom/android/settings/connecteddevice/usb/UsbDefaultFragment;->$r8$lambda$1miThqvc140wUw9J1h76W_YOjq0(Lcom/android/settings/connecteddevice/usb/UsbDefaultFragment;ZJIIZ)V
 
     return-void
 .end method

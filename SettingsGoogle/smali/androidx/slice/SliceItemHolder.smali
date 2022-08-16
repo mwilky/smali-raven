@@ -54,14 +54,6 @@
 
 .method constructor <init>(Landroidx/slice/SliceItemHolder$SliceItemPool;)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "pool"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -90,18 +82,6 @@
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/Object;Z)V
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "format",
-            "mObj",
-            "isStream"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -405,14 +385,6 @@
 # virtual methods
 .method public getObj(Ljava/lang/String;)Ljava/lang/Object;
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "format"
-        }
-    .end annotation
 
     sget-object v0, Landroidx/slice/SliceItemHolder;->sHandler:Landroidx/slice/SliceItemHolder$HolderHandler;
 

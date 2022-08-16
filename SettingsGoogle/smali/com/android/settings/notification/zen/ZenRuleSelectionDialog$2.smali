@@ -45,7 +45,7 @@
         }
     .end annotation
 
-    invoke-static {}, Lcom/android/settings/notification/zen/ZenRuleSelectionDialog;->access$000()Z
+    invoke-static {}, Lcom/android/settings/notification/zen/ZenRuleSelectionDialog;->-$$Nest$sfgetDEBUG()Z
 
     move-result v0
 
@@ -76,7 +76,7 @@
     :cond_0
     new-instance v0, Ljava/util/TreeSet;
 
-    invoke-static {}, Lcom/android/settings/notification/zen/ZenRuleSelectionDialog;->access$100()Ljava/util/Comparator;
+    invoke-static {}, Lcom/android/settings/notification/zen/ZenRuleSelectionDialog;->-$$Nest$sfgetRULE_TYPE_COMPARATOR()Ljava/util/Comparator;
 
     move-result-object v1
 
@@ -100,7 +100,7 @@
 
     check-cast v1, Landroid/content/pm/ComponentInfo;
 
-    invoke-static {}, Lcom/android/settings/notification/zen/ZenRuleSelectionDialog;->access$200()Landroid/content/pm/PackageManager;
+    invoke-static {}, Lcom/android/settings/notification/zen/ZenRuleSelectionDialog;->-$$Nest$sfgetmPm()Landroid/content/pm/PackageManager;
 
     move-result-object v2
 
@@ -114,7 +114,7 @@
 
     if-eqz v3, :cond_1
 
-    invoke-static {}, Lcom/android/settings/notification/zen/ZenRuleSelectionDialog;->access$300()Landroid/app/NotificationManager;
+    invoke-static {}, Lcom/android/settings/notification/zen/ZenRuleSelectionDialog;->-$$Nest$sfgetmNm()Landroid/app/NotificationManager;
 
     move-result-object v3
 
@@ -130,7 +130,7 @@
 
     if-lez v3, :cond_2
 
-    invoke-static {}, Lcom/android/settings/notification/zen/ZenRuleSelectionDialog;->access$300()Landroid/app/NotificationManager;
+    invoke-static {}, Lcom/android/settings/notification/zen/ZenRuleSelectionDialog;->-$$Nest$sfgetmNm()Landroid/app/NotificationManager;
 
     move-result-object v4
 
@@ -154,7 +154,7 @@
     :cond_3
     iget-object p0, p0, Lcom/android/settings/notification/zen/ZenRuleSelectionDialog$2;->this$0:Lcom/android/settings/notification/zen/ZenRuleSelectionDialog;
 
-    invoke-static {p0, v0}, Lcom/android/settings/notification/zen/ZenRuleSelectionDialog;->access$400(Lcom/android/settings/notification/zen/ZenRuleSelectionDialog;Ljava/util/Set;)V
+    invoke-static {p0, v0}, Lcom/android/settings/notification/zen/ZenRuleSelectionDialog;->-$$Nest$mbindExternalRules(Lcom/android/settings/notification/zen/ZenRuleSelectionDialog;Ljava/util/Set;)V
 
     return-void
 .end method

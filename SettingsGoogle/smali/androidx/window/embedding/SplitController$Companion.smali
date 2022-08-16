@@ -109,7 +109,7 @@
 
     invoke-direct {v0}, Landroidx/window/embedding/SplitRuleParser;-><init>()V
 
-    invoke-virtual {v0, p1, p2}, Landroidx/window/embedding/SplitRuleParser;->parseSplitRules$window_debug(Landroid/content/Context;I)Ljava/util/Set;
+    invoke-virtual {v0, p1, p2}, Landroidx/window/embedding/SplitRuleParser;->parseSplitRules$window_release(Landroid/content/Context;I)Ljava/util/Set;
 
     move-result-object p1
 

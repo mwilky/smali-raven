@@ -20,7 +20,7 @@
 
     new-instance v0, Lcom/android/settings/notification/SoundWorkSettings$1;
 
-    const v1, 0x7f1500e4
+    const v1, 0x7f1500e9
 
     invoke-direct {v0, v1}, Lcom/android/settings/notification/SoundWorkSettings$1;-><init>(I)V
 
@@ -176,7 +176,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f1500e4
+    const p0, 0x7f1500e9
 
     return p0
 .end method
@@ -207,7 +207,7 @@
 
     const/4 v0, 0x0
 
-    const-string v1, "selected_preference"
+    const-string/jumbo v1, "selected_preference"
 
     invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
@@ -228,6 +228,50 @@
     iput-object p1, p0, Lcom/android/settings/notification/SoundWorkSettings;->mRequestPreference:Lcom/android/settings/RingtonePreference;
 
     :cond_0
+    const p1, 0x7f041376
+
+    const-string v0, "Settings.WORK_PROFILE_SOUND_SETTINGS_SECTION_HEADER"
+
+    invoke-virtual {p0, v0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->replaceEnterprisePreferenceScreenTitle(Ljava/lang/String;I)V
+
+    const p1, 0x7f0418ac
+
+    const-string/jumbo v0, "work_use_personal_sounds"
+
+    const-string v1, "Settings.WORK_PROFILE_USE_PERSONAL_SOUNDS_TITLE"
+
+    invoke-virtual {p0, v0, v1, p1}, Lcom/android/settings/SettingsPreferenceFragment;->replaceEnterpriseStringTitle(Ljava/lang/String;Ljava/lang/String;I)V
+
+    const p1, 0x7f0418ab
+
+    const-string v1, "Settings.WORK_PROFILE_USE_PERSONAL_SOUNDS_SUMMARY"
+
+    invoke-virtual {p0, v0, v1, p1}, Lcom/android/settings/SettingsPreferenceFragment;->replaceEnterpriseStringSummary(Ljava/lang/String;Ljava/lang/String;I)V
+
+    const p1, 0x7f0418a5
+
+    const-string/jumbo v0, "work_ringtone"
+
+    const-string v1, "Settings.WORK_PROFILE_RINGTONE_TITLE"
+
+    invoke-virtual {p0, v0, v1, p1}, Lcom/android/settings/SettingsPreferenceFragment;->replaceEnterpriseStringTitle(Ljava/lang/String;Ljava/lang/String;I)V
+
+    const p1, 0x7f041899
+
+    const-string/jumbo v0, "work_alarm_ringtone"
+
+    const-string v1, "Settings.WORK_PROFILE_ALARM_RINGTONE_TITLE"
+
+    invoke-virtual {p0, v0, v1, p1}, Lcom/android/settings/SettingsPreferenceFragment;->replaceEnterpriseStringTitle(Ljava/lang/String;Ljava/lang/String;I)V
+
+    const p1, 0x7f04189d
+
+    const-string/jumbo v0, "work_notification_ringtone"
+
+    const-string v1, "Settings.WORK_PROFILE_NOTIFICATION_RINGTONE_TITLE"
+
+    invoke-virtual {p0, v0, v1, p1}, Lcom/android/settings/SettingsPreferenceFragment;->replaceEnterpriseStringTitle(Ljava/lang/String;Ljava/lang/String;I)V
+
     return-void
 .end method
 
@@ -301,7 +345,7 @@
 
     move-result-object p0
 
-    const-string v0, "selected_preference"
+    const-string/jumbo v0, "selected_preference"
 
     invoke-virtual {p1, v0, p0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 

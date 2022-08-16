@@ -806,7 +806,7 @@
 .end method
 
 .method decodeStart(Lcom/google/zxing/common/BitArray;)[I
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/google/zxing/NotFoundException;
@@ -829,17 +829,15 @@
 
     const/4 v2, 0x0
 
-    aget v3, v0, v2
+    aget v2, v0, v2
 
-    sub-int/2addr v1, v3
+    sub-int/2addr v1, v2
 
     shr-int/lit8 v1, v1, 0x2
 
     iput v1, p0, Lcom/google/zxing/oned/ITFReader;->narrowLineWidth:I
 
-    aget v1, v0, v2
-
-    invoke-direct {p0, p1, v1}, Lcom/google/zxing/oned/ITFReader;->validateQuietZone(Lcom/google/zxing/common/BitArray;I)V
+    invoke-direct {p0, p1, v2}, Lcom/google/zxing/oned/ITFReader;->validateQuietZone(Lcom/google/zxing/common/BitArray;I)V
 
     return-object v0
 .end method

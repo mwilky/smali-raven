@@ -31,7 +31,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settings/notification/RingVolumePreferenceController;Lcom/android/settings/notification/RingVolumePreferenceController$1;)V
+.method synthetic constructor <init>(Lcom/android/settings/notification/RingVolumePreferenceController;Lcom/android/settings/notification/RingVolumePreferenceController$RingReceiver-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settings/notification/RingVolumePreferenceController$RingReceiver;-><init>(Lcom/android/settings/notification/RingVolumePreferenceController;)V
@@ -58,7 +58,7 @@
 
     iget-object p0, p0, Lcom/android/settings/notification/RingVolumePreferenceController$RingReceiver;->this$0:Lcom/android/settings/notification/RingVolumePreferenceController;
 
-    invoke-static {p0}, Lcom/android/settings/notification/RingVolumePreferenceController;->access$600(Lcom/android/settings/notification/RingVolumePreferenceController;)Lcom/android/settings/notification/RingVolumePreferenceController$H;
+    invoke-static {p0}, Lcom/android/settings/notification/RingVolumePreferenceController;->-$$Nest$fgetmHandler(Lcom/android/settings/notification/RingVolumePreferenceController;)Lcom/android/settings/notification/RingVolumePreferenceController$H;
 
     move-result-object p0
 
@@ -79,7 +79,7 @@
 
     iget-object p0, p0, Lcom/android/settings/notification/RingVolumePreferenceController$RingReceiver;->this$0:Lcom/android/settings/notification/RingVolumePreferenceController;
 
-    invoke-static {p0}, Lcom/android/settings/notification/RingVolumePreferenceController;->access$600(Lcom/android/settings/notification/RingVolumePreferenceController;)Lcom/android/settings/notification/RingVolumePreferenceController$H;
+    invoke-static {p0}, Lcom/android/settings/notification/RingVolumePreferenceController;->-$$Nest$fgetmHandler(Lcom/android/settings/notification/RingVolumePreferenceController;)Lcom/android/settings/notification/RingVolumePreferenceController$H;
 
     move-result-object p0
 
@@ -118,7 +118,7 @@
 
     iget-object v1, p0, Lcom/android/settings/notification/RingVolumePreferenceController$RingReceiver;->this$0:Lcom/android/settings/notification/RingVolumePreferenceController;
 
-    invoke-static {v1}, Lcom/android/settings/notification/RingVolumePreferenceController;->access$400(Lcom/android/settings/notification/RingVolumePreferenceController;)Landroid/content/Context;
+    invoke-static {v1}, Lcom/android/settings/notification/RingVolumePreferenceController;->access$000(Lcom/android/settings/notification/RingVolumePreferenceController;)Landroid/content/Context;
 
     move-result-object v1
 
@@ -129,7 +129,7 @@
     :cond_1
     iget-object v0, p0, Lcom/android/settings/notification/RingVolumePreferenceController$RingReceiver;->this$0:Lcom/android/settings/notification/RingVolumePreferenceController;
 
-    invoke-static {v0}, Lcom/android/settings/notification/RingVolumePreferenceController;->access$500(Lcom/android/settings/notification/RingVolumePreferenceController;)Landroid/content/Context;
+    invoke-static {v0}, Lcom/android/settings/notification/RingVolumePreferenceController;->access$100(Lcom/android/settings/notification/RingVolumePreferenceController;)Landroid/content/Context;
 
     move-result-object v0
 

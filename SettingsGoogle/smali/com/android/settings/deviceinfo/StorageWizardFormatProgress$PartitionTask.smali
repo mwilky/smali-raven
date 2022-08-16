@@ -45,7 +45,7 @@
     return-void
 .end method
 
-.method static synthetic access$100(Lcom/android/settings/deviceinfo/StorageWizardFormatProgress$PartitionTask;[Ljava/lang/Object;)V
+.method static synthetic access$000(Lcom/android/settings/deviceinfo/StorageWizardFormatProgress$PartitionTask;[Ljava/lang/Object;)V
     .locals 0
 
     invoke-virtual {p0, p1}, Landroid/os/AsyncTask;->publishProgress([Ljava/lang/Object;)V
@@ -63,7 +63,7 @@
     iget-object v0, p1, Lcom/android/settings/deviceinfo/StorageWizardBase;->mStorage:Landroid/os/storage/StorageManager;
 
     :try_start_0
-    invoke-static {p1}, Lcom/android/settings/deviceinfo/StorageWizardFormatProgress;->access$000(Lcom/android/settings/deviceinfo/StorageWizardFormatProgress;)Z
+    invoke-static {p1}, Lcom/android/settings/deviceinfo/StorageWizardFormatProgress;->-$$Nest$fgetmFormatPrivate(Lcom/android/settings/deviceinfo/StorageWizardFormatProgress;)Z
 
     move-result v1
 
@@ -125,7 +125,7 @@
 
     check-cast v3, Landroid/os/PersistableBundle;
 
-    const-string v4, "run"
+    const-string/jumbo v4, "run"
 
     const-wide v5, 0x7fffffffffffffffL
 
@@ -167,7 +167,7 @@
 
     new-instance p1, Lcom/android/settings/deviceinfo/StorageWizardFormatProgress$SilentObserver;
 
-    invoke-direct {p1, v2}, Lcom/android/settings/deviceinfo/StorageWizardFormatProgress$SilentObserver;-><init>(Lcom/android/settings/deviceinfo/StorageWizardFormatProgress$1;)V
+    invoke-direct {p1, v2}, Lcom/android/settings/deviceinfo/StorageWizardFormatProgress$SilentObserver;-><init>(Lcom/android/settings/deviceinfo/StorageWizardFormatProgress$SilentObserver-IA;)V
 
     invoke-virtual {v0, p0, p1}, Landroid/os/storage/StorageManager;->setPrimaryStorageUuid(Ljava/lang/String;Landroid/content/pm/IPackageMoveObserver;)V
 
@@ -245,7 +245,7 @@
     return-void
 
     :cond_1
-    invoke-static {v0}, Lcom/android/settings/deviceinfo/StorageWizardFormatProgress;->access$000(Lcom/android/settings/deviceinfo/StorageWizardFormatProgress;)Z
+    invoke-static {v0}, Lcom/android/settings/deviceinfo/StorageWizardFormatProgress;->-$$Nest$fgetmFormatPrivate(Lcom/android/settings/deviceinfo/StorageWizardFormatProgress;)Z
 
     move-result p1
 

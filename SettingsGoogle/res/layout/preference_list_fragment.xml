@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout android:orientation="vertical" android:id="@id/container_material" android:background="@android:color/transparent" android:layout_width="fill_parent" android:layout_height="fill_parent"
   xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:androidprv="http://schemas.android.com/apk/prv/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+  xmlns:androidprv="http://schemas.android.com/apk/prv/res/android">
     <FrameLayout android:id="@id/pinned_header" android:background="?android:windowBackground" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:elevation="1.0dip" />
     <FrameLayout android:id="@android:id/list_container" android:layout_width="fill_parent" android:layout_height="0.0px" android:layout_weight="1.0">
         <include layout="@layout/loading_container" />
     </FrameLayout>
     <TextView android:textAppearance="?android:textAppearanceMedium" android:gravity="center_vertical" android:layout_gravity="center" android:id="@android:id/empty" android:padding="@android:dimen/preference_fragment_padding_side" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="fill_parent" />
     <LinearLayout android:theme="@style/Theme.TabTheme" android:orientation="vertical" android:id="@id/tab_container" android:visibility="gone" android:clipChildren="true" android:clipToPadding="true" android:layout_width="fill_parent" android:layout_height="fill_parent">
-        <com.google.android.material.tabs.TabLayout android:id="@id/tabs" android:background="@android:color/transparent" android:layout_width="fill_parent" android:layout_height="48.0dip" android:layout_marginTop="8.0dip" android:layout_marginBottom="8.0dip" android:layoutDirection="ltr" android:layout_marginStart="24.0dip" android:layout_marginEnd="24.0dip" app:tabGravity="fill" app:tabIndicator="@drawable/tabs_indicator_background" app:tabIndicatorColor="?android:^attr-private/colorAccentPrimaryVariant" app:tabMaxWidth="0.0dip" app:tabMode="fixed" app:tabSelectedTextColor="@android:color/accent_device_default" app:tabTextAppearance="@style/TextAppearance.Tab" app:tabTextColor="?android:textColorSecondary" />
-        <androidx.viewpager.widget.ViewPager android:id="@id/view_pager" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+        <com.google.android.material.tabs.TabLayout android:id="@id/tabs" style="@style/SettingsLibTabsStyle" />
+        <androidx.viewpager2.widget.ViewPager2 android:id="@id/view_pager" android:layout_width="fill_parent" android:layout_height="fill_parent" />
     </LinearLayout>
 </LinearLayout>

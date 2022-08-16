@@ -1,41 +1,40 @@
 .class public final synthetic Lcom/android/settingslib/users/EditUserPhotoController$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/widget/AdapterView$OnItemClickListener;
+.implements Ljava/lang/Runnable;
 
 
 # instance fields
-.field public final synthetic f$0:Landroid/widget/ListPopupWindow;
+.field public final synthetic f$0:Lcom/android/settingslib/users/EditUserPhotoController;
+
+.field public final synthetic f$1:Landroid/net/Uri;
 
 
 # direct methods
-.method public synthetic constructor <init>(Landroid/widget/ListPopupWindow;)V
+.method public synthetic constructor <init>(Lcom/android/settingslib/users/EditUserPhotoController;Landroid/net/Uri;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/settingslib/users/EditUserPhotoController$$ExternalSyntheticLambda1;->f$0:Landroid/widget/ListPopupWindow;
+    iput-object p1, p0, Lcom/android/settingslib/users/EditUserPhotoController$$ExternalSyntheticLambda1;->f$0:Lcom/android/settingslib/users/EditUserPhotoController;
+
+    iput-object p2, p0, Lcom/android/settingslib/users/EditUserPhotoController$$ExternalSyntheticLambda1;->f$1:Landroid/net/Uri;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
-    .locals 6
+.method public final run()V
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/settingslib/users/EditUserPhotoController$$ExternalSyntheticLambda1;->f$0:Landroid/widget/ListPopupWindow;
+    iget-object v0, p0, Lcom/android/settingslib/users/EditUserPhotoController$$ExternalSyntheticLambda1;->f$0:Lcom/android/settingslib/users/EditUserPhotoController;
 
-    move-object v1, p1
+    iget-object p0, p0, Lcom/android/settingslib/users/EditUserPhotoController$$ExternalSyntheticLambda1;->f$1:Landroid/net/Uri;
 
-    move-object v2, p2
-
-    move v3, p3
-
-    move-wide v4, p4
-
-    invoke-static/range {v0 .. v5}, Lcom/android/settingslib/users/EditUserPhotoController;->$r8$lambda$-1Zf6w-2UzOqGgbIq8oXYAyNJD8(Landroid/widget/ListPopupWindow;Landroid/widget/AdapterView;Landroid/view/View;IJ)V
+    invoke-static {v0, p0}, Lcom/android/settingslib/users/EditUserPhotoController;->$r8$lambda$BBM4g40McoTbhjqBXCkxZ0a70Ps(Lcom/android/settingslib/users/EditUserPhotoController;Landroid/net/Uri;)V
 
     return-void
 .end method

@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="abc_slice_duration_days">
-        <item quantity="other">vor %d Tagen</item>
-        <item quantity="one">vor %d Tag</item>
+        <item quantity="other">Vor %d Tagen</item>
+        <item quantity="one">Vor %d Tag</item>
     </plurals>
     <plurals name="abc_slice_duration_min">
-        <item quantity="other">vor %d Min.</item>
-        <item quantity="one">vor %d Min.</item>
+        <item quantity="other">Vor %d Min.</item>
+        <item quantity="one">Vor %d Min.</item>
     </plurals>
     <plurals name="abc_slice_duration_years">
-        <item quantity="other">vor %d Jahren</item>
-        <item quantity="one">vor %d Jahr</item>
+        <item quantity="other">Vor %d Jahren</item>
+        <item quantity="one">Vor %d Jahr</item>
     </plurals>
     <plurals name="accessibility_usage_summary">
         <item quantity="other">%1$d Apps haben uneingeschränkten Zugriff auf dein Gerät</item>
@@ -233,11 +233,11 @@
         <item quantity="one">%d Kategorie deaktiviert</item>
     </plurals>
     <plurals name="notifications_sent_daily">
-        <item quantity="other">Ungefähr %d Benachrichtigungen pro Tag</item>
+        <item quantity="other">Ungefähr %,d Benachrichtigungen pro Tag</item>
         <item quantity="one">Ungefähr %d Benachrichtigung pro Tag</item>
     </plurals>
     <plurals name="notifications_sent_weekly">
-        <item quantity="other">Ungefähr %d Benachrichtigungen pro Woche</item>
+        <item quantity="other">Ungefähr %,d Benachrichtigungen pro Woche</item>
         <item quantity="one">Ungefähr %d Benachrichtigung pro Woche</item>
     </plurals>
     <plurals name="number_of_device_admins">
@@ -328,22 +328,6 @@
         <item quantity="other">Zertifikaten vertrauen oder sie entfernen</item>
         <item quantity="one">Zertifikat vertrauen oder entfernen</item>
     </plurals>
-    <plurals name="ssl_ca_cert_info_message">
-        <item quantity="other">"%s hat Zertifizierungsstellen für dein Arbeitsprofil installiert. Damit können deine geschäftlichen Netzwerkaktivitäten überwacht werden, einschließlich E-Mails, Apps und sicherer Websites.
-
-Weitere Informationen zu diesen Zertifikaten erhältst du von deinem Administrator."</item>
-        <item quantity="one">"%s hat eine Zertifizierungsstelle für dein Arbeitsprofil installiert. Damit können deine geschäftlichen Netzwerkaktivitäten überwacht werden, einschließlich E-Mails, Apps und sicherer Websites.
-
-Weitere Informationen zu diesem Zertifikat erhältst du von deinem Administrator."</item>
-    </plurals>
-    <plurals name="ssl_ca_cert_info_message_device_owner">
-        <item quantity="other">"%s hat Zertifizierungsstellen auf deinem Gerät installiert. Damit können die Netzwerkaktivitäten deines Geräts wie E-Mails, Apps und sichere Websites überwacht werden.
-
-Weitere Informationen zu diesen Zertifikaten erhältst du von deinem Administrator."</item>
-        <item quantity="one">"%s hat eine Zertifizierungsstelle auf dem Gerät installiert. Damit können die Netzwerkaktivitäten deines Geräts wie E-Mails, Apps und sichere Websites überwacht werden.
-
-Weitere Informationen zu diesem Zertifikat erhältst du von deinem Administrator."</item>
-    </plurals>
     <plurals name="ssl_ca_cert_settings_button">
         <item quantity="other">Zertifikate prüfen</item>
         <item quantity="one">Zertifikat prüfen</item>
@@ -375,10 +359,6 @@ Weitere Informationen zu diesem Zertifikat erhältst du von deinem Administrator
     <plurals name="wifi_saved_passpoint_access_points_summary">
         <item quantity="other">%d Abos</item>
         <item quantity="one">1 Abo</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$d Geräte verbunden</item>
-        <item quantity="one">%1$d Gerät verbunden</item>
     </plurals>
     <plurals name="wrong_pin_code">
         <item quantity="other">Falscher PIN-Code der SIM-Karte. Du hast noch %d Versuche.</item>

@@ -124,7 +124,7 @@
 
     move-result-object p0
 
-    const-string p2, "(this as java.lang.Strin\u2026ing(startIndex, endIndex)"
+    const-string/jumbo p2, "this as java.lang.String\u2026ing(startIndex, endIndex)"
 
     invoke-static {p0, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -150,7 +150,7 @@
 
 
 # virtual methods
-.method public final areActivityOrIntentComponentsMatching$window_debug(Landroid/app/Activity;Landroid/content/ComponentName;)Z
+.method public final areActivityOrIntentComponentsMatching$window_release(Landroid/app/Activity;Landroid/content/ComponentName;)Z
     .locals 1
     .param p1    # Landroid/app/Activity;
         .annotation build Lorg/jetbrains/annotations/NotNull;
@@ -165,7 +165,7 @@
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    const-string v0, "ruleComponent"
+    const-string/jumbo v0, "ruleComponent"
 
     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -173,7 +173,7 @@
 
     move-result-object v0
 
-    invoke-virtual {p0, v0, p2}, Landroidx/window/embedding/MatcherUtils;->areComponentsMatching$window_debug(Landroid/content/ComponentName;Landroid/content/ComponentName;)Z
+    invoke-virtual {p0, v0, p2}, Landroidx/window/embedding/MatcherUtils;->areComponentsMatching$window_release(Landroid/content/ComponentName;Landroid/content/ComponentName;)Z
 
     move-result p0
 
@@ -188,33 +188,30 @@
 
     move-result-object p0
 
-    const/4 p1, 0x0
+    if-eqz p0, :cond_1
 
-    if-nez p0, :cond_1
-
-    goto :goto_0
-
-    :cond_1
     invoke-virtual {p0}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
 
     move-result-object p0
 
-    if-nez p0, :cond_2
+    if-eqz p0, :cond_1
+
+    sget-object p1, Landroidx/window/embedding/MatcherUtils;->INSTANCE:Landroidx/window/embedding/MatcherUtils;
+
+    invoke-virtual {p1, p0, p2}, Landroidx/window/embedding/MatcherUtils;->areComponentsMatching$window_release(Landroid/content/ComponentName;Landroid/content/ComponentName;)Z
+
+    move-result p0
 
     goto :goto_0
 
-    :cond_2
-    sget-object p1, Landroidx/window/embedding/MatcherUtils;->INSTANCE:Landroidx/window/embedding/MatcherUtils;
-
-    invoke-virtual {p1, p0, p2}, Landroidx/window/embedding/MatcherUtils;->areComponentsMatching$window_debug(Landroid/content/ComponentName;Landroid/content/ComponentName;)Z
-
-    move-result p1
+    :cond_1
+    const/4 p0, 0x0
 
     :goto_0
-    return p1
+    return p0
 .end method
 
-.method public final areComponentsMatching$window_debug(Landroid/content/ComponentName;Landroid/content/ComponentName;)Z
+.method public final areComponentsMatching$window_release(Landroid/content/ComponentName;Landroid/content/ComponentName;)Z
     .locals 6
     .param p1    # Landroid/content/ComponentName;
         .annotation build Lorg/jetbrains/annotations/Nullable;
@@ -225,7 +222,7 @@
         .end annotation
     .end param
 
-    const-string v0, "ruleComponent"
+    const-string/jumbo v0, "ruleComponent"
 
     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -312,7 +309,7 @@
 
     move-result-object v3
 
-    const-string v4, "ruleComponent.packageName"
+    const-string/jumbo v4, "ruleComponent.packageName"
 
     invoke-static {v3, v4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -360,7 +357,7 @@
 
     move-result-object p2
 
-    const-string v3, "ruleComponent.className"
+    const-string/jumbo v3, "ruleComponent.className"
 
     invoke-static {p2, v3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 

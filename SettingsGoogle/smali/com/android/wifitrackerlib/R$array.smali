@@ -4,4 +4,4 @@
 
 
 # static fields
-.field public static final wifitrackerlib_wifi_status:I = 0x7f0100f4
+.field public static final wifitrackerlib_wifi_status:I = 0x7f010108

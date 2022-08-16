@@ -62,12 +62,22 @@
     return-object p0
 .end method
 
+.method static bridge synthetic -$$Nest$smbuildPreferenceControllers(Landroid/content/Context;Lcom/google/android/settings/security/SecurityHubDashboard;)Ljava/util/List;
+    .locals 0
+
+    invoke-static {p0, p1}, Lcom/google/android/settings/security/SecurityHubDashboard;->buildPreferenceControllers(Landroid/content/Context;Lcom/google/android/settings/security/SecurityHubDashboard;)Ljava/util/List;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method static constructor <clinit>()V
     .locals 2
 
     new-instance v0, Lcom/google/android/settings/security/SecurityHubDashboard$1;
 
-    const v1, 0x7f1500d1
+    const v1, 0x7f1500d6
 
     invoke-direct {v0, v1}, Lcom/google/android/settings/security/SecurityHubDashboard$1;-><init>(I)V
 
@@ -104,16 +114,6 @@
     iput-boolean v0, p0, Lcom/google/android/settings/security/SecurityHubDashboard;->mInitialDataFetched:Z
 
     return-void
-.end method
-
-.method static synthetic access$000(Landroid/content/Context;Lcom/google/android/settings/security/SecurityHubDashboard;)Ljava/util/List;
-    .locals 0
-
-    invoke-static {p0, p1}, Lcom/google/android/settings/security/SecurityHubDashboard;->buildPreferenceControllers(Landroid/content/Context;Lcom/google/android/settings/security/SecurityHubDashboard;)Ljava/util/List;
-
-    move-result-object p0
-
-    return-object p0
 .end method
 
 .method private static buildPreferenceControllers(Landroid/content/Context;Lcom/google/android/settings/security/SecurityHubDashboard;)Ljava/util/List;
@@ -293,7 +293,9 @@
 
     move-result-object v2
 
-    sget-object v3, Lcom/google/android/settings/security/SecurityHubDashboard$$ExternalSyntheticLambda6;->INSTANCE:Lcom/google/android/settings/security/SecurityHubDashboard$$ExternalSyntheticLambda6;
+    new-instance v3, Lcom/google/android/settings/security/SecurityHubDashboard$$ExternalSyntheticLambda1;
+
+    invoke-direct {v3}, Lcom/google/android/settings/security/SecurityHubDashboard$$ExternalSyntheticLambda1;-><init>()V
 
     invoke-static {}, Ljava/util/function/Function;->identity()Ljava/util/function/Function;
 
@@ -313,15 +315,17 @@
 
     move-result-object v1
 
-    new-instance v3, Lcom/google/android/settings/security/SecurityHubDashboard$$ExternalSyntheticLambda4;
+    new-instance v3, Lcom/google/android/settings/security/SecurityHubDashboard$$ExternalSyntheticLambda2;
 
-    invoke-direct {v3, p0}, Lcom/google/android/settings/security/SecurityHubDashboard$$ExternalSyntheticLambda4;-><init>(Lcom/google/android/settings/security/SecurityHubDashboard;)V
+    invoke-direct {v3, p0}, Lcom/google/android/settings/security/SecurityHubDashboard$$ExternalSyntheticLambda2;-><init>(Lcom/google/android/settings/security/SecurityHubDashboard;)V
 
     invoke-interface {v1, v3}, Ljava/util/stream/Stream;->map(Ljava/util/function/Function;)Ljava/util/stream/Stream;
 
     move-result-object v1
 
-    sget-object v3, Lcom/google/android/settings/security/SecurityHubDashboard$$ExternalSyntheticLambda5;->INSTANCE:Lcom/google/android/settings/security/SecurityHubDashboard$$ExternalSyntheticLambda5;
+    new-instance v3, Lcom/google/android/settings/security/SecurityHubDashboard$$ExternalSyntheticLambda3;
+
+    invoke-direct {v3}, Lcom/google/android/settings/security/SecurityHubDashboard$$ExternalSyntheticLambda3;-><init>()V
 
     invoke-static {}, Ljava/util/function/Function;->identity()Ljava/util/function/Function;
 
@@ -410,15 +414,15 @@
     :cond_1
     invoke-static {v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    new-instance v2, Lcom/google/android/settings/security/SecurityHubDashboard$$ExternalSyntheticLambda3;
+    new-instance v2, Lcom/google/android/settings/security/SecurityHubDashboard$$ExternalSyntheticLambda4;
 
-    invoke-direct {v2, v0}, Lcom/google/android/settings/security/SecurityHubDashboard$$ExternalSyntheticLambda3;-><init>(Landroidx/preference/PreferenceScreen;)V
+    invoke-direct {v2, v0}, Lcom/google/android/settings/security/SecurityHubDashboard$$ExternalSyntheticLambda4;-><init>(Landroidx/preference/PreferenceScreen;)V
 
     invoke-interface {v5, v2}, Ljava/util/Collection;->forEach(Ljava/util/function/Consumer;)V
 
-    new-instance v2, Lcom/google/android/settings/security/SecurityHubDashboard$$ExternalSyntheticLambda2;
+    new-instance v2, Lcom/google/android/settings/security/SecurityHubDashboard$$ExternalSyntheticLambda5;
 
-    invoke-direct {v2, v0}, Lcom/google/android/settings/security/SecurityHubDashboard$$ExternalSyntheticLambda2;-><init>(Landroidx/preference/PreferenceScreen;)V
+    invoke-direct {v2, v0}, Lcom/google/android/settings/security/SecurityHubDashboard$$ExternalSyntheticLambda5;-><init>(Landroidx/preference/PreferenceScreen;)V
 
     invoke-interface {v3, v2}, Ljava/util/Collection;->forEach(Ljava/util/function/Consumer;)V
 
@@ -470,9 +474,9 @@
 
     if-eqz p2, :cond_0
 
-    new-instance v0, Lcom/google/android/settings/security/SecurityHubDashboard$$ExternalSyntheticLambda0;
+    new-instance v0, Lcom/google/android/settings/security/SecurityHubDashboard$$ExternalSyntheticLambda6;
 
-    invoke-direct {v0, p0, p2}, Lcom/google/android/settings/security/SecurityHubDashboard$$ExternalSyntheticLambda0;-><init>(Lcom/google/android/settings/security/SecurityHubDashboard;Landroid/os/Bundle;)V
+    invoke-direct {v0, p0, p2}, Lcom/google/android/settings/security/SecurityHubDashboard$$ExternalSyntheticLambda6;-><init>(Lcom/google/android/settings/security/SecurityHubDashboard;Landroid/os/Bundle;)V
 
     invoke-virtual {p1, v0}, Landroidx/preference/Preference;->setOnPreferenceClickListener(Landroidx/preference/Preference$OnPreferenceClickListener;)V
 
@@ -551,7 +555,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f1500d1
+    const p0, 0x7f1500d6
 
     return p0
 .end method
@@ -613,9 +617,9 @@
 
     if-eqz v0, :cond_0
 
-    new-instance v1, Lcom/google/android/settings/security/SecurityHubDashboard$$ExternalSyntheticLambda1;
+    new-instance v1, Lcom/google/android/settings/security/SecurityHubDashboard$$ExternalSyntheticLambda0;
 
-    invoke-direct {v1, p0}, Lcom/google/android/settings/security/SecurityHubDashboard$$ExternalSyntheticLambda1;-><init>(Lcom/google/android/settings/security/SecurityHubDashboard;)V
+    invoke-direct {v1, p0}, Lcom/google/android/settings/security/SecurityHubDashboard$$ExternalSyntheticLambda0;-><init>(Lcom/google/android/settings/security/SecurityHubDashboard;)V
 
     invoke-virtual {v0, v1}, Landroid/app/Activity;->runOnUiThread(Ljava/lang/Runnable;)V
 
@@ -636,6 +640,18 @@
     iget-boolean v1, p0, Lcom/google/android/settings/security/SecurityHubDashboard;->mInitialDataFetched:Z
 
     if-nez v1, :cond_0
+
+    iget-object v1, p0, Lcom/google/android/settings/security/SecurityHubDashboard;->mSecurityContentManager:Lcom/google/android/settings/security/SecurityContentManager;
+
+    invoke-virtual {v1}, Lcom/google/android/settings/security/SecurityContentManager;->getEntries()Ljava/util/List;
+
+    move-result-object v1
+
+    invoke-interface {v1}, Ljava/util/List;->isEmpty()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
 
     const/4 v1, 0x1
 

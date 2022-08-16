@@ -44,6 +44,54 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmCurrentConnectedDevice(Lcom/android/settingslib/media/InfoMediaManager;)Lcom/android/settingslib/media/MediaDevice;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settingslib/media/InfoMediaManager;->mCurrentConnectedDevice:Lcom/android/settingslib/media/MediaDevice;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmCurrentConnectedDevice(Lcom/android/settingslib/media/InfoMediaManager;Lcom/android/settingslib/media/MediaDevice;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/settingslib/media/InfoMediaManager;->mCurrentConnectedDevice:Lcom/android/settingslib/media/MediaDevice;
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mbuildAllRoutes(Lcom/android/settingslib/media/InfoMediaManager;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settingslib/media/InfoMediaManager;->buildAllRoutes()V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mbuildAvailableRoutes(Lcom/android/settingslib/media/InfoMediaManager;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settingslib/media/InfoMediaManager;->buildAvailableRoutes()V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mrefreshDevices(Lcom/android/settingslib/media/InfoMediaManager;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settingslib/media/InfoMediaManager;->refreshDevices()V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$sfgetDEBUG()Z
+    .locals 1
+
+    sget-boolean v0, Lcom/android/settingslib/media/InfoMediaManager;->DEBUG:Z
+
+    return v0
+.end method
+
 .method static constructor <clinit>()V
     .locals 2
 
@@ -98,61 +146,13 @@
 
     move-result-object p1
 
-    const p2, 0x111017c
+    const p2, 0x11101f3
 
     invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getBoolean(I)Z
 
     move-result p1
 
     iput-boolean p1, p0, Lcom/android/settingslib/media/InfoMediaManager;->mVolumeAdjustmentForRemoteGroupSessions:Z
-
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settingslib/media/InfoMediaManager;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settingslib/media/InfoMediaManager;->refreshDevices()V
-
-    return-void
-.end method
-
-.method static synthetic access$100()Z
-    .locals 1
-
-    sget-boolean v0, Lcom/android/settingslib/media/InfoMediaManager;->DEBUG:Z
-
-    return v0
-.end method
-
-.method static synthetic access$200(Lcom/android/settingslib/media/InfoMediaManager;)Lcom/android/settingslib/media/MediaDevice;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/media/InfoMediaManager;->mCurrentConnectedDevice:Lcom/android/settingslib/media/MediaDevice;
-
-    return-object p0
-.end method
-
-.method static synthetic access$202(Lcom/android/settingslib/media/InfoMediaManager;Lcom/android/settingslib/media/MediaDevice;)Lcom/android/settingslib/media/MediaDevice;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/settingslib/media/InfoMediaManager;->mCurrentConnectedDevice:Lcom/android/settingslib/media/MediaDevice;
-
-    return-object p1
-.end method
-
-.method static synthetic access$300(Lcom/android/settingslib/media/InfoMediaManager;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settingslib/media/InfoMediaManager;->buildAllRoutes()V
-
-    return-void
-.end method
-
-.method static synthetic access$400(Lcom/android/settingslib/media/InfoMediaManager;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settingslib/media/InfoMediaManager;->buildAvailableRoutes()V
 
     return-void
 .end method
@@ -353,6 +353,14 @@
 
     invoke-virtual {v2, v1}, Landroid/media/MediaRouter2Manager;->getSelectedRoutes(Landroid/media/RoutingSessionInfo;)Ljava/util/List;
 
+    move-result-object v2
+
+    invoke-interface {v0, v2}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
+
+    iget-object v2, p0, Lcom/android/settingslib/media/InfoMediaManager;->mRouterManager:Landroid/media/MediaRouter2Manager;
+
+    invoke-virtual {v2, v1}, Landroid/media/MediaRouter2Manager;->getSelectableRoutes(Landroid/media/RoutingSessionInfo;)Ljava/util/List;
+
     move-result-object v1
 
     invoke-interface {v0, v1}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
@@ -524,47 +532,51 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
-
-    const/16 v1, 0x7d0
-
-    if-eq v0, v1, :cond_3
-
-    const/4 v1, 0x2
-
-    if-eq v0, v1, :cond_2
-
-    const/4 v1, 0x3
-
-    if-eq v0, v1, :cond_2
-
     const/4 v1, 0x4
 
-    if-eq v0, v1, :cond_2
+    if-eqz v0, :cond_3
 
-    const/16 v1, 0x8
+    const/16 v2, 0x1a
+
+    if-eq v0, v2, :cond_1
+
+    const/16 v2, 0x7d0
+
+    if-eq v0, v2, :cond_3
+
+    const/4 v2, 0x2
+
+    if-eq v0, v2, :cond_0
+
+    const/4 v2, 0x3
+
+    if-eq v0, v2, :cond_0
 
     if-eq v0, v1, :cond_0
 
-    const/16 v1, 0x9
+    const/16 v2, 0x8
 
-    if-eq v0, v1, :cond_2
+    if-eq v0, v2, :cond_1
 
-    const/16 v1, 0x16
+    const/16 v2, 0x9
 
-    if-eq v0, v1, :cond_2
+    if-eq v0, v2, :cond_0
 
-    const/16 v1, 0x17
+    const/16 v2, 0x16
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v2, :cond_0
 
-    const/16 v1, 0x3e9
+    const/16 v2, 0x17
 
-    if-eq v0, v1, :cond_3
+    if-eq v0, v2, :cond_1
 
-    const/16 v1, 0x3ea
+    const/16 v2, 0x3e9
 
-    if-eq v0, v1, :cond_3
+    if-eq v0, v2, :cond_3
+
+    const/16 v2, 0x3ea
+
+    if-eq v0, v2, :cond_3
 
     packed-switch v0, :pswitch_data_0
 
@@ -589,6 +601,20 @@
     goto :goto_0
 
     :cond_0
+    :pswitch_0
+    new-instance v0, Lcom/android/settingslib/media/PhoneMediaDevice;
+
+    iget-object v1, p0, Lcom/android/settingslib/media/MediaManager;->mContext:Landroid/content/Context;
+
+    iget-object v2, p0, Lcom/android/settingslib/media/InfoMediaManager;->mRouterManager:Landroid/media/MediaRouter2Manager;
+
+    iget-object v3, p0, Lcom/android/settingslib/media/InfoMediaManager;->mPackageName:Ljava/lang/String;
+
+    invoke-direct {v0, v1, v2, p1, v3}, Lcom/android/settingslib/media/PhoneMediaDevice;-><init>(Landroid/content/Context;Landroid/media/MediaRouter2Manager;Landroid/media/MediaRoute2Info;Ljava/lang/String;)V
+
+    goto :goto_1
+
+    :cond_1
     invoke-static {}, Landroid/bluetooth/BluetoothAdapter;->getDefaultAdapter()Landroid/bluetooth/BluetoothAdapter;
 
     move-result-object v0
@@ -611,7 +637,7 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_2
 
     new-instance v0, Lcom/android/settingslib/media/BluetoothMediaDevice;
 
@@ -629,62 +655,50 @@
 
     goto :goto_1
 
-    :cond_1
+    :cond_2
     :goto_0
     const/4 v0, 0x0
-
-    goto :goto_1
-
-    :cond_2
-    :pswitch_0
-    new-instance v0, Lcom/android/settingslib/media/PhoneMediaDevice;
-
-    iget-object v1, p0, Lcom/android/settingslib/media/MediaManager;->mContext:Landroid/content/Context;
-
-    iget-object v2, p0, Lcom/android/settingslib/media/InfoMediaManager;->mRouterManager:Landroid/media/MediaRouter2Manager;
-
-    iget-object v3, p0, Lcom/android/settingslib/media/InfoMediaManager;->mPackageName:Ljava/lang/String;
-
-    invoke-direct {v0, v1, v2, p1, v3}, Lcom/android/settingslib/media/PhoneMediaDevice;-><init>(Landroid/content/Context;Landroid/media/MediaRouter2Manager;Landroid/media/MediaRoute2Info;Ljava/lang/String;)V
 
     goto :goto_1
 
     :cond_3
     new-instance v0, Lcom/android/settingslib/media/InfoMediaDevice;
 
-    iget-object v1, p0, Lcom/android/settingslib/media/MediaManager;->mContext:Landroid/content/Context;
+    iget-object v2, p0, Lcom/android/settingslib/media/MediaManager;->mContext:Landroid/content/Context;
 
-    iget-object v2, p0, Lcom/android/settingslib/media/InfoMediaManager;->mRouterManager:Landroid/media/MediaRouter2Manager;
+    iget-object v3, p0, Lcom/android/settingslib/media/InfoMediaManager;->mRouterManager:Landroid/media/MediaRouter2Manager;
 
-    iget-object v3, p0, Lcom/android/settingslib/media/InfoMediaManager;->mPackageName:Ljava/lang/String;
+    iget-object v4, p0, Lcom/android/settingslib/media/InfoMediaManager;->mPackageName:Ljava/lang/String;
 
-    invoke-direct {v0, v1, v2, p1, v3}, Lcom/android/settingslib/media/InfoMediaDevice;-><init>(Landroid/content/Context;Landroid/media/MediaRouter2Manager;Landroid/media/MediaRoute2Info;Ljava/lang/String;)V
+    invoke-direct {v0, v2, v3, p1, v4}, Lcom/android/settingslib/media/InfoMediaDevice;-><init>(Landroid/content/Context;Landroid/media/MediaRouter2Manager;Landroid/media/MediaRoute2Info;Ljava/lang/String;)V
 
-    iget-object v1, p0, Lcom/android/settingslib/media/InfoMediaManager;->mPackageName:Ljava/lang/String;
+    iget-object v2, p0, Lcom/android/settingslib/media/InfoMediaManager;->mPackageName:Ljava/lang/String;
 
-    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v1
+    move-result v2
 
-    if-nez v1, :cond_4
+    if-nez v2, :cond_4
 
     invoke-direct {p0}, Lcom/android/settingslib/media/InfoMediaManager;->getRoutingSessionInfo()Landroid/media/RoutingSessionInfo;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v1}, Landroid/media/RoutingSessionInfo;->getSelectedRoutes()Ljava/util/List;
+    invoke-virtual {v2}, Landroid/media/RoutingSessionInfo;->getSelectedRoutes()Ljava/util/List;
 
-    move-result-object v1
+    move-result-object v2
 
     invoke-virtual {p1}, Landroid/media/MediaRoute2Info;->getId()Ljava/lang/String;
 
     move-result-object p1
 
-    invoke-interface {v1, p1}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+    invoke-interface {v2, p1}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
 
     move-result p1
 
     if-eqz p1, :cond_4
+
+    invoke-virtual {v0, v1}, Lcom/android/settingslib/media/MediaDevice;->setState(I)V
 
     iget-object p1, p0, Lcom/android/settingslib/media/InfoMediaManager;->mCurrentConnectedDevice:Lcom/android/settingslib/media/MediaDevice;
 
@@ -702,6 +716,8 @@
 
     :cond_5
     return-void
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0xb
@@ -733,27 +749,17 @@
 .end method
 
 .method connectDeviceWithoutPackageName(Lcom/android/settingslib/media/MediaDevice;)Z
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/settingslib/media/InfoMediaManager;->mRouterManager:Landroid/media/MediaRouter2Manager;
 
-    invoke-virtual {v0}, Landroid/media/MediaRouter2Manager;->getActiveSessions()Ljava/util/List;
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/media/MediaRouter2Manager;->getSystemRoutingSession(Ljava/lang/String;)Landroid/media/RoutingSessionInfo;
 
     move-result-object v0
 
-    invoke-interface {v0}, Ljava/util/List;->size()I
-
-    move-result v1
-
-    const/4 v2, 0x0
-
-    if-lez v1, :cond_0
-
-    invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/media/RoutingSessionInfo;
+    if-eqz v0, :cond_0
 
     iget-object p0, p0, Lcom/android/settingslib/media/InfoMediaManager;->mRouterManager:Landroid/media/MediaRouter2Manager;
 
@@ -761,14 +767,19 @@
 
     invoke-virtual {p0, v0, p1}, Landroid/media/MediaRouter2Manager;->transfer(Landroid/media/RoutingSessionInfo;Landroid/media/MediaRoute2Info;)V
 
-    const/4 v2, 0x1
+    const/4 p0, 0x1
+
+    goto :goto_0
 
     :cond_0
-    return v2
+    const/4 p0, 0x0
+
+    :goto_0
+    return p0
 .end method
 
 .method getActiveMediaSession()Ljava/util/List;
-    .locals 0
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -778,13 +789,29 @@
         }
     .end annotation
 
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    iget-object v1, p0, Lcom/android/settingslib/media/InfoMediaManager;->mRouterManager:Landroid/media/MediaRouter2Manager;
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v1, v2}, Landroid/media/MediaRouter2Manager;->getSystemRoutingSession(Ljava/lang/String;)Landroid/media/RoutingSessionInfo;
+
+    move-result-object v1
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
     iget-object p0, p0, Lcom/android/settingslib/media/InfoMediaManager;->mRouterManager:Landroid/media/MediaRouter2Manager;
 
-    invoke-virtual {p0}, Landroid/media/MediaRouter2Manager;->getActiveSessions()Ljava/util/List;
+    invoke-virtual {p0}, Landroid/media/MediaRouter2Manager;->getRemoteSessions()Ljava/util/List;
 
     move-result-object p0
 
-    return-object p0
+    invoke-interface {v0, p0}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
+
+    return-object v0
 .end method
 
 .method getCurrentConnectedDevice()Lcom/android/settingslib/media/MediaDevice;

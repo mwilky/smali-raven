@@ -23,7 +23,7 @@
         <TextView android:id="@id/icc_id_label" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/status_icc_id" style="@style/device_info_dialog_label" />
         <TextView android:id="@id/icc_id_value" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/device_info_not_available" style="@style/device_info_dialog_value" />
         <TextView android:id="@id/esim_id_label" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/status_esim_id" style="@style/device_info_dialog_label" />
-        <TextView android:id="@id/esim_id_value" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/device_info_not_available" style="@style/device_info_dialog_value" />
+        <TextView android:id="@id/esim_id_value" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/device_info_not_available" android:textIsSelectable="true" style="@style/device_info_dialog_value" />
         <TextView android:id="@id/ims_reg_state_label" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/ims_reg_title" style="@style/device_info_dialog_label" />
         <TextView android:id="@id/ims_reg_state_value" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/device_info_not_available" style="@style/device_info_dialog_value" />
     </LinearLayout>

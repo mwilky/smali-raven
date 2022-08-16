@@ -72,7 +72,7 @@
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothPairingService$1;->this$0:Lcom/android/settings/bluetooth/BluetoothPairingService;
 
-    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothPairingService;->access$000(Lcom/android/settings/bluetooth/BluetoothPairingService;)Landroid/bluetooth/BluetoothDevice;
+    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothPairingService;->-$$Nest$fgetmDevice(Lcom/android/settings/bluetooth/BluetoothPairingService;)Landroid/bluetooth/BluetoothDevice;
 
     move-result-object v0
 
@@ -117,7 +117,7 @@
 
     iget-object p2, p0, Lcom/android/settings/bluetooth/BluetoothPairingService$1;->this$0:Lcom/android/settings/bluetooth/BluetoothPairingService;
 
-    invoke-static {p2}, Lcom/android/settings/bluetooth/BluetoothPairingService;->access$000(Lcom/android/settings/bluetooth/BluetoothPairingService;)Landroid/bluetooth/BluetoothDevice;
+    invoke-static {p2}, Lcom/android/settings/bluetooth/BluetoothPairingService;->-$$Nest$fgetmDevice(Lcom/android/settings/bluetooth/BluetoothPairingService;)Landroid/bluetooth/BluetoothDevice;
 
     move-result-object p2
 
@@ -139,11 +139,11 @@
 
     iget-object p1, p0, Lcom/android/settings/bluetooth/BluetoothPairingService$1;->this$0:Lcom/android/settings/bluetooth/BluetoothPairingService;
 
-    invoke-static {p1}, Lcom/android/settings/bluetooth/BluetoothPairingService;->access$000(Lcom/android/settings/bluetooth/BluetoothPairingService;)Landroid/bluetooth/BluetoothDevice;
+    invoke-static {p1}, Lcom/android/settings/bluetooth/BluetoothPairingService;->-$$Nest$fgetmDevice(Lcom/android/settings/bluetooth/BluetoothPairingService;)Landroid/bluetooth/BluetoothDevice;
 
     move-result-object p1
 
-    invoke-virtual {p1}, Landroid/bluetooth/BluetoothDevice;->cancelPairing()Z
+    invoke-virtual {p1}, Landroid/bluetooth/BluetoothDevice;->cancelBondProcess()Z
 
     goto :goto_0
 
@@ -162,7 +162,7 @@
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothPairingService$1;->this$0:Lcom/android/settings/bluetooth/BluetoothPairingService;
 
-    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothPairingService;->access$000(Lcom/android/settings/bluetooth/BluetoothPairingService;)Landroid/bluetooth/BluetoothDevice;
+    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothPairingService;->-$$Nest$fgetmDevice(Lcom/android/settings/bluetooth/BluetoothPairingService;)Landroid/bluetooth/BluetoothDevice;
 
     move-result-object v0
 

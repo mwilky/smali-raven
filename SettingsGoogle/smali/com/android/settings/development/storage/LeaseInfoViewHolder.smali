@@ -38,7 +38,7 @@
     return-object p0
 
     :cond_0
-    const p1, 0x7f060115
+    const p1, 0x7f06011a
 
     const/4 v0, 0x0
 
@@ -52,7 +52,7 @@
 
     iput-object p0, p1, Lcom/android/settings/development/storage/LeaseInfoViewHolder;->rootView:Landroid/view/View;
 
-    const v0, 0x7f0d009c
+    const v0, 0x7f0d009f
 
     invoke-virtual {p0, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -62,7 +62,7 @@
 
     iput-object v0, p1, Lcom/android/settings/development/storage/LeaseInfoViewHolder;->appIcon:Landroid/widget/ImageView;
 
-    const v0, 0x7f0d032b
+    const v0, 0x7f0d0356
 
     invoke-virtual {p0, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -72,7 +72,7 @@
 
     iput-object v0, p1, Lcom/android/settings/development/storage/LeaseInfoViewHolder;->leasePackageName:Landroid/widget/TextView;
 
-    const v0, 0x7f0d0329
+    const v0, 0x7f0d0354
 
     invoke-virtual {p0, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -82,7 +82,7 @@
 
     iput-object v0, p1, Lcom/android/settings/development/storage/LeaseInfoViewHolder;->leaseDescription:Landroid/widget/TextView;
 
-    const v0, 0x7f0d032a
+    const v0, 0x7f0d0355
 
     invoke-virtual {p0, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

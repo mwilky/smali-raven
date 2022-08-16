@@ -252,7 +252,7 @@
 
 # virtual methods
 .method public computeCurrentWindowMetrics(Landroid/app/Activity;)Landroidx/window/layout/WindowMetrics;
-    .locals 2
+    .locals 0
     .param p1    # Landroid/app/Activity;
         .annotation build Lorg/jetbrains/annotations/NotNull;
         .end annotation
@@ -260,15 +260,9 @@
     .annotation build Lorg/jetbrains/annotations/NotNull;
     .end annotation
 
-    const-string v0, "activity"
+    const-string p0, "activity"
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x1e
-
-    if-lt v0, v1, :cond_0
+    invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     sget-object p0, Landroidx/window/layout/ActivityCompatHelperApi30;->INSTANCE:Landroidx/window/layout/ActivityCompatHelperApi30;
 
@@ -276,47 +270,6 @@
 
     move-result-object p0
 
-    goto :goto_0
-
-    :cond_0
-    const/16 v1, 0x1d
-
-    if-lt v0, v1, :cond_1
-
-    invoke-virtual {p0, p1}, Landroidx/window/layout/WindowMetricsCalculatorCompat;->computeWindowBoundsQ$window_debug(Landroid/app/Activity;)Landroid/graphics/Rect;
-
-    move-result-object p0
-
-    goto :goto_0
-
-    :cond_1
-    const/16 v1, 0x1c
-
-    if-lt v0, v1, :cond_2
-
-    invoke-virtual {p0, p1}, Landroidx/window/layout/WindowMetricsCalculatorCompat;->computeWindowBoundsP$window_debug(Landroid/app/Activity;)Landroid/graphics/Rect;
-
-    move-result-object p0
-
-    goto :goto_0
-
-    :cond_2
-    const/16 v1, 0x18
-
-    if-lt v0, v1, :cond_3
-
-    invoke-virtual {p0, p1}, Landroidx/window/layout/WindowMetricsCalculatorCompat;->computeWindowBoundsN$window_debug(Landroid/app/Activity;)Landroid/graphics/Rect;
-
-    move-result-object p0
-
-    goto :goto_0
-
-    :cond_3
-    invoke-virtual {p0, p1}, Landroidx/window/layout/WindowMetricsCalculatorCompat;->computeWindowBoundsIceCreamSandwich$window_debug(Landroid/app/Activity;)Landroid/graphics/Rect;
-
-    move-result-object p0
-
-    :goto_0
     new-instance p1, Landroidx/window/layout/WindowMetrics;
 
     invoke-direct {p1, p0}, Landroidx/window/layout/WindowMetrics;-><init>(Landroid/graphics/Rect;)V
@@ -325,7 +278,7 @@
 .end method
 
 .method public computeMaximumWindowMetrics(Landroid/app/Activity;)Landroidx/window/layout/WindowMetrics;
-    .locals 2
+    .locals 0
     .param p1    # Landroid/app/Activity;
         .annotation build Lorg/jetbrains/annotations/NotNull;
         .end annotation
@@ -333,15 +286,9 @@
     .annotation build Lorg/jetbrains/annotations/NotNull;
     .end annotation
 
-    const-string v0, "activity"
+    const-string p0, "activity"
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x1e
-
-    if-lt v0, v1, :cond_0
+    invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     sget-object p0, Landroidx/window/layout/ActivityCompatHelperApi30;->INSTANCE:Landroidx/window/layout/ActivityCompatHelperApi30;
 
@@ -349,38 +296,6 @@
 
     move-result-object p0
 
-    goto :goto_0
-
-    :cond_0
-    invoke-virtual {p1}, Landroid/app/Activity;->getWindowManager()Landroid/view/WindowManager;
-
-    move-result-object p1
-
-    invoke-interface {p1}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;
-
-    move-result-object p1
-
-    const-string v0, "display"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    invoke-virtual {p0, p1}, Landroidx/window/layout/WindowMetricsCalculatorCompat;->getRealSizeForDisplay$window_debug(Landroid/view/Display;)Landroid/graphics/Point;
-
-    move-result-object p0
-
-    new-instance p1, Landroid/graphics/Rect;
-
-    iget v0, p0, Landroid/graphics/Point;->x:I
-
-    iget p0, p0, Landroid/graphics/Point;->y:I
-
-    const/4 v1, 0x0
-
-    invoke-direct {p1, v1, v1, v0, p0}, Landroid/graphics/Rect;-><init>(IIII)V
-
-    move-object p0, p1
-
-    :goto_0
     new-instance p1, Landroidx/window/layout/WindowMetrics;
 
     invoke-direct {p1, p0}, Landroidx/window/layout/WindowMetrics;-><init>(Landroid/graphics/Rect;)V
@@ -388,7 +303,7 @@
     return-object p1
 .end method
 
-.method public final computeWindowBoundsIceCreamSandwich$window_debug(Landroid/app/Activity;)Landroid/graphics/Rect;
+.method public final computeWindowBoundsIceCreamSandwich$window_release(Landroid/app/Activity;)Landroid/graphics/Rect;
     .locals 2
     .param p1    # Landroid/app/Activity;
         .annotation build Lorg/jetbrains/annotations/NotNull;
@@ -413,7 +328,7 @@
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-virtual {p0, p1}, Landroidx/window/layout/WindowMetricsCalculatorCompat;->getRealSizeForDisplay$window_debug(Landroid/view/Display;)Landroid/graphics/Point;
+    invoke-virtual {p0, p1}, Landroidx/window/layout/WindowMetricsCalculatorCompat;->getRealSizeForDisplay$window_release(Landroid/view/Display;)Landroid/graphics/Point;
 
     move-result-object p0
 
@@ -446,7 +361,7 @@
     return-object v0
 .end method
 
-.method public final computeWindowBoundsN$window_debug(Landroid/app/Activity;)Landroid/graphics/Rect;
+.method public final computeWindowBoundsN$window_release(Landroid/app/Activity;)Landroid/graphics/Rect;
     .locals 4
     .param p1    # Landroid/app/Activity;
         .annotation build Lorg/jetbrains/annotations/NotNull;
@@ -485,7 +400,7 @@
 
     invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-virtual {p0, v1}, Landroidx/window/layout/WindowMetricsCalculatorCompat;->getRealSizeForDisplay$window_debug(Landroid/view/Display;)Landroid/graphics/Point;
+    invoke-virtual {p0, v1}, Landroidx/window/layout/WindowMetricsCalculatorCompat;->getRealSizeForDisplay$window_release(Landroid/view/Display;)Landroid/graphics/Point;
 
     move-result-object v1
 
@@ -525,7 +440,7 @@
     return-object v0
 .end method
 
-.method public final computeWindowBoundsP$window_debug(Landroid/app/Activity;)Landroid/graphics/Rect;
+.method public final computeWindowBoundsP$window_release(Landroid/app/Activity;)Landroid/graphics/Rect;
     .locals 9
     .param p1    # Landroid/app/Activity;
         .annotation build Lorg/jetbrains/annotations/NotNull;
@@ -879,7 +794,7 @@
     return-object v0
 .end method
 
-.method public final computeWindowBoundsQ$window_debug(Landroid/app/Activity;)Landroid/graphics/Rect;
+.method public final computeWindowBoundsQ$window_release(Landroid/app/Activity;)Landroid/graphics/Rect;
     .locals 5
     .param p1    # Landroid/app/Activity;
         .annotation build Lorg/jetbrains/annotations/NotNull;
@@ -975,7 +890,7 @@
 
     invoke-static {v1, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    invoke-virtual {p0, p1}, Landroidx/window/layout/WindowMetricsCalculatorCompat;->computeWindowBoundsP$window_debug(Landroid/app/Activity;)Landroid/graphics/Rect;
+    invoke-virtual {p0, p1}, Landroidx/window/layout/WindowMetricsCalculatorCompat;->computeWindowBoundsP$window_release(Landroid/app/Activity;)Landroid/graphics/Rect;
 
     move-result-object v2
 
@@ -988,7 +903,7 @@
 
     invoke-static {v1, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    invoke-virtual {p0, p1}, Landroidx/window/layout/WindowMetricsCalculatorCompat;->computeWindowBoundsP$window_debug(Landroid/app/Activity;)Landroid/graphics/Rect;
+    invoke-virtual {p0, p1}, Landroidx/window/layout/WindowMetricsCalculatorCompat;->computeWindowBoundsP$window_release(Landroid/app/Activity;)Landroid/graphics/Rect;
 
     move-result-object v2
 
@@ -1001,7 +916,7 @@
 
     invoke-static {v1, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    invoke-virtual {p0, p1}, Landroidx/window/layout/WindowMetricsCalculatorCompat;->computeWindowBoundsP$window_debug(Landroid/app/Activity;)Landroid/graphics/Rect;
+    invoke-virtual {p0, p1}, Landroidx/window/layout/WindowMetricsCalculatorCompat;->computeWindowBoundsP$window_release(Landroid/app/Activity;)Landroid/graphics/Rect;
 
     move-result-object v2
 
@@ -1014,7 +929,7 @@
 
     invoke-static {v1, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    invoke-virtual {p0, p1}, Landroidx/window/layout/WindowMetricsCalculatorCompat;->computeWindowBoundsP$window_debug(Landroid/app/Activity;)Landroid/graphics/Rect;
+    invoke-virtual {p0, p1}, Landroidx/window/layout/WindowMetricsCalculatorCompat;->computeWindowBoundsP$window_release(Landroid/app/Activity;)Landroid/graphics/Rect;
 
     move-result-object v2
 
@@ -1022,8 +937,8 @@
     return-object v2
 .end method
 
-.method public final getRealSizeForDisplay$window_debug(Landroid/view/Display;)Landroid/graphics/Point;
-    .locals 6
+.method public final getRealSizeForDisplay$window_release(Landroid/view/Display;)Landroid/graphics/Point;
+    .locals 1
     .param p1    # Landroid/view/Display;
         .annotation build Lorg/jetbrains/annotations/NotNull;
         .end annotation
@@ -1039,77 +954,9 @@
 
     invoke-direct {p0}, Landroid/graphics/Point;-><init>()V
 
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x11
-
-    if-lt v0, v1, :cond_0
-
     sget-object v0, Landroidx/window/layout/DisplayCompatHelperApi17;->INSTANCE:Landroidx/window/layout/DisplayCompatHelperApi17;
 
     invoke-virtual {v0, p1, p0}, Landroidx/window/layout/DisplayCompatHelperApi17;->getRealSize(Landroid/view/Display;Landroid/graphics/Point;)V
 
-    goto :goto_0
-
-    :cond_0
-    :try_start_0
-    const-class v0, Landroid/view/Display;
-
-    const-string v1, "getRealSize"
-
-    const/4 v2, 0x1
-
-    new-array v3, v2, [Ljava/lang/Class;
-
-    const-class v4, Landroid/graphics/Point;
-
-    const/4 v5, 0x0
-
-    aput-object v4, v3, v5
-
-    invoke-virtual {v0, v1, v3}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    move-result-object v0
-
-    invoke-virtual {v0, v2}, Ljava/lang/reflect/Method;->setAccessible(Z)V
-
-    new-array v1, v2, [Ljava/lang/Object;
-
-    aput-object p0, v1, v5
-
-    invoke-virtual {v0, p1, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_0
-
-    :catch_0
-    move-exception p1
-
-    sget-object v0, Landroidx/window/layout/WindowMetricsCalculatorCompat;->TAG:Ljava/lang/String;
-
-    invoke-static {v0, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto :goto_0
-
-    :catch_1
-    move-exception p1
-
-    sget-object v0, Landroidx/window/layout/WindowMetricsCalculatorCompat;->TAG:Ljava/lang/String;
-
-    invoke-static {v0, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto :goto_0
-
-    :catch_2
-    move-exception p1
-
-    sget-object v0, Landroidx/window/layout/WindowMetricsCalculatorCompat;->TAG:Ljava/lang/String;
-
-    invoke-static {v0, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    :goto_0
     return-object p0
 .end method

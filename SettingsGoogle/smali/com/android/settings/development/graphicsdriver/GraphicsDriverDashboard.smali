@@ -13,7 +13,7 @@
 
     new-instance v0, Lcom/android/settings/development/graphicsdriver/GraphicsDriverDashboard$1;
 
-    const v1, 0x7f150079
+    const v1, 0x7f15007b
 
     invoke-direct {v0, v1}, Lcom/android/settings/development/graphicsdriver/GraphicsDriverDashboard$1;-><init>(I)V
 
@@ -59,7 +59,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150079
+    const p0, 0x7f15007b
 
     return p0
 .end method
@@ -97,7 +97,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f0409cf
+    const p1, 0x7f040a26
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

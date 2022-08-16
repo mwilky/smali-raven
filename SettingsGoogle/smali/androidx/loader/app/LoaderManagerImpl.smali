@@ -520,7 +520,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "restartLoader in "
+    const-string/jumbo v1, "restartLoader in "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -567,7 +567,7 @@
     :cond_2
     new-instance p0, Ljava/lang/IllegalStateException;
 
-    const-string p1, "restartLoader must be called on the main thread"
+    const-string/jumbo p1, "restartLoader must be called on the main thread"
 
     invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 

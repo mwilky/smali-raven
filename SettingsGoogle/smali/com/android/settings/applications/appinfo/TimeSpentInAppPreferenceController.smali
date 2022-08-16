@@ -8,6 +8,8 @@
 
 
 # instance fields
+.field protected mAppEntry:Lcom/android/settingslib/applications/ApplicationsState$AppEntry;
+
 .field private final mAppFeatureProvider:Lcom/android/settings/applications/ApplicationFeatureProvider;
 
 .field private mIntent:Landroid/content/Intent;
@@ -15,6 +17,8 @@
 .field private final mPackageManager:Landroid/content/pm/PackageManager;
 
 .field private mPackageName:Ljava/lang/String;
+
+.field protected mParent:Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment;
 
 
 # direct methods
@@ -88,14 +92,6 @@
 
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public displayPreference(Landroidx/preference/PreferenceScreen;)V
     .locals 1
 
@@ -111,11 +107,19 @@
 
     if-eqz p1, :cond_0
 
-    iget-object p0, p0, Lcom/android/settings/applications/appinfo/TimeSpentInAppPreferenceController;->mIntent:Landroid/content/Intent;
+    iget-object v0, p0, Lcom/android/settings/applications/appinfo/TimeSpentInAppPreferenceController;->mIntent:Landroid/content/Intent;
 
-    invoke-virtual {p1, p0}, Landroidx/preference/Preference;->setIntent(Landroid/content/Intent;)V
+    invoke-virtual {p1, v0}, Landroidx/preference/Preference;->setIntent(Landroid/content/Intent;)V
 
     :cond_0
+    iget-object p0, p0, Lcom/android/settings/applications/appinfo/TimeSpentInAppPreferenceController;->mAppEntry:Lcom/android/settingslib/applications/ApplicationsState$AppEntry;
+
+    invoke-static {p0}, Lcom/android/settingslib/applications/AppUtils;->isAppInstalled(Lcom/android/settingslib/applications/ApplicationsState$AppEntry;)Z
+
+    move-result p0
+
+    invoke-virtual {p1, p0}, Landroidx/preference/Preference;->setEnabled(Z)V
+
     return-void
 .end method
 
@@ -188,15 +192,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -249,16 +244,6 @@
     return p0
 .end method
 
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
-
-    move-result p0
-
-    return p0
-.end method
-
 .method public bridge synthetic isPublicSlice()Z
     .locals 0
 
@@ -299,6 +284,20 @@
     move-result-object p1
 
     iput-object p1, p0, Lcom/android/settings/applications/appinfo/TimeSpentInAppPreferenceController;->mIntent:Landroid/content/Intent;
+
+    return-void
+.end method
+
+.method public setParentFragment(Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/settings/applications/appinfo/TimeSpentInAppPreferenceController;->mParent:Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment;
+
+    invoke-virtual {p1}, Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment;->getAppEntry()Lcom/android/settingslib/applications/ApplicationsState$AppEntry;
+
+    move-result-object p1
+
+    iput-object p1, p0, Lcom/android/settings/applications/appinfo/TimeSpentInAppPreferenceController;->mAppEntry:Lcom/android/settingslib/applications/ApplicationsState$AppEntry;
 
     return-void
 .end method

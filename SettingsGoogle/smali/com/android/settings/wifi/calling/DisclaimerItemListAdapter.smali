@@ -137,7 +137,7 @@
 
     check-cast p0, Landroid/view/LayoutInflater;
 
-    const p1, 0x7f0602af
+    const p1, 0x7f0602c2
 
     const/4 p2, 0x0
 

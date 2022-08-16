@@ -49,7 +49,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/settings/fuelgauge/BatteryAppListPreferenceController$2;->this$0:Lcom/android/settings/fuelgauge/BatteryAppListPreferenceController;
 
-    invoke-static {v0}, Lcom/android/settings/fuelgauge/BatteryAppListPreferenceController;->access$100(Lcom/android/settings/fuelgauge/BatteryAppListPreferenceController;)Lcom/android/settings/SettingsActivity;
+    invoke-static {v0}, Lcom/android/settings/fuelgauge/BatteryAppListPreferenceController;->-$$Nest$fgetmActivity(Lcom/android/settings/fuelgauge/BatteryAppListPreferenceController;)Lcom/android/settings/SettingsActivity;
 
     move-result-object v0
 
@@ -94,7 +94,7 @@
 
     iget-object v2, p0, Lcom/android/settings/fuelgauge/BatteryAppListPreferenceController$2;->this$0:Lcom/android/settings/fuelgauge/BatteryAppListPreferenceController;
 
-    invoke-static {v2}, Lcom/android/settings/fuelgauge/BatteryAppListPreferenceController;->access$000(Lcom/android/settings/fuelgauge/BatteryAppListPreferenceController;)Landroid/os/UserManager;
+    invoke-static {v2}, Lcom/android/settings/fuelgauge/BatteryAppListPreferenceController;->-$$Nest$fgetmUserManager(Lcom/android/settings/fuelgauge/BatteryAppListPreferenceController;)Landroid/os/UserManager;
 
     move-result-object v2
 
@@ -108,7 +108,7 @@
 
     invoke-virtual {v1, v2}, Landroidx/preference/Preference;->setIcon(Landroid/graphics/drawable/Drawable;)V
 
-    iget-object v2, v0, Lcom/android/settings/fuelgauge/BatteryEntry;->name:Ljava/lang/String;
+    iget-object v2, v0, Lcom/android/settings/fuelgauge/BatteryEntry;->mName:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Landroidx/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
 
@@ -118,7 +118,7 @@
 
     if-eqz v2, :cond_2
 
-    iget-object v0, v0, Lcom/android/settings/fuelgauge/BatteryEntry;->name:Ljava/lang/String;
+    iget-object v0, v0, Lcom/android/settings/fuelgauge/BatteryEntry;->mName:Ljava/lang/String;
 
     invoke-virtual {v1, v0}, Lcom/android/settings/fuelgauge/PowerGaugePreference;->setContentDescription(Ljava/lang/String;)V
 

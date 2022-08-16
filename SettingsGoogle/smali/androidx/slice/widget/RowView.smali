@@ -162,22 +162,10 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
-
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x17
-
-    if-lt v0, v1, :cond_0
+    .locals 1
 
     const/4 v0, 0x1
 
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    :goto_0
     sput-boolean v0, Landroidx/slice/widget/RowView;->sCanSpecifyLargerRangeBarHeight:Z
 
     return-void
@@ -185,14 +173,6 @@
 
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "context"
-        }
-    .end annotation
 
     invoke-direct {p0, p1}, Landroidx/slice/widget/SliceChildView;-><init>(Landroid/content/Context;)V
 
@@ -395,20 +375,6 @@
 
 .method private addAction(Landroidx/slice/core/SliceActionImpl;ILandroid/view/ViewGroup;Z)V
     .locals 8
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x10,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "actionContent",
-            "color",
-            "container",
-            "isStart"
-        }
-    .end annotation
 
     new-instance v6, Landroidx/slice/widget/SliceActionView;
 
@@ -520,18 +486,6 @@
 
 .method private addItem(Landroidx/slice/SliceItem;IZ)Z
     .locals 8
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "sliceItem",
-            "color",
-            "isStart"
-        }
-    .end annotation
 
     if-eqz p3, :cond_0
 
@@ -678,7 +632,7 @@
 
     xor-int/2addr v1, v2
 
-    const-string v4, "raw"
+    const-string/jumbo v4, "raw"
 
     invoke-virtual {p1, v4}, Landroidx/slice/SliceItem;->hasHint(Ljava/lang/String;)Z
 
@@ -985,7 +939,7 @@
 
     const-string v1, "int"
 
-    const-string v2, "range_mode"
+    const-string/jumbo v2, "range_mode"
 
     invoke-static {v0, v1, v2}, Landroidx/slice/core/SliceQuery;->findSubtype(Landroidx/slice/SliceItem;Ljava/lang/String;Ljava/lang/String;)Landroidx/slice/SliceItem;
 
@@ -1381,14 +1335,6 @@
 
 .method private addSelection(Landroidx/slice/SliceItem;)V
     .locals 6
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x10
-        }
-        names = {
-            "selection"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/slice/widget/RowView;->mHandler:Landroid/os/Handler;
 
@@ -1438,7 +1384,7 @@
 
     check-cast v2, Landroidx/slice/SliceItem;
 
-    const-string v3, "selection_option"
+    const-string/jumbo v3, "selection_option"
 
     invoke-virtual {v2, v3}, Landroidx/slice/SliceItem;->hasHint(Ljava/lang/String;)Z
 
@@ -1451,13 +1397,13 @@
     :cond_1
     const-string/jumbo v3, "text"
 
-    const-string v4, "selection_option_key"
+    const-string/jumbo v4, "selection_option_key"
 
     invoke-static {v2, v3, v4}, Landroidx/slice/core/SliceQuery;->findSubtype(Landroidx/slice/SliceItem;Ljava/lang/String;Ljava/lang/String;)Landroidx/slice/SliceItem;
 
     move-result-object v4
 
-    const-string v5, "selection_option_value"
+    const-string/jumbo v5, "selection_option_value"
 
     invoke-static {v2, v3, v5}, Landroidx/slice/core/SliceQuery;->findSubtype(Landroidx/slice/SliceItem;Ljava/lang/String;Ljava/lang/String;)Landroidx/slice/SliceItem;
 
@@ -1548,14 +1494,6 @@
 
 .method private addSubtitle(Z)V
     .locals 9
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "hasTitle"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/slice/widget/RowView;->mRowContent:Landroidx/slice/widget/RowContent;
 
@@ -2065,14 +2003,6 @@
 
 .method private getRelativeTimeString(J)Ljava/lang/CharSequence;
     .locals 5
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "time"
-        }
-    .end annotation
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
@@ -2310,18 +2240,6 @@
 
 .method private measureChildWithExactHeight(Landroid/view/View;II)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "child",
-            "widthMeasureSpec",
-            "childHeight"
-        }
-    .end annotation
 
     iget v0, p0, Landroidx/slice/widget/SliceChildView;->mInsetTop:I
 
@@ -2344,14 +2262,6 @@
 
 .method private onClickPicker(Z)V
     .locals 13
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "isDatePicker"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/slice/widget/RowView;->mRowAction:Landroidx/slice/core/SliceActionImpl;
 
@@ -2526,14 +2436,6 @@
 
 .method private populateViews(Z)V
     .locals 8
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "isUpdate"
-        }
-    .end annotation
 
     const/4 v0, 0x1
 
@@ -2905,7 +2807,7 @@
 
     const-string v3, "int"
 
-    const-string v5, "range_mode"
+    const-string/jumbo v5, "range_mode"
 
     invoke-static {v2, v3, v5}, Landroidx/slice/core/SliceQuery;->findSubtype(Landroidx/slice/SliceItem;Ljava/lang/String;Ljava/lang/String;)Landroidx/slice/SliceItem;
 
@@ -2962,6 +2864,8 @@
     invoke-virtual {p0}, Landroidx/slice/widget/RowView;->updateActionSpinner()V
 
     return-void
+
+    nop
 
     :sswitch_data_0
     .sparse-switch
@@ -3125,16 +3029,6 @@
 
 .method private setViewClickable(Landroid/view/View;Z)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "layout",
-            "isClickable"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -3172,16 +3066,6 @@
 
 .method private setViewHeight(Landroid/view/View;I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "v",
-            "height"
-        }
-    .end annotation
 
     if-eqz p1, :cond_0
 
@@ -3201,18 +3085,6 @@
 
 .method private setViewSideMargins(Landroid/view/View;II)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "v",
-            "start",
-            "end"
-        }
-    .end annotation
 
     if-gez p2, :cond_0
 
@@ -3258,18 +3130,6 @@
 
 .method private setViewSidePaddings(Landroid/view/View;II)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "v",
-            "start",
-            "end"
-        }
-    .end annotation
 
     if-gez p2, :cond_0
 
@@ -3327,16 +3187,6 @@
 
 .method private setViewWidth(Landroid/view/View;I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "v",
-            "width"
-        }
-    .end annotation
 
     if-eqz p1, :cond_0
 
@@ -3948,14 +3798,6 @@
 
 .method public onClick(Landroid/view/View;)V
     .locals 5
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "view"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/slice/widget/RowView;->mRowAction:Landroidx/slice/core/SliceActionImpl;
 
@@ -4231,21 +4073,6 @@
 
 .method public onItemSelected(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "parent",
-            "view",
-            "position",
-            "id"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -4390,22 +4217,6 @@
 
 .method protected onLayout(ZIIII)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "changed",
-            "l",
-            "t",
-            "r",
-            "b"
-        }
-    .end annotation
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getPaddingLeft()I
 
@@ -4515,16 +4326,6 @@
 
 .method protected onMeasure(II)V
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "widthMeasureSpec",
-            "heightMeasureSpec"
-        }
-    .end annotation
 
     invoke-direct {p0}, Landroidx/slice/widget/RowView;->getRowContentHeight()I
 
@@ -4688,15 +4489,6 @@
 
 .method public onNothingSelected(Landroid/widget/AdapterView;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "parent"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -4815,14 +4607,6 @@
 
 .method public setAllowTwoLines(Z)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "allowTwoLines"
-        }
-    .end annotation
 
     iput-boolean p1, p0, Landroidx/slice/widget/RowView;->mAllowTwoLines:Z
 
@@ -4840,20 +4624,6 @@
 
 .method public setInsets(IIII)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "l",
-            "t",
-            "r",
-            "b"
-        }
-    .end annotation
 
     invoke-super {p0, p1, p2, p3, p4}, Landroidx/slice/widget/SliceChildView;->setInsets(IIII)V
 
@@ -4864,14 +4634,6 @@
 
 .method public setLastUpdated(J)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "lastUpdated"
-        }
-    .end annotation
 
     invoke-super {p0, p1, p2}, Landroidx/slice/widget/SliceChildView;->setLastUpdated(J)V
 
@@ -4917,15 +4679,6 @@
 
 .method public setLoadingActions(Ljava/util/Set;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "actions"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -4960,14 +4713,6 @@
 
 .method public setShowLastUpdated(Z)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "showLastUpdated"
-        }
-    .end annotation
 
     invoke-super {p0, p1}, Landroidx/slice/widget/SliceChildView;->setShowLastUpdated(Z)V
 
@@ -4985,15 +4730,6 @@
 
 .method public setSliceActions(Ljava/util/List;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "actions"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -5017,22 +4753,6 @@
 
 .method public setSliceItem(Landroidx/slice/widget/SliceContent;ZIILandroidx/slice/widget/SliceView$OnSliceActionListener;)V
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "content",
-            "isHeader",
-            "index",
-            "rowCount",
-            "observer"
-        }
-    .end annotation
 
     invoke-virtual {p0, p5}, Landroidx/slice/widget/SliceChildView;->setSliceActionListener(Landroidx/slice/widget/SliceView$OnSliceActionListener;)V
 
@@ -5155,16 +4875,6 @@
 
 .method public setStyle(Landroidx/slice/widget/SliceStyle;Landroidx/slice/widget/RowStyle;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "styles",
-            "rowStyle"
-        }
-    .end annotation
 
     invoke-super {p0, p1, p2}, Landroidx/slice/widget/SliceChildView;->setStyle(Landroidx/slice/widget/SliceStyle;Landroidx/slice/widget/RowStyle;)V
 
@@ -5175,14 +4885,6 @@
 
 .method public setTint(I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "tintColor"
-        }
-    .end annotation
 
     invoke-super {p0, p1}, Landroidx/slice/widget/SliceChildView;->setTint(I)V
 

@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroidx/lifecycle/Observer;
@@ -35,7 +36,7 @@
 
     check-cast p1, Ljava/lang/Integer;
 
-    invoke-static {v0, p0, p1}, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->$r8$lambda$lVZssqie10LUTSanV-O_J4rQnhQ(Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;Lcom/android/settings/wifi/dpp/WifiDppInitiatorViewModel;Ljava/lang/Integer;)V
+    invoke-static {v0, p0, p1}, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->$r8$lambda$dOqgoQK1IF6XnMrzk1Q0GZdJS_I(Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;Lcom/android/settings/wifi/dpp/WifiDppInitiatorViewModel;Ljava/lang/Integer;)V
 
     return-void
 .end method

@@ -123,7 +123,7 @@
 
     iput-object v0, p0, Lcom/google/android/libraries/hats20/model/QuestionMultipleSelect;->ordering:Ljava/util/ArrayList;
 
-    const-string v0, "question"
+    const-string/jumbo v0, "question"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 

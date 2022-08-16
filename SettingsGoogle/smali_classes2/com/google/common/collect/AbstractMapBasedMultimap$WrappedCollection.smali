@@ -306,21 +306,6 @@
     return p0
 .end method
 
-.method getAncestor()Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedCollection;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Lcom/google/common/collect/AbstractMapBasedMultimap<",
-            "TK;TV;>.WrappedCollection;"
-        }
-    .end annotation
-
-    iget-object p0, p0, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedCollection;->ancestor:Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedCollection;
-
-    return-object p0
-.end method
-
 .method getDelegate()Ljava/util/Collection;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
@@ -332,19 +317,6 @@
     .end annotation
 
     iget-object p0, p0, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedCollection;->delegate:Ljava/util/Collection;
-
-    return-object p0
-.end method
-
-.method getKey()Ljava/lang/Object;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()TK;"
-        }
-    .end annotation
-
-    iget-object p0, p0, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedCollection;->key:Ljava/lang/Object;
 
     return-object p0
 .end method
@@ -462,57 +434,6 @@
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedCollection;->removeIfEmpty()V
 
     :cond_0
-    return p1
-.end method
-
-.method public removeAll(Ljava/util/Collection;)Z
-    .locals 3
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/Collection<",
-            "*>;)Z"
-        }
-    .end annotation
-
-    invoke-interface {p1}, Ljava/util/Collection;->isEmpty()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const/4 p0, 0x0
-
-    return p0
-
-    :cond_0
-    invoke-virtual {p0}, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedCollection;->size()I
-
-    move-result v0
-
-    iget-object v1, p0, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedCollection;->delegate:Ljava/util/Collection;
-
-    invoke-interface {v1, p1}, Ljava/util/Collection;->removeAll(Ljava/util/Collection;)Z
-
-    move-result p1
-
-    if-eqz p1, :cond_1
-
-    iget-object v1, p0, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedCollection;->delegate:Ljava/util/Collection;
-
-    invoke-interface {v1}, Ljava/util/Collection;->size()I
-
-    move-result v1
-
-    iget-object v2, p0, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedCollection;->this$0:Lcom/google/common/collect/AbstractMapBasedMultimap;
-
-    sub-int/2addr v1, v0
-
-    invoke-static {v2, v1}, Lcom/google/common/collect/AbstractMapBasedMultimap;->access$212(Lcom/google/common/collect/AbstractMapBasedMultimap;I)I
-
-    invoke-virtual {p0}, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedCollection;->removeIfEmpty()V
-
-    :cond_1
     return p1
 .end method
 

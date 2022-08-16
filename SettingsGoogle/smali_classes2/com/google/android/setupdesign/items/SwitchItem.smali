@@ -6,18 +6,8 @@
 .implements Landroid/widget/CompoundButton$OnCheckedChangeListener;
 
 
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/google/android/setupdesign/items/SwitchItem$OnCheckedChangeListener;
-    }
-.end annotation
-
-
 # instance fields
 .field private checked:Z
-
-.field private listener:Lcom/google/android/setupdesign/items/SwitchItem$OnCheckedChangeListener;
 
 
 # direct methods
@@ -108,12 +98,5 @@
 
     iput-boolean p2, p0, Lcom/google/android/setupdesign/items/SwitchItem;->checked:Z
 
-    iget-object p1, p0, Lcom/google/android/setupdesign/items/SwitchItem;->listener:Lcom/google/android/setupdesign/items/SwitchItem$OnCheckedChangeListener;
-
-    if-eqz p1, :cond_0
-
-    invoke-interface {p1, p0, p2}, Lcom/google/android/setupdesign/items/SwitchItem$OnCheckedChangeListener;->onCheckedChange(Lcom/google/android/setupdesign/items/SwitchItem;Z)V
-
-    :cond_0
     return-void
 .end method

@@ -20,7 +20,7 @@
 .method public getPreferenceKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "screensaver"
+    const-string/jumbo p0, "screensaver"
 
     return-object p0
 .end method
@@ -34,7 +34,7 @@
 
     move-result-object p0
 
-    const v0, 0x11100c2
+    const v0, 0x1110124
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 

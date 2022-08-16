@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settings/SettingsActivity$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/view/View$OnClickListener;
@@ -27,7 +28,7 @@
 
     iget-object p0, p0, Lcom/android/settings/SettingsActivity$$ExternalSyntheticLambda2;->f$0:Lcom/android/settings/SettingsActivity;
 
-    invoke-static {p0, p1}, Lcom/android/settings/SettingsActivity;->$r8$lambda$lOFkl0vOSsHmjZ2HQA1dX0PDzVo(Lcom/android/settings/SettingsActivity;Landroid/view/View;)V
+    invoke-static {p0, p1}, Lcom/android/settings/SettingsActivity;->$r8$lambda$v5G3KyvOc0f6Ky0uHMy_ETd9pBc(Lcom/android/settings/SettingsActivity;Landroid/view/View;)V
 
     return-void
 .end method

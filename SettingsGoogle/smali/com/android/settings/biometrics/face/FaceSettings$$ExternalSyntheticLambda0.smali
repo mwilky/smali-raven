@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settings/biometrics/face/FaceSettings$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/hardware/face/FaceManager$GenerateChallengeCallback;
@@ -39,7 +40,7 @@
 
     move-wide v4, p3
 
-    invoke-static/range {v0 .. v5}, Lcom/android/settings/biometrics/face/FaceSettings;->$r8$lambda$fqkYWjoS2XNHLwkHFgbGJaefe98(Lcom/android/settings/biometrics/face/FaceSettings;Landroid/content/Intent;IIJ)V
+    invoke-static/range {v0 .. v5}, Lcom/android/settings/biometrics/face/FaceSettings;->$r8$lambda$A7AeKc0lK2dNW4d7Q1it-j6gGTw(Lcom/android/settings/biometrics/face/FaceSettings;Landroid/content/Intent;IIJ)V
 
     return-void
 .end method

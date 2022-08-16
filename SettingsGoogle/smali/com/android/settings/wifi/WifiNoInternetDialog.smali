@@ -23,6 +23,14 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmNetwork(Lcom/android/settings/wifi/WifiNoInternetDialog;)Landroid/net/Network;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/wifi/WifiNoInternetDialog;->mNetwork:Landroid/net/Network;
+
+    return-object p0
+.end method
+
 .method public constructor <init>()V
     .locals 0
 
@@ -31,20 +39,12 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/settings/wifi/WifiNoInternetDialog;)Landroid/net/Network;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/wifi/WifiNoInternetDialog;->mNetwork:Landroid/net/Network;
-
-    return-object p0
-.end method
-
 .method private createDialog()V
     .locals 6
 
     iget-object v0, p0, Lcom/android/internal/app/AlertActivity;->mAlert:Lcom/android/internal/app/AlertController;
 
-    const v1, 0x7f02035d
+    const v1, 0x7f020382
 
     invoke-virtual {v0, v1}, Lcom/android/internal/app/AlertController;->setIcon(I)V
 
@@ -58,9 +58,9 @@
 
     move-result v1
 
-    const v3, 0x7f040e12
+    const v3, 0x7f040ea1
 
-    const v4, 0x7f0417bb
+    const v4, 0x7f0418b6
 
     const-string v5, "android.net.action.PROMPT_PARTIAL_CONNECTIVITY"
 
@@ -70,7 +70,7 @@
 
     iput-object v1, v0, Lcom/android/internal/app/AlertController$AlertParams;->mTitle:Ljava/lang/CharSequence;
 
-    const v1, 0x7f040e21
+    const v1, 0x7f040eb0
 
     invoke-virtual {p0, v1}, Lcom/android/internal/app/AlertActivity;->getString(I)Ljava/lang/String;
 
@@ -105,7 +105,7 @@
 
     iput-object v1, v0, Lcom/android/internal/app/AlertController$AlertParams;->mTitle:Ljava/lang/CharSequence;
 
-    const v1, 0x7f040ef4
+    const v1, 0x7f040f89
 
     invoke-virtual {p0, v1}, Lcom/android/internal/app/AlertActivity;->getString(I)Ljava/lang/String;
 
@@ -128,7 +128,7 @@
     goto :goto_0
 
     :cond_1
-    const v1, 0x7f040c6d
+    const v1, 0x7f040cd7
 
     invoke-virtual {p0, v1}, Lcom/android/internal/app/AlertActivity;->getString(I)Ljava/lang/String;
 
@@ -136,7 +136,7 @@
 
     iput-object v1, v0, Lcom/android/internal/app/AlertController$AlertParams;->mTitle:Ljava/lang/CharSequence;
 
-    const v1, 0x7f040c6c
+    const v1, 0x7f040cd6
 
     invoke-virtual {p0, v1}, Lcom/android/internal/app/AlertActivity;->getString(I)Ljava/lang/String;
 
@@ -144,7 +144,7 @@
 
     iput-object v1, v0, Lcom/android/internal/app/AlertController$AlertParams;->mMessage:Ljava/lang/CharSequence;
 
-    const v1, 0x7f040c6b
+    const v1, 0x7f040cd5
 
     invoke-virtual {p0, v1}, Lcom/android/internal/app/AlertActivity;->getString(I)Ljava/lang/String;
 
@@ -152,7 +152,7 @@
 
     iput-object v1, v0, Lcom/android/internal/app/AlertController$AlertParams;->mPositiveButtonText:Ljava/lang/CharSequence;
 
-    const v1, 0x7f040c69
+    const v1, 0x7f040cd3
 
     invoke-virtual {p0, v1}, Lcom/android/internal/app/AlertActivity;->getString(I)Ljava/lang/String;
 
@@ -181,7 +181,7 @@
 
     iput-object v1, v0, Lcom/android/internal/app/AlertController$AlertParams;->mView:Landroid/view/View;
 
-    const v0, 0x10201d4
+    const v0, 0x10201e6
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -212,7 +212,7 @@
     :cond_2
     iget-object v0, p0, Lcom/android/settings/wifi/WifiNoInternetDialog;->mAlwaysAllow:Landroid/widget/CheckBox;
 
-    const v1, 0x7f040c6a
+    const v1, 0x7f040cd4
 
     invoke-virtual {p0, v1}, Lcom/android/internal/app/AlertActivity;->getString(I)Ljava/lang/String;
 
@@ -226,7 +226,7 @@
     :goto_1
     iget-object v0, p0, Lcom/android/settings/wifi/WifiNoInternetDialog;->mAlwaysAllow:Landroid/widget/CheckBox;
 
-    const v1, 0x7f040e20
+    const v1, 0x7f040eaf
 
     invoke-virtual {p0, v1}, Lcom/android/internal/app/AlertActivity;->getString(I)Ljava/lang/String;
 

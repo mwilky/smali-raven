@@ -4,15 +4,11 @@
 
 
 # static fields
-.field static final KEY_MANAGE_TRUST_AGENTS:Ljava/lang/String; = "manage_trust_agents"
-
 .field private static final MY_USER_ID:I
 
 
 # instance fields
 .field private final mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
-
-.field private mTrustAgentManager:Lcom/android/settings/security/trustagent/TrustAgentManager;
 
 
 # direct methods
@@ -24,16 +20,6 @@
     move-result v0
 
     sput v0, Lcom/android/settings/security/trustagent/ManageTrustAgentsPreferenceController;->MY_USER_ID:I
-
-    return-void
-.end method
-
-.method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
-
-    const-string v0, "manage_trust_agents"
-
-    invoke-direct {p0, p1, v0}, Lcom/android/settings/security/trustagent/ManageTrustAgentsPreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -57,25 +43,17 @@
 
     iput-object p1, p0, Lcom/android/settings/security/trustagent/ManageTrustAgentsPreferenceController;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
-    invoke-interface {p2}, Lcom/android/settings/security/SecurityFeatureProvider;->getTrustAgentManager()Lcom/android/settings/security/trustagent/TrustAgentManager;
-
-    move-result-object p1
-
-    iput-object p1, p0, Lcom/android/settings/security/trustagent/ManageTrustAgentsPreferenceController;->mTrustAgentManager:Lcom/android/settings/security/trustagent/TrustAgentManager;
-
     return-void
 .end method
 
 .method private getTrustAgentCount()I
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/settings/security/trustagent/ManageTrustAgentsPreferenceController;->mTrustAgentManager:Lcom/android/settings/security/trustagent/TrustAgentManager;
-
-    iget-object v1, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+    .locals 1
 
     iget-object p0, p0, Lcom/android/settings/security/trustagent/ManageTrustAgentsPreferenceController;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
-    invoke-virtual {v0, v1, p0}, Lcom/android/settings/security/trustagent/TrustAgentManager;->getActiveTrustAgents(Landroid/content/Context;Lcom/android/internal/widget/LockPatternUtils;)Ljava/util/List;
+    sget v0, Lcom/android/settings/security/trustagent/ManageTrustAgentsPreferenceController;->MY_USER_ID:I
+
+    invoke-virtual {p0, v0}, Lcom/android/internal/widget/LockPatternUtils;->getEnabledTrustAgents(I)Ljava/util/List;
 
     move-result-object p0
 
@@ -88,14 +66,6 @@
 
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public getAvailabilityStatus()I
     .locals 1
 
@@ -105,7 +75,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f090039
+    const v0, 0x7f09003a
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -126,15 +96,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -167,16 +128,6 @@
     .locals 0
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->hasAsyncUpdate()Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
 
     move-result p0
 
@@ -224,7 +175,7 @@
 
     invoke-virtual {p1, v2}, Landroidx/preference/Preference;->setEnabled(Z)V
 
-    const p0, 0x7f040803
+    const p0, 0x7f04084b
 
     invoke-virtual {p1, p0}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -264,7 +215,7 @@
     :cond_1
     invoke-virtual {p1, v1}, Landroidx/preference/Preference;->setEnabled(Z)V
 
-    const p0, 0x7f040c8d
+    const p0, 0x7f040d08
 
     invoke-virtual {p1, p0}, Landroidx/preference/Preference;->setSummary(I)V
 

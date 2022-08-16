@@ -39,7 +39,7 @@
 
     iget-object p0, p0, Lcom/google/android/setupdesign/view/BottomScrollView$1;->this$0:Lcom/google/android/setupdesign/view/BottomScrollView;
 
-    invoke-static {p0}, Lcom/google/android/setupdesign/view/BottomScrollView;->access$000(Lcom/google/android/setupdesign/view/BottomScrollView;)V
+    invoke-static {p0}, Lcom/google/android/setupdesign/view/BottomScrollView;->-$$Nest$mcheckScroll(Lcom/google/android/setupdesign/view/BottomScrollView;)V
 
     return-void
 .end method

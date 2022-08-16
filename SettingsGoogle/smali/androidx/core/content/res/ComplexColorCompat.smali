@@ -14,18 +14,6 @@
 # direct methods
 .method private constructor <init>(Landroid/graphics/Shader;Landroid/content/res/ColorStateList;I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "shader",
-            "colorStateList",
-            "color"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -40,19 +28,6 @@
 
 .method private static createFromXml(Landroid/content/res/Resources;ILandroid/content/res/Resources$Theme;)Landroidx/core/content/res/ComplexColorCompat;
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "resources",
-            "resId",
-            "theme"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -100,7 +75,7 @@
 
     if-nez v2, :cond_2
 
-    const-string v2, "selector"
+    const-string/jumbo v2, "selector"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -168,14 +143,6 @@
 
 .method static from(I)Landroidx/core/content/res/ComplexColorCompat;
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "color"
-        }
-    .end annotation
 
     new-instance v0, Landroidx/core/content/res/ComplexColorCompat;
 
@@ -188,14 +155,6 @@
 
 .method static from(Landroid/content/res/ColorStateList;)Landroidx/core/content/res/ComplexColorCompat;
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "colorStateList"
-        }
-    .end annotation
 
     new-instance v0, Landroidx/core/content/res/ComplexColorCompat;
 
@@ -212,14 +171,6 @@
 
 .method static from(Landroid/graphics/Shader;)Landroidx/core/content/res/ComplexColorCompat;
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "shader"
-        }
-    .end annotation
 
     new-instance v0, Landroidx/core/content/res/ComplexColorCompat;
 
@@ -234,18 +185,6 @@
 
 .method public static inflate(Landroid/content/res/Resources;ILandroid/content/res/Resources$Theme;)Landroidx/core/content/res/ComplexColorCompat;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "resources",
-            "resId",
-            "theme"
-        }
-    .end annotation
 
     :try_start_0
     invoke-static {p0, p1, p2}, Landroidx/core/content/res/ComplexColorCompat;->createFromXml(Landroid/content/res/Resources;ILandroid/content/res/Resources$Theme;)Landroidx/core/content/res/ComplexColorCompat;
@@ -336,14 +275,6 @@
 
 .method public onStateChanged([I)Z
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "stateSet"
-        }
-    .end annotation
 
     invoke-virtual {p0}, Landroidx/core/content/res/ComplexColorCompat;->isStateful()Z
 
@@ -380,14 +311,6 @@
 
 .method public setColor(I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "color"
-        }
-    .end annotation
 
     iput p1, p0, Landroidx/core/content/res/ComplexColorCompat;->mColor:I
 

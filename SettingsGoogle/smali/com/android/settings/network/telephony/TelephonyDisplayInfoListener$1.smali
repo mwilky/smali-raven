@@ -17,12 +17,16 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/settings/network/telephony/TelephonyDisplayInfoListener;
 
+.field final synthetic val$idToAdd:I
+
 
 # direct methods
-.method constructor <init>(Lcom/android/settings/network/telephony/TelephonyDisplayInfoListener;)V
+.method constructor <init>(Lcom/android/settings/network/telephony/TelephonyDisplayInfoListener;I)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/settings/network/telephony/TelephonyDisplayInfoListener$1;->this$0:Lcom/android/settings/network/telephony/TelephonyDisplayInfoListener;
+
+    iput p2, p0, Lcom/android/settings/network/telephony/TelephonyDisplayInfoListener$1;->val$idToAdd:I
 
     invoke-direct {p0}, Landroid/telephony/PhoneStateListener;-><init>()V
 
@@ -32,19 +36,31 @@
 
 # virtual methods
 .method public onDisplayInfoChanged(Landroid/telephony/TelephonyDisplayInfo;)V
-    .locals 1
+    .locals 2
 
     iget-object v0, p0, Lcom/android/settings/network/telephony/TelephonyDisplayInfoListener$1;->this$0:Lcom/android/settings/network/telephony/TelephonyDisplayInfoListener;
 
-    invoke-static {v0, p1}, Lcom/android/settings/network/telephony/TelephonyDisplayInfoListener;->access$002(Lcom/android/settings/network/telephony/TelephonyDisplayInfoListener;Landroid/telephony/TelephonyDisplayInfo;)Landroid/telephony/TelephonyDisplayInfo;
+    invoke-static {v0}, Lcom/android/settings/network/telephony/TelephonyDisplayInfoListener;->-$$Nest$fgetmDisplayInfos(Lcom/android/settings/network/telephony/TelephonyDisplayInfoListener;)Ljava/util/Map;
 
-    iget-object p0, p0, Lcom/android/settings/network/telephony/TelephonyDisplayInfoListener$1;->this$0:Lcom/android/settings/network/telephony/TelephonyDisplayInfoListener;
+    move-result-object v0
 
-    invoke-static {p0}, Lcom/android/settings/network/telephony/TelephonyDisplayInfoListener;->access$100(Lcom/android/settings/network/telephony/TelephonyDisplayInfoListener;)Lcom/android/settings/network/telephony/TelephonyDisplayInfoListener$Callback;
+    iget v1, p0, Lcom/android/settings/network/telephony/TelephonyDisplayInfoListener$1;->val$idToAdd:I
 
-    move-result-object p0
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-interface {p0, p1}, Lcom/android/settings/network/telephony/TelephonyDisplayInfoListener$Callback;->onTelephonyDisplayInfoChanged(Landroid/telephony/TelephonyDisplayInfo;)V
+    move-result-object v1
+
+    invoke-interface {v0, v1, p1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v0, p0, Lcom/android/settings/network/telephony/TelephonyDisplayInfoListener$1;->this$0:Lcom/android/settings/network/telephony/TelephonyDisplayInfoListener;
+
+    invoke-static {v0}, Lcom/android/settings/network/telephony/TelephonyDisplayInfoListener;->-$$Nest$fgetmCallback(Lcom/android/settings/network/telephony/TelephonyDisplayInfoListener;)Lcom/android/settings/network/telephony/TelephonyDisplayInfoListener$Callback;
+
+    move-result-object v0
+
+    iget p0, p0, Lcom/android/settings/network/telephony/TelephonyDisplayInfoListener$1;->val$idToAdd:I
+
+    invoke-interface {v0, p0, p1}, Lcom/android/settings/network/telephony/TelephonyDisplayInfoListener$Callback;->onTelephonyDisplayInfoChanged(ILandroid/telephony/TelephonyDisplayInfo;)V
 
     return-void
 .end method

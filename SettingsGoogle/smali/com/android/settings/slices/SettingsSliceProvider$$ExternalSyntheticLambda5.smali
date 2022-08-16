@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settings/slices/SettingsSliceProvider$$ExternalSyntheticLambda5;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Predicate;

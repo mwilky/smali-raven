@@ -17,16 +17,6 @@
 # direct methods
 .method public static setDescription(Ljava/lang/Object;Ljava/lang/CharSequence;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "routeObj",
-            "description"
-        }
-    .end annotation
 
     check-cast p0, Landroid/media/MediaRouter$UserRouteInfo;
 

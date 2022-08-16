@@ -8,7 +8,7 @@
 
 .field private mIntroductionTitle:Ljava/lang/String;
 
-.field private mLearnMoreContentDescription:Ljava/lang/String;
+.field private mLearnMoreText:Ljava/lang/String;
 
 
 # direct methods
@@ -99,19 +99,21 @@
     const/4 v0, 0x0
 
     :goto_0
+    const/4 v1, 0x0
+
     if-eqz v0, :cond_1
 
-    new-instance v1, Lcom/android/settings/accessibility/AccessibilityFooterPreferenceController$$ExternalSyntheticLambda0;
+    new-instance v2, Lcom/android/settings/accessibility/AccessibilityFooterPreferenceController$$ExternalSyntheticLambda0;
 
-    invoke-direct {v1, v0}, Lcom/android/settings/accessibility/AccessibilityFooterPreferenceController$$ExternalSyntheticLambda0;-><init>(Landroid/content/Intent;)V
+    invoke-direct {v2, v0}, Lcom/android/settings/accessibility/AccessibilityFooterPreferenceController$$ExternalSyntheticLambda0;-><init>(Landroid/content/Intent;)V
 
-    invoke-virtual {p1, v1}, Lcom/android/settingslib/widget/FooterPreference;->setLearnMoreAction(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {p1, v2}, Lcom/android/settingslib/widget/FooterPreference;->setLearnMoreAction(Landroid/view/View$OnClickListener;)V
 
-    invoke-virtual {p0}, Lcom/android/settings/accessibility/AccessibilityFooterPreferenceController;->getLearnMoreContentDescription()Ljava/lang/String;
+    invoke-virtual {p0}, Lcom/android/settings/accessibility/AccessibilityFooterPreferenceController;->getLearnMoreText()Ljava/lang/String;
 
     move-result-object p0
 
-    invoke-virtual {p1, p0}, Lcom/android/settingslib/widget/FooterPreference;->setLearnMoreContentDescription(Ljava/lang/CharSequence;)V
+    invoke-virtual {p1, p0}, Lcom/android/settingslib/widget/FooterPreference;->setLearnMoreText(Ljava/lang/CharSequence;)V
 
     const/4 p0, 0x1
 
@@ -120,24 +122,16 @@
     goto :goto_1
 
     :cond_1
-    const/4 p0, 0x0
-
-    invoke-virtual {p1, p0}, Lcom/android/settings/accessibility/AccessibilityFooterPreference;->setLinkEnabled(Z)V
+    invoke-virtual {p1, v1}, Lcom/android/settings/accessibility/AccessibilityFooterPreference;->setLinkEnabled(Z)V
 
     :goto_1
+    invoke-virtual {p1, v1}, Landroidx/preference/Preference;->setSelectable(Z)V
+
     return-void
 .end method
 
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public displayPreference(Landroidx/preference/PreferenceScreen;)V
     .locals 1
 
@@ -168,15 +162,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -211,10 +196,10 @@
     return-object p0
 .end method
 
-.method protected getLearnMoreContentDescription()Ljava/lang/String;
+.method protected getLearnMoreText()Ljava/lang/String;
     .locals 0
 
-    iget-object p0, p0, Lcom/android/settings/accessibility/AccessibilityFooterPreferenceController;->mLearnMoreContentDescription:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/settings/accessibility/AccessibilityFooterPreferenceController;->mLearnMoreText:Ljava/lang/String;
 
     return-object p0
 .end method
@@ -233,16 +218,6 @@
     .locals 0
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->hasAsyncUpdate()Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
 
     move-result p0
 
@@ -282,7 +257,7 @@
 
     iput p1, p0, Lcom/android/settings/accessibility/AccessibilityFooterPreferenceController;->mHelpResource:I
 
-    iput-object p2, p0, Lcom/android/settings/accessibility/AccessibilityFooterPreferenceController;->mLearnMoreContentDescription:Ljava/lang/String;
+    iput-object p2, p0, Lcom/android/settings/accessibility/AccessibilityFooterPreferenceController;->mLearnMoreText:Ljava/lang/String;
 
     return-void
 .end method

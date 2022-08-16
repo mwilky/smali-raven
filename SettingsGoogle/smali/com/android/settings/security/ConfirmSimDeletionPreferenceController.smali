@@ -34,7 +34,7 @@
 
     move-result-object p2
 
-    const v0, 0x7f09005e
+    const v0, 0x7f09005f
 
     invoke-virtual {p2, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -111,14 +111,6 @@
 
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public getAvailabilityStatus()I
     .locals 0
 
@@ -143,15 +135,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -194,16 +177,6 @@
     .locals 0
 
     invoke-direct {p0}, Lcom/android/settings/security/ConfirmSimDeletionPreferenceController;->getGlobalState()Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
 
     move-result p0
 
@@ -338,7 +311,7 @@
     invoke-virtual {v0, p0}, Landroidx/preference/TwoStatePreference;->setChecked(Z)V
 
     :cond_0
-    const p0, 0x7f040803
+    const p0, 0x7f04084b
 
     invoke-virtual {p1, p0}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -364,7 +337,7 @@
     invoke-virtual {v0, p0}, Landroidx/preference/TwoStatePreference;->setChecked(Z)V
 
     :cond_2
-    const p0, 0x7f040669
+    const p0, 0x7f0406c7
 
     invoke-virtual {p1, p0}, Landroidx/preference/Preference;->setSummary(I)V
 

@@ -173,7 +173,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/dpp/WifiDppBaseActivity;->mFragmentManager:Landroidx/fragment/app/FragmentManager;
 
-    const-string v1, "qr_code_scanner_fragment"
+    const-string/jumbo v1, "qr_code_scanner_fragment"
 
     invoke-virtual {v0, v1}, Landroidx/fragment/app/FragmentManager;->findFragmentByTag(Ljava/lang/String;)Landroidx/fragment/app/Fragment;
 
@@ -193,7 +193,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f0d024d
+    const p1, 0x7f0d026d
 
     invoke-virtual {p0, p1, v0, v1}, Landroidx/fragment/app/FragmentTransaction;->replace(ILandroidx/fragment/app/Fragment;Ljava/lang/String;)Landroidx/fragment/app/FragmentTransaction;
 

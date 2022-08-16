@@ -70,12 +70,24 @@
     return-object p0
 .end method
 
+.method isAddWifiConfigAllow()Z
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+
+    invoke-static {p0}, Lcom/android/settingslib/wifi/WifiEnterpriseRestrictionUtils;->isAddWifiConfigAllowed(Landroid/content/Context;)Z
+
+    move-result p0
+
+    return p0
+.end method
+
 .method protected onCreate(Landroid/os/Bundle;)V
     .locals 1
 
     invoke-super {p0, p1}, Landroidx/fragment/app/FragmentActivity;->onCreate(Landroid/os/Bundle;)V
 
-    const p1, 0x7f060208
+    const p1, 0x7f060211
 
     invoke-virtual {p0, p1}, Landroidx/activity/ComponentActivity;->setContentView(I)V
 
@@ -141,27 +153,40 @@
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 
+    invoke-virtual {p0}, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksActivity;->isAddWifiConfigAllow()Z
+
+    move-result v0
+
+    const/4 v1, 0x0
+
+    const-string v2, "AddAppNetworksActivity"
+
+    if-nez v0, :cond_0
+
+    const-string p0, "Not allowed by Enterprise Restriction"
+
+    invoke-static {v2, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v1
+
+    :cond_0
     invoke-virtual {p0}, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksActivity;->getCallingAppPackageName()Ljava/lang/String;
 
     move-result-object v0
 
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v1
+    move-result v3
 
-    const-string v2, "AddAppNetworksActivity"
-
-    if-eqz v1, :cond_0
+    if-eqz v3, :cond_1
 
     const-string p0, "Package name is null"
 
     invoke-static {v2, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 p0, 0x0
+    return v1
 
-    return p0
-
-    :cond_0
+    :cond_1
     iget-object v1, p0, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksActivity;->mBundle:Landroid/os/Bundle;
 
     const-string v3, "panel_calling_package_name"
@@ -190,7 +215,7 @@
 
     move-result-object v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_2
 
     new-instance v1, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment;
 
@@ -204,7 +229,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f0d0348
+    const v0, 0x7f0d0373
 
     invoke-virtual {p0, v0, v1, v2}, Landroidx/fragment/app/FragmentTransaction;->add(ILandroidx/fragment/app/Fragment;Ljava/lang/String;)Landroidx/fragment/app/FragmentTransaction;
 
@@ -214,7 +239,7 @@
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     check-cast v1, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment;
 
     iget-object p0, p0, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksActivity;->mBundle:Landroid/os/Bundle;

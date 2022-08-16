@@ -39,7 +39,7 @@
 
     iget-object p0, p0, Lcom/android/settings/applications/AppStorageSettings$1;->this$0:Lcom/android/settings/applications/AppStorageSettings;
 
-    invoke-static {p0}, Lcom/android/settings/applications/AppStorageSettings;->access$000(Lcom/android/settings/applications/AppStorageSettings;)V
+    invoke-static {p0}, Lcom/android/settings/applications/AppStorageSettings;->-$$Nest$minitiateClearUserData(Lcom/android/settings/applications/AppStorageSettings;)V
 
     return-void
 .end method

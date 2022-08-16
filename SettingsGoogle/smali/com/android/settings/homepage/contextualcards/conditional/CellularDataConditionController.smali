@@ -27,6 +27,64 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmAppContext(Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;)Landroid/content/Context;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;->mAppContext:Landroid/content/Context;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmConditionManager(Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;)Lcom/android/settings/homepage/contextualcards/conditional/ConditionManager;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;->mConditionManager:Lcom/android/settings/homepage/contextualcards/conditional/ConditionManager;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmIsListeningConnectionChange(Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;->mIsListeningConnectionChange:Z
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmSubId(Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;->mSubId:I
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmSubId(Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;I)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;->mSubId:I
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mgetDefaultDataSubscriptionId(Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;Landroid/content/Context;)I
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;->getDefaultDataSubscriptionId(Landroid/content/Context;)I
+
+    move-result p0
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$mrestartPhoneStateListener(Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;Landroid/content/Context;I)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;->restartPhoneStateListener(Landroid/content/Context;I)V
+
+    return-void
+.end method
+
 .method static constructor <clinit>()V
     .locals 3
 
@@ -85,64 +143,6 @@
     iput-object p2, p0, Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;->mDefaultDataSubscriptionIdListener:Lcom/android/settings/network/GlobalSettingsChangeListener;
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;)Landroid/content/Context;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;->mAppContext:Landroid/content/Context;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;Landroid/content/Context;)I
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;->getDefaultDataSubscriptionId(Landroid/content/Context;)I
-
-    move-result p0
-
-    return p0
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;)I
-    .locals 0
-
-    iget p0, p0, Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;->mSubId:I
-
-    return p0
-.end method
-
-.method static synthetic access$202(Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;I)I
-    .locals 0
-
-    iput p1, p0, Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;->mSubId:I
-
-    return p1
-.end method
-
-.method static synthetic access$300(Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;->mIsListeningConnectionChange:Z
-
-    return p0
-.end method
-
-.method static synthetic access$400(Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;Landroid/content/Context;I)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;->restartPhoneStateListener(Landroid/content/Context;I)V
-
-    return-void
-.end method
-
-.method static synthetic access$500(Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;)Lcom/android/settings/homepage/contextualcards/conditional/ConditionManager;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;->mConditionManager:Lcom/android/settings/homepage/contextualcards/conditional/ConditionManager;
-
-    return-object p0
 .end method
 
 .method private getDefaultDataSubscriptionId(Landroid/content/Context;)I
@@ -255,7 +255,7 @@
 
     iget-object v1, p0, Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;->mAppContext:Landroid/content/Context;
 
-    const v2, 0x7f040639
+    const v2, 0x7f040697
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -283,7 +283,7 @@
 
     iget-object v2, p0, Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;->mAppContext:Landroid/content/Context;
 
-    const v3, 0x7f04062a
+    const v3, 0x7f040688
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -315,7 +315,7 @@
 
     iget-object v1, p0, Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;->mAppContext:Landroid/content/Context;
 
-    const v2, 0x7f040629
+    const v2, 0x7f040687
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -331,7 +331,7 @@
 
     iget-object p0, p0, Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;->mAppContext:Landroid/content/Context;
 
-    const v1, 0x7f02019f
+    const v1, 0x7f0201b9
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -341,7 +341,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f06008d
+    const v0, 0x7f060098
 
     invoke-virtual {p0, v0}, Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;->setViewType(I)Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;
 

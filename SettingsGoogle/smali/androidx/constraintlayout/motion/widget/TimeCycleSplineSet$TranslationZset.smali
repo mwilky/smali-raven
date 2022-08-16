@@ -28,12 +28,6 @@
 .method public setProperty(Landroid/view/View;FJLandroidx/constraintlayout/motion/widget/KeyCache;)Z
     .locals 6
 
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    if-lt v0, v1, :cond_0
-
     move-object v0, p0
 
     move v1, p2
@@ -50,7 +44,6 @@
 
     invoke-virtual {p1, p2}, Landroid/view/View;->setTranslationZ(F)V
 
-    :cond_0
     iget-boolean p0, p0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->mContinue:Z
 
     return p0

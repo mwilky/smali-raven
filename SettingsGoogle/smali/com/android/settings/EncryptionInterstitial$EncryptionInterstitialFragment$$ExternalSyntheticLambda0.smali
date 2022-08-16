@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settings/EncryptionInterstitial$EncryptionInterstitialFragment$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/view/View$OnClickListener;
@@ -27,7 +28,7 @@
 
     iget-object p0, p0, Lcom/android/settings/EncryptionInterstitial$EncryptionInterstitialFragment$$ExternalSyntheticLambda0;->f$0:Lcom/android/settings/EncryptionInterstitial$EncryptionInterstitialFragment;
 
-    invoke-static {p0, p1}, Lcom/android/settings/EncryptionInterstitial$EncryptionInterstitialFragment;->$r8$lambda$DRuQ1-n7ORIt7vcSjOXDNGbLy-I(Lcom/android/settings/EncryptionInterstitial$EncryptionInterstitialFragment;Landroid/view/View;)V
+    invoke-static {p0, p1}, Lcom/android/settings/EncryptionInterstitial$EncryptionInterstitialFragment;->$r8$lambda$zAiCCT1BXB6TuapPP-VBAXPlnbQ(Lcom/android/settings/EncryptionInterstitial$EncryptionInterstitialFragment;Landroid/view/View;)V
 
     return-void
 .end method

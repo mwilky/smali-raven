@@ -45,7 +45,7 @@
 
     new-instance v0, Lcom/android/settings/search/BaseSearchIndexProvider;
 
-    const v1, 0x7f150082
+    const v1, 0x7f150084
 
     invoke-direct {v0, v1}, Lcom/android/settings/search/BaseSearchIndexProvider;-><init>(I)V
 
@@ -60,6 +60,14 @@
     invoke-direct {p0}, Lcom/android/settings/widget/EmptyTextSettings;-><init>()V
 
     return-void
+.end method
+
+.method static synthetic access$000(Lcom/android/settings/applications/specialaccess/interactacrossprofiles/InteractAcrossProfilesSettings;)Landroid/app/admin/DevicePolicyManager;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/SettingsPreferenceFragment;->mDevicePolicyManager:Landroid/app/admin/DevicePolicyManager;
+
+    return-object p0
 .end method
 
 .method static collectConfigurableApps(Landroid/content/pm/PackageManager;Landroid/os/UserManager;Landroid/content/pm/CrossProfileApps;)Ljava/util/ArrayList;
@@ -387,7 +395,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150082
+    const p0, 0x7f150084
 
     return p0
 .end method
@@ -454,6 +462,12 @@
     move-result-object v0
 
     invoke-virtual {v0}, Landroidx/preference/PreferenceGroup;->removeAll()V
+
+    const-string v1, "Settings.CONNECTED_WORK_AND_PERSONAL_APPS_TITLE"
+
+    const v2, 0x7f040b1b
+
+    invoke-virtual {p0, v1, v2}, Lcom/android/settings/SettingsPreferenceFragment;->replaceEnterprisePreferenceScreenTitle(Ljava/lang/String;I)V
 
     iget-object v1, p0, Lcom/android/settings/applications/specialaccess/interactacrossprofiles/InteractAcrossProfilesSettings;->mPackageManager:Landroid/content/pm/PackageManager;
 
@@ -551,7 +565,7 @@
 
     invoke-super {p0, p1, p2}, Lcom/android/settings/widget/EmptyTextSettings;->onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
 
-    const p1, 0x7f040ab0
+    const p1, 0x7f040b0e
 
     invoke-virtual {p0, p1}, Lcom/android/settings/widget/EmptyTextSettings;->setEmptyText(I)V
 

@@ -36,7 +36,7 @@
 
     iget-object p1, p0, Lcom/android/settings/dashboard/RestrictedDashboardFragment$1;->this$0:Lcom/android/settings/dashboard/RestrictedDashboardFragment;
 
-    invoke-static {p1}, Lcom/android/settings/dashboard/RestrictedDashboardFragment;->access$000(Lcom/android/settings/dashboard/RestrictedDashboardFragment;)Z
+    invoke-static {p1}, Lcom/android/settings/dashboard/RestrictedDashboardFragment;->-$$Nest$fgetmChallengeRequested(Lcom/android/settings/dashboard/RestrictedDashboardFragment;)Z
 
     move-result p1
 
@@ -46,11 +46,11 @@
 
     const/4 p2, 0x0
 
-    invoke-static {p1, p2}, Lcom/android/settings/dashboard/RestrictedDashboardFragment;->access$102(Lcom/android/settings/dashboard/RestrictedDashboardFragment;Z)Z
+    invoke-static {p1, p2}, Lcom/android/settings/dashboard/RestrictedDashboardFragment;->-$$Nest$fputmChallengeSucceeded(Lcom/android/settings/dashboard/RestrictedDashboardFragment;Z)V
 
     iget-object p0, p0, Lcom/android/settings/dashboard/RestrictedDashboardFragment$1;->this$0:Lcom/android/settings/dashboard/RestrictedDashboardFragment;
 
-    invoke-static {p0, p2}, Lcom/android/settings/dashboard/RestrictedDashboardFragment;->access$002(Lcom/android/settings/dashboard/RestrictedDashboardFragment;Z)Z
+    invoke-static {p0, p2}, Lcom/android/settings/dashboard/RestrictedDashboardFragment;->-$$Nest$fputmChallengeRequested(Lcom/android/settings/dashboard/RestrictedDashboardFragment;Z)V
 
     :cond_0
     return-void

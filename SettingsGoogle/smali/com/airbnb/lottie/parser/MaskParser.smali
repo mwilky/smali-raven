@@ -144,7 +144,7 @@
     goto :goto_4
 
     :sswitch_4
-    const-string v6, "s"
+    const-string/jumbo v6, "s"
 
     invoke-virtual {v1, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -281,8 +281,6 @@
     invoke-direct {p0, v1, v2, v3, v4}, Lcom/airbnb/lottie/model/content/Mask;-><init>(Lcom/airbnb/lottie/model/content/Mask$MaskMode;Lcom/airbnb/lottie/model/animatable/AnimatableShapeValue;Lcom/airbnb/lottie/model/animatable/AnimatableIntegerValue;Z)V
 
     return-object p0
-
-    nop
 
     :sswitch_data_0
     .sparse-switch

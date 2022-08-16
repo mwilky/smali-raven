@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settings/homepage/contextualcards/EligibleCardChecker$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -39,7 +40,7 @@
 
     iget-object p0, p0, Lcom/android/settings/homepage/contextualcards/EligibleCardChecker$$ExternalSyntheticLambda2;->f$2:Landroidx/slice/SliceViewManager$SliceCallback;
 
-    invoke-static {v0, v1, p0}, Lcom/android/settings/homepage/contextualcards/EligibleCardChecker;->$r8$lambda$TkgG58nQLDEUj_aUjhSgUmAW95g(Landroidx/slice/SliceViewManager;Landroid/net/Uri;Landroidx/slice/SliceViewManager$SliceCallback;)V
+    invoke-static {v0, v1, p0}, Lcom/android/settings/homepage/contextualcards/EligibleCardChecker;->$r8$lambda$BwI-2KTeC8hobrQyjPtD0-GpKcY(Landroidx/slice/SliceViewManager;Landroid/net/Uri;Landroidx/slice/SliceViewManager$SliceCallback;)V
 
     return-void
 .end method

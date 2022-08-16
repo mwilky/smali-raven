@@ -68,6 +68,14 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmUpdater(Lcom/android/settings/vpn2/VpnSettings;)Landroid/os/Handler;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/vpn2/VpnSettings;->mUpdater:Landroid/os/Handler;
+
+    return-object p0
+.end method
+
 .method static constructor <clinit>()V
     .locals 2
 
@@ -142,14 +150,6 @@
     invoke-virtual {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->getPrefContext()Landroid/content/Context;
 
     move-result-object p0
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/vpn2/VpnSettings;)Landroid/os/Handler;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/vpn2/VpnSettings;->mUpdater:Landroid/os/Handler;
 
     return-object p0
 .end method
@@ -714,7 +714,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a53
+    const p0, 0x7f040aac
 
     return p0
 .end method
@@ -860,7 +860,7 @@
 
     invoke-virtual {p0, p1}, Landroidx/fragment/app/Fragment;->setHasOptionsMenu(Z)V
 
-    const p1, 0x7f15010a
+    const p1, 0x7f150112
 
     invoke-virtual {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->addPreferencesFromResource(I)V
 
@@ -911,7 +911,7 @@
 
     move-result v0
 
-    const v1, 0x7f0d0633
+    const v1, 0x7f0d0672
 
     if-ne v0, v1, :cond_1
 
@@ -1270,7 +1270,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f04159e
+    const v1, 0x7f041697
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -1294,7 +1294,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f04158c
+    const v1, 0x7f041685
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 

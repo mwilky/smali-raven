@@ -7,10 +7,6 @@
 
 
 # instance fields
-.field private final mContext:Landroid/content/Context;
-
-.field private final mHighlightBackgroundRes:I
-
 .field private mHighlightKey:Ljava/lang/String;
 
 .field private mHighlightNeeded:Z
@@ -22,8 +18,6 @@
 .field private final mIconColorHighlight:I
 
 .field private final mIconColorNormal:I
-
-.field private final mNormalBackgroundRes:I
 
 .field private final mRecyclerView:Landroidx/recyclerview/widget/RecyclerView;
 
@@ -59,7 +53,7 @@
     return-void
 .end method
 
-.method public constructor <init>(Lcom/android/settings/homepage/SettingsHomepageActivity;Landroidx/preference/PreferenceGroup;Landroidx/recyclerview/widget/RecyclerView;Ljava/lang/String;)V
+.method public constructor <init>(Lcom/android/settings/homepage/SettingsHomepageActivity;Landroidx/preference/PreferenceGroup;Landroidx/recyclerview/widget/RecyclerView;Ljava/lang/String;Z)V
     .locals 1
 
     invoke-direct {p0, p2}, Landroidx/preference/PreferenceGroupAdapter;-><init>(Landroidx/preference/PreferenceGroup;)V
@@ -74,81 +68,61 @@
 
     iput-object p4, p0, Lcom/android/settings/widget/HighlightableTopLevelPreferenceAdapter;->mHighlightKey:Ljava/lang/String;
 
+    xor-int/lit8 p3, p5, 0x1
+
+    iput-boolean p3, p0, Lcom/android/settings/widget/HighlightableTopLevelPreferenceAdapter;->mScrolled:Z
+
     new-instance p3, Landroid/util/SparseArray;
 
     invoke-direct {p3}, Landroid/util/SparseArray;-><init>()V
 
     iput-object p3, p0, Lcom/android/settings/widget/HighlightableTopLevelPreferenceAdapter;->mViewHolders:Landroid/util/SparseArray;
 
-    invoke-virtual {p2}, Landroidx/preference/Preference;->getContext()Landroid/content/Context;
-
-    move-result-object p2
-
-    iput-object p2, p0, Lcom/android/settings/widget/HighlightableTopLevelPreferenceAdapter;->mContext:Landroid/content/Context;
-
     iput-object p1, p0, Lcom/android/settings/widget/HighlightableTopLevelPreferenceAdapter;->mHomepageActivity:Lcom/android/settings/homepage/SettingsHomepageActivity;
 
-    new-instance p1, Landroid/util/TypedValue;
+    invoke-virtual {p2}, Landroidx/preference/Preference;->getContext()Landroid/content/Context;
 
-    invoke-direct {p1}, Landroid/util/TypedValue;-><init>()V
+    move-result-object p1
 
-    invoke-virtual {p2}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
+    const p2, 0x1010036
 
-    move-result-object p3
+    invoke-static {p1, p2}, Lcom/android/settingslib/Utils;->getColorAttrDefaultColor(Landroid/content/Context;I)I
 
-    const p4, 0x101030e
+    move-result p2
 
-    const/4 v0, 0x1
+    iput p2, p0, Lcom/android/settings/widget/HighlightableTopLevelPreferenceAdapter;->mTitleColorNormal:I
 
-    invoke-virtual {p3, p4, p1, v0}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
+    const p2, 0x7f0a002e
 
-    iget p1, p1, Landroid/util/TypedValue;->resourceId:I
+    invoke-virtual {p1, p2}, Landroid/content/Context;->getColor(I)I
 
-    iput p1, p0, Lcom/android/settings/widget/HighlightableTopLevelPreferenceAdapter;->mNormalBackgroundRes:I
+    move-result p2
 
-    const p1, 0x7f02015f
+    iput p2, p0, Lcom/android/settings/widget/HighlightableTopLevelPreferenceAdapter;->mTitleColorHighlight:I
 
-    iput p1, p0, Lcom/android/settings/widget/HighlightableTopLevelPreferenceAdapter;->mHighlightBackgroundRes:I
+    const p2, 0x1010038
 
-    const p1, 0x1010036
+    invoke-static {p1, p2}, Lcom/android/settingslib/Utils;->getColorAttrDefaultColor(Landroid/content/Context;I)I
 
-    invoke-static {p2, p1}, Lcom/android/settingslib/Utils;->getColorAttrDefaultColor(Landroid/content/Context;I)I
+    move-result p2
 
-    move-result p1
+    iput p2, p0, Lcom/android/settings/widget/HighlightableTopLevelPreferenceAdapter;->mSummaryColorNormal:I
 
-    iput p1, p0, Lcom/android/settings/widget/HighlightableTopLevelPreferenceAdapter;->mTitleColorNormal:I
+    const p2, 0x7f0a002f
 
-    const p1, 0x1010039
+    invoke-virtual {p1, p2}, Landroid/content/Context;->getColor(I)I
 
-    invoke-static {p2, p1}, Lcom/android/settingslib/Utils;->getColorAttrDefaultColor(Landroid/content/Context;I)I
+    move-result p2
 
-    move-result p1
+    iput p2, p0, Lcom/android/settings/widget/HighlightableTopLevelPreferenceAdapter;->mSummaryColorHighlight:I
 
-    iput p1, p0, Lcom/android/settings/widget/HighlightableTopLevelPreferenceAdapter;->mTitleColorHighlight:I
+    invoke-static {p1}, Lcom/android/settings/Utils;->getHomepageIconColor(Landroid/content/Context;)I
 
-    const p1, 0x1010038
+    move-result p2
 
-    invoke-static {p2, p1}, Lcom/android/settingslib/Utils;->getColorAttrDefaultColor(Landroid/content/Context;I)I
+    iput p2, p0, Lcom/android/settings/widget/HighlightableTopLevelPreferenceAdapter;->mIconColorNormal:I
 
-    move-result p1
-
-    iput p1, p0, Lcom/android/settings/widget/HighlightableTopLevelPreferenceAdapter;->mSummaryColorNormal:I
-
-    const p1, 0x101003a
-
-    invoke-static {p2, p1}, Lcom/android/settingslib/Utils;->getColorAttrDefaultColor(Landroid/content/Context;I)I
-
-    move-result p1
-
-    iput p1, p0, Lcom/android/settings/widget/HighlightableTopLevelPreferenceAdapter;->mSummaryColorHighlight:I
-
-    invoke-static {p2}, Lcom/android/settings/Utils;->getHomepageIconColor(Landroid/content/Context;)I
-
-    move-result p1
-
-    iput p1, p0, Lcom/android/settings/widget/HighlightableTopLevelPreferenceAdapter;->mIconColorNormal:I
-
-    invoke-static {p2}, Lcom/android/settings/Utils;->getHomepageIconColorHighlight(Landroid/content/Context;)I
+    invoke-static {p1}, Lcom/android/settings/Utils;->getHomepageIconColorHighlight(Landroid/content/Context;)I
 
     move-result p1
 
@@ -162,7 +136,7 @@
 
     iget-object p1, p1, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
 
-    iget v0, p0, Lcom/android/settings/widget/HighlightableTopLevelPreferenceAdapter;->mHighlightBackgroundRes:I
+    const v0, 0x7f02016b
 
     invoke-virtual {p1, v0}, Landroid/view/View;->setBackgroundResource(I)V
 
@@ -213,11 +187,15 @@
 .end method
 
 .method private isHighlightNeeded()Z
-    .locals 0
+    .locals 1
+
+    invoke-static {}, Landroidx/window/embedding/SplitController;->getInstance()Landroidx/window/embedding/SplitController;
+
+    move-result-object v0
 
     iget-object p0, p0, Lcom/android/settings/widget/HighlightableTopLevelPreferenceAdapter;->mHomepageActivity:Lcom/android/settings/homepage/SettingsHomepageActivity;
 
-    invoke-static {p0}, Lcom/android/settings/activityembedding/ActivityEmbeddingUtils;->isTwoPaneResolution(Landroid/app/Activity;)Z
+    invoke-virtual {v0, p0}, Landroidx/window/embedding/SplitController;->isActivityEmbedded(Landroid/app/Activity;)Z
 
     move-result p0
 
@@ -261,7 +239,7 @@
 
     iget-object p1, p1, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
 
-    iget v0, p0, Lcom/android/settings/widget/HighlightableTopLevelPreferenceAdapter;->mNormalBackgroundRes:I
+    const v0, 0x7f02016c
 
     invoke-virtual {p1, v0}, Landroid/view/View;->setBackgroundResource(I)V
 

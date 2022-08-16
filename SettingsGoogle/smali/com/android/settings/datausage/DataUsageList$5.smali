@@ -118,7 +118,7 @@
 
     iget-object p1, p0, Lcom/android/settings/datausage/DataUsageList$5;->this$0:Lcom/android/settings/datausage/DataUsageList;
 
-    invoke-static {p1, p2}, Lcom/android/settings/datausage/DataUsageList;->access$002(Lcom/android/settings/datausage/DataUsageList;Ljava/util/List;)Ljava/util/List;
+    invoke-static {p1, p2}, Lcom/android/settings/datausage/DataUsageList;->-$$Nest$fputmCycleData(Lcom/android/settings/datausage/DataUsageList;Ljava/util/List;)V
 
     iget-object p1, p0, Lcom/android/settings/datausage/DataUsageList$5;->this$0:Lcom/android/settings/datausage/DataUsageList;
 
@@ -149,7 +149,7 @@
 
     const/4 p1, 0x0
 
-    invoke-static {p0, p1}, Lcom/android/settings/datausage/DataUsageList;->access$002(Lcom/android/settings/datausage/DataUsageList;Ljava/util/List;)Ljava/util/List;
+    invoke-static {p0, p1}, Lcom/android/settings/datausage/DataUsageList;->-$$Nest$fputmCycleData(Lcom/android/settings/datausage/DataUsageList;Ljava/util/List;)V
 
     return-void
 .end method

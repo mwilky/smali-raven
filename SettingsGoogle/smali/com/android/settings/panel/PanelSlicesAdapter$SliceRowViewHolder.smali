@@ -41,7 +41,7 @@
 
     invoke-direct {p0, p2}, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;-><init>(Landroid/view/View;)V
 
-    const p1, 0x7f0d0513
+    const p1, 0x7f0d0555
 
     invoke-virtual {p2, p1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -61,7 +61,7 @@
 
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->setImportantForAccessibility(I)V
 
-    const p1, 0x7f0d0512
+    const p1, 0x7f0d0554
 
     invoke-virtual {p2, p1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -154,7 +154,7 @@
 
     iget-object p0, p0, Lcom/android/settings/panel/PanelSlicesAdapter$SliceRowViewHolder;->this$0:Lcom/android/settings/panel/PanelSlicesAdapter;
 
-    invoke-static {p0}, Lcom/android/settings/panel/PanelSlicesAdapter;->access$100(Lcom/android/settings/panel/PanelSlicesAdapter;)I
+    invoke-static {p0}, Lcom/android/settings/panel/PanelSlicesAdapter;->-$$Nest$fgetmMetricsCategory(Lcom/android/settings/panel/PanelSlicesAdapter;)I
 
     move-result v3
 
@@ -214,7 +214,7 @@
 
     iget-object p2, p0, Lcom/android/settings/panel/PanelSlicesAdapter$SliceRowViewHolder;->this$0:Lcom/android/settings/panel/PanelSlicesAdapter;
 
-    invoke-static {p2}, Lcom/android/settings/panel/PanelSlicesAdapter;->access$000(Lcom/android/settings/panel/PanelSlicesAdapter;)Lcom/android/settings/panel/PanelFragment;
+    invoke-static {p2}, Lcom/android/settings/panel/PanelSlicesAdapter;->-$$Nest$fgetmPanelFragment(Lcom/android/settings/panel/PanelSlicesAdapter;)Lcom/android/settings/panel/PanelFragment;
 
     move-result-object p2
 
@@ -248,6 +248,12 @@
     invoke-virtual {p2, v0}, Landroid/view/ViewGroup;->setVisibility(I)V
 
     :cond_1
+    iget-object p2, p0, Lcom/android/settings/panel/PanelSlicesAdapter$SliceRowViewHolder;->sliceView:Landroidx/slice/widget/SliceView;
+
+    const/4 v0, 0x1
+
+    invoke-virtual {p2, v0}, Landroidx/slice/widget/SliceView;->setShowActionDividers(Z)V
+
     iget-object p2, p0, Lcom/android/settings/panel/PanelSlicesAdapter$SliceRowViewHolder;->sliceView:Landroidx/slice/widget/SliceView;
 
     new-instance v0, Lcom/android/settings/panel/PanelSlicesAdapter$SliceRowViewHolder$$ExternalSyntheticLambda0;

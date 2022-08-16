@@ -82,21 +82,23 @@
 
     invoke-direct {p1, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const p0, 0x7f04129a
+    const p0, 0x7f041354
 
     invoke-virtual {p1, p0}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object p0
 
-    const p1, 0x7f041299    # 1.7555466E38f
+    const p1, 0x7f041353
 
     invoke-virtual {p0, p1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object p0
 
-    sget-object p1, Lcom/android/settings/sim/smartForwarding/SmartForwardingActivity$1$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/settings/sim/smartForwarding/SmartForwardingActivity$1$$ExternalSyntheticLambda0;
+    new-instance p1, Lcom/android/settings/sim/smartForwarding/SmartForwardingActivity$1$$ExternalSyntheticLambda0;
 
-    const v0, 0x7f04129d
+    invoke-direct {p1}, Lcom/android/settings/sim/smartForwarding/SmartForwardingActivity$1$$ExternalSyntheticLambda0;-><init>()V
+
+    const v0, 0x7f041357
 
     invoke-virtual {p0, v0, p1}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -156,7 +158,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f0d0179
+    const v0, 0x7f0d018e
 
     invoke-virtual {p1, v0}, Landroidx/fragment/app/FragmentManager;->findFragmentById(I)Landroidx/fragment/app/Fragment;
 

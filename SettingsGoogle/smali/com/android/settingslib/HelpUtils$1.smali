@@ -55,7 +55,7 @@
     goto :goto_0
 
     :catch_0
-    invoke-static {}, Lcom/android/settingslib/HelpUtils;->access$000()Ljava/lang/String;
+    invoke-static {}, Lcom/android/settingslib/HelpUtils;->-$$Nest$sfgetTAG()Ljava/lang/String;
 
     move-result-object p1
 

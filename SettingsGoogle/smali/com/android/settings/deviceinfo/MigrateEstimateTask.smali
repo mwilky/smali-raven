@@ -15,6 +15,10 @@
 .end annotation
 
 
+# static fields
+.field private static final SPEED_ESTIMATE_BPS:J
+
+
 # instance fields
 .field private final mContext:Landroid/content/Context;
 
@@ -22,6 +26,22 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 3
+
+    sget-object v0, Landroid/util/DataUnit;->MEBIBYTES:Landroid/util/DataUnit;
+
+    const-wide/16 v1, 0xa
+
+    invoke-virtual {v0, v1, v2}, Landroid/util/DataUnit;->toBytes(J)J
+
+    move-result-wide v0
+
+    sput-wide v0, Lcom/android/settings/deviceinfo/MigrateEstimateTask;->SPEED_ESTIMATE_BPS:J
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 2
 
@@ -252,7 +272,7 @@
 
     mul-long/2addr v0, v2
 
-    const-wide/32 v4, 0xa00000
+    sget-wide v4, Lcom/android/settings/deviceinfo/MigrateEstimateTask;->SPEED_ESTIMATE_BPS:J
 
     div-long/2addr v0, v4
 

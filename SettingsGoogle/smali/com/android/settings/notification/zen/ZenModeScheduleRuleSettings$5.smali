@@ -39,7 +39,7 @@
 
     iget-object p0, p0, Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings$5;->this$0:Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings;
 
-    invoke-static {p0}, Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings;->access$200(Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings;)V
+    invoke-static {p0}, Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings;->-$$Nest$mupdateDays(Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings;)V
 
     return-void
 .end method

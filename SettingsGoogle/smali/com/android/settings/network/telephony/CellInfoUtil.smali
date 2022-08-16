@@ -30,7 +30,9 @@
 
     move-result-object p0
 
-    sget-object v0, Lcom/android/settings/network/telephony/CellInfoUtil$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/settings/network/telephony/CellInfoUtil$$ExternalSyntheticLambda0;
+    new-instance v0, Lcom/android/settings/network/telephony/CellInfoUtil$$ExternalSyntheticLambda0;
+
+    invoke-direct {v0}, Lcom/android/settings/network/telephony/CellInfoUtil$$ExternalSyntheticLambda0;-><init>()V
 
     invoke-interface {p0, v0}, Ljava/util/stream/Stream;->map(Ljava/util/function/Function;)Ljava/util/stream/Stream;
 
@@ -52,7 +54,7 @@
 .end method
 
 .method public static cellInfoToString(Landroid/telephony/CellInfo;)Ljava/lang/String;
-    .locals 6
+    .locals 7
 
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -74,13 +76,33 @@
 
     move-result-object v3
 
-    const/4 v4, 0x6
+    const/4 v4, 0x0
 
-    new-array v4, v4, [Ljava/lang/Object;
+    if-eqz v1, :cond_0
 
-    const/4 v5, 0x0
+    invoke-virtual {v1}, Landroid/telephony/CellIdentity;->getOperatorAlphaLong()Ljava/lang/CharSequence;
 
-    aput-object v0, v4, v5
+    move-result-object v4
+
+    invoke-virtual {v1}, Landroid/telephony/CellIdentity;->getOperatorAlphaShort()Ljava/lang/CharSequence;
+
+    move-result-object v1
+
+    goto :goto_0
+
+    :cond_0
+    move-object v1, v4
+
+    :goto_0
+    const/4 v5, 0x6
+
+    new-array v5, v5, [Ljava/lang/Object;
+
+    const/4 v6, 0x0
+
+    aput-object v0, v5, v6
+
+    const/4 v0, 0x1
 
     invoke-virtual {p0}, Landroid/telephony/CellInfo;->isRegistered()Z
 
@@ -90,37 +112,27 @@
 
     move-result-object p0
 
-    const/4 v0, 0x1
-
-    aput-object p0, v4, v0
+    aput-object p0, v5, v0
 
     const/4 p0, 0x2
 
-    aput-object v2, v4, p0
+    aput-object v2, v5, p0
 
     const/4 p0, 0x3
 
-    aput-object v3, v4, p0
+    aput-object v3, v5, p0
 
-    invoke-virtual {v1}, Landroid/telephony/CellIdentity;->getOperatorAlphaLong()Ljava/lang/CharSequence;
+    const/4 p0, 0x4
 
-    move-result-object p0
+    aput-object v4, v5, p0
 
-    const/4 v0, 0x4
+    const/4 p0, 0x5
 
-    aput-object p0, v4, v0
-
-    invoke-virtual {v1}, Landroid/telephony/CellIdentity;->getOperatorAlphaShort()Ljava/lang/CharSequence;
-
-    move-result-object p0
-
-    const/4 v0, 0x5
-
-    aput-object p0, v4, v0
+    aput-object v1, v5, p0
 
     const-string/jumbo p0, "{CellType = %s, isRegistered = %b, mcc = %s, mnc = %s, alphaL = %s, alphaS = %s}"
 
-    invoke-static {p0, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p0, v5}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object p0
 

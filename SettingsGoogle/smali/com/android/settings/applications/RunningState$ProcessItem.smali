@@ -95,7 +95,7 @@
 
     aput-object p3, v0, v1
 
-    const v1, 0x7f0411dd
+    const v1, 0x7f041295
 
     invoke-virtual {p1, v1, v0}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -485,15 +485,15 @@
 
     iget-object v6, p2, Landroid/app/ActivityManager$RunningServiceInfo;->service:Landroid/content/ComponentName;
 
-    const/high16 v7, 0x400000
+    const-wide/32 v7, 0x400000
 
-    iget v8, p2, Landroid/app/ActivityManager$RunningServiceInfo;->uid:I
+    iget v9, p2, Landroid/app/ActivityManager$RunningServiceInfo;->uid:I
 
-    invoke-static {v8}, Landroid/os/UserHandle;->getUserId(I)I
+    invoke-static {v9}, Landroid/os/UserHandle;->getUserId(I)I
 
-    move-result v8
+    move-result v9
 
-    invoke-interface {v5, v6, v7, v8}, Landroid/content/pm/IPackageManager;->getServiceInfo(Landroid/content/ComponentName;II)Landroid/content/pm/ServiceInfo;
+    invoke-interface {v5, v6, v7, v8, v9}, Landroid/content/pm/IPackageManager;->getServiceInfo(Landroid/content/ComponentName;JI)Landroid/content/pm/ServiceInfo;
 
     move-result-object v5
 
@@ -644,7 +644,7 @@
 
     move-result-object p1
 
-    const p2, 0x7f0411d9
+    const p2, 0x7f041291
 
     new-array v0, v4, [Ljava/lang/Object;
 
@@ -682,7 +682,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f0411df
+    const p1, 0x7f041297
 
     invoke-virtual {p0, p1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/settings/network/SubscriptionsPreferenceController$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroidx/preference/Preference$OnPreferenceClickListener;
+.implements Ljava/util/function/Predicate;
 
 
 # instance fields
@@ -22,12 +23,14 @@
 
 
 # virtual methods
-.method public final onPreferenceClick(Landroidx/preference/Preference;)Z
+.method public final test(Ljava/lang/Object;)Z
     .locals 0
 
     iget-object p0, p0, Lcom/android/settings/network/SubscriptionsPreferenceController$$ExternalSyntheticLambda0;->f$0:Lcom/android/settings/network/SubscriptionsPreferenceController;
 
-    invoke-static {p0, p1}, Lcom/android/settings/network/SubscriptionsPreferenceController;->$r8$lambda$RHwXSy0mU7z-eOxPFEnzhMM-QWI(Lcom/android/settings/network/SubscriptionsPreferenceController;Landroidx/preference/Preference;)Z
+    check-cast p1, Landroid/telephony/SubscriptionInfo;
+
+    invoke-static {p0, p1}, Lcom/android/settings/network/SubscriptionsPreferenceController;->$r8$lambda$CsW5n__G6EaO6jXF5ak6X6Iwcgs(Lcom/android/settings/network/SubscriptionsPreferenceController;Landroid/telephony/SubscriptionInfo;)Z
 
     move-result p0
 

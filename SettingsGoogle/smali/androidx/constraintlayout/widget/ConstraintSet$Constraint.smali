@@ -101,7 +101,7 @@
 .end method
 
 .method private fillFrom(ILandroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;)V
-    .locals 2
+    .locals 1
 
     iput p1, p0, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->mViewId:I
 
@@ -315,12 +315,6 @@
 
     iput v0, p1, Landroidx/constraintlayout/widget/ConstraintSet$Layout;->goneEndMargin:I
 
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x11
-
-    if-lt v0, v1, :cond_0
-
     invoke-virtual {p2}, Landroid/view/ViewGroup$MarginLayoutParams;->getMarginEnd()I
 
     move-result v0
@@ -335,7 +329,6 @@
 
     iput p1, p0, Landroidx/constraintlayout/widget/ConstraintSet$Layout;->startMargin:I
 
-    :cond_0
     return-void
 .end method
 
@@ -449,7 +442,7 @@
 
 # virtual methods
 .method public applyTo(Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;)V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->layout:Landroidx/constraintlayout/widget/ConstraintSet$Layout;
 
@@ -656,12 +649,6 @@
     iput-object v1, p1, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->constraintTag:Ljava/lang/String;
 
     :cond_0
-    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v2, 0x11
-
-    if-lt v1, v2, :cond_1
-
     iget v0, v0, Landroidx/constraintlayout/widget/ConstraintSet$Layout;->startMargin:I
 
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup$MarginLayoutParams;->setMarginStart(I)V
@@ -672,7 +659,6 @@
 
     invoke-virtual {p1, p0}, Landroid/view/ViewGroup$MarginLayoutParams;->setMarginEnd(I)V
 
-    :cond_1
     invoke-virtual {p1}, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->validate()V
 
     return-void

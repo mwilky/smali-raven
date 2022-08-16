@@ -61,13 +61,13 @@
 
     invoke-direct {p1, p0}, Landroidx/appcompat/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const p0, 0x7f0407e8
+    const p0, 0x7f040830
 
     invoke-virtual {p1, p0}, Landroidx/appcompat/app/AlertDialog$Builder;->setTitle(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
     move-result-object p0
 
-    const p1, 0x7f0407e6
+    const p1, 0x7f04082e
 
     invoke-virtual {p0, p1}, Landroidx/appcompat/app/AlertDialog$Builder;->setMessage(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
@@ -75,7 +75,7 @@
 
     sget-object p1, Lcom/google/android/settings/aware/AwareSettingsDialogFragment;->mClickListener:Landroid/content/DialogInterface$OnClickListener;
 
-    const v0, 0x7f040638
+    const v0, 0x7f040696
 
     invoke-virtual {p0, v0, p1}, Landroidx/appcompat/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 
@@ -83,7 +83,7 @@
 
     sget-object p1, Lcom/google/android/settings/aware/AwareSettingsDialogFragment;->mClickListener:Landroid/content/DialogInterface$OnClickListener;
 
-    const v0, 0x7f040564
+    const v0, 0x7f0405c1
 
     invoke-virtual {p0, v0, p1}, Landroidx/appcompat/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 

@@ -38,7 +38,7 @@
         }
     .end annotation
 
-    invoke-static {p1}, Lcom/android/settings/deletionhelper/AutomaticStorageManagerSettings;->access$000(Landroid/content/Context;)Ljava/util/List;
+    invoke-static {p1}, Lcom/android/settings/deletionhelper/AutomaticStorageManagerSettings;->-$$Nest$smbuildPreferenceControllers(Landroid/content/Context;)Ljava/util/List;
 
     move-result-object p0
 

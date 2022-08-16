@@ -18,12 +18,56 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$DduLx4GdcCdnfPnQ7ygTJTlMdeM(Landroid/content/Context;)Ljava/lang/String;
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/settings/notification/SoundWorkSettingsController$UnifyWorkDialogFragment;->lambda$onCreateDialog$0(Landroid/content/Context;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static synthetic $r8$lambda$fXgIs1Xcic3Y4_N49_FiEQgZ9hs(Landroid/content/Context;)Ljava/lang/String;
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/settings/notification/SoundWorkSettingsController$UnifyWorkDialogFragment;->lambda$onCreateDialog$1(Landroid/content/Context;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/settings/core/instrumentation/InstrumentedDialogFragment;-><init>()V
 
     return-void
+.end method
+
+.method private static synthetic lambda$onCreateDialog$0(Landroid/content/Context;)Ljava/lang/String;
+    .locals 1
+
+    const v0, 0x7f0418a9
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private static synthetic lambda$onCreateDialog$1(Landroid/content/Context;)Ljava/lang/String;
+    .locals 1
+
+    const v0, 0x7f0418a8
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method public static show(Lcom/android/settings/notification/SoundWorkSettings;)V
@@ -87,29 +131,69 @@
 .end method
 
 .method public onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;
-    .locals 1
-
-    new-instance p1, Landroidx/appcompat/app/AlertDialog$Builder;
+    .locals 5
 
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
 
+    move-result-object p1
+
+    invoke-virtual {p1}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object p1
+
+    const-class v0, Landroid/app/admin/DevicePolicyManager;
+
+    invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
     move-result-object v0
 
-    invoke-direct {p1, v0}, Landroidx/appcompat/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+    check-cast v0, Landroid/app/admin/DevicePolicyManager;
 
-    const v0, 0x7f0417ae
+    new-instance v1, Landroidx/appcompat/app/AlertDialog$Builder;
 
-    invoke-virtual {p1, v0}, Landroidx/appcompat/app/AlertDialog$Builder;->setTitle(I)Landroidx/appcompat/app/AlertDialog$Builder;
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
+
+    move-result-object v2
+
+    invoke-direct {v1, v2}, Landroidx/appcompat/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+
+    invoke-virtual {v0}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
+
+    move-result-object v2
+
+    new-instance v3, Lcom/android/settings/notification/SoundWorkSettingsController$UnifyWorkDialogFragment$$ExternalSyntheticLambda0;
+
+    invoke-direct {v3, p1}, Lcom/android/settings/notification/SoundWorkSettingsController$UnifyWorkDialogFragment$$ExternalSyntheticLambda0;-><init>(Landroid/content/Context;)V
+
+    const-string v4, "Settings.ENABLE_WORK_PROFILE_SYNC_WITH_PERSONAL_SOUNDS_DIALOG_TITLE"
+
+    invoke-virtual {v2, v4, v3}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Landroidx/appcompat/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroidx/appcompat/app/AlertDialog$Builder;
+
+    move-result-object v1
+
+    invoke-virtual {v0}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
+
+    move-result-object v0
+
+    new-instance v2, Lcom/android/settings/notification/SoundWorkSettingsController$UnifyWorkDialogFragment$$ExternalSyntheticLambda1;
+
+    invoke-direct {v2, p1}, Lcom/android/settings/notification/SoundWorkSettingsController$UnifyWorkDialogFragment$$ExternalSyntheticLambda1;-><init>(Landroid/content/Context;)V
+
+    const-string p1, "Settings.ENABLE_WORK_PROFILE_SYNC_WITH_PERSONAL_SOUNDS_DIALOG_MESSAGE"
+
+    invoke-virtual {v0, p1, v2}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
 
     move-result-object p1
 
-    const v0, 0x7f0417ad
-
-    invoke-virtual {p1, v0}, Landroidx/appcompat/app/AlertDialog$Builder;->setMessage(I)Landroidx/appcompat/app/AlertDialog$Builder;
+    invoke-virtual {v1, p1}, Landroidx/appcompat/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroidx/appcompat/app/AlertDialog$Builder;
 
     move-result-object p1
 
-    const v0, 0x7f0417af
+    const v0, 0x7f0418aa
 
     invoke-virtual {p1, v0, p0}, Landroidx/appcompat/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 

@@ -8,8 +8,8 @@
     <Preference android:title="@string/wifi_signal" android:selectable="false" android:key="signal_strength" />
     <Preference android:icon="@drawable/ic_frequency_antenna" android:title="@string/wifi_frequency" android:selectable="false" android:key="frequency" />
     <Preference android:icon="@drawable/ic_security_lock_24dp" android:title="@string/wifi_security" android:selectable="false" android:key="security" />
-    <DropDownPreference android:icon="@drawable/ic_attach_money_black_24dp" android:entries="@array/wifi_metered_entries" android:title="@string/wifi_metered_title" android:key="metered" android:entryValues="@array/wifi_metered_values" />
-    <DropDownPreference android:icon="@drawable/ic_wifi_privacy_24dp" android:entries="@array/wifi_privacy_entries" android:title="@string/wifi_privacy_settings" android:key="privacy" android:entryValues="@array/wifi_privacy_values" />
+    <ListPreference android:icon="@drawable/ic_attach_money_black_24dp" android:entries="@array/wifi_metered_entries" android:title="@string/wifi_metered_title" android:key="metered" android:entryValues="@array/wifi_metered_values" />
+    <ListPreference android:icon="@drawable/ic_wifi_privacy_24dp" android:entries="@array/wifi_privacy_entries" android:title="@string/wifi_privacy_settings" android:key="privacy" android:entryValues="@array/wifi_privacy_values" />
     <Preference android:title="@string/wifi_subscription" android:key="subscription_detail" android:summary="@string/wifi_subscription_summary" />
     <SwitchPreference android:title="@string/wifi_auto_connect_title" android:key="auto_connect" android:summary="@string/wifi_auto_connect_summary" />
     <Preference android:title="@string/wifi_dpp_add_device" android:key="add_device_to_network" android:summary="@string/wifi_dpp_connect_network_using_qr_code" />

@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settings/homepage/contextualcards/slices/SliceFullCardRendererHelper$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroidx/slice/widget/SliceView$OnSliceActionListener;

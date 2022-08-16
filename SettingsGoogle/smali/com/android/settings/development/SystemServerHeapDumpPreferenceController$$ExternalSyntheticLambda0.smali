@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settings/development/SystemServerHeapDumpPreferenceController$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;

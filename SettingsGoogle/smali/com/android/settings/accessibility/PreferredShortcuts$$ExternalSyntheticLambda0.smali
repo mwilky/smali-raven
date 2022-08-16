@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settings/accessibility/PreferredShortcuts$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Predicate;
@@ -29,7 +30,7 @@
 
     check-cast p1, Ljava/lang/String;
 
-    invoke-static {p0, p1}, Lcom/android/settings/accessibility/PreferredShortcuts;->$r8$lambda$85Sa7jXRk5efmr0sNLOqm0gDo_0(Ljava/lang/String;Ljava/lang/String;)Z
+    invoke-static {p0, p1}, Lcom/android/settings/accessibility/PreferredShortcuts;->$r8$lambda$MRCjQZzAG7TxUSvciyocIN3VTr0(Ljava/lang/String;Ljava/lang/String;)Z
 
     move-result p0
 

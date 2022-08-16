@@ -50,7 +50,7 @@
 .end method
 
 .method private synthetic lambda$update$0(Landroid/telephony/SubscriptionInfo;ILandroidx/preference/Preference;)Z
-    .locals 2
+    .locals 1
 
     invoke-virtual {p1}, Landroid/telephony/SubscriptionInfo;->isEmbedded()Z
 
@@ -85,11 +85,13 @@
     :cond_0
     new-instance p2, Landroid/content/Intent;
 
-    iget-object p3, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+    const-string p3, "android.settings.NETWORK_OPERATOR_SETTINGS"
 
-    const-class v1, Lcom/android/settings/network/telephony/MobileNetworkActivity;
+    invoke-direct {p2, p3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    invoke-direct {p2, p3, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+    const-string p3, "com.android.settings"
+
+    invoke-virtual {p2, p3}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
 
     invoke-virtual {p1}, Landroid/telephony/SubscriptionInfo;->getSubscriptionId()I
 
@@ -201,14 +203,14 @@
 
     if-eqz v5, :cond_2
 
-    const v5, 0x7f040d3b
+    const v5, 0x7f040db7
 
     invoke-virtual {v4, v5}, Landroidx/preference/Preference;->setSummary(I)V
 
     goto :goto_1
 
     :cond_2
-    const v5, 0x7f040d46
+    const v5, 0x7f040dc2
 
     invoke-virtual {v4, v5}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -223,7 +225,7 @@
 
     if-eqz v6, :cond_4
 
-    const v5, 0x7f040d3c
+    const v5, 0x7f040db8
 
     invoke-virtual {v4, v5}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -240,7 +242,7 @@
 
     iget-object v5, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f040d47
+    const v6, 0x7f040dc3
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -253,7 +255,7 @@
     :cond_5
     iget-object v6, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v7, 0x7f040d50
+    const v7, 0x7f040dcc
 
     const/4 v8, 0x1
 

@@ -7,11 +7,15 @@
 
 
 # instance fields
+.field private final mDeviceStateAutoRotateSettingsManager:Lcom/android/settingslib/devicestate/DeviceStateRotationLockSettingsManager;
+
+.field private final mDeviceStateRotationLockSettingsListener:Lcom/android/settingslib/devicestate/DeviceStateRotationLockSettingsManager$DeviceStateRotationLockSettingsListener;
+
 .field private final mMetricsFeatureProvider:Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;
 
 .field private final mPowerManager:Landroid/os/PowerManager;
 
-.field private mPreference:Landroidx/preference/Preference;
+.field protected mPreference:Landroidx/preference/Preference;
 
 .field private final mPrivacyManager:Landroid/hardware/SensorPrivacyManager;
 
@@ -21,10 +25,18 @@
 
 
 # direct methods
-.method public static synthetic $r8$lambda$WQVYFwzOF3HP_S5_LI68d_fwhm8(Lcom/android/settings/display/SmartAutoRotateController;IZ)V
+.method public static synthetic $r8$lambda$8Eqtuxqy79M4MCXYu8cs21T2XnQ(Lcom/android/settings/display/SmartAutoRotateController;)V
     .locals 0
 
-    invoke-direct {p0, p1, p2}, Lcom/android/settings/display/SmartAutoRotateController;->lambda$new$0(IZ)V
+    invoke-direct {p0}, Lcom/android/settings/display/SmartAutoRotateController;->lambda$new$0()V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$O9Xbl94hH0eKSa3S1LGwGkNnP-4(Lcom/android/settings/display/SmartAutoRotateController;IZ)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/settings/display/SmartAutoRotateController;->lambda$new$1(IZ)V
 
     return-void
 .end method
@@ -39,6 +51,12 @@
     invoke-direct {p2, p0}, Lcom/android/settings/display/SmartAutoRotateController$1;-><init>(Lcom/android/settings/display/SmartAutoRotateController;)V
 
     iput-object p2, p0, Lcom/android/settings/display/SmartAutoRotateController;->mReceiver:Landroid/content/BroadcastReceiver;
+
+    new-instance p2, Lcom/android/settings/display/SmartAutoRotateController$$ExternalSyntheticLambda0;
+
+    invoke-direct {p2, p0}, Lcom/android/settings/display/SmartAutoRotateController$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/display/SmartAutoRotateController;)V
+
+    iput-object p2, p0, Lcom/android/settings/display/SmartAutoRotateController;->mDeviceStateRotationLockSettingsListener:Lcom/android/settingslib/devicestate/DeviceStateRotationLockSettingsManager$DeviceStateRotationLockSettingsListener;
 
     invoke-static {p1}, Lcom/android/settings/overlay/FeatureFactory;->getFactory(Landroid/content/Context;)Lcom/android/settings/overlay/FeatureFactory;
 
@@ -56,9 +74,9 @@
 
     iput-object p2, p0, Lcom/android/settings/display/SmartAutoRotateController;->mPrivacyManager:Landroid/hardware/SensorPrivacyManager;
 
-    new-instance v0, Lcom/android/settings/display/SmartAutoRotateController$$ExternalSyntheticLambda0;
+    new-instance v0, Lcom/android/settings/display/SmartAutoRotateController$$ExternalSyntheticLambda1;
 
-    invoke-direct {v0, p0}, Lcom/android/settings/display/SmartAutoRotateController$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/display/SmartAutoRotateController;)V
+    invoke-direct {v0, p0}, Lcom/android/settings/display/SmartAutoRotateController$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/display/SmartAutoRotateController;)V
 
     const/4 v1, 0x2
 
@@ -68,21 +86,19 @@
 
     invoke-virtual {p1, p2}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
+    move-result-object p2
+
+    check-cast p2, Landroid/os/PowerManager;
+
+    iput-object p2, p0, Lcom/android/settings/display/SmartAutoRotateController;->mPowerManager:Landroid/os/PowerManager;
+
+    invoke-static {p1}, Lcom/android/settingslib/devicestate/DeviceStateRotationLockSettingsManager;->getInstance(Landroid/content/Context;)Lcom/android/settingslib/devicestate/DeviceStateRotationLockSettingsManager;
+
     move-result-object p1
 
-    check-cast p1, Landroid/os/PowerManager;
-
-    iput-object p1, p0, Lcom/android/settings/display/SmartAutoRotateController;->mPowerManager:Landroid/os/PowerManager;
+    iput-object p1, p0, Lcom/android/settings/display/SmartAutoRotateController;->mDeviceStateAutoRotateSettingsManager:Lcom/android/settingslib/devicestate/DeviceStateRotationLockSettingsManager;
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/display/SmartAutoRotateController;)Landroidx/preference/Preference;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/display/SmartAutoRotateController;->mPreference:Landroidx/preference/Preference;
-
-    return-object p0
 .end method
 
 .method static hasSufficientPermission(Landroid/content/Context;)Z
@@ -117,7 +133,7 @@
     return p0
 .end method
 
-.method static isRotationResolverServiceAvailable(Landroid/content/Context;)Z
+.method public static isRotationResolverServiceAvailable(Landroid/content/Context;)Z
     .locals 4
 
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
@@ -167,7 +183,17 @@
     return v2
 .end method
 
-.method private synthetic lambda$new$0(IZ)V
+.method private synthetic lambda$new$0()V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/settings/display/SmartAutoRotateController;->mPreference:Landroidx/preference/Preference;
+
+    invoke-virtual {p0, v0}, Lcom/android/settings/display/SmartAutoRotateController;->updateState(Landroidx/preference/Preference;)V
+
+    return-void
+.end method
+
+.method private synthetic lambda$new$1(IZ)V
     .locals 0
 
     iget-object p1, p0, Lcom/android/settings/display/SmartAutoRotateController;->mPreference:Landroidx/preference/Preference;
@@ -179,18 +205,10 @@
 
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public displayPreference(Landroidx/preference/PreferenceScreen;)V
     .locals 1
 
-    invoke-super {p0, p1}, Lcom/android/settings/core/BasePreferenceController;->displayPreference(Landroidx/preference/PreferenceScreen;)V
+    invoke-super {p0, p1}, Lcom/android/settings/core/TogglePreferenceController;->displayPreference(Landroidx/preference/PreferenceScreen;)V
 
     invoke-virtual {p0}, Lcom/android/settings/core/BasePreferenceController;->getPreferenceKey()Ljava/lang/String;
 
@@ -221,9 +239,7 @@
     return p0
 
     :cond_0
-    iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
-
-    invoke-static {v0}, Lcom/android/internal/view/RotationPolicy;->isRotationLocked(Landroid/content/Context;)Z
+    invoke-virtual {p0}, Lcom/android/settings/display/SmartAutoRotateController;->isRotationLocked()Z
 
     move-result v0
 
@@ -262,15 +278,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -292,7 +299,7 @@
 .method public getSliceHighlightMenuRes()I
     .locals 0
 
-    const p0, 0x7f040d07
+    const p0, 0x7f040d82
 
     return p0
 .end method
@@ -305,14 +312,6 @@
     move-result p0
 
     return p0
-.end method
-
-.method public init(Landroidx/lifecycle/Lifecycle;)V
-    .locals 0
-
-    invoke-virtual {p1, p0}, Landroidx/lifecycle/Lifecycle;->addObserver(Landroidx/lifecycle/LifecycleObserver;)V
-
-    return-void
 .end method
 
 .method isCameraLocked()Z
@@ -334,9 +333,7 @@
 .method public isChecked()Z
     .locals 3
 
-    iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
-
-    invoke-static {v0}, Lcom/android/internal/view/RotationPolicy;->isRotationLocked(Landroid/content/Context;)Z
+    invoke-virtual {p0}, Lcom/android/settings/display/SmartAutoRotateController;->isRotationLocked()Z
 
     move-result v0
 
@@ -389,16 +386,6 @@
     return v1
 .end method
 
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
-
-    move-result p0
-
-    return p0
-.end method
-
 .method isPowerSaveMode()Z
     .locals 0
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
@@ -407,6 +394,35 @@
     iget-object p0, p0, Lcom/android/settings/display/SmartAutoRotateController;->mPowerManager:Landroid/os/PowerManager;
 
     invoke-virtual {p0}, Landroid/os/PowerManager;->isPowerSaveMode()Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method protected isRotationLocked()Z
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/settings/display/DeviceStateAutoRotationHelper;->isDeviceStateRotationEnabled(Landroid/content/Context;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object p0, p0, Lcom/android/settings/display/SmartAutoRotateController;->mDeviceStateAutoRotateSettingsManager:Lcom/android/settingslib/devicestate/DeviceStateRotationLockSettingsManager;
+
+    invoke-virtual {p0}, Lcom/android/settingslib/devicestate/DeviceStateRotationLockSettingsManager;->isRotationLockedForAllStates()Z
+
+    move-result p0
+
+    return p0
+
+    :cond_0
+    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    invoke-static {p0}, Lcom/android/internal/view/RotationPolicy;->isRotationLocked(Landroid/content/Context;)Z
 
     move-result p0
 
@@ -444,9 +460,15 @@
     :cond_0
     iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    iget-object p0, p0, Lcom/android/settings/display/SmartAutoRotateController;->mRotationPolicyListener:Lcom/android/internal/view/RotationPolicy$RotationPolicyListener;
+    iget-object v1, p0, Lcom/android/settings/display/SmartAutoRotateController;->mRotationPolicyListener:Lcom/android/internal/view/RotationPolicy$RotationPolicyListener;
 
-    invoke-static {v0, p0}, Lcom/android/internal/view/RotationPolicy;->registerRotationPolicyListener(Landroid/content/Context;Lcom/android/internal/view/RotationPolicy$RotationPolicyListener;)V
+    invoke-static {v0, v1}, Lcom/android/internal/view/RotationPolicy;->registerRotationPolicyListener(Landroid/content/Context;Lcom/android/internal/view/RotationPolicy$RotationPolicyListener;)V
+
+    iget-object v0, p0, Lcom/android/settings/display/SmartAutoRotateController;->mDeviceStateAutoRotateSettingsManager:Lcom/android/settingslib/devicestate/DeviceStateRotationLockSettingsManager;
+
+    iget-object p0, p0, Lcom/android/settings/display/SmartAutoRotateController;->mDeviceStateRotationLockSettingsListener:Lcom/android/settingslib/devicestate/DeviceStateRotationLockSettingsManager$DeviceStateRotationLockSettingsListener;
+
+    invoke-virtual {v0, p0}, Lcom/android/settingslib/devicestate/DeviceStateRotationLockSettingsManager;->registerListener(Lcom/android/settingslib/devicestate/DeviceStateRotationLockSettingsManager$DeviceStateRotationLockSettingsListener;)V
 
     return-void
 .end method
@@ -476,6 +498,12 @@
     iput-object v0, p0, Lcom/android/settings/display/SmartAutoRotateController;->mRotationPolicyListener:Lcom/android/internal/view/RotationPolicy$RotationPolicyListener;
 
     :cond_0
+    iget-object v0, p0, Lcom/android/settings/display/SmartAutoRotateController;->mDeviceStateAutoRotateSettingsManager:Lcom/android/settingslib/devicestate/DeviceStateRotationLockSettingsManager;
+
+    iget-object p0, p0, Lcom/android/settings/display/SmartAutoRotateController;->mDeviceStateRotationLockSettingsListener:Lcom/android/settingslib/devicestate/DeviceStateRotationLockSettingsManager$DeviceStateRotationLockSettingsListener;
+
+    invoke-virtual {v0, p0}, Lcom/android/settingslib/devicestate/DeviceStateRotationLockSettingsManager;->unregisterListener(Lcom/android/settingslib/devicestate/DeviceStateRotationLockSettingsManager$DeviceStateRotationLockSettingsListener;)V
+
     return-void
 .end method
 

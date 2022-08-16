@@ -47,6 +47,14 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fputmIsChartDataLoaded(Lcom/android/settings/fuelgauge/PowerUsageAdvanced;Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/settings/fuelgauge/PowerUsageAdvanced;->mIsChartDataLoaded:Z
+
+    return-void
+.end method
+
 .method static constructor <clinit>()V
     .locals 1
 
@@ -68,7 +76,7 @@
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, p0, v1}, Lcom/android/settings/fuelgauge/PowerUsageAdvanced$BatteryHistoryLoaderCallbacks;-><init>(Lcom/android/settings/fuelgauge/PowerUsageAdvanced;Lcom/android/settings/fuelgauge/PowerUsageAdvanced$1;)V
+    invoke-direct {v0, p0, v1}, Lcom/android/settings/fuelgauge/PowerUsageAdvanced$BatteryHistoryLoaderCallbacks;-><init>(Lcom/android/settings/fuelgauge/PowerUsageAdvanced;Lcom/android/settings/fuelgauge/PowerUsageAdvanced$BatteryHistoryLoaderCallbacks-IA;)V
 
     iput-object v0, p0, Lcom/android/settings/fuelgauge/PowerUsageAdvanced;->mBatteryHistoryLoaderCallbacks:Lcom/android/settings/fuelgauge/PowerUsageAdvanced$BatteryHistoryLoaderCallbacks;
 
@@ -89,14 +97,6 @@
     iput-object v0, p0, Lcom/android/settings/fuelgauge/PowerUsageAdvanced;->mBatteryObserver:Landroid/database/ContentObserver;
 
     return-void
-.end method
-
-.method static synthetic access$102(Lcom/android/settings/fuelgauge/PowerUsageAdvanced;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/settings/fuelgauge/PowerUsageAdvanced;->mIsChartDataLoaded:Z
-
-    return p1
 .end method
 
 .method private refreshFeatureFlag(Landroid/content/Context;)V
@@ -316,7 +316,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f1500b9
+    const p0, 0x7f1500bb
 
     return p0
 .end method
@@ -506,7 +506,7 @@
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
-    const-string v1, "refresh_type"
+    const-string/jumbo v1, "refresh_type"
 
     invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 

@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/settings/network/NetworkProviderSettings$$ExternalSyntheticLambda4;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Landroid/view/View$OnClickListener;
 
 
 # instance fields
@@ -22,12 +23,12 @@
 
 
 # virtual methods
-.method public final run()V
+.method public final onClick(Landroid/view/View;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/settings/network/NetworkProviderSettings$$ExternalSyntheticLambda4;->f$0:Lcom/android/settings/network/NetworkProviderSettings;
 
-    invoke-static {p0}, Lcom/android/settings/network/NetworkProviderSettings;->$r8$lambda$2oN3tDOL7FIDg98TJ4c27ZV_Cx4(Lcom/android/settings/network/NetworkProviderSettings;)V
+    invoke-static {p0, p1}, Lcom/android/settings/network/NetworkProviderSettings;->$r8$lambda$X63haDWgFiBtn6dFKfvgzOSsYNw(Lcom/android/settings/network/NetworkProviderSettings;Landroid/view/View;)V
 
     return-void
 .end method

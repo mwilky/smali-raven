@@ -1,33 +1,42 @@
 .class public final synthetic Lcom/android/settingslib/wifi/AccessPoint$$ExternalSyntheticLambda3;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Ljava/util/function/Consumer;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/settingslib/wifi/AccessPoint;
+.field public final synthetic f$0:J
+
+.field public final synthetic f$1:Ljava/util/Iterator;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/settingslib/wifi/AccessPoint;)V
+.method public synthetic constructor <init>(JLjava/util/Iterator;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/settingslib/wifi/AccessPoint$$ExternalSyntheticLambda3;->f$0:Lcom/android/settingslib/wifi/AccessPoint;
+    iput-wide p1, p0, Lcom/android/settingslib/wifi/AccessPoint$$ExternalSyntheticLambda3;->f$0:J
+
+    iput-object p3, p0, Lcom/android/settingslib/wifi/AccessPoint$$ExternalSyntheticLambda3;->f$1:Ljava/util/Iterator;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final run()V
-    .locals 0
+.method public final accept(Ljava/lang/Object;)V
+    .locals 2
 
-    iget-object p0, p0, Lcom/android/settingslib/wifi/AccessPoint$$ExternalSyntheticLambda3;->f$0:Lcom/android/settingslib/wifi/AccessPoint;
+    iget-wide v0, p0, Lcom/android/settingslib/wifi/AccessPoint$$ExternalSyntheticLambda3;->f$0:J
 
-    invoke-static {p0}, Lcom/android/settingslib/wifi/AccessPoint;->$r8$lambda$JaUlF2EAzKzfGanJG2psL2BkaMQ(Lcom/android/settingslib/wifi/AccessPoint;)V
+    iget-object p0, p0, Lcom/android/settingslib/wifi/AccessPoint$$ExternalSyntheticLambda3;->f$1:Ljava/util/Iterator;
+
+    check-cast p1, Lcom/android/settingslib/wifi/TimestampedScoredNetwork;
+
+    invoke-static {v0, v1, p0, p1}, Lcom/android/settingslib/wifi/AccessPoint;->$r8$lambda$eeEFeIMR6UCrf_qCtv1iNqRPOo8(JLjava/util/Iterator;Lcom/android/settingslib/wifi/TimestampedScoredNetwork;)V
 
     return-void
 .end method

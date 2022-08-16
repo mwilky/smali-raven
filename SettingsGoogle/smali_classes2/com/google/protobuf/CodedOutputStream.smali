@@ -1003,7 +1003,7 @@
 
     array-length v0, p1
 
-    invoke-virtual {p0, p1, p2, v0}, Lcom/google/protobuf/ByteOutput;->writeLazy([BII)V
+    invoke-virtual {p0, p1, p2, v0}, Lcom/google/protobuf/CodedOutputStream;->writeLazy([BII)V
     :try_end_0
     .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Lcom/google/protobuf/CodedOutputStream$OutOfSpaceException; {:try_start_0 .. :try_end_0} :catch_0
@@ -1283,6 +1283,14 @@
     invoke-virtual {p0, p1, p2}, Lcom/google/protobuf/CodedOutputStream;->writeUInt64NoTag(J)V
 
     return-void
+.end method
+
+.method public abstract writeLazy([BII)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
 .end method
 
 .method abstract writeMessage(ILcom/google/protobuf/MessageLite;Lcom/google/protobuf/Schema;)V

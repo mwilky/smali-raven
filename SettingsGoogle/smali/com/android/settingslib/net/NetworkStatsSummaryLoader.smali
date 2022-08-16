@@ -33,31 +33,31 @@
 .method private constructor <init>(Lcom/android/settingslib/net/NetworkStatsSummaryLoader$Builder;)V
     .locals 2
 
-    invoke-static {p1}, Lcom/android/settingslib/net/NetworkStatsSummaryLoader$Builder;->access$000(Lcom/android/settingslib/net/NetworkStatsSummaryLoader$Builder;)Landroid/content/Context;
+    invoke-static {p1}, Lcom/android/settingslib/net/NetworkStatsSummaryLoader$Builder;->-$$Nest$fgetmContext(Lcom/android/settingslib/net/NetworkStatsSummaryLoader$Builder;)Landroid/content/Context;
 
     move-result-object v0
 
     invoke-direct {p0, v0}, Landroidx/loader/content/AsyncTaskLoader;-><init>(Landroid/content/Context;)V
 
-    invoke-static {p1}, Lcom/android/settingslib/net/NetworkStatsSummaryLoader$Builder;->access$100(Lcom/android/settingslib/net/NetworkStatsSummaryLoader$Builder;)J
+    invoke-static {p1}, Lcom/android/settingslib/net/NetworkStatsSummaryLoader$Builder;->-$$Nest$fgetmStart(Lcom/android/settingslib/net/NetworkStatsSummaryLoader$Builder;)J
 
     move-result-wide v0
 
     iput-wide v0, p0, Lcom/android/settingslib/net/NetworkStatsSummaryLoader;->mStart:J
 
-    invoke-static {p1}, Lcom/android/settingslib/net/NetworkStatsSummaryLoader$Builder;->access$200(Lcom/android/settingslib/net/NetworkStatsSummaryLoader$Builder;)J
+    invoke-static {p1}, Lcom/android/settingslib/net/NetworkStatsSummaryLoader$Builder;->-$$Nest$fgetmEnd(Lcom/android/settingslib/net/NetworkStatsSummaryLoader$Builder;)J
 
     move-result-wide v0
 
     iput-wide v0, p0, Lcom/android/settingslib/net/NetworkStatsSummaryLoader;->mEnd:J
 
-    invoke-static {p1}, Lcom/android/settingslib/net/NetworkStatsSummaryLoader$Builder;->access$300(Lcom/android/settingslib/net/NetworkStatsSummaryLoader$Builder;)Landroid/net/NetworkTemplate;
+    invoke-static {p1}, Lcom/android/settingslib/net/NetworkStatsSummaryLoader$Builder;->-$$Nest$fgetmNetworkTemplate(Lcom/android/settingslib/net/NetworkStatsSummaryLoader$Builder;)Landroid/net/NetworkTemplate;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/settingslib/net/NetworkStatsSummaryLoader;->mNetworkTemplate:Landroid/net/NetworkTemplate;
 
-    invoke-static {p1}, Lcom/android/settingslib/net/NetworkStatsSummaryLoader$Builder;->access$000(Lcom/android/settingslib/net/NetworkStatsSummaryLoader$Builder;)Landroid/content/Context;
+    invoke-static {p1}, Lcom/android/settingslib/net/NetworkStatsSummaryLoader$Builder;->-$$Nest$fgetmContext(Lcom/android/settingslib/net/NetworkStatsSummaryLoader$Builder;)Landroid/content/Context;
 
     move-result-object p1
 
@@ -74,7 +74,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settingslib/net/NetworkStatsSummaryLoader$Builder;Lcom/android/settingslib/net/NetworkStatsSummaryLoader$1;)V
+.method synthetic constructor <init>(Lcom/android/settingslib/net/NetworkStatsSummaryLoader$Builder;Lcom/android/settingslib/net/NetworkStatsSummaryLoader-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settingslib/net/NetworkStatsSummaryLoader;-><init>(Lcom/android/settingslib/net/NetworkStatsSummaryLoader$Builder;)V
@@ -100,7 +100,7 @@
 
     move-result-object p0
     :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
     return-object p0
 

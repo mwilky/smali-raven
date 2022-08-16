@@ -39,7 +39,7 @@
 
     iget-object p0, p0, Lcom/android/settings/inputmethod/SpellCheckerPreference$1;->this$0:Lcom/android/settings/inputmethod/SpellCheckerPreference;
 
-    invoke-static {p0}, Lcom/android/settings/inputmethod/SpellCheckerPreference;->access$000(Lcom/android/settings/inputmethod/SpellCheckerPreference;)V
+    invoke-static {p0}, Lcom/android/settings/inputmethod/SpellCheckerPreference;->-$$Nest$monSettingsButtonClicked(Lcom/android/settings/inputmethod/SpellCheckerPreference;)V
 
     return-void
 .end method

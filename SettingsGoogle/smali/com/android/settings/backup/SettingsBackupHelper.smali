@@ -31,7 +31,7 @@
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, v1}, Lcom/android/settings/backup/SettingsBackupHelper$NoOpHelper;-><init>(Lcom/android/settings/backup/SettingsBackupHelper$1;)V
+    invoke-direct {v0, v1}, Lcom/android/settings/backup/SettingsBackupHelper$NoOpHelper;-><init>(Lcom/android/settings/backup/SettingsBackupHelper$NoOpHelper-IA;)V
 
     const-string v1, "no-op"
 

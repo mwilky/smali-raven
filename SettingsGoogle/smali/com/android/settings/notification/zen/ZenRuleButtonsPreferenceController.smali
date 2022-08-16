@@ -13,9 +13,7 @@
 
 
 # instance fields
-.field private mButtonsPref:Lcom/android/settingslib/widget/ActionButtonsPreference;
-
-.field private mFragment:Landroidx/preference/PreferenceFragmentCompat;
+.field private final mFragment:Landroidx/preference/PreferenceFragmentCompat;
 
 .field private mId:Ljava/lang/String;
 
@@ -23,6 +21,30 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmFragment(Lcom/android/settings/notification/zen/ZenRuleButtonsPreferenceController;)Landroidx/preference/PreferenceFragmentCompat;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/notification/zen/ZenRuleButtonsPreferenceController;->mFragment:Landroidx/preference/PreferenceFragmentCompat;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmId(Lcom/android/settings/notification/zen/ZenRuleButtonsPreferenceController;)Ljava/lang/String;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/notification/zen/ZenRuleButtonsPreferenceController;->mId:Ljava/lang/String;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmRule(Lcom/android/settings/notification/zen/ZenRuleButtonsPreferenceController;)Landroid/app/AutomaticZenRule;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/notification/zen/ZenRuleButtonsPreferenceController;->mRule:Landroid/app/AutomaticZenRule;
+
+    return-object p0
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Landroidx/preference/PreferenceFragmentCompat;Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
     .locals 1
 
@@ -35,47 +57,23 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/settings/notification/zen/ZenRuleButtonsPreferenceController;)Landroidx/preference/PreferenceFragmentCompat;
+.method static synthetic access$000(Lcom/android/settings/notification/zen/ZenRuleButtonsPreferenceController;)Landroid/content/Context;
     .locals 0
 
-    iget-object p0, p0, Lcom/android/settings/notification/zen/ZenRuleButtonsPreferenceController;->mFragment:Landroidx/preference/PreferenceFragmentCompat;
+    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
     return-object p0
 .end method
 
-.method static synthetic access$100(Lcom/android/settings/notification/zen/ZenRuleButtonsPreferenceController;)Landroid/app/AutomaticZenRule;
+.method static synthetic access$100(Lcom/android/settings/notification/zen/ZenRuleButtonsPreferenceController;)Landroid/content/Context;
     .locals 0
 
-    iget-object p0, p0, Lcom/android/settings/notification/zen/ZenRuleButtonsPreferenceController;->mRule:Landroid/app/AutomaticZenRule;
+    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
     return-object p0
 .end method
 
 .method static synthetic access$200(Lcom/android/settings/notification/zen/ZenRuleButtonsPreferenceController;)Landroid/content/Context;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
-
-    return-object p0
-.end method
-
-.method static synthetic access$300(Lcom/android/settings/notification/zen/ZenRuleButtonsPreferenceController;)Ljava/lang/String;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/notification/zen/ZenRuleButtonsPreferenceController;->mId:Ljava/lang/String;
-
-    return-object p0
-.end method
-
-.method static synthetic access$400(Lcom/android/settings/notification/zen/ZenRuleButtonsPreferenceController;)Landroid/content/Context;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
-
-    return-object p0
-.end method
-
-.method static synthetic access$500(Lcom/android/settings/notification/zen/ZenRuleButtonsPreferenceController;)Landroid/content/Context;
     .locals 0
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
@@ -102,13 +100,13 @@
 
     check-cast p1, Lcom/android/settingslib/widget/ActionButtonsPreference;
 
-    const v0, 0x7f04186b
+    const v0, 0x7f041969
 
     invoke-virtual {p1, v0}, Lcom/android/settingslib/widget/ActionButtonsPreference;->setButton1Text(I)Lcom/android/settingslib/widget/ActionButtonsPreference;
 
     move-result-object p1
 
-    const v0, 0x10804ee
+    const v0, 0x10804fa
 
     invoke-virtual {p1, v0}, Lcom/android/settingslib/widget/ActionButtonsPreference;->setButton1Icon(I)Lcom/android/settingslib/widget/ActionButtonsPreference;
 
@@ -122,13 +120,13 @@
 
     move-result-object p1
 
-    const v0, 0x7f041821
+    const v0, 0x7f04191c
 
     invoke-virtual {p1, v0}, Lcom/android/settingslib/widget/ActionButtonsPreference;->setButton2Text(I)Lcom/android/settingslib/widget/ActionButtonsPreference;
 
     move-result-object p1
 
-    const v0, 0x7f020339
+    const v0, 0x7f02035d
 
     invoke-virtual {p1, v0}, Lcom/android/settingslib/widget/ActionButtonsPreference;->setButton2Icon(I)Lcom/android/settingslib/widget/ActionButtonsPreference;
 
@@ -139,10 +137,6 @@
     invoke-direct {v0, p0}, Lcom/android/settings/notification/zen/ZenRuleButtonsPreferenceController$DeleteRuleClickListener;-><init>(Lcom/android/settings/notification/zen/ZenRuleButtonsPreferenceController;)V
 
     invoke-virtual {p1, v0}, Lcom/android/settingslib/widget/ActionButtonsPreference;->setButton2OnClickListener(Landroid/view/View$OnClickListener;)Lcom/android/settingslib/widget/ActionButtonsPreference;
-
-    move-result-object p1
-
-    iput-object p1, p0, Lcom/android/settings/notification/zen/ZenRuleButtonsPreferenceController;->mButtonsPref:Lcom/android/settingslib/widget/ActionButtonsPreference;
 
     :cond_0
     return-void
@@ -166,12 +160,12 @@
     return p0
 .end method
 
-.method protected onResume(Landroid/app/AutomaticZenRule;Ljava/lang/String;)V
+.method setIdAndRule(Ljava/lang/String;Landroid/app/AutomaticZenRule;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/android/settings/notification/zen/ZenRuleButtonsPreferenceController;->mRule:Landroid/app/AutomaticZenRule;
+    iput-object p1, p0, Lcom/android/settings/notification/zen/ZenRuleButtonsPreferenceController;->mId:Ljava/lang/String;
 
-    iput-object p2, p0, Lcom/android/settings/notification/zen/ZenRuleButtonsPreferenceController;->mId:Ljava/lang/String;
+    iput-object p2, p0, Lcom/android/settings/notification/zen/ZenRuleButtonsPreferenceController;->mRule:Landroid/app/AutomaticZenRule;
 
     return-void
 .end method

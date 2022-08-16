@@ -42,7 +42,8 @@
         value = {
             "(",
             "Ljava/util/Map<",
-            "*+",
+            "Ljava/lang/Object;",
+            "+",
             "Ljava/lang/Object;",
             ">;)TR;"
         }
@@ -54,7 +55,8 @@
         value = {
             "()",
             "Ljava/util/List<",
-            "*>;"
+            "Ljava/lang/Object;",
+            ">;"
         }
     .end annotation
 
@@ -72,7 +74,8 @@
         value = {
             "()",
             "Ljava/util/List<",
-            "*>;"
+            "Ljava/lang/Object;",
+            ">;"
         }
     .end annotation
 

@@ -14,101 +14,6 @@
     return-object p0
 .end method
 
-.method private static buildCopyableSlice(Landroid/content/Context;Lcom/android/settings/slices/SliceData;Lcom/android/settings/core/BasePreferenceController;)Landroidx/slice/Slice;
-    .locals 6
-
-    invoke-static {p0, p1}, Lcom/android/settings/slices/SliceBuilderUtils;->getCopyableAction(Landroid/content/Context;Lcom/android/settings/slices/SliceData;)Landroidx/slice/builders/SliceAction;
-
-    move-result-object v0
-
-    invoke-static {p0, p1}, Lcom/android/settings/slices/SliceBuilderUtils;->getContentPendingIntent(Landroid/content/Context;Lcom/android/settings/slices/SliceData;)Landroid/app/PendingIntent;
-
-    move-result-object v1
-
-    invoke-static {p0, p1}, Lcom/android/settings/slices/SliceBuilderUtils;->getSafeIcon(Landroid/content/Context;Lcom/android/settings/slices/SliceData;)Landroidx/core/graphics/drawable/IconCompat;
-
-    move-result-object v2
-
-    invoke-virtual {p1}, Lcom/android/settings/slices/SliceData;->getTitle()Ljava/lang/String;
-
-    move-result-object v3
-
-    const/4 v4, 0x0
-
-    invoke-static {v1, v2, v4, v3}, Landroidx/slice/builders/SliceAction;->createDeeplink(Landroid/app/PendingIntent;Landroidx/core/graphics/drawable/IconCompat;ILjava/lang/CharSequence;)Landroidx/slice/builders/SliceAction;
-
-    move-result-object v1
-
-    invoke-static {p0, p2, p1}, Lcom/android/settings/slices/SliceBuilderUtils;->getSubtitleText(Landroid/content/Context;Lcom/android/settings/core/BasePreferenceController;Lcom/android/settings/slices/SliceData;)Ljava/lang/CharSequence;
-
-    move-result-object p2
-
-    invoke-static {p0}, Lcom/android/settingslib/Utils;->getColorAccentDefaultColor(Landroid/content/Context;)I
-
-    move-result v2
-
-    invoke-static {p1}, Lcom/android/settings/slices/SliceBuilderUtils;->buildSliceKeywords(Lcom/android/settings/slices/SliceData;)Ljava/util/Set;
-
-    move-result-object v3
-
-    new-instance v4, Landroidx/slice/builders/ListBuilder$RowBuilder;
-
-    invoke-direct {v4}, Landroidx/slice/builders/ListBuilder$RowBuilder;-><init>()V
-
-    invoke-virtual {p1}, Lcom/android/settings/slices/SliceData;->getTitle()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v4, v5}, Landroidx/slice/builders/ListBuilder$RowBuilder;->setTitle(Ljava/lang/CharSequence;)Landroidx/slice/builders/ListBuilder$RowBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v1}, Landroidx/slice/builders/ListBuilder$RowBuilder;->setPrimaryAction(Landroidx/slice/builders/SliceAction;)Landroidx/slice/builders/ListBuilder$RowBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v0}, Landroidx/slice/builders/ListBuilder$RowBuilder;->addEndItem(Landroidx/slice/builders/SliceAction;)Landroidx/slice/builders/ListBuilder$RowBuilder;
-
-    move-result-object v0
-
-    invoke-static {p0}, Lcom/android/settings/Utils;->isSettingsIntelligence(Landroid/content/Context;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    invoke-virtual {v0, p2}, Landroidx/slice/builders/ListBuilder$RowBuilder;->setSubtitle(Ljava/lang/CharSequence;)Landroidx/slice/builders/ListBuilder$RowBuilder;
-
-    :cond_0
-    new-instance p2, Landroidx/slice/builders/ListBuilder;
-
-    invoke-virtual {p1}, Lcom/android/settings/slices/SliceData;->getUri()Landroid/net/Uri;
-
-    move-result-object p1
-
-    const-wide/16 v4, -0x1
-
-    invoke-direct {p2, p0, p1, v4, v5}, Landroidx/slice/builders/ListBuilder;-><init>(Landroid/content/Context;Landroid/net/Uri;J)V
-
-    invoke-virtual {p2, v2}, Landroidx/slice/builders/ListBuilder;->setAccentColor(I)Landroidx/slice/builders/ListBuilder;
-
-    move-result-object p0
-
-    invoke-virtual {p0, v0}, Landroidx/slice/builders/ListBuilder;->addRow(Landroidx/slice/builders/ListBuilder$RowBuilder;)Landroidx/slice/builders/ListBuilder;
-
-    move-result-object p0
-
-    invoke-virtual {p0, v3}, Landroidx/slice/builders/ListBuilder;->setKeywords(Ljava/util/Set;)Landroidx/slice/builders/ListBuilder;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Landroidx/slice/builders/ListBuilder;->build()Landroidx/slice/Slice;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
 .method private static buildIntentSlice(Landroid/content/Context;Lcom/android/settings/slices/SliceData;Lcom/android/settings/core/BasePreferenceController;)Landroidx/slice/Slice;
     .locals 7
 
@@ -404,32 +309,19 @@
     return-object p0
 
     :cond_1
-    invoke-interface {v0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_2
-
-    invoke-static {p0, p1, v0}, Lcom/android/settings/slices/SliceBuilderUtils;->buildCopyableSlice(Landroid/content/Context;Lcom/android/settings/slices/SliceData;Lcom/android/settings/core/BasePreferenceController;)Landroidx/slice/Slice;
-
-    move-result-object p0
-
-    return-object p0
-
-    :cond_2
     invoke-virtual {p1}, Lcom/android/settings/slices/SliceData;->getSliceType()I
 
     move-result v1
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_4
 
     const/4 v2, 0x1
 
-    if-eq v1, v2, :cond_4
+    if-eq v1, v2, :cond_3
 
     const/4 v2, 0x2
 
-    if-ne v1, v2, :cond_3
+    if-ne v1, v2, :cond_2
 
     invoke-static {p0, p1, v0}, Lcom/android/settings/slices/SliceBuilderUtils;->buildSliderSlice(Landroid/content/Context;Lcom/android/settings/slices/SliceData;Lcom/android/settings/core/BasePreferenceController;)Landroidx/slice/Slice;
 
@@ -437,7 +329,7 @@
 
     return-object p0
 
-    :cond_3
+    :cond_2
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -462,14 +354,14 @@
 
     throw p0
 
-    :cond_4
+    :cond_3
     invoke-static {p0, p1, v0}, Lcom/android/settings/slices/SliceBuilderUtils;->buildToggleSlice(Landroid/content/Context;Lcom/android/settings/slices/SliceData;Lcom/android/settings/core/BasePreferenceController;)Landroidx/slice/Slice;
 
     move-result-object p0
 
     return-object p0
 
-    :cond_5
+    :cond_4
     invoke-static {p0, p1, v0}, Lcom/android/settings/slices/SliceBuilderUtils;->buildIntentSlice(Landroid/content/Context;Lcom/android/settings/slices/SliceData;Lcom/android/settings/core/BasePreferenceController;)Landroidx/slice/Slice;
 
     move-result-object p0
@@ -551,7 +443,9 @@
 
     move-result-object p0
 
-    sget-object v1, Lcom/android/settings/slices/SliceBuilderUtils$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/settings/slices/SliceBuilderUtils$$ExternalSyntheticLambda0;
+    new-instance v1, Lcom/android/settings/slices/SliceBuilderUtils$$ExternalSyntheticLambda0;
+
+    invoke-direct {v1}, Lcom/android/settings/slices/SliceBuilderUtils$$ExternalSyntheticLambda0;-><init>()V
 
     invoke-interface {p0, v1}, Ljava/util/stream/Stream;->map(Ljava/util/function/Function;)Ljava/util/stream/Stream;
 
@@ -703,55 +597,64 @@
 
     invoke-virtual {v0}, Lcom/android/settings/core/SliderPreferenceController;->getMin()I
 
-    move-result v0
+    move-result v8
 
-    invoke-virtual {v2, v0}, Landroidx/slice/builders/ListBuilder$InputRangeBuilder;->setMin(I)Landroidx/slice/builders/ListBuilder$InputRangeBuilder;
+    invoke-virtual {v2, v8}, Landroidx/slice/builders/ListBuilder$InputRangeBuilder;->setMin(I)Landroidx/slice/builders/ListBuilder$InputRangeBuilder;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-virtual {v0, v7}, Landroidx/slice/builders/ListBuilder$InputRangeBuilder;->setValue(I)Landroidx/slice/builders/ListBuilder$InputRangeBuilder;
+    invoke-virtual {v2, v7}, Landroidx/slice/builders/ListBuilder$InputRangeBuilder;->setValue(I)Landroidx/slice/builders/ListBuilder$InputRangeBuilder;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-virtual {v0, v1}, Landroidx/slice/builders/ListBuilder$InputRangeBuilder;->setInputAction(Landroid/app/PendingIntent;)Landroidx/slice/builders/ListBuilder$InputRangeBuilder;
+    invoke-virtual {v2, v1}, Landroidx/slice/builders/ListBuilder$InputRangeBuilder;->setInputAction(Landroid/app/PendingIntent;)Landroidx/slice/builders/ListBuilder$InputRangeBuilder;
 
-    move-result-object v0
+    move-result-object v1
 
     invoke-virtual {p1}, Lcom/android/settings/slices/SliceData;->getIconResource()I
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_3
+    if-eqz v2, :cond_3
 
-    invoke-virtual {v0, v3, v6}, Landroidx/slice/builders/ListBuilder$InputRangeBuilder;->setTitleItem(Landroidx/core/graphics/drawable/IconCompat;I)Landroidx/slice/builders/ListBuilder$InputRangeBuilder;
+    invoke-virtual {v1, v3, v6}, Landroidx/slice/builders/ListBuilder$InputRangeBuilder;->setTitleItem(Landroidx/core/graphics/drawable/IconCompat;I)Landroidx/slice/builders/ListBuilder$InputRangeBuilder;
 
     const/4 v4, -0x1
 
     :cond_3
     invoke-static {p0}, Lcom/android/settings/Utils;->isSettingsIntelligence(Landroid/content/Context;)Z
 
-    move-result v1
+    move-result v2
 
-    if-nez v1, :cond_4
+    if-nez v2, :cond_4
 
-    invoke-virtual {v0, p2}, Landroidx/slice/builders/ListBuilder$InputRangeBuilder;->setSubtitle(Ljava/lang/CharSequence;)Landroidx/slice/builders/ListBuilder$InputRangeBuilder;
+    invoke-virtual {v1, p2}, Landroidx/slice/builders/ListBuilder$InputRangeBuilder;->setSubtitle(Ljava/lang/CharSequence;)Landroidx/slice/builders/ListBuilder$InputRangeBuilder;
 
     :cond_4
+    invoke-virtual {v0, p0}, Lcom/android/settings/core/SliderPreferenceController;->getSliceEndItem(Landroid/content/Context;)Landroidx/slice/builders/SliceAction;
+
+    move-result-object p2
+
+    if-eqz p2, :cond_5
+
+    invoke-virtual {v1, p2}, Landroidx/slice/builders/ListBuilder$InputRangeBuilder;->addEndItem(Landroidx/slice/builders/SliceAction;)Landroidx/slice/builders/ListBuilder$InputRangeBuilder;
+
+    :cond_5
     new-instance p2, Landroidx/slice/builders/ListBuilder;
 
     invoke-virtual {p1}, Lcom/android/settings/slices/SliceData;->getUri()Landroid/net/Uri;
 
     move-result-object p1
 
-    const-wide/16 v1, -0x1
+    const-wide/16 v2, -0x1
 
-    invoke-direct {p2, p0, p1, v1, v2}, Landroidx/slice/builders/ListBuilder;-><init>(Landroid/content/Context;Landroid/net/Uri;J)V
+    invoke-direct {p2, p0, p1, v2, v3}, Landroidx/slice/builders/ListBuilder;-><init>(Landroid/content/Context;Landroid/net/Uri;J)V
 
     invoke-virtual {p2, v4}, Landroidx/slice/builders/ListBuilder;->setAccentColor(I)Landroidx/slice/builders/ListBuilder;
 
     move-result-object p0
 
-    invoke-virtual {p0, v0}, Landroidx/slice/builders/ListBuilder;->addInputRange(Landroidx/slice/builders/ListBuilder$InputRangeBuilder;)Landroidx/slice/builders/ListBuilder;
+    invoke-virtual {p0, v1}, Landroidx/slice/builders/ListBuilder;->addInputRange(Landroidx/slice/builders/ListBuilder$InputRangeBuilder;)Landroidx/slice/builders/ListBuilder;
 
     move-result-object p0
 
@@ -895,7 +798,7 @@
     goto :goto_0
 
     :cond_0
-    const v3, 0x7f040811
+    const v3, 0x7f04085a
 
     invoke-virtual {p0, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -1112,34 +1015,6 @@
     return-object p0
 .end method
 
-.method private static getCopyableAction(Landroid/content/Context;Lcom/android/settings/slices/SliceData;)Landroidx/slice/builders/SliceAction;
-    .locals 2
-
-    const-string v0, "com.android.settings.slice.action.COPY"
-
-    invoke-static {p0, v0, p1}, Lcom/android/settings/slices/SliceBuilderUtils;->getActionIntent(Landroid/content/Context;Ljava/lang/String;Lcom/android/settings/slices/SliceData;)Landroid/app/PendingIntent;
-
-    move-result-object v0
-
-    const v1, 0x7f0201af
-
-    invoke-static {p0, v1}, Landroidx/core/graphics/drawable/IconCompat;->createWithResource(Landroid/content/Context;I)Landroidx/core/graphics/drawable/IconCompat;
-
-    move-result-object p0
-
-    invoke-virtual {p1}, Lcom/android/settings/slices/SliceData;->getTitle()Ljava/lang/String;
-
-    move-result-object p1
-
-    const/4 v1, 0x0
-
-    invoke-static {v0, p0, v1, p1}, Landroidx/slice/builders/SliceAction;->create(Landroid/app/PendingIntent;Landroidx/core/graphics/drawable/IconCompat;ILjava/lang/CharSequence;)Landroidx/slice/builders/SliceAction;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
 .method public static getPathData(Landroid/net/Uri;)Landroid/util/Pair;
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
@@ -1245,7 +1120,7 @@
 
     move-result v0
 
-    const v1, 0x7f02032a
+    const v1, 0x7f02034e
 
     if-nez v0, :cond_0
 
@@ -1410,7 +1285,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f041395
+    const v2, 0x7f04145d
 
     invoke-virtual {p0, v2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 

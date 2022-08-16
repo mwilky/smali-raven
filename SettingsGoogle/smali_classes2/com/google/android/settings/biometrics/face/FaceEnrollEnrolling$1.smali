@@ -39,7 +39,7 @@
 
     iget-object v0, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling$1;->this$0:Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling;
 
-    invoke-static {v0}, Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling;->access$000(Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling;)Z
+    invoke-static {v0}, Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling;->-$$Nest$fgetmShowingAnimationHelp(Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling;)Z
 
     move-result v0
 
@@ -49,11 +49,11 @@
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling;->access$002(Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling;Z)Z
+    invoke-static {v0, v1}, Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling;->-$$Nest$fputmShowingAnimationHelp(Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling;Z)V
 
     iget-object p0, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling$1;->this$0:Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling;
 
-    invoke-static {p0}, Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling;->access$600(Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling;)Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling$HelpController;
+    invoke-static {p0}, Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling;->-$$Nest$fgetmHelpController(Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling;)Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling$HelpController;
 
     move-result-object p0
 
@@ -68,7 +68,7 @@
 
     iget-object v0, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling$1;->this$0:Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling;
 
-    invoke-static {v0}, Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling;->access$500(Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling;)Z
+    invoke-static {v0}, Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling;->-$$Nest$fgetmRequireDiversity(Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling;)Z
 
     move-result v0
 
@@ -105,7 +105,7 @@
 
     iget-object p0, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling$1;->this$0:Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling;
 
-    invoke-static {p0}, Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling;->access$400(Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling;)Lcom/google/android/setupcompat/template/FooterBarMixin;
+    invoke-static {p0}, Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling;->-$$Nest$fgetmFooterBarMixin(Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling;)Lcom/google/android/setupcompat/template/FooterBarMixin;
 
     move-result-object p0
 
@@ -127,15 +127,15 @@
 
     const/4 v1, 0x1
 
-    invoke-static {v0, v1}, Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling;->access$002(Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling;Z)Z
+    invoke-static {v0, v1}, Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling;->-$$Nest$fputmShowingAnimationHelp(Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling;Z)V
 
     iget-object p0, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling$1;->this$0:Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling;
 
-    invoke-static {p0}, Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling;->access$600(Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling;)Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling$HelpController;
+    invoke-static {p0}, Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling;->-$$Nest$fgetmHelpController(Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling;)Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling$HelpController;
 
     move-result-object p0
 
-    invoke-static {p0, p1}, Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling$HelpController;->access$700(Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling$HelpController;Ljava/lang/CharSequence;)V
+    invoke-static {p0, p1}, Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling$HelpController;->-$$Nest$mshowHelp(Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling$HelpController;Ljava/lang/CharSequence;)V
 
     return-void
 .end method

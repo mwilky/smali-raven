@@ -528,7 +528,9 @@
 
     move-result-object p0
 
-    sget-object p1, Lcom/android/settings/homepage/contextualcards/ContextualCardManager$$ExternalSyntheticLambda8;->INSTANCE:Lcom/android/settings/homepage/contextualcards/ContextualCardManager$$ExternalSyntheticLambda8;
+    new-instance p1, Lcom/android/settings/homepage/contextualcards/ContextualCardManager$$ExternalSyntheticLambda5;
+
+    invoke-direct {p1}, Lcom/android/settings/homepage/contextualcards/ContextualCardManager$$ExternalSyntheticLambda5;-><init>()V
 
     invoke-static {p1}, Ljava/util/stream/Collectors;->toCollection(Ljava/util/function/Supplier;)Ljava/util/stream/Collector;
 

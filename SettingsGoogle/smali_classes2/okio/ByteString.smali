@@ -25,7 +25,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nByteString.kt\nKotlin\n*S Kotlin\n*F\n+ 1 ByteString.kt\nokio/ByteString\n+ 2 ByteString.kt\nokio/internal/ByteStringKt\n+ 3 -Util.kt\nokio/-Util\n+ 4 fake.kt\nkotlin/jvm/internal/FakeKt\n*L\n1#1,355:1\n39#2,7:356\n49#2:363\n52#2:364\n59#2,4:365\n63#2:370\n65#2:372\n71#2,23:373\n99#2,23:396\n126#2:419\n127#2,9:421\n139#2:430\n142#2:431\n145#2:432\n148#2:433\n156#2:434\n166#2,3:435\n165#2:438\n174#2:439\n178#2:440\n182#2:441\n186#2:442\n190#2,7:443\n203#2:450\n207#2,7:451\n218#2,4:458\n227#2,5:462\n236#2,6:467\n242#2,9:474\n304#2,8:483\n126#2:491\n127#2,9:493\n315#2,9:502\n68#3:369\n74#3:371\n74#3:473\n1#4:420\n1#4:492\n*E\n*S KotlinDebug\n*F\n+ 1 ByteString.kt\nokio/ByteString\n*L\n65#1,7:356\n70#1:363\n107#1:364\n109#1,4:365\n109#1:370\n109#1:372\n111#1,23:373\n113#1,23:396\n117#1:419\n117#1,9:421\n119#1:430\n127#1:431\n129#1:432\n131#1:433\n150#1:434\n157#1,3:435\n157#1:438\n159#1:439\n161#1:440\n163#1:441\n165#1:442\n171#1,7:443\n174#1:450\n177#1,7:451\n179#1,4:458\n181#1,5:462\n183#1,6:467\n183#1,9:474\n185#1,8:483\n185#1:491\n185#1,9:493\n185#1,9:502\n109#1:369\n109#1:371\n183#1:473\n117#1:420\n185#1:492\n*E\n"
+    value = "SMAP\nByteString.kt\nKotlin\n*S Kotlin\n*F\n+ 1 ByteString.kt\nokio/ByteString\n+ 2 ByteString.kt\nokio/internal/ByteStringKt\n+ 3 -Util.kt\nokio/-Util\n+ 4 fake.kt\nkotlin/jvm/internal/FakeKt\n*L\n1#1,355:1\n39#2,7:356\n49#2:363\n52#2:364\n59#2,4:365\n63#2:370\n65#2:372\n71#2,23:373\n99#2,23:396\n126#2:419\n127#2,9:421\n139#2:430\n142#2:431\n145#2:432\n148#2:433\n156#2:434\n166#2,3:435\n165#2:438\n174#2:439\n178#2:440\n182#2:441\n186#2:442\n190#2,7:443\n203#2:450\n207#2,7:451\n218#2,4:458\n227#2,5:462\n236#2,6:467\n242#2,9:474\n304#2,8:483\n126#2:491\n127#2,9:493\n315#2,9:502\n68#3:369\n74#3:371\n74#3:473\n1#4:420\n1#4:492\n*S KotlinDebug\n*F\n+ 1 ByteString.kt\nokio/ByteString\n*L\n65#1:356,7\n70#1:363\n107#1:364\n109#1:365,4\n109#1:370\n109#1:372\n111#1:373,23\n113#1:396,23\n117#1:419\n117#1:421,9\n119#1:430\n127#1:431\n129#1:432\n131#1:433\n150#1:434\n157#1:435,3\n157#1:438\n159#1:439\n161#1:440\n163#1:441\n165#1:442\n171#1:443,7\n174#1:450\n177#1:451,7\n179#1:458,4\n181#1:462,5\n183#1:467,6\n183#1:474,9\n185#1:483,8\n185#1:491\n185#1:493,9\n185#1:502,9\n109#1:369\n109#1:371\n183#1:473\n117#1:420\n185#1:492\n*E\n"
 .end annotation
 
 
@@ -668,9 +668,9 @@
 
     const-string v5, "\u2026]"
 
-    const/16 v6, 0x5d
+    const-string v6, "[size="
 
-    const-string v7, "[size="
+    const/16 v7, 0x5d
 
     if-ne v0, v4, :cond_6
 
@@ -696,7 +696,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -709,7 +709,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual/range {p0 .. p0}, Lokio/ByteString;->getData$external__okio__android_common__okio_lib()[B
 
@@ -819,15 +819,11 @@
 
     move-result-object v1
 
-    const-string v3, "null cannot be cast to non-null type java.lang.String"
-
-    invoke-static {v1, v3}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
-
     invoke-virtual {v1, v2, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v8
 
-    const-string v2, "(this as java.lang.Strin\u2026ing(startIndex, endIndex)"
+    const-string v2, "this as java.lang.String\u2026ing(startIndex, endIndex)"
 
     invoke-static {v8, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -877,7 +873,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual/range {p0 .. p0}, Lokio/ByteString;->getData$external__okio__android_common__okio_lib()[B
 
@@ -912,7 +908,7 @@
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

@@ -13,6 +13,24 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetrequireScrollMixin(Lcom/google/android/setupdesign/template/RecyclerViewScrollHandlingDelegate;)Lcom/google/android/setupdesign/template/RequireScrollMixin;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/setupdesign/template/RecyclerViewScrollHandlingDelegate;->requireScrollMixin:Lcom/google/android/setupdesign/template/RequireScrollMixin;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$mcanScrollDown(Lcom/google/android/setupdesign/template/RecyclerViewScrollHandlingDelegate;)Z
+    .locals 0
+
+    invoke-direct {p0}, Lcom/google/android/setupdesign/template/RecyclerViewScrollHandlingDelegate;->canScrollDown()Z
+
+    move-result p0
+
+    return p0
+.end method
+
 .method public constructor <init>(Lcom/google/android/setupdesign/template/RequireScrollMixin;Landroidx/recyclerview/widget/RecyclerView;)V
     .locals 0
 
@@ -23,24 +41,6 @@
     iput-object p2, p0, Lcom/google/android/setupdesign/template/RecyclerViewScrollHandlingDelegate;->recyclerView:Landroidx/recyclerview/widget/RecyclerView;
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/google/android/setupdesign/template/RecyclerViewScrollHandlingDelegate;)Z
-    .locals 0
-
-    invoke-direct {p0}, Lcom/google/android/setupdesign/template/RecyclerViewScrollHandlingDelegate;->canScrollDown()Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method static synthetic access$100(Lcom/google/android/setupdesign/template/RecyclerViewScrollHandlingDelegate;)Lcom/google/android/setupdesign/template/RequireScrollMixin;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/setupdesign/template/RecyclerViewScrollHandlingDelegate;->requireScrollMixin:Lcom/google/android/setupdesign/template/RequireScrollMixin;
-
-    return-object p0
 .end method
 
 .method private canScrollDown()Z

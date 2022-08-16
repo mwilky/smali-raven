@@ -4,8 +4,8 @@
 
 
 # static fields
-.field public static final partner_customization_layout:I = 0x7f060184
+.field public static final partner_customization_layout:I = 0x7f06018e
 
-.field public static final suc_button:I = 0x7f06022b
+.field public static final suc_button:I = 0x7f060237
 
-.field public static final suc_footer_button_bar:I = 0x7f06022c
+.field public static final suc_footer_button_bar:I = 0x7f060238

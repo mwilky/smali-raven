@@ -27,6 +27,54 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmListener(Lcom/android/settingslib/widget/BannerMessagePreference$ButtonInfo;)Landroid/view/View$OnClickListener;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settingslib/widget/BannerMessagePreference$ButtonInfo;->mListener:Landroid/view/View$OnClickListener;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmText(Lcom/android/settingslib/widget/BannerMessagePreference$ButtonInfo;)Ljava/lang/CharSequence;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settingslib/widget/BannerMessagePreference$ButtonInfo;->mText:Ljava/lang/CharSequence;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmButton(Lcom/android/settingslib/widget/BannerMessagePreference$ButtonInfo;Landroid/widget/Button;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/settingslib/widget/BannerMessagePreference$ButtonInfo;->mButton:Landroid/widget/Button;
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fputmColor(Lcom/android/settingslib/widget/BannerMessagePreference$ButtonInfo;I)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/settingslib/widget/BannerMessagePreference$ButtonInfo;->mColor:I
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fputmListener(Lcom/android/settingslib/widget/BannerMessagePreference$ButtonInfo;Landroid/view/View$OnClickListener;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/settingslib/widget/BannerMessagePreference$ButtonInfo;->mListener:Landroid/view/View$OnClickListener;
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fputmText(Lcom/android/settingslib/widget/BannerMessagePreference$ButtonInfo;Ljava/lang/CharSequence;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/settingslib/widget/BannerMessagePreference$ButtonInfo;->mText:Ljava/lang/CharSequence;
+
+    return-void
+.end method
+
 .method constructor <init>()V
     .locals 1
 
@@ -37,54 +85,6 @@
     iput-boolean v0, p0, Lcom/android/settingslib/widget/BannerMessagePreference$ButtonInfo;->mIsVisible:Z
 
     return-void
-.end method
-
-.method static synthetic access$002(Lcom/android/settingslib/widget/BannerMessagePreference$ButtonInfo;Landroid/widget/Button;)Landroid/widget/Button;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/settingslib/widget/BannerMessagePreference$ButtonInfo;->mButton:Landroid/widget/Button;
-
-    return-object p1
-.end method
-
-.method static synthetic access$102(Lcom/android/settingslib/widget/BannerMessagePreference$ButtonInfo;I)I
-    .locals 0
-
-    iput p1, p0, Lcom/android/settingslib/widget/BannerMessagePreference$ButtonInfo;->mColor:I
-
-    return p1
-.end method
-
-.method static synthetic access$500(Lcom/android/settingslib/widget/BannerMessagePreference$ButtonInfo;)Landroid/view/View$OnClickListener;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/widget/BannerMessagePreference$ButtonInfo;->mListener:Landroid/view/View$OnClickListener;
-
-    return-object p0
-.end method
-
-.method static synthetic access$502(Lcom/android/settingslib/widget/BannerMessagePreference$ButtonInfo;Landroid/view/View$OnClickListener;)Landroid/view/View$OnClickListener;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/settingslib/widget/BannerMessagePreference$ButtonInfo;->mListener:Landroid/view/View$OnClickListener;
-
-    return-object p1
-.end method
-
-.method static synthetic access$700(Lcom/android/settingslib/widget/BannerMessagePreference$ButtonInfo;)Ljava/lang/CharSequence;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/widget/BannerMessagePreference$ButtonInfo;->mText:Ljava/lang/CharSequence;
-
-    return-object p0
-.end method
-
-.method static synthetic access$702(Lcom/android/settingslib/widget/BannerMessagePreference$ButtonInfo;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/settingslib/widget/BannerMessagePreference$ButtonInfo;->mText:Ljava/lang/CharSequence;
-
-    return-object p1
 .end method
 
 .method private shouldBeVisible()Z
@@ -130,7 +130,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    invoke-static {}, Lcom/android/settingslib/widget/BannerMessagePreference;->access$800()Z
+    invoke-static {}, Lcom/android/settingslib/widget/BannerMessagePreference;->-$$Nest$sfgetIS_AT_LEAST_S()Z
 
     move-result v0
 

@@ -47,7 +47,7 @@
 
     iget-object v0, p0, Lcom/google/android/settings/gestures/assist/AssistGestureHelper$2;->this$0:Lcom/google/android/settings/gestures/assist/AssistGestureHelper;
 
-    invoke-static {v0}, Lcom/google/android/settings/gestures/assist/AssistGestureHelper;->access$100(Lcom/google/android/settings/gestures/assist/AssistGestureHelper;)Lcom/google/android/settings/gestures/assist/AssistGestureHelper$GestureListener;
+    invoke-static {v0}, Lcom/google/android/settings/gestures/assist/AssistGestureHelper;->-$$Nest$fgetmGestureListener(Lcom/google/android/settings/gestures/assist/AssistGestureHelper;)Lcom/google/android/settings/gestures/assist/AssistGestureHelper$GestureListener;
 
     move-result-object v0
 
@@ -55,7 +55,7 @@
 
     iget-object p0, p0, Lcom/google/android/settings/gestures/assist/AssistGestureHelper$2;->this$0:Lcom/google/android/settings/gestures/assist/AssistGestureHelper;
 
-    invoke-static {p0}, Lcom/google/android/settings/gestures/assist/AssistGestureHelper;->access$100(Lcom/google/android/settings/gestures/assist/AssistGestureHelper;)Lcom/google/android/settings/gestures/assist/AssistGestureHelper$GestureListener;
+    invoke-static {p0}, Lcom/google/android/settings/gestures/assist/AssistGestureHelper;->-$$Nest$fgetmGestureListener(Lcom/google/android/settings/gestures/assist/AssistGestureHelper;)Lcom/google/android/settings/gestures/assist/AssistGestureHelper$GestureListener;
 
     move-result-object p0
 
@@ -75,7 +75,7 @@
 
     iget-object v0, p0, Lcom/google/android/settings/gestures/assist/AssistGestureHelper$2;->this$0:Lcom/google/android/settings/gestures/assist/AssistGestureHelper;
 
-    invoke-static {v0}, Lcom/google/android/settings/gestures/assist/AssistGestureHelper;->access$100(Lcom/google/android/settings/gestures/assist/AssistGestureHelper;)Lcom/google/android/settings/gestures/assist/AssistGestureHelper$GestureListener;
+    invoke-static {v0}, Lcom/google/android/settings/gestures/assist/AssistGestureHelper;->-$$Nest$fgetmGestureListener(Lcom/google/android/settings/gestures/assist/AssistGestureHelper;)Lcom/google/android/settings/gestures/assist/AssistGestureHelper$GestureListener;
 
     move-result-object v0
 
@@ -83,7 +83,7 @@
 
     iget-object v0, p0, Lcom/google/android/settings/gestures/assist/AssistGestureHelper$2;->this$0:Lcom/google/android/settings/gestures/assist/AssistGestureHelper;
 
-    invoke-static {v0}, Lcom/google/android/settings/gestures/assist/AssistGestureHelper;->access$100(Lcom/google/android/settings/gestures/assist/AssistGestureHelper;)Lcom/google/android/settings/gestures/assist/AssistGestureHelper$GestureListener;
+    invoke-static {v0}, Lcom/google/android/settings/gestures/assist/AssistGestureHelper;->-$$Nest$fgetmGestureListener(Lcom/google/android/settings/gestures/assist/AssistGestureHelper;)Lcom/google/android/settings/gestures/assist/AssistGestureHelper$GestureListener;
 
     move-result-object v0
 
@@ -100,7 +100,7 @@
 
     iget-object p1, p0, Lcom/google/android/settings/gestures/assist/AssistGestureHelper$2;->this$0:Lcom/google/android/settings/gestures/assist/AssistGestureHelper;
 
-    invoke-static {p1}, Lcom/google/android/settings/gestures/assist/AssistGestureHelper;->access$400(Lcom/google/android/settings/gestures/assist/AssistGestureHelper;)Landroid/os/PowerManager;
+    invoke-static {p1}, Lcom/google/android/settings/gestures/assist/AssistGestureHelper;->-$$Nest$fgetmPowerManager(Lcom/google/android/settings/gestures/assist/AssistGestureHelper;)Landroid/os/PowerManager;
 
     move-result-object p1
 

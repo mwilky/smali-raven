@@ -41,7 +41,7 @@
 
     iget-object v0, p0, Lcom/android/settings/accessibility/BalanceSeekBar$1;->this$0:Lcom/android/settings/accessibility/BalanceSeekBar;
 
-    invoke-static {v0}, Lcom/android/settings/accessibility/BalanceSeekBar;->access$200(Lcom/android/settings/accessibility/BalanceSeekBar;)I
+    invoke-static {v0}, Lcom/android/settings/accessibility/BalanceSeekBar;->-$$Nest$fgetmCenter(Lcom/android/settings/accessibility/BalanceSeekBar;)I
 
     move-result v0
 
@@ -51,7 +51,7 @@
 
     iget-object v1, p0, Lcom/android/settings/accessibility/BalanceSeekBar$1;->this$0:Lcom/android/settings/accessibility/BalanceSeekBar;
 
-    invoke-static {v1}, Lcom/android/settings/accessibility/BalanceSeekBar;->access$200(Lcom/android/settings/accessibility/BalanceSeekBar;)I
+    invoke-static {v1}, Lcom/android/settings/accessibility/BalanceSeekBar;->-$$Nest$fgetmCenter(Lcom/android/settings/accessibility/BalanceSeekBar;)I
 
     move-result v1
 
@@ -59,7 +59,7 @@
 
     iget-object v2, p0, Lcom/android/settings/accessibility/BalanceSeekBar$1;->this$0:Lcom/android/settings/accessibility/BalanceSeekBar;
 
-    invoke-static {v2}, Lcom/android/settings/accessibility/BalanceSeekBar;->access$300(Lcom/android/settings/accessibility/BalanceSeekBar;)F
+    invoke-static {v2}, Lcom/android/settings/accessibility/BalanceSeekBar;->-$$Nest$fgetmSnapThreshold(Lcom/android/settings/accessibility/BalanceSeekBar;)F
 
     move-result v2
 
@@ -71,7 +71,7 @@
 
     iget-object v1, p0, Lcom/android/settings/accessibility/BalanceSeekBar$1;->this$0:Lcom/android/settings/accessibility/BalanceSeekBar;
 
-    invoke-static {v1}, Lcom/android/settings/accessibility/BalanceSeekBar;->access$200(Lcom/android/settings/accessibility/BalanceSeekBar;)I
+    invoke-static {v1}, Lcom/android/settings/accessibility/BalanceSeekBar;->-$$Nest$fgetmCenter(Lcom/android/settings/accessibility/BalanceSeekBar;)I
 
     move-result v1
 
@@ -79,7 +79,7 @@
 
     iget-object v2, p0, Lcom/android/settings/accessibility/BalanceSeekBar$1;->this$0:Lcom/android/settings/accessibility/BalanceSeekBar;
 
-    invoke-static {v2}, Lcom/android/settings/accessibility/BalanceSeekBar;->access$300(Lcom/android/settings/accessibility/BalanceSeekBar;)F
+    invoke-static {v2}, Lcom/android/settings/accessibility/BalanceSeekBar;->-$$Nest$fgetmSnapThreshold(Lcom/android/settings/accessibility/BalanceSeekBar;)F
 
     move-result v2
 
@@ -91,7 +91,7 @@
 
     iget-object p2, p0, Lcom/android/settings/accessibility/BalanceSeekBar$1;->this$0:Lcom/android/settings/accessibility/BalanceSeekBar;
 
-    invoke-static {p2}, Lcom/android/settings/accessibility/BalanceSeekBar;->access$200(Lcom/android/settings/accessibility/BalanceSeekBar;)I
+    invoke-static {p2}, Lcom/android/settings/accessibility/BalanceSeekBar;->-$$Nest$fgetmCenter(Lcom/android/settings/accessibility/BalanceSeekBar;)I
 
     move-result p2
 
@@ -100,7 +100,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/settings/accessibility/BalanceSeekBar$1;->this$0:Lcom/android/settings/accessibility/BalanceSeekBar;
 
-    invoke-static {v0}, Lcom/android/settings/accessibility/BalanceSeekBar;->access$400(Lcom/android/settings/accessibility/BalanceSeekBar;)I
+    invoke-static {v0}, Lcom/android/settings/accessibility/BalanceSeekBar;->-$$Nest$fgetmLastProgress(Lcom/android/settings/accessibility/BalanceSeekBar;)I
 
     move-result v0
 
@@ -108,7 +108,7 @@
 
     iget-object v0, p0, Lcom/android/settings/accessibility/BalanceSeekBar$1;->this$0:Lcom/android/settings/accessibility/BalanceSeekBar;
 
-    invoke-static {v0}, Lcom/android/settings/accessibility/BalanceSeekBar;->access$200(Lcom/android/settings/accessibility/BalanceSeekBar;)I
+    invoke-static {v0}, Lcom/android/settings/accessibility/BalanceSeekBar;->-$$Nest$fgetmCenter(Lcom/android/settings/accessibility/BalanceSeekBar;)I
 
     move-result v0
 
@@ -138,12 +138,12 @@
     :cond_2
     iget-object v0, p0, Lcom/android/settings/accessibility/BalanceSeekBar$1;->this$0:Lcom/android/settings/accessibility/BalanceSeekBar;
 
-    invoke-static {v0, p2}, Lcom/android/settings/accessibility/BalanceSeekBar;->access$402(Lcom/android/settings/accessibility/BalanceSeekBar;I)I
+    invoke-static {v0, p2}, Lcom/android/settings/accessibility/BalanceSeekBar;->-$$Nest$fputmLastProgress(Lcom/android/settings/accessibility/BalanceSeekBar;I)V
 
     :cond_3
     iget-object v0, p0, Lcom/android/settings/accessibility/BalanceSeekBar$1;->this$0:Lcom/android/settings/accessibility/BalanceSeekBar;
 
-    invoke-static {v0}, Lcom/android/settings/accessibility/BalanceSeekBar;->access$200(Lcom/android/settings/accessibility/BalanceSeekBar;)I
+    invoke-static {v0}, Lcom/android/settings/accessibility/BalanceSeekBar;->-$$Nest$fgetmCenter(Lcom/android/settings/accessibility/BalanceSeekBar;)I
 
     move-result v0
 
@@ -157,7 +157,7 @@
 
     iget-object v1, p0, Lcom/android/settings/accessibility/BalanceSeekBar$1;->this$0:Lcom/android/settings/accessibility/BalanceSeekBar;
 
-    invoke-static {v1}, Lcom/android/settings/accessibility/BalanceSeekBar;->access$500(Lcom/android/settings/accessibility/BalanceSeekBar;)Landroid/content/Context;
+    invoke-static {v1}, Lcom/android/settings/accessibility/BalanceSeekBar;->-$$Nest$fgetmContext(Lcom/android/settings/accessibility/BalanceSeekBar;)Landroid/content/Context;
 
     move-result-object v1
 
@@ -174,7 +174,7 @@
     :cond_4
     iget-object v0, p0, Lcom/android/settings/accessibility/BalanceSeekBar$1;->this$0:Lcom/android/settings/accessibility/BalanceSeekBar;
 
-    invoke-static {v0}, Lcom/android/settings/accessibility/BalanceSeekBar;->access$000(Lcom/android/settings/accessibility/BalanceSeekBar;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/settings/accessibility/BalanceSeekBar;->-$$Nest$fgetmListenerLock(Lcom/android/settings/accessibility/BalanceSeekBar;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -183,7 +183,7 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/settings/accessibility/BalanceSeekBar$1;->this$0:Lcom/android/settings/accessibility/BalanceSeekBar;
 
-    invoke-static {v1}, Lcom/android/settings/accessibility/BalanceSeekBar;->access$100(Lcom/android/settings/accessibility/BalanceSeekBar;)Landroid/widget/SeekBar$OnSeekBarChangeListener;
+    invoke-static {v1}, Lcom/android/settings/accessibility/BalanceSeekBar;->-$$Nest$fgetmOnSeekBarChangeListener(Lcom/android/settings/accessibility/BalanceSeekBar;)Landroid/widget/SeekBar$OnSeekBarChangeListener;
 
     move-result-object v1
 
@@ -191,7 +191,7 @@
 
     iget-object p0, p0, Lcom/android/settings/accessibility/BalanceSeekBar$1;->this$0:Lcom/android/settings/accessibility/BalanceSeekBar;
 
-    invoke-static {p0}, Lcom/android/settings/accessibility/BalanceSeekBar;->access$100(Lcom/android/settings/accessibility/BalanceSeekBar;)Landroid/widget/SeekBar$OnSeekBarChangeListener;
+    invoke-static {p0}, Lcom/android/settings/accessibility/BalanceSeekBar;->-$$Nest$fgetmOnSeekBarChangeListener(Lcom/android/settings/accessibility/BalanceSeekBar;)Landroid/widget/SeekBar$OnSeekBarChangeListener;
 
     move-result-object p0
 
@@ -217,7 +217,7 @@
 
     iget-object v0, p0, Lcom/android/settings/accessibility/BalanceSeekBar$1;->this$0:Lcom/android/settings/accessibility/BalanceSeekBar;
 
-    invoke-static {v0}, Lcom/android/settings/accessibility/BalanceSeekBar;->access$000(Lcom/android/settings/accessibility/BalanceSeekBar;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/settings/accessibility/BalanceSeekBar;->-$$Nest$fgetmListenerLock(Lcom/android/settings/accessibility/BalanceSeekBar;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -226,7 +226,7 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/settings/accessibility/BalanceSeekBar$1;->this$0:Lcom/android/settings/accessibility/BalanceSeekBar;
 
-    invoke-static {v1}, Lcom/android/settings/accessibility/BalanceSeekBar;->access$100(Lcom/android/settings/accessibility/BalanceSeekBar;)Landroid/widget/SeekBar$OnSeekBarChangeListener;
+    invoke-static {v1}, Lcom/android/settings/accessibility/BalanceSeekBar;->-$$Nest$fgetmOnSeekBarChangeListener(Lcom/android/settings/accessibility/BalanceSeekBar;)Landroid/widget/SeekBar$OnSeekBarChangeListener;
 
     move-result-object v1
 
@@ -234,7 +234,7 @@
 
     iget-object p0, p0, Lcom/android/settings/accessibility/BalanceSeekBar$1;->this$0:Lcom/android/settings/accessibility/BalanceSeekBar;
 
-    invoke-static {p0}, Lcom/android/settings/accessibility/BalanceSeekBar;->access$100(Lcom/android/settings/accessibility/BalanceSeekBar;)Landroid/widget/SeekBar$OnSeekBarChangeListener;
+    invoke-static {p0}, Lcom/android/settings/accessibility/BalanceSeekBar;->-$$Nest$fgetmOnSeekBarChangeListener(Lcom/android/settings/accessibility/BalanceSeekBar;)Landroid/widget/SeekBar$OnSeekBarChangeListener;
 
     move-result-object p0
 
@@ -260,7 +260,7 @@
 
     iget-object v0, p0, Lcom/android/settings/accessibility/BalanceSeekBar$1;->this$0:Lcom/android/settings/accessibility/BalanceSeekBar;
 
-    invoke-static {v0}, Lcom/android/settings/accessibility/BalanceSeekBar;->access$000(Lcom/android/settings/accessibility/BalanceSeekBar;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/settings/accessibility/BalanceSeekBar;->-$$Nest$fgetmListenerLock(Lcom/android/settings/accessibility/BalanceSeekBar;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -269,7 +269,7 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/settings/accessibility/BalanceSeekBar$1;->this$0:Lcom/android/settings/accessibility/BalanceSeekBar;
 
-    invoke-static {v1}, Lcom/android/settings/accessibility/BalanceSeekBar;->access$100(Lcom/android/settings/accessibility/BalanceSeekBar;)Landroid/widget/SeekBar$OnSeekBarChangeListener;
+    invoke-static {v1}, Lcom/android/settings/accessibility/BalanceSeekBar;->-$$Nest$fgetmOnSeekBarChangeListener(Lcom/android/settings/accessibility/BalanceSeekBar;)Landroid/widget/SeekBar$OnSeekBarChangeListener;
 
     move-result-object v1
 
@@ -277,7 +277,7 @@
 
     iget-object p0, p0, Lcom/android/settings/accessibility/BalanceSeekBar$1;->this$0:Lcom/android/settings/accessibility/BalanceSeekBar;
 
-    invoke-static {p0}, Lcom/android/settings/accessibility/BalanceSeekBar;->access$100(Lcom/android/settings/accessibility/BalanceSeekBar;)Landroid/widget/SeekBar$OnSeekBarChangeListener;
+    invoke-static {p0}, Lcom/android/settings/accessibility/BalanceSeekBar;->-$$Nest$fgetmOnSeekBarChangeListener(Lcom/android/settings/accessibility/BalanceSeekBar;)Landroid/widget/SeekBar$OnSeekBarChangeListener;
 
     move-result-object p0
 

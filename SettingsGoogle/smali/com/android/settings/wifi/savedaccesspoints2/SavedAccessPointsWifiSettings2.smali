@@ -46,7 +46,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150115
+    const p0, 0x7f15011d
 
     return p0
 .end method
@@ -80,7 +80,7 @@
 .end method
 
 .method public onCreate(Landroid/os/Bundle;)V
-    .locals 14
+    .locals 13
 
     invoke-super {p0, p1}, Lcom/android/settings/dashboard/DashboardFragment;->onCreate(Landroid/os/Bundle;)V
 
@@ -124,11 +124,11 @@
 
     invoke-virtual {p1}, Landroid/os/HandlerThread;->start()V
 
-    new-instance v8, Lcom/android/settings/wifi/savedaccesspoints2/SavedAccessPointsWifiSettings2$1;
+    new-instance v7, Lcom/android/settings/wifi/savedaccesspoints2/SavedAccessPointsWifiSettings2$1;
 
     sget-object p1, Ljava/time/ZoneOffset;->UTC:Ljava/time/ZoneOffset;
 
-    invoke-direct {v8, p0, p1}, Lcom/android/settings/wifi/savedaccesspoints2/SavedAccessPointsWifiSettings2$1;-><init>(Lcom/android/settings/wifi/savedaccesspoints2/SavedAccessPointsWifiSettings2;Ljava/time/ZoneId;)V
+    invoke-direct {v7, p0, p1}, Lcom/android/settings/wifi/savedaccesspoints2/SavedAccessPointsWifiSettings2$1;-><init>(Lcom/android/settings/wifi/savedaccesspoints2/SavedAccessPointsWifiSettings2;Ljava/time/ZoneId;)V
 
     new-instance p1, Lcom/android/wifitrackerlib/SavedNetworkTracker;
 
@@ -156,39 +156,29 @@
 
     check-cast v4, Landroid/net/ConnectivityManager;
 
-    const-class v0, Landroid/net/NetworkScoreManager;
-
-    invoke-virtual {v2, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    move-object v5, v0
-
-    check-cast v5, Landroid/net/NetworkScoreManager;
-
-    new-instance v6, Landroid/os/Handler;
+    new-instance v5, Landroid/os/Handler;
 
     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
 
     move-result-object v0
 
-    invoke-direct {v6, v0}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
+    invoke-direct {v5, v0}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
     iget-object v0, p0, Lcom/android/settings/wifi/savedaccesspoints2/SavedAccessPointsWifiSettings2;->mWorkerThread:Landroid/os/HandlerThread;
 
     invoke-virtual {v0}, Landroid/os/HandlerThread;->getThreadHandler()Landroid/os/Handler;
 
-    move-result-object v7
+    move-result-object v6
 
-    const-wide/16 v9, 0x3a98
+    const-wide/16 v8, 0x3a98
 
-    const-wide/16 v11, 0x2710
+    const-wide/16 v10, 0x2710
 
     move-object v0, p1
 
-    move-object v13, p0
+    move-object v12, p0
 
-    invoke-direct/range {v0 .. v13}, Lcom/android/wifitrackerlib/SavedNetworkTracker;-><init>(Landroidx/lifecycle/Lifecycle;Landroid/content/Context;Landroid/net/wifi/WifiManager;Landroid/net/ConnectivityManager;Landroid/net/NetworkScoreManager;Landroid/os/Handler;Landroid/os/Handler;Ljava/time/Clock;JJLcom/android/wifitrackerlib/SavedNetworkTracker$SavedNetworkTrackerCallback;)V
+    invoke-direct/range {v0 .. v12}, Lcom/android/wifitrackerlib/SavedNetworkTracker;-><init>(Landroidx/lifecycle/Lifecycle;Landroid/content/Context;Landroid/net/wifi/WifiManager;Landroid/net/ConnectivityManager;Landroid/os/Handler;Landroid/os/Handler;Ljava/time/Clock;JJLcom/android/wifitrackerlib/SavedNetworkTracker$SavedNetworkTrackerCallback;)V
 
     iput-object p1, p0, Lcom/android/settings/wifi/savedaccesspoints2/SavedAccessPointsWifiSettings2;->mSavedNetworkTracker:Lcom/android/wifitrackerlib/SavedNetworkTracker;
 

@@ -3,6 +3,14 @@
 .source "FragmentTransitionCompat21.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Landroidx/fragment/app/FragmentTransitionCompat21$Api19Impl;
+    }
+.end annotation
+
+
 # direct methods
 .method constructor <init>()V
     .locals 0
@@ -294,19 +302,6 @@
 
     :cond_2
     return-object p0
-.end method
-
-.method public removeTarget(Ljava/lang/Object;Landroid/view/View;)V
-    .locals 0
-
-    if-eqz p1, :cond_0
-
-    check-cast p1, Landroid/transition/Transition;
-
-    invoke-virtual {p1, p2}, Landroid/transition/Transition;->removeTarget(Landroid/view/View;)Landroid/transition/Transition;
-
-    :cond_0
-    return-void
 .end method
 
 .method public replaceTargets(Ljava/lang/Object;Ljava/util/ArrayList;Ljava/util/ArrayList;)V

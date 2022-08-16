@@ -75,9 +75,9 @@
 
     if-eqz p0, :cond_0
 
-    new-instance v0, Lcom/android/settings/notification/RingtonePreferenceControllerBase$$ExternalSyntheticLambda0;
+    new-instance v0, Lcom/android/settings/notification/RingtonePreferenceControllerBase$$ExternalSyntheticLambda1;
 
-    invoke-direct {v0, p1, p0}, Lcom/android/settings/notification/RingtonePreferenceControllerBase$$ExternalSyntheticLambda0;-><init>(Landroidx/preference/Preference;Ljava/lang/CharSequence;)V
+    invoke-direct {v0, p1, p0}, Lcom/android/settings/notification/RingtonePreferenceControllerBase$$ExternalSyntheticLambda1;-><init>(Landroidx/preference/Preference;Ljava/lang/CharSequence;)V
 
     invoke-static {v0}, Lcom/android/settingslib/utils/ThreadUtils;->postOnMainThread(Ljava/lang/Runnable;)V
 
@@ -120,9 +120,9 @@
 .method public updateState(Landroidx/preference/Preference;)V
     .locals 1
 
-    new-instance v0, Lcom/android/settings/notification/RingtonePreferenceControllerBase$$ExternalSyntheticLambda1;
+    new-instance v0, Lcom/android/settings/notification/RingtonePreferenceControllerBase$$ExternalSyntheticLambda0;
 
-    invoke-direct {v0, p0, p1}, Lcom/android/settings/notification/RingtonePreferenceControllerBase$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/notification/RingtonePreferenceControllerBase;Landroidx/preference/Preference;)V
+    invoke-direct {v0, p0, p1}, Lcom/android/settings/notification/RingtonePreferenceControllerBase$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/notification/RingtonePreferenceControllerBase;Landroidx/preference/Preference;)V
 
     invoke-static {v0}, Lcom/android/settingslib/utils/ThreadUtils;->postOnBackgroundThread(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;
 

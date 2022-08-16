@@ -36,7 +36,7 @@
 
     iget-object v0, p0, Lcom/android/settings/accessibility/LockScreenRotationPreferenceController$1;->this$0:Lcom/android/settings/accessibility/LockScreenRotationPreferenceController;
 
-    invoke-static {v0}, Lcom/android/settings/accessibility/LockScreenRotationPreferenceController;->access$000(Lcom/android/settings/accessibility/LockScreenRotationPreferenceController;)Landroidx/preference/Preference;
+    invoke-static {v0}, Lcom/android/settings/accessibility/LockScreenRotationPreferenceController;->-$$Nest$fgetmPreference(Lcom/android/settings/accessibility/LockScreenRotationPreferenceController;)Landroidx/preference/Preference;
 
     move-result-object v0
 
@@ -44,7 +44,7 @@
 
     iget-object p0, p0, Lcom/android/settings/accessibility/LockScreenRotationPreferenceController$1;->this$0:Lcom/android/settings/accessibility/LockScreenRotationPreferenceController;
 
-    invoke-static {p0}, Lcom/android/settings/accessibility/LockScreenRotationPreferenceController;->access$000(Lcom/android/settings/accessibility/LockScreenRotationPreferenceController;)Landroidx/preference/Preference;
+    invoke-static {p0}, Lcom/android/settings/accessibility/LockScreenRotationPreferenceController;->-$$Nest$fgetmPreference(Lcom/android/settings/accessibility/LockScreenRotationPreferenceController;)Landroidx/preference/Preference;
 
     move-result-object v0
 

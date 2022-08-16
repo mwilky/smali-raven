@@ -56,7 +56,7 @@
 
     move-result p1
 
-    invoke-static {p0, p1}, Lcom/android/settings/wifi/WifiStatusTest;->access$000(Lcom/android/settings/wifi/WifiStatusTest;I)V
+    invoke-static {p0, p1}, Lcom/android/settings/wifi/WifiStatusTest;->-$$Nest$mhandleWifiStateChanged(Lcom/android/settings/wifi/WifiStatusTest;I)V
 
     goto/16 :goto_0
 
@@ -83,7 +83,7 @@
 
     check-cast p1, Landroid/net/NetworkInfo;
 
-    invoke-static {p0, p1}, Lcom/android/settings/wifi/WifiStatusTest;->access$100(Lcom/android/settings/wifi/WifiStatusTest;Landroid/net/NetworkInfo;)V
+    invoke-static {p0, p1}, Lcom/android/settings/wifi/WifiStatusTest;->-$$Nest$mhandleNetworkStateChanged(Lcom/android/settings/wifi/WifiStatusTest;Landroid/net/NetworkInfo;)V
 
     goto/16 :goto_0
 
@@ -102,7 +102,7 @@
 
     iget-object p0, p0, Lcom/android/settings/wifi/WifiStatusTest$1;->this$0:Lcom/android/settings/wifi/WifiStatusTest;
 
-    invoke-static {p0}, Lcom/android/settings/wifi/WifiStatusTest;->access$200(Lcom/android/settings/wifi/WifiStatusTest;)V
+    invoke-static {p0}, Lcom/android/settings/wifi/WifiStatusTest;->-$$Nest$mhandleScanResultsAvailable(Lcom/android/settings/wifi/WifiStatusTest;)V
 
     goto :goto_0
 
@@ -156,7 +156,7 @@
 
     move-result p2
 
-    invoke-static {p0, p1, v2, p2}, Lcom/android/settings/wifi/WifiStatusTest;->access$300(Lcom/android/settings/wifi/WifiStatusTest;Landroid/net/wifi/SupplicantState;ZI)V
+    invoke-static {p0, p1, v2, p2}, Lcom/android/settings/wifi/WifiStatusTest;->-$$Nest$mhandleSupplicantStateChanged(Lcom/android/settings/wifi/WifiStatusTest;Landroid/net/wifi/SupplicantState;ZI)V
 
     goto :goto_0
 
@@ -181,7 +181,7 @@
 
     move-result p1
 
-    invoke-static {p0, p1}, Lcom/android/settings/wifi/WifiStatusTest;->access$400(Lcom/android/settings/wifi/WifiStatusTest;I)V
+    invoke-static {p0, p1}, Lcom/android/settings/wifi/WifiStatusTest;->-$$Nest$mhandleSignalChanged(Lcom/android/settings/wifi/WifiStatusTest;I)V
 
     goto :goto_0
 

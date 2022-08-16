@@ -29,7 +29,7 @@
 
     const/4 v0, 0x0
 
-    const v1, 0x7f130021
+    const v1, 0x7f130022
 
     invoke-direct {p0, p1, p2, v0, v1}, Lcom/google/android/settings/widget/AssistGestureTrainingProgressBar;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
 
@@ -49,13 +49,13 @@
 
     move-result-object v1
 
-    const v2, 0x7f06005a
+    const v2, 0x7f06005e
 
     const/4 v3, 0x1
 
     invoke-virtual {v1, v2, p0, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
-    const v1, 0x7f0d0314
+    const v1, 0x7f0d033d
 
     invoke-virtual {p0, v1}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
@@ -65,7 +65,7 @@
 
     iput-object v1, p0, Lcom/google/android/settings/widget/AssistGestureTrainingProgressBar;->mTextView:Landroid/widget/TextView;
 
-    const v1, 0x7f0d046a
+    const v1, 0x7f0d049c
 
     invoke-virtual {p0, v1}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
@@ -75,7 +75,7 @@
 
     iput-object v1, p0, Lcom/google/android/settings/widget/AssistGestureTrainingProgressBar;->mProgressBar:Landroid/widget/ProgressBar;
 
-    const v1, 0x7f0d01de
+    const v1, 0x7f0d01f7
 
     invoke-virtual {p0, v1}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 

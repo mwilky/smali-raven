@@ -32,7 +32,7 @@
 
 # virtual methods
 .method public onOrientationChanged(I)V
-    .locals 3
+    .locals 2
 
     iget-object p1, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollFindSensor$2;->this$0:Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollFindSensor;
 
@@ -44,40 +44,26 @@
 
     move-result p1
 
+    add-int/lit8 v0, p1, 0x2
+
+    rem-int/lit8 v0, v0, 0x4
+
+    iget-object v1, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollFindSensor$2;->this$0:Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollFindSensor;
+
+    invoke-static {v1}, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollFindSensor;->-$$Nest$fgetmPreviousRotation(Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollFindSensor;)I
+
+    move-result v1
+
+    if-ne v0, v1, :cond_0
+
     iget-object v0, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollFindSensor$2;->this$0:Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollFindSensor;
 
-    invoke-static {v0}, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollFindSensor;->access$100(Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollFindSensor;)I
-
-    move-result v0
-
-    const/4 v1, 0x3
-
-    const/4 v2, 0x1
-
-    if-ne v0, v2, :cond_0
-
-    if-eq p1, v1, :cond_1
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollFindSensor$2;->this$0:Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollFindSensor;
-
-    invoke-static {v0}, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollFindSensor;->access$100(Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollFindSensor;)I
-
-    move-result v0
-
-    if-ne v0, v1, :cond_2
-
-    if-ne p1, v2, :cond_2
-
-    :cond_1
-    iget-object v0, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollFindSensor$2;->this$0:Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollFindSensor;
-
-    invoke-static {v0, p1}, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollFindSensor;->access$102(Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollFindSensor;I)I
+    invoke-static {v0, p1}, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollFindSensor;->-$$Nest$fputmPreviousRotation(Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollFindSensor;I)V
 
     iget-object p0, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollFindSensor$2;->this$0:Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollFindSensor;
 
     invoke-virtual {p0}, Landroid/app/Activity;->recreate()V
 
-    :cond_2
+    :cond_0
     return-void
 .end method

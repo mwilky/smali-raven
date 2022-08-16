@@ -26,23 +26,9 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;I)V
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "type",
-            "revision"
-        }
-    .end annotation
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    const/4 v0, 0x1
-
-    iput v0, p0, Landroidx/slice/SliceSpec;->mRevision:I
 
     iput-object p1, p0, Landroidx/slice/SliceSpec;->mType:Ljava/lang/String;
 
@@ -55,14 +41,6 @@
 # virtual methods
 .method public canRender(Landroidx/slice/SliceSpec;)Z
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "candidate"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/slice/SliceSpec;->mType:Ljava/lang/String;
 
@@ -93,14 +71,6 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "obj"
-        }
-    .end annotation
 
     instance-of v0, p1, Landroidx/slice/SliceSpec;
 

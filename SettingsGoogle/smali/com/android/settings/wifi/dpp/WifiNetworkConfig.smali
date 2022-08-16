@@ -226,7 +226,7 @@
 .method static getValidConfigOrNull(Landroid/content/Intent;)Lcom/android/settings/wifi/dpp/WifiNetworkConfig;
     .locals 7
 
-    const-string v0, "security"
+    const-string/jumbo v0, "security"
 
     invoke-virtual {p0, v0}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 

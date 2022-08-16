@@ -17,38 +17,20 @@
 # instance fields
 .field private final mFileName:Ljava/lang/String;
 
-.field private mItalic:Z
+.field private final mItalic:Z
 
-.field private mResourceId:I
+.field private final mResourceId:I
 
-.field private mTtcIndex:I
+.field private final mTtcIndex:I
 
-.field private mVariationSettings:Ljava/lang/String;
+.field private final mVariationSettings:Ljava/lang/String;
 
-.field private mWeight:I
+.field private final mWeight:I
 
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;IZLjava/lang/String;II)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "fileName",
-            "weight",
-            "italic",
-            "variationSettings",
-            "ttcIndex",
-            "resourceId"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -69,14 +51,6 @@
 
 
 # virtual methods
-.method public getFileName()Ljava/lang/String;
-    .locals 0
-
-    iget-object p0, p0, Landroidx/core/content/res/FontResourcesParserCompat$FontFileResourceEntry;->mFileName:Ljava/lang/String;
-
-    return-object p0
-.end method
-
 .method public getResourceId()I
     .locals 0
 

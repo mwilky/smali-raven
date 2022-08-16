@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settings/gestures/SystemNavigationGestureSettings$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/view/View$OnClickListener;
@@ -27,7 +28,7 @@
 
     iget-object p0, p0, Lcom/android/settings/gestures/SystemNavigationGestureSettings$$ExternalSyntheticLambda2;->f$0:Lcom/android/settings/gestures/SystemNavigationGestureSettings;
 
-    invoke-static {p0, p1}, Lcom/android/settings/gestures/SystemNavigationGestureSettings;->$r8$lambda$y6D0CBeWiF08Ze-aAvZJed_E6Pk(Lcom/android/settings/gestures/SystemNavigationGestureSettings;Landroid/view/View;)V
+    invoke-static {p0, p1}, Lcom/android/settings/gestures/SystemNavigationGestureSettings;->$r8$lambda$wZ87CYmYTmGVM5htux-H23J1eVU(Lcom/android/settings/gestures/SystemNavigationGestureSettings;Landroid/view/View;)V
 
     return-void
 .end method

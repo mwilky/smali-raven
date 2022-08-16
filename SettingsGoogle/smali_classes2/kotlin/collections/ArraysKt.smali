@@ -49,6 +49,22 @@
     return-object p0
 .end method
 
+.method public static bridge synthetic drop([Ljava/lang/Object;I)Ljava/util/List;
+    .locals 0
+    .param p0    # [Ljava/lang/Object;
+        .annotation build Lorg/jetbrains/annotations/NotNull;
+        .end annotation
+    .end param
+    .annotation build Lorg/jetbrains/annotations/NotNull;
+    .end annotation
+
+    invoke-static {p0, p1}, Lkotlin/collections/ArraysKt___ArraysKt;->drop([Ljava/lang/Object;I)Ljava/util/List;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method public static bridge synthetic single([C)C
     .locals 0
     .param p0    # [C
@@ -69,16 +85,6 @@
         .annotation build Lorg/jetbrains/annotations/NotNull;
         .end annotation
     .end param
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<T:",
-            "Ljava/lang/Object;",
-            ">([TT;)",
-            "Ljava/util/List<",
-            "TT;>;"
-        }
-    .end annotation
-
     .annotation build Lorg/jetbrains/annotations/NotNull;
     .end annotation
 

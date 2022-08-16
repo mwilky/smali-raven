@@ -29,19 +29,19 @@
 
     invoke-direct {p0, p1}, Lcom/android/settings/homepage/contextualcards/ContextualCard;-><init>(Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;)V
 
-    invoke-static {p1}, Lcom/android/settings/homepage/contextualcards/conditional/ConditionalContextualCard$Builder;->access$000(Lcom/android/settings/homepage/contextualcards/conditional/ConditionalContextualCard$Builder;)J
+    invoke-static {p1}, Lcom/android/settings/homepage/contextualcards/conditional/ConditionalContextualCard$Builder;->-$$Nest$fgetmConditionId(Lcom/android/settings/homepage/contextualcards/conditional/ConditionalContextualCard$Builder;)J
 
     move-result-wide v0
 
     iput-wide v0, p0, Lcom/android/settings/homepage/contextualcards/conditional/ConditionalContextualCard;->mConditionId:J
 
-    invoke-static {p1}, Lcom/android/settings/homepage/contextualcards/conditional/ConditionalContextualCard$Builder;->access$100(Lcom/android/settings/homepage/contextualcards/conditional/ConditionalContextualCard$Builder;)I
+    invoke-static {p1}, Lcom/android/settings/homepage/contextualcards/conditional/ConditionalContextualCard$Builder;->-$$Nest$fgetmMetricsConstant(Lcom/android/settings/homepage/contextualcards/conditional/ConditionalContextualCard$Builder;)I
 
     move-result v0
 
     iput v0, p0, Lcom/android/settings/homepage/contextualcards/conditional/ConditionalContextualCard;->mMetricsConstant:I
 
-    invoke-static {p1}, Lcom/android/settings/homepage/contextualcards/conditional/ConditionalContextualCard$Builder;->access$200(Lcom/android/settings/homepage/contextualcards/conditional/ConditionalContextualCard$Builder;)Ljava/lang/CharSequence;
+    invoke-static {p1}, Lcom/android/settings/homepage/contextualcards/conditional/ConditionalContextualCard$Builder;->-$$Nest$fgetmActionText(Lcom/android/settings/homepage/contextualcards/conditional/ConditionalContextualCard$Builder;)Ljava/lang/CharSequence;
 
     move-result-object p1
 
@@ -50,7 +50,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settings/homepage/contextualcards/conditional/ConditionalContextualCard$Builder;Lcom/android/settings/homepage/contextualcards/conditional/ConditionalContextualCard$1;)V
+.method synthetic constructor <init>(Lcom/android/settings/homepage/contextualcards/conditional/ConditionalContextualCard$Builder;Lcom/android/settings/homepage/contextualcards/conditional/ConditionalContextualCard-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settings/homepage/contextualcards/conditional/ConditionalContextualCard;-><init>(Lcom/android/settings/homepage/contextualcards/conditional/ConditionalContextualCard$Builder;)V

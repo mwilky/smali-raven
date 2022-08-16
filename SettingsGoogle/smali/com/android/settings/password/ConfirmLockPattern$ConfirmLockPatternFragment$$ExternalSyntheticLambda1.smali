@@ -1,39 +1,36 @@
 .class public final synthetic Lcom/android/settings/password/ConfirmLockPattern$ConfirmLockPatternFragment$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Ljava/util/function/Supplier;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/settings/password/ConfirmLockPattern;
-
-.field public final synthetic f$1:Landroid/content/Intent;
+.field public final synthetic f$0:Lcom/android/settings/password/ConfirmLockPattern$ConfirmLockPatternFragment;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/settings/password/ConfirmLockPattern;Landroid/content/Intent;)V
+.method public synthetic constructor <init>(Lcom/android/settings/password/ConfirmLockPattern$ConfirmLockPatternFragment;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/settings/password/ConfirmLockPattern$ConfirmLockPatternFragment$$ExternalSyntheticLambda1;->f$0:Lcom/android/settings/password/ConfirmLockPattern;
-
-    iput-object p2, p0, Lcom/android/settings/password/ConfirmLockPattern$ConfirmLockPatternFragment$$ExternalSyntheticLambda1;->f$1:Landroid/content/Intent;
+    iput-object p1, p0, Lcom/android/settings/password/ConfirmLockPattern$ConfirmLockPatternFragment$$ExternalSyntheticLambda1;->f$0:Lcom/android/settings/password/ConfirmLockPattern$ConfirmLockPatternFragment;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final run()V
-    .locals 1
+.method public final get()Ljava/lang/Object;
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/settings/password/ConfirmLockPattern$ConfirmLockPatternFragment$$ExternalSyntheticLambda1;->f$0:Lcom/android/settings/password/ConfirmLockPattern;
+    iget-object p0, p0, Lcom/android/settings/password/ConfirmLockPattern$ConfirmLockPatternFragment$$ExternalSyntheticLambda1;->f$0:Lcom/android/settings/password/ConfirmLockPattern$ConfirmLockPatternFragment;
 
-    iget-object p0, p0, Lcom/android/settings/password/ConfirmLockPattern$ConfirmLockPatternFragment$$ExternalSyntheticLambda1;->f$1:Landroid/content/Intent;
+    invoke-static {p0}, Lcom/android/settings/password/ConfirmLockPattern$ConfirmLockPatternFragment;->$r8$lambda$L2RTdG6Yz3E4UixfB27TzfCOm-Y(Lcom/android/settings/password/ConfirmLockPattern$ConfirmLockPatternFragment;)Ljava/lang/String;
 
-    invoke-static {v0, p0}, Lcom/android/settings/password/ConfirmLockPattern$ConfirmLockPatternFragment;->$r8$lambda$RUaMdfTeEVaR6anpfeKwNANeXFk(Lcom/android/settings/password/ConfirmLockPattern;Landroid/content/Intent;)V
+    move-result-object p0
 
-    return-void
+    return-object p0
 .end method

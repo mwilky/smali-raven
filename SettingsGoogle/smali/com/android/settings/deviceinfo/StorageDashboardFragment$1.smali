@@ -104,7 +104,7 @@
 
     iget-object p1, p0, Lcom/android/settings/deviceinfo/StorageDashboardFragment$1;->this$0:Lcom/android/settings/deviceinfo/StorageDashboardFragment;
 
-    invoke-static {p1}, Lcom/android/settings/deviceinfo/StorageDashboardFragment;->access$000(Lcom/android/settings/deviceinfo/StorageDashboardFragment;)Ljava/util/List;
+    invoke-static {p1}, Lcom/android/settings/deviceinfo/StorageDashboardFragment;->-$$Nest$fgetmStorageEntries(Lcom/android/settings/deviceinfo/StorageDashboardFragment;)Ljava/util/List;
 
     move-result-object p1
 
@@ -116,7 +116,7 @@
 
     iget-object p1, p0, Lcom/android/settings/deviceinfo/StorageDashboardFragment$1;->this$0:Lcom/android/settings/deviceinfo/StorageDashboardFragment;
 
-    invoke-static {p1}, Lcom/android/settings/deviceinfo/StorageDashboardFragment;->access$100(Lcom/android/settings/deviceinfo/StorageDashboardFragment;)Lcom/android/settings/deviceinfo/storage/StorageEntry;
+    invoke-static {p1}, Lcom/android/settings/deviceinfo/StorageDashboardFragment;->-$$Nest$fgetmSelectedStorageEntry(Lcom/android/settings/deviceinfo/StorageDashboardFragment;)Lcom/android/settings/deviceinfo/storage/StorageEntry;
 
     move-result-object p1
 
@@ -136,12 +136,12 @@
 
     move-result-object v0
 
-    invoke-static {p1, v0}, Lcom/android/settings/deviceinfo/StorageDashboardFragment;->access$102(Lcom/android/settings/deviceinfo/StorageDashboardFragment;Lcom/android/settings/deviceinfo/storage/StorageEntry;)Lcom/android/settings/deviceinfo/storage/StorageEntry;
+    invoke-static {p1, v0}, Lcom/android/settings/deviceinfo/StorageDashboardFragment;->-$$Nest$fputmSelectedStorageEntry(Lcom/android/settings/deviceinfo/StorageDashboardFragment;Lcom/android/settings/deviceinfo/storage/StorageEntry;)V
 
     :cond_0
     iget-object p0, p0, Lcom/android/settings/deviceinfo/StorageDashboardFragment$1;->this$0:Lcom/android/settings/deviceinfo/StorageDashboardFragment;
 
-    invoke-static {p0}, Lcom/android/settings/deviceinfo/StorageDashboardFragment;->access$200(Lcom/android/settings/deviceinfo/StorageDashboardFragment;)V
+    invoke-static {p0}, Lcom/android/settings/deviceinfo/StorageDashboardFragment;->-$$Nest$mrefreshUi(Lcom/android/settings/deviceinfo/StorageDashboardFragment;)V
 
     :cond_1
     return-void
@@ -165,7 +165,7 @@
 
     iget-object p1, p0, Lcom/android/settings/deviceinfo/StorageDashboardFragment$1;->this$0:Lcom/android/settings/deviceinfo/StorageDashboardFragment;
 
-    invoke-static {p1}, Lcom/android/settings/deviceinfo/StorageDashboardFragment;->access$000(Lcom/android/settings/deviceinfo/StorageDashboardFragment;)Ljava/util/List;
+    invoke-static {p1}, Lcom/android/settings/deviceinfo/StorageDashboardFragment;->-$$Nest$fgetmStorageEntries(Lcom/android/settings/deviceinfo/StorageDashboardFragment;)Ljava/util/List;
 
     move-result-object p1
 
@@ -177,7 +177,7 @@
 
     iget-object p1, p0, Lcom/android/settings/deviceinfo/StorageDashboardFragment$1;->this$0:Lcom/android/settings/deviceinfo/StorageDashboardFragment;
 
-    invoke-static {p1}, Lcom/android/settings/deviceinfo/StorageDashboardFragment;->access$000(Lcom/android/settings/deviceinfo/StorageDashboardFragment;)Ljava/util/List;
+    invoke-static {p1}, Lcom/android/settings/deviceinfo/StorageDashboardFragment;->-$$Nest$fgetmStorageEntries(Lcom/android/settings/deviceinfo/StorageDashboardFragment;)Ljava/util/List;
 
     move-result-object p1
 
@@ -185,7 +185,7 @@
 
     iget-object p0, p0, Lcom/android/settings/deviceinfo/StorageDashboardFragment$1;->this$0:Lcom/android/settings/deviceinfo/StorageDashboardFragment;
 
-    invoke-static {p0}, Lcom/android/settings/deviceinfo/StorageDashboardFragment;->access$200(Lcom/android/settings/deviceinfo/StorageDashboardFragment;)V
+    invoke-static {p0}, Lcom/android/settings/deviceinfo/StorageDashboardFragment;->-$$Nest$mrefreshUi(Lcom/android/settings/deviceinfo/StorageDashboardFragment;)V
 
     :cond_1
     return-void
@@ -206,7 +206,7 @@
 
     iget-object p1, p0, Lcom/android/settings/deviceinfo/StorageDashboardFragment$1;->this$0:Lcom/android/settings/deviceinfo/StorageDashboardFragment;
 
-    invoke-static {p1}, Lcom/android/settings/deviceinfo/StorageDashboardFragment;->access$000(Lcom/android/settings/deviceinfo/StorageDashboardFragment;)Ljava/util/List;
+    invoke-static {p1}, Lcom/android/settings/deviceinfo/StorageDashboardFragment;->-$$Nest$fgetmStorageEntries(Lcom/android/settings/deviceinfo/StorageDashboardFragment;)Ljava/util/List;
 
     move-result-object p1
 
@@ -218,7 +218,7 @@
 
     iget-object p1, p0, Lcom/android/settings/deviceinfo/StorageDashboardFragment$1;->this$0:Lcom/android/settings/deviceinfo/StorageDashboardFragment;
 
-    invoke-static {p1}, Lcom/android/settings/deviceinfo/StorageDashboardFragment;->access$100(Lcom/android/settings/deviceinfo/StorageDashboardFragment;)Lcom/android/settings/deviceinfo/storage/StorageEntry;
+    invoke-static {p1}, Lcom/android/settings/deviceinfo/StorageDashboardFragment;->-$$Nest$fgetmSelectedStorageEntry(Lcom/android/settings/deviceinfo/StorageDashboardFragment;)Lcom/android/settings/deviceinfo/storage/StorageEntry;
 
     move-result-object p1
 
@@ -238,12 +238,12 @@
 
     move-result-object v0
 
-    invoke-static {p1, v0}, Lcom/android/settings/deviceinfo/StorageDashboardFragment;->access$102(Lcom/android/settings/deviceinfo/StorageDashboardFragment;Lcom/android/settings/deviceinfo/storage/StorageEntry;)Lcom/android/settings/deviceinfo/storage/StorageEntry;
+    invoke-static {p1, v0}, Lcom/android/settings/deviceinfo/StorageDashboardFragment;->-$$Nest$fputmSelectedStorageEntry(Lcom/android/settings/deviceinfo/StorageDashboardFragment;Lcom/android/settings/deviceinfo/storage/StorageEntry;)V
 
     :cond_0
     iget-object p0, p0, Lcom/android/settings/deviceinfo/StorageDashboardFragment$1;->this$0:Lcom/android/settings/deviceinfo/StorageDashboardFragment;
 
-    invoke-static {p0}, Lcom/android/settings/deviceinfo/StorageDashboardFragment;->access$200(Lcom/android/settings/deviceinfo/StorageDashboardFragment;)V
+    invoke-static {p0}, Lcom/android/settings/deviceinfo/StorageDashboardFragment;->-$$Nest$mrefreshUi(Lcom/android/settings/deviceinfo/StorageDashboardFragment;)V
 
     :cond_1
     return-void
@@ -254,7 +254,7 @@
 
     iget-object v0, p0, Lcom/android/settings/deviceinfo/StorageDashboardFragment$1;->this$0:Lcom/android/settings/deviceinfo/StorageDashboardFragment;
 
-    invoke-static {v0}, Lcom/android/settings/deviceinfo/StorageDashboardFragment;->access$300(Lcom/android/settings/deviceinfo/StorageDashboardFragment;)Landroid/os/storage/StorageManager;
+    invoke-static {v0}, Lcom/android/settings/deviceinfo/StorageDashboardFragment;->-$$Nest$fgetmStorageManager(Lcom/android/settings/deviceinfo/StorageDashboardFragment;)Landroid/os/storage/StorageManager;
 
     move-result-object v0
 
@@ -270,7 +270,7 @@
 
     iget-object p1, p0, Lcom/android/settings/deviceinfo/StorageDashboardFragment$1;->this$0:Lcom/android/settings/deviceinfo/StorageDashboardFragment;
 
-    invoke-static {p1}, Lcom/android/settings/deviceinfo/StorageDashboardFragment;->access$000(Lcom/android/settings/deviceinfo/StorageDashboardFragment;)Ljava/util/List;
+    invoke-static {p1}, Lcom/android/settings/deviceinfo/StorageDashboardFragment;->-$$Nest$fgetmStorageEntries(Lcom/android/settings/deviceinfo/StorageDashboardFragment;)Ljava/util/List;
 
     move-result-object p1
 
@@ -282,7 +282,7 @@
 
     iget-object p1, p0, Lcom/android/settings/deviceinfo/StorageDashboardFragment$1;->this$0:Lcom/android/settings/deviceinfo/StorageDashboardFragment;
 
-    invoke-static {p1}, Lcom/android/settings/deviceinfo/StorageDashboardFragment;->access$000(Lcom/android/settings/deviceinfo/StorageDashboardFragment;)Ljava/util/List;
+    invoke-static {p1}, Lcom/android/settings/deviceinfo/StorageDashboardFragment;->-$$Nest$fgetmStorageEntries(Lcom/android/settings/deviceinfo/StorageDashboardFragment;)Ljava/util/List;
 
     move-result-object p1
 
@@ -290,14 +290,14 @@
 
     iget-object p0, p0, Lcom/android/settings/deviceinfo/StorageDashboardFragment$1;->this$0:Lcom/android/settings/deviceinfo/StorageDashboardFragment;
 
-    invoke-static {p0}, Lcom/android/settings/deviceinfo/StorageDashboardFragment;->access$200(Lcom/android/settings/deviceinfo/StorageDashboardFragment;)V
+    invoke-static {p0}, Lcom/android/settings/deviceinfo/StorageDashboardFragment;->-$$Nest$mrefreshUi(Lcom/android/settings/deviceinfo/StorageDashboardFragment;)V
 
     goto :goto_0
 
     :cond_0
     iget-object v0, p0, Lcom/android/settings/deviceinfo/StorageDashboardFragment$1;->this$0:Lcom/android/settings/deviceinfo/StorageDashboardFragment;
 
-    invoke-static {v0}, Lcom/android/settings/deviceinfo/StorageDashboardFragment;->access$300(Lcom/android/settings/deviceinfo/StorageDashboardFragment;)Landroid/os/storage/StorageManager;
+    invoke-static {v0}, Lcom/android/settings/deviceinfo/StorageDashboardFragment;->-$$Nest$fgetmStorageManager(Lcom/android/settings/deviceinfo/StorageDashboardFragment;)Landroid/os/storage/StorageManager;
 
     move-result-object v0
 
@@ -316,7 +316,7 @@
     :cond_1
     iget-object v1, p0, Lcom/android/settings/deviceinfo/StorageDashboardFragment$1;->this$0:Lcom/android/settings/deviceinfo/StorageDashboardFragment;
 
-    invoke-static {v1}, Lcom/android/settings/deviceinfo/StorageDashboardFragment;->access$000(Lcom/android/settings/deviceinfo/StorageDashboardFragment;)Ljava/util/List;
+    invoke-static {v1}, Lcom/android/settings/deviceinfo/StorageDashboardFragment;->-$$Nest$fgetmStorageEntries(Lcom/android/settings/deviceinfo/StorageDashboardFragment;)Ljava/util/List;
 
     move-result-object v1
 
@@ -332,7 +332,7 @@
 
     iget-object p1, p0, Lcom/android/settings/deviceinfo/StorageDashboardFragment$1;->this$0:Lcom/android/settings/deviceinfo/StorageDashboardFragment;
 
-    invoke-static {p1}, Lcom/android/settings/deviceinfo/StorageDashboardFragment;->access$000(Lcom/android/settings/deviceinfo/StorageDashboardFragment;)Ljava/util/List;
+    invoke-static {p1}, Lcom/android/settings/deviceinfo/StorageDashboardFragment;->-$$Nest$fgetmStorageEntries(Lcom/android/settings/deviceinfo/StorageDashboardFragment;)Ljava/util/List;
 
     move-result-object p1
 
@@ -350,7 +350,7 @@
 
     iget-object p0, p0, Lcom/android/settings/deviceinfo/StorageDashboardFragment$1;->this$0:Lcom/android/settings/deviceinfo/StorageDashboardFragment;
 
-    invoke-static {p0}, Lcom/android/settings/deviceinfo/StorageDashboardFragment;->access$200(Lcom/android/settings/deviceinfo/StorageDashboardFragment;)V
+    invoke-static {p0}, Lcom/android/settings/deviceinfo/StorageDashboardFragment;->-$$Nest$mrefreshUi(Lcom/android/settings/deviceinfo/StorageDashboardFragment;)V
 
     :cond_2
     :goto_0
@@ -358,7 +358,7 @@
 .end method
 
 .method public onVolumeStateChanged(Landroid/os/storage/VolumeInfo;II)V
-    .locals 0
+    .locals 3
 
     invoke-static {p1}, Lcom/android/settings/deviceinfo/storage/StorageUtils;->isStorageSettingsInterestedVolume(Landroid/os/storage/VolumeInfo;)Z
 
@@ -383,94 +383,78 @@
 
     move-result p1
 
-    if-eqz p1, :cond_3
-
-    const/4 p3, 0x2
-
-    if-eq p1, p3, :cond_1
-
-    const/4 p3, 0x3
-
-    if-eq p1, p3, :cond_1
-
-    const/4 p3, 0x5
-
-    if-eq p1, p3, :cond_3
-
-    const/4 p3, 0x6
-
-    if-eq p1, p3, :cond_1
-
-    const/4 p3, 0x7
-
-    if-eq p1, p3, :cond_3
-
     const/16 p3, 0x8
 
-    if-eq p1, p3, :cond_3
+    const/4 v0, 0x7
+
+    if-eqz p1, :cond_2
+
+    const/4 v1, 0x2
+
+    if-eq p1, v1, :cond_2
+
+    const/4 v1, 0x3
+
+    if-eq p1, v1, :cond_2
+
+    const/4 v1, 0x5
+
+    if-eq p1, v1, :cond_2
+
+    const/4 v1, 0x6
+
+    if-eq p1, v1, :cond_2
+
+    if-eq p1, v0, :cond_1
+
+    if-eq p1, p3, :cond_1
 
     goto :goto_0
 
     :cond_1
+    iget-object v1, p0, Lcom/android/settings/deviceinfo/StorageDashboardFragment$1;->this$0:Lcom/android/settings/deviceinfo/StorageDashboardFragment;
+
+    invoke-static {v1}, Lcom/android/settings/deviceinfo/StorageDashboardFragment;->-$$Nest$fgetmStorageEntries(Lcom/android/settings/deviceinfo/StorageDashboardFragment;)Ljava/util/List;
+
+    move-result-object v1
+
+    invoke-interface {v1, p2}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_2
+
+    goto :goto_0
+
+    :cond_2
+    iget-object v1, p0, Lcom/android/settings/deviceinfo/StorageDashboardFragment$1;->this$0:Lcom/android/settings/deviceinfo/StorageDashboardFragment;
+
+    invoke-static {v1}, Lcom/android/settings/deviceinfo/StorageDashboardFragment;->-$$Nest$fgetmStorageEntries(Lcom/android/settings/deviceinfo/StorageDashboardFragment;)Ljava/util/List;
+
+    move-result-object v1
+
+    new-instance v2, Lcom/android/settings/deviceinfo/StorageDashboardFragment$1$$ExternalSyntheticLambda1;
+
+    invoke-direct {v2, p2}, Lcom/android/settings/deviceinfo/StorageDashboardFragment$1$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/deviceinfo/storage/StorageEntry;)V
+
+    invoke-interface {v1, v2}, Ljava/util/List;->removeIf(Ljava/util/function/Predicate;)Z
+
+    if-eq p1, v0, :cond_3
+
+    if-eq p1, p3, :cond_3
+
     iget-object p1, p0, Lcom/android/settings/deviceinfo/StorageDashboardFragment$1;->this$0:Lcom/android/settings/deviceinfo/StorageDashboardFragment;
 
-    invoke-static {p1}, Lcom/android/settings/deviceinfo/StorageDashboardFragment;->access$000(Lcom/android/settings/deviceinfo/StorageDashboardFragment;)Ljava/util/List;
-
-    move-result-object p1
-
-    new-instance p3, Lcom/android/settings/deviceinfo/StorageDashboardFragment$1$$ExternalSyntheticLambda1;
-
-    invoke-direct {p3, p2}, Lcom/android/settings/deviceinfo/StorageDashboardFragment$1$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/deviceinfo/storage/StorageEntry;)V
-
-    invoke-interface {p1, p3}, Ljava/util/List;->removeIf(Ljava/util/function/Predicate;)Z
-
-    iget-object p1, p0, Lcom/android/settings/deviceinfo/StorageDashboardFragment$1;->this$0:Lcom/android/settings/deviceinfo/StorageDashboardFragment;
-
-    invoke-static {p1}, Lcom/android/settings/deviceinfo/StorageDashboardFragment;->access$000(Lcom/android/settings/deviceinfo/StorageDashboardFragment;)Ljava/util/List;
+    invoke-static {p1}, Lcom/android/settings/deviceinfo/StorageDashboardFragment;->-$$Nest$fgetmStorageEntries(Lcom/android/settings/deviceinfo/StorageDashboardFragment;)Ljava/util/List;
 
     move-result-object p1
 
     invoke-interface {p1, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    iget-object p1, p0, Lcom/android/settings/deviceinfo/StorageDashboardFragment$1;->this$0:Lcom/android/settings/deviceinfo/StorageDashboardFragment;
-
-    invoke-static {p1}, Lcom/android/settings/deviceinfo/StorageDashboardFragment;->access$100(Lcom/android/settings/deviceinfo/StorageDashboardFragment;)Lcom/android/settings/deviceinfo/storage/StorageEntry;
-
-    move-result-object p1
-
-    invoke-virtual {p2, p1}, Lcom/android/settings/deviceinfo/storage/StorageEntry;->equals(Ljava/lang/Object;)Z
-
-    move-result p1
-
-    if-eqz p1, :cond_2
-
-    iget-object p1, p0, Lcom/android/settings/deviceinfo/StorageDashboardFragment$1;->this$0:Lcom/android/settings/deviceinfo/StorageDashboardFragment;
-
-    invoke-static {p1, p2}, Lcom/android/settings/deviceinfo/StorageDashboardFragment;->access$102(Lcom/android/settings/deviceinfo/StorageDashboardFragment;Lcom/android/settings/deviceinfo/storage/StorageEntry;)Lcom/android/settings/deviceinfo/storage/StorageEntry;
-
-    :cond_2
-    iget-object p0, p0, Lcom/android/settings/deviceinfo/StorageDashboardFragment$1;->this$0:Lcom/android/settings/deviceinfo/StorageDashboardFragment;
-
-    invoke-static {p0}, Lcom/android/settings/deviceinfo/StorageDashboardFragment;->access$200(Lcom/android/settings/deviceinfo/StorageDashboardFragment;)V
-
-    goto :goto_0
-
     :cond_3
     iget-object p1, p0, Lcom/android/settings/deviceinfo/StorageDashboardFragment$1;->this$0:Lcom/android/settings/deviceinfo/StorageDashboardFragment;
 
-    invoke-static {p1}, Lcom/android/settings/deviceinfo/StorageDashboardFragment;->access$000(Lcom/android/settings/deviceinfo/StorageDashboardFragment;)Ljava/util/List;
-
-    move-result-object p1
-
-    invoke-interface {p1, p2}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
-
-    move-result p1
-
-    if-eqz p1, :cond_5
-
-    iget-object p1, p0, Lcom/android/settings/deviceinfo/StorageDashboardFragment$1;->this$0:Lcom/android/settings/deviceinfo/StorageDashboardFragment;
-
-    invoke-static {p1}, Lcom/android/settings/deviceinfo/StorageDashboardFragment;->access$100(Lcom/android/settings/deviceinfo/StorageDashboardFragment;)Lcom/android/settings/deviceinfo/storage/StorageEntry;
+    invoke-static {p1}, Lcom/android/settings/deviceinfo/StorageDashboardFragment;->-$$Nest$fgetmSelectedStorageEntry(Lcom/android/settings/deviceinfo/StorageDashboardFragment;)Lcom/android/settings/deviceinfo/storage/StorageEntry;
 
     move-result-object p1
 
@@ -482,22 +466,13 @@
 
     iget-object p1, p0, Lcom/android/settings/deviceinfo/StorageDashboardFragment$1;->this$0:Lcom/android/settings/deviceinfo/StorageDashboardFragment;
 
-    invoke-virtual {p1}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
-
-    move-result-object p2
-
-    invoke-static {p2}, Lcom/android/settings/deviceinfo/storage/StorageEntry;->getDefaultInternalStorageEntry(Landroid/content/Context;)Lcom/android/settings/deviceinfo/storage/StorageEntry;
-
-    move-result-object p2
-
-    invoke-static {p1, p2}, Lcom/android/settings/deviceinfo/StorageDashboardFragment;->access$102(Lcom/android/settings/deviceinfo/StorageDashboardFragment;Lcom/android/settings/deviceinfo/storage/StorageEntry;)Lcom/android/settings/deviceinfo/storage/StorageEntry;
+    invoke-static {p1, p2}, Lcom/android/settings/deviceinfo/StorageDashboardFragment;->-$$Nest$fputmSelectedStorageEntry(Lcom/android/settings/deviceinfo/StorageDashboardFragment;Lcom/android/settings/deviceinfo/storage/StorageEntry;)V
 
     :cond_4
     iget-object p0, p0, Lcom/android/settings/deviceinfo/StorageDashboardFragment$1;->this$0:Lcom/android/settings/deviceinfo/StorageDashboardFragment;
 
-    invoke-static {p0}, Lcom/android/settings/deviceinfo/StorageDashboardFragment;->access$200(Lcom/android/settings/deviceinfo/StorageDashboardFragment;)V
+    invoke-static {p0}, Lcom/android/settings/deviceinfo/StorageDashboardFragment;->-$$Nest$mrefreshUi(Lcom/android/settings/deviceinfo/StorageDashboardFragment;)V
 
-    :cond_5
     :goto_0
     return-void
 .end method

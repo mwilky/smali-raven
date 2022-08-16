@@ -70,7 +70,7 @@
 
     const/4 v3, -0x1
 
-    const-string v4, "request_type_pairing"
+    const-string/jumbo v4, "request_type_pairing"
 
     if-eqz v2, :cond_0
 

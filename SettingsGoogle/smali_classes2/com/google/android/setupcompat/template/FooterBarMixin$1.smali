@@ -71,7 +71,7 @@
 
     iget v1, p0, Lcom/google/android/setupcompat/template/FooterBarMixin$1;->val$id:I
 
-    invoke-static {p1}, Lcom/google/android/setupcompat/template/FooterBarMixin;->access$000(Lcom/google/android/setupcompat/template/FooterBarMixin;)I
+    invoke-static {p1}, Lcom/google/android/setupcompat/template/FooterBarMixin;->-$$Nest$fgetprimaryButtonId(Lcom/google/android/setupcompat/template/FooterBarMixin;)I
 
     move-result v2
 
@@ -79,7 +79,7 @@
 
     iget-object v1, p0, Lcom/google/android/setupcompat/template/FooterBarMixin$1;->this$0:Lcom/google/android/setupcompat/template/FooterBarMixin;
 
-    invoke-static {v1}, Lcom/google/android/setupcompat/template/FooterBarMixin;->access$100(Lcom/google/android/setupcompat/template/FooterBarMixin;)Z
+    invoke-static {v1}, Lcom/google/android/setupcompat/template/FooterBarMixin;->-$$Nest$fgetisSecondaryButtonInPrimaryStyle(Lcom/google/android/setupcompat/template/FooterBarMixin;)Z
 
     move-result v1
 
@@ -101,7 +101,7 @@
 
     iget-object v3, p0, Lcom/google/android/setupcompat/template/FooterBarMixin$1;->this$0:Lcom/google/android/setupcompat/template/FooterBarMixin;
 
-    invoke-static {v3}, Lcom/google/android/setupcompat/template/FooterBarMixin;->access$000(Lcom/google/android/setupcompat/template/FooterBarMixin;)I
+    invoke-static {v3}, Lcom/google/android/setupcompat/template/FooterBarMixin;->-$$Nest$fgetprimaryButtonId(Lcom/google/android/setupcompat/template/FooterBarMixin;)I
 
     move-result v3
 
@@ -109,7 +109,7 @@
 
     iget-object p0, p0, Lcom/google/android/setupcompat/template/FooterBarMixin$1;->this$0:Lcom/google/android/setupcompat/template/FooterBarMixin;
 
-    invoke-static {p0}, Lcom/google/android/setupcompat/template/FooterBarMixin;->access$100(Lcom/google/android/setupcompat/template/FooterBarMixin;)Z
+    invoke-static {p0}, Lcom/google/android/setupcompat/template/FooterBarMixin;->-$$Nest$fgetisSecondaryButtonInPrimaryStyle(Lcom/google/android/setupcompat/template/FooterBarMixin;)Z
 
     move-result p0
 
@@ -127,7 +127,7 @@
     sget-object p0, Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;->CONFIG_FOOTER_PRIMARY_BUTTON_DISABLED_TEXT_COLOR:Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;
 
     :goto_3
-    invoke-static {p1, v0, v1, p0}, Lcom/google/android/setupcompat/template/FooterBarMixin;->access$200(Lcom/google/android/setupcompat/template/FooterBarMixin;Landroid/widget/Button;Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;)V
+    invoke-static {p1, v0, v1, p0}, Lcom/google/android/setupcompat/template/FooterBarMixin;->-$$Nest$mupdateButtonTextColorWithStates(Lcom/google/android/setupcompat/template/FooterBarMixin;Landroid/widget/Button;Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;)V
 
     :cond_4
     return-void
@@ -181,7 +181,7 @@
 
     iget-object p0, p0, Lcom/google/android/setupcompat/template/FooterBarMixin$1;->this$0:Lcom/google/android/setupcompat/template/FooterBarMixin;
 
-    invoke-static {p0}, Lcom/google/android/setupcompat/template/FooterBarMixin;->access$300(Lcom/google/android/setupcompat/template/FooterBarMixin;)V
+    invoke-static {p0}, Lcom/google/android/setupcompat/template/FooterBarMixin;->-$$Nest$mautoSetButtonBarVisibility(Lcom/google/android/setupcompat/template/FooterBarMixin;)V
 
     :cond_0
     return-void

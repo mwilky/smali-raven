@@ -4,8 +4,6 @@
 
 
 # instance fields
-.field private espressoIdlingCallback:Lcom/google/android/apps/common/testing/ui/espresso/IdlingResource$ResourceCallback;
-
 .field private isMultipleChoiceSelectionAnimating:Z
 
 .field private isThankYouAnimating:Z
@@ -23,13 +21,6 @@
 .method private transitionToIdle()V
     .locals 0
 
-    iget-object p0, p0, Lcom/google/android/libraries/hats20/IdleResourceManager;->espressoIdlingCallback:Lcom/google/android/apps/common/testing/ui/espresso/IdlingResource$ResourceCallback;
-
-    if-eqz p0, :cond_0
-
-    invoke-interface {p0}, Lcom/google/android/apps/common/testing/ui/espresso/IdlingResource$ResourceCallback;->onTransitionToIdle()V
-
-    :cond_0
     return-void
 .end method
 

@@ -36,7 +36,7 @@
 
     iget-object p0, p0, Lcom/android/settings/PointerSpeedPreference$1;->this$0:Lcom/android/settings/PointerSpeedPreference;
 
-    invoke-static {p0}, Lcom/android/settings/PointerSpeedPreference;->access$000(Lcom/android/settings/PointerSpeedPreference;)V
+    invoke-static {p0}, Lcom/android/settings/PointerSpeedPreference;->-$$Nest$monSpeedChanged(Lcom/android/settings/PointerSpeedPreference;)V
 
     return-void
 .end method

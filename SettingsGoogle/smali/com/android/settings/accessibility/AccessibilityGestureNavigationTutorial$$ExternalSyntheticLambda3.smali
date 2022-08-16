@@ -1,35 +1,36 @@
 .class public final synthetic Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial$$ExternalSyntheticLambda3;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/airbnb/lottie/LottieListener;
+.implements Landroid/widget/ViewSwitcher$ViewFactory;
 
 
 # instance fields
-.field public final synthetic f$0:I
+.field public final synthetic f$0:Landroid/content/Context;
 
 
 # direct methods
-.method public synthetic constructor <init>(I)V
+.method public synthetic constructor <init>(Landroid/content/Context;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput p1, p0, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial$$ExternalSyntheticLambda3;->f$0:I
+    iput-object p1, p0, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial$$ExternalSyntheticLambda3;->f$0:Landroid/content/Context;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final onResult(Ljava/lang/Object;)V
+.method public final makeView()Landroid/view/View;
     .locals 0
 
-    iget p0, p0, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial$$ExternalSyntheticLambda3;->f$0:I
+    iget-object p0, p0, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial$$ExternalSyntheticLambda3;->f$0:Landroid/content/Context;
 
-    check-cast p1, Ljava/lang/Throwable;
+    invoke-static {p0}, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial;->$r8$lambda$bGP8Itgu_TrQ6AkOgUSDQLTEukw(Landroid/content/Context;)Landroid/view/View;
 
-    invoke-static {p0, p1}, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial;->$r8$lambda$WGwUtipRqXHoZXyYum0RAkKKLzg(ILjava/lang/Throwable;)V
+    move-result-object p0
 
-    return-void
+    return-object p0
 .end method

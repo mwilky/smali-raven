@@ -137,13 +137,13 @@
 
     invoke-virtual {v2, v4}, Landroidx/preference/Preference;->setIcon(Landroid/graphics/drawable/Drawable;)V
 
-    new-instance v4, Lcom/android/settings/applications/autofill/PasswordsPreferenceController$$ExternalSyntheticLambda1;
+    new-instance v4, Lcom/android/settings/applications/autofill/PasswordsPreferenceController$$ExternalSyntheticLambda0;
 
-    invoke-direct {v4, v3, v1, p1, p2}, Lcom/android/settings/applications/autofill/PasswordsPreferenceController$$ExternalSyntheticLambda1;-><init>(Landroid/content/pm/ServiceInfo;Landroid/service/autofill/AutofillServiceInfo;Landroid/content/Context;I)V
+    invoke-direct {v4, v3, v1, p1, p2}, Lcom/android/settings/applications/autofill/PasswordsPreferenceController$$ExternalSyntheticLambda0;-><init>(Landroid/content/pm/ServiceInfo;Landroid/service/autofill/AutofillServiceInfo;Landroid/content/Context;I)V
 
     invoke-virtual {v2, v4}, Landroidx/preference/Preference;->setOnPreferenceClickListener(Landroidx/preference/Preference$OnPreferenceClickListener;)V
 
-    const v3, 0x7f0402fd
+    const v3, 0x7f040336
 
     invoke-virtual {v2, v3}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -153,9 +153,9 @@
 
     iget-object v4, p0, Lcom/android/settings/applications/autofill/PasswordsPreferenceController;->mLifecycleOwner:Landroidx/lifecycle/LifecycleOwner;
 
-    new-instance v5, Lcom/android/settings/applications/autofill/PasswordsPreferenceController$$ExternalSyntheticLambda0;
+    new-instance v5, Lcom/android/settings/applications/autofill/PasswordsPreferenceController$$ExternalSyntheticLambda1;
 
-    invoke-direct {v5, p0, v2}, Lcom/android/settings/applications/autofill/PasswordsPreferenceController$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/applications/autofill/PasswordsPreferenceController;Lcom/android/settingslib/widget/AppPreference;)V
+    invoke-direct {v5, p0, v2}, Lcom/android/settings/applications/autofill/PasswordsPreferenceController$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/applications/autofill/PasswordsPreferenceController;Lcom/android/settingslib/widget/AppPreference;)V
 
     invoke-virtual {v3, v4, v5}, Landroidx/lifecycle/LiveData;->observe(Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Observer;)V
 
@@ -332,16 +332,8 @@
 
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public displayPreference(Landroidx/preference/PreferenceScreen;)V
-    .locals 2
+    .locals 3
 
     invoke-super {p0, p1}, Lcom/android/settings/core/BasePreferenceController;->displayPreference(Landroidx/preference/PreferenceScreen;)V
 
@@ -357,13 +349,29 @@
 
     invoke-virtual {p1}, Landroidx/preference/Preference;->getContext()Landroid/content/Context;
 
-    move-result-object p1
+    move-result-object v1
 
     invoke-direct {p0}, Lcom/android/settings/applications/autofill/PasswordsPreferenceController;->getUser()I
 
-    move-result v1
+    move-result v2
 
-    invoke-direct {p0, p1, v1, v0}, Lcom/android/settings/applications/autofill/PasswordsPreferenceController;->addPasswordPreferences(Landroid/content/Context;ILandroidx/preference/PreferenceGroup;)V
+    invoke-direct {p0, v1, v2, v0}, Lcom/android/settings/applications/autofill/PasswordsPreferenceController;->addPasswordPreferences(Landroid/content/Context;ILandroidx/preference/PreferenceGroup;)V
+
+    const-string v0, "auto_sync_personal_account_data"
+
+    const-string v1, "Settings.AUTO_SYNC_PERSONAL_DATA"
+
+    const v2, 0x7f0401b2
+
+    invoke-virtual {p0, p1, v0, v1, v2}, Lcom/android/settingslib/core/AbstractPreferenceController;->replaceEnterpriseStringTitle(Landroidx/preference/PreferenceScreen;Ljava/lang/String;Ljava/lang/String;I)V
+
+    const-string v0, "auto_sync_work_account_data"
+
+    const-string v1, "Settings.AUTO_SYNC_WORK_DATA"
+
+    const v2, 0x7f0401b3
+
+    invoke-virtual {p0, p1, v0, v1, v2}, Lcom/android/settingslib/core/AbstractPreferenceController;->replaceEnterpriseStringTitle(Landroidx/preference/PreferenceScreen;Ljava/lang/String;Ljava/lang/String;I)V
 
     return-void
 .end method
@@ -392,15 +400,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -498,16 +497,6 @@
     invoke-interface {p0, p2}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
 
     return-void
-.end method
-
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
-
-    move-result p0
-
-    return p0
 .end method
 
 .method public bridge synthetic isPublicSlice()Z

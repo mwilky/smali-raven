@@ -53,6 +53,8 @@
 
 .field private mIcon:Landroid/graphics/drawable/Drawable;
 
+.field private mIsLoading:Z
+
 .field mLabel:Ljava/lang/CharSequence;
 
 .field private mPackageManager:Landroid/content/pm/PackageManager;
@@ -102,6 +104,86 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmAppItem(Lcom/android/settings/datausage/AppDataUsage;)Lcom/android/settingslib/AppItem;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/datausage/AppDataUsage;->mAppItem:Lcom/android/settingslib/AppItem;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmAppList(Lcom/android/settings/datausage/AppDataUsage;)Landroidx/preference/PreferenceCategory;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/datausage/AppDataUsage;->mAppList:Landroidx/preference/PreferenceCategory;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmContext(Lcom/android/settings/datausage/AppDataUsage;)Landroid/content/Context;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/datausage/AppDataUsage;->mContext:Landroid/content/Context;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmCycle(Lcom/android/settings/datausage/AppDataUsage;)Lcom/android/settings/datausage/SpinnerPreference;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/datausage/AppDataUsage;->mCycle:Lcom/android/settings/datausage/SpinnerPreference;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmCycleAdapter(Lcom/android/settings/datausage/AppDataUsage;)Lcom/android/settings/datausage/CycleAdapter;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/datausage/AppDataUsage;->mCycleAdapter:Lcom/android/settings/datausage/CycleAdapter;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmCycles(Lcom/android/settings/datausage/AppDataUsage;)Ljava/util/ArrayList;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/datausage/AppDataUsage;->mCycles:Ljava/util/ArrayList;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmPackages(Lcom/android/settings/datausage/AppDataUsage;)Landroid/util/ArraySet;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/datausage/AppDataUsage;->mPackages:Landroid/util/ArraySet;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmSelectedCycle(Lcom/android/settings/datausage/AppDataUsage;)J
+    .locals 2
+
+    iget-wide v0, p0, Lcom/android/settings/datausage/AppDataUsage;->mSelectedCycle:J
+
+    return-wide v0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmIsLoading(Lcom/android/settings/datausage/AppDataUsage;Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/settings/datausage/AppDataUsage;->mIsLoading:Z
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fputmUsageData(Lcom/android/settings/datausage/AppDataUsage;Ljava/util/List;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/settings/datausage/AppDataUsage;->mUsageData:Ljava/util/List;
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 1
 
@@ -137,70 +219,6 @@
 .method static synthetic access$000(Lcom/android/settings/datausage/AppDataUsage;)Landroid/content/Context;
     .locals 0
 
-    iget-object p0, p0, Lcom/android/settings/datausage/AppDataUsage;->mContext:Landroid/content/Context;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/datausage/AppDataUsage;)Lcom/android/settingslib/AppItem;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/datausage/AppDataUsage;->mAppItem:Lcom/android/settingslib/AppItem;
-
-    return-object p0
-.end method
-
-.method static synthetic access$1000(Lcom/android/settings/datausage/AppDataUsage;)Landroidx/preference/PreferenceCategory;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/datausage/AppDataUsage;->mAppList:Landroidx/preference/PreferenceCategory;
-
-    return-object p0
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/datausage/AppDataUsage;)Ljava/util/ArrayList;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/datausage/AppDataUsage;->mCycles:Ljava/util/ArrayList;
-
-    return-object p0
-.end method
-
-.method static synthetic access$302(Lcom/android/settings/datausage/AppDataUsage;Ljava/util/List;)Ljava/util/List;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/settings/datausage/AppDataUsage;->mUsageData:Ljava/util/List;
-
-    return-object p1
-.end method
-
-.method static synthetic access$400(Lcom/android/settings/datausage/AppDataUsage;)Lcom/android/settings/datausage/CycleAdapter;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/datausage/AppDataUsage;->mCycleAdapter:Lcom/android/settings/datausage/CycleAdapter;
-
-    return-object p0
-.end method
-
-.method static synthetic access$500(Lcom/android/settings/datausage/AppDataUsage;)J
-    .locals 2
-
-    iget-wide v0, p0, Lcom/android/settings/datausage/AppDataUsage;->mSelectedCycle:J
-
-    return-wide v0
-.end method
-
-.method static synthetic access$600(Lcom/android/settings/datausage/AppDataUsage;)Lcom/android/settings/datausage/SpinnerPreference;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/datausage/AppDataUsage;->mCycle:Lcom/android/settings/datausage/SpinnerPreference;
-
-    return-object p0
-.end method
-
-.method static synthetic access$700(Lcom/android/settings/datausage/AppDataUsage;)Landroid/content/Context;
-    .locals 0
-
     invoke-virtual {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->getPrefContext()Landroid/content/Context;
 
     move-result-object p0
@@ -208,15 +226,7 @@
     return-object p0
 .end method
 
-.method static synthetic access$800(Lcom/android/settings/datausage/AppDataUsage;)Landroid/util/ArraySet;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/datausage/AppDataUsage;->mPackages:Landroid/util/ArraySet;
-
-    return-object p0
-.end method
-
-.method static synthetic access$900(Lcom/android/settings/datausage/AppDataUsage;)Landroid/content/pm/PackageManager;
+.method static synthetic access$100(Lcom/android/settings/datausage/AppDataUsage;)Landroid/content/pm/PackageManager;
     .locals 0
 
     invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getPackageManager()Landroid/content/pm/PackageManager;
@@ -229,20 +239,31 @@
 .method private addUid(I)V
     .locals 3
 
+    invoke-static {p1}, Landroid/os/Process;->isSdkSandboxUid(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-static {p1}, Landroid/os/Process;->getAppUidForSdkSandboxUid(I)I
+
+    move-result p1
+
+    :cond_0
     iget-object v0, p0, Lcom/android/settings/datausage/AppDataUsage;->mPackageManager:Landroid/content/pm/PackageManager;
 
     invoke-virtual {v0, p1}, Landroid/content/pm/PackageManager;->getPackagesForUid(I)[Ljava/lang/String;
 
     move-result-object p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1
 
     const/4 v0, 0x0
 
     :goto_0
     array-length v1, p1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_1
 
     iget-object v1, p0, Lcom/android/settings/datausage/AppDataUsage;->mPackages:Landroid/util/ArraySet;
 
@@ -254,7 +275,7 @@
 
     goto :goto_0
 
-    :cond_0
+    :cond_1
     return-void
 .end method
 
@@ -311,8 +332,83 @@
     return p0
 .end method
 
+.method private initCycle()V
+    .locals 4
+
+    const-string v0, "cycle"
+
+    invoke-virtual {p0, v0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/settings/datausage/SpinnerPreference;
+
+    iput-object v0, p0, Lcom/android/settings/datausage/AppDataUsage;->mCycle:Lcom/android/settings/datausage/SpinnerPreference;
+
+    new-instance v0, Lcom/android/settings/datausage/CycleAdapter;
+
+    iget-object v1, p0, Lcom/android/settings/datausage/AppDataUsage;->mContext:Landroid/content/Context;
+
+    iget-object v2, p0, Lcom/android/settings/datausage/AppDataUsage;->mCycle:Lcom/android/settings/datausage/SpinnerPreference;
+
+    iget-object v3, p0, Lcom/android/settings/datausage/AppDataUsage;->mCycleListener:Landroid/widget/AdapterView$OnItemSelectedListener;
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/settings/datausage/CycleAdapter;-><init>(Landroid/content/Context;Lcom/android/settings/datausage/CycleAdapter$SpinnerInterface;Landroid/widget/AdapterView$OnItemSelectedListener;)V
+
+    iput-object v0, p0, Lcom/android/settings/datausage/AppDataUsage;->mCycleAdapter:Lcom/android/settings/datausage/CycleAdapter;
+
+    iget-object v1, p0, Lcom/android/settings/datausage/AppDataUsage;->mCycles:Ljava/util/ArrayList;
+
+    if-eqz v1, :cond_0
+
+    iget-wide v2, p0, Lcom/android/settings/datausage/AppDataUsage;->mSelectedCycle:J
+
+    invoke-virtual {v0, v1, v2, v3}, Lcom/android/settings/datausage/CycleAdapter;->setInitialCycleList(Ljava/util/List;J)V
+
+    iget-object p0, p0, Lcom/android/settings/datausage/AppDataUsage;->mCycle:Lcom/android/settings/datausage/SpinnerPreference;
+
+    const/4 v0, 0x1
+
+    invoke-virtual {p0, v0}, Lcom/android/settings/datausage/SpinnerPreference;->setHasCycles(Z)V
+
+    :cond_0
+    return-void
+.end method
+
+.method private setBackPreferenceListAnimatorIfLoaded()V
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/settings/datausage/AppDataUsage;->mIsLoading:Z
+
+    if-eqz v0, :cond_0
+
+    return-void
+
+    :cond_0
+    invoke-virtual {p0}, Landroidx/preference/PreferenceFragmentCompat;->getListView()Landroidx/recyclerview/widget/RecyclerView;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView;->getItemAnimator()Landroidx/recyclerview/widget/RecyclerView$ItemAnimator;
+
+    move-result-object v0
+
+    if-nez v0, :cond_1
+
+    new-instance v0, Landroidx/recyclerview/widget/DefaultItemAnimator;
+
+    invoke-direct {v0}, Landroidx/recyclerview/widget/DefaultItemAnimator;-><init>()V
+
+    invoke-virtual {p0, v0}, Landroidx/recyclerview/widget/RecyclerView;->setItemAnimator(Landroidx/recyclerview/widget/RecyclerView$ItemAnimator;)V
+
+    :cond_1
+    return-void
+.end method
+
 .method private updatePrefs(ZZ)V
     .locals 3
+
+    invoke-direct {p0}, Lcom/android/settings/datausage/AppDataUsage;->setBackPreferenceListAnimatorIfLoaded()V
 
     iget-object v0, p0, Lcom/android/settings/datausage/AppDataUsage;->mContext:Landroid/content/Context;
 
@@ -375,6 +471,158 @@
 
 
 # virtual methods
+.method addEntityHeader()V
+    .locals 8
+
+    iget-object v0, p0, Lcom/android/settings/datausage/AppDataUsage;->mPackages:Landroid/util/ArraySet;
+
+    invoke-virtual {v0}, Landroid/util/ArraySet;->size()I
+
+    move-result v0
+
+    const/4 v1, 0x0
+
+    const/4 v2, 0x0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/settings/datausage/AppDataUsage;->mPackages:Landroid/util/ArraySet;
+
+    invoke-virtual {v0, v2}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    goto :goto_0
+
+    :cond_0
+    move-object v0, v1
+
+    :goto_0
+    if-eqz v0, :cond_1
+
+    :try_start_0
+    iget-object v3, p0, Lcom/android/settings/datausage/AppDataUsage;->mPackageManager:Landroid/content/pm/PackageManager;
+
+    iget-object v4, p0, Lcom/android/settings/datausage/AppDataUsage;->mAppItem:Lcom/android/settingslib/AppItem;
+
+    iget v4, v4, Lcom/android/settingslib/AppItem;->key:I
+
+    invoke-static {v4}, Landroid/os/UserHandle;->getUserId(I)I
+
+    move-result v4
+
+    invoke-virtual {v3, v0, v4}, Landroid/content/pm/PackageManager;->getPackageUidAsUser(Ljava/lang/String;I)I
+
+    move-result v3
+    :try_end_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_1
+
+    :catch_0
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "Skipping UID because cannot find package "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    const-string v4, "AppDataUsage"
+
+    invoke-static {v4, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_1
+    move v3, v2
+
+    :goto_1
+    iget-object v4, p0, Lcom/android/settings/datausage/AppDataUsage;->mAppItem:Lcom/android/settingslib/AppItem;
+
+    iget v4, v4, Lcom/android/settingslib/AppItem;->key:I
+
+    if-lez v4, :cond_2
+
+    const/4 v4, 0x1
+
+    goto :goto_2
+
+    :cond_2
+    move v4, v2
+
+    :goto_2
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
+
+    move-result-object v5
+
+    invoke-static {v5, p0, v1}, Lcom/android/settings/widget/EntityHeaderController;->newInstance(Landroid/app/Activity;Landroidx/fragment/app/Fragment;Landroid/view/View;)Lcom/android/settings/widget/EntityHeaderController;
+
+    move-result-object v1
+
+    invoke-virtual {p0}, Landroidx/preference/PreferenceFragmentCompat;->getListView()Landroidx/recyclerview/widget/RecyclerView;
+
+    move-result-object v6
+
+    invoke-virtual {p0}, Lcom/android/settingslib/core/lifecycle/ObservablePreferenceFragment;->getSettingsLifecycle()Lcom/android/settingslib/core/lifecycle/Lifecycle;
+
+    move-result-object v7
+
+    invoke-virtual {v1, v6, v7}, Lcom/android/settings/widget/EntityHeaderController;->setRecyclerView(Landroidx/recyclerview/widget/RecyclerView;Lcom/android/settingslib/core/lifecycle/Lifecycle;)Lcom/android/settings/widget/EntityHeaderController;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v3}, Lcom/android/settings/widget/EntityHeaderController;->setUid(I)Lcom/android/settings/widget/EntityHeaderController;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v4}, Lcom/android/settings/widget/EntityHeaderController;->setHasAppInfoLink(Z)Lcom/android/settings/widget/EntityHeaderController;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v2, v2}, Lcom/android/settings/widget/EntityHeaderController;->setButtonActions(II)Lcom/android/settings/widget/EntityHeaderController;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/settings/datausage/AppDataUsage;->mIcon:Landroid/graphics/drawable/Drawable;
+
+    invoke-virtual {v1, v2}, Lcom/android/settings/widget/EntityHeaderController;->setIcon(Landroid/graphics/drawable/Drawable;)Lcom/android/settings/widget/EntityHeaderController;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/settings/datausage/AppDataUsage;->mLabel:Ljava/lang/CharSequence;
+
+    invoke-virtual {v1, v2}, Lcom/android/settings/widget/EntityHeaderController;->setLabel(Ljava/lang/CharSequence;)Lcom/android/settings/widget/EntityHeaderController;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Lcom/android/settings/widget/EntityHeaderController;->setPackageName(Ljava/lang/String;)Lcom/android/settings/widget/EntityHeaderController;
+
+    move-result-object v0
+
+    invoke-virtual {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->getPrefContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v5, v1}, Lcom/android/settings/widget/EntityHeaderController;->done(Landroid/app/Activity;Landroid/content/Context;)Lcom/android/settingslib/widget/LayoutPreference;
+
+    move-result-object v0
+
+    invoke-virtual {p0}, Landroidx/preference/PreferenceFragmentCompat;->getPreferenceScreen()Landroidx/preference/PreferenceScreen;
+
+    move-result-object p0
+
+    invoke-virtual {p0, v0}, Landroidx/preference/PreferenceGroup;->addPreference(Landroidx/preference/Preference;)Z
+
+    return-void
+.end method
+
 .method bindData(I)V
     .locals 7
 
@@ -395,7 +643,7 @@
 
     const/4 v1, 0x1
 
-    invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setVisible(Z)V
+    invoke-virtual {v0, v1}, Lcom/android/settings/datausage/SpinnerPreference;->setHasCycles(Z)V
 
     iget-object v0, p0, Lcom/android/settings/datausage/AppDataUsage;->mUsageData:Ljava/util/List;
 
@@ -423,7 +671,7 @@
 
     const/4 v2, 0x0
 
-    invoke-virtual {p1, v2}, Landroidx/preference/Preference;->setVisible(Z)V
+    invoke-virtual {p1, v2}, Lcom/android/settings/datausage/SpinnerPreference;->setHasCycles(Z)V
 
     move-wide v2, v0
 
@@ -603,7 +851,7 @@
 
     if-eqz p1, :cond_3
 
-    const-string v1, "selected_cycle"
+    const-string/jumbo v1, "selected_cycle"
 
     invoke-virtual {p1, v1}, Landroid/os/Bundle;->getLong(Ljava/lang/String;)J
 
@@ -719,6 +967,41 @@
 
     :cond_8
     :goto_6
+    iget-object p1, p0, Lcom/android/settings/datausage/AppDataUsage;->mAppItem:Lcom/android/settingslib/AppItem;
+
+    iget p1, p1, Lcom/android/settingslib/AppItem;->key:I
+
+    if-lez p1, :cond_9
+
+    invoke-static {p1}, Landroid/os/UserHandle;->isApp(I)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_9
+
+    iget-object p1, p0, Lcom/android/settings/datausage/AppDataUsage;->mAppItem:Lcom/android/settingslib/AppItem;
+
+    iget p1, p1, Lcom/android/settingslib/AppItem;->key:I
+
+    invoke-static {p1}, Landroid/os/Process;->toSdkSandboxUid(I)I
+
+    move-result p1
+
+    iget-object v1, p0, Lcom/android/settings/datausage/AppDataUsage;->mAppItem:Lcom/android/settingslib/AppItem;
+
+    iget-object v1, v1, Lcom/android/settingslib/AppItem;->uids:Landroid/util/SparseBooleanArray;
+
+    invoke-virtual {v1, p1}, Landroid/util/SparseBooleanArray;->get(I)Z
+
+    move-result v1
+
+    if-nez v1, :cond_9
+
+    iget-object v1, p0, Lcom/android/settings/datausage/AppDataUsage;->mAppItem:Lcom/android/settingslib/AppItem;
+
+    invoke-virtual {v1, p1}, Lcom/android/settingslib/AppItem;->addUid(I)V
+
+    :cond_9
     const-string/jumbo p1, "total_usage"
 
     invoke-virtual {p0, p1}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
@@ -743,27 +1026,7 @@
 
     iput-object p1, p0, Lcom/android/settings/datausage/AppDataUsage;->mBackgroundUsage:Landroidx/preference/Preference;
 
-    const-string p1, "cycle"
-
-    invoke-virtual {p0, p1}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
-
-    move-result-object p1
-
-    check-cast p1, Lcom/android/settings/datausage/SpinnerPreference;
-
-    iput-object p1, p0, Lcom/android/settings/datausage/AppDataUsage;->mCycle:Lcom/android/settings/datausage/SpinnerPreference;
-
-    new-instance p1, Lcom/android/settings/datausage/CycleAdapter;
-
-    iget-object v1, p0, Lcom/android/settings/datausage/AppDataUsage;->mContext:Landroid/content/Context;
-
-    iget-object v3, p0, Lcom/android/settings/datausage/AppDataUsage;->mCycle:Lcom/android/settings/datausage/SpinnerPreference;
-
-    iget-object v4, p0, Lcom/android/settings/datausage/AppDataUsage;->mCycleListener:Landroid/widget/AdapterView$OnItemSelectedListener;
-
-    invoke-direct {p1, v1, v3, v4}, Lcom/android/settings/datausage/CycleAdapter;-><init>(Landroid/content/Context;Lcom/android/settings/datausage/CycleAdapter$SpinnerInterface;Landroid/widget/AdapterView$OnItemSelectedListener;)V
-
-    iput-object p1, p0, Lcom/android/settings/datausage/AppDataUsage;->mCycleAdapter:Lcom/android/settings/datausage/CycleAdapter;
+    invoke-direct {p0}, Lcom/android/settings/datausage/AppDataUsage;->initCycle()V
 
     invoke-virtual {p0}, Lcom/android/settings/datausage/AppDataUsage;->getUidDetailProvider()Lcom/android/settingslib/net/UidDetailProvider;
 
@@ -775,7 +1038,7 @@
 
     const-string v3, "app_list"
 
-    const-string v4, "restrict_background"
+    const-string/jumbo v4, "restrict_background"
 
     const-string v5, "app_settings"
 
@@ -783,13 +1046,13 @@
 
     const/4 v7, 0x1
 
-    if-lez v1, :cond_f
+    if-lez v1, :cond_10
 
     invoke-static {v1}, Landroid/os/UserHandle;->isApp(I)Z
 
     move-result v1
 
-    if-nez v1, :cond_9
+    if-nez v1, :cond_a
 
     iget-object v1, p0, Lcom/android/settings/datausage/AppDataUsage;->mAppItem:Lcom/android/settingslib/AppItem;
 
@@ -813,14 +1076,14 @@
 
     goto :goto_7
 
-    :cond_9
+    :cond_a
     iget-object p1, p0, Lcom/android/settings/datausage/AppDataUsage;->mPackages:Landroid/util/ArraySet;
 
     invoke-virtual {p1}, Landroid/util/ArraySet;->size()I
 
     move-result p1
 
-    if-eqz p1, :cond_a
+    if-eqz p1, :cond_b
 
     :try_start_0
     iget-object p1, p0, Lcom/android/settings/datausage/AppDataUsage;->mPackageManager:Landroid/content/pm/PackageManager;
@@ -874,7 +1137,7 @@
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
     :catch_0
-    :cond_a
+    :cond_b
     invoke-virtual {p0, v4}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
     move-result-object p1
@@ -932,12 +1195,12 @@
 
     move-result-object v1
 
-    :cond_b
+    :cond_c
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_c
+    if-eqz v4, :cond_d
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -955,25 +1218,25 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_b
+    if-eqz v4, :cond_c
 
     move v2, v7
 
-    :cond_c
-    if-nez v2, :cond_d
+    :cond_d
+    if-nez v2, :cond_e
 
     invoke-virtual {p0, v5}, Lcom/android/settings/SettingsPreferenceFragment;->removePreference(Ljava/lang/String;)Z
 
     iput-object v0, p0, Lcom/android/settings/datausage/AppDataUsage;->mAppSettings:Landroidx/preference/Preference;
 
-    :cond_d
+    :cond_e
     iget-object p1, p0, Lcom/android/settings/datausage/AppDataUsage;->mPackages:Landroid/util/ArraySet;
 
     invoke-virtual {p1}, Landroid/util/ArraySet;->size()I
 
     move-result p1
 
-    if-le p1, v7, :cond_e
+    if-le p1, v7, :cond_f
 
     invoke-virtual {p0, v3}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -991,18 +1254,18 @@
 
     sget-object v1, Landroid/os/Bundle;->EMPTY:Landroid/os/Bundle;
 
-    iget-object p0, p0, Lcom/android/settings/datausage/AppDataUsage;->mAppPrefCallbacks:Landroidx/loader/app/LoaderManager$LoaderCallbacks;
+    iget-object v2, p0, Lcom/android/settings/datausage/AppDataUsage;->mAppPrefCallbacks:Landroidx/loader/app/LoaderManager$LoaderCallbacks;
 
-    invoke-virtual {p1, v0, v1, p0}, Landroidx/loader/app/LoaderManager;->restartLoader(ILandroid/os/Bundle;Landroidx/loader/app/LoaderManager$LoaderCallbacks;)Landroidx/loader/content/Loader;
-
-    goto :goto_8
-
-    :cond_e
-    invoke-virtual {p0, v3}, Lcom/android/settings/SettingsPreferenceFragment;->removePreference(Ljava/lang/String;)Z
+    invoke-virtual {p1, v0, v1, v2}, Landroidx/loader/app/LoaderManager;->restartLoader(ILandroid/os/Bundle;Landroidx/loader/app/LoaderManager$LoaderCallbacks;)Landroidx/loader/content/Loader;
 
     goto :goto_8
 
     :cond_f
+    invoke-virtual {p0, v3}, Lcom/android/settings/SettingsPreferenceFragment;->removePreference(Ljava/lang/String;)Z
+
+    goto :goto_8
+
+    :cond_10
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
 
     move-result-object v0
@@ -1038,6 +1301,8 @@
     invoke-virtual {p0, v3}, Lcom/android/settings/SettingsPreferenceFragment;->removePreference(Ljava/lang/String;)Z
 
     :goto_8
+    invoke-virtual {p0}, Lcom/android/settings/datausage/AppDataUsage;->addEntityHeader()V
+
     return-void
 .end method
 
@@ -1191,6 +1456,18 @@
 
     invoke-super {p0}, Lcom/android/settings/datausage/DataUsageBaseFragment;->onResume()V
 
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/settings/datausage/AppDataUsage;->mIsLoading:Z
+
+    invoke-virtual {p0}, Landroidx/preference/PreferenceFragmentCompat;->getListView()Landroidx/recyclerview/widget/RecyclerView;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroidx/recyclerview/widget/RecyclerView;->setItemAnimator(Landroidx/recyclerview/widget/RecyclerView$ItemAnimator;)V
+
     iget-object v0, p0, Lcom/android/settings/datausage/AppDataUsage;->mDataSaverBackend:Lcom/android/settings/datausage/DataSaverBackend;
 
     if-eqz v0, :cond_0
@@ -1202,169 +1479,13 @@
 
     move-result-object v0
 
-    const/4 v1, 0x2
-
-    const/4 v2, 0x0
+    const/4 v2, 0x2
 
     iget-object v3, p0, Lcom/android/settings/datausage/AppDataUsage;->mUidDataCallbacks:Landroidx/loader/app/LoaderManager$LoaderCallbacks;
 
-    invoke-virtual {v0, v1, v2, v3}, Landroidx/loader/app/LoaderManager;->restartLoader(ILandroid/os/Bundle;Landroidx/loader/app/LoaderManager$LoaderCallbacks;)Landroidx/loader/content/Loader;
+    invoke-virtual {v0, v2, v1, v3}, Landroidx/loader/app/LoaderManager;->restartLoader(ILandroid/os/Bundle;Landroidx/loader/app/LoaderManager$LoaderCallbacks;)Landroidx/loader/content/Loader;
 
     invoke-virtual {p0}, Lcom/android/settings/datausage/AppDataUsage;->updatePrefs()V
-
-    return-void
-.end method
-
-.method public onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
-    .locals 6
-
-    invoke-super {p0, p1, p2}, Landroidx/preference/PreferenceFragmentCompat;->onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
-
-    iget-object p1, p0, Lcom/android/settings/datausage/AppDataUsage;->mPackages:Landroid/util/ArraySet;
-
-    invoke-virtual {p1}, Landroid/util/ArraySet;->size()I
-
-    move-result p1
-
-    const/4 p2, 0x0
-
-    const/4 v0, 0x0
-
-    if-eqz p1, :cond_0
-
-    iget-object p1, p0, Lcom/android/settings/datausage/AppDataUsage;->mPackages:Landroid/util/ArraySet;
-
-    invoke-virtual {p1, v0}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Ljava/lang/String;
-
-    goto :goto_0
-
-    :cond_0
-    move-object p1, p2
-
-    :goto_0
-    if-eqz p1, :cond_1
-
-    :try_start_0
-    iget-object v1, p0, Lcom/android/settings/datausage/AppDataUsage;->mPackageManager:Landroid/content/pm/PackageManager;
-
-    iget-object v2, p0, Lcom/android/settings/datausage/AppDataUsage;->mAppItem:Lcom/android/settingslib/AppItem;
-
-    iget v2, v2, Lcom/android/settingslib/AppItem;->key:I
-
-    invoke-static {v2}, Landroid/os/UserHandle;->getUserId(I)I
-
-    move-result v2
-
-    invoke-virtual {v1, p1, v2}, Landroid/content/pm/PackageManager;->getPackageUidAsUser(Ljava/lang/String;I)I
-
-    move-result v1
-    :try_end_0
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_1
-
-    :catch_0
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "Skipping UID because cannot find package "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    const-string v2, "AppDataUsage"
-
-    invoke-static {v2, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_1
-    move v1, v0
-
-    :goto_1
-    iget-object v2, p0, Lcom/android/settings/datausage/AppDataUsage;->mAppItem:Lcom/android/settingslib/AppItem;
-
-    iget v2, v2, Lcom/android/settingslib/AppItem;->key:I
-
-    if-lez v2, :cond_2
-
-    const/4 v2, 0x1
-
-    goto :goto_2
-
-    :cond_2
-    move v2, v0
-
-    :goto_2
-    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
-
-    move-result-object v3
-
-    invoke-static {v3, p0, p2}, Lcom/android/settings/widget/EntityHeaderController;->newInstance(Landroid/app/Activity;Landroidx/fragment/app/Fragment;Landroid/view/View;)Lcom/android/settings/widget/EntityHeaderController;
-
-    move-result-object p2
-
-    invoke-virtual {p0}, Landroidx/preference/PreferenceFragmentCompat;->getListView()Landroidx/recyclerview/widget/RecyclerView;
-
-    move-result-object v4
-
-    invoke-virtual {p0}, Lcom/android/settingslib/core/lifecycle/ObservablePreferenceFragment;->getSettingsLifecycle()Lcom/android/settingslib/core/lifecycle/Lifecycle;
-
-    move-result-object v5
-
-    invoke-virtual {p2, v4, v5}, Lcom/android/settings/widget/EntityHeaderController;->setRecyclerView(Landroidx/recyclerview/widget/RecyclerView;Lcom/android/settingslib/core/lifecycle/Lifecycle;)Lcom/android/settings/widget/EntityHeaderController;
-
-    move-result-object p2
-
-    invoke-virtual {p2, v1}, Lcom/android/settings/widget/EntityHeaderController;->setUid(I)Lcom/android/settings/widget/EntityHeaderController;
-
-    move-result-object p2
-
-    invoke-virtual {p2, v2}, Lcom/android/settings/widget/EntityHeaderController;->setHasAppInfoLink(Z)Lcom/android/settings/widget/EntityHeaderController;
-
-    move-result-object p2
-
-    invoke-virtual {p2, v0, v0}, Lcom/android/settings/widget/EntityHeaderController;->setButtonActions(II)Lcom/android/settings/widget/EntityHeaderController;
-
-    move-result-object p2
-
-    iget-object v0, p0, Lcom/android/settings/datausage/AppDataUsage;->mIcon:Landroid/graphics/drawable/Drawable;
-
-    invoke-virtual {p2, v0}, Lcom/android/settings/widget/EntityHeaderController;->setIcon(Landroid/graphics/drawable/Drawable;)Lcom/android/settings/widget/EntityHeaderController;
-
-    move-result-object p2
-
-    iget-object v0, p0, Lcom/android/settings/datausage/AppDataUsage;->mLabel:Ljava/lang/CharSequence;
-
-    invoke-virtual {p2, v0}, Lcom/android/settings/widget/EntityHeaderController;->setLabel(Ljava/lang/CharSequence;)Lcom/android/settings/widget/EntityHeaderController;
-
-    move-result-object p2
-
-    invoke-virtual {p2, p1}, Lcom/android/settings/widget/EntityHeaderController;->setPackageName(Ljava/lang/String;)Lcom/android/settings/widget/EntityHeaderController;
-
-    move-result-object p1
-
-    invoke-virtual {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->getPrefContext()Landroid/content/Context;
-
-    move-result-object p2
-
-    invoke-virtual {p1, v3, p2}, Lcom/android/settings/widget/EntityHeaderController;->done(Landroid/app/Activity;Landroid/content/Context;)Lcom/android/settingslib/widget/LayoutPreference;
-
-    move-result-object p1
-
-    invoke-virtual {p0}, Landroidx/preference/PreferenceFragmentCompat;->getPreferenceScreen()Landroidx/preference/PreferenceScreen;
-
-    move-result-object p0
-
-    invoke-virtual {p0, p1}, Landroidx/preference/PreferenceGroup;->addPreference(Landroidx/preference/Preference;)Z
 
     return-void
 .end method

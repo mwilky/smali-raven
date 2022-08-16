@@ -184,7 +184,7 @@
 
     iget-object p2, p0, Lcom/android/settings/users/AppRestrictionsFragment$RestrictionsResultReceiver;->preference:Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;
 
-    invoke-static {p1, p2, v0}, Lcom/android/settings/users/AppRestrictionsFragment;->access$1000(Lcom/android/settings/users/AppRestrictionsFragment;Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;Ljava/util/ArrayList;)V
+    invoke-static {p1, p2, v0}, Lcom/android/settings/users/AppRestrictionsFragment;->-$$Nest$monRestrictionsReceived(Lcom/android/settings/users/AppRestrictionsFragment;Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;Ljava/util/ArrayList;)V
 
     iget-object p1, p0, Lcom/android/settings/users/AppRestrictionsFragment$RestrictionsResultReceiver;->this$0:Lcom/android/settings/users/AppRestrictionsFragment;
 
@@ -237,7 +237,7 @@
 
     iget-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment$RestrictionsResultReceiver;->preference:Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;
 
-    invoke-static {p1, v0}, Lcom/android/settings/users/AppRestrictionsFragment;->access$1200(Lcom/android/settings/users/AppRestrictionsFragment;Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;)I
+    invoke-static {p1, v0}, Lcom/android/settings/users/AppRestrictionsFragment;->-$$Nest$mgenerateCustomActivityRequestCode(Lcom/android/settings/users/AppRestrictionsFragment;Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;)I
 
     move-result p1
 
@@ -250,7 +250,7 @@
     :catch_0
     move-exception p0
 
-    invoke-static {}, Lcom/android/settings/users/AppRestrictionsFragment;->access$1100()Ljava/lang/String;
+    invoke-static {}, Lcom/android/settings/users/AppRestrictionsFragment;->-$$Nest$sfgetTAG()Ljava/lang/String;
 
     move-result-object p2
 

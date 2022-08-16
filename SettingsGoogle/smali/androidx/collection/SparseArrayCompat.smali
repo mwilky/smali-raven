@@ -370,17 +370,15 @@
 
     iget-object p0, p0, Landroidx/collection/SparseArrayCompat;->mValues:[Ljava/lang/Object;
 
-    aget-object v0, p0, p1
+    aget-object p0, p0, p1
 
-    sget-object v1, Landroidx/collection/SparseArrayCompat;->DELETED:Ljava/lang/Object;
+    sget-object p1, Landroidx/collection/SparseArrayCompat;->DELETED:Ljava/lang/Object;
 
-    if-ne v0, v1, :cond_0
+    if-ne p0, p1, :cond_0
 
     goto :goto_0
 
     :cond_0
-    aget-object p0, p0, p1
-
     return-object p0
 
     :cond_1

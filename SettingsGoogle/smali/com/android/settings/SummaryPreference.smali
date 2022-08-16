@@ -31,7 +31,7 @@
 
     iput-boolean p1, p0, Lcom/android/settings/SummaryPreference;->mChartEnabled:Z
 
-    const p1, 0x7f06020c
+    const p1, 0x7f060215
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setLayoutResource(I)V
 
@@ -47,7 +47,7 @@
 
     iget-object v0, p1, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
 
-    const v1, 0x7f0d0165
+    const v1, 0x7f0d0179
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -93,7 +93,7 @@
     :goto_0
     iget-boolean v0, p0, Lcom/android/settings/SummaryPreference;->mChartEnabled:Z
 
-    const v1, 0x7f0d0315
+    const v1, 0x7f0d033e
 
     if-eqz v0, :cond_2
 
@@ -172,7 +172,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f041322
+    const v0, 0x7f0413e6
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -233,7 +233,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f041322
+    const v0, 0x7f0413e6
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 

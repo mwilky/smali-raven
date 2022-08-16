@@ -275,25 +275,53 @@
 .end method
 
 .method public static isHotspotPasswordValid(Ljava/lang/String;I)Z
-    .locals 1
+    .locals 5
 
     new-instance v0, Landroid/net/wifi/SoftApConfiguration$Builder;
 
     invoke-direct {v0}, Landroid/net/wifi/SoftApConfiguration$Builder;-><init>()V
 
+    const/4 v1, 0x0
+
+    const/4 v2, 0x1
+
+    if-eq p1, v2, :cond_0
+
+    const/4 v3, 0x2
+
+    if-ne p1, v3, :cond_1
+
+    :cond_0
     :try_start_0
+    invoke-virtual {p0}, Ljava/lang/String;->length()I
+
+    move-result v3
+
+    const/16 v4, 0x8
+
+    if-lt v3, v4, :cond_2
+
+    invoke-virtual {p0}, Ljava/lang/String;->length()I
+
+    move-result v3
+
+    const/16 v4, 0x3f
+
+    if-le v3, v4, :cond_1
+
+    goto :goto_0
+
+    :cond_1
     invoke-virtual {v0, p0, p1}, Landroid/net/wifi/SoftApConfiguration$Builder;->setPassphrase(Ljava/lang/String;I)Landroid/net/wifi/SoftApConfiguration$Builder;
     :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    const/4 p0, 0x1
-
-    return p0
+    return v2
 
     :catch_0
-    const/4 p0, 0x0
-
-    return p0
+    :cond_2
+    :goto_0
+    return v1
 .end method
 
 .method public static isNetworkLockedDown(Landroid/content/Context;Landroid/net/wifi/WifiConfiguration;)Z

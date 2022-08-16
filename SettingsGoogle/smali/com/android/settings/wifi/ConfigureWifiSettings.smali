@@ -29,7 +29,7 @@
 
     new-instance v0, Lcom/android/settings/wifi/ConfigureWifiSettings$1;
 
-    const v1, 0x7f150114
+    const v1, 0x7f15011c
 
     invoke-direct {v0, v1}, Lcom/android/settings/wifi/ConfigureWifiSettings$1;-><init>(I)V
 
@@ -145,7 +145,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150114
+    const p0, 0x7f15011c
 
     return p0
 .end method
@@ -198,7 +198,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f040dae
+    const v0, 0x7f040e2b
 
     invoke-virtual {p1, v0}, Landroid/app/Activity;->setTitle(I)V
 

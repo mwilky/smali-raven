@@ -21,6 +21,14 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetdot(Lcom/android/settings/widget/DotsPageIndicator$PendingRevealAnimator;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/settings/widget/DotsPageIndicator$PendingRevealAnimator;->dot:I
+
+    return p0
+.end method
+
 .method public constructor <init>(Lcom/android/settings/widget/DotsPageIndicator;ILcom/android/settings/widget/DotsPageIndicator$StartPredicate;)V
     .locals 0
 
@@ -38,13 +46,13 @@
 
     invoke-virtual {p0, p2}, Landroid/animation/ValueAnimator;->setFloatValues([F)V
 
-    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator;->access$700(Lcom/android/settings/widget/DotsPageIndicator;)J
+    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator;->-$$Nest$fgetanimHalfDuration(Lcom/android/settings/widget/DotsPageIndicator;)J
 
     move-result-wide p2
 
     invoke-virtual {p0, p2, p3}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
 
-    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator;->access$800(Lcom/android/settings/widget/DotsPageIndicator;)Landroid/view/animation/Interpolator;
+    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator;->-$$Nest$fgetinterpolator(Lcom/android/settings/widget/DotsPageIndicator;)Landroid/view/animation/Interpolator;
 
     move-result-object p2
 
@@ -71,12 +79,4 @@
         0x3727c5ac    # 1.0E-5f
         0x3f800000    # 1.0f
     .end array-data
-.end method
-
-.method static synthetic access$1700(Lcom/android/settings/widget/DotsPageIndicator$PendingRevealAnimator;)I
-    .locals 0
-
-    iget p0, p0, Lcom/android/settings/widget/DotsPageIndicator$PendingRevealAnimator;->dot:I
-
-    return p0
 .end method

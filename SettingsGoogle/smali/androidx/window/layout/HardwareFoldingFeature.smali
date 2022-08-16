@@ -91,7 +91,7 @@
 
     sget-object p0, Landroidx/window/layout/HardwareFoldingFeature;->Companion:Landroidx/window/layout/HardwareFoldingFeature$Companion;
 
-    invoke-virtual {p0, p1}, Landroidx/window/layout/HardwareFoldingFeature$Companion;->validateFeatureBounds$window_debug(Landroidx/window/core/Bounds;)V
+    invoke-virtual {p0, p1}, Landroidx/window/layout/HardwareFoldingFeature$Companion;->validateFeatureBounds$window_release(Landroidx/window/core/Bounds;)V
 
     return-void
 .end method
@@ -114,16 +114,16 @@
     :cond_0
     const-class v1, Landroidx/window/layout/HardwareFoldingFeature;
 
-    if-nez p1, :cond_1
+    if-eqz p1, :cond_1
 
-    const/4 v2, 0x0
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v2
 
     goto :goto_0
 
     :cond_1
-    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    move-result-object v2
+    const/4 v2, 0x0
 
     :goto_0
     invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
@@ -137,9 +137,7 @@
     return v2
 
     :cond_2
-    const-string v1, "null cannot be cast to non-null type androidx.window.layout.HardwareFoldingFeature"
-
-    invoke-static {p1, v1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    if-eqz p1, :cond_6
 
     check-cast p1, Landroidx/window/layout/HardwareFoldingFeature;
 
@@ -187,6 +185,15 @@
 
     :cond_5
     return v0
+
+    :cond_6
+    new-instance p0, Ljava/lang/NullPointerException;
+
+    const-string p1, "null cannot be cast to non-null type androidx.window.layout.HardwareFoldingFeature"
+
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+
+    throw p0
 .end method
 
 .method public getBounds()Landroid/graphics/Rect;
@@ -279,7 +286,7 @@
     return-object p0
 .end method
 
-.method public final getType$window_debug()Landroidx/window/layout/HardwareFoldingFeature$Type;
+.method public final getType$window_release()Landroidx/window/layout/HardwareFoldingFeature$Type;
     .locals 0
     .annotation build Lorg/jetbrains/annotations/NotNull;
     .end annotation
@@ -393,7 +400,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     const-string v1, " { "
 

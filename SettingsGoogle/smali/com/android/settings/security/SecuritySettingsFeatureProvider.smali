@@ -4,6 +4,9 @@
 
 
 # virtual methods
+.method public abstract getAlternativeAdvancedSettingsCategoryKey()Ljava/lang/String;
+.end method
+
 .method public abstract getAlternativeSecuritySettingsFragmentClassname()Ljava/lang/String;
 .end method
 

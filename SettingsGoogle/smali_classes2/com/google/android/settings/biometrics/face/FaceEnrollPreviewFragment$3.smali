@@ -44,7 +44,7 @@
 
     iget-object p0, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment$3;->this$0:Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;
 
-    invoke-static {p0}, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->access$700(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;)Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationBase;
+    invoke-static {p0}, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->-$$Nest$fgetmAnimationDrawable(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;)Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationBase;
 
     move-result-object p0
 

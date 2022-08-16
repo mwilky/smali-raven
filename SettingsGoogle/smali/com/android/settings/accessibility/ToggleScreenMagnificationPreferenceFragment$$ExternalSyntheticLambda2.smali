@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/view/accessibility/AccessibilityManager$TouchExplorationStateChangeListener;
+.implements Landroid/content/DialogInterface$OnClickListener;
 
 
 # instance fields
@@ -22,12 +23,12 @@
 
 
 # virtual methods
-.method public final onTouchExplorationStateChanged(Z)V
+.method public final onClick(Landroid/content/DialogInterface;I)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment$$ExternalSyntheticLambda2;->f$0:Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment;
 
-    invoke-static {p0, p1}, Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment;->$r8$lambda$eWu3W_d2u-oIKTirXT0CgflmTUs(Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment;Z)V
+    invoke-virtual {p0, p1, p2}, Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment;->callOnAlertDialogCheckboxClicked(Landroid/content/DialogInterface;I)V
 
     return-void
 .end method

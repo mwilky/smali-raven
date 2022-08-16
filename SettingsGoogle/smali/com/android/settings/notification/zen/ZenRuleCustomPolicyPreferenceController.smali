@@ -4,14 +4,14 @@
 
 
 # instance fields
-.field private mPreference:Lcom/android/settingslib/widget/RadioButtonPreference;
+.field private mPreference:Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
 
 # direct methods
-.method public static synthetic $r8$lambda$Z4nZhTZEeinfQsFVxxDXD_7FR4c(Lcom/android/settings/notification/zen/ZenRuleCustomPolicyPreferenceController;Lcom/android/settingslib/widget/RadioButtonPreference;)V
+.method public static synthetic $r8$lambda$f4E6g3CD9JrPX1ThdleLySm6XSE(Lcom/android/settings/notification/zen/ZenRuleCustomPolicyPreferenceController;Lcom/android/settingslib/widget/SelectorWithWidgetPreference;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/settings/notification/zen/ZenRuleCustomPolicyPreferenceController;->lambda$displayPreference$1(Lcom/android/settingslib/widget/RadioButtonPreference;)V
+    invoke-direct {p0, p1}, Lcom/android/settings/notification/zen/ZenRuleCustomPolicyPreferenceController;->lambda$displayPreference$1(Lcom/android/settingslib/widget/SelectorWithWidgetPreference;)V
 
     return-void
 .end method
@@ -42,7 +42,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$displayPreference$1(Lcom/android/settingslib/widget/RadioButtonPreference;)V
+.method private synthetic lambda$displayPreference$1(Lcom/android/settingslib/widget/SelectorWithWidgetPreference;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/settings/notification/zen/ZenRuleCustomPolicyPreferenceController;->setCustomPolicy()V
@@ -142,23 +142,23 @@
 
     move-result-object p1
 
-    check-cast p1, Lcom/android/settingslib/widget/RadioButtonPreference;
+    check-cast p1, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
-    iput-object p1, p0, Lcom/android/settings/notification/zen/ZenRuleCustomPolicyPreferenceController;->mPreference:Lcom/android/settingslib/widget/RadioButtonPreference;
+    iput-object p1, p0, Lcom/android/settings/notification/zen/ZenRuleCustomPolicyPreferenceController;->mPreference:Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     new-instance v0, Lcom/android/settings/notification/zen/ZenRuleCustomPolicyPreferenceController$$ExternalSyntheticLambda0;
 
     invoke-direct {v0, p0}, Lcom/android/settings/notification/zen/ZenRuleCustomPolicyPreferenceController$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/notification/zen/ZenRuleCustomPolicyPreferenceController;)V
 
-    invoke-virtual {p1, v0}, Lcom/android/settingslib/widget/RadioButtonPreference;->setExtraWidgetOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {p1, v0}, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;->setExtraWidgetOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    iget-object p1, p0, Lcom/android/settings/notification/zen/ZenRuleCustomPolicyPreferenceController;->mPreference:Lcom/android/settingslib/widget/RadioButtonPreference;
+    iget-object p1, p0, Lcom/android/settings/notification/zen/ZenRuleCustomPolicyPreferenceController;->mPreference:Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     new-instance v0, Lcom/android/settings/notification/zen/ZenRuleCustomPolicyPreferenceController$$ExternalSyntheticLambda1;
 
     invoke-direct {v0, p0}, Lcom/android/settings/notification/zen/ZenRuleCustomPolicyPreferenceController$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/notification/zen/ZenRuleCustomPolicyPreferenceController;)V
 
-    invoke-virtual {p1, v0}, Lcom/android/settingslib/widget/RadioButtonPreference;->setOnClickListener(Lcom/android/settingslib/widget/RadioButtonPreference$OnClickListener;)V
+    invoke-virtual {p1, v0}, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;->setOnClickListener(Lcom/android/settingslib/widget/SelectorWithWidgetPreference$OnClickListener;)V
 
     return-void
 .end method
@@ -173,10 +173,18 @@
     return p0
 .end method
 
-.method public bridge synthetic onResume(Landroid/app/AutomaticZenRule;Ljava/lang/String;)V
+.method public bridge synthetic onResume()V
     .locals 0
 
-    invoke-super {p0, p1, p2}, Lcom/android/settings/notification/zen/AbstractZenCustomRulePreferenceController;->onResume(Landroid/app/AutomaticZenRule;Ljava/lang/String;)V
+    invoke-super {p0}, Lcom/android/settings/notification/zen/AbstractZenCustomRulePreferenceController;->onResume()V
+
+    return-void
+.end method
+
+.method public bridge synthetic setIdAndRule(Ljava/lang/String;Landroid/app/AutomaticZenRule;)V
+    .locals 0
+
+    invoke-super {p0, p1, p2}, Lcom/android/settings/notification/zen/AbstractZenCustomRulePreferenceController;->setIdAndRule(Ljava/lang/String;Landroid/app/AutomaticZenRule;)V
 
     return-void
 .end method
@@ -184,7 +192,7 @@
 .method public updateState(Landroidx/preference/Preference;)V
     .locals 0
 
-    invoke-super {p0, p1}, Lcom/android/settings/notification/zen/AbstractZenCustomRulePreferenceController;->updateState(Landroidx/preference/Preference;)V
+    invoke-super {p0, p1}, Lcom/android/settingslib/core/AbstractPreferenceController;->updateState(Landroidx/preference/Preference;)V
 
     iget-object p1, p0, Lcom/android/settings/notification/zen/AbstractZenCustomRulePreferenceController;->mId:Ljava/lang/String;
 
@@ -197,7 +205,7 @@
     goto :goto_1
 
     :cond_0
-    iget-object p0, p0, Lcom/android/settings/notification/zen/ZenRuleCustomPolicyPreferenceController;->mPreference:Lcom/android/settingslib/widget/RadioButtonPreference;
+    iget-object p0, p0, Lcom/android/settings/notification/zen/ZenRuleCustomPolicyPreferenceController;->mPreference:Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     invoke-virtual {p1}, Landroid/app/AutomaticZenRule;->getZenPolicy()Landroid/service/notification/ZenPolicy;
 

@@ -36,7 +36,7 @@
 
     iget-object p1, p0, Lcom/android/settings/RestrictedSettingsFragment$1;->this$0:Lcom/android/settings/RestrictedSettingsFragment;
 
-    invoke-static {p1}, Lcom/android/settings/RestrictedSettingsFragment;->access$000(Lcom/android/settings/RestrictedSettingsFragment;)Z
+    invoke-static {p1}, Lcom/android/settings/RestrictedSettingsFragment;->-$$Nest$fgetmChallengeRequested(Lcom/android/settings/RestrictedSettingsFragment;)Z
 
     move-result p1
 
@@ -46,11 +46,11 @@
 
     const/4 p2, 0x0
 
-    invoke-static {p1, p2}, Lcom/android/settings/RestrictedSettingsFragment;->access$102(Lcom/android/settings/RestrictedSettingsFragment;Z)Z
+    invoke-static {p1, p2}, Lcom/android/settings/RestrictedSettingsFragment;->-$$Nest$fputmChallengeSucceeded(Lcom/android/settings/RestrictedSettingsFragment;Z)V
 
     iget-object p0, p0, Lcom/android/settings/RestrictedSettingsFragment$1;->this$0:Lcom/android/settings/RestrictedSettingsFragment;
 
-    invoke-static {p0, p2}, Lcom/android/settings/RestrictedSettingsFragment;->access$002(Lcom/android/settings/RestrictedSettingsFragment;Z)Z
+    invoke-static {p0, p2}, Lcom/android/settings/RestrictedSettingsFragment;->-$$Nest$fputmChallengeRequested(Lcom/android/settings/RestrictedSettingsFragment;Z)V
 
     :cond_0
     return-void

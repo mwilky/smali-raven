@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/settings/notification/zen/ZenRuleVisEffectsAllPreferenceController$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/settingslib/widget/RadioButtonPreference$OnClickListener;
+.implements Lcom/android/settingslib/widget/SelectorWithWidgetPreference$OnClickListener;
 
 
 # instance fields
@@ -22,12 +23,12 @@
 
 
 # virtual methods
-.method public final onRadioButtonClicked(Lcom/android/settingslib/widget/RadioButtonPreference;)V
+.method public final onRadioButtonClicked(Lcom/android/settingslib/widget/SelectorWithWidgetPreference;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/settings/notification/zen/ZenRuleVisEffectsAllPreferenceController$$ExternalSyntheticLambda0;->f$0:Lcom/android/settings/notification/zen/ZenRuleVisEffectsAllPreferenceController;
 
-    invoke-static {p0, p1}, Lcom/android/settings/notification/zen/ZenRuleVisEffectsAllPreferenceController;->$r8$lambda$4BFO0suDomaoka6-mAWBnzix7Ko(Lcom/android/settings/notification/zen/ZenRuleVisEffectsAllPreferenceController;Lcom/android/settingslib/widget/RadioButtonPreference;)V
+    invoke-static {p0, p1}, Lcom/android/settings/notification/zen/ZenRuleVisEffectsAllPreferenceController;->$r8$lambda$5tNqN9VTOxkKTF3t0y4GSDA3KZM(Lcom/android/settings/notification/zen/ZenRuleVisEffectsAllPreferenceController;Lcom/android/settingslib/widget/SelectorWithWidgetPreference;)V
 
     return-void
 .end method

@@ -32,7 +32,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settingslib/bluetooth/A2dpSinkProfile;Lcom/android/settingslib/bluetooth/A2dpSinkProfile$1;)V
+.method synthetic constructor <init>(Lcom/android/settingslib/bluetooth/A2dpSinkProfile;Lcom/android/settingslib/bluetooth/A2dpSinkProfile$A2dpSinkServiceListener-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settingslib/bluetooth/A2dpSinkProfile$A2dpSinkServiceListener;-><init>(Lcom/android/settingslib/bluetooth/A2dpSinkProfile;)V
@@ -49,11 +49,11 @@
 
     check-cast p2, Landroid/bluetooth/BluetoothA2dpSink;
 
-    invoke-static {p1, p2}, Lcom/android/settingslib/bluetooth/A2dpSinkProfile;->access$002(Lcom/android/settingslib/bluetooth/A2dpSinkProfile;Landroid/bluetooth/BluetoothA2dpSink;)Landroid/bluetooth/BluetoothA2dpSink;
+    invoke-static {p1, p2}, Lcom/android/settingslib/bluetooth/A2dpSinkProfile;->-$$Nest$fputmService(Lcom/android/settingslib/bluetooth/A2dpSinkProfile;Landroid/bluetooth/BluetoothA2dpSink;)V
 
     iget-object p1, p0, Lcom/android/settingslib/bluetooth/A2dpSinkProfile$A2dpSinkServiceListener;->this$0:Lcom/android/settingslib/bluetooth/A2dpSinkProfile;
 
-    invoke-static {p1}, Lcom/android/settingslib/bluetooth/A2dpSinkProfile;->access$000(Lcom/android/settingslib/bluetooth/A2dpSinkProfile;)Landroid/bluetooth/BluetoothA2dpSink;
+    invoke-static {p1}, Lcom/android/settingslib/bluetooth/A2dpSinkProfile;->-$$Nest$fgetmService(Lcom/android/settingslib/bluetooth/A2dpSinkProfile;)Landroid/bluetooth/BluetoothA2dpSink;
 
     move-result-object p1
 
@@ -78,7 +78,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/bluetooth/A2dpSinkProfile$A2dpSinkServiceListener;->this$0:Lcom/android/settingslib/bluetooth/A2dpSinkProfile;
 
-    invoke-static {v0}, Lcom/android/settingslib/bluetooth/A2dpSinkProfile;->access$100(Lcom/android/settingslib/bluetooth/A2dpSinkProfile;)Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
+    invoke-static {v0}, Lcom/android/settingslib/bluetooth/A2dpSinkProfile;->-$$Nest$fgetmDeviceManager(Lcom/android/settingslib/bluetooth/A2dpSinkProfile;)Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
 
     move-result-object v0
 
@@ -108,7 +108,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/bluetooth/A2dpSinkProfile$A2dpSinkServiceListener;->this$0:Lcom/android/settingslib/bluetooth/A2dpSinkProfile;
 
-    invoke-static {v0}, Lcom/android/settingslib/bluetooth/A2dpSinkProfile;->access$100(Lcom/android/settingslib/bluetooth/A2dpSinkProfile;)Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
+    invoke-static {v0}, Lcom/android/settingslib/bluetooth/A2dpSinkProfile;->-$$Nest$fgetmDeviceManager(Lcom/android/settingslib/bluetooth/A2dpSinkProfile;)Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
 
     move-result-object v0
 
@@ -132,7 +132,7 @@
 
     const/4 p1, 0x1
 
-    invoke-static {p0, p1}, Lcom/android/settingslib/bluetooth/A2dpSinkProfile;->access$202(Lcom/android/settingslib/bluetooth/A2dpSinkProfile;Z)Z
+    invoke-static {p0, p1}, Lcom/android/settingslib/bluetooth/A2dpSinkProfile;->-$$Nest$fputmIsProfileReady(Lcom/android/settingslib/bluetooth/A2dpSinkProfile;Z)V
 
     return-void
 .end method
@@ -144,7 +144,7 @@
 
     const/4 p1, 0x0
 
-    invoke-static {p0, p1}, Lcom/android/settingslib/bluetooth/A2dpSinkProfile;->access$202(Lcom/android/settingslib/bluetooth/A2dpSinkProfile;Z)Z
+    invoke-static {p0, p1}, Lcom/android/settingslib/bluetooth/A2dpSinkProfile;->-$$Nest$fputmIsProfileReady(Lcom/android/settingslib/bluetooth/A2dpSinkProfile;Z)V
 
     return-void
 .end method

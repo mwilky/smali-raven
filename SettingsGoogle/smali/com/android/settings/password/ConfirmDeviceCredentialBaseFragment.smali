@@ -58,6 +58,26 @@
     return-void
 .end method
 
+.method public static synthetic $r8$lambda$S-TZd4Vvm0ad1LrcsoXJ6eepdKc(Lcom/android/settings/password/ConfirmDeviceCredentialBaseFragment;)Ljava/lang/String;
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/password/ConfirmDeviceCredentialBaseFragment;->lambda$getWipeMessage$3()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static synthetic $r8$lambda$tt_tCtlSNt-lT7qcMqdwK4saBjg(Lcom/android/settings/password/ConfirmDeviceCredentialBaseFragment;I)Ljava/lang/String;
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/password/ConfirmDeviceCredentialBaseFragment;->lambda$updateErrorMessage$2(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method public static synthetic $r8$lambda$zi5Eynd_YY1leltbbIPg-vJMPuU(Lcom/android/settings/password/ConfirmDeviceCredentialBaseFragment;ZLandroid/view/View;)V
     .locals 0
 
@@ -158,24 +178,28 @@
     return p0
 .end method
 
-.method private getWipeMessage(I)I
+.method private getWipeMessage(I)Ljava/lang/String;
     .locals 2
 
-    const/4 p0, 0x1
+    const/4 v0, 0x1
 
-    if-eq p1, p0, :cond_2
+    if-eq p1, v0, :cond_2
 
-    const/4 p0, 0x2
+    const/4 v0, 0x2
 
-    if-eq p1, p0, :cond_1
+    if-eq p1, v0, :cond_1
 
-    const/4 p0, 0x3
+    const/4 v0, 0x3
 
-    if-ne p1, p0, :cond_0
+    if-ne p1, v0, :cond_0
 
-    const p0, 0x7f040bb3
+    const p1, 0x7f040979
 
-    return p0
+    invoke-virtual {p0, p1}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 
     :cond_0
     new-instance p0, Ljava/lang/IllegalArgumentException;
@@ -199,14 +223,32 @@
     throw p0
 
     :cond_1
-    const p0, 0x7f040bb2
+    iget-object p1, p0, Lcom/android/settings/password/ConfirmDeviceCredentialBaseFragment;->mDevicePolicyManager:Landroid/app/admin/DevicePolicyManager;
 
-    return p0
+    invoke-virtual {p1}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
+
+    move-result-object p1
+
+    new-instance v0, Lcom/android/settings/password/ConfirmDeviceCredentialBaseFragment$$ExternalSyntheticLambda3;
+
+    invoke-direct {v0, p0}, Lcom/android/settings/password/ConfirmDeviceCredentialBaseFragment$$ExternalSyntheticLambda3;-><init>(Lcom/android/settings/password/ConfirmDeviceCredentialBaseFragment;)V
+
+    const-string p0, "Settings.WORK_PROFILE_LOCK_ATTEMPTS_FAILED"
+
+    invoke-virtual {p1, p0, v0}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 
     :cond_2
-    const p0, 0x7f040bb0
+    const p1, 0x7f040976
 
-    return p0
+    invoke-virtual {p0, p1}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method private isInternalActivity()Z
@@ -241,6 +283,18 @@
 
     :goto_1
     return p0
+.end method
+
+.method private synthetic lambda$getWipeMessage$3()Ljava/lang/String;
+    .locals 1
+
+    const v0, 0x7f040978
+
+    invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method private synthetic lambda$onViewCreated$0(ZLandroid/view/View;)V
@@ -283,6 +337,10 @@
 
     invoke-virtual {p1, v1, v0}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
+    const/high16 v0, 0x10000000
+
+    invoke-virtual {p1, v0}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
+
     iget v0, p0, Lcom/android/settings/password/ConfirmDeviceCredentialBaseFragment;->mUserId:I
 
     const-string v1, "android.intent.extra.USER_ID"
@@ -302,6 +360,16 @@
     invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     return-void
+.end method
+
+.method private synthetic lambda$updateErrorMessage$2(I)Ljava/lang/String;
+    .locals 0
+
+    invoke-virtual {p0, p1}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method private setupForgotButtonIfManagedProfile(Landroid/view/View;)V
@@ -341,7 +409,7 @@
 
     if-eqz v0, :cond_1
 
-    const v0, 0x7f0d024b
+    const v0, 0x7f0d026a
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -368,9 +436,9 @@
 
     iget-object p1, p0, Lcom/android/settings/password/ConfirmDeviceCredentialBaseFragment;->mForgotButton:Landroid/widget/Button;
 
-    new-instance v0, Lcom/android/settings/password/ConfirmDeviceCredentialBaseFragment$$ExternalSyntheticLambda0;
+    new-instance v0, Lcom/android/settings/password/ConfirmDeviceCredentialBaseFragment$$ExternalSyntheticLambda2;
 
-    invoke-direct {v0, p0}, Lcom/android/settings/password/ConfirmDeviceCredentialBaseFragment$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/password/ConfirmDeviceCredentialBaseFragment;)V
+    invoke-direct {v0, p0}, Lcom/android/settings/password/ConfirmDeviceCredentialBaseFragment$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/password/ConfirmDeviceCredentialBaseFragment;)V
 
     invoke-virtual {p1, v0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
@@ -380,7 +448,10 @@
 
 
 # virtual methods
-.method protected abstract getLastTryErrorMessage(I)I
+.method protected abstract getLastTryDefaultErrorMessage(I)I
+.end method
+
+.method protected abstract getLastTryOverrideErrorMessageId(I)Ljava/lang/String;
 .end method
 
 .method protected isStrongAuthRequired()Z
@@ -446,7 +517,7 @@
 
     iput-object v0, p0, Lcom/android/settings/password/ConfirmDeviceCredentialBaseFragment;->mFrpAlternateButtonText:Ljava/lang/CharSequence;
 
-    const-string v0, "return_credentials"
+    const-string/jumbo v0, "return_credentials"
 
     const/4 v1, 0x0
 
@@ -456,7 +527,7 @@
 
     iput-boolean v0, p0, Lcom/android/settings/password/ConfirmDeviceCredentialBaseFragment;->mReturnCredentials:Z
 
-    const-string v0, "request_gk_pw_handle"
+    const-string/jumbo v0, "request_gk_pw_handle"
 
     invoke-virtual {p1, v0, v1}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
@@ -584,7 +655,7 @@
 
     invoke-super {p0, p1, p2}, Landroidx/fragment/app/Fragment;->onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
 
-    const p2, 0x7f0d0138
+    const p2, 0x7f0d0149
 
     invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -856,7 +927,7 @@
 
     move-result-object v1
 
-    const v4, 0x7f040baf
+    const v4, 0x7f040c1a
 
     const/4 v5, 0x2
 
@@ -904,32 +975,50 @@
 
     move-result-object v0
 
-    const v3, 0x7f040bb5
+    const v3, 0x7f040c1c
 
     invoke-virtual {v0, v3}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/password/ConfirmDeviceCredentialBaseFragment;->getLastTryErrorMessage(I)I
+    invoke-virtual {p0, v1}, Lcom/android/settings/password/ConfirmDeviceCredentialBaseFragment;->getLastTryOverrideErrorMessageId(I)Ljava/lang/String;
 
-    move-result p0
+    move-result-object v3
+
+    invoke-virtual {p0, v1}, Lcom/android/settings/password/ConfirmDeviceCredentialBaseFragment;->getLastTryDefaultErrorMessage(I)I
+
+    move-result v1
+
+    iget-object v4, p0, Lcom/android/settings/password/ConfirmDeviceCredentialBaseFragment;->mDevicePolicyManager:Landroid/app/admin/DevicePolicyManager;
+
+    invoke-virtual {v4}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
+
+    move-result-object v4
+
+    new-instance v5, Lcom/android/settings/password/ConfirmDeviceCredentialBaseFragment$$ExternalSyntheticLambda0;
+
+    invoke-direct {v5, p0, v1}, Lcom/android/settings/password/ConfirmDeviceCredentialBaseFragment$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/password/ConfirmDeviceCredentialBaseFragment;I)V
+
+    invoke-virtual {v4, v3, v5}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
+
+    move-result-object p0
 
     const v1, 0x104000a
 
-    invoke-static {p1, v0, p0, v1, v2}, Lcom/android/settings/password/ConfirmDeviceCredentialBaseFragment$LastTryDialog;->show(Landroidx/fragment/app/FragmentManager;Ljava/lang/String;IIZ)Z
+    invoke-static {p1, v0, p0, v1, v2}, Lcom/android/settings/password/ConfirmDeviceCredentialBaseFragment$LastTryDialog;->show(Landroidx/fragment/app/FragmentManager;Ljava/lang/String;Ljava/lang/String;IZ)Z
 
     goto :goto_0
 
     :cond_3
-    invoke-direct {p0, v1}, Lcom/android/settings/password/ConfirmDeviceCredentialBaseFragment;->getWipeMessage(I)I
+    invoke-direct {p0, v1}, Lcom/android/settings/password/ConfirmDeviceCredentialBaseFragment;->getWipeMessage(I)Ljava/lang/String;
 
-    move-result p0
+    move-result-object p0
 
     const/4 v0, 0x0
 
-    const v1, 0x7f040bb1
+    const v1, 0x7f040977
 
-    invoke-static {p1, v0, p0, v1, v3}, Lcom/android/settings/password/ConfirmDeviceCredentialBaseFragment$LastTryDialog;->show(Landroidx/fragment/app/FragmentManager;Ljava/lang/String;IIZ)Z
+    invoke-static {p1, v0, p0, v1, v3}, Lcom/android/settings/password/ConfirmDeviceCredentialBaseFragment$LastTryDialog;->show(Landroidx/fragment/app/FragmentManager;Ljava/lang/String;Ljava/lang/String;IZ)Z
 
     :cond_4
     :goto_0

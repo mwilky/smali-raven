@@ -19,7 +19,7 @@
 
 .field private mWifiEnabler:Lcom/android/settings/wifi/WifiEnabler;
 
-.field private mWifiPreference:Lcom/android/settings/widget/PrimarySwitchPreference;
+.field private mWifiPreference:Lcom/android/settingslib/PrimarySwitchPreference;
 
 
 # virtual methods
@@ -34,9 +34,9 @@
 
     move-result-object p1
 
-    check-cast p1, Lcom/android/settings/widget/PrimarySwitchPreference;
+    check-cast p1, Lcom/android/settingslib/PrimarySwitchPreference;
 
-    iput-object p1, p0, Lcom/android/settings/wifi/WifiPrimarySwitchPreferenceController;->mWifiPreference:Lcom/android/settings/widget/PrimarySwitchPreference;
+    iput-object p1, p0, Lcom/android/settings/wifi/WifiPrimarySwitchPreferenceController;->mWifiPreference:Lcom/android/settingslib/PrimarySwitchPreference;
 
     return-void
 .end method
@@ -58,7 +58,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f09005d
+    const v0, 0x7f09005e
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -116,9 +116,9 @@
 
     new-instance v2, Lcom/android/settings/widget/GenericSwitchController;
 
-    iget-object v3, p0, Lcom/android/settings/wifi/WifiPrimarySwitchPreferenceController;->mWifiPreference:Lcom/android/settings/widget/PrimarySwitchPreference;
+    iget-object v3, p0, Lcom/android/settings/wifi/WifiPrimarySwitchPreferenceController;->mWifiPreference:Lcom/android/settingslib/PrimarySwitchPreference;
 
-    invoke-direct {v2, v3}, Lcom/android/settings/widget/GenericSwitchController;-><init>(Lcom/android/settings/widget/PrimarySwitchPreference;)V
+    invoke-direct {v2, v3}, Lcom/android/settings/widget/GenericSwitchController;-><init>(Lcom/android/settingslib/PrimarySwitchPreference;)V
 
     iget-object v3, p0, Lcom/android/settings/wifi/WifiPrimarySwitchPreferenceController;->mMetricsFeatureProvider:Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;
 
@@ -145,7 +145,7 @@
 .method public onSummaryChanged(Ljava/lang/String;)V
     .locals 0
 
-    iget-object p0, p0, Lcom/android/settings/wifi/WifiPrimarySwitchPreferenceController;->mWifiPreference:Lcom/android/settings/widget/PrimarySwitchPreference;
+    iget-object p0, p0, Lcom/android/settings/wifi/WifiPrimarySwitchPreferenceController;->mWifiPreference:Lcom/android/settingslib/PrimarySwitchPreference;
 
     if-eqz p0, :cond_0
 

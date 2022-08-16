@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settings/accessibility/ShortcutPreference$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/view/View$OnClickListener;
@@ -27,7 +28,7 @@
 
     iget-object p0, p0, Lcom/android/settings/accessibility/ShortcutPreference$$ExternalSyntheticLambda2;->f$0:Lcom/android/settings/accessibility/ShortcutPreference;
 
-    invoke-static {p0, p1}, Lcom/android/settings/accessibility/ShortcutPreference;->$r8$lambda$s18opwqXQJK_LrOXcn-RNo8pnds(Lcom/android/settings/accessibility/ShortcutPreference;Landroid/view/View;)V
+    invoke-static {p0, p1}, Lcom/android/settings/accessibility/ShortcutPreference;->$r8$lambda$Q7zMC5xtid3x2TqSOBlVJXSvsec(Lcom/android/settings/accessibility/ShortcutPreference;Landroid/view/View;)V
 
     return-void
 .end method

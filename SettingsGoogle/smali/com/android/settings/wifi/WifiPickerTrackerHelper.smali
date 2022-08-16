@@ -11,7 +11,7 @@
 
 
 # instance fields
-.field protected final mCarrierConfigManager:Landroid/telephony/CarrierConfigManager;
+.field protected final mCarrierConfigCache:Lcom/android/settings/network/CarrierConfigCache;
 
 .field protected final mWifiManager:Landroid/net/wifi/WifiManager;
 
@@ -130,15 +130,11 @@
 
     iput-object p1, p0, Lcom/android/settings/wifi/WifiPickerTrackerHelper;->mWifiManager:Landroid/net/wifi/WifiManager;
 
-    const-class p1, Landroid/telephony/CarrierConfigManager;
-
-    invoke-virtual {p2, p1}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-static {p2}, Lcom/android/settings/network/CarrierConfigCache;->getInstance(Landroid/content/Context;)Lcom/android/settings/network/CarrierConfigCache;
 
     move-result-object p1
 
-    check-cast p1, Landroid/telephony/CarrierConfigManager;
-
-    iput-object p1, p0, Lcom/android/settings/wifi/WifiPickerTrackerHelper;->mCarrierConfigManager:Landroid/telephony/CarrierConfigManager;
+    iput-object p1, p0, Lcom/android/settings/wifi/WifiPickerTrackerHelper;->mCarrierConfigCache:Lcom/android/settings/network/CarrierConfigCache;
 
     return-void
 
@@ -185,6 +181,37 @@
     const/4 p0, 0x0
 
     return p0
+.end method
+
+.method public getCarrierNetworkLevel()I
+    .locals 1
+
+    iget-object p0, p0, Lcom/android/settings/wifi/WifiPickerTrackerHelper;->mWifiPickerTracker:Lcom/android/wifitrackerlib/WifiPickerTracker;
+
+    invoke-virtual {p0}, Lcom/android/wifitrackerlib/WifiPickerTracker;->getMergedCarrierEntry()Lcom/android/wifitrackerlib/MergedCarrierEntry;
+
+    move-result-object p0
+
+    const/4 v0, 0x0
+
+    if-nez p0, :cond_0
+
+    return v0
+
+    :cond_0
+    invoke-virtual {p0}, Lcom/android/wifitrackerlib/WifiEntry;->getLevel()I
+
+    move-result p0
+
+    if-gez p0, :cond_1
+
+    goto :goto_0
+
+    :cond_1
+    move v0, p0
+
+    :goto_0
+    return v0
 .end method
 
 .method public getCarrierNetworkSsid()Ljava/lang/String;
@@ -246,16 +273,47 @@
     return p0
 .end method
 
-.method public isCarrierNetworkEnabled(I)Z
-    .locals 1
+.method public isCarrierNetworkEnabled()Z
+    .locals 3
 
-    iget-object p0, p0, Lcom/android/settings/wifi/WifiPickerTrackerHelper;->mWifiManager:Landroid/net/wifi/WifiManager;
+    iget-object p0, p0, Lcom/android/settings/wifi/WifiPickerTrackerHelper;->mWifiPickerTracker:Lcom/android/wifitrackerlib/WifiPickerTracker;
 
-    const/4 v0, 0x1
+    invoke-virtual {p0}, Lcom/android/wifitrackerlib/WifiPickerTracker;->getMergedCarrierEntry()Lcom/android/wifitrackerlib/MergedCarrierEntry;
 
-    invoke-virtual {p0, p1, v0}, Landroid/net/wifi/WifiManager;->isCarrierNetworkOffloadEnabled(IZ)Z
+    move-result-object p0
+
+    const-string v0, "WifiPickerTrackerHelper"
+
+    if-nez p0, :cond_0
+
+    const-string p0, "Failed to get MergedCarrierEntry to query enabled status"
+
+    invoke-static {v0, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 p0, 0x0
+
+    return p0
+
+    :cond_0
+    invoke-virtual {p0}, Lcom/android/wifitrackerlib/MergedCarrierEntry;->isEnabled()Z
 
     move-result p0
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "isCarrierNetworkEnabled:"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     return p0
 .end method
@@ -263,9 +321,9 @@
 .method public isCarrierNetworkProvisionEnabled(I)Z
     .locals 2
 
-    iget-object p0, p0, Lcom/android/settings/wifi/WifiPickerTrackerHelper;->mCarrierConfigManager:Landroid/telephony/CarrierConfigManager;
+    iget-object p0, p0, Lcom/android/settings/wifi/WifiPickerTrackerHelper;->mCarrierConfigCache:Lcom/android/settings/network/CarrierConfigCache;
 
-    invoke-virtual {p0, p1}, Landroid/telephony/CarrierConfigManager;->getConfigForSubId(I)Landroid/os/PersistableBundle;
+    invoke-virtual {p0, p1}, Lcom/android/settings/network/CarrierConfigCache;->getConfigForSubId(I)Landroid/os/PersistableBundle;
 
     move-result-object p0
 
@@ -333,7 +391,7 @@
 .end method
 
 .method public setCarrierNetworkEnabled(Z)V
-    .locals 0
+    .locals 3
 
     iget-object p0, p0, Lcom/android/settings/wifi/WifiPickerTrackerHelper;->mWifiPickerTracker:Lcom/android/wifitrackerlib/WifiPickerTracker;
 
@@ -341,11 +399,33 @@
 
     move-result-object p0
 
+    const-string v0, "WifiPickerTrackerHelper"
+
     if-nez p0, :cond_0
+
+    const-string p0, "Unable to get MergedCarrierEntry to set enabled status"
+
+    invoke-static {v0, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
     :cond_0
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "setCarrierNetworkEnabled:"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
     invoke-virtual {p0, p1}, Lcom/android/wifitrackerlib/MergedCarrierEntry;->setEnabled(Z)V
 
     return-void

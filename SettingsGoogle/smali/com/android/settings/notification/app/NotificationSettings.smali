@@ -72,8 +72,6 @@
     .end annotation
 .end field
 
-.field protected mRm:Landroid/app/role/RoleManager;
-
 .field protected mShowLegacyChannelConfig:Z
 
 .field protected mSuspendedAppsAdmin:Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
@@ -84,6 +82,30 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmLayoutView(Lcom/android/settings/notification/app/NotificationSettings;)Landroid/view/ViewGroup;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/notification/app/NotificationSettings;->mLayoutView:Landroid/view/ViewGroup;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$manimateIn(Lcom/android/settings/notification/app/NotificationSettings;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/notification/app/NotificationSettings;->animateIn()V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$sfgetDEBUG()Z
+    .locals 1
+
+    sget-boolean v0, Lcom/android/settings/notification/app/NotificationSettings;->DEBUG:Z
+
+    return v0
+.end method
+
 .method static constructor <clinit>()V
     .locals 2
 
@@ -143,30 +165,6 @@
 .end method
 
 .method static synthetic access$000(Lcom/android/settings/notification/app/NotificationSettings;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/notification/app/NotificationSettings;->animateIn()V
-
-    return-void
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/notification/app/NotificationSettings;)Landroid/view/ViewGroup;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/notification/app/NotificationSettings;->mLayoutView:Landroid/view/ViewGroup;
-
-    return-object p0
-.end method
-
-.method static synthetic access$200()Z
-    .locals 1
-
-    sget-boolean v0, Lcom/android/settings/notification/app/NotificationSettings;->DEBUG:Z
-
-    return v0
-.end method
-
-.method static synthetic access$300(Lcom/android/settings/notification/app/NotificationSettings;)V
     .locals 0
 
     invoke-virtual {p0}, Lcom/android/settings/dashboard/DashboardFragment;->updatePreferenceStates()V
@@ -318,7 +316,7 @@
     :try_start_0
     iget-object v3, p0, Lcom/android/settings/notification/app/NotificationSettings;->mPm:Landroid/content/pm/PackageManager;
 
-    const/16 v4, 0x40
+    const/16 v4, 0x1040
 
     invoke-virtual {v3, p1, v4}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
 
@@ -360,7 +358,7 @@
 .end method
 
 .method private loadAppRow()V
-    .locals 5
+    .locals 4
 
     iget-object v0, p0, Lcom/android/settings/notification/app/NotificationSettings;->mBackend:Lcom/android/settings/notification/NotificationBackend;
 
@@ -368,11 +366,9 @@
 
     iget-object v2, p0, Lcom/android/settings/notification/app/NotificationSettings;->mPm:Landroid/content/pm/PackageManager;
 
-    iget-object v3, p0, Lcom/android/settings/notification/app/NotificationSettings;->mRm:Landroid/app/role/RoleManager;
+    iget-object v3, p0, Lcom/android/settings/notification/app/NotificationSettings;->mPkgInfo:Landroid/content/pm/PackageInfo;
 
-    iget-object v4, p0, Lcom/android/settings/notification/app/NotificationSettings;->mPkgInfo:Landroid/content/pm/PackageInfo;
-
-    invoke-virtual {v0, v1, v2, v3, v4}, Lcom/android/settings/notification/NotificationBackend;->loadAppRow(Landroid/content/Context;Landroid/content/pm/PackageManager;Landroid/app/role/RoleManager;Landroid/content/pm/PackageInfo;)Lcom/android/settings/notification/NotificationBackend$AppRow;
+    invoke-virtual {v0, v1, v2, v3}, Lcom/android/settings/notification/NotificationBackend;->loadAppRow(Landroid/content/Context;Landroid/content/pm/PackageManager;Landroid/content/pm/PackageInfo;)Lcom/android/settings/notification/NotificationBackend$AppRow;
 
     move-result-object v0
 
@@ -382,7 +378,7 @@
 .end method
 
 .method private loadChannel()V
-    .locals 5
+    .locals 6
 
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
 
@@ -439,21 +435,37 @@
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
+
+    goto :goto_2
 
     :cond_3
-    iget-object v0, p0, Lcom/android/settings/notification/app/NotificationSettings;->mBackend:Lcom/android/settings/notification/NotificationBackend;
+    move-object v0, v2
 
-    iget-object v1, p0, Lcom/android/settings/notification/app/NotificationSettings;->mPkg:Ljava/lang/String;
+    :goto_2
+    iget-object v1, p0, Lcom/android/settings/notification/app/NotificationSettings;->mBackend:Lcom/android/settings/notification/NotificationBackend;
 
-    iget v4, p0, Lcom/android/settings/notification/app/NotificationSettings;->mUid:I
+    iget-object v4, p0, Lcom/android/settings/notification/app/NotificationSettings;->mPkg:Ljava/lang/String;
 
-    invoke-virtual {v0, v1, v4, v3, v2}, Lcom/android/settings/notification/NotificationBackend;->getChannel(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)Landroid/app/NotificationChannel;
+    iget v5, p0, Lcom/android/settings/notification/app/NotificationSettings;->mUid:I
+
+    invoke-virtual {v1, v4, v5, v3, v0}, Lcom/android/settings/notification/NotificationBackend;->getChannel(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)Landroid/app/NotificationChannel;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/settings/notification/app/NotificationSettings;->mChannel:Landroid/app/NotificationChannel;
 
+    if-nez v0, :cond_4
+
+    iget-object v0, p0, Lcom/android/settings/notification/app/NotificationSettings;->mBackend:Lcom/android/settings/notification/NotificationBackend;
+
+    iget-object v1, p0, Lcom/android/settings/notification/app/NotificationSettings;->mPkg:Ljava/lang/String;
+
+    iget p0, p0, Lcom/android/settings/notification/app/NotificationSettings;->mUid:I
+
+    invoke-virtual {v0, v1, p0, v3, v2}, Lcom/android/settings/notification/NotificationBackend;->getChannel(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)Landroid/app/NotificationChannel;
+
+    :cond_4
     return-void
 .end method
 
@@ -681,7 +693,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0348
+    const v1, 0x7f0d0373
 
     invoke-virtual {v0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -945,18 +957,6 @@
     move-result-object p1
 
     iput-object p1, p0, Lcom/android/settings/notification/app/NotificationSettings;->mNm:Landroid/app/NotificationManager;
-
-    iget-object p1, p0, Lcom/android/settings/notification/app/NotificationSettings;->mContext:Landroid/content/Context;
-
-    const-class v2, Landroid/app/role/RoleManager;
-
-    invoke-virtual {p1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Landroid/app/role/RoleManager;
-
-    iput-object p1, p0, Lcom/android/settings/notification/app/NotificationSettings;->mRm:Landroid/app/role/RoleManager;
 
     iget-object p1, p0, Lcom/android/settings/notification/app/NotificationSettings;->mArgs:Landroid/os/Bundle;
 
@@ -1377,7 +1377,7 @@
 
     iget-object v0, p0, Lcom/android/settings/notification/app/NotificationSettings;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f04025c
+    const v1, 0x7f04028f
 
     const/4 v2, 0x0
 

@@ -1,43 +1,34 @@
 .class public final synthetic Lcom/android/settings/accessibility/AccessibilitySettings$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Predicate;
+.implements Lcom/android/settings/accessibility/AccessibilitySettingsContentObserver$ContentObserverCallback;
 
 
 # instance fields
 .field public final synthetic f$0:Lcom/android/settings/accessibility/AccessibilitySettings;
 
-.field public final synthetic f$1:Ljava/util/List;
-
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/settings/accessibility/AccessibilitySettings;Ljava/util/List;)V
+.method public synthetic constructor <init>(Lcom/android/settings/accessibility/AccessibilitySettings;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/settings/accessibility/AccessibilitySettings$$ExternalSyntheticLambda0;->f$0:Lcom/android/settings/accessibility/AccessibilitySettings;
 
-    iput-object p2, p0, Lcom/android/settings/accessibility/AccessibilitySettings$$ExternalSyntheticLambda0;->f$1:Ljava/util/List;
-
     return-void
 .end method
 
 
 # virtual methods
-.method public final test(Ljava/lang/Object;)Z
-    .locals 1
+.method public final onChange(Ljava/lang/String;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/settings/accessibility/AccessibilitySettings$$ExternalSyntheticLambda0;->f$0:Lcom/android/settings/accessibility/AccessibilitySettings;
+    iget-object p0, p0, Lcom/android/settings/accessibility/AccessibilitySettings$$ExternalSyntheticLambda0;->f$0:Lcom/android/settings/accessibility/AccessibilitySettings;
 
-    iget-object p0, p0, Lcom/android/settings/accessibility/AccessibilitySettings$$ExternalSyntheticLambda0;->f$1:Ljava/util/List;
+    invoke-static {p0, p1}, Lcom/android/settings/accessibility/AccessibilitySettings;->$r8$lambda$l2nL1nyiW6d1LZRtKoC9g-yRg-w(Lcom/android/settings/accessibility/AccessibilitySettings;Ljava/lang/String;)V
 
-    check-cast p1, Landroid/accessibilityservice/AccessibilityServiceInfo;
-
-    invoke-static {v0, p0, p1}, Lcom/android/settings/accessibility/AccessibilitySettings;->$r8$lambda$0Nd_YmP6-vZuN23voKRDSpQoTQw(Lcom/android/settings/accessibility/AccessibilitySettings;Ljava/util/List;Landroid/accessibilityservice/AccessibilityServiceInfo;)Z
-
-    move-result p0
-
-    return p0
+    return-void
 .end method

@@ -26,16 +26,6 @@
 # direct methods
 .method constructor <init>(Landroidx/slice/widget/ActionRow;Landroidx/slice/SliceItem;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x8010,
-            0x1010
-        }
-        names = {
-            "this$0",
-            "val$actionItem"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/slice/widget/ActionRow$1;->this$0:Landroidx/slice/widget/ActionRow;
 
@@ -50,14 +40,6 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "v"
-        }
-    .end annotation
 
     :try_start_0
     iget-object p0, p0, Landroidx/slice/widget/ActionRow$1;->val$actionItem:Landroidx/slice/SliceItem;

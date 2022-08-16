@@ -39,7 +39,7 @@
 
     iget-object p0, p0, Lcom/android/settings/applications/RunningServices$1;->this$0:Lcom/android/settings/applications/RunningServices;
 
-    invoke-static {p0}, Lcom/android/settings/applications/RunningServices;->access$000(Lcom/android/settings/applications/RunningServices;)Lcom/android/settings/widget/LoadingViewController;
+    invoke-static {p0}, Lcom/android/settings/applications/RunningServices;->-$$Nest$fgetmLoadingViewController(Lcom/android/settings/applications/RunningServices;)Lcom/android/settings/widget/LoadingViewController;
 
     move-result-object p0
 

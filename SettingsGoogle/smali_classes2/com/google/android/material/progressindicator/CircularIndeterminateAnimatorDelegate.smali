@@ -549,31 +549,25 @@
 
     aget v1, p1, v2
 
-    aget v3, p1, v4
-
-    sub-float/2addr v1, v3
+    sub-float v3, v1, v0
 
     iget p0, p0, Lcom/google/android/material/progressindicator/CircularIndeterminateAnimatorDelegate;->completeEndFraction:F
 
-    mul-float/2addr v1, p0
+    mul-float/2addr v3, p0
 
-    add-float/2addr v0, v1
+    add-float/2addr v0, v3
 
     aput v0, p1, v4
 
-    aget p0, p1, v4
+    const/high16 p0, 0x43b40000    # 360.0f
 
-    const/high16 v0, 0x43b40000    # 360.0f
+    div-float/2addr v0, p0
 
-    div-float/2addr p0, v0
+    aput v0, p1, v4
 
-    aput p0, p1, v4
+    div-float/2addr v1, p0
 
-    aget p0, p1, v2
-
-    div-float/2addr p0, v0
-
-    aput p0, p1, v2
+    aput v1, p1, v2
 
     return-void
 .end method
@@ -614,13 +608,15 @@
 
     iget-object v0, p0, Lcom/google/android/material/progressindicator/CircularIndeterminateAnimatorDelegate;->completeEndAnimator:Landroid/animation/ObjectAnimator;
 
+    if-eqz v0, :cond_2
+
     invoke-virtual {v0}, Landroid/animation/ObjectAnimator;->isRunning()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    return-void
+    goto :goto_0
 
     :cond_0
     iget-object v0, p0, Lcom/google/android/material/progressindicator/IndeterminateAnimatorDelegate;->drawable:Lcom/google/android/material/progressindicator/IndeterminateDrawable;
@@ -640,6 +636,7 @@
     :cond_1
     invoke-virtual {p0}, Lcom/google/android/material/progressindicator/CircularIndeterminateAnimatorDelegate;->cancelAnimatorImmediately()V
 
+    :cond_2
     :goto_0
     return-void
 .end method

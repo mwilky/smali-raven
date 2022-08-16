@@ -39,7 +39,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/google/android/setupdesign/items/ItemAdapter$1;)V
+.method synthetic constructor <init>(Lcom/google/android/setupdesign/items/ItemAdapter$ViewTypes-IA;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/google/android/setupdesign/items/ItemAdapter$ViewTypes;-><init>()V

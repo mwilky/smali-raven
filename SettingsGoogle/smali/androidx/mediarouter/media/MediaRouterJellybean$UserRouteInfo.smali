@@ -17,16 +17,6 @@
 # direct methods
 .method public static setName(Ljava/lang/Object;Ljava/lang/CharSequence;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "routeObj",
-            "name"
-        }
-    .end annotation
 
     check-cast p0, Landroid/media/MediaRouter$UserRouteInfo;
 
@@ -37,16 +27,6 @@
 
 .method public static setPlaybackStream(Ljava/lang/Object;I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "routeObj",
-            "stream"
-        }
-    .end annotation
 
     check-cast p0, Landroid/media/MediaRouter$UserRouteInfo;
 
@@ -57,16 +37,6 @@
 
 .method public static setPlaybackType(Ljava/lang/Object;I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "routeObj",
-            "type"
-        }
-    .end annotation
 
     check-cast p0, Landroid/media/MediaRouter$UserRouteInfo;
 
@@ -77,16 +47,6 @@
 
 .method public static setVolume(Ljava/lang/Object;I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "routeObj",
-            "volume"
-        }
-    .end annotation
 
     check-cast p0, Landroid/media/MediaRouter$UserRouteInfo;
 
@@ -97,16 +57,6 @@
 
 .method public static setVolumeCallback(Ljava/lang/Object;Ljava/lang/Object;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "routeObj",
-            "volumeCallbackObj"
-        }
-    .end annotation
 
     check-cast p0, Landroid/media/MediaRouter$UserRouteInfo;
 
@@ -119,16 +69,6 @@
 
 .method public static setVolumeHandling(Ljava/lang/Object;I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "routeObj",
-            "volumeHandling"
-        }
-    .end annotation
 
     check-cast p0, Landroid/media/MediaRouter$UserRouteInfo;
 
@@ -139,16 +79,6 @@
 
 .method public static setVolumeMax(Ljava/lang/Object;I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "routeObj",
-            "volumeMax"
-        }
-    .end annotation
 
     check-cast p0, Landroid/media/MediaRouter$UserRouteInfo;
 

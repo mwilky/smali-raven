@@ -191,11 +191,11 @@
 
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getParentFragmentManager()Landroidx/fragment/app/FragmentManager;
 
-    move-result-object p1
+    move-result-object p2
 
-    iget p2, p0, Landroidx/fragment/app/DialogFragment;->mBackStackId:I
+    iget v1, p0, Landroidx/fragment/app/DialogFragment;->mBackStackId:I
 
-    invoke-virtual {p1, p2, v0}, Landroidx/fragment/app/FragmentManager;->popBackStack(II)V
+    invoke-virtual {p2, v1, v0, p1}, Landroidx/fragment/app/FragmentManager;->popBackStack(IIZ)V
 
     const/4 p1, -0x1
 
@@ -899,6 +899,22 @@
 
     invoke-virtual {v0}, Landroid/app/Dialog;->show()V
 
+    iget-object v0, p0, Landroidx/fragment/app/DialogFragment;->mDialog:Landroid/app/Dialog;
+
+    invoke-virtual {v0}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/view/Window;->getDecorView()Landroid/view/View;
+
+    move-result-object v0
+
+    invoke-static {v0, p0}, Landroidx/lifecycle/ViewTreeLifecycleOwner;->set(Landroid/view/View;Landroidx/lifecycle/LifecycleOwner;)V
+
+    invoke-static {v0, p0}, Landroidx/lifecycle/ViewTreeViewModelStoreOwner;->set(Landroid/view/View;Landroidx/lifecycle/ViewModelStoreOwner;)V
+
+    invoke-static {v0, p0}, Landroidx/savedstate/ViewTreeSavedStateRegistryOwner;->set(Landroid/view/View;Landroidx/savedstate/SavedStateRegistryOwner;)V
+
     :cond_0
     return-void
 .end method
@@ -1025,6 +1041,14 @@
     invoke-virtual {p0, p1}, Landroid/app/Dialog;->setCancelable(Z)V
 
     :cond_0
+    return-void
+.end method
+
+.method public setShowsDialog(Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Landroidx/fragment/app/DialogFragment;->mShowsDialog:Z
+
     return-void
 .end method
 

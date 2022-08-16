@@ -34,25 +34,3 @@
 
     return-void
 .end method
-
-
-# virtual methods
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/google/common/util/concurrent/Striped$6;->get()Ljava/util/concurrent/locks/ReadWriteLock;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public get()Ljava/util/concurrent/locks/ReadWriteLock;
-    .locals 0
-
-    new-instance p0, Lcom/google/common/util/concurrent/Striped$WeakSafeReadWriteLock;
-
-    invoke-direct {p0}, Lcom/google/common/util/concurrent/Striped$WeakSafeReadWriteLock;-><init>()V
-
-    return-object p0
-.end method

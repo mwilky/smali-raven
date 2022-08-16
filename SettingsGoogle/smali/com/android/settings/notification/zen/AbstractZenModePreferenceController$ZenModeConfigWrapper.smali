@@ -139,7 +139,7 @@
 
     iget-object p0, p0, Lcom/android/settings/notification/zen/AbstractZenModePreferenceController$ZenModeConfigWrapper;->mContext:Landroid/content/Context;
 
-    invoke-static {p0}, Lcom/android/settings/notification/zen/AbstractZenModePreferenceController;->access$000(Landroid/content/Context;)J
+    invoke-static {p0}, Lcom/android/settings/notification/zen/AbstractZenModePreferenceController;->-$$Nest$smgetNextAlarm(Landroid/content/Context;)J
 
     move-result-wide v2
 

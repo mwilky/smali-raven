@@ -50,7 +50,7 @@
 
     move-object v0, p1
 
-    invoke-static/range {v0 .. v5}, Lcom/android/settings/notification/zen/ZenModePeopleSettings;->access$000(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;Landroid/app/Application;Landroidx/fragment/app/Fragment;Landroidx/fragment/app/FragmentManager;Lcom/android/settings/notification/NotificationBackend;)Ljava/util/List;
+    invoke-static/range {v0 .. v5}, Lcom/android/settings/notification/zen/ZenModePeopleSettings;->-$$Nest$smbuildPreferenceControllers(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;Landroid/app/Application;Landroidx/fragment/app/Fragment;Landroidx/fragment/app/FragmentManager;Lcom/android/settings/notification/NotificationBackend;)Ljava/util/List;
 
     move-result-object p0
 

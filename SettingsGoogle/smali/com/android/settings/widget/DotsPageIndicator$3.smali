@@ -49,17 +49,17 @@
 
     move-result p1
 
-    invoke-static {v0, p1}, Lcom/android/settings/widget/DotsPageIndicator;->access$302(Lcom/android/settings/widget/DotsPageIndicator;F)F
+    invoke-static {v0, p1}, Lcom/android/settings/widget/DotsPageIndicator;->-$$Nest$fputselectedDotX(Lcom/android/settings/widget/DotsPageIndicator;F)V
 
     iget-object p1, p0, Lcom/android/settings/widget/DotsPageIndicator$3;->this$0:Lcom/android/settings/widget/DotsPageIndicator;
 
-    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator;->access$400(Lcom/android/settings/widget/DotsPageIndicator;)Lcom/android/settings/widget/DotsPageIndicator$PendingRetreatAnimator;
+    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator;->-$$Nest$fgetretreatAnimation(Lcom/android/settings/widget/DotsPageIndicator;)Lcom/android/settings/widget/DotsPageIndicator$PendingRetreatAnimator;
 
     move-result-object p1
 
     iget-object v0, p0, Lcom/android/settings/widget/DotsPageIndicator$3;->this$0:Lcom/android/settings/widget/DotsPageIndicator;
 
-    invoke-static {v0}, Lcom/android/settings/widget/DotsPageIndicator;->access$300(Lcom/android/settings/widget/DotsPageIndicator;)F
+    invoke-static {v0}, Lcom/android/settings/widget/DotsPageIndicator;->-$$Nest$fgetselectedDotX(Lcom/android/settings/widget/DotsPageIndicator;)F
 
     move-result v0
 

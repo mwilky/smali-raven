@@ -22,6 +22,22 @@
     return-void
 .end method
 
+.method static bridge synthetic -$$Nest$fputmAnimator(Lcom/google/android/settings/gestures/columbus/ColumbusEnrollingIllustration;Landroid/animation/Animator;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/google/android/settings/gestures/columbus/ColumbusEnrollingIllustration;->mAnimator:Landroid/animation/Animator;
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fputmGestureValue(Lcom/google/android/settings/gestures/columbus/ColumbusEnrollingIllustration;F)V
+    .locals 0
+
+    iput p1, p0, Lcom/google/android/settings/gestures/columbus/ColumbusEnrollingIllustration;->mGestureValue:F
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 2
 
@@ -35,7 +51,7 @@
 
     move-result-object p1
 
-    const p2, 0x7f0b00d4
+    const p2, 0x7f0b00f0
 
     invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -45,7 +61,7 @@
 
     move-result-object p2
 
-    const v0, 0x7f0a0073
+    const v0, 0x7f0a0076
 
     invoke-virtual {p2, v0}, Landroid/content/Context;->getColor(I)I
 
@@ -80,22 +96,6 @@
     iput p1, p0, Lcom/google/android/settings/gestures/columbus/ColumbusEnrollingIllustration;->mInset:I
 
     return-void
-.end method
-
-.method static synthetic access$002(Lcom/google/android/settings/gestures/columbus/ColumbusEnrollingIllustration;F)F
-    .locals 0
-
-    iput p1, p0, Lcom/google/android/settings/gestures/columbus/ColumbusEnrollingIllustration;->mGestureValue:F
-
-    return p1
-.end method
-
-.method static synthetic access$102(Lcom/google/android/settings/gestures/columbus/ColumbusEnrollingIllustration;Landroid/animation/Animator;)Landroid/animation/Animator;
-    .locals 0
-
-    iput-object p1, p0, Lcom/google/android/settings/gestures/columbus/ColumbusEnrollingIllustration;->mAnimator:Landroid/animation/Animator;
-
-    return-object p1
 .end method
 
 .method private synthetic lambda$setGestureCount$0(Landroid/animation/ValueAnimator;)V

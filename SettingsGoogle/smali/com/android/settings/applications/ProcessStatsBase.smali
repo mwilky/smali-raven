@@ -100,10 +100,10 @@
 
     :array_0
     .array-data 4
-        0x7f040cfe
-        0x7f040cff
-        0x7f040cfc
-        0x7f040cfd
+        0x7f040d79
+        0x7f040d7a
+        0x7f040d77
+        0x7f040d78
     .end array-data
 .end method
 
@@ -168,7 +168,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f040cf6
+    const p1, 0x7f040d71
 
     invoke-virtual {p0, p1}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 
@@ -402,7 +402,7 @@
 
     invoke-super {p0, p1, p2}, Landroidx/preference/PreferenceFragmentCompat;->onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
 
-    const p1, 0x7f060053
+    const p1, 0x7f060057
 
     invoke-virtual {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->setPinnedHeaderView(I)Landroid/view/View;
 
@@ -412,7 +412,7 @@
 
     iput-object p1, p0, Lcom/android/settings/applications/ProcessStatsBase;->mSpinnerHeader:Landroid/view/ViewGroup;
 
-    const p2, 0x7f0d022f
+    const p2, 0x7f0d0249
 
     invoke-virtual {p1, p2}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -422,7 +422,7 @@
 
     iput-object p1, p0, Lcom/android/settings/applications/ProcessStatsBase;->mFilterSpinner:Landroid/widget/Spinner;
 
-    new-instance p1, Lcom/android/settingslib/widget/settingsspinner/SettingsSpinnerAdapter;
+    new-instance p1, Lcom/android/settingslib/widget/SettingsSpinnerAdapter;
 
     iget-object p2, p0, Lcom/android/settings/applications/ProcessStatsBase;->mFilterSpinner:Landroid/widget/Spinner;
 
@@ -430,7 +430,7 @@
 
     move-result-object p2
 
-    invoke-direct {p1, p2}, Lcom/android/settingslib/widget/settingsspinner/SettingsSpinnerAdapter;-><init>(Landroid/content/Context;)V
+    invoke-direct {p1, p2}, Lcom/android/settingslib/widget/SettingsSpinnerAdapter;-><init>(Landroid/content/Context;)V
 
     iput-object p1, p0, Lcom/android/settings/applications/ProcessStatsBase;->mFilterAdapter:Landroid/widget/ArrayAdapter;
 

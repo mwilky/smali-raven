@@ -43,7 +43,7 @@
 
 .field public final alphaHintForProfile:I
 
-.field public final alphaMessage:I
+.field public final alphaHintOverrideForProfile:Ljava/lang/String;
 
 .field public final alphaMessageForBiometrics:I
 
@@ -59,12 +59,32 @@
 
 .field public final numericHintForProfile:I
 
-.field public final numericMessage:I
+.field public final numericHintOverrideForProfile:Ljava/lang/String;
 
 .field public final numericMessageForBiometrics:I
 
 
 # direct methods
+.method public static synthetic $r8$lambda$7cjSP4cP6ui2oTsSbnpyzQWvpY4(Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;Landroid/content/Context;)Ljava/lang/String;
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;->lambda$getHint$1(Landroid/content/Context;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static synthetic $r8$lambda$_0ZWmC7DdrwCEGHpAWhQZ0S9k9A(Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;Landroid/content/Context;)Ljava/lang/String;
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;->lambda$getHint$0(Landroid/content/Context;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method static constructor <clinit>()V
     .locals 55
 
@@ -76,37 +96,37 @@
 
     const/4 v2, 0x0
 
-    const v3, 0x7f040c06
+    const v3, 0x7f040c6d
 
-    const v4, 0x7f040c13
+    const-string v4, "Settings.SET_WORK_PROFILE_PASSWORD_HEADER"
 
-    const v5, 0x7f040c09
+    const v5, 0x7f040c7a
 
-    const v6, 0x7f040c08
+    const v6, 0x7f040c70
 
-    const v7, 0x7f040c07
+    const v7, 0x7f040c6f
 
-    const v8, 0x7f040c0e
+    const v8, 0x7f040c6e
 
-    const v9, 0x7f040c15
+    const v9, 0x7f040c75
 
-    const v10, 0x7f040c11
+    const-string v10, "Settings.SET_WORK_PROFILE_PIN_HEADER"
 
-    const v11, 0x7f040c10
+    const v11, 0x7f040c7c
 
-    const v12, 0x7f040c0f
+    const v12, 0x7f040c78
 
-    const v13, 0x7f040c04
+    const v13, 0x7f040c77
 
-    const v14, 0x7f040bed
+    const v14, 0x7f040c76
 
-    const v15, 0x7f040c05
+    const v15, 0x7f040c56
 
-    const v16, 0x7f040bed
+    const v16, 0x7f040c56
 
-    const v17, 0x7f040dd7
+    const v17, 0x7f040e54
 
-    invoke-direct/range {v0 .. v17}, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;-><init>(Ljava/lang/String;IIIIIIIIIIIIIIII)V
+    invoke-direct/range {v0 .. v17}, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;-><init>(Ljava/lang/String;IILjava/lang/String;IIIIILjava/lang/String;IIIIIII)V
 
     sput-object v18, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;->Introduction:Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;
 
@@ -118,37 +138,37 @@
 
     const/16 v21, 0x1
 
-    const v22, 0x7f040c1d
+    const v22, 0x7f040c84
 
-    const v23, 0x7f040c3e
+    const-string v23, "Settings.REENTER_WORK_PROFILE_PASSWORD_HEADER"
 
-    const v24, 0x7f040c1d
+    const v24, 0x7f040ca6
 
-    const v25, 0x7f040c1d
+    const v25, 0x7f040c84
 
-    const v26, 0x7f040c1d
+    const v26, 0x7f040c84
 
-    const v27, 0x7f040c27
+    const v27, 0x7f040c84
 
-    const v28, 0x7f040c3f
+    const v28, 0x7f040c8e
 
-    const v29, 0x7f040c27
+    const-string v29, "Settings.REENTER_WORK_PROFILE_PIN_HEADER"
 
-    const v30, 0x7f040c27
+    const v30, 0x7f040ca7
 
-    const v31, 0x7f040c27
+    const v31, 0x7f040c8e
 
-    const/16 v32, 0x0
+    const v32, 0x7f040c8e
 
-    const/16 v33, 0x0
+    const v33, 0x7f040c8e
 
     const/16 v34, 0x0
 
     const/16 v35, 0x0
 
-    const v36, 0x7f040c17
+    const v36, 0x7f040c7e
 
-    invoke-direct/range {v19 .. v36}, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;-><init>(Ljava/lang/String;IIIIIIIIIIIIIIII)V
+    invoke-direct/range {v19 .. v36}, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;-><init>(Ljava/lang/String;IILjava/lang/String;IIIIILjava/lang/String;IIIIIII)V
 
     sput-object v0, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;->NeedToConfirm:Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;
 
@@ -160,37 +180,37 @@
 
     const/16 v39, 0x2
 
-    const v40, 0x7f040c18
+    const v40, 0x7f040c7f
 
-    const v41, 0x7f040c18
+    const-string v41, "UNDEFINED"
 
-    const v42, 0x7f040c18
+    const v42, 0x7f040c7f
 
-    const v43, 0x7f040c18
+    const v43, 0x7f040c7f
 
-    const v44, 0x7f040c18
+    const v44, 0x7f040c7f
 
-    const v45, 0x7f040c19
+    const v45, 0x7f040c7f
 
-    const v46, 0x7f040c19
+    const v46, 0x7f040c80
 
-    const v47, 0x7f040c19
+    const-string v47, "UNDEFINED"
 
-    const v48, 0x7f040c19
+    const v48, 0x7f040c80
 
-    const v49, 0x7f040c19
+    const v49, 0x7f040c80
 
-    const/16 v50, 0x0
+    const v50, 0x7f040c80
 
-    const/16 v51, 0x0
+    const v51, 0x7f040c80
 
     const/16 v52, 0x0
 
     const/16 v53, 0x0
 
-    const v54, 0x7f040c17
+    const v54, 0x7f040c7e
 
-    invoke-direct/range {v37 .. v54}, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;-><init>(Ljava/lang/String;IIIIIIIIIIIIIIII)V
+    invoke-direct/range {v37 .. v54}, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;-><init>(Ljava/lang/String;IILjava/lang/String;IIIIILjava/lang/String;IIIIIII)V
 
     sput-object v1, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;->ConfirmWrong:Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;
 
@@ -215,11 +235,15 @@
     return-void
 .end method
 
-.method private constructor <init>(Ljava/lang/String;IIIIIIIIIIIIIIII)V
+.method private constructor <init>(Ljava/lang/String;IILjava/lang/String;IIIIILjava/lang/String;IIIIIII)V
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "(IIIIIIIIIIIIIII)V"
+            "(I",
+            "Ljava/lang/String;",
+            "IIIII",
+            "Ljava/lang/String;",
+            "IIIIIII)V"
         }
     .end annotation
 
@@ -231,53 +255,53 @@
 
     iput v1, v0, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;->alphaHint:I
 
-    move v1, p4
+    move-object v1, p4
 
-    iput v1, v0, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;->alphaHintForProfile:I
+    iput-object v1, v0, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;->alphaHintOverrideForProfile:Ljava/lang/String;
 
     move v1, p5
 
-    iput v1, v0, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;->alphaHintForFingerprint:I
+    iput v1, v0, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;->alphaHintForProfile:I
 
     move v1, p6
 
-    iput v1, v0, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;->alphaHintForFace:I
+    iput v1, v0, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;->alphaHintForFingerprint:I
 
     move v1, p7
 
-    iput v1, v0, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;->alphaHintForBiometrics:I
+    iput v1, v0, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;->alphaHintForFace:I
 
     move v1, p8
 
-    iput v1, v0, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;->numericHint:I
+    iput v1, v0, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;->alphaHintForBiometrics:I
 
     move v1, p9
 
-    iput v1, v0, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;->numericHintForProfile:I
+    iput v1, v0, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;->numericHint:I
 
-    move v1, p10
+    move-object v1, p10
 
-    iput v1, v0, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;->numericHintForFingerprint:I
+    iput-object v1, v0, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;->numericHintOverrideForProfile:Ljava/lang/String;
 
     move v1, p11
 
-    iput v1, v0, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;->numericHintForFace:I
+    iput v1, v0, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;->numericHintForProfile:I
 
     move v1, p12
 
-    iput v1, v0, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;->numericHintForBiometrics:I
+    iput v1, v0, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;->numericHintForFingerprint:I
 
     move v1, p13
 
-    iput v1, v0, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;->alphaMessage:I
+    iput v1, v0, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;->numericHintForFace:I
 
     move/from16 v1, p14
 
-    iput v1, v0, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;->alphaMessageForBiometrics:I
+    iput v1, v0, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;->numericHintForBiometrics:I
 
     move/from16 v1, p15
 
-    iput v1, v0, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;->numericMessage:I
+    iput v1, v0, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;->alphaMessageForBiometrics:I
 
     move/from16 v1, p16
 
@@ -288,6 +312,30 @@
     iput v1, v0, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;->buttonText:I
 
     return-void
+.end method
+
+.method private synthetic lambda$getHint$0(Landroid/content/Context;)Ljava/lang/String;
+    .locals 0
+
+    iget p0, p0, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;->alphaHintForProfile:I
+
+    invoke-virtual {p1, p0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private synthetic lambda$getHint$1(Landroid/content/Context;)Ljava/lang/String;
+    .locals 0
+
+    iget p0, p0, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;->numericHintForProfile:I
+
+    invoke-virtual {p1, p0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;
@@ -320,7 +368,7 @@
 
 
 # virtual methods
-.method public getHint(ZIZ)I
+.method public getHint(Landroid/content/Context;ZIZ)Ljava/lang/String;
     .locals 3
 
     const/4 v0, 0x3
@@ -329,74 +377,144 @@
 
     const/4 v2, 0x1
 
-    if-eqz p1, :cond_4
+    if-eqz p2, :cond_4
 
-    if-ne p2, v2, :cond_0
+    if-ne p3, v2, :cond_0
 
     iget p0, p0, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;->alphaHintForFingerprint:I
 
-    return p0
+    invoke-virtual {p1, p0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 
     :cond_0
-    if-ne p2, v1, :cond_1
+    if-ne p3, v1, :cond_1
 
     iget p0, p0, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;->alphaHintForFace:I
 
-    return p0
+    invoke-virtual {p1, p0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 
     :cond_1
-    if-ne p2, v0, :cond_2
+    if-ne p3, v0, :cond_2
 
     iget p0, p0, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;->alphaHintForBiometrics:I
 
-    return p0
+    invoke-virtual {p1, p0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 
     :cond_2
-    if-eqz p3, :cond_3
+    if-eqz p4, :cond_3
 
-    iget p0, p0, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;->alphaHintForProfile:I
+    const-class p2, Landroid/app/admin/DevicePolicyManager;
 
-    goto :goto_0
+    invoke-virtual {p1, p2}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object p2
+
+    check-cast p2, Landroid/app/admin/DevicePolicyManager;
+
+    invoke-virtual {p2}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
+
+    move-result-object p2
+
+    iget-object p3, p0, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;->alphaHintOverrideForProfile:Ljava/lang/String;
+
+    new-instance p4, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage$$ExternalSyntheticLambda0;
+
+    invoke-direct {p4, p0, p1}, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;Landroid/content/Context;)V
+
+    invoke-virtual {p2, p3, p4}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 
     :cond_3
     iget p0, p0, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;->alphaHint:I
 
-    :goto_0
-    return p0
+    invoke-virtual {p1, p0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 
     :cond_4
-    if-ne p2, v2, :cond_5
+    if-ne p3, v2, :cond_5
 
     iget p0, p0, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;->numericHintForFingerprint:I
 
-    return p0
+    invoke-virtual {p1, p0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 
     :cond_5
-    if-ne p2, v1, :cond_6
+    if-ne p3, v1, :cond_6
 
     iget p0, p0, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;->numericHintForFace:I
 
-    return p0
+    invoke-virtual {p1, p0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 
     :cond_6
-    if-ne p2, v0, :cond_7
+    if-ne p3, v0, :cond_7
 
     iget p0, p0, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;->numericHintForBiometrics:I
 
-    return p0
+    invoke-virtual {p1, p0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 
     :cond_7
-    if-eqz p3, :cond_8
+    if-eqz p4, :cond_8
 
-    iget p0, p0, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;->numericHintForProfile:I
+    const-class p2, Landroid/app/admin/DevicePolicyManager;
 
-    goto :goto_1
+    invoke-virtual {p1, p2}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object p2
+
+    check-cast p2, Landroid/app/admin/DevicePolicyManager;
+
+    invoke-virtual {p2}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
+
+    move-result-object p2
+
+    iget-object p3, p0, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;->numericHintOverrideForProfile:Ljava/lang/String;
+
+    new-instance p4, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage$$ExternalSyntheticLambda1;
+
+    invoke-direct {p4, p0, p1}, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;Landroid/content/Context;)V
+
+    invoke-virtual {p2, p3, p4}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 
     :cond_8
     iget p0, p0, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;->numericHint:I
 
-    :goto_1
-    return p0
+    invoke-virtual {p1, p0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method public getMessage(ZI)I
@@ -404,38 +522,30 @@
 
     const/4 v0, 0x1
 
-    if-eq p2, v0, :cond_1
+    if-eq p2, v0, :cond_0
 
     const/4 v0, 0x2
 
-    if-eq p2, v0, :cond_1
+    if-eq p2, v0, :cond_0
 
     const/4 v0, 0x3
 
-    if-eq p2, v0, :cond_1
+    if-eq p2, v0, :cond_0
 
-    if-eqz p1, :cond_0
+    const/4 p0, 0x0
 
-    iget p0, p0, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;->alphaMessage:I
-
-    goto :goto_0
-
-    :cond_0
-    iget p0, p0, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;->numericMessage:I
-
-    :goto_0
     return p0
 
-    :cond_1
-    if-eqz p1, :cond_2
+    :cond_0
+    if-eqz p1, :cond_1
 
     iget p0, p0, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;->alphaMessageForBiometrics:I
 
-    goto :goto_1
+    goto :goto_0
 
-    :cond_2
+    :cond_1
     iget p0, p0, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment$Stage;->numericMessageForBiometrics:I
 
-    :goto_1
+    :goto_0
     return p0
 .end method

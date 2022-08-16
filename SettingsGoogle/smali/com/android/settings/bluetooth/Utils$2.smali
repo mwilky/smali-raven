@@ -31,7 +31,7 @@
 .method public onBluetoothManagerInitialized(Landroid/content/Context;Lcom/android/settingslib/bluetooth/LocalBluetoothManager;)V
     .locals 0
 
-    invoke-static {}, Lcom/android/settings/bluetooth/Utils;->access$000()Lcom/android/settingslib/bluetooth/BluetoothUtils$ErrorListener;
+    invoke-static {}, Lcom/android/settings/bluetooth/Utils;->-$$Nest$sfgetmErrorListener()Lcom/android/settingslib/bluetooth/BluetoothUtils$ErrorListener;
 
     move-result-object p0
 

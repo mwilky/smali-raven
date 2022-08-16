@@ -36,9 +36,7 @@
 
     iget-object p0, p0, Lcom/android/settings/display/SmartAutoRotateController$2;->this$0:Lcom/android/settings/display/SmartAutoRotateController;
 
-    invoke-static {p0}, Lcom/android/settings/display/SmartAutoRotateController;->access$000(Lcom/android/settings/display/SmartAutoRotateController;)Landroidx/preference/Preference;
-
-    move-result-object v0
+    iget-object v0, p0, Lcom/android/settings/display/SmartAutoRotateController;->mPreference:Landroidx/preference/Preference;
 
     invoke-virtual {p0, v0}, Lcom/android/settings/display/SmartAutoRotateController;->updateState(Landroidx/preference/Preference;)V
 

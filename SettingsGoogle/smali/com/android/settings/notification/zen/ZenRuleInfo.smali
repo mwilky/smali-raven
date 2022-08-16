@@ -54,7 +54,9 @@
 
     if-eqz p1, :cond_14
 
-    const-class v2, Lcom/android/settings/notification/zen/ZenRuleInfo;
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v2
 
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 

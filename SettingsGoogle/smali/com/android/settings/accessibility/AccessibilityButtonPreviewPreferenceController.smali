@@ -37,6 +37,14 @@
     return-void
 .end method
 
+.method static bridge synthetic -$$Nest$mupdatePreviewPreference(Lcom/android/settings/accessibility/AccessibilityButtonPreviewPreferenceController;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/accessibility/AccessibilityButtonPreviewPreferenceController;->updatePreviewPreference()V
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;)V
     .locals 1
 
@@ -67,14 +75,6 @@
     invoke-direct {p1, p0}, Lcom/android/settings/accessibility/AccessibilityButtonPreviewPreferenceController$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/accessibility/AccessibilityButtonPreviewPreferenceController;)V
 
     iput-object p1, p0, Lcom/android/settings/accessibility/AccessibilityButtonPreviewPreferenceController;->mTouchExplorationStateChangeListener:Landroid/view/accessibility/AccessibilityManager$TouchExplorationStateChangeListener;
-
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/accessibility/AccessibilityButtonPreviewPreferenceController;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/accessibility/AccessibilityButtonPreviewPreferenceController;->updatePreviewPreference()V
 
     return-void
 .end method
@@ -158,12 +158,12 @@
 
     if-nez v0, :cond_0
 
-    const v0, 0x7f0200f2
+    const v0, 0x7f0200f1
 
     goto :goto_0
 
     :cond_0
-    const v0, 0x7f0200f1
+    const v0, 0x7f0200f0
 
     :goto_0
     iget-object v2, p0, Lcom/android/settings/accessibility/AccessibilityButtonPreviewPreferenceController;->mIllustrationPreference:Lcom/android/settingslib/widget/IllustrationPreference;
@@ -195,12 +195,12 @@
 
     if-eqz v1, :cond_2
 
-    const v1, 0x7f0200f3
+    const v1, 0x7f0200f2
 
     goto :goto_1
 
     :cond_2
-    const v1, 0x7f0200f4
+    const v1, 0x7f0200f3
 
     :goto_1
     invoke-virtual {p0, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
@@ -216,7 +216,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0200ef
+    const v1, 0x7f0200ee
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -230,14 +230,6 @@
 
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public displayPreference(Landroidx/preference/PreferenceScreen;)V
     .locals 1
 
@@ -270,15 +262,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -311,16 +294,6 @@
     .locals 0
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->hasAsyncUpdate()Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
 
     move-result p0
 

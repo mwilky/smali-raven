@@ -43,9 +43,9 @@
 
     :array_0
     .array-data 4
-        0x7f0d02b0
-        0x7f0d03f7
-        0x7f0d0215
+        0x7f0d02d2
+        0x7f0d0428
+        0x7f0d022e
     .end array-data
 .end method
 
@@ -161,7 +161,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f0600d1
+    const v2, 0x7f0600cf
 
     invoke-virtual {v0, v2, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -182,6 +182,14 @@
     invoke-virtual {p0}, Landroidx/appcompat/app/AlertDialog$Builder;->create()Landroidx/appcompat/app/AlertDialog;
 
     move-result-object p0
+
+    invoke-virtual {p0}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
+
+    move-result-object p1
+
+    const/16 v0, 0x2000
+
+    invoke-virtual {p1, v0, v0}, Landroid/view/Window;->setFlags(II)V
 
     return-object p0
 .end method
@@ -243,7 +251,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f0407dc
+    const p1, 0x7f040824
 
     invoke-virtual {p0, p1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

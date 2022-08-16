@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settings/notification/app/ChannelPanelActivity$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/view/View$OnClickListener;
@@ -27,7 +28,7 @@
 
     iget-object p0, p0, Lcom/android/settings/notification/app/ChannelPanelActivity$$ExternalSyntheticLambda1;->f$0:Lcom/android/settings/notification/app/ChannelPanelActivity;
 
-    invoke-static {p0, p1}, Lcom/android/settings/notification/app/ChannelPanelActivity;->$r8$lambda$ur5xagfcgvrD-go-Y_gZwo4IFXw(Lcom/android/settings/notification/app/ChannelPanelActivity;Landroid/view/View;)V
+    invoke-static {p0, p1}, Lcom/android/settings/notification/app/ChannelPanelActivity;->$r8$lambda$difyOLhR3622_HlpJ1e_x_dqdjI(Lcom/android/settings/notification/app/ChannelPanelActivity;Landroid/view/View;)V
 
     return-void
 .end method

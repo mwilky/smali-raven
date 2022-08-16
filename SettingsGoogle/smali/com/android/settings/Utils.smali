@@ -415,7 +415,7 @@
     move p1, v1
 
     :goto_1
-    const v3, 0x105022c
+    const v3, 0x1050234
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -526,9 +526,9 @@
 
     move-result-object v1
 
-    const/4 v2, 0x0
+    const-wide/16 v2, 0x0
 
-    invoke-interface {v1, p0, v2, p1}, Landroid/content/pm/IPackageManager;->getApplicationInfo(Ljava/lang/String;II)Landroid/content/pm/ApplicationInfo;
+    invoke-interface {v1, p0, v2, v3, p1}, Landroid/content/pm/IPackageManager;->getApplicationInfo(Ljava/lang/String;JI)Landroid/content/pm/ApplicationInfo;
 
     move-result-object p0
     :try_end_0
@@ -1004,7 +1004,7 @@
 .method public static getHomepageIconColor(Landroid/content/Context;)I
     .locals 1
 
-    const v0, 0x1010038
+    const v0, 0x1010036
 
     invoke-static {p0, v0}, Lcom/android/settingslib/Utils;->getColorAttrDefaultColor(Landroid/content/Context;I)I
 
@@ -1016,9 +1016,9 @@
 .method public static getHomepageIconColorHighlight(Landroid/content/Context;)I
     .locals 1
 
-    const v0, 0x101003a
+    const v0, 0x7f0a002e
 
-    invoke-static {p0, v0}, Lcom/android/settingslib/Utils;->getColorAttrDefaultColor(Landroid/content/Context;I)I
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getColor(I)I
 
     move-result p0
 
@@ -1112,7 +1112,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "raw_contact_id="
+    const-string/jumbo v5, "raw_contact_id="
 
     invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1229,7 +1229,7 @@
 
     move-result v2
 
-    invoke-virtual {p0}, Landroid/os/UserManager;->getUserHandle()I
+    invoke-virtual {p0}, Landroid/os/UserManager;->getProcessUserId()I
 
     move-result v3
 
@@ -2421,7 +2421,7 @@
 
     aget-object v0, v0, v1
 
-    const v1, 0x7f04065a
+    const v1, 0x7f0406b9
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2449,26 +2449,16 @@
 
     move-result p0
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_0
 
-    sget p0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v0, 0x1d
-
-    if-ge p0, v0, :cond_0
+    const/4 p0, 0x0
 
     goto :goto_0
 
     :cond_0
-    const/4 p0, 0x0
-
-    goto :goto_1
-
-    :cond_1
-    :goto_0
     const/4 p0, 0x1
 
-    :goto_1
+    :goto_0
     return p0
 .end method
 
@@ -2645,7 +2635,7 @@
 
     move-result-object p3
 
-    const v2, 0x105022c
+    const v2, 0x1050234
 
     invoke-virtual {p3, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

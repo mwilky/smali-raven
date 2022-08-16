@@ -29,7 +29,7 @@
 
     iput-object v0, p0, Lcom/android/settings/fuelgauge/batterysaver/BatterySaverScheduleSeekBarController;->mSeekBarPreference:Lcom/android/settings/widget/SeekBarPreference;
 
-    const p1, 0x7f060062
+    const p1, 0x7f0601ce
 
     invoke-virtual {v0, p1}, Landroidx/preference/Preference;->setLayoutResource(I)V
 
@@ -57,7 +57,9 @@
 
     iget-object p1, p0, Lcom/android/settings/fuelgauge/batterysaver/BatterySaverScheduleSeekBarController;->mSeekBarPreference:Lcom/android/settings/widget/SeekBarPreference;
 
-    invoke-virtual {p1, v0}, Lcom/android/settings/widget/SeekBarPreference;->setMin(I)V
+    const/4 v1, 0x2
+
+    invoke-virtual {p1, v1}, Lcom/android/settings/widget/SeekBarPreference;->setMin(I)V
 
     iget-object p1, p0, Lcom/android/settings/fuelgauge/batterysaver/BatterySaverScheduleSeekBarController;->mSeekBarPreference:Lcom/android/settings/widget/SeekBarPreference;
 
@@ -91,7 +93,7 @@
 
     aput-object p1, v0, v1
 
-    const p1, 0x7f0403a9
+    const p1, 0x7f0403e7
 
     invoke-virtual {p0, p1, v0}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -190,15 +192,17 @@
     :cond_0
     div-int/lit8 v0, v0, 0x5
 
-    const/4 v1, 0x1
+    const/4 v1, 0x2
 
     invoke-static {v0, v1}, Ljava/lang/Math;->max(II)I
 
     move-result v0
 
-    iget-object v2, p0, Lcom/android/settings/fuelgauge/batterysaver/BatterySaverScheduleSeekBarController;->mSeekBarPreference:Lcom/android/settings/widget/SeekBarPreference;
+    iget-object v1, p0, Lcom/android/settings/fuelgauge/batterysaver/BatterySaverScheduleSeekBarController;->mSeekBarPreference:Lcom/android/settings/widget/SeekBarPreference;
 
-    invoke-virtual {v2, v1}, Landroidx/preference/Preference;->setVisible(Z)V
+    const/4 v2, 0x1
+
+    invoke-virtual {v1, v2}, Landroidx/preference/Preference;->setVisible(Z)V
 
     iget-object v1, p0, Lcom/android/settings/fuelgauge/batterysaver/BatterySaverScheduleSeekBarController;->mSeekBarPreference:Lcom/android/settings/widget/SeekBarPreference;
 

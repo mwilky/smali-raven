@@ -32,7 +32,7 @@
 
     move-result-object p0
 
-    const-string v0, "secure_overlay_settings"
+    const-string/jumbo v0, "secure_overlay_settings"
 
     const/4 v1, 0x0
 

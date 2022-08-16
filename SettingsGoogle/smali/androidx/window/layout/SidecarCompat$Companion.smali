@@ -33,7 +33,7 @@
 
 
 # virtual methods
-.method public final getActivityWindowToken$window_debug(Landroid/app/Activity;)Landroid/os/IBinder;
+.method public final getActivityWindowToken$window_release(Landroid/app/Activity;)Landroid/os/IBinder;
     .locals 0
     .param p1    # Landroid/app/Activity;
         .annotation build Lorg/jetbrains/annotations/Nullable;
@@ -42,34 +42,52 @@
     .annotation build Lorg/jetbrains/annotations/Nullable;
     .end annotation
 
-    const/4 p0, 0x0
+    if-eqz p1, :cond_0
 
-    if-nez p1, :cond_0
+    invoke-virtual {p1}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
+
+    move-result-object p0
+
+    if-eqz p0, :cond_0
+
+    invoke-virtual {p0}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
+
+    move-result-object p0
+
+    if-eqz p0, :cond_0
+
+    iget-object p0, p0, Landroid/view/WindowManager$LayoutParams;->token:Landroid/os/IBinder;
 
     goto :goto_0
 
     :cond_0
-    invoke-virtual {p1}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
-
-    move-result-object p1
-
-    if-nez p1, :cond_1
-
-    goto :goto_0
-
-    :cond_1
-    invoke-virtual {p1}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
-
-    move-result-object p1
-
-    if-nez p1, :cond_2
-
-    goto :goto_0
-
-    :cond_2
-    iget-object p0, p1, Landroid/view/WindowManager$LayoutParams;->token:Landroid/os/IBinder;
+    const/4 p0, 0x0
 
     :goto_0
+    return-object p0
+.end method
+
+.method public final getSidecarCompat$window_release(Landroid/content/Context;)Landroidx/window/sidecar/SidecarInterface;
+    .locals 0
+    .param p1    # Landroid/content/Context;
+        .annotation build Lorg/jetbrains/annotations/NotNull;
+        .end annotation
+    .end param
+    .annotation build Lorg/jetbrains/annotations/Nullable;
+    .end annotation
+
+    const-string p0, "context"
+
+    invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object p0
+
+    invoke-static {p0}, Landroidx/window/sidecar/SidecarProvider;->getSidecarImpl(Landroid/content/Context;)Landroidx/window/sidecar/SidecarInterface;
+
+    move-result-object p0
+
     return-object p0
 .end method
 

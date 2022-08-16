@@ -36,7 +36,7 @@
 
     iget-object p0, p0, Lcom/android/settings/accessibility/AccessibilityButtonPreviewPreferenceController$1;->this$0:Lcom/android/settings/accessibility/AccessibilityButtonPreviewPreferenceController;
 
-    invoke-static {p0}, Lcom/android/settings/accessibility/AccessibilityButtonPreviewPreferenceController;->access$000(Lcom/android/settings/accessibility/AccessibilityButtonPreviewPreferenceController;)V
+    invoke-static {p0}, Lcom/android/settings/accessibility/AccessibilityButtonPreviewPreferenceController;->-$$Nest$mupdatePreviewPreference(Lcom/android/settings/accessibility/AccessibilityButtonPreviewPreferenceController;)V
 
     return-void
 .end method

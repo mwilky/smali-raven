@@ -38,7 +38,7 @@
 
     iget-object v1, p0, Lcom/android/settings/users/OwnerInfoSettings;->mView:Landroid/view/View;
 
-    const v2, 0x7f0d040e
+    const v2, 0x7f0d043e
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -201,7 +201,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f06017e
+    const v0, 0x7f060188
 
     const/4 v1, 0x0
 
@@ -233,13 +233,13 @@
 
     move-result-object p1
 
-    const v0, 0x7f0410b1
+    const v0, 0x7f041159
 
     invoke-virtual {p1, v0, p0}, Landroidx/appcompat/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 
     move-result-object p1
 
-    const v0, 0x7f040564
+    const v0, 0x7f0405c1
 
     invoke-virtual {p1, v0, p0}, Landroidx/appcompat/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="abc_slice_duration_days">
-        <item quantity="other">%d izinsuku ezedlule</item>
-        <item quantity="one">%d izinsuku ezedlule</item>
+        <item quantity="other">%d izinsuku ezidlule</item>
+        <item quantity="one">%d izinsuku ezidlule</item>
     </plurals>
     <plurals name="abc_slice_duration_min">
         <item quantity="other">%d iminithi eledlule</item>
@@ -233,12 +233,12 @@
         <item quantity="one">%d izigaba zivaliwe</item>
     </plurals>
     <plurals name="notifications_sent_daily">
-        <item quantity="other">~%d izaziso ngosuku</item>
-        <item quantity="one">~%d izaziso ngosuku</item>
+        <item quantity="other">~%,d izaziso ngosuku</item>
+        <item quantity="one">~%,d izaziso ngosuku</item>
     </plurals>
     <plurals name="notifications_sent_weekly">
-        <item quantity="other">~%d izaziso zanjalo ngeviki</item>
-        <item quantity="one">~%d izaziso zanjalo ngeviki</item>
+        <item quantity="other">~%,d izaziso zanjalo ngeviki</item>
+        <item quantity="one">~%,d izaziso zanjalo ngeviki</item>
     </plurals>
     <plurals name="number_of_device_admins">
         <item quantity="other">%d izinhlelo zokusebenza ezisebenzayo</item>
@@ -328,22 +328,6 @@
         <item quantity="other">Themba noma susa izitifiketi</item>
         <item quantity="one">Themba noma susa izitifiketi</item>
     </plurals>
-    <plurals name="ssl_ca_cert_info_message">
-        <item quantity="other">"%s ifake iziphathimandla zesitifiketi zephrofayela yakho yokusebenza, ezingayivumela ukuthi iqaphe umsebenzi wenethiwekhi yakho yomsebenzi, ofaka ama-imeyili, izinhlelo zokusebenza, namawebhusayithi avikelekile.
-
-Ukuze uthole olunye ulwazi mayelana nalezi zitifiketi, xhumana nomqondisi wakho."</item>
-        <item quantity="one">"%s ifake iziphathimandla zesitifiketi zephrofayela yakho yokusebenza, ezingayivumela ukuthi iqaphe umsebenzi wenethiwekhi yakho yomsebenzi, ofaka ama-imeyili, izinhlelo zokusebenza, namawebhusayithi avikelekile.
-
-Ukuze uthole olunye ulwazi mayelana nalezi zitifiketi, xhumana nomqondisi wakho."</item>
-    </plurals>
-    <plurals name="ssl_ca_cert_info_message_device_owner">
-        <item quantity="other">"%sifake iziphathimandla zesitifiketi kudivayisi yakho, ezingayivumela ukuthi iqaphe umsebenzi wenethiwekhi yedivayisi yakho, ofaka ama-imeyili, izinhlelo zokusebenza, namawebhusayithi avikelekile.
-
-Ukuze uthole olunye ulwazi mayelana nalezi zitifiketi, xhumana nomqondisi wakho."</item>
-        <item quantity="one">"%sifake iziphathimandla zesitifiketi kudivayisi yakho, ezingayivumela ukuthi iqaphe umsebenzi wenethiwekhi yedivayisi yakho, ofaka ama-imeyili, izinhlelo zokusebenza, namawebhusayithi avikelekile.
-
-Ukuze uthole olunye ulwazi mayelana nalezi zitifiketi, xhumana nomqondisi wakho."</item>
-    </plurals>
     <plurals name="ssl_ca_cert_settings_button">
         <item quantity="other">Hlola izitifiketi</item>
         <item quantity="one">Hlola izitifiketi</item>
@@ -375,10 +359,6 @@ Ukuze uthole olunye ulwazi mayelana nalezi zitifiketi, xhumana nomqondisi wakho.
     <plurals name="wifi_saved_passpoint_access_points_summary">
         <item quantity="other">%d okubhaliselwe</item>
         <item quantity="one">%d okubhaliselwe</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$d amadivayisi axhunyiwe</item>
-        <item quantity="one">%1$d amadivayisi axhunyiwe</item>
     </plurals>
     <plurals name="wrong_pin_code">
         <item quantity="other">Ikhodi engalungile yephinikhodi ye-SIM, unemizamo engu-%d esele.</item>

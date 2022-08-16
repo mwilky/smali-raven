@@ -43,7 +43,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settings/fuelgauge/PowerUsageBase;Lcom/android/settings/fuelgauge/PowerUsageBase$1;)V
+.method synthetic constructor <init>(Lcom/android/settings/fuelgauge/PowerUsageBase;Lcom/android/settings/fuelgauge/PowerUsageBase$BatteryUsageStatsLoaderCallbacks-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settings/fuelgauge/PowerUsageBase$BatteryUsageStatsLoaderCallbacks;-><init>(Lcom/android/settings/fuelgauge/PowerUsageBase;)V
@@ -66,7 +66,7 @@
         }
     .end annotation
 
-    const-string p1, "refresh_type"
+    const-string/jumbo p1, "refresh_type"
 
     invoke-virtual {p2, p1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
@@ -105,6 +105,10 @@
             ")V"
         }
     .end annotation
+
+    iget-object p1, p0, Lcom/android/settings/fuelgauge/PowerUsageBase$BatteryUsageStatsLoaderCallbacks;->this$0:Lcom/android/settings/fuelgauge/PowerUsageBase;
+
+    invoke-static {p1}, Lcom/android/settings/fuelgauge/PowerUsageBase;->-$$Nest$mcloseBatteryUsageStatsIfNeeded(Lcom/android/settings/fuelgauge/PowerUsageBase;)V
 
     iget-object p1, p0, Lcom/android/settings/fuelgauge/PowerUsageBase$BatteryUsageStatsLoaderCallbacks;->this$0:Lcom/android/settings/fuelgauge/PowerUsageBase;
 

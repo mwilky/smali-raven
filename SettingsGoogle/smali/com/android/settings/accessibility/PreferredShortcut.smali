@@ -109,7 +109,9 @@
 
     if-eqz p1, :cond_3
 
-    const-class v2, Lcom/android/settings/accessibility/PreferredShortcut;
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v2
 
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 

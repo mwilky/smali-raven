@@ -82,7 +82,7 @@
 
     iget-object p0, p0, Lcom/android/settings/wifi/slice/ConnectToWifiHandler$WifiEntryConnectCallback;->mContext:Landroid/content/Context;
 
-    const p1, 0x7f041673
+    const p1, 0x7f04176a
 
     const/4 v0, 0x0
 

@@ -36,17 +36,17 @@
 
     iget-object v0, p0, Lcom/android/settings/ResetNetworkConfirm$2;->this$0:Lcom/android/settings/ResetNetworkConfirm;
 
-    invoke-static {v0}, Lcom/android/settings/ResetNetworkConfirm;->access$400(Lcom/android/settings/ResetNetworkConfirm;)Landroid/telephony/SubscriptionManager;
+    invoke-static {v0}, Lcom/android/settings/ResetNetworkConfirm;->-$$Nest$mgetSubscriptionManager(Lcom/android/settings/ResetNetworkConfirm;)Landroid/telephony/SubscriptionManager;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/settings/ResetNetworkConfirm$2;->this$0:Lcom/android/settings/ResetNetworkConfirm;
 
-    invoke-static {v1}, Lcom/android/settings/ResetNetworkConfirm;->access$000(Lcom/android/settings/ResetNetworkConfirm;)I
+    invoke-static {v1}, Lcom/android/settings/ResetNetworkConfirm;->-$$Nest$fgetmSubId(Lcom/android/settings/ResetNetworkConfirm;)I
 
     move-result v2
 
-    invoke-static {v1, v0, v2}, Lcom/android/settings/ResetNetworkConfirm;->access$600(Lcom/android/settings/ResetNetworkConfirm;Landroid/telephony/SubscriptionManager;I)Z
+    invoke-static {v1, v0, v2}, Lcom/android/settings/ResetNetworkConfirm;->-$$Nest$misSubscriptionRemainActive(Lcom/android/settings/ResetNetworkConfirm;Landroid/telephony/SubscriptionManager;I)Z
 
     move-result v1
 
@@ -65,7 +65,7 @@
 
     iget-object v2, p0, Lcom/android/settings/ResetNetworkConfirm$2;->this$0:Lcom/android/settings/ResetNetworkConfirm;
 
-    invoke-static {v2}, Lcom/android/settings/ResetNetworkConfirm;->access$000(Lcom/android/settings/ResetNetworkConfirm;)I
+    invoke-static {v2}, Lcom/android/settings/ResetNetworkConfirm;->-$$Nest$fgetmSubId(Lcom/android/settings/ResetNetworkConfirm;)I
 
     move-result v2
 
@@ -85,7 +85,7 @@
 
     iget-object v1, p0, Lcom/android/settings/ResetNetworkConfirm$2;->this$0:Lcom/android/settings/ResetNetworkConfirm;
 
-    invoke-static {v1, v0}, Lcom/android/settings/ResetNetworkConfirm;->access$500(Lcom/android/settings/ResetNetworkConfirm;Landroid/telephony/SubscriptionManager;)V
+    invoke-static {v1, v0}, Lcom/android/settings/ResetNetworkConfirm;->-$$Nest$mstopMonitorSubscriptionChange(Lcom/android/settings/ResetNetworkConfirm;Landroid/telephony/SubscriptionManager;)V
 
     iget-object p0, p0, Lcom/android/settings/ResetNetworkConfirm$2;->this$0:Lcom/android/settings/ResetNetworkConfirm;
 

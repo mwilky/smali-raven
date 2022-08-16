@@ -139,7 +139,7 @@
 .end method
 
 .method static applyMaskPenaltyRule2(Lcom/google/zxing/qrcode/encoder/ByteMatrix;)I
-    .locals 10
+    .locals 9
 
     invoke-virtual {p0}, Lcom/google/zxing/qrcode/encoder/ByteMatrix;->getArray()[[B
 
@@ -173,29 +173,25 @@
 
     aget-object v6, v0, v3
 
-    aget-byte v6, v6, v5
-
-    aget-object v7, v0, v3
+    aget-byte v7, v6, v5
 
     add-int/lit8 v8, v5, 0x1
 
-    aget-byte v7, v7, v8
+    aget-byte v6, v6, v8
 
-    if-ne v6, v7, :cond_0
+    if-ne v7, v6, :cond_0
 
-    add-int/lit8 v7, v3, 0x1
+    add-int/lit8 v6, v3, 0x1
 
-    aget-object v9, v0, v7
+    aget-object v6, v0, v6
 
-    aget-byte v5, v9, v5
+    aget-byte v5, v6, v5
 
-    if-ne v6, v5, :cond_0
+    if-ne v7, v5, :cond_0
 
-    aget-object v5, v0, v7
+    aget-byte v5, v6, v8
 
-    aget-byte v5, v5, v8
-
-    if-ne v6, v5, :cond_0
+    if-ne v7, v5, :cond_0
 
     add-int/lit8 v4, v4, 0x1
 
@@ -252,51 +248,39 @@
 
     aget-object v8, v0, v3
 
-    aget-byte v8, v8, v5
+    aget-byte v9, v8, v5
 
-    if-ne v8, v7, :cond_2
-
-    aget-object v8, v0, v3
+    if-ne v9, v7, :cond_2
 
     add-int/lit8 v9, v5, 0x1
 
-    aget-byte v8, v8, v9
+    aget-byte v9, v8, v9
 
-    if-nez v8, :cond_2
-
-    aget-object v8, v0, v3
+    if-nez v9, :cond_2
 
     add-int/lit8 v9, v5, 0x2
 
-    aget-byte v8, v8, v9
+    aget-byte v9, v8, v9
 
-    if-ne v8, v7, :cond_2
-
-    aget-object v8, v0, v3
+    if-ne v9, v7, :cond_2
 
     add-int/lit8 v9, v5, 0x3
 
-    aget-byte v8, v8, v9
+    aget-byte v9, v8, v9
 
-    if-ne v8, v7, :cond_2
-
-    aget-object v8, v0, v3
+    if-ne v9, v7, :cond_2
 
     add-int/lit8 v9, v5, 0x4
 
-    aget-byte v8, v8, v9
+    aget-byte v9, v8, v9
 
-    if-ne v8, v7, :cond_2
-
-    aget-object v8, v0, v3
+    if-ne v9, v7, :cond_2
 
     add-int/lit8 v9, v5, 0x5
 
-    aget-byte v8, v8, v9
+    aget-byte v9, v8, v9
 
-    if-nez v8, :cond_2
-
-    aget-object v8, v0, v3
+    if-nez v9, :cond_2
 
     aget-byte v6, v8, v6
 
@@ -306,31 +290,23 @@
 
     if-ge v6, v1, :cond_0
 
-    aget-object v8, v0, v3
-
     add-int/lit8 v9, v5, 0x7
 
-    aget-byte v8, v8, v9
+    aget-byte v9, v8, v9
 
-    if-nez v8, :cond_0
-
-    aget-object v8, v0, v3
+    if-nez v9, :cond_0
 
     add-int/lit8 v9, v5, 0x8
 
-    aget-byte v8, v8, v9
+    aget-byte v9, v8, v9
 
-    if-nez v8, :cond_0
-
-    aget-object v8, v0, v3
+    if-nez v9, :cond_0
 
     add-int/lit8 v9, v5, 0x9
 
-    aget-byte v8, v8, v9
+    aget-byte v9, v8, v9
 
-    if-nez v8, :cond_0
-
-    aget-object v8, v0, v3
+    if-nez v9, :cond_0
 
     aget-byte v6, v8, v6
 
@@ -341,31 +317,23 @@
 
     if-ltz v6, :cond_2
 
-    aget-object v8, v0, v3
-
     add-int/lit8 v9, v5, -0x1
 
-    aget-byte v8, v8, v9
+    aget-byte v9, v8, v9
 
-    if-nez v8, :cond_2
-
-    aget-object v8, v0, v3
+    if-nez v9, :cond_2
 
     add-int/lit8 v9, v5, -0x2
 
-    aget-byte v8, v8, v9
+    aget-byte v9, v8, v9
 
-    if-nez v8, :cond_2
-
-    aget-object v8, v0, v3
+    if-nez v9, :cond_2
 
     add-int/lit8 v9, v5, -0x3
 
-    aget-byte v8, v8, v9
+    aget-byte v9, v8, v9
 
-    if-nez v8, :cond_2
-
-    aget-object v8, v0, v3
+    if-nez v9, :cond_2
 
     aget-byte v6, v8, v6
 

@@ -56,7 +56,7 @@
 
     iget-object p0, p0, Lcom/android/settings/development/WirelessDebuggingFragment$1;->this$0:Lcom/android/settings/development/WirelessDebuggingFragment;
 
-    invoke-static {p0, p1}, Lcom/android/settings/development/WirelessDebuggingFragment;->access$000(Lcom/android/settings/development/WirelessDebuggingFragment;Ljava/util/Map;)V
+    invoke-static {p0, p1}, Lcom/android/settings/development/WirelessDebuggingFragment;->-$$Nest$mupdatePairedDevicePreferences(Lcom/android/settings/development/WirelessDebuggingFragment;Ljava/util/Map;)V
 
     goto/16 :goto_0
 
@@ -84,13 +84,13 @@
     if-ne p2, p1, :cond_6
 
     :cond_1
-    invoke-static {}, Lcom/android/settings/development/WirelessDebuggingFragment;->access$200()Lcom/android/settings/development/AdbIpAddressPreferenceController;
+    invoke-static {}, Lcom/android/settings/development/WirelessDebuggingFragment;->-$$Nest$sfgetsAdbIpAddressPreferenceController()Lcom/android/settings/development/AdbIpAddressPreferenceController;
 
     move-result-object p1
 
     iget-object p0, p0, Lcom/android/settings/development/WirelessDebuggingFragment$1;->this$0:Lcom/android/settings/development/WirelessDebuggingFragment;
 
-    invoke-static {p0}, Lcom/android/settings/development/WirelessDebuggingFragment;->access$100(Lcom/android/settings/development/WirelessDebuggingFragment;)Landroidx/preference/Preference;
+    invoke-static {p0}, Lcom/android/settings/development/WirelessDebuggingFragment;->-$$Nest$fgetmIpAddrPreference(Lcom/android/settings/development/WirelessDebuggingFragment;)Landroidx/preference/Preference;
 
     move-result-object p0
 
@@ -137,7 +137,7 @@
 
     iget-object p2, p0, Lcom/android/settings/development/WirelessDebuggingFragment$1;->this$0:Lcom/android/settings/development/WirelessDebuggingFragment;
 
-    invoke-static {p2}, Lcom/android/settings/development/WirelessDebuggingFragment;->access$300(Lcom/android/settings/development/WirelessDebuggingFragment;)Lcom/android/settings/development/AdbWirelessDialog;
+    invoke-static {p2}, Lcom/android/settings/development/WirelessDebuggingFragment;->-$$Nest$fgetmPairingCodeDialog(Lcom/android/settings/development/WirelessDebuggingFragment;)Lcom/android/settings/development/AdbWirelessDialog;
 
     move-result-object p2
 
@@ -145,7 +145,7 @@
 
     iget-object p0, p0, Lcom/android/settings/development/WirelessDebuggingFragment$1;->this$0:Lcom/android/settings/development/WirelessDebuggingFragment;
 
-    invoke-static {p0}, Lcom/android/settings/development/WirelessDebuggingFragment;->access$300(Lcom/android/settings/development/WirelessDebuggingFragment;)Lcom/android/settings/development/AdbWirelessDialog;
+    invoke-static {p0}, Lcom/android/settings/development/WirelessDebuggingFragment;->-$$Nest$fgetmPairingCodeDialog(Lcom/android/settings/development/WirelessDebuggingFragment;)Lcom/android/settings/development/AdbWirelessDialog;
 
     move-result-object p0
 
@@ -174,11 +174,11 @@
 
     iget-object p2, p0, Lcom/android/settings/development/WirelessDebuggingFragment$1;->this$0:Lcom/android/settings/development/WirelessDebuggingFragment;
 
-    invoke-static {p2, p1}, Lcom/android/settings/development/WirelessDebuggingFragment;->access$400(Lcom/android/settings/development/WirelessDebuggingFragment;I)V
+    invoke-static {p2, p1}, Lcom/android/settings/development/WirelessDebuggingFragment;->access$000(Lcom/android/settings/development/WirelessDebuggingFragment;I)V
 
     iget-object p0, p0, Lcom/android/settings/development/WirelessDebuggingFragment$1;->this$0:Lcom/android/settings/development/WirelessDebuggingFragment;
 
-    invoke-static {p0, v3}, Lcom/android/settings/development/WirelessDebuggingFragment;->access$302(Lcom/android/settings/development/WirelessDebuggingFragment;Lcom/android/settings/development/AdbWirelessDialog;)Lcom/android/settings/development/AdbWirelessDialog;
+    invoke-static {p0, v3}, Lcom/android/settings/development/WirelessDebuggingFragment;->-$$Nest$fputmPairingCodeDialog(Lcom/android/settings/development/WirelessDebuggingFragment;Lcom/android/settings/development/AdbWirelessDialog;)V
 
     goto :goto_0
 
@@ -195,17 +195,17 @@
 
     iget-object p2, p0, Lcom/android/settings/development/WirelessDebuggingFragment$1;->this$0:Lcom/android/settings/development/WirelessDebuggingFragment;
 
-    invoke-static {p2, p1}, Lcom/android/settings/development/WirelessDebuggingFragment;->access$500(Lcom/android/settings/development/WirelessDebuggingFragment;I)V
+    invoke-static {p2, p1}, Lcom/android/settings/development/WirelessDebuggingFragment;->access$100(Lcom/android/settings/development/WirelessDebuggingFragment;I)V
 
     iget-object p1, p0, Lcom/android/settings/development/WirelessDebuggingFragment$1;->this$0:Lcom/android/settings/development/WirelessDebuggingFragment;
 
-    invoke-static {p1, v3}, Lcom/android/settings/development/WirelessDebuggingFragment;->access$302(Lcom/android/settings/development/WirelessDebuggingFragment;Lcom/android/settings/development/AdbWirelessDialog;)Lcom/android/settings/development/AdbWirelessDialog;
+    invoke-static {p1, v3}, Lcom/android/settings/development/WirelessDebuggingFragment;->-$$Nest$fputmPairingCodeDialog(Lcom/android/settings/development/WirelessDebuggingFragment;Lcom/android/settings/development/AdbWirelessDialog;)V
 
     iget-object p0, p0, Lcom/android/settings/development/WirelessDebuggingFragment$1;->this$0:Lcom/android/settings/development/WirelessDebuggingFragment;
 
     const/4 p1, 0x2
 
-    invoke-static {p0, p1}, Lcom/android/settings/development/WirelessDebuggingFragment;->access$600(Lcom/android/settings/development/WirelessDebuggingFragment;I)V
+    invoke-static {p0, p1}, Lcom/android/settings/development/WirelessDebuggingFragment;->access$200(Lcom/android/settings/development/WirelessDebuggingFragment;I)V
 
     goto :goto_0
 
@@ -248,7 +248,7 @@
 
     invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-static {}, Lcom/android/settings/development/WirelessDebuggingFragment;->access$200()Lcom/android/settings/development/AdbIpAddressPreferenceController;
+    invoke-static {}, Lcom/android/settings/development/WirelessDebuggingFragment;->-$$Nest$sfgetsAdbIpAddressPreferenceController()Lcom/android/settings/development/AdbIpAddressPreferenceController;
 
     move-result-object v0
 
@@ -270,7 +270,7 @@
 
     iget-object p2, p0, Lcom/android/settings/development/WirelessDebuggingFragment$1;->this$0:Lcom/android/settings/development/WirelessDebuggingFragment;
 
-    invoke-static {p2}, Lcom/android/settings/development/WirelessDebuggingFragment;->access$300(Lcom/android/settings/development/WirelessDebuggingFragment;)Lcom/android/settings/development/AdbWirelessDialog;
+    invoke-static {p2}, Lcom/android/settings/development/WirelessDebuggingFragment;->-$$Nest$fgetmPairingCodeDialog(Lcom/android/settings/development/WirelessDebuggingFragment;)Lcom/android/settings/development/AdbWirelessDialog;
 
     move-result-object p2
 
@@ -278,7 +278,7 @@
 
     iget-object p0, p0, Lcom/android/settings/development/WirelessDebuggingFragment$1;->this$0:Lcom/android/settings/development/WirelessDebuggingFragment;
 
-    invoke-static {p0}, Lcom/android/settings/development/WirelessDebuggingFragment;->access$300(Lcom/android/settings/development/WirelessDebuggingFragment;)Lcom/android/settings/development/AdbWirelessDialog;
+    invoke-static {p0}, Lcom/android/settings/development/WirelessDebuggingFragment;->-$$Nest$fgetmPairingCodeDialog(Lcom/android/settings/development/WirelessDebuggingFragment;)Lcom/android/settings/development/AdbWirelessDialog;
 
     move-result-object p0
 

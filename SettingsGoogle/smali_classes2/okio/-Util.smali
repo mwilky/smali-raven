@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\n-Util.kt\nKotlin\n*S Kotlin\n*F\n+ 1 -Util.kt\nokio/-Util\n*L\n1#1,164:1\n68#1:165\n74#1:166\n*E\n*S KotlinDebug\n*F\n+ 1 -Util.kt\nokio/-Util\n*L\n106#1:165\n107#1:166\n*E\n"
+    value = "SMAP\n-Util.kt\nKotlin\n*S Kotlin\n*F\n+ 1 -Util.kt\nokio/-Util\n*L\n1#1,164:1\n68#1:165\n74#1:166\n*S KotlinDebug\n*F\n+ 1 -Util.kt\nokio/-Util\n*L\n106#1:165\n107#1:166\n*E\n"
 .end annotation
 
 
@@ -29,13 +29,13 @@
 
     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    if-lez p4, :cond_2
-
     const/4 v0, 0x0
 
     move v1, v0
 
     :goto_0
+    if-ge v1, p4, :cond_1
+
     add-int/lit8 v2, v1, 0x1
 
     add-int v3, v1, p1
@@ -51,17 +51,11 @@
     return v0
 
     :cond_0
-    if-lt v2, p4, :cond_1
-
-    goto :goto_1
-
-    :cond_1
     move v1, v2
 
     goto :goto_0
 
-    :cond_2
-    :goto_1
+    :cond_1
     const/4 p0, 0x1
 
     return p0

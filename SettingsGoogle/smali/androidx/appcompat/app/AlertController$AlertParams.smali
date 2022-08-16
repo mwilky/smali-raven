@@ -13,12 +13,6 @@
     name = "AlertParams"
 .end annotation
 
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Landroidx/appcompat/app/AlertController$AlertParams$OnPrepareListViewListener;
-    }
-.end annotation
-
 
 # instance fields
 .field public mAdapter:Landroid/widget/ListAdapter;
@@ -78,8 +72,6 @@
 .field public mOnItemSelectedListener:Landroid/widget/AdapterView$OnItemSelectedListener;
 
 .field public mOnKeyListener:Landroid/content/DialogInterface$OnKeyListener;
-
-.field public mOnPrepareListViewListener:Landroidx/appcompat/app/AlertController$AlertParams$OnPrepareListViewListener;
 
 .field public mPositiveButtonIcon:Landroid/graphics/drawable/Drawable;
 
@@ -275,13 +267,6 @@
     invoke-direct {v9, v1, v4, v2, v3}, Landroidx/appcompat/app/AlertController$CheckedItemAdapter;-><init>(Landroid/content/Context;II[Ljava/lang/CharSequence;)V
 
     :goto_1
-    iget-object v1, p0, Landroidx/appcompat/app/AlertController$AlertParams;->mOnPrepareListViewListener:Landroidx/appcompat/app/AlertController$AlertParams$OnPrepareListViewListener;
-
-    if-eqz v1, :cond_5
-
-    invoke-interface {v1, v0}, Landroidx/appcompat/app/AlertController$AlertParams$OnPrepareListViewListener;->onPrepareListView(Landroid/widget/ListView;)V
-
-    :cond_5
     iput-object v9, p1, Landroidx/appcompat/app/AlertController;->mAdapter:Landroid/widget/ListAdapter;
 
     iget v1, p0, Landroidx/appcompat/app/AlertController$AlertParams;->mCheckedItem:I
@@ -290,7 +275,7 @@
 
     iget-object v1, p0, Landroidx/appcompat/app/AlertController$AlertParams;->mOnClickListener:Landroid/content/DialogInterface$OnClickListener;
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_5
 
     new-instance v1, Landroidx/appcompat/app/AlertController$AlertParams$3;
 
@@ -300,10 +285,10 @@
 
     goto :goto_2
 
-    :cond_6
+    :cond_5
     iget-object v1, p0, Landroidx/appcompat/app/AlertController$AlertParams;->mOnCheckboxClickListener:Landroid/content/DialogInterface$OnMultiChoiceClickListener;
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_6
 
     new-instance v1, Landroidx/appcompat/app/AlertController$AlertParams$4;
 
@@ -311,33 +296,33 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
 
-    :cond_7
+    :cond_6
     :goto_2
     iget-object v1, p0, Landroidx/appcompat/app/AlertController$AlertParams;->mOnItemSelectedListener:Landroid/widget/AdapterView$OnItemSelectedListener;
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_7
 
     invoke-virtual {v0, v1}, Landroid/widget/ListView;->setOnItemSelectedListener(Landroid/widget/AdapterView$OnItemSelectedListener;)V
 
-    :cond_8
+    :cond_7
     iget-boolean v1, p0, Landroidx/appcompat/app/AlertController$AlertParams;->mIsSingleChoice:Z
 
-    if-eqz v1, :cond_9
+    if-eqz v1, :cond_8
 
     invoke-virtual {v0, v8}, Landroid/widget/ListView;->setChoiceMode(I)V
 
     goto :goto_3
 
-    :cond_9
+    :cond_8
     iget-boolean p0, p0, Landroidx/appcompat/app/AlertController$AlertParams;->mIsMultiChoice:Z
 
-    if-eqz p0, :cond_a
+    if-eqz p0, :cond_9
 
     const/4 p0, 0x2
 
     invoke-virtual {v0, p0}, Landroid/widget/ListView;->setChoiceMode(I)V
 
-    :cond_a
+    :cond_9
     :goto_3
     iput-object v0, p1, Landroidx/appcompat/app/AlertController;->mListView:Landroid/widget/ListView;
 

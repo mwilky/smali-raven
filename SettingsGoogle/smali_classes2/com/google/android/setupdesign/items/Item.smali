@@ -158,6 +158,28 @@
     return-void
 .end method
 
+.method private hasSummary(Ljava/lang/CharSequence;)Z
+    .locals 0
+
+    if-eqz p1, :cond_0
+
+    invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
+
+    move-result p0
+
+    if-lez p0, :cond_0
+
+    const/4 p0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    :goto_0
+    return p0
+.end method
+
 
 # virtual methods
 .method public getContentDescription()Ljava/lang/CharSequence;
@@ -273,26 +295,24 @@
 
     move-result-object v1
 
-    const/4 v2, 0x0
+    invoke-direct {p0, v1}, Lcom/google/android/setupdesign/items/Item;->hasSummary(Ljava/lang/CharSequence;)Z
 
-    const/16 v3, 0x8
+    move-result v2
 
-    if-eqz v1, :cond_0
+    const/4 v3, 0x0
 
-    invoke-interface {v1}, Ljava/lang/CharSequence;->length()I
+    const/16 v4, 0x8
 
-    move-result v4
-
-    if-lez v4, :cond_0
+    if-eqz v2, :cond_0
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v0, v3}, Landroid/widget/TextView;->setVisibility(I)V
 
     goto :goto_0
 
     :cond_0
-    invoke-virtual {v0, v3}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v0, v4}, Landroid/widget/TextView;->setVisibility(I)V
 
     :goto_0
     invoke-virtual {p0}, Lcom/google/android/setupdesign/items/Item;->getContentDescription()Ljava/lang/CharSequence;
@@ -313,55 +333,55 @@
 
     if-eqz v1, :cond_3
 
-    sget v3, Lcom/google/android/setupdesign/R$id;->sud_items_icon:I
+    sget v2, Lcom/google/android/setupdesign/R$id;->sud_items_icon:I
 
-    invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v3
+    move-result-object v2
 
-    check-cast v3, Landroid/widget/ImageView;
+    check-cast v2, Landroid/widget/ImageView;
 
     const/4 v4, 0x0
 
-    invoke-virtual {v3, v4}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {v2, v4}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    invoke-virtual {p0, v3, v1}, Lcom/google/android/setupdesign/items/Item;->onMergeIconStateAndLevels(Landroid/widget/ImageView;Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {p0, v2, v1}, Lcom/google/android/setupdesign/items/Item;->onMergeIconStateAndLevels(Landroid/widget/ImageView;Landroid/graphics/drawable/Drawable;)V
 
-    invoke-virtual {v3, v1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {v2, v1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
     iget v1, p0, Lcom/google/android/setupdesign/items/Item;->iconTint:I
 
     if-eqz v1, :cond_1
 
-    invoke-virtual {v3, v1}, Landroid/widget/ImageView;->setColorFilter(I)V
+    invoke-virtual {v2, v1}, Landroid/widget/ImageView;->setColorFilter(I)V
 
     goto :goto_1
 
     :cond_1
-    invoke-virtual {v3}, Landroid/widget/ImageView;->clearColorFilter()V
+    invoke-virtual {v2}, Landroid/widget/ImageView;->clearColorFilter()V
 
     :goto_1
     invoke-virtual {v0}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v1
 
-    instance-of v3, v1, Landroid/widget/LinearLayout$LayoutParams;
+    instance-of v2, v1, Landroid/widget/LinearLayout$LayoutParams;
 
-    if-eqz v3, :cond_2
+    if-eqz v2, :cond_2
 
     check-cast v1, Landroid/widget/LinearLayout$LayoutParams;
 
-    iget v3, p0, Lcom/google/android/setupdesign/items/Item;->iconGravity:I
+    iget v2, p0, Lcom/google/android/setupdesign/items/Item;->iconGravity:I
 
-    iput v3, v1, Landroid/widget/LinearLayout$LayoutParams;->gravity:I
+    iput v2, v1, Landroid/widget/LinearLayout$LayoutParams;->gravity:I
 
     :cond_2
-    invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v0, v3}, Landroid/view/View;->setVisibility(I)V
 
     goto :goto_2
 
     :cond_3
-    invoke-virtual {v0, v3}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v0, v4}, Landroid/view/View;->setVisibility(I)V
 
     :goto_2
     invoke-virtual {p0}, Lcom/google/android/setupdesign/items/Item;->getViewId()I

@@ -1142,8 +1142,6 @@
 
     add-int/2addr v2, v8
 
-    aget v8, v9, v0
-
     add-int/2addr v3, v8
 
     add-int/lit8 v0, v0, -0x1
@@ -1167,8 +1165,6 @@
     aget v12, v10, v0
 
     add-int/2addr v8, v12
-
-    aget v12, v10, v0
 
     add-int/2addr v11, v12
 

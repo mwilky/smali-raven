@@ -45,7 +45,7 @@
 
     iget-object p0, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment$1;->this$0:Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;
 
-    invoke-static {p0}, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->access$300(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;)V
+    invoke-static {p0}, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->-$$Nest$mcloseCamera(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;)V
 
     return-void
 .end method
@@ -57,7 +57,7 @@
 
     iget-object p0, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment$1;->this$0:Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;
 
-    invoke-static {p0}, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->access$000(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;)Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationBase$AnimationListener;
+    invoke-static {p0}, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->-$$Nest$fgetmClientAnimationListener(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;)Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationBase$AnimationListener;
 
     move-result-object p0
 
@@ -71,7 +71,7 @@
 
     iget-object v0, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment$1;->this$0:Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;
 
-    invoke-static {v0}, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->access$000(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;)Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationBase$AnimationListener;
+    invoke-static {v0}, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->-$$Nest$fgetmClientAnimationListener(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;)Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationBase$AnimationListener;
 
     move-result-object v0
 
@@ -79,7 +79,7 @@
 
     iget-object v0, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment$1;->this$0:Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;
 
-    invoke-static {v0}, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->access$100(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;)Z
+    invoke-static {v0}, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->-$$Nest$fgetmShouldManagePreview(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;)Z
 
     move-result v0
 
@@ -87,7 +87,7 @@
 
     iget-object v0, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment$1;->this$0:Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;
 
-    invoke-static {v0}, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->access$200(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;)Landroid/os/Handler;
+    invoke-static {v0}, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->-$$Nest$fgetmHandler(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;)Landroid/os/Handler;
 
     move-result-object v0
 
@@ -106,7 +106,7 @@
 
     iget-object p0, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment$1;->this$0:Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;
 
-    invoke-static {p0}, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->access$000(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;)Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationBase$AnimationListener;
+    invoke-static {p0}, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->-$$Nest$fgetmClientAnimationListener(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;)Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationBase$AnimationListener;
 
     move-result-object p0
 
@@ -120,7 +120,7 @@
 
     iget-object p0, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment$1;->this$0:Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;
 
-    invoke-static {p0}, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->access$000(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;)Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationBase$AnimationListener;
+    invoke-static {p0}, Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;->-$$Nest$fgetmClientAnimationListener(Lcom/google/android/settings/biometrics/face/FaceEnrollPreviewFragment;)Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationBase$AnimationListener;
 
     move-result-object p0
 

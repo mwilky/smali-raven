@@ -87,7 +87,7 @@
 
     sput-wide v0, Lcom/android/settings/datausage/DataUsageSummaryPreference;->WARNING_AGE:J
 
-    const-string v0, "sans-serif-medium"
+    const-string/jumbo v0, "sans-serif-medium"
 
     const/4 v1, 0x0
 
@@ -113,7 +113,7 @@
 
     iput-wide p1, p0, Lcom/android/settings/datausage/DataUsageSummaryPreference;->CYCLE_TIME_UNINITIAL_VALUE:J
 
-    const p1, 0x7f0600bb
+    const p1, 0x7f0600b8
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setLayoutResource(I)V
 
@@ -245,11 +245,13 @@
 
     invoke-direct {v0, v1}, Landroid/os/Bundle;-><init>(I)V
 
-    sget-object v2, Landroid/net/NetworkTemplate;->WIFI_NETWORKID_ALL:Ljava/lang/String;
+    new-instance v2, Landroid/net/NetworkTemplate$Builder;
 
-    const/4 v3, 0x0
+    const/4 v3, 0x4
 
-    invoke-static {v2, v3}, Landroid/net/NetworkTemplate;->buildTemplateWifi(Ljava/lang/String;Ljava/lang/String;)Landroid/net/NetworkTemplate;
+    invoke-direct {v2, v3}, Landroid/net/NetworkTemplate$Builder;-><init>(I)V
+
+    invoke-virtual {v2}, Landroid/net/NetworkTemplate$Builder;->build()Landroid/net/NetworkTemplate;
 
     move-result-object v2
 
@@ -285,7 +287,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f041618
+    const v0, 0x7f041711
 
     invoke-virtual {p0, v0}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 
@@ -345,12 +347,12 @@
 
     if-eqz v2, :cond_0
 
-    const v2, 0x7f040584
+    const v2, 0x7f0405e1
 
     goto :goto_1
 
     :cond_0
-    const v2, 0x7f040e18
+    const v2, 0x7f040ea7
 
     goto :goto_1
 
@@ -359,12 +361,12 @@
 
     if-eqz v1, :cond_2
 
-    const v1, 0x7f040585
+    const v1, 0x7f0405e2
 
     goto :goto_0
 
     :cond_2
-    const v1, 0x7f040e19
+    const v1, 0x7f040ea8
 
     :goto_0
     move v2, v1
@@ -480,7 +482,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f040405
+    const v0, 0x7f040443
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -505,7 +507,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f040404
+    const v0, 0x7f040442
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -580,7 +582,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b03f1
+    const v4, 0x7f0b04ec
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -604,7 +606,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f04077e
+    const v4, 0x7f0407c3
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -666,7 +668,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f04071a
+    const v7, 0x7f04075f
 
     invoke-virtual {v6, v7}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -709,7 +711,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f040719
+    const v7, 0x7f04075e
 
     invoke-virtual {v6, v7}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -766,7 +768,7 @@
 .method protected getCarrierInfo(Landroidx/preference/PreferenceViewHolder;)Landroid/widget/TextView;
     .locals 0
 
-    const p0, 0x7f0d013d
+    const p0, 0x7f0d014e
 
     invoke-virtual {p1, p0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -780,7 +782,7 @@
 .method protected getCycleTime(Landroidx/preference/PreferenceViewHolder;)Landroid/widget/TextView;
     .locals 0
 
-    const p0, 0x7f0d019c
+    const p0, 0x7f0d01b1
 
     invoke-virtual {p1, p0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -794,7 +796,7 @@
 .method protected getDataLimits(Landroidx/preference/PreferenceViewHolder;)Landroid/widget/TextView;
     .locals 0
 
-    const p0, 0x7f0d019f
+    const p0, 0x7f0d01b4
 
     invoke-virtual {p1, p0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -808,7 +810,7 @@
 .method protected getDataRemaining(Landroidx/preference/PreferenceViewHolder;)Landroid/widget/TextView;
     .locals 0
 
-    const p0, 0x7f0d01a2
+    const p0, 0x7f0d01b7
 
     invoke-virtual {p1, p0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -822,7 +824,7 @@
 .method protected getDataUsed(Landroidx/preference/PreferenceViewHolder;)Landroid/widget/TextView;
     .locals 0
 
-    const p0, 0x7f0d01a6
+    const p0, 0x7f0d01bb
 
     invoke-virtual {p1, p0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -844,11 +846,13 @@
 
     invoke-direct {v0, p0}, Lcom/android/settingslib/net/DataUsageController;-><init>(Landroid/content/Context;)V
 
-    sget-object p0, Landroid/net/NetworkTemplate;->WIFI_NETWORKID_ALL:Ljava/lang/String;
+    new-instance p0, Landroid/net/NetworkTemplate$Builder;
 
-    const/4 v1, 0x0
+    const/4 v1, 0x4
 
-    invoke-static {p0, v1}, Landroid/net/NetworkTemplate;->buildTemplateWifi(Ljava/lang/String;Ljava/lang/String;)Landroid/net/NetworkTemplate;
+    invoke-direct {p0, v1}, Landroid/net/NetworkTemplate$Builder;-><init>(I)V
+
+    invoke-virtual {p0}, Landroid/net/NetworkTemplate$Builder;->build()Landroid/net/NetworkTemplate;
 
     move-result-object p0
 
@@ -890,7 +894,7 @@
 .method protected getLabelBar(Landroidx/preference/PreferenceViewHolder;)Landroid/widget/LinearLayout;
     .locals 0
 
-    const p0, 0x7f0d0315
+    const p0, 0x7f0d033e
 
     invoke-virtual {p1, p0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -904,7 +908,7 @@
 .method protected getLaunchButton(Landroidx/preference/PreferenceViewHolder;)Landroid/widget/Button;
     .locals 0
 
-    const p0, 0x7f0d0323
+    const p0, 0x7f0d034d
 
     invoke-virtual {p1, p0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -918,7 +922,7 @@
 .method protected getLayout(Landroidx/preference/PreferenceViewHolder;)Lcom/android/settings/datausage/MeasurableLinearLayout;
     .locals 0
 
-    const p0, 0x7f0d060a
+    const p0, 0x7f0d064c
 
     invoke-virtual {p1, p0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -932,7 +936,7 @@
 .method protected getProgressBar(Landroidx/preference/PreferenceViewHolder;)Landroid/widget/ProgressBar;
     .locals 0
 
-    const p0, 0x7f0d01be
+    const p0, 0x7f0d01d4
 
     invoke-virtual {p1, p0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -946,7 +950,7 @@
 .method protected getUsageTitle(Landroidx/preference/PreferenceViewHolder;)Landroid/widget/TextView;
     .locals 0
 
-    const p0, 0x7f0d060d
+    const p0, 0x7f0d064f
 
     invoke-virtual {p1, p0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -1093,7 +1097,7 @@
     :cond_3
     if-eqz v6, :cond_5
 
-    const v6, 0x7f04077c
+    const v6, 0x7f0407c1
 
     invoke-virtual {v0, v6}, Landroid/widget/TextView;->setText(I)V
 
@@ -1133,7 +1137,7 @@
     invoke-virtual {v4, v2}, Landroid/widget/Button;->setEnabled(Z)V
 
     :goto_1
-    const p0, 0x7f040b67
+    const p0, 0x7f040bd0
 
     invoke-virtual {v4, p0}, Landroid/widget/Button;->setText(I)V
 

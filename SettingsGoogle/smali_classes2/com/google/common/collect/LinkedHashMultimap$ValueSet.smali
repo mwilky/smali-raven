@@ -426,8 +426,6 @@
 
 .method public remove(Ljava/lang/Object;)Z
     .locals 6
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
 
     invoke-static {p1}, Lcom/google/common/collect/Hashing;->smearedHash(Ljava/lang/Object;)I
 

@@ -122,21 +122,25 @@
     return-object v0
 .end method
 
-.method public static builder()Lcom/google/common/collect/ImmutableList$Builder;
+.method public static builderWithExpectedSize(I)Lcom/google/common/collect/ImmutableList$Builder;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
             "Ljava/lang/Object;",
-            ">()",
+            ">(I)",
             "Lcom/google/common/collect/ImmutableList$Builder<",
             "TE;>;"
         }
     .end annotation
 
+    const-string v0, "expectedSize"
+
+    invoke-static {p0, v0}, Lcom/google/common/collect/CollectPreconditions;->checkNonnegative(ILjava/lang/String;)I
+
     new-instance v0, Lcom/google/common/collect/ImmutableList$Builder;
 
-    invoke-direct {v0}, Lcom/google/common/collect/ImmutableList$Builder;-><init>()V
+    invoke-direct {v0, p0}, Lcom/google/common/collect/ImmutableList$Builder;-><init>(I)V
 
     return-object v0
 .end method
@@ -404,6 +408,37 @@
     return-object p0
 .end method
 
+.method public static of(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableList;
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<E:",
+            "Ljava/lang/Object;",
+            ">(TE;TE;)",
+            "Lcom/google/common/collect/ImmutableList<",
+            "TE;>;"
+        }
+    .end annotation
+
+    const/4 v0, 0x2
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    const/4 v1, 0x0
+
+    aput-object p0, v0, v1
+
+    const/4 p0, 0x1
+
+    aput-object p1, v0, p0
+
+    invoke-static {v0}, Lcom/google/common/collect/ImmutableList;->construct([Ljava/lang/Object;)Lcom/google/common/collect/ImmutableList;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method private readObject(Ljava/io/ObjectInputStream;)V
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
@@ -443,9 +478,6 @@
 
 .method public final addAll(ILjava/util/Collection;)Z
     .locals 0
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -472,6 +504,9 @@
             "Lcom/google/common/collect/ImmutableList<",
             "TE;>;"
         }
+    .end annotation
+
+    .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
     return-object p0
@@ -713,9 +748,6 @@
 
 .method public final remove(I)Ljava/lang/Object;
     .locals 0
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)TE;"
@@ -765,9 +797,6 @@
 
 .method public final set(ILjava/lang/Object;)Ljava/lang/Object;
     .locals 0
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(ITE;)TE;"

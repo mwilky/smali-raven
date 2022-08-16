@@ -80,6 +80,78 @@
     return-void
 .end method
 
+.method static bridge synthetic -$$Nest$fgetmBucketListener(Lcom/google/android/settings/biometrics/face/anim/curve/CellState;)Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationMultiAngleDrawable$BucketListener;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/settings/biometrics/face/anim/curve/CellState;->mBucketListener:Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationMultiAngleDrawable$BucketListener;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmHandler(Lcom/google/android/settings/biometrics/face/anim/curve/CellState;)Landroid/os/Handler;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/settings/biometrics/face/anim/curve/CellState;->mHandler:Landroid/os/Handler;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmIndex(Lcom/google/android/settings/biometrics/face/anim/curve/CellState;)I
+    .locals 0
+
+    iget p0, p0, Lcom/google/android/settings/biometrics/face/anim/curve/CellState;->mIndex:I
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmNoActivityAnimator(Lcom/google/android/settings/biometrics/face/anim/curve/CellState;)Landroid/animation/ValueAnimator;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/settings/biometrics/face/anim/curve/CellState;->mNoActivityAnimator:Landroid/animation/ValueAnimator;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmNoActivityPulseShouldRepeat(Lcom/google/android/settings/biometrics/face/anim/curve/CellState;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/google/android/settings/biometrics/face/anim/curve/CellState;->mNoActivityPulseShouldRepeat:Z
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmScrimAnimationState(Lcom/google/android/settings/biometrics/face/anim/curve/CellState;)I
+    .locals 0
+
+    iget p0, p0, Lcom/google/android/settings/biometrics/face/anim/curve/CellState;->mScrimAnimationState:I
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmCursorState(Lcom/google/android/settings/biometrics/face/anim/curve/CellState;I)V
+    .locals 0
+
+    iput p1, p0, Lcom/google/android/settings/biometrics/face/anim/curve/CellState;->mCursorState:I
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fputmScrimAnimationState(Lcom/google/android/settings/biometrics/face/anim/curve/CellState;I)V
+    .locals 0
+
+    iput p1, p0, Lcom/google/android/settings/biometrics/face/anim/curve/CellState;->mScrimAnimationState:I
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mhandleFadeCursor(Lcom/google/android/settings/biometrics/face/anim/curve/CellState;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/google/android/settings/biometrics/face/anim/curve/CellState;->handleFadeCursor()V
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;ILcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationMultiAngleDrawable$BucketListener;I)V
     .locals 4
 
@@ -101,7 +173,7 @@
 
     iput p4, p0, Lcom/google/android/settings/biometrics/face/anim/curve/CellState;->mScrimColorNotEnrolled:I
 
-    const p2, 0x7f0a00b2
+    const p2, 0x7f0a00b4
 
     invoke-virtual {p1, p2}, Landroid/content/Context;->getColor(I)I
 
@@ -109,7 +181,7 @@
 
     iput p2, p0, Lcom/google/android/settings/biometrics/face/anim/curve/CellState;->mScrimColorEnrolled:I
 
-    const p2, 0x7f0a00b9
+    const p2, 0x7f0a00bb
 
     invoke-virtual {p1, p2}, Landroid/content/Context;->getColor(I)I
 
@@ -117,7 +189,7 @@
 
     iput p2, p0, Lcom/google/android/settings/biometrics/face/anim/curve/CellState;->mCursorColorAcquired:I
 
-    const p2, 0x7f0a00ba
+    const p2, 0x7f0a00bc
 
     invoke-virtual {p1, p2}, Landroid/content/Context;->getColor(I)I
 
@@ -125,7 +197,7 @@
 
     iput p2, p0, Lcom/google/android/settings/biometrics/face/anim/curve/CellState;->mCursorColorGone:I
 
-    const p3, 0x7f0a00b4
+    const p3, 0x7f0a00b6
 
     invoke-virtual {p1, p3}, Landroid/content/Context;->getColor(I)I
 
@@ -133,7 +205,7 @@
 
     iput p3, p0, Lcom/google/android/settings/biometrics/face/anim/curve/CellState;->mScrimColorNoActivityStart:I
 
-    const p4, 0x7f0a00b3
+    const p4, 0x7f0a00b5
 
     invoke-virtual {p1, p4}, Landroid/content/Context;->getColor(I)I
 
@@ -207,7 +279,7 @@
     goto :goto_1
 
     :cond_2
-    const p4, 0x7f0a00bb
+    const p4, 0x7f0a00bd
 
     invoke-virtual {p1, p4}, Landroid/content/Context;->getColor(I)I
 
@@ -283,78 +355,6 @@
     iput-object p1, p0, Lcom/google/android/settings/biometrics/face/anim/curve/CellState;->mNoActivityAnimatorListener:Landroid/animation/ValueAnimator$AnimatorUpdateListener;
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/google/android/settings/biometrics/face/anim/curve/CellState;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/google/android/settings/biometrics/face/anim/curve/CellState;->handleFadeCursor()V
-
-    return-void
-.end method
-
-.method static synthetic access$100(Lcom/google/android/settings/biometrics/face/anim/curve/CellState;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/google/android/settings/biometrics/face/anim/curve/CellState;->mNoActivityPulseShouldRepeat:Z
-
-    return p0
-.end method
-
-.method static synthetic access$200(Lcom/google/android/settings/biometrics/face/anim/curve/CellState;)Landroid/animation/ValueAnimator;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/settings/biometrics/face/anim/curve/CellState;->mNoActivityAnimator:Landroid/animation/ValueAnimator;
-
-    return-object p0
-.end method
-
-.method static synthetic access$300(Lcom/google/android/settings/biometrics/face/anim/curve/CellState;)Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationMultiAngleDrawable$BucketListener;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/settings/biometrics/face/anim/curve/CellState;->mBucketListener:Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationMultiAngleDrawable$BucketListener;
-
-    return-object p0
-.end method
-
-.method static synthetic access$402(Lcom/google/android/settings/biometrics/face/anim/curve/CellState;I)I
-    .locals 0
-
-    iput p1, p0, Lcom/google/android/settings/biometrics/face/anim/curve/CellState;->mCursorState:I
-
-    return p1
-.end method
-
-.method static synthetic access$500(Lcom/google/android/settings/biometrics/face/anim/curve/CellState;)I
-    .locals 0
-
-    iget p0, p0, Lcom/google/android/settings/biometrics/face/anim/curve/CellState;->mScrimAnimationState:I
-
-    return p0
-.end method
-
-.method static synthetic access$502(Lcom/google/android/settings/biometrics/face/anim/curve/CellState;I)I
-    .locals 0
-
-    iput p1, p0, Lcom/google/android/settings/biometrics/face/anim/curve/CellState;->mScrimAnimationState:I
-
-    return p1
-.end method
-
-.method static synthetic access$600(Lcom/google/android/settings/biometrics/face/anim/curve/CellState;)I
-    .locals 0
-
-    iget p0, p0, Lcom/google/android/settings/biometrics/face/anim/curve/CellState;->mIndex:I
-
-    return p0
-.end method
-
-.method static synthetic access$700(Lcom/google/android/settings/biometrics/face/anim/curve/CellState;)Landroid/os/Handler;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/settings/biometrics/face/anim/curve/CellState;->mHandler:Landroid/os/Handler;
-
-    return-object p0
 .end method
 
 .method private animateScrimColor(IJI)V

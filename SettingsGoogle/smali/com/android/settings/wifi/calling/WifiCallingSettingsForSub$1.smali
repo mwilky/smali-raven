@@ -45,7 +45,7 @@
     :cond_0
     iget-object p0, p0, Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub$1;->this$0:Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub;
 
-    invoke-static {p0}, Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub;->access$300(Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub;)V
+    invoke-static {p0}, Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub;->-$$Nest$mupdateBody(Lcom/android/settings/wifi/calling/WifiCallingSettingsForSub;)V
 
     :cond_1
     return-void

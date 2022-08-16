@@ -228,7 +228,7 @@
 
     move-result v2
 
-    const v6, 0x7f040d53
+    const v6, 0x7f040dcf
 
     if-eqz v2, :cond_4
 
@@ -244,7 +244,7 @@
 
     if-eqz v2, :cond_3
 
-    const v1, 0x7f040d54
+    const v1, 0x7f040dd0
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -289,7 +289,7 @@
 
     if-nez v1, :cond_6
 
-    const v1, 0x7f040d3a
+    const v1, 0x7f040db6
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -300,7 +300,7 @@
     goto :goto_0
 
     :cond_6
-    const v1, 0x7f040d29
+    const v1, 0x7f040da5
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -415,7 +415,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f09003c
+    const v1, 0x7f09003d
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 

@@ -65,11 +65,11 @@
     move v1, v3
 
     :cond_0
-    invoke-static {p1, v1}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->access$002(Lcom/android/settings/wifi/p2p/WifiP2pSettings;Z)Z
+    invoke-static {p1, v1}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->-$$Nest$fputmWifiP2pEnabled(Lcom/android/settings/wifi/p2p/WifiP2pSettings;Z)V
 
     iget-object p0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings$1;->this$0:Lcom/android/settings/wifi/p2p/WifiP2pSettings;
 
-    invoke-static {p0}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->access$100(Lcom/android/settings/wifi/p2p/WifiP2pSettings;)V
+    invoke-static {p0}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->-$$Nest$mhandleP2pStateChanged(Lcom/android/settings/wifi/p2p/WifiP2pSettings;)V
 
     goto/16 :goto_1
 
@@ -92,11 +92,11 @@
 
     check-cast p2, Landroid/net/wifi/p2p/WifiP2pDeviceList;
 
-    invoke-static {p1, p2}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->access$202(Lcom/android/settings/wifi/p2p/WifiP2pSettings;Landroid/net/wifi/p2p/WifiP2pDeviceList;)Landroid/net/wifi/p2p/WifiP2pDeviceList;
+    invoke-static {p1, p2}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->-$$Nest$fputmPeers(Lcom/android/settings/wifi/p2p/WifiP2pSettings;Landroid/net/wifi/p2p/WifiP2pDeviceList;)V
 
     iget-object p0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings$1;->this$0:Lcom/android/settings/wifi/p2p/WifiP2pSettings;
 
-    invoke-static {p0}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->access$300(Lcom/android/settings/wifi/p2p/WifiP2pSettings;)V
+    invoke-static {p0}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->-$$Nest$mhandlePeersChanged(Lcom/android/settings/wifi/p2p/WifiP2pSettings;)V
 
     goto/16 :goto_1
 
@@ -149,7 +149,7 @@
 
     if-eq v0, v3, :cond_5
 
-    invoke-static {p1}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->access$400(Lcom/android/settings/wifi/p2p/WifiP2pSettings;)V
+    invoke-static {p1}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->-$$Nest$mstartSearch(Lcom/android/settings/wifi/p2p/WifiP2pSettings;)V
 
     :cond_5
     :goto_0
@@ -159,7 +159,7 @@
 
     iput-boolean p1, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mLastGroupFormed:Z
 
-    invoke-static {p0, v3}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->access$502(Lcom/android/settings/wifi/p2p/WifiP2pSettings;Z)Z
+    invoke-static {p0, v3}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->-$$Nest$fputmIsIgnoreInitConnectionInfoCallback(Lcom/android/settings/wifi/p2p/WifiP2pSettings;Z)V
 
     goto :goto_1
 
@@ -205,14 +205,14 @@
 
     iget-object p0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings$1;->this$0:Lcom/android/settings/wifi/p2p/WifiP2pSettings;
 
-    invoke-static {p0, v3}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->access$600(Lcom/android/settings/wifi/p2p/WifiP2pSettings;Z)V
+    invoke-static {p0, v3}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->-$$Nest$mupdateSearchMenu(Lcom/android/settings/wifi/p2p/WifiP2pSettings;Z)V
 
     goto :goto_1
 
     :cond_8
     iget-object p0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings$1;->this$0:Lcom/android/settings/wifi/p2p/WifiP2pSettings;
 
-    invoke-static {p0, v1}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->access$600(Lcom/android/settings/wifi/p2p/WifiP2pSettings;Z)V
+    invoke-static {p0, v1}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->-$$Nest$mupdateSearchMenu(Lcom/android/settings/wifi/p2p/WifiP2pSettings;Z)V
 
     goto :goto_1
 

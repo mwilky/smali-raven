@@ -58,7 +58,7 @@
     goto :goto_0
 
     :cond_0
-    invoke-static {p0}, Lcom/google/android/settings/fuelgauge/reversecharging/ReverseChargingBasePreferenceController;->access$000(Lcom/google/android/settings/fuelgauge/reversecharging/ReverseChargingBasePreferenceController;)V
+    invoke-static {p0}, Lcom/google/android/settings/fuelgauge/reversecharging/ReverseChargingBasePreferenceController;->-$$Nest$mnotifyChanged(Lcom/google/android/settings/fuelgauge/reversecharging/ReverseChargingBasePreferenceController;)V
 
     :goto_0
     return-void

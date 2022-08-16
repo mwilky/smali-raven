@@ -46,6 +46,10 @@
 
 .field private mDialogFactory:Landroidx/mediarouter/app/MediaRouteDialogFactory;
 
+.field mIsFixedIcon:Z
+
+.field private mLastConnectionState:I
+
 .field private mMinHeight:I
 
 .field private mMinWidth:I
@@ -100,14 +104,6 @@
 
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "context"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -118,16 +114,6 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "attrs"
-        }
-    .end annotation
 
     sget v0, Landroidx/mediarouter/R$attr;->mediaRouteButtonStyle:I
 
@@ -138,18 +124,6 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 9
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "attrs",
-            "defStyleAttr"
-        }
-    .end annotation
 
     invoke-static {p1}, Landroidx/mediarouter/app/MediaRouterThemeHelper;->createThemedButtonContext(Landroid/content/Context;)Landroid/content/Context;
 
@@ -228,15 +202,43 @@
 
     iput-object p2, p0, Landroidx/mediarouter/app/MediaRouteButton;->mRouter:Landroidx/mediarouter/media/MediaRouter;
 
-    new-instance p2, Landroidx/mediarouter/app/MediaRouteButton$MediaRouterCallback;
+    new-instance p3, Landroidx/mediarouter/app/MediaRouteButton$MediaRouterCallback;
 
-    invoke-direct {p2, p0}, Landroidx/mediarouter/app/MediaRouteButton$MediaRouterCallback;-><init>(Landroidx/mediarouter/app/MediaRouteButton;)V
+    invoke-direct {p3, p0}, Landroidx/mediarouter/app/MediaRouteButton$MediaRouterCallback;-><init>(Landroidx/mediarouter/app/MediaRouteButton;)V
 
-    iput-object p2, p0, Landroidx/mediarouter/app/MediaRouteButton;->mCallback:Landroidx/mediarouter/app/MediaRouteButton$MediaRouterCallback;
+    iput-object p3, p0, Landroidx/mediarouter/app/MediaRouteButton;->mCallback:Landroidx/mediarouter/app/MediaRouteButton$MediaRouterCallback;
+
+    invoke-virtual {p2}, Landroidx/mediarouter/media/MediaRouter;->getSelectedRoute()Landroidx/mediarouter/media/MediaRouter$RouteInfo;
+
+    move-result-object p2
+
+    invoke-virtual {p2}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->isDefaultOrBluetooth()Z
+
+    move-result p3
+
+    const/4 v0, 0x1
+
+    xor-int/2addr p3, v0
+
+    if-eqz p3, :cond_1
+
+    invoke-virtual {p2}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->getConnectionState()I
+
+    move-result p2
+
+    goto :goto_0
+
+    :cond_1
+    move p2, p1
+
+    :goto_0
+    iput p2, p0, Landroidx/mediarouter/app/MediaRouteButton;->mConnectionState:I
+
+    iput p2, p0, Landroidx/mediarouter/app/MediaRouteButton;->mLastConnectionState:I
 
     sget-object p2, Landroidx/mediarouter/app/MediaRouteButton;->sConnectivityReceiver:Landroidx/mediarouter/app/MediaRouteButton$ConnectivityReceiver;
 
-    if-nez p2, :cond_1
+    if-nez p2, :cond_2
 
     new-instance p2, Landroidx/mediarouter/app/MediaRouteButton$ConnectivityReceiver;
 
@@ -248,7 +250,7 @@
 
     sput-object p2, Landroidx/mediarouter/app/MediaRouteButton;->sConnectivityReceiver:Landroidx/mediarouter/app/MediaRouteButton$ConnectivityReceiver;
 
-    :cond_1
+    :cond_2
     sget p2, Landroidx/mediarouter/R$styleable;->MediaRouteButton_mediaRouteButtonTint:I
 
     invoke-virtual {v8, p2}, Landroid/content/res/TypedArray;->getColorStateList(I)Landroid/content/res/ColorStateList;
@@ -291,34 +293,11 @@
 
     iget p3, p0, Landroidx/mediarouter/app/MediaRouteButton;->mRemoteIndicatorResIdToLoad:I
 
-    if-eqz p3, :cond_2
+    if-eqz p3, :cond_3
 
-    sget-object v0, Landroidx/mediarouter/app/MediaRouteButton;->sRemoteIndicatorCache:Landroid/util/SparseArray;
+    sget-object v1, Landroidx/mediarouter/app/MediaRouteButton;->sRemoteIndicatorCache:Landroid/util/SparseArray;
 
-    invoke-virtual {v0, p3}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
-
-    move-result-object p3
-
-    check-cast p3, Landroid/graphics/drawable/Drawable$ConstantState;
-
-    if-eqz p3, :cond_2
-
-    invoke-virtual {p3}, Landroid/graphics/drawable/Drawable$ConstantState;->newDrawable()Landroid/graphics/drawable/Drawable;
-
-    move-result-object p3
-
-    invoke-virtual {p0, p3}, Landroidx/mediarouter/app/MediaRouteButton;->setRemoteIndicatorDrawable(Landroid/graphics/drawable/Drawable;)V
-
-    :cond_2
-    iget-object p3, p0, Landroidx/mediarouter/app/MediaRouteButton;->mRemoteIndicator:Landroid/graphics/drawable/Drawable;
-
-    if-nez p3, :cond_5
-
-    if-eqz p2, :cond_4
-
-    sget-object p3, Landroidx/mediarouter/app/MediaRouteButton;->sRemoteIndicatorCache:Landroid/util/SparseArray;
-
-    invoke-virtual {p3, p2}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    invoke-virtual {v1, p3}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
     move-result-object p3
 
@@ -328,20 +307,43 @@
 
     invoke-virtual {p3}, Landroid/graphics/drawable/Drawable$ConstantState;->newDrawable()Landroid/graphics/drawable/Drawable;
 
+    move-result-object p3
+
+    invoke-virtual {p0, p3}, Landroidx/mediarouter/app/MediaRouteButton;->setRemoteIndicatorDrawable(Landroid/graphics/drawable/Drawable;)V
+
+    :cond_3
+    iget-object p3, p0, Landroidx/mediarouter/app/MediaRouteButton;->mRemoteIndicator:Landroid/graphics/drawable/Drawable;
+
+    if-nez p3, :cond_6
+
+    if-eqz p2, :cond_5
+
+    sget-object p3, Landroidx/mediarouter/app/MediaRouteButton;->sRemoteIndicatorCache:Landroid/util/SparseArray;
+
+    invoke-virtual {p3, p2}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+
+    move-result-object p3
+
+    check-cast p3, Landroid/graphics/drawable/Drawable$ConstantState;
+
+    if-eqz p3, :cond_4
+
+    invoke-virtual {p3}, Landroid/graphics/drawable/Drawable$ConstantState;->newDrawable()Landroid/graphics/drawable/Drawable;
+
     move-result-object p1
 
     invoke-virtual {p0, p1}, Landroidx/mediarouter/app/MediaRouteButton;->setRemoteIndicatorDrawableInternal(Landroid/graphics/drawable/Drawable;)V
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_3
+    :cond_4
     new-instance p3, Landroidx/mediarouter/app/MediaRouteButton$RemoteIndicatorLoader;
 
     invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-direct {p3, p0, p2, v0}, Landroidx/mediarouter/app/MediaRouteButton$RemoteIndicatorLoader;-><init>(Landroidx/mediarouter/app/MediaRouteButton;ILandroid/content/Context;)V
+    invoke-direct {p3, p0, p2, v1}, Landroidx/mediarouter/app/MediaRouteButton$RemoteIndicatorLoader;-><init>(Landroidx/mediarouter/app/MediaRouteButton;ILandroid/content/Context;)V
 
     iput-object p3, p0, Landroidx/mediarouter/app/MediaRouteButton;->mRemoteIndicatorLoader:Landroidx/mediarouter/app/MediaRouteButton$RemoteIndicatorLoader;
 
@@ -351,18 +353,16 @@
 
     invoke-virtual {p3, p2, p1}, Landroid/os/AsyncTask;->executeOnExecutor(Ljava/util/concurrent/Executor;[Ljava/lang/Object;)Landroid/os/AsyncTask;
 
-    goto :goto_0
-
-    :cond_4
-    invoke-direct {p0}, Landroidx/mediarouter/app/MediaRouteButton;->loadRemoteIndicatorIfNeeded()V
+    goto :goto_1
 
     :cond_5
-    :goto_0
+    invoke-direct {p0}, Landroidx/mediarouter/app/MediaRouteButton;->loadRemoteIndicatorIfNeeded()V
+
+    :cond_6
+    :goto_1
     invoke-direct {p0}, Landroidx/mediarouter/app/MediaRouteButton;->updateContentDescription()V
 
-    const/4 p1, 0x1
-
-    invoke-virtual {p0, p1}, Landroid/view/View;->setClickable(Z)V
+    invoke-virtual {p0, v0}, Landroid/view/View;->setClickable(Z)V
 
     return-void
 .end method
@@ -469,20 +469,12 @@
 
 .method private showDialogForType(I)Z
     .locals 7
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "dialogType"
-        }
-    .end annotation
 
     invoke-direct {p0}, Landroidx/mediarouter/app/MediaRouteButton;->getFragmentManager()Landroidx/fragment/app/FragmentManager;
 
     move-result-object v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_5
 
     iget-object v1, p0, Landroidx/mediarouter/app/MediaRouteButton;->mRouter:Landroidx/mediarouter/media/MediaRouter;
 
@@ -492,86 +484,33 @@
 
     invoke-virtual {v1}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->isDefaultOrBluetooth()Z
 
-    move-result v2
-
-    const/4 v3, 0x0
-
-    const-string v4, "MediaRouteButton"
-
-    const/4 v5, 0x2
-
-    const/4 v6, 0x1
-
-    if-nez v2, :cond_3
-
-    iget-object v2, p0, Landroidx/mediarouter/app/MediaRouteButton;->mSelector:Landroidx/mediarouter/media/MediaRouteSelector;
-
-    invoke-virtual {v1, v2}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->matchesSelector(Landroidx/mediarouter/media/MediaRouteSelector;)Z
-
     move-result v1
 
-    if-nez v1, :cond_0
+    const/4 v2, 0x0
 
-    goto :goto_0
+    const-string v3, "MediaRouteButton"
 
-    :cond_0
-    const-string v1, "android.support.v7.mediarouter:MediaRouteControllerDialogFragment"
+    const/4 v4, 0x2
 
-    invoke-virtual {v0, v1}, Landroidx/fragment/app/FragmentManager;->findFragmentByTag(Ljava/lang/String;)Landroidx/fragment/app/Fragment;
+    const/4 v5, 0x1
 
-    move-result-object v2
+    if-eqz v1, :cond_2
 
-    if-eqz v2, :cond_1
-
-    const-string/jumbo p0, "showDialog(): Route controller dialog already showing!"
-
-    invoke-static {v4, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    return v3
-
-    :cond_1
-    iget-object v2, p0, Landroidx/mediarouter/app/MediaRouteButton;->mDialogFactory:Landroidx/mediarouter/app/MediaRouteDialogFactory;
-
-    invoke-virtual {v2}, Landroidx/mediarouter/app/MediaRouteDialogFactory;->onCreateControllerDialogFragment()Landroidx/mediarouter/app/MediaRouteControllerDialogFragment;
-
-    move-result-object v2
-
-    iget-object p0, p0, Landroidx/mediarouter/app/MediaRouteButton;->mSelector:Landroidx/mediarouter/media/MediaRouteSelector;
-
-    invoke-virtual {v2, p0}, Landroidx/mediarouter/app/MediaRouteControllerDialogFragment;->setRouteSelector(Landroidx/mediarouter/media/MediaRouteSelector;)V
-
-    if-ne p1, v5, :cond_2
-
-    invoke-virtual {v2, v6}, Landroidx/mediarouter/app/MediaRouteControllerDialogFragment;->setUseDynamicGroup(Z)V
-
-    :cond_2
-    invoke-virtual {v0}, Landroidx/fragment/app/FragmentManager;->beginTransaction()Landroidx/fragment/app/FragmentTransaction;
-
-    move-result-object p0
-
-    invoke-virtual {p0, v2, v1}, Landroidx/fragment/app/FragmentTransaction;->add(Landroidx/fragment/app/Fragment;Ljava/lang/String;)Landroidx/fragment/app/FragmentTransaction;
-
-    invoke-virtual {p0}, Landroidx/fragment/app/FragmentTransaction;->commitAllowingStateLoss()I
-
-    goto :goto_1
-
-    :cond_3
-    :goto_0
     const-string v1, "android.support.v7.mediarouter:MediaRouteChooserDialogFragment"
 
     invoke-virtual {v0, v1}, Landroidx/fragment/app/FragmentManager;->findFragmentByTag(Ljava/lang/String;)Landroidx/fragment/app/Fragment;
 
-    move-result-object v2
+    move-result-object v6
 
-    if-eqz v2, :cond_4
+    if-eqz v6, :cond_0
 
     const-string/jumbo p0, "showDialog(): Route chooser dialog already showing!"
 
-    invoke-static {v4, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v3
+    return v2
 
-    :cond_4
+    :cond_0
     iget-object v2, p0, Landroidx/mediarouter/app/MediaRouteButton;->mDialogFactory:Landroidx/mediarouter/app/MediaRouteDialogFactory;
 
     invoke-virtual {v2}, Landroidx/mediarouter/app/MediaRouteDialogFactory;->onCreateChooserDialogFragment()Landroidx/mediarouter/app/MediaRouteChooserDialogFragment;
@@ -582,11 +521,11 @@
 
     invoke-virtual {v2, p0}, Landroidx/mediarouter/app/MediaRouteChooserDialogFragment;->setRouteSelector(Landroidx/mediarouter/media/MediaRouteSelector;)V
 
-    if-ne p1, v5, :cond_5
+    if-ne p1, v4, :cond_1
 
-    invoke-virtual {v2, v6}, Landroidx/mediarouter/app/MediaRouteChooserDialogFragment;->setUseDynamicGroup(Z)V
+    invoke-virtual {v2, v5}, Landroidx/mediarouter/app/MediaRouteChooserDialogFragment;->setUseDynamicGroup(Z)V
 
-    :cond_5
+    :cond_1
     invoke-virtual {v0}, Landroidx/fragment/app/FragmentManager;->beginTransaction()Landroidx/fragment/app/FragmentTransaction;
 
     move-result-object p0
@@ -595,10 +534,51 @@
 
     invoke-virtual {p0}, Landroidx/fragment/app/FragmentTransaction;->commitAllowingStateLoss()I
 
-    :goto_1
-    return v6
+    goto :goto_0
 
-    :cond_6
+    :cond_2
+    const-string v1, "android.support.v7.mediarouter:MediaRouteControllerDialogFragment"
+
+    invoke-virtual {v0, v1}, Landroidx/fragment/app/FragmentManager;->findFragmentByTag(Ljava/lang/String;)Landroidx/fragment/app/Fragment;
+
+    move-result-object v6
+
+    if-eqz v6, :cond_3
+
+    const-string/jumbo p0, "showDialog(): Route controller dialog already showing!"
+
+    invoke-static {v3, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v2
+
+    :cond_3
+    iget-object v2, p0, Landroidx/mediarouter/app/MediaRouteButton;->mDialogFactory:Landroidx/mediarouter/app/MediaRouteDialogFactory;
+
+    invoke-virtual {v2}, Landroidx/mediarouter/app/MediaRouteDialogFactory;->onCreateControllerDialogFragment()Landroidx/mediarouter/app/MediaRouteControllerDialogFragment;
+
+    move-result-object v2
+
+    iget-object p0, p0, Landroidx/mediarouter/app/MediaRouteButton;->mSelector:Landroidx/mediarouter/media/MediaRouteSelector;
+
+    invoke-virtual {v2, p0}, Landroidx/mediarouter/app/MediaRouteControllerDialogFragment;->setRouteSelector(Landroidx/mediarouter/media/MediaRouteSelector;)V
+
+    if-ne p1, v4, :cond_4
+
+    invoke-virtual {v2, v5}, Landroidx/mediarouter/app/MediaRouteControllerDialogFragment;->setUseDynamicGroup(Z)V
+
+    :cond_4
+    invoke-virtual {v0}, Landroidx/fragment/app/FragmentManager;->beginTransaction()Landroidx/fragment/app/FragmentTransaction;
+
+    move-result-object p0
+
+    invoke-virtual {p0, v2, v1}, Landroidx/fragment/app/FragmentTransaction;->add(Landroidx/fragment/app/Fragment;Ljava/lang/String;)Landroidx/fragment/app/FragmentTransaction;
+
+    invoke-virtual {p0}, Landroidx/fragment/app/FragmentTransaction;->commitAllowingStateLoss()I
+
+    :goto_0
+    return v5
+
+    :cond_5
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string p1, "The activity must be a subclass of FragmentActivity"
@@ -606,6 +586,229 @@
     invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw p0
+.end method
+
+.method private showOutputSwitcher()Z
+    .locals 1
+
+    invoke-static {}, Landroidx/core/os/BuildCompat;->isAtLeastS()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-direct {p0}, Landroidx/mediarouter/app/MediaRouteButton;->showOutputSwitcherForAndroidSAndAbove()Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    invoke-direct {p0}, Landroidx/mediarouter/app/MediaRouteButton;->showOutputSwitcherForAndroidR()Z
+
+    move-result v0
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :cond_1
+    :goto_0
+    return v0
+.end method
+
+.method private showOutputSwitcherForAndroidR()Z
+    .locals 4
+
+    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    new-instance v1, Landroid/content/Intent;
+
+    invoke-direct {v1}, Landroid/content/Intent;-><init>()V
+
+    const-string v2, "com.android.settings.panel.action.MEDIA_OUTPUT"
+
+    invoke-virtual {v1, v2}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
+
+    move-result-object v1
+
+    invoke-virtual {v0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    const-string v3, "com.android.settings.panel.extra.PACKAGE_NAME"
+
+    invoke-virtual {v1, v3, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    move-result-object v1
+
+    iget-object p0, p0, Landroidx/mediarouter/app/MediaRouteButton;->mRouter:Landroidx/mediarouter/media/MediaRouter;
+
+    invoke-virtual {p0}, Landroidx/mediarouter/media/MediaRouter;->getMediaSessionToken()Landroid/support/v4/media/session/MediaSessionCompat$Token;
+
+    move-result-object p0
+
+    const-string v2, "key_media_session_token"
+
+    invoke-virtual {v1, v2, p0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
+
+    move-result-object p0
+
+    invoke-virtual {v0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v1, p0, v2}, Landroid/content/pm/PackageManager;->queryIntentActivities(Landroid/content/Intent;I)Ljava/util/List;
+
+    move-result-object v1
+
+    invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    :cond_0
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_2
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/content/pm/ResolveInfo;
+
+    iget-object v3, v3, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+
+    if-eqz v3, :cond_0
+
+    iget-object v3, v3, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    if-nez v3, :cond_1
+
+    goto :goto_0
+
+    :cond_1
+    iget v3, v3, Landroid/content/pm/ApplicationInfo;->flags:I
+
+    and-int/lit16 v3, v3, 0x81
+
+    if-eqz v3, :cond_0
+
+    invoke-virtual {v0, p0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
+
+    const/4 p0, 0x1
+
+    return p0
+
+    :cond_2
+    return v2
+.end method
+
+.method private showOutputSwitcherForAndroidSAndAbove()Z
+    .locals 4
+
+    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    new-instance v1, Landroid/content/Intent;
+
+    invoke-direct {v1}, Landroid/content/Intent;-><init>()V
+
+    const-string v2, "com.android.systemui.action.LAUNCH_MEDIA_OUTPUT_DIALOG"
+
+    invoke-virtual {v1, v2}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
+
+    move-result-object v1
+
+    const-string v2, "com.android.systemui"
+
+    invoke-virtual {v1, v2}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
+
+    move-result-object v1
+
+    invoke-virtual {v0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    const-string v3, "package_name"
+
+    invoke-virtual {v1, v3, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    move-result-object v1
+
+    iget-object p0, p0, Landroidx/mediarouter/app/MediaRouteButton;->mRouter:Landroidx/mediarouter/media/MediaRouter;
+
+    invoke-virtual {p0}, Landroidx/mediarouter/media/MediaRouter;->getMediaSessionToken()Landroid/support/v4/media/session/MediaSessionCompat$Token;
+
+    move-result-object p0
+
+    const-string v2, "key_media_session_token"
+
+    invoke-virtual {v1, v2, p0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
+
+    move-result-object p0
+
+    invoke-virtual {v0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v1, p0, v2}, Landroid/content/pm/PackageManager;->queryBroadcastReceivers(Landroid/content/Intent;I)Ljava/util/List;
+
+    move-result-object v1
+
+    invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    :cond_0
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_2
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/content/pm/ResolveInfo;
+
+    iget-object v3, v3, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+
+    if-eqz v3, :cond_0
+
+    iget-object v3, v3, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    if-nez v3, :cond_1
+
+    goto :goto_0
+
+    :cond_1
+    iget v3, v3, Landroid/content/pm/ApplicationInfo;->flags:I
+
+    and-int/lit16 v3, v3, 0x81
+
+    if-eqz v3, :cond_0
+
+    invoke-virtual {v0, p0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+
+    const/4 p0, 0x1
+
+    return p0
+
+    :cond_2
+    return v2
 .end method
 
 .method private updateContentDescription()V
@@ -668,13 +871,13 @@
 
 # virtual methods
 .method protected drawableStateChanged()V
-    .locals 2
+    .locals 4
 
     invoke-super {p0}, Landroid/view/View;->drawableStateChanged()V
 
     iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteButton;->mRemoteIndicator:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_3
 
     invoke-virtual {p0}, Landroid/view/View;->getDrawableState()[I
 
@@ -684,9 +887,76 @@
 
     invoke-virtual {v1, v0}, Landroid/graphics/drawable/Drawable;->setState([I)Z
 
-    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
+    iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteButton;->mRemoteIndicator:Landroid/graphics/drawable/Drawable;
+
+    invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getCurrent()Landroid/graphics/drawable/Drawable;
+
+    move-result-object v0
+
+    instance-of v0, v0, Landroid/graphics/drawable/AnimationDrawable;
+
+    if-eqz v0, :cond_2
+
+    iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteButton;->mRemoteIndicator:Landroid/graphics/drawable/Drawable;
+
+    invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getCurrent()Landroid/graphics/drawable/Drawable;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/graphics/drawable/AnimationDrawable;
+
+    iget v1, p0, Landroidx/mediarouter/app/MediaRouteButton;->mConnectionState:I
+
+    const/4 v2, 0x1
+
+    if-eq v1, v2, :cond_1
+
+    iget v3, p0, Landroidx/mediarouter/app/MediaRouteButton;->mLastConnectionState:I
+
+    if-eq v3, v1, :cond_0
+
+    goto :goto_0
 
     :cond_0
+    const/4 v3, 0x2
+
+    if-ne v1, v3, :cond_2
+
+    invoke-virtual {v0}, Landroid/graphics/drawable/AnimationDrawable;->isRunning()Z
+
+    move-result v1
+
+    if-nez v1, :cond_2
+
+    invoke-virtual {v0}, Landroid/graphics/drawable/AnimationDrawable;->getNumberOfFrames()I
+
+    move-result v1
+
+    sub-int/2addr v1, v2
+
+    invoke-virtual {v0, v1}, Landroid/graphics/drawable/AnimationDrawable;->selectDrawable(I)Z
+
+    goto :goto_1
+
+    :cond_1
+    :goto_0
+    invoke-virtual {v0}, Landroid/graphics/drawable/AnimationDrawable;->isRunning()Z
+
+    move-result v1
+
+    if-nez v1, :cond_2
+
+    invoke-virtual {v0}, Landroid/graphics/drawable/AnimationDrawable;->start()V
+
+    :cond_2
+    :goto_1
+    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
+
+    :cond_3
+    iget v0, p0, Landroidx/mediarouter/app/MediaRouteButton;->mConnectionState:I
+
+    iput v0, p0, Landroidx/mediarouter/app/MediaRouteButton;->mLastConnectionState:I
+
     return-void
 .end method
 
@@ -767,14 +1037,6 @@
 
 .method protected onCreateDrawableState(I)[I
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "extraSpace"
-        }
-    .end annotation
 
     const/4 v0, 0x1
 
@@ -791,26 +1053,31 @@
     return-object p1
 
     :cond_0
-    invoke-virtual {v1}, Landroidx/mediarouter/media/MediaRouter;->getRouterParams()Landroidx/mediarouter/media/MediaRouterParams;
+    iget-boolean v1, p0, Landroidx/mediarouter/app/MediaRouteButton;->mIsFixedIcon:Z
 
+    if-eqz v1, :cond_1
+
+    return-object p1
+
+    :cond_1
     iget p0, p0, Landroidx/mediarouter/app/MediaRouteButton;->mConnectionState:I
 
-    if-eq p0, v0, :cond_2
+    if-eq p0, v0, :cond_3
 
     const/4 v0, 0x2
 
-    if-eq p0, v0, :cond_1
+    if-eq p0, v0, :cond_2
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     sget-object p0, Landroidx/mediarouter/app/MediaRouteButton;->CHECKED_STATE_SET:[I
 
     invoke-static {p1, p0}, Landroid/view/View;->mergeDrawableStates([I[I)[I
 
     goto :goto_0
 
-    :cond_2
+    :cond_3
     sget-object p0, Landroidx/mediarouter/app/MediaRouteButton;->CHECKABLE_STATE_SET:[I
 
     invoke-static {p1, p0}, Landroid/view/View;->mergeDrawableStates([I[I)[I
@@ -859,14 +1126,6 @@
 
 .method protected onDraw(Landroid/graphics/Canvas;)V
     .locals 6
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "canvas"
-        }
-    .end annotation
 
     invoke-super {p0, p1}, Landroid/view/View;->onDraw(Landroid/graphics/Canvas;)V
 
@@ -948,16 +1207,6 @@
 
 .method protected onMeasure(II)V
     .locals 6
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "widthMeasureSpec",
-            "heightMeasureSpec"
-        }
-    .end annotation
 
     invoke-static {p1}, Landroid/view/View$MeasureSpec;->getSize(I)I
 
@@ -1107,7 +1356,7 @@
 .end method
 
 .method refreshRoute()V
-    .locals 6
+    .locals 5
 
     iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteButton;->mRouter:Landroidx/mediarouter/media/MediaRouter;
 
@@ -1119,154 +1368,70 @@
 
     move-result v1
 
-    const/4 v2, 0x0
+    const/4 v2, 0x1
 
-    const/4 v3, 0x1
+    xor-int/2addr v1, v2
 
-    if-nez v1, :cond_0
-
-    iget-object v1, p0, Landroidx/mediarouter/app/MediaRouteButton;->mSelector:Landroidx/mediarouter/media/MediaRouteSelector;
-
-    invoke-virtual {v0, v1}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->matchesSelector(Landroidx/mediarouter/media/MediaRouteSelector;)Z
-
-    move-result v1
+    const/4 v3, 0x0
 
     if-eqz v1, :cond_0
-
-    move v1, v3
-
-    goto :goto_0
-
-    :cond_0
-    move v1, v2
-
-    :goto_0
-    if-eqz v1, :cond_1
 
     invoke-virtual {v0}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->getConnectionState()I
 
     move-result v0
 
-    goto :goto_1
+    goto :goto_0
 
-    :cond_1
-    move v0, v2
+    :cond_0
+    move v0, v3
 
-    :goto_1
-    iget v1, p0, Landroidx/mediarouter/app/MediaRouteButton;->mConnectionState:I
+    :goto_0
+    iget v4, p0, Landroidx/mediarouter/app/MediaRouteButton;->mConnectionState:I
 
-    if-eq v1, v0, :cond_2
+    if-eq v4, v0, :cond_1
 
     iput v0, p0, Landroidx/mediarouter/app/MediaRouteButton;->mConnectionState:I
-
-    move v1, v3
-
-    goto :goto_2
-
-    :cond_2
-    move v1, v2
-
-    :goto_2
-    if-eqz v1, :cond_3
 
     invoke-direct {p0}, Landroidx/mediarouter/app/MediaRouteButton;->updateContentDescription()V
 
     invoke-virtual {p0}, Landroid/view/View;->refreshDrawableState()V
 
-    :cond_3
-    if-ne v0, v3, :cond_4
+    :cond_1
+    if-ne v0, v2, :cond_2
 
     invoke-direct {p0}, Landroidx/mediarouter/app/MediaRouteButton;->loadRemoteIndicatorIfNeeded()V
 
-    :cond_4
-    iget-boolean v4, p0, Landroidx/mediarouter/app/MediaRouteButton;->mAttachedToWindow:Z
+    :cond_2
+    iget-boolean v0, p0, Landroidx/mediarouter/app/MediaRouteButton;->mAttachedToWindow:Z
 
-    if-eqz v4, :cond_7
+    if-eqz v0, :cond_5
 
-    iget-boolean v4, p0, Landroidx/mediarouter/app/MediaRouteButton;->mAlwaysVisible:Z
+    iget-boolean v0, p0, Landroidx/mediarouter/app/MediaRouteButton;->mAlwaysVisible:Z
 
-    if-nez v4, :cond_5
+    if-nez v0, :cond_4
 
-    iget-object v4, p0, Landroidx/mediarouter/app/MediaRouteButton;->mRouter:Landroidx/mediarouter/media/MediaRouter;
+    if-nez v1, :cond_4
 
-    iget-object v5, p0, Landroidx/mediarouter/app/MediaRouteButton;->mSelector:Landroidx/mediarouter/media/MediaRouteSelector;
+    iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteButton;->mRouter:Landroidx/mediarouter/media/MediaRouter;
 
-    invoke-virtual {v4, v5, v3}, Landroidx/mediarouter/media/MediaRouter;->isRouteAvailable(Landroidx/mediarouter/media/MediaRouteSelector;I)Z
+    iget-object v1, p0, Landroidx/mediarouter/app/MediaRouteButton;->mSelector:Landroidx/mediarouter/media/MediaRouteSelector;
 
-    move-result v4
+    invoke-virtual {v0, v1, v2}, Landroidx/mediarouter/media/MediaRouter;->isRouteAvailable(Landroidx/mediarouter/media/MediaRouteSelector;I)Z
 
-    if-eqz v4, :cond_6
+    move-result v0
 
-    :cond_5
+    if-eqz v0, :cond_3
+
+    goto :goto_1
+
+    :cond_3
     move v2, v3
 
-    :cond_6
+    :cond_4
+    :goto_1
     invoke-virtual {p0, v2}, Landroid/view/View;->setEnabled(Z)V
 
-    :cond_7
-    iget-object v2, p0, Landroidx/mediarouter/app/MediaRouteButton;->mRemoteIndicator:Landroid/graphics/drawable/Drawable;
-
-    if-eqz v2, :cond_b
-
-    invoke-virtual {v2}, Landroid/graphics/drawable/Drawable;->getCurrent()Landroid/graphics/drawable/Drawable;
-
-    move-result-object v2
-
-    instance-of v2, v2, Landroid/graphics/drawable/AnimationDrawable;
-
-    if-eqz v2, :cond_b
-
-    iget-object v2, p0, Landroidx/mediarouter/app/MediaRouteButton;->mRemoteIndicator:Landroid/graphics/drawable/Drawable;
-
-    invoke-virtual {v2}, Landroid/graphics/drawable/Drawable;->getCurrent()Landroid/graphics/drawable/Drawable;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/graphics/drawable/AnimationDrawable;
-
-    iget-boolean p0, p0, Landroidx/mediarouter/app/MediaRouteButton;->mAttachedToWindow:Z
-
-    if-eqz p0, :cond_9
-
-    if-nez v1, :cond_8
-
-    if-ne v0, v3, :cond_b
-
-    :cond_8
-    invoke-virtual {v2}, Landroid/graphics/drawable/AnimationDrawable;->isRunning()Z
-
-    move-result p0
-
-    if-nez p0, :cond_b
-
-    invoke-virtual {v2}, Landroid/graphics/drawable/AnimationDrawable;->start()V
-
-    goto :goto_3
-
-    :cond_9
-    const/4 p0, 0x2
-
-    if-ne v0, p0, :cond_b
-
-    invoke-virtual {v2}, Landroid/graphics/drawable/AnimationDrawable;->isRunning()Z
-
-    move-result p0
-
-    if-eqz p0, :cond_a
-
-    invoke-virtual {v2}, Landroid/graphics/drawable/AnimationDrawable;->stop()V
-
-    :cond_a
-    invoke-virtual {v2}, Landroid/graphics/drawable/AnimationDrawable;->getNumberOfFrames()I
-
-    move-result p0
-
-    sub-int/2addr p0, v3
-
-    invoke-virtual {v2, p0}, Landroid/graphics/drawable/AnimationDrawable;->selectDrawable(I)Z
-
-    :cond_b
-    :goto_3
+    :cond_5
     return-void
 .end method
 
@@ -1327,14 +1492,6 @@
 
 .method public setAlwaysVisible(Z)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "alwaysVisible"
-        }
-    .end annotation
 
     iget-boolean v0, p0, Landroidx/mediarouter/app/MediaRouteButton;->mAlwaysVisible:Z
 
@@ -1352,14 +1509,6 @@
 
 .method setCheatSheetEnabled(Z)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "enable"
-        }
-    .end annotation
 
     iget-boolean v0, p0, Landroidx/mediarouter/app/MediaRouteButton;->mCheatSheetEnabled:Z
 
@@ -1375,14 +1524,6 @@
 
 .method public setDialogFactory(Landroidx/mediarouter/app/MediaRouteDialogFactory;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "factory"
-        }
-    .end annotation
 
     if-eqz p1, :cond_0
 
@@ -1402,14 +1543,6 @@
 
 .method public setRemoteIndicatorDrawable(Landroid/graphics/drawable/Drawable;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "d"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -1422,14 +1555,6 @@
 
 .method setRemoteIndicatorDrawableInternal(Landroid/graphics/drawable/Drawable;)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "d"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteButton;->mRemoteIndicatorLoader:Landroidx/mediarouter/app/MediaRouteButton$RemoteIndicatorLoader;
 
@@ -1453,13 +1578,11 @@
     invoke-virtual {p0, v0}, Landroid/view/View;->unscheduleDrawable(Landroid/graphics/drawable/Drawable;)V
 
     :cond_1
-    const/4 v0, 0x1
-
     if-eqz p1, :cond_4
 
-    iget-object v2, p0, Landroidx/mediarouter/app/MediaRouteButton;->mButtonTint:Landroid/content/res/ColorStateList;
+    iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteButton;->mButtonTint:Landroid/content/res/ColorStateList;
 
-    if-eqz v2, :cond_2
+    if-eqz v0, :cond_2
 
     invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->mutate()Landroid/graphics/drawable/Drawable;
 
@@ -1469,115 +1592,45 @@
 
     move-result-object p1
 
-    iget-object v2, p0, Landroidx/mediarouter/app/MediaRouteButton;->mButtonTint:Landroid/content/res/ColorStateList;
+    iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteButton;->mButtonTint:Landroid/content/res/ColorStateList;
 
-    invoke-static {p1, v2}, Landroidx/core/graphics/drawable/DrawableCompat;->setTintList(Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;)V
+    invoke-static {p1, v0}, Landroidx/core/graphics/drawable/DrawableCompat;->setTintList(Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;)V
 
     :cond_2
     invoke-virtual {p1, p0}, Landroid/graphics/drawable/Drawable;->setCallback(Landroid/graphics/drawable/Drawable$Callback;)V
 
     invoke-virtual {p0}, Landroid/view/View;->getDrawableState()[I
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {p1, v2}, Landroid/graphics/drawable/Drawable;->setState([I)Z
+    invoke-virtual {p1, v0}, Landroid/graphics/drawable/Drawable;->setState([I)Z
 
     invoke-virtual {p0}, Landroid/view/View;->getVisibility()I
 
-    move-result v2
+    move-result v0
 
-    if-nez v2, :cond_3
+    if-nez v0, :cond_3
 
-    move v2, v0
+    const/4 v0, 0x1
 
     goto :goto_0
 
     :cond_3
-    move v2, v1
+    move v0, v1
 
     :goto_0
-    invoke-virtual {p1, v2, v1}, Landroid/graphics/drawable/Drawable;->setVisible(ZZ)Z
+    invoke-virtual {p1, v0, v1}, Landroid/graphics/drawable/Drawable;->setVisible(ZZ)Z
 
     :cond_4
     iput-object p1, p0, Landroidx/mediarouter/app/MediaRouteButton;->mRemoteIndicator:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {p0}, Landroid/view/View;->refreshDrawableState()V
 
-    iget-boolean p1, p0, Landroidx/mediarouter/app/MediaRouteButton;->mAttachedToWindow:Z
-
-    if-eqz p1, :cond_7
-
-    iget-object p1, p0, Landroidx/mediarouter/app/MediaRouteButton;->mRemoteIndicator:Landroid/graphics/drawable/Drawable;
-
-    if-eqz p1, :cond_7
-
-    invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->getCurrent()Landroid/graphics/drawable/Drawable;
-
-    move-result-object p1
-
-    instance-of p1, p1, Landroid/graphics/drawable/AnimationDrawable;
-
-    if-eqz p1, :cond_7
-
-    iget-object p1, p0, Landroidx/mediarouter/app/MediaRouteButton;->mRemoteIndicator:Landroid/graphics/drawable/Drawable;
-
-    invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->getCurrent()Landroid/graphics/drawable/Drawable;
-
-    move-result-object p1
-
-    check-cast p1, Landroid/graphics/drawable/AnimationDrawable;
-
-    iget p0, p0, Landroidx/mediarouter/app/MediaRouteButton;->mConnectionState:I
-
-    if-ne p0, v0, :cond_5
-
-    invoke-virtual {p1}, Landroid/graphics/drawable/AnimationDrawable;->isRunning()Z
-
-    move-result p0
-
-    if-nez p0, :cond_7
-
-    invoke-virtual {p1}, Landroid/graphics/drawable/AnimationDrawable;->start()V
-
-    goto :goto_1
-
-    :cond_5
-    const/4 v1, 0x2
-
-    if-ne p0, v1, :cond_7
-
-    invoke-virtual {p1}, Landroid/graphics/drawable/AnimationDrawable;->isRunning()Z
-
-    move-result p0
-
-    if-eqz p0, :cond_6
-
-    invoke-virtual {p1}, Landroid/graphics/drawable/AnimationDrawable;->stop()V
-
-    :cond_6
-    invoke-virtual {p1}, Landroid/graphics/drawable/AnimationDrawable;->getNumberOfFrames()I
-
-    move-result p0
-
-    sub-int/2addr p0, v0
-
-    invoke-virtual {p1, p0}, Landroid/graphics/drawable/AnimationDrawable;->selectDrawable(I)Z
-
-    :cond_7
-    :goto_1
     return-void
 .end method
 
 .method public setRouteSelector(Landroidx/mediarouter/media/MediaRouteSelector;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "selector"
-        }
-    .end annotation
 
     if-eqz p1, :cond_3
 
@@ -1631,7 +1684,7 @@
     :cond_3
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string p1, "selector must not be null"
+    const-string/jumbo p1, "selector must not be null"
 
     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
@@ -1640,14 +1693,6 @@
 
 .method public setVisibility(I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "visibility"
-        }
-    .end annotation
 
     iput p1, p0, Landroidx/mediarouter/app/MediaRouteButton;->mVisibility:I
 
@@ -1657,7 +1702,7 @@
 .end method
 
 .method public showDialog()Z
-    .locals 1
+    .locals 3
 
     iget-boolean v0, p0, Landroidx/mediarouter/app/MediaRouteButton;->mAttachedToWindow:Z
 
@@ -1672,9 +1717,45 @@
 
     invoke-virtual {v0}, Landroidx/mediarouter/media/MediaRouter;->getRouterParams()Landroidx/mediarouter/media/MediaRouterParams;
 
-    const/4 v0, 0x1
+    move-result-object v0
+
+    const/4 v1, 0x1
+
+    if-eqz v0, :cond_2
+
+    invoke-virtual {v0}, Landroidx/mediarouter/media/MediaRouterParams;->isOutputSwitcherEnabled()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    invoke-static {}, Landroidx/mediarouter/media/MediaRouter;->isMediaTransferEnabled()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    invoke-direct {p0}, Landroidx/mediarouter/app/MediaRouteButton;->showOutputSwitcher()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    return v1
+
+    :cond_1
+    invoke-virtual {v0}, Landroidx/mediarouter/media/MediaRouterParams;->getDialogType()I
+
+    move-result v0
 
     invoke-direct {p0, v0}, Landroidx/mediarouter/app/MediaRouteButton;->showDialogForType(I)Z
+
+    move-result p0
+
+    return p0
+
+    :cond_2
+    invoke-direct {p0, v1}, Landroidx/mediarouter/app/MediaRouteButton;->showDialogForType(I)Z
 
     move-result p0
 
@@ -1683,14 +1764,6 @@
 
 .method protected verifyDrawable(Landroid/graphics/drawable/Drawable;)Z
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "who"
-        }
-    .end annotation
 
     invoke-super {p0, p1}, Landroid/view/View;->verifyDrawable(Landroid/graphics/drawable/Drawable;)Z
 

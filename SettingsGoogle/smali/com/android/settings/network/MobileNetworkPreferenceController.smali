@@ -34,6 +34,14 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmPreference(Lcom/android/settings/network/MobileNetworkPreferenceController;)Landroidx/preference/Preference;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/network/MobileNetworkPreferenceController;->mPreference:Landroidx/preference/Preference;
+
+    return-object p0
+.end method
+
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 2
 
@@ -74,14 +82,6 @@
     iput-object p1, p0, Lcom/android/settings/network/MobileNetworkPreferenceController;->mAirplanModeChangedReceiver:Landroid/content/BroadcastReceiver;
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/network/MobileNetworkPreferenceController;)Landroidx/preference/Preference;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/network/MobileNetworkPreferenceController;->mPreference:Landroidx/preference/Preference;
-
-    return-object p0
 .end method
 
 
@@ -125,7 +125,7 @@
 .end method
 
 .method public handlePreferenceTreeClick(Landroidx/preference/Preference;)Z
-    .locals 2
+    .locals 1
 
     invoke-virtual {p1}, Landroidx/preference/Preference;->getKey()Ljava/lang/String;
 
@@ -141,11 +141,13 @@
 
     new-instance p1, Landroid/content/Intent;
 
-    iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+    const-string v0, "android.settings.NETWORK_OPERATOR_SETTINGS"
 
-    const-class v1, Lcom/android/settings/network/telephony/MobileNetworkActivity;
+    invoke-direct {p1, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    invoke-direct {p1, v0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+    const-string v0, "com.android.settings"
+
+    invoke-virtual {p1, v0}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 

@@ -78,6 +78,16 @@
     return-void
 .end method
 
+.method protected static emptyIntList()Lcom/google/protobuf/Internal$IntList;
+    .locals 1
+
+    invoke-static {}, Lcom/google/protobuf/IntArrayList;->emptyList()Lcom/google/protobuf/IntArrayList;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method protected static emptyProtobufList()Lcom/google/protobuf/Internal$ProtobufList;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
@@ -313,6 +323,30 @@
 
     :cond_3
     return v0
+.end method
+
+.method protected static mutableCopy(Lcom/google/protobuf/Internal$IntList;)Lcom/google/protobuf/Internal$IntList;
+    .locals 1
+
+    invoke-interface {p0}, Ljava/util/List;->size()I
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const/16 v0, 0xa
+
+    goto :goto_0
+
+    :cond_0
+    mul-int/lit8 v0, v0, 0x2
+
+    :goto_0
+    invoke-interface {p0, v0}, Lcom/google/protobuf/Internal$IntList;->mutableCopyWithCapacity(I)Lcom/google/protobuf/Internal$IntList;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method protected static mutableCopy(Lcom/google/protobuf/Internal$ProtobufList;)Lcom/google/protobuf/Internal$ProtobufList;

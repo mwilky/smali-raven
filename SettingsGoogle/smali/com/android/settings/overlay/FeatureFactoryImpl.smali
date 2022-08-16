@@ -35,11 +35,7 @@
 
 .field private mEnterprisePrivacyFeatureProvider:Lcom/android/settings/enterprise/EnterprisePrivacyFeatureProvider;
 
-.field private mExtraAppInfoFeatureProvider:Lcom/android/settings/applications/appinfo/ExtraAppInfoFeatureProvider;
-
 .field private mFaceFeatureProvider:Lcom/android/settings/biometrics/face/FaceFeatureProvider;
-
-.field private mGameSettingsFeatureProvider:Lcom/android/settings/applications/GameSettingsFeatureProvider;
 
 .field private mLocaleFeatureProvider:Lcom/android/settings/localepicker/LocaleFeatureProvider;
 
@@ -251,8 +247,8 @@
     return-object p0
 .end method
 
-.method public getBluetoothFeatureProvider(Landroid/content/Context;)Lcom/android/settings/bluetooth/BluetoothFeatureProvider;
-    .locals 1
+.method public getBluetoothFeatureProvider()Lcom/android/settings/bluetooth/BluetoothFeatureProvider;
+    .locals 2
 
     iget-object v0, p0, Lcom/android/settings/overlay/FeatureFactoryImpl;->mBluetoothFeatureProvider:Lcom/android/settings/bluetooth/BluetoothFeatureProvider;
 
@@ -260,11 +256,11 @@
 
     new-instance v0, Lcom/android/settings/bluetooth/BluetoothFeatureProviderImpl;
 
-    invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+    invoke-static {}, Lcom/android/settings/overlay/FeatureFactory;->getAppContext()Landroid/content/Context;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-direct {v0, p1}, Lcom/android/settings/bluetooth/BluetoothFeatureProviderImpl;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, v1}, Lcom/android/settings/bluetooth/BluetoothFeatureProviderImpl;-><init>(Landroid/content/Context;)V
 
     iput-object v0, p0, Lcom/android/settings/overlay/FeatureFactoryImpl;->mBluetoothFeatureProvider:Lcom/android/settings/bluetooth/BluetoothFeatureProvider;
 
@@ -406,25 +402,6 @@
     return-object p0
 .end method
 
-.method public getExtraAppInfoFeatureProvider()Lcom/android/settings/applications/appinfo/ExtraAppInfoFeatureProvider;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/settings/overlay/FeatureFactoryImpl;->mExtraAppInfoFeatureProvider:Lcom/android/settings/applications/appinfo/ExtraAppInfoFeatureProvider;
-
-    if-nez v0, :cond_0
-
-    new-instance v0, Lcom/android/settings/applications/appinfo/ExtraAppInfoFeatureProviderImpl;
-
-    invoke-direct {v0}, Lcom/android/settings/applications/appinfo/ExtraAppInfoFeatureProviderImpl;-><init>()V
-
-    iput-object v0, p0, Lcom/android/settings/overlay/FeatureFactoryImpl;->mExtraAppInfoFeatureProvider:Lcom/android/settings/applications/appinfo/ExtraAppInfoFeatureProvider;
-
-    :cond_0
-    iget-object p0, p0, Lcom/android/settings/overlay/FeatureFactoryImpl;->mExtraAppInfoFeatureProvider:Lcom/android/settings/applications/appinfo/ExtraAppInfoFeatureProvider;
-
-    return-object p0
-.end method
-
 .method public getFaceFeatureProvider()Lcom/android/settings/biometrics/face/FaceFeatureProvider;
     .locals 1
 
@@ -440,25 +417,6 @@
 
     :cond_0
     iget-object p0, p0, Lcom/android/settings/overlay/FeatureFactoryImpl;->mFaceFeatureProvider:Lcom/android/settings/biometrics/face/FaceFeatureProvider;
-
-    return-object p0
-.end method
-
-.method public getGameSettingsFeatureProvider()Lcom/android/settings/applications/GameSettingsFeatureProvider;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/settings/overlay/FeatureFactoryImpl;->mGameSettingsFeatureProvider:Lcom/android/settings/applications/GameSettingsFeatureProvider;
-
-    if-nez v0, :cond_0
-
-    new-instance v0, Lcom/android/settings/applications/GameSettingsFeatureProviderImpl;
-
-    invoke-direct {v0}, Lcom/android/settings/applications/GameSettingsFeatureProviderImpl;-><init>()V
-
-    iput-object v0, p0, Lcom/android/settings/overlay/FeatureFactoryImpl;->mGameSettingsFeatureProvider:Lcom/android/settings/applications/GameSettingsFeatureProvider;
-
-    :cond_0
-    iget-object p0, p0, Lcom/android/settings/overlay/FeatureFactoryImpl;->mGameSettingsFeatureProvider:Lcom/android/settings/applications/GameSettingsFeatureProvider;
 
     return-object p0
 .end method

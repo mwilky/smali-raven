@@ -79,31 +79,25 @@
 
 # virtual methods
 .method public applyPartnerCustomizations(Landroid/util/AttributeSet;I)V
-    .locals 4
+    .locals 3
 
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+    iget-object v0, p0, Lcom/google/android/setupcompat/template/SystemNavBarMixin;->templateLayout:Lcom/google/android/setupcompat/internal/TemplateLayout;
 
-    const/16 v1, 0x1b
+    invoke-virtual {v0}, Landroid/widget/FrameLayout;->getContext()Landroid/content/Context;
 
-    if-lt v0, v1, :cond_1
+    move-result-object v0
 
-    iget-object v1, p0, Lcom/google/android/setupcompat/template/SystemNavBarMixin;->templateLayout:Lcom/google/android/setupcompat/internal/TemplateLayout;
+    sget-object v1, Lcom/google/android/setupcompat/R$styleable;->SucSystemNavBarMixin:[I
 
-    invoke-virtual {v1}, Landroid/widget/FrameLayout;->getContext()Landroid/content/Context;
+    const/4 v2, 0x0
 
-    move-result-object v1
-
-    sget-object v2, Lcom/google/android/setupcompat/R$styleable;->SucSystemNavBarMixin:[I
-
-    const/4 v3, 0x0
-
-    invoke-virtual {v1, p1, v2, p2, v3}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
+    invoke-virtual {v0, p1, v1, p2, v2}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
 
     move-result-object p1
 
     sget p2, Lcom/google/android/setupcompat/R$styleable;->SucSystemNavBarMixin_sucSystemNavBarBackgroundColor:I
 
-    invoke-virtual {p1, p2, v3}, Landroid/content/res/TypedArray;->getColor(II)I
+    invoke-virtual {p1, p2, v2}, Landroid/content/res/TypedArray;->getColor(II)I
 
     move-result p2
 
@@ -115,17 +109,13 @@
 
     invoke-virtual {p0}, Lcom/google/android/setupcompat/template/SystemNavBarMixin;->isLightSystemNavBar()Z
 
-    move-result v1
+    move-result v0
 
-    invoke-virtual {p1, p2, v1}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
+    invoke-virtual {p1, p2, v0}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
     move-result p2
 
     invoke-virtual {p0, p2}, Lcom/google/android/setupcompat/template/SystemNavBarMixin;->setLightSystemNavBar(Z)V
-
-    const/16 p2, 0x1c
-
-    if-lt v0, p2, :cond_0
 
     const/4 p2, 0x1
 
@@ -133,7 +123,7 @@
 
     const v0, 0x101056d
 
-    aput v0, p2, v3
+    aput v0, p2, v2
 
     iget-object v0, p0, Lcom/google/android/setupcompat/template/SystemNavBarMixin;->templateLayout:Lcom/google/android/setupcompat/internal/TemplateLayout;
 
@@ -145,7 +135,7 @@
 
     move-result-object p2
 
-    invoke-virtual {p2, v3, v3}, Landroid/content/res/TypedArray;->getColor(II)I
+    invoke-virtual {p2, v2, v2}, Landroid/content/res/TypedArray;->getColor(II)I
 
     move-result v0
 
@@ -159,25 +149,17 @@
 
     invoke-virtual {p2}, Landroid/content/res/TypedArray;->recycle()V
 
-    :cond_0
     invoke-virtual {p1}, Landroid/content/res/TypedArray;->recycle()V
 
-    :cond_1
     return-void
 .end method
 
 .method public isLightSystemNavBar()Z
-    .locals 3
-
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/4 v1, 0x1
-
-    const/16 v2, 0x1a
-
-    if-lt v0, v2, :cond_1
+    .locals 2
 
     iget-object p0, p0, Lcom/google/android/setupcompat/template/SystemNavBarMixin;->windowOfActivity:Landroid/view/Window;
+
+    const/4 v0, 0x1
 
     if-eqz p0, :cond_1
 
@@ -189,30 +171,24 @@
 
     move-result p0
 
-    const/16 v0, 0x10
+    const/16 v1, 0x10
 
-    and-int/2addr p0, v0
+    and-int/2addr p0, v1
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v1, :cond_0
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     :cond_1
     :goto_0
-    return v1
+    return v0
 .end method
 
 .method public setLightSystemNavBar(Z)V
     .locals 3
-
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x1a
-
-    if-lt v0, v1, :cond_2
 
     iget-object v0, p0, Lcom/google/android/setupcompat/template/SystemNavBarMixin;->windowOfActivity:Landroid/view/Window;
 
@@ -294,12 +270,6 @@
 .method public setSystemNavBarBackground(I)V
     .locals 2
 
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    if-lt v0, v1, :cond_1
-
     iget-object v0, p0, Lcom/google/android/setupcompat/template/SystemNavBarMixin;->windowOfActivity:Landroid/view/Window;
 
     if-eqz v0, :cond_1
@@ -339,12 +309,6 @@
 
 .method public setSystemNavBarDividerColor(I)V
     .locals 3
-
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x1c
-
-    if-lt v0, v1, :cond_1
 
     iget-object v0, p0, Lcom/google/android/setupcompat/template/SystemNavBarMixin;->windowOfActivity:Landroid/view/Window;
 

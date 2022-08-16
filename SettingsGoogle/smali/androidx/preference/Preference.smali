@@ -1216,22 +1216,18 @@
 .end method
 
 .method public getPreferenceDataStore()Landroidx/preference/PreferenceDataStore;
-    .locals 0
+    .locals 1
 
     iget-object p0, p0, Landroidx/preference/Preference;->mPreferenceManager:Landroidx/preference/PreferenceManager;
+
+    const/4 v0, 0x0
 
     if-eqz p0, :cond_0
 
     invoke-virtual {p0}, Landroidx/preference/PreferenceManager;->getPreferenceDataStore()Landroidx/preference/PreferenceDataStore;
 
-    move-result-object p0
-
-    return-object p0
-
     :cond_0
-    const/4 p0, 0x0
-
-    return-object p0
+    return-object v0
 .end method
 
 .method public getPreferenceManager()Landroidx/preference/PreferenceManager;

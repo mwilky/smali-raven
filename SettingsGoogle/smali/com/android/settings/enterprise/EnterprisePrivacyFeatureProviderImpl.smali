@@ -25,8 +25,30 @@
 
 .field private final mVm:Landroid/net/VpnManager;
 
+.field private final mWorkPolicyUtils:Lcom/android/settingslib/utils/WorkPolicyUtils;
+
 
 # direct methods
+.method public static synthetic $r8$lambda$0zO8pdZQJmz7XWOlKjiO3roV7vo(Lcom/android/settings/enterprise/EnterprisePrivacyFeatureProviderImpl;)Ljava/lang/String;
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/enterprise/EnterprisePrivacyFeatureProviderImpl;->lambda$getDeviceOwnerDisclosure$1()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static synthetic $r8$lambda$ddUe4EqJWt8iA1RhU8sPQSuodjI(Lcom/android/settings/enterprise/EnterprisePrivacyFeatureProviderImpl;Ljava/lang/CharSequence;)Ljava/lang/String;
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/enterprise/EnterprisePrivacyFeatureProviderImpl;->lambda$getDeviceOwnerDisclosure$0(Ljava/lang/CharSequence;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method static constructor <clinit>()V
     .locals 1
 
@@ -61,6 +83,12 @@
     iput-object p6, p0, Lcom/android/settings/enterprise/EnterprisePrivacyFeatureProviderImpl;->mVm:Landroid/net/VpnManager;
 
     iput-object p7, p0, Lcom/android/settings/enterprise/EnterprisePrivacyFeatureProviderImpl;->mResources:Landroid/content/res/Resources;
+
+    new-instance p2, Lcom/android/settingslib/utils/WorkPolicyUtils;
+
+    invoke-direct {p2, p1}, Lcom/android/settingslib/utils/WorkPolicyUtils;-><init>(Landroid/content/Context;)V
+
+    iput-object p2, p0, Lcom/android/settings/enterprise/EnterprisePrivacyFeatureProviderImpl;->mWorkPolicyUtils:Lcom/android/settingslib/utils/WorkPolicyUtils;
 
     return-void
 .end method
@@ -215,113 +243,40 @@
     return-object v1
 .end method
 
-.method private getWorkPolicyInfoIntentDO()Landroid/content/Intent;
-    .locals 4
+.method private synthetic lambda$getDeviceOwnerDisclosure$0(Ljava/lang/CharSequence;)Ljava/lang/String;
+    .locals 2
 
-    invoke-direct {p0}, Lcom/android/settings/enterprise/EnterprisePrivacyFeatureProviderImpl;->getDeviceOwnerComponent()Landroid/content/ComponentName;
+    iget-object p0, p0, Lcom/android/settings/enterprise/EnterprisePrivacyFeatureProviderImpl;->mResources:Landroid/content/res/Resources;
 
-    move-result-object v0
+    const/4 v0, 0x1
+
+    new-array v0, v0, [Ljava/lang/Object;
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    aput-object p1, v0, v1
 
-    return-object v1
+    const p1, 0x7f040877
 
-    :cond_0
-    new-instance v2, Landroid/content/Intent;
-
-    const-string v3, "android.settings.SHOW_WORK_POLICY_INFO"
-
-    invoke-direct {v2, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v0}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {v2, v0}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
-
-    move-result-object v0
-
-    iget-object p0, p0, Lcom/android/settings/enterprise/EnterprisePrivacyFeatureProviderImpl;->mPm:Landroid/content/pm/PackageManager;
-
-    const/4 v2, 0x0
-
-    invoke-virtual {p0, v0, v2}, Landroid/content/pm/PackageManager;->queryIntentActivities(Landroid/content/Intent;I)Ljava/util/List;
+    invoke-virtual {p0, p1, v0}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object p0
 
-    invoke-interface {p0}, Ljava/util/List;->size()I
-
-    move-result p0
-
-    if-eqz p0, :cond_1
-
-    return-object v0
-
-    :cond_1
-    return-object v1
+    return-object p0
 .end method
 
-.method private getWorkPolicyInfoIntentPO()Landroid/content/Intent;
-    .locals 5
+.method private synthetic lambda$getDeviceOwnerDisclosure$1()Ljava/lang/String;
+    .locals 1
 
-    invoke-direct {p0}, Lcom/android/settings/enterprise/EnterprisePrivacyFeatureProviderImpl;->getManagedProfileUserId()I
+    iget-object p0, p0, Lcom/android/settings/enterprise/EnterprisePrivacyFeatureProviderImpl;->mResources:Landroid/content/res/Resources;
 
-    move-result v0
+    const v0, 0x7f040875
 
-    const/4 v1, 0x0
-
-    const/16 v2, -0x2710
-
-    if-ne v0, v2, :cond_0
-
-    return-object v1
-
-    :cond_0
-    iget-object v2, p0, Lcom/android/settings/enterprise/EnterprisePrivacyFeatureProviderImpl;->mDpm:Landroid/app/admin/DevicePolicyManager;
-
-    invoke-virtual {v2, v0}, Landroid/app/admin/DevicePolicyManager;->getProfileOwnerAsUser(I)Landroid/content/ComponentName;
-
-    move-result-object v2
-
-    if-nez v2, :cond_1
-
-    return-object v1
-
-    :cond_1
-    new-instance v3, Landroid/content/Intent;
-
-    const-string v4, "android.settings.SHOW_WORK_POLICY_INFO"
-
-    invoke-direct {v3, v4}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v2}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v3, v2}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
-
-    move-result-object v2
-
-    iget-object p0, p0, Lcom/android/settings/enterprise/EnterprisePrivacyFeatureProviderImpl;->mPm:Landroid/content/pm/PackageManager;
-
-    const/4 v3, 0x0
-
-    invoke-virtual {p0, v2, v3, v0}, Landroid/content/pm/PackageManager;->queryIntentActivitiesAsUser(Landroid/content/Intent;II)Ljava/util/List;
+    invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object p0
 
-    invoke-interface {p0}, Ljava/util/List;->size()I
-
-    move-result p0
-
-    if-eqz p0, :cond_2
-
-    return-object v2
-
-    :cond_2
-    return-object v1
+    return-object p0
 .end method
 
 
@@ -352,19 +307,27 @@
 
     if-eqz v1, :cond_1
 
-    iget-object p0, p0, Lcom/android/settings/enterprise/EnterprisePrivacyFeatureProviderImpl;->mResources:Landroid/content/res/Resources;
+    iget-object v2, p0, Lcom/android/settings/enterprise/EnterprisePrivacyFeatureProviderImpl;->mDpm:Landroid/app/admin/DevicePolicyManager;
 
-    const v2, 0x7f04082d
+    invoke-virtual {v2}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
 
-    const/4 v3, 0x1
+    move-result-object v2
 
-    new-array v3, v3, [Ljava/lang/Object;
+    new-instance v3, Lcom/android/settings/enterprise/EnterprisePrivacyFeatureProviderImpl$$ExternalSyntheticLambda0;
+
+    invoke-direct {v3, p0, v1}, Lcom/android/settings/enterprise/EnterprisePrivacyFeatureProviderImpl$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/enterprise/EnterprisePrivacyFeatureProviderImpl;Ljava/lang/CharSequence;)V
+
+    const/4 p0, 0x1
+
+    new-array p0, p0, [Ljava/lang/Object;
 
     const/4 v4, 0x0
 
-    aput-object v1, v3, v4
+    aput-object v1, p0, v4
 
-    invoke-virtual {p0, v2, v3}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    const-string v1, "Settings.DEVICE_MANAGED_WITH_NAME"
+
+    invoke-virtual {v2, v1, v3, p0}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object p0
 
@@ -373,11 +336,19 @@
     goto :goto_0
 
     :cond_1
-    iget-object p0, p0, Lcom/android/settings/enterprise/EnterprisePrivacyFeatureProviderImpl;->mResources:Landroid/content/res/Resources;
+    iget-object v1, p0, Lcom/android/settings/enterprise/EnterprisePrivacyFeatureProviderImpl;->mDpm:Landroid/app/admin/DevicePolicyManager;
 
-    const v1, 0x7f04082b
+    invoke-virtual {v1}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
 
-    invoke-virtual {p0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    move-result-object v1
+
+    new-instance v2, Lcom/android/settings/enterprise/EnterprisePrivacyFeatureProviderImpl$$ExternalSyntheticLambda1;
+
+    invoke-direct {v2, p0}, Lcom/android/settings/enterprise/EnterprisePrivacyFeatureProviderImpl$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/enterprise/EnterprisePrivacyFeatureProviderImpl;)V
+
+    const-string p0, "Settings.DEVICE_MANAGED_WITHOUT_NAME"
+
+    invoke-virtual {v1, p0, v2}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
 
     move-result-object p0
 
@@ -771,32 +742,14 @@
 .end method
 
 .method public hasWorkPolicyInfo()Z
-    .locals 1
+    .locals 0
 
-    invoke-direct {p0}, Lcom/android/settings/enterprise/EnterprisePrivacyFeatureProviderImpl;->getWorkPolicyInfoIntentDO()Landroid/content/Intent;
+    iget-object p0, p0, Lcom/android/settings/enterprise/EnterprisePrivacyFeatureProviderImpl;->mWorkPolicyUtils:Lcom/android/settingslib/utils/WorkPolicyUtils;
 
-    move-result-object v0
+    invoke-virtual {p0}, Lcom/android/settingslib/utils/WorkPolicyUtils;->hasWorkPolicy()Z
 
-    if-nez v0, :cond_1
+    move-result p0
 
-    invoke-direct {p0}, Lcom/android/settings/enterprise/EnterprisePrivacyFeatureProviderImpl;->getWorkPolicyInfoIntentPO()Landroid/content/Intent;
-
-    move-result-object p0
-
-    if-eqz p0, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    goto :goto_1
-
-    :cond_1
-    :goto_0
-    const/4 p0, 0x1
-
-    :goto_1
     return p0
 .end method
 
@@ -924,43 +877,13 @@
 .end method
 
 .method public showWorkPolicyInfo(Landroid/content/Context;)Z
-    .locals 2
+    .locals 0
 
-    invoke-direct {p0}, Lcom/android/settings/enterprise/EnterprisePrivacyFeatureProviderImpl;->getWorkPolicyInfoIntentDO()Landroid/content/Intent;
+    iget-object p0, p0, Lcom/android/settings/enterprise/EnterprisePrivacyFeatureProviderImpl;->mWorkPolicyUtils:Lcom/android/settingslib/utils/WorkPolicyUtils;
 
-    move-result-object v0
+    invoke-virtual {p0, p1}, Lcom/android/settingslib/utils/WorkPolicyUtils;->showWorkPolicyInfo(Landroid/content/Context;)Z
 
-    const/4 v1, 0x1
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {p1, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
-
-    return v1
-
-    :cond_0
-    invoke-direct {p0}, Lcom/android/settings/enterprise/EnterprisePrivacyFeatureProviderImpl;->getWorkPolicyInfoIntentPO()Landroid/content/Intent;
-
-    move-result-object v0
-
-    invoke-direct {p0}, Lcom/android/settings/enterprise/EnterprisePrivacyFeatureProviderImpl;->getManagedProfileUserInfo()Landroid/content/pm/UserInfo;
-
-    move-result-object p0
-
-    if-eqz v0, :cond_1
-
-    if-eqz p0, :cond_1
-
-    invoke-virtual {p0}, Landroid/content/pm/UserInfo;->getUserHandle()Landroid/os/UserHandle;
-
-    move-result-object p0
-
-    invoke-virtual {p1, v0, p0}, Landroid/content/Context;->startActivityAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
-
-    return v1
-
-    :cond_1
-    const/4 p0, 0x0
+    move-result p0
 
     return p0
 .end method

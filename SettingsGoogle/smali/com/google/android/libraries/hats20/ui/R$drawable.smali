@@ -4,6 +4,14 @@
 
 
 # static fields
-.field public static final quantum_ic_star_black_24:I = 0x7f020409
+.field public static quantum_ic_star_black_24:I
 
-.field public static final quantum_ic_star_border_grey600_24:I = 0x7f02040a
+.field public static quantum_ic_star_border_grey600_24:I
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .locals 0
+
+    return-void
+.end method

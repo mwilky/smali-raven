@@ -7,7 +7,6 @@
     <SwitchPreference android:title="@string/docking_sounds_title" android:key="docking_sounds" />
     <SwitchPreference android:title="@string/touch_sounds_title" android:key="touch_sounds" />
     <SwitchPreference android:title="@string/vibrate_icon_title" android:key="vibrate_icon" />
-    <SwitchPreference android:title="@string/vibrate_on_touch_title" android:key="vibrate_on_touch" android:summary="@string/vibrate_on_touch_summary" />
     <DropDownPreference android:title="@string/dock_audio_media_title" android:key="dock_audio_media" android:summary="%s" />
     <SwitchPreference android:title="@string/boot_sounds_title" android:key="boot_sounds" />
     <DropDownPreference android:title="@string/emergency_tone_title" android:key="emergency_tone" android:summary="%s" />

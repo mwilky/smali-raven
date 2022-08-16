@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="abc_slice_duration_days">
-        <item quantity="other">Fa %d dies</item>
-        <item quantity="one">Fa %d dia</item>
+        <item quantity="other">Fa %d dies</item>
+        <item quantity="one">Fa %d dia</item>
     </plurals>
     <plurals name="abc_slice_duration_min">
-        <item quantity="other">Fa %d min</item>
-        <item quantity="one">Fa %d min</item>
+        <item quantity="other">Fa %d min</item>
+        <item quantity="one">Fa %d min</item>
     </plurals>
     <plurals name="abc_slice_duration_years">
-        <item quantity="other">Fa %d anys</item>
-        <item quantity="one">Fa %d any</item>
+        <item quantity="other">Fa %d anys</item>
+        <item quantity="one">Fa %d any</item>
     </plurals>
     <plurals name="accessibility_usage_summary">
         <item quantity="other">%1$d aplicacions tenen accés complet al dispositiu</item>
@@ -233,11 +233,11 @@
         <item quantity="one">"S'ha desactivat %d categoria"</item>
     </plurals>
     <plurals name="notifications_sent_daily">
-        <item quantity="other">~%d notificacions al dia</item>
+        <item quantity="other">~%,d notificacions al dia</item>
         <item quantity="one">~%d notificació al dia</item>
     </plurals>
     <plurals name="notifications_sent_weekly">
-        <item quantity="other">~%d notificacions a la setmana</item>
+        <item quantity="other">~%,d notificacions a la setmana</item>
         <item quantity="one">~%d notificació a la setmana</item>
     </plurals>
     <plurals name="number_of_device_admins">
@@ -328,22 +328,6 @@
         <item quantity="other">Confia en els certificats o suprimeix-los</item>
         <item quantity="one">Confia en el certificat o suprimeix-lo</item>
     </plurals>
-    <plurals name="ssl_ca_cert_info_message">
-        <item quantity="other">"%s ha instal·lat autoritats de certificació per al teu perfil de treball, de manera que podrà supervisar la teva activitat professional a la xarxa, inclosos els correus electrònics, les aplicacions i els llocs web segurs.
-
-Per obtenir més informació sobre aquests certificats, contacta amb l'administrador."</item>
-        <item quantity="one">"%s ha instal·lat una autoritat de certificació per al teu perfil de treball, de manera que podrà supervisar la teva activitat professional a la xarxa, inclosos els correus electrònics, les aplicacions i els llocs web segurs.
-
-Per obtenir més informació sobre aquest certificat, contacta amb l'administrador."</item>
-    </plurals>
-    <plurals name="ssl_ca_cert_info_message_device_owner">
-        <item quantity="other">"%s ha instal·lat autoritats de certificació al teu dispositiu, de manera que podrà supervisar-ne l'activitat a la xarxa, inclosos els correus electrònics, les aplicacions i els llocs web segurs.
-
-Per obtenir més informació sobre aquests certificats, contacta amb l'administrador."</item>
-        <item quantity="one">"%s ha instal·lat una autoritat de certificació al teu dispositiu, de manera que podrà supervisar-ne l'activitat a la xarxa, inclosos els correus electrònics, les aplicacions i els llocs web segurs.
-
-Per obtenir més informació sobre aquest certificat, contacta amb l'administrador."</item>
-    </plurals>
     <plurals name="ssl_ca_cert_settings_button">
         <item quantity="other">Comprova els certificats</item>
         <item quantity="one">Comprova el certificat</item>
@@ -375,10 +359,6 @@ Per obtenir més informació sobre aquest certificat, contacta amb l'administrad
     <plurals name="wifi_saved_passpoint_access_points_summary">
         <item quantity="other">%d subscripcions</item>
         <item quantity="one">1 subscripció</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$d dispositius connectats</item>
-        <item quantity="one">%1$d dispositiu connectat</item>
     </plurals>
     <plurals name="wrong_pin_code">
         <item quantity="other">El codi PIN de la SIM no és correcte. Et queden %d intents.</item>

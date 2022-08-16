@@ -3,6 +3,7 @@
 .source "ContextualSuggestionFragment.java"
 
 # interfaces
+.implements Lcom/android/settings/homepage/SplitLayoutListener;
 .implements Lcom/android/settingslib/suggestions/SuggestionController$ServiceConnectionListener;
 
 
@@ -13,17 +14,7 @@
 
 .field static final TIPS_PACKAGE:Ljava/lang/String; = "com.google.android.apps.tips"
 
-
-# instance fields
-.field private mIcon:Landroid/widget/ImageView;
-
-.field private mStartTime:J
-
-.field mSuggestionController:Lcom/android/settingslib/suggestions/SuggestionController;
-
-.field private mSuggestionTile:Landroid/view/View;
-
-.field private mSuggestions:Ljava/util/List;
+.field private static sSuggestions:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -32,6 +23,20 @@
         }
     .end annotation
 .end field
+
+
+# instance fields
+.field private mIcon:Landroid/widget/ImageView;
+
+.field private mIconVisible:Z
+
+.field private mSplitLayoutSupported:Z
+
+.field private mStartTime:J
+
+.field mSuggestionController:Lcom/android/settingslib/suggestions/SuggestionController;
+
+.field private mSuggestionTile:Landroid/view/View;
 
 .field private mSuggestionsRestored:Z
 
@@ -66,9 +71,13 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .locals 1
 
     invoke-direct {p0}, Lcom/android/settings/core/InstrumentedFragment;-><init>()V
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/google/android/settings/dashboard/suggestions/ContextualSuggestionFragment;->mIconVisible:Z
 
     return-void
 .end method
@@ -139,6 +148,10 @@
 
 .method private static synthetic lambda$updateState$2(Landroid/service/settings/suggestions/Suggestion;Landroid/view/View;)V
     .locals 1
+
+    const/4 p1, 0x0
+
+    sput-object p1, Lcom/google/android/settings/dashboard/suggestions/ContextualSuggestionFragment;->sSuggestions:Ljava/util/List;
 
     :try_start_0
     invoke-virtual {p0}, Landroid/service/settings/suggestions/Suggestion;->getPendingIntent()Landroid/app/PendingIntent;
@@ -214,12 +227,12 @@
     return p0
 
     :cond_0
-    const p0, 0x7f0413f5
+    const p0, 0x7f0414ef
 
     return p0
 
     :cond_1
-    const p0, 0x7f041204
+    const p0, 0x7f0412b9
 
     return p0
 .end method
@@ -250,12 +263,12 @@
     return p0
 
     :cond_0
-    const p0, 0x7f0413f6
+    const p0, 0x7f0414f0
 
     return p0
 
     :cond_1
-    const p0, 0x7f041205
+    const p0, 0x7f0412ba
 
     return p0
 .end method
@@ -274,21 +287,17 @@
     return-void
 
     :cond_0
-    const-string v0, "ContextualSuggestFrag"
-
-    const-string v2, "loadSuggestions"
-
-    invoke-static {v0, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v2
 
     iput-wide v2, p0, Lcom/google/android/settings/dashboard/suggestions/ContextualSuggestionFragment;->mStartTime:J
 
-    iget-object v2, p0, Lcom/google/android/settings/dashboard/suggestions/ContextualSuggestionFragment;->mSuggestionController:Lcom/android/settingslib/suggestions/SuggestionController;
+    iget-object v0, p0, Lcom/google/android/settings/dashboard/suggestions/ContextualSuggestionFragment;->mSuggestionController:Lcom/android/settingslib/suggestions/SuggestionController;
 
-    if-nez v2, :cond_1
+    if-nez v0, :cond_1
+
+    const-string v0, "ContextualSuggestFrag"
 
     const-string v2, "Cannot get SuggestionController"
 
@@ -337,8 +346,18 @@
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 3
 
-    const v0, 0x7f06009d
+    iget-boolean v0, p0, Lcom/google/android/settings/dashboard/suggestions/ContextualSuggestionFragment;->mSplitLayoutSupported:Z
 
+    if-nez v0, :cond_0
+
+    const v0, 0x7f0600a7
+
+    goto :goto_0
+
+    :cond_0
+    const v0, 0x7f0600a8
+
+    :goto_0
     const/4 v1, 0x1
 
     invoke-virtual {p1, v0, p2, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
@@ -381,19 +400,46 @@
 
     iput-object v0, p0, Lcom/google/android/settings/dashboard/suggestions/ContextualSuggestionFragment;->mSummary:Landroid/widget/TextView;
 
-    if-eqz p3, :cond_0
+    iget-boolean v0, p0, Lcom/google/android/settings/dashboard/suggestions/ContextualSuggestionFragment;->mIconVisible:Z
 
-    iput-boolean v1, p0, Lcom/google/android/settings/dashboard/suggestions/ContextualSuggestionFragment;->mSuggestionsRestored:Z
+    if-nez v0, :cond_1
 
-    const-string v0, "suggestions"
+    const/4 v0, 0x0
 
-    invoke-virtual {p3, v0}, Landroid/os/Bundle;->getParcelableArrayList(Ljava/lang/String;)Ljava/util/ArrayList;
+    invoke-virtual {p0, v0}, Lcom/google/android/settings/dashboard/suggestions/ContextualSuggestionFragment;->onSplitLayoutChanged(Z)V
+
+    :cond_1
+    if-eqz p3, :cond_2
+
+    const-string v0, "ContextualSuggestFrag"
+
+    const-string v2, "Restoring suggestions"
+
+    invoke-static {v0, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-class v0, Ljava/util/List;
+
+    const-string v2, "suggestions"
+
+    invoke-virtual {p3, v2, v0}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v0
 
+    check-cast v0, Ljava/util/List;
+
+    if-eqz v0, :cond_2
+
+    iput-boolean v1, p0, Lcom/google/android/settings/dashboard/suggestions/ContextualSuggestionFragment;->mSuggestionsRestored:Z
+
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
+
+    move-result-wide v1
+
+    iput-wide v1, p0, Lcom/google/android/settings/dashboard/suggestions/ContextualSuggestionFragment;->mStartTime:J
+
     invoke-virtual {p0, v0}, Lcom/google/android/settings/dashboard/suggestions/ContextualSuggestionFragment;->updateState(Ljava/util/List;)V
 
-    :cond_0
+    :cond_2
     invoke-super {p0, p1, p2, p3}, Landroidx/fragment/app/Fragment;->onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
 
     move-result-object p0
@@ -404,7 +450,7 @@
 .method public onSaveInstanceState(Landroid/os/Bundle;)V
     .locals 2
 
-    iget-object v0, p0, Lcom/google/android/settings/dashboard/suggestions/ContextualSuggestionFragment;->mSuggestions:Ljava/util/List;
+    sget-object v0, Lcom/google/android/settings/dashboard/suggestions/ContextualSuggestionFragment;->sSuggestions:Ljava/util/List;
 
     const-string v1, "suggestions"
 
@@ -426,6 +472,35 @@
 .method public onServiceDisconnected()V
     .locals 0
 
+    return-void
+.end method
+
+.method public onSplitLayoutChanged(Z)V
+    .locals 1
+
+    iput-boolean p1, p0, Lcom/google/android/settings/dashboard/suggestions/ContextualSuggestionFragment;->mIconVisible:Z
+
+    iget-boolean v0, p0, Lcom/google/android/settings/dashboard/suggestions/ContextualSuggestionFragment;->mSplitLayoutSupported:Z
+
+    if-eqz v0, :cond_1
+
+    iget-object p0, p0, Lcom/google/android/settings/dashboard/suggestions/ContextualSuggestionFragment;->mIcon:Landroid/widget/ImageView;
+
+    if-eqz p0, :cond_1
+
+    if-eqz p1, :cond_0
+
+    const/4 p1, 0x0
+
+    goto :goto_0
+
+    :cond_0
+    const/16 p1, 0x8
+
+    :goto_0
+    invoke-virtual {p0, p1}, Landroid/widget/ImageView;->setVisibility(I)V
+
+    :cond_1
     return-void
 .end method
 
@@ -455,6 +530,14 @@
 
     :cond_0
     invoke-super {p0}, Lcom/android/settingslib/core/lifecycle/ObservableFragment;->onStop()V
+
+    return-void
+.end method
+
+.method public setSplitLayoutSupported(Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/google/android/settings/dashboard/suggestions/ContextualSuggestionFragment;->mSplitLayoutSupported:Z
 
     return-void
 .end method
@@ -533,7 +616,7 @@
         }
     .end annotation
 
-    iput-object p1, p0, Lcom/google/android/settings/dashboard/suggestions/ContextualSuggestionFragment;->mSuggestions:Ljava/util/List;
+    sput-object p1, Lcom/google/android/settings/dashboard/suggestions/ContextualSuggestionFragment;->sSuggestions:Ljava/util/List;
 
     const/4 v0, 0x0
 

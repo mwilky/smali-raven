@@ -240,49 +240,92 @@
 
     iput p1, p0, Lcom/android/settings/notification/NotificationAccessConfirmationActivity;->mUserId:I
 
-    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
+    iget-object p1, p0, Lcom/android/settings/notification/NotificationAccessConfirmationActivity;->mComponentName:Landroid/content/ComponentName;
+
+    if-eqz p1, :cond_2
+
+    invoke-virtual {p1}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
     move-result-object p1
 
-    const-string v0, "package_title"
+    if-nez p1, :cond_0
 
-    invoke-virtual {p1, v0}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+    goto/16 :goto_0
+
+    :cond_0
+    :try_start_0
+    invoke-virtual {p0}, Landroid/app/Activity;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object p1
 
+    iget-object v0, p0, Lcom/android/settings/notification/NotificationAccessConfirmationActivity;->mComponentName:Landroid/content/ComponentName;
+
+    invoke-virtual {v0}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    invoke-virtual {p1, v0, v1}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
+
+    move-result-object p1
+
+    invoke-virtual {p0}, Landroid/app/Activity;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v0
+
+    const/high16 v2, 0x447a0000    # 1000.0f
+
+    const/4 v3, 0x5
+
+    invoke-virtual {p1, v0, v2, v3}, Landroid/content/pm/ApplicationInfo;->loadSafeLabel(Landroid/content/pm/PackageManager;FI)Ljava/lang/CharSequence;
+
+    move-result-object p1
+    :try_end_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+
+    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
+
+    return-void
+
+    :cond_1
     new-instance v0, Lcom/android/internal/app/AlertController$AlertParams;
 
     invoke-direct {v0, p0}, Lcom/android/internal/app/AlertController$AlertParams;-><init>(Landroid/content/Context;)V
 
-    const/4 v1, 0x1
+    const v2, 0x7f040f10
 
-    new-array v2, v1, [Ljava/lang/Object;
+    const/4 v3, 0x1
 
-    const/4 v3, 0x0
+    new-array v4, v3, [Ljava/lang/Object;
 
-    aput-object p1, v2, v3
+    aput-object p1, v4, v1
 
-    const v4, 0x7f040e7c
-
-    invoke-virtual {p0, v4, v2}, Landroid/app/Activity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {p0, v2, v4}, Landroid/app/Activity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v2
 
     iput-object v2, v0, Lcom/android/internal/app/AlertController$AlertParams;->mTitle:Ljava/lang/CharSequence;
 
-    new-array v1, v1, [Ljava/lang/Object;
+    const v2, 0x7f040f0f
 
-    aput-object p1, v1, v3
+    new-array v3, v3, [Ljava/lang/Object;
 
-    const p1, 0x7f040e7b
+    aput-object p1, v3, v1
 
-    invoke-virtual {p0, p1, v1}, Landroid/app/Activity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {p0, v2, v3}, Landroid/app/Activity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object p1
 
     iput-object p1, v0, Lcom/android/internal/app/AlertController$AlertParams;->mMessage:Ljava/lang/CharSequence;
 
-    const p1, 0x7f0401f9
+    const p1, 0x7f040222
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -290,13 +333,13 @@
 
     iput-object p1, v0, Lcom/android/internal/app/AlertController$AlertParams;->mPositiveButtonText:Ljava/lang/CharSequence;
 
-    new-instance p1, Lcom/android/settings/notification/NotificationAccessConfirmationActivity$$ExternalSyntheticLambda1;
+    new-instance p1, Lcom/android/settings/notification/NotificationAccessConfirmationActivity$$ExternalSyntheticLambda0;
 
-    invoke-direct {p1, p0}, Lcom/android/settings/notification/NotificationAccessConfirmationActivity$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/notification/NotificationAccessConfirmationActivity;)V
+    invoke-direct {p1, p0}, Lcom/android/settings/notification/NotificationAccessConfirmationActivity$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/notification/NotificationAccessConfirmationActivity;)V
 
     iput-object p1, v0, Lcom/android/internal/app/AlertController$AlertParams;->mPositiveButtonListener:Landroid/content/DialogInterface$OnClickListener;
 
-    const p1, 0x7f0407c8
+    const p1, 0x7f04080d
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -304,9 +347,9 @@
 
     iput-object p1, v0, Lcom/android/internal/app/AlertController$AlertParams;->mNegativeButtonText:Ljava/lang/CharSequence;
 
-    new-instance p1, Lcom/android/settings/notification/NotificationAccessConfirmationActivity$$ExternalSyntheticLambda0;
+    new-instance p1, Lcom/android/settings/notification/NotificationAccessConfirmationActivity$$ExternalSyntheticLambda1;
 
-    invoke-direct {p1, p0}, Lcom/android/settings/notification/NotificationAccessConfirmationActivity$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/notification/NotificationAccessConfirmationActivity;)V
+    invoke-direct {p1, p0}, Lcom/android/settings/notification/NotificationAccessConfirmationActivity$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/notification/NotificationAccessConfirmationActivity;)V
 
     iput-object p1, v0, Lcom/android/internal/app/AlertController$AlertParams;->mNegativeButtonListener:Landroid/content/DialogInterface$OnClickListener;
 
@@ -324,7 +367,40 @@
 
     move-result-object p0
 
-    invoke-virtual {p0, v3}, Landroid/view/Window;->setCloseOnTouchOutside(Z)V
+    invoke-virtual {p0, v1}, Landroid/view/Window;->setCloseOnTouchOutside(Z)V
+
+    return-void
+
+    :catch_0
+    move-exception p1
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "Couldn\'t find app with package name for "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v1, p0, Lcom/android/settings/notification/NotificationAccessConfirmationActivity;->mComponentName:Landroid/content/ComponentName;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "NotificationAccessConfirmationActivity"
+
+    invoke-static {v1, v0, p1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
+
+    return-void
+
+    :cond_2
+    :goto_0
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     return-void
 .end method

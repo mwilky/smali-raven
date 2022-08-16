@@ -16,6 +16,14 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$msetFragment(Lcom/android/settingslib/CustomEditTextPreferenceCompat;Lcom/android/settingslib/CustomEditTextPreferenceCompat$CustomPreferenceDialogFragment;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settingslib/CustomEditTextPreferenceCompat;->setFragment(Lcom/android/settingslib/CustomEditTextPreferenceCompat$CustomPreferenceDialogFragment;)V
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 0
 
@@ -44,14 +52,6 @@
     .locals 0
 
     invoke-direct {p0, p1, p2, p3, p4}, Landroidx/preference/EditTextPreference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
-
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settingslib/CustomEditTextPreferenceCompat;Lcom/android/settingslib/CustomEditTextPreferenceCompat$CustomPreferenceDialogFragment;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settingslib/CustomEditTextPreferenceCompat;->setFragment(Lcom/android/settingslib/CustomEditTextPreferenceCompat$CustomPreferenceDialogFragment;)V
 
     return-void
 .end method

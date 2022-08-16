@@ -39,6 +39,38 @@
     return-void
 .end method
 
+.method static bridge synthetic -$$Nest$fgetmMediaPlayer(Lcom/android/settings/widget/MediaAnimationController;)Landroid/media/MediaPlayer;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/widget/MediaAnimationController;->mMediaPlayer:Landroid/media/MediaPlayer;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmVideoReady(Lcom/android/settings/widget/MediaAnimationController;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/settings/widget/MediaAnimationController;->mVideoReady:Z
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmSurface(Lcom/android/settings/widget/MediaAnimationController;Landroid/view/Surface;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/settings/widget/MediaAnimationController;->mSurface:Landroid/view/Surface;
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$msetSurface(Lcom/android/settings/widget/MediaAnimationController;Landroid/graphics/SurfaceTexture;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/widget/MediaAnimationController;->setSurface(Landroid/graphics/SurfaceTexture;)V
+
+    return-void
+.end method
+
 .method constructor <init>(Landroid/content/Context;I)V
     .locals 2
 
@@ -96,44 +128,14 @@
 
     iget-object p0, p0, Lcom/android/settings/widget/MediaAnimationController;->mMediaPlayer:Landroid/media/MediaPlayer;
 
-    sget-object p1, Lcom/android/settings/widget/MediaAnimationController$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/settings/widget/MediaAnimationController$$ExternalSyntheticLambda0;
+    new-instance p1, Lcom/android/settings/widget/MediaAnimationController$$ExternalSyntheticLambda2;
+
+    invoke-direct {p1}, Lcom/android/settings/widget/MediaAnimationController$$ExternalSyntheticLambda2;-><init>()V
 
     invoke-virtual {p0, p1}, Landroid/media/MediaPlayer;->setOnPreparedListener(Landroid/media/MediaPlayer$OnPreparedListener;)V
 
     :cond_0
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/widget/MediaAnimationController;Landroid/graphics/SurfaceTexture;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/widget/MediaAnimationController;->setSurface(Landroid/graphics/SurfaceTexture;)V
-
-    return-void
-.end method
-
-.method static synthetic access$102(Lcom/android/settings/widget/MediaAnimationController;Landroid/view/Surface;)Landroid/view/Surface;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/settings/widget/MediaAnimationController;->mSurface:Landroid/view/Surface;
-
-    return-object p1
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/widget/MediaAnimationController;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/settings/widget/MediaAnimationController;->mVideoReady:Z
-
-    return p0
-.end method
-
-.method static synthetic access$300(Lcom/android/settings/widget/MediaAnimationController;)Landroid/media/MediaPlayer;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/widget/MediaAnimationController;->mMediaPlayer:Landroid/media/MediaPlayer;
-
-    return-object p0
 .end method
 
 .method private synthetic lambda$attachView$2(Landroid/view/View;Landroid/view/View;Landroid/view/View;)V
@@ -240,9 +242,9 @@
 
     invoke-virtual {p1, v0}, Landroid/view/TextureView;->setSurfaceTextureListener(Landroid/view/TextureView$SurfaceTextureListener;)V
 
-    new-instance v0, Lcom/android/settings/widget/MediaAnimationController$$ExternalSyntheticLambda2;
+    new-instance v0, Lcom/android/settings/widget/MediaAnimationController$$ExternalSyntheticLambda0;
 
-    invoke-direct {v0, p0, p2, p3}, Lcom/android/settings/widget/MediaAnimationController$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/widget/MediaAnimationController;Landroid/view/View;Landroid/view/View;)V
+    invoke-direct {v0, p0, p2, p3}, Lcom/android/settings/widget/MediaAnimationController$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/widget/MediaAnimationController;Landroid/view/View;Landroid/view/View;)V
 
     invoke-virtual {p1, v0}, Landroid/view/TextureView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 

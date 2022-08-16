@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/wifitrackerlib/WifiEntry$ForgetActionListener$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;

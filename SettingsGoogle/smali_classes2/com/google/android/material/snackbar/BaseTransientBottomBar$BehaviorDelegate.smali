@@ -3,6 +3,17 @@
 .source "BaseTransientBottomBar.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/google/android/material/snackbar/BaseTransientBottomBar;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x9
+    name = "BehaviorDelegate"
+.end annotation
+
+
 # instance fields
 .field private managerCallback:Lcom/google/android/material/snackbar/SnackbarManager$Callback;
 
@@ -104,5 +115,22 @@
 
     :cond_2
     :goto_0
+    return-void
+.end method
+
+.method public setBaseTransientBottomBar(Lcom/google/android/material/snackbar/BaseTransientBottomBar;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/google/android/material/snackbar/BaseTransientBottomBar<",
+            "*>;)V"
+        }
+    .end annotation
+
+    iget-object p1, p1, Lcom/google/android/material/snackbar/BaseTransientBottomBar;->managerCallback:Lcom/google/android/material/snackbar/SnackbarManager$Callback;
+
+    iput-object p1, p0, Lcom/google/android/material/snackbar/BaseTransientBottomBar$BehaviorDelegate;->managerCallback:Lcom/google/android/material/snackbar/SnackbarManager$Callback;
+
     return-void
 .end method

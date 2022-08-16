@@ -74,7 +74,7 @@
 
     iget-object p0, p0, Lcom/android/settings/applications/assist/AssistContextPreferenceController$SettingObserver;->this$0:Lcom/android/settings/applications/assist/AssistContextPreferenceController;
 
-    invoke-static {p0}, Lcom/android/settings/applications/assist/AssistContextPreferenceController;->access$000(Lcom/android/settings/applications/assist/AssistContextPreferenceController;)V
+    invoke-static {p0}, Lcom/android/settings/applications/assist/AssistContextPreferenceController;->-$$Nest$mupdatePreference(Lcom/android/settings/applications/assist/AssistContextPreferenceController;)V
 
     return-void
 .end method

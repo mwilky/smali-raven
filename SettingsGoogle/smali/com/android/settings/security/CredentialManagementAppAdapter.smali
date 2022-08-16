@@ -70,6 +70,70 @@
     return p0
 .end method
 
+.method static bridge synthetic -$$Nest$fgetmAppUriAuthentication(Lcom/android/settings/security/CredentialManagementAppAdapter;)Ljava/util/Map;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/security/CredentialManagementAppAdapter;->mAppUriAuthentication:Ljava/util/Map;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmContext(Lcom/android/settings/security/CredentialManagementAppAdapter;)Landroid/content/Context;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/security/CredentialManagementAppAdapter;->mContext:Landroid/content/Context;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmCredentialManagerPackage(Lcom/android/settings/security/CredentialManagementAppAdapter;)Ljava/lang/String;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/security/CredentialManagementAppAdapter;->mCredentialManagerPackage:Ljava/lang/String;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmIncludeExpander(Lcom/android/settings/security/CredentialManagementAppAdapter;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/settings/security/CredentialManagementAppAdapter;->mIncludeExpander:Z
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmIsLayoutRtl(Lcom/android/settings/security/CredentialManagementAppAdapter;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/settings/security/CredentialManagementAppAdapter;->mIsLayoutRtl:Z
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmPackageManager(Lcom/android/settings/security/CredentialManagementAppAdapter;)Landroid/content/pm/PackageManager;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/security/CredentialManagementAppAdapter;->mPackageManager:Landroid/content/pm/PackageManager;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmSortedAppNames(Lcom/android/settings/security/CredentialManagementAppAdapter;)Ljava/util/List;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/security/CredentialManagementAppAdapter;->mSortedAppNames:Ljava/util/List;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmViewPool(Lcom/android/settings/security/CredentialManagementAppAdapter;)Landroidx/recyclerview/widget/RecyclerView$RecycledViewPool;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/security/CredentialManagementAppAdapter;->mViewPool:Landroidx/recyclerview/widget/RecyclerView$RecycledViewPool;
+
+    return-object p0
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;Ljava/util/Map;ZZ)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
@@ -141,70 +205,6 @@
     iput-boolean p2, p0, Lcom/android/settings/security/CredentialManagementAppAdapter;->mIsLayoutRtl:Z
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/security/CredentialManagementAppAdapter;)Ljava/lang/String;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/security/CredentialManagementAppAdapter;->mCredentialManagerPackage:Ljava/lang/String;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/security/CredentialManagementAppAdapter;)Landroid/content/pm/PackageManager;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/security/CredentialManagementAppAdapter;->mPackageManager:Landroid/content/pm/PackageManager;
-
-    return-object p0
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/security/CredentialManagementAppAdapter;)Landroid/content/Context;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/security/CredentialManagementAppAdapter;->mContext:Landroid/content/Context;
-
-    return-object p0
-.end method
-
-.method static synthetic access$300(Lcom/android/settings/security/CredentialManagementAppAdapter;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/settings/security/CredentialManagementAppAdapter;->mIsLayoutRtl:Z
-
-    return p0
-.end method
-
-.method static synthetic access$400(Lcom/android/settings/security/CredentialManagementAppAdapter;)Ljava/util/List;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/security/CredentialManagementAppAdapter;->mSortedAppNames:Ljava/util/List;
-
-    return-object p0
-.end method
-
-.method static synthetic access$500(Lcom/android/settings/security/CredentialManagementAppAdapter;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/settings/security/CredentialManagementAppAdapter;->mIncludeExpander:Z
-
-    return p0
-.end method
-
-.method static synthetic access$600(Lcom/android/settings/security/CredentialManagementAppAdapter;)Ljava/util/Map;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/security/CredentialManagementAppAdapter;->mAppUriAuthentication:Ljava/util/Map;
-
-    return-object p0
-.end method
-
-.method static synthetic access$700(Lcom/android/settings/security/CredentialManagementAppAdapter;)Landroidx/recyclerview/widget/RecyclerView$RecycledViewPool;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/security/CredentialManagementAppAdapter;->mViewPool:Landroidx/recyclerview/widget/RecyclerView$RecycledViewPool;
-
-    return-object p0
 .end method
 
 .method private isPackageInstalled(Ljava/lang/String;)Z
@@ -386,7 +386,7 @@
 
     move-result-object p2
 
-    const v1, 0x7f0601db
+    const v1, 0x7f0601e8
 
     invoke-virtual {p2, v1, p1, v0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -409,7 +409,7 @@
 
     move-result-object p2
 
-    const v1, 0x7f060045
+    const v1, 0x7f060048
 
     invoke-virtual {p2, v1, p1, v0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 

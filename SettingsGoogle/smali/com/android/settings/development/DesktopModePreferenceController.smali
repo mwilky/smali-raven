@@ -5,6 +5,7 @@
 # interfaces
 .implements Landroidx/preference/Preference$OnPreferenceChangeListener;
 .implements Lcom/android/settings/core/PreferenceControllerMixin;
+.implements Lcom/android/settings/development/RebootConfirmationDialogHost;
 
 
 # static fields
@@ -13,11 +14,17 @@
 .field static final SETTING_VALUE_ON:I = 0x1
 
 
+# instance fields
+.field private final mFragment:Lcom/android/settings/development/DevelopmentSettingsDashboardFragment;
+
+
 # direct methods
-.method public constructor <init>(Landroid/content/Context;)V
+.method public constructor <init>(Landroid/content/Context;Lcom/android/settings/development/DevelopmentSettingsDashboardFragment;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settingslib/development/DeveloperOptionsPreferenceController;-><init>(Landroid/content/Context;)V
+
+    iput-object p2, p0, Lcom/android/settings/development/DesktopModePreferenceController;->mFragment:Lcom/android/settings/development/DevelopmentSettingsDashboardFragment;
 
     return-void
 .end method
@@ -67,7 +74,7 @@
 .end method
 
 .method public onPreferenceChange(Landroidx/preference/Preference;Ljava/lang/Object;)Z
-    .locals 0
+    .locals 1
 
     check-cast p2, Ljava/lang/Boolean;
 
@@ -75,19 +82,44 @@
 
     move-result p1
 
-    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+    iget-object p2, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object p0
+    move-result-object p2
 
-    const-string p2, "force_desktop_mode_on_external_displays"
+    const-string v0, "force_desktop_mode_on_external_displays"
 
-    invoke-static {p0, p2, p1}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    invoke-static {p2, v0, p1}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
+    if-eqz p1, :cond_0
+
+    iget-object p1, p0, Lcom/android/settings/development/DesktopModePreferenceController;->mFragment:Lcom/android/settings/development/DevelopmentSettingsDashboardFragment;
+
+    const p2, 0x7f0410ad
+
+    invoke-static {p1, p2, p0}, Lcom/android/settings/development/RebootConfirmationDialogFragment;->show(Landroidx/fragment/app/Fragment;ILcom/android/settings/development/RebootConfirmationDialogHost;)V
+
+    :cond_0
     const/4 p0, 0x1
 
     return p0
+.end method
+
+.method public onRebootConfirmed()V
+    .locals 2
+
+    new-instance v0, Landroid/content/Intent;
+
+    const-string v1, "android.intent.action.REBOOT"
+
+    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
+
+    return-void
 .end method
 
 .method public updateState(Landroidx/preference/Preference;)V

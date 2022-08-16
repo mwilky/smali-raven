@@ -6,18 +6,6 @@
 # direct methods
 .method public static append([III)[I
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "array",
-            "currentSize",
-            "element"
-        }
-    .end annotation
 
     add-int/lit8 v0, p1, 0x1
 
@@ -45,19 +33,6 @@
 
 .method public static append([Ljava/lang/Object;ILjava/lang/Object;)[Ljava/lang/Object;
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "array",
-            "currentSize",
-            "element"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -104,14 +79,6 @@
 
 .method public static growSize(I)I
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "currentSize"
-        }
-    .end annotation
 
     const/4 v0, 0x4
 

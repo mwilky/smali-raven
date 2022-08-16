@@ -35,6 +35,24 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmTargetSubscriptionId(Lcom/android/settings/network/ActiveSubscriptionsListener;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/settings/network/ActiveSubscriptionsListener;->mTargetSubscriptionId:I
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$mclearCachedSubId(Lcom/android/settings/network/ActiveSubscriptionsListener;I)Z
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/network/ActiveSubscriptionsListener;->clearCachedSubId(I)Z
+
+    move-result p0
+
+    return p0
+.end method
+
 .method public constructor <init>(Landroid/os/Looper;Landroid/content/Context;)V
     .locals 1
 
@@ -95,24 +113,6 @@
     invoke-virtual {p0, p1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/network/ActiveSubscriptionsListener;I)Z
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/network/ActiveSubscriptionsListener;->clearCachedSubId(I)Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/network/ActiveSubscriptionsListener;)I
-    .locals 0
-
-    iget p0, p0, Lcom/android/settings/network/ActiveSubscriptionsListener;->mTargetSubscriptionId:I
-
-    return p0
 .end method
 
 .method private clearCachedSubId(I)Z
@@ -195,7 +195,7 @@
 .end method
 
 .method private monitorSubscriptionsChange(Z)V
-    .locals 6
+    .locals 8
 
     const/4 v0, 0x0
 
@@ -225,21 +225,23 @@
     iput-object p1, p0, Lcom/android/settings/network/ActiveSubscriptionsListener;->mSubscriptionChangeReceiver:Landroid/content/BroadcastReceiver;
 
     :cond_1
-    iget-object p1, p0, Lcom/android/settings/network/ActiveSubscriptionsListener;->mContext:Landroid/content/Context;
+    iget-object v2, p0, Lcom/android/settings/network/ActiveSubscriptionsListener;->mContext:Landroid/content/Context;
 
-    iget-object v0, p0, Lcom/android/settings/network/ActiveSubscriptionsListener;->mSubscriptionChangeReceiver:Landroid/content/BroadcastReceiver;
+    iget-object v3, p0, Lcom/android/settings/network/ActiveSubscriptionsListener;->mSubscriptionChangeReceiver:Landroid/content/BroadcastReceiver;
 
-    iget-object v2, p0, Lcom/android/settings/network/ActiveSubscriptionsListener;->mSubscriptionChangeIntentFilter:Landroid/content/IntentFilter;
+    iget-object v4, p0, Lcom/android/settings/network/ActiveSubscriptionsListener;->mSubscriptionChangeIntentFilter:Landroid/content/IntentFilter;
 
-    const/4 v3, 0x0
+    const/4 v5, 0x0
 
-    new-instance v4, Landroid/os/Handler;
+    new-instance v6, Landroid/os/Handler;
 
-    iget-object v5, p0, Lcom/android/settings/network/ActiveSubscriptionsListener;->mLooper:Landroid/os/Looper;
+    iget-object p1, p0, Lcom/android/settings/network/ActiveSubscriptionsListener;->mLooper:Landroid/os/Looper;
 
-    invoke-direct {v4, v5}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
+    invoke-direct {v6, p1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
-    invoke-virtual {p1, v0, v2, v3, v4}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
+    const/4 v7, 0x2
+
+    invoke-virtual/range {v2 .. v7}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;I)Landroid/content/Intent;
 
     invoke-virtual {p0}, Lcom/android/settings/network/ActiveSubscriptionsListener;->registerForSubscriptionsChange()V
 

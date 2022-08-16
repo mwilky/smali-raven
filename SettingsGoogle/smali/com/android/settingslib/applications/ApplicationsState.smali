@@ -231,6 +231,82 @@
     return-void
 .end method
 
+.method static bridge synthetic -$$Nest$maddUser(Lcom/android/settingslib/applications/ApplicationsState;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settingslib/applications/ApplicationsState;->addUser(I)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mgetEntryLocked(Lcom/android/settingslib/applications/ApplicationsState;Landroid/content/pm/ApplicationInfo;)Lcom/android/settingslib/applications/ApplicationsState$AppEntry;
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settingslib/applications/ApplicationsState;->getEntryLocked(Landroid/content/pm/ApplicationInfo;)Lcom/android/settingslib/applications/ApplicationsState$AppEntry;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$mgetSizeStr(Lcom/android/settingslib/applications/ApplicationsState;J)Ljava/lang/String;
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/settingslib/applications/ApplicationsState;->getSizeStr(J)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$mgetTotalExternalSize(Lcom/android/settingslib/applications/ApplicationsState;Landroid/content/pm/PackageStats;)J
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settingslib/applications/ApplicationsState;->getTotalExternalSize(Landroid/content/pm/PackageStats;)J
+
+    move-result-wide p0
+
+    return-wide p0
+.end method
+
+.method static bridge synthetic -$$Nest$mgetTotalInternalSize(Lcom/android/settingslib/applications/ApplicationsState;Landroid/content/pm/PackageStats;)J
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settingslib/applications/ApplicationsState;->getTotalInternalSize(Landroid/content/pm/PackageStats;)J
+
+    move-result-wide p0
+
+    return-wide p0
+.end method
+
+.method static bridge synthetic -$$Nest$mremoveUser(Lcom/android/settingslib/applications/ApplicationsState;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settingslib/applications/ApplicationsState;->removeUser(I)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$smhasFlag(II)Z
+    .locals 0
+
+    invoke-static {p0, p1}, Lcom/android/settingslib/applications/ApplicationsState;->hasFlag(II)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$smisAppIconCacheEnabled(Landroid/content/Context;)Z
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/settingslib/applications/ApplicationsState;->isAppIconCacheEnabled(Landroid/content/Context;)Z
+
+    move-result p0
+
+    return p0
+.end method
+
 .method static constructor <clinit>()V
     .locals 1
 
@@ -620,72 +696,6 @@
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settingslib/applications/ApplicationsState;Landroid/content/pm/ApplicationInfo;)Lcom/android/settingslib/applications/ApplicationsState$AppEntry;
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settingslib/applications/ApplicationsState;->getEntryLocked(Landroid/content/pm/ApplicationInfo;)Lcom/android/settingslib/applications/ApplicationsState$AppEntry;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method static synthetic access$200(II)Z
-    .locals 0
-
-    invoke-static {p0, p1}, Lcom/android/settingslib/applications/ApplicationsState;->hasFlag(II)Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method static synthetic access$400(Lcom/android/settingslib/applications/ApplicationsState;Landroid/content/pm/PackageStats;)J
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settingslib/applications/ApplicationsState;->getTotalInternalSize(Landroid/content/pm/PackageStats;)J
-
-    move-result-wide p0
-
-    return-wide p0
-.end method
-
-.method static synthetic access$500(Lcom/android/settingslib/applications/ApplicationsState;J)Ljava/lang/String;
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/settingslib/applications/ApplicationsState;->getSizeStr(J)Ljava/lang/String;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method static synthetic access$600(Lcom/android/settingslib/applications/ApplicationsState;Landroid/content/pm/PackageStats;)J
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settingslib/applications/ApplicationsState;->getTotalExternalSize(Landroid/content/pm/PackageStats;)J
-
-    move-result-wide p0
-
-    return-wide p0
-.end method
-
-.method static synthetic access$700(Lcom/android/settingslib/applications/ApplicationsState;I)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settingslib/applications/ApplicationsState;->addUser(I)V
-
-    return-void
-.end method
-
-.method static synthetic access$800(Lcom/android/settingslib/applications/ApplicationsState;I)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settingslib/applications/ApplicationsState;->removeUser(I)V
-
-    return-void
 .end method
 
 .method private addUser(I)V
@@ -1207,6 +1217,22 @@
     return p0
 .end method
 
+.method private static isAppIconCacheEnabled(Landroid/content/Context;)Z
+    .locals 1
+
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object p0
+
+    const-string v0, "com.android.settings"
+
+    invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    return p0
+.end method
+
 .method private synthetic lambda$requestSize$0(Lcom/android/settingslib/applications/ApplicationsState$AppEntry;Ljava/lang/String;I)V
     .locals 3
 
@@ -1414,7 +1440,7 @@
 
 # virtual methods
 .method addPackage(Ljava/lang/String;I)V
-    .locals 3
+    .locals 4
 
     :try_start_0
     iget-object v0, p0, Lcom/android/settingslib/applications/ApplicationsState;->mEntriesMap:Landroid/util/SparseArray;
@@ -1456,13 +1482,18 @@
 
     iget v2, p0, Lcom/android/settingslib/applications/ApplicationsState;->mAdminRetrieveFlags:I
 
-    goto :goto_0
+    :goto_0
+    int-to-long v2, v2
+
+    goto :goto_1
 
     :cond_2
     iget v2, p0, Lcom/android/settingslib/applications/ApplicationsState;->mRetrieveFlags:I
 
-    :goto_0
-    invoke-interface {v1, p1, v2, p2}, Landroid/content/pm/IPackageManager;->getApplicationInfo(Ljava/lang/String;II)Landroid/content/pm/ApplicationInfo;
+    goto :goto_0
+
+    :goto_1
+    invoke-interface {v1, p1, v2, v3, p2}, Landroid/content/pm/IPackageManager;->getApplicationInfo(Ljava/lang/String;JI)Landroid/content/pm/ApplicationInfo;
 
     move-result-object p1
 
@@ -1536,7 +1567,7 @@
     :cond_8
     monitor-exit v0
 
-    goto :goto_1
+    goto :goto_2
 
     :catchall_0
     move-exception p0
@@ -1551,7 +1582,7 @@
     .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
 
     :catch_0
-    :goto_1
+    :goto_2
     return-void
 .end method
 
@@ -1680,7 +1711,7 @@
 
     new-instance v1, Lcom/android/settingslib/applications/ApplicationsState$PackageIntentReceiver;
 
-    invoke-direct {v1, p0, v2}, Lcom/android/settingslib/applications/ApplicationsState$PackageIntentReceiver;-><init>(Lcom/android/settingslib/applications/ApplicationsState;Lcom/android/settingslib/applications/ApplicationsState$1;)V
+    invoke-direct {v1, p0, v2}, Lcom/android/settingslib/applications/ApplicationsState$PackageIntentReceiver;-><init>(Lcom/android/settingslib/applications/ApplicationsState;Lcom/android/settingslib/applications/ApplicationsState$PackageIntentReceiver-IA;)V
 
     iput-object v1, p0, Lcom/android/settingslib/applications/ApplicationsState;->mPackageIntentReceiver:Lcom/android/settingslib/applications/ApplicationsState$PackageIntentReceiver;
 
@@ -1754,15 +1785,20 @@
 
     iget v6, p0, Lcom/android/settingslib/applications/ApplicationsState;->mAdminRetrieveFlags:I
 
-    goto :goto_1
+    :goto_1
+    int-to-long v6, v6
+
+    goto :goto_2
 
     :cond_3
     iget v6, p0, Lcom/android/settingslib/applications/ApplicationsState;->mRetrieveFlags:I
 
-    :goto_1
+    goto :goto_1
+
+    :goto_2
     iget v4, v4, Landroid/content/pm/UserInfo;->id:I
 
-    invoke-interface {v5, v6, v4}, Landroid/content/pm/IPackageManager;->getInstalledApplications(II)Landroid/content/pm/ParceledListSlice;
+    invoke-interface {v5, v6, v7, v4}, Landroid/content/pm/IPackageManager;->getInstalledApplications(JI)Landroid/content/pm/ParceledListSlice;
 
     move-result-object v4
 
@@ -1808,12 +1844,12 @@
 
     invoke-virtual {p0}, Lcom/android/settingslib/applications/ApplicationsState;->clearEntries()V
 
-    goto :goto_3
+    goto :goto_4
 
     :cond_5
     move v3, v4
 
-    :goto_2
+    :goto_3
     iget-object v5, p0, Lcom/android/settingslib/applications/ApplicationsState;->mAppEntries:Ljava/util/ArrayList;
 
     invoke-virtual {v5}, Ljava/util/ArrayList;->size()I
@@ -1834,15 +1870,15 @@
 
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_2
+    goto :goto_3
 
     :cond_6
-    :goto_3
+    :goto_4
     iput-boolean v4, p0, Lcom/android/settingslib/applications/ApplicationsState;->mHaveDisabledApps:Z
 
     iput-boolean v4, p0, Lcom/android/settingslib/applications/ApplicationsState;->mHaveInstantApps:Z
 
-    :goto_4
+    :goto_5
     iget-object v3, p0, Lcom/android/settingslib/applications/ApplicationsState;->mApplications:Ljava/util/List;
 
     invoke-interface {v3}, Ljava/util/List;->size()I
@@ -1875,7 +1911,7 @@
 
     add-int/lit8 v4, v4, -0x1
 
-    goto :goto_5
+    goto :goto_6
 
     :cond_7
     iput-boolean v0, p0, Lcom/android/settingslib/applications/ApplicationsState;->mHaveDisabledApps:Z
@@ -1897,7 +1933,7 @@
 
     move v4, v5
 
-    goto :goto_5
+    goto :goto_6
 
     :cond_9
     iget-boolean v5, p0, Lcom/android/settingslib/applications/ApplicationsState;->mHaveInstantApps:Z
@@ -1940,10 +1976,10 @@
     iput-object v3, v5, Lcom/android/settingslib/applications/ApplicationsState$AppEntry;->info:Landroid/content/pm/ApplicationInfo;
 
     :cond_b
-    :goto_5
+    :goto_6
     add-int/2addr v4, v0
 
-    goto :goto_4
+    goto :goto_5
 
     :cond_c
     iget-object v0, p0, Lcom/android/settingslib/applications/ApplicationsState;->mApplications:Ljava/util/List;
@@ -2052,7 +2088,7 @@
 .end method
 
 .method public getEntry(Ljava/lang/String;I)Lcom/android/settingslib/applications/ApplicationsState$AppEntry;
-    .locals 4
+    .locals 5
 
     iget-object v0, p0, Lcom/android/settingslib/applications/ApplicationsState;->mEntriesMap:Landroid/util/SparseArray;
 
@@ -2086,9 +2122,9 @@
     :try_start_1
     iget-object v2, p0, Lcom/android/settingslib/applications/ApplicationsState;->mIpm:Landroid/content/pm/IPackageManager;
 
-    const/4 v3, 0x0
+    const-wide/16 v3, 0x0
 
-    invoke-interface {v2, p1, v3, p2}, Landroid/content/pm/IPackageManager;->getApplicationInfo(Ljava/lang/String;II)Landroid/content/pm/ApplicationInfo;
+    invoke-interface {v2, p1, v3, v4, p2}, Landroid/content/pm/IPackageManager;->getApplicationInfo(Ljava/lang/String;JI)Landroid/content/pm/ApplicationInfo;
 
     move-result-object v2
     :try_end_1

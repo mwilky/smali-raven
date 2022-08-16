@@ -36,6 +36,30 @@
     return-void
 .end method
 
+.method static bridge synthetic -$$Nest$fgetmChallengeRequested(Lcom/android/settings/dashboard/RestrictedDashboardFragment;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/settings/dashboard/RestrictedDashboardFragment;->mChallengeRequested:Z
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmChallengeRequested(Lcom/android/settings/dashboard/RestrictedDashboardFragment;Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/settings/dashboard/RestrictedDashboardFragment;->mChallengeRequested:Z
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fputmChallengeSucceeded(Lcom/android/settings/dashboard/RestrictedDashboardFragment;Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/settings/dashboard/RestrictedDashboardFragment;->mChallengeSucceeded:Z
+
+    return-void
+.end method
+
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
 
@@ -54,30 +78,6 @@
     iput-object p1, p0, Lcom/android/settings/dashboard/RestrictedDashboardFragment;->mRestrictionKey:Ljava/lang/String;
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/dashboard/RestrictedDashboardFragment;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/settings/dashboard/RestrictedDashboardFragment;->mChallengeRequested:Z
-
-    return p0
-.end method
-
-.method static synthetic access$002(Lcom/android/settings/dashboard/RestrictedDashboardFragment;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/settings/dashboard/RestrictedDashboardFragment;->mChallengeRequested:Z
-
-    return p1
-.end method
-
-.method static synthetic access$102(Lcom/android/settings/dashboard/RestrictedDashboardFragment;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/settings/dashboard/RestrictedDashboardFragment;->mChallengeSucceeded:Z
-
-    return p1
 .end method
 
 .method private ensurePin()V
@@ -123,7 +123,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f04104e
+    const v3, 0x7f0410f4
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -261,7 +261,7 @@
 
     if-eqz v0, :cond_1
 
-    const-string v2, "restrict_if_overridable"
+    const-string/jumbo v2, "restrict_if_overridable"
 
     invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -434,7 +434,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/dashboard/DashboardFragment;->onCreate(Landroid/os/Bundle;)V
 
-    const-string v0, "restrictions"
+    const-string/jumbo v0, "restrictions"
 
     invoke-virtual {p0, v0}, Lcom/android/settings/SettingsPreferenceFragment;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -666,7 +666,7 @@
     return v0
 
     :cond_0
-    const-string v1, "restrict_if_overridable"
+    const-string/jumbo v1, "restrict_if_overridable"
 
     invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

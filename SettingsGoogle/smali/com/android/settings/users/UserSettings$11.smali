@@ -1,11 +1,11 @@
 .class Lcom/android/settings/users/UserSettings$11;
-.super Landroid/os/AsyncTask;
+.super Lcom/android/settings/search/BaseSearchIndexProvider;
 .source "UserSettings.java"
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/settings/users/UserSettings;->loadIconsAsync(Ljava/util/List;)V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/settings/users/UserSettings;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -13,142 +13,74 @@
     name = null
 .end annotation
 
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Landroid/os/AsyncTask<",
-        "Ljava/util/List<",
-        "Ljava/lang/Integer;",
-        ">;",
-        "Ljava/lang/Void;",
-        "Ljava/lang/Void;",
-        ">;"
-    }
-.end annotation
-
-
-# instance fields
-.field final synthetic this$0:Lcom/android/settings/users/UserSettings;
-
 
 # direct methods
-.method constructor <init>(Lcom/android/settings/users/UserSettings;)V
+.method constructor <init>(I)V
     .locals 0
 
-    iput-object p1, p0, Lcom/android/settings/users/UserSettings$11;->this$0:Lcom/android/settings/users/UserSettings;
-
-    invoke-direct {p0}, Landroid/os/AsyncTask;-><init>()V
+    invoke-direct {p0, p1}, Lcom/android/settings/search/BaseSearchIndexProvider;-><init>(I)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method protected bridge synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
+.method public getNonIndexableKeysFromXml(Landroid/content/Context;IZ)Ljava/util/List;
     .locals 0
-
-    check-cast p1, [Ljava/util/List;
-
-    invoke-virtual {p0, p1}, Lcom/android/settings/users/UserSettings$11;->doInBackground([Ljava/util/List;)Ljava/lang/Void;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method protected varargs doInBackground([Ljava/util/List;)Ljava/lang/Void;
-    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "([",
+            "(",
+            "Landroid/content/Context;",
+            "IZ)",
             "Ljava/util/List<",
-            "Ljava/lang/Integer;",
-            ">;)",
-            "Ljava/lang/Void;"
+            "Ljava/lang/String;",
+            ">;"
         }
     .end annotation
 
-    const/4 v0, 0x0
+    invoke-super {p0, p1, p2, p3}, Lcom/android/settings/search/BaseSearchIndexProvider;->getNonIndexableKeysFromXml(Landroid/content/Context;IZ)Ljava/util/List;
 
-    aget-object p1, p1, v0
+    move-result-object p0
 
-    invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    new-instance p2, Lcom/android/settings/users/AddUserWhenLockedPreferenceController;
 
-    move-result-object p1
+    const-string/jumbo p3, "user_settings_add_users_when_locked"
 
-    :goto_0
-    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-direct {p2, p1, p3}, Lcom/android/settings/users/AddUserWhenLockedPreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
-    move-result v0
+    invoke-virtual {p2, p0}, Lcom/android/settings/core/BasePreferenceController;->updateNonIndexableKeys(Ljava/util/List;)V
 
-    if-eqz v0, :cond_1
+    new-instance p2, Lcom/android/settings/users/AutoSyncDataPreferenceController;
 
-    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    const/4 p3, 0x0
 
-    move-result-object v0
+    invoke-direct {p2, p1, p3}, Lcom/android/settings/users/AutoSyncDataPreferenceController;-><init>(Landroid/content/Context;Landroidx/preference/PreferenceFragmentCompat;)V
 
-    check-cast v0, Ljava/lang/Integer;
+    invoke-interface {p2, p0}, Lcom/android/settings/core/PreferenceControllerMixin;->updateNonIndexableKeys(Ljava/util/List;)V
 
-    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+    new-instance p2, Lcom/android/settings/users/AutoSyncPersonalDataPreferenceController;
 
-    move-result v0
+    invoke-direct {p2, p1, p3}, Lcom/android/settings/users/AutoSyncPersonalDataPreferenceController;-><init>(Landroid/content/Context;Landroidx/preference/PreferenceFragmentCompat;)V
 
-    iget-object v1, p0, Lcom/android/settings/users/UserSettings$11;->this$0:Lcom/android/settings/users/UserSettings;
+    invoke-interface {p2, p0}, Lcom/android/settings/core/PreferenceControllerMixin;->updateNonIndexableKeys(Ljava/util/List;)V
 
-    invoke-static {v1}, Lcom/android/settings/users/UserSettings;->access$400(Lcom/android/settings/users/UserSettings;)Landroid/os/UserManager;
+    new-instance p2, Lcom/android/settings/users/AutoSyncWorkDataPreferenceController;
 
-    move-result-object v1
+    invoke-direct {p2, p1, p3}, Lcom/android/settings/users/AutoSyncWorkDataPreferenceController;-><init>(Landroid/content/Context;Landroidx/preference/PreferenceFragmentCompat;)V
 
-    invoke-virtual {v1, v0}, Landroid/os/UserManager;->getUserIcon(I)Landroid/graphics/Bitmap;
-
-    move-result-object v1
-
-    if-nez v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/settings/users/UserSettings$11;->this$0:Lcom/android/settings/users/UserSettings;
-
-    invoke-virtual {v1}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    invoke-static {v1, v0}, Lcom/android/settings/users/UserSettings;->access$1500(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
-
-    move-result-object v1
-
-    :cond_0
-    iget-object v2, p0, Lcom/android/settings/users/UserSettings$11;->this$0:Lcom/android/settings/users/UserSettings;
-
-    iget-object v2, v2, Lcom/android/settings/users/UserSettings;->mUserIcons:Landroid/util/SparseArray;
-
-    invoke-virtual {v2, v0, v1}, Landroid/util/SparseArray;->append(ILjava/lang/Object;)V
-
-    goto :goto_0
-
-    :cond_1
-    const/4 p0, 0x0
+    invoke-interface {p2, p0}, Lcom/android/settings/core/PreferenceControllerMixin;->updateNonIndexableKeys(Ljava/util/List;)V
 
     return-object p0
 .end method
 
-.method protected bridge synthetic onPostExecute(Ljava/lang/Object;)V
+.method protected isPageSearchEnabled(Landroid/content/Context;)Z
     .locals 0
 
-    check-cast p1, Ljava/lang/Void;
+    invoke-static {p1}, Lcom/android/settings/users/UserCapabilities;->create(Landroid/content/Context;)Lcom/android/settings/users/UserCapabilities;
 
-    invoke-virtual {p0, p1}, Lcom/android/settings/users/UserSettings$11;->onPostExecute(Ljava/lang/Void;)V
+    move-result-object p0
 
-    return-void
-.end method
+    iget-boolean p0, p0, Lcom/android/settings/users/UserCapabilities;->mEnabled:Z
 
-.method protected onPostExecute(Ljava/lang/Void;)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/users/UserSettings$11;->this$0:Lcom/android/settings/users/UserSettings;
-
-    invoke-virtual {p0}, Lcom/android/settings/users/UserSettings;->updateUserList()V
-
-    return-void
+    return p0
 .end method

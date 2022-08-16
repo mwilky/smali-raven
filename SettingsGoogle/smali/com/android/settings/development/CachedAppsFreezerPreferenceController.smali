@@ -43,7 +43,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f01004a
+    const v1, 0x7f01004c
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -55,7 +55,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f010049
+    const v0, 0x7f01004b
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -69,9 +69,9 @@
 .method private getRebootDialogCancelListener()Landroid/content/DialogInterface$OnClickListener;
     .locals 1
 
-    new-instance v0, Lcom/android/settings/development/CachedAppsFreezerPreferenceController$$ExternalSyntheticLambda0;
+    new-instance v0, Lcom/android/settings/development/CachedAppsFreezerPreferenceController$$ExternalSyntheticLambda1;
 
-    invoke-direct {v0, p0}, Lcom/android/settings/development/CachedAppsFreezerPreferenceController$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/development/CachedAppsFreezerPreferenceController;)V
+    invoke-direct {v0, p0}, Lcom/android/settings/development/CachedAppsFreezerPreferenceController$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/development/CachedAppsFreezerPreferenceController;)V
 
     return-object v0
 .end method
@@ -79,9 +79,9 @@
 .method private getRebootDialogOkListener(Ljava/lang/Object;)Landroid/content/DialogInterface$OnClickListener;
     .locals 1
 
-    new-instance v0, Lcom/android/settings/development/CachedAppsFreezerPreferenceController$$ExternalSyntheticLambda1;
+    new-instance v0, Lcom/android/settings/development/CachedAppsFreezerPreferenceController$$ExternalSyntheticLambda0;
 
-    invoke-direct {v0, p0, p1}, Lcom/android/settings/development/CachedAppsFreezerPreferenceController$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/development/CachedAppsFreezerPreferenceController;Ljava/lang/Object;)V
+    invoke-direct {v0, p0, p1}, Lcom/android/settings/development/CachedAppsFreezerPreferenceController$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/development/CachedAppsFreezerPreferenceController;Ljava/lang/Object;)V
 
     return-object v0
 .end method
@@ -228,7 +228,7 @@
 
     invoke-direct {p1, v0}, Landroidx/appcompat/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v0, 0x7f040548
+    const v0, 0x7f0405a6
 
     invoke-virtual {p1, v0}, Landroidx/appcompat/app/AlertDialog$Builder;->setMessage(I)Landroidx/appcompat/app/AlertDialog$Builder;
 

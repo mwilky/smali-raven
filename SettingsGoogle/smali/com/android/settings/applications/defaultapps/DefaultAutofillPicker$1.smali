@@ -58,7 +58,7 @@
 
     iget-object p0, p0, Lcom/android/settings/applications/defaultapps/DefaultAutofillPicker$1;->this$0:Lcom/android/settings/applications/defaultapps/DefaultAutofillPicker;
 
-    invoke-static {p0}, Lcom/android/settings/applications/defaultapps/DefaultAutofillPicker;->access$100(Lcom/android/settings/applications/defaultapps/DefaultAutofillPicker;)V
+    invoke-static {p0}, Lcom/android/settings/applications/defaultapps/DefaultAutofillPicker;->-$$Nest$mupdate(Lcom/android/settings/applications/defaultapps/DefaultAutofillPicker;)V
 
     return-void
 .end method
@@ -68,7 +68,7 @@
 
     iget-object p0, p0, Lcom/android/settings/applications/defaultapps/DefaultAutofillPicker$1;->this$0:Lcom/android/settings/applications/defaultapps/DefaultAutofillPicker;
 
-    invoke-static {p0}, Lcom/android/settings/applications/defaultapps/DefaultAutofillPicker;->access$100(Lcom/android/settings/applications/defaultapps/DefaultAutofillPicker;)V
+    invoke-static {p0}, Lcom/android/settings/applications/defaultapps/DefaultAutofillPicker;->-$$Nest$mupdate(Lcom/android/settings/applications/defaultapps/DefaultAutofillPicker;)V
 
     return-void
 .end method
@@ -78,7 +78,7 @@
 
     iget-object p0, p0, Lcom/android/settings/applications/defaultapps/DefaultAutofillPicker$1;->this$0:Lcom/android/settings/applications/defaultapps/DefaultAutofillPicker;
 
-    invoke-static {p0}, Lcom/android/settings/applications/defaultapps/DefaultAutofillPicker;->access$100(Lcom/android/settings/applications/defaultapps/DefaultAutofillPicker;)V
+    invoke-static {p0}, Lcom/android/settings/applications/defaultapps/DefaultAutofillPicker;->-$$Nest$mupdate(Lcom/android/settings/applications/defaultapps/DefaultAutofillPicker;)V
 
     return-void
 .end method

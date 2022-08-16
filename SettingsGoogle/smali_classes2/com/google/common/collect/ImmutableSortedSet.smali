@@ -41,9 +41,6 @@
 .end field
 
 .field transient descendingSet:Lcom/google/common/collect/ImmutableSortedSet;
-    .annotation runtime Lcom/google/errorprone/annotations/concurrent/LazyInit;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/google/common/collect/ImmutableSortedSet<",
@@ -348,7 +345,7 @@
         }
     .end annotation
 
-    invoke-virtual {p0}, Lcom/google/common/collect/ImmutableCollection;->iterator()Lcom/google/common/collect/UnmodifiableIterator;
+    invoke-virtual {p0}, Lcom/google/common/collect/ImmutableSortedSet;->iterator()Lcom/google/common/collect/UnmodifiableIterator;
 
     move-result-object p0
 
@@ -479,10 +476,20 @@
     return-object p0
 .end method
 
+.method public abstract iterator()Lcom/google/common/collect/UnmodifiableIterator;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Lcom/google/common/collect/UnmodifiableIterator<",
+            "TE;>;"
+        }
+    .end annotation
+.end method
+
 .method public bridge synthetic iterator()Ljava/util/Iterator;
     .locals 0
 
-    invoke-virtual {p0}, Lcom/google/common/collect/ImmutableCollection;->iterator()Lcom/google/common/collect/UnmodifiableIterator;
+    invoke-virtual {p0}, Lcom/google/common/collect/ImmutableSortedSet;->iterator()Lcom/google/common/collect/UnmodifiableIterator;
 
     move-result-object p0
 
@@ -537,9 +544,6 @@
 
 .method public final pollFirst()Ljava/lang/Object;
     .locals 0
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TE;"
@@ -558,9 +562,6 @@
 
 .method public final pollLast()Ljava/lang/Object;
     .locals 0
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TE;"

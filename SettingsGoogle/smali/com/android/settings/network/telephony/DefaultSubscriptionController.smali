@@ -29,6 +29,26 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$B9ZGKWCkBb0h_2oSPcK0Oi1xHns(Lcom/android/settings/network/telephony/DefaultSubscriptionController;Landroidx/preference/Preference;)Ljava/lang/CharSequence;
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/network/telephony/DefaultSubscriptionController;->lambda$refreshSummary$0(Landroidx/preference/Preference;)Ljava/lang/CharSequence;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static synthetic $r8$lambda$iAurhP0QOqY5-CtrU7SrE7G4iQI(Lcom/android/settings/network/telephony/DefaultSubscriptionController;Ljava/util/List;Landroidx/preference/Preference;)Ljava/lang/CharSequence;
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/settings/network/telephony/DefaultSubscriptionController;->lambda$updateEntries$1(Ljava/util/List;Landroidx/preference/Preference;)Ljava/lang/CharSequence;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method static constructor <clinit>()V
     .locals 3
 
@@ -93,6 +113,36 @@
     return-void
 .end method
 
+.method private synthetic lambda$refreshSummary$0(Landroidx/preference/Preference;)Ljava/lang/CharSequence;
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/settings/network/telephony/DefaultSubscriptionController;->getSummary()Ljava/lang/CharSequence;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private synthetic lambda$updateEntries$1(Ljava/util/List;Landroidx/preference/Preference;)Ljava/lang/CharSequence;
+    .locals 0
+
+    const/4 p2, 0x0
+
+    invoke-interface {p1, p2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Landroid/telephony/SubscriptionInfo;
+
+    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    invoke-static {p1, p0}, Lcom/android/settings/network/SubscriptionUtil;->getUniqueSubscriptionDisplayName(Landroid/telephony/SubscriptionInfo;Landroid/content/Context;)Ljava/lang/CharSequence;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method private updateEntries()V
     .locals 9
 
@@ -152,21 +202,13 @@
 
     invoke-virtual {v2, v1}, Landroidx/preference/Preference;->setEnabled(Z)V
 
-    iget-object v2, p0, Lcom/android/settings/network/telephony/DefaultSubscriptionController;->mPreference:Landroidx/preference/ListPreference;
+    iget-object v1, p0, Lcom/android/settings/network/telephony/DefaultSubscriptionController;->mPreference:Landroidx/preference/ListPreference;
 
-    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    new-instance v2, Lcom/android/settings/network/telephony/DefaultSubscriptionController$$ExternalSyntheticLambda1;
 
-    move-result-object v0
+    invoke-direct {v2, p0, v0}, Lcom/android/settings/network/telephony/DefaultSubscriptionController$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/network/telephony/DefaultSubscriptionController;Ljava/util/List;)V
 
-    check-cast v0, Landroid/telephony/SubscriptionInfo;
-
-    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
-
-    invoke-static {v0, p0}, Lcom/android/settings/network/SubscriptionUtil;->getUniqueSubscriptionDisplayName(Landroid/telephony/SubscriptionInfo;Landroid/content/Context;)Ljava/lang/CharSequence;
-
-    move-result-object p0
-
-    invoke-virtual {v2, p0}, Landroidx/preference/ListPreference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v1, v2}, Landroidx/preference/Preference;->setSummaryProvider(Landroidx/preference/Preference$SummaryProvider;)V
 
     return-void
 
@@ -239,7 +281,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v8, 0x7f040553
+    const v8, 0x7f0405b1
 
     invoke-virtual {v0, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -309,14 +351,6 @@
 
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public displayPreference(Landroidx/preference/PreferenceScreen;)V
     .locals 1
 
@@ -349,15 +383,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -574,7 +599,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f040553
+    const v0, 0x7f0405b1
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -625,14 +650,6 @@
     return p0
 .end method
 
-.method public init(Landroidx/lifecycle/Lifecycle;)V
-    .locals 0
-
-    invoke-virtual {p1, p0}, Landroidx/lifecycle/Lifecycle;->addObserver(Landroidx/lifecycle/LifecycleObserver;)V
-
-    return-void
-.end method
-
 .method protected isAskEverytimeSupported()Z
     .locals 0
 
@@ -658,16 +675,6 @@
     const/4 p1, 0x4
 
     invoke-virtual {p0, p1}, Landroid/telecom/PhoneAccount;->hasCapabilities(I)Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
 
     move-result p0
 
@@ -734,7 +741,7 @@
 
     iget-object p1, p0, Lcom/android/settings/network/telephony/DefaultSubscriptionController;->mPreference:Landroidx/preference/ListPreference;
 
-    invoke-virtual {p0, p1}, Lcom/android/settingslib/core/AbstractPreferenceController;->refreshSummary(Landroidx/preference/Preference;)V
+    invoke-virtual {p0, p1}, Lcom/android/settings/network/telephony/DefaultSubscriptionController;->refreshSummary(Landroidx/preference/Preference;)V
 
     const/4 p0, 0x1
 
@@ -767,7 +774,22 @@
 
     iget-object v0, p0, Lcom/android/settings/network/telephony/DefaultSubscriptionController;->mPreference:Landroidx/preference/ListPreference;
 
-    invoke-virtual {p0, v0}, Lcom/android/settingslib/core/AbstractPreferenceController;->refreshSummary(Landroidx/preference/Preference;)V
+    invoke-virtual {p0, v0}, Lcom/android/settings/network/telephony/DefaultSubscriptionController;->refreshSummary(Landroidx/preference/Preference;)V
+
+    :cond_0
+    return-void
+.end method
+
+.method protected refreshSummary(Landroidx/preference/Preference;)V
+    .locals 1
+
+    if-eqz p1, :cond_0
+
+    new-instance v0, Lcom/android/settings/network/telephony/DefaultSubscriptionController$$ExternalSyntheticLambda0;
+
+    invoke-direct {v0, p0}, Lcom/android/settings/network/telephony/DefaultSubscriptionController$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/network/telephony/DefaultSubscriptionController;)V
+
+    invoke-virtual {p1, v0}, Landroidx/preference/Preference;->setSummaryProvider(Landroidx/preference/Preference$SummaryProvider;)V
 
     :cond_0
     return-void

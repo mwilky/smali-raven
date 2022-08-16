@@ -12,6 +12,26 @@
     return-void
 .end method
 
+.method private hidePreferenceSettingComponents()V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mTopIntroPreference:Lcom/android/settingslib/widget/TopIntroPreference;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setVisible(Z)V
+
+    iget-object v0, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mSettingsPreference:Landroidx/preference/Preference;
+
+    invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setVisible(Z)V
+
+    iget-object p0, p0, Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragment;->mFollowingTypingSwitchPreference:Landroidx/preference/SwitchPreference;
+
+    invoke-virtual {p0, v1}, Landroidx/preference/Preference;->setVisible(Z)V
+
+    return-void
+.end method
+
 
 # virtual methods
 .method public getHelpResource()I
@@ -106,7 +126,7 @@
 
     move-result-object p2
 
-    const v0, 0x7f040119
+    const v0, 0x7f040132
 
     invoke-virtual {p2, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -116,7 +136,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f04010c
+    const v1, 0x7f040129
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -126,7 +146,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f02016f
+    const v2, 0x7f02017f
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -138,11 +158,7 @@
 
     invoke-static {v2, p1, p2, v0, v1}, Lcom/android/settings/accessibility/AccessibilitySetupWizardUtils;->updateGlifPreferenceLayout(Landroid/content/Context;Lcom/google/android/setupdesign/GlifPreferenceLayout;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/graphics/drawable/Drawable;)V
 
-    iget-object p0, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mSettingsPreference:Landroidx/preference/Preference;
-
-    const/4 p1, 0x0
-
-    invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setVisible(Z)V
+    invoke-direct {p0}, Lcom/android/settings/accessibility/ToggleScreenMagnificationPreferenceFragmentForSetupWizard;->hidePreferenceSettingComponents()V
 
     return-void
 .end method

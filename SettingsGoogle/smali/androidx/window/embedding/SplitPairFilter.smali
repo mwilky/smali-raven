@@ -45,7 +45,7 @@
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    const-string v0, "secondaryActivityName"
+    const-string/jumbo v0, "secondaryActivityName"
 
     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -77,7 +77,7 @@
 
     move-result-object p3
 
-    const-string v0, "secondaryActivityName.packageName"
+    const-string/jumbo v0, "secondaryActivityName.packageName"
 
     invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -85,7 +85,7 @@
 
     move-result-object p2
 
-    const-string v0, "secondaryActivityName.className"
+    const-string/jumbo v0, "secondaryActivityName.className"
 
     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -553,16 +553,16 @@
 
     iget-object p0, p0, Landroidx/window/embedding/SplitPairFilter;->secondaryActivityIntentAction:Ljava/lang/String;
 
-    if-nez p0, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 p0, 0x0
+    invoke-virtual {p0}, Ljava/lang/String;->hashCode()I
+
+    move-result p0
 
     goto :goto_0
 
     :cond_0
-    invoke-virtual {p0}, Ljava/lang/String;->hashCode()I
-
-    move-result p0
+    const/4 p0, 0x0
 
     :goto_0
     add-int/2addr v0, p0
@@ -585,7 +585,7 @@
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    const-string v0, "secondaryActivityIntent"
+    const-string/jumbo v0, "secondaryActivityIntent"
 
     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -597,7 +597,7 @@
 
     iget-object v1, p0, Landroidx/window/embedding/SplitPairFilter;->primaryActivityName:Landroid/content/ComponentName;
 
-    invoke-virtual {v0, p1, v1}, Landroidx/window/embedding/MatcherUtils;->areComponentsMatching$window_debug(Landroid/content/ComponentName;Landroid/content/ComponentName;)Z
+    invoke-virtual {v0, p1, v1}, Landroidx/window/embedding/MatcherUtils;->areComponentsMatching$window_release(Landroid/content/ComponentName;Landroid/content/ComponentName;)Z
 
     move-result p1
 
@@ -614,7 +614,7 @@
 
     iget-object v2, p0, Landroidx/window/embedding/SplitPairFilter;->secondaryActivityName:Landroid/content/ComponentName;
 
-    invoke-virtual {v0, p1, v2}, Landroidx/window/embedding/MatcherUtils;->areComponentsMatching$window_debug(Landroid/content/ComponentName;Landroid/content/ComponentName;)Z
+    invoke-virtual {v0, p1, v2}, Landroidx/window/embedding/MatcherUtils;->areComponentsMatching$window_release(Landroid/content/ComponentName;Landroid/content/ComponentName;)Z
 
     move-result p1
 
@@ -660,7 +660,7 @@
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    const-string v0, "secondaryActivity"
+    const-string/jumbo v0, "secondaryActivity"
 
     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -672,7 +672,7 @@
 
     iget-object v2, p0, Landroidx/window/embedding/SplitPairFilter;->primaryActivityName:Landroid/content/ComponentName;
 
-    invoke-virtual {v0, v1, v2}, Landroidx/window/embedding/MatcherUtils;->areComponentsMatching$window_debug(Landroid/content/ComponentName;Landroid/content/ComponentName;)Z
+    invoke-virtual {v0, v1, v2}, Landroidx/window/embedding/MatcherUtils;->areComponentsMatching$window_release(Landroid/content/ComponentName;Landroid/content/ComponentName;)Z
 
     move-result v1
 
@@ -688,7 +688,7 @@
 
     iget-object v4, p0, Landroidx/window/embedding/SplitPairFilter;->secondaryActivityName:Landroid/content/ComponentName;
 
-    invoke-virtual {v0, v1, v4}, Landroidx/window/embedding/MatcherUtils;->areComponentsMatching$window_debug(Landroid/content/ComponentName;Landroid/content/ComponentName;)Z
+    invoke-virtual {v0, v1, v4}, Landroidx/window/embedding/MatcherUtils;->areComponentsMatching$window_release(Landroid/content/ComponentName;Landroid/content/ComponentName;)Z
 
     move-result v0
 
@@ -714,7 +714,7 @@
 
     move-result-object p2
 
-    const-string v0, "secondaryActivity.intent"
+    const-string/jumbo v0, "secondaryActivity.intent"
 
     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -767,7 +767,7 @@
 
     iget-object p0, p0, Landroidx/window/embedding/SplitPairFilter;->secondaryActivityIntentAction:Ljava/lang/String;
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     const/16 p0, 0x7d
 

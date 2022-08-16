@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/google/android/settings/gestures/assist/AssistGestureTrainingIntroActivity$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/view/View$OnClickListener;
@@ -27,7 +28,7 @@
 
     iget-object p0, p0, Lcom/google/android/settings/gestures/assist/AssistGestureTrainingIntroActivity$$ExternalSyntheticLambda1;->f$0:Lcom/google/android/settings/gestures/assist/AssistGestureTrainingIntroActivity;
 
-    invoke-static {p0, p1}, Lcom/google/android/settings/gestures/assist/AssistGestureTrainingIntroActivity;->$r8$lambda$TmnvuDWB8r3mT_B0Oizyf40BlRk(Lcom/google/android/settings/gestures/assist/AssistGestureTrainingIntroActivity;Landroid/view/View;)V
+    invoke-static {p0, p1}, Lcom/google/android/settings/gestures/assist/AssistGestureTrainingIntroActivity;->$r8$lambda$45jVpMkVQgrObcBcxu9zoE0klEo(Lcom/google/android/settings/gestures/assist/AssistGestureTrainingIntroActivity;Landroid/view/View;)V
 
     return-void
 .end method

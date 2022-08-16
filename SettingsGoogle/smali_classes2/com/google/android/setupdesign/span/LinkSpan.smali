@@ -120,12 +120,6 @@
 
     if-eqz p0, :cond_0
 
-    sget p0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v0, 0x13
-
-    if-lt p0, v0, :cond_1
-
     invoke-virtual {p1}, Landroid/view/View;->cancelPendingInputEvents()V
 
     goto :goto_0
@@ -137,11 +131,10 @@
 
     invoke-static {p0, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_1
     :goto_0
     instance-of p0, p1, Landroid/widget/TextView;
 
-    if-eqz p0, :cond_2
+    if-eqz p0, :cond_1
 
     check-cast p1, Landroid/widget/TextView;
 
@@ -151,7 +144,7 @@
 
     instance-of p1, p0, Landroid/text/Spannable;
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_1
 
     check-cast p0, Landroid/text/Spannable;
 
@@ -159,7 +152,7 @@
 
     invoke-static {p0, p1}, Landroid/text/Selection;->setSelection(Landroid/text/Spannable;I)V
 
-    :cond_2
+    :cond_1
     return-void
 .end method
 

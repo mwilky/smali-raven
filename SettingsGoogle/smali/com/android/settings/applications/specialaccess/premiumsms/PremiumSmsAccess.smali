@@ -29,12 +29,20 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmApplicationsState(Lcom/android/settings/applications/specialaccess/premiumsms/PremiumSmsAccess;)Lcom/android/settingslib/applications/ApplicationsState;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/applications/specialaccess/premiumsms/PremiumSmsAccess;->mApplicationsState:Lcom/android/settingslib/applications/ApplicationsState;
+
+    return-object p0
+.end method
+
 .method static constructor <clinit>()V
     .locals 2
 
     new-instance v0, Lcom/android/settings/search/BaseSearchIndexProvider;
 
-    const v1, 0x7f1500bd
+    const v1, 0x7f1500bf
 
     invoke-direct {v0, v1}, Lcom/android/settings/search/BaseSearchIndexProvider;-><init>(I)V
 
@@ -49,14 +57,6 @@
     invoke-direct {p0}, Lcom/android/settings/widget/EmptyTextSettings;-><init>()V
 
     return-void
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/applications/specialaccess/premiumsms/PremiumSmsAccess;)Lcom/android/settingslib/applications/ApplicationsState;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/applications/specialaccess/premiumsms/PremiumSmsAccess;->mApplicationsState:Lcom/android/settingslib/applications/ApplicationsState;
-
-    return-object p0
 .end method
 
 .method private update()V
@@ -93,34 +93,28 @@
     return-void
 
     :cond_0
-    const v0, 0x7f040f8c
+    invoke-virtual {p0}, Landroidx/preference/PreferenceFragmentCompat;->getPreferenceScreen()Landroidx/preference/PreferenceScreen;
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/widget/EmptyTextSettings;->setEmptyText(I)V
+    move-result-object v0
 
-    const/4 v0, 0x0
+    invoke-virtual {v0}, Landroidx/preference/PreferenceGroup;->removeAll()V
 
     const/4 v1, 0x1
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/settings/SettingsPreferenceFragment;->setLoading(ZZ)V
+    invoke-virtual {v0, v1}, Landroidx/preference/PreferenceGroup;->setOrderingAsAdded(Z)V
 
-    invoke-virtual {p0}, Landroidx/preference/PreferenceFragmentCompat;->getPreferenceScreen()Landroidx/preference/PreferenceScreen;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroidx/preference/PreferenceGroup;->removeAll()V
-
-    invoke-virtual {v2, v1}, Landroidx/preference/PreferenceGroup;->setOrderingAsAdded(Z)V
+    const/4 v1, 0x0
 
     :goto_0
     invoke-virtual {p1}, Ljava/util/ArrayList;->size()I
 
-    move-result v1
+    move-result v2
 
-    if-ge v0, v1, :cond_1
+    if-ge v1, v2, :cond_1
 
-    new-instance v1, Lcom/android/settings/applications/specialaccess/premiumsms/PremiumSmsAccess$PremiumSmsPreference;
+    new-instance v2, Lcom/android/settings/applications/specialaccess/premiumsms/PremiumSmsAccess$PremiumSmsPreference;
 
-    invoke-virtual {p1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {p1, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v3
 
@@ -130,13 +124,13 @@
 
     move-result-object v4
 
-    invoke-direct {v1, p0, v3, v4}, Lcom/android/settings/applications/specialaccess/premiumsms/PremiumSmsAccess$PremiumSmsPreference;-><init>(Lcom/android/settings/applications/specialaccess/premiumsms/PremiumSmsAccess;Lcom/android/settingslib/applications/ApplicationsState$AppEntry;Landroid/content/Context;)V
+    invoke-direct {v2, p0, v3, v4}, Lcom/android/settings/applications/specialaccess/premiumsms/PremiumSmsAccess$PremiumSmsPreference;-><init>(Lcom/android/settings/applications/specialaccess/premiumsms/PremiumSmsAccess;Lcom/android/settingslib/applications/ApplicationsState$AppEntry;Landroid/content/Context;)V
 
-    invoke-virtual {v1, p0}, Landroidx/preference/Preference;->setOnPreferenceChangeListener(Landroidx/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v2, p0}, Landroidx/preference/Preference;->setOnPreferenceChangeListener(Landroidx/preference/Preference$OnPreferenceChangeListener;)V
 
-    invoke-virtual {v2, v1}, Landroidx/preference/PreferenceGroup;->addPreference(Landroidx/preference/Preference;)Z
+    invoke-virtual {v0, v2}, Landroidx/preference/PreferenceGroup;->addPreference(Landroidx/preference/Preference;)Z
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
@@ -155,11 +149,11 @@
 
     invoke-direct {p1, p0}, Lcom/android/settingslib/widget/FooterPreference;-><init>(Landroid/content/Context;)V
 
-    const p0, 0x7f040f8d
+    const p0, 0x7f041026
 
     invoke-virtual {p1, p0}, Landroidx/preference/Preference;->setTitle(I)V
 
-    invoke-virtual {v2, p1}, Landroidx/preference/PreferenceGroup;->addPreference(Landroidx/preference/Preference;)Z
+    invoke-virtual {v0, p1}, Landroidx/preference/PreferenceGroup;->addPreference(Landroidx/preference/Preference;)Z
 
     :cond_2
     return-void
@@ -178,7 +172,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f1500bd
+    const p0, 0x7f1500bf
 
     return p0
 .end method
@@ -382,7 +376,7 @@
 
     move-result p2
 
-    invoke-static {p1}, Lcom/android/settings/applications/specialaccess/premiumsms/PremiumSmsAccess$PremiumSmsPreference;->access$000(Lcom/android/settings/applications/specialaccess/premiumsms/PremiumSmsAccess$PremiumSmsPreference;)Lcom/android/settingslib/applications/ApplicationsState$AppEntry;
+    invoke-static {p1}, Lcom/android/settings/applications/specialaccess/premiumsms/PremiumSmsAccess$PremiumSmsPreference;->-$$Nest$fgetmAppEntry(Lcom/android/settings/applications/specialaccess/premiumsms/PremiumSmsAccess$PremiumSmsPreference;)Lcom/android/settingslib/applications/ApplicationsState$AppEntry;
 
     move-result-object v0
 
@@ -394,7 +388,7 @@
 
     iget-object p0, p0, Lcom/android/settings/applications/specialaccess/premiumsms/PremiumSmsAccess;->mSmsBackend:Lcom/android/settings/applications/AppStateSmsPremBridge;
 
-    invoke-static {p1}, Lcom/android/settings/applications/specialaccess/premiumsms/PremiumSmsAccess$PremiumSmsPreference;->access$000(Lcom/android/settings/applications/specialaccess/premiumsms/PremiumSmsAccess$PremiumSmsPreference;)Lcom/android/settingslib/applications/ApplicationsState$AppEntry;
+    invoke-static {p1}, Lcom/android/settings/applications/specialaccess/premiumsms/PremiumSmsAccess$PremiumSmsPreference;->-$$Nest$fgetmAppEntry(Lcom/android/settings/applications/specialaccess/premiumsms/PremiumSmsAccess$PremiumSmsPreference;)Lcom/android/settingslib/applications/ApplicationsState$AppEntry;
 
     move-result-object p1
 
@@ -426,13 +420,15 @@
 .end method
 
 .method public onResume()V
-    .locals 0
+    .locals 1
 
     invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onResume()V
 
     iget-object p0, p0, Lcom/android/settings/applications/specialaccess/premiumsms/PremiumSmsAccess;->mSmsBackend:Lcom/android/settings/applications/AppStateSmsPremBridge;
 
-    invoke-virtual {p0}, Lcom/android/settings/applications/AppStateBaseBridge;->resume()V
+    const/4 v0, 0x1
+
+    invoke-virtual {p0, v0}, Lcom/android/settings/applications/AppStateBaseBridge;->resume(Z)V
 
     return-void
 .end method
@@ -448,11 +444,9 @@
 
     invoke-super {p0, p1, p2}, Lcom/android/settings/widget/EmptyTextSettings;->onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
 
-    const/4 p1, 0x1
+    const p1, 0x7f041025
 
-    const/4 p2, 0x0
-
-    invoke-virtual {p0, p1, p2}, Lcom/android/settings/SettingsPreferenceFragment;->setLoading(ZZ)V
+    invoke-virtual {p0, p1}, Lcom/android/settings/widget/EmptyTextSettings;->setEmptyText(I)V
 
     return-void
 .end method

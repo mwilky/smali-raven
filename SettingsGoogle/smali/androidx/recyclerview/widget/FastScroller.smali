@@ -106,28 +106,6 @@
 
 .method constructor <init>(Landroidx/recyclerview/widget/RecyclerView;Landroid/graphics/drawable/StateListDrawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/StateListDrawable;Landroid/graphics/drawable/Drawable;III)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "recyclerView",
-            "verticalThumbDrawable",
-            "verticalTrackDrawable",
-            "horizontalThumbDrawable",
-            "horizontalTrackDrawable",
-            "defaultWidth",
-            "scrollbarMinimumRange",
-            "margin"
-        }
-    .end annotation
 
     invoke-direct {p0}, Landroidx/recyclerview/widget/RecyclerView$ItemDecoration;-><init>()V
 
@@ -296,14 +274,6 @@
 
 .method private drawHorizontalScrollbar(Landroid/graphics/Canvas;)V
     .locals 6
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "canvas"
-        }
-    .end annotation
 
     iget v0, p0, Landroidx/recyclerview/widget/FastScroller;->mRecyclerViewHeight:I
 
@@ -366,14 +336,6 @@
 
 .method private drawVerticalScrollbar(Landroid/graphics/Canvas;)V
     .locals 6
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "canvas"
-        }
-    .end annotation
 
     iget v0, p0, Landroidx/recyclerview/widget/FastScroller;->mRecyclerViewWidth:I
 
@@ -526,14 +488,6 @@
 
 .method private horizontalScrollTo(F)V
     .locals 8
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "x"
-        }
-    .end annotation
 
     invoke-direct {p0}, Landroidx/recyclerview/widget/FastScroller;->getHorizontalRange()[I
 
@@ -638,14 +592,6 @@
 
 .method private resetHideDelay(I)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "delay"
-        }
-    .end annotation
 
     invoke-direct {p0}, Landroidx/recyclerview/widget/FastScroller;->cancelHide()V
 
@@ -662,24 +608,6 @@
 
 .method private scrollTo(FF[IIII)I
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "oldDragPos",
-            "newDragPos",
-            "scrollbarRange",
-            "scrollRange",
-            "scrollOffset",
-            "viewLength"
-        }
-    .end annotation
 
     const/4 p0, 0x1
 
@@ -744,14 +672,6 @@
 
 .method private verticalScrollTo(F)V
     .locals 8
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "y"
-        }
-    .end annotation
 
     invoke-direct {p0}, Landroidx/recyclerview/widget/FastScroller;->getVerticalRange()[I
 
@@ -836,14 +756,6 @@
 # virtual methods
 .method public attachToRecyclerView(Landroidx/recyclerview/widget/RecyclerView;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "recyclerView"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/recyclerview/widget/FastScroller;->mRecyclerView:Landroidx/recyclerview/widget/RecyclerView;
 
@@ -901,14 +813,6 @@
 
 .method hide(I)V
     .locals 5
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "duration"
-        }
-    .end annotation
 
     iget v0, p0, Landroidx/recyclerview/widget/FastScroller;->mAnimationState:I
 
@@ -972,16 +876,6 @@
 
 .method isPointInsideHorizontalThumb(FF)Z
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "x",
-            "y"
-        }
-    .end annotation
 
     iget v0, p0, Landroidx/recyclerview/widget/FastScroller;->mRecyclerViewHeight:I
 
@@ -1032,16 +926,6 @@
 
 .method isPointInsideVerticalThumb(FF)Z
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "x",
-            "y"
-        }
-    .end annotation
 
     invoke-direct {p0}, Landroidx/recyclerview/widget/FastScroller;->isLayoutRTL()Z
 
@@ -1128,18 +1012,6 @@
 
 .method public onDrawOver(Landroid/graphics/Canvas;Landroidx/recyclerview/widget/RecyclerView;Landroidx/recyclerview/widget/RecyclerView$State;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "canvas",
-            "parent",
-            "state"
-        }
-    .end annotation
 
     iget p2, p0, Landroidx/recyclerview/widget/FastScroller;->mRecyclerViewWidth:I
 
@@ -1211,16 +1083,6 @@
 
 .method public onInterceptTouchEvent(Landroidx/recyclerview/widget/RecyclerView;Landroid/view/MotionEvent;)Z
     .locals 5
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "recyclerView",
-            "ev"
-        }
-    .end annotation
 
     iget p1, p0, Landroidx/recyclerview/widget/FastScroller;->mState:I
 
@@ -1316,30 +1178,12 @@
 
 .method public onRequestDisallowInterceptTouchEvent(Z)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "disallowIntercept"
-        }
-    .end annotation
 
     return-void
 .end method
 
 .method public onTouchEvent(Landroidx/recyclerview/widget/RecyclerView;Landroid/view/MotionEvent;)V
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "recyclerView",
-            "me"
-        }
-    .end annotation
 
     iget p1, p0, Landroidx/recyclerview/widget/FastScroller;->mState:I
 
@@ -1500,14 +1344,6 @@
 
 .method setState(I)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "state"
-        }
-    .end annotation
 
     const/4 v0, 0x2
 
@@ -1641,16 +1477,6 @@
 
 .method updateScrollPosition(II)V
     .locals 8
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "offsetX",
-            "offsetY"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/recyclerview/widget/FastScroller;->mRecyclerView:Landroidx/recyclerview/widget/RecyclerView;
 

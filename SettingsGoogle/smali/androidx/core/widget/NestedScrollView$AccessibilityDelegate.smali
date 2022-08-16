@@ -27,16 +27,6 @@
 # virtual methods
 .method public onInitializeAccessibilityEvent(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "host",
-            "event"
-        }
-    .end annotation
 
     invoke-super {p0, p1, p2}, Landroidx/core/view/AccessibilityDelegateCompat;->onInitializeAccessibilityEvent(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V
 
@@ -95,16 +85,6 @@
 
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "host",
-            "info"
-        }
-    .end annotation
 
     invoke-super {p0, p1, p2}, Landroidx/core/view/AccessibilityDelegateCompat;->onInitializeAccessibilityNodeInfo(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;)V
 
@@ -168,19 +148,7 @@
 .end method
 
 .method public performAccessibilityAction(Landroid/view/View;ILandroid/os/Bundle;)Z
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "host",
-            "action",
-            "arguments"
-        }
-    .end annotation
+    .locals 3
 
     invoke-super {p0, p1, p2, p3}, Landroidx/core/view/AccessibilityDelegateCompat;->performAccessibilityAction(Landroid/view/View;ILandroid/os/Bundle;)Z
 
@@ -206,29 +174,54 @@
     return v0
 
     :cond_1
-    const/16 p0, 0x1000
-
-    if-eq p2, p0, :cond_4
-
-    const/16 p0, 0x2000
-
-    if-eq p2, p0, :cond_2
-
-    const p0, 0x1020038
-
-    if-eq p2, p0, :cond_2
-
-    const p0, 0x102003a
-
-    if-eq p2, p0, :cond_4
-
-    return v0
-
-    :cond_2
     invoke-virtual {p1}, Landroid/widget/FrameLayout;->getHeight()I
 
     move-result p0
 
+    new-instance v1, Landroid/graphics/Rect;
+
+    invoke-direct {v1}, Landroid/graphics/Rect;-><init>()V
+
+    invoke-virtual {p1}, Landroid/widget/FrameLayout;->getMatrix()Landroid/graphics/Matrix;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/graphics/Matrix;->isIdentity()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    invoke-virtual {p1, v1}, Landroid/widget/FrameLayout;->getGlobalVisibleRect(Landroid/graphics/Rect;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    invoke-virtual {v1}, Landroid/graphics/Rect;->height()I
+
+    move-result p0
+
+    :cond_2
+    const/16 v1, 0x1000
+
+    if-eq p2, v1, :cond_5
+
+    const/16 v1, 0x2000
+
+    if-eq p2, v1, :cond_3
+
+    const v1, 0x1020038
+
+    if-eq p2, v1, :cond_3
+
+    const v1, 0x102003a
+
+    if-eq p2, v1, :cond_5
+
+    return v0
+
+    :cond_3
     invoke-virtual {p1}, Landroid/widget/FrameLayout;->getPaddingBottom()I
 
     move-result p2
@@ -255,20 +248,16 @@
 
     move-result p2
 
-    if-eq p0, p2, :cond_3
+    if-eq p0, p2, :cond_4
 
     invoke-virtual {p1, v0, p0, p3}, Landroidx/core/widget/NestedScrollView;->smoothScrollTo(IIZ)V
 
     return p3
 
-    :cond_3
+    :cond_4
     return v0
 
-    :cond_4
-    invoke-virtual {p1}, Landroid/widget/FrameLayout;->getHeight()I
-
-    move-result p0
-
+    :cond_5
     invoke-virtual {p1}, Landroid/widget/FrameLayout;->getPaddingBottom()I
 
     move-result p2
@@ -299,12 +288,12 @@
 
     move-result p2
 
-    if-eq p0, p2, :cond_5
+    if-eq p0, p2, :cond_6
 
     invoke-virtual {p1, v0, p0, p3}, Landroidx/core/widget/NestedScrollView;->smoothScrollTo(IIZ)V
 
     return p3
 
-    :cond_5
+    :cond_6
     return v0
 .end method

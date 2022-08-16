@@ -16,6 +16,16 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$7w-ykFNeSpX7Vp1LlgTBKpJfaCM(Lcom/android/settings/enterprise/ActionDisabledByAdminDialogHelper;)Ljava/lang/String;
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/enterprise/ActionDisabledByAdminDialogHelper;->lambda$new$0()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method static constructor <clinit>()V
     .locals 0
 
@@ -43,7 +53,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f060040
+    const v1, 0x7f06027e
 
     const/4 v2, 0x0
 
@@ -63,9 +73,43 @@
 
     invoke-static {p1, p2, v0, v1}, Lcom/android/settingslib/enterprise/ActionDisabledByAdminControllerFactory;->createInstance(Landroid/content/Context;Ljava/lang/String;Lcom/android/settingslib/enterprise/DeviceAdminStringProvider;Landroid/os/UserHandle;)Lcom/android/settingslib/enterprise/ActionDisabledByAdminController;
 
+    move-result-object p2
+
+    iput-object p2, p0, Lcom/android/settings/enterprise/ActionDisabledByAdminDialogHelper;->mActionDisabledByAdminController:Lcom/android/settingslib/enterprise/ActionDisabledByAdminController;
+
+    const-class p2, Landroid/app/admin/DevicePolicyManager;
+
+    invoke-virtual {p1, p2}, Landroid/app/Activity;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
     move-result-object p1
 
-    iput-object p1, p0, Lcom/android/settings/enterprise/ActionDisabledByAdminDialogHelper;->mActionDisabledByAdminController:Lcom/android/settingslib/enterprise/ActionDisabledByAdminController;
+    check-cast p1, Landroid/app/admin/DevicePolicyManager;
+
+    iget-object p2, p0, Lcom/android/settings/enterprise/ActionDisabledByAdminDialogHelper;->mDialogView:Landroid/view/ViewGroup;
+
+    const v0, 0x7f0d006c
+
+    invoke-virtual {p2, v0}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+
+    move-result-object p2
+
+    check-cast p2, Landroid/widget/TextView;
+
+    invoke-virtual {p1}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
+
+    move-result-object p1
+
+    new-instance v0, Lcom/android/settings/enterprise/ActionDisabledByAdminDialogHelper$$ExternalSyntheticLambda0;
+
+    invoke-direct {v0, p0}, Lcom/android/settings/enterprise/ActionDisabledByAdminDialogHelper$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/enterprise/ActionDisabledByAdminDialogHelper;)V
+
+    const-string p0, "Settings.DISABLED_BY_IT_ADMIN_TITLE"
+
+    invoke-virtual {p1, p0, v0}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {p2, p0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     return-void
 .end method
@@ -188,6 +232,20 @@
     return p0
 .end method
 
+.method private synthetic lambda$new$0()Ljava/lang/String;
+    .locals 1
+
+    iget-object p0, p0, Lcom/android/settings/enterprise/ActionDisabledByAdminDialogHelper;->mActivity:Landroid/app/Activity;
+
+    const v0, 0x7f040851
+
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 
 # virtual methods
 .method public prepareDialogBuilder(Ljava/lang/String;Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;)Landroidx/appcompat/app/AlertDialog$Builder;
@@ -207,7 +265,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f040ecc
+    const v2, 0x7f040f60
 
     invoke-virtual {v0, v2, v1}, Landroidx/appcompat/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 
@@ -356,7 +414,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f0d006e
+    const p1, 0x7f0d006f
 
     invoke-virtual {p2, p1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -376,7 +434,7 @@
 .method setAdminSupportIcon(Landroid/view/View;Landroid/content/ComponentName;I)V
     .locals 0
 
-    const p2, 0x7f0d006c
+    const p2, 0x7f0d006d
 
     invoke-virtual {p1, p2}, Landroid/view/View;->requireViewById(I)Landroid/view/View;
 
@@ -386,7 +444,7 @@
 
     iget-object p2, p0, Lcom/android/settings/enterprise/ActionDisabledByAdminDialogHelper;->mActivity:Landroid/app/Activity;
 
-    const p3, 0x7f02023f
+    const p3, 0x7f02025d
 
     invoke-virtual {p2, p3}, Landroid/app/Activity;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -408,7 +466,7 @@
 .method setAdminSupportTitle(Landroid/view/View;Ljava/lang/String;)V
     .locals 1
 
-    const v0, 0x7f0d006b
+    const v0, 0x7f0d006c
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

@@ -91,7 +91,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .locals 3
     .param p1    # Landroid/content/Context;
         .annotation build Lorg/jetbrains/annotations/NotNull;
         .end annotation
@@ -101,17 +101,19 @@
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+    sget-object v0, Landroidx/window/layout/SidecarCompat;->Companion:Landroidx/window/layout/SidecarCompat$Companion;
 
-    move-result-object p1
-
-    invoke-static {p1}, Landroidx/window/sidecar/SidecarProvider;->getSidecarImpl(Landroid/content/Context;)Landroidx/window/sidecar/SidecarInterface;
+    invoke-virtual {v0, p1}, Landroidx/window/layout/SidecarCompat$Companion;->getSidecarCompat$window_release(Landroid/content/Context;)Landroidx/window/sidecar/SidecarInterface;
 
     move-result-object p1
 
     new-instance v0, Landroidx/window/layout/SidecarAdapter;
 
-    invoke-direct {v0}, Landroidx/window/layout/SidecarAdapter;-><init>()V
+    const/4 v1, 0x0
+
+    const/4 v2, 0x1
+
+    invoke-direct {v0, v1, v2, v1}, Landroidx/window/layout/SidecarAdapter;-><init>(Landroidx/window/core/SpecificationComputer$VerificationMode;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 
     invoke-direct {p0, p1, v0}, Landroidx/window/layout/SidecarCompat;-><init>(Landroidx/window/sidecar/SidecarInterface;Landroidx/window/layout/SidecarAdapter;)V
 
@@ -236,7 +238,7 @@
 .end method
 
 .method public final getWindowLayoutInfo(Landroid/app/Activity;)Landroidx/window/layout/WindowLayoutInfo;
-    .locals 2
+    .locals 1
     .param p1    # Landroid/app/Activity;
         .annotation build Lorg/jetbrains/annotations/NotNull;
         .end annotation
@@ -250,7 +252,7 @@
 
     sget-object v0, Landroidx/window/layout/SidecarCompat;->Companion:Landroidx/window/layout/SidecarCompat$Companion;
 
-    invoke-virtual {v0, p1}, Landroidx/window/layout/SidecarCompat$Companion;->getActivityWindowToken$window_debug(Landroid/app/Activity;)Landroid/os/IBinder;
+    invoke-virtual {v0, p1}, Landroidx/window/layout/SidecarCompat$Companion;->getActivityWindowToken$window_release(Landroid/app/Activity;)Landroid/os/IBinder;
 
     move-result-object p1
 
@@ -269,42 +271,37 @@
     :cond_0
     iget-object v0, p0, Landroidx/window/layout/SidecarCompat;->sidecar:Landroidx/window/sidecar/SidecarInterface;
 
-    const/4 v1, 0x0
+    if-eqz v0, :cond_1
 
-    if-nez v0, :cond_1
+    invoke-interface {v0, p1}, Landroidx/window/sidecar/SidecarInterface;->getWindowLayoutInfo(Landroid/os/IBinder;)Landroidx/window/sidecar/SidecarWindowLayoutInfo;
 
-    move-object p1, v1
+    move-result-object p1
 
     goto :goto_0
 
     :cond_1
-    invoke-interface {v0, p1}, Landroidx/window/sidecar/SidecarInterface;->getWindowLayoutInfo(Landroid/os/IBinder;)Landroidx/window/sidecar/SidecarWindowLayoutInfo;
-
-    move-result-object p1
+    const/4 p1, 0x0
 
     :goto_0
     iget-object v0, p0, Landroidx/window/layout/SidecarCompat;->sidecarAdapter:Landroidx/window/layout/SidecarAdapter;
 
     iget-object p0, p0, Landroidx/window/layout/SidecarCompat;->sidecar:Landroidx/window/sidecar/SidecarInterface;
 
-    if-nez p0, :cond_2
+    if-eqz p0, :cond_2
 
-    goto :goto_1
-
-    :cond_2
     invoke-interface {p0}, Landroidx/window/sidecar/SidecarInterface;->getDeviceState()Landroidx/window/sidecar/SidecarDeviceState;
 
-    move-result-object v1
+    move-result-object p0
 
-    :goto_1
-    if-nez v1, :cond_3
+    if-nez p0, :cond_3
 
-    new-instance v1, Landroidx/window/sidecar/SidecarDeviceState;
+    :cond_2
+    new-instance p0, Landroidx/window/sidecar/SidecarDeviceState;
 
-    invoke-direct {v1}, Landroidx/window/sidecar/SidecarDeviceState;-><init>()V
+    invoke-direct {p0}, Landroidx/window/sidecar/SidecarDeviceState;-><init>()V
 
     :cond_3
-    invoke-virtual {v0, p1, v1}, Landroidx/window/layout/SidecarAdapter;->translate(Landroidx/window/sidecar/SidecarWindowLayoutInfo;Landroidx/window/sidecar/SidecarDeviceState;)Landroidx/window/layout/WindowLayoutInfo;
+    invoke-virtual {v0, p1, p0}, Landroidx/window/layout/SidecarAdapter;->translate(Landroidx/window/sidecar/SidecarWindowLayoutInfo;Landroidx/window/sidecar/SidecarDeviceState;)Landroidx/window/layout/WindowLayoutInfo;
 
     move-result-object p0
 
@@ -324,7 +321,7 @@
 
     sget-object v0, Landroidx/window/layout/SidecarCompat;->Companion:Landroidx/window/layout/SidecarCompat$Companion;
 
-    invoke-virtual {v0, p1}, Landroidx/window/layout/SidecarCompat$Companion;->getActivityWindowToken$window_debug(Landroid/app/Activity;)Landroid/os/IBinder;
+    invoke-virtual {v0, p1}, Landroidx/window/layout/SidecarCompat$Companion;->getActivityWindowToken$window_release(Landroid/app/Activity;)Landroid/os/IBinder;
 
     move-result-object v0
 
@@ -366,7 +363,7 @@
 
     sget-object v0, Landroidx/window/layout/SidecarCompat;->Companion:Landroidx/window/layout/SidecarCompat$Companion;
 
-    invoke-virtual {v0, p1}, Landroidx/window/layout/SidecarCompat$Companion;->getActivityWindowToken$window_debug(Landroid/app/Activity;)Landroid/os/IBinder;
+    invoke-virtual {v0, p1}, Landroidx/window/layout/SidecarCompat$Companion;->getActivityWindowToken$window_release(Landroid/app/Activity;)Landroid/os/IBinder;
 
     move-result-object v0
 
@@ -377,14 +374,11 @@
     :cond_0
     iget-object v1, p0, Landroidx/window/layout/SidecarCompat;->sidecar:Landroidx/window/sidecar/SidecarInterface;
 
-    if-nez v1, :cond_1
+    if-eqz v1, :cond_1
 
-    goto :goto_0
-
-    :cond_1
     invoke-interface {v1, v0}, Landroidx/window/sidecar/SidecarInterface;->onWindowLayoutChangeListenerRemoved(Landroid/os/IBinder;)V
 
-    :goto_0
+    :cond_1
     invoke-direct {p0, p1}, Landroidx/window/layout/SidecarCompat;->unregisterComponentCallback(Landroid/app/Activity;)V
 
     iget-object p1, p0, Landroidx/window/layout/SidecarCompat;->windowListenerRegisteredContexts:Ljava/util/Map;
@@ -399,29 +393,25 @@
 
     move p1, v1
 
-    goto :goto_1
+    goto :goto_0
 
     :cond_2
     const/4 p1, 0x0
 
-    :goto_1
+    :goto_0
     iget-object v2, p0, Landroidx/window/layout/SidecarCompat;->windowListenerRegisteredContexts:Ljava/util/Map;
 
     invoke-interface {v2, v0}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_3
 
     iget-object p0, p0, Landroidx/window/layout/SidecarCompat;->sidecar:Landroidx/window/sidecar/SidecarInterface;
 
-    if-nez p0, :cond_3
+    if-eqz p0, :cond_3
 
-    goto :goto_2
-
-    :cond_3
     invoke-interface {p0, v1}, Landroidx/window/sidecar/SidecarInterface;->onDeviceStateListenersChanged(Z)V
 
-    :cond_4
-    :goto_2
+    :cond_3
     return-void
 .end method
 
@@ -450,14 +440,11 @@
 
     iget-object v0, p0, Landroidx/window/layout/SidecarCompat;->sidecar:Landroidx/window/sidecar/SidecarInterface;
 
-    if-nez v0, :cond_0
+    if-eqz v0, :cond_0
 
-    goto :goto_0
-
-    :cond_0
     invoke-interface {v0, p1}, Landroidx/window/sidecar/SidecarInterface;->onWindowLayoutChangeListenerAdded(Landroid/os/IBinder;)V
 
-    :goto_0
+    :cond_0
     iget-object p1, p0, Landroidx/window/layout/SidecarCompat;->windowListenerRegisteredContexts:Ljava/util/Map;
 
     invoke-interface {p1}, Ljava/util/Map;->size()I
@@ -466,35 +453,28 @@
 
     const/4 v0, 0x1
 
-    if-ne p1, v0, :cond_2
+    if-ne p1, v0, :cond_1
 
     iget-object p1, p0, Landroidx/window/layout/SidecarCompat;->sidecar:Landroidx/window/sidecar/SidecarInterface;
 
-    if-nez p1, :cond_1
+    if-eqz p1, :cond_1
 
-    goto :goto_1
-
-    :cond_1
     const/4 v0, 0x0
 
     invoke-interface {p1, v0}, Landroidx/window/sidecar/SidecarInterface;->onDeviceStateListenersChanged(Z)V
 
-    :cond_2
-    :goto_1
+    :cond_1
     iget-object p1, p0, Landroidx/window/layout/SidecarCompat;->extensionCallback:Landroidx/window/layout/ExtensionInterfaceCompat$ExtensionCallbackInterface;
 
-    if-nez p1, :cond_3
+    if-eqz p1, :cond_2
 
-    goto :goto_2
-
-    :cond_3
     invoke-virtual {p0, p2}, Landroidx/window/layout/SidecarCompat;->getWindowLayoutInfo(Landroid/app/Activity;)Landroidx/window/layout/WindowLayoutInfo;
 
     move-result-object v0
 
     invoke-interface {p1, p2, v0}, Landroidx/window/layout/ExtensionInterfaceCompat$ExtensionCallbackInterface;->onWindowLayoutChanged(Landroid/app/Activity;Landroidx/window/layout/WindowLayoutInfo;)V
 
-    :goto_2
+    :cond_2
     invoke-direct {p0, p2}, Landroidx/window/layout/SidecarCompat;->registerConfigurationChangeListener(Landroid/app/Activity;)V
 
     return-void
@@ -519,11 +499,8 @@
 
     iget-object p1, p0, Landroidx/window/layout/SidecarCompat;->sidecar:Landroidx/window/sidecar/SidecarInterface;
 
-    if-nez p1, :cond_0
+    if-eqz p1, :cond_0
 
-    goto :goto_0
-
-    :cond_0
     new-instance v0, Landroidx/window/layout/SidecarCompat$DistinctSidecarElementCallback;
 
     iget-object v1, p0, Landroidx/window/layout/SidecarCompat;->sidecarAdapter:Landroidx/window/layout/SidecarAdapter;
@@ -540,7 +517,7 @@
 
     invoke-interface {p1, v0}, Landroidx/window/sidecar/SidecarInterface;->setSidecarCallback(Landroidx/window/sidecar/SidecarInterface$SidecarCallback;)V
 
-    :goto_0
+    :cond_0
     return-void
 .end method
 
@@ -561,23 +538,14 @@
 
     const/4 v3, 0x0
 
-    if-nez v2, :cond_0
+    if-eqz v2, :cond_0
 
-    :goto_0
-    move-object v2, v3
-
-    goto :goto_1
-
-    :cond_0
     invoke-virtual {v2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v2
 
-    if-nez v2, :cond_1
+    if-eqz v2, :cond_0
 
-    goto :goto_0
-
-    :cond_1
     const-string/jumbo v4, "setSidecarCallback"
 
     new-array v5, v0, [Ljava/lang/Class;
@@ -590,66 +558,56 @@
 
     move-result-object v2
 
-    :goto_1
-    if-nez v2, :cond_2
+    goto :goto_0
 
+    :cond_0
     move-object v2, v3
 
-    goto :goto_2
+    :goto_0
+    if-eqz v2, :cond_1
 
-    :cond_2
     invoke-virtual {v2}, Ljava/lang/reflect/Method;->getReturnType()Ljava/lang/Class;
 
     move-result-object v2
 
-    :goto_2
+    goto :goto_1
+
+    :cond_1
+    move-object v2, v3
+
+    :goto_1
     sget-object v4, Ljava/lang/Void;->TYPE:Ljava/lang/Class;
 
     invoke-static {v2, v4}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_15
+    if-eqz v4, :cond_11
 
     iget-object v2, p0, Landroidx/window/layout/SidecarCompat;->sidecar:Landroidx/window/sidecar/SidecarInterface;
 
-    if-nez v2, :cond_3
+    if-eqz v2, :cond_2
 
-    goto :goto_3
-
-    :cond_3
     invoke-interface {v2}, Landroidx/window/sidecar/SidecarInterface;->getDeviceState()Landroidx/window/sidecar/SidecarDeviceState;
 
-    :goto_3
+    :cond_2
     iget-object v2, p0, Landroidx/window/layout/SidecarCompat;->sidecar:Landroidx/window/sidecar/SidecarInterface;
 
-    if-nez v2, :cond_4
+    if-eqz v2, :cond_3
 
-    goto :goto_4
-
-    :cond_4
     invoke-interface {v2, v0}, Landroidx/window/sidecar/SidecarInterface;->onDeviceStateListenersChanged(Z)V
 
-    :goto_4
+    :cond_3
     iget-object v2, p0, Landroidx/window/layout/SidecarCompat;->sidecar:Landroidx/window/sidecar/SidecarInterface;
 
-    if-nez v2, :cond_5
+    if-eqz v2, :cond_4
 
-    :goto_5
-    move-object v2, v3
-
-    goto :goto_6
-
-    :cond_5
     invoke-virtual {v2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v2
 
-    if-nez v2, :cond_6
+    if-eqz v2, :cond_4
 
-    goto :goto_5
-
-    :cond_6
     const-string v4, "getWindowLayoutInfo"
 
     new-array v5, v0, [Ljava/lang/Class;
@@ -662,46 +620,42 @@
 
     move-result-object v2
 
-    :goto_6
-    if-nez v2, :cond_7
+    goto :goto_2
 
+    :cond_4
     move-object v2, v3
 
-    goto :goto_7
+    :goto_2
+    if-eqz v2, :cond_5
 
-    :cond_7
     invoke-virtual {v2}, Ljava/lang/reflect/Method;->getReturnType()Ljava/lang/Class;
 
     move-result-object v2
 
-    :goto_7
+    goto :goto_3
+
+    :cond_5
+    move-object v2, v3
+
+    :goto_3
     const-class v4, Landroidx/window/sidecar/SidecarWindowLayoutInfo;
 
     invoke-static {v2, v4}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_14
+    if-eqz v4, :cond_10
 
     iget-object v2, p0, Landroidx/window/layout/SidecarCompat;->sidecar:Landroidx/window/sidecar/SidecarInterface;
 
-    if-nez v2, :cond_8
+    if-eqz v2, :cond_6
 
-    :goto_8
-    move-object v2, v3
-
-    goto :goto_9
-
-    :cond_8
     invoke-virtual {v2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v2
 
-    if-nez v2, :cond_9
+    if-eqz v2, :cond_6
 
-    goto :goto_8
-
-    :cond_9
     const-string v4, "onWindowLayoutChangeListenerAdded"
 
     new-array v5, v0, [Ljava/lang/Class;
@@ -714,46 +668,42 @@
 
     move-result-object v2
 
-    :goto_9
-    if-nez v2, :cond_a
+    goto :goto_4
 
+    :cond_6
     move-object v2, v3
 
-    goto :goto_a
+    :goto_4
+    if-eqz v2, :cond_7
 
-    :cond_a
     invoke-virtual {v2}, Ljava/lang/reflect/Method;->getReturnType()Ljava/lang/Class;
 
     move-result-object v2
 
-    :goto_a
+    goto :goto_5
+
+    :cond_7
+    move-object v2, v3
+
+    :goto_5
     sget-object v4, Ljava/lang/Void;->TYPE:Ljava/lang/Class;
 
     invoke-static {v2, v4}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_13
+    if-eqz v4, :cond_f
 
     iget-object p0, p0, Landroidx/window/layout/SidecarCompat;->sidecar:Landroidx/window/sidecar/SidecarInterface;
 
-    if-nez p0, :cond_b
+    if-eqz p0, :cond_8
 
-    :goto_b
-    move-object p0, v3
-
-    goto :goto_c
-
-    :cond_b
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object p0
 
-    if-nez p0, :cond_c
+    if-eqz p0, :cond_8
 
-    goto :goto_b
-
-    :cond_c
     const-string v2, "onWindowLayoutChangeListenerRemoved"
 
     new-array v4, v0, [Ljava/lang/Class;
@@ -766,24 +716,26 @@
 
     move-result-object p0
 
-    :goto_c
-    if-nez p0, :cond_d
+    goto :goto_6
 
-    goto :goto_d
+    :cond_8
+    move-object p0, v3
 
-    :cond_d
+    :goto_6
+    if-eqz p0, :cond_9
+
     invoke-virtual {p0}, Ljava/lang/reflect/Method;->getReturnType()Ljava/lang/Class;
 
     move-result-object v3
 
-    :goto_d
+    :cond_9
     sget-object p0, Ljava/lang/Void;->TYPE:Ljava/lang/Class;
 
     invoke-static {v3, p0}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result p0
 
-    if-eqz p0, :cond_12
+    if-eqz p0, :cond_e
 
     new-instance p0, Landroidx/window/sidecar/SidecarDeviceState;
 
@@ -799,7 +751,7 @@
     .catch Ljava/lang/NoSuchFieldError; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_e
+    goto :goto_7
 
     :catch_0
     :try_start_2
@@ -843,7 +795,7 @@
 
     move-result-object p0
 
-    if-eqz p0, :cond_11
+    if-eqz p0, :cond_d
 
     check-cast p0, Ljava/lang/Integer;
 
@@ -851,9 +803,9 @@
 
     move-result p0
 
-    if-ne p0, v2, :cond_10
+    if-ne p0, v2, :cond_c
 
-    :goto_e
+    :goto_7
     new-instance p0, Landroidx/window/sidecar/SidecarDisplayFeature;
 
     invoke-direct {p0}, Landroidx/window/sidecar/SidecarDisplayFeature;-><init>()V
@@ -884,7 +836,7 @@
     .catch Ljava/lang/NoSuchFieldError; {:try_start_3 .. :try_end_3} :catch_1
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    goto/16 :goto_f
+    goto/16 :goto_8
 
     :catch_1
     :try_start_4
@@ -896,7 +848,7 @@
 
     const-class p0, Landroidx/window/sidecar/SidecarWindowLayoutInfo;
 
-    const-string v4, "setDisplayFeatures"
+    const-string/jumbo v4, "setDisplayFeatures"
 
     new-array v5, v0, [Ljava/lang/Class;
 
@@ -930,7 +882,7 @@
 
     move-result-object p0
 
-    if-eqz p0, :cond_f
+    if-eqz p0, :cond_b
 
     check-cast p0, Ljava/util/List;
 
@@ -938,11 +890,11 @@
 
     move-result p0
 
-    if-eqz p0, :cond_e
+    if-eqz p0, :cond_a
 
-    goto :goto_f
+    goto/16 :goto_8
 
-    :cond_e
+    :cond_a
     new-instance p0, Ljava/lang/Exception;
 
     const-string v0, "Invalid display feature getter/setter"
@@ -951,7 +903,7 @@
 
     throw p0
 
-    :cond_f
+    :cond_b
     new-instance p0, Ljava/lang/NullPointerException;
 
     const-string v0, "null cannot be cast to non-null type kotlin.collections.List<androidx.window.sidecar.SidecarDisplayFeature>"
@@ -960,7 +912,7 @@
 
     throw p0
 
-    :cond_10
+    :cond_c
     new-instance p0, Ljava/lang/Exception;
 
     const-string v0, "Invalid device posture getter/setter"
@@ -969,7 +921,7 @@
 
     throw p0
 
-    :cond_11
+    :cond_d
     new-instance p0, Ljava/lang/NullPointerException;
 
     const-string v0, "null cannot be cast to non-null type kotlin.Int"
@@ -978,12 +930,20 @@
 
     throw p0
 
-    :cond_12
+    :cond_e
     new-instance p0, Ljava/lang/NoSuchMethodException;
 
-    const-string v0, "Illegal return type for \'onWindowLayoutChangeListenerRemoved\': "
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-static {v0, v3}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "Illegal return type for \'onWindowLayoutChangeListenerRemoved\': "
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
@@ -991,12 +951,20 @@
 
     throw p0
 
-    :cond_13
+    :cond_f
     new-instance p0, Ljava/lang/NoSuchMethodException;
 
-    const-string v0, "Illegal return type for \'onWindowLayoutChangeListenerAdded\': "
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-static {v0, v2}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "Illegal return type for \'onWindowLayoutChangeListenerAdded\': "
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
@@ -1004,12 +972,20 @@
 
     throw p0
 
-    :cond_14
+    :cond_10
     new-instance p0, Ljava/lang/NoSuchMethodException;
 
-    const-string v0, "Illegal return type for \'getWindowLayoutInfo\': "
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-static {v0, v2}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "Illegal return type for \'getWindowLayoutInfo\': "
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
@@ -1017,12 +993,20 @@
 
     throw p0
 
-    :cond_15
+    :cond_11
     new-instance p0, Ljava/lang/NoSuchMethodException;
 
-    const-string v0, "Illegal return type for \'setSidecarCallback\': "
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-static {v0, v2}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "Illegal return type for \'setSidecarCallback\': "
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
@@ -1035,6 +1019,6 @@
     :catchall_0
     move v0, v1
 
-    :goto_f
+    :goto_8
     return v0
 .end method

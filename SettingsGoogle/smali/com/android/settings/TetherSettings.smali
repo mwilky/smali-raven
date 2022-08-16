@@ -34,6 +34,16 @@
 
 
 # instance fields
+.field private final mAvailableInterfaces:Ljava/util/HashSet;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/HashSet<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private mBluetoothEnableForTether:Z
 
 .field private mBluetoothPan:Ljava/util/concurrent/atomic/AtomicReference;
@@ -64,8 +74,6 @@
 
 .field private mEthernetListener:Lcom/android/settings/TetherSettings$EthernetListener;
 
-.field private mEthernetRegex:Ljava/lang/String;
-
 .field private mEthernetTether:Landroidx/preference/SwitchPreference;
 
 .field private mHandler:Landroid/os/Handler;
@@ -94,6 +102,118 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$9t3geb1J6ISI-sc7a0t9TffijI4(Lcom/android/settings/TetherSettings;Ljava/lang/Runnable;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/TetherSettings;->lambda$onStart$1(Ljava/lang/Runnable;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$KsWjhUGxETszlf1mK3W37m5dcjU(Lcom/android/settings/TetherSettings;Ljava/lang/Runnable;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/TetherSettings;->lambda$onStart$0(Ljava/lang/Runnable;)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmAvailableInterfaces(Lcom/android/settings/TetherSettings;)Ljava/util/HashSet;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/TetherSettings;->mAvailableInterfaces:Ljava/util/HashSet;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmBluetoothEnableForTether(Lcom/android/settings/TetherSettings;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/settings/TetherSettings;->mBluetoothEnableForTether:Z
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmBluetoothPan(Lcom/android/settings/TetherSettings;)Ljava/util/concurrent/atomic/AtomicReference;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/TetherSettings;->mBluetoothPan:Ljava/util/concurrent/atomic/AtomicReference;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmBluetoothEnableForTether(Lcom/android/settings/TetherSettings;Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/settings/TetherSettings;->mBluetoothEnableForTether:Z
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fputmMassStorageActive(Lcom/android/settings/TetherSettings;Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/settings/TetherSettings;->mMassStorageActive:Z
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fputmUsbConnected(Lcom/android/settings/TetherSettings;Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/settings/TetherSettings;->mUsbConnected:Z
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mstartTethering(Lcom/android/settings/TetherSettings;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/TetherSettings;->startTethering(I)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mupdateBluetoothAndEthernetState(Lcom/android/settings/TetherSettings;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/TetherSettings;->updateBluetoothAndEthernetState()V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mupdateBluetoothAndEthernetState(Lcom/android/settings/TetherSettings;[Ljava/lang/String;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/TetherSettings;->updateBluetoothAndEthernetState([Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mupdateBluetoothState(Lcom/android/settings/TetherSettings;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/TetherSettings;->updateBluetoothState()V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mupdateUsbPreference(Lcom/android/settings/TetherSettings;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/TetherSettings;->updateUsbPreference()V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$sfgetDEBUG()Z
+    .locals 1
+
+    sget-boolean v0, Lcom/android/settings/TetherSettings;->DEBUG:Z
+
+    return v0
+.end method
+
 .method static constructor <clinit>()V
     .locals 2
 
@@ -135,6 +255,12 @@
 
     iput-object v0, p0, Lcom/android/settings/TetherSettings;->mHandler:Landroid/os/Handler;
 
+    new-instance v0, Ljava/util/HashSet;
+
+    invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
+
+    iput-object v0, p0, Lcom/android/settings/TetherSettings;->mAvailableInterfaces:Ljava/util/HashSet;
+
     new-instance v0, Lcom/android/settings/TetherSettings$1;
 
     invoke-direct {v0, p0}, Lcom/android/settings/TetherSettings$1;-><init>(Lcom/android/settings/TetherSettings;)V
@@ -144,98 +270,22 @@
     return-void
 .end method
 
-.method static synthetic access$000()Z
-    .locals 1
-
-    sget-boolean v0, Lcom/android/settings/TetherSettings;->DEBUG:Z
-
-    return v0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/TetherSettings;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/TetherSettings;->updateBluetoothState()V
-
-    return-void
-.end method
-
-.method static synthetic access$1100(Lcom/android/settings/TetherSettings;)Ljava/util/concurrent/atomic/AtomicReference;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/TetherSettings;->mBluetoothPan:Ljava/util/concurrent/atomic/AtomicReference;
-
-    return-object p0
-.end method
-
-.method static synthetic access$1200(Lcom/android/settings/TetherSettings;[Ljava/lang/String;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/TetherSettings;->updateBluetoothAndEthernetState([Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method static synthetic access$1300(Lcom/android/settings/TetherSettings;)Landroid/os/Handler;
+.method private synthetic lambda$onStart$0(Ljava/lang/Runnable;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/settings/TetherSettings;->mHandler:Landroid/os/Handler;
 
-    return-object p0
-.end method
-
-.method static synthetic access$202(Lcom/android/settings/TetherSettings;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/settings/TetherSettings;->mMassStorageActive:Z
-
-    return p1
-.end method
-
-.method static synthetic access$300(Lcom/android/settings/TetherSettings;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/TetherSettings;->updateBluetoothAndEthernetState()V
+    invoke-virtual {p0, p1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     return-void
 .end method
 
-.method static synthetic access$400(Lcom/android/settings/TetherSettings;)V
+.method private synthetic lambda$onStart$1(Ljava/lang/Runnable;)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/settings/TetherSettings;->updateUsbPreference()V
+    iget-object p0, p0, Lcom/android/settings/TetherSettings;->mHandler:Landroid/os/Handler;
 
-    return-void
-.end method
-
-.method static synthetic access$502(Lcom/android/settings/TetherSettings;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/settings/TetherSettings;->mUsbConnected:Z
-
-    return p1
-.end method
-
-.method static synthetic access$600(Lcom/android/settings/TetherSettings;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/settings/TetherSettings;->mBluetoothEnableForTether:Z
-
-    return p0
-.end method
-
-.method static synthetic access$602(Lcom/android/settings/TetherSettings;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/settings/TetherSettings;->mBluetoothEnableForTether:Z
-
-    return p1
-.end method
-
-.method static synthetic access$700(Lcom/android/settings/TetherSettings;I)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/TetherSettings;->startTethering(I)V
+    invoke-virtual {p0, p1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     return-void
 .end method
@@ -526,7 +576,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a4a
+    const p0, 0x7f040aa3
 
     return p0
 .end method
@@ -578,7 +628,7 @@
 .method public onAttach(Landroid/content/Context;)V
     .locals 2
 
-    invoke-super {p0, p1}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->onAttach(Landroid/content/Context;)V
+    invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onAttach(Landroid/content/Context;)V
 
     new-instance v0, Lcom/android/settings/wifi/tether/WifiTetherPreferenceController;
 
@@ -598,7 +648,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/RestrictedSettingsFragment;->onCreate(Landroid/os/Bundle;)V
 
-    const p1, 0x7f1500f7
+    const p1, 0x7f1500fd
 
     invoke-virtual {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->addPreferencesFromResource(I)V
 
@@ -688,16 +738,6 @@
 
     iput-object v0, p0, Lcom/android/settings/TetherSettings;->mCm:Landroid/net/ConnectivityManager;
 
-    const-string v0, "ethernet"
-
-    invoke-virtual {p0, v0}, Lcom/android/settings/SettingsPreferenceFragment;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/net/EthernetManager;
-
-    iput-object v0, p0, Lcom/android/settings/TetherSettings;->mEm:Landroid/net/EthernetManager;
-
     const-string/jumbo v0, "tethering"
 
     invoke-virtual {p0, v0}, Lcom/android/settings/SettingsPreferenceFragment;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -707,6 +747,20 @@
     check-cast v0, Landroid/net/TetheringManager;
 
     iput-object v0, p0, Lcom/android/settings/TetherSettings;->mTm:Landroid/net/TetheringManager;
+
+    iget-object v0, p0, Lcom/android/settings/TetherSettings;->mContext:Landroid/content/Context;
+
+    const-class v2, Landroid/net/EthernetManager;
+
+    invoke-virtual {v0, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/net/EthernetManager;
+
+    iput-object v0, p0, Lcom/android/settings/TetherSettings;->mEm:Landroid/net/EthernetManager;
+
+    iget-object v0, p0, Lcom/android/settings/TetherSettings;->mTm:Landroid/net/TetheringManager;
 
     invoke-virtual {v0}, Landroid/net/TetheringManager;->getTetherableUsbRegexs()[Ljava/lang/String;
 
@@ -721,20 +775,6 @@
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/settings/TetherSettings;->mBluetoothRegexs:[Ljava/lang/String;
-
-    iget-object v0, p0, Lcom/android/settings/TetherSettings;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    const v2, 0x104023f
-
-    invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/settings/TetherSettings;->mEthernetRegex:Ljava/lang/String;
 
     iget-object v2, p0, Lcom/android/settings/TetherSettings;->mUsbRegexs:[Ljava/lang/String;
 
@@ -754,35 +794,39 @@
     :goto_0
     if-eqz v1, :cond_3
 
-    iget-object v1, p0, Lcom/android/settings/TetherSettings;->mBluetoothRegexs:[Ljava/lang/String;
+    array-length v0, v0
 
-    array-length v1, v1
+    if-eqz v0, :cond_3
 
-    if-eqz v1, :cond_3
-
-    move v1, p1
+    move v0, p1
 
     goto :goto_1
 
     :cond_3
-    move v1, v3
+    move v0, v3
 
     :goto_1
-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    iget-object v1, p0, Lcom/android/settings/TetherSettings;->mEm:Landroid/net/EthernetManager;
 
-    move-result v0
+    if-eqz v1, :cond_4
 
-    xor-int/2addr v0, p1
+    move v1, p1
 
-    if-eqz v2, :cond_4
+    goto :goto_2
+
+    :cond_4
+    move v1, v3
+
+    :goto_2
+    if-eqz v2, :cond_5
 
     invoke-static {}, Lcom/android/settings/Utils;->isMonkeyRunning()Z
 
     move-result v2
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_6
 
-    :cond_4
+    :cond_5
     invoke-virtual {p0}, Landroidx/preference/PreferenceFragmentCompat;->getPreferenceScreen()Landroidx/preference/PreferenceScreen;
 
     move-result-object v2
@@ -791,7 +835,7 @@
 
     invoke-virtual {v2, v4}, Landroidx/preference/PreferenceGroup;->removePreference(Landroidx/preference/Preference;)Z
 
-    :cond_5
+    :cond_6
     iget-object v2, p0, Lcom/android/settings/TetherSettings;->mWifiTetherPreferenceController:Lcom/android/settings/wifi/tether/WifiTetherPreferenceController;
 
     invoke-virtual {p0}, Landroidx/preference/PreferenceFragmentCompat;->getPreferenceScreen()Landroidx/preference/PreferenceScreen;
@@ -800,48 +844,48 @@
 
     invoke-virtual {v2, v4}, Lcom/android/settings/wifi/tether/WifiTetherPreferenceController;->displayPreference(Landroidx/preference/PreferenceScreen;)V
 
-    if-nez v1, :cond_6
+    if-nez v0, :cond_7
 
     invoke-virtual {p0}, Landroidx/preference/PreferenceFragmentCompat;->getPreferenceScreen()Landroidx/preference/PreferenceScreen;
 
     move-result-object p1
 
-    iget-object v1, p0, Lcom/android/settings/TetherSettings;->mBluetoothTether:Landroidx/preference/SwitchPreference;
+    iget-object v0, p0, Lcom/android/settings/TetherSettings;->mBluetoothTether:Landroidx/preference/SwitchPreference;
 
-    invoke-virtual {p1, v1}, Landroidx/preference/PreferenceGroup;->removePreference(Landroidx/preference/Preference;)Z
+    invoke-virtual {p1, v0}, Landroidx/preference/PreferenceGroup;->removePreference(Landroidx/preference/Preference;)Z
 
-    goto :goto_2
-
-    :cond_6
-    iget-object v1, p0, Lcom/android/settings/TetherSettings;->mBluetoothPan:Ljava/util/concurrent/atomic/AtomicReference;
-
-    invoke-virtual {v1}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/bluetooth/BluetoothPan;
-
-    if-eqz v1, :cond_7
-
-    invoke-virtual {v1}, Landroid/bluetooth/BluetoothPan;->isTetheringOn()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_7
-
-    iget-object v1, p0, Lcom/android/settings/TetherSettings;->mBluetoothTether:Landroidx/preference/SwitchPreference;
-
-    invoke-virtual {v1, p1}, Landroidx/preference/TwoStatePreference;->setChecked(Z)V
-
-    goto :goto_2
+    goto :goto_3
 
     :cond_7
+    iget-object v0, p0, Lcom/android/settings/TetherSettings;->mBluetoothPan:Ljava/util/concurrent/atomic/AtomicReference;
+
+    invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/bluetooth/BluetoothPan;
+
+    if-eqz v0, :cond_8
+
+    invoke-virtual {v0}, Landroid/bluetooth/BluetoothPan;->isTetheringOn()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_8
+
+    iget-object v0, p0, Lcom/android/settings/TetherSettings;->mBluetoothTether:Landroidx/preference/SwitchPreference;
+
+    invoke-virtual {v0, p1}, Landroidx/preference/TwoStatePreference;->setChecked(Z)V
+
+    goto :goto_3
+
+    :cond_8
     iget-object p1, p0, Lcom/android/settings/TetherSettings;->mBluetoothTether:Landroidx/preference/SwitchPreference;
 
     invoke-virtual {p1, v3}, Landroidx/preference/TwoStatePreference;->setChecked(Z)V
 
-    :goto_2
-    if-nez v0, :cond_8
+    :goto_3
+    if-nez v1, :cond_9
 
     invoke-virtual {p0}, Landroidx/preference/PreferenceFragmentCompat;->getPreferenceScreen()Landroidx/preference/PreferenceScreen;
 
@@ -851,7 +895,7 @@
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceGroup;->removePreference(Landroidx/preference/Preference;)Z
 
-    :cond_8
+    :cond_9
     iget-object p1, p0, Lcom/android/settings/TetherSettings;->mDataSaverBackend:Lcom/android/settings/datausage/DataSaverBackend;
 
     invoke-virtual {p1}, Lcom/android/settings/datausage/DataSaverBackend;->isDataSaverEnabled()Z
@@ -1024,7 +1068,7 @@
 .method public onStart()V
     .locals 4
 
-    invoke-super {p0}, Lcom/android/settingslib/core/lifecycle/ObservablePreferenceFragment;->onStart()V
+    invoke-super {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->onStart()V
 
     iget-boolean v0, p0, Lcom/android/settings/TetherSettings;->mUnavailable:Z
 
@@ -1040,7 +1084,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0413eb
+    const v1, 0x7f0414e5
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -1064,17 +1108,15 @@
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, p0, v1}, Lcom/android/settings/TetherSettings$TetheringEventCallback;-><init>(Lcom/android/settings/TetherSettings;Lcom/android/settings/TetherSettings$1;)V
+    invoke-direct {v0, p0, v1}, Lcom/android/settings/TetherSettings$TetheringEventCallback;-><init>(Lcom/android/settings/TetherSettings;Lcom/android/settings/TetherSettings$TetheringEventCallback-IA;)V
 
     iput-object v0, p0, Lcom/android/settings/TetherSettings;->mTetheringEventCallback:Lcom/android/settings/TetherSettings$TetheringEventCallback;
 
     iget-object v0, p0, Lcom/android/settings/TetherSettings;->mTm:Landroid/net/TetheringManager;
 
-    new-instance v2, Landroid/os/HandlerExecutor;
+    new-instance v2, Lcom/android/settings/TetherSettings$$ExternalSyntheticLambda0;
 
-    iget-object v3, p0, Lcom/android/settings/TetherSettings;->mHandler:Landroid/os/Handler;
-
-    invoke-direct {v2, v3}, Landroid/os/HandlerExecutor;-><init>(Landroid/os/Handler;)V
+    invoke-direct {v2, p0}, Lcom/android/settings/TetherSettings$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/TetherSettings;)V
 
     iget-object v3, p0, Lcom/android/settings/TetherSettings;->mTetheringEventCallback:Lcom/android/settings/TetherSettings$TetheringEventCallback;
 
@@ -1096,15 +1138,21 @@
 
     new-instance v0, Lcom/android/settings/TetherSettings$EthernetListener;
 
-    invoke-direct {v0, p0, v1}, Lcom/android/settings/TetherSettings$EthernetListener;-><init>(Lcom/android/settings/TetherSettings;Lcom/android/settings/TetherSettings$1;)V
+    invoke-direct {v0, p0, v1}, Lcom/android/settings/TetherSettings$EthernetListener;-><init>(Lcom/android/settings/TetherSettings;Lcom/android/settings/TetherSettings$EthernetListener-IA;)V
 
     iput-object v0, p0, Lcom/android/settings/TetherSettings;->mEthernetListener:Lcom/android/settings/TetherSettings$EthernetListener;
 
-    iget-object v1, p0, Lcom/android/settings/TetherSettings;->mEm:Landroid/net/EthernetManager;
+    iget-object v0, p0, Lcom/android/settings/TetherSettings;->mEm:Landroid/net/EthernetManager;
 
-    if-eqz v1, :cond_2
+    if-eqz v0, :cond_2
 
-    invoke-virtual {v1, v0}, Landroid/net/EthernetManager;->addListener(Landroid/net/EthernetManager$Listener;)V
+    new-instance v1, Lcom/android/settings/TetherSettings$$ExternalSyntheticLambda1;
+
+    invoke-direct {v1, p0}, Lcom/android/settings/TetherSettings$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/TetherSettings;)V
+
+    iget-object v2, p0, Lcom/android/settings/TetherSettings;->mEthernetListener:Lcom/android/settings/TetherSettings$EthernetListener;
+
+    invoke-virtual {v0, v1, v2}, Landroid/net/EthernetManager;->addInterfaceStateListener(Ljava/util/concurrent/Executor;Landroid/net/EthernetManager$InterfaceStateListener;)V
 
     :cond_2
     invoke-direct {p0}, Lcom/android/settings/TetherSettings;->updateUsbState()V
@@ -1146,7 +1194,7 @@
 
     iget-object v1, p0, Lcom/android/settings/TetherSettings;->mEthernetListener:Lcom/android/settings/TetherSettings$EthernetListener;
 
-    invoke-virtual {v0, v1}, Landroid/net/EthernetManager;->removeListener(Landroid/net/EthernetManager$Listener;)V
+    invoke-virtual {v0, v1}, Landroid/net/EthernetManager;->removeInterfaceStateListener(Landroid/net/EthernetManager$InterfaceStateListener;)V
 
     :cond_1
     const/4 v0, 0x0
@@ -1156,8 +1204,6 @@
     iput-object v0, p0, Lcom/android/settings/TetherSettings;->mStartTetheringCallback:Lcom/android/settings/TetherSettings$OnStartTetheringCallback;
 
     iput-object v0, p0, Lcom/android/settings/TetherSettings;->mTetheringEventCallback:Lcom/android/settings/TetherSettings$TetheringEventCallback;
-
-    iput-object v0, p0, Lcom/android/settings/TetherSettings;->mEthernetListener:Lcom/android/settings/TetherSettings$EthernetListener;
 
     return-void
 .end method
@@ -1173,7 +1219,7 @@
 
     const/4 v2, 0x0
 
-    invoke-direct {v1, p0, v2}, Lcom/android/settings/TetherSettings$TetherChangeReceiver;-><init>(Lcom/android/settings/TetherSettings;Lcom/android/settings/TetherSettings$1;)V
+    invoke-direct {v1, p0, v2}, Lcom/android/settings/TetherSettings$TetherChangeReceiver;-><init>(Lcom/android/settings/TetherSettings;Lcom/android/settings/TetherSettings$TetherChangeReceiver-IA;)V
 
     iput-object v1, p0, Lcom/android/settings/TetherSettings;->mTetherChangeReceiver:Landroid/content/BroadcastReceiver;
 
@@ -1272,14 +1318,14 @@
 
     if-eqz p0, :cond_0
 
-    const p0, 0x7f0413e6
+    const p0, 0x7f0414e0
 
     invoke-virtual {v0, p0}, Landroidx/preference/Preference;->setTitle(I)V
 
     goto :goto_0
 
     :cond_0
-    const p0, 0x7f0413e5
+    const p0, 0x7f0414df
 
     invoke-virtual {v0, p0}, Landroidx/preference/Preference;->setTitle(I)V
 
@@ -1341,9 +1387,9 @@
 
     aget-object v5, p1, v2
 
-    iget-object v6, p0, Lcom/android/settings/TetherSettings;->mEthernetRegex:Ljava/lang/String;
+    iget-object v6, p0, Lcom/android/settings/TetherSettings;->mAvailableInterfaces:Ljava/util/HashSet;
 
-    invoke-virtual {v5, v6}, Ljava/lang/String;->matches(Ljava/lang/String;)Z
+    invoke-virtual {v6, v5}, Ljava/util/HashSet;->contains(Ljava/lang/Object;)Z
 
     move-result v5
 
@@ -1368,9 +1414,9 @@
 
     aget-object v5, p2, v0
 
-    iget-object v6, p0, Lcom/android/settings/TetherSettings;->mEthernetRegex:Ljava/lang/String;
+    iget-object v6, p0, Lcom/android/settings/TetherSettings;->mAvailableInterfaces:Ljava/util/HashSet;
 
-    invoke-virtual {v5, v6}, Ljava/lang/String;->matches(Ljava/lang/String;)Z
+    invoke-virtual {v6, v5}, Ljava/util/HashSet;->contains(Ljava/lang/Object;)Z
 
     move-result v5
 
@@ -1427,36 +1473,17 @@
 
     invoke-virtual {p0, v4}, Landroidx/preference/TwoStatePreference;->setChecked(Z)V
 
-    goto :goto_3
+    goto :goto_2
 
     :cond_5
-    if-nez v3, :cond_7
+    iget-object p1, p0, Lcom/android/settings/TetherSettings;->mAvailableInterfaces:Ljava/util/HashSet;
 
-    iget-object p1, p0, Lcom/android/settings/TetherSettings;->mEm:Landroid/net/EthernetManager;
-
-    if-eqz p1, :cond_6
-
-    invoke-virtual {p1}, Landroid/net/EthernetManager;->isAvailable()Z
+    invoke-virtual {p1}, Ljava/util/HashSet;->size()I
 
     move-result p1
 
-    if-eqz p1, :cond_6
+    if-lez p1, :cond_6
 
-    goto :goto_2
-
-    :cond_6
-    iget-object p1, p0, Lcom/android/settings/TetherSettings;->mEthernetTether:Landroidx/preference/SwitchPreference;
-
-    invoke-virtual {p1, v1}, Landroidx/preference/Preference;->setEnabled(Z)V
-
-    iget-object p0, p0, Lcom/android/settings/TetherSettings;->mEthernetTether:Landroidx/preference/SwitchPreference;
-
-    invoke-virtual {p0, v1}, Landroidx/preference/TwoStatePreference;->setChecked(Z)V
-
-    goto :goto_3
-
-    :cond_7
-    :goto_2
     iget-object p1, p0, Lcom/android/settings/TetherSettings;->mEthernetTether:Landroidx/preference/SwitchPreference;
 
     iget-boolean p2, p0, Lcom/android/settings/TetherSettings;->mDataSaverEnabled:Z
@@ -1469,7 +1496,18 @@
 
     invoke-virtual {p0, v1}, Landroidx/preference/TwoStatePreference;->setChecked(Z)V
 
-    :goto_3
+    goto :goto_2
+
+    :cond_6
+    iget-object p1, p0, Lcom/android/settings/TetherSettings;->mEthernetTether:Landroidx/preference/SwitchPreference;
+
+    invoke-virtual {p1, v1}, Landroidx/preference/Preference;->setEnabled(Z)V
+
+    iget-object p0, p0, Lcom/android/settings/TetherSettings;->mEthernetTether:Landroidx/preference/SwitchPreference;
+
+    invoke-virtual {p0, v1}, Landroidx/preference/TwoStatePreference;->setChecked(Z)V
+
+    :goto_2
     return-void
 .end method
 
@@ -1574,19 +1612,21 @@
 
     invoke-virtual {p1, v4}, Landroidx/preference/TwoStatePreference;->setChecked(Z)V
 
-    iget-object p1, p0, Lcom/android/settings/TetherSettings;->mUsbTether:Lcom/android/settingslib/RestrictedSwitchPreference;
-
-    iget-object p0, p0, Lcom/android/settings/TetherSettings;->mContext:Landroid/content/Context;
+    iget-object p1, p0, Lcom/android/settings/TetherSettings;->mContext:Landroid/content/Context;
 
     invoke-static {}, Landroid/os/UserHandle;->myUserId()I
 
     move-result v0
 
-    invoke-static {p0, v0}, Lcom/android/settingslib/RestrictedLockUtilsInternal;->checkIfUsbDataSignalingIsDisabled(Landroid/content/Context;I)Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
+    invoke-static {p1, v0}, Lcom/android/settingslib/RestrictedLockUtilsInternal;->checkIfUsbDataSignalingIsDisabled(Landroid/content/Context;I)Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
 
-    move-result-object p0
+    move-result-object p1
 
-    invoke-virtual {p1, p0}, Lcom/android/settingslib/RestrictedSwitchPreference;->setDisabledByAdmin(Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;)V
+    if-eqz p1, :cond_5
+
+    iget-object p0, p0, Lcom/android/settings/TetherSettings;->mUsbTether:Lcom/android/settingslib/RestrictedSwitchPreference;
+
+    invoke-virtual {p0, p1}, Lcom/android/settingslib/RestrictedSwitchPreference;->setDisabledByAdmin(Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;)V
 
     goto :goto_2
 
@@ -1597,6 +1637,7 @@
 
     invoke-direct {p0}, Lcom/android/settings/TetherSettings;->updateUsbPreference()V
 
+    :cond_5
     :goto_2
     return-void
 .end method

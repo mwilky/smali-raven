@@ -76,19 +76,19 @@
 
     move-result-object p0
 
-    const v1, 0x7f01005d
+    const v1, 0x7f01005e
 
     invoke-virtual {p0, v1}, Landroid/content/res/Resources;->getIntArray(I)[I
 
     move-result-object v1
 
-    const v2, 0x7f01005e
+    const v2, 0x7f01005f
 
     invoke-virtual {p0, v2}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
     move-result-object v2
 
-    const v3, 0x7f01005c
+    const v3, 0x7f01005d
 
     invoke-virtual {p0, v3}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -115,19 +115,19 @@
 
     const/4 v5, 0x0
 
-    invoke-direct {v4, v5}, Lcom/android/settings/development/ColorModePreference$ColorModeDescription;-><init>(Lcom/android/settings/development/ColorModePreference$1;)V
+    invoke-direct {v4, v5}, Lcom/android/settings/development/ColorModePreference$ColorModeDescription;-><init>(Lcom/android/settings/development/ColorModePreference$ColorModeDescription-IA;)V
 
     aget v5, v1, v3
 
-    invoke-static {v4, v5}, Lcom/android/settings/development/ColorModePreference$ColorModeDescription;->access$102(Lcom/android/settings/development/ColorModePreference$ColorModeDescription;I)I
+    invoke-static {v4, v5}, Lcom/android/settings/development/ColorModePreference$ColorModeDescription;->-$$Nest$fputcolorMode(Lcom/android/settings/development/ColorModePreference$ColorModeDescription;I)V
 
     aget-object v5, v2, v3
 
-    invoke-static {v4, v5}, Lcom/android/settings/development/ColorModePreference$ColorModeDescription;->access$202(Lcom/android/settings/development/ColorModePreference$ColorModeDescription;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v4, v5}, Lcom/android/settings/development/ColorModePreference$ColorModeDescription;->-$$Nest$fputtitle(Lcom/android/settings/development/ColorModePreference$ColorModeDescription;Ljava/lang/String;)V
 
     aget-object v5, p0, v3
 
-    invoke-static {v4, v5}, Lcom/android/settings/development/ColorModePreference$ColorModeDescription;->access$302(Lcom/android/settings/development/ColorModePreference$ColorModeDescription;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v4, v5}, Lcom/android/settings/development/ColorModePreference$ColorModeDescription;->-$$Nest$fputsummary(Lcom/android/settings/development/ColorModePreference$ColorModeDescription;Ljava/lang/String;)V
 
     invoke-interface {v0, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
@@ -193,7 +193,7 @@
 
     iget-object v0, p0, Lcom/android/settings/development/ColorModePreference;->mDisplay:Landroid/view/Display;
 
-    invoke-static {p1}, Lcom/android/settings/development/ColorModePreference$ColorModeDescription;->access$100(Lcom/android/settings/development/ColorModePreference$ColorModeDescription;)I
+    invoke-static {p1}, Lcom/android/settings/development/ColorModePreference$ColorModeDescription;->-$$Nest$fgetcolorMode(Lcom/android/settings/development/ColorModePreference$ColorModeDescription;)I
 
     move-result v1
 
@@ -293,7 +293,7 @@
 
     check-cast v3, Lcom/android/settings/development/ColorModePreference$ColorModeDescription;
 
-    invoke-static {v3}, Lcom/android/settings/development/ColorModePreference$ColorModeDescription;->access$100(Lcom/android/settings/development/ColorModePreference$ColorModeDescription;)I
+    invoke-static {v3}, Lcom/android/settings/development/ColorModePreference$ColorModeDescription;->-$$Nest$fgetcolorMode(Lcom/android/settings/development/ColorModePreference$ColorModeDescription;)I
 
     move-result v3
 

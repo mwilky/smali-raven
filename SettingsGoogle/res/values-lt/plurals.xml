@@ -349,16 +349,16 @@
         <item quantity="many">%d kategorijos išjungta</item>
     </plurals>
     <plurals name="notifications_sent_daily">
-        <item quantity="other">~ %d pranešimų per dieną</item>
-        <item quantity="one">~ %d pranešimas per dieną</item>
-        <item quantity="few">~ %d pranešimai per dieną</item>
-        <item quantity="many">~ %d pranešimo per dieną</item>
+        <item quantity="other">~ %,d pranešimų per dieną</item>
+        <item quantity="one">~ %,d pranešimas per dieną</item>
+        <item quantity="few">~ %,d pranešimai per dieną</item>
+        <item quantity="many">~ %,d pranešimo per dieną</item>
     </plurals>
     <plurals name="notifications_sent_weekly">
-        <item quantity="other">~ %d pranešimų per savaitę</item>
-        <item quantity="one">~ %d pranešimas per savaitę</item>
-        <item quantity="few">~ %d pranešimai per savaitę</item>
-        <item quantity="many">~ %d pranešimo per savaitę</item>
+        <item quantity="other">~ %,d pranešimų per savaitę</item>
+        <item quantity="one">~ %,d pranešimas per savaitę</item>
+        <item quantity="few">~ %,d pranešimai per savaitę</item>
+        <item quantity="many">~ %,d pranešimo per savaitę</item>
     </plurals>
     <plurals name="number_of_device_admins">
         <item quantity="other">%d aktyvių programų</item>
@@ -492,34 +492,6 @@
         <item quantity="few">Pasitikėti sertifikatais arba juos pašalinti</item>
         <item quantity="many">Pasitikėti sertifikatais arba juos pašalinti</item>
     </plurals>
-    <plurals name="ssl_ca_cert_info_message">
-        <item quantity="other">"%s įdiegė jūsų darbo profiliui skirtus sertifikato įgaliojimus, kurie gali leisti domenui stebėti jūsų darbo tinklo veiklą, įskaitant el. laiškus, programas ir saugias svetaines.
-
-Jei reikia daugiau informacijos apie šiuos sertifikatus, susisiekite su savo administratoriumi."</item>
-        <item quantity="one">"%s įdiegė jūsų darbo profiliui skirtus sertifikato įgaliojimus, kurie gali leisti domenui stebėti jūsų darbo tinklo veiklą, įskaitant el. laiškus, programas ir saugias svetaines.
-
-Jei reikia daugiau informacijos apie šiuos sertifikatus, susisiekite su savo administratoriumi."</item>
-        <item quantity="few">"%s įdiegė jūsų darbo profiliui skirtus sertifikato įgaliojimus, kurie gali leisti domenui stebėti jūsų darbo tinklo veiklą, įskaitant el. laiškus, programas ir saugias svetaines.
-
-Jei reikia daugiau informacijos apie šiuos sertifikatus, susisiekite su savo administratoriumi."</item>
-        <item quantity="many">"%s įdiegė jūsų darbo profiliui skirtus sertifikato įgaliojimus, kurie gali leisti domenui stebėti jūsų darbo tinklo veiklą, įskaitant el. laiškus, programas ir saugias svetaines.
-
-Jei reikia daugiau informacijos apie šiuos sertifikatus, susisiekite su savo administratoriumi."</item>
-    </plurals>
-    <plurals name="ssl_ca_cert_info_message_device_owner">
-        <item quantity="other">"%s jūsų įrenginyje įdiegė sertifikato įgaliojimus, kurie gali leisti domenui stebėti jūsų įrenginio tinklo veiklą, įskaitant el. laiškus, programas ir saugias svetaines.
-
-Jei reikia daugiau informacijos apie šiuos sertifikatus, susisiekite su savo administratoriumi."</item>
-        <item quantity="one">"%s jūsų įrenginyje įdiegė sertifikato įgaliojimus, kurie gali leisti domenui stebėti jūsų įrenginio tinklo veiklą, įskaitant el. laiškus, programas ir saugias svetaines.
-
-Jei reikia daugiau informacijos apie šiuos sertifikatus, susisiekite su savo administratoriumi."</item>
-        <item quantity="few">"%s jūsų įrenginyje įdiegė sertifikato įgaliojimus, kurie gali leisti domenui stebėti jūsų įrenginio tinklo veiklą, įskaitant el. laiškus, programas ir saugias svetaines.
-
-Jei reikia daugiau informacijos apie šiuos sertifikatus, susisiekite su savo administratoriumi."</item>
-        <item quantity="many">"%s jūsų įrenginyje įdiegė sertifikato įgaliojimus, kurie gali leisti domenui stebėti jūsų įrenginio tinklo veiklą, įskaitant el. laiškus, programas ir saugias svetaines.
-
-Jei reikia daugiau informacijos apie šiuos sertifikatus, susisiekite su savo administratoriumi."</item>
-    </plurals>
     <plurals name="ssl_ca_cert_settings_button">
         <item quantity="other">Tikrinti sertifikatus</item>
         <item quantity="one">Tikrinti sertifikatus</item>
@@ -567,12 +539,6 @@ Jei reikia daugiau informacijos apie šiuos sertifikatus, susisiekite su savo ad
         <item quantity="one">%d prenumerata</item>
         <item quantity="few">%d prenumeratos</item>
         <item quantity="many">%d prenumeratos</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">Prijungta %1$d įrenginių</item>
-        <item quantity="one">Prijungtas %1$d įrenginys</item>
-        <item quantity="few">Prijungti %1$d įrenginiai</item>
-        <item quantity="many">Prijungta %1$d įrenginio</item>
     </plurals>
     <plurals name="wrong_pin_code">
         <item quantity="other">Netinkamas SIM kortelės PIN kodas. Liko %d bandymų.</item>

@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/settings/notification/NotificationAccessSettings$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/settingslib/applications/ServiceListing$Callback;
+.implements Ljava/util/function/Supplier;
 
 
 # instance fields
@@ -22,12 +23,14 @@
 
 
 # virtual methods
-.method public final onServicesReloaded(Ljava/util/List;)V
+.method public final get()Ljava/lang/Object;
     .locals 0
 
     iget-object p0, p0, Lcom/android/settings/notification/NotificationAccessSettings$$ExternalSyntheticLambda1;->f$0:Lcom/android/settings/notification/NotificationAccessSettings;
 
-    invoke-static {p0, p1}, Lcom/android/settings/notification/NotificationAccessSettings;->$r8$lambda$zBqpTIP94fn9D47r-oA58JfwAJc(Lcom/android/settings/notification/NotificationAccessSettings;Ljava/util/List;)V
+    invoke-static {p0}, Lcom/android/settings/notification/NotificationAccessSettings;->$r8$lambda$86eF0GNAXMtue77fnkgr2W3igK0(Lcom/android/settings/notification/NotificationAccessSettings;)Ljava/lang/String;
 
-    return-void
+    move-result-object p0
+
+    return-object p0
 .end method

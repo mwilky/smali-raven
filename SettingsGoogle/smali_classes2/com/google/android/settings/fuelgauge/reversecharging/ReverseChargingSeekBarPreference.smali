@@ -20,7 +20,7 @@
 
     iput-object p1, p0, Lcom/google/android/settings/fuelgauge/reversecharging/ReverseChargingSeekBarPreference;->mContext:Landroid/content/Context;
 
-    const p1, 0x7f0601a8
+    const p1, 0x7f0601b3
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setLayoutResource(I)V
 
@@ -62,7 +62,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/widget/SeekBarPreference;->onBindViewHolder(Landroidx/preference/PreferenceViewHolder;)V
 
-    const v0, 0x7f0d042d
+    const v0, 0x7f0d045d
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -80,7 +80,7 @@
 
     check-cast p1, Landroid/widget/ImageView;
 
-    const v0, 0x7f020316
+    const v0, 0x7f020339
 
     invoke-virtual {p1, v0}, Landroid/widget/ImageView;->setImageResource(I)V
 

@@ -52,16 +52,15 @@
 # virtual methods
 .method public appendTo(Ljava/lang/Appendable;Ljava/util/Iterator;)Ljava/lang/Appendable;
     .locals 1
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<A::",
             "Ljava/lang/Appendable;",
             ">(TA;",
             "Ljava/util/Iterator<",
-            "*>;)TA;"
+            "+",
+            "Ljava/lang/Object;",
+            ">;)TA;"
         }
     .end annotation
 
@@ -118,15 +117,14 @@
 
 .method public final appendTo(Ljava/lang/StringBuilder;Ljava/lang/Iterable;)Ljava/lang/StringBuilder;
     .locals 0
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljava/lang/StringBuilder;",
             "Ljava/lang/Iterable<",
-            "*>;)",
+            "+",
+            "Ljava/lang/Object;",
+            ">;)",
             "Ljava/lang/StringBuilder;"
         }
     .end annotation
@@ -144,15 +142,14 @@
 
 .method public final appendTo(Ljava/lang/StringBuilder;Ljava/util/Iterator;)Ljava/lang/StringBuilder;
     .locals 0
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljava/lang/StringBuilder;",
             "Ljava/util/Iterator<",
-            "*>;)",
+            "+",
+            "Ljava/lang/Object;",
+            ">;)",
             "Ljava/lang/StringBuilder;"
         }
     .end annotation
@@ -180,7 +177,9 @@
         value = {
             "(",
             "Ljava/lang/Iterable<",
-            "*>;)",
+            "+",
+            "Ljava/lang/Object;",
+            ">;)",
             "Ljava/lang/String;"
         }
     .end annotation
@@ -202,7 +201,9 @@
         value = {
             "(",
             "Ljava/util/Iterator<",
-            "*>;)",
+            "+",
+            "Ljava/lang/Object;",
+            ">;)",
             "Ljava/lang/String;"
         }
     .end annotation
@@ -225,7 +226,7 @@
 .method toString(Ljava/lang/Object;)Ljava/lang/CharSequence;
     .locals 0
 
-    invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     instance-of p0, p1, Ljava/lang/CharSequence;
 

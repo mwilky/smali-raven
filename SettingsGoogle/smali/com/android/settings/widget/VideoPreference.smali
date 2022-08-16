@@ -207,7 +207,7 @@
 
     invoke-virtual {p0, v0}, Landroidx/preference/Preference;->setVisible(Z)V
 
-    const p2, 0x7f0602ab
+    const p2, 0x7f0602be
 
     invoke-virtual {p0, p2}, Landroidx/preference/Preference;->setLayoutResource(I)V
 
@@ -290,7 +290,7 @@
     return-void
 
     :cond_0
-    const v0, 0x7f0d0625
+    const v0, 0x7f0d0664
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -300,7 +300,7 @@
 
     iput-object v0, p0, Lcom/android/settings/widget/VideoPreference;->mVideo:Landroid/view/TextureView;
 
-    const v0, 0x7f0d0624
+    const v0, 0x7f0d0663
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -310,7 +310,7 @@
 
     iput-object v0, p0, Lcom/android/settings/widget/VideoPreference;->mPreviewImage:Landroid/widget/ImageView;
 
-    const v0, 0x7f0d0623
+    const v0, 0x7f0d0662
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -320,7 +320,7 @@
 
     iput-object v0, p0, Lcom/android/settings/widget/VideoPreference;->mPlayButton:Landroid/widget/ImageView;
 
-    const v0, 0x7f0d0622
+    const v0, 0x7f0d0661
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 

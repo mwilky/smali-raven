@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settings/development/compat/PlatformCompatDashboard$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/content/DialogInterface$OnDismissListener;
@@ -27,7 +28,7 @@
 
     iget-object p0, p0, Lcom/android/settings/development/compat/PlatformCompatDashboard$$ExternalSyntheticLambda1;->f$0:Lcom/android/settings/development/compat/PlatformCompatDashboard;
 
-    invoke-static {p0, p1}, Lcom/android/settings/development/compat/PlatformCompatDashboard;->$r8$lambda$T_FdGoTMqprN9x7HHS4bgjUmgB8(Lcom/android/settings/development/compat/PlatformCompatDashboard;Landroid/content/DialogInterface;)V
+    invoke-static {p0, p1}, Lcom/android/settings/development/compat/PlatformCompatDashboard;->$r8$lambda$1fuQMumoIixqz9o8aJLih2mpeBw(Lcom/android/settings/development/compat/PlatformCompatDashboard;Landroid/content/DialogInterface;)V
 
     return-void
 .end method

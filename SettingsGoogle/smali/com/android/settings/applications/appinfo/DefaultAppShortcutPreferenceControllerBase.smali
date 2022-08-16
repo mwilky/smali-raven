@@ -59,15 +59,15 @@
 
     move-result-object p2
 
-    new-instance v0, Lcom/android/settings/applications/appinfo/DefaultAppShortcutPreferenceControllerBase$$ExternalSyntheticLambda1;
-
-    invoke-direct {v0, p0}, Lcom/android/settings/applications/appinfo/DefaultAppShortcutPreferenceControllerBase$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/applications/appinfo/DefaultAppShortcutPreferenceControllerBase;)V
-
-    invoke-virtual {p1, p3, p2, v0}, Landroid/app/role/RoleManager;->isRoleVisible(Ljava/lang/String;Ljava/util/concurrent/Executor;Ljava/util/function/Consumer;)V
-
     new-instance v0, Lcom/android/settings/applications/appinfo/DefaultAppShortcutPreferenceControllerBase$$ExternalSyntheticLambda0;
 
     invoke-direct {v0, p0}, Lcom/android/settings/applications/appinfo/DefaultAppShortcutPreferenceControllerBase$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/applications/appinfo/DefaultAppShortcutPreferenceControllerBase;)V
+
+    invoke-virtual {p1, p3, p2, v0}, Landroid/app/role/RoleManager;->isRoleVisible(Ljava/lang/String;Ljava/util/concurrent/Executor;Ljava/util/function/Consumer;)V
+
+    new-instance v0, Lcom/android/settings/applications/appinfo/DefaultAppShortcutPreferenceControllerBase$$ExternalSyntheticLambda1;
+
+    invoke-direct {v0, p0}, Lcom/android/settings/applications/appinfo/DefaultAppShortcutPreferenceControllerBase$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/applications/appinfo/DefaultAppShortcutPreferenceControllerBase;)V
 
     invoke-virtual {p1, p3, p4, p2, v0}, Landroid/app/role/RoleManager;->isApplicationVisibleForRole(Ljava/lang/String;Ljava/lang/String;Ljava/util/concurrent/Executor;Ljava/util/function/Consumer;)V
 
@@ -159,14 +159,6 @@
 
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public displayPreference(Landroidx/preference/PreferenceScreen;)V
     .locals 0
 
@@ -222,15 +214,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -268,12 +251,12 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0417bb
+    const v0, 0x7f0418b6
 
     goto :goto_0
 
     :cond_0
-    const v0, 0x7f040e12
+    const v0, 0x7f040ea1
 
     :goto_0
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
@@ -332,16 +315,6 @@
     .locals 0
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->hasAsyncUpdate()Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
 
     move-result p0
 

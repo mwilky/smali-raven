@@ -41,7 +41,7 @@
 
     iget-object v0, p0, Lcom/google/android/settings/gestures/columbus/ColumbusGestureHelper$1;->this$0:Lcom/google/android/settings/gestures/columbus/ColumbusGestureHelper;
 
-    invoke-static {v0}, Lcom/google/android/settings/gestures/columbus/ColumbusGestureHelper;->access$000(Lcom/google/android/settings/gestures/columbus/ColumbusGestureHelper;)Lcom/google/android/settings/gestures/columbus/ColumbusGestureHelper$GestureListener;
+    invoke-static {v0}, Lcom/google/android/settings/gestures/columbus/ColumbusGestureHelper;->-$$Nest$fgetmGestureListener(Lcom/google/android/settings/gestures/columbus/ColumbusGestureHelper;)Lcom/google/android/settings/gestures/columbus/ColumbusGestureHelper$GestureListener;
 
     move-result-object v0
 
@@ -49,7 +49,7 @@
 
     iget-object p0, p0, Lcom/google/android/settings/gestures/columbus/ColumbusGestureHelper$1;->this$0:Lcom/google/android/settings/gestures/columbus/ColumbusGestureHelper;
 
-    invoke-static {p0}, Lcom/google/android/settings/gestures/columbus/ColumbusGestureHelper;->access$000(Lcom/google/android/settings/gestures/columbus/ColumbusGestureHelper;)Lcom/google/android/settings/gestures/columbus/ColumbusGestureHelper$GestureListener;
+    invoke-static {p0}, Lcom/google/android/settings/gestures/columbus/ColumbusGestureHelper;->-$$Nest$fgetmGestureListener(Lcom/google/android/settings/gestures/columbus/ColumbusGestureHelper;)Lcom/google/android/settings/gestures/columbus/ColumbusGestureHelper$GestureListener;
 
     move-result-object p0
 

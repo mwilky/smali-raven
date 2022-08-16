@@ -62,30 +62,28 @@
 
 
 # virtual methods
-.method afterRanInterruptibly(Ljava/lang/Object;Ljava/lang/Throwable;)V
+.method afterRanInterruptiblyFailure(Ljava/lang/Throwable;)V
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/common/util/concurrent/TrustedListenableFutureTask$TrustedFutureInterruptibleTask;->this$0:Lcom/google/common/util/concurrent/TrustedListenableFutureTask;
+
+    invoke-virtual {p0, p1}, Lcom/google/common/util/concurrent/AbstractFuture;->setException(Ljava/lang/Throwable;)Z
+
+    return-void
+.end method
+
+.method afterRanInterruptiblySuccess(Ljava/lang/Object;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "(TV;",
-            "Ljava/lang/Throwable;",
-            ")V"
+            "(TV;)V"
         }
     .end annotation
-
-    if-nez p2, :cond_0
 
     iget-object p0, p0, Lcom/google/common/util/concurrent/TrustedListenableFutureTask$TrustedFutureInterruptibleTask;->this$0:Lcom/google/common/util/concurrent/TrustedListenableFutureTask;
 
     invoke-virtual {p0, p1}, Lcom/google/common/util/concurrent/AbstractFuture;->set(Ljava/lang/Object;)Z
 
-    goto :goto_0
-
-    :cond_0
-    iget-object p0, p0, Lcom/google/common/util/concurrent/TrustedListenableFutureTask$TrustedFutureInterruptibleTask;->this$0:Lcom/google/common/util/concurrent/TrustedListenableFutureTask;
-
-    invoke-virtual {p0, p2}, Lcom/google/common/util/concurrent/AbstractFuture;->setException(Ljava/lang/Throwable;)Z
-
-    :goto_0
     return-void
 .end method
 

@@ -80,14 +80,6 @@
 
 .method public release(Landroidx/slice/SliceItemHolder;)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "sliceItemHolder"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 

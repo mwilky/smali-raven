@@ -90,19 +90,19 @@
 
     iput-object v0, p0, Lcom/android/settings/display/AdaptiveSleepPermissionPreferenceController;->mPreference:Lcom/android/settingslib/widget/BannerMessagePreference;
 
-    const v2, 0x7f0401af
+    const v2, 0x7f0401d6
 
     invoke-virtual {v0, v2}, Landroidx/preference/Preference;->setTitle(I)V
 
     iget-object v0, p0, Lcom/android/settings/display/AdaptiveSleepPermissionPreferenceController;->mPreference:Lcom/android/settingslib/widget/BannerMessagePreference;
 
-    const v2, 0x7f0401ac
+    const v2, 0x7f0401d3
 
     invoke-virtual {v0, v2}, Landroidx/preference/Preference;->setSummary(I)V
 
     iget-object v0, p0, Lcom/android/settings/display/AdaptiveSleepPermissionPreferenceController;->mPreference:Lcom/android/settingslib/widget/BannerMessagePreference;
 
-    const v2, 0x7f0401aa
+    const v2, 0x7f0401d1
 
     invoke-virtual {v0, v2}, Lcom/android/settingslib/widget/BannerMessagePreference;->setPositiveButtonText(I)Lcom/android/settingslib/widget/BannerMessagePreference;
 

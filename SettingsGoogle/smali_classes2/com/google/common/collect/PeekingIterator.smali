@@ -7,10 +7,6 @@
 
 
 # annotations
-.annotation runtime Lcom/google/errorprone/annotations/DoNotMock;
-    value = "Use Iterators.peekingIterator"
-.end annotation
-
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "<E:",
@@ -25,9 +21,6 @@
 
 # virtual methods
 .method public abstract next()Ljava/lang/Object;
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TE;"

@@ -28,18 +28,6 @@
 # direct methods
 .method constructor <init>(Landroidx/core/app/JobIntentService;Landroid/content/Intent;I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x8010,
-            0x0,
-            0x0
-        }
-        names = {
-            "this$0",
-            "intent",
-            "startId"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/core/app/JobIntentService$CompatWorkItem;->this$0:Landroidx/core/app/JobIntentService;
 

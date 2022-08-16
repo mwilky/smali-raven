@@ -233,11 +233,11 @@
         <item quantity="one">%d kategori dimatikan</item>
     </plurals>
     <plurals name="notifications_sent_daily">
-        <item quantity="other">~%d pemberitahuan sehari</item>
+        <item quantity="other">~%,d pemberitahuan sehari</item>
         <item quantity="one">~%d pemberitahuan sehari</item>
     </plurals>
     <plurals name="notifications_sent_weekly">
-        <item quantity="other">~%d pemberitahuan seminggu</item>
+        <item quantity="other">~%,d pemberitahuan seminggu</item>
         <item quantity="one">~%d pemberitahuan seminggu</item>
     </plurals>
     <plurals name="number_of_device_admins">
@@ -328,22 +328,6 @@
         <item quantity="other">Percayai atau alih keluar sijil</item>
         <item quantity="one">Percayai atau alih keluar sijil</item>
     </plurals>
-    <plurals name="ssl_ca_cert_info_message">
-        <item quantity="other">"%s telah memasang sijil kuasa untuk profil kerja anda yang mungkin membenarkan pemantauan aktiviti rangkaian kerja, termasuk e-mel, apl dan laman web selamat.
-
-Hubungi pentadbir anda untuk mengetahui lebih lanjut tentang sijil ini."</item>
-        <item quantity="one">"%s telah memasang sijil kuasa untuk profil kerja anda yang mungkin membenarkan pemantauan aktiviti rangkaian kerja, termasuk e-mel, apl dan laman web selamat.
-
-Hubungi pentadbir anda untuk mengetahui lebih lanjut tentang sijil ini."</item>
-    </plurals>
-    <plurals name="ssl_ca_cert_info_message_device_owner">
-        <item quantity="other">"%s telah memasang sijil kuasa pada peranti anda yang mungkin membenarkan pemantauan aktiviti rangkaian peranti anda, termasuk e-mel, apl dan laman web selamat.
-
-Hubungi pentadbir anda untuk mengetahui lebih lanjut tentang sijil ini."</item>
-        <item quantity="one">"%s telah memasang sijil kuasa pada peranti anda yang mungkin membenarkan pemantauan aktiviti rangkaian peranti anda, termasuk e-mel, apl dan laman web selamat.
-
-Hubungi pentadbir anda untuk mengetahui lebih lanjut tentang sijil ini."</item>
-    </plurals>
     <plurals name="ssl_ca_cert_settings_button">
         <item quantity="other">Semak sijil</item>
         <item quantity="one">Semak sijil</item>
@@ -375,10 +359,6 @@ Hubungi pentadbir anda untuk mengetahui lebih lanjut tentang sijil ini."</item>
     <plurals name="wifi_saved_passpoint_access_points_summary">
         <item quantity="other">%d langganan</item>
         <item quantity="one">1 langganan</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$d peranti disambungkan</item>
-        <item quantity="one">%1$d peranti disambungkan</item>
     </plurals>
     <plurals name="wrong_pin_code">
         <item quantity="other">Kod PIN SIM salah, anda ada %d cubaan lagi.</item>

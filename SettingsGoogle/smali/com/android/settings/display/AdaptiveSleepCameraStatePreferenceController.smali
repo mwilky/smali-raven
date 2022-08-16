@@ -70,19 +70,19 @@
 
     iput-object v0, p0, Lcom/android/settings/display/AdaptiveSleepCameraStatePreferenceController;->mPreference:Lcom/android/settingslib/widget/BannerMessagePreference;
 
-    const v1, 0x7f0402ea
+    const v1, 0x7f040320
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setTitle(I)V
 
     iget-object v0, p0, Lcom/android/settings/display/AdaptiveSleepCameraStatePreferenceController;->mPreference:Lcom/android/settingslib/widget/BannerMessagePreference;
 
-    const v1, 0x7f0401a6
+    const v1, 0x7f0401cd
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setSummary(I)V
 
     iget-object v0, p0, Lcom/android/settings/display/AdaptiveSleepCameraStatePreferenceController;->mPreference:Lcom/android/settingslib/widget/BannerMessagePreference;
 
-    const v1, 0x7f0401f9
+    const v1, 0x7f040222
 
     invoke-virtual {v0, v1}, Lcom/android/settingslib/widget/BannerMessagePreference;->setPositiveButtonText(I)Lcom/android/settingslib/widget/BannerMessagePreference;
 

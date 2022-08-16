@@ -3,17 +3,17 @@
 .source "OpenSupportedLinks.java"
 
 # interfaces
-.implements Lcom/android/settingslib/widget/RadioButtonPreference$OnClickListener;
+.implements Lcom/android/settingslib/widget/SelectorWithWidgetPreference$OnClickListener;
 
 
 # instance fields
-.field mAllowOpening:Lcom/android/settingslib/widget/RadioButtonPreference;
+.field mAllowOpening:Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
-.field mAskEveryTime:Lcom/android/settingslib/widget/RadioButtonPreference;
+.field mAskEveryTime:Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
 .field private mCurrentIndex:I
 
-.field mNotAllowed:Lcom/android/settingslib/widget/RadioButtonPreference;
+.field mNotAllowed:Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
 .field mPackageManager:Landroid/content/pm/PackageManager;
 
@@ -85,10 +85,10 @@
     return p0
 .end method
 
-.method private makeRadioPreference(Ljava/lang/String;I)Lcom/android/settingslib/widget/RadioButtonPreference;
+.method private makeRadioPreference(Ljava/lang/String;I)Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
     .locals 2
 
-    new-instance v0, Lcom/android/settingslib/widget/RadioButtonPreference;
+    new-instance v0, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     iget-object v1, p0, Lcom/android/settings/applications/OpenSupportedLinks;->mPreferenceCategory:Landroidx/preference/PreferenceCategory;
 
@@ -96,13 +96,13 @@
 
     move-result-object v1
 
-    invoke-direct {v0, v1}, Lcom/android/settingslib/widget/RadioButtonPreference;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, v1}, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;-><init>(Landroid/content/Context;)V
 
     invoke-virtual {v0, p1}, Landroidx/preference/Preference;->setKey(Ljava/lang/String;)V
 
     invoke-virtual {v0, p2}, Landroidx/preference/Preference;->setTitle(I)V
 
-    invoke-virtual {v0, p0}, Lcom/android/settingslib/widget/RadioButtonPreference;->setOnClickListener(Lcom/android/settingslib/widget/RadioButtonPreference$OnClickListener;)V
+    invoke-virtual {v0, p0}, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;->setOnClickListener(Lcom/android/settingslib/widget/SelectorWithWidgetPreference$OnClickListener;)V
 
     iget-object p0, p0, Lcom/android/settings/applications/OpenSupportedLinks;->mPreferenceCategory:Landroidx/preference/PreferenceCategory;
 
@@ -147,7 +147,7 @@
 .method private setRadioStatus(I)V
     .locals 4
 
-    iget-object v0, p0, Lcom/android/settings/applications/OpenSupportedLinks;->mAllowOpening:Lcom/android/settingslib/widget/RadioButtonPreference;
+    iget-object v0, p0, Lcom/android/settings/applications/OpenSupportedLinks;->mAllowOpening:Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     const/4 v1, 0x0
 
@@ -165,7 +165,7 @@
     :goto_0
     invoke-virtual {v0, v3}, Landroidx/preference/TwoStatePreference;->setChecked(Z)V
 
-    iget-object v0, p0, Lcom/android/settings/applications/OpenSupportedLinks;->mAskEveryTime:Lcom/android/settingslib/widget/RadioButtonPreference;
+    iget-object v0, p0, Lcom/android/settings/applications/OpenSupportedLinks;->mAskEveryTime:Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     if-ne p1, v2, :cond_1
 
@@ -179,7 +179,7 @@
     :goto_1
     invoke-virtual {v0, v3}, Landroidx/preference/TwoStatePreference;->setChecked(Z)V
 
-    iget-object p0, p0, Lcom/android/settings/applications/OpenSupportedLinks;->mNotAllowed:Lcom/android/settingslib/widget/RadioButtonPreference;
+    iget-object p0, p0, Lcom/android/settings/applications/OpenSupportedLinks;->mNotAllowed:Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     const/4 v0, 0x2
 
@@ -411,25 +411,25 @@
 
     const-string v0, "app_link_open_always"
 
-    const v1, 0x7f040253
+    const v1, 0x7f040282
 
-    invoke-direct {p0, v0, v1}, Lcom/android/settings/applications/OpenSupportedLinks;->makeRadioPreference(Ljava/lang/String;I)Lcom/android/settingslib/widget/RadioButtonPreference;
+    invoke-direct {p0, v0, v1}, Lcom/android/settings/applications/OpenSupportedLinks;->makeRadioPreference(Ljava/lang/String;I)Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/android/settings/applications/OpenSupportedLinks;->mAllowOpening:Lcom/android/settingslib/widget/RadioButtonPreference;
+    iput-object v0, p0, Lcom/android/settings/applications/OpenSupportedLinks;->mAllowOpening:Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     invoke-virtual {p0}, Lcom/android/settings/applications/OpenSupportedLinks;->getEntriesNo()I
 
     move-result v0
 
-    iget-object v1, p0, Lcom/android/settings/applications/OpenSupportedLinks;->mAllowOpening:Lcom/android/settingslib/widget/RadioButtonPreference;
+    iget-object v1, p0, Lcom/android/settings/applications/OpenSupportedLinks;->mAllowOpening:Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     const/16 v2, 0x8
 
-    invoke-virtual {v1, v2}, Lcom/android/settingslib/widget/RadioButtonPreference;->setAppendixVisibility(I)V
+    invoke-virtual {v1, v2}, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;->setAppendixVisibility(I)V
 
-    iget-object v1, p0, Lcom/android/settings/applications/OpenSupportedLinks;->mAllowOpening:Lcom/android/settingslib/widget/RadioButtonPreference;
+    iget-object v1, p0, Lcom/android/settings/applications/OpenSupportedLinks;->mAllowOpening:Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getResources()Landroid/content/res/Resources;
 
@@ -457,23 +457,23 @@
 
     const-string v0, "app_link_open_ask"
 
-    const v1, 0x7f040254
+    const v1, 0x7f040283
 
-    invoke-direct {p0, v0, v1}, Lcom/android/settings/applications/OpenSupportedLinks;->makeRadioPreference(Ljava/lang/String;I)Lcom/android/settingslib/widget/RadioButtonPreference;
+    invoke-direct {p0, v0, v1}, Lcom/android/settings/applications/OpenSupportedLinks;->makeRadioPreference(Ljava/lang/String;I)Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/android/settings/applications/OpenSupportedLinks;->mAskEveryTime:Lcom/android/settingslib/widget/RadioButtonPreference;
+    iput-object v0, p0, Lcom/android/settings/applications/OpenSupportedLinks;->mAskEveryTime:Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     const-string v0, "app_link_open_never"
 
-    const v1, 0x7f040255
+    const v1, 0x7f040284
 
-    invoke-direct {p0, v0, v1}, Lcom/android/settings/applications/OpenSupportedLinks;->makeRadioPreference(Ljava/lang/String;I)Lcom/android/settingslib/widget/RadioButtonPreference;
+    invoke-direct {p0, v0, v1}, Lcom/android/settings/applications/OpenSupportedLinks;->makeRadioPreference(Ljava/lang/String;I)Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/android/settings/applications/OpenSupportedLinks;->mNotAllowed:Lcom/android/settingslib/widget/RadioButtonPreference;
+    iput-object v0, p0, Lcom/android/settings/applications/OpenSupportedLinks;->mNotAllowed:Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     iget-object v0, p0, Lcom/android/settings/applications/OpenSupportedLinks;->mPackageManager:Landroid/content/pm/PackageManager;
 
@@ -507,7 +507,7 @@
 
     iput-object p1, p0, Lcom/android/settings/applications/OpenSupportedLinks;->mPackageManager:Landroid/content/pm/PackageManager;
 
-    const p1, 0x7f1500af
+    const p1, 0x7f1500b1
 
     invoke-virtual {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->addPreferencesFromResource(I)V
 
@@ -518,7 +518,7 @@
     return-void
 .end method
 
-.method public onRadioButtonClicked(Lcom/android/settingslib/widget/RadioButtonPreference;)V
+.method public onRadioButtonClicked(Lcom/android/settingslib/widget/SelectorWithWidgetPreference;)V
     .locals 1
 
     invoke-virtual {p1}, Landroidx/preference/Preference;->getKey()Ljava/lang/String;

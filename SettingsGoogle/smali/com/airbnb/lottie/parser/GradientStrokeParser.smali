@@ -23,7 +23,7 @@
 
     const-string/jumbo v3, "t"
 
-    const-string v4, "s"
+    const-string/jumbo v4, "s"
 
     const-string v5, "e"
 

@@ -39,6 +39,14 @@
     return p0
 .end method
 
+.method static bridge synthetic -$$Nest$mupdate(Lcom/android/settings/network/NetworkProviderSimListController;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/network/NetworkProviderSimListController;->update()V
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
     .locals 1
 
@@ -77,16 +85,8 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/settings/network/NetworkProviderSimListController;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/network/NetworkProviderSimListController;->update()V
-
-    return-void
-.end method
-
 .method private synthetic lambda$update$0(ILandroid/telephony/SubscriptionInfo;Landroidx/preference/Preference;)Z
-    .locals 2
+    .locals 1
 
     iget-object p3, p0, Lcom/android/settings/network/NetworkProviderSimListController;->mSubscriptionManager:Landroid/telephony/SubscriptionManager;
 
@@ -113,31 +113,9 @@
     goto :goto_0
 
     :cond_0
-    new-instance p1, Landroid/content/Intent;
-
-    iget-object p3, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
-
-    const-class v1, Lcom/android/settings/network/telephony/MobileNetworkActivity;
-
-    invoke-direct {p1, p3, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
-
-    invoke-virtual {p2}, Landroid/telephony/SubscriptionInfo;->getSubscriptionId()I
-
-    move-result p2
-
-    const-string p3, "android.provider.extra.SUB_ID"
-
-    invoke-virtual {p1, p3, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
-
-    iget-object p2, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
-
-    const/4 p3, 0x0
-
-    invoke-static {p2, p1, p3}, Lcom/android/settings/network/MobileNetworkTwoPaneUtils;->registerTwoPaneForMobileNetwork(Landroid/content/Context;Landroid/content/Intent;Ljava/lang/String;)V
-
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    invoke-virtual {p0, p1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
+    invoke-static {p0, p2}, Lcom/android/settings/network/telephony/MobileNetworkUtils;->launchMobileNetworkSettings(Landroid/content/Context;Landroid/telephony/SubscriptionInfo;)V
 
     :goto_0
     return v0
@@ -411,7 +389,7 @@
 
     move-result-object p0
 
-    const p2, 0x7f041252
+    const p2, 0x7f04130c
 
     invoke-virtual {p0, p2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -443,7 +421,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const p1, 0x7f041254
+    const p1, 0x7f04130e
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -454,7 +432,7 @@
     :cond_2
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const p1, 0x7f040d50
+    const p1, 0x7f040dcc
 
     const/4 v0, 0x1
 

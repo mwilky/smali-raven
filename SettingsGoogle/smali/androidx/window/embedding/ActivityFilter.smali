@@ -327,16 +327,16 @@
 
     iget-object p0, p0, Landroidx/window/embedding/ActivityFilter;->intentAction:Ljava/lang/String;
 
-    if-nez p0, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 p0, 0x0
+    invoke-virtual {p0}, Ljava/lang/String;->hashCode()I
+
+    move-result p0
 
     goto :goto_0
 
     :cond_0
-    invoke-virtual {p0}, Ljava/lang/String;->hashCode()I
-
-    move-result p0
+    const/4 p0, 0x0
 
     :goto_0
     add-int/2addr v0, p0
@@ -359,7 +359,7 @@
 
     iget-object v1, p0, Landroidx/window/embedding/ActivityFilter;->componentName:Landroid/content/ComponentName;
 
-    invoke-virtual {v0, p1, v1}, Landroidx/window/embedding/MatcherUtils;->areActivityOrIntentComponentsMatching$window_debug(Landroid/app/Activity;Landroid/content/ComponentName;)Z
+    invoke-virtual {v0, p1, v1}, Landroidx/window/embedding/MatcherUtils;->areActivityOrIntentComponentsMatching$window_release(Landroid/app/Activity;Landroid/content/ComponentName;)Z
 
     move-result v0
 
@@ -373,16 +373,16 @@
 
     move-result-object p1
 
-    if-nez p1, :cond_0
+    if-eqz p1, :cond_0
 
-    const/4 p1, 0x0
+    invoke-virtual {p1}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+
+    move-result-object p1
 
     goto :goto_0
 
     :cond_0
-    invoke-virtual {p1}, Landroid/content/Intent;->getAction()Ljava/lang/String;
-
-    move-result-object p1
+    const/4 p1, 0x0
 
     :goto_0
     invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
@@ -422,7 +422,7 @@
 
     iget-object v2, p0, Landroidx/window/embedding/ActivityFilter;->componentName:Landroid/content/ComponentName;
 
-    invoke-virtual {v0, v1, v2}, Landroidx/window/embedding/MatcherUtils;->areComponentsMatching$window_debug(Landroid/content/ComponentName;Landroid/content/ComponentName;)Z
+    invoke-virtual {v0, v1, v2}, Landroidx/window/embedding/MatcherUtils;->areComponentsMatching$window_release(Landroid/content/ComponentName;Landroid/content/ComponentName;)Z
 
     move-result v0
 
@@ -478,7 +478,7 @@
 
     iget-object p0, p0, Landroidx/window/embedding/ActivityFilter;->intentAction:Ljava/lang/String;
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     const/16 p0, 0x29
 

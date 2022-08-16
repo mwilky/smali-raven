@@ -46,14 +46,6 @@
 # virtual methods
 .method hasMore(Landroidx/recyclerview/widget/RecyclerView$State;)Z
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "state"
-        }
-    .end annotation
 
     iget p0, p0, Landroidx/recyclerview/widget/LayoutState;->mCurrentPosition:I
 
@@ -78,14 +70,6 @@
 
 .method next(Landroidx/recyclerview/widget/RecyclerView$Recycler;)Landroid/view/View;
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "recycler"
-        }
-    .end annotation
 
     iget v0, p0, Landroidx/recyclerview/widget/LayoutState;->mCurrentPosition:I
 

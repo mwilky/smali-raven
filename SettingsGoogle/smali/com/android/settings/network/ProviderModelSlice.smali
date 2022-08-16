@@ -191,7 +191,7 @@
 
     iget-object v1, p0, Lcom/android/settings/wifi/slice/WifiSlice;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f020340
+    const v2, 0x7f020364
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -220,7 +220,7 @@
     :cond_0
     iget-object v1, p0, Lcom/android/settings/wifi/slice/WifiSlice;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0408f0
+    const v2, 0x7f040944
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -232,7 +232,7 @@
 
     iget-object p0, p0, Lcom/android/settings/wifi/slice/WifiSlice;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0413f8
+    const v1, 0x7f0414f1
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -300,7 +300,7 @@
 
     invoke-direct {p2}, Landroidx/slice/builders/ListBuilder$RowBuilder;-><init>()V
 
-    const v0, 0x7f04170c
+    const v0, 0x7f041806
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -425,7 +425,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/slice/WifiSlice;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f040fe2
+    const v1, 0x7f041081
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -489,7 +489,7 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f040d31
+    const v1, 0x7f040dad
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -505,7 +505,7 @@
 
     aput-object p2, v2, v3
 
-    const p2, 0x7f040d2f
+    const p2, 0x7f040dab
 
     invoke-virtual {v1, p2, v2}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -529,7 +529,7 @@
 
     invoke-direct {v0, p0, p1}, Lcom/android/settings/network/ProviderModelSlice$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/network/ProviderModelSlice;I)V
 
-    const p0, 0x104011e
+    const p0, 0x104012b
 
     invoke-virtual {p2, p0, v0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -571,7 +571,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/slice/WifiSlice;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f020181
+    const v1, 0x7f020197
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -614,7 +614,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/slice/WifiSlice;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f040f97
+    const v1, 0x7f041030
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -875,7 +875,9 @@
 
     move-result-object v1
 
-    sget-object v3, Lcom/android/settings/network/ProviderModelSlice$$ExternalSyntheticLambda2;->INSTANCE:Lcom/android/settings/network/ProviderModelSlice$$ExternalSyntheticLambda2;
+    new-instance v3, Lcom/android/settings/network/ProviderModelSlice$$ExternalSyntheticLambda2;
+
+    invoke-direct {v3}, Lcom/android/settings/network/ProviderModelSlice$$ExternalSyntheticLambda2;-><init>()V
 
     invoke-interface {v1, v3}, Ljava/util/stream/Stream;->filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
 
@@ -1130,7 +1132,7 @@
 
     iget-object v1, p0, Lcom/android/settings/wifi/slice/WifiSlice;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f040d38
+    const v2, 0x7f040db4
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1144,7 +1146,7 @@
 
     iget-object p1, p0, Lcom/android/settings/wifi/slice/WifiSlice;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f040d30
+    const v1, 0x7f040dac
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

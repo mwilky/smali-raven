@@ -4,4 +4,6 @@
 
 
 # static fields
-.field public static final collapsing_toolbar_base_layout:I = 0x7f06007e
+.field public static final collapsing_toolbar_base_layout:I = 0x7f060088
+
+.field public static final collapsing_toolbar_content_layout:I = 0x7f060089

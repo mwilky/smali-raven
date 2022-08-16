@@ -33,16 +33,6 @@
 
 .method private static findMaxElevation(Landroidx/recyclerview/widget/RecyclerView;Landroid/view/View;)F
     .locals 5
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "recyclerView",
-            "itemView"
-        }
-    .end annotation
 
     invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
 
@@ -88,20 +78,6 @@
 # virtual methods
 .method public clearView(Landroid/view/View;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "view"
-        }
-    .end annotation
-
-    sget p0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v0, 0x15
-
-    if-lt p0, v0, :cond_1
 
     sget p0, Landroidx/recyclerview/R$id;->item_touch_helper_previous_elevation:I
 
@@ -126,7 +102,6 @@
 
     invoke-virtual {p1, p0, v0}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
 
-    :cond_1
     const/4 p0, 0x0
 
     invoke-virtual {p1, p0}, Landroid/view/View;->setTranslationX(F)V
@@ -138,32 +113,6 @@
 
 .method public onDraw(Landroid/graphics/Canvas;Landroidx/recyclerview/widget/RecyclerView;Landroid/view/View;FFIZ)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "c",
-            "recyclerView",
-            "view",
-            "dX",
-            "dY",
-            "actionState",
-            "isCurrentlyActive"
-        }
-    .end annotation
-
-    sget p0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 p1, 0x15
-
-    if-lt p0, p1, :cond_0
 
     if-eqz p7, :cond_0
 
@@ -205,40 +154,12 @@
 
 .method public onDrawOver(Landroid/graphics/Canvas;Landroidx/recyclerview/widget/RecyclerView;Landroid/view/View;FFIZ)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "c",
-            "recyclerView",
-            "view",
-            "dX",
-            "dY",
-            "actionState",
-            "isCurrentlyActive"
-        }
-    .end annotation
 
     return-void
 .end method
 
 .method public onSelected(Landroid/view/View;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "view"
-        }
-    .end annotation
 
     return-void
 .end method

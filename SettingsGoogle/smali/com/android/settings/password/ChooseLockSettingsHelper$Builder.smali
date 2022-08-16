@@ -45,6 +45,94 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmAllowAnyUserId(Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;->mAllowAnyUserId:Z
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmAlternateButton(Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;)Ljava/lang/CharSequence;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;->mAlternateButton:Ljava/lang/CharSequence;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmDescription(Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;)Ljava/lang/CharSequence;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;->mDescription:Ljava/lang/CharSequence;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmExternal(Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;->mExternal:Z
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmForceVerifyPath(Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;->mForceVerifyPath:Z
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmForegroundOnly(Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;->mForegroundOnly:Z
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmHeader(Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;)Ljava/lang/CharSequence;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;->mHeader:Ljava/lang/CharSequence;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmRequestCode(Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;->mRequestCode:I
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmReturnCredentials(Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;->mReturnCredentials:Z
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmTitle(Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;)Ljava/lang/CharSequence;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;->mTitle:Ljava/lang/CharSequence;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmUserId(Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;->mUserId:I
+
+    return p0
+.end method
+
 .method public constructor <init>(Landroid/app/Activity;)V
     .locals 0
 
@@ -69,94 +157,6 @@
     iput-object p2, p0, Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;->mFragment:Landroidx/fragment/app/Fragment;
 
     return-void
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;)I
-    .locals 0
-
-    iget p0, p0, Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;->mRequestCode:I
-
-    return p0
-.end method
-
-.method static synthetic access$1000(Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;->mAllowAnyUserId:Z
-
-    return p0
-.end method
-
-.method static synthetic access$1100(Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;->mForegroundOnly:Z
-
-    return p0
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;)Ljava/lang/CharSequence;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;->mTitle:Ljava/lang/CharSequence;
-
-    return-object p0
-.end method
-
-.method static synthetic access$300(Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;)Ljava/lang/CharSequence;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;->mHeader:Ljava/lang/CharSequence;
-
-    return-object p0
-.end method
-
-.method static synthetic access$400(Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;)Ljava/lang/CharSequence;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;->mDescription:Ljava/lang/CharSequence;
-
-    return-object p0
-.end method
-
-.method static synthetic access$500(Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;->mReturnCredentials:Z
-
-    return p0
-.end method
-
-.method static synthetic access$600(Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;->mExternal:Z
-
-    return p0
-.end method
-
-.method static synthetic access$700(Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;->mForceVerifyPath:Z
-
-    return p0
-.end method
-
-.method static synthetic access$800(Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;)I
-    .locals 0
-
-    iget p0, p0, Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;->mUserId:I
-
-    return p0
-.end method
-
-.method static synthetic access$900(Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;)Ljava/lang/CharSequence;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;->mAlternateButton:Ljava/lang/CharSequence;
-
-    return-object p0
 .end method
 
 
@@ -223,7 +223,7 @@
 
     const/4 v3, 0x0
 
-    invoke-direct {v0, p0, v1, v2, v3}, Lcom/android/settings/password/ChooseLockSettingsHelper;-><init>(Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;Landroid/app/Activity;Landroidx/fragment/app/Fragment;Lcom/android/settings/password/ChooseLockSettingsHelper$1;)V
+    invoke-direct {v0, p0, v1, v2, v3}, Lcom/android/settings/password/ChooseLockSettingsHelper;-><init>(Lcom/android/settings/password/ChooseLockSettingsHelper$Builder;Landroid/app/Activity;Landroidx/fragment/app/Fragment;Lcom/android/settings/password/ChooseLockSettingsHelper-IA;)V
 
     return-object v0
 .end method

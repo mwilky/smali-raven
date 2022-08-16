@@ -351,7 +351,7 @@
 
     iget v0, p0, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VGroup;->mRotate:F
 
-    const-string v1, "rotation"
+    const-string/jumbo v1, "rotation"
 
     const/4 v2, 0x5
 
@@ -383,7 +383,7 @@
 
     iget v0, p0, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VGroup;->mScaleX:F
 
-    const-string v1, "scaleX"
+    const-string/jumbo v1, "scaleX"
 
     const/4 v2, 0x3
 
@@ -395,7 +395,7 @@
 
     iget v0, p0, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VGroup;->mScaleY:F
 
-    const-string v1, "scaleY"
+    const-string/jumbo v1, "scaleY"
 
     const/4 v2, 0x4
 

@@ -241,7 +241,7 @@
 .end method
 
 .method private synthetic lambda$update$4(Ljava/util/List;Landroidx/preference/Preference;)Z
-    .locals 3
+    .locals 1
 
     invoke-direct {p0, p2}, Lcom/android/settings/network/MobileNetworkSummaryController;->logPreferenceClick(Landroidx/preference/Preference;)V
 
@@ -294,31 +294,13 @@
 
     :cond_1
     :goto_0
-    new-instance p2, Landroid/content/Intent;
-
-    iget-object v1, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
-
-    const-class v2, Lcom/android/settings/network/telephony/MobileNetworkActivity;
-
-    invoke-direct {p2, v1, v2}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
-
-    invoke-virtual {p1}, Lcom/android/settings/network/helper/SubscriptionAnnotation;->getSubscriptionId()I
-
-    move-result p1
-
-    const-string v1, "android.provider.extra.SUB_ID"
-
-    invoke-virtual {p2, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
-
-    iget-object p1, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
-
-    const/4 v1, 0x0
-
-    invoke-static {p1, p2, v1}, Lcom/android/settings/network/MobileNetworkTwoPaneUtils;->registerTwoPaneForMobileNetwork(Landroid/content/Context;Landroid/content/Intent;Ljava/lang/String;)V
-
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    invoke-virtual {p0, p2}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {p1}, Lcom/android/settings/network/helper/SubscriptionAnnotation;->getSubInfo()Landroid/telephony/SubscriptionInfo;
+
+    move-result-object p1
+
+    invoke-static {p0, p1}, Lcom/android/settings/network/telephony/MobileNetworkUtils;->launchMobileNetworkSettings(Landroid/content/Context;Landroid/telephony/SubscriptionInfo;)V
 
     return v0
 .end method
@@ -413,9 +395,9 @@
 
     iget-object v0, p0, Lcom/android/settings/network/MobileNetworkSummaryController;->mPreference:Lcom/android/settings/widget/AddPreference;
 
-    new-instance v1, Lcom/android/settings/network/MobileNetworkSummaryController$$ExternalSyntheticLambda0;
+    new-instance v1, Lcom/android/settings/network/MobileNetworkSummaryController$$ExternalSyntheticLambda4;
 
-    invoke-direct {v1, p0}, Lcom/android/settings/network/MobileNetworkSummaryController$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/network/MobileNetworkSummaryController;)V
+    invoke-direct {v1, p0}, Lcom/android/settings/network/MobileNetworkSummaryController$$ExternalSyntheticLambda4;-><init>(Lcom/android/settings/network/MobileNetworkSummaryController;)V
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setOnPreferenceClickListener(Landroidx/preference/Preference$OnPreferenceClickListener;)V
 
@@ -456,9 +438,9 @@
 
     iget-object v1, p0, Lcom/android/settings/network/MobileNetworkSummaryController;->mPreference:Lcom/android/settings/widget/AddPreference;
 
-    new-instance v3, Lcom/android/settings/network/MobileNetworkSummaryController$$ExternalSyntheticLambda2;
+    new-instance v3, Lcom/android/settings/network/MobileNetworkSummaryController$$ExternalSyntheticLambda5;
 
-    invoke-direct {v3, p0}, Lcom/android/settings/network/MobileNetworkSummaryController$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/network/MobileNetworkSummaryController;)V
+    invoke-direct {v3, p0}, Lcom/android/settings/network/MobileNetworkSummaryController$$ExternalSyntheticLambda5;-><init>(Lcom/android/settings/network/MobileNetworkSummaryController;)V
 
     invoke-virtual {v1, v3}, Lcom/android/settings/widget/AddPreference;->setOnAddClickListener(Lcom/android/settings/widget/AddPreference$OnAddClickListener;)V
 
@@ -471,9 +453,9 @@
 
     iget-object v1, p0, Lcom/android/settings/network/MobileNetworkSummaryController;->mPreference:Lcom/android/settings/widget/AddPreference;
 
-    new-instance v2, Lcom/android/settings/network/MobileNetworkSummaryController$$ExternalSyntheticLambda1;
+    new-instance v2, Lcom/android/settings/network/MobileNetworkSummaryController$$ExternalSyntheticLambda6;
 
-    invoke-direct {v2, p0, v0}, Lcom/android/settings/network/MobileNetworkSummaryController$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/network/MobileNetworkSummaryController;Ljava/util/List;)V
+    invoke-direct {v2, p0, v0}, Lcom/android/settings/network/MobileNetworkSummaryController$$ExternalSyntheticLambda6;-><init>(Lcom/android/settings/network/MobileNetworkSummaryController;Ljava/util/List;)V
 
     invoke-virtual {v1, v2}, Landroidx/preference/Preference;->setOnPreferenceClickListener(Landroidx/preference/Preference$OnPreferenceClickListener;)V
 
@@ -562,7 +544,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f040d4f
+    const v0, 0x7f040dcb
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -631,7 +613,7 @@
     :cond_2
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f040d50
+    const v0, 0x7f040dcc
 
     new-array v2, v2, [Ljava/lang/Object;
 
@@ -652,15 +634,17 @@
 
     move-result-object v0
 
-    sget-object v1, Lcom/android/settings/network/MobileNetworkSummaryController$$ExternalSyntheticLambda7;->INSTANCE:Lcom/android/settings/network/MobileNetworkSummaryController$$ExternalSyntheticLambda7;
+    new-instance v1, Lcom/android/settings/network/MobileNetworkSummaryController$$ExternalSyntheticLambda1;
+
+    invoke-direct {v1}, Lcom/android/settings/network/MobileNetworkSummaryController$$ExternalSyntheticLambda1;-><init>()V
 
     invoke-interface {v0, v1}, Ljava/util/stream/Stream;->mapToInt(Ljava/util/function/ToIntFunction;)Ljava/util/stream/IntStream;
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/settings/network/MobileNetworkSummaryController$$ExternalSyntheticLambda6;
+    new-instance v1, Lcom/android/settings/network/MobileNetworkSummaryController$$ExternalSyntheticLambda2;
 
-    invoke-direct {v1, p0}, Lcom/android/settings/network/MobileNetworkSummaryController$$ExternalSyntheticLambda6;-><init>(Lcom/android/settings/network/MobileNetworkSummaryController;)V
+    invoke-direct {v1, p0}, Lcom/android/settings/network/MobileNetworkSummaryController$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/network/MobileNetworkSummaryController;)V
 
     invoke-interface {v0, v1}, Ljava/util/stream/IntStream;->mapToObj(Ljava/util/function/IntFunction;)Ljava/util/stream/Stream;
 
@@ -718,9 +702,9 @@
 
     iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    new-instance v1, Lcom/android/settings/network/MobileNetworkSummaryController$$ExternalSyntheticLambda5;
+    new-instance v1, Lcom/android/settings/network/MobileNetworkSummaryController$$ExternalSyntheticLambda0;
 
-    invoke-direct {v1, p0}, Lcom/android/settings/network/MobileNetworkSummaryController$$ExternalSyntheticLambda5;-><init>(Lcom/android/settings/network/MobileNetworkSummaryController;)V
+    invoke-direct {v1, p0}, Lcom/android/settings/network/MobileNetworkSummaryController$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/network/MobileNetworkSummaryController;)V
 
     invoke-virtual {p1, v0, v1}, Lcom/android/settings/network/MobileNetworkSummaryStatus;->update(Landroid/content/Context;Ljava/util/function/Consumer;)V
 
@@ -762,9 +746,9 @@
 
     iget-object v1, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    new-instance v2, Lcom/android/settings/network/MobileNetworkSummaryController$$ExternalSyntheticLambda4;
+    new-instance v2, Lcom/android/settings/network/MobileNetworkSummaryController$$ExternalSyntheticLambda7;
 
-    invoke-direct {v2, p0}, Lcom/android/settings/network/MobileNetworkSummaryController$$ExternalSyntheticLambda4;-><init>(Lcom/android/settings/network/MobileNetworkSummaryController;)V
+    invoke-direct {v2, p0}, Lcom/android/settings/network/MobileNetworkSummaryController$$ExternalSyntheticLambda7;-><init>(Lcom/android/settings/network/MobileNetworkSummaryController;)V
 
     invoke-virtual {v0, v1, v2}, Lcom/android/settings/network/MobileNetworkSummaryStatus;->update(Landroid/content/Context;Ljava/util/function/Consumer;)V
 

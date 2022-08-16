@@ -17,14 +17,6 @@
 # direct methods
 .method static getExternalCacheDirs(Landroid/content/Context;)[Ljava/io/File;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "obj"
-        }
-    .end annotation
 
     invoke-virtual {p0}, Landroid/content/Context;->getExternalCacheDirs()[Ljava/io/File;
 
@@ -35,16 +27,6 @@
 
 .method static getExternalFilesDirs(Landroid/content/Context;Ljava/lang/String;)[Ljava/io/File;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "obj",
-            "type"
-        }
-    .end annotation
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->getExternalFilesDirs(Ljava/lang/String;)[Ljava/io/File;
 

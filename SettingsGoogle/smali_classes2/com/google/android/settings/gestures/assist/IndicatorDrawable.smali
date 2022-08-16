@@ -20,6 +20,22 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmTimeAnimator(Lcom/google/android/settings/gestures/assist/IndicatorDrawable;)Landroid/animation/TimeAnimator;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/settings/gestures/assist/IndicatorDrawable;->mTimeAnimator:Landroid/animation/TimeAnimator;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmTime(Lcom/google/android/settings/gestures/assist/IndicatorDrawable;J)V
+    .locals 0
+
+    iput-wide p1, p0, Lcom/google/android/settings/gestures/assist/IndicatorDrawable;->mTime:J
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Z)V
     .locals 2
 
@@ -60,22 +76,6 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/google/android/settings/gestures/assist/IndicatorDrawable;)Landroid/animation/TimeAnimator;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/settings/gestures/assist/IndicatorDrawable;->mTimeAnimator:Landroid/animation/TimeAnimator;
-
-    return-object p0
-.end method
-
-.method static synthetic access$102(Lcom/google/android/settings/gestures/assist/IndicatorDrawable;J)J
-    .locals 0
-
-    iput-wide p1, p0, Lcom/google/android/settings/gestures/assist/IndicatorDrawable;->mTime:J
-
-    return-wide p1
-.end method
-
 
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;)V
@@ -95,7 +95,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a0031
+    const v2, 0x7f0a0034
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
 

@@ -85,7 +85,7 @@
 
     move-result-object p1
 
-    const-string v0, "requested_min_complexity"
+    const-string/jumbo v0, "requested_min_complexity"
 
     invoke-virtual {p1, v0}, Landroid/content/Intent;->hasExtra(Ljava/lang/String;)Z
 
@@ -116,7 +116,7 @@
     return-void
 
     :cond_0
-    const p1, 0x7f0d017a
+    const p1, 0x7f0d018f
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 

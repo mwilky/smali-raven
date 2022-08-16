@@ -36,7 +36,7 @@
 
     iget-object v0, p0, Lcom/android/settings/core/instrumentation/SettingsIntelligenceLogWriter$SendLogHandler;->this$0:Lcom/android/settings/core/instrumentation/SettingsIntelligenceLogWriter;
 
-    invoke-static {v0}, Lcom/android/settings/core/instrumentation/SettingsIntelligenceLogWriter;->access$000(Lcom/android/settings/core/instrumentation/SettingsIntelligenceLogWriter;)Ljava/lang/Runnable;
+    invoke-static {v0}, Lcom/android/settings/core/instrumentation/SettingsIntelligenceLogWriter;->-$$Nest$fgetmSendLogsRunnable(Lcom/android/settings/core/instrumentation/SettingsIntelligenceLogWriter;)Ljava/lang/Runnable;
 
     move-result-object v0
 
@@ -44,7 +44,7 @@
 
     iget-object v0, p0, Lcom/android/settings/core/instrumentation/SettingsIntelligenceLogWriter$SendLogHandler;->this$0:Lcom/android/settings/core/instrumentation/SettingsIntelligenceLogWriter;
 
-    invoke-static {v0}, Lcom/android/settings/core/instrumentation/SettingsIntelligenceLogWriter;->access$000(Lcom/android/settings/core/instrumentation/SettingsIntelligenceLogWriter;)Ljava/lang/Runnable;
+    invoke-static {v0}, Lcom/android/settings/core/instrumentation/SettingsIntelligenceLogWriter;->-$$Nest$fgetmSendLogsRunnable(Lcom/android/settings/core/instrumentation/SettingsIntelligenceLogWriter;)Ljava/lang/Runnable;
 
     move-result-object v0
 
@@ -60,7 +60,7 @@
 
     iget-object v0, p0, Lcom/android/settings/core/instrumentation/SettingsIntelligenceLogWriter$SendLogHandler;->this$0:Lcom/android/settings/core/instrumentation/SettingsIntelligenceLogWriter;
 
-    invoke-static {v0}, Lcom/android/settings/core/instrumentation/SettingsIntelligenceLogWriter;->access$000(Lcom/android/settings/core/instrumentation/SettingsIntelligenceLogWriter;)Ljava/lang/Runnable;
+    invoke-static {v0}, Lcom/android/settings/core/instrumentation/SettingsIntelligenceLogWriter;->-$$Nest$fgetmSendLogsRunnable(Lcom/android/settings/core/instrumentation/SettingsIntelligenceLogWriter;)Ljava/lang/Runnable;
 
     move-result-object v0
 
@@ -68,7 +68,7 @@
 
     iget-object v0, p0, Lcom/android/settings/core/instrumentation/SettingsIntelligenceLogWriter$SendLogHandler;->this$0:Lcom/android/settings/core/instrumentation/SettingsIntelligenceLogWriter;
 
-    invoke-static {v0}, Lcom/android/settings/core/instrumentation/SettingsIntelligenceLogWriter;->access$000(Lcom/android/settings/core/instrumentation/SettingsIntelligenceLogWriter;)Ljava/lang/Runnable;
+    invoke-static {v0}, Lcom/android/settings/core/instrumentation/SettingsIntelligenceLogWriter;->-$$Nest$fgetmSendLogsRunnable(Lcom/android/settings/core/instrumentation/SettingsIntelligenceLogWriter;)Ljava/lang/Runnable;
 
     move-result-object v0
 

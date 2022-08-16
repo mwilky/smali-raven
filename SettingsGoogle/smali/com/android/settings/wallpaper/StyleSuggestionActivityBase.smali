@@ -19,7 +19,7 @@
 
     move-result-object p0
 
-    const v0, 0x11100df
+    const v0, 0x1110143
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -115,7 +115,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f0415b8
+    const v0, 0x7f0416b1
 
     invoke-virtual {p0, v0}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 

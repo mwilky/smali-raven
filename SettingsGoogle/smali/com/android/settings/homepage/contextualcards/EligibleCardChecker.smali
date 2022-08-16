@@ -104,9 +104,9 @@
 .method private static synthetic lambda$bindSlice$2(Landroidx/slice/SliceViewManager;Landroid/net/Uri;Landroidx/slice/SliceViewManager$SliceCallback;)V
     .locals 1
 
-    new-instance v0, Lcom/android/settings/homepage/contextualcards/EligibleCardChecker$$ExternalSyntheticLambda1;
+    new-instance v0, Lcom/android/settings/homepage/contextualcards/EligibleCardChecker$$ExternalSyntheticLambda2;
 
-    invoke-direct {v0, p0, p1, p2}, Lcom/android/settings/homepage/contextualcards/EligibleCardChecker$$ExternalSyntheticLambda1;-><init>(Landroidx/slice/SliceViewManager;Landroid/net/Uri;Landroidx/slice/SliceViewManager$SliceCallback;)V
+    invoke-direct {v0, p0, p1, p2}, Lcom/android/settings/homepage/contextualcards/EligibleCardChecker$$ExternalSyntheticLambda2;-><init>(Landroidx/slice/SliceViewManager;Landroid/net/Uri;Landroidx/slice/SliceViewManager$SliceCallback;)V
 
     invoke-static {v0}, Landroid/os/AsyncTask;->execute(Ljava/lang/Runnable;)V
 
@@ -124,7 +124,9 @@
 
     move-result-object p0
 
-    sget-object v0, Lcom/android/settings/homepage/contextualcards/EligibleCardChecker$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/settings/homepage/contextualcards/EligibleCardChecker$$ExternalSyntheticLambda0;
+    new-instance v0, Lcom/android/settings/homepage/contextualcards/EligibleCardChecker$$ExternalSyntheticLambda0;
+
+    invoke-direct {v0}, Lcom/android/settings/homepage/contextualcards/EligibleCardChecker$$ExternalSyntheticLambda0;-><init>()V
 
     invoke-virtual {p0, p1, v0}, Landroidx/slice/SliceViewManager;->registerSliceCallback(Landroid/net/Uri;Landroidx/slice/SliceViewManager$SliceCallback;)V
 
@@ -132,9 +134,9 @@
 
     move-result-object v1
 
-    new-instance v2, Lcom/android/settings/homepage/contextualcards/EligibleCardChecker$$ExternalSyntheticLambda2;
+    new-instance v2, Lcom/android/settings/homepage/contextualcards/EligibleCardChecker$$ExternalSyntheticLambda1;
 
-    invoke-direct {v2, p0, p1, v0}, Lcom/android/settings/homepage/contextualcards/EligibleCardChecker$$ExternalSyntheticLambda2;-><init>(Landroidx/slice/SliceViewManager;Landroid/net/Uri;Landroidx/slice/SliceViewManager$SliceCallback;)V
+    invoke-direct {v2, p0, p1, v0}, Lcom/android/settings/homepage/contextualcards/EligibleCardChecker$$ExternalSyntheticLambda1;-><init>(Landroidx/slice/SliceViewManager;Landroid/net/Uri;Landroidx/slice/SliceViewManager$SliceCallback;)V
 
     invoke-static {v2}, Lcom/android/settingslib/utils/ThreadUtils;->postOnMainThread(Ljava/lang/Runnable;)V
 

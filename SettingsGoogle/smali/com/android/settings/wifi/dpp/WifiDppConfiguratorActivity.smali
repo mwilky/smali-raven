@@ -254,7 +254,7 @@
 
     move-result-object p0
 
-    const v2, 0x7f0d024d
+    const v2, 0x7f0d026d
 
     invoke-virtual {p0, v2, v0, v1}, Landroidx/fragment/app/FragmentTransaction;->replace(ILandroidx/fragment/app/Fragment;Ljava/lang/String;)Landroidx/fragment/app/FragmentTransaction;
 
@@ -311,7 +311,7 @@
 
     move-result-object p0
 
-    const v2, 0x7f0d024d
+    const v2, 0x7f0d026d
 
     invoke-virtual {p0, v2, v0, v1}, Landroidx/fragment/app/FragmentTransaction;->replace(ILandroidx/fragment/app/Fragment;Ljava/lang/String;)Landroidx/fragment/app/FragmentTransaction;
 
@@ -348,7 +348,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/dpp/WifiDppBaseActivity;->mFragmentManager:Landroidx/fragment/app/FragmentManager;
 
-    const-string v1, "qr_code_generator_fragment"
+    const-string/jumbo v1, "qr_code_generator_fragment"
 
     invoke-virtual {v0, v1}, Landroidx/fragment/app/FragmentManager;->findFragmentByTag(Ljava/lang/String;)Landroidx/fragment/app/Fragment;
 
@@ -368,7 +368,7 @@
 
     move-result-object p0
 
-    const v2, 0x7f0d024d
+    const v2, 0x7f0d026d
 
     invoke-virtual {p0, v2, v0, v1}, Landroidx/fragment/app/FragmentTransaction;->replace(ILandroidx/fragment/app/Fragment;Ljava/lang/String;)Landroidx/fragment/app/FragmentTransaction;
 
@@ -398,7 +398,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/dpp/WifiDppBaseActivity;->mFragmentManager:Landroidx/fragment/app/FragmentManager;
 
-    const-string v1, "qr_code_scanner_fragment"
+    const-string/jumbo v1, "qr_code_scanner_fragment"
 
     invoke-virtual {v0, v1}, Landroidx/fragment/app/FragmentManager;->findFragmentByTag(Ljava/lang/String;)Landroidx/fragment/app/Fragment;
 
@@ -418,7 +418,7 @@
 
     move-result-object p0
 
-    const v2, 0x7f0d024d
+    const v2, 0x7f0d026d
 
     invoke-virtual {p0, v2, v0, v1}, Landroidx/fragment/app/FragmentTransaction;->replace(ILandroidx/fragment/app/Fragment;Ljava/lang/String;)Landroidx/fragment/app/FragmentTransaction;
 

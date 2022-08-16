@@ -31,6 +31,22 @@
     return-void
 .end method
 
+.method static bridge synthetic -$$Nest$mstart(Lcom/android/wifitrackerlib/BaseWifiTracker$Scanner;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/wifitrackerlib/BaseWifiTracker$Scanner;->start()V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mstop(Lcom/android/wifitrackerlib/BaseWifiTracker$Scanner;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/wifitrackerlib/BaseWifiTracker$Scanner;->stop()V
+
+    return-void
+.end method
+
 .method private constructor <init>(Lcom/android/wifitrackerlib/BaseWifiTracker;Landroid/os/Looper;)V
     .locals 0
 
@@ -45,26 +61,10 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/wifitrackerlib/BaseWifiTracker;Landroid/os/Looper;Lcom/android/wifitrackerlib/BaseWifiTracker$1;)V
+.method synthetic constructor <init>(Lcom/android/wifitrackerlib/BaseWifiTracker;Landroid/os/Looper;Lcom/android/wifitrackerlib/BaseWifiTracker$Scanner-IA;)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/wifitrackerlib/BaseWifiTracker$Scanner;-><init>(Lcom/android/wifitrackerlib/BaseWifiTracker;Landroid/os/Looper;)V
-
-    return-void
-.end method
-
-.method static synthetic access$300(Lcom/android/wifitrackerlib/BaseWifiTracker$Scanner;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/wifitrackerlib/BaseWifiTracker$Scanner;->start()V
-
-    return-void
-.end method
-
-.method static synthetic access$400(Lcom/android/wifitrackerlib/BaseWifiTracker$Scanner;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/wifitrackerlib/BaseWifiTracker$Scanner;->stop()V
 
     return-void
 .end method
@@ -107,7 +107,7 @@
 
     iget-object v0, p0, Lcom/android/wifitrackerlib/BaseWifiTracker$Scanner;->this$0:Lcom/android/wifitrackerlib/BaseWifiTracker;
 
-    invoke-static {v0}, Lcom/android/wifitrackerlib/BaseWifiTracker;->access$100(Lcom/android/wifitrackerlib/BaseWifiTracker;)Ljava/lang/String;
+    invoke-static {v0}, Lcom/android/wifitrackerlib/BaseWifiTracker;->-$$Nest$fgetmTag(Lcom/android/wifitrackerlib/BaseWifiTracker;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -172,7 +172,7 @@
 
     iget-object v0, p0, Lcom/android/wifitrackerlib/BaseWifiTracker$Scanner;->this$0:Lcom/android/wifitrackerlib/BaseWifiTracker;
 
-    invoke-static {v0}, Lcom/android/wifitrackerlib/BaseWifiTracker;->access$100(Lcom/android/wifitrackerlib/BaseWifiTracker;)Ljava/lang/String;
+    invoke-static {v0}, Lcom/android/wifitrackerlib/BaseWifiTracker;->-$$Nest$fgetmTag(Lcom/android/wifitrackerlib/BaseWifiTracker;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -202,7 +202,7 @@
 
     iget-object v1, p0, Lcom/android/wifitrackerlib/BaseWifiTracker$Scanner;->this$0:Lcom/android/wifitrackerlib/BaseWifiTracker;
 
-    invoke-static {v1}, Lcom/android/wifitrackerlib/BaseWifiTracker;->access$100(Lcom/android/wifitrackerlib/BaseWifiTracker;)Ljava/lang/String;
+    invoke-static {v1}, Lcom/android/wifitrackerlib/BaseWifiTracker;->-$$Nest$fgetmTag(Lcom/android/wifitrackerlib/BaseWifiTracker;)Ljava/lang/String;
 
     move-result-object v1
 

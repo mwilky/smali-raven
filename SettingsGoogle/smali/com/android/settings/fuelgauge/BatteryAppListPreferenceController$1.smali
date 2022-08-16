@@ -35,7 +35,7 @@
 
     invoke-direct {p0, p1}, Lcom/android/internal/os/PowerProfile;-><init>(Landroid/content/Context;)V
 
-    const-string p1, "screen.full.display"
+    const-string/jumbo p1, "screen.full.display"
 
     const/4 v0, 0x0
 
@@ -45,12 +45,33 @@
 
     const-wide/high16 v1, 0x4024000000000000L    # 10.0
 
-    cmpl-double p0, p0, v1
+    cmpl-double v1, p0, v1
 
-    if-ltz p0, :cond_0
+    if-ltz v1, :cond_0
 
     const/4 v0, 0x1
 
     :cond_0
+    if-nez v0, :cond_1
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "shouldShowBatteryAttributionList(): "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, p0, p1}, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    const-string p1, "BatteryAppListPreferenceController"
+
+    invoke-static {p1, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_1
     return v0
 .end method

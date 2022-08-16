@@ -5,12 +5,12 @@
         <item quantity="one">%d dag geleden</item>
     </plurals>
     <plurals name="abc_slice_duration_min">
-        <item quantity="other">%d min geleden</item>
-        <item quantity="one">%d min geleden</item>
+        <item quantity="other">%d min geleden</item>
+        <item quantity="one">%d min geleden</item>
     </plurals>
     <plurals name="abc_slice_duration_years">
-        <item quantity="other">%d jaar geleden</item>
-        <item quantity="one">%d jaar geleden</item>
+        <item quantity="other">%d jr geleden</item>
+        <item quantity="one">%d jr geleden</item>
     </plurals>
     <plurals name="accessibility_usage_summary">
         <item quantity="other">%1$d apps hebben volledige toegang tot je apparaat</item>
@@ -233,11 +233,11 @@
         <item quantity="one">%d categorie uitgezet</item>
     </plurals>
     <plurals name="notifications_sent_daily">
-        <item quantity="other">~%d meldingen per dag</item>
+        <item quantity="other">~%,d meldingen per dag</item>
         <item quantity="one">~%d melding per dag</item>
     </plurals>
     <plurals name="notifications_sent_weekly">
-        <item quantity="other">~%d meldingen per week</item>
+        <item quantity="other">~%,d meldingen per week</item>
         <item quantity="one">~%d melding per week</item>
     </plurals>
     <plurals name="number_of_device_admins">
@@ -328,22 +328,6 @@
         <item quantity="other">Certificaten vertrouwen of verwijderen</item>
         <item quantity="one">Certificaat vertrouwen of verwijderen</item>
     </plurals>
-    <plurals name="ssl_ca_cert_info_message">
-        <item quantity="other">"%s heeft certificeringsinstanties voor je werkprofiel geïnstalleerd, waardoor dit domein activiteit in het werknetwerk kan bijhouden, waaronder e-mails, apps en beveiligde websites.
-
-Neem contact op met je beheerder voor meer informatie over deze certificaten."</item>
-        <item quantity="one">"%s heeft een certificeringsinstantie voor je werkprofiel geïnstalleerd, waardoor dit domein activiteit in het werknetwerk kan bijhouden, waaronder e-mails, apps en beveiligde websites.
-
-Neem contact op met je beheerder voor meer informatie over dit certificaat."</item>
-    </plurals>
-    <plurals name="ssl_ca_cert_info_message_device_owner">
-        <item quantity="other">"%s heeft certificeringsinstanties geïnstalleerd op je apparaat, waardoor dit domein activiteit in het apparaatnetwerk kan bijhouden, waaronder e-mails, apps en beveiligde websites.
-
-Neem contact op met je beheerder voor meer informatie over deze certificaten."</item>
-        <item quantity="one">"%s heeft een certificeringsinstantie geïnstalleerd op je apparaat, waardoor dit domein activiteit in het apparaatnetwerk kan bijhouden, waaronder e-mails, apps en beveiligde websites.
-
-Neem contact op met je beheerder voor meer informatie over dit certificaat."</item>
-    </plurals>
     <plurals name="ssl_ca_cert_settings_button">
         <item quantity="other">Certificaten controleren</item>
         <item quantity="one">Certificaat controleren</item>
@@ -375,10 +359,6 @@ Neem contact op met je beheerder voor meer informatie over dit certificaat."</it
     <plurals name="wifi_saved_passpoint_access_points_summary">
         <item quantity="other">%d abonnementen</item>
         <item quantity="one">1 abonnement</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$d apparaten verbonden</item>
-        <item quantity="one">%1$d apparaat verbonden</item>
     </plurals>
     <plurals name="wrong_pin_code">
         <item quantity="other">Onjuiste pincode voor simkaart. Je hebt nog %d pogingen over.</item>

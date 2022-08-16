@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settings/notification/NotificationAccessConfirmationActivity$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/content/DialogInterface$OnClickListener;
@@ -27,7 +28,7 @@
 
     iget-object p0, p0, Lcom/android/settings/notification/NotificationAccessConfirmationActivity$$ExternalSyntheticLambda0;->f$0:Lcom/android/settings/notification/NotificationAccessConfirmationActivity;
 
-    invoke-static {p0, p1, p2}, Lcom/android/settings/notification/NotificationAccessConfirmationActivity;->$r8$lambda$KsnpjrRbDMIL7bpiJ7fhzuqJRVc(Lcom/android/settings/notification/NotificationAccessConfirmationActivity;Landroid/content/DialogInterface;I)V
+    invoke-static {p0, p1, p2}, Lcom/android/settings/notification/NotificationAccessConfirmationActivity;->$r8$lambda$ZgCS5H2vaZVyCRBJ2KVfe1S3qCo(Lcom/android/settings/notification/NotificationAccessConfirmationActivity;Landroid/content/DialogInterface;I)V
 
     return-void
 .end method

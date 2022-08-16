@@ -51,7 +51,7 @@
 
     iget-object v0, p0, Lcom/android/settings/network/NetworkProviderSettings$WifiEntryConnectCallback;->this$0:Lcom/android/settings/network/NetworkProviderSettings;
 
-    invoke-static {v0}, Lcom/android/settings/network/NetworkProviderSettings;->access$300(Lcom/android/settings/network/NetworkProviderSettings;)Z
+    invoke-static {v0}, Lcom/android/settings/network/NetworkProviderSettings;->access$100(Lcom/android/settings/network/NetworkProviderSettings;)Z
 
     move-result v0
 
@@ -66,7 +66,7 @@
 
     iget-object p0, p0, Lcom/android/settings/network/NetworkProviderSettings$WifiEntryConnectCallback;->this$0:Lcom/android/settings/network/NetworkProviderSettings;
 
-    invoke-static {p0, v0}, Lcom/android/settings/network/NetworkProviderSettings;->access$102(Lcom/android/settings/network/NetworkProviderSettings;Z)Z
+    invoke-static {p0, v0}, Lcom/android/settings/network/NetworkProviderSettings;->-$$Nest$fputmClickedConnect(Lcom/android/settings/network/NetworkProviderSettings;Z)V
 
     goto :goto_0
 
@@ -85,7 +85,7 @@
 
     iget-object p0, p0, Lcom/android/settings/network/NetworkProviderSettings$WifiEntryConnectCallback;->mConnectWifiEntry:Lcom/android/wifitrackerlib/WifiEntry;
 
-    invoke-static {p1, p0}, Lcom/android/settings/network/NetworkProviderSettings;->access$400(Lcom/android/settings/network/NetworkProviderSettings;Lcom/android/wifitrackerlib/WifiEntry;)V
+    invoke-virtual {p1, p0}, Lcom/android/settings/network/NetworkProviderSettings;->launchConfigNewNetworkFragment(Lcom/android/wifitrackerlib/WifiEntry;)V
 
     goto :goto_0
 
@@ -94,7 +94,7 @@
 
     iget-object p0, p0, Lcom/android/settings/network/NetworkProviderSettings$WifiEntryConnectCallback;->mConnectWifiEntry:Lcom/android/wifitrackerlib/WifiEntry;
 
-    invoke-static {p1, p0, v0}, Lcom/android/settings/network/NetworkProviderSettings;->access$500(Lcom/android/settings/network/NetworkProviderSettings;Lcom/android/wifitrackerlib/WifiEntry;I)V
+    invoke-static {p1, p0, v0}, Lcom/android/settings/network/NetworkProviderSettings;->-$$Nest$mshowDialog(Lcom/android/settings/network/NetworkProviderSettings;Lcom/android/wifitrackerlib/WifiEntry;I)V
 
     goto :goto_0
 
@@ -109,7 +109,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f041673
+    const p1, 0x7f04176a
 
     const/4 v0, 0x0
 

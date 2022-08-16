@@ -265,11 +265,33 @@
 
     move-result-object p0
 
+    check-cast p0, Ljava/lang/Iterable;
+
     invoke-static {p0}, Lkotlin/collections/CollectionsKt;->toSet(Ljava/lang/Iterable;)Ljava/util/Set;
 
     move-result-object p0
 
     return-object p0
+.end method
+
+.method public final isActivityEmbedded(Landroid/app/Activity;)Z
+    .locals 1
+    .param p1    # Landroid/app/Activity;
+        .annotation build Lorg/jetbrains/annotations/NotNull;
+        .end annotation
+    .end param
+
+    const-string v0, "activity"
+
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    iget-object p0, p0, Landroidx/window/embedding/SplitController;->embeddingBackend:Landroidx/window/embedding/EmbeddingBackend;
+
+    invoke-interface {p0, p1}, Landroidx/window/embedding/EmbeddingBackend;->isActivityEmbedded(Landroid/app/Activity;)Z
+
+    move-result p0
+
+    return p0
 .end method
 
 .method public final isSplitSupported()Z
@@ -291,7 +313,7 @@
         .end annotation
     .end param
 
-    const-string v0, "rule"
+    const-string/jumbo v0, "rule"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -336,7 +358,7 @@
         .end annotation
     .end param
 
-    const-string v0, "rule"
+    const-string/jumbo v0, "rule"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 

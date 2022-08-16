@@ -8,8 +8,6 @@
     value = {
         Landroidx/mediarouter/media/MediaRouterJellybean$VolumeCallbackProxy;,
         Landroidx/mediarouter/media/MediaRouterJellybean$CallbackProxy;,
-        Landroidx/mediarouter/media/MediaRouterJellybean$GetDefaultRouteWorkaround;,
-        Landroidx/mediarouter/media/MediaRouterJellybean$SelectRouteWorkaround;,
         Landroidx/mediarouter/media/MediaRouterJellybean$VolumeCallback;,
         Landroidx/mediarouter/media/MediaRouterJellybean$Callback;,
         Landroidx/mediarouter/media/MediaRouterJellybean$UserRouteInfo;,
@@ -19,42 +17,8 @@
 
 
 # direct methods
-.method public static addCallback(Ljava/lang/Object;ILjava/lang/Object;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "routerObj",
-            "types",
-            "callbackObj"
-        }
-    .end annotation
-
-    check-cast p0, Landroid/media/MediaRouter;
-
-    check-cast p2, Landroid/media/MediaRouter$Callback;
-
-    invoke-virtual {p0, p1, p2}, Landroid/media/MediaRouter;->addCallback(ILandroid/media/MediaRouter$Callback;)V
-
-    return-void
-.end method
-
 .method public static addUserRoute(Ljava/lang/Object;Ljava/lang/Object;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "routerObj",
-            "routeObj"
-        }
-    .end annotation
 
     check-cast p0, Landroid/media/MediaRouter;
 
@@ -65,38 +29,8 @@
     return-void
 .end method
 
-.method public static createCallback(Landroidx/mediarouter/media/MediaRouterJellybean$Callback;)Ljava/lang/Object;
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "callback"
-        }
-    .end annotation
-
-    new-instance v0, Landroidx/mediarouter/media/MediaRouterJellybean$CallbackProxy;
-
-    invoke-direct {v0, p0}, Landroidx/mediarouter/media/MediaRouterJellybean$CallbackProxy;-><init>(Landroidx/mediarouter/media/MediaRouterJellybean$Callback;)V
-
-    return-object v0
-.end method
-
 .method public static createRouteCategory(Ljava/lang/Object;Ljava/lang/String;Z)Ljava/lang/Object;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "routerObj",
-            "name",
-            "isGroupable"
-        }
-    .end annotation
 
     check-cast p0, Landroid/media/MediaRouter;
 
@@ -109,16 +43,6 @@
 
 .method public static createUserRoute(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "routerObj",
-            "categoryObj"
-        }
-    .end annotation
 
     check-cast p0, Landroid/media/MediaRouter;
 
@@ -133,14 +57,6 @@
 
 .method public static createVolumeCallback(Landroidx/mediarouter/media/MediaRouterJellybean$VolumeCallback;)Ljava/lang/Object;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "callback"
-        }
-    .end annotation
 
     new-instance v0, Landroidx/mediarouter/media/MediaRouterJellybean$VolumeCallbackProxy;
 
@@ -151,14 +67,6 @@
 
 .method public static getMediaRouter(Landroid/content/Context;)Ljava/lang/Object;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "context"
-        }
-    .end annotation
 
     const-string v0, "media_router"
 
@@ -171,14 +79,6 @@
 
 .method public static getRoutes(Ljava/lang/Object;)Ljava/util/List;
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "routerObj"
-        }
-    .end annotation
 
     check-cast p0, Landroid/media/MediaRouter;
 
@@ -211,16 +111,6 @@
 
 .method public static getSelectedRoute(Ljava/lang/Object;I)Ljava/lang/Object;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "routerObj",
-            "type"
-        }
-    .end annotation
 
     check-cast p0, Landroid/media/MediaRouter;
 
@@ -233,16 +123,6 @@
 
 .method public static removeCallback(Ljava/lang/Object;Ljava/lang/Object;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "routerObj",
-            "callbackObj"
-        }
-    .end annotation
 
     check-cast p0, Landroid/media/MediaRouter;
 
@@ -255,16 +135,6 @@
 
 .method public static removeUserRoute(Ljava/lang/Object;Ljava/lang/Object;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "routerObj",
-            "routeObj"
-        }
-    .end annotation
 
     check-cast p0, Landroid/media/MediaRouter;
 
@@ -277,18 +147,6 @@
 
 .method public static selectRoute(Ljava/lang/Object;ILjava/lang/Object;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "routerObj",
-            "types",
-            "routeObj"
-        }
-    .end annotation
 
     check-cast p0, Landroid/media/MediaRouter;
 

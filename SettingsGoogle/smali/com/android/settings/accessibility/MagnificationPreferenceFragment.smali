@@ -21,7 +21,7 @@
 
     new-instance v0, Lcom/android/settings/accessibility/MagnificationPreferenceFragment$1;
 
-    const v1, 0x7f150008
+    const v1, 0x7f150009
 
     invoke-direct {v0, v1}, Lcom/android/settings/accessibility/MagnificationPreferenceFragment$1;-><init>(I)V
 
@@ -45,7 +45,7 @@
 .method static isApplicable(Landroid/content/res/Resources;)Z
     .locals 1
 
-    const v0, 0x1110133
+    const v0, 0x11101a6
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -88,7 +88,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a3a
+    const p0, 0x7f040a93
 
     return p0
 .end method
@@ -112,7 +112,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150008
+    const p0, 0x7f150009
 
     return p0
 .end method

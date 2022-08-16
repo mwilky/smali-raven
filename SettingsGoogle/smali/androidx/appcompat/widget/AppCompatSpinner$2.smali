@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onGlobalLayout()V
-    .locals 3
+    .locals 1
 
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatSpinner$2;->this$0:Landroidx/appcompat/widget/AppCompatSpinner;
 
@@ -60,22 +60,10 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_2
-
-    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v2, 0x10
-
-    if-lt v1, v2, :cond_1
+    if-eqz v0, :cond_1
 
     invoke-virtual {v0, p0}, Landroid/view/ViewTreeObserver;->removeOnGlobalLayoutListener(Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V
 
-    goto :goto_0
-
     :cond_1
-    invoke-virtual {v0, p0}, Landroid/view/ViewTreeObserver;->removeGlobalOnLayoutListener(Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V
-
-    :cond_2
-    :goto_0
     return-void
 .end method

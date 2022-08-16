@@ -16,6 +16,14 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmLoadingViewController(Lcom/android/settings/applications/RunningServices;)Lcom/android/settings/widget/LoadingViewController;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/applications/RunningServices;->mLoadingViewController:Lcom/android/settings/widget/LoadingViewController;
+
+    return-object p0
+.end method
+
 .method public constructor <init>()V
     .locals 1
 
@@ -28,14 +36,6 @@
     iput-object v0, p0, Lcom/android/settings/applications/RunningServices;->mRunningProcessesAvail:Ljava/lang/Runnable;
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/applications/RunningServices;)Lcom/android/settings/widget/LoadingViewController;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/applications/RunningServices;->mLoadingViewController:Lcom/android/settings/widget/LoadingViewController;
-
-    return-object p0
 .end method
 
 .method private updateOptionsMenu()V
@@ -93,7 +93,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f0410a9    # 1.755446E38f
+    const p1, 0x7f04114f
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->setTitle(I)V
 
@@ -109,7 +109,7 @@
 
     const/4 v0, 0x1
 
-    const v1, 0x7f04122e
+    const v1, 0x7f0412e3
 
     invoke-interface {p1, p2, v0, v0, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -119,7 +119,7 @@
 
     const/4 v0, 0x2
 
-    const v1, 0x7f041218
+    const v1, 0x7f0412cd
 
     invoke-interface {p1, p2, v0, v0, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -135,7 +135,7 @@
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 1
 
-    const p2, 0x7f060122
+    const p2, 0x7f06012b
 
     const/4 p3, 0x0
 
@@ -143,7 +143,7 @@
 
     move-result-object p1
 
-    const p2, 0x7f0d04b3
+    const p2, 0x7f0d04ef
 
     invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -155,7 +155,7 @@
 
     invoke-virtual {p2}, Lcom/android/settings/applications/RunningProcessesView;->doCreate()V
 
-    const p2, 0x7f0d0338
+    const p2, 0x7f0d0364
 
     invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

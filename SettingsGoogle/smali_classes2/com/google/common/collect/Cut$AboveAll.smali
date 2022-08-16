@@ -44,7 +44,7 @@
 .method private constructor <init>()V
     .locals 1
 
-    const/4 v0, 0x0
+    const-string v0, ""
 
     invoke-direct {p0, v0}, Lcom/google/common/collect/Cut;-><init>(Ljava/lang/Comparable;)V
 

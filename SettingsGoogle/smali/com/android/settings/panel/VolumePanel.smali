@@ -12,12 +12,34 @@
 
 .field private final mContext:Landroid/content/Context;
 
+.field private mControlSliceWidth:I
+
+.field private mProfileManager:Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
+
 .field private final mReceiver:Landroid/content/BroadcastReceiver;
 
 
 # direct methods
+.method public static synthetic $r8$lambda$qvF9ACSlO4Acpg96u-UUBOMkLoQ(Lcom/android/settings/panel/VolumePanel;)Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/panel/VolumePanel;->lambda$new$0()Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmCallback(Lcom/android/settings/panel/VolumePanel;)Lcom/android/settings/panel/PanelContentCallback;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/panel/VolumePanel;->mCallback:Lcom/android/settings/panel/PanelContentCallback;
+
+    return-object p0
+.end method
+
 .method private constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -29,19 +51,90 @@
 
     invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/settings/panel/VolumePanel;->mContext:Landroid/content/Context;
+
+    instance-of v0, p1, Landroid/app/Activity;
+
+    if-eqz v0, :cond_0
+
+    move-object v0, p1
+
+    check-cast v0, Landroid/app/Activity;
+
+    invoke-virtual {v0}, Landroid/app/Activity;->getWindowManager()Landroid/view/WindowManager;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Landroid/view/WindowManager;->getCurrentWindowMetrics()Landroid/view/WindowMetrics;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/view/WindowMetrics;->getBounds()Landroid/graphics/Rect;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/graphics/Rect;->width()I
+
+    move-result v0
+
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
     move-result-object p1
 
-    iput-object p1, p0, Lcom/android/settings/panel/VolumePanel;->mContext:Landroid/content/Context;
+    const v1, 0x7f0b039e
+
+    invoke-virtual {p1, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result p1
+
+    mul-int/lit8 p1, p1, 0x2
+
+    sub-int/2addr v0, p1
+
+    iput v0, p0, Lcom/android/settings/panel/VolumePanel;->mControlSliceWidth:I
+
+    :cond_0
+    new-instance p1, Ljava/util/concurrent/FutureTask;
+
+    new-instance v0, Lcom/android/settings/panel/VolumePanel$$ExternalSyntheticLambda0;
+
+    invoke-direct {v0, p0}, Lcom/android/settings/panel/VolumePanel$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/panel/VolumePanel;)V
+
+    invoke-direct {p1, v0}, Ljava/util/concurrent/FutureTask;-><init>(Ljava/util/concurrent/Callable;)V
+
+    :try_start_0
+    invoke-virtual {p1}, Ljava/util/concurrent/FutureTask;->run()V
+
+    invoke-virtual {p1}, Ljava/util/concurrent/FutureTask;->get()Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
+    :try_end_0
+    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_0} :catch_0
+
+    if-eqz p1, :cond_1
+
+    invoke-virtual {p1}, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;->getProfileManager()Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
+
+    move-result-object p1
+
+    iput-object p1, p0, Lcom/android/settings/panel/VolumePanel;->mProfileManager:Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
+
+    :cond_1
+    return-void
+
+    :catch_0
+    const-string p0, "VolumePanel"
+
+    const-string p1, "Error getting LocalBluetoothManager."
+
+    invoke-static {p0, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/panel/VolumePanel;)Lcom/android/settings/panel/PanelContentCallback;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/panel/VolumePanel;->mCallback:Lcom/android/settings/panel/PanelContentCallback;
-
-    return-object p0
 .end method
 
 .method public static create(Landroid/content/Context;)Lcom/android/settings/panel/VolumePanel;
@@ -52,6 +145,104 @@
     invoke-direct {v0, p0}, Lcom/android/settings/panel/VolumePanel;-><init>(Landroid/content/Context;)V
 
     return-object v0
+.end method
+
+.method private findActiveDevice()Landroid/bluetooth/BluetoothDevice;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/panel/VolumePanel;->mProfileManager:Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
+
+    if-eqz p0, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;->getA2dpProfile()Lcom/android/settingslib/bluetooth/A2dpProfile;
+
+    move-result-object p0
+
+    if-eqz p0, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/settingslib/bluetooth/A2dpProfile;->getActiveDevice()Landroid/bluetooth/BluetoothDevice;
+
+    move-result-object p0
+
+    return-object p0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    return-object p0
+.end method
+
+.method private getExtraControlUri()Landroid/net/Uri;
+    .locals 3
+
+    invoke-direct {p0}, Lcom/android/settings/panel/VolumePanel;->findActiveDevice()Landroid/bluetooth/BluetoothDevice;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    if-eqz v0, :cond_0
+
+    invoke-static {v0}, Lcom/android/settingslib/bluetooth/BluetoothUtils;->getControlUriMetaData(Landroid/bluetooth/BluetoothDevice;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    :try_start_0
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget p0, p0, Lcom/android/settings/panel/VolumePanel;->mControlSliceWidth:I
+
+    invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-static {p0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v1
+    :try_end_0
+    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    const-string p0, "VolumePanel"
+
+    const-string/jumbo v0, "unable to parse uri"
+
+    invoke-static {p0, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    :goto_0
+    return-object v1
+.end method
+
+.method private synthetic lambda$new$0()Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
+    .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/Exception;
+        }
+    .end annotation
+
+    iget-object p0, p0, Lcom/android/settings/panel/VolumePanel;->mContext:Landroid/content/Context;
+
+    invoke-static {p0}, Lcom/android/settings/bluetooth/Utils;->getLocalBtManager(Landroid/content/Context;)Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 
@@ -83,7 +274,7 @@
 .end method
 
 .method public getSlices()Ljava/util/List;
-    .locals 1
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -93,35 +284,50 @@
         }
     .end annotation
 
-    new-instance p0, Ljava/util/ArrayList;
+    new-instance v0, Ljava/util/ArrayList;
 
-    invoke-direct {p0}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    sget-object v0, Lcom/android/settings/slices/CustomSliceRegistry;->REMOTE_MEDIA_SLICE_URI:Landroid/net/Uri;
+    sget-object v1, Lcom/android/settings/slices/CustomSliceRegistry;->REMOTE_MEDIA_SLICE_URI:Landroid/net/Uri;
 
-    invoke-interface {p0, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    sget-object v0, Lcom/android/settings/slices/CustomSliceRegistry;->VOLUME_MEDIA_URI:Landroid/net/Uri;
+    sget-object v1, Lcom/android/settings/slices/CustomSliceRegistry;->VOLUME_MEDIA_URI:Landroid/net/Uri;
 
-    invoke-interface {p0, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    sget-object v0, Lcom/android/settings/slices/CustomSliceRegistry;->MEDIA_OUTPUT_INDICATOR_SLICE_URI:Landroid/net/Uri;
+    invoke-direct {p0}, Lcom/android/settings/panel/VolumePanel;->getExtraControlUri()Landroid/net/Uri;
 
-    invoke-interface {p0, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    move-result-object p0
 
-    sget-object v0, Lcom/android/settings/slices/CustomSliceRegistry;->VOLUME_CALL_URI:Landroid/net/Uri;
+    if-eqz p0, :cond_0
 
-    invoke-interface {p0, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    const-string v1, "VolumePanel"
 
-    sget-object v0, Lcom/android/settings/slices/CustomSliceRegistry;->VOLUME_RINGER_URI:Landroid/net/Uri;
+    const-string v2, "add extra control slice"
 
-    invoke-interface {p0, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    sget-object v0, Lcom/android/settings/slices/CustomSliceRegistry;->VOLUME_ALARM_URI:Landroid/net/Uri;
+    invoke-interface {v0, p0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    invoke-interface {p0, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    :cond_0
+    sget-object p0, Lcom/android/settings/slices/CustomSliceRegistry;->MEDIA_OUTPUT_INDICATOR_SLICE_URI:Landroid/net/Uri;
 
-    return-object p0
+    invoke-interface {v0, p0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    sget-object p0, Lcom/android/settings/slices/CustomSliceRegistry;->VOLUME_CALL_URI:Landroid/net/Uri;
+
+    invoke-interface {v0, p0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    sget-object p0, Lcom/android/settings/slices/CustomSliceRegistry;->VOLUME_RINGER_URI:Landroid/net/Uri;
+
+    invoke-interface {v0, p0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    sget-object p0, Lcom/android/settings/slices/CustomSliceRegistry;->VOLUME_ALARM_URI:Landroid/net/Uri;
+
+    invoke-interface {v0, p0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    return-object v0
 .end method
 
 .method public getTitle()Ljava/lang/CharSequence;
@@ -129,7 +335,7 @@
 
     iget-object p0, p0, Lcom/android/settings/panel/VolumePanel;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f0412b7
+    const v0, 0x7f041371
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -162,7 +368,7 @@
 .end method
 
 .method public onResume()V
-    .locals 2
+    .locals 3
     .annotation runtime Landroidx/lifecycle/OnLifecycleEvent;
         value = .enum Landroidx/lifecycle/Lifecycle$Event;->ON_RESUME:Landroidx/lifecycle/Lifecycle$Event;
     .end annotation
@@ -179,7 +385,9 @@
 
     iget-object p0, p0, Lcom/android/settings/panel/VolumePanel;->mReceiver:Landroid/content/BroadcastReceiver;
 
-    invoke-virtual {v1, p0, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+    const/4 v2, 0x2
+
+    invoke-virtual {v1, p0, v0, v2}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;I)Landroid/content/Intent;
 
     return-void
 .end method

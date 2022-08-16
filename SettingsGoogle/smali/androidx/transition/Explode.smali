@@ -482,34 +482,30 @@
 
     iget v8, p4, Landroid/graphics/Rect;->left:I
 
-    sub-int/2addr v7, v8
-
-    int-to-float v7, v7
-
-    add-float/2addr v7, v4
-
-    aget v8, v0, v1
-
-    iget v9, p4, Landroid/graphics/Rect;->top:I
-
-    sub-int/2addr v8, v9
+    sub-int v8, v7, v8
 
     int-to-float v8, v8
 
-    add-float/2addr v8, v5
-
-    aget v9, v0, v6
+    add-float/2addr v8, v4
 
     aget v0, v0, v1
 
-    invoke-virtual {p4, v9, v0}, Landroid/graphics/Rect;->offsetTo(II)V
+    iget v9, p4, Landroid/graphics/Rect;->top:I
+
+    sub-int v9, v0, v9
+
+    int-to-float v9, v9
+
+    add-float/2addr v9, v5
+
+    invoke-virtual {p4, v7, v0}, Landroid/graphics/Rect;->offsetTo(II)V
 
     goto :goto_0
 
     :cond_1
-    move v7, v4
+    move v8, v4
 
-    move v8, v5
+    move v9, v5
 
     :goto_0
     iget-object v0, p0, Landroidx/transition/Explode;->mTempLoc:[I
@@ -522,13 +518,13 @@
 
     int-to-float p4, p4
 
-    add-float v6, v7, p4
+    add-float v6, v8, p4
 
     aget p1, p1, v1
 
     int-to-float p1, p1
 
-    add-float v7, v8, p1
+    add-float v7, v9, p1
 
     sget-object v8, Landroidx/transition/Explode;->sAccelerate:Landroid/animation/TimeInterpolator;
 

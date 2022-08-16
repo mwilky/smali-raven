@@ -77,7 +77,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Landroid/os/Parcel;Landroid/frameworks/stats/VendorAtomValue$1;)V
+.method synthetic constructor <init>(Landroid/os/Parcel;Landroid/frameworks/stats/VendorAtomValue-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Landroid/frameworks/stats/VendorAtomValue;-><init>(Landroid/os/Parcel;)V

@@ -306,7 +306,7 @@
 
     invoke-virtual {p0}, Landroidx/appcompat/widget/ActivityChooserView$ActivityChooserViewAdapter;->getDataModel()Landroidx/appcompat/widget/ActivityChooserModel;
 
-    move-result-object p0
+    const/4 p0, 0x0
 
     return-object p0
 .end method

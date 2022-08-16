@@ -9,22 +9,6 @@
 .field private mPreference:Landroidx/preference/Preference;
 
 
-# direct methods
-.method public constructor <init>(Landroid/content/Context;Ljava/lang/String;Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/settings/notification/zen/AbstractZenModePreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
-
-    invoke-static {p1}, Lcom/android/settings/notification/zen/ZenModeBackend;->getInstance(Landroid/content/Context;)Lcom/android/settings/notification/zen/ZenModeBackend;
-
-    move-result-object p1
-
-    iput-object p1, p0, Lcom/android/settings/notification/zen/ZenModeConversationsPreferenceController;->mBackend:Lcom/android/settings/notification/zen/ZenModeBackend;
-
-    return-void
-.end method
-
-
 # virtual methods
 .method public displayPreference(Landroidx/preference/PreferenceScreen;)V
     .locals 1

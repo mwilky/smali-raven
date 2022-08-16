@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settings/deviceinfo/storage/StorageUsageProgressBarPreferenceController$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -27,7 +28,7 @@
 
     iget-object p0, p0, Lcom/android/settings/deviceinfo/storage/StorageUsageProgressBarPreferenceController$$ExternalSyntheticLambda1;->f$0:Lcom/android/settings/deviceinfo/storage/StorageUsageProgressBarPreferenceController;
 
-    invoke-static {p0}, Lcom/android/settings/deviceinfo/storage/StorageUsageProgressBarPreferenceController;->$r8$lambda$W3uKY5iPaR4MIhhwJXbbkzR95pc(Lcom/android/settings/deviceinfo/storage/StorageUsageProgressBarPreferenceController;)V
+    invoke-static {p0}, Lcom/android/settings/deviceinfo/storage/StorageUsageProgressBarPreferenceController;->$r8$lambda$NrBFxm8eOKVxarB1OwAuK64l5Xg(Lcom/android/settings/deviceinfo/storage/StorageUsageProgressBarPreferenceController;)V
 
     return-void
 .end method

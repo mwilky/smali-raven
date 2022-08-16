@@ -66,141 +66,8 @@
     return-void
 .end method
 
-.method public constructor <init>(Landroid/os/Bundle;)V
-    .locals 6
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "in"
-        }
-    .end annotation
-
-    invoke-direct {p0}, Landroidx/versionedparcelable/CustomVersionedParcelable;-><init>()V
-
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Landroidx/slice/Slice;->mSpec:Landroidx/slice/SliceSpec;
-
-    sget-object v1, Landroidx/slice/Slice;->NO_ITEMS:[Landroidx/slice/SliceItem;
-
-    iput-object v1, p0, Landroidx/slice/Slice;->mItems:[Landroidx/slice/SliceItem;
-
-    sget-object v1, Landroidx/slice/Slice;->NO_HINTS:[Ljava/lang/String;
-
-    iput-object v1, p0, Landroidx/slice/Slice;->mHints:[Ljava/lang/String;
-
-    iput-object v0, p0, Landroidx/slice/Slice;->mUri:Ljava/lang/String;
-
-    const-string v1, "hints"
-
-    invoke-virtual {p1, v1}, Landroid/os/Bundle;->getStringArray(Ljava/lang/String;)[Ljava/lang/String;
-
-    move-result-object v1
-
-    iput-object v1, p0, Landroidx/slice/Slice;->mHints:[Ljava/lang/String;
-
-    const-string v1, "items"
-
-    invoke-virtual {p1, v1}, Landroid/os/Bundle;->getParcelableArray(Ljava/lang/String;)[Landroid/os/Parcelable;
-
-    move-result-object v1
-
-    array-length v2, v1
-
-    new-array v2, v2, [Landroidx/slice/SliceItem;
-
-    iput-object v2, p0, Landroidx/slice/Slice;->mItems:[Landroidx/slice/SliceItem;
-
-    const/4 v2, 0x0
-
-    :goto_0
-    iget-object v3, p0, Landroidx/slice/Slice;->mItems:[Landroidx/slice/SliceItem;
-
-    array-length v4, v3
-
-    if-ge v2, v4, :cond_1
-
-    aget-object v4, v1, v2
-
-    instance-of v4, v4, Landroid/os/Bundle;
-
-    if-eqz v4, :cond_0
-
-    new-instance v4, Landroidx/slice/SliceItem;
-
-    aget-object v5, v1, v2
-
-    check-cast v5, Landroid/os/Bundle;
-
-    invoke-direct {v4, v5}, Landroidx/slice/SliceItem;-><init>(Landroid/os/Bundle;)V
-
-    aput-object v4, v3, v2
-
-    :cond_0
-    add-int/lit8 v2, v2, 0x1
-
-    goto :goto_0
-
-    :cond_1
-    const-string/jumbo v1, "uri"
-
-    invoke-virtual {p1, v1}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/Object;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    iput-object v1, p0, Landroidx/slice/Slice;->mUri:Ljava/lang/String;
-
-    const-string/jumbo v1, "type"
-
-    invoke-virtual {p1, v1}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_2
-
-    new-instance v0, Landroidx/slice/SliceSpec;
-
-    invoke-virtual {p1, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    const-string v2, "revision"
-
-    invoke-virtual {p1, v2}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
-
-    move-result p1
-
-    invoke-direct {v0, v1, p1}, Landroidx/slice/SliceSpec;-><init>(Ljava/lang/String;I)V
-
-    :cond_2
-    iput-object v0, p0, Landroidx/slice/Slice;->mSpec:Landroidx/slice/SliceSpec;
-
-    return-void
-.end method
-
 .method constructor <init>(Ljava/util/ArrayList;[Ljava/lang/String;Landroid/net/Uri;Landroidx/slice/SliceSpec;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "items",
-            "hints",
-            "uri",
-            "spec"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -223,10 +90,6 @@
     sget-object v1, Landroidx/slice/Slice;->NO_ITEMS:[Landroidx/slice/SliceItem;
 
     iput-object v1, p0, Landroidx/slice/Slice;->mItems:[Landroidx/slice/SliceItem;
-
-    sget-object v1, Landroidx/slice/Slice;->NO_HINTS:[Ljava/lang/String;
-
-    iput-object v1, p0, Landroidx/slice/Slice;->mHints:[Ljava/lang/String;
 
     iput-object v0, p0, Landroidx/slice/Slice;->mUri:Ljava/lang/String;
 
@@ -259,16 +122,6 @@
 
 .method public static appendHints(Ljava/lang/StringBuilder;[Ljava/lang/String;)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "sb",
-            "hints"
-        }
-    .end annotation
 
     if-eqz p1, :cond_2
 
@@ -319,20 +172,7 @@
 .end method
 
 .method public static bindSlice(Landroid/content/Context;Landroid/net/Uri;Ljava/util/Set;)Landroidx/slice/Slice;
-    .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "uri",
-            "supportedSpecs"
-        }
-    .end annotation
-
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -345,20 +185,7 @@
         }
     .end annotation
 
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x1c
-
-    if-lt v0, v1, :cond_0
-
     invoke-static {p0, p1, p2}, Landroidx/slice/Slice;->callBindSlice(Landroid/content/Context;Landroid/net/Uri;Ljava/util/Set;)Landroidx/slice/Slice;
-
-    move-result-object p0
-
-    return-object p0
-
-    :cond_0
-    invoke-static {p0, p1, p2}, Landroidx/slice/compat/SliceProviderCompat;->bindSlice(Landroid/content/Context;Landroid/net/Uri;Ljava/util/Set;)Landroidx/slice/Slice;
 
     move-result-object p0
 
@@ -367,19 +194,6 @@
 
 .method private static callBindSlice(Landroid/content/Context;Landroid/net/Uri;Ljava/util/Set;)Landroidx/slice/Slice;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "uri",
-            "supportedSpecs"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -417,14 +231,6 @@
 
 .method static isValidIcon(Landroidx/core/graphics/drawable/IconCompat;)Z
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "icon"
-        }
-    .end annotation
 
     if-nez p0, :cond_0
 
@@ -559,14 +365,6 @@
 
 .method public hasHint(Ljava/lang/String;)Z
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "hint"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/slice/Slice;->mHints:[Ljava/lang/String;
 
@@ -593,15 +391,13 @@
 
     aget-object v2, v1, v0
 
-    iget-object v2, v2, Landroidx/slice/SliceItem;->mObj:Ljava/lang/Object;
+    iget-object v3, v2, Landroidx/slice/SliceItem;->mObj:Ljava/lang/Object;
 
-    if-nez v2, :cond_0
+    if-nez v3, :cond_0
 
-    const-class v2, Landroidx/slice/SliceItem;
+    const-class v3, Landroidx/slice/SliceItem;
 
-    aget-object v3, v1, v0
-
-    invoke-static {v2, v1, v3}, Landroidx/slice/ArrayUtils;->removeElement(Ljava/lang/Class;[Ljava/lang/Object;Ljava/lang/Object;)[Ljava/lang/Object;
+    invoke-static {v3, v1, v2}, Landroidx/slice/ArrayUtils;->removeElement(Ljava/lang/Class;[Ljava/lang/Object;Ljava/lang/Object;)[Ljava/lang/Object;
 
     move-result-object v1
 
@@ -628,97 +424,8 @@
 
 .method public onPreParceling(Z)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "isStream"
-        }
-    .end annotation
 
     return-void
-.end method
-
-.method public toBundle()Landroid/os/Bundle;
-    .locals 5
-
-    new-instance v0, Landroid/os/Bundle;
-
-    invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
-
-    iget-object v1, p0, Landroidx/slice/Slice;->mHints:[Ljava/lang/String;
-
-    const-string v2, "hints"
-
-    invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putStringArray(Ljava/lang/String;[Ljava/lang/String;)V
-
-    iget-object v1, p0, Landroidx/slice/Slice;->mItems:[Landroidx/slice/SliceItem;
-
-    array-length v1, v1
-
-    new-array v1, v1, [Landroid/os/Parcelable;
-
-    const/4 v2, 0x0
-
-    :goto_0
-    iget-object v3, p0, Landroidx/slice/Slice;->mItems:[Landroidx/slice/SliceItem;
-
-    array-length v4, v3
-
-    if-ge v2, v4, :cond_0
-
-    aget-object v3, v3, v2
-
-    invoke-virtual {v3}, Landroidx/slice/SliceItem;->toBundle()Landroid/os/Bundle;
-
-    move-result-object v3
-
-    aput-object v3, v1, v2
-
-    add-int/lit8 v2, v2, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const-string v2, "items"
-
-    invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putParcelableArray(Ljava/lang/String;[Landroid/os/Parcelable;)V
-
-    iget-object v1, p0, Landroidx/slice/Slice;->mUri:Ljava/lang/String;
-
-    invoke-static {v1}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "uri"
-
-    invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
-
-    iget-object v1, p0, Landroidx/slice/Slice;->mSpec:Landroidx/slice/SliceSpec;
-
-    if-eqz v1, :cond_1
-
-    invoke-virtual {v1}, Landroidx/slice/SliceSpec;->getType()Ljava/lang/String;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "type"
-
-    invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
-
-    iget-object p0, p0, Landroidx/slice/Slice;->mSpec:Landroidx/slice/SliceSpec;
-
-    invoke-virtual {p0}, Landroidx/slice/SliceSpec;->getRevision()I
-
-    move-result p0
-
-    const-string v1, "revision"
-
-    invoke-virtual {v0, v1, p0}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
-
-    :cond_1
-    return-object v0
 .end method
 
 .method public toString()Ljava/lang/String;
@@ -735,14 +442,6 @@
 
 .method public toString(Ljava/lang/String;)Ljava/lang/String;
     .locals 5
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "indent"
-        }
-    .end annotation
 
     new-instance v0, Ljava/lang/StringBuilder;
 

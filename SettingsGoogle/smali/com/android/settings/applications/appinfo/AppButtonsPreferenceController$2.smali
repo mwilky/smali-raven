@@ -44,7 +44,7 @@
 
     iget-object p2, p0, Lcom/android/settings/applications/appinfo/AppButtonsPreferenceController$2;->this$0:Lcom/android/settings/applications/appinfo/AppButtonsPreferenceController;
 
-    invoke-static {p2}, Lcom/android/settings/applications/appinfo/AppButtonsPreferenceController;->access$2000(Lcom/android/settings/applications/appinfo/AppButtonsPreferenceController;)Z
+    invoke-static {p2}, Lcom/android/settings/applications/appinfo/AppButtonsPreferenceController;->-$$Nest$fgetmFinishing(Lcom/android/settings/applications/appinfo/AppButtonsPreferenceController;)Z
 
     move-result p2
 
@@ -66,7 +66,7 @@
 
     iget-object p0, p0, Lcom/android/settings/applications/appinfo/AppButtonsPreferenceController$2;->this$0:Lcom/android/settings/applications/appinfo/AppButtonsPreferenceController;
 
-    invoke-static {p0}, Lcom/android/settings/applications/appinfo/AppButtonsPreferenceController;->access$500(Lcom/android/settings/applications/appinfo/AppButtonsPreferenceController;)Lcom/android/settings/SettingsActivity;
+    invoke-static {p0}, Lcom/android/settings/applications/appinfo/AppButtonsPreferenceController;->-$$Nest$fgetmActivity(Lcom/android/settings/applications/appinfo/AppButtonsPreferenceController;)Lcom/android/settings/SettingsActivity;
 
     move-result-object p0
 

@@ -56,7 +56,7 @@
     :goto_0
     iget-object p3, p0, Lcom/android/settings/display/ColorModePreferenceFragment$2;->this$0:Lcom/android/settings/display/ColorModePreferenceFragment;
 
-    invoke-static {p3}, Lcom/android/settings/display/ColorModePreferenceFragment;->access$000(Lcom/android/settings/display/ColorModePreferenceFragment;)Ljava/util/ArrayList;
+    invoke-static {p3}, Lcom/android/settings/display/ColorModePreferenceFragment;->-$$Nest$fgetmPageList(Lcom/android/settings/display/ColorModePreferenceFragment;)Ljava/util/ArrayList;
 
     move-result-object p3
 
@@ -68,7 +68,7 @@
 
     iget-object p3, p0, Lcom/android/settings/display/ColorModePreferenceFragment$2;->this$0:Lcom/android/settings/display/ColorModePreferenceFragment;
 
-    invoke-static {p3}, Lcom/android/settings/display/ColorModePreferenceFragment;->access$100(Lcom/android/settings/display/ColorModePreferenceFragment;)[Landroid/view/View;
+    invoke-static {p3}, Lcom/android/settings/display/ColorModePreferenceFragment;->-$$Nest$fgetmViewPagerImages(Lcom/android/settings/display/ColorModePreferenceFragment;)[Landroid/view/View;
 
     move-result-object p3
 
@@ -83,7 +83,7 @@
     :cond_0
     iget-object p2, p0, Lcom/android/settings/display/ColorModePreferenceFragment$2;->this$0:Lcom/android/settings/display/ColorModePreferenceFragment;
 
-    invoke-static {p2}, Lcom/android/settings/display/ColorModePreferenceFragment;->access$100(Lcom/android/settings/display/ColorModePreferenceFragment;)[Landroid/view/View;
+    invoke-static {p2}, Lcom/android/settings/display/ColorModePreferenceFragment;->-$$Nest$fgetmViewPagerImages(Lcom/android/settings/display/ColorModePreferenceFragment;)[Landroid/view/View;
 
     move-result-object p2
 
@@ -95,7 +95,7 @@
 
     move-result-object p3
 
-    const v0, 0x7f0405ef
+    const v0, 0x7f04064b
 
     invoke-virtual {p3, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -105,7 +105,7 @@
 
     iget-object p0, p0, Lcom/android/settings/display/ColorModePreferenceFragment$2;->this$0:Lcom/android/settings/display/ColorModePreferenceFragment;
 
-    invoke-static {p0, p1}, Lcom/android/settings/display/ColorModePreferenceFragment;->access$200(Lcom/android/settings/display/ColorModePreferenceFragment;I)V
+    invoke-static {p0, p1}, Lcom/android/settings/display/ColorModePreferenceFragment;->-$$Nest$mupdateIndicator(Lcom/android/settings/display/ColorModePreferenceFragment;I)V
 
     :cond_1
     return-void

@@ -233,12 +233,12 @@
         <item quantity="one">%d કૅટેગરી બંધ છે</item>
     </plurals>
     <plurals name="notifications_sent_daily">
-        <item quantity="other">~%d નોટિફિકેશન પ્રતિ દિવસ</item>
-        <item quantity="one">~%d નોટિફિકેશન પ્રતિ દિવસ</item>
+        <item quantity="other">~%,d નોટિફિકેશન પ્રતિ દિવસ</item>
+        <item quantity="one">~%,d નોટિફિકેશન પ્રતિ દિવસ</item>
     </plurals>
     <plurals name="notifications_sent_weekly">
-        <item quantity="other">~%d નોટિફિકેશન પ્રતિ સપ્તાહ</item>
-        <item quantity="one">~%d નોટિફિકેશન પ્રતિ સપ્તાહ</item>
+        <item quantity="other">~%,d નોટિફિકેશન પ્રતિ સપ્તાહ</item>
+        <item quantity="one">~%,d નોટિફિકેશન પ્રતિ સપ્તાહ</item>
     </plurals>
     <plurals name="number_of_device_admins">
         <item quantity="other">%d સક્રિય ઍપ્લિકેશન</item>
@@ -328,22 +328,6 @@
         <item quantity="other">પ્રમાણપત્રો પર વિશ્વાસ કરો અથવા તો દૂર કરો</item>
         <item quantity="one">પ્રમાણપત્રો પર વિશ્વાસ કરો અથવા તો દૂર કરો</item>
     </plurals>
-    <plurals name="ssl_ca_cert_info_message">
-        <item quantity="other">"%s એ તમારી કાર્યાલયની પ્રોફાઇલ માટે પ્રમાણપત્ર સત્તાધિકારી ઇન્સ્ટૉલ કર્યું, જે તેમને ઇમેઇલ, ઍપ્લિકેશનો અને સુરક્ષિત વેબસાઇટો સહિત કાર્યાલયના નેટવર્કની પ્રવૃત્તિનું નિયમન કરવાની મંજૂરી આપી શકે છે.
-
-આ પ્રમાણપત્ર વિશે વધુ માહિતી માટે, તમારા વ્યવસ્થાપકનો સંપર્ક કરો."</item>
-        <item quantity="one">"%s એ તમારી કાર્યાલયની પ્રોફાઇલ માટે પ્રમાણપત્ર સત્તાધિકારી ઇન્સ્ટૉલ કર્યું, જે તેમને ઇમેઇલ, ઍપ્લિકેશનો અને સુરક્ષિત વેબસાઇટો સહિત કાર્યાલયના નેટવર્કની પ્રવૃત્તિનું નિયમન કરવાની મંજૂરી આપી શકે છે.
-
-આ પ્રમાણપત્ર વિશે વધુ માહિતી માટે, તમારા વ્યવસ્થાપકનો સંપર્ક કરો."</item>
-    </plurals>
-    <plurals name="ssl_ca_cert_info_message_device_owner">
-        <item quantity="other">"%s એ તમારા ઉપકરણ પર પ્રમાણપત્ર સત્તાધિકારીઓ ઇન્સ્ટૉલ કર્યા, જે તેમને ઇમેઇલ્સ, ઍપ્લિકેશનો અને સુરક્ષિત વેબસાઇટ્સ સહિત તમારા ઉપકરણની નેટવર્ક પ્રવૃત્તિને મૉનિટર કરવાની મંજૂરી આપી શકે છે.
-
-આ પ્રમાણપત્રો વિશે વધુ માહિતી માટે, તમારા વ્યવસ્થાપકનો સંપર્ક કરો."</item>
-        <item quantity="one">"%s એ તમારા ઉપકરણ પર પ્રમાણપત્ર સત્તાધિકારીઓ ઇન્સ્ટૉલ કર્યા, જે તેમને ઇમેઇલ્સ, ઍપ્લિકેશનો અને સુરક્ષિત વેબસાઇટ્સ સહિત તમારા ઉપકરણની નેટવર્ક પ્રવૃત્તિને મૉનિટર કરવાની મંજૂરી આપી શકે છે.
-
-આ પ્રમાણપત્રો વિશે વધુ માહિતી માટે, તમારા વ્યવસ્થાપકનો સંપર્ક કરો."</item>
-    </plurals>
     <plurals name="ssl_ca_cert_settings_button">
         <item quantity="other">પ્રમાણપત્રો તપાસો</item>
         <item quantity="one">પ્રમાણપત્રો તપાસો</item>
@@ -375,10 +359,6 @@
     <plurals name="wifi_saved_passpoint_access_points_summary">
         <item quantity="other">%d સબ્સ્ક્રિપ્શન</item>
         <item quantity="one">%d સબ્સ્ક્રિપ્શન</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$d ડિવાઇસ કનેક્ટ કર્યા</item>
-        <item quantity="one">%1$d ડિવાઇસ કનેક્ટ કર્યું</item>
     </plurals>
     <plurals name="wrong_pin_code">
         <item quantity="other">ખોટો સિમ પિન કોડ, તમારી પાસે %d પ્રયાસ બાકી છે.</item>

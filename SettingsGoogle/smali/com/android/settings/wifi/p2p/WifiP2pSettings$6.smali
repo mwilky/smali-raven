@@ -61,7 +61,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f0416c6
+    const p1, 0x7f0417bf
 
     const/4 v0, 0x0
 

@@ -157,12 +157,6 @@
     goto :goto_0
 
     :cond_1
-    sget p1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x11
-
-    if-lt p1, v1, :cond_3
-
     invoke-virtual {p0}, Landroid/widget/TextView;->getCompoundDrawablesRelative()[Landroid/graphics/drawable/Drawable;
 
     move-result-object p0

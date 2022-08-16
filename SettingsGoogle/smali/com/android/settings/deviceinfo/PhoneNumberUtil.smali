@@ -123,7 +123,9 @@
 
     move-result-object p0
 
-    sget-object v2, Lcom/android/settings/deviceinfo/PhoneNumberUtil$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/settings/deviceinfo/PhoneNumberUtil$$ExternalSyntheticLambda0;
+    new-instance v2, Lcom/android/settings/deviceinfo/PhoneNumberUtil$$ExternalSyntheticLambda0;
+
+    invoke-direct {v2}, Lcom/android/settings/deviceinfo/PhoneNumberUtil$$ExternalSyntheticLambda0;-><init>()V
 
     invoke-interface {p0, v2}, Ljava/util/stream/IntStream;->filter(Ljava/util/function/IntPredicate;)Ljava/util/stream/IntStream;
 

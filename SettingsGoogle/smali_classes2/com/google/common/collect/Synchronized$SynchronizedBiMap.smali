@@ -26,8 +26,7 @@
         "Lcom/google/common/collect/Synchronized$SynchronizedMap<",
         "TK;TV;>;",
         "Lcom/google/common/collect/BiMap<",
-        "TK;TV;>;",
-        "Ljava/io/Serializable;"
+        "TK;TV;>;"
     }
 .end annotation
 

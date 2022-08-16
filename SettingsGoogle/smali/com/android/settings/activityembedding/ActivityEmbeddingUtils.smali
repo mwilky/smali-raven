@@ -52,6 +52,22 @@
     return p0
 .end method
 
+.method public static getSplitRatio(Landroid/content/Context;)F
+    .locals 1
+
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p0
+
+    const v0, 0x7f0b00fc
+
+    invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getFloat(I)F
+
+    move-result p0
+
+    return p0
+.end method
+
 .method public static isEmbeddingActivityEnabled(Landroid/content/Context;)Z
     .locals 4
 
@@ -118,48 +134,36 @@
     return p0
 .end method
 
-.method public static isTwoPaneResolution(Landroid/app/Activity;)Z
+.method public static isRegularHomepageLayout(Landroid/app/Activity;)Z
     .locals 3
 
-    invoke-static {}, Landroid/app/ActivityTaskManager;->getInstance()Landroid/app/ActivityTaskManager;
+    invoke-virtual {p0}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {p0}, Landroid/app/Activity;->getTaskId()I
+    invoke-virtual {p0}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
 
-    move-result v1
+    move-result-object p0
 
-    invoke-virtual {v0, v1}, Landroid/app/ActivityTaskManager;->getTaskBounds(I)Landroid/graphics/Rect;
+    iget v0, p0, Landroid/util/DisplayMetrics;->widthPixels:I
 
-    move-result-object v0
+    const/4 v1, 0x1
 
-    invoke-virtual {v0}, Landroid/graphics/Rect;->width()I
+    const/high16 v2, 0x43be0000    # 380.0f
 
-    move-result v1
-
-    invoke-static {p0}, Lcom/android/settings/activityembedding/ActivityEmbeddingUtils;->getMinCurrentScreenSplitWidthPx(Landroid/content/Context;)I
-
-    move-result v2
-
-    if-lt v1, v2, :cond_0
-
-    invoke-virtual {v0}, Landroid/graphics/Rect;->height()I
-
-    move-result v0
-
-    invoke-static {p0}, Lcom/android/settings/activityembedding/ActivityEmbeddingUtils;->getMinSmallestScreenSplitWidthPx(Landroid/content/Context;)I
+    invoke-static {v1, v2, p0}, Landroid/util/TypedValue;->applyDimension(IFLandroid/util/DisplayMetrics;)F
 
     move-result p0
 
-    if-lt v0, p0, :cond_0
+    float-to-int p0, p0
 
-    const/4 p0, 0x1
+    if-lt v0, p0, :cond_0
 
     goto :goto_0
 
     :cond_0
-    const/4 p0, 0x0
+    const/4 v1, 0x0
 
     :goto_0
-    return p0
+    return v1
 .end method

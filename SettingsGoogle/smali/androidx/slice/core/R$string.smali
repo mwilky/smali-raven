@@ -4,14 +4,12 @@
 
 
 # static fields
-.field public static final abc_slice_permission_allow:I = 0x7f040089
+.field public static final abc_slice_permission_allow:I = 0x7f04007f
 
-.field public static final abc_slice_permission_deny:I = 0x7f04008b
+.field public static final abc_slice_permission_deny:I = 0x7f040080
 
-.field public static final abc_slice_permission_text_1:I = 0x7f04008c
+.field public static final abc_slice_permission_text_1:I = 0x7f040081
 
-.field public static final abc_slice_permission_text_2:I = 0x7f04008d
+.field public static final abc_slice_permission_text_2:I = 0x7f040082
 
-.field public static final abc_slice_permission_title:I = 0x7f04008e
-
-.field public static final abc_slices_permission_request:I = 0x7f040091
+.field public static final abc_slice_permission_title:I = 0x7f040083

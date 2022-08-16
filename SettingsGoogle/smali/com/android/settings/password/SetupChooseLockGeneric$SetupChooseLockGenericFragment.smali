@@ -64,14 +64,14 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f060214
+    const v0, 0x7f06021f
 
     invoke-virtual {p0, v0}, Lcom/android/settings/SettingsPreferenceFragment;->setHeaderView(I)V
 
     goto :goto_0
 
     :cond_0
-    const v0, 0x7f060215
+    const v0, 0x7f060220
 
     invoke-virtual {p0, v0}, Lcom/android/settings/SettingsPreferenceFragment;->setHeaderView(I)V
 
@@ -93,7 +93,7 @@
     goto :goto_0
 
     :cond_0
-    const v0, 0x7f1500d9
+    const v0, 0x7f1500de
 
     invoke-virtual {p0, v0}, Lcom/android/settings/SettingsPreferenceFragment;->addPreferencesFromResource(I)V
 
@@ -367,7 +367,7 @@
 
     move-result-object p2
 
-    const v0, 0x7f0b0395
+    const v0, 0x7f0b0483
 
     invoke-virtual {p2, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -379,7 +379,7 @@
 
     move-result-object p2
 
-    const v0, 0x7f02023e
+    const v0, 0x7f02025c
 
     invoke-virtual {p2, v0}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -393,12 +393,12 @@
 
     if-eqz p2, :cond_0
 
-    const p2, 0x7f040bf2
+    const p2, 0x7f040c5b
 
     goto :goto_0
 
     :cond_0
-    const p2, 0x7f041203
+    const p2, 0x7f0412b8
 
     :goto_0
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;

@@ -4,6 +4,11 @@
 
 
 # instance fields
+.field mIsAddWifiConfigAllow:Z
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+.end field
+
 .field private final mScanIconDrawable:Landroid/graphics/drawable/Drawable;
 
 
@@ -17,33 +22,41 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 0
+    .locals 1
 
     invoke-direct {p0, p1}, Landroidx/preference/Preference;-><init>(Landroid/content/Context;)V
 
-    const p1, 0x7f060188
+    const v0, 0x7f060192
 
-    invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setLayoutResource(I)V
+    invoke-virtual {p0, v0}, Landroidx/preference/Preference;->setLayoutResource(I)V
 
-    const p1, 0x7f0602b3
+    const v0, 0x7f0602c6
 
-    invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setWidgetLayoutResource(I)V
+    invoke-virtual {p0, v0}, Landroidx/preference/Preference;->setWidgetLayoutResource(I)V
 
-    const p1, 0x7f020171
+    const v0, 0x7f020185
 
-    invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setIcon(I)V
+    invoke-virtual {p0, v0}, Landroidx/preference/Preference;->setIcon(I)V
 
-    const p1, 0x7f0415d3
+    const v0, 0x7f0416cc
 
-    invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setTitle(I)V
+    invoke-virtual {p0, v0}, Landroidx/preference/Preference;->setTitle(I)V
 
-    const p1, 0x7f020318
+    const v0, 0x7f02033b
 
-    invoke-direct {p0, p1}, Lcom/android/settings/wifi/AddWifiNetworkPreference;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    invoke-direct {p0, v0}, Lcom/android/settings/wifi/AddWifiNetworkPreference;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
-    move-result-object p1
+    move-result-object v0
 
-    iput-object p1, p0, Lcom/android/settings/wifi/AddWifiNetworkPreference;->mScanIconDrawable:Landroid/graphics/drawable/Drawable;
+    iput-object v0, p0, Lcom/android/settings/wifi/AddWifiNetworkPreference;->mScanIconDrawable:Landroid/graphics/drawable/Drawable;
+
+    invoke-static {p1}, Lcom/android/settingslib/wifi/WifiEnterpriseRestrictionUtils;->isAddWifiConfigAllowed(Landroid/content/Context;)Z
+
+    move-result p1
+
+    iput-boolean p1, p0, Lcom/android/settings/wifi/AddWifiNetworkPreference;->mIsAddWifiConfigAllow:Z
+
+    invoke-virtual {p0}, Lcom/android/settings/wifi/AddWifiNetworkPreference;->updatePreferenceForRestriction()V
 
     return-void
 .end method
@@ -118,7 +131,7 @@
 
     invoke-super {p0, p1}, Landroidx/preference/Preference;->onBindViewHolder(Landroidx/preference/PreferenceViewHolder;)V
 
-    const v0, 0x7f0d012c
+    const v0, 0x7f0d013b
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -134,7 +147,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f04165b
+    const v1, 0x7f041754
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -148,5 +161,26 @@
 
     invoke-virtual {p1, v0}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
+    return-void
+.end method
+
+.method updatePreferenceForRestriction()V
+    .locals 1
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+
+    iget-boolean v0, p0, Lcom/android/settings/wifi/AddWifiNetworkPreference;->mIsAddWifiConfigAllow:Z
+
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Landroidx/preference/Preference;->setEnabled(Z)V
+
+    const v0, 0x7f040ec0
+
+    invoke-virtual {p0, v0}, Landroidx/preference/Preference;->setSummary(I)V
+
+    :cond_0
     return-void
 .end method

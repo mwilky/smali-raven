@@ -64,10 +64,28 @@
     return p0
 .end method
 
+.method static bridge synthetic -$$Nest$fgetmOverlayManager(Lcom/android/settings/development/OverlayCategoryPreferenceController;)Landroid/content/om/IOverlayManager;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/development/OverlayCategoryPreferenceController;->mOverlayManager:Landroid/content/om/IOverlayManager;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmPreference(Lcom/android/settings/development/OverlayCategoryPreferenceController;)Landroidx/preference/ListPreference;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/development/OverlayCategoryPreferenceController;->mPreference:Landroidx/preference/ListPreference;
+
+    return-object p0
+.end method
+
 .method static constructor <clinit>()V
     .locals 1
 
-    sget-object v0, Lcom/android/settings/development/OverlayCategoryPreferenceController$$ExternalSyntheticLambda2;->INSTANCE:Lcom/android/settings/development/OverlayCategoryPreferenceController$$ExternalSyntheticLambda2;
+    new-instance v0, Lcom/android/settings/development/OverlayCategoryPreferenceController$$ExternalSyntheticLambda0;
+
+    invoke-direct {v0}, Lcom/android/settings/development/OverlayCategoryPreferenceController$$ExternalSyntheticLambda0;-><init>()V
 
     invoke-static {v0}, Ljava/util/Comparator;->comparingInt(Ljava/util/function/ToIntFunction;)Ljava/util/Comparator;
 
@@ -114,23 +132,7 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/settings/development/OverlayCategoryPreferenceController;)Landroid/content/om/IOverlayManager;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/development/OverlayCategoryPreferenceController;->mOverlayManager:Landroid/content/om/IOverlayManager;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/development/OverlayCategoryPreferenceController;)Landroidx/preference/ListPreference;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/development/OverlayCategoryPreferenceController;->mPreference:Landroidx/preference/ListPreference;
-
-    return-object p0
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/development/OverlayCategoryPreferenceController;)Landroid/content/Context;
+.method static synthetic access$000(Lcom/android/settings/development/OverlayCategoryPreferenceController;)Landroid/content/Context;
     .locals 0
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
@@ -252,13 +254,17 @@
 
     move-result-object v0
 
-    sget-object v1, Lcom/android/settings/development/OverlayCategoryPreferenceController$$ExternalSyntheticLambda1;->INSTANCE:Lcom/android/settings/development/OverlayCategoryPreferenceController$$ExternalSyntheticLambda1;
+    new-instance v1, Lcom/android/settings/development/OverlayCategoryPreferenceController$$ExternalSyntheticLambda1;
+
+    invoke-direct {v1}, Lcom/android/settings/development/OverlayCategoryPreferenceController$$ExternalSyntheticLambda1;-><init>()V
 
     invoke-interface {v0, v1}, Ljava/util/stream/Stream;->filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
 
     move-result-object v0
 
-    sget-object v1, Lcom/android/settings/development/OverlayCategoryPreferenceController$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/settings/development/OverlayCategoryPreferenceController$$ExternalSyntheticLambda0;
+    new-instance v1, Lcom/android/settings/development/OverlayCategoryPreferenceController$$ExternalSyntheticLambda2;
+
+    invoke-direct {v1}, Lcom/android/settings/development/OverlayCategoryPreferenceController$$ExternalSyntheticLambda2;-><init>()V
 
     invoke-interface {v0, v1}, Ljava/util/stream/Stream;->map(Ljava/util/function/Function;)Ljava/util/stream/Stream;
 
@@ -403,7 +409,7 @@
 
     iget-object v1, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f040eea
+    const v2, 0x7f040f7f
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

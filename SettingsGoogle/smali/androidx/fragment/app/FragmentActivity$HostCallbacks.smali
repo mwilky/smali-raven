@@ -6,6 +6,7 @@
 .implements Landroidx/lifecycle/ViewModelStoreOwner;
 .implements Landroidx/activity/OnBackPressedDispatcherOwner;
 .implements Landroidx/activity/result/ActivityResultRegistryOwner;
+.implements Landroidx/savedstate/SavedStateRegistryOwner;
 .implements Landroidx/fragment/app/FragmentOnAttachListener;
 
 
@@ -27,6 +28,7 @@
         "Landroidx/lifecycle/ViewModelStoreOwner;",
         "Landroidx/activity/OnBackPressedDispatcherOwner;",
         "Landroidx/activity/result/ActivityResultRegistryOwner;",
+        "Landroidx/savedstate/SavedStateRegistryOwner;",
         "Landroidx/fragment/app/FragmentOnAttachListener;"
     }
 .end annotation
@@ -77,6 +79,18 @@
     iget-object p0, p0, Landroidx/fragment/app/FragmentActivity$HostCallbacks;->this$0:Landroidx/fragment/app/FragmentActivity;
 
     invoke-virtual {p0}, Landroidx/activity/ComponentActivity;->getOnBackPressedDispatcher()Landroidx/activity/OnBackPressedDispatcher;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public getSavedStateRegistry()Landroidx/savedstate/SavedStateRegistry;
+    .locals 0
+
+    iget-object p0, p0, Landroidx/fragment/app/FragmentActivity$HostCallbacks;->this$0:Landroidx/fragment/app/FragmentActivity;
+
+    invoke-virtual {p0}, Landroidx/activity/ComponentActivity;->getSavedStateRegistry()Landroidx/savedstate/SavedStateRegistry;
 
     move-result-object p0
 
@@ -188,20 +202,6 @@
     const/4 p0, 0x0
 
     :goto_0
-    return p0
-.end method
-
-.method public onShouldSaveFragmentState(Landroidx/fragment/app/Fragment;)Z
-    .locals 0
-
-    iget-object p0, p0, Landroidx/fragment/app/FragmentActivity$HostCallbacks;->this$0:Landroidx/fragment/app/FragmentActivity;
-
-    invoke-virtual {p0}, Landroid/app/Activity;->isFinishing()Z
-
-    move-result p0
-
-    xor-int/lit8 p0, p0, 0x1
-
     return p0
 .end method
 

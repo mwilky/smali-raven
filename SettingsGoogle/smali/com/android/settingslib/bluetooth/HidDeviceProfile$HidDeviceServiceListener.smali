@@ -32,7 +32,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settingslib/bluetooth/HidDeviceProfile;Lcom/android/settingslib/bluetooth/HidDeviceProfile$1;)V
+.method synthetic constructor <init>(Lcom/android/settingslib/bluetooth/HidDeviceProfile;Lcom/android/settingslib/bluetooth/HidDeviceProfile$HidDeviceServiceListener-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settingslib/bluetooth/HidDeviceProfile$HidDeviceServiceListener;-><init>(Lcom/android/settingslib/bluetooth/HidDeviceProfile;)V
@@ -49,11 +49,11 @@
 
     check-cast p2, Landroid/bluetooth/BluetoothHidDevice;
 
-    invoke-static {p1, p2}, Lcom/android/settingslib/bluetooth/HidDeviceProfile;->access$102(Lcom/android/settingslib/bluetooth/HidDeviceProfile;Landroid/bluetooth/BluetoothHidDevice;)Landroid/bluetooth/BluetoothHidDevice;
+    invoke-static {p1, p2}, Lcom/android/settingslib/bluetooth/HidDeviceProfile;->-$$Nest$fputmService(Lcom/android/settingslib/bluetooth/HidDeviceProfile;Landroid/bluetooth/BluetoothHidDevice;)V
 
     iget-object p1, p0, Lcom/android/settingslib/bluetooth/HidDeviceProfile$HidDeviceServiceListener;->this$0:Lcom/android/settingslib/bluetooth/HidDeviceProfile;
 
-    invoke-static {p1}, Lcom/android/settingslib/bluetooth/HidDeviceProfile;->access$100(Lcom/android/settingslib/bluetooth/HidDeviceProfile;)Landroid/bluetooth/BluetoothHidDevice;
+    invoke-static {p1}, Lcom/android/settingslib/bluetooth/HidDeviceProfile;->-$$Nest$fgetmService(Lcom/android/settingslib/bluetooth/HidDeviceProfile;)Landroid/bluetooth/BluetoothHidDevice;
 
     move-result-object p1
 
@@ -80,7 +80,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/bluetooth/HidDeviceProfile$HidDeviceServiceListener;->this$0:Lcom/android/settingslib/bluetooth/HidDeviceProfile;
 
-    invoke-static {v0}, Lcom/android/settingslib/bluetooth/HidDeviceProfile;->access$200(Lcom/android/settingslib/bluetooth/HidDeviceProfile;)Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
+    invoke-static {v0}, Lcom/android/settingslib/bluetooth/HidDeviceProfile;->-$$Nest$fgetmDeviceManager(Lcom/android/settingslib/bluetooth/HidDeviceProfile;)Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
 
     move-result-object v0
 
@@ -110,7 +110,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/bluetooth/HidDeviceProfile$HidDeviceServiceListener;->this$0:Lcom/android/settingslib/bluetooth/HidDeviceProfile;
 
-    invoke-static {v0}, Lcom/android/settingslib/bluetooth/HidDeviceProfile;->access$200(Lcom/android/settingslib/bluetooth/HidDeviceProfile;)Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
+    invoke-static {v0}, Lcom/android/settingslib/bluetooth/HidDeviceProfile;->-$$Nest$fgetmDeviceManager(Lcom/android/settingslib/bluetooth/HidDeviceProfile;)Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
 
     move-result-object v0
 
@@ -150,7 +150,7 @@
 
     const/4 p1, 0x1
 
-    invoke-static {p0, p1}, Lcom/android/settingslib/bluetooth/HidDeviceProfile;->access$302(Lcom/android/settingslib/bluetooth/HidDeviceProfile;Z)Z
+    invoke-static {p0, p1}, Lcom/android/settingslib/bluetooth/HidDeviceProfile;->-$$Nest$fputmIsProfileReady(Lcom/android/settingslib/bluetooth/HidDeviceProfile;Z)V
 
     return-void
 .end method
@@ -162,7 +162,7 @@
 
     const/4 p1, 0x0
 
-    invoke-static {p0, p1}, Lcom/android/settingslib/bluetooth/HidDeviceProfile;->access$302(Lcom/android/settingslib/bluetooth/HidDeviceProfile;Z)Z
+    invoke-static {p0, p1}, Lcom/android/settingslib/bluetooth/HidDeviceProfile;->-$$Nest$fputmIsProfileReady(Lcom/android/settingslib/bluetooth/HidDeviceProfile;Z)V
 
     return-void
 .end method

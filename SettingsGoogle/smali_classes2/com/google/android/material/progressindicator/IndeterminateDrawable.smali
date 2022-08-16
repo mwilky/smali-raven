@@ -453,23 +453,11 @@
 
     invoke-virtual {v0, v1}, Lcom/google/android/material/progressindicator/AnimatorDurationScaleProvider;->getSystemAnimatorDurationScale(Landroid/content/ContentResolver;)F
 
-    move-result v0
-
     if-eqz p1, :cond_2
 
     if-nez p3, :cond_1
 
-    sget p1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 p3, 0x15
-
-    if-gt p1, p3, :cond_2
-
-    const/4 p1, 0x0
-
-    cmpl-float p1, v0, p1
-
-    if-lez p1, :cond_2
+    goto :goto_0
 
     :cond_1
     iget-object p0, p0, Lcom/google/android/material/progressindicator/IndeterminateDrawable;->animatorDelegate:Lcom/google/android/material/progressindicator/IndeterminateAnimatorDelegate;
@@ -477,6 +465,7 @@
     invoke-virtual {p0}, Lcom/google/android/material/progressindicator/IndeterminateAnimatorDelegate;->startAnimator()V
 
     :cond_2
+    :goto_0
     return p2
 .end method
 

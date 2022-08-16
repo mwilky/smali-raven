@@ -205,6 +205,7 @@
         <item>60 күндөн мурунку</item>
         <item>90 күндөн мурунку</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>0%</item>
         <item>50%</item>
@@ -348,17 +349,10 @@
         <item>Дөмпөйгөн</item>
         <item>Ныгырылган</item>
     </string-array>
-    <string-array name="captioning_font_size_selector_summaries">
-        <item>Абдан кичинекей өлчөмдөгү текст</item>
-        <item>Кичинекей өлчөмдөгү текст</item>
-        <item>Демейки өлчөмдөгү текст</item>
-        <item>Чоң өлчөмдөгү текст</item>
-        <item>Абдан чоң өлчөмдөгү текст</item>
-    </string-array>
     <string-array name="captioning_font_size_selector_titles">
         <item>Өтө кичине</item>
         <item>Кичине</item>
-        <item>Демейки</item>
+        <item>Орто</item>
         <item>Чоң</item>
         <item>Өтө чоң</item>
     </string-array>
@@ -490,6 +484,14 @@
         <item>IMSI</item>
         <item>GID</item>
     </string-array>
+    <string-array name="nfc_payment_favor">
+        <item>Ар дайым</item>
+        <item>Башка төлөм колдонмосу ачылып турбаса гана</item>
+    </string-array>
+    <string-array name="nfc_payment_favor_values">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
     <string-array name="overlay_display_devices_entries">
         <item>Эчтеке жок</item>
         <item>480p</item>
@@ -616,6 +618,17 @@
     <string-array name="swipe_direction_values">
         <item>1</item>
         <item>0</item>
+    </string-array>
+    <string-array name="switch_to_user_zero_when_docked_timeout_entries">
+        <item>Эч качан</item>
+        <item>1 мүнөттөн кийин</item>
+        <item>5 мүнөттөн кийин</item>
+    </string-array>
+    <string-array name="tare_modifiers_subfactors">
+        <item>Кубатталууда</item>
+        <item>Көшүү режими</item>
+        <item>Кубатты үнөмдөө режими</item>
+        <item>Иштетүү абалы</item>
     </string-array>
     <string-array name="timezone_filters">
         <item>Америка</item>

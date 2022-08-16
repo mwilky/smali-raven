@@ -21,20 +21,20 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$msetCallback(Lcom/android/settings/gestures/OneHandedSettingsUtils$SettingsObserver;Lcom/android/settings/gestures/OneHandedSettingsUtils$TogglesCallback;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/gestures/OneHandedSettingsUtils$SettingsObserver;->setCallback(Lcom/android/settings/gestures/OneHandedSettingsUtils$TogglesCallback;)V
+
+    return-void
+.end method
+
 .method constructor <init>(Lcom/android/settings/gestures/OneHandedSettingsUtils;Landroid/os/Handler;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/settings/gestures/OneHandedSettingsUtils$SettingsObserver;->this$0:Lcom/android/settings/gestures/OneHandedSettingsUtils;
 
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
-
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/gestures/OneHandedSettingsUtils$SettingsObserver;Lcom/android/settings/gestures/OneHandedSettingsUtils$TogglesCallback;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/gestures/OneHandedSettingsUtils$SettingsObserver;->setCallback(Lcom/android/settings/gestures/OneHandedSettingsUtils$TogglesCallback;)V
 
     return-void
 .end method
@@ -54,7 +54,7 @@
 
     iget-object v0, p0, Lcom/android/settings/gestures/OneHandedSettingsUtils$SettingsObserver;->this$0:Lcom/android/settings/gestures/OneHandedSettingsUtils;
 
-    invoke-static {v0}, Lcom/android/settings/gestures/OneHandedSettingsUtils;->access$100(Lcom/android/settings/gestures/OneHandedSettingsUtils;)Landroid/content/Context;
+    invoke-static {v0}, Lcom/android/settings/gestures/OneHandedSettingsUtils;->-$$Nest$fgetmContext(Lcom/android/settings/gestures/OneHandedSettingsUtils;)Landroid/content/Context;
 
     move-result-object v0
 

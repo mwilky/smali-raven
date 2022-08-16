@@ -33,7 +33,7 @@
 .method private getLayout()Lcom/google/android/setupdesign/GlifLayout;
     .locals 1
 
-    const v0, 0x7f0d0224
+    const v0, 0x7f0d023c
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -296,7 +296,7 @@
 .method protected onApplyThemeResource(Landroid/content/res/Resources$Theme;IZ)V
     .locals 2
 
-    const v0, 0x7f1301cb
+    const v0, 0x7f13020d
 
     const/4 v1, 0x1
 
@@ -316,7 +316,7 @@
 
     invoke-super {p0, p1}, Landroidx/fragment/app/FragmentActivity;->onCreate(Landroid/os/Bundle;)V
 
-    const v0, 0x7f0600e2
+    const v0, 0x7f0600e5
 
     invoke-virtual {p0, v0}, Landroidx/activity/ComponentActivity;->setContentView(I)V
 
@@ -370,7 +370,7 @@
     iput p1, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollConfirmation;->mUserId:I
 
     :cond_1
-    const p1, 0x7f04112b
+    const p1, 0x7f0411dd
 
     invoke-direct {p0, p1}, Lcom/google/android/settings/biometrics/face/FaceEnrollConfirmation;->setHeaderText(I)V
 
@@ -378,7 +378,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f04112a
+    const v0, 0x7f0411dc
 
     invoke-virtual {p1, v0}, Lcom/google/android/setupdesign/GlifLayout;->setDescriptionText(I)V
 
@@ -400,7 +400,7 @@
 
     invoke-direct {v0, p0}, Lcom/google/android/setupcompat/template/FooterButton$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f04111b
+    const v1, 0x7f0411cd
 
     invoke-virtual {v0, v1}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setText(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -420,7 +420,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f13021c
+    const v0, 0x7f130283
 
     invoke-virtual {p0, v0}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setTheme(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 

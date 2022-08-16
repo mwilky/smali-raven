@@ -22,6 +22,14 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$sfgetTELEPHONY_PROJECTION()[Ljava/lang/String;
+    .locals 1
+
+    sget-object v0, Lcom/google/android/settings/support/PsdBundle;->TELEPHONY_PROJECTION:[Ljava/lang/String;
+
+    return-object v0
+.end method
+
 .method static constructor <clinit>()V
     .locals 2
 
@@ -43,11 +51,11 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    invoke-static {p1}, Lcom/google/android/settings/support/PsdBundle$Builder;->access$000(Lcom/google/android/settings/support/PsdBundle$Builder;)Ljava/util/List;
+    invoke-static {p1}, Lcom/google/android/settings/support/PsdBundle$Builder;->-$$Nest$fgetmSignalKeys(Lcom/google/android/settings/support/PsdBundle$Builder;)Ljava/util/List;
 
     move-result-object v0
 
-    invoke-static {p1}, Lcom/google/android/settings/support/PsdBundle$Builder;->access$000(Lcom/google/android/settings/support/PsdBundle$Builder;)Ljava/util/List;
+    invoke-static {p1}, Lcom/google/android/settings/support/PsdBundle$Builder;->-$$Nest$fgetmSignalKeys(Lcom/google/android/settings/support/PsdBundle$Builder;)Ljava/util/List;
 
     move-result-object v1
 
@@ -65,11 +73,11 @@
 
     iput-object v0, p0, Lcom/google/android/settings/support/PsdBundle;->mKeys:[Ljava/lang/String;
 
-    invoke-static {p1}, Lcom/google/android/settings/support/PsdBundle$Builder;->access$100(Lcom/google/android/settings/support/PsdBundle$Builder;)Ljava/util/List;
+    invoke-static {p1}, Lcom/google/android/settings/support/PsdBundle$Builder;->-$$Nest$fgetmSignalValues(Lcom/google/android/settings/support/PsdBundle$Builder;)Ljava/util/List;
 
     move-result-object v0
 
-    invoke-static {p1}, Lcom/google/android/settings/support/PsdBundle$Builder;->access$100(Lcom/google/android/settings/support/PsdBundle$Builder;)Ljava/util/List;
+    invoke-static {p1}, Lcom/google/android/settings/support/PsdBundle$Builder;->-$$Nest$fgetmSignalValues(Lcom/google/android/settings/support/PsdBundle$Builder;)Ljava/util/List;
 
     move-result-object p1
 
@@ -90,20 +98,12 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/google/android/settings/support/PsdBundle$Builder;Lcom/google/android/settings/support/PsdBundle$1;)V
+.method synthetic constructor <init>(Lcom/google/android/settings/support/PsdBundle$Builder;Lcom/google/android/settings/support/PsdBundle-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/google/android/settings/support/PsdBundle;-><init>(Lcom/google/android/settings/support/PsdBundle$Builder;)V
 
     return-void
-.end method
-
-.method static synthetic access$300()[Ljava/lang/String;
-    .locals 1
-
-    sget-object v0, Lcom/google/android/settings/support/PsdBundle;->TELEPHONY_PROJECTION:[Ljava/lang/String;
-
-    return-object v0
 .end method
 
 

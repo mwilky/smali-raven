@@ -17,14 +17,6 @@
 # direct methods
 .method static getMainExecutor(Landroid/content/Context;)Ljava/util/concurrent/Executor;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "obj"
-        }
-    .end annotation
 
     invoke-virtual {p0}, Landroid/content/Context;->getMainExecutor()Ljava/util/concurrent/Executor;
 

@@ -98,13 +98,3 @@
     :catch_0
     return-object v0
 .end method
-
-.method public static toParcelable(Landroidx/versionedparcelable/VersionedParcelable;)Landroid/os/Parcelable;
-    .locals 1
-
-    new-instance v0, Landroidx/versionedparcelable/ParcelImpl;
-
-    invoke-direct {v0, p0}, Landroidx/versionedparcelable/ParcelImpl;-><init>(Landroidx/versionedparcelable/VersionedParcelable;)V
-
-    return-object v0
-.end method

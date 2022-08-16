@@ -70,7 +70,11 @@
     .end annotation
 .end field
 
+.field mIsLeftDeviceEstimateReady:Z
+
 .field mIsRegisterCallback:Z
+
+.field mIsRightDeviceEstimateReady:Z
 
 .field mLayoutPreference:Lcom/android/settingslib/widget/LayoutPreference;
 
@@ -78,18 +82,26 @@
 
 
 # direct methods
-.method public static synthetic $r8$lambda$6W9X5_irqSuX5kh_wBL3KS02STI(Lcom/android/settings/bluetooth/AdvancedBluetoothDetailsHeaderController;Ljava/lang/String;Landroid/graphics/Bitmap;Landroid/widget/ImageView;)V
+.method public static synthetic $r8$lambda$Fbclch8ro2deKV5QmXHZ9A4tn6U(Lcom/android/settings/bluetooth/AdvancedBluetoothDetailsHeaderController;Ljava/lang/String;Landroid/graphics/Bitmap;Landroid/widget/ImageView;)V
     .locals 0
 
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/settings/bluetooth/AdvancedBluetoothDetailsHeaderController;->lambda$updateIcon$2(Ljava/lang/String;Landroid/graphics/Bitmap;Landroid/widget/ImageView;)V
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/settings/bluetooth/AdvancedBluetoothDetailsHeaderController;->lambda$updateIcon$3(Ljava/lang/String;Landroid/graphics/Bitmap;Landroid/widget/ImageView;)V
 
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$JztAEiSq5fYD2xzxf2tM7mjT8RQ(Lcom/android/settings/bluetooth/AdvancedBluetoothDetailsHeaderController;Ljava/lang/String;Landroid/widget/ImageView;)V
+.method public static synthetic $r8$lambda$IQorCb13Se-IPHniWS_SDsCP00M(Landroid/widget/TextView;ILandroid/widget/TextView;)V
     .locals 0
 
-    invoke-direct {p0, p1, p2}, Lcom/android/settings/bluetooth/AdvancedBluetoothDetailsHeaderController;->lambda$updateIcon$3(Ljava/lang/String;Landroid/widget/ImageView;)V
+    invoke-static {p0, p1, p2}, Lcom/android/settings/bluetooth/AdvancedBluetoothDetailsHeaderController;->lambda$showBothDevicesBatteryPredictionIfNecessary$2(Landroid/widget/TextView;ILandroid/widget/TextView;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$OQw--MPYOZka3eDcIoHRPjA4IBc(Lcom/android/settings/bluetooth/AdvancedBluetoothDetailsHeaderController;Ljava/lang/String;Landroid/widget/ImageView;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/settings/bluetooth/AdvancedBluetoothDetailsHeaderController;->lambda$updateIcon$4(Ljava/lang/String;Landroid/widget/ImageView;)V
 
     return-void
 .end method
@@ -108,6 +120,14 @@
     invoke-direct {p0, p1, p2, p3}, Lcom/android/settings/bluetooth/AdvancedBluetoothDetailsHeaderController;->lambda$showBatteryPredictionIfNecessary$0(IILandroid/widget/LinearLayout;)V
 
     return-void
+.end method
+
+.method static bridge synthetic -$$Nest$sfgetDEBUG()Z
+    .locals 1
+
+    sget-boolean v0, Lcom/android/settings/bluetooth/AdvancedBluetoothDetailsHeaderController;->DEBUG:Z
+
+    return v0
 .end method
 
 .method static constructor <clinit>()V
@@ -184,14 +204,6 @@
     return-void
 .end method
 
-.method static synthetic access$000()Z
-    .locals 1
-
-    sget-boolean v0, Lcom/android/settings/bluetooth/AdvancedBluetoothDetailsHeaderController;->DEBUG:Z
-
-    return v0
-.end method
-
 .method private isUntetheredHeadset(Landroid/bluetooth/BluetoothDevice;)Z
     .locals 0
 
@@ -247,7 +259,7 @@
 
     iget-object v1, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f040645
+    const v2, 0x7f0406a4
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -368,7 +380,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_6
 
     invoke-interface {v0, v6}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
 
@@ -421,13 +433,42 @@
     :cond_1
     invoke-virtual {p0, v2, v3, v4, p3}, Lcom/android/settings/bluetooth/AdvancedBluetoothDetailsHeaderController;->showBatteryPredictionIfNecessary(IJLandroid/widget/LinearLayout;)V
 
+    const/4 v3, 0x0
+
+    const/4 v4, 0x1
+
+    if-ne p1, v4, :cond_3
+
+    if-ne v2, v4, :cond_2
+
+    move v3, v4
+
+    :cond_2
+    iput-boolean v3, p0, Lcom/android/settings/bluetooth/AdvancedBluetoothDetailsHeaderController;->mIsLeftDeviceEstimateReady:Z
+
+    goto :goto_1
+
+    :cond_3
+    const/4 v5, 0x2
+
+    if-ne p1, v5, :cond_5
+
+    if-ne v2, v4, :cond_4
+
+    move v3, v4
+
+    :cond_4
+    iput-boolean v3, p0, Lcom/android/settings/bluetooth/AdvancedBluetoothDetailsHeaderController;->mIsRightDeviceEstimateReady:Z
+
+    :cond_5
+    :goto_1
     invoke-interface {v0}, Landroid/database/Cursor;->moveToNext()Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     goto :goto_0
 
-    :cond_2
+    :cond_6
     invoke-interface {v0}, Landroid/database/Cursor;->close()V
 
     return-void
@@ -443,7 +484,7 @@
 .method private synthetic lambda$showBatteryPredictionIfNecessary$1(Landroid/widget/LinearLayout;IJ)V
     .locals 1
 
-    const v0, 0x7f0d0114
+    const v0, 0x7f0d0121
 
     invoke-virtual {p1, v0}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -455,15 +496,13 @@
 
     if-ne p2, v0, :cond_0
 
-    const/4 p2, 0x0
-
-    invoke-virtual {p1, p2}, Landroid/widget/TextView;->setVisibility(I)V
-
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    long-to-double p3, p3
+    long-to-double p2, p3
 
-    invoke-static {p0, p3, p4, p2, p2}, Lcom/android/settingslib/utils/StringUtil;->formatElapsedTime(Landroid/content/Context;DZZ)Ljava/lang/CharSequence;
+    const/4 p4, 0x0
+
+    invoke-static {p0, p2, p3, p4, p4}, Lcom/android/settingslib/utils/StringUtil;->formatElapsedTime(Landroid/content/Context;DZZ)Ljava/lang/CharSequence;
 
     move-result-object p0
 
@@ -480,7 +519,17 @@
     return-void
 .end method
 
-.method private synthetic lambda$updateIcon$2(Ljava/lang/String;Landroid/graphics/Bitmap;Landroid/widget/ImageView;)V
+.method private static synthetic lambda$showBothDevicesBatteryPredictionIfNecessary$2(Landroid/widget/TextView;ILandroid/widget/TextView;)V
+    .locals 0
+
+    invoke-virtual {p0, p1}, Landroid/widget/TextView;->setVisibility(I)V
+
+    invoke-virtual {p2, p1}, Landroid/widget/TextView;->setVisibility(I)V
+
+    return-void
+.end method
+
+.method private synthetic lambda$updateIcon$3(Ljava/lang/String;Landroid/graphics/Bitmap;Landroid/widget/ImageView;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/settings/bluetooth/AdvancedBluetoothDetailsHeaderController;->mIconCache:Ljava/util/Map;
@@ -496,7 +545,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$updateIcon$3(Ljava/lang/String;Landroid/widget/ImageView;)V
+.method private synthetic lambda$updateIcon$4(Ljava/lang/String;Landroid/widget/ImageView;)V
     .locals 4
 
     const-string v0, "AdvancedBtHeaderCtrl"
@@ -526,9 +575,9 @@
 
     move-result-object v2
 
-    new-instance v3, Lcom/android/settings/bluetooth/AdvancedBluetoothDetailsHeaderController$$ExternalSyntheticLambda2;
+    new-instance v3, Lcom/android/settings/bluetooth/AdvancedBluetoothDetailsHeaderController$$ExternalSyntheticLambda4;
 
-    invoke-direct {v3, p0, p1, v2, p2}, Lcom/android/settings/bluetooth/AdvancedBluetoothDetailsHeaderController$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/bluetooth/AdvancedBluetoothDetailsHeaderController;Ljava/lang/String;Landroid/graphics/Bitmap;Landroid/widget/ImageView;)V
+    invoke-direct {v3, p0, p1, v2, p2}, Lcom/android/settings/bluetooth/AdvancedBluetoothDetailsHeaderController$$ExternalSyntheticLambda4;-><init>(Lcom/android/settings/bluetooth/AdvancedBluetoothDetailsHeaderController;Ljava/lang/String;Landroid/graphics/Bitmap;Landroid/widget/ImageView;)V
 
     invoke-static {v3}, Lcom/android/settingslib/utils/ThreadUtils;->postOnMainThread(Ljava/lang/Runnable;)V
     :try_end_0
@@ -598,7 +647,7 @@
     move p3, v0
 
     :goto_0
-    const v1, 0x7f0d0113
+    const v1, 0x7f0d011e
 
     invoke-virtual {p1, v1}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -610,7 +659,7 @@
 
     iget-object p2, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const p3, 0x7f02018b
+    const p3, 0x7f0201a4
 
     invoke-virtual {p2, p3}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -626,7 +675,7 @@
 
     move-result-object p3
 
-    const p4, 0x7f0b0087
+    const p4, 0x7f0b008c
 
     invoke-virtual {p3, p4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -638,7 +687,7 @@
 
     move-result-object p4
 
-    const v1, 0x7f0b0083
+    const v1, 0x7f0b0088
 
     invoke-virtual {p4, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -652,7 +701,7 @@
 
     move-result-object p0
 
-    const p3, 0x7f0b0086
+    const p3, 0x7f0b008b
 
     invoke-virtual {p0, p3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -704,7 +753,7 @@
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/AdvancedBluetoothDetailsHeaderController;->mLayoutPreference:Lcom/android/settingslib/widget/LayoutPreference;
 
-    const v1, 0x7f0d0325
+    const v1, 0x7f0d0350
 
     invoke-virtual {v0, v1}, Lcom/android/settingslib/widget/LayoutPreference;->findViewById(I)Landroid/view/View;
 
@@ -716,7 +765,7 @@
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/AdvancedBluetoothDetailsHeaderController;->mLayoutPreference:Lcom/android/settingslib/widget/LayoutPreference;
 
-    const v2, 0x7f0d0327
+    const v2, 0x7f0d0352
 
     invoke-virtual {v0, v2}, Lcom/android/settingslib/widget/LayoutPreference;->findViewById(I)Landroid/view/View;
 
@@ -726,7 +775,7 @@
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/AdvancedBluetoothDetailsHeaderController;->mLayoutPreference:Lcom/android/settingslib/widget/LayoutPreference;
 
-    const v2, 0x7f0d0326
+    const v2, 0x7f0d0351
 
     invoke-virtual {v0, v2}, Lcom/android/settingslib/widget/LayoutPreference;->findViewById(I)Landroid/view/View;
 
@@ -738,7 +787,7 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
-    const v2, 0x7f0d028e
+    const v2, 0x7f0d02b0
 
     invoke-virtual {v0, v2}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -746,7 +795,7 @@
 
     invoke-virtual {v2, v1}, Landroid/view/View;->setVisibility(I)V
 
-    const v2, 0x7f0d0115
+    const v2, 0x7f0d0124
 
     invoke-virtual {v0, v2}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -754,7 +803,7 @@
 
     invoke-virtual {v2, v1}, Landroid/view/View;->setVisibility(I)V
 
-    const v2, 0x7f0d0113
+    const v2, 0x7f0d011e
 
     invoke-virtual {v0, v2}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -799,7 +848,7 @@
     :cond_0
     if-eqz v1, :cond_1
 
-    const v2, 0x7f0d028a
+    const v2, 0x7f0d02ac
 
     invoke-virtual {v0, v2}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -831,7 +880,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d028a
+    const v2, 0x7f0d02ac
 
     invoke-virtual {p1, v2}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -940,7 +989,7 @@
     invoke-direct {p0, p1, p7, v2}, Lcom/android/settings/bluetooth/AdvancedBluetoothDetailsHeaderController;->showBatteryPredictionIfNecessary(Landroid/widget/LinearLayout;II)V
 
     :cond_4
-    const p2, 0x7f0d0115
+    const p2, 0x7f0d0124
 
     invoke-virtual {p1, p2}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -1002,7 +1051,7 @@
 
     invoke-virtual {p1, v4}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
-    const p0, 0x7f0d0113
+    const p0, 0x7f0d011e
 
     invoke-virtual {p1, p0}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -1044,7 +1093,7 @@
     invoke-virtual {p2, v5}, Landroid/widget/TextView;->setVisibility(I)V
 
     :goto_2
-    const p0, 0x7f0d028e
+    const p0, 0x7f0d02b0
 
     invoke-virtual {p1, p0}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -1069,20 +1118,12 @@
 
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method createBtBatteryIcon(Landroid/content/Context;IZ)Landroid/graphics/drawable/Drawable;
     .locals 4
 
     new-instance p0, Lcom/android/settings/fuelgauge/BatteryMeterView$BatteryMeterDrawable;
 
-    const v0, 0x7f0a0133
+    const v0, 0x7f0a02b7
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getColor(I)I
 
@@ -1092,7 +1133,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0085
+    const v2, 0x7f0b008a
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1102,7 +1143,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0084
+    const v3, 0x7f0b0089
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1187,15 +1228,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -1240,16 +1272,6 @@
     iput-object p1, p0, Lcom/android/settings/bluetooth/AdvancedBluetoothDetailsHeaderController;->mCachedDevice:Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
 
     return-void
-.end method
-
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
-
-    move-result p0
-
-    return p0
 .end method
 
 .method public bridge synthetic isPublicSlice()Z
@@ -1413,7 +1435,7 @@
 
     if-eqz v1, :cond_5
 
-    const v1, 0x7f0d020b
+    const v1, 0x7f0d0224
 
     invoke-virtual {v0, v1}, Lcom/android/settingslib/widget/LayoutPreference;->findViewById(I)Landroid/view/View;
 
@@ -1431,7 +1453,7 @@
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/AdvancedBluetoothDetailsHeaderController;->mLayoutPreference:Lcom/android/settingslib/widget/LayoutPreference;
 
-    const v1, 0x7f0d0209
+    const v1, 0x7f0d0222
 
     invoke-virtual {v0, v1}, Lcom/android/settingslib/widget/LayoutPreference;->findViewById(I)Landroid/view/View;
 
@@ -1486,11 +1508,11 @@
 
     move-result v2
 
-    const v3, 0x7f0d0326
+    const v3, 0x7f0d0351
 
-    const v4, 0x7f0d0327
+    const v4, 0x7f0d0352
 
-    const v5, 0x7f0d0325
+    const v5, 0x7f0d0350
 
     if-nez v2, :cond_3
 
@@ -1540,7 +1562,7 @@
 
     const/16 v10, 0xd
 
-    const v11, 0x7f04048e
+    const v11, 0x7f0404de
 
     const/4 v12, 0x1
 
@@ -1566,7 +1588,7 @@
 
     const/16 v10, 0xf
 
-    const v11, 0x7f04049c
+    const v11, 0x7f0404ec
 
     const/4 v12, 0x3
 
@@ -1590,13 +1612,15 @@
 
     const/16 v6, 0xe
 
-    const v7, 0x7f0404e3
+    const v7, 0x7f04053b
 
     const/4 v8, 0x2
 
     move-object v1, p0
 
     invoke-direct/range {v1 .. v8}, Lcom/android/settings/bluetooth/AdvancedBluetoothDetailsHeaderController;->updateSubLayout(Landroid/widget/LinearLayout;IIIIII)V
+
+    invoke-virtual {p0}, Lcom/android/settings/bluetooth/AdvancedBluetoothDetailsHeaderController;->showBothDevicesBatteryPredictionIfNecessary()V
 
     goto :goto_2
 
@@ -1660,7 +1684,7 @@
 .method showBatteryPredictionIfNecessary(IJLandroid/widget/LinearLayout;)V
     .locals 7
 
-    new-instance v6, Lcom/android/settings/bluetooth/AdvancedBluetoothDetailsHeaderController$$ExternalSyntheticLambda1;
+    new-instance v6, Lcom/android/settings/bluetooth/AdvancedBluetoothDetailsHeaderController$$ExternalSyntheticLambda3;
 
     move-object v0, v6
 
@@ -1672,9 +1696,77 @@
 
     move-wide v4, p2
 
-    invoke-direct/range {v0 .. v5}, Lcom/android/settings/bluetooth/AdvancedBluetoothDetailsHeaderController$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/bluetooth/AdvancedBluetoothDetailsHeaderController;Landroid/widget/LinearLayout;IJ)V
+    invoke-direct/range {v0 .. v5}, Lcom/android/settings/bluetooth/AdvancedBluetoothDetailsHeaderController$$ExternalSyntheticLambda3;-><init>(Lcom/android/settings/bluetooth/AdvancedBluetoothDetailsHeaderController;Landroid/widget/LinearLayout;IJ)V
 
     invoke-static {v6}, Lcom/android/settingslib/utils/ThreadUtils;->postOnMainThread(Ljava/lang/Runnable;)V
+
+    return-void
+.end method
+
+.method showBothDevicesBatteryPredictionIfNecessary()V
+    .locals 4
+
+    iget-object v0, p0, Lcom/android/settings/bluetooth/AdvancedBluetoothDetailsHeaderController;->mLayoutPreference:Lcom/android/settingslib/widget/LayoutPreference;
+
+    const v1, 0x7f0d0350
+
+    invoke-virtual {v0, v1}, Lcom/android/settingslib/widget/LayoutPreference;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    const v1, 0x7f0d0121
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/TextView;
+
+    iget-object v2, p0, Lcom/android/settings/bluetooth/AdvancedBluetoothDetailsHeaderController;->mLayoutPreference:Lcom/android/settingslib/widget/LayoutPreference;
+
+    const v3, 0x7f0d0352
+
+    invoke-virtual {v2, v3}, Lcom/android/settingslib/widget/LayoutPreference;->findViewById(I)Landroid/view/View;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/widget/TextView;
+
+    iget-boolean v2, p0, Lcom/android/settings/bluetooth/AdvancedBluetoothDetailsHeaderController;->mIsLeftDeviceEstimateReady:Z
+
+    const/4 v3, 0x0
+
+    if-eqz v2, :cond_0
+
+    iget-boolean p0, p0, Lcom/android/settings/bluetooth/AdvancedBluetoothDetailsHeaderController;->mIsRightDeviceEstimateReady:Z
+
+    if-eqz p0, :cond_0
+
+    const/4 p0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    move p0, v3
+
+    :goto_0
+    if-eqz p0, :cond_1
+
+    goto :goto_1
+
+    :cond_1
+    const/16 v3, 0x8
+
+    :goto_1
+    new-instance p0, Lcom/android/settings/bluetooth/AdvancedBluetoothDetailsHeaderController$$ExternalSyntheticLambda1;
+
+    invoke-direct {p0, v0, v3, v1}, Lcom/android/settings/bluetooth/AdvancedBluetoothDetailsHeaderController$$ExternalSyntheticLambda1;-><init>(Landroid/widget/TextView;ILandroid/widget/TextView;)V
+
+    invoke-static {p0}, Lcom/android/settingslib/utils/ThreadUtils;->postOnMainThread(Ljava/lang/Runnable;)V
 
     return-void
 .end method
@@ -1711,9 +1803,9 @@
 
     invoke-virtual {p1, v0}, Landroid/widget/ImageView;->setAlpha(F)V
 
-    new-instance v0, Lcom/android/settings/bluetooth/AdvancedBluetoothDetailsHeaderController$$ExternalSyntheticLambda3;
+    new-instance v0, Lcom/android/settings/bluetooth/AdvancedBluetoothDetailsHeaderController$$ExternalSyntheticLambda2;
 
-    invoke-direct {v0, p0, p2, p1}, Lcom/android/settings/bluetooth/AdvancedBluetoothDetailsHeaderController$$ExternalSyntheticLambda3;-><init>(Lcom/android/settings/bluetooth/AdvancedBluetoothDetailsHeaderController;Ljava/lang/String;Landroid/widget/ImageView;)V
+    invoke-direct {v0, p0, p2, p1}, Lcom/android/settings/bluetooth/AdvancedBluetoothDetailsHeaderController$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/bluetooth/AdvancedBluetoothDetailsHeaderController;Ljava/lang/String;Landroid/widget/ImageView;)V
 
     invoke-static {v0}, Lcom/android/settingslib/utils/ThreadUtils;->postOnBackgroundThread(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;
 

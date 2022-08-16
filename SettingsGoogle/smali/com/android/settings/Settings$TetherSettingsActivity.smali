@@ -36,7 +36,7 @@
 
     move-result-object p0
 
-    invoke-static {v0, p0}, Lcom/android/settings/Settings;->access$000(Landroid/content/Context;Landroid/content/Intent;)Landroid/content/Intent;
+    invoke-static {v0, p0}, Lcom/android/settings/Settings;->-$$Nest$smwrapIntentWithAllInOneTetherSettingsIfNeeded(Landroid/content/Context;Landroid/content/Intent;)Landroid/content/Intent;
 
     move-result-object p0
 

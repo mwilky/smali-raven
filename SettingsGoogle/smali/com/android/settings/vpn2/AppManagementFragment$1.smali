@@ -45,7 +45,7 @@
 
     iget-object v0, p0, Lcom/android/settings/vpn2/AppManagementFragment$1;->this$0:Lcom/android/settings/vpn2/AppManagementFragment;
 
-    invoke-static {v0}, Lcom/android/settings/vpn2/AppManagementFragment;->access$000(Lcom/android/settings/vpn2/AppManagementFragment;)Z
+    invoke-static {v0}, Lcom/android/settings/vpn2/AppManagementFragment;->-$$Nest$misVpnAlwaysOn(Lcom/android/settings/vpn2/AppManagementFragment;)Z
 
     move-result v0
 
@@ -55,7 +55,7 @@
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1, v1}, Lcom/android/settings/vpn2/AppManagementFragment;->access$100(Lcom/android/settings/vpn2/AppManagementFragment;ZZ)Z
+    invoke-static {v0, v1, v1}, Lcom/android/settings/vpn2/AppManagementFragment;->-$$Nest$msetAlwaysOnVpn(Lcom/android/settings/vpn2/AppManagementFragment;ZZ)Z
 
     :cond_0
     iget-object p0, p0, Lcom/android/settings/vpn2/AppManagementFragment$1;->this$0:Lcom/android/settings/vpn2/AppManagementFragment;

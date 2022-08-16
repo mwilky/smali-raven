@@ -24,6 +24,14 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$monAirplaneModeChanged(Lcom/android/settings/AirplaneModeEnabler;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/AirplaneModeEnabler;->onAirplaneModeChanged()V
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Lcom/android/settings/AirplaneModeEnabler$OnAirplaneModeChangedListener;)V
     .locals 1
 
@@ -64,14 +72,6 @@
     invoke-direct {p1, p0, p2}, Lcom/android/settings/AirplaneModeEnabler$1;-><init>(Lcom/android/settings/AirplaneModeEnabler;Landroid/os/Looper;)V
 
     iput-object p1, p0, Lcom/android/settings/AirplaneModeEnabler;->mPhoneStateListener:Landroid/telephony/PhoneStateListener;
-
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/AirplaneModeEnabler;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/AirplaneModeEnabler;->onAirplaneModeChanged()V
 
     return-void
 .end method

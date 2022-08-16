@@ -37,6 +37,46 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmDebuggableOnly(Lcom/android/settings/development/AppPicker;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/settings/development/AppPicker;->mDebuggableOnly:Z
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmIncludeNothing(Lcom/android/settings/development/AppPicker;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/settings/development/AppPicker;->mIncludeNothing:Z
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmNonSystemOnly(Lcom/android/settings/development/AppPicker;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/settings/development/AppPicker;->mNonSystemOnly:Z
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmPermissionName(Lcom/android/settings/development/AppPicker;)Ljava/lang/String;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/development/AppPicker;->mPermissionName:Ljava/lang/String;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$sfgetsDisplayNameComparator()Ljava/util/Comparator;
+    .locals 1
+
+    sget-object v0, Lcom/android/settings/development/AppPicker;->sDisplayNameComparator:Ljava/util/Comparator;
+
+    return-object v0
+.end method
+
 .method static constructor <clinit>()V
     .locals 1
 
@@ -55,46 +95,6 @@
     invoke-direct {p0}, Landroid/app/ListActivity;-><init>()V
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/development/AppPicker;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/settings/development/AppPicker;->mDebuggableOnly:Z
-
-    return p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/development/AppPicker;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/settings/development/AppPicker;->mNonSystemOnly:Z
-
-    return p0
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/development/AppPicker;)Ljava/lang/String;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/development/AppPicker;->mPermissionName:Ljava/lang/String;
-
-    return-object p0
-.end method
-
-.method static synthetic access$300()Ljava/util/Comparator;
-    .locals 1
-
-    sget-object v0, Lcom/android/settings/development/AppPicker;->sDisplayNameComparator:Ljava/util/Comparator;
-
-    return-object v0
-.end method
-
-.method static synthetic access$400(Lcom/android/settings/development/AppPicker;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/settings/development/AppPicker;->mIncludeNothing:Z
-
-    return p0
 .end method
 
 .method private handleBackPressed()V

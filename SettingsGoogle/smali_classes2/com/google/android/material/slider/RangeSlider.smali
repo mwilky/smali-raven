@@ -14,7 +14,9 @@
     value = {
         "Lcom/google/android/material/slider/BaseSlider<",
         "Lcom/google/android/material/slider/RangeSlider;",
-        "**>;"
+        "Ljava/lang/Object;",
+        "Ljava/lang/Object;",
+        ">;"
     }
 .end annotation
 
@@ -523,6 +525,38 @@
     move-result p0
 
     return p0
+.end method
+
+.method public setCustomThumbDrawable(I)V
+    .locals 0
+
+    invoke-super {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->setCustomThumbDrawable(I)V
+
+    return-void
+.end method
+
+.method public setCustomThumbDrawable(Landroid/graphics/drawable/Drawable;)V
+    .locals 0
+
+    invoke-super {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->setCustomThumbDrawable(Landroid/graphics/drawable/Drawable;)V
+
+    return-void
+.end method
+
+.method public varargs setCustomThumbDrawablesForValues([I)V
+    .locals 0
+
+    invoke-super {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->setCustomThumbDrawablesForValues([I)V
+
+    return-void
+.end method
+
+.method public varargs setCustomThumbDrawablesForValues([Landroid/graphics/drawable/Drawable;)V
+    .locals 0
+
+    invoke-super {p0, p1}, Lcom/google/android/material/slider/BaseSlider;->setCustomThumbDrawablesForValues([Landroid/graphics/drawable/Drawable;)V
+
+    return-void
 .end method
 
 .method public bridge synthetic setEnabled(Z)V

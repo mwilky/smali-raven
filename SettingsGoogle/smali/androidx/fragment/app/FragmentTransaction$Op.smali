@@ -25,13 +25,13 @@
 
 .field mFragment:Landroidx/fragment/app/Fragment;
 
+.field mFromExpandedOp:Z
+
 .field mOldMaxState:Landroidx/lifecycle/Lifecycle$State;
 
 .field mPopEnterAnim:I
 
 .field mPopExitAnim:I
-
-.field mTopmostFragment:Z
 
 
 # direct methods
@@ -54,7 +54,7 @@
 
     const/4 p1, 0x0
 
-    iput-boolean p1, p0, Landroidx/fragment/app/FragmentTransaction$Op;->mTopmostFragment:Z
+    iput-boolean p1, p0, Landroidx/fragment/app/FragmentTransaction$Op;->mFromExpandedOp:Z
 
     sget-object p1, Landroidx/lifecycle/Lifecycle$State;->RESUMED:Landroidx/lifecycle/Lifecycle$State;
 
@@ -76,7 +76,7 @@
 
     const/4 p1, 0x0
 
-    iput-boolean p1, p0, Landroidx/fragment/app/FragmentTransaction$Op;->mTopmostFragment:Z
+    iput-boolean p1, p0, Landroidx/fragment/app/FragmentTransaction$Op;->mFromExpandedOp:Z
 
     iget-object p1, p2, Landroidx/fragment/app/Fragment;->mMaxState:Landroidx/lifecycle/Lifecycle$State;
 
@@ -96,7 +96,7 @@
 
     iput-object p2, p0, Landroidx/fragment/app/FragmentTransaction$Op;->mFragment:Landroidx/fragment/app/Fragment;
 
-    iput-boolean p3, p0, Landroidx/fragment/app/FragmentTransaction$Op;->mTopmostFragment:Z
+    iput-boolean p3, p0, Landroidx/fragment/app/FragmentTransaction$Op;->mFromExpandedOp:Z
 
     sget-object p1, Landroidx/lifecycle/Lifecycle$State;->RESUMED:Landroidx/lifecycle/Lifecycle$State;
 

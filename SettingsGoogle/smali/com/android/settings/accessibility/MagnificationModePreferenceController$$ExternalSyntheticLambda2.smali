@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/settings/accessibility/MagnificationModePreferenceController$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroidx/preference/Preference$OnPreferenceClickListener;
+.implements Landroid/widget/AdapterView$OnItemClickListener;
 
 
 # instance fields
@@ -22,14 +23,20 @@
 
 
 # virtual methods
-.method public final onPreferenceClick(Landroidx/preference/Preference;)Z
-    .locals 0
+.method public final onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
+    .locals 6
 
-    iget-object p0, p0, Lcom/android/settings/accessibility/MagnificationModePreferenceController$$ExternalSyntheticLambda2;->f$0:Lcom/android/settings/accessibility/MagnificationModePreferenceController;
+    iget-object v0, p0, Lcom/android/settings/accessibility/MagnificationModePreferenceController$$ExternalSyntheticLambda2;->f$0:Lcom/android/settings/accessibility/MagnificationModePreferenceController;
 
-    invoke-static {p0, p1}, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->$r8$lambda$1M6Qby9TS3gzbU6AT4vBfx6MMwg(Lcom/android/settings/accessibility/MagnificationModePreferenceController;Landroidx/preference/Preference;)Z
+    move-object v1, p1
 
-    move-result p0
+    move-object v2, p2
 
-    return p0
+    move v3, p3
+
+    move-wide v4, p4
+
+    invoke-static/range {v0 .. v5}, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->$r8$lambda$-o_oWYVmKvtIDMgBL-s0JVGoG6M(Lcom/android/settings/accessibility/MagnificationModePreferenceController;Landroid/widget/AdapterView;Landroid/view/View;IJ)V
+
+    return-void
 .end method

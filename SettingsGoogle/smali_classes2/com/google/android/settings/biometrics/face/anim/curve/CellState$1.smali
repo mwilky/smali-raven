@@ -45,7 +45,7 @@
     :cond_0
     iget-object p0, p0, Lcom/google/android/settings/biometrics/face/anim/curve/CellState$1;->this$0:Lcom/google/android/settings/biometrics/face/anim/curve/CellState;
 
-    invoke-static {p0}, Lcom/google/android/settings/biometrics/face/anim/curve/CellState;->access$000(Lcom/google/android/settings/biometrics/face/anim/curve/CellState;)V
+    invoke-static {p0}, Lcom/google/android/settings/biometrics/face/anim/curve/CellState;->-$$Nest$mhandleFadeCursor(Lcom/google/android/settings/biometrics/face/anim/curve/CellState;)V
 
     :goto_0
     return-void

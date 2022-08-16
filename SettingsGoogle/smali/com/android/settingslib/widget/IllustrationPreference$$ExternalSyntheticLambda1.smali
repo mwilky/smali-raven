@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settingslib/widget/IllustrationPreference$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/airbnb/lottie/LottieListener;

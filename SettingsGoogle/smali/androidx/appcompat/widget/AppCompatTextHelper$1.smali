@@ -52,12 +52,6 @@
 .method public onFontRetrieved(Landroid/graphics/Typeface;)V
     .locals 2
 
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x1c
-
-    if-lt v0, v1, :cond_1
-
     iget v0, p0, Landroidx/appcompat/widget/AppCompatTextHelper$1;->val$fontWeight:I
 
     const/4 v1, -0x1

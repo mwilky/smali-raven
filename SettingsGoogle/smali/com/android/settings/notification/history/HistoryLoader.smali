@@ -184,7 +184,9 @@
 
     invoke-direct {v1, v0}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
-    sget-object v0, Lcom/android/settings/notification/history/HistoryLoader$$ExternalSyntheticLambda2;->INSTANCE:Lcom/android/settings/notification/history/HistoryLoader$$ExternalSyntheticLambda2;
+    new-instance v0, Lcom/android/settings/notification/history/HistoryLoader$$ExternalSyntheticLambda1;
+
+    invoke-direct {v0}, Lcom/android/settings/notification/history/HistoryLoader$$ExternalSyntheticLambda1;-><init>()V
 
     invoke-static {v1, v0}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
 
@@ -279,9 +281,9 @@
     goto :goto_1
 
     :cond_2
-    new-instance p0, Lcom/android/settings/notification/history/HistoryLoader$$ExternalSyntheticLambda0;
+    new-instance p0, Lcom/android/settings/notification/history/HistoryLoader$$ExternalSyntheticLambda2;
 
-    invoke-direct {p0, p1, v1}, Lcom/android/settings/notification/history/HistoryLoader$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/notification/history/HistoryLoader$OnHistoryLoaderListener;Ljava/util/List;)V
+    invoke-direct {p0, p1, v1}, Lcom/android/settings/notification/history/HistoryLoader$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/notification/history/HistoryLoader$OnHistoryLoaderListener;Ljava/util/List;)V
 
     invoke-static {p0}, Lcom/android/settingslib/utils/ThreadUtils;->postOnMainThread(Ljava/lang/Runnable;)V
     :try_end_2
@@ -307,9 +309,9 @@
 .method public load(Lcom/android/settings/notification/history/HistoryLoader$OnHistoryLoaderListener;)V
     .locals 1
 
-    new-instance v0, Lcom/android/settings/notification/history/HistoryLoader$$ExternalSyntheticLambda1;
+    new-instance v0, Lcom/android/settings/notification/history/HistoryLoader$$ExternalSyntheticLambda0;
 
-    invoke-direct {v0, p0, p1}, Lcom/android/settings/notification/history/HistoryLoader$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/notification/history/HistoryLoader;Lcom/android/settings/notification/history/HistoryLoader$OnHistoryLoaderListener;)V
+    invoke-direct {v0, p0, p1}, Lcom/android/settings/notification/history/HistoryLoader$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/notification/history/HistoryLoader;Lcom/android/settings/notification/history/HistoryLoader$OnHistoryLoaderListener;)V
 
     invoke-static {v0}, Lcom/android/settingslib/utils/ThreadUtils;->postOnBackgroundThread(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;
 

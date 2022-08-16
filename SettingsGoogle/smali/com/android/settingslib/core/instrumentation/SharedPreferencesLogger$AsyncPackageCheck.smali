@@ -39,7 +39,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settingslib/core/instrumentation/SharedPreferencesLogger;Lcom/android/settingslib/core/instrumentation/SharedPreferencesLogger$1;)V
+.method synthetic constructor <init>(Lcom/android/settingslib/core/instrumentation/SharedPreferencesLogger;Lcom/android/settingslib/core/instrumentation/SharedPreferencesLogger$AsyncPackageCheck-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settingslib/core/instrumentation/SharedPreferencesLogger$AsyncPackageCheck;-><init>(Lcom/android/settingslib/core/instrumentation/SharedPreferencesLogger;)V
@@ -74,7 +74,7 @@
 
     iget-object v2, p0, Lcom/android/settingslib/core/instrumentation/SharedPreferencesLogger$AsyncPackageCheck;->this$0:Lcom/android/settingslib/core/instrumentation/SharedPreferencesLogger;
 
-    invoke-static {v2}, Lcom/android/settingslib/core/instrumentation/SharedPreferencesLogger;->access$100(Lcom/android/settingslib/core/instrumentation/SharedPreferencesLogger;)Landroid/content/Context;
+    invoke-static {v2}, Lcom/android/settingslib/core/instrumentation/SharedPreferencesLogger;->-$$Nest$fgetmContext(Lcom/android/settingslib/core/instrumentation/SharedPreferencesLogger;)Landroid/content/Context;
 
     move-result-object v2
 
@@ -113,7 +113,7 @@
     :catch_1
     iget-object p0, p0, Lcom/android/settingslib/core/instrumentation/SharedPreferencesLogger$AsyncPackageCheck;->this$0:Lcom/android/settingslib/core/instrumentation/SharedPreferencesLogger;
 
-    invoke-static {p0, v0, p1, v1}, Lcom/android/settingslib/core/instrumentation/SharedPreferencesLogger;->access$200(Lcom/android/settingslib/core/instrumentation/SharedPreferencesLogger;Ljava/lang/String;Ljava/lang/Object;Z)V
+    invoke-static {p0, v0, p1, v1}, Lcom/android/settingslib/core/instrumentation/SharedPreferencesLogger;->-$$Nest$mlogValue(Lcom/android/settingslib/core/instrumentation/SharedPreferencesLogger;Ljava/lang/String;Ljava/lang/Object;Z)V
 
     :goto_0
     const/4 p0, 0x0

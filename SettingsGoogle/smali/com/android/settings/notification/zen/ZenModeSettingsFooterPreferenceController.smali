@@ -16,6 +16,14 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$mshowCustomSettingsDialog(Lcom/android/settings/notification/zen/ZenModeSettingsFooterPreferenceController;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/notification/zen/ZenModeSettingsFooterPreferenceController;->showCustomSettingsDialog()V
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;Landroidx/fragment/app/FragmentManager;)V
     .locals 1
 
@@ -24,14 +32,6 @@
     invoke-direct {p0, p1, v0, p2}, Lcom/android/settings/notification/zen/AbstractZenModePreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
 
     iput-object p3, p0, Lcom/android/settings/notification/zen/ZenModeSettingsFooterPreferenceController;->mFragment:Landroidx/fragment/app/FragmentManager;
-
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/notification/zen/ZenModeSettingsFooterPreferenceController;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/notification/zen/ZenModeSettingsFooterPreferenceController;->showCustomSettingsDialog()V
 
     return-void
 .end method
@@ -133,7 +133,7 @@
 
     iget-object v3, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f041882
+    const v6, 0x7f041980
 
     new-array v7, v2, [Ljava/lang/Object;
 
@@ -150,7 +150,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const p1, 0x7f041886
+    const p1, 0x7f041984
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -185,7 +185,7 @@
 
     iget-object v3, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f041885
+    const v6, 0x7f041983
 
     new-array v7, v2, [Ljava/lang/Object;
 
@@ -235,7 +235,7 @@
 
     move-result v6
 
-    const v7, 0x7f041881
+    const v7, 0x7f04197f
 
     if-nez v6, :cond_4
 
@@ -420,7 +420,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f041883
+    const v5, 0x7f041981
 
     new-array v6, v2, [Ljava/lang/Object;
 
@@ -440,7 +440,7 @@
 
     move-result-object p0
 
-    const v1, 0x7f041884
+    const v1, 0x7f041982
 
     invoke-virtual {p0, v1}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 

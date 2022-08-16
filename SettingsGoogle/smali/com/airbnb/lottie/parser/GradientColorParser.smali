@@ -202,9 +202,7 @@
 
     aget-wide v9, v0, v3
 
-    aget-wide v11, v0, v3
-
-    cmpl-double v11, v11, p1
+    cmpl-double v11, v9, p1
 
     if-ltz v11, :cond_0
 

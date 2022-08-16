@@ -65,7 +65,7 @@
 .end method
 
 .method public static writeVendorLog(II)V
-    .locals 10
+    .locals 13
 
     const/16 v0, 0x57
 
@@ -83,11 +83,17 @@
 
     const/4 v9, -0x1
 
+    const/4 v10, 0x0
+
+    const/4 v11, 0x0
+
+    const/4 v12, 0x0
+
     move v2, p0
 
     move v7, p1
 
-    invoke-static/range {v0 .. v9}, Lcom/android/internal/util/FrameworkStatsLog;->write(IIIZIIIIZI)V
+    invoke-static/range {v0 .. v12}, Lcom/android/internal/util/FrameworkStatsLog;->write(IIIZIIIIZIIIZ)V
 
     return-void
 .end method

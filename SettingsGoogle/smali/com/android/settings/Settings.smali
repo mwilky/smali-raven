@@ -6,6 +6,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Lcom/android/settings/Settings$OneHandedSettingsActivity;,
+        Lcom/android/settings/Settings$AdaptiveBrightnessActivity;,
         Lcom/android/settings/Settings$AppDashboardActivity;,
         Lcom/android/settings/Settings$MediaControlsSettingsActivity;,
         Lcom/android/settings/Settings$SystemDashboardActivity;,
@@ -15,9 +17,12 @@
         Lcom/android/settings/Settings$ConnectedDeviceDashboardActivity;,
         Lcom/android/settings/Settings$NetworkDashboardActivity;,
         Lcom/android/settings/Settings$BugReportHandlerPickerActivity;,
+        Lcom/android/settings/Settings$MobileNetworkActivity;,
         Lcom/android/settings/Settings$PowerMenuSettingsActivity;,
         Lcom/android/settings/Settings$MobileNetworkListActivity;,
         Lcom/android/settings/Settings$WifiCallingDisclaimerActivity;,
+        Lcom/android/settings/Settings$BluetoothFindBroadcastsActivity;,
+        Lcom/android/settings/Settings$BluetoothBroadcastActivity;,
         Lcom/android/settings/Settings$BluetoothDeviceDetailActivity;,
         Lcom/android/settings/Settings$AdvancedConnectedDeviceActivity;,
         Lcom/android/settings/Settings$WebViewAppPickerActivity;,
@@ -48,11 +53,13 @@
         Lcom/android/settings/Settings$ApnSettingsActivity;,
         Lcom/android/settings/Settings$AppInteractAcrossProfilesSettingsActivity;,
         Lcom/android/settings/Settings$InteractAcrossProfilesSettingsActivity;,
+        Lcom/android/settings/Settings$ButtonNavigationSettingsActivity;,
         Lcom/android/settings/Settings$GestureNavigationSettingsActivity;,
         Lcom/android/settings/Settings$GamesStorageActivity;,
         Lcom/android/settings/Settings$AutomaticStorageManagerSettingsActivity;,
         Lcom/android/settings/Settings$ManageDomainUrlsActivity;,
         Lcom/android/settings/Settings$AppNotificationSettingsActivity;,
+        Lcom/android/settings/Settings$NotificationReviewPermissionsActivity;,
         Lcom/android/settings/Settings$NotificationAppListActivity;,
         Lcom/android/settings/Settings$NotificationAssistantSettingsActivity;,
         Lcom/android/settings/Settings$AppBubbleNotificationSettingsActivity;,
@@ -71,6 +78,7 @@
         Lcom/android/settings/Settings$ZenAccessDetailSettingsActivity;,
         Lcom/android/settings/Settings$ZenAccessSettingsActivity;,
         Lcom/android/settings/Settings$AppPictureInPictureSettingsActivity;,
+        Lcom/android/settings/Settings$TurnScreenOnSettingsActivity;,
         Lcom/android/settings/Settings$PictureInPictureSettingsActivity;,
         Lcom/android/settings/Settings$PremiumSmsAccessActivity;,
         Lcom/android/settings/Settings$VrListenersSettingsActivity;,
@@ -87,7 +95,6 @@
         Lcom/android/settings/Settings$MobileDataUsageListActivity;,
         Lcom/android/settings/Settings$DataUsageSummaryActivity;,
         Lcom/android/settings/Settings$DeviceAdminSettingsActivity;,
-        Lcom/android/settings/Settings$CryptKeeperSettingsActivity;,
         Lcom/android/settings/Settings$AccountSyncSettingsActivity;,
         Lcom/android/settings/Settings$BatterySaverScheduleSettingsActivity;,
         Lcom/android/settings/Settings$BatterySaverSettingsActivity;,
@@ -95,12 +102,14 @@
         Lcom/android/settings/Settings$FactoryResetConfirmActivity;,
         Lcom/android/settings/Settings$FactoryResetActivity;,
         Lcom/android/settings/Settings$PrivacySettingsActivity;,
+        Lcom/android/settings/Settings$PrivacyControlsActivity;,
         Lcom/android/settings/Settings$PrivacyDashboardActivity;,
         Lcom/android/settings/Settings$WifiScanningSettingsActivity;,
         Lcom/android/settings/Settings$ScanningSettingsActivity;,
         Lcom/android/settings/Settings$LocationSettingsActivity;,
         Lcom/android/settings/Settings$AppUsageAccessSettingsActivity;,
         Lcom/android/settings/Settings$UsageAccessSettingsActivity;,
+        Lcom/android/settings/Settings$SecurityAdvancedSettings;,
         Lcom/android/settings/Settings$SecurityDashboardActivity;,
         Lcom/android/settings/Settings$ReduceBrightColorsSettingsActivity;,
         Lcom/android/settings/Settings$BlueToothPairingActivity;,
@@ -144,6 +153,7 @@
         Lcom/android/settings/Settings$CombinedBiometricProfileSettingsActivity;,
         Lcom/android/settings/Settings$CombinedBiometricSettingsActivity;,
         Lcom/android/settings/Settings$FingerprintSettingsActivity;,
+        Lcom/android/settings/Settings$FaceSettingsInternalActivity;,
         Lcom/android/settings/Settings$FaceSettingsActivity;,
         Lcom/android/settings/Settings$CreateShortcutActivity;,
         Lcom/android/settings/Settings$BluetoothSettingsActivity;,
@@ -153,15 +163,7 @@
 
 
 # direct methods
-.method public constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/SettingsActivity;-><init>()V
-
-    return-void
-.end method
-
-.method static synthetic access$000(Landroid/content/Context;Landroid/content/Intent;)Landroid/content/Intent;
+.method static bridge synthetic -$$Nest$smwrapIntentWithAllInOneTetherSettingsIfNeeded(Landroid/content/Context;Landroid/content/Intent;)Landroid/content/Intent;
     .locals 0
 
     invoke-static {p0, p1}, Lcom/android/settings/Settings;->wrapIntentWithAllInOneTetherSettingsIfNeeded(Landroid/content/Context;Landroid/content/Intent;)Landroid/content/Intent;
@@ -169,6 +171,14 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method public constructor <init>()V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/SettingsActivity;-><init>()V
+
+    return-void
 .end method
 
 .method private static wrapIntentWithAllInOneTetherSettingsIfNeeded(Landroid/content/Context;Landroid/content/Intent;)Landroid/content/Intent;

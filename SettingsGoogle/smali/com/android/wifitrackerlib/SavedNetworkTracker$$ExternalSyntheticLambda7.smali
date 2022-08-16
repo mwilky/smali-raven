@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/wifitrackerlib/SavedNetworkTracker$$ExternalSyntheticLambda7;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Predicate;
+.implements Ljava/util/function/Consumer;
 
 
 # instance fields
@@ -22,16 +23,14 @@
 
 
 # virtual methods
-.method public final test(Ljava/lang/Object;)Z
+.method public final accept(Ljava/lang/Object;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/wifitrackerlib/SavedNetworkTracker$$ExternalSyntheticLambda7;->f$0:Ljava/util/Map;
 
-    check-cast p1, Ljava/util/Map$Entry;
+    check-cast p1, Lcom/android/wifitrackerlib/StandardWifiEntry;
 
-    invoke-static {p0, p1}, Lcom/android/wifitrackerlib/SavedNetworkTracker;->$r8$lambda$IFYUWtZk2YMLNrLWcAReSRNNEpo(Ljava/util/Map;Ljava/util/Map$Entry;)Z
+    invoke-static {p0, p1}, Lcom/android/wifitrackerlib/SavedNetworkTracker;->$r8$lambda$mo0Ymfkh0N1Bv96sWSsiP4hb_1M(Ljava/util/Map;Lcom/android/wifitrackerlib/StandardWifiEntry;)V
 
-    move-result p0
-
-    return p0
+    return-void
 .end method

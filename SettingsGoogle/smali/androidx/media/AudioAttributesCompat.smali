@@ -6,14 +6,6 @@
 .implements Landroidx/versionedparcelable/VersionedParcelable;
 
 
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Landroidx/media/AudioAttributesCompat$Builder;
-    }
-.end annotation
-
-
 # static fields
 .field private static final SDK_USAGES:[I
 
@@ -105,14 +97,6 @@
 
 .method constructor <init>(Landroidx/media/AudioAttributesImpl;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "impl"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -123,18 +107,6 @@
 
 .method static toVolumeStreamType(ZII)I
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "fromGetVolumeControlStream",
-            "flags",
-            "usage"
-        }
-    .end annotation
 
     and-int/lit8 v0, p1, 0x1
 
@@ -268,14 +240,6 @@
 
 .method static usageToString(I)Ljava/lang/String;
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "usage"
-        }
-    .end annotation
 
     packed-switch p0, :pswitch_data_0
 
@@ -399,31 +363,17 @@
 .end method
 
 .method public static wrap(Ljava/lang/Object;)Landroidx/media/AudioAttributesCompat;
-    .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x10
-        }
-        names = {
-            "aa"
-        }
-    .end annotation
+    .locals 2
 
     sget-boolean v0, Landroidx/media/AudioAttributesCompat;->sForceLegacyBehavior:Z
 
-    const/4 v1, 0x0
-
     if-eqz v0, :cond_0
 
-    return-object v1
+    const/4 p0, 0x0
+
+    return-object p0
 
     :cond_0
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v2, 0x1a
-
-    if-lt v0, v2, :cond_1
-
     new-instance v0, Landroidx/media/AudioAttributesCompat;
 
     new-instance v1, Landroidx/media/AudioAttributesImplApi26;
@@ -435,40 +385,12 @@
     invoke-direct {v0, v1}, Landroidx/media/AudioAttributesCompat;-><init>(Landroidx/media/AudioAttributesImpl;)V
 
     return-object v0
-
-    :cond_1
-    const/16 v2, 0x15
-
-    if-lt v0, v2, :cond_2
-
-    new-instance v0, Landroidx/media/AudioAttributesCompat;
-
-    new-instance v1, Landroidx/media/AudioAttributesImplApi21;
-
-    check-cast p0, Landroid/media/AudioAttributes;
-
-    invoke-direct {v1, p0}, Landroidx/media/AudioAttributesImplApi21;-><init>(Landroid/media/AudioAttributes;)V
-
-    invoke-direct {v0, v1}, Landroidx/media/AudioAttributesCompat;-><init>(Landroidx/media/AudioAttributesImpl;)V
-
-    return-object v0
-
-    :cond_2
-    return-object v1
 .end method
 
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "o"
-        }
-    .end annotation
 
     instance-of v0, p1, Landroidx/media/AudioAttributesCompat;
 

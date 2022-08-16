@@ -323,7 +323,7 @@
 .end method
 
 .method public onInitializeAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
-    .locals 3
+    .locals 2
 
     invoke-super {p0, p1}, Landroid/view/ViewGroup;->onInitializeAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
 
@@ -361,12 +361,6 @@
 
     invoke-virtual {p1, v1}, Landroid/view/accessibility/AccessibilityEvent;->setFromIndex(I)V
 
-    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v2, 0xe
-
-    if-lt v1, v2, :cond_1
-
     invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->getToIndex()I
 
     move-result v1
@@ -379,7 +373,6 @@
 
     invoke-virtual {p1, p0}, Landroid/view/accessibility/AccessibilityEvent;->setToIndex(I)V
 
-    :cond_1
     return-void
 .end method
 

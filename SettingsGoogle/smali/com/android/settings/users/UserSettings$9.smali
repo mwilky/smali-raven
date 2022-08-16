@@ -39,7 +39,7 @@
 
     iget-object v0, p0, Lcom/android/settings/users/UserSettings$9;->this$0:Lcom/android/settings/users/UserSettings;
 
-    invoke-static {v0}, Lcom/android/settings/users/UserSettings;->access$900(Lcom/android/settings/users/UserSettings;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/settings/users/UserSettings;->-$$Nest$fgetmUserLock(Lcom/android/settings/users/UserSettings;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -48,13 +48,13 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/settings/users/UserSettings$9;->this$0:Lcom/android/settings/users/UserSettings;
 
-    invoke-static {v1}, Lcom/android/settings/users/UserSettings;->access$400(Lcom/android/settings/users/UserSettings;)Landroid/os/UserManager;
+    invoke-static {v1}, Lcom/android/settings/users/UserSettings;->-$$Nest$fgetmUserManager(Lcom/android/settings/users/UserSettings;)Landroid/os/UserManager;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/android/settings/users/UserSettings$9;->this$0:Lcom/android/settings/users/UserSettings;
 
-    invoke-static {v2}, Lcom/android/settings/users/UserSettings;->access$100(Lcom/android/settings/users/UserSettings;)I
+    invoke-static {v2}, Lcom/android/settings/users/UserSettings;->-$$Nest$fgetmRemovingUserId(Lcom/android/settings/users/UserSettings;)I
 
     move-result v2
 
@@ -62,7 +62,7 @@
 
     iget-object p0, p0, Lcom/android/settings/users/UserSettings$9;->this$0:Lcom/android/settings/users/UserSettings;
 
-    invoke-static {p0}, Lcom/android/settings/users/UserSettings;->access$200(Lcom/android/settings/users/UserSettings;)Landroid/os/Handler;
+    invoke-static {p0}, Lcom/android/settings/users/UserSettings;->-$$Nest$fgetmHandler(Lcom/android/settings/users/UserSettings;)Landroid/os/Handler;
 
     move-result-object p0
 

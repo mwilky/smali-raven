@@ -1,33 +1,40 @@
 .class public final synthetic Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2$$ExternalSyntheticLambda7;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Landroid/view/View$OnClickListener;
 
 
 # instance fields
 .field public final synthetic f$0:Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;
 
+.field public final synthetic f$1:Landroid/net/Uri;
+
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;)V
+.method public synthetic constructor <init>(Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;Landroid/net/Uri;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2$$ExternalSyntheticLambda7;->f$0:Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;
 
+    iput-object p2, p0, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2$$ExternalSyntheticLambda7;->f$1:Landroid/net/Uri;
+
     return-void
 .end method
 
 
 # virtual methods
-.method public final run()V
-    .locals 0
+.method public final onClick(Landroid/view/View;)V
+    .locals 1
 
-    iget-object p0, p0, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2$$ExternalSyntheticLambda7;->f$0:Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;
+    iget-object v0, p0, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2$$ExternalSyntheticLambda7;->f$0:Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;
 
-    invoke-static {p0}, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;->$r8$lambda$PA2v8wdjhVKT5HCgxNFGTYtKIFk(Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;)V
+    iget-object p0, p0, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2$$ExternalSyntheticLambda7;->f$1:Landroid/net/Uri;
+
+    invoke-static {v0, p0, p1}, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;->$r8$lambda$XpMqL74JUwXXHh_Q4bwMiipJGuE(Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;Landroid/net/Uri;Landroid/view/View;)V
 
     return-void
 .end method

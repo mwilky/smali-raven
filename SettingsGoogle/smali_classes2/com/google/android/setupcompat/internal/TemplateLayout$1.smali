@@ -45,7 +45,7 @@
 
     iget-object v1, p0, Lcom/google/android/setupcompat/internal/TemplateLayout$1;->this$0:Lcom/google/android/setupcompat/internal/TemplateLayout;
 
-    invoke-static {v1}, Lcom/google/android/setupcompat/internal/TemplateLayout;->access$000(Lcom/google/android/setupcompat/internal/TemplateLayout;)Landroid/view/ViewTreeObserver$OnPreDrawListener;
+    invoke-static {v1}, Lcom/google/android/setupcompat/internal/TemplateLayout;->-$$Nest$fgetpreDrawListener(Lcom/google/android/setupcompat/internal/TemplateLayout;)Landroid/view/ViewTreeObserver$OnPreDrawListener;
 
     move-result-object v1
 
@@ -53,7 +53,7 @@
 
     iget-object p0, p0, Lcom/google/android/setupcompat/internal/TemplateLayout$1;->this$0:Lcom/google/android/setupcompat/internal/TemplateLayout;
 
-    invoke-static {p0}, Lcom/google/android/setupcompat/internal/TemplateLayout;->access$100(Lcom/google/android/setupcompat/internal/TemplateLayout;)F
+    invoke-static {p0}, Lcom/google/android/setupcompat/internal/TemplateLayout;->-$$Nest$fgetxFraction(Lcom/google/android/setupcompat/internal/TemplateLayout;)F
 
     move-result v0
 

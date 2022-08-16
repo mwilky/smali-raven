@@ -439,89 +439,6 @@
     return p0
 .end method
 
-.method private updateConfiguration(Landroid/content/Context;ILandroid/telephony/SubscriptionInfo;)V
-    .locals 2
-
-    const-class v0, Landroid/net/NetworkPolicyManager;
-
-    invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/net/NetworkPolicyManager;
-
-    new-instance v1, Lcom/android/settingslib/NetworkPolicyEditor;
-
-    invoke-direct {v1, v0}, Lcom/android/settingslib/NetworkPolicyEditor;-><init>(Landroid/net/NetworkPolicyManager;)V
-
-    iput-object v1, p0, Lcom/android/settings/datausage/DataUsageSummaryPreferenceController;->mPolicyEditor:Lcom/android/settingslib/NetworkPolicyEditor;
-
-    new-instance v0, Lcom/android/settingslib/net/DataUsageController;
-
-    invoke-direct {v0, p1}, Lcom/android/settingslib/net/DataUsageController;-><init>(Landroid/content/Context;)V
-
-    iput-object v0, p0, Lcom/android/settings/datausage/DataUsageSummaryPreferenceController;->mDataUsageController:Lcom/android/settingslib/net/DataUsageController;
-
-    invoke-virtual {v0, p2}, Lcom/android/settingslib/net/DataUsageController;->setSubscriptionId(I)V
-
-    new-instance v0, Lcom/android/settings/datausage/DataUsageInfoController;
-
-    invoke-direct {v0}, Lcom/android/settings/datausage/DataUsageInfoController;-><init>()V
-
-    iput-object v0, p0, Lcom/android/settings/datausage/DataUsageSummaryPreferenceController;->mDataInfoController:Lcom/android/settings/datausage/DataUsageInfoController;
-
-    if-eqz p3, :cond_0
-
-    const p3, 0x7f0405a5
-
-    iput p3, p0, Lcom/android/settings/datausage/DataUsageSummaryPreferenceController;->mDataUsageTemplate:I
-
-    invoke-static {p1, p2}, Lcom/android/settings/datausage/lib/DataUsageLib;->getMobileTemplate(Landroid/content/Context;I)Landroid/net/NetworkTemplate;
-
-    move-result-object p1
-
-    iput-object p1, p0, Lcom/android/settings/datausage/DataUsageSummaryPreferenceController;->mDefaultTemplate:Landroid/net/NetworkTemplate;
-
-    goto :goto_0
-
-    :cond_0
-    invoke-static {p1}, Lcom/android/settings/datausage/DataUsageUtils;->hasWifiRadio(Landroid/content/Context;)Z
-
-    move-result p3
-
-    if-eqz p3, :cond_1
-
-    const p1, 0x7f041617
-
-    iput p1, p0, Lcom/android/settings/datausage/DataUsageSummaryPreferenceController;->mDataUsageTemplate:I
-
-    sget-object p1, Landroid/net/NetworkTemplate;->WIFI_NETWORKID_ALL:Ljava/lang/String;
-
-    const/4 p2, 0x0
-
-    invoke-static {p1, p2}, Landroid/net/NetworkTemplate;->buildTemplateWifi(Ljava/lang/String;Ljava/lang/String;)Landroid/net/NetworkTemplate;
-
-    move-result-object p1
-
-    iput-object p1, p0, Lcom/android/settings/datausage/DataUsageSummaryPreferenceController;->mDefaultTemplate:Landroid/net/NetworkTemplate;
-
-    goto :goto_0
-
-    :cond_1
-    const p3, 0x7f0408f1
-
-    iput p3, p0, Lcom/android/settings/datausage/DataUsageSummaryPreferenceController;->mDataUsageTemplate:I
-
-    invoke-static {p1, p2}, Lcom/android/settings/datausage/DataUsageUtils;->getDefaultTemplate(Landroid/content/Context;I)Landroid/net/NetworkTemplate;
-
-    move-result-object p1
-
-    iput-object p1, p0, Lcom/android/settings/datausage/DataUsageSummaryPreferenceController;->mDefaultTemplate:Landroid/net/NetworkTemplate;
-
-    :goto_0
-    return-void
-.end method
-
 .method private static validSize(J)Z
     .locals 2
 
@@ -550,12 +467,14 @@
 
 
 # virtual methods
-.method public bridge synthetic copy()V
+.method createDataUsageController(Landroid/content/Context;)Lcom/android/settingslib/net/DataUsageController;
     .locals 0
 
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
+    new-instance p0, Lcom/android/settingslib/net/DataUsageController;
 
-    return-void
+    invoke-direct {p0, p1}, Lcom/android/settingslib/net/DataUsageController;-><init>(Landroid/content/Context;)V
+
+    return-object p0
 .end method
 
 .method createManageSubscriptionIntent(I)Landroid/content/Intent;
@@ -698,15 +617,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -735,7 +645,7 @@
     return p0
 .end method
 
-.method getSubscriptionInfo(I)Landroid/telephony/SubscriptionInfo;
+.method protected getSubscriptionInfo(I)Landroid/telephony/SubscriptionInfo;
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/settings/datausage/DataUsageSummaryPreferenceController;->mHasMobileData:Z
@@ -818,16 +728,6 @@
     return-void
 .end method
 
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
-
-    move-result p0
-
-    return p0
-.end method
-
 .method public bridge synthetic isPublicSlice()Z
     .locals 0
 
@@ -885,6 +785,91 @@
     return-void
 .end method
 
+.method protected updateConfiguration(Landroid/content/Context;ILandroid/telephony/SubscriptionInfo;)V
+    .locals 2
+
+    const-class v0, Landroid/net/NetworkPolicyManager;
+
+    invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/net/NetworkPolicyManager;
+
+    new-instance v1, Lcom/android/settingslib/NetworkPolicyEditor;
+
+    invoke-direct {v1, v0}, Lcom/android/settingslib/NetworkPolicyEditor;-><init>(Landroid/net/NetworkPolicyManager;)V
+
+    iput-object v1, p0, Lcom/android/settings/datausage/DataUsageSummaryPreferenceController;->mPolicyEditor:Lcom/android/settingslib/NetworkPolicyEditor;
+
+    invoke-virtual {p0, p1}, Lcom/android/settings/datausage/DataUsageSummaryPreferenceController;->createDataUsageController(Landroid/content/Context;)Lcom/android/settingslib/net/DataUsageController;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/settings/datausage/DataUsageSummaryPreferenceController;->mDataUsageController:Lcom/android/settingslib/net/DataUsageController;
+
+    invoke-virtual {v0, p2}, Lcom/android/settingslib/net/DataUsageController;->setSubscriptionId(I)V
+
+    new-instance v0, Lcom/android/settings/datausage/DataUsageInfoController;
+
+    invoke-direct {v0}, Lcom/android/settings/datausage/DataUsageInfoController;-><init>()V
+
+    iput-object v0, p0, Lcom/android/settings/datausage/DataUsageSummaryPreferenceController;->mDataInfoController:Lcom/android/settings/datausage/DataUsageInfoController;
+
+    if-eqz p3, :cond_0
+
+    const p3, 0x7f040602
+
+    iput p3, p0, Lcom/android/settings/datausage/DataUsageSummaryPreferenceController;->mDataUsageTemplate:I
+
+    invoke-static {p1, p2}, Lcom/android/settings/datausage/lib/DataUsageLib;->getMobileTemplate(Landroid/content/Context;I)Landroid/net/NetworkTemplate;
+
+    move-result-object p1
+
+    iput-object p1, p0, Lcom/android/settings/datausage/DataUsageSummaryPreferenceController;->mDefaultTemplate:Landroid/net/NetworkTemplate;
+
+    goto :goto_0
+
+    :cond_0
+    invoke-static {p1}, Lcom/android/settings/datausage/DataUsageUtils;->hasWifiRadio(Landroid/content/Context;)Z
+
+    move-result p3
+
+    if-eqz p3, :cond_1
+
+    const p1, 0x7f041710
+
+    iput p1, p0, Lcom/android/settings/datausage/DataUsageSummaryPreferenceController;->mDataUsageTemplate:I
+
+    new-instance p1, Landroid/net/NetworkTemplate$Builder;
+
+    const/4 p2, 0x4
+
+    invoke-direct {p1, p2}, Landroid/net/NetworkTemplate$Builder;-><init>(I)V
+
+    invoke-virtual {p1}, Landroid/net/NetworkTemplate$Builder;->build()Landroid/net/NetworkTemplate;
+
+    move-result-object p1
+
+    iput-object p1, p0, Lcom/android/settings/datausage/DataUsageSummaryPreferenceController;->mDefaultTemplate:Landroid/net/NetworkTemplate;
+
+    goto :goto_0
+
+    :cond_1
+    const p3, 0x7f040945
+
+    iput p3, p0, Lcom/android/settings/datausage/DataUsageSummaryPreferenceController;->mDataUsageTemplate:I
+
+    invoke-static {p1, p2}, Lcom/android/settings/datausage/DataUsageUtils;->getDefaultTemplate(Landroid/content/Context;I)Landroid/net/NetworkTemplate;
+
+    move-result-object p1
+
+    iput-object p1, p0, Lcom/android/settings/datausage/DataUsageSummaryPreferenceController;->mDefaultTemplate:Landroid/net/NetworkTemplate;
+
+    :goto_0
+    return-void
+.end method
+
 .method public updateState(Landroidx/preference/Preference;)V
     .locals 13
 
@@ -904,7 +889,7 @@
 
     iget v2, p0, Lcom/android/settings/network/telephony/TelephonyBasePreferenceController;->mSubId:I
 
-    invoke-direct {p0, v1, v2, v0}, Lcom/android/settings/datausage/DataUsageSummaryPreferenceController;->updateConfiguration(Landroid/content/Context;ILandroid/telephony/SubscriptionInfo;)V
+    invoke-virtual {p0, v1, v2, v0}, Lcom/android/settings/datausage/DataUsageSummaryPreferenceController;->updateConfiguration(Landroid/content/Context;ILandroid/telephony/SubscriptionInfo;)V
 
     :cond_0
     new-instance v1, Lcom/android/settings/datausage/DataUsageSummaryPreferenceController$$ExternalSyntheticLambda0;
@@ -967,7 +952,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0405a7
+    const v3, 0x7f040604
 
     invoke-virtual {v0, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -1012,7 +997,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0405a6
+    const v3, 0x7f040603
 
     invoke-virtual {v0, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -1047,7 +1032,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0405a3
+    const v3, 0x7f040600
 
     invoke-virtual {v0, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 

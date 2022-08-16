@@ -39,7 +39,7 @@
 
     iget-object p0, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable$1;->this$0:Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;
 
-    invoke-static {p0}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->access$100(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)V
+    invoke-static {p0}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->-$$Nest$monGestureDetected(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)V
 
     return-void
 .end method
@@ -49,7 +49,7 @@
 
     iget-object p0, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable$1;->this$0:Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;
 
-    invoke-static {p0, p1, p2}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->access$000(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;FI)V
+    invoke-static {p0, p1, p2}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->-$$Nest$monGestureProgress(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;FI)V
 
     return-void
 .end method

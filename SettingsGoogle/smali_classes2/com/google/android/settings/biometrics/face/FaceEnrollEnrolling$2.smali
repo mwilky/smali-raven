@@ -88,7 +88,7 @@
 
     const/4 p2, 0x2
 
-    invoke-static {p1, p0, p2}, Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling;->access$900(Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling;Landroid/content/DialogInterface;I)V
+    invoke-static {p1, p0, p2}, Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling;->-$$Nest$mfinishFromDialog(Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling;Landroid/content/DialogInterface;I)V
 
     return-void
 .end method
@@ -104,7 +104,7 @@
 
     const/4 p2, 0x5
 
-    invoke-static {p1, p0, p2}, Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling;->access$900(Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling;Landroid/content/DialogInterface;I)V
+    invoke-static {p1, p0, p2}, Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling;->-$$Nest$mfinishFromDialog(Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling;Landroid/content/DialogInterface;I)V
 
     :cond_0
     return-void

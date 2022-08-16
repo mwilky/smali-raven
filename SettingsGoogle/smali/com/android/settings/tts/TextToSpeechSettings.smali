@@ -94,12 +94,20 @@
     return p0
 .end method
 
+.method static bridge synthetic -$$Nest$mupdateWidgetState(Lcom/android/settings/tts/TextToSpeechSettings;Z)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/tts/TextToSpeechSettings;->updateWidgetState(Z)V
+
+    return-void
+.end method
+
 .method static constructor <clinit>()V
     .locals 2
 
     new-instance v0, Lcom/android/settings/search/BaseSearchIndexProvider;
 
-    const v1, 0x7f1500fe
+    const v1, 0x7f150104
 
     invoke-direct {v0, v1}, Lcom/android/settings/search/BaseSearchIndexProvider;-><init>(I)V
 
@@ -136,14 +144,6 @@
     invoke-direct {v0, p0}, Lcom/android/settings/tts/TextToSpeechSettings$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/tts/TextToSpeechSettings;)V
 
     iput-object v0, p0, Lcom/android/settings/tts/TextToSpeechSettings;->mInitListener:Landroid/speech/tts/TextToSpeech$OnInitListener;
-
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/tts/TextToSpeechSettings;Z)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/tts/TextToSpeechSettings;->updateWidgetState(Z)V
 
     return-void
 .end method
@@ -299,7 +299,7 @@
 
     move-result-object p0
 
-    const v2, 0x7f04141c
+    const v2, 0x7f041516
 
     invoke-virtual {p0, v2}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -530,7 +530,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0100c6
+    const v2, 0x7f0100da
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -544,7 +544,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0100c5
+    const v3, 0x7f0100d9
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -578,7 +578,7 @@
 
     :catch_0
     :cond_1
-    const v0, 0x7f04141b
+    const v0, 0x7f041515
 
     invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -1041,7 +1041,7 @@
 
     if-eqz p2, :cond_0
 
-    const-string p1, "sampleText"
+    const-string/jumbo p1, "sampleText"
 
     invoke-virtual {p2, p1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
@@ -1208,7 +1208,7 @@
 
     iget-object p0, p0, Lcom/android/settings/tts/TextToSpeechSettings;->mLocalePreference:Landroidx/preference/ListPreference;
 
-    const p1, 0x7f04142b
+    const p1, 0x7f041525
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -1480,7 +1480,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f04142c
+    const v6, 0x7f041526
 
     invoke-virtual {v5, v6}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -1866,7 +1866,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    const v0, 0x7f1500fe
+    const v0, 0x7f150104
 
     invoke-virtual {p0, v0}, Lcom/android/settings/SettingsPreferenceFragment;->addPreferencesFromResource(I)V
 
@@ -1932,15 +1932,15 @@
 
     check-cast v0, Lcom/android/settingslib/widget/ActionButtonsPreference;
 
-    const v1, 0x7f04142d
+    const v1, 0x7f041527
 
     invoke-virtual {v0, v1}, Lcom/android/settingslib/widget/ActionButtonsPreference;->setButton1Text(I)Lcom/android/settingslib/widget/ActionButtonsPreference;
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/settings/tts/TextToSpeechSettings$$ExternalSyntheticLambda2;
+    new-instance v1, Lcom/android/settings/tts/TextToSpeechSettings$$ExternalSyntheticLambda1;
 
-    invoke-direct {v1, p0}, Lcom/android/settings/tts/TextToSpeechSettings$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/tts/TextToSpeechSettings;)V
+    invoke-direct {v1, p0}, Lcom/android/settings/tts/TextToSpeechSettings$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/tts/TextToSpeechSettings;)V
 
     invoke-virtual {v0, v1}, Lcom/android/settingslib/widget/ActionButtonsPreference;->setButton1OnClickListener(Landroid/view/View$OnClickListener;)Lcom/android/settingslib/widget/ActionButtonsPreference;
 
@@ -1952,15 +1952,15 @@
 
     move-result-object v0
 
-    const v2, 0x7f041430
+    const v2, 0x7f04152a
 
     invoke-virtual {v0, v2}, Lcom/android/settingslib/widget/ActionButtonsPreference;->setButton2Text(I)Lcom/android/settingslib/widget/ActionButtonsPreference;
 
     move-result-object v0
 
-    new-instance v2, Lcom/android/settings/tts/TextToSpeechSettings$$ExternalSyntheticLambda1;
+    new-instance v2, Lcom/android/settings/tts/TextToSpeechSettings$$ExternalSyntheticLambda2;
 
-    invoke-direct {v2, p0}, Lcom/android/settings/tts/TextToSpeechSettings$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/tts/TextToSpeechSettings;)V
+    invoke-direct {v2, p0}, Lcom/android/settings/tts/TextToSpeechSettings$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/tts/TextToSpeechSettings;)V
 
     invoke-virtual {v0, v2}, Lcom/android/settingslib/widget/ActionButtonsPreference;->setButton2OnClickListener(Landroid/view/View$OnClickListener;)Lcom/android/settingslib/widget/ActionButtonsPreference;
 

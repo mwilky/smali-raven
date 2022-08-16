@@ -38,6 +38,22 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$mhandleRestrictBackgroundChanged(Lcom/android/settings/datausage/DataSaverBackend;Z)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/datausage/DataSaverBackend;->handleRestrictBackgroundChanged(Z)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mhandleUidPoliciesChanged(Lcom/android/settings/datausage/DataSaverBackend;II)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/settings/datausage/DataSaverBackend;->handleUidPoliciesChanged(II)V
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
 
@@ -78,22 +94,6 @@
     move-result-object p1
 
     iput-object p1, p0, Lcom/android/settings/datausage/DataSaverBackend;->mPolicyManager:Landroid/net/NetworkPolicyManager;
-
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/datausage/DataSaverBackend;Z)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/datausage/DataSaverBackend;->handleRestrictBackgroundChanged(Z)V
-
-    return-void
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/datausage/DataSaverBackend;II)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/settings/datausage/DataSaverBackend;->handleUidPoliciesChanged(II)V
 
     return-void
 .end method

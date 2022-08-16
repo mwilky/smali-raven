@@ -16,14 +16,4 @@
 
 # virtual methods
 .method public abstract onGetChildDrawingOrder(II)I
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "childCount",
-            "i"
-        }
-    .end annotation
 .end method

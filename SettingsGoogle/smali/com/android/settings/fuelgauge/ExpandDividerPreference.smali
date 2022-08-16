@@ -51,7 +51,7 @@
 
     iput-object p1, p0, Lcom/android/settings/fuelgauge/ExpandDividerPreference;->mTitleContent:Ljava/lang/String;
 
-    const p1, 0x7f06019b
+    const p1, 0x7f0601a6
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setLayoutResource(I)V
 
@@ -73,12 +73,12 @@
 
     if-eqz v1, :cond_0
 
-    const v1, 0x7f020341
+    const v1, 0x7f020365
 
     goto :goto_0
 
     :cond_0
-    const v1, 0x7f020342
+    const v1, 0x7f020366
 
     :goto_0
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
@@ -103,7 +103,7 @@
 
     invoke-super {p0, p1}, Landroidx/preference/Preference;->onBindViewHolder(Landroidx/preference/PreferenceViewHolder;)V
 
-    const v0, 0x7f0d021f
+    const v0, 0x7f0d0237
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -113,7 +113,7 @@
 
     iput-object v0, p0, Lcom/android/settings/fuelgauge/ExpandDividerPreference;->mTextView:Landroid/widget/TextView;
 
-    const v0, 0x7f0d021d
+    const v0, 0x7f0d0235
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 

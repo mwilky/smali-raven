@@ -11,13 +11,13 @@
 # static fields
 .field private static final INTENT_FILTER_LOCATION_MODE_CHANGED:Landroid/content/IntentFilter;
 
+.field private static sSummary:Ljava/lang/String;
+
 
 # instance fields
 .field private loadingInProgress:Ljava/util/concurrent/atomic/AtomicInteger;
 
 .field private final mLocationManager:Landroid/location/LocationManager;
-
-.field private mNumTotal:I
 
 .field private mNumTotalLoading:I
 
@@ -35,6 +35,14 @@
     return-void
 .end method
 
+.method static bridge synthetic -$$Nest$mrefreshLocationMode(Lcom/android/settings/location/TopLevelLocationPreferenceController;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/location/TopLevelLocationPreferenceController;->refreshLocationMode()V
+
+    return-void
+.end method
+
 .method static constructor <clinit>()V
     .locals 2
 
@@ -46,6 +54,10 @@
 
     sput-object v0, Lcom/android/settings/location/TopLevelLocationPreferenceController;->INTENT_FILTER_LOCATION_MODE_CHANGED:Landroid/content/IntentFilter;
 
+    const/4 v0, 0x0
+
+    sput-object v0, Lcom/android/settings/location/TopLevelLocationPreferenceController;->sSummary:Ljava/lang/String;
+
     return-void
 .end method
 
@@ -53,10 +65,6 @@
     .locals 1
 
     invoke-direct {p0, p1, p2}, Lcom/android/settings/core/BasePreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;)V
-
-    const/4 p2, -0x1
-
-    iput p2, p0, Lcom/android/settings/location/TopLevelLocationPreferenceController;->mNumTotal:I
 
     const/4 p2, 0x0
 
@@ -77,14 +85,6 @@
     check-cast p1, Landroid/location/LocationManager;
 
     iput-object p1, p0, Lcom/android/settings/location/TopLevelLocationPreferenceController;->mLocationManager:Landroid/location/LocationManager;
-
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/location/TopLevelLocationPreferenceController;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/location/TopLevelLocationPreferenceController;->refreshLocationMode()V
 
     return-void
 .end method
@@ -129,14 +129,6 @@
 
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public getAvailabilityStatus()I
     .locals 0
 
@@ -147,15 +139,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -185,7 +168,7 @@
 .end method
 
 .method public getSummary()Ljava/lang/CharSequence;
-    .locals 5
+    .locals 1
 
     iget-object v0, p0, Lcom/android/settings/location/TopLevelLocationPreferenceController;->mLocationManager:Landroid/location/LocationManager;
 
@@ -195,55 +178,29 @@
 
     if-eqz v0, :cond_1
 
-    iget v0, p0, Lcom/android/settings/location/TopLevelLocationPreferenceController;->mNumTotal:I
+    sget-object v0, Lcom/android/settings/location/TopLevelLocationPreferenceController;->sSummary:Ljava/lang/String;
 
-    const/4 v1, -0x1
-
-    if-ne v0, v1, :cond_0
+    if-nez v0, :cond_0
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f040b9c
+    const v0, 0x7f040c06
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object p0
 
-    return-object p0
+    sput-object p0, Lcom/android/settings/location/TopLevelLocationPreferenceController;->sSummary:Ljava/lang/String;
 
     :cond_0
-    iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    const v1, 0x7f120023
-
-    iget p0, p0, Lcom/android/settings/location/TopLevelLocationPreferenceController;->mNumTotal:I
-
-    const/4 v2, 0x1
-
-    new-array v2, v2, [Ljava/lang/Object;
-
-    const/4 v3, 0x0
-
-    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v4
-
-    aput-object v4, v2, v3
-
-    invoke-virtual {v0, v1, p0, v2}, Landroid/content/res/Resources;->getQuantityString(II[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object p0
+    sget-object p0, Lcom/android/settings/location/TopLevelLocationPreferenceController;->sSummary:Ljava/lang/String;
 
     return-object p0
 
     :cond_1
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f040b9e
+    const v0, 0x7f040c08
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -256,16 +213,6 @@
     .locals 0
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->hasAsyncUpdate()Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
 
     move-result p0
 
@@ -332,9 +279,33 @@
 .end method
 
 .method setLocationAppCount(I)V
-    .locals 0
+    .locals 4
 
-    iput p1, p0, Lcom/android/settings/location/TopLevelLocationPreferenceController;->mNumTotal:I
+    iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const/4 v1, 0x1
+
+    new-array v1, v1, [Ljava/lang/Object;
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    const/4 v3, 0x0
+
+    aput-object v2, v1, v3
+
+    const v2, 0x7f120023
+
+    invoke-virtual {v0, v2, p1, v1}, Landroid/content/res/Resources;->getQuantityString(II[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object p1
+
+    sput-object p1, Lcom/android/settings/location/TopLevelLocationPreferenceController;->sSummary:Ljava/lang/String;
 
     iget-object p1, p0, Lcom/android/settings/location/TopLevelLocationPreferenceController;->mPreference:Landroidx/preference/Preference;
 

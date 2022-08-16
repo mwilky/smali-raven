@@ -157,7 +157,7 @@
 
     iget-object v3, p0, Lcom/android/settings/accounts/AccountHeaderPreferenceController;->mHeaderPreference:Lcom/android/settingslib/widget/LayoutPreference;
 
-    const v4, 0x7f0d0203
+    const v4, 0x7f0d021c
 
     invoke-virtual {v3, v4}, Lcom/android/settingslib/widget/LayoutPreference;->findViewById(I)Landroid/view/View;
 

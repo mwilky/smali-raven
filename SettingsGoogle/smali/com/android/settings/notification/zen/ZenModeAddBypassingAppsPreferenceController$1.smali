@@ -39,7 +39,7 @@
 
     iget-object p1, p0, Lcom/android/settings/notification/zen/ZenModeAddBypassingAppsPreferenceController$1;->this$0:Lcom/android/settings/notification/zen/ZenModeAddBypassingAppsPreferenceController;
 
-    invoke-static {p1}, Lcom/android/settings/notification/zen/ZenModeAddBypassingAppsPreferenceController;->access$000(Lcom/android/settings/notification/zen/ZenModeAddBypassingAppsPreferenceController;)Landroidx/preference/Preference;
+    invoke-static {p1}, Lcom/android/settings/notification/zen/ZenModeAddBypassingAppsPreferenceController;->-$$Nest$fgetmAddPreference(Lcom/android/settings/notification/zen/ZenModeAddBypassingAppsPreferenceController;)Landroidx/preference/Preference;
 
     move-result-object p1
 
@@ -53,7 +53,7 @@
 
     if-eqz v0, :cond_0
 
-    invoke-static {p1}, Lcom/android/settings/notification/zen/ZenModeAddBypassingAppsPreferenceController;->access$100(Lcom/android/settings/notification/zen/ZenModeAddBypassingAppsPreferenceController;)Landroidx/fragment/app/Fragment;
+    invoke-static {p1}, Lcom/android/settings/notification/zen/ZenModeAddBypassingAppsPreferenceController;->-$$Nest$fgetmHostFragment(Lcom/android/settings/notification/zen/ZenModeAddBypassingAppsPreferenceController;)Landroidx/fragment/app/Fragment;
 
     move-result-object p1
 
@@ -63,13 +63,13 @@
 
     iget-object v0, p1, Lcom/android/settings/notification/zen/ZenModeAddBypassingAppsPreferenceController;->mApplicationsState:Lcom/android/settingslib/applications/ApplicationsState;
 
-    invoke-static {p1}, Lcom/android/settings/notification/zen/ZenModeAddBypassingAppsPreferenceController;->access$300(Lcom/android/settings/notification/zen/ZenModeAddBypassingAppsPreferenceController;)Lcom/android/settingslib/applications/ApplicationsState$Callbacks;
+    invoke-static {p1}, Lcom/android/settings/notification/zen/ZenModeAddBypassingAppsPreferenceController;->-$$Nest$fgetmAppSessionCallbacks(Lcom/android/settings/notification/zen/ZenModeAddBypassingAppsPreferenceController;)Lcom/android/settingslib/applications/ApplicationsState$Callbacks;
 
     move-result-object v1
 
     iget-object p0, p0, Lcom/android/settings/notification/zen/ZenModeAddBypassingAppsPreferenceController$1;->this$0:Lcom/android/settings/notification/zen/ZenModeAddBypassingAppsPreferenceController;
 
-    invoke-static {p0}, Lcom/android/settings/notification/zen/ZenModeAddBypassingAppsPreferenceController;->access$100(Lcom/android/settings/notification/zen/ZenModeAddBypassingAppsPreferenceController;)Landroidx/fragment/app/Fragment;
+    invoke-static {p0}, Lcom/android/settings/notification/zen/ZenModeAddBypassingAppsPreferenceController;->-$$Nest$fgetmHostFragment(Lcom/android/settings/notification/zen/ZenModeAddBypassingAppsPreferenceController;)Landroidx/fragment/app/Fragment;
 
     move-result-object p0
 
@@ -81,7 +81,7 @@
 
     move-result-object p0
 
-    invoke-static {p1, p0}, Lcom/android/settings/notification/zen/ZenModeAddBypassingAppsPreferenceController;->access$202(Lcom/android/settings/notification/zen/ZenModeAddBypassingAppsPreferenceController;Lcom/android/settingslib/applications/ApplicationsState$Session;)Lcom/android/settingslib/applications/ApplicationsState$Session;
+    invoke-static {p1, p0}, Lcom/android/settings/notification/zen/ZenModeAddBypassingAppsPreferenceController;->-$$Nest$fputmAppSession(Lcom/android/settings/notification/zen/ZenModeAddBypassingAppsPreferenceController;Lcom/android/settingslib/applications/ApplicationsState$Session;)V
 
     :cond_0
     const/4 p0, 0x1

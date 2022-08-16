@@ -58,7 +58,7 @@
 .method public register(Landroid/content/ContentResolver;)V
     .locals 3
 
-    invoke-static {}, Lcom/google/android/settings/gestures/columbus/ColumbusActionsPreferenceController;->access$200()Landroid/net/Uri;
+    invoke-static {}, Lcom/google/android/settings/gestures/columbus/ColumbusActionsPreferenceController;->-$$Nest$sfgetCOLUMBUS_ENABLED_URI()Landroid/net/Uri;
 
     move-result-object v0
 
@@ -70,7 +70,7 @@
 
     invoke-virtual {p1, v0, v2, p0, v1}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
 
-    invoke-static {}, Lcom/google/android/settings/gestures/columbus/ColumbusActionsPreferenceController;->access$300()Landroid/net/Uri;
+    invoke-static {}, Lcom/google/android/settings/gestures/columbus/ColumbusActionsPreferenceController;->-$$Nest$sfgetCOLUMBUS_LAUNCH_APP_URI()Landroid/net/Uri;
 
     move-result-object v0
 

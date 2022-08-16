@@ -47,7 +47,7 @@
 
     if-eqz v1, :cond_0
 
-    const v0, 0x7f130152
+    const v0, 0x7f130184
 
     invoke-virtual {p0, v0, v2}, Landroid/content/res/Resources$Theme;->applyStyle(IZ)V
 
@@ -62,7 +62,7 @@
 
     if-eqz v1, :cond_1
 
-    const v0, 0x7f130154
+    const v0, 0x7f130186
 
     invoke-virtual {p0, v0, v2}, Landroid/content/res/Resources$Theme;->applyStyle(IZ)V
 
@@ -77,14 +77,14 @@
 
     if-eqz v0, :cond_2
 
-    const v0, 0x7f130153
+    const v0, 0x7f130185
 
     invoke-virtual {p0, v0, v2}, Landroid/content/res/Resources$Theme;->applyStyle(IZ)V
 
     goto :goto_0
 
     :cond_2
-    const v0, 0x7f130151
+    const v0, 0x7f130183
 
     invoke-virtual {p0, v0, v2}, Landroid/content/res/Resources$Theme;->applyStyle(IZ)V
 

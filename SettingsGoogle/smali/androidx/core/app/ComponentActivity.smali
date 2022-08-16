@@ -13,7 +13,10 @@
         value = {
             "Landroidx/collection/SimpleArrayMap<",
             "Ljava/lang/Class<",
-            "*>;*>;"
+            "Ljava/lang/Object;",
+            ">;",
+            "Ljava/lang/Object;",
+            ">;"
         }
     .end annotation
 .end field
@@ -46,14 +49,6 @@
 # virtual methods
 .method public dispatchKeyEvent(Landroid/view/KeyEvent;)Z
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "event"
-        }
-    .end annotation
 
     invoke-virtual {p0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
 
@@ -85,14 +80,6 @@
 
 .method public dispatchKeyShortcutEvent(Landroid/view/KeyEvent;)Z
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "event"
-        }
-    .end annotation
 
     invoke-virtual {p0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
 
@@ -122,20 +109,19 @@
     return p0
 .end method
 
+.method public getLifecycle()Landroidx/lifecycle/Lifecycle;
+    .locals 0
+
+    iget-object p0, p0, Landroidx/core/app/ComponentActivity;->mLifecycleRegistry:Landroidx/lifecycle/LifecycleRegistry;
+
+    return-object p0
+.end method
+
 .method protected onCreate(Landroid/os/Bundle;)V
     .locals 0
     .annotation build Landroid/annotation/SuppressLint;
         value = {
             "RestrictedApi"
-        }
-    .end annotation
-
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "savedInstanceState"
         }
     .end annotation
 
@@ -148,14 +134,6 @@
 
 .method protected onSaveInstanceState(Landroid/os/Bundle;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "outState"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/core/app/ComponentActivity;->mLifecycleRegistry:Landroidx/lifecycle/LifecycleRegistry;
 
@@ -170,14 +148,6 @@
 
 .method public superDispatchKeyEvent(Landroid/view/KeyEvent;)Z
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "event"
-        }
-    .end annotation
 
     invoke-super {p0, p1}, Landroid/app/Activity;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
 

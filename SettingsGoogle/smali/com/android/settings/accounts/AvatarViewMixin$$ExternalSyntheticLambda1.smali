@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settings/accounts/AvatarViewMixin$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroidx/lifecycle/Observer;

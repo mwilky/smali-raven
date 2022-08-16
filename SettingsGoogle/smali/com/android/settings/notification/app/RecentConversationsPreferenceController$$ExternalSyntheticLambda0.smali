@@ -1,45 +1,30 @@
 .class public final synthetic Lcom/android/settings/notification/app/RecentConversationsPreferenceController$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/view/View$OnClickListener;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/android/settings/notification/app/RecentConversationsPreferenceController;
-
-.field public final synthetic f$1:Landroidx/preference/PreferenceGroup;
-
-.field public final synthetic f$2:Landroid/widget/Button;
+.implements Ljava/util/function/Predicate;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/settings/notification/app/RecentConversationsPreferenceController;Landroidx/preference/PreferenceGroup;Landroid/widget/Button;)V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/settings/notification/app/RecentConversationsPreferenceController$$ExternalSyntheticLambda0;->f$0:Lcom/android/settings/notification/app/RecentConversationsPreferenceController;
-
-    iput-object p2, p0, Lcom/android/settings/notification/app/RecentConversationsPreferenceController$$ExternalSyntheticLambda0;->f$1:Landroidx/preference/PreferenceGroup;
-
-    iput-object p3, p0, Lcom/android/settings/notification/app/RecentConversationsPreferenceController$$ExternalSyntheticLambda0;->f$2:Landroid/widget/Button;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final onClick(Landroid/view/View;)V
-    .locals 2
+.method public final test(Ljava/lang/Object;)Z
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/settings/notification/app/RecentConversationsPreferenceController$$ExternalSyntheticLambda0;->f$0:Lcom/android/settings/notification/app/RecentConversationsPreferenceController;
+    check-cast p1, Landroid/app/people/ConversationChannel;
 
-    iget-object v1, p0, Lcom/android/settings/notification/app/RecentConversationsPreferenceController$$ExternalSyntheticLambda0;->f$1:Landroidx/preference/PreferenceGroup;
+    invoke-static {p1}, Lcom/android/settings/notification/app/RecentConversationsPreferenceController;->$r8$lambda$GiMau-ndtA2FzYihPrpnpzWD800(Landroid/app/people/ConversationChannel;)Z
 
-    iget-object p0, p0, Lcom/android/settings/notification/app/RecentConversationsPreferenceController$$ExternalSyntheticLambda0;->f$2:Landroid/widget/Button;
+    move-result p0
 
-    invoke-static {v0, v1, p0, p1}, Lcom/android/settings/notification/app/RecentConversationsPreferenceController;->$r8$lambda$1d1gqy0it1L6wds3Nh_W5IPl3no(Lcom/android/settings/notification/app/RecentConversationsPreferenceController;Landroidx/preference/PreferenceGroup;Landroid/widget/Button;Landroid/view/View;)V
-
-    return-void
+    return p0
 .end method

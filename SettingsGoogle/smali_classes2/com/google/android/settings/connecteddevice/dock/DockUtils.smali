@@ -15,19 +15,19 @@
 
     move-result-object v0
 
-    const v1, 0x7f0201bf
+    const v1, 0x7f0201da
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v1
 
-    const v2, 0x7f0100f9
+    const v2, 0x7f01010d
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getIntArray(I)[I
 
     move-result-object v2
 
-    const v3, 0x7f0100f8
+    const v3, 0x7f01010c
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getIntArray(I)[I
 

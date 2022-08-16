@@ -66,6 +66,16 @@
     return-object p0
 .end method
 
+.method public static synthetic $r8$lambda$NVAJFNo4W4bIsrwhCFdkBeDoVO0(Ljava/util/List;)Lcom/android/settings/network/helper/SubscriptionAnnotation;
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/settings/network/SubscriptionUtil;->lambda$getSubscriptionOrDefault$14(Ljava/util/List;)Lcom/android/settings/network/helper/SubscriptionAnnotation;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method public static synthetic $r8$lambda$Ovf4UIx-T2aQXvAcpNdfPnhfEvs(ILandroid/telephony/SubscriptionInfo;)Z
     .locals 0
 
@@ -146,6 +156,16 @@
     return-object p0
 .end method
 
+.method public static synthetic $r8$lambda$le8gPLBhMQqq_IQAuBdFdovHEy0(ILcom/android/settings/network/helper/SubscriptionAnnotation;)Z
+    .locals 0
+
+    invoke-static {p0, p1}, Lcom/android/settings/network/SubscriptionUtil;->lambda$getSubscription$15(ILcom/android/settings/network/helper/SubscriptionAnnotation;)Z
+
+    move-result p0
+
+    return p0
+.end method
+
 .method public static synthetic $r8$lambda$qwmF36Y1SIrFufvBTTao7Y0eQhU(Ljava/util/Set;Lcom/android/settings/network/SubscriptionUtil$1DisplayInfo;)Z
     .locals 0
 
@@ -217,9 +237,9 @@
 
     move-result-object p0
 
-    new-instance p1, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda8;
+    new-instance p1, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda14;
 
-    invoke-direct {p1, v0}, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda8;-><init>(Landroid/os/ParcelUuid;)V
+    invoke-direct {p1, v0}, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda14;-><init>(Landroid/os/ParcelUuid;)V
 
     invoke-interface {p0, p1}, Ljava/util/stream/Stream;->filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
 
@@ -445,7 +465,7 @@
 
     if-eqz p1, :cond_4
 
-    const p1, 0x7f0407a4
+    const p1, 0x7f0407e8
 
     invoke-static {p0, p1}, Lcom/android/settings/network/SubscriptionUtil;->getResForDefaultConfig(Landroid/content/Context;I)Ljava/lang/String;
 
@@ -458,7 +478,7 @@
     :cond_4
     if-eqz v0, :cond_5
 
-    const p1, 0x7f0407a3
+    const p1, 0x7f0407e7
 
     invoke-static {p0, p1}, Lcom/android/settings/network/SubscriptionUtil;->getResForDefaultConfig(Landroid/content/Context;I)Ljava/lang/String;
 
@@ -471,7 +491,7 @@
     :cond_5
     if-eqz v3, :cond_6
 
-    const p1, 0x7f0407a5
+    const p1, 0x7f0407e9
 
     invoke-static {p0, p1}, Lcom/android/settings/network/SubscriptionUtil;->getResForDefaultConfig(Landroid/content/Context;I)Ljava/lang/String;
 
@@ -494,7 +514,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f041253
+    const p1, 0x7f04130d
 
     new-array v0, v1, [Ljava/lang/Object;
 
@@ -515,6 +535,61 @@
     move-result v0
 
     return v0
+.end method
+
+.method private static getDefaultSubscriptionSelection(Ljava/util/List;)Lcom/android/settings/network/helper/SubscriptionAnnotation;
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List<",
+            "Lcom/android/settings/network/helper/SubscriptionAnnotation;",
+            ">;)",
+            "Lcom/android/settings/network/helper/SubscriptionAnnotation;"
+        }
+    .end annotation
+
+    const/4 v0, 0x0
+
+    if-nez p0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    invoke-interface {p0}, Ljava/util/List;->stream()Ljava/util/stream/Stream;
+
+    move-result-object p0
+
+    new-instance v1, Lcom/android/settings/network/MobileNetworkSummaryStatus$$ExternalSyntheticLambda3;
+
+    invoke-direct {v1}, Lcom/android/settings/network/MobileNetworkSummaryStatus$$ExternalSyntheticLambda3;-><init>()V
+
+    invoke-interface {p0, v1}, Ljava/util/stream/Stream;->filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
+
+    move-result-object p0
+
+    new-instance v1, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda15;
+
+    invoke-direct {v1}, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda15;-><init>()V
+
+    invoke-interface {p0, v1}, Ljava/util/stream/Stream;->filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
+
+    move-result-object p0
+
+    invoke-interface {p0}, Ljava/util/stream/Stream;->findFirst()Ljava/util/Optional;
+
+    move-result-object p0
+
+    invoke-virtual {p0, v0}, Ljava/util/Optional;->orElse(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    move-object v0, p0
+
+    check-cast v0, Lcom/android/settings/network/helper/SubscriptionAnnotation;
+
+    :goto_0
+    return-object v0
 .end method
 
 .method private static getDefaultVoiceSubscriptionId()I
@@ -679,7 +754,7 @@
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Landroid/telephony/UiccCardInfo;->getSlotIndex()I
+    invoke-virtual {v3}, Landroid/telephony/UiccCardInfo;->getPhysicalSlotIndex()I
 
     move-result v3
 
@@ -713,29 +788,21 @@
     return-object v0
 
     :cond_0
-    const-class v1, Landroid/telephony/TelephonyManager;
+    const-class v1, Landroid/telephony/SubscriptionManager;
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object p0
 
-    check-cast p0, Landroid/telephony/TelephonyManager;
+    check-cast p0, Landroid/telephony/SubscriptionManager;
 
     invoke-virtual {p1}, Landroid/telephony/SubscriptionInfo;->getSubscriptionId()I
 
     move-result v1
 
-    invoke-virtual {p0, v1}, Landroid/telephony/TelephonyManager;->getLine1Number(I)Ljava/lang/String;
+    invoke-virtual {p0, v1}, Landroid/telephony/SubscriptionManager;->getPhoneNumber(I)Ljava/lang/String;
 
     move-result-object p0
-
-    invoke-virtual {p1}, Landroid/telephony/SubscriptionInfo;->getMccString()Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-static {p1}, Lcom/android/internal/telephony/MccTable;->countryCodeForMcc(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object p1
 
     invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -746,6 +813,14 @@
     return-object v0
 
     :cond_1
+    invoke-virtual {p1}, Landroid/telephony/SubscriptionInfo;->getMccString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-static {p1}, Lcom/android/internal/telephony/MccTable;->countryCodeForMcc(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p1
+
     invoke-static {p0, p1}, Landroid/telephony/PhoneNumberUtils;->formatNumber(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p0
@@ -923,15 +998,15 @@
 .end method
 
 .method public static getSubById(Landroid/telephony/SubscriptionManager;I)Landroid/telephony/SubscriptionInfo;
-    .locals 1
+    .locals 2
 
-    const/4 v0, -0x1
+    const/4 v0, 0x0
 
-    if-ne p1, v0, :cond_0
+    const/4 v1, -0x1
 
-    const/4 p0, 0x0
+    if-ne p1, v1, :cond_0
 
-    return-object p0
+    return-object v0
 
     :cond_0
     invoke-virtual {p0}, Landroid/telephony/SubscriptionManager;->getAllSubscriptionInfoList()Ljava/util/List;
@@ -942,11 +1017,11 @@
 
     move-result-object p0
 
-    new-instance v0, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda7;
+    new-instance v1, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda0;
 
-    invoke-direct {v0, p1}, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda7;-><init>(I)V
+    invoke-direct {v1, p1}, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda0;-><init>(I)V
 
-    invoke-interface {p0, v0}, Ljava/util/stream/Stream;->filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
+    invoke-interface {p0, v1}, Ljava/util/stream/Stream;->filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
 
     move-result-object p0
 
@@ -954,11 +1029,144 @@
 
     move-result-object p0
 
-    invoke-virtual {p0}, Ljava/util/Optional;->get()Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Ljava/util/Optional;->orElse(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p0
 
     check-cast p0, Landroid/telephony/SubscriptionInfo;
+
+    return-object p0
+.end method
+
+.method private static getSubscription(Landroid/content/Context;ILjava/util/function/Function;)Landroid/telephony/SubscriptionInfo;
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/content/Context;",
+            "I",
+            "Ljava/util/function/Function<",
+            "Ljava/util/List<",
+            "Lcom/android/settings/network/helper/SubscriptionAnnotation;",
+            ">;",
+            "Lcom/android/settings/network/helper/SubscriptionAnnotation;",
+            ">;)",
+            "Landroid/telephony/SubscriptionInfo;"
+        }
+    .end annotation
+
+    new-instance v0, Lcom/android/settings/network/helper/SelectableSubscriptions;
+
+    const/4 v1, 0x1
+
+    invoke-direct {v0, p0, v1}, Lcom/android/settings/network/helper/SelectableSubscriptions;-><init>(Landroid/content/Context;Z)V
+
+    invoke-virtual {v0}, Lcom/android/settings/network/helper/SelectableSubscriptions;->call()Ljava/util/List;
+
+    move-result-object p0
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "get subId="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v1, " from "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "SubscriptionUtil"
+
+    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-interface {p0}, Ljava/util/List;->stream()Ljava/util/stream/Stream;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/android/settings/network/MobileNetworkSummaryStatus$$ExternalSyntheticLambda3;
+
+    invoke-direct {v1}, Lcom/android/settings/network/MobileNetworkSummaryStatus$$ExternalSyntheticLambda3;-><init>()V
+
+    invoke-interface {v0, v1}, Ljava/util/stream/Stream;->filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda16;
+
+    invoke-direct {v1, p1}, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda16;-><init>(I)V
+
+    invoke-interface {v0, v1}, Ljava/util/stream/Stream;->filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
+
+    move-result-object p1
+
+    invoke-interface {p1}, Ljava/util/stream/Stream;->findFirst()Ljava/util/Optional;
+
+    move-result-object p1
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p1, v0}, Ljava/util/Optional;->orElse(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Lcom/android/settings/network/helper/SubscriptionAnnotation;
+
+    if-nez p1, :cond_0
+
+    if-eqz p2, :cond_0
+
+    invoke-interface {p2, p0}, Ljava/util/function/Function;->apply(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    move-object p1, p0
+
+    check-cast p1, Lcom/android/settings/network/helper/SubscriptionAnnotation;
+
+    :cond_0
+    if-nez p1, :cond_1
+
+    goto :goto_0
+
+    :cond_1
+    invoke-virtual {p1}, Lcom/android/settings/network/helper/SubscriptionAnnotation;->getSubInfo()Landroid/telephony/SubscriptionInfo;
+
+    move-result-object v0
+
+    :goto_0
+    return-object v0
+.end method
+
+.method public static getSubscriptionOrDefault(Landroid/content/Context;I)Landroid/telephony/SubscriptionInfo;
+    .locals 1
+
+    const/4 v0, -0x1
+
+    if-eq p1, v0, :cond_0
+
+    const/4 v0, 0x0
+
+    goto :goto_0
+
+    :cond_0
+    new-instance v0, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda10;
+
+    invoke-direct {v0}, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda10;-><init>()V
+
+    :goto_0
+    invoke-static {p0, p1, v0}, Lcom/android/settings/network/SubscriptionUtil;->getSubscription(Landroid/content/Context;ILjava/util/function/Function;)Landroid/telephony/SubscriptionInfo;
+
+    move-result-object p0
 
     return-object p0
 .end method
@@ -1038,9 +1246,9 @@
         }
     .end annotation
 
-    new-instance v0, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda12;
+    new-instance v0, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda1;
 
-    invoke-direct {v0, p0}, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda12;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, p0}, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda1;-><init>(Landroid/content/Context;)V
 
     new-instance v1, Ljava/util/HashSet;
 
@@ -1052,15 +1260,17 @@
 
     check-cast v2, Ljava/util/stream/Stream;
 
-    new-instance v3, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda9;
+    new-instance v3, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda2;
 
-    invoke-direct {v3, v1}, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda9;-><init>(Ljava/util/Set;)V
+    invoke-direct {v3, v1}, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda2;-><init>(Ljava/util/Set;)V
 
     invoke-interface {v2, v3}, Ljava/util/stream/Stream;->filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
 
     move-result-object v2
 
-    sget-object v3, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda6;->INSTANCE:Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda6;
+    new-instance v3, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda3;
+
+    invoke-direct {v3}, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda3;-><init>()V
 
     invoke-interface {v2, v3}, Ljava/util/stream/Stream;->map(Ljava/util/function/Function;)Ljava/util/stream/Stream;
 
@@ -1076,9 +1286,9 @@
 
     check-cast v2, Ljava/util/Set;
 
-    new-instance v3, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda13;
+    new-instance v3, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda4;
 
-    invoke-direct {v3, v0, v2, p0}, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda13;-><init>(Ljava/util/function/Supplier;Ljava/util/Set;Landroid/content/Context;)V
+    invoke-direct {v3, v0, v2, p0}, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda4;-><init>(Ljava/util/function/Supplier;Ljava/util/Set;Landroid/content/Context;)V
 
     invoke-interface {v1}, Ljava/util/Set;->clear()V
 
@@ -1088,15 +1298,17 @@
 
     check-cast p0, Ljava/util/stream/Stream;
 
-    new-instance v0, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda10;
+    new-instance v0, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda5;
 
-    invoke-direct {v0, v1}, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda10;-><init>(Ljava/util/Set;)V
+    invoke-direct {v0, v1}, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda5;-><init>(Ljava/util/Set;)V
 
     invoke-interface {p0, v0}, Ljava/util/stream/Stream;->filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
 
     move-result-object p0
 
-    sget-object v0, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda5;->INSTANCE:Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda5;
+    new-instance v0, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda6;
+
+    invoke-direct {v0}, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda6;-><init>()V
 
     invoke-interface {p0, v0}, Ljava/util/stream/Stream;->map(Ljava/util/function/Function;)Ljava/util/stream/Stream;
 
@@ -1118,17 +1330,21 @@
 
     check-cast v0, Ljava/util/stream/Stream;
 
-    new-instance v1, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda1;
+    new-instance v1, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda7;
 
-    invoke-direct {v1, p0}, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda1;-><init>(Ljava/util/Set;)V
+    invoke-direct {v1, p0}, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda7;-><init>(Ljava/util/Set;)V
 
     invoke-interface {v0, v1}, Ljava/util/stream/Stream;->map(Ljava/util/function/Function;)Ljava/util/stream/Stream;
 
     move-result-object p0
 
-    sget-object v0, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda4;->INSTANCE:Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda4;
+    new-instance v0, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda8;
 
-    sget-object v1, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda3;->INSTANCE:Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda3;
+    invoke-direct {v0}, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda8;-><init>()V
+
+    new-instance v1, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda9;
+
+    invoke-direct {v1}, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda9;-><init>()V
 
     invoke-static {v0, v1}, Ljava/util/stream/Collectors;->toMap(Ljava/util/function/Function;Ljava/util/function/Function;)Ljava/util/stream/Collector;
 
@@ -1159,7 +1375,25 @@
 
     if-nez v1, :cond_1
 
-    invoke-virtual {p0}, Landroid/telephony/UiccSlotInfo;->getIsActive()Z
+    invoke-virtual {p0}, Landroid/telephony/UiccSlotInfo;->getPorts()Ljava/util/Collection;
+
+    move-result-object v1
+
+    invoke-interface {v1}, Ljava/util/Collection;->stream()Ljava/util/stream/Stream;
+
+    move-result-object v1
+
+    invoke-interface {v1}, Ljava/util/stream/Stream;->findFirst()Ljava/util/Optional;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/util/Optional;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/telephony/UiccPortInfo;
+
+    invoke-virtual {v1}, Landroid/telephony/UiccPortInfo;->isActive()Z
 
     move-result v1
 
@@ -1312,7 +1546,25 @@
 
     if-nez v3, :cond_6
 
-    invoke-virtual {v2}, Landroid/telephony/UiccSlotInfo;->getLogicalSlotIdx()I
+    invoke-virtual {v2}, Landroid/telephony/UiccSlotInfo;->getPorts()Ljava/util/Collection;
+
+    move-result-object v2
+
+    invoke-interface {v2}, Ljava/util/Collection;->stream()Ljava/util/stream/Stream;
+
+    move-result-object v2
+
+    invoke-interface {v2}, Ljava/util/stream/Stream;->findFirst()Ljava/util/Optional;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/util/Optional;->get()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/telephony/UiccPortInfo;
+
+    invoke-virtual {v2}, Landroid/telephony/UiccPortInfo;->getLogicalSlotIndex()I
 
     move-result v2
 
@@ -1576,6 +1828,36 @@
     return p0
 .end method
 
+.method private static synthetic lambda$getSubscription$15(ILcom/android/settings/network/helper/SubscriptionAnnotation;)Z
+    .locals 0
+
+    invoke-virtual {p1}, Lcom/android/settings/network/helper/SubscriptionAnnotation;->getSubscriptionId()I
+
+    move-result p1
+
+    if-ne p1, p0, :cond_0
+
+    const/4 p0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    :goto_0
+    return p0
+.end method
+
+.method private static synthetic lambda$getSubscriptionOrDefault$14(Ljava/util/List;)Lcom/android/settings/network/helper/SubscriptionAnnotation;
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/settings/network/SubscriptionUtil;->getDefaultSubscriptionSelection(Ljava/util/List;)Lcom/android/settings/network/helper/SubscriptionAnnotation;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method private static synthetic lambda$getUniqueSubscriptionDisplayNames$0(Landroid/telephony/SubscriptionInfo;)Z
     .locals 0
 
@@ -1627,7 +1909,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f04124c
+    const p1, 0x7f041306
 
     invoke-virtual {p0, p1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1681,15 +1963,17 @@
 
     move-result-object v0
 
-    sget-object v1, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda11;->INSTANCE:Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda11;
+    new-instance v1, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda12;
+
+    invoke-direct {v1}, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda12;-><init>()V
 
     invoke-interface {v0, v1}, Ljava/util/stream/Stream;->filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda0;
+    new-instance v1, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda13;
 
-    invoke-direct {v1, p0}, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda0;-><init>(Landroid/content/Context;)V
+    invoke-direct {v1, p0}, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda13;-><init>(Landroid/content/Context;)V
 
     invoke-interface {v0, v1}, Ljava/util/stream/Stream;->map(Ljava/util/function/Function;)Ljava/util/stream/Stream;
 
@@ -1817,9 +2101,9 @@
 
     check-cast p0, Ljava/util/stream/Stream;
 
-    new-instance v0, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda2;
+    new-instance v0, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda11;
 
-    invoke-direct {v0, p1, p2}, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda2;-><init>(Ljava/util/Set;Landroid/content/Context;)V
+    invoke-direct {v0, p1, p2}, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda11;-><init>(Ljava/util/Set;Landroid/content/Context;)V
 
     invoke-interface {p0, v0}, Ljava/util/stream/Stream;->map(Ljava/util/function/Function;)Ljava/util/stream/Stream;
 

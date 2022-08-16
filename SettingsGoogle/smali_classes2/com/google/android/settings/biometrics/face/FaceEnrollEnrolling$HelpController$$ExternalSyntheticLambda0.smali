@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling$HelpController$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -27,7 +28,7 @@
 
     iget-object p0, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling$HelpController$$ExternalSyntheticLambda0;->f$0:Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling$HelpController;
 
-    invoke-virtual {p0}, Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling$HelpController;->clearHelp()V
+    invoke-static {p0}, Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling$HelpController;->$r8$lambda$3mdxvT9W6SEUf3eXl5wcszW3s3U(Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling$HelpController;)V
 
     return-void
 .end method

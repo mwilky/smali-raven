@@ -85,7 +85,7 @@
 
     move-result-object v2
 
-    invoke-static {v0, v2}, Lcom/google/common/collect/CompactHashMap;->access$400(Lcom/google/common/collect/CompactHashMap;Ljava/lang/Object;)I
+    invoke-static {v0, v2}, Lcom/google/common/collect/CompactHashMap;->access$500(Lcom/google/common/collect/CompactHashMap;Ljava/lang/Object;)I
 
     move-result v0
 
@@ -95,9 +95,9 @@
 
     iget-object p0, p0, Lcom/google/common/collect/CompactHashMap$EntrySetView;->this$0:Lcom/google/common/collect/CompactHashMap;
 
-    iget-object p0, p0, Lcom/google/common/collect/CompactHashMap;->values:[Ljava/lang/Object;
+    invoke-static {p0, v0}, Lcom/google/common/collect/CompactHashMap;->access$600(Lcom/google/common/collect/CompactHashMap;I)Ljava/lang/Object;
 
-    aget-object p0, p0, v0
+    move-result-object p0
 
     invoke-interface {p1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
@@ -178,7 +178,7 @@
     :cond_1
     iget-object v0, p0, Lcom/google/common/collect/CompactHashMap$EntrySetView;->this$0:Lcom/google/common/collect/CompactHashMap;
 
-    invoke-static {v0}, Lcom/google/common/collect/CompactHashMap;->access$500(Lcom/google/common/collect/CompactHashMap;)I
+    invoke-static {v0}, Lcom/google/common/collect/CompactHashMap;->access$700(Lcom/google/common/collect/CompactHashMap;)I
 
     move-result v0
 
@@ -192,17 +192,27 @@
 
     iget-object p1, p0, Lcom/google/common/collect/CompactHashMap$EntrySetView;->this$0:Lcom/google/common/collect/CompactHashMap;
 
-    invoke-static {p1}, Lcom/google/common/collect/CompactHashMap;->access$600(Lcom/google/common/collect/CompactHashMap;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/common/collect/CompactHashMap;->access$800(Lcom/google/common/collect/CompactHashMap;)Ljava/lang/Object;
 
     move-result-object v5
 
     iget-object p1, p0, Lcom/google/common/collect/CompactHashMap$EntrySetView;->this$0:Lcom/google/common/collect/CompactHashMap;
 
-    iget-object v6, p1, Lcom/google/common/collect/CompactHashMap;->entries:[I
+    invoke-static {p1}, Lcom/google/common/collect/CompactHashMap;->access$900(Lcom/google/common/collect/CompactHashMap;)[I
 
-    iget-object v7, p1, Lcom/google/common/collect/CompactHashMap;->keys:[Ljava/lang/Object;
+    move-result-object v6
 
-    iget-object v8, p1, Lcom/google/common/collect/CompactHashMap;->values:[Ljava/lang/Object;
+    iget-object p1, p0, Lcom/google/common/collect/CompactHashMap$EntrySetView;->this$0:Lcom/google/common/collect/CompactHashMap;
+
+    invoke-static {p1}, Lcom/google/common/collect/CompactHashMap;->access$1000(Lcom/google/common/collect/CompactHashMap;)[Ljava/lang/Object;
+
+    move-result-object v7
+
+    iget-object p1, p0, Lcom/google/common/collect/CompactHashMap$EntrySetView;->this$0:Lcom/google/common/collect/CompactHashMap;
+
+    invoke-static {p1}, Lcom/google/common/collect/CompactHashMap;->access$1100(Lcom/google/common/collect/CompactHashMap;)[Ljava/lang/Object;
+
+    move-result-object v8
 
     move v4, v0
 
@@ -223,7 +233,7 @@
 
     iget-object p1, p0, Lcom/google/common/collect/CompactHashMap$EntrySetView;->this$0:Lcom/google/common/collect/CompactHashMap;
 
-    invoke-static {p1}, Lcom/google/common/collect/CompactHashMap;->access$710(Lcom/google/common/collect/CompactHashMap;)I
+    invoke-static {p1}, Lcom/google/common/collect/CompactHashMap;->access$1210(Lcom/google/common/collect/CompactHashMap;)I
 
     iget-object p0, p0, Lcom/google/common/collect/CompactHashMap$EntrySetView;->this$0:Lcom/google/common/collect/CompactHashMap;
 

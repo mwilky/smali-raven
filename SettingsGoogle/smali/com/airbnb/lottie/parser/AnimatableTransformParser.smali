@@ -17,11 +17,11 @@
 
     const-string v1, "p"
 
-    const-string v2, "s"
+    const-string/jumbo v2, "s"
 
-    const-string v3, "rz"
+    const-string/jumbo v3, "rz"
 
-    const-string v4, "r"
+    const-string/jumbo v4, "r"
 
     const-string v5, "o"
 
@@ -31,7 +31,7 @@
 
     const-string/jumbo v8, "sk"
 
-    const-string v9, "sa"
+    const-string/jumbo v9, "sa"
 
     filled-new-array/range {v0 .. v9}, [Ljava/lang/String;
 

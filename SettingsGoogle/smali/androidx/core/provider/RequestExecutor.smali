@@ -15,18 +15,6 @@
 # direct methods
 .method static createDefaultExecutor(Ljava/lang/String;II)Ljava/util/concurrent/ThreadPoolExecutor;
     .locals 8
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "threadName",
-            "threadPriority",
-            "keepAliveTimeInMillis"
-        }
-    .end annotation
 
     new-instance v7, Landroidx/core/provider/RequestExecutor$DefaultThreadFactory;
 
@@ -59,19 +47,6 @@
 
 .method static execute(Ljava/util/concurrent/Executor;Ljava/util/concurrent/Callable;Landroidx/core/util/Consumer;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "executor",
-            "callable",
-            "consumer"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -100,19 +75,6 @@
 
 .method static submit(Ljava/util/concurrent/ExecutorService;Ljava/util/concurrent/Callable;I)Ljava/lang/Object;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x10,
-            0x0
-        }
-        names = {
-            "executor",
-            "callable",
-            "timeoutMillis"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",

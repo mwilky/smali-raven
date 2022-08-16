@@ -42,7 +42,7 @@
 
     iget-object p0, p0, Lcom/android/settings/network/SubscriptionsChangeListener$2;->this$0:Lcom/android/settings/network/SubscriptionsChangeListener;
 
-    invoke-static {p0}, Lcom/android/settings/network/SubscriptionsChangeListener;->access$000(Lcom/android/settings/network/SubscriptionsChangeListener;)V
+    invoke-static {p0}, Lcom/android/settings/network/SubscriptionsChangeListener;->-$$Nest$msubscriptionsChangedCallback(Lcom/android/settings/network/SubscriptionsChangeListener;)V
 
     :cond_0
     return-void

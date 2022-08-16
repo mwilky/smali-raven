@@ -203,11 +203,11 @@
 
     iget-object v0, p0, Lcom/google/common/collect/CompactHashMap$Itr;->this$0:Lcom/google/common/collect/CompactHashMap;
 
-    iget-object v1, v0, Lcom/google/common/collect/CompactHashMap;->keys:[Ljava/lang/Object;
+    iget v1, p0, Lcom/google/common/collect/CompactHashMap$Itr;->indexToRemove:I
 
-    iget v2, p0, Lcom/google/common/collect/CompactHashMap$Itr;->indexToRemove:I
+    invoke-static {v0, v1}, Lcom/google/common/collect/CompactHashMap;->access$100(Lcom/google/common/collect/CompactHashMap;I)Ljava/lang/Object;
 
-    aget-object v1, v1, v2
+    move-result-object v1
 
     invoke-virtual {v0, v1}, Lcom/google/common/collect/CompactHashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 

@@ -30,9 +30,7 @@
 
     aget-object v1, p1, v0
 
-    aget-object v2, p1, v0
-
-    if-nez v2, :cond_0
+    if-nez v1, :cond_0
 
     goto :goto_1
 
@@ -240,8 +238,6 @@
     goto/16 :goto_7
 
     :cond_2
-    aget-object v8, v0, v2
-
     invoke-virtual {v8}, Lcom/google/zxing/pdf417/decoder/Codeword;->getRowNumber()I
 
     move-result v9
@@ -470,8 +466,6 @@
     goto :goto_4
 
     :cond_2
-    aget-object v7, p0, v1
-
     invoke-virtual {v7}, Lcom/google/zxing/pdf417/decoder/Codeword;->setRowNumberAsRowIndicatorColumn()V
 
     invoke-virtual {v7}, Lcom/google/zxing/pdf417/decoder/Codeword;->getRowNumber()I

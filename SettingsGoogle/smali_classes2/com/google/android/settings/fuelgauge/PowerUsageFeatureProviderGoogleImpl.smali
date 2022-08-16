@@ -257,7 +257,7 @@
 
     iget-object p0, p0, Lcom/android/settings/fuelgauge/PowerUsageFeatureProviderImpl;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f0401e3
+    const v0, 0x7f04020b
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -772,9 +772,9 @@
         }
     .end annotation
 
-    new-instance p0, Ljava/util/HashSet;
+    new-instance p0, Landroid/util/ArraySet;
 
-    invoke-direct {p0}, Ljava/util/HashSet;-><init>()V
+    invoke-direct {p0}, Landroid/util/ArraySet;-><init>()V
 
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 

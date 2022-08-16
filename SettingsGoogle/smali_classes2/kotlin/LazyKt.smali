@@ -9,18 +9,6 @@
         .annotation build Lorg/jetbrains/annotations/NotNull;
         .end annotation
     .end param
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<T:",
-            "Ljava/lang/Object;",
-            ">(",
-            "Lkotlin/jvm/functions/Function0<",
-            "+TT;>;)",
-            "Lkotlin/Lazy<",
-            "TT;>;"
-        }
-    .end annotation
-
     .annotation build Lorg/jetbrains/annotations/NotNull;
     .end annotation
 

@@ -20,36 +20,36 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fputmEndTime(Lcom/android/settingslib/net/NetworkCycleData;J)V
+    .locals 0
+
+    iput-wide p1, p0, Lcom/android/settingslib/net/NetworkCycleData;->mEndTime:J
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fputmStartTime(Lcom/android/settingslib/net/NetworkCycleData;J)V
+    .locals 0
+
+    iput-wide p1, p0, Lcom/android/settingslib/net/NetworkCycleData;->mStartTime:J
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fputmTotalUsage(Lcom/android/settingslib/net/NetworkCycleData;J)V
+    .locals 0
+
+    iput-wide p1, p0, Lcom/android/settingslib/net/NetworkCycleData;->mTotalUsage:J
+
+    return-void
+.end method
+
 .method protected constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
-.end method
-
-.method static synthetic access$002(Lcom/android/settingslib/net/NetworkCycleData;J)J
-    .locals 0
-
-    iput-wide p1, p0, Lcom/android/settingslib/net/NetworkCycleData;->mStartTime:J
-
-    return-wide p1
-.end method
-
-.method static synthetic access$102(Lcom/android/settingslib/net/NetworkCycleData;J)J
-    .locals 0
-
-    iput-wide p1, p0, Lcom/android/settingslib/net/NetworkCycleData;->mEndTime:J
-
-    return-wide p1
-.end method
-
-.method static synthetic access$202(Lcom/android/settingslib/net/NetworkCycleData;J)J
-    .locals 0
-
-    iput-wide p1, p0, Lcom/android/settingslib/net/NetworkCycleData;->mTotalUsage:J
-
-    return-wide p1
 .end method
 
 

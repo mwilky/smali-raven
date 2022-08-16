@@ -18,6 +18,16 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$6UA6OY1DUPamOQ5IoX938RckvCU(Lcom/android/settings/security/screenlock/LockAfterTimeoutPreferenceController;)Ljava/lang/String;
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/security/screenlock/LockAfterTimeoutPreferenceController;->lambda$updateLockAfterPreferenceSummary$0()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method public constructor <init>(Landroid/content/Context;ILcom/android/internal/widget/LockPatternUtils;)V
     .locals 0
 
@@ -52,6 +62,20 @@
     iput-object p1, p0, Lcom/android/settings/security/screenlock/LockAfterTimeoutPreferenceController;->mTrustAgentManager:Lcom/android/settings/security/trustagent/TrustAgentManager;
 
     return-void
+.end method
+
+.method private synthetic lambda$updateLockAfterPreferenceSummary$0()Ljava/lang/String;
+    .locals 1
+
+    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    const v0, 0x7f040851
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method private setupLockAfterPreference(Lcom/android/settings/display/TimeoutListPreference;)V
@@ -105,7 +129,7 @@
 
     move-result-object p0
 
-    const-string v3, "screen_off_timeout"
+    const-string/jumbo v3, "screen_off_timeout"
 
     const/4 v4, 0x0
 
@@ -142,11 +166,19 @@
 
     if-eqz v0, :cond_0
 
-    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Lcom/android/settings/security/screenlock/LockAfterTimeoutPreferenceController;->mDPM:Landroid/app/admin/DevicePolicyManager;
 
-    const v0, 0x7f040808
+    invoke-virtual {v0}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
 
-    invoke-virtual {p0, v0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
+    move-result-object v0
+
+    new-instance v1, Lcom/android/settings/security/screenlock/LockAfterTimeoutPreferenceController$$ExternalSyntheticLambda0;
+
+    invoke-direct {v1, p0}, Lcom/android/settings/security/screenlock/LockAfterTimeoutPreferenceController$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/security/screenlock/LockAfterTimeoutPreferenceController;)V
+
+    const-string p0, "Settings.DISABLED_BY_IT_ADMIN_TITLE"
+
+    invoke-virtual {v0, p0, v1}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
 
     move-result-object p0
 
@@ -252,7 +284,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f040bb4
+    const v1, 0x7f040c1b
 
     new-array v2, v5, [Ljava/lang/Object;
 
@@ -267,7 +299,7 @@
     :cond_3
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f040bae
+    const v1, 0x7f040c19
 
     const/4 v3, 0x2
 
@@ -288,7 +320,7 @@
     :cond_4
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f040bad
+    const v0, 0x7f040c18
 
     new-array v1, v5, [Ljava/lang/Object;
 

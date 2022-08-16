@@ -24,13 +24,13 @@
 
 .field private mPreferenceScreenContext:Landroid/content/Context;
 
-.field private mRadioButtonClickListener:Lcom/android/settingslib/widget/RadioButtonPreference$OnClickListener;
+.field private mRadioButtonClickListener:Lcom/android/settingslib/widget/SelectorWithWidgetPreference$OnClickListener;
 
-.field private mRadioButtonPreferences:Ljava/util/List;
+.field private mSelectorWithWidgetPreferences:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
-            "Lcom/android/settingslib/widget/RadioButtonPreference;",
+            "Lcom/android/settingslib/widget/SelectorWithWidgetPreference;",
             ">;"
         }
     .end annotation
@@ -38,6 +38,56 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmNotificationBackend(Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;)Lcom/android/settings/notification/NotificationBackend;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;->mNotificationBackend:Lcom/android/settings/notification/NotificationBackend;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmPreferenceCategory(Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;)Landroidx/preference/PreferenceCategory;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;->mPreferenceCategory:Landroidx/preference/PreferenceCategory;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmPreferenceScreenContext(Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;)Landroid/content/Context;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;->mPreferenceScreenContext:Landroid/content/Context;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmNumConversations(Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;I)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;->mNumConversations:I
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fputmNumImportantConversations(Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;I)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;->mNumImportantConversations:I
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$smkeyToSetting(Ljava/lang/String;)I
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;->keyToSetting(Ljava/lang/String;)I
+
+    move-result p0
+
+    return p0
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;Lcom/android/settingslib/core/lifecycle/Lifecycle;Lcom/android/settings/notification/NotificationBackend;)V
     .locals 0
 
@@ -53,7 +103,7 @@
 
     invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object p1, p0, Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;->mRadioButtonPreferences:Ljava/util/List;
+    iput-object p1, p0, Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;->mSelectorWithWidgetPreferences:Ljava/util/List;
 
     new-instance p1, Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController$2;
 
@@ -65,69 +115,19 @@
 
     invoke-direct {p1, p0}, Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController$3;-><init>(Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;)V
 
-    iput-object p1, p0, Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;->mRadioButtonClickListener:Lcom/android/settingslib/widget/RadioButtonPreference$OnClickListener;
+    iput-object p1, p0, Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;->mRadioButtonClickListener:Lcom/android/settingslib/widget/SelectorWithWidgetPreference$OnClickListener;
 
     iput-object p4, p0, Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;->mNotificationBackend:Lcom/android/settings/notification/NotificationBackend;
 
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;)Lcom/android/settings/notification/NotificationBackend;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;->mNotificationBackend:Lcom/android/settings/notification/NotificationBackend;
-
-    return-object p0
-.end method
-
-.method static synthetic access$102(Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;I)I
-    .locals 0
-
-    iput p1, p0, Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;->mNumConversations:I
-
-    return p1
-.end method
-
-.method static synthetic access$202(Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;I)I
-    .locals 0
-
-    iput p1, p0, Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;->mNumImportantConversations:I
-
-    return p1
-.end method
-
-.method static synthetic access$300(Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;)Landroid/content/Context;
+.method static synthetic access$000(Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;)Landroid/content/Context;
     .locals 0
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
     return-object p0
-.end method
-
-.method static synthetic access$400(Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;)Landroidx/preference/PreferenceCategory;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;->mPreferenceCategory:Landroidx/preference/PreferenceCategory;
-
-    return-object p0
-.end method
-
-.method static synthetic access$500(Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;)Landroid/content/Context;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;->mPreferenceScreenContext:Landroid/content/Context;
-
-    return-object p0
-.end method
-
-.method static synthetic access$600(Ljava/lang/String;)I
-    .locals 0
-
-    invoke-static {p0}, Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;->keyToSetting(Ljava/lang/String;)I
-
-    move-result p0
-
-    return p0
 .end method
 
 .method private getSummary(Ljava/lang/String;)Ljava/lang/String;
@@ -170,7 +170,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f041816
+    const v1, 0x7f041911
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -240,10 +240,10 @@
     return p0
 .end method
 
-.method private makeRadioPreference(Ljava/lang/String;I)Lcom/android/settingslib/widget/RadioButtonPreference;
+.method private makeRadioPreference(Ljava/lang/String;I)Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
     .locals 2
 
-    new-instance v0, Lcom/android/settingslib/widget/RadioButtonPreference;
+    new-instance v0, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     iget-object v1, p0, Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;->mPreferenceCategory:Landroidx/preference/PreferenceCategory;
 
@@ -251,7 +251,7 @@
 
     move-result-object v1
 
-    invoke-direct {v0, v1}, Lcom/android/settingslib/widget/RadioButtonPreference;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, v1}, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;-><init>(Landroid/content/Context;)V
 
     const-string v1, "conversations_all"
 
@@ -272,22 +272,22 @@
     :cond_0
     iget-object v1, p0, Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;->mConversationSettingsWidgetClickListener:Landroid/view/View$OnClickListener;
 
-    invoke-virtual {v0, v1}, Lcom/android/settingslib/widget/RadioButtonPreference;->setExtraWidgetOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v1}, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;->setExtraWidgetOnClickListener(Landroid/view/View$OnClickListener;)V
 
     :cond_1
     invoke-virtual {v0, p1}, Landroidx/preference/Preference;->setKey(Ljava/lang/String;)V
 
     invoke-virtual {v0, p2}, Landroidx/preference/Preference;->setTitle(I)V
 
-    iget-object p1, p0, Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;->mRadioButtonClickListener:Lcom/android/settingslib/widget/RadioButtonPreference$OnClickListener;
+    iget-object p1, p0, Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;->mRadioButtonClickListener:Lcom/android/settingslib/widget/SelectorWithWidgetPreference$OnClickListener;
 
-    invoke-virtual {v0, p1}, Lcom/android/settingslib/widget/RadioButtonPreference;->setOnClickListener(Lcom/android/settingslib/widget/RadioButtonPreference$OnClickListener;)V
+    invoke-virtual {v0, p1}, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;->setOnClickListener(Lcom/android/settingslib/widget/SelectorWithWidgetPreference$OnClickListener;)V
 
     iget-object p1, p0, Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;->mPreferenceCategory:Landroidx/preference/PreferenceCategory;
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceGroup;->addPreference(Landroidx/preference/Preference;)Z
 
-    iget-object p0, p0, Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;->mRadioButtonPreferences:Ljava/util/List;
+    iget-object p0, p0, Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;->mSelectorWithWidgetPreferences:Ljava/util/List;
 
     invoke-interface {p0, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
@@ -341,21 +341,21 @@
 
     if-nez v0, :cond_0
 
-    const v0, 0x7f04183a
+    const v0, 0x7f041935
 
-    invoke-direct {p0, v1, v0}, Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;->makeRadioPreference(Ljava/lang/String;I)Lcom/android/settingslib/widget/RadioButtonPreference;
+    invoke-direct {p0, v1, v0}, Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;->makeRadioPreference(Ljava/lang/String;I)Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
-    const v0, 0x7f04183d
+    const v0, 0x7f041938
 
     const-string v1, "conversations_important"
 
-    invoke-direct {p0, v1, v0}, Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;->makeRadioPreference(Ljava/lang/String;I)Lcom/android/settingslib/widget/RadioButtonPreference;
+    invoke-direct {p0, v1, v0}, Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;->makeRadioPreference(Ljava/lang/String;I)Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
-    const v0, 0x7f04183e
+    const v0, 0x7f04193a
 
     const-string v1, "conversations_none"
 
-    invoke-direct {p0, v1, v0}, Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;->makeRadioPreference(Ljava/lang/String;I)Lcom/android/settingslib/widget/RadioButtonPreference;
+    invoke-direct {p0, v1, v0}, Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;->makeRadioPreference(Ljava/lang/String;I)Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     invoke-direct {p0}, Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;->updateChannelCounts()V
 
@@ -400,7 +400,7 @@
 
     move-result p1
 
-    iget-object v0, p0, Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;->mRadioButtonPreferences:Ljava/util/List;
+    iget-object v0, p0, Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;->mSelectorWithWidgetPreferences:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -417,7 +417,7 @@
 
     move-result-object v1
 
-    check-cast v1, Lcom/android/settingslib/widget/RadioButtonPreference;
+    check-cast v1, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     invoke-virtual {v1}, Landroidx/preference/Preference;->getKey()Ljava/lang/String;
 

@@ -34,10 +34,26 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmPreference(Lcom/android/settings/display/BrightnessLevelPreferenceController;)Landroidx/preference/Preference;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/display/BrightnessLevelPreferenceController;->mPreference:Landroidx/preference/Preference;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$mupdatedSummary(Lcom/android/settings/display/BrightnessLevelPreferenceController;Landroidx/preference/Preference;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/display/BrightnessLevelPreferenceController;->updatedSummary(Landroidx/preference/Preference;)V
+
+    return-void
+.end method
+
 .method static constructor <clinit>()V
     .locals 1
 
-    const-string v0, "screen_brightness_for_vr"
+    const-string/jumbo v0, "screen_brightness_for_vr"
 
     invoke-static {v0}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
@@ -45,7 +61,7 @@
 
     sput-object v0, Lcom/android/settings/display/BrightnessLevelPreferenceController;->BRIGHTNESS_FOR_VR_URI:Landroid/net/Uri;
 
-    const-string v0, "screen_auto_brightness_adj"
+    const-string/jumbo v0, "screen_auto_brightness_adj"
 
     invoke-static {v0}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
@@ -133,22 +149,6 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/settings/display/BrightnessLevelPreferenceController;)Landroidx/preference/Preference;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/display/BrightnessLevelPreferenceController;->mPreference:Landroidx/preference/Preference;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/display/BrightnessLevelPreferenceController;Landroidx/preference/Preference;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/display/BrightnessLevelPreferenceController;->updatedSummary(Landroidx/preference/Preference;)V
-
-    return-void
-.end method
-
 .method private getCurrentBrightness()D
     .locals 4
 
@@ -164,7 +164,7 @@
 
     iget v2, p0, Lcom/android/settings/display/BrightnessLevelPreferenceController;->mMaxVrBrightness:F
 
-    const-string v3, "screen_brightness_for_vr_float"
+    const-string/jumbo v3, "screen_brightness_for_vr_float"
 
     invoke-static {v0, v3, v2}, Landroid/provider/Settings$System;->getFloat(Landroid/content/ContentResolver;Ljava/lang/String;F)F
 
@@ -306,42 +306,60 @@
 .end method
 
 .method public handlePreferenceTreeClick(Landroidx/preference/Preference;)Z
-    .locals 2
+    .locals 5
+
+    invoke-virtual {p1}, Landroidx/preference/Preference;->getKey()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p0}, Lcom/android/settings/display/BrightnessLevelPreferenceController;->getPreferenceKey()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    const/4 v1, 0x0
+
+    if-nez v0, :cond_0
+
+    return v1
+
+    :cond_0
+    new-instance v0, Landroid/content/Intent;
+
+    const-string v2, "com.android.intent.action.SHOW_BRIGHTNESS_DIALOG"
+
+    invoke-direct {v0, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    const/4 v2, -0x1
+
+    const-string v3, "page_transition_type"
+
+    invoke-virtual {v0, v3, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+
+    iget-object v2, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    const/high16 v3, 0x10a0000
+
+    const v4, 0x10a0001
+
+    invoke-static {v2, v3, v4}, Landroid/app/ActivityOptions;->makeCustomAnimation(Landroid/content/Context;II)Landroid/app/ActivityOptions;
+
+    move-result-object v2
+
+    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
     invoke-virtual {p1}, Landroidx/preference/Preference;->getKey()Ljava/lang/String;
 
     move-result-object p1
 
-    invoke-virtual {p0}, Lcom/android/settings/display/BrightnessLevelPreferenceController;->getPreferenceKey()Ljava/lang/String;
+    invoke-virtual {v2}, Landroid/app/ActivityOptions;->toBundle()Landroid/os/Bundle;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-static {p1, v0}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
-
-    move-result p1
-
-    if-nez p1, :cond_0
-
-    const/4 p0, 0x0
-
-    return p0
-
-    :cond_0
-    new-instance p1, Landroid/content/Intent;
-
-    const-string v0, "com.android.intent.action.SHOW_BRIGHTNESS_DIALOG"
-
-    invoke-direct {p1, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    const/4 v0, -0x1
-
-    const-string v1, "page_transition_type"
-
-    invoke-virtual {p1, v1, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
-
-    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
-
-    invoke-virtual {p0, p1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {p0, p1, v0, v1, v2}, Landroid/content/Context;->startActivityForResult(Ljava/lang/String;Landroid/content/Intent;ILandroid/os/Bundle;)V
 
     const/4 p0, 0x1
 
@@ -390,7 +408,7 @@
 .end method
 
 .method public onStart()V
-    .locals 4
+    .locals 5
 
     iget-object v0, p0, Lcom/android/settings/display/BrightnessLevelPreferenceController;->mContentResolver:Landroid/content/ContentResolver;
 
@@ -414,11 +432,15 @@
 
     iget-object v1, p0, Lcom/android/settings/display/BrightnessLevelPreferenceController;->mDisplayListener:Landroid/hardware/display/DisplayManager$DisplayListener;
 
-    iget-object p0, p0, Lcom/android/settings/display/BrightnessLevelPreferenceController;->mHandler:Landroid/os/Handler;
+    iget-object v2, p0, Lcom/android/settings/display/BrightnessLevelPreferenceController;->mHandler:Landroid/os/Handler;
 
-    const-wide/16 v2, 0x8
+    const-wide/16 v3, 0x8
 
-    invoke-virtual {v0, v1, p0, v2, v3}, Landroid/hardware/display/DisplayManager;->registerDisplayListener(Landroid/hardware/display/DisplayManager$DisplayListener;Landroid/os/Handler;J)V
+    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/hardware/display/DisplayManager;->registerDisplayListener(Landroid/hardware/display/DisplayManager$DisplayListener;Landroid/os/Handler;J)V
+
+    iget-object v0, p0, Lcom/android/settings/display/BrightnessLevelPreferenceController;->mPreference:Landroidx/preference/Preference;
+
+    invoke-direct {p0, v0}, Lcom/android/settings/display/BrightnessLevelPreferenceController;->updatedSummary(Landroidx/preference/Preference;)V
 
     return-void
 .end method

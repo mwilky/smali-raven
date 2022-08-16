@@ -40,13 +40,17 @@
 
     const/4 v2, 0x1
 
-    if-eq v0, v2, :cond_2
+    if-eq v0, v2, :cond_3
 
     const/4 v3, 0x2
 
-    if-eq v0, v3, :cond_1
+    if-eq v0, v3, :cond_2
 
     const/16 v3, 0x15
+
+    if-eq v0, v3, :cond_1
+
+    const/16 v3, 0x16
 
     if-eq v0, v3, :cond_0
 
@@ -73,21 +77,28 @@
     :cond_0
     iget-object v0, p0, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice$1;->this$0:Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
 
-    invoke-static {v0, v2}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->access$202(Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;Z)Z
+    invoke-static {v0, v2}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->-$$Nest$fputmIsLeAudioProfileConnectedFail(Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;Z)V
 
     goto :goto_0
 
     :cond_1
     iget-object v0, p0, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice$1;->this$0:Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
 
-    invoke-static {v0, v2}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->access$002(Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;Z)Z
+    invoke-static {v0, v2}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->-$$Nest$fputmIsHearingAidProfileConnectedFail(Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;Z)V
 
     goto :goto_0
 
     :cond_2
     iget-object v0, p0, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice$1;->this$0:Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
 
-    invoke-static {v0, v2}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->access$102(Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;Z)Z
+    invoke-static {v0, v2}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->-$$Nest$fputmIsA2dpProfileConnectedFail(Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;Z)V
+
+    goto :goto_0
+
+    :cond_3
+    iget-object v0, p0, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice$1;->this$0:Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
+
+    invoke-static {v0, v2}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->-$$Nest$fputmIsHeadsetProfileConnectedFail(Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;Z)V
 
     :goto_0
     new-instance v0, Ljava/lang/StringBuilder;

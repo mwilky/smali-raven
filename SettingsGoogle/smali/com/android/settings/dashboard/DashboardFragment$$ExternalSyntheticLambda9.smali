@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda9;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Function;
@@ -29,7 +30,7 @@
 
     check-cast p1, Lcom/android/settingslib/core/AbstractPreferenceController;
 
-    invoke-static {p0, p1}, Lcom/android/settings/dashboard/DashboardFragment;->$r8$lambda$j0zdNtoN2XTJnd0Gg6zbsmXG7Yk(Lcom/android/settings/dashboard/DashboardFragment;Lcom/android/settingslib/core/AbstractPreferenceController;)Landroidx/preference/Preference;
+    invoke-static {p0, p1}, Lcom/android/settings/dashboard/DashboardFragment;->$r8$lambda$U2_NK0df1t6hKVQq0DbBVuN2xh0(Lcom/android/settings/dashboard/DashboardFragment;Lcom/android/settingslib/core/AbstractPreferenceController;)Landroidx/preference/Preference;
 
     move-result-object p0
 

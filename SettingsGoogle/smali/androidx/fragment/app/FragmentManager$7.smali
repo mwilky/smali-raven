@@ -1,11 +1,14 @@
 .class Landroidx/fragment/app/FragmentManager$7;
-.super Landroid/animation/AnimatorListenerAdapter;
+.super Ljava/lang/Object;
 .source "FragmentManager.java"
+
+# interfaces
+.implements Landroidx/activity/result/ActivityResultCallback;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroidx/fragment/app/FragmentManager;->completeShowHideFragment(Landroidx/fragment/app/Fragment;)V
+    value = Landroidx/fragment/app/FragmentManager;->attachController(Landroidx/fragment/app/FragmentHostCallback;Landroidx/fragment/app/FragmentContainer;Landroidx/fragment/app/Fragment;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -13,61 +16,123 @@
     name = null
 .end annotation
 
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Ljava/lang/Object;",
+        "Landroidx/activity/result/ActivityResultCallback<",
+        "Landroidx/activity/result/ActivityResult;",
+        ">;"
+    }
+.end annotation
+
 
 # instance fields
 .field final synthetic this$0:Landroidx/fragment/app/FragmentManager;
 
-.field final synthetic val$animatingView:Landroid/view/View;
-
-.field final synthetic val$container:Landroid/view/ViewGroup;
-
-.field final synthetic val$fragment:Landroidx/fragment/app/Fragment;
-
 
 # direct methods
-.method constructor <init>(Landroidx/fragment/app/FragmentManager;Landroid/view/ViewGroup;Landroid/view/View;Landroidx/fragment/app/Fragment;)V
+.method constructor <init>(Landroidx/fragment/app/FragmentManager;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/fragment/app/FragmentManager$7;->this$0:Landroidx/fragment/app/FragmentManager;
 
-    iput-object p2, p0, Landroidx/fragment/app/FragmentManager$7;->val$container:Landroid/view/ViewGroup;
-
-    iput-object p3, p0, Landroidx/fragment/app/FragmentManager$7;->val$animatingView:Landroid/view/View;
-
-    iput-object p4, p0, Landroidx/fragment/app/FragmentManager$7;->val$fragment:Landroidx/fragment/app/Fragment;
-
-    invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 2
+.method public onActivityResult(Landroidx/activity/result/ActivityResult;)V
+    .locals 3
 
-    iget-object v0, p0, Landroidx/fragment/app/FragmentManager$7;->val$container:Landroid/view/ViewGroup;
+    iget-object v0, p0, Landroidx/fragment/app/FragmentManager$7;->this$0:Landroidx/fragment/app/FragmentManager;
 
-    iget-object v1, p0, Landroidx/fragment/app/FragmentManager$7;->val$animatingView:Landroid/view/View;
+    iget-object v0, v0, Landroidx/fragment/app/FragmentManager;->mLaunchedFragments:Ljava/util/ArrayDeque;
 
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->endViewTransition(Landroid/view/View;)V
+    invoke-virtual {v0}, Ljava/util/ArrayDeque;->pollFirst()Ljava/lang/Object;
 
-    invoke-virtual {p1, p0}, Landroid/animation/Animator;->removeListener(Landroid/animation/Animator$AnimatorListener;)V
+    move-result-object v0
 
-    iget-object p0, p0, Landroidx/fragment/app/FragmentManager$7;->val$fragment:Landroidx/fragment/app/Fragment;
+    check-cast v0, Landroidx/fragment/app/FragmentManager$LaunchedFragmentInfo;
 
-    iget-object p1, p0, Landroidx/fragment/app/Fragment;->mView:Landroid/view/View;
+    const-string v1, "FragmentManager"
 
-    if-eqz p1, :cond_0
+    if-nez v0, :cond_0
 
-    iget-boolean p0, p0, Landroidx/fragment/app/Fragment;->mHidden:Z
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    if-eqz p0, :cond_0
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const/16 p0, 0x8
+    const-string v0, "No Activities were started for result for "
 
-    invoke-virtual {p1, p0}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-static {v1, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
 
     :cond_0
+    iget-object v2, v0, Landroidx/fragment/app/FragmentManager$LaunchedFragmentInfo;->mWho:Ljava/lang/String;
+
+    iget v0, v0, Landroidx/fragment/app/FragmentManager$LaunchedFragmentInfo;->mRequestCode:I
+
+    iget-object p0, p0, Landroidx/fragment/app/FragmentManager$7;->this$0:Landroidx/fragment/app/FragmentManager;
+
+    invoke-static {p0}, Landroidx/fragment/app/FragmentManager;->access$200(Landroidx/fragment/app/FragmentManager;)Landroidx/fragment/app/FragmentStore;
+
+    move-result-object p0
+
+    invoke-virtual {p0, v2}, Landroidx/fragment/app/FragmentStore;->findFragmentByWho(Ljava/lang/String;)Landroidx/fragment/app/Fragment;
+
+    move-result-object p0
+
+    if-nez p0, :cond_1
+
+    new-instance p0, Ljava/lang/StringBuilder;
+
+    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string p1, "Activity result delivered for unknown Fragment "
+
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-static {v1, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_1
+    invoke-virtual {p1}, Landroidx/activity/result/ActivityResult;->getResultCode()I
+
+    move-result v1
+
+    invoke-virtual {p1}, Landroidx/activity/result/ActivityResult;->getData()Landroid/content/Intent;
+
+    move-result-object p1
+
+    invoke-virtual {p0, v0, v1, p1}, Landroidx/fragment/app/Fragment;->onActivityResult(IILandroid/content/Intent;)V
+
+    return-void
+.end method
+
+.method public bridge synthetic onActivityResult(Ljava/lang/Object;)V
+    .locals 0
+
+    check-cast p1, Landroidx/activity/result/ActivityResult;
+
+    invoke-virtual {p0, p1}, Landroidx/fragment/app/FragmentManager$7;->onActivityResult(Landroidx/activity/result/ActivityResult;)V
+
     return-void
 .end method

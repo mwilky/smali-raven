@@ -63,13 +63,14 @@
     return-void
 .end method
 
-.method public static startAppInfoFragment(Ljava/lang/Class;ILjava/lang/String;ILandroidx/fragment/app/Fragment;II)V
+.method public static startAppInfoFragment(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;ILandroidx/fragment/app/Fragment;II)V
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljava/lang/Class<",
-            "*>;I",
+            "*>;",
+            "Ljava/lang/String;",
             "Ljava/lang/String;",
             "I",
             "Landroidx/fragment/app/Fragment;",
@@ -109,7 +110,7 @@
 
     move-result-object p0
 
-    invoke-virtual {p0, p1}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
+    invoke-virtual {p0, p1}, Lcom/android/settings/core/SubSettingLauncher;->setTitleText(Ljava/lang/CharSequence;)Lcom/android/settings/core/SubSettingLauncher;
 
     move-result-object p0
 

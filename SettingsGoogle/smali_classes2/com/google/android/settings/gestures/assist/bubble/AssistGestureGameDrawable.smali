@@ -88,6 +88,144 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmBounds(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)Landroid/graphics/Rect;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->mBounds:Landroid/graphics/Rect;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmBubbles(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)Ljava/util/List;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->mBubbles:Ljava/util/List;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmDeadBubbles(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)Ljava/util/List;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->mDeadBubbles:Ljava/util/List;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmDriftAnimation(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)Landroid/animation/TimeAnimator;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->mDriftAnimation:Landroid/animation/TimeAnimator;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmGameState(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)I
+    .locals 0
+
+    iget p0, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->mGameState:I
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmLastTime(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)F
+    .locals 0
+
+    iget p0, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->mLastTime:F
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmNextBubbleTime(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)F
+    .locals 0
+
+    iget p0, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->mNextBubbleTime:F
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmServiceConnected(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->mServiceConnected:Z
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmSpiralingAndroids(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)Ljava/util/List;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->mSpiralingAndroids:Ljava/util/List;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmBubbleTouchedBottom(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->mBubbleTouchedBottom:Z
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fputmGameState(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;I)V
+    .locals 0
+
+    iput p1, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->mGameState:I
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fputmLastTime(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;F)V
+    .locals 0
+
+    iput p1, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->mLastTime:F
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fputmNextBubbleTime(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;F)V
+    .locals 0
+
+    iput p1, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->mNextBubbleTime:F
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mhasCollisionWithDeadBubbles(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;Lcom/google/android/settings/gestures/assist/bubble/Bubble;)Z
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->hasCollisionWithDeadBubbles(Lcom/google/android/settings/gestures/assist/bubble/Bubble;)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$mnotifyGameStateChanged(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->notifyGameStateChanged()V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$monGestureDetected(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->onGestureDetected()V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$monGestureProgress(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;FI)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->onGestureProgress(FI)V
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable$GameStateListener;)V
     .locals 3
 
@@ -188,144 +326,6 @@
     invoke-direct {p0}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->updateScoreText()V
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;FI)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->onGestureProgress(FI)V
-
-    return-void
-.end method
-
-.method static synthetic access$100(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->onGestureDetected()V
-
-    return-void
-.end method
-
-.method static synthetic access$1000(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)Ljava/util/List;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->mSpiralingAndroids:Ljava/util/List;
-
-    return-object p0
-.end method
-
-.method static synthetic access$1100(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->mServiceConnected:Z
-
-    return p0
-.end method
-
-.method static synthetic access$1200(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->notifyGameStateChanged()V
-
-    return-void
-.end method
-
-.method static synthetic access$1300(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)Landroid/animation/TimeAnimator;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->mDriftAnimation:Landroid/animation/TimeAnimator;
-
-    return-object p0
-.end method
-
-.method static synthetic access$200(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)F
-    .locals 0
-
-    iget p0, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->mLastTime:F
-
-    return p0
-.end method
-
-.method static synthetic access$202(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;F)F
-    .locals 0
-
-    iput p1, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->mLastTime:F
-
-    return p1
-.end method
-
-.method static synthetic access$300(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)I
-    .locals 0
-
-    iget p0, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->mGameState:I
-
-    return p0
-.end method
-
-.method static synthetic access$302(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;I)I
-    .locals 0
-
-    iput p1, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->mGameState:I
-
-    return p1
-.end method
-
-.method static synthetic access$400(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)F
-    .locals 0
-
-    iget p0, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->mNextBubbleTime:F
-
-    return p0
-.end method
-
-.method static synthetic access$402(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;F)F
-    .locals 0
-
-    iput p1, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->mNextBubbleTime:F
-
-    return p1
-.end method
-
-.method static synthetic access$500(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)Landroid/graphics/Rect;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->mBounds:Landroid/graphics/Rect;
-
-    return-object p0
-.end method
-
-.method static synthetic access$600(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)Ljava/util/List;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->mBubbles:Ljava/util/List;
-
-    return-object p0
-.end method
-
-.method static synthetic access$700(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;)Ljava/util/List;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->mDeadBubbles:Ljava/util/List;
-
-    return-object p0
-.end method
-
-.method static synthetic access$800(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;Lcom/google/android/settings/gestures/assist/bubble/Bubble;)Z
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->hasCollisionWithDeadBubbles(Lcom/google/android/settings/gestures/assist/bubble/Bubble;)Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method static synthetic access$902(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureGameDrawable;->mBubbleTouchedBottom:Z
-
-    return p1
 .end method
 
 .method private connectService()V

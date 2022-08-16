@@ -24,6 +24,22 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmConnectionListener(Lcom/android/settingslib/suggestions/SuggestionController;)Lcom/android/settingslib/suggestions/SuggestionController$ServiceConnectionListener;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settingslib/suggestions/SuggestionController;->mConnectionListener:Lcom/android/settingslib/suggestions/SuggestionController$ServiceConnectionListener;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmRemoteService(Lcom/android/settingslib/suggestions/SuggestionController;Landroid/service/settings/suggestions/ISuggestionService;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/settingslib/suggestions/SuggestionController;->mRemoteService:Landroid/service/settings/suggestions/ISuggestionService;
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Landroid/content/ComponentName;Lcom/android/settingslib/suggestions/SuggestionController$ServiceConnectionListener;)V
     .locals 0
 
@@ -54,22 +70,6 @@
     iput-object p1, p0, Lcom/android/settingslib/suggestions/SuggestionController;->mServiceConnection:Landroid/content/ServiceConnection;
 
     return-void
-.end method
-
-.method static synthetic access$002(Lcom/android/settingslib/suggestions/SuggestionController;Landroid/service/settings/suggestions/ISuggestionService;)Landroid/service/settings/suggestions/ISuggestionService;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/settingslib/suggestions/SuggestionController;->mRemoteService:Landroid/service/settings/suggestions/ISuggestionService;
-
-    return-object p1
-.end method
-
-.method static synthetic access$100(Lcom/android/settingslib/suggestions/SuggestionController;)Lcom/android/settingslib/suggestions/SuggestionController$ServiceConnectionListener;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/suggestions/SuggestionController;->mConnectionListener:Lcom/android/settingslib/suggestions/SuggestionController$ServiceConnectionListener;
-
-    return-object p0
 .end method
 
 .method private createServiceConnection()Landroid/content/ServiceConnection;

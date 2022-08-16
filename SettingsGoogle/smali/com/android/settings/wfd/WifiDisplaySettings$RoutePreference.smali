@@ -67,14 +67,14 @@
 
     if-eqz p1, :cond_0
 
-    const p1, 0x7f041638
+    const p1, 0x7f041731
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setSummary(I)V
 
     goto :goto_0
 
     :cond_0
-    const p1, 0x7f041637
+    const p1, 0x7f041730
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -106,14 +106,14 @@
 
     if-ne p1, p2, :cond_3
 
-    const p1, 0x7f041639
+    const p1, 0x7f041732
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setSummary(I)V
 
     goto :goto_0
 
     :cond_3
-    const p1, 0x7f04163a
+    const p1, 0x7f041733
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -132,7 +132,7 @@
 
     iget-object p0, p0, Lcom/android/settings/wfd/WifiDisplaySettings$RoutePreference;->mRoute:Landroid/media/MediaRouter$RouteInfo;
 
-    invoke-static {p1, p0}, Lcom/android/settings/wfd/WifiDisplaySettings;->access$1300(Lcom/android/settings/wfd/WifiDisplaySettings;Landroid/media/MediaRouter$RouteInfo;)V
+    invoke-static {p1, p0}, Lcom/android/settings/wfd/WifiDisplaySettings;->-$$Nest$mtoggleRoute(Lcom/android/settings/wfd/WifiDisplaySettings;Landroid/media/MediaRouter$RouteInfo;)V
 
     const/4 p0, 0x1
 

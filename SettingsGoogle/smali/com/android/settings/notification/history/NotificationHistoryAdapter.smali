@@ -74,6 +74,14 @@
     return p0
 .end method
 
+.method static bridge synthetic -$$Nest$fgetmValues(Lcom/android/settings/notification/history/NotificationHistoryAdapter;)Ljava/util/List;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/notification/history/NotificationHistoryAdapter;->mValues:Ljava/util/List;
+
+    return-object p0
+.end method
+
 .method static constructor <clinit>()V
     .locals 0
 
@@ -104,14 +112,6 @@
     iput-object p4, p0, Lcom/android/settings/notification/history/NotificationHistoryAdapter;->mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/notification/history/NotificationHistoryAdapter;)Ljava/util/List;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/notification/history/NotificationHistoryAdapter;->mValues:Ljava/util/List;
-
-    return-object p0
 .end method
 
 .method private synthetic lambda$onBindViewHolder$0(Landroid/app/NotificationHistory$HistoricalNotification;ILcom/android/settings/notification/history/NotificationHistoryViewHolder;Landroid/view/View;)V
@@ -287,9 +287,9 @@
 
     invoke-virtual {p1, v1, v2}, Lcom/android/settings/notification/history/NotificationHistoryViewHolder;->setPostedTime(J)V
 
-    new-instance v1, Lcom/android/settings/notification/history/NotificationHistoryAdapter$$ExternalSyntheticLambda0;
+    new-instance v1, Lcom/android/settings/notification/history/NotificationHistoryAdapter$$ExternalSyntheticLambda1;
 
-    invoke-direct {v1, p0, v0, p2, p1}, Lcom/android/settings/notification/history/NotificationHistoryAdapter$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/notification/history/NotificationHistoryAdapter;Landroid/app/NotificationHistory$HistoricalNotification;ILcom/android/settings/notification/history/NotificationHistoryViewHolder;)V
+    invoke-direct {v1, p0, v0, p2, p1}, Lcom/android/settings/notification/history/NotificationHistoryAdapter$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/notification/history/NotificationHistoryAdapter;Landroid/app/NotificationHistory$HistoricalNotification;ILcom/android/settings/notification/history/NotificationHistoryViewHolder;)V
 
     iget-object p2, p1, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
 
@@ -297,9 +297,9 @@
 
     iget-object p2, p1, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
 
-    new-instance v2, Lcom/android/settings/notification/history/NotificationHistoryAdapter$$ExternalSyntheticLambda1;
+    new-instance v2, Lcom/android/settings/notification/history/NotificationHistoryAdapter$$ExternalSyntheticLambda2;
 
-    invoke-direct {v2, v1}, Lcom/android/settings/notification/history/NotificationHistoryAdapter$$ExternalSyntheticLambda1;-><init>(Landroid/view/View$OnClickListener;)V
+    invoke-direct {v2, v1}, Lcom/android/settings/notification/history/NotificationHistoryAdapter$$ExternalSyntheticLambda2;-><init>(Landroid/view/View$OnClickListener;)V
 
     invoke-virtual {p2, v2}, Landroid/view/View;->setOnLongClickListener(Landroid/view/View$OnLongClickListener;)V
 
@@ -335,7 +335,7 @@
 
     move-result-object p0
 
-    const p2, 0x7f06016d
+    const p2, 0x7f060177
 
     const/4 v0, 0x0
 
@@ -480,7 +480,9 @@
 
     iput-object p1, p0, Lcom/android/settings/notification/history/NotificationHistoryAdapter;->mValues:Ljava/util/List;
 
-    sget-object v0, Lcom/android/settings/notification/history/NotificationHistoryAdapter$$ExternalSyntheticLambda2;->INSTANCE:Lcom/android/settings/notification/history/NotificationHistoryAdapter$$ExternalSyntheticLambda2;
+    new-instance v0, Lcom/android/settings/notification/history/NotificationHistoryAdapter$$ExternalSyntheticLambda0;
+
+    invoke-direct {v0}, Lcom/android/settings/notification/history/NotificationHistoryAdapter$$ExternalSyntheticLambda0;-><init>()V
 
     invoke-interface {p1, v0}, Ljava/util/List;->sort(Ljava/util/Comparator;)V
 

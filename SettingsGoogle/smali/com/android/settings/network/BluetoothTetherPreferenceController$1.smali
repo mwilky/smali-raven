@@ -56,7 +56,7 @@
 
     move-result p2
 
-    invoke-static {p1, p2}, Lcom/android/settings/network/BluetoothTetherPreferenceController;->access$002(Lcom/android/settings/network/BluetoothTetherPreferenceController;I)I
+    invoke-static {p1, p2}, Lcom/android/settings/network/BluetoothTetherPreferenceController;->-$$Nest$fputmBluetoothState(Lcom/android/settings/network/BluetoothTetherPreferenceController;I)V
 
     iget-object p0, p0, Lcom/android/settings/network/BluetoothTetherPreferenceController$1;->this$0:Lcom/android/settings/network/BluetoothTetherPreferenceController;
 

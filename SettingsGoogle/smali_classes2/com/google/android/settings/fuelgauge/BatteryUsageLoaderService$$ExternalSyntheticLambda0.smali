@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/google/android/settings/fuelgauge/BatteryUsageLoaderService$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;

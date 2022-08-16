@@ -199,7 +199,7 @@
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothSwitchPreferenceController;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0404e9
+    const v1, 0x7f040541
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -226,7 +226,7 @@
     :cond_0
     iget-object p0, p0, Lcom/android/settings/bluetooth/BluetoothSwitchPreferenceController;->mFooterPreference:Lcom/android/settingslib/widget/FooterPreference;
 
-    const p1, 0x7f040475
+    const p1, 0x7f0404bf
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setTitle(I)V
 

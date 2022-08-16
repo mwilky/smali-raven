@@ -1,33 +1,28 @@
 .class public final synthetic Lcom/android/settings/network/helper/SelectableSubscriptions$$ExternalSyntheticLambda5;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/IntUnaryOperator;
-
-
-# instance fields
-.field public final synthetic f$0:Ljava/util/concurrent/atomic/AtomicIntegerArray;
+.implements Ljava/util/function/Predicate;
 
 
 # direct methods
-.method public synthetic constructor <init>(Ljava/util/concurrent/atomic/AtomicIntegerArray;)V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/settings/network/helper/SelectableSubscriptions$$ExternalSyntheticLambda5;->f$0:Ljava/util/concurrent/atomic/AtomicIntegerArray;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final applyAsInt(I)I
+.method public final test(Ljava/lang/Object;)Z
     .locals 0
 
-    iget-object p0, p0, Lcom/android/settings/network/helper/SelectableSubscriptions$$ExternalSyntheticLambda5;->f$0:Ljava/util/concurrent/atomic/AtomicIntegerArray;
+    check-cast p1, Lcom/android/settings/network/helper/SubscriptionAnnotation;
 
-    invoke-static {p0, p1}, Lcom/android/settings/network/helper/SelectableSubscriptions;->$r8$lambda$eib6Lzt-C3sVNA6sednGkTH17OE(Ljava/util/concurrent/atomic/AtomicIntegerArray;I)I
+    invoke-static {p1}, Lcom/android/settings/network/helper/SelectableSubscriptions;->$r8$lambda$_sX3nQFjGMpGYo-yOOqrd1hu6Sc(Lcom/android/settings/network/helper/SubscriptionAnnotation;)Z
 
     move-result p0
 

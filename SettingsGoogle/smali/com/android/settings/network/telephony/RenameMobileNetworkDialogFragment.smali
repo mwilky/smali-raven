@@ -46,15 +46,7 @@
     return-void
 .end method
 
-.method public constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/core/instrumentation/InstrumentedDialogFragment;-><init>()V
-
-    return-void
-.end method
-
-.method static synthetic access$300(Lcom/android/settings/network/telephony/RenameMobileNetworkDialogFragment;I)I
+.method static bridge synthetic -$$Nest$mgetDarkColor(Lcom/android/settings/network/telephony/RenameMobileNetworkDialogFragment;I)I
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settings/network/telephony/RenameMobileNetworkDialogFragment;->getDarkColor(I)I
@@ -62,6 +54,14 @@
     move-result p0
 
     return p0
+.end method
+
+.method public constructor <init>()V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/core/instrumentation/InstrumentedDialogFragment;-><init>()V
+
+    return-void
 .end method
 
 .method private getColors()[Lcom/android/settings/network/telephony/RenameMobileNetworkDialogFragment$Color;
@@ -75,25 +75,25 @@
 
     move-result-object v0
 
-    const v1, 0x7f0100b8
+    const v1, 0x7f0100c2
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getIntArray(I)[I
 
     move-result-object v1
 
-    const v2, 0x7f01005f
+    const v2, 0x7f010060
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
     move-result-object v2
 
-    const v3, 0x7f0b00ca
+    const v3, 0x7f0b00e6
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v3
 
-    const v4, 0x7f0b00cb
+    const v4, 0x7f0b00e7
 
     invoke-virtual {v0, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -126,7 +126,7 @@
 
     move v9, v0
 
-    invoke-direct/range {v4 .. v10}, Lcom/android/settings/network/telephony/RenameMobileNetworkDialogFragment$Color;-><init>(Lcom/android/settings/network/telephony/RenameMobileNetworkDialogFragment;Ljava/lang/String;IIILcom/android/settings/network/telephony/RenameMobileNetworkDialogFragment$1;)V
+    invoke-direct/range {v4 .. v10}, Lcom/android/settings/network/telephony/RenameMobileNetworkDialogFragment$Color;-><init>(Lcom/android/settings/network/telephony/RenameMobileNetworkDialogFragment;Ljava/lang/String;IIILcom/android/settings/network/telephony/RenameMobileNetworkDialogFragment$Color-IA;)V
 
     aput-object v14, v12, v13
 
@@ -175,7 +175,7 @@
 
     move-result-object v0
 
-    const v1, 0x10700c0
+    const v1, 0x10700d4
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getIntArray(I)[I
 
@@ -219,7 +219,7 @@
 
     aget-object v3, v3, v0
 
-    invoke-static {v3}, Lcom/android/settings/network/telephony/RenameMobileNetworkDialogFragment$Color;->access$400(Lcom/android/settings/network/telephony/RenameMobileNetworkDialogFragment$Color;)I
+    invoke-static {v3}, Lcom/android/settings/network/telephony/RenameMobileNetworkDialogFragment$Color;->-$$Nest$mgetColor(Lcom/android/settings/network/telephony/RenameMobileNetworkDialogFragment$Color;)I
 
     move-result v3
 
@@ -289,7 +289,7 @@
     :goto_0
     iget-object p2, p0, Lcom/android/settings/network/telephony/RenameMobileNetworkDialogFragment;->mSubscriptionManager:Landroid/telephony/SubscriptionManager;
 
-    invoke-static {p1}, Lcom/android/settings/network/telephony/RenameMobileNetworkDialogFragment$Color;->access$400(Lcom/android/settings/network/telephony/RenameMobileNetworkDialogFragment$Color;)I
+    invoke-static {p1}, Lcom/android/settings/network/telephony/RenameMobileNetworkDialogFragment$Color;->-$$Nest$mgetColor(Lcom/android/settings/network/telephony/RenameMobileNetworkDialogFragment$Color;)I
 
     move-result p1
 
@@ -595,7 +595,7 @@
 
     check-cast v0, Landroid/view/LayoutInflater;
 
-    const v1, 0x7f0600d0
+    const v1, 0x7f0600ce
 
     const/4 v2, 0x0
 
@@ -605,7 +605,7 @@
 
     invoke-virtual {p0, v0}, Lcom/android/settings/network/telephony/RenameMobileNetworkDialogFragment;->populateView(Landroid/view/View;)V
 
-    const v1, 0x7f040d4c
+    const v1, 0x7f040dc8
 
     invoke-virtual {p1, v1}, Landroidx/appcompat/app/AlertDialog$Builder;->setTitle(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
@@ -619,7 +619,7 @@
 
     invoke-direct {v1, p0}, Lcom/android/settings/network/telephony/RenameMobileNetworkDialogFragment$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/network/telephony/RenameMobileNetworkDialogFragment;)V
 
-    const p0, 0x7f040d4e
+    const p0, 0x7f040dca
 
     invoke-virtual {v0, p0, v1}, Landroidx/appcompat/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 
@@ -639,7 +639,7 @@
 .method protected populateView(Landroid/view/View;)V
     .locals 5
 
-    const v0, 0x7f0d03cf
+    const v0, 0x7f0d03fc
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -740,7 +740,7 @@
     invoke-virtual {v2, v0}, Landroid/widget/EditText;->setSelection(I)V
 
     :cond_3
-    const v0, 0x7f0d0169
+    const v0, 0x7f0d017d
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -756,7 +756,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0600cf
+    const v3, 0x7f0600cd
 
     iget-object v4, p0, Lcom/android/settings/network/telephony/RenameMobileNetworkDialogFragment;->mColors:[Lcom/android/settings/network/telephony/RenameMobileNetworkDialogFragment$Color;
 
@@ -778,7 +778,7 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/Spinner;->setSelection(I)V
 
-    const v0, 0x7f0d0404
+    const v0, 0x7f0d0435
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -802,7 +802,7 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const v0, 0x7f0d03f5
+    const v0, 0x7f0d0426
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -826,7 +826,7 @@
     :goto_1
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setVisibility(I)V
 
-    const v0, 0x7f0d03f7
+    const v0, 0x7f0d0428
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -842,7 +842,14 @@
 
     move-result-object p0
 
+    invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_5
+
     invoke-virtual {p1, p0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
+    :cond_5
     return-void
 .end method

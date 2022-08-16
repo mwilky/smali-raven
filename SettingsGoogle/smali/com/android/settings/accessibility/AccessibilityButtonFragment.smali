@@ -71,12 +71,12 @@
 
     if-eqz p1, :cond_0
 
-    const p1, 0x7f0400b3
+    const p1, 0x7f0400aa
 
     goto :goto_0
 
     :cond_0
-    const p1, 0x7f0400bc
+    const p1, 0x7f0400b4
 
     :goto_0
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;

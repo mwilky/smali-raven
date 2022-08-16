@@ -19,15 +19,15 @@
 
 
 # direct methods
-.method public constructor <init>()V
+.method static bridge synthetic -$$Nest$fgetmWifiManager(Lcom/android/settings/wifi/WifiAPITest;)Landroid/net/wifi/WifiManager;
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/settings/SettingsPreferenceFragment;-><init>()V
+    iget-object p0, p0, Lcom/android/settings/wifi/WifiAPITest;->mWifiManager:Landroid/net/wifi/WifiManager;
 
-    return-void
+    return-object p0
 .end method
 
-.method static synthetic access$000(Lcom/android/settings/wifi/WifiAPITest;)I
+.method static bridge synthetic -$$Nest$fgetnetid(Lcom/android/settings/wifi/WifiAPITest;)I
     .locals 0
 
     iget p0, p0, Lcom/android/settings/wifi/WifiAPITest;->netid:I
@@ -35,20 +35,20 @@
     return p0
 .end method
 
-.method static synthetic access$002(Lcom/android/settings/wifi/WifiAPITest;I)I
+.method static bridge synthetic -$$Nest$fputnetid(Lcom/android/settings/wifi/WifiAPITest;I)V
     .locals 0
 
     iput p1, p0, Lcom/android/settings/wifi/WifiAPITest;->netid:I
 
-    return p1
+    return-void
 .end method
 
-.method static synthetic access$100(Lcom/android/settings/wifi/WifiAPITest;)Landroid/net/wifi/WifiManager;
+.method public constructor <init>()V
     .locals 0
 
-    iget-object p0, p0, Lcom/android/settings/wifi/WifiAPITest;->mWifiManager:Landroid/net/wifi/WifiManager;
+    invoke-direct {p0}, Lcom/android/settings/SettingsPreferenceFragment;-><init>()V
 
-    return-object p0
+    return-void
 .end method
 
 
@@ -82,7 +82,7 @@
 .method public onCreatePreferences(Landroid/os/Bundle;Ljava/lang/String;)V
     .locals 0
 
-    const p1, 0x7f0602b2
+    const p1, 0x7f0602c5
 
     invoke-virtual {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->addPreferencesFromResource(I)V
 

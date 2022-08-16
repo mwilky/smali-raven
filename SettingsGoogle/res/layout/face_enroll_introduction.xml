@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.setupdesign.GlifLayout android:id="@id/setup_wizard_layout" android:layout_width="fill_parent" android:layout_height="fill_parent" app:sudDescriptionText="@string/security_settings_face_enroll_introduction_message" style="?face_layout_theme"
   xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <LinearLayout android:orientation="vertical" android:clipChildren="false" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginStart="?sudMarginStart" android:layout_marginEnd="?sudMarginEnd" style="@style/SudContentFrame">
+    <LinearLayout android:orientation="vertical" android:clipChildren="false" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/SudContentFrame">
         <com.google.android.setupdesign.view.RichTextView android:id="@id/error_text" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/SudDescription.Glif" />
         <FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
             <ImageView android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/face_enroll_intro_illustration" android:contentDescription="@null" style="@style/SudContentIllustration" />

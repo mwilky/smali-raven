@@ -19,7 +19,7 @@
 
     new-instance v0, Lcom/android/settings/search/BaseSearchIndexProvider;
 
-    const v1, 0x7f1500ff
+    const v1, 0x7f150107
 
     invoke-direct {v0, v1}, Lcom/android/settings/search/BaseSearchIndexProvider;-><init>(I)V
 
@@ -41,7 +41,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a4d
+    const p0, 0x7f040aa6
 
     return p0
 .end method
@@ -65,7 +65,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f1500ff
+    const p0, 0x7f150107
 
     return p0
 .end method
@@ -161,12 +161,12 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f040d00
+    const v0, 0x7f040d7b
 
     goto :goto_0
 
     :cond_0
-    const v0, 0x7f040d1c
+    const v0, 0x7f040d98
 
     :goto_0
     const/4 v1, 0x0
@@ -176,6 +176,18 @@
     invoke-interface {p1, v1, v2, v1, v0}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
     invoke-super {p0, p1, p2}, Lcom/android/settingslib/core/lifecycle/ObservablePreferenceFragment;->onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
+
+    return-void
+.end method
+
+.method public onDestroyView()V
+    .locals 0
+
+    invoke-super {p0}, Landroidx/preference/PreferenceFragmentCompat;->onDestroyView()V
+
+    invoke-static {}, Lcom/android/settingslib/applications/AppIconCacheManager;->getInstance()Lcom/android/settingslib/applications/AppIconCacheManager;
+
+    invoke-static {}, Lcom/android/settingslib/applications/AppIconCacheManager;->release()V
 
     return-void
 .end method
@@ -204,12 +216,12 @@
 
     if-eqz v1, :cond_1
 
-    const v1, 0x7f040d00
+    const v1, 0x7f040d7b
 
     goto :goto_0
 
     :cond_1
-    const v1, 0x7f040d1c
+    const v1, 0x7f040d98
 
     :goto_0
     invoke-interface {p1, v1}, Landroid/view/MenuItem;->setTitle(I)Landroid/view/MenuItem;

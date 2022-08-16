@@ -16,12 +16,4 @@
 
 # virtual methods
 .method public abstract computeScrollVectorForPosition(I)Landroid/graphics/PointF;
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "targetPosition"
-        }
-    .end annotation
 .end method

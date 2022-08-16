@@ -3,26 +3,9 @@
 .source "MediaRouter2Utils.java"
 
 
-# annotations
-.annotation build Landroid/annotation/SuppressLint;
-    value = {
-        "NewApi"
-    }
-.end annotation
-
-
 # direct methods
 .method static getRouteIds(Ljava/util/List;)Ljava/util/List;
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "routes"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -84,14 +67,6 @@
 
 .method static toDiscoveryPreference(Landroidx/mediarouter/media/MediaRouteDiscoveryRequest;)Landroid/media/RouteDiscoveryPreference;
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "discoveryRequest"
-        }
-    .end annotation
 
     if-eqz p0, :cond_2
 
@@ -177,14 +152,6 @@
 
 .method public static toMediaRouteDescriptor(Landroid/media/MediaRoute2Info;)Landroidx/mediarouter/media/MediaRouteDescriptor;
     .locals 8
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "fwkMediaRoute2Info"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -358,14 +325,6 @@
 
 .method static toRouteFeature(Ljava/lang/String;)Ljava/lang/String;
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "controlCategory"
-        }
-    .end annotation
 
     invoke-virtual {p0}, Ljava/lang/String;->hashCode()I
 

@@ -38,7 +38,7 @@
 
     const/4 p1, 0x1
 
-    invoke-static {p0, p1}, Lcom/android/settings/widget/DotsPageIndicator;->access$502(Lcom/android/settings/widget/DotsPageIndicator;Z)Z
+    invoke-static {p0, p1}, Lcom/android/settings/widget/DotsPageIndicator;->-$$Nest$fputselectedDotInPosition(Lcom/android/settings/widget/DotsPageIndicator;Z)V
 
     return-void
 .end method
@@ -50,7 +50,7 @@
 
     const/4 p1, 0x0
 
-    invoke-static {p0, p1}, Lcom/android/settings/widget/DotsPageIndicator;->access$502(Lcom/android/settings/widget/DotsPageIndicator;Z)Z
+    invoke-static {p0, p1}, Lcom/android/settings/widget/DotsPageIndicator;->-$$Nest$fputselectedDotInPosition(Lcom/android/settings/widget/DotsPageIndicator;Z)V
 
     return-void
 .end method

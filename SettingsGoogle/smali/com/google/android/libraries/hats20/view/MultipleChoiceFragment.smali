@@ -328,8 +328,6 @@
 
     aput-object v5, v3, v4
 
-    aget-object v5, v3, v4
-
     sget v6, Lcom/google/android/libraries/hats20/R$id;->hats_lib_survey_multiple_choice_text:I
 
     invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -404,8 +402,6 @@
     move-result-object v5
 
     aput-object v5, v3, v4
-
-    aget-object v5, v3, v4
 
     check-cast v5, Landroid/widget/Button;
 

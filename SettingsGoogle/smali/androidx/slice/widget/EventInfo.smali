@@ -24,20 +24,6 @@
 # direct methods
 .method public constructor <init>(IIII)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "sliceMode",
-            "actionType",
-            "rowTemplateType",
-            "rowIndex"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -49,9 +35,11 @@
 
     iput p4, p0, Landroidx/slice/widget/EventInfo;->rowIndex:I
 
-    const/4 p1, -0x1
+    const/4 p1, 0x0
 
     iput p1, p0, Landroidx/slice/widget/EventInfo;->actionPosition:I
+
+    const/4 p1, -0x1
 
     iput p1, p0, Landroidx/slice/widget/EventInfo;->actionIndex:I
 
@@ -64,14 +52,6 @@
 
 .method private static actionToString(I)Ljava/lang/String;
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "action"
-        }
-    .end annotation
 
     packed-switch p0, :pswitch_data_0
 
@@ -146,14 +126,6 @@
 
 .method private static positionToString(I)Ljava/lang/String;
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "position"
-        }
-    .end annotation
 
     if-eqz p0, :cond_2
 
@@ -199,14 +171,6 @@
 
 .method private static rowTypeToString(I)Ljava/lang/String;
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "type"
-        }
-    .end annotation
 
     packed-switch p0, :pswitch_data_0
 
@@ -295,18 +259,6 @@
 # virtual methods
 .method public setPosition(III)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "actionPosition",
-            "actionIndex",
-            "actionCount"
-        }
-    .end annotation
 
     iput p1, p0, Landroidx/slice/widget/EventInfo;->actionPosition:I
 

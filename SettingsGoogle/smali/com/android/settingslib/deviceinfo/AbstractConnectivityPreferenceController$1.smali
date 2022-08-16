@@ -52,7 +52,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/deviceinfo/AbstractConnectivityPreferenceController$1;->this$0:Lcom/android/settingslib/deviceinfo/AbstractConnectivityPreferenceController;
 
-    invoke-static {p0}, Lcom/android/settingslib/deviceinfo/AbstractConnectivityPreferenceController;->access$000(Lcom/android/settingslib/deviceinfo/AbstractConnectivityPreferenceController;)Landroid/os/Handler;
+    invoke-static {p0}, Lcom/android/settingslib/deviceinfo/AbstractConnectivityPreferenceController;->-$$Nest$mgetHandler(Lcom/android/settingslib/deviceinfo/AbstractConnectivityPreferenceController;)Landroid/os/Handler;
 
     move-result-object p0
 

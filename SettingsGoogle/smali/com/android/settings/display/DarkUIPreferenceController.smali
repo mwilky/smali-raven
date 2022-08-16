@@ -9,18 +9,12 @@
 
 
 # static fields
-.field public static final DARK_MODE_PREFS:Ljava/lang/String; = "dark_mode_prefs"
-
 .field public static final DIALOG_SEEN:I = 0x1
 
 .field public static final PREF_DARK_MODE_DIALOG_SEEN:Ljava/lang/String; = "dark_mode_dialog_seen"
 
 
 # instance fields
-.field private mContext:Landroid/content/Context;
-
-.field private mFragment:Landroidx/fragment/app/Fragment;
-
 .field private mPowerManager:Landroid/os/PowerManager;
 
 .field mPreference:Landroidx/preference/Preference;
@@ -41,8 +35,6 @@
     invoke-direct {p2, p0}, Lcom/android/settings/display/DarkUIPreferenceController$1;-><init>(Lcom/android/settings/display/DarkUIPreferenceController;)V
 
     iput-object p2, p0, Lcom/android/settings/display/DarkUIPreferenceController;->mReceiver:Landroid/content/BroadcastReceiver;
-
-    iput-object p1, p0, Lcom/android/settings/display/DarkUIPreferenceController;->mContext:Landroid/content/Context;
 
     const-class p2, Landroid/app/UiModeManager;
 
@@ -67,57 +59,12 @@
     return-void
 .end method
 
-.method private showDarkModeDialog()V
-    .locals 2
-
-    new-instance v0, Lcom/android/settings/display/DarkUIInfoDialogFragment;
-
-    invoke-direct {v0}, Lcom/android/settings/display/DarkUIInfoDialogFragment;-><init>()V
-
-    iget-object v1, p0, Lcom/android/settings/display/DarkUIPreferenceController;->mFragment:Landroidx/fragment/app/Fragment;
-
-    if-eqz v1, :cond_0
-
-    invoke-virtual {v1}, Landroidx/fragment/app/Fragment;->getFragmentManager()Landroidx/fragment/app/FragmentManager;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/settings/display/DarkUIPreferenceController;->mFragment:Landroidx/fragment/app/Fragment;
-
-    invoke-virtual {v1}, Landroidx/fragment/app/Fragment;->getFragmentManager()Landroidx/fragment/app/FragmentManager;
-
-    move-result-object v1
-
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Ljava/lang/Class;->getName()Ljava/lang/String;
-
-    move-result-object p0
-
-    invoke-virtual {v0, v1, p0}, Landroidx/fragment/app/DialogFragment;->show(Landroidx/fragment/app/FragmentManager;Ljava/lang/String;)V
-
-    :cond_0
-    return-void
-.end method
-
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public displayPreference(Landroidx/preference/PreferenceScreen;)V
     .locals 1
 
-    invoke-super {p0, p1}, Lcom/android/settings/core/BasePreferenceController;->displayPreference(Landroidx/preference/PreferenceScreen;)V
+    invoke-super {p0, p1}, Lcom/android/settings/core/TogglePreferenceController;->displayPreference(Landroidx/preference/PreferenceScreen;)V
 
     invoke-virtual {p0}, Lcom/android/settings/core/BasePreferenceController;->getPreferenceKey()Ljava/lang/String;
 
@@ -142,15 +89,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -172,7 +110,7 @@
 .method public getSliceHighlightMenuRes()I
     .locals 0
 
-    const p0, 0x7f040d07
+    const p0, 0x7f040d82
 
     return p0
 .end method
@@ -190,7 +128,7 @@
 .method public isChecked()Z
     .locals 0
 
-    iget-object p0, p0, Lcom/android/settings/display/DarkUIPreferenceController;->mContext:Landroid/content/Context;
+    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -217,16 +155,6 @@
     return p0
 .end method
 
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
-
-    move-result p0
-
-    return p0
-.end method
-
 .method isPowerSaveMode()Z
     .locals 0
 
@@ -242,7 +170,7 @@
 .method public onStart()V
     .locals 3
 
-    iget-object v0, p0, Lcom/android/settings/display/DarkUIPreferenceController;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
     iget-object p0, p0, Lcom/android/settings/display/DarkUIPreferenceController;->mReceiver:Landroid/content/BroadcastReceiver;
 
@@ -260,7 +188,7 @@
 .method public onStop()V
     .locals 1
 
-    iget-object v0, p0, Lcom/android/settings/display/DarkUIPreferenceController;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
     iget-object p0, p0, Lcom/android/settings/display/DarkUIPreferenceController;->mReceiver:Landroid/content/BroadcastReceiver;
 
@@ -270,36 +198,8 @@
 .end method
 
 .method public setChecked(Z)Z
-    .locals 3
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/settings/display/DarkUIPreferenceController;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v0
-
-    const-string v1, "dark_mode_dialog_seen"
-
-    const/4 v2, 0x0
-
-    invoke-static {v0, v1, v2}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v0
-
-    const/4 v1, 0x1
-
-    if-ne v0, v1, :cond_0
-
-    move v2, v1
-
-    :cond_0
-    if-nez v2, :cond_1
-
-    if-eqz p1, :cond_1
-
-    invoke-direct {p0}, Lcom/android/settings/display/DarkUIPreferenceController;->showDarkModeDialog()V
-
-    :cond_1
     iget-object p0, p0, Lcom/android/settings/display/DarkUIPreferenceController;->mUiModeManager:Landroid/app/UiModeManager;
 
     invoke-virtual {p0, p1}, Landroid/app/UiModeManager;->setNightModeActivated(Z)Z
@@ -307,14 +207,6 @@
     move-result p0
 
     return p0
-.end method
-
-.method public setParentFragment(Landroidx/fragment/app/Fragment;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/settings/display/DarkUIPreferenceController;->mFragment:Landroidx/fragment/app/Fragment;
-
-    return-void
 .end method
 
 .method updateEnabledStateIfNeeded()V
@@ -345,17 +237,17 @@
 
     if-eqz v0, :cond_1
 
-    const v0, 0x7f0406fb
+    const v0, 0x7f04073e
 
     goto :goto_0
 
     :cond_1
-    const v0, 0x7f0406fa
+    const v0, 0x7f04073d
 
     :goto_0
     iget-object v1, p0, Lcom/android/settings/display/DarkUIPreferenceController;->mPreference:Landroidx/preference/Preference;
 
-    iget-object p0, p0, Lcom/android/settings/display/DarkUIPreferenceController;->mContext:Landroid/content/Context;
+    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

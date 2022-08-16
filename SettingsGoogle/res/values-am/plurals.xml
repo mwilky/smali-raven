@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="abc_slice_duration_days">
-        <item quantity="other">%d ቀናት በፊት</item>
-        <item quantity="one">%d ቀናት በፊት</item>
+        <item quantity="other">ከ%d ቀናት በፊት</item>
+        <item quantity="one">ከ%d ቀናት በፊት</item>
     </plurals>
     <plurals name="abc_slice_duration_min">
-        <item quantity="other">%d ደቂቃ በፊት</item>
-        <item quantity="one">%d ደቂቃ በፊት</item>
+        <item quantity="other">ከ%d ደቂቃ በፊት</item>
+        <item quantity="one">ከ%d ደቂቃ በፊት</item>
     </plurals>
     <plurals name="abc_slice_duration_years">
-        <item quantity="other">%d ዓመት በፊት</item>
-        <item quantity="one">%d ዓመት በፊት</item>
+        <item quantity="other">ከ%d ዓመት በፊት</item>
+        <item quantity="one">ከ%d ዓመት በፊት</item>
     </plurals>
     <plurals name="accessibility_usage_summary">
         <item quantity="other">%1$d አገልግሎቶች ወደ የእርስዎ መሣሪያ ሙሉ መዳረሻ ይኖራቸዋል</item>
@@ -233,12 +233,12 @@
         <item quantity="one">%d ምድቦች ጠፍተዋል</item>
     </plurals>
     <plurals name="notifications_sent_daily">
-        <item quantity="other">~%d ማሳወቂያዎች በቀን</item>
-        <item quantity="one">~%d ማሳወቂያዎች በቀን</item>
+        <item quantity="other">~%,d ማሳወቂያዎች በቀን</item>
+        <item quantity="one">~%,d ማሳወቂያዎች በቀን</item>
     </plurals>
     <plurals name="notifications_sent_weekly">
-        <item quantity="other">~%d ማሳወቂያዎች በሳምንት</item>
-        <item quantity="one">~%d ማሳወቂያዎች በሳምንት</item>
+        <item quantity="other">~%,d ማሳወቂያዎች በሳምንት</item>
+        <item quantity="one">~%,d ማሳወቂያዎች በሳምንት</item>
     </plurals>
     <plurals name="number_of_device_admins">
         <item quantity="other">%d ገቢር መተግበሪያዎች</item>
@@ -328,22 +328,6 @@
         <item quantity="other">የእውቅና ማረጋገጫዎችን ይመኑ ወይም ያስወግዱ</item>
         <item quantity="one">የእውቅና ማረጋገጫዎችን ይመኑ ወይም ያስወግዱ</item>
     </plurals>
-    <plurals name="ssl_ca_cert_info_message">
-        <item quantity="other">"%sለስራ መገለጫዎ የእውቅና ማረጋገጫ ባለስልጣናትን ጭነዋል፣ ይህም ኢሜይሎች፣ መተግበሪያዎች እና ደህንነታቸው የተጠበቁ ድር ጣቢያዎችም ጨምሮ የስራ አውታረ መረብ እንቅስቃሴን እንዲከታተሉ ሊያስችላቸው ይችላል።
-
-ስለእነዚህ የእውቅና ማረጋገጫዎች ተጨማሪ መረጃ ለማግኘት አስተዳዳሪዎን ያነጋግሩ።"</item>
-        <item quantity="one">"%sለስራ መገለጫዎ የእውቅና ማረጋገጫ ባለስልጣናትን ጭነዋል፣ ይህም ኢሜይሎች፣ መተግበሪያዎች እና ደህንነታቸው የተጠበቁ ድር ጣቢያዎችም ጨምሮ የስራ አውታረ መረብ እንቅስቃሴን እንዲከታተሉ ሊያስችላቸው ይችላል።
-
-ስለእነዚህ የእውቅና ማረጋገጫዎች ተጨማሪ መረጃ ለማግኘት አስተዳዳሪዎን ያነጋግሩ።"</item>
-    </plurals>
-    <plurals name="ssl_ca_cert_info_message_device_owner">
-        <item quantity="other">"%s በመሣሪያዎ ላይ የእውቅና ማረጋገጫ ባለስልጣናትን ጭነዋል፣ ይህም ኢሜይሎች፣ መተግበሪያዎች እና ደህንነታቸው የተጠበቁ ድር ጣቢያዎችም ጨምሮ የሥራ አውታረ መረብ እንቅስቃሴዎን እንዲከታተሉ ሊያስችላቸው ይችላል።
-
- ስለእነዚህ የእውቅና ማረጋገጫዎች ተጨማሪ መረጃ ለማግኘት አስተዳዳሪዎን ያነጋግሩ።"</item>
-        <item quantity="one">"%s በመሣሪያዎ ላይ የእውቅና ማረጋገጫ ባለስልጣናትን ጭነዋል፣ ይህም ኢሜይሎች፣ መተግበሪያዎች እና ደህንነታቸው የተጠበቁ ድር ጣቢያዎችም ጨምሮ የሥራ አውታረ መረብ እንቅስቃሴዎን እንዲከታተሉ ሊያስችላቸው ይችላል።
-
- ስለእነዚህ የእውቅና ማረጋገጫዎች ተጨማሪ መረጃ ለማግኘት አስተዳዳሪዎን ያነጋግሩ።"</item>
-    </plurals>
     <plurals name="ssl_ca_cert_settings_button">
         <item quantity="other">የእውቅና ማረጋገጫዎችን ይፈትሹ</item>
         <item quantity="one">የእውቅና ማረጋገጫዎችን ይፈትሹ</item>
@@ -375,10 +359,6 @@
     <plurals name="wifi_saved_passpoint_access_points_summary">
         <item quantity="other">%d የደንበኝነት ምዝገባዎች</item>
         <item quantity="one">%d የደንበኝነት ምዝገባዎች</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$d መሣሪያዎች ተገናኝተዋል</item>
-        <item quantity="one">%1$d መሣሪያዎች ተገናኝተዋል</item>
     </plurals>
     <plurals name="wrong_pin_code">
         <item quantity="other">ልክ ያልሆነ የሲም ፒን ኮድ፣ %d ሙከራዎች ይቀርዎታል።</item>

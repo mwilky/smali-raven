@@ -8,14 +8,22 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$smgetVibrationXmlResourceId(Landroid/content/Context;)I
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/settings/accessibility/VibrationSettings;->getVibrationXmlResourceId(Landroid/content/Context;)I
+
+    move-result p0
+
+    return p0
+.end method
+
 .method static constructor <clinit>()V
-    .locals 2
+    .locals 1
 
-    new-instance v0, Lcom/android/settings/search/BaseSearchIndexProvider;
+    new-instance v0, Lcom/android/settings/accessibility/VibrationSettings$1;
 
-    const v1, 0x7f150013
-
-    invoke-direct {v0, v1}, Lcom/android/settings/search/BaseSearchIndexProvider;-><init>(I)V
+    invoke-direct {v0}, Lcom/android/settings/accessibility/VibrationSettings$1;-><init>()V
 
     sput-object v0, Lcom/android/settings/accessibility/VibrationSettings;->SEARCH_INDEX_DATA_PROVIDER:Lcom/android/settings/search/BaseSearchIndexProvider;
 
@@ -30,12 +38,40 @@
     return-void
 .end method
 
+.method private static getVibrationXmlResourceId(Landroid/content/Context;)I
+    .locals 1
+
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p0
+
+    const v0, 0x7f0e000a
+
+    invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getInteger(I)I
+
+    move-result p0
+
+    const/4 v0, 0x1
+
+    if-le p0, v0, :cond_0
+
+    const p0, 0x7f150011
+
+    goto :goto_0
+
+    :cond_0
+    const p0, 0x7f150012
+
+    :goto_0
+    return p0
+.end method
+
 
 # virtual methods
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f0409f3
+    const p0, 0x7f040a4a
 
     return p0
 .end method
@@ -59,7 +95,13 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150013
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
+
+    move-result-object p0
+
+    invoke-static {p0}, Lcom/android/settings/accessibility/VibrationSettings;->getVibrationXmlResourceId(Landroid/content/Context;)I
+
+    move-result p0
 
     return p0
 .end method

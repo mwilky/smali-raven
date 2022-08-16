@@ -32,7 +32,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settingslib/connectivity/ConnectivitySubsystemsRecoveryManager;Lcom/android/settingslib/connectivity/ConnectivitySubsystemsRecoveryManager$1;)V
+.method synthetic constructor <init>(Lcom/android/settingslib/connectivity/ConnectivitySubsystemsRecoveryManager;Lcom/android/settingslib/connectivity/ConnectivitySubsystemsRecoveryManager$MobileTelephonyCallback-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settingslib/connectivity/ConnectivitySubsystemsRecoveryManager$MobileTelephonyCallback;-><init>(Lcom/android/settingslib/connectivity/ConnectivitySubsystemsRecoveryManager;)V
@@ -47,7 +47,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/connectivity/ConnectivitySubsystemsRecoveryManager$MobileTelephonyCallback;->this$0:Lcom/android/settingslib/connectivity/ConnectivitySubsystemsRecoveryManager;
 
-    invoke-static {v0}, Lcom/android/settingslib/connectivity/ConnectivitySubsystemsRecoveryManager;->access$500(Lcom/android/settingslib/connectivity/ConnectivitySubsystemsRecoveryManager;)Z
+    invoke-static {v0}, Lcom/android/settingslib/connectivity/ConnectivitySubsystemsRecoveryManager;->-$$Nest$fgetmTelephonyRestartInProgress(Lcom/android/settingslib/connectivity/ConnectivitySubsystemsRecoveryManager;)Z
 
     move-result v0
 
@@ -55,7 +55,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/connectivity/ConnectivitySubsystemsRecoveryManager$MobileTelephonyCallback;->this$0:Lcom/android/settingslib/connectivity/ConnectivitySubsystemsRecoveryManager;
 
-    invoke-static {v0}, Lcom/android/settingslib/connectivity/ConnectivitySubsystemsRecoveryManager;->access$600(Lcom/android/settingslib/connectivity/ConnectivitySubsystemsRecoveryManager;)Lcom/android/settingslib/connectivity/ConnectivitySubsystemsRecoveryManager$RecoveryStatusCallback;
+    invoke-static {v0}, Lcom/android/settingslib/connectivity/ConnectivitySubsystemsRecoveryManager;->-$$Nest$fgetmCurrentRecoveryCallback(Lcom/android/settingslib/connectivity/ConnectivitySubsystemsRecoveryManager;)Lcom/android/settingslib/connectivity/ConnectivitySubsystemsRecoveryManager$RecoveryStatusCallback;
 
     move-result-object v0
 
@@ -64,7 +64,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/settingslib/connectivity/ConnectivitySubsystemsRecoveryManager$MobileTelephonyCallback;->this$0:Lcom/android/settingslib/connectivity/ConnectivitySubsystemsRecoveryManager;
 
-    invoke-static {v0}, Lcom/android/settingslib/connectivity/ConnectivitySubsystemsRecoveryManager;->access$700(Lcom/android/settingslib/connectivity/ConnectivitySubsystemsRecoveryManager;)V
+    invoke-virtual {v0}, Lcom/android/settingslib/connectivity/ConnectivitySubsystemsRecoveryManager;->stopTrackingTelephonyRestart()V
 
     :cond_1
     const/4 v0, 0x1
@@ -75,15 +75,15 @@
 
     const/4 v0, 0x0
 
-    invoke-static {p1, v0}, Lcom/android/settingslib/connectivity/ConnectivitySubsystemsRecoveryManager;->access$502(Lcom/android/settingslib/connectivity/ConnectivitySubsystemsRecoveryManager;Z)Z
+    invoke-static {p1, v0}, Lcom/android/settingslib/connectivity/ConnectivitySubsystemsRecoveryManager;->-$$Nest$fputmTelephonyRestartInProgress(Lcom/android/settingslib/connectivity/ConnectivitySubsystemsRecoveryManager;Z)V
 
     iget-object p1, p0, Lcom/android/settingslib/connectivity/ConnectivitySubsystemsRecoveryManager$MobileTelephonyCallback;->this$0:Lcom/android/settingslib/connectivity/ConnectivitySubsystemsRecoveryManager;
 
-    invoke-static {p1}, Lcom/android/settingslib/connectivity/ConnectivitySubsystemsRecoveryManager;->access$700(Lcom/android/settingslib/connectivity/ConnectivitySubsystemsRecoveryManager;)V
+    invoke-virtual {p1}, Lcom/android/settingslib/connectivity/ConnectivitySubsystemsRecoveryManager;->stopTrackingTelephonyRestart()V
 
     iget-object p0, p0, Lcom/android/settingslib/connectivity/ConnectivitySubsystemsRecoveryManager$MobileTelephonyCallback;->this$0:Lcom/android/settingslib/connectivity/ConnectivitySubsystemsRecoveryManager;
 
-    invoke-static {p0}, Lcom/android/settingslib/connectivity/ConnectivitySubsystemsRecoveryManager;->access$300(Lcom/android/settingslib/connectivity/ConnectivitySubsystemsRecoveryManager;)V
+    invoke-static {p0}, Lcom/android/settingslib/connectivity/ConnectivitySubsystemsRecoveryManager;->-$$Nest$mcheckIfAllSubsystemsRestartsAreDone(Lcom/android/settingslib/connectivity/ConnectivitySubsystemsRecoveryManager;)V
 
     :cond_2
     return-void

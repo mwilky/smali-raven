@@ -12,9 +12,9 @@
 
 
 # static fields
-.field private static POOL_SIZE:I = 0x3e8
+.field public static final synthetic $r8$clinit:I = 0x0
 
-.field public static sMetrics:Landroidx/constraintlayout/solver/Metrics;
+.field private static POOL_SIZE:I = 0x3e8
 
 
 # instance fields
@@ -203,23 +203,21 @@
 .end method
 
 .method private final addRow(Landroidx/constraintlayout/solver/ArrayRow;)V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Landroidx/constraintlayout/solver/LinearSystem;->mRows:[Landroidx/constraintlayout/solver/ArrayRow;
 
     iget v1, p0, Landroidx/constraintlayout/solver/LinearSystem;->mNumRows:I
 
-    aget-object v2, v0, v1
-
-    if-eqz v2, :cond_0
-
-    iget-object v2, p0, Landroidx/constraintlayout/solver/LinearSystem;->mCache:Landroidx/constraintlayout/solver/Cache;
-
-    iget-object v2, v2, Landroidx/constraintlayout/solver/Cache;->arrayRowPool:Landroidx/constraintlayout/solver/Pools$Pool;
-
     aget-object v0, v0, v1
 
-    invoke-interface {v2, v0}, Landroidx/constraintlayout/solver/Pools$Pool;->release(Ljava/lang/Object;)Z
+    if-eqz v0, :cond_0
+
+    iget-object v1, p0, Landroidx/constraintlayout/solver/LinearSystem;->mCache:Landroidx/constraintlayout/solver/Cache;
+
+    iget-object v1, v1, Landroidx/constraintlayout/solver/Cache;->arrayRowPool:Landroidx/constraintlayout/solver/Pools$Pool;
+
+    invoke-interface {v1, v0}, Landroidx/constraintlayout/solver/Pools$Pool;->release(Ljava/lang/Object;)Z
 
     :cond_0
     iget-object v0, p0, Landroidx/constraintlayout/solver/LinearSystem;->mRows:[Landroidx/constraintlayout/solver/ArrayRow;
@@ -306,9 +304,9 @@
 
     iget-object v3, v0, Landroidx/constraintlayout/solver/LinearSystem;->mRows:[Landroidx/constraintlayout/solver/ArrayRow;
 
-    aget-object v6, v3, v2
+    aget-object v3, v3, v2
 
-    iget-object v6, v6, Landroidx/constraintlayout/solver/ArrayRow;->variable:Landroidx/constraintlayout/solver/SolverVariable;
+    iget-object v6, v3, Landroidx/constraintlayout/solver/ArrayRow;->variable:Landroidx/constraintlayout/solver/SolverVariable;
 
     iget-object v6, v6, Landroidx/constraintlayout/solver/SolverVariable;->mType:Landroidx/constraintlayout/solver/SolverVariable$Type;
 
@@ -319,8 +317,6 @@
     goto :goto_1
 
     :cond_0
-    aget-object v3, v3, v2
-
     iget v3, v3, Landroidx/constraintlayout/solver/ArrayRow;->constantValue:F
 
     cmpg-float v3, v3, v4
@@ -534,7 +530,7 @@
 .method public static getMetrics()Landroidx/constraintlayout/solver/Metrics;
     .locals 1
 
-    sget-object v0, Landroidx/constraintlayout/solver/LinearSystem;->sMetrics:Landroidx/constraintlayout/solver/Metrics;
+    const/4 v0, 0x0
 
     return-object v0
 .end method

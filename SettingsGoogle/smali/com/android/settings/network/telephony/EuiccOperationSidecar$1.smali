@@ -52,7 +52,7 @@
 
     iget-object p1, p0, Lcom/android/settings/network/telephony/EuiccOperationSidecar$1;->this$0:Lcom/android/settings/network/telephony/EuiccOperationSidecar;
 
-    invoke-static {p1}, Lcom/android/settings/network/telephony/EuiccOperationSidecar;->access$000(Lcom/android/settings/network/telephony/EuiccOperationSidecar;)I
+    invoke-static {p1}, Lcom/android/settings/network/telephony/EuiccOperationSidecar;->-$$Nest$fgetmOpId(Lcom/android/settings/network/telephony/EuiccOperationSidecar;)I
 
     move-result p1
 
@@ -72,7 +72,7 @@
 
     move-result v0
 
-    invoke-static {p1, v0}, Lcom/android/settings/network/telephony/EuiccOperationSidecar;->access$102(Lcom/android/settings/network/telephony/EuiccOperationSidecar;I)I
+    invoke-static {p1, v0}, Lcom/android/settings/network/telephony/EuiccOperationSidecar;->-$$Nest$fputmResultCode(Lcom/android/settings/network/telephony/EuiccOperationSidecar;I)V
 
     iget-object p1, p0, Lcom/android/settings/network/telephony/EuiccOperationSidecar$1;->this$0:Lcom/android/settings/network/telephony/EuiccOperationSidecar;
 
@@ -84,11 +84,11 @@
 
     move-result v0
 
-    invoke-static {p1, v0}, Lcom/android/settings/network/telephony/EuiccOperationSidecar;->access$202(Lcom/android/settings/network/telephony/EuiccOperationSidecar;I)I
+    invoke-static {p1, v0}, Lcom/android/settings/network/telephony/EuiccOperationSidecar;->-$$Nest$fputmDetailedCode(Lcom/android/settings/network/telephony/EuiccOperationSidecar;I)V
 
     iget-object p1, p0, Lcom/android/settings/network/telephony/EuiccOperationSidecar$1;->this$0:Lcom/android/settings/network/telephony/EuiccOperationSidecar;
 
-    invoke-static {p1, p2}, Lcom/android/settings/network/telephony/EuiccOperationSidecar;->access$302(Lcom/android/settings/network/telephony/EuiccOperationSidecar;Landroid/content/Intent;)Landroid/content/Intent;
+    invoke-static {p1, p2}, Lcom/android/settings/network/telephony/EuiccOperationSidecar;->-$$Nest$fputmResultIntent(Lcom/android/settings/network/telephony/EuiccOperationSidecar;Landroid/content/Intent;)V
 
     const/4 p1, 0x2
 
@@ -96,7 +96,7 @@
 
     iget-object p2, p0, Lcom/android/settings/network/telephony/EuiccOperationSidecar$1;->this$0:Lcom/android/settings/network/telephony/EuiccOperationSidecar;
 
-    invoke-static {p2}, Lcom/android/settings/network/telephony/EuiccOperationSidecar;->access$100(Lcom/android/settings/network/telephony/EuiccOperationSidecar;)I
+    invoke-static {p2}, Lcom/android/settings/network/telephony/EuiccOperationSidecar;->-$$Nest$fgetmResultCode(Lcom/android/settings/network/telephony/EuiccOperationSidecar;)I
 
     move-result p2
 
@@ -110,7 +110,7 @@
 
     iget-object v0, p0, Lcom/android/settings/network/telephony/EuiccOperationSidecar$1;->this$0:Lcom/android/settings/network/telephony/EuiccOperationSidecar;
 
-    invoke-static {v0}, Lcom/android/settings/network/telephony/EuiccOperationSidecar;->access$200(Lcom/android/settings/network/telephony/EuiccOperationSidecar;)I
+    invoke-static {v0}, Lcom/android/settings/network/telephony/EuiccOperationSidecar;->-$$Nest$fgetmDetailedCode(Lcom/android/settings/network/telephony/EuiccOperationSidecar;)I
 
     move-result v0
 

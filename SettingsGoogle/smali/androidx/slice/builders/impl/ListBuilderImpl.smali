@@ -54,18 +54,6 @@
 # direct methods
 .method public constructor <init>(Landroidx/slice/Slice$Builder;Landroidx/slice/SliceSpec;Landroidx/slice/Clock;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x10,
-            0x10,
-            0x10
-        }
-        names = {
-            "b",
-            "spec",
-            "clock"
-        }
-    .end annotation
 
     invoke-direct {p0, p1, p2, p3}, Landroidx/slice/builders/impl/TemplateBuilderImpl;-><init>(Landroidx/slice/Slice$Builder;Landroidx/slice/SliceSpec;Landroidx/slice/Clock;)V
 
@@ -74,16 +62,6 @@
 
 .method private checkRow(ZZ)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "isTypeValid",
-            "hasText"
-        }
-    .end annotation
 
     iget-boolean v0, p0, Landroidx/slice/builders/impl/ListBuilderImpl;->mFirstRowChecked:Z
 
@@ -105,14 +83,6 @@
 # virtual methods
 .method public addAction(Landroidx/slice/builders/SliceAction;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "action"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/slice/builders/impl/ListBuilderImpl;->mSliceActions:Ljava/util/List;
 
@@ -156,14 +126,6 @@
 
 .method public addInputRange(Landroidx/slice/builders/ListBuilder$InputRangeBuilder;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x10
-        }
-        names = {
-            "builder"
-        }
-    .end annotation
 
     new-instance v0, Landroidx/slice/builders/impl/ListBuilderImpl$InputRangeBuilderImpl;
 
@@ -189,7 +151,7 @@
 
     move-result-object p1
 
-    const-string v0, "range"
+    const-string/jumbo v0, "range"
 
     invoke-virtual {p0, p1, v0}, Landroidx/slice/Slice$Builder;->addSubSlice(Landroidx/slice/Slice;Ljava/lang/String;)Landroidx/slice/Slice$Builder;
 
@@ -198,14 +160,6 @@
 
 .method public addRow(Landroidx/slice/builders/ListBuilder$RowBuilder;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "builder"
-        }
-    .end annotation
 
     new-instance v0, Landroidx/slice/builders/impl/ListBuilderImpl$RowBuilderImpl;
 
@@ -232,14 +186,6 @@
 
 .method public addRow(Landroidx/slice/builders/impl/ListBuilderImpl$RowBuilderImpl;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "builder"
-        }
-    .end annotation
 
     invoke-virtual {p1}, Landroidx/slice/builders/impl/ListBuilderImpl$RowBuilderImpl;->hasText()Z
 
@@ -295,14 +241,6 @@
 
 .method public apply(Landroidx/slice/Slice$Builder;)V
     .locals 6
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x10
-        }
-        names = {
-            "builder"
-        }
-    .end annotation
 
     invoke-virtual {p0}, Landroidx/slice/builders/impl/TemplateBuilderImpl;->getClock()Landroidx/slice/Clock;
 
@@ -611,14 +549,6 @@
 
 .method public setColor(I)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "color"
-        }
-    .end annotation
 
     invoke-virtual {p0}, Landroidx/slice/builders/impl/TemplateBuilderImpl;->getBuilder()Landroidx/slice/Slice$Builder;
 
@@ -637,14 +567,6 @@
 
 .method public setHeader(Landroidx/slice/builders/ListBuilder$HeaderBuilder;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "builder"
-        }
-    .end annotation
 
     const/4 v0, 0x1
 
@@ -671,14 +593,6 @@
 
 .method public setIsError(Z)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "isError"
-        }
-    .end annotation
 
     iput-boolean p1, p0, Landroidx/slice/builders/impl/ListBuilderImpl;->mIsError:Z
 
@@ -687,15 +601,6 @@
 
 .method public setKeywords(Ljava/util/Set;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "keywords"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -712,14 +617,6 @@
 
 .method public setTtl(J)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "ttl"
-        }
-    .end annotation
 
     const-wide/16 v0, -0x1
 

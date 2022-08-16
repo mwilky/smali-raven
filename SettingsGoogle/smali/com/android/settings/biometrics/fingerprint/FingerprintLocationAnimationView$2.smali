@@ -50,7 +50,7 @@
 
     const/4 v0, 0x0
 
-    invoke-static {p1, v0}, Lcom/android/settings/biometrics/fingerprint/FingerprintLocationAnimationView;->access$102(Lcom/android/settings/biometrics/fingerprint/FingerprintLocationAnimationView;Landroid/animation/ValueAnimator;)Landroid/animation/ValueAnimator;
+    invoke-static {p1, v0}, Lcom/android/settings/biometrics/fingerprint/FingerprintLocationAnimationView;->-$$Nest$fputmRadiusAnimator(Lcom/android/settings/biometrics/fingerprint/FingerprintLocationAnimationView;Landroid/animation/ValueAnimator;)V
 
     iget-boolean p1, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintLocationAnimationView$2;->mCancelled:Z
 
@@ -58,7 +58,7 @@
 
     iget-object p0, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintLocationAnimationView$2;->this$0:Lcom/android/settings/biometrics/fingerprint/FingerprintLocationAnimationView;
 
-    invoke-static {p0}, Lcom/android/settings/biometrics/fingerprint/FingerprintLocationAnimationView;->access$200(Lcom/android/settings/biometrics/fingerprint/FingerprintLocationAnimationView;)Ljava/lang/Runnable;
+    invoke-static {p0}, Lcom/android/settings/biometrics/fingerprint/FingerprintLocationAnimationView;->-$$Nest$fgetmStartPhaseRunnable(Lcom/android/settings/biometrics/fingerprint/FingerprintLocationAnimationView;)Ljava/lang/Runnable;
 
     move-result-object p1
 

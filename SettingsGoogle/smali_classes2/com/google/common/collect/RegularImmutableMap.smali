@@ -114,7 +114,11 @@
 
     aget-object p0, p1, v0
 
+    invoke-static {p0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+
     aget-object v0, p1, v1
+
+    invoke-static {v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     invoke-static {p0, v0}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
 
@@ -157,9 +161,13 @@
 
     aget-object p1, p0, p3
 
+    invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+
     xor-int/lit8 p2, p3, 0x1
 
     aget-object p0, p0, p2
+
+    invoke-static {p0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     invoke-static {p1, p0}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
 
@@ -191,9 +199,13 @@
 
     aget-object v3, p0, v1
 
+    invoke-static {v3}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+
     xor-int/lit8 v4, v1, 0x1
 
     aget-object v4, p0, v4
+
+    invoke-static {v4}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     invoke-static {v3, v4}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
 
@@ -227,7 +239,7 @@
     :cond_1
     aget-object v7, p0, v6
 
-    invoke-virtual {v7, v3}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v7}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v7
 
@@ -265,9 +277,13 @@
 
     aget-object v3, p0, v1
 
+    invoke-static {v3}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+
     xor-int/lit8 v4, v1, 0x1
 
     aget-object v4, p0, v4
+
+    invoke-static {v4}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     invoke-static {v3, v4}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
 
@@ -301,7 +317,7 @@
     :cond_5
     aget-object v7, p0, v6
 
-    invoke-virtual {v7, v3}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v7}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v7
 
@@ -335,9 +351,13 @@
 
     aget-object v4, p0, v1
 
+    invoke-static {v4}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+
     xor-int/lit8 v5, v1, 0x1
 
     aget-object v5, p0, v5
+
+    invoke-static {v5}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     invoke-static {v4, v5}, Lcom/google/common/collect/CollectPreconditions;->checkEntryNotNull(Ljava/lang/Object;Ljava/lang/Object;)V
 
@@ -365,7 +385,7 @@
     :cond_9
     aget-object v8, p0, v7
 
-    invoke-virtual {v8, v4}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v4, v8}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v8
 
@@ -448,6 +468,8 @@
 
     aget-object p0, p1, p3
 
+    invoke-static {p0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+
     invoke-virtual {p0, p4}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result p0
@@ -457,6 +479,8 @@
     xor-int/lit8 p0, p3, 0x1
 
     aget-object v0, p1, p0
+
+    invoke-static {v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     :cond_1
     return-object v0
@@ -503,7 +527,7 @@
     :cond_4
     aget-object v3, p1, v2
 
-    invoke-virtual {v3, p4}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p4, v3}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
@@ -557,7 +581,7 @@
     :cond_7
     aget-object v3, p1, v2
 
-    invoke-virtual {v3, p4}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p4, v3}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
@@ -603,7 +627,7 @@
     :cond_a
     aget-object v3, p1, v2
 
-    invoke-virtual {v3, p4}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p4, v3}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
@@ -719,15 +743,12 @@
 
     move-result-object p0
 
-    return-object p0
-.end method
-
-.method isPartialView()Z
-    .locals 0
+    if-nez p0, :cond_0
 
     const/4 p0, 0x0
 
-    return p0
+    :cond_0
+    return-object p0
 .end method
 
 .method public size()I

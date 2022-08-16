@@ -41,33 +41,43 @@
 
     iget-object p1, p0, Lcom/android/settings/widget/EntityHeaderController$1;->this$0:Lcom/android/settings/widget/EntityHeaderController;
 
-    invoke-static {p1}, Lcom/android/settings/widget/EntityHeaderController;->access$000(Lcom/android/settings/widget/EntityHeaderController;)Ljava/lang/String;
+    invoke-static {p1}, Lcom/android/settings/widget/EntityHeaderController;->-$$Nest$fgetmActivity(Lcom/android/settings/widget/EntityHeaderController;)Landroid/app/Activity;
+
+    move-result-object p1
+
+    const v1, 0x7f0402b3
+
+    invoke-virtual {p1, v1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    iget-object p1, p0, Lcom/android/settings/widget/EntityHeaderController$1;->this$0:Lcom/android/settings/widget/EntityHeaderController;
+
+    invoke-static {p1}, Lcom/android/settings/widget/EntityHeaderController;->-$$Nest$fgetmPackageName(Lcom/android/settings/widget/EntityHeaderController;)Ljava/lang/String;
 
     move-result-object v2
 
     iget-object p1, p0, Lcom/android/settings/widget/EntityHeaderController$1;->this$0:Lcom/android/settings/widget/EntityHeaderController;
 
-    invoke-static {p1}, Lcom/android/settings/widget/EntityHeaderController;->access$100(Lcom/android/settings/widget/EntityHeaderController;)I
+    invoke-static {p1}, Lcom/android/settings/widget/EntityHeaderController;->-$$Nest$fgetmUid(Lcom/android/settings/widget/EntityHeaderController;)I
 
     move-result v3
 
     iget-object p1, p0, Lcom/android/settings/widget/EntityHeaderController$1;->this$0:Lcom/android/settings/widget/EntityHeaderController;
 
-    invoke-static {p1}, Lcom/android/settings/widget/EntityHeaderController;->access$200(Lcom/android/settings/widget/EntityHeaderController;)Landroidx/fragment/app/Fragment;
+    invoke-static {p1}, Lcom/android/settings/widget/EntityHeaderController;->-$$Nest$fgetmFragment(Lcom/android/settings/widget/EntityHeaderController;)Landroidx/fragment/app/Fragment;
 
     move-result-object v4
 
     iget-object p0, p0, Lcom/android/settings/widget/EntityHeaderController$1;->this$0:Lcom/android/settings/widget/EntityHeaderController;
 
-    invoke-static {p0}, Lcom/android/settings/widget/EntityHeaderController;->access$300(Lcom/android/settings/widget/EntityHeaderController;)I
+    invoke-static {p0}, Lcom/android/settings/widget/EntityHeaderController;->-$$Nest$fgetmMetricsCategory(Lcom/android/settings/widget/EntityHeaderController;)I
 
     move-result v6
 
-    const v1, 0x7f04027f
-
     const/4 v5, 0x0
 
-    invoke-static/range {v0 .. v6}, Lcom/android/settings/applications/AppInfoBase;->startAppInfoFragment(Ljava/lang/Class;ILjava/lang/String;ILandroidx/fragment/app/Fragment;II)V
+    invoke-static/range {v0 .. v6}, Lcom/android/settings/applications/AppInfoBase;->startAppInfoFragment(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;ILandroidx/fragment/app/Fragment;II)V
 
     return-void
 .end method

@@ -16,14 +16,6 @@
 
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "message"
-        }
-    .end annotation
 
     const-string v0, "The operation has been canceled."
 

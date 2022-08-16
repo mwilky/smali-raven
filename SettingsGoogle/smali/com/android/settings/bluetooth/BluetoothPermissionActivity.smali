@@ -24,6 +24,30 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmDevice(Lcom/android/settings/bluetooth/BluetoothPermissionActivity;)Landroid/bluetooth/BluetoothDevice;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/bluetooth/BluetoothPermissionActivity;->mDevice:Landroid/bluetooth/BluetoothDevice;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmRequestType(Lcom/android/settings/bluetooth/BluetoothPermissionActivity;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/settings/bluetooth/BluetoothPermissionActivity;->mRequestType:I
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$mdismissDialog(Lcom/android/settings/bluetooth/BluetoothPermissionActivity;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/bluetooth/BluetoothPermissionActivity;->dismissDialog()V
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 2
 
@@ -44,30 +68,6 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/settings/bluetooth/BluetoothPermissionActivity;)I
-    .locals 0
-
-    iget p0, p0, Lcom/android/settings/bluetooth/BluetoothPermissionActivity;->mRequestType:I
-
-    return p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/bluetooth/BluetoothPermissionActivity;)Landroid/bluetooth/BluetoothDevice;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/bluetooth/BluetoothPermissionActivity;->mDevice:Landroid/bluetooth/BluetoothDevice;
-
-    return-object p0
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/bluetooth/BluetoothPermissionActivity;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/bluetooth/BluetoothPermissionActivity;->dismissDialog()V
-
-    return-void
-.end method
-
 .method private createConnectionDialogView()Landroid/view/View;
     .locals 4
 
@@ -81,7 +81,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f060066
+    const v2, 0x7f06006b
 
     const/4 v3, 0x0
 
@@ -91,7 +91,7 @@
 
     iput-object v1, p0, Lcom/android/settings/bluetooth/BluetoothPermissionActivity;->mView:Landroid/view/View;
 
-    const v2, 0x7f0d0366
+    const v2, 0x7f0d0392
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -113,7 +113,7 @@
 
     aput-object v0, v2, v3
 
-    const v0, 0x7f040431
+    const v0, 0x7f040476
 
     invoke-virtual {p0, v0, v2}, Lcom/android/internal/app/AlertActivity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -139,7 +139,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f060066
+    const v2, 0x7f06006b
 
     const/4 v3, 0x0
 
@@ -149,7 +149,7 @@
 
     iput-object v1, p0, Lcom/android/settings/bluetooth/BluetoothPermissionActivity;->mView:Landroid/view/View;
 
-    const v2, 0x7f0d0366
+    const v2, 0x7f0d0392
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -171,7 +171,7 @@
 
     aput-object v0, v2, v3
 
-    const v0, 0x7f040499
+    const v0, 0x7f0404e9
 
     invoke-virtual {p0, v0, v2}, Lcom/android/internal/app/AlertActivity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -197,7 +197,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f060066
+    const v2, 0x7f06006b
 
     const/4 v3, 0x0
 
@@ -207,7 +207,7 @@
 
     iput-object v1, p0, Lcom/android/settings/bluetooth/BluetoothPermissionActivity;->mView:Landroid/view/View;
 
-    const v2, 0x7f0d0366
+    const v2, 0x7f0d0392
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -229,7 +229,7 @@
 
     aput-object v0, v2, v3
 
-    const v0, 0x7f0404c1
+    const v0, 0x7f040518
 
     invoke-virtual {p0, v0, v2}, Lcom/android/internal/app/AlertActivity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -263,7 +263,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f060066
+    const v3, 0x7f06006b
 
     const/4 v4, 0x0
 
@@ -273,7 +273,7 @@
 
     iput-object v2, p0, Lcom/android/settings/bluetooth/BluetoothPermissionActivity;->mView:Landroid/view/View;
 
-    const v3, 0x7f0d0366
+    const v3, 0x7f0d0392
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -303,7 +303,7 @@
 
     aput-object v0, v3, v1
 
-    const v0, 0x7f040504
+    const v0, 0x7f04055d
 
     invoke-virtual {p0, v0, v3}, Lcom/android/internal/app/AlertActivity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -448,12 +448,12 @@
     :goto_0
     if-ne p2, p1, :cond_4
 
-    const v1, 0x7f040433
+    const v1, 0x7f040478
 
     goto :goto_1
 
     :cond_4
-    const v1, 0x7f0401f9
+    const v1, 0x7f040222
 
     :goto_1
     invoke-virtual {p0, v1}, Lcom/android/internal/app/AlertActivity;->getString(I)Ljava/lang/String;
@@ -466,12 +466,12 @@
 
     if-ne p2, p1, :cond_5
 
-    const p1, 0x7f040432
+    const p1, 0x7f040477
 
     goto :goto_2
 
     :cond_5
-    const p1, 0x7f04102f
+    const p1, 0x7f0410d5
 
     :goto_2
     invoke-virtual {p0, p1}, Lcom/android/internal/app/AlertActivity;->getString(I)Ljava/lang/String;
@@ -620,7 +620,7 @@
 
     if-ne p1, v0, :cond_1
 
-    const p1, 0x7f040434
+    const p1, 0x7f040479
 
     invoke-virtual {p0, p1}, Lcom/android/internal/app/AlertActivity;->getString(I)Ljava/lang/String;
 
@@ -635,7 +635,7 @@
     :cond_1
     if-ne p1, v2, :cond_2
 
-    const p1, 0x7f0404c2
+    const p1, 0x7f040519
 
     invoke-virtual {p0, p1}, Lcom/android/internal/app/AlertActivity;->getString(I)Ljava/lang/String;
 
@@ -652,7 +652,7 @@
 
     if-ne p1, v2, :cond_3
 
-    const p1, 0x7f04049a
+    const p1, 0x7f0404ea
 
     invoke-virtual {p0, p1}, Lcom/android/internal/app/AlertActivity;->getString(I)Ljava/lang/String;
 
@@ -669,7 +669,7 @@
 
     if-ne p1, v2, :cond_4
 
-    const p1, 0x7f040505
+    const p1, 0x7f04055e
 
     invoke-virtual {p0, p1}, Lcom/android/internal/app/AlertActivity;->getString(I)Ljava/lang/String;
 
@@ -762,7 +762,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "sendReplyIntentToReceiver() Request type: "
+    const-string/jumbo v2, "sendReplyIntentToReceiver() Request type: "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

@@ -40,7 +40,7 @@
 
     const/4 p1, 0x0
 
-    invoke-static {p0, p1}, Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;->access$302(Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;Landroid/hardware/camera2/CameraDevice;)Landroid/hardware/camera2/CameraDevice;
+    invoke-static {p0, p1}, Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;->-$$Nest$fputmCameraDevice(Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;Landroid/hardware/camera2/CameraDevice;)V
 
     return-void
 .end method
@@ -54,7 +54,7 @@
 
     const/4 p1, 0x0
 
-    invoke-static {p0, p1}, Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;->access$302(Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;Landroid/hardware/camera2/CameraDevice;)Landroid/hardware/camera2/CameraDevice;
+    invoke-static {p0, p1}, Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;->-$$Nest$fputmCameraDevice(Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;Landroid/hardware/camera2/CameraDevice;)V
 
     return-void
 .end method
@@ -64,12 +64,12 @@
 
     iget-object v0, p0, Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment$3;->this$0:Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;
 
-    invoke-static {v0, p1}, Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;->access$302(Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;Landroid/hardware/camera2/CameraDevice;)Landroid/hardware/camera2/CameraDevice;
+    invoke-static {v0, p1}, Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;->-$$Nest$fputmCameraDevice(Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;Landroid/hardware/camera2/CameraDevice;)V
 
     :try_start_0
     iget-object p1, p0, Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment$3;->this$0:Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;
 
-    invoke-static {p1}, Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;->access$400(Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;)Lcom/android/settings/biometrics/face/FaceSquareTextureView;
+    invoke-static {p1}, Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;->-$$Nest$fgetmTextureView(Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;)Lcom/android/settings/biometrics/face/FaceSquareTextureView;
 
     move-result-object p1
 
@@ -79,7 +79,7 @@
 
     iget-object v0, p0, Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment$3;->this$0:Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;
 
-    invoke-static {v0}, Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;->access$500(Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;)Landroid/util/Size;
+    invoke-static {v0}, Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;->-$$Nest$fgetmPreviewSize(Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;)Landroid/util/Size;
 
     move-result-object v0
 
@@ -89,7 +89,7 @@
 
     iget-object v1, p0, Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment$3;->this$0:Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;
 
-    invoke-static {v1}, Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;->access$500(Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;)Landroid/util/Size;
+    invoke-static {v1}, Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;->-$$Nest$fgetmPreviewSize(Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;)Landroid/util/Size;
 
     move-result-object v1
 
@@ -105,7 +105,7 @@
 
     iget-object p1, p0, Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment$3;->this$0:Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;
 
-    invoke-static {p1}, Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;->access$300(Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;)Landroid/hardware/camera2/CameraDevice;
+    invoke-static {p1}, Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;->-$$Nest$fgetmCameraDevice(Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;)Landroid/hardware/camera2/CameraDevice;
 
     move-result-object v1
 
@@ -115,11 +115,11 @@
 
     move-result-object v1
 
-    invoke-static {p1, v1}, Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;->access$602(Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;Landroid/hardware/camera2/CaptureRequest$Builder;)Landroid/hardware/camera2/CaptureRequest$Builder;
+    invoke-static {p1, v1}, Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;->-$$Nest$fputmPreviewRequestBuilder(Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;Landroid/hardware/camera2/CaptureRequest$Builder;)V
 
     iget-object p1, p0, Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment$3;->this$0:Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;
 
-    invoke-static {p1}, Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;->access$600(Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;)Landroid/hardware/camera2/CaptureRequest$Builder;
+    invoke-static {p1}, Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;->-$$Nest$fgetmPreviewRequestBuilder(Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;)Landroid/hardware/camera2/CaptureRequest$Builder;
 
     move-result-object p1
 
@@ -127,7 +127,7 @@
 
     iget-object p1, p0, Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment$3;->this$0:Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;
 
-    invoke-static {p1}, Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;->access$300(Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;)Landroid/hardware/camera2/CameraDevice;
+    invoke-static {p1}, Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;->-$$Nest$fgetmCameraDevice(Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;)Landroid/hardware/camera2/CameraDevice;
 
     move-result-object p1
 

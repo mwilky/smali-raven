@@ -34,9 +34,9 @@
 
     iput-object p1, p0, Lcom/android/settings/RestrictedListPreference$RestrictedArrayAdapter;->this$0:Lcom/android/settings/RestrictedListPreference;
 
-    const p1, 0x7f0601e1
+    const p1, 0x7f0601ee
 
-    const v0, 0x7f0d05b5
+    const v0, 0x7f0d05f6
 
     invoke-direct {p0, p2, p1, v0, p3}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;II[Ljava/lang/Object;)V
 
@@ -56,7 +56,7 @@
 .end method
 
 .method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
-    .locals 4
+    .locals 3
 
     invoke-super {p0, p1, p2, p3}, Landroid/widget/ArrayAdapter;->getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
 
@@ -68,7 +68,7 @@
 
     check-cast p3, Ljava/lang/CharSequence;
 
-    const v0, 0x7f0d05b5
+    const v0, 0x7f0d05f6
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -76,29 +76,19 @@
 
     check-cast v0, Landroid/widget/CheckedTextView;
 
-    const v1, 0x7f0d049e
+    iget-object v1, p0, Lcom/android/settings/RestrictedListPreference$RestrictedArrayAdapter;->this$0:Lcom/android/settings/RestrictedListPreference;
 
-    invoke-virtual {p2, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/widget/ImageView;
-
-    iget-object v2, p0, Lcom/android/settings/RestrictedListPreference$RestrictedArrayAdapter;->this$0:Lcom/android/settings/RestrictedListPreference;
-
-    invoke-virtual {v2, p3}, Lcom/android/settings/RestrictedListPreference;->isRestrictedForEntry(Ljava/lang/CharSequence;)Z
+    invoke-virtual {v1, p3}, Lcom/android/settings/RestrictedListPreference;->isRestrictedForEntry(Ljava/lang/CharSequence;)Z
 
     move-result p3
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
     if-eqz p3, :cond_0
 
-    invoke-virtual {v0, v2}, Landroid/widget/CheckedTextView;->setEnabled(Z)V
+    invoke-virtual {v0, v1}, Landroid/widget/CheckedTextView;->setEnabled(Z)V
 
-    invoke-virtual {v0, v2}, Landroid/widget/CheckedTextView;->setChecked(Z)V
-
-    invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setVisibility(I)V
+    invoke-virtual {v0, v1}, Landroid/widget/CheckedTextView;->setChecked(Z)V
 
     goto :goto_0
 
@@ -107,16 +97,16 @@
 
     const/4 p3, -0x1
 
-    const/4 v3, 0x1
+    const/4 v2, 0x1
 
     if-eq p0, p3, :cond_2
 
     if-ne p1, p0, :cond_1
 
-    move v2, v3
+    move v1, v2
 
     :cond_1
-    invoke-virtual {v0, v2}, Landroid/widget/CheckedTextView;->setChecked(Z)V
+    invoke-virtual {v0, v1}, Landroid/widget/CheckedTextView;->setChecked(Z)V
 
     :cond_2
     invoke-virtual {v0}, Landroid/widget/CheckedTextView;->isEnabled()Z
@@ -125,13 +115,9 @@
 
     if-nez p0, :cond_3
 
-    invoke-virtual {v0, v3}, Landroid/widget/CheckedTextView;->setEnabled(Z)V
+    invoke-virtual {v0, v2}, Landroid/widget/CheckedTextView;->setEnabled(Z)V
 
     :cond_3
-    const/16 p0, 0x8
-
-    invoke-virtual {v1, p0}, Landroid/widget/ImageView;->setVisibility(I)V
-
     :goto_0
     return-object p2
 .end method

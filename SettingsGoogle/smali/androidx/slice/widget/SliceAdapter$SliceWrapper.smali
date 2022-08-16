@@ -25,18 +25,6 @@
 # direct methods
 .method public constructor <init>(Landroidx/slice/widget/SliceContent;Landroidx/slice/widget/SliceAdapter$IdGenerator;I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "item",
-            "idGen",
-            "mode"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -67,14 +55,6 @@
 
 .method public static getFormat(Landroidx/slice/SliceItem;)I
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "item"
-        }
-    .end annotation
 
     invoke-virtual {p0}, Landroidx/slice/SliceItem;->getSubType()Ljava/lang/String;
 

@@ -29,7 +29,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settings/fuelgauge/BatteryChartView$1;)V
+.method synthetic constructor <init>(Lcom/android/settings/fuelgauge/BatteryChartView$TrapezoidSlot-IA;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/settings/fuelgauge/BatteryChartView$TrapezoidSlot;-><init>()V

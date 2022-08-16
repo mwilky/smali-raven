@@ -304,19 +304,6 @@
     return-object p0
 .end method
 
-.method public removeTarget(Ljava/lang/Object;Landroid/view/View;)V
-    .locals 0
-
-    if-eqz p1, :cond_0
-
-    check-cast p1, Landroidx/transition/Transition;
-
-    invoke-virtual {p1, p2}, Landroidx/transition/Transition;->removeTarget(Landroid/view/View;)Landroidx/transition/Transition;
-
-    :cond_0
-    return-void
-.end method
-
 .method public replaceTargets(Ljava/lang/Object;Ljava/util/ArrayList;Ljava/util/ArrayList;)V
     .locals 3
     .annotation system Ldalvik/annotation/Signature;

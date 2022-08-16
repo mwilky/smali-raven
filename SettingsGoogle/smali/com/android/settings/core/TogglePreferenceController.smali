@@ -11,6 +11,14 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$nxyGPW0OD_dHIohFqcZkWwKiRCc(Lcom/android/settings/core/TogglePreferenceController;Landroid/widget/Switch;Z)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/settings/core/TogglePreferenceController;->lambda$displayPreference$0(Landroid/widget/Switch;Z)V
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;)V
     .locals 0
 
@@ -19,27 +27,51 @@
     return-void
 .end method
 
-
-# virtual methods
-.method public bridge synthetic copy()V
+.method private synthetic lambda$displayPreference$0(Landroid/widget/Switch;Z)V
     .locals 0
 
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
+    invoke-virtual {p0}, Lcom/android/settings/core/BasePreferenceController;->getPreferenceKey()Ljava/lang/String;
 
+    move-result-object p0
+
+    invoke-static {p0, p1}, Lcom/android/settingslib/core/instrumentation/SettingsJankMonitor;->detectToggleJank(Ljava/lang/String;Landroid/view/View;)V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public displayPreference(Landroidx/preference/PreferenceScreen;)V
+    .locals 1
+
+    invoke-super {p0, p1}, Lcom/android/settings/core/BasePreferenceController;->displayPreference(Landroidx/preference/PreferenceScreen;)V
+
+    invoke-virtual {p0}, Lcom/android/settings/core/BasePreferenceController;->getPreferenceKey()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroidx/preference/PreferenceGroup;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
+
+    move-result-object p1
+
+    instance-of v0, p1, Lcom/android/settingslib/widget/MainSwitchPreference;
+
+    if-eqz v0, :cond_0
+
+    check-cast p1, Lcom/android/settingslib/widget/MainSwitchPreference;
+
+    new-instance v0, Lcom/android/settings/core/TogglePreferenceController$$ExternalSyntheticLambda0;
+
+    invoke-direct {v0, p0}, Lcom/android/settings/core/TogglePreferenceController$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/core/TogglePreferenceController;)V
+
+    invoke-virtual {p1, v0}, Lcom/android/settingslib/widget/MainSwitchPreference;->addOnSwitchChangeListener(Lcom/android/settingslib/widget/OnMainSwitchChangeListener;)V
+
+    :cond_0
     return-void
 .end method
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -82,16 +114,6 @@
 .method public abstract isChecked()Z
 .end method
 
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
-
-    move-result p0
-
-    return p0
-.end method
-
 .method public isPublicSlice()Z
     .locals 0
 
@@ -111,7 +133,7 @@
 .method public final onPreferenceChange(Landroidx/preference/Preference;Ljava/lang/Object;)Z
     .locals 2
 
-    instance-of v0, p1, Lcom/android/settings/widget/PrimarySwitchPreference;
+    instance-of v0, p1, Lcom/android/settingslib/PrimarySwitchPreference;
 
     if-nez v0, :cond_0
 
@@ -171,17 +193,17 @@
     goto :goto_0
 
     :cond_0
-    instance-of v0, p1, Lcom/android/settings/widget/PrimarySwitchPreference;
+    instance-of v0, p1, Lcom/android/settingslib/PrimarySwitchPreference;
 
     if-eqz v0, :cond_1
 
-    check-cast p1, Lcom/android/settings/widget/PrimarySwitchPreference;
+    check-cast p1, Lcom/android/settingslib/PrimarySwitchPreference;
 
     invoke-virtual {p0}, Lcom/android/settings/core/TogglePreferenceController;->isChecked()Z
 
     move-result p0
 
-    invoke-virtual {p1, p0}, Lcom/android/settings/widget/PrimarySwitchPreference;->setChecked(Z)V
+    invoke-virtual {p1, p0}, Lcom/android/settingslib/PrimarySwitchPreference;->setChecked(Z)V
 
     goto :goto_0
 

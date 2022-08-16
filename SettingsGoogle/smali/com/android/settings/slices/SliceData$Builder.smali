@@ -43,87 +43,7 @@
 
 
 # direct methods
-.method constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/slices/SliceData$Builder;)Ljava/lang/String;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/slices/SliceData$Builder;->mKey:Ljava/lang/String;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/slices/SliceData$Builder;)Ljava/lang/String;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/slices/SliceData$Builder;->mTitle:Ljava/lang/String;
-
-    return-object p0
-.end method
-
-.method static synthetic access$1000(Lcom/android/settings/slices/SliceData$Builder;)Ljava/lang/String;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/slices/SliceData$Builder;->mUnavailableSliceSubtitle:Ljava/lang/String;
-
-    return-object p0
-.end method
-
-.method static synthetic access$1100(Lcom/android/settings/slices/SliceData$Builder;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/settings/slices/SliceData$Builder;->mIsPublicSlice:Z
-
-    return p0
-.end method
-
-.method static synthetic access$1200(Lcom/android/settings/slices/SliceData$Builder;)I
-    .locals 0
-
-    iget p0, p0, Lcom/android/settings/slices/SliceData$Builder;->mHighlightMenuRes:I
-
-    return p0
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/slices/SliceData$Builder;)Ljava/lang/String;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/slices/SliceData$Builder;->mSummary:Ljava/lang/String;
-
-    return-object p0
-.end method
-
-.method static synthetic access$300(Lcom/android/settings/slices/SliceData$Builder;)Ljava/lang/CharSequence;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/slices/SliceData$Builder;->mScreenTitle:Ljava/lang/CharSequence;
-
-    return-object p0
-.end method
-
-.method static synthetic access$400(Lcom/android/settings/slices/SliceData$Builder;)Ljava/lang/String;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/slices/SliceData$Builder;->mKeywords:Ljava/lang/String;
-
-    return-object p0
-.end method
-
-.method static synthetic access$500(Lcom/android/settings/slices/SliceData$Builder;)I
-    .locals 0
-
-    iget p0, p0, Lcom/android/settings/slices/SliceData$Builder;->mIconResource:I
-
-    return p0
-.end method
-
-.method static synthetic access$600(Lcom/android/settings/slices/SliceData$Builder;)Ljava/lang/String;
+.method static bridge synthetic -$$Nest$fgetmFragmentClassName(Lcom/android/settings/slices/SliceData$Builder;)Ljava/lang/String;
     .locals 0
 
     iget-object p0, p0, Lcom/android/settings/slices/SliceData$Builder;->mFragmentClassName:Ljava/lang/String;
@@ -131,15 +51,47 @@
     return-object p0
 .end method
 
-.method static synthetic access$700(Lcom/android/settings/slices/SliceData$Builder;)Landroid/net/Uri;
+.method static bridge synthetic -$$Nest$fgetmHighlightMenuRes(Lcom/android/settings/slices/SliceData$Builder;)I
     .locals 0
 
-    iget-object p0, p0, Lcom/android/settings/slices/SliceData$Builder;->mUri:Landroid/net/Uri;
+    iget p0, p0, Lcom/android/settings/slices/SliceData$Builder;->mHighlightMenuRes:I
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmIconResource(Lcom/android/settings/slices/SliceData$Builder;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/settings/slices/SliceData$Builder;->mIconResource:I
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmIsPublicSlice(Lcom/android/settings/slices/SliceData$Builder;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/settings/slices/SliceData$Builder;->mIsPublicSlice:Z
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmKey(Lcom/android/settings/slices/SliceData$Builder;)Ljava/lang/String;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/slices/SliceData$Builder;->mKey:Ljava/lang/String;
 
     return-object p0
 .end method
 
-.method static synthetic access$800(Lcom/android/settings/slices/SliceData$Builder;)Ljava/lang/String;
+.method static bridge synthetic -$$Nest$fgetmKeywords(Lcom/android/settings/slices/SliceData$Builder;)Ljava/lang/String;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/slices/SliceData$Builder;->mKeywords:Ljava/lang/String;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmPrefControllerClassName(Lcom/android/settings/slices/SliceData$Builder;)Ljava/lang/String;
     .locals 0
 
     iget-object p0, p0, Lcom/android/settings/slices/SliceData$Builder;->mPrefControllerClassName:Ljava/lang/String;
@@ -147,12 +99,60 @@
     return-object p0
 .end method
 
-.method static synthetic access$900(Lcom/android/settings/slices/SliceData$Builder;)I
+.method static bridge synthetic -$$Nest$fgetmScreenTitle(Lcom/android/settings/slices/SliceData$Builder;)Ljava/lang/CharSequence;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/slices/SliceData$Builder;->mScreenTitle:Ljava/lang/CharSequence;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmSliceType(Lcom/android/settings/slices/SliceData$Builder;)I
     .locals 0
 
     iget p0, p0, Lcom/android/settings/slices/SliceData$Builder;->mSliceType:I
 
     return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmSummary(Lcom/android/settings/slices/SliceData$Builder;)Ljava/lang/String;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/slices/SliceData$Builder;->mSummary:Ljava/lang/String;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmTitle(Lcom/android/settings/slices/SliceData$Builder;)Ljava/lang/String;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/slices/SliceData$Builder;->mTitle:Ljava/lang/String;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmUnavailableSliceSubtitle(Lcom/android/settings/slices/SliceData$Builder;)Ljava/lang/String;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/slices/SliceData$Builder;->mUnavailableSliceSubtitle:Ljava/lang/String;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmUri(Lcom/android/settings/slices/SliceData$Builder;)Landroid/net/Uri;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/slices/SliceData$Builder;->mUri:Landroid/net/Uri;
+
+    return-object p0
+.end method
+
+.method constructor <init>()V
+    .locals 0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
 .end method
 
 
@@ -221,7 +221,7 @@
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, p0, v1}, Lcom/android/settings/slices/SliceData;-><init>(Lcom/android/settings/slices/SliceData$Builder;Lcom/android/settings/slices/SliceData$1;)V
+    invoke-direct {v0, p0, v1}, Lcom/android/settings/slices/SliceData;-><init>(Lcom/android/settings/slices/SliceData$Builder;Lcom/android/settings/slices/SliceData-IA;)V
 
     return-object v0
 

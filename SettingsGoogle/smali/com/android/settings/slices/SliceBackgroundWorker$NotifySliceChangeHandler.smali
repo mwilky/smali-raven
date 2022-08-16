@@ -32,6 +32,32 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$mcancelSliceUpdate(Lcom/android/settings/slices/SliceBackgroundWorker$NotifySliceChangeHandler;Lcom/android/settings/slices/SliceBackgroundWorker;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/slices/SliceBackgroundWorker$NotifySliceChangeHandler;->cancelSliceUpdate(Lcom/android/settings/slices/SliceBackgroundWorker;)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mupdateSlice(Lcom/android/settings/slices/SliceBackgroundWorker$NotifySliceChangeHandler;Lcom/android/settings/slices/SliceBackgroundWorker;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/slices/SliceBackgroundWorker$NotifySliceChangeHandler;->updateSlice(Lcom/android/settings/slices/SliceBackgroundWorker;)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$smgetInstance()Lcom/android/settings/slices/SliceBackgroundWorker$NotifySliceChangeHandler;
+    .locals 1
+
+    invoke-static {}, Lcom/android/settings/slices/SliceBackgroundWorker$NotifySliceChangeHandler;->getInstance()Lcom/android/settings/slices/SliceBackgroundWorker$NotifySliceChangeHandler;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method private constructor <init>(Landroid/os/Looper;)V
     .locals 0
 
@@ -46,32 +72,6 @@
     move-result-object p1
 
     iput-object p1, p0, Lcom/android/settings/slices/SliceBackgroundWorker$NotifySliceChangeHandler;->mLastUpdateTimeLookup:Ljava/util/Map;
-
-    return-void
-.end method
-
-.method static synthetic access$000()Lcom/android/settings/slices/SliceBackgroundWorker$NotifySliceChangeHandler;
-    .locals 1
-
-    invoke-static {}, Lcom/android/settings/slices/SliceBackgroundWorker$NotifySliceChangeHandler;->getInstance()Lcom/android/settings/slices/SliceBackgroundWorker$NotifySliceChangeHandler;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/slices/SliceBackgroundWorker$NotifySliceChangeHandler;Lcom/android/settings/slices/SliceBackgroundWorker;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/slices/SliceBackgroundWorker$NotifySliceChangeHandler;->updateSlice(Lcom/android/settings/slices/SliceBackgroundWorker;)V
-
-    return-void
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/slices/SliceBackgroundWorker$NotifySliceChangeHandler;Lcom/android/settings/slices/SliceBackgroundWorker;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/slices/SliceBackgroundWorker$NotifySliceChangeHandler;->cancelSliceUpdate(Lcom/android/settings/slices/SliceBackgroundWorker;)V
 
     return-void
 .end method

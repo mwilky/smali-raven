@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="abc_slice_duration_days">
-        <item quantity="other">pred %d dňami</item>
-        <item quantity="one">pred %d dňom</item>
-        <item quantity="few">pred %d dňami</item>
-        <item quantity="many">pred %d dňa</item>
+        <item quantity="other">pred %d dňami</item>
+        <item quantity="one">pred %d dňom</item>
+        <item quantity="few">pred %d dňami</item>
+        <item quantity="many">pred %d dňa</item>
     </plurals>
     <plurals name="abc_slice_duration_min">
-        <item quantity="other">pred %d min</item>
-        <item quantity="one">pred %d min</item>
-        <item quantity="few">pred %d min</item>
-        <item quantity="many">pred %d min</item>
+        <item quantity="other">pred %d min</item>
+        <item quantity="one">pred %d min</item>
+        <item quantity="few">pred %d min</item>
+        <item quantity="many">pred %d min</item>
     </plurals>
     <plurals name="abc_slice_duration_years">
-        <item quantity="other">pred %d rokmi</item>
-        <item quantity="one">pred %d rokom</item>
-        <item quantity="few">pred %d rokmi</item>
-        <item quantity="many">pred %d roka</item>
+        <item quantity="other">pred %d r.</item>
+        <item quantity="one">pred %d r.</item>
+        <item quantity="few">pred %d r.</item>
+        <item quantity="many">pred %d r.</item>
     </plurals>
     <plurals name="accessibility_usage_summary">
         <item quantity="other">Do vášho zariadenia má prístup %1$d aplikácií</item>
@@ -349,16 +349,16 @@
         <item quantity="many">%d categories turned off</item>
     </plurals>
     <plurals name="notifications_sent_daily">
-        <item quantity="other">~%d upozornení denne</item>
+        <item quantity="other">~%,d upozornení denne</item>
         <item quantity="one">~%d upozornenie denne</item>
-        <item quantity="few">~%d upozornenia denne</item>
-        <item quantity="many">~%d notifications per day</item>
+        <item quantity="few">~%,d upozornenia denne</item>
+        <item quantity="many">~%,d notifications per day</item>
     </plurals>
     <plurals name="notifications_sent_weekly">
-        <item quantity="other">~%d upozornení týždenne</item>
+        <item quantity="other">~%,d upozornení týždenne</item>
         <item quantity="one">~%d upozornenie týždenne</item>
-        <item quantity="few">~%d upozornenia týždenne</item>
-        <item quantity="many">~%d notifications per week</item>
+        <item quantity="few">~%,d upozornenia týždenne</item>
+        <item quantity="many">~%,d notifications per week</item>
     </plurals>
     <plurals name="number_of_device_admins">
         <item quantity="other">%d aktívnych aplikácií</item>
@@ -492,34 +492,6 @@
         <item quantity="few">Nastavte certifikáty ako dôveryhodné alebo ich odstráňte</item>
         <item quantity="many">Nastavte certifikáty ako dôveryhodné alebo ich odstráňte</item>
     </plurals>
-    <plurals name="ssl_ca_cert_info_message">
-        <item quantity="other">"Doména %s nainštalovala pre váš pracovný profil certifikačné autority, ktoré jej môžu umožniť monitorovať aktivitu v pracovnej sieti vrátane pošty, aplikácií a zabezpečených webov.
-
-Ďalšie informácie o týchto certifikátoch získate od svojho správcu."</item>
-        <item quantity="one">"Doména %s nainštalovala pre váš pracovný profil certifikačnú autoritu, ktorá jej môže umožniť monitorovať aktivitu v pracovnej sieti vrátane pošty, aplikácií a zabezpečených webov.
-
-Ďalšie informácie o tomto certifikáte získate od svojho správcu."</item>
-        <item quantity="few">"Doména %s nainštalovala pre váš pracovný profil certifikačné autority, ktoré jej môžu umožniť monitorovať aktivitu v pracovnej sieti vrátane pošty, aplikácií a zabezpečených webov.
-
-Ďalšie informácie o týchto certifikátoch získate od svojho správcu."</item>
-        <item quantity="many">"Doména %s nainštalovala pre váš pracovný profil certifikačné autority, ktoré jej môžu umožniť monitorovať aktivitu v pracovnej sieti vrátane pošty, aplikácií a zabezpečených webov.
-
-Ďalšie informácie o týchto certifikátoch získate od svojho správcu."</item>
-    </plurals>
-    <plurals name="ssl_ca_cert_info_message_device_owner">
-        <item quantity="other">"Doména %s nainštalovala na vaše zariadenie certifikačné autority, ktoré jej umožnia monitorovať aktivitu v sieti zariadenia vrátane pošty, aplikácií a zabezpečených webov.
-
-Ďalšie informácie o týchto certifikátoch získate od svojho správcu."</item>
-        <item quantity="one">"Doména %s nainštalovala na vaše zariadenie certifikačnú autoritu, ktorá jej umožní monitorovať aktivitu v sieti zariadenia vrátane pošty, aplikácií a zabezpečených webov.
-
-Ďalšie informácie o tomto certifikáte získate od svojho správcu."</item>
-        <item quantity="few">"Doména %s nainštalovala na vaše zariadenie certifikačné autority, ktoré jej umožnia monitorovať aktivitu v sieti zariadenia vrátane pošty, aplikácií a zabezpečených webov.
-
-Ďalšie informácie o týchto certifikátoch získate od svojho správcu."</item>
-        <item quantity="many">"Doména %s nainštalovala na vaše zariadenie certifikačné autority, ktoré jej umožnia monitorovať aktivitu v sieti zariadenia vrátane pošty, aplikácií a zabezpečených webov.
-
-Ďalšie informácie o týchto certifikátoch získate od svojho správcu."</item>
-    </plurals>
     <plurals name="ssl_ca_cert_settings_button">
         <item quantity="other">Overiť certifikáty</item>
         <item quantity="one">Overiť certifikát</item>
@@ -567,12 +539,6 @@
         <item quantity="one">1 odber</item>
         <item quantity="few">%d odbery</item>
         <item quantity="many">%d subscriptions</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$d pripojených zariadení</item>
-        <item quantity="one">%1$d pripojené zariadenie</item>
-        <item quantity="few">%1$d pripojené zariadenia</item>
-        <item quantity="many">%1$d pripojeného zariadenia</item>
     </plurals>
     <plurals name="wrong_pin_code">
         <item quantity="other">Nesprávny kód PIN SIM karty. Zostáva vám %d pokusov.</item>

@@ -49,23 +49,7 @@
 
 
 # direct methods
-.method public constructor <init>(Landroid/app/Application;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Landroidx/lifecycle/AndroidViewModel;-><init>(Landroid/app/Application;)V
-
-    return-void
-.end method
-
-.method static synthetic access$102(Lcom/android/settings/wifi/dpp/WifiDppInitiatorViewModel;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/settings/wifi/dpp/WifiDppInitiatorViewModel;->mIsWifiDppHandshaking:Z
-
-    return p1
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/wifi/dpp/WifiDppInitiatorViewModel;)Landroidx/lifecycle/MutableLiveData;
+.method static bridge synthetic -$$Nest$fgetmEnrolleeSuccessNetworkId(Lcom/android/settings/wifi/dpp/WifiDppInitiatorViewModel;)Landroidx/lifecycle/MutableLiveData;
     .locals 0
 
     iget-object p0, p0, Lcom/android/settings/wifi/dpp/WifiDppInitiatorViewModel;->mEnrolleeSuccessNetworkId:Landroidx/lifecycle/MutableLiveData;
@@ -73,7 +57,7 @@
     return-object p0
 .end method
 
-.method static synthetic access$300(Lcom/android/settings/wifi/dpp/WifiDppInitiatorViewModel;)Landroidx/lifecycle/MutableLiveData;
+.method static bridge synthetic -$$Nest$fgetmStatusCode(Lcom/android/settings/wifi/dpp/WifiDppInitiatorViewModel;)Landroidx/lifecycle/MutableLiveData;
     .locals 0
 
     iget-object p0, p0, Lcom/android/settings/wifi/dpp/WifiDppInitiatorViewModel;->mStatusCode:Landroidx/lifecycle/MutableLiveData;
@@ -81,28 +65,44 @@
     return-object p0
 .end method
 
-.method static synthetic access$402(Lcom/android/settings/wifi/dpp/WifiDppInitiatorViewModel;Ljava/lang/String;)Ljava/lang/String;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/settings/wifi/dpp/WifiDppInitiatorViewModel;->mTriedSsid:Ljava/lang/String;
-
-    return-object p1
-.end method
-
-.method static synthetic access$502(Lcom/android/settings/wifi/dpp/WifiDppInitiatorViewModel;Landroid/util/SparseArray;)Landroid/util/SparseArray;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/settings/wifi/dpp/WifiDppInitiatorViewModel;->mTriedChannels:Landroid/util/SparseArray;
-
-    return-object p1
-.end method
-
-.method static synthetic access$602(Lcom/android/settings/wifi/dpp/WifiDppInitiatorViewModel;[I)[I
+.method static bridge synthetic -$$Nest$fputmBandArray(Lcom/android/settings/wifi/dpp/WifiDppInitiatorViewModel;[I)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/settings/wifi/dpp/WifiDppInitiatorViewModel;->mBandArray:[I
 
-    return-object p1
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fputmIsWifiDppHandshaking(Lcom/android/settings/wifi/dpp/WifiDppInitiatorViewModel;Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/settings/wifi/dpp/WifiDppInitiatorViewModel;->mIsWifiDppHandshaking:Z
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fputmTriedChannels(Lcom/android/settings/wifi/dpp/WifiDppInitiatorViewModel;Landroid/util/SparseArray;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/settings/wifi/dpp/WifiDppInitiatorViewModel;->mTriedChannels:Landroid/util/SparseArray;
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fputmTriedSsid(Lcom/android/settings/wifi/dpp/WifiDppInitiatorViewModel;Ljava/lang/String;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/settings/wifi/dpp/WifiDppInitiatorViewModel;->mTriedSsid:Ljava/lang/String;
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/app/Application;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Landroidx/lifecycle/AndroidViewModel;-><init>(Landroid/app/Application;)V
+
+    return-void
 .end method
 
 
@@ -233,7 +233,7 @@
 
     const/4 v0, 0x0
 
-    invoke-direct {v6, p0, v0}, Lcom/android/settings/wifi/dpp/WifiDppInitiatorViewModel$EasyConnectDelegateCallback;-><init>(Lcom/android/settings/wifi/dpp/WifiDppInitiatorViewModel;Lcom/android/settings/wifi/dpp/WifiDppInitiatorViewModel$1;)V
+    invoke-direct {v6, p0, v0}, Lcom/android/settings/wifi/dpp/WifiDppInitiatorViewModel$EasyConnectDelegateCallback;-><init>(Lcom/android/settings/wifi/dpp/WifiDppInitiatorViewModel;Lcom/android/settings/wifi/dpp/WifiDppInitiatorViewModel$EasyConnectDelegateCallback-IA;)V
 
     const/4 v4, 0x0
 
@@ -277,7 +277,7 @@
 
     const/4 v3, 0x0
 
-    invoke-direct {v2, p0, v3}, Lcom/android/settings/wifi/dpp/WifiDppInitiatorViewModel$EasyConnectDelegateCallback;-><init>(Lcom/android/settings/wifi/dpp/WifiDppInitiatorViewModel;Lcom/android/settings/wifi/dpp/WifiDppInitiatorViewModel$1;)V
+    invoke-direct {v2, p0, v3}, Lcom/android/settings/wifi/dpp/WifiDppInitiatorViewModel$EasyConnectDelegateCallback;-><init>(Lcom/android/settings/wifi/dpp/WifiDppInitiatorViewModel;Lcom/android/settings/wifi/dpp/WifiDppInitiatorViewModel$EasyConnectDelegateCallback-IA;)V
 
     invoke-virtual {v0, p1, v1, v2}, Landroid/net/wifi/WifiManager;->startEasyConnectAsEnrolleeInitiator(Ljava/lang/String;Ljava/util/concurrent/Executor;Landroid/net/wifi/EasyConnectStatusCallback;)V
 

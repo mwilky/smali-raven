@@ -6,14 +6,6 @@
 # direct methods
 .method public static getDeviceType(Ljava/lang/Object;)I
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "routeObj"
-        }
-    .end annotation
 
     check-cast p0, Landroid/media/MediaRouter$RouteInfo;
 

@@ -37,7 +37,7 @@
 
 
 # virtual methods
-.method public final validateFeatureBounds$window_debug(Landroidx/window/core/Bounds;)V
+.method public final validateFeatureBounds$window_release(Landroidx/window/core/Bounds;)V
     .locals 2
     .param p1    # Landroidx/window/core/Bounds;
         .annotation build Lorg/jetbrains/annotations/NotNull;

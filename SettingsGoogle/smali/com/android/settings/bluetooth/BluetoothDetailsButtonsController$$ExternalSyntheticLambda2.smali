@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settings/bluetooth/BluetoothDetailsButtonsController$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/view/View$OnClickListener;
@@ -27,7 +28,7 @@
 
     iget-object p0, p0, Lcom/android/settings/bluetooth/BluetoothDetailsButtonsController$$ExternalSyntheticLambda2;->f$0:Lcom/android/settings/bluetooth/BluetoothDetailsButtonsController;
 
-    invoke-static {p0, p1}, Lcom/android/settings/bluetooth/BluetoothDetailsButtonsController;->$r8$lambda$c_6hLFUTEtnhj6DYig2QR_zxUyY(Lcom/android/settings/bluetooth/BluetoothDetailsButtonsController;Landroid/view/View;)V
+    invoke-static {p0, p1}, Lcom/android/settings/bluetooth/BluetoothDetailsButtonsController;->$r8$lambda$PsRDRvlGNEsaUs2iQiReQ8UXDic(Lcom/android/settings/bluetooth/BluetoothDetailsButtonsController;Landroid/view/View;)V
 
     return-void
 .end method

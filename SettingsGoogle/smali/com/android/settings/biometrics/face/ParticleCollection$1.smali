@@ -39,7 +39,7 @@
 
     iget-object v0, p0, Lcom/android/settings/biometrics/face/ParticleCollection$1;->this$0:Lcom/android/settings/biometrics/face/ParticleCollection;
 
-    invoke-static {v0}, Lcom/android/settings/biometrics/face/ParticleCollection;->access$000(Lcom/android/settings/biometrics/face/ParticleCollection;)Ljava/util/List;
+    invoke-static {v0}, Lcom/android/settings/biometrics/face/ParticleCollection;->-$$Nest$fgetmPrimariesInProgress(Lcom/android/settings/biometrics/face/ParticleCollection;)Ljava/util/List;
 
     move-result-object v0
 
@@ -52,7 +52,7 @@
     :goto_0
     iget-object v2, p0, Lcom/android/settings/biometrics/face/ParticleCollection$1;->this$0:Lcom/android/settings/biometrics/face/ParticleCollection;
 
-    invoke-static {v2}, Lcom/android/settings/biometrics/face/ParticleCollection;->access$000(Lcom/android/settings/biometrics/face/ParticleCollection;)Ljava/util/List;
+    invoke-static {v2}, Lcom/android/settings/biometrics/face/ParticleCollection;->-$$Nest$fgetmPrimariesInProgress(Lcom/android/settings/biometrics/face/ParticleCollection;)Ljava/util/List;
 
     move-result-object v2
 
@@ -64,7 +64,7 @@
 
     iget-object v2, p0, Lcom/android/settings/biometrics/face/ParticleCollection$1;->this$0:Lcom/android/settings/biometrics/face/ParticleCollection;
 
-    invoke-static {v2}, Lcom/android/settings/biometrics/face/ParticleCollection;->access$000(Lcom/android/settings/biometrics/face/ParticleCollection;)Ljava/util/List;
+    invoke-static {v2}, Lcom/android/settings/biometrics/face/ParticleCollection;->-$$Nest$fgetmPrimariesInProgress(Lcom/android/settings/biometrics/face/ParticleCollection;)Ljava/util/List;
 
     move-result-object v2
 
@@ -82,7 +82,7 @@
 
     iget-object p1, p0, Lcom/android/settings/biometrics/face/ParticleCollection$1;->this$0:Lcom/android/settings/biometrics/face/ParticleCollection;
 
-    invoke-static {p1}, Lcom/android/settings/biometrics/face/ParticleCollection;->access$000(Lcom/android/settings/biometrics/face/ParticleCollection;)Ljava/util/List;
+    invoke-static {p1}, Lcom/android/settings/biometrics/face/ParticleCollection;->-$$Nest$fgetmPrimariesInProgress(Lcom/android/settings/biometrics/face/ParticleCollection;)Ljava/util/List;
 
     move-result-object p1
 
@@ -99,7 +99,7 @@
     :goto_1
     iget-object p1, p0, Lcom/android/settings/biometrics/face/ParticleCollection$1;->this$0:Lcom/android/settings/biometrics/face/ParticleCollection;
 
-    invoke-static {p1}, Lcom/android/settings/biometrics/face/ParticleCollection;->access$000(Lcom/android/settings/biometrics/face/ParticleCollection;)Ljava/util/List;
+    invoke-static {p1}, Lcom/android/settings/biometrics/face/ParticleCollection;->-$$Nest$fgetmPrimariesInProgress(Lcom/android/settings/biometrics/face/ParticleCollection;)Ljava/util/List;
 
     move-result-object p1
 
@@ -113,7 +113,7 @@
 
     iget-object p0, p0, Lcom/android/settings/biometrics/face/ParticleCollection$1;->this$0:Lcom/android/settings/biometrics/face/ParticleCollection;
 
-    invoke-static {p0}, Lcom/android/settings/biometrics/face/ParticleCollection;->access$100(Lcom/android/settings/biometrics/face/ParticleCollection;)Lcom/android/settings/biometrics/face/ParticleCollection$Listener;
+    invoke-static {p0}, Lcom/android/settings/biometrics/face/ParticleCollection;->-$$Nest$fgetmListener(Lcom/android/settings/biometrics/face/ParticleCollection;)Lcom/android/settings/biometrics/face/ParticleCollection$Listener;
 
     move-result-object p0
 

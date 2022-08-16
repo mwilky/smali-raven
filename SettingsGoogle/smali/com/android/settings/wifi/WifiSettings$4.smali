@@ -56,7 +56,7 @@
 
     if-nez v0, :cond_0
 
-    const-string v0, "saved_networks"
+    const-string/jumbo v0, "saved_networks"
 
     invoke-interface {p0, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 

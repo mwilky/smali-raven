@@ -106,7 +106,7 @@
 
     iget-object v0, p0, Lcom/android/settings/homepage/contextualcards/slices/FaceSetupSlice;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f041162
+    const v3, 0x7f041214
 
     invoke-virtual {v0, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -212,7 +212,7 @@
 
     iget-object v0, p0, Lcom/android/settings/homepage/contextualcards/slices/FaceSetupSlice;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f041162
+    const v1, 0x7f041214
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -220,7 +220,7 @@
 
     iget-object v1, p0, Lcom/android/settings/homepage/contextualcards/slices/FaceSetupSlice;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f041161
+    const v4, 0x7f041213
 
     invoke-virtual {v1, v4}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -233,7 +233,7 @@
 
     iget-object v0, p0, Lcom/android/settings/homepage/contextualcards/slices/FaceSetupSlice;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f041154
+    const v1, 0x7f041206
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -241,7 +241,7 @@
 
     iget-object v1, p0, Lcom/android/settings/homepage/contextualcards/slices/FaceSetupSlice;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f041153
+    const v4, 0x7f041205
 
     invoke-virtual {v1, v4}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -256,7 +256,7 @@
 
     iget-object v0, p0, Lcom/android/settings/homepage/contextualcards/slices/FaceSetupSlice;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f04114d
+    const v1, 0x7f0411ff
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -264,7 +264,7 @@
 
     iget-object v1, p0, Lcom/android/settings/homepage/contextualcards/slices/FaceSetupSlice;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f04114c
+    const v4, 0x7f0411fe
 
     invoke-virtual {v1, v4}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -291,7 +291,7 @@
 
     iget-object v3, p0, Lcom/android/settings/homepage/contextualcards/slices/FaceSetupSlice;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f0201cb
+    const v4, 0x7f0201e8
 
     invoke-static {v3, v4}, Landroidx/core/graphics/drawable/IconCompat;->createWithResource(Landroid/content/Context;I)Landroidx/core/graphics/drawable/IconCompat;
 
@@ -340,7 +340,7 @@
 .method public getSliceHighlightMenuRes()I
     .locals 0
 
-    const p0, 0x7f040d0d
+    const p0, 0x7f040d89
 
     return p0
 .end method

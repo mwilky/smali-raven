@@ -358,8 +358,6 @@
 
     aput-object v1, v0, v5
 
-    aget-object v1, v0, v5
-
     invoke-virtual {v2, v1, v5}, Landroid/content/res/ColorStateList;->getColorForState([II)I
 
     move-result v1

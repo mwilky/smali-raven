@@ -31,6 +31,8 @@
 
 .field private final mDPM:Landroid/app/admin/DevicePolicyManager;
 
+.field private mFirstLaunch:Z
+
 .field private mFooterPreference:Lcom/android/settingslib/widget/FooterPreference;
 
 .field private final mIPackageManager:Landroid/content/pm/IPackageManager;
@@ -40,16 +42,6 @@
 .field private final mPackageManager:Landroid/content/pm/PackageManager;
 
 .field private mPreferenceGroup:Landroidx/preference/PreferenceGroup;
-
-.field private final mProfileOwnerComponents:Landroid/util/SparseArray;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Landroid/util/SparseArray<",
-            "Landroid/content/ComponentName;",
-            ">;"
-        }
-    .end annotation
-.end field
 
 .field private final mUm:Landroid/os/UserManager;
 
@@ -102,17 +94,15 @@
 
     iput-object p2, p0, Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminListPreferenceController;->mAdmins:Ljava/util/ArrayList;
 
-    new-instance p2, Landroid/util/SparseArray;
-
-    invoke-direct {p2}, Landroid/util/SparseArray;-><init>()V
-
-    iput-object p2, p0, Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminListPreferenceController;->mProfileOwnerComponents:Landroid/util/SparseArray;
-
     new-instance p2, Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminListPreferenceController$1;
 
     invoke-direct {p2, p0}, Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminListPreferenceController$1;-><init>(Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminListPreferenceController;)V
 
     iput-object p2, p0, Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminListPreferenceController;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
+
+    const/4 p2, 0x1
+
+    iput-boolean p2, p0, Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminListPreferenceController;->mFirstLaunch:Z
 
     const-string p2, "device_policy"
 
@@ -197,9 +187,9 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminListPreferenceController;->mIPackageManager:Landroid/content/pm/IPackageManager;
 
-    const v2, 0xc8080
+    const-wide/32 v2, 0xc8080
 
-    invoke-interface {v1, v0, v2, p2}, Landroid/content/pm/IPackageManager;->getReceiverInfo(Landroid/content/ComponentName;II)Landroid/content/pm/ActivityInfo;
+    invoke-interface {v1, v0, v2, v3, p2}, Landroid/content/pm/IPackageManager;->getReceiverInfo(Landroid/content/ComponentName;JI)Landroid/content/pm/ActivityInfo;
 
     move-result-object v0
     :try_end_0
@@ -408,13 +398,15 @@
 
     invoke-virtual {p2, v0}, Landroidx/preference/Preference;->setEnabled(Z)V
 
-    new-instance v0, Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminListPreferenceController$$ExternalSyntheticLambda1;
+    new-instance v0, Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminListPreferenceController$$ExternalSyntheticLambda0;
 
-    invoke-direct {v0, p0, p1}, Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminListPreferenceController$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminListPreferenceController;Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminListItem;)V
+    invoke-direct {v0, p0, p1}, Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminListPreferenceController$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminListPreferenceController;Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminListItem;)V
 
     invoke-virtual {p2, v0}, Landroidx/preference/Preference;->setOnPreferenceClickListener(Landroidx/preference/Preference$OnPreferenceClickListener;)V
 
-    sget-object p0, Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminListPreferenceController$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminListPreferenceController$$ExternalSyntheticLambda0;
+    new-instance p0, Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminListPreferenceController$$ExternalSyntheticLambda1;
+
+    invoke-direct {p0}, Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminListPreferenceController$$ExternalSyntheticLambda1;-><init>()V
 
     invoke-virtual {p2, p0}, Landroidx/preference/Preference;->setOnPreferenceChangeListener(Landroidx/preference/Preference$OnPreferenceChangeListener;)V
 
@@ -711,14 +703,6 @@
 
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public displayPreference(Landroidx/preference/PreferenceScreen;)V
     .locals 1
 
@@ -746,6 +730,8 @@
 
     iput-object p1, p0, Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminListPreferenceController;->mFooterPreference:Lcom/android/settingslib/widget/FooterPreference;
 
+    invoke-virtual {p0}, Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminListPreferenceController;->updateList()V
+
     return-void
 .end method
 
@@ -759,15 +745,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -800,16 +777,6 @@
     .locals 0
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->hasAsyncUpdate()Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
 
     move-result p0
 
@@ -879,56 +846,24 @@
 .end method
 
 .method public updateState(Landroidx/preference/Preference;)V
-    .locals 5
+    .locals 0
 
     invoke-super {p0, p1}, Lcom/android/settingslib/core/AbstractPreferenceController;->updateState(Landroidx/preference/Preference;)V
 
-    iget-object p1, p0, Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminListPreferenceController;->mProfileOwnerComponents:Landroid/util/SparseArray;
+    iget-boolean p1, p0, Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminListPreferenceController;->mFirstLaunch:Z
 
-    invoke-virtual {p1}, Landroid/util/SparseArray;->clear()V
+    if-eqz p1, :cond_0
 
-    iget-object p1, p0, Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminListPreferenceController;->mUm:Landroid/os/UserManager;
+    const/4 p1, 0x0
 
-    invoke-virtual {p1}, Landroid/os/UserManager;->getUserProfiles()Ljava/util/List;
-
-    move-result-object p1
-
-    invoke-interface {p1}, Ljava/util/List;->size()I
-
-    move-result v0
-
-    const/4 v1, 0x0
-
-    :goto_0
-    if-ge v1, v0, :cond_0
-
-    invoke-interface {p1, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/os/UserHandle;
-
-    invoke-virtual {v2}, Landroid/os/UserHandle;->getIdentifier()I
-
-    move-result v2
-
-    iget-object v3, p0, Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminListPreferenceController;->mProfileOwnerComponents:Landroid/util/SparseArray;
-
-    iget-object v4, p0, Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminListPreferenceController;->mDPM:Landroid/app/admin/DevicePolicyManager;
-
-    invoke-virtual {v4, v2}, Landroid/app/admin/DevicePolicyManager;->getProfileOwnerAsUser(I)Landroid/content/ComponentName;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v2, v4}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
-
-    add-int/lit8 v1, v1, 0x1
+    iput-boolean p1, p0, Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminListPreferenceController;->mFirstLaunch:Z
 
     goto :goto_0
 
     :cond_0
     invoke-virtual {p0}, Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminListPreferenceController;->updateList()V
 
+    :goto_0
     return-void
 .end method
 

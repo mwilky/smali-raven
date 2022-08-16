@@ -212,19 +212,13 @@
 .end method
 
 .method public setIcon(Landroid/graphics/drawable/Drawable;)V
-    .locals 3
+    .locals 2
 
     invoke-virtual {p0}, Lcom/google/android/setupdesign/template/IconMixin;->getView()Landroid/widget/ImageView;
 
     move-result-object v0
 
     if-eqz v0, :cond_2
-
-    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v2, 0x15
-
-    if-lt v1, v2, :cond_0
 
     if-eqz p1, :cond_0
 
@@ -279,69 +273,47 @@
 .end method
 
 .method public setUpscaleIcon(Z)V
-    .locals 4
+    .locals 3
 
     invoke-virtual {p0}, Lcom/google/android/setupdesign/template/IconMixin;->getView()Landroid/widget/ImageView;
 
     move-result-object v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2
 
     invoke-virtual {v0}, Landroid/widget/ImageView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v1
 
-    sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v3, 0x10
-
-    if-lt v2, v3, :cond_0
-
     invoke-virtual {v0}, Landroid/widget/ImageView;->getMaxHeight()I
 
     move-result v2
 
+    if-eqz p1, :cond_0
+
     goto :goto_0
 
     :cond_0
-    invoke-virtual {v0}, Landroid/widget/ImageView;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v2
-
-    sget v3, Lcom/google/android/setupdesign/R$dimen;->sud_glif_icon_max_height:I
-
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
-
-    move-result v2
-
-    float-to-int v2, v2
-
-    :goto_0
-    if-eqz p1, :cond_1
-
-    goto :goto_1
-
-    :cond_1
     iget v2, p0, Lcom/google/android/setupdesign/template/IconMixin;->originalHeight:I
 
-    :goto_1
+    :goto_0
     iput v2, v1, Landroid/view/ViewGroup$LayoutParams;->height:I
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_1
 
     sget-object p0, Landroid/widget/ImageView$ScaleType;->FIT_CENTER:Landroid/widget/ImageView$ScaleType;
 
-    goto :goto_2
+    goto :goto_1
 
-    :cond_2
+    :cond_1
     iget-object p0, p0, Lcom/google/android/setupdesign/template/IconMixin;->originalScaleType:Landroid/widget/ImageView$ScaleType;
 
-    :goto_2
+    :goto_1
     invoke-virtual {v0, p0}, Landroid/widget/ImageView;->setScaleType(Landroid/widget/ImageView$ScaleType;)V
 
-    :cond_3
+    :cond_2
     return-void
 .end method
 

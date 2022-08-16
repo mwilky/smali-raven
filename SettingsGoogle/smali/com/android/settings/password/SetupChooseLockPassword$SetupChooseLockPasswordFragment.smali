@@ -258,7 +258,7 @@
 
     if-eqz v1, :cond_2
 
-    const p2, 0x7f0d04bf
+    const p2, 0x7f0d04fb
 
     invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -301,7 +301,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f041291
+    const v4, 0x7f04134b
 
     invoke-virtual {v0, v3, v4}, Lcom/google/android/setupcompat/template/FooterButton;->setText(Landroid/content/Context;I)V
 
@@ -318,7 +318,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f040c16
+    const v4, 0x7f040c7d
 
     invoke-virtual {v0, v3, v4}, Lcom/google/android/setupcompat/template/FooterButton;->setText(Landroid/content/Context;I)V
 

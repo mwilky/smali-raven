@@ -15,6 +15,8 @@
 
 .field private mInitiator:I
 
+.field private mIsCoordinatedSetMember:Z
+
 .field private mPasskey:I
 
 .field private mPasskeyFormatted:Ljava/lang/String;
@@ -52,9 +54,9 @@
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothPairingController;->mBluetoothManager:Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_1
 
     const-string p2, "android.bluetooth.device.extra.PAIRING_VARIANT"
 
@@ -116,9 +118,35 @@
 
     iput-object p1, p0, Lcom/android/settings/bluetooth/BluetoothPairingController;->mPasskeyFormatted:Ljava/lang/String;
 
-    return-void
+    iget-object p1, p0, Lcom/android/settings/bluetooth/BluetoothPairingController;->mBluetoothManager:Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
+
+    invoke-virtual {p1}, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;->getCachedDeviceManager()Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
+
+    move-result-object p1
+
+    iget-object p2, p0, Lcom/android/settings/bluetooth/BluetoothPairingController;->mDevice:Landroid/bluetooth/BluetoothDevice;
+
+    invoke-virtual {p1, p2}, Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;->findDevice(Landroid/bluetooth/BluetoothDevice;)Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
+
+    move-result-object p1
+
+    if-eqz p1, :cond_0
+
+    invoke-virtual {p1}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->isCoordinatedSetMemberDevice()Z
+
+    move-result p1
+
+    goto :goto_0
 
     :cond_0
+    const/4 p1, 0x0
+
+    :goto_0
+    iput-boolean p1, p0, Lcom/android/settings/bluetooth/BluetoothPairingController;->mIsCoordinatedSetMember:Z
+
+    return-void
+
+    :cond_1
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string p1, "Could not find BluetoothDevice"
@@ -127,7 +155,7 @@
 
     throw p0
 
-    :cond_1
+    :cond_2
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string p1, "Could not obtain LocalBluetoothManager"
@@ -381,12 +409,12 @@
     return p0
 
     :cond_0
-    const p0, 0x7f0404c6
+    const p0, 0x7f04051d
 
     return p0
 
     :cond_1
-    const p0, 0x7f0404c5
+    const p0, 0x7f04051c
 
     return p0
 .end method
@@ -411,12 +439,12 @@
     return p0
 
     :cond_0
-    const p0, 0x7f04047b
+    const p0, 0x7f0404c5
 
     return p0
 
     :cond_1
-    const p0, 0x7f04047c
+    const p0, 0x7f0404c6
 
     return p0
 .end method
@@ -504,6 +532,14 @@
 
     :cond_0
     const/4 p0, 0x1
+
+    return p0
+.end method
+
+.method public isCoordinatedSetMemberDevice()Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/settings/bluetooth/BluetoothPairingController;->mIsCoordinatedSetMember:Z
 
     return p0
 .end method
@@ -653,7 +689,7 @@
 
     iget-object p0, p0, Lcom/android/settings/bluetooth/BluetoothPairingController;->mDevice:Landroid/bluetooth/BluetoothDevice;
 
-    invoke-virtual {p0}, Landroid/bluetooth/BluetoothDevice;->cancelPairing()Z
+    invoke-virtual {p0}, Landroid/bluetooth/BluetoothDevice;->cancelBondProcess()Z
 
     return-void
 .end method

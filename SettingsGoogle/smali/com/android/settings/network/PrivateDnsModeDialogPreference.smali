@@ -59,7 +59,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d045f
+    const v2, 0x7f0d0491
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -73,7 +73,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d0460
+    const v2, 0x7f0d0492
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -87,7 +87,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d0461
+    const v2, 0x7f0d0493
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -105,15 +105,15 @@
 
     new-instance p1, Lcom/android/settings/utils/AnnotationSpan$LinkInfo;
 
-    sget-object v0, Lcom/android/settings/network/PrivateDnsModeDialogPreference$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/settings/network/PrivateDnsModeDialogPreference$$ExternalSyntheticLambda0;
+    new-instance v0, Lcom/android/settings/network/PrivateDnsModeDialogPreference$$ExternalSyntheticLambda0;
+
+    invoke-direct {v0}, Lcom/android/settings/network/PrivateDnsModeDialogPreference$$ExternalSyntheticLambda0;-><init>()V
 
     const-string/jumbo v1, "url"
 
     invoke-direct {p1, v1, v0}, Lcom/android/settings/utils/AnnotationSpan$LinkInfo;-><init>(Ljava/lang/String;Landroid/view/View$OnClickListener;)V
 
     iput-object p1, p0, Lcom/android/settings/network/PrivateDnsModeDialogPreference;->mUrlLinkInfo:Lcom/android/settings/utils/AnnotationSpan$LinkInfo;
-
-    invoke-direct {p0}, Lcom/android/settings/network/PrivateDnsModeDialogPreference;->initialize()V
 
     return-void
 .end method
@@ -125,15 +125,15 @@
 
     new-instance p1, Lcom/android/settings/utils/AnnotationSpan$LinkInfo;
 
-    sget-object p2, Lcom/android/settings/network/PrivateDnsModeDialogPreference$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/settings/network/PrivateDnsModeDialogPreference$$ExternalSyntheticLambda0;
+    new-instance p2, Lcom/android/settings/network/PrivateDnsModeDialogPreference$$ExternalSyntheticLambda0;
+
+    invoke-direct {p2}, Lcom/android/settings/network/PrivateDnsModeDialogPreference$$ExternalSyntheticLambda0;-><init>()V
 
     const-string/jumbo v0, "url"
 
     invoke-direct {p1, v0, p2}, Lcom/android/settings/utils/AnnotationSpan$LinkInfo;-><init>(Ljava/lang/String;Landroid/view/View$OnClickListener;)V
 
     iput-object p1, p0, Lcom/android/settings/network/PrivateDnsModeDialogPreference;->mUrlLinkInfo:Lcom/android/settings/utils/AnnotationSpan$LinkInfo;
-
-    invoke-direct {p0}, Lcom/android/settings/network/PrivateDnsModeDialogPreference;->initialize()V
 
     return-void
 .end method
@@ -145,15 +145,15 @@
 
     new-instance p1, Lcom/android/settings/utils/AnnotationSpan$LinkInfo;
 
-    sget-object p2, Lcom/android/settings/network/PrivateDnsModeDialogPreference$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/settings/network/PrivateDnsModeDialogPreference$$ExternalSyntheticLambda0;
+    new-instance p2, Lcom/android/settings/network/PrivateDnsModeDialogPreference$$ExternalSyntheticLambda0;
+
+    invoke-direct {p2}, Lcom/android/settings/network/PrivateDnsModeDialogPreference$$ExternalSyntheticLambda0;-><init>()V
 
     const-string/jumbo p3, "url"
 
     invoke-direct {p1, p3, p2}, Lcom/android/settings/utils/AnnotationSpan$LinkInfo;-><init>(Ljava/lang/String;Landroid/view/View$OnClickListener;)V
 
     iput-object p1, p0, Lcom/android/settings/network/PrivateDnsModeDialogPreference;->mUrlLinkInfo:Lcom/android/settings/utils/AnnotationSpan$LinkInfo;
-
-    invoke-direct {p0}, Lcom/android/settings/network/PrivateDnsModeDialogPreference;->initialize()V
 
     return-void
 .end method
@@ -165,15 +165,15 @@
 
     new-instance p1, Lcom/android/settings/utils/AnnotationSpan$LinkInfo;
 
-    sget-object p2, Lcom/android/settings/network/PrivateDnsModeDialogPreference$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/settings/network/PrivateDnsModeDialogPreference$$ExternalSyntheticLambda0;
+    new-instance p2, Lcom/android/settings/network/PrivateDnsModeDialogPreference$$ExternalSyntheticLambda0;
+
+    invoke-direct {p2}, Lcom/android/settings/network/PrivateDnsModeDialogPreference$$ExternalSyntheticLambda0;-><init>()V
 
     const-string/jumbo p3, "url"
 
     invoke-direct {p1, p3, p2}, Lcom/android/settings/utils/AnnotationSpan$LinkInfo;-><init>(Ljava/lang/String;Landroid/view/View$OnClickListener;)V
 
     iput-object p1, p0, Lcom/android/settings/network/PrivateDnsModeDialogPreference;->mUrlLinkInfo:Lcom/android/settings/utils/AnnotationSpan$LinkInfo;
-
-    invoke-direct {p0}, Lcom/android/settings/network/PrivateDnsModeDialogPreference;->initialize()V
 
     return-void
 .end method
@@ -235,16 +235,6 @@
     return-object p0
 .end method
 
-.method private initialize()V
-    .locals 1
-
-    const v0, 0x7f0601e2
-
-    invoke-virtual {p0, v0}, Landroidx/preference/Preference;->setWidgetLayoutResource(I)V
-
-    return-void
-.end method
-
 .method private isDisabledByAdmin()Z
     .locals 0
 
@@ -272,7 +262,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040a09
+    const v1, 0x7f040a60
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -417,7 +407,7 @@
 
     iput v2, p0, Lcom/android/settings/network/PrivateDnsModeDialogPreference;->mMode:I
 
-    const v2, 0x7f0d0462
+    const v2, 0x7f0d0494
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -437,7 +427,7 @@
 
     invoke-virtual {v2, v1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
-    const v1, 0x7f0d0463
+    const v1, 0x7f0d0495
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -459,7 +449,7 @@
 
     move-result-object p0
 
-    const v3, 0x7f0d0460
+    const v3, 0x7f0d0492
 
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -477,7 +467,7 @@
 
     invoke-virtual {v1, p0}, Landroid/widget/RadioGroup;->check(I)V
 
-    const p0, 0x7f0d045f
+    const p0, 0x7f0d0491
 
     invoke-virtual {p1, p0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -485,7 +475,7 @@
 
     check-cast p0, Landroid/widget/RadioButton;
 
-    const v1, 0x7f040fba
+    const v1, 0x7f041056
 
     invoke-virtual {p0, v1}, Landroid/widget/RadioButton;->setText(I)V
 
@@ -495,11 +485,11 @@
 
     check-cast p0, Landroid/widget/RadioButton;
 
-    const v1, 0x7f040fbc
+    const v1, 0x7f041058
 
     invoke-virtual {p0, v1}, Landroid/widget/RadioButton;->setText(I)V
 
-    const p0, 0x7f0d0461
+    const p0, 0x7f0d0493
 
     invoke-virtual {p1, p0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -507,11 +497,11 @@
 
     check-cast p0, Landroid/widget/RadioButton;
 
-    const v1, 0x7f040fbd
+    const v1, 0x7f041059
 
     invoke-virtual {p0, v1}, Landroid/widget/RadioButton;->setText(I)V
 
-    const p0, 0x7f0d045e
+    const p0, 0x7f0d0490
 
     invoke-virtual {p1, p0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -525,7 +515,7 @@
 
     invoke-virtual {p0, p1}, Landroid/widget/TextView;->setMovementMethod(Landroid/text/method/MovementMethod;)V
 
-    const p1, 0x7f040a09
+    const p1, 0x7f040a60
 
     invoke-virtual {v0, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -555,7 +545,7 @@
 
     if-eqz p1, :cond_0
 
-    const p1, 0x7f040fb9
+    const p1, 0x7f041055
 
     invoke-virtual {v0, p1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -575,60 +565,42 @@
 
     invoke-virtual {p0, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
+    goto :goto_0
+
     :cond_0
+    const-string p1, ""
+
+    invoke-virtual {p0, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    :goto_0
     return-void
 .end method
 
 .method public onBindViewHolder(Landroidx/preference/PreferenceViewHolder;)V
-    .locals 2
+    .locals 0
 
     invoke-super {p0, p1}, Landroidx/preference/Preference;->onBindViewHolder(Landroidx/preference/PreferenceViewHolder;)V
 
     invoke-direct {p0}, Lcom/android/settings/network/PrivateDnsModeDialogPreference;->isDisabledByAdmin()Z
 
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p1, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
-
-    const/4 v1, 0x1
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setEnabled(Z)V
-
-    :cond_0
-    const v0, 0x7f0d049d
-
-    invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
-
-    move-result-object p1
-
-    if-eqz p1, :cond_2
-
-    invoke-direct {p0}, Lcom/android/settings/network/PrivateDnsModeDialogPreference;->isDisabledByAdmin()Z
-
     move-result p0
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_0
 
-    const/4 p0, 0x0
+    iget-object p0, p1, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
 
-    goto :goto_0
+    const/4 p1, 0x1
 
-    :cond_1
-    const/16 p0, 0x8
+    invoke-virtual {p0, p1}, Landroid/view/View;->setEnabled(Z)V
 
-    :goto_0
-    invoke-virtual {p1, p0}, Landroid/view/View;->setVisibility(I)V
-
-    :cond_2
+    :cond_0
     return-void
 .end method
 
 .method public onCheckedChanged(Landroid/widget/RadioGroup;I)V
     .locals 0
 
-    const p1, 0x7f0d045f
+    const p1, 0x7f0d0491
 
     if-ne p2, p1, :cond_0
 
@@ -639,7 +611,7 @@
     goto :goto_0
 
     :cond_0
-    const p1, 0x7f0d0460
+    const p1, 0x7f0d0492
 
     if-ne p2, p1, :cond_1
 
@@ -650,7 +622,7 @@
     goto :goto_0
 
     :cond_1
-    const p1, 0x7f0d0461
+    const p1, 0x7f0d0493
 
     if-ne p2, p1, :cond_2
 

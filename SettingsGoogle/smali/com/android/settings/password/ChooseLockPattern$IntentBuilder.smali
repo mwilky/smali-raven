@@ -126,7 +126,7 @@
 
     iget-object v0, p0, Lcom/android/settings/password/ChooseLockPattern$IntentBuilder;->mIntent:Landroid/content/Intent;
 
-    const-string v1, "request_gk_pw_handle"
+    const-string/jumbo v1, "request_gk_pw_handle"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 

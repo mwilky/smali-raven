@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/google/android/settings/biometrics/face/FaceEnrollParticipation$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/view/View$OnClickListener;
@@ -27,7 +28,7 @@
 
     iget-object p0, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollParticipation$$ExternalSyntheticLambda0;->f$0:Lcom/google/android/settings/biometrics/face/FaceEnrollParticipation;
 
-    invoke-static {p0, p1}, Lcom/google/android/settings/biometrics/face/FaceEnrollParticipation;->$r8$lambda$Te9_09Q3pmahVo23mBuwCWxeNtg(Lcom/google/android/settings/biometrics/face/FaceEnrollParticipation;Landroid/view/View;)V
+    invoke-static {p0, p1}, Lcom/google/android/settings/biometrics/face/FaceEnrollParticipation;->$r8$lambda$idzcy7lVwEmH4EmvKhV3ufaJv3U(Lcom/google/android/settings/biometrics/face/FaceEnrollParticipation;Landroid/view/View;)V
 
     return-void
 .end method

@@ -28,6 +28,22 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmHandler(Lcom/android/settings/notification/zen/ZenModeSettingsBase;)Landroid/os/Handler;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/notification/zen/ZenModeSettingsBase;->mHandler:Landroid/os/Handler;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$mupdateZenMode(Lcom/android/settings/notification/zen/ZenModeSettingsBase;Z)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/notification/zen/ZenModeSettingsBase;->updateZenMode(Z)V
+
+    return-void
+.end method
+
 .method static constructor <clinit>()V
     .locals 2
 
@@ -61,17 +77,29 @@
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, p0, v1}, Lcom/android/settings/notification/zen/ZenModeSettingsBase$SettingsObserver;-><init>(Lcom/android/settings/notification/zen/ZenModeSettingsBase;Lcom/android/settings/notification/zen/ZenModeSettingsBase$1;)V
+    invoke-direct {v0, p0, v1}, Lcom/android/settings/notification/zen/ZenModeSettingsBase$SettingsObserver;-><init>(Lcom/android/settings/notification/zen/ZenModeSettingsBase;Lcom/android/settings/notification/zen/ZenModeSettingsBase$SettingsObserver-IA;)V
 
     iput-object v0, p0, Lcom/android/settings/notification/zen/ZenModeSettingsBase;->mSettingsObserver:Lcom/android/settings/notification/zen/ZenModeSettingsBase$SettingsObserver;
 
     return-void
 .end method
 
-.method static synthetic access$100(Lcom/android/settings/notification/zen/ZenModeSettingsBase;)Landroid/os/Handler;
+.method static synthetic access$000(Lcom/android/settings/notification/zen/ZenModeSettingsBase;)Landroid/content/ContentResolver;
     .locals 0
 
-    iget-object p0, p0, Lcom/android/settings/notification/zen/ZenModeSettingsBase;->mHandler:Landroid/os/Handler;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method static synthetic access$100(Lcom/android/settings/notification/zen/ZenModeSettingsBase;)Landroid/content/ContentResolver;
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object p0
 
     return-object p0
 .end method
@@ -84,34 +112,6 @@
     move-result-object p0
 
     return-object p0
-.end method
-
-.method static synthetic access$300(Lcom/android/settings/notification/zen/ZenModeSettingsBase;)Landroid/content/ContentResolver;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method static synthetic access$400(Lcom/android/settings/notification/zen/ZenModeSettingsBase;)Landroid/content/ContentResolver;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method static synthetic access$500(Lcom/android/settings/notification/zen/ZenModeSettingsBase;Z)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/notification/zen/ZenModeSettingsBase;->updateZenMode(Z)V
-
-    return-void
 .end method
 
 .method private updateZenMode(Z)V

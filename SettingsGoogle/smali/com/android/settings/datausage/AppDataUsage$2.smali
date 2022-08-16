@@ -60,7 +60,7 @@
 
     iget-object p1, p0, Lcom/android/settings/datausage/AppDataUsage$2;->this$0:Lcom/android/settings/datausage/AppDataUsage;
 
-    invoke-static {p1}, Lcom/android/settings/datausage/AppDataUsage;->access$000(Lcom/android/settings/datausage/AppDataUsage;)Landroid/content/Context;
+    invoke-static {p1}, Lcom/android/settings/datausage/AppDataUsage;->-$$Nest$fgetmContext(Lcom/android/settings/datausage/AppDataUsage;)Landroid/content/Context;
 
     move-result-object p1
 
@@ -80,22 +80,12 @@
 
     invoke-virtual {p2, v0}, Lcom/android/settingslib/net/NetworkCycleDataLoader$Builder;->setNetworkTemplate(Landroid/net/NetworkTemplate;)Lcom/android/settingslib/net/NetworkCycleDataLoader$Builder;
 
-    iget-object p2, p0, Lcom/android/settings/datausage/AppDataUsage$2;->this$0:Lcom/android/settings/datausage/AppDataUsage;
-
-    invoke-static {p2}, Lcom/android/settings/datausage/AppDataUsage;->access$100(Lcom/android/settings/datausage/AppDataUsage;)Lcom/android/settingslib/AppItem;
-
-    move-result-object p2
-
-    iget p2, p2, Lcom/android/settingslib/AppItem;->category:I
-
-    if-nez p2, :cond_0
-
     const/4 p2, 0x0
 
     :goto_0
     iget-object v0, p0, Lcom/android/settings/datausage/AppDataUsage$2;->this$0:Lcom/android/settings/datausage/AppDataUsage;
 
-    invoke-static {v0}, Lcom/android/settings/datausage/AppDataUsage;->access$100(Lcom/android/settings/datausage/AppDataUsage;)Lcom/android/settingslib/AppItem;
+    invoke-static {v0}, Lcom/android/settings/datausage/AppDataUsage;->-$$Nest$fgetmAppItem(Lcom/android/settings/datausage/AppDataUsage;)Lcom/android/settingslib/AppItem;
 
     move-result-object v0
 
@@ -105,11 +95,11 @@
 
     move-result v0
 
-    if-ge p2, v0, :cond_1
+    if-ge p2, v0, :cond_0
 
     iget-object v0, p0, Lcom/android/settings/datausage/AppDataUsage$2;->this$0:Lcom/android/settings/datausage/AppDataUsage;
 
-    invoke-static {v0}, Lcom/android/settings/datausage/AppDataUsage;->access$100(Lcom/android/settings/datausage/AppDataUsage;)Lcom/android/settingslib/AppItem;
+    invoke-static {v0}, Lcom/android/settings/datausage/AppDataUsage;->-$$Nest$fgetmAppItem(Lcom/android/settings/datausage/AppDataUsage;)Lcom/android/settingslib/AppItem;
 
     move-result-object v0
 
@@ -128,32 +118,21 @@
     :cond_0
     iget-object p2, p0, Lcom/android/settings/datausage/AppDataUsage$2;->this$0:Lcom/android/settings/datausage/AppDataUsage;
 
-    invoke-static {p2}, Lcom/android/settings/datausage/AppDataUsage;->access$100(Lcom/android/settings/datausage/AppDataUsage;)Lcom/android/settingslib/AppItem;
+    invoke-static {p2}, Lcom/android/settings/datausage/AppDataUsage;->-$$Nest$fgetmCycles(Lcom/android/settings/datausage/AppDataUsage;)Ljava/util/ArrayList;
 
     move-result-object p2
 
-    iget p2, p2, Lcom/android/settingslib/AppItem;->key:I
-
-    invoke-virtual {p1, p2}, Lcom/android/settingslib/net/NetworkCycleDataForUidLoader$Builder;->addUid(I)Lcom/android/settingslib/net/NetworkCycleDataForUidLoader$Builder;
-
-    :cond_1
-    iget-object p2, p0, Lcom/android/settings/datausage/AppDataUsage$2;->this$0:Lcom/android/settings/datausage/AppDataUsage;
-
-    invoke-static {p2}, Lcom/android/settings/datausage/AppDataUsage;->access$200(Lcom/android/settings/datausage/AppDataUsage;)Ljava/util/ArrayList;
-
-    move-result-object p2
-
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_1
 
     iget-object p0, p0, Lcom/android/settings/datausage/AppDataUsage$2;->this$0:Lcom/android/settings/datausage/AppDataUsage;
 
-    invoke-static {p0}, Lcom/android/settings/datausage/AppDataUsage;->access$200(Lcom/android/settings/datausage/AppDataUsage;)Ljava/util/ArrayList;
+    invoke-static {p0}, Lcom/android/settings/datausage/AppDataUsage;->-$$Nest$fgetmCycles(Lcom/android/settings/datausage/AppDataUsage;)Ljava/util/ArrayList;
 
     move-result-object p0
 
     invoke-virtual {p1, p0}, Lcom/android/settingslib/net/NetworkCycleDataLoader$Builder;->setCycles(Ljava/util/ArrayList;)Lcom/android/settingslib/net/NetworkCycleDataLoader$Builder;
 
-    :cond_2
+    :cond_1
     invoke-virtual {p1}, Lcom/android/settingslib/net/NetworkCycleDataLoader$Builder;->build()Lcom/android/settingslib/net/NetworkCycleDataLoader;
 
     move-result-object p0
@@ -188,19 +167,19 @@
 
     iget-object p1, p0, Lcom/android/settings/datausage/AppDataUsage$2;->this$0:Lcom/android/settings/datausage/AppDataUsage;
 
-    invoke-static {p1, p2}, Lcom/android/settings/datausage/AppDataUsage;->access$302(Lcom/android/settings/datausage/AppDataUsage;Ljava/util/List;)Ljava/util/List;
+    invoke-static {p1, p2}, Lcom/android/settings/datausage/AppDataUsage;->-$$Nest$fputmUsageData(Lcom/android/settings/datausage/AppDataUsage;Ljava/util/List;)V
 
     iget-object p1, p0, Lcom/android/settings/datausage/AppDataUsage$2;->this$0:Lcom/android/settings/datausage/AppDataUsage;
 
-    invoke-static {p1}, Lcom/android/settings/datausage/AppDataUsage;->access$400(Lcom/android/settings/datausage/AppDataUsage;)Lcom/android/settings/datausage/CycleAdapter;
+    invoke-static {p1}, Lcom/android/settings/datausage/AppDataUsage;->-$$Nest$fgetmCycleAdapter(Lcom/android/settings/datausage/AppDataUsage;)Lcom/android/settings/datausage/CycleAdapter;
 
     move-result-object p1
 
-    invoke-virtual {p1, p2}, Lcom/android/settings/datausage/CycleAdapter;->updateCycleList(Ljava/util/List;)Z
+    invoke-virtual {p1, p2}, Lcom/android/settings/datausage/CycleAdapter;->updateCycleList(Ljava/util/List;)V
 
     iget-object p1, p0, Lcom/android/settings/datausage/AppDataUsage$2;->this$0:Lcom/android/settings/datausage/AppDataUsage;
 
-    invoke-static {p1}, Lcom/android/settings/datausage/AppDataUsage;->access$500(Lcom/android/settings/datausage/AppDataUsage;)J
+    invoke-static {p1}, Lcom/android/settings/datausage/AppDataUsage;->-$$Nest$fgetmSelectedCycle(Lcom/android/settings/datausage/AppDataUsage;)J
 
     move-result-wide v0
 
@@ -233,15 +212,13 @@
 
     iget-object v4, p0, Lcom/android/settings/datausage/AppDataUsage$2;->this$0:Lcom/android/settings/datausage/AppDataUsage;
 
-    invoke-static {v4}, Lcom/android/settings/datausage/AppDataUsage;->access$500(Lcom/android/settings/datausage/AppDataUsage;)J
+    invoke-static {v4}, Lcom/android/settings/datausage/AppDataUsage;->-$$Nest$fgetmSelectedCycle(Lcom/android/settings/datausage/AppDataUsage;)J
 
     move-result-wide v4
 
     cmp-long v2, v2, v4
 
     if-nez v2, :cond_0
-
-    move v0, v1
 
     goto :goto_1
 
@@ -251,30 +228,36 @@
     goto :goto_0
 
     :cond_1
+    move v1, v0
+
     :goto_1
-    if-lez v0, :cond_2
+    if-lez v1, :cond_2
 
     iget-object p1, p0, Lcom/android/settings/datausage/AppDataUsage$2;->this$0:Lcom/android/settings/datausage/AppDataUsage;
 
-    invoke-static {p1}, Lcom/android/settings/datausage/AppDataUsage;->access$600(Lcom/android/settings/datausage/AppDataUsage;)Lcom/android/settings/datausage/SpinnerPreference;
+    invoke-static {p1}, Lcom/android/settings/datausage/AppDataUsage;->-$$Nest$fgetmCycle(Lcom/android/settings/datausage/AppDataUsage;)Lcom/android/settings/datausage/SpinnerPreference;
 
     move-result-object p1
 
-    invoke-virtual {p1, v0}, Lcom/android/settings/datausage/SpinnerPreference;->setSelection(I)V
+    invoke-virtual {p1, v1}, Lcom/android/settings/datausage/SpinnerPreference;->setSelection(I)V
 
     :cond_2
-    iget-object p0, p0, Lcom/android/settings/datausage/AppDataUsage$2;->this$0:Lcom/android/settings/datausage/AppDataUsage;
+    iget-object p1, p0, Lcom/android/settings/datausage/AppDataUsage$2;->this$0:Lcom/android/settings/datausage/AppDataUsage;
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/datausage/AppDataUsage;->bindData(I)V
+    invoke-virtual {p1, v1}, Lcom/android/settings/datausage/AppDataUsage;->bindData(I)V
 
     goto :goto_2
 
     :cond_3
-    iget-object p0, p0, Lcom/android/settings/datausage/AppDataUsage$2;->this$0:Lcom/android/settings/datausage/AppDataUsage;
+    iget-object p1, p0, Lcom/android/settings/datausage/AppDataUsage$2;->this$0:Lcom/android/settings/datausage/AppDataUsage;
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/datausage/AppDataUsage;->bindData(I)V
+    invoke-virtual {p1, v0}, Lcom/android/settings/datausage/AppDataUsage;->bindData(I)V
 
     :goto_2
+    iget-object p0, p0, Lcom/android/settings/datausage/AppDataUsage$2;->this$0:Lcom/android/settings/datausage/AppDataUsage;
+
+    invoke-static {p0, v0}, Lcom/android/settings/datausage/AppDataUsage;->-$$Nest$fputmIsLoading(Lcom/android/settings/datausage/AppDataUsage;Z)V
+
     return-void
 .end method
 

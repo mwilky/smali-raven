@@ -5,7 +5,7 @@
     <Preference android:icon="@drawable/ic_chevron_right_24dp" android:title="@string/location_recent_location_access_see_all" android:key="recent_location_access_see_all_button" android:fragment="com.android.settings.location.RecentLocationAccessSeeAllFragment" settings:controller="com.android.settings.location.RecentLocationAccessSeeAllButtonPreferenceController" settings:searchable="false" />
     <Preference android:title="@string/location_app_level_permissions" android:key="app_level_permissions" settings:controller="com.android.settings.location.AppLocationPermissionPreferenceController">
         <intent android:action="android.intent.action.MANAGE_PERMISSION_APPS">
-            <extra android:name="android.intent.extra.PERMISSION_NAME" android:value="android.permission-group.LOCATION" />
+            <extra android:name="android.intent.extra.PERMISSION_GROUP_NAME" android:value="android.permission-group.LOCATION" />
         </intent>
     </Preference>
     <Preference android:title="@string/location_services_screen_title" android:key="location_services" android:fragment="com.android.settings.location.LocationServices" settings:controller="com.android.settings.location.LocationServicesPreferenceController" />

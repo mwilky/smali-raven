@@ -21,16 +21,6 @@
 # direct methods
 .method constructor <init>(Landroidx/recyclerview/widget/PagerSnapHelper;Landroid/content/Context;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x8010,
-            0x0
-        }
-        names = {
-            "this$0",
-            "context"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/recyclerview/widget/PagerSnapHelper$1;->this$0:Landroidx/recyclerview/widget/PagerSnapHelper;
 
@@ -43,14 +33,6 @@
 # virtual methods
 .method protected calculateSpeedPerPixel(Landroid/util/DisplayMetrics;)F
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "displayMetrics"
-        }
-    .end annotation
 
     iget p0, p1, Landroid/util/DisplayMetrics;->densityDpi:I
 
@@ -65,14 +47,6 @@
 
 .method protected calculateTimeForScrolling(I)I
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "dx"
-        }
-    .end annotation
 
     invoke-super {p0, p1}, Landroidx/recyclerview/widget/LinearSmoothScroller;->calculateTimeForScrolling(I)I
 
@@ -89,18 +63,6 @@
 
 .method protected onTargetFound(Landroid/view/View;Landroidx/recyclerview/widget/RecyclerView$State;Landroidx/recyclerview/widget/RecyclerView$SmoothScroller$Action;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "targetView",
-            "state",
-            "action"
-        }
-    .end annotation
 
     iget-object p2, p0, Landroidx/recyclerview/widget/PagerSnapHelper$1;->this$0:Landroidx/recyclerview/widget/PagerSnapHelper;
 

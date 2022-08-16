@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/google/android/settings/security/SecurityWarningPreference$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/view/View$OnClickListener;
@@ -39,7 +40,7 @@
 
     iget-object p0, p0, Lcom/google/android/settings/security/SecurityWarningPreference$$ExternalSyntheticLambda1;->f$2:Lcom/android/settings/SettingsPreferenceFragment;
 
-    invoke-static {v0, v1, p0, p1}, Lcom/google/android/settings/security/SecurityWarningPreference;->$r8$lambda$AdhPMxncSantaAcEuDyDQ-0hTtc(Lcom/google/android/settings/security/SecurityWarningPreference;Landroid/os/Bundle;Lcom/android/settings/SettingsPreferenceFragment;Landroid/view/View;)V
+    invoke-static {v0, v1, p0, p1}, Lcom/google/android/settings/security/SecurityWarningPreference;->$r8$lambda$F2kWWcjPof0F-qgzECbAkxFUK8Y(Lcom/google/android/settings/security/SecurityWarningPreference;Landroid/os/Bundle;Lcom/android/settings/SettingsPreferenceFragment;Landroid/view/View;)V
 
     return-void
 .end method

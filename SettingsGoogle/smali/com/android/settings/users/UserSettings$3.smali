@@ -58,7 +58,7 @@
 
     iget-object p1, p0, Lcom/android/settings/users/UserSettings$3;->this$0:Lcom/android/settings/users/UserSettings;
 
-    invoke-static {p1}, Lcom/android/settings/users/UserSettings;->access$400(Lcom/android/settings/users/UserSettings;)Landroid/os/UserManager;
+    invoke-static {p1}, Lcom/android/settings/users/UserSettings;->-$$Nest$fgetmUserManager(Lcom/android/settings/users/UserSettings;)Landroid/os/UserManager;
 
     move-result-object p1
 
@@ -112,7 +112,7 @@
 
     iget-object p0, p0, Lcom/android/settings/users/UserSettings$3;->this$0:Lcom/android/settings/users/UserSettings;
 
-    invoke-static {p0, p1}, Lcom/android/settings/users/UserSettings;->access$300(Lcom/android/settings/users/UserSettings;Ljava/lang/String;)V
+    invoke-static {p0, p1}, Lcom/android/settings/users/UserSettings;->-$$Nest$mfinishLoadProfile(Lcom/android/settings/users/UserSettings;Ljava/lang/String;)V
 
     return-void
 .end method

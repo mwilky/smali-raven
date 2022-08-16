@@ -25,14 +25,6 @@
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$9qPMosdFq4oSTkZhojxWRuL1V8I(Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;Landroid/net/Uri;Landroidx/preference/Preference;)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;->lambda$refreshSummary$4(Landroid/net/Uri;Landroidx/preference/Preference;)V
-
-    return-void
-.end method
-
 .method public static synthetic $r8$lambda$LrWk4zjdXD9NuB4-ecsQ9gRQHjw(Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;Landroidx/preference/Preference;Landroid/os/Bundle;Z)V
     .locals 0
 
@@ -49,10 +41,34 @@
     return-void
 .end method
 
+.method public static synthetic $r8$lambda$UlAaVlS0SRGY22A3mHvMS_-Ed0I(Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;Landroid/net/Uri;Landroidx/preference/Preference;Lcom/android/settings/dashboard/DynamicDataObserver;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;->lambda$refreshTitle$2(Landroid/net/Uri;Landroidx/preference/Preference;Lcom/android/settings/dashboard/DynamicDataObserver;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$WVurHktq9I9QTuEglo4qLW7yv2w(Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;Landroid/net/Uri;Landroidx/preference/Preference;Lcom/android/settings/dashboard/DynamicDataObserver;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;->lambda$refreshSummary$4(Landroid/net/Uri;Landroidx/preference/Preference;Lcom/android/settings/dashboard/DynamicDataObserver;)V
+
+    return-void
+.end method
+
 .method public static synthetic $r8$lambda$_wjTpI0VzG8EOcdUM_eq9aNXUUs(Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;Lcom/android/settingslib/drawer/Tile;Landroidx/preference/Preference;Z)V
     .locals 0
 
     invoke-direct {p0, p1, p2, p3}, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;->lambda$bindIcon$11(Lcom/android/settingslib/drawer/Tile;Landroidx/preference/Preference;Z)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$flZ0-hO74MITlDVJyZTqMqEdP84(Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;Landroid/net/Uri;Lcom/android/settings/dashboard/DynamicDataObserver;Landroidx/preference/Preference;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;->lambda$refreshSwitch$9(Landroid/net/Uri;Lcom/android/settings/dashboard/DynamicDataObserver;Landroidx/preference/Preference;)V
 
     return-void
 .end method
@@ -85,22 +101,6 @@
     return p0
 .end method
 
-.method public static synthetic $r8$lambda$rROQAGFzE40xXgtbqh96QfNDvN0(Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;Landroid/net/Uri;Landroidx/preference/Preference;)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;->lambda$refreshSwitch$9(Landroid/net/Uri;Landroidx/preference/Preference;)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$t59KtYW5-BEaBi3Aw-U_DWKwMb4(Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;Landroid/net/Uri;Landroidx/preference/Preference;)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;->lambda$refreshTitle$2(Landroid/net/Uri;Landroidx/preference/Preference;)V
-
-    return-void
-.end method
-
 .method public static synthetic $r8$lambda$wRiPo21Zs6DLY1OdivhiwC5zS60(Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;Landroidx/preference/Preference;Lcom/android/settingslib/drawer/Tile;ZLandroid/util/Pair;Landroid/graphics/drawable/Icon;)V
     .locals 0
 
@@ -113,6 +113,30 @@
     .locals 0
 
     invoke-direct {p0, p1, p2, p3}, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;->lambda$onCheckedChanged$7(Landroid/net/Uri;ZLandroidx/preference/Preference;)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mrefreshSummary(Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;Landroid/net/Uri;Landroidx/preference/Preference;Lcom/android/settings/dashboard/DynamicDataObserver;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;->refreshSummary(Landroid/net/Uri;Landroidx/preference/Preference;Lcom/android/settings/dashboard/DynamicDataObserver;)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mrefreshSwitch(Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;Landroid/net/Uri;Landroidx/preference/Preference;Lcom/android/settings/dashboard/DynamicDataObserver;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;->refreshSwitch(Landroid/net/Uri;Landroidx/preference/Preference;Lcom/android/settings/dashboard/DynamicDataObserver;)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mrefreshTitle(Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;Landroid/net/Uri;Landroidx/preference/Preference;Lcom/android/settings/dashboard/DynamicDataObserver;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;->refreshTitle(Landroid/net/Uri;Landroidx/preference/Preference;Lcom/android/settings/dashboard/DynamicDataObserver;)V
 
     return-void
 .end method
@@ -149,30 +173,6 @@
     move-result-object p1
 
     iput-object p1, p0, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;->mPackageManager:Landroid/content/pm/PackageManager;
-
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;Landroid/net/Uri;Landroidx/preference/Preference;)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;->refreshTitle(Landroid/net/Uri;Landroidx/preference/Preference;)V
-
-    return-void
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;Landroid/net/Uri;Landroidx/preference/Preference;)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;->refreshSummary(Landroid/net/Uri;Landroidx/preference/Preference;)V
-
-    return-void
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;Landroid/net/Uri;Landroidx/preference/Preference;)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;->refreshSwitch(Landroid/net/Uri;Landroidx/preference/Preference;)V
 
     return-void
 .end method
@@ -221,8 +221,6 @@
 
     move-result-object p2
 
-    invoke-direct {p0, p2, p1}, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;->refreshSummary(Landroid/net/Uri;Landroidx/preference/Preference;)V
-
     invoke-direct {p0, v0, p2, p1}, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;->createDynamicDataObserver(Ljava/lang/String;Landroid/net/Uri;Landroidx/preference/Preference;)Lcom/android/settings/dashboard/DynamicDataObserver;
 
     move-result-object p0
@@ -258,9 +256,9 @@
 
     move-result-object v1
 
-    new-instance v2, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl$$ExternalSyntheticLambda0;
+    new-instance v2, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl$$ExternalSyntheticLambda3;
 
-    invoke-direct {v2, p0, v1}, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;Landroid/net/Uri;)V
+    invoke-direct {v2, p0, v1}, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl$$ExternalSyntheticLambda3;-><init>(Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;Landroid/net/Uri;)V
 
     invoke-virtual {p1, v2}, Landroidx/preference/Preference;->setOnPreferenceChangeListener(Landroidx/preference/Preference$OnPreferenceChangeListener;)V
 
@@ -273,8 +271,6 @@
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, v0}, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;->setSwitchEnabled(Landroidx/preference/Preference;Z)V
-
-    invoke-direct {p0, p2, p1}, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;->refreshSwitch(Landroid/net/Uri;Landroidx/preference/Preference;)V
 
     invoke-direct {p0, v1, p2, p1}, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;->createDynamicDataObserver(Ljava/lang/String;Landroid/net/Uri;Landroidx/preference/Preference;)Lcom/android/settings/dashboard/DynamicDataObserver;
 
@@ -332,8 +328,6 @@
     invoke-static {p2, v2, v0}, Lcom/android/settingslib/drawer/TileUtils;->getCompleteUri(Lcom/android/settingslib/drawer/Tile;Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object p2
-
-    invoke-direct {p0, p2, p1}, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;->refreshTitle(Landroid/net/Uri;Landroidx/preference/Preference;)V
 
     invoke-direct {p0, v0, p2, p1}, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;->createDynamicDataObserver(Ljava/lang/String;Landroid/net/Uri;Landroidx/preference/Preference;)Lcom/android/settings/dashboard/DynamicDataObserver;
 
@@ -559,7 +553,7 @@
 
     move-result-object v10
 
-    new-instance v0, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl$$ExternalSyntheticLambda9;
+    new-instance v0, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl$$ExternalSyntheticLambda2;
 
     move-object v4, v0
 
@@ -571,7 +565,7 @@
 
     move v8, p3
 
-    invoke-direct/range {v4 .. v10}, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl$$ExternalSyntheticLambda9;-><init>(Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;Landroidx/preference/Preference;Lcom/android/settingslib/drawer/Tile;ZLandroid/util/Pair;Landroid/graphics/drawable/Icon;)V
+    invoke-direct/range {v4 .. v10}, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;Landroidx/preference/Preference;Lcom/android/settingslib/drawer/Tile;ZLandroid/util/Pair;Landroid/graphics/drawable/Icon;)V
 
     invoke-static {v0}, Lcom/android/settingslib/utils/ThreadUtils;->postOnMainThread(Ljava/lang/Runnable;)V
 
@@ -579,47 +573,55 @@
 .end method
 
 .method private synthetic lambda$bindPreferenceToTileAndGetObservers$0(Lcom/android/settings/dashboard/DashboardFragment;Ljava/lang/String;Landroidx/fragment/app/FragmentActivity;Lcom/android/settingslib/drawer/Tile;Landroid/content/Intent;ILandroidx/preference/Preference;)Z
-    .locals 6
+    .locals 8
 
-    instance-of p7, p1, Lcom/android/settings/homepage/TopLevelSettings;
+    instance-of v0, p1, Lcom/android/settings/homepage/TopLevelSettings;
 
-    if-eqz p7, :cond_0
+    if-eqz v0, :cond_0
 
-    iget-object p7, p0, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;->mContext:Landroid/content/Context;
 
-    invoke-static {p7}, Lcom/android/settings/activityembedding/ActivityEmbeddingUtils;->isEmbeddingActivityEnabled(Landroid/content/Context;)Z
+    invoke-static {v0}, Lcom/android/settings/activityembedding/ActivityEmbeddingUtils;->isEmbeddingActivityEnabled(Landroid/content/Context;)Z
 
-    move-result p7
+    move-result v0
 
-    if-eqz p7, :cond_0
+    if-eqz v0, :cond_0
 
     check-cast p1, Lcom/android/settings/homepage/TopLevelSettings;
 
-    invoke-virtual {p1, p2}, Lcom/android/settings/homepage/TopLevelSettings;->setHighlightPreferenceKey(Ljava/lang/String;)V
-
     invoke-virtual {p1}, Lcom/android/settings/homepage/TopLevelSettings;->getHighlightMixin()Lcom/android/settings/homepage/TopLevelHighlightMixin;
 
-    move-result-object p1
+    move-result-object v0
+
+    invoke-virtual {p1, p7}, Lcom/android/settings/homepage/TopLevelSettings;->isDuplicateClick(Landroidx/preference/Preference;)Z
+
+    move-result p7
+
+    invoke-virtual {p1, p2}, Lcom/android/settings/homepage/TopLevelSettings;->setHighlightPreferenceKey(Ljava/lang/String;)V
 
     goto :goto_0
 
     :cond_0
-    const/4 p1, 0x0
+    const/4 v0, 0x0
+
+    const/4 p7, 0x0
 
     :goto_0
-    move-object v5, p1
+    move v7, p7
 
-    move-object v0, p0
+    move-object v6, v0
 
-    move-object v1, p3
+    move-object v1, p0
 
-    move-object v2, p4
+    move-object v2, p3
 
-    move-object v3, p5
+    move-object v3, p4
 
-    move v4, p6
+    move-object v4, p5
 
-    invoke-direct/range {v0 .. v5}, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;->launchIntentOrSelectProfile(Landroidx/fragment/app/FragmentActivity;Lcom/android/settingslib/drawer/Tile;Landroid/content/Intent;ILcom/android/settings/homepage/TopLevelHighlightMixin;)V
+    move v5, p6
+
+    invoke-direct/range {v1 .. v7}, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;->launchIntentOrSelectProfile(Landroidx/fragment/app/FragmentActivity;Lcom/android/settingslib/drawer/Tile;Landroid/content/Intent;ILcom/android/settings/homepage/TopLevelHighlightMixin;Z)V
 
     const/4 p0, 0x1
 
@@ -722,7 +724,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$refreshSummary$4(Landroid/net/Uri;Landroidx/preference/Preference;)V
+.method private synthetic lambda$refreshSummary$4(Landroid/net/Uri;Landroidx/preference/Preference;Lcom/android/settings/dashboard/DynamicDataObserver;)V
     .locals 2
 
     new-instance v0, Landroid/util/ArrayMap;
@@ -747,11 +749,11 @@
 
     if-nez p1, :cond_0
 
-    new-instance p1, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl$$ExternalSyntheticLambda2;
+    new-instance p1, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl$$ExternalSyntheticLambda9;
 
-    invoke-direct {p1, p2, p0}, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl$$ExternalSyntheticLambda2;-><init>(Landroidx/preference/Preference;Ljava/lang/String;)V
+    invoke-direct {p1, p2, p0}, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl$$ExternalSyntheticLambda9;-><init>(Landroidx/preference/Preference;Ljava/lang/String;)V
 
-    invoke-static {p1}, Lcom/android/settingslib/utils/ThreadUtils;->postOnMainThread(Ljava/lang/Runnable;)V
+    invoke-virtual {p3, p1}, Lcom/android/settings/dashboard/DynamicDataObserver;->post(Ljava/lang/Runnable;)V
 
     :cond_0
     return-void
@@ -769,7 +771,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$refreshSwitch$9(Landroid/net/Uri;Landroidx/preference/Preference;)V
+.method private synthetic lambda$refreshSwitch$9(Landroid/net/Uri;Lcom/android/settings/dashboard/DynamicDataObserver;Landroidx/preference/Preference;)V
     .locals 3
 
     new-instance v0, Landroid/util/ArrayMap;
@@ -786,9 +788,9 @@
 
     new-instance v0, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl$$ExternalSyntheticLambda10;
 
-    invoke-direct {v0, p0, p2, p1}, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl$$ExternalSyntheticLambda10;-><init>(Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;Landroidx/preference/Preference;Z)V
+    invoke-direct {v0, p0, p3, p1}, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl$$ExternalSyntheticLambda10;-><init>(Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;Landroidx/preference/Preference;Z)V
 
-    invoke-static {v0}, Lcom/android/settingslib/utils/ThreadUtils;->postOnMainThread(Ljava/lang/Runnable;)V
+    invoke-virtual {p2, v0}, Lcom/android/settings/dashboard/DynamicDataObserver;->post(Ljava/lang/Runnable;)V
 
     return-void
 .end method
@@ -801,7 +803,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$refreshTitle$2(Landroid/net/Uri;Landroidx/preference/Preference;)V
+.method private synthetic lambda$refreshTitle$2(Landroid/net/Uri;Landroidx/preference/Preference;Lcom/android/settings/dashboard/DynamicDataObserver;)V
     .locals 2
 
     new-instance v0, Landroid/util/ArrayMap;
@@ -826,17 +828,17 @@
 
     if-nez p1, :cond_0
 
-    new-instance p1, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl$$ExternalSyntheticLambda3;
+    new-instance p1, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl$$ExternalSyntheticLambda11;
 
-    invoke-direct {p1, p2, p0}, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl$$ExternalSyntheticLambda3;-><init>(Landroidx/preference/Preference;Ljava/lang/String;)V
+    invoke-direct {p1, p2, p0}, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl$$ExternalSyntheticLambda11;-><init>(Landroidx/preference/Preference;Ljava/lang/String;)V
 
-    invoke-static {p1}, Lcom/android/settingslib/utils/ThreadUtils;->postOnMainThread(Ljava/lang/Runnable;)V
+    invoke-virtual {p3, p1}, Lcom/android/settings/dashboard/DynamicDataObserver;->post(Ljava/lang/Runnable;)V
 
     :cond_0
     return-void
 .end method
 
-.method private launchIntentOrSelectProfile(Landroidx/fragment/app/FragmentActivity;Lcom/android/settingslib/drawer/Tile;Landroid/content/Intent;ILcom/android/settings/homepage/TopLevelHighlightMixin;)V
+.method private launchIntentOrSelectProfile(Landroidx/fragment/app/FragmentActivity;Lcom/android/settingslib/drawer/Tile;Landroid/content/Intent;ILcom/android/settings/homepage/TopLevelHighlightMixin;Z)V
     .locals 6
 
     invoke-direct {p0, p3}, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;->isIntentResolvable(Landroid/content/Intent;)Z
@@ -870,36 +872,19 @@
 
     invoke-static {v0, p2}, Lcom/android/settings/dashboard/profileselector/ProfileSelectDialog;->updateUserHandlesIfNeeded(Landroid/content/Context;Lcom/android/settingslib/drawer/Tile;)V
 
-    iget-object v0, p0, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;->mMetricsFeatureProvider:Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;
-
-    invoke-virtual {v0, p3, p4}, Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;->logStartedIntent(Landroid/content/Intent;I)Z
-
-    iget-object v0, p0, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;->mContext:Landroid/content/Context;
-
-    invoke-virtual {p2, v0}, Lcom/android/settingslib/drawer/Tile;->isNewTask(Landroid/content/Context;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    const/high16 v0, 0x10000000
-
-    invoke-virtual {p3, v0}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
-
-    :cond_1
     iget-object v0, p2, Lcom/android/settingslib/drawer/Tile;->userHandle:Ljava/util/ArrayList;
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_7
 
     invoke-virtual {p2}, Lcom/android/settingslib/drawer/Tile;->isPrimaryProfileOnly()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1
 
     goto :goto_0
 
-    :cond_2
+    :cond_1
     iget-object v0, p2, Lcom/android/settingslib/drawer/Tile;->userHandle:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
@@ -910,7 +895,13 @@
 
     const/4 v2, 0x1
 
-    if-ne v0, v2, :cond_3
+    if-ne v0, v2, :cond_2
+
+    if-nez p6, :cond_8
+
+    iget-object p0, p0, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;->mMetricsFeatureProvider:Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;
+
+    invoke-virtual {p0, p3, p4}, Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;->logStartedIntent(Landroid/content/Intent;I)Z
 
     iget-object p0, p2, Lcom/android/settingslib/drawer/Tile;->userHandle:Ljava/util/ArrayList;
 
@@ -924,7 +915,7 @@
 
     goto :goto_1
 
-    :cond_3
+    :cond_2
     const-string v0, "android.intent.extra.USER"
 
     invoke-virtual {p3, v0}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
@@ -943,22 +934,35 @@
 
     if-eqz v3, :cond_4
 
+    if-nez p6, :cond_3
+
+    iget-object p0, p0, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;->mMetricsFeatureProvider:Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;
+
+    invoke-virtual {p0, p3, p4}, Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;->logStartedIntent(Landroid/content/Intent;I)Z
+
     invoke-virtual {p1, p3, v0}, Landroid/app/Activity;->startActivityAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
 
+    :cond_3
     return-void
 
     :cond_4
     invoke-direct {p0, p3, p2}, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;->getResolvableUsers(Landroid/content/Intent;Lcom/android/settingslib/drawer/Tile;)Ljava/util/List;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-interface {p0}, Ljava/util/List;->size()I
+    invoke-interface {v0}, Ljava/util/List;->size()I
 
-    move-result v0
+    move-result v3
 
-    if-ne v0, v2, :cond_5
+    if-ne v3, v2, :cond_6
 
-    invoke-interface {p0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    if-nez p6, :cond_5
+
+    iget-object p0, p0, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;->mMetricsFeatureProvider:Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;
+
+    invoke-virtual {p0, p3, p4}, Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;->logStartedIntent(Landroid/content/Intent;I)Z
+
+    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object p0
 
@@ -966,9 +970,14 @@
 
     invoke-virtual {p1, p3, p0}, Landroid/app/Activity;->startActivityAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
 
+    :cond_5
     return-void
 
-    :cond_5
+    :cond_6
+    iget-object p0, p0, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;->mMetricsFeatureProvider:Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;
+
+    invoke-virtual {p0, p3, p4}, Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;->logStartedIntent(Landroid/content/Intent;I)Z
+
     invoke-virtual {p1}, Landroidx/fragment/app/FragmentActivity;->getSupportFragmentManager()Landroidx/fragment/app/FragmentManager;
 
     move-result-object v0
@@ -987,10 +996,17 @@
 
     goto :goto_1
 
-    :cond_6
+    :cond_7
     :goto_0
+    if-nez p6, :cond_8
+
+    iget-object p0, p0, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;->mMetricsFeatureProvider:Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;
+
+    invoke-virtual {p0, p3, p4}, Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;->logStartedIntent(Landroid/content/Intent;I)Z
+
     invoke-virtual {p1, p3}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
 
+    :cond_8
     :goto_1
     return-void
 .end method
@@ -1002,45 +1018,45 @@
 
     invoke-direct {p0, p2, v0}, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;->setSwitchEnabled(Landroidx/preference/Preference;Z)V
 
-    new-instance v0, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl$$ExternalSyntheticLambda7;
-
-    invoke-direct {v0, p0, p1, p3, p2}, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl$$ExternalSyntheticLambda7;-><init>(Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;Landroid/net/Uri;ZLandroidx/preference/Preference;)V
-
-    invoke-static {v0}, Lcom/android/settingslib/utils/ThreadUtils;->postOnBackgroundThread(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;
-
-    return-void
-.end method
-
-.method private refreshSummary(Landroid/net/Uri;Landroidx/preference/Preference;)V
-    .locals 1
-
     new-instance v0, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl$$ExternalSyntheticLambda4;
 
-    invoke-direct {v0, p0, p1, p2}, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl$$ExternalSyntheticLambda4;-><init>(Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;Landroid/net/Uri;Landroidx/preference/Preference;)V
+    invoke-direct {v0, p0, p1, p3, p2}, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl$$ExternalSyntheticLambda4;-><init>(Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;Landroid/net/Uri;ZLandroidx/preference/Preference;)V
 
     invoke-static {v0}, Lcom/android/settingslib/utils/ThreadUtils;->postOnBackgroundThread(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;
 
     return-void
 .end method
 
-.method private refreshSwitch(Landroid/net/Uri;Landroidx/preference/Preference;)V
-    .locals 1
-
-    new-instance v0, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl$$ExternalSyntheticLambda5;
-
-    invoke-direct {v0, p0, p1, p2}, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl$$ExternalSyntheticLambda5;-><init>(Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;Landroid/net/Uri;Landroidx/preference/Preference;)V
-
-    invoke-static {v0}, Lcom/android/settingslib/utils/ThreadUtils;->postOnBackgroundThread(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;
-
-    return-void
-.end method
-
-.method private refreshTitle(Landroid/net/Uri;Landroidx/preference/Preference;)V
+.method private refreshSummary(Landroid/net/Uri;Landroidx/preference/Preference;Lcom/android/settings/dashboard/DynamicDataObserver;)V
     .locals 1
 
     new-instance v0, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl$$ExternalSyntheticLambda6;
 
-    invoke-direct {v0, p0, p1, p2}, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl$$ExternalSyntheticLambda6;-><init>(Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;Landroid/net/Uri;Landroidx/preference/Preference;)V
+    invoke-direct {v0, p0, p1, p2, p3}, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl$$ExternalSyntheticLambda6;-><init>(Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;Landroid/net/Uri;Landroidx/preference/Preference;Lcom/android/settings/dashboard/DynamicDataObserver;)V
+
+    invoke-static {v0}, Lcom/android/settingslib/utils/ThreadUtils;->postOnBackgroundThread(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;
+
+    return-void
+.end method
+
+.method private refreshSwitch(Landroid/net/Uri;Landroidx/preference/Preference;Lcom/android/settings/dashboard/DynamicDataObserver;)V
+    .locals 1
+
+    new-instance v0, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl$$ExternalSyntheticLambda5;
+
+    invoke-direct {v0, p0, p1, p3, p2}, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl$$ExternalSyntheticLambda5;-><init>(Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;Landroid/net/Uri;Lcom/android/settings/dashboard/DynamicDataObserver;Landroidx/preference/Preference;)V
+
+    invoke-static {v0}, Lcom/android/settingslib/utils/ThreadUtils;->postOnBackgroundThread(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;
+
+    return-void
+.end method
+
+.method private refreshTitle(Landroid/net/Uri;Landroidx/preference/Preference;Lcom/android/settings/dashboard/DynamicDataObserver;)V
+    .locals 1
+
+    new-instance v0, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl$$ExternalSyntheticLambda7;
+
+    invoke-direct {v0, p0, p1, p2, p3}, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl$$ExternalSyntheticLambda7;-><init>(Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;Landroid/net/Uri;Landroidx/preference/Preference;Lcom/android/settings/dashboard/DynamicDataObserver;)V
 
     invoke-static {v0}, Lcom/android/settingslib/utils/ThreadUtils;->postOnBackgroundThread(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;
 
@@ -1058,6 +1074,33 @@
 
     move-result-object p5
 
+    if-nez p5, :cond_0
+
+    new-instance p0, Ljava/lang/StringBuilder;
+
+    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string p2, "Set null preference icon for: "
+
+    invoke-virtual {p0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0, p4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    const-string p2, "DashboardFeatureImpl"
+
+    invoke-static {p2, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 p0, 0x0
+
+    invoke-virtual {p1, p0}, Landroidx/preference/Preference;->setIcon(Landroid/graphics/drawable/Drawable;)V
+
+    return-void
+
+    :cond_0
     invoke-virtual {p2}, Lcom/android/settingslib/drawer/Tile;->getCategory()Ljava/lang/String;
 
     move-result-object v0
@@ -1068,7 +1111,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     invoke-virtual {p1}, Landroidx/preference/Preference;->getContext()Landroid/content/Context;
 
@@ -1082,8 +1125,8 @@
 
     goto :goto_0
 
-    :cond_0
-    if-eqz p3, :cond_1
+    :cond_1
+    if-eqz p3, :cond_2
 
     iget-object p3, p0, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;->mContext:Landroid/content/Context;
 
@@ -1095,13 +1138,13 @@
 
     move-result p3
 
-    if-nez p3, :cond_1
+    if-nez p3, :cond_2
 
     new-instance p3, Lcom/android/settingslib/widget/AdaptiveIcon;
 
     iget-object p4, p0, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f0b0117
+    const v0, 0x7f0b012b
 
     invoke-direct {p3, p4, p5, v0}, Lcom/android/settingslib/widget/AdaptiveIcon;-><init>(Landroid/content/Context;Landroid/graphics/drawable/Drawable;I)V
 
@@ -1111,7 +1154,7 @@
 
     move-object p5, p3
 
-    :cond_1
+    :cond_2
     :goto_0
     invoke-virtual {p1, p5}, Landroidx/preference/Preference;->setIcon(Landroid/graphics/drawable/Drawable;)V
 
@@ -1121,13 +1164,13 @@
 .method private setSwitchChecked(Landroidx/preference/Preference;Z)V
     .locals 0
 
-    instance-of p0, p1, Lcom/android/settings/widget/PrimarySwitchPreference;
+    instance-of p0, p1, Lcom/android/settingslib/PrimarySwitchPreference;
 
     if-eqz p0, :cond_0
 
-    check-cast p1, Lcom/android/settings/widget/PrimarySwitchPreference;
+    check-cast p1, Lcom/android/settingslib/PrimarySwitchPreference;
 
-    invoke-virtual {p1, p2}, Lcom/android/settings/widget/PrimarySwitchPreference;->setChecked(Z)V
+    invoke-virtual {p1, p2}, Lcom/android/settingslib/PrimarySwitchPreference;->setChecked(Z)V
 
     goto :goto_0
 
@@ -1148,13 +1191,13 @@
 .method private setSwitchEnabled(Landroidx/preference/Preference;Z)V
     .locals 0
 
-    instance-of p0, p1, Lcom/android/settings/widget/PrimarySwitchPreference;
+    instance-of p0, p1, Lcom/android/settingslib/PrimarySwitchPreference;
 
     if-eqz p0, :cond_0
 
-    check-cast p1, Lcom/android/settings/widget/PrimarySwitchPreference;
+    check-cast p1, Lcom/android/settingslib/PrimarySwitchPreference;
 
-    invoke-virtual {p1, p2}, Lcom/android/settings/widget/PrimarySwitchPreference;->setSwitchEnabled(Z)V
+    invoke-virtual {p1, p2}, Lcom/android/settingslib/PrimarySwitchPreference;->setSwitchEnabled(Z)V
 
     goto :goto_0
 
@@ -1212,9 +1255,9 @@
 
     invoke-direct/range {v1 .. v6}, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;->setPreferenceIcon(Landroidx/preference/Preference;Lcom/android/settingslib/drawer/Tile;ZLjava/lang/String;Landroid/graphics/drawable/Icon;)V
 
-    new-instance v0, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl$$ExternalSyntheticLambda11;
+    new-instance v0, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl$$ExternalSyntheticLambda0;
 
-    invoke-direct {v0, p0, p2, p1, p3}, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl$$ExternalSyntheticLambda11;-><init>(Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;Lcom/android/settingslib/drawer/Tile;Landroidx/preference/Preference;Z)V
+    invoke-direct {v0, p0, p2, p1, p3}, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;Lcom/android/settingslib/drawer/Tile;Landroidx/preference/Preference;Z)V
 
     invoke-static {v0}, Lcom/android/settingslib/utils/ThreadUtils;->postOnBackgroundThread(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;
 
@@ -1252,7 +1295,7 @@
 .end method
 
 .method public bindPreferenceToTileAndGetObservers(Landroidx/fragment/app/FragmentActivity;Lcom/android/settings/dashboard/DashboardFragment;ZLandroidx/preference/Preference;Lcom/android/settingslib/drawer/Tile;Ljava/lang/String;I)Ljava/util/List;
-    .locals 14
+    .locals 15
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1343,7 +1386,7 @@
 
     instance-of v0, v9, Lcom/android/settingslib/drawer/ActivityTile;
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_9
 
     invoke-interface/range {p2 .. p2}, Lcom/android/settingslib/core/instrumentation/Instrumentable;->getMetricsCategory()I
 
@@ -1403,24 +1446,31 @@
     invoke-virtual {v6, v0}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
     :cond_7
-    iget-object v2, v1, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;->mContext:Landroid/content/Context;
+    move-object/from16 v2, p2
 
-    new-instance v4, Landroid/content/ComponentName;
+    instance-of v4, v2, Lcom/android/settings/homepage/TopLevelSettings;
+
+    if-eqz v4, :cond_8
+
+    iget-object v4, v1, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;->mContext:Landroid/content/Context;
+
+    new-instance v5, Landroid/content/ComponentName;
 
     invoke-virtual/range {p5 .. p5}, Lcom/android/settingslib/drawer/Tile;->getPackageName()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v13
 
     invoke-virtual/range {p5 .. p5}, Lcom/android/settingslib/drawer/Tile;->getComponentName()Ljava/lang/String;
 
-    move-result-object v13
+    move-result-object v14
 
-    invoke-direct {v4, v5, v13}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct {v5, v13, v14}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    const/4 v5, 0x1
+    const/4 v13, 0x1
 
-    invoke-static {v2, v4, v0, v5}, Lcom/android/settings/activityembedding/ActivityEmbeddingRulesController;->registerTwoPanePairRuleForSettingsHome(Landroid/content/Context;Landroid/content/ComponentName;Ljava/lang/String;Z)V
+    invoke-static {v4, v5, v0, v13}, Lcom/android/settings/activityembedding/ActivityEmbeddingRulesController;->registerTwoPanePairRuleForSettingsHome(Landroid/content/Context;Landroid/content/ComponentName;Ljava/lang/String;Z)V
 
+    :cond_8
     new-instance v13, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl$$ExternalSyntheticLambda1;
 
     move-object v0, v13
@@ -1431,7 +1481,7 @@
 
     move-object/from16 v3, p6
 
-    move-object v4, p1
+    move-object/from16 v4, p1
 
     move-object/from16 v5, p5
 
@@ -1439,15 +1489,15 @@
 
     invoke-virtual {v8, v13}, Landroidx/preference/Preference;->setOnPreferenceClickListener(Landroidx/preference/Preference$OnPreferenceClickListener;)V
 
-    :cond_8
+    :cond_9
     :goto_2
     invoke-virtual/range {p5 .. p5}, Lcom/android/settingslib/drawer/Tile;->hasOrder()Z
 
     move-result v0
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_c
 
-    invoke-virtual {p1}, Landroid/app/Activity;->getPackageName()Ljava/lang/String;
+    invoke-virtual/range {p1 .. p1}, Landroid/app/Activity;->getPackageName()Ljava/lang/String;
 
     move-result-object v0
 
@@ -1471,36 +1521,36 @@
 
     move-result v0
 
-    if-nez v0, :cond_a
+    if-nez v0, :cond_b
 
     const v0, 0x7fffffff
 
-    if-ne v10, v0, :cond_9
+    if-ne v10, v0, :cond_a
 
     goto :goto_3
 
-    :cond_9
+    :cond_a
     add-int/2addr v1, v10
 
     invoke-virtual {v8, v1}, Landroidx/preference/Preference;->setOrder(I)V
 
     goto :goto_4
 
-    :cond_a
+    :cond_b
     :goto_3
     invoke-virtual {v8, v1}, Landroidx/preference/Preference;->setOrder(I)V
 
-    :cond_b
+    :cond_c
     :goto_4
     invoke-interface {v12}, Ljava/util/List;->isEmpty()Z
 
     move-result v0
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_d
 
     goto :goto_5
 
-    :cond_c
+    :cond_d
     move-object v11, v12
 
     :goto_5

@@ -50,7 +50,7 @@
 
     invoke-direct {p1, v0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v0, 0x7f041168
+    const v0, 0x7f04121a
 
     invoke-virtual {p1, v0}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -60,19 +60,19 @@
 
     if-eqz v1, :cond_0
 
-    const v1, 0x7f041167
+    const v1, 0x7f041219
 
     goto :goto_0
 
     :cond_0
-    const v1, 0x7f041166
+    const v1, 0x7f041218
 
     :goto_0
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f0407be
+    const v1, 0x7f040803
 
     iget-object v2, p0, Lcom/android/settings/biometrics/face/FaceSettingsRemoveButtonPreferenceController$ConfirmRemoveDialog;->mOnClickListener:Landroid/content/DialogInterface$OnClickListener;
 
@@ -80,7 +80,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040564
+    const v1, 0x7f0405c1
 
     iget-object p0, p0, Lcom/android/settings/biometrics/face/FaceSettingsRemoveButtonPreferenceController$ConfirmRemoveDialog;->mOnClickListener:Landroid/content/DialogInterface$OnClickListener;
 

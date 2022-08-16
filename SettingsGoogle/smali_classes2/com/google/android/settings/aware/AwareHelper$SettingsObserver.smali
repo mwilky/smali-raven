@@ -29,6 +29,14 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$msetCallback(Lcom/google/android/settings/aware/AwareHelper$SettingsObserver;Lcom/google/android/settings/aware/AwareHelper$Callback;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/google/android/settings/aware/AwareHelper$SettingsObserver;->setCallback(Lcom/google/android/settings/aware/AwareHelper$Callback;)V
+
+    return-void
+.end method
+
 .method public constructor <init>(Lcom/google/android/settings/aware/AwareHelper;Landroid/os/Handler;)V
     .locals 0
 
@@ -71,14 +79,6 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/google/android/settings/aware/AwareHelper$SettingsObserver;Lcom/google/android/settings/aware/AwareHelper$Callback;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/google/android/settings/aware/AwareHelper$SettingsObserver;->setCallback(Lcom/google/android/settings/aware/AwareHelper$Callback;)V
-
-    return-void
-.end method
-
 .method private setCallback(Lcom/google/android/settings/aware/AwareHelper$Callback;)V
     .locals 0
 
@@ -94,7 +94,7 @@
 
     iget-object v0, p0, Lcom/google/android/settings/aware/AwareHelper$SettingsObserver;->this$0:Lcom/google/android/settings/aware/AwareHelper;
 
-    invoke-static {v0}, Lcom/google/android/settings/aware/AwareHelper;->access$100(Lcom/google/android/settings/aware/AwareHelper;)Landroid/content/Context;
+    invoke-static {v0}, Lcom/google/android/settings/aware/AwareHelper;->-$$Nest$fgetmContext(Lcom/google/android/settings/aware/AwareHelper;)Landroid/content/Context;
 
     move-result-object v0
 

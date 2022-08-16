@@ -60,7 +60,7 @@
 
     move-result-object v0
 
-    invoke-static {v0, p1, p2}, Lcom/android/settingslib/net/NetworkCycleData;->access$102(Lcom/android/settingslib/net/NetworkCycleData;J)J
+    invoke-static {v0, p1, p2}, Lcom/android/settingslib/net/NetworkCycleData;->-$$Nest$fputmEndTime(Lcom/android/settingslib/net/NetworkCycleData;J)V
 
     return-object p0
 .end method
@@ -72,7 +72,7 @@
 
     move-result-object v0
 
-    invoke-static {v0, p1, p2}, Lcom/android/settingslib/net/NetworkCycleData;->access$002(Lcom/android/settingslib/net/NetworkCycleData;J)J
+    invoke-static {v0, p1, p2}, Lcom/android/settingslib/net/NetworkCycleData;->-$$Nest$fputmStartTime(Lcom/android/settingslib/net/NetworkCycleData;J)V
 
     return-object p0
 .end method
@@ -84,7 +84,7 @@
 
     move-result-object v0
 
-    invoke-static {v0, p1, p2}, Lcom/android/settingslib/net/NetworkCycleData;->access$202(Lcom/android/settingslib/net/NetworkCycleData;J)J
+    invoke-static {v0, p1, p2}, Lcom/android/settingslib/net/NetworkCycleData;->-$$Nest$fputmTotalUsage(Lcom/android/settingslib/net/NetworkCycleData;J)V
 
     return-object p0
 .end method

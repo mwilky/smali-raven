@@ -28,7 +28,8 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Set<",
-            "*>;"
+            "Ljava/lang/Object;",
+            ">;"
         }
     .end annotation
 .end field
@@ -38,8 +39,6 @@
 .field private compositionLayer:Lcom/airbnb/lottie/model/layer/CompositionLayer;
 
 .field private enableMergePaths:Z
-
-.field fontAssetDelegate:Lcom/airbnb/lottie/FontAssetDelegate;
 
 .field private fontAssetManager:Lcom/airbnb/lottie/manager/FontAssetManager;
 
@@ -524,11 +523,11 @@
 
     move-result-object v0
 
+    const/4 v1, 0x0
+
     if-nez v0, :cond_0
 
-    const/4 p0, 0x0
-
-    return-object p0
+    return-object v1
 
     :cond_0
     iget-object v0, p0, Lcom/airbnb/lottie/LottieDrawable;->fontAssetManager:Lcom/airbnb/lottie/manager/FontAssetManager;
@@ -539,11 +538,9 @@
 
     invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->getCallback()Landroid/graphics/drawable/Drawable$Callback;
 
-    move-result-object v1
+    move-result-object v2
 
-    iget-object v2, p0, Lcom/airbnb/lottie/LottieDrawable;->fontAssetDelegate:Lcom/airbnb/lottie/FontAssetDelegate;
-
-    invoke-direct {v0, v1, v2}, Lcom/airbnb/lottie/manager/FontAssetManager;-><init>(Landroid/graphics/drawable/Drawable$Callback;Lcom/airbnb/lottie/FontAssetDelegate;)V
+    invoke-direct {v0, v2, v1}, Lcom/airbnb/lottie/manager/FontAssetManager;-><init>(Landroid/graphics/drawable/Drawable$Callback;Lcom/airbnb/lottie/FontAssetDelegate;)V
 
     iput-object v0, p0, Lcom/airbnb/lottie/LottieDrawable;->fontAssetManager:Lcom/airbnb/lottie/manager/FontAssetManager;
 
@@ -938,7 +935,7 @@
 .end method
 
 .method public enableMergePathsForKitKatAndAbove(Z)V
-    .locals 2
+    .locals 1
 
     iget-boolean v0, p0, Lcom/airbnb/lottie/LottieDrawable;->enableMergePaths:Z
 
@@ -947,28 +944,15 @@
     return-void
 
     :cond_0
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x13
-
-    if-ge v0, v1, :cond_1
-
-    const-string p0, "Merge paths are not supported pre-Kit Kat."
-
-    invoke-static {p0}, Lcom/airbnb/lottie/utils/Logger;->warning(Ljava/lang/String;)V
-
-    return-void
-
-    :cond_1
     iput-boolean p1, p0, Lcom/airbnb/lottie/LottieDrawable;->enableMergePaths:Z
 
     iget-object p1, p0, Lcom/airbnb/lottie/LottieDrawable;->composition:Lcom/airbnb/lottie/LottieComposition;
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_1
 
     invoke-direct {p0}, Lcom/airbnb/lottie/LottieDrawable;->buildCompositionLayer()V
 
-    :cond_2
+    :cond_1
     return-void
 .end method
 

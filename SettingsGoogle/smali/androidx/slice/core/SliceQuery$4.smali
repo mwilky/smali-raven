@@ -37,18 +37,6 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x1010,
-            0x1010,
-            0x1010
-        }
-        names = {
-            "val$format",
-            "val$hints",
-            "val$nonHints"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/slice/core/SliceQuery$4;->val$format:Ljava/lang/String;
 
@@ -65,14 +53,6 @@
 # virtual methods
 .method public filter(Landroidx/slice/SliceItem;)Z
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "item"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/slice/core/SliceQuery$4;->val$format:Ljava/lang/String;
 
@@ -111,14 +91,6 @@
 
 .method public bridge synthetic filter(Ljava/lang/Object;)Z
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x1000
-        }
-        names = {
-            "item"
-        }
-    .end annotation
 
     check-cast p1, Landroidx/slice/SliceItem;
 

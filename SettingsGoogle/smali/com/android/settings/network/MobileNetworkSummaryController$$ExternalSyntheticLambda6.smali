@@ -1,35 +1,42 @@
 .class public final synthetic Lcom/android/settings/network/MobileNetworkSummaryController$$ExternalSyntheticLambda6;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/IntFunction;
+.implements Landroidx/preference/Preference$OnPreferenceClickListener;
 
 
 # instance fields
 .field public final synthetic f$0:Lcom/android/settings/network/MobileNetworkSummaryController;
 
+.field public final synthetic f$1:Ljava/util/List;
+
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/settings/network/MobileNetworkSummaryController;)V
+.method public synthetic constructor <init>(Lcom/android/settings/network/MobileNetworkSummaryController;Ljava/util/List;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/settings/network/MobileNetworkSummaryController$$ExternalSyntheticLambda6;->f$0:Lcom/android/settings/network/MobileNetworkSummaryController;
 
+    iput-object p2, p0, Lcom/android/settings/network/MobileNetworkSummaryController$$ExternalSyntheticLambda6;->f$1:Ljava/util/List;
+
     return-void
 .end method
 
 
 # virtual methods
-.method public final apply(I)Ljava/lang/Object;
-    .locals 0
+.method public final onPreferenceClick(Landroidx/preference/Preference;)Z
+    .locals 1
 
-    iget-object p0, p0, Lcom/android/settings/network/MobileNetworkSummaryController$$ExternalSyntheticLambda6;->f$0:Lcom/android/settings/network/MobileNetworkSummaryController;
+    iget-object v0, p0, Lcom/android/settings/network/MobileNetworkSummaryController$$ExternalSyntheticLambda6;->f$0:Lcom/android/settings/network/MobileNetworkSummaryController;
 
-    invoke-static {p0, p1}, Lcom/android/settings/network/MobileNetworkSummaryController;->$r8$lambda$9MufDBuOba3BBmin-Bp714nGH4U(Lcom/android/settings/network/MobileNetworkSummaryController;I)Ljava/lang/CharSequence;
+    iget-object p0, p0, Lcom/android/settings/network/MobileNetworkSummaryController$$ExternalSyntheticLambda6;->f$1:Ljava/util/List;
 
-    move-result-object p0
+    invoke-static {v0, p0, p1}, Lcom/android/settings/network/MobileNetworkSummaryController;->$r8$lambda$jVanGiy73oyHBB2K6OQtc03B9-Q(Lcom/android/settings/network/MobileNetworkSummaryController;Ljava/util/List;Landroidx/preference/Preference;)Z
 
-    return-object p0
+    move-result p0
+
+    return p0
 .end method

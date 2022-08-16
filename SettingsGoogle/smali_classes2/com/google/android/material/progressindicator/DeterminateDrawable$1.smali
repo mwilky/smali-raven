@@ -1,4 +1,4 @@
-.class final Lcom/google/android/material/progressindicator/DeterminateDrawable$1;
+.class Lcom/google/android/material/progressindicator/DeterminateDrawable$1;
 .super Landroidx/dynamicanimation/animation/FloatPropertyCompat;
 .source "DeterminateDrawable.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x0
     name = null
 .end annotation
 

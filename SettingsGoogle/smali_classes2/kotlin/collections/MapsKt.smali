@@ -19,22 +19,6 @@
         .annotation build Lorg/jetbrains/annotations/NotNull;
         .end annotation
     .end param
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<K:",
-            "Ljava/lang/Object;",
-            "V:",
-            "Ljava/lang/Object;",
-            ">(",
-            "Ljava/lang/Iterable<",
-            "+",
-            "Lkotlin/Pair<",
-            "+TK;+TV;>;>;)",
-            "Ljava/util/Map<",
-            "TK;TV;>;"
-        }
-    .end annotation
-
     .annotation build Lorg/jetbrains/annotations/NotNull;
     .end annotation
 

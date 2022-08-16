@@ -1300,9 +1300,16 @@
         }
     .end annotation
 
-    invoke-static {p0, p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    if-eqz p0, :cond_0
 
     return-object p0
+
+    :cond_0
+    new-instance p0, Ljava/lang/NullPointerException;
+
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+
+    throw p0
 .end method
 
 .method private saveInitialMotion(FFI)V
@@ -1403,63 +1410,6 @@
 
 
 # virtual methods
-.method public abort()V
-    .locals 9
-
-    invoke-virtual {p0}, Landroidx/customview/widget/ViewDragHelper;->cancel()V
-
-    iget v0, p0, Landroidx/customview/widget/ViewDragHelper;->mDragState:I
-
-    const/4 v1, 0x2
-
-    if-ne v0, v1, :cond_0
-
-    iget-object v0, p0, Landroidx/customview/widget/ViewDragHelper;->mScroller:Landroid/widget/OverScroller;
-
-    invoke-virtual {v0}, Landroid/widget/OverScroller;->getCurrX()I
-
-    move-result v0
-
-    iget-object v1, p0, Landroidx/customview/widget/ViewDragHelper;->mScroller:Landroid/widget/OverScroller;
-
-    invoke-virtual {v1}, Landroid/widget/OverScroller;->getCurrY()I
-
-    move-result v1
-
-    iget-object v2, p0, Landroidx/customview/widget/ViewDragHelper;->mScroller:Landroid/widget/OverScroller;
-
-    invoke-virtual {v2}, Landroid/widget/OverScroller;->abortAnimation()V
-
-    iget-object v2, p0, Landroidx/customview/widget/ViewDragHelper;->mScroller:Landroid/widget/OverScroller;
-
-    invoke-virtual {v2}, Landroid/widget/OverScroller;->getCurrX()I
-
-    move-result v5
-
-    iget-object v2, p0, Landroidx/customview/widget/ViewDragHelper;->mScroller:Landroid/widget/OverScroller;
-
-    invoke-virtual {v2}, Landroid/widget/OverScroller;->getCurrY()I
-
-    move-result v6
-
-    iget-object v3, p0, Landroidx/customview/widget/ViewDragHelper;->mCallback:Landroidx/customview/widget/ViewDragHelper$Callback;
-
-    iget-object v4, p0, Landroidx/customview/widget/ViewDragHelper;->mCapturedView:Landroid/view/View;
-
-    sub-int v7, v5, v0
-
-    sub-int v8, v6, v1
-
-    invoke-virtual/range {v3 .. v8}, Landroidx/customview/widget/ViewDragHelper$Callback;->onViewPositionChanged(Landroid/view/View;IIII)V
-
-    :cond_0
-    const/4 v0, 0x0
-
-    invoke-virtual {p0, v0}, Landroidx/customview/widget/ViewDragHelper;->setDragState(I)V
-
-    return-void
-.end method
-
 .method public cancel()V
     .locals 1
 

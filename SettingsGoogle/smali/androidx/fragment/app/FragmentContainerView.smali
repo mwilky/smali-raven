@@ -3,7 +3,17 @@
 .source "FragmentContainerView.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Landroidx/fragment/app/FragmentContainerView$Api20Impl;
+    }
+.end annotation
+
+
 # instance fields
+.field private mApplyWindowInsetsListener:Landroid/view/View$OnApplyWindowInsetsListener;
+
 .field private mDisappearingFragmentChildren:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -380,6 +390,62 @@
     throw p0
 .end method
 
+.method public dispatchApplyWindowInsets(Landroid/view/WindowInsets;)Landroid/view/WindowInsets;
+    .locals 4
+
+    invoke-static {p1}, Landroidx/core/view/WindowInsetsCompat;->toWindowInsetsCompat(Landroid/view/WindowInsets;)Landroidx/core/view/WindowInsetsCompat;
+
+    move-result-object v0
+
+    iget-object v1, p0, Landroidx/fragment/app/FragmentContainerView;->mApplyWindowInsetsListener:Landroid/view/View$OnApplyWindowInsetsListener;
+
+    if-eqz v1, :cond_0
+
+    invoke-static {v1, p0, p1}, Landroidx/fragment/app/FragmentContainerView$Api20Impl;->onApplyWindowInsets(Landroid/view/View$OnApplyWindowInsetsListener;Landroid/view/View;Landroid/view/WindowInsets;)Landroid/view/WindowInsets;
+
+    move-result-object v0
+
+    invoke-static {v0}, Landroidx/core/view/WindowInsetsCompat;->toWindowInsetsCompat(Landroid/view/WindowInsets;)Landroidx/core/view/WindowInsetsCompat;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :cond_0
+    invoke-static {p0, v0}, Landroidx/core/view/ViewCompat;->onApplyWindowInsets(Landroid/view/View;Landroidx/core/view/WindowInsetsCompat;)Landroidx/core/view/WindowInsetsCompat;
+
+    move-result-object v0
+
+    :goto_0
+    invoke-virtual {v0}, Landroidx/core/view/WindowInsetsCompat;->isConsumed()Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getChildCount()I
+
+    move-result v1
+
+    const/4 v2, 0x0
+
+    :goto_1
+    if-ge v2, v1, :cond_1
+
+    invoke-virtual {p0, v2}, Landroid/widget/FrameLayout;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v3
+
+    invoke-static {v3, v0}, Landroidx/core/view/ViewCompat;->dispatchApplyWindowInsets(Landroid/view/View;Landroidx/core/view/WindowInsetsCompat;)Landroidx/core/view/WindowInsetsCompat;
+
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_1
+
+    :cond_1
+    return-object p1
+.end method
+
 .method protected dispatchDraw(Landroid/graphics/Canvas;)V
     .locals 4
 
@@ -492,33 +558,34 @@
     return-void
 .end method
 
+.method public getFragment()Landroidx/fragment/app/Fragment;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<F:",
+            "Landroidx/fragment/app/Fragment;",
+            ">()TF;"
+        }
+    .end annotation
+
+    invoke-static {p0}, Landroidx/fragment/app/FragmentManager;->findFragmentManager(Landroid/view/View;)Landroidx/fragment/app/FragmentManager;
+
+    move-result-object v0
+
+    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getId()I
+
+    move-result p0
+
+    invoke-virtual {v0, p0}, Landroidx/fragment/app/FragmentManager;->findFragmentById(I)Landroidx/fragment/app/Fragment;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method public onApplyWindowInsets(Landroid/view/WindowInsets;)Landroid/view/WindowInsets;
-    .locals 3
+    .locals 0
 
-    const/4 v0, 0x0
-
-    :goto_0
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getChildCount()I
-
-    move-result v1
-
-    if-ge v0, v1, :cond_0
-
-    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->getChildAt(I)Landroid/view/View;
-
-    move-result-object v1
-
-    new-instance v2, Landroid/view/WindowInsets;
-
-    invoke-direct {v2, p1}, Landroid/view/WindowInsets;-><init>(Landroid/view/WindowInsets;)V
-
-    invoke-virtual {v1, v2}, Landroid/view/View;->dispatchApplyWindowInsets(Landroid/view/WindowInsets;)Landroid/view/WindowInsets;
-
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_0
-
-    :cond_0
     return-object p1
 .end method
 
@@ -658,19 +725,8 @@
 .end method
 
 .method public setLayoutTransition(Landroid/animation/LayoutTransition;)V
-    .locals 2
+    .locals 0
 
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x12
-
-    if-ge v0, v1, :cond_0
-
-    invoke-super {p0, p1}, Landroid/widget/FrameLayout;->setLayoutTransition(Landroid/animation/LayoutTransition;)V
-
-    return-void
-
-    :cond_0
     new-instance p0, Ljava/lang/UnsupportedOperationException;
 
     const-string p1, "FragmentContainerView does not support Layout Transitions or animateLayoutChanges=\"true\"."
@@ -678,6 +734,14 @@
     invoke-direct {p0, p1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
     throw p0
+.end method
+
+.method public setOnApplyWindowInsetsListener(Landroid/view/View$OnApplyWindowInsetsListener;)V
+    .locals 0
+
+    iput-object p1, p0, Landroidx/fragment/app/FragmentContainerView;->mApplyWindowInsetsListener:Landroid/view/View$OnApplyWindowInsetsListener;
+
+    return-void
 .end method
 
 .method public startViewTransition(Landroid/view/View;)V

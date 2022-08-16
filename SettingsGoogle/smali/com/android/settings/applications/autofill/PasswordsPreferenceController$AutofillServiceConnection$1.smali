@@ -46,7 +46,7 @@
 
     iget-object p1, p1, Lcom/android/settings/applications/autofill/PasswordsPreferenceController$AutofillServiceConnection;->mData:Landroidx/lifecycle/MutableLiveData;
 
-    const-string v0, "result"
+    const-string/jumbo v0, "result"
 
     invoke-virtual {p2, v0}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 

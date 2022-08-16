@@ -79,11 +79,11 @@
     :cond_0
     iget-object p1, p0, Lcom/android/settings/notification/LockScreenNotificationPreferenceController$SettingObserver;->this$0:Lcom/android/settings/notification/LockScreenNotificationPreferenceController;
 
-    invoke-static {p1}, Lcom/android/settings/notification/LockScreenNotificationPreferenceController;->access$000(Lcom/android/settings/notification/LockScreenNotificationPreferenceController;)V
+    invoke-static {p1}, Lcom/android/settings/notification/LockScreenNotificationPreferenceController;->-$$Nest$mupdateLockscreenNotifications(Lcom/android/settings/notification/LockScreenNotificationPreferenceController;)V
 
     iget-object p1, p0, Lcom/android/settings/notification/LockScreenNotificationPreferenceController$SettingObserver;->this$0:Lcom/android/settings/notification/LockScreenNotificationPreferenceController;
 
-    invoke-static {p1}, Lcom/android/settings/notification/LockScreenNotificationPreferenceController;->access$100(Lcom/android/settings/notification/LockScreenNotificationPreferenceController;)I
+    invoke-static {p1}, Lcom/android/settings/notification/LockScreenNotificationPreferenceController;->-$$Nest$fgetmProfileUserId(Lcom/android/settings/notification/LockScreenNotificationPreferenceController;)I
 
     move-result p1
 
@@ -93,7 +93,7 @@
 
     iget-object p0, p0, Lcom/android/settings/notification/LockScreenNotificationPreferenceController$SettingObserver;->this$0:Lcom/android/settings/notification/LockScreenNotificationPreferenceController;
 
-    invoke-static {p0}, Lcom/android/settings/notification/LockScreenNotificationPreferenceController;->access$200(Lcom/android/settings/notification/LockScreenNotificationPreferenceController;)V
+    invoke-static {p0}, Lcom/android/settings/notification/LockScreenNotificationPreferenceController;->-$$Nest$mupdateLockscreenNotificationsForProfile(Lcom/android/settings/notification/LockScreenNotificationPreferenceController;)V
 
     :cond_1
     return-void

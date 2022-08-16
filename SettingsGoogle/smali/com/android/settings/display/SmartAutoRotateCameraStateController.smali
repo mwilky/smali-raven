@@ -37,9 +37,9 @@
 
     iput-object p1, p0, Lcom/android/settings/display/SmartAutoRotateCameraStateController;->mPrivacyManager:Landroid/hardware/SensorPrivacyManager;
 
-    new-instance p2, Lcom/android/settings/display/SmartAutoRotateCameraStateController$$ExternalSyntheticLambda0;
+    new-instance p2, Lcom/android/settings/display/SmartAutoRotateCameraStateController$$ExternalSyntheticLambda1;
 
-    invoke-direct {p2, p0}, Lcom/android/settings/display/SmartAutoRotateCameraStateController$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/display/SmartAutoRotateCameraStateController;)V
+    invoke-direct {p2, p0}, Lcom/android/settings/display/SmartAutoRotateCameraStateController$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/display/SmartAutoRotateCameraStateController;)V
 
     const/4 p0, 0x2
 
@@ -87,14 +87,6 @@
 
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public displayPreference(Landroidx/preference/PreferenceScreen;)V
     .locals 1
 
@@ -112,15 +104,15 @@
 
     check-cast p1, Lcom/android/settingslib/widget/BannerMessagePreference;
 
-    const v0, 0x7f0401f9
+    const v0, 0x7f040222
 
     invoke-virtual {p1, v0}, Lcom/android/settingslib/widget/BannerMessagePreference;->setPositiveButtonText(I)Lcom/android/settingslib/widget/BannerMessagePreference;
 
     move-result-object p1
 
-    new-instance v0, Lcom/android/settings/display/SmartAutoRotateCameraStateController$$ExternalSyntheticLambda1;
+    new-instance v0, Lcom/android/settings/display/SmartAutoRotateCameraStateController$$ExternalSyntheticLambda0;
 
-    invoke-direct {v0, p0}, Lcom/android/settings/display/SmartAutoRotateCameraStateController$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/display/SmartAutoRotateCameraStateController;)V
+    invoke-direct {v0, p0}, Lcom/android/settings/display/SmartAutoRotateCameraStateController$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/display/SmartAutoRotateCameraStateController;)V
 
     invoke-virtual {p1, v0}, Lcom/android/settingslib/widget/BannerMessagePreference;->setPositiveButtonOnClickListener(Landroid/view/View$OnClickListener;)Lcom/android/settingslib/widget/BannerMessagePreference;
 
@@ -157,15 +149,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -214,16 +197,6 @@
     const/4 v0, 0x2
 
     invoke-virtual {p0, v0}, Landroid/hardware/SensorPrivacyManager;->isSensorPrivacyEnabled(I)Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
 
     move-result p0
 

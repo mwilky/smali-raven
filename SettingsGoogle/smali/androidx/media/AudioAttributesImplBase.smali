@@ -6,14 +6,6 @@
 .implements Landroidx/media/AudioAttributesImpl;
 
 
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Landroidx/media/AudioAttributesImplBase$Builder;
-    }
-.end annotation
-
-
 # instance fields
 .field public mContentType:I
 
@@ -45,137 +37,10 @@
     return-void
 .end method
 
-.method constructor <init>(IIII)V
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "contentType",
-            "flags",
-            "usage",
-            "legacyStream"
-        }
-    .end annotation
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    const/4 v0, 0x0
-
-    iput v0, p0, Landroidx/media/AudioAttributesImplBase;->mUsage:I
-
-    iput v0, p0, Landroidx/media/AudioAttributesImplBase;->mContentType:I
-
-    iput v0, p0, Landroidx/media/AudioAttributesImplBase;->mFlags:I
-
-    const/4 v0, -0x1
-
-    iput v0, p0, Landroidx/media/AudioAttributesImplBase;->mLegacyStream:I
-
-    iput p1, p0, Landroidx/media/AudioAttributesImplBase;->mContentType:I
-
-    iput p2, p0, Landroidx/media/AudioAttributesImplBase;->mFlags:I
-
-    iput p3, p0, Landroidx/media/AudioAttributesImplBase;->mUsage:I
-
-    iput p4, p0, Landroidx/media/AudioAttributesImplBase;->mLegacyStream:I
-
-    return-void
-.end method
-
-.method static usageForStreamType(I)I
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "streamType"
-        }
-    .end annotation
-
-    const/4 v0, 0x2
-
-    packed-switch p0, :pswitch_data_0
-
-    :pswitch_0
-    const/4 p0, 0x0
-
-    return p0
-
-    :pswitch_1
-    const/16 p0, 0xb
-
-    return p0
-
-    :pswitch_2
-    const/4 p0, 0x3
-
-    return p0
-
-    :pswitch_3
-    return v0
-
-    :pswitch_4
-    const/4 p0, 0x5
-
-    return p0
-
-    :pswitch_5
-    const/4 p0, 0x4
-
-    return p0
-
-    :pswitch_6
-    const/4 p0, 0x1
-
-    return p0
-
-    :pswitch_7
-    const/4 p0, 0x6
-
-    return p0
-
-    :pswitch_8
-    const/16 p0, 0xd
-
-    return p0
-
-    :pswitch_9
-    return v0
-
-    :pswitch_data_0
-    .packed-switch 0x0
-        :pswitch_9
-        :pswitch_8
-        :pswitch_7
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_8
-        :pswitch_2
-        :pswitch_0
-        :pswitch_1
-    .end packed-switch
-.end method
-
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "o"
-        }
-    .end annotation
 
     instance-of v0, p1, Landroidx/media/AudioAttributesImplBase;
 

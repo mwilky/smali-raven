@@ -22,6 +22,14 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmDevice(Lcom/android/settings/bluetooth/BluetoothPairingService;)Landroid/bluetooth/BluetoothDevice;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/bluetooth/BluetoothPairingService;->mDevice:Landroid/bluetooth/BluetoothDevice;
+
+    return-object p0
+.end method
+
 .method public constructor <init>()V
     .locals 1
 
@@ -38,14 +46,6 @@
     iput-object v0, p0, Lcom/android/settings/bluetooth/BluetoothPairingService;->mCancelReceiver:Landroid/content/BroadcastReceiver;
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/bluetooth/BluetoothPairingService;)Landroid/bluetooth/BluetoothDevice;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/bluetooth/BluetoothPairingService;->mDevice:Landroid/bluetooth/BluetoothDevice;
-
-    return-object p0
 .end method
 
 .method private createPairingNotification(Landroid/content/Intent;)V
@@ -67,7 +67,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0404a1
+    const v3, 0x7f0404f2
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -220,7 +220,7 @@
 
     new-instance p1, Landroidx/core/app/NotificationCompat$Action$Builder;
 
-    const v8, 0x7f040454
+    const v8, 0x7f04049d
 
     invoke-virtual {v0, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -246,7 +246,7 @@
 
     move-result-object v6
 
-    const v8, 0x7f0404a2
+    const v8, 0x7f0404f3
 
     invoke-virtual {v0, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -256,7 +256,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0404a0
+    const v9, 0x7f0404f1
 
     new-array v10, v3, [Ljava/lang/Object;
 
@@ -402,7 +402,7 @@
 
     new-instance v0, Landroid/app/NotificationChannel;
 
-    const v1, 0x7f040417
+    const v1, 0x7f040458
 
     invoke-virtual {p0, v1}, Landroid/app/Service;->getString(I)Ljava/lang/String;
 
@@ -594,7 +594,7 @@
 
     iget-object p1, p0, Lcom/android/settings/bluetooth/BluetoothPairingService;->mDevice:Landroid/bluetooth/BluetoothDevice;
 
-    invoke-virtual {p1}, Landroid/bluetooth/BluetoothDevice;->cancelPairing()Z
+    invoke-virtual {p1}, Landroid/bluetooth/BluetoothDevice;->cancelBondProcess()Z
 
     iget-object p1, p0, Lcom/android/settings/bluetooth/BluetoothPairingService;->mNm:Landroid/app/NotificationManager;
 

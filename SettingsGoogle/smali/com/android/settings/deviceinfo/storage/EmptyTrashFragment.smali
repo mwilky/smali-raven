@@ -106,9 +106,9 @@
 
     invoke-virtual {v1, v3, v2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    new-instance v2, Lcom/android/settings/deviceinfo/storage/EmptyTrashFragment$$ExternalSyntheticLambda2;
+    new-instance v2, Lcom/android/settings/deviceinfo/storage/EmptyTrashFragment$$ExternalSyntheticLambda1;
 
-    invoke-direct {v2, p0, v0, v1}, Lcom/android/settings/deviceinfo/storage/EmptyTrashFragment$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/deviceinfo/storage/EmptyTrashFragment;Landroid/content/Context;Landroid/os/Bundle;)V
+    invoke-direct {v2, p0, v0, v1}, Lcom/android/settings/deviceinfo/storage/EmptyTrashFragment$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/deviceinfo/storage/EmptyTrashFragment;Landroid/content/Context;Landroid/os/Bundle;)V
 
     invoke-static {v2}, Lcom/android/settingslib/utils/ThreadUtils;->postOnBackgroundThread(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;
 
@@ -170,9 +170,9 @@
     return-void
 
     :cond_0
-    new-instance p1, Lcom/android/settings/deviceinfo/storage/EmptyTrashFragment$$ExternalSyntheticLambda1;
+    new-instance p1, Lcom/android/settings/deviceinfo/storage/EmptyTrashFragment$$ExternalSyntheticLambda2;
 
-    invoke-direct {p1, p0}, Lcom/android/settings/deviceinfo/storage/EmptyTrashFragment$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/deviceinfo/storage/EmptyTrashFragment;)V
+    invoke-direct {p1, p0}, Lcom/android/settings/deviceinfo/storage/EmptyTrashFragment$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/deviceinfo/storage/EmptyTrashFragment;)V
 
     invoke-static {p1}, Lcom/android/settingslib/utils/ThreadUtils;->postOnMainThread(Ljava/lang/Runnable;)V
 
@@ -208,7 +208,7 @@
 
     invoke-direct {p1, v0}, Landroidx/appcompat/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v0, 0x7f04132e
+    const v0, 0x7f0413f2
 
     invoke-virtual {p1, v0}, Landroidx/appcompat/app/AlertDialog$Builder;->setTitle(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
@@ -236,7 +236,7 @@
 
     aput-object v2, v1, v3
 
-    const v2, 0x7f04132b
+    const v2, 0x7f0413ef
 
     invoke-virtual {v0, v2, v1}, Landroid/app/Activity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -250,7 +250,7 @@
 
     invoke-direct {v0, p0}, Lcom/android/settings/deviceinfo/storage/EmptyTrashFragment$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/deviceinfo/storage/EmptyTrashFragment;)V
 
-    const p0, 0x7f04132c
+    const p0, 0x7f0413f0
 
     invoke-virtual {p1, p0, v0}, Landroidx/appcompat/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 

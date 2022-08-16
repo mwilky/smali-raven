@@ -57,7 +57,7 @@
     :cond_0
     iget-object p0, p0, Lcom/android/settings/homepage/contextualcards/conditional/WorkModeConditionController$Receiver;->this$0:Lcom/android/settings/homepage/contextualcards/conditional/WorkModeConditionController;
 
-    invoke-static {p0}, Lcom/android/settings/homepage/contextualcards/conditional/WorkModeConditionController;->access$000(Lcom/android/settings/homepage/contextualcards/conditional/WorkModeConditionController;)Lcom/android/settings/homepage/contextualcards/conditional/ConditionManager;
+    invoke-static {p0}, Lcom/android/settings/homepage/contextualcards/conditional/WorkModeConditionController;->-$$Nest$fgetmConditionManager(Lcom/android/settings/homepage/contextualcards/conditional/WorkModeConditionController;)Lcom/android/settings/homepage/contextualcards/conditional/ConditionManager;
 
     move-result-object p0
 

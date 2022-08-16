@@ -19,6 +19,30 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetdXLast(Lcom/android/settings/notification/history/NotificationHistoryRecyclerView;)F
+    .locals 0
+
+    iget p0, p0, Lcom/android/settings/notification/history/NotificationHistoryRecyclerView;->dXLast:F
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetlistener(Lcom/android/settings/notification/history/NotificationHistoryRecyclerView;)Lcom/android/settings/notification/history/NotificationHistoryRecyclerView$OnItemSwipeDeleteListener;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/notification/history/NotificationHistoryRecyclerView;->listener:Lcom/android/settings/notification/history/NotificationHistoryRecyclerView$OnItemSwipeDeleteListener;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputdXLast(Lcom/android/settings/notification/history/NotificationHistoryRecyclerView;F)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/settings/notification/history/NotificationHistoryRecyclerView;->dXLast:F
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
 
@@ -81,30 +105,6 @@
     invoke-virtual {p1, p0}, Landroidx/recyclerview/widget/ItemTouchHelper;->attachToRecyclerView(Landroidx/recyclerview/widget/RecyclerView;)V
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/notification/history/NotificationHistoryRecyclerView;)Lcom/android/settings/notification/history/NotificationHistoryRecyclerView$OnItemSwipeDeleteListener;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/notification/history/NotificationHistoryRecyclerView;->listener:Lcom/android/settings/notification/history/NotificationHistoryRecyclerView$OnItemSwipeDeleteListener;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/notification/history/NotificationHistoryRecyclerView;)F
-    .locals 0
-
-    iget p0, p0, Lcom/android/settings/notification/history/NotificationHistoryRecyclerView;->dXLast:F
-
-    return p0
-.end method
-
-.method static synthetic access$102(Lcom/android/settings/notification/history/NotificationHistoryRecyclerView;F)F
-    .locals 0
-
-    iput p1, p0, Lcom/android/settings/notification/history/NotificationHistoryRecyclerView;->dXLast:F
-
-    return p1
 .end method
 
 

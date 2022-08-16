@@ -20,7 +20,7 @@
 
 .field private mWifiEntry:Lcom/android/wifitrackerlib/WifiEntry;
 
-.field private mWifiManager:Landroid/net/wifi/WifiManager;
+.field private final mWifiManager:Landroid/net/wifi/WifiManager;
 
 
 # direct methods
@@ -97,7 +97,7 @@
     return p0
 .end method
 
-.method private updateSummary(Landroidx/preference/DropDownPreference;I)V
+.method private updateSummary(Landroidx/preference/ListPreference;I)V
     .locals 0
 
     invoke-static {p2}, Lcom/android/settings/wifi/details2/WifiPrivacyPreferenceController2;->translateMacRandomizedValueToPrefValue(I)I
@@ -117,14 +117,6 @@
 
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public displayPreference(Landroidx/preference/PreferenceScreen;)V
     .locals 1
 
@@ -167,15 +159,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -220,16 +203,6 @@
     .locals 0
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->hasAsyncUpdate()Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
 
     move-result p0
 
@@ -298,9 +271,9 @@
     invoke-virtual {v0, v1}, Lcom/android/wifitrackerlib/WifiEntry;->connect(Lcom/android/wifitrackerlib/WifiEntry$ConnectCallback;)V
 
     :cond_0
-    check-cast p1, Landroidx/preference/DropDownPreference;
+    check-cast p1, Landroidx/preference/ListPreference;
 
-    invoke-direct {p0, p1, p2}, Lcom/android/settings/wifi/details2/WifiPrivacyPreferenceController2;->updateSummary(Landroidx/preference/DropDownPreference;I)V
+    invoke-direct {p0, p1, p2}, Lcom/android/settings/wifi/details2/WifiPrivacyPreferenceController2;->updateSummary(Landroidx/preference/ListPreference;I)V
 
     const/4 p0, 0x1
 
@@ -384,7 +357,7 @@
 
     move-object v0, p1
 
-    check-cast v0, Landroidx/preference/DropDownPreference;
+    check-cast v0, Landroidx/preference/ListPreference;
 
     invoke-virtual {p0}, Lcom/android/settings/wifi/details2/WifiPrivacyPreferenceController2;->getRandomizationValue()I
 
@@ -404,11 +377,11 @@
 
     invoke-virtual {v0, p1}, Landroidx/preference/ListPreference;->setValue(Ljava/lang/String;)V
 
-    invoke-direct {p0, v0, v1}, Lcom/android/settings/wifi/details2/WifiPrivacyPreferenceController2;->updateSummary(Landroidx/preference/DropDownPreference;I)V
+    invoke-direct {p0, v0, v1}, Lcom/android/settings/wifi/details2/WifiPrivacyPreferenceController2;->updateSummary(Landroidx/preference/ListPreference;I)V
 
     if-nez v2, :cond_0
 
-    const p0, 0x7f0416d4
+    const p0, 0x7f0417cd
 
     invoke-virtual {v0, p0}, Landroidx/preference/Preference;->setSummary(I)V
 

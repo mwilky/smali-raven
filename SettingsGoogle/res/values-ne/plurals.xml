@@ -49,7 +49,7 @@
         <item quantity="one">%d लिंक सम्हाल्न प्रयोग गरिने एपका दाबीहरू</item>
     </plurals>
     <plurals name="app_notification_listing_summary_others">
-        <item quantity="other">%d अनुप्रयोगहरूका लागि निष्क्रिय पारिएका छन्‌</item>
+        <item quantity="other">%d एपका लागि निष्क्रिय पारिएका छन्‌</item>
         <item quantity="one">%d एपका लागि निष्क्रिय परिएको छ</item>
     </plurals>
     <plurals name="autofill_passwords_count">
@@ -90,15 +90,15 @@
     </plurals>
     <plurals name="default_camera_app_title">
         <item quantity="other">क्यामेरा एपहरू</item>
-        <item quantity="one">क्यामेरा अनुप्रयोग</item>
+        <item quantity="one">क्यामेरा एप</item>
     </plurals>
     <plurals name="default_email_app_title">
         <item quantity="other">इमेल क्लाइन्ट एपहरू</item>
-        <item quantity="one">इमेल क्लाइन्ट अनुप्रयोग</item>
+        <item quantity="one">इमेल क्लाइन्ट एप</item>
     </plurals>
     <plurals name="default_phone_app_title">
         <item quantity="other">फोन एपहरू</item>
-        <item quantity="one">फोन अनुप्रयोग</item>
+        <item quantity="one">फोन एप</item>
     </plurals>
     <plurals name="deleted_channels">
         <item quantity="other">%d मेटाइएका कोटीहरू</item>
@@ -185,8 +185,8 @@
         <item quantity="one">अनिवार्य रूपमा %d अङ्क भन्दा कम हुनु पर्छ</item>
     </plurals>
     <plurals name="lockpassword_pin_too_short">
-        <item quantity="other">PIN मा अनिवार्य रूपमा कम्तीमा %d अङ्क हुनु पर्छ</item>
-        <item quantity="one">PIN मा अनिवार्य रूपमा कम्तीमा %d अङ्क हुनु पर्छ</item>
+        <item quantity="other">PIN मा कम्तीमा %d अङ्क हुनु पर्छ</item>
+        <item quantity="one">PIN मा कम्तीमा %d अङ्क हुनु पर्छ</item>
     </plurals>
     <plurals name="manage_notification_access_summary_nonzero">
         <item quantity="other">%d एपहरूले सूचनाहरू पढ्न सक्छन्</item>
@@ -233,11 +233,11 @@
         <item quantity="one">%d कोटी निष्क्रिय पारियो</item>
     </plurals>
     <plurals name="notifications_sent_daily">
-        <item quantity="other">प्रति दिन लगभग %d सूचनाहरू</item>
+        <item quantity="other">प्रति दिन लगभग %,d सूचनाहरू</item>
         <item quantity="one">प्रति दिन लगभग %d सूचना</item>
     </plurals>
     <plurals name="notifications_sent_weekly">
-        <item quantity="other">प्रति हप्ता लगभग %d सूचनाहरू</item>
+        <item quantity="other">प्रति हप्ता लगभग %,d सूचनाहरू</item>
         <item quantity="one">प्रति हप्ता लगभग %d सूचना</item>
     </plurals>
     <plurals name="number_of_device_admins">
@@ -328,22 +328,6 @@
         <item quantity="other">प्रमाणपत्रहरूलाई विश्वास गर्नुहोस् वा हटाउनुहोस्</item>
         <item quantity="one">प्रमाणपत्रलाई विश्वास गर्नुहोस् वा हटाउनुहोस्</item>
     </plurals>
-    <plurals name="ssl_ca_cert_info_message">
-        <item quantity="other">"%s ले तपाईँको कार्य प्रोफाइलका लागि प्रमाणपत्र अख्तियारीहरूलाई स्थापना गरेको छ जसले त्यसलाई इमेल, एप र सुरक्षित वेबसाइटहरू लगायत कार्य प्रोफाइलको नेटवर्क सम्बन्धी गतिविधिलाई अनुगमन गर्न अनुमति दिन सक्छ।
-
-यी प्रमाणपत्रहरू बारे थप जानकारीका लागि आफ्नो प्रशासकलाई सम्पर्क गर्नुहोस्।"</item>
-        <item quantity="one">"%s ले तपाईँको कार्य प्रोफाइलका लागि प्रमाणपत्र अख्तियारीलाई स्थापना गरेको छ जसले त्यसलाई इमेल, एप र सुरक्षित वेबसाइटहरू लगायत कार्य प्रोफाइलको नेटवर्क सम्बन्धी गतिविधिलाई अनुगमन गर्न अनुमति दिन सक्छ।
-
-यस प्रमाणपत्र बारे थप जानकारीका लागि आफ्नो प्रशासकलाई सम्पर्क गर्नुहोस्।"</item>
-    </plurals>
-    <plurals name="ssl_ca_cert_info_message_device_owner">
-        <item quantity="other">"%s ले तपाईँको डिभाइसमा प्रमाणपत्र अख्तियारीहरूलाई स्थापना गरेको छ जसले त्यसलाई इमेल, एप र सुरक्षित वेबसाइटहरू लगायत तपाईँको डिभाइसको नेटवर्क सम्बन्धी गतिविधिलाई अनुगमन गर्न अनुमति दिन सक्छ।
-
-यी प्रमाणपत्रहरू बारे थप जानकारीका लागि आफ्नो प्रशासकलाई सम्पर्क गर्नुहोस्।"</item>
-        <item quantity="one">"%s ले तपाईँको डिभाइसमा प्रमाणपत्र अख्तियारीलाई स्थापना गरेको छ जसले त्यसलाई इमेल, एप र सुरक्षित वेबसाइटहरू लगायत तपाईँको डिभाइसको नेटवर्क सम्बन्धी गतिविधिलाई अनुगमन गर्न अनुमति दिन सक्छ।
-
-यस प्रमाणपत्र बारे थप जानकारीका लागि आफ्नो प्रशासकलाई सम्पर्क गर्नुहोस्।"</item>
-    </plurals>
     <plurals name="ssl_ca_cert_settings_button">
         <item quantity="other">प्रमाणपत्रहरूलाई जाँच गर्नुहोस्</item>
         <item quantity="one">प्रमाणपत्रलाई जाँच गर्नुहोस्</item>
@@ -375,10 +359,6 @@
     <plurals name="wifi_saved_passpoint_access_points_summary">
         <item quantity="other">%d सदस्यता</item>
         <item quantity="one">१ सदस्यता</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$d डिभाइस कनेक्ट गरिएको छ</item>
-        <item quantity="one">%1$d यन्त्र जडान गरियो</item>
     </plurals>
     <plurals name="wrong_pin_code">
         <item quantity="other">गलत SIM PIN कोड, तपाईं सँग %d पटक प्रयास बाँकी छ।</item>

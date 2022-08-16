@@ -138,7 +138,7 @@
 
     iget-object v0, p0, Lcom/android/settings/homepage/contextualcards/slices/BatteryFixSlice;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f020191
+    const v1, 0x7f0201aa
 
     invoke-static {v0, v1}, Landroidx/core/graphics/drawable/IconCompat;->createWithResource(Landroid/content/Context;I)Landroidx/core/graphics/drawable/IconCompat;
 
@@ -146,7 +146,7 @@
 
     iget-object v1, p0, Lcom/android/settings/homepage/contextualcards/slices/BatteryFixSlice;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f040f56
+    const v2, 0x7f040fed
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -419,7 +419,7 @@
 
     iget-object v0, p0, Lcom/android/settings/homepage/contextualcards/slices/BatteryFixSlice;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f040f56
+    const v1, 0x7f040fed
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -677,7 +677,7 @@
 .method public getSliceHighlightMenuRes()I
     .locals 0
 
-    const p0, 0x7f040d05
+    const p0, 0x7f040d80
 
     return p0
 .end method

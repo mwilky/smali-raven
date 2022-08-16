@@ -99,7 +99,7 @@
 
     aput-object p1, v3, v4
 
-    const p1, 0x7f0417c0
+    const p1, 0x7f0418bb
 
     invoke-virtual {v1, p1, v3}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -109,7 +109,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0417bf
+    const v3, 0x7f0418ba
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -145,15 +145,17 @@
 
     invoke-direct {v1, p0, v0, v3}, Lcom/android/settings/applications/specialaccess/zenaccess/FriendlyWarningDialogFragment$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/applications/specialaccess/zenaccess/FriendlyWarningDialogFragment;Ljava/lang/String;Lcom/android/settings/applications/specialaccess/zenaccess/ZenAccessDetails;)V
 
-    const p0, 0x7f040ecc
+    const p0, 0x7f040f60
 
     invoke-virtual {p1, p0, v1}, Landroidx/appcompat/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 
     move-result-object p0
 
-    sget-object p1, Lcom/android/settings/applications/specialaccess/zenaccess/FriendlyWarningDialogFragment$$ExternalSyntheticLambda1;->INSTANCE:Lcom/android/settings/applications/specialaccess/zenaccess/FriendlyWarningDialogFragment$$ExternalSyntheticLambda1;
+    new-instance p1, Lcom/android/settings/applications/specialaccess/zenaccess/FriendlyWarningDialogFragment$$ExternalSyntheticLambda1;
 
-    const v0, 0x7f040564
+    invoke-direct {p1}, Lcom/android/settings/applications/specialaccess/zenaccess/FriendlyWarningDialogFragment$$ExternalSyntheticLambda1;-><init>()V
+
+    const v0, 0x7f0405c1
 
     invoke-virtual {p0, v0, p1}, Landroidx/appcompat/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 

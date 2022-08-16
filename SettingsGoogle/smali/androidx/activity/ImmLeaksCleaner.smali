@@ -27,18 +27,13 @@
     return-void
 .end method
 
-.method constructor <init>(Landroid/app/Activity;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Landroidx/activity/ImmLeaksCleaner;->mActivity:Landroid/app/Activity;
-
-    return-void
-.end method
-
 .method private static initializeReflectiveFields()V
     .locals 3
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "SoonBlockedPrivateApi"
+        }
+    .end annotation
 
     const/4 v0, 0x2
 

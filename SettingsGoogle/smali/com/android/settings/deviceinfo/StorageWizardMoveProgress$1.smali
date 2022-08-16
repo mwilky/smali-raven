@@ -36,7 +36,7 @@
 
     iget-object p3, p0, Lcom/android/settings/deviceinfo/StorageWizardMoveProgress$1;->this$0:Lcom/android/settings/deviceinfo/StorageWizardMoveProgress;
 
-    invoke-static {p3}, Lcom/android/settings/deviceinfo/StorageWizardMoveProgress;->access$000(Lcom/android/settings/deviceinfo/StorageWizardMoveProgress;)I
+    invoke-static {p3}, Lcom/android/settings/deviceinfo/StorageWizardMoveProgress;->-$$Nest$fgetmMoveId(Lcom/android/settings/deviceinfo/StorageWizardMoveProgress;)I
 
     move-result p3
 
@@ -75,7 +75,7 @@
 
     iget-object p1, p0, Lcom/android/settings/deviceinfo/StorageWizardMoveProgress$1;->this$0:Lcom/android/settings/deviceinfo/StorageWizardMoveProgress;
 
-    invoke-static {p1, p2}, Lcom/android/settings/deviceinfo/StorageWizardMoveProgress;->access$100(Lcom/android/settings/deviceinfo/StorageWizardMoveProgress;I)Ljava/lang/CharSequence;
+    invoke-static {p1, p2}, Lcom/android/settings/deviceinfo/StorageWizardMoveProgress;->-$$Nest$mmoveStatusToMessage(Lcom/android/settings/deviceinfo/StorageWizardMoveProgress;I)Ljava/lang/CharSequence;
 
     move-result-object p2
 

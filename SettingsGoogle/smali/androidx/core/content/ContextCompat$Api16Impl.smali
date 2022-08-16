@@ -17,18 +17,6 @@
 # direct methods
 .method static startActivities(Landroid/content/Context;[Landroid/content/Intent;Landroid/os/Bundle;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "obj",
-            "intents",
-            "options"
-        }
-    .end annotation
 
     invoke-virtual {p0, p1, p2}, Landroid/content/Context;->startActivities([Landroid/content/Intent;Landroid/os/Bundle;)V
 
@@ -37,18 +25,6 @@
 
 .method static startActivity(Landroid/content/Context;Landroid/content/Intent;Landroid/os/Bundle;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "obj",
-            "intent",
-            "options"
-        }
-    .end annotation
 
     invoke-virtual {p0, p1, p2}, Landroid/content/Context;->startActivity(Landroid/content/Intent;Landroid/os/Bundle;)V
 

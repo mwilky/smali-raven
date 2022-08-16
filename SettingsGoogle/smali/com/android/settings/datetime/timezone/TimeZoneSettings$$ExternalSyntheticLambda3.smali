@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/settings/datetime/timezone/TimeZoneSettings$$ExternalSyntheticLambda3;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/settings/datetime/timezone/model/TimeZoneDataLoader$OnDataReadyCallback;
+.implements Lcom/android/settings/datetime/timezone/OnPreferenceClickListener;
 
 
 # instance fields
@@ -22,12 +23,12 @@
 
 
 # virtual methods
-.method public final onTimeZoneDataReady(Lcom/android/settings/datetime/timezone/model/TimeZoneData;)V
+.method public final onClick()V
     .locals 0
 
     iget-object p0, p0, Lcom/android/settings/datetime/timezone/TimeZoneSettings$$ExternalSyntheticLambda3;->f$0:Lcom/android/settings/datetime/timezone/TimeZoneSettings;
 
-    invoke-static {p0, p1}, Lcom/android/settings/datetime/timezone/TimeZoneSettings;->$r8$lambda$9a70N3REyuW5-tZaX-mRL1X1rTs(Lcom/android/settings/datetime/timezone/TimeZoneSettings;Lcom/android/settings/datetime/timezone/model/TimeZoneData;)V
+    invoke-static {p0}, Lcom/android/settings/datetime/timezone/TimeZoneSettings;->$r8$lambda$DcdsIG5J2utUerIPvdi2QsR5lHg(Lcom/android/settings/datetime/timezone/TimeZoneSettings;)V
 
     return-void
 .end method

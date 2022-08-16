@@ -87,13 +87,13 @@
 
     iput-object p2, p0, Lcom/android/settings/widget/SettingsMainSwitchBar;->mMetricsFeatureProvider:Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;
 
-    new-instance p2, Lcom/android/settings/widget/SettingsMainSwitchBar$$ExternalSyntheticLambda1;
+    new-instance p2, Lcom/android/settings/widget/SettingsMainSwitchBar$$ExternalSyntheticLambda0;
 
-    invoke-direct {p2, p0}, Lcom/android/settings/widget/SettingsMainSwitchBar$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/widget/SettingsMainSwitchBar;)V
+    invoke-direct {p2, p0}, Lcom/android/settings/widget/SettingsMainSwitchBar$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/widget/SettingsMainSwitchBar;)V
 
     invoke-virtual {p0, p2}, Lcom/android/settingslib/widget/MainSwitchBar;->addOnSwitchChangeListener(Lcom/android/settingslib/widget/OnMainSwitchChangeListener;)V
 
-    const p2, 0x7f0d049d
+    const p2, 0x7f0d04da
 
     invoke-virtual {p0, p2}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -103,9 +103,9 @@
 
     iput-object p2, p0, Lcom/android/settings/widget/SettingsMainSwitchBar;->mRestrictedIcon:Landroid/widget/ImageView;
 
-    new-instance p3, Lcom/android/settings/widget/SettingsMainSwitchBar$$ExternalSyntheticLambda0;
+    new-instance p3, Lcom/android/settings/widget/SettingsMainSwitchBar$$ExternalSyntheticLambda1;
 
-    invoke-direct {p3, p0, p1}, Lcom/android/settings/widget/SettingsMainSwitchBar$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/widget/SettingsMainSwitchBar;Landroid/content/Context;)V
+    invoke-direct {p3, p0, p1}, Lcom/android/settings/widget/SettingsMainSwitchBar$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/widget/SettingsMainSwitchBar;Landroid/content/Context;)V
 
     invoke-virtual {p2, p3}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 

@@ -45,7 +45,9 @@
 
     new-instance p1, Ljava/util/TreeSet;
 
-    sget-object p2, Lcom/android/settings/notification/history/NotificationHistoryPackage$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/settings/notification/history/NotificationHistoryPackage$$ExternalSyntheticLambda0;
+    new-instance p2, Lcom/android/settings/notification/history/NotificationHistoryPackage$$ExternalSyntheticLambda0;
+
+    invoke-direct {p2}, Lcom/android/settings/notification/history/NotificationHistoryPackage$$ExternalSyntheticLambda0;-><init>()V
 
     invoke-direct {p1, p2}, Ljava/util/TreeSet;-><init>(Ljava/util/Comparator;)V
 
@@ -88,7 +90,9 @@
 
     if-eqz p1, :cond_3
 
-    const-class v2, Lcom/android/settings/notification/history/NotificationHistoryPackage;
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v2
 
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 

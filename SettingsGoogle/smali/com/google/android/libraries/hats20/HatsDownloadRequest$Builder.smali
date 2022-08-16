@@ -42,13 +42,20 @@
 
     iput-boolean v0, p0, Lcom/google/android/libraries/hats20/HatsDownloadRequest$Builder;->alreadyBuilt:Z
 
-    const-string v0, "Context was missing."
-
-    invoke-static {p1, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    if-eqz p1, :cond_0
 
     iput-object p1, p0, Lcom/google/android/libraries/hats20/HatsDownloadRequest$Builder;->context:Landroid/content/Context;
 
     return-void
+
+    :cond_0
+    new-instance p0, Ljava/lang/NullPointerException;
+
+    const-string p1, "Context was missing."
+
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+
+    throw p0
 .end method
 
 .method synthetic constructor <init>(Landroid/content/Context;Lcom/google/android/libraries/hats20/HatsDownloadRequest$1;)V
@@ -106,7 +113,7 @@
 
     iget-boolean v0, p0, Lcom/google/android/libraries/hats20/HatsDownloadRequest$Builder;->alreadyBuilt:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2
 
     const/4 v0, 0x1
 
@@ -129,9 +136,7 @@
     :cond_0
     iget-object v0, p0, Lcom/google/android/libraries/hats20/HatsDownloadRequest$Builder;->advertisingId:Ljava/lang/String;
 
-    const-string v1, "Advertising ID was missing."
-
-    invoke-static {v0, v1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    if-eqz v0, :cond_1
 
     new-instance v0, Lcom/google/android/libraries/hats20/HatsDownloadRequest;
 
@@ -142,6 +147,15 @@
     return-object v0
 
     :cond_1
+    new-instance p0, Ljava/lang/NullPointerException;
+
+    const-string v0, "Advertising ID was missing."
+
+    invoke-direct {p0, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+
+    :cond_2
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string v0, "Cannot reuse Builder instance once instantiated"
@@ -156,17 +170,24 @@
 
     iget-object v0, p0, Lcom/google/android/libraries/hats20/HatsDownloadRequest$Builder;->siteId:Ljava/lang/String;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1
 
-    const-string v0, "Site ID cannot be set to null."
-
-    invoke-static {p1, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    if-eqz p1, :cond_0
 
     iput-object p1, p0, Lcom/google/android/libraries/hats20/HatsDownloadRequest$Builder;->siteId:Ljava/lang/String;
 
     return-object p0
 
     :cond_0
+    new-instance p0, Ljava/lang/NullPointerException;
+
+    const-string p1, "Site ID cannot be set to null."
+
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+
+    :cond_1
     new-instance p0, Ljava/lang/UnsupportedOperationException;
 
     const-string p1, "Currently don\'t support multiple site IDs."
@@ -177,35 +198,47 @@
 .end method
 
 .method public setBaseDownloadUrlForTesting(Ljava/lang/String;)Lcom/google/android/libraries/hats20/HatsDownloadRequest$Builder;
-    .locals 1
+    .locals 0
 
-    const-string v0, "Base download URL was missing."
-
-    invoke-static {p1, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    if-eqz p1, :cond_0
 
     iput-object p1, p0, Lcom/google/android/libraries/hats20/HatsDownloadRequest$Builder;->baseDownloadUrl:Ljava/lang/String;
 
     return-object p0
+
+    :cond_0
+    new-instance p0, Ljava/lang/NullPointerException;
+
+    const-string p1, "Base download URL was missing."
+
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+
+    throw p0
 .end method
 
 .method public withAdvertisingId(Ljava/lang/String;)Lcom/google/android/libraries/hats20/HatsDownloadRequest$Builder;
-    .locals 1
+    .locals 0
 
-    const-string v0, "Advertising ID was missing."
-
-    invoke-static {p1, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    if-eqz p1, :cond_0
 
     iput-object p1, p0, Lcom/google/android/libraries/hats20/HatsDownloadRequest$Builder;->advertisingId:Ljava/lang/String;
 
     return-object p0
+
+    :cond_0
+    new-instance p0, Ljava/lang/NullPointerException;
+
+    const-string p1, "Advertising ID was missing."
+
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+
+    throw p0
 .end method
 
 .method public withSiteContext(Ljava/lang/String;)Lcom/google/android/libraries/hats20/HatsDownloadRequest$Builder;
     .locals 2
 
-    const-string v0, "Site context was missing."
-
-    invoke-static {p1, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    if-eqz p1, :cond_1
 
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
@@ -225,4 +258,13 @@
     iput-object p1, p0, Lcom/google/android/libraries/hats20/HatsDownloadRequest$Builder;->siteContext:Ljava/lang/String;
 
     return-object p0
+
+    :cond_1
+    new-instance p0, Ljava/lang/NullPointerException;
+
+    const-string p1, "Site context was missing."
+
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+
+    throw p0
 .end method

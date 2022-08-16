@@ -29,14 +29,6 @@
 # direct methods
 .method public constructor <init>(Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "connection"
-        }
-    .end annotation
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
 
@@ -51,24 +43,6 @@
 
 .method private processMessage(Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;IIILjava/lang/Object;Landroid/os/Bundle;)Z
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "connection",
-            "what",
-            "requestId",
-            "arg",
-            "obj",
-            "data"
-        }
-    .end annotation
 
     const/4 p0, 0x1
 
@@ -241,14 +215,6 @@
 
 .method public handleMessage(Landroid/os/Message;)V
     .locals 8
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "msg"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$ReceiveHandler;->mConnectionRef:Ljava/lang/ref/WeakReference;
 

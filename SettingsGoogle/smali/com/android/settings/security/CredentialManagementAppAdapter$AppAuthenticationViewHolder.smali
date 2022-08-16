@@ -54,7 +54,7 @@
 
     invoke-direct {p0, p2}, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;-><init>(Landroid/view/View;)V
 
-    const v0, 0x7f0d009c
+    const v0, 0x7f0d009f
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -64,7 +64,7 @@
 
     iput-object v1, p0, Lcom/android/settings/security/CredentialManagementAppAdapter$AppAuthenticationViewHolder;->mAppIconView:Landroid/widget/ImageView;
 
-    const v1, 0x7f0d009d
+    const v1, 0x7f0d00a0
 
     invoke-virtual {p2, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -74,7 +74,7 @@
 
     iput-object v1, p0, Lcom/android/settings/security/CredentialManagementAppAdapter$AppAuthenticationViewHolder;->mAppNameView:Landroid/widget/TextView;
 
-    const v1, 0x7f0d03f6
+    const v1, 0x7f0d0427
 
     invoke-virtual {p2, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -84,7 +84,7 @@
 
     iput-object v1, p0, Lcom/android/settings/security/CredentialManagementAppAdapter$AppAuthenticationViewHolder;->mNumberOfUrisView:Landroid/widget/TextView;
 
-    const v1, 0x7f0d021b
+    const v1, 0x7f0d0233
 
     invoke-virtual {p2, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -94,7 +94,7 @@
 
     iput-object v2, p0, Lcom/android/settings/security/CredentialManagementAppAdapter$AppAuthenticationViewHolder;->mExpanderIconView:Landroid/widget/ImageView;
 
-    const v3, 0x7f0d0608
+    const v3, 0x7f0d064a
 
     invoke-virtual {p2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -110,13 +110,13 @@
 
     iput-object v3, p0, Lcom/android/settings/security/CredentialManagementAppAdapter$AppAuthenticationViewHolder;->mExpandedApps:Ljava/util/List;
 
-    invoke-static {p1}, Lcom/android/settings/security/CredentialManagementAppAdapter;->access$300(Lcom/android/settings/security/CredentialManagementAppAdapter;)Z
+    invoke-static {p1}, Lcom/android/settings/security/CredentialManagementAppAdapter;->-$$Nest$fgetmIsLayoutRtl(Lcom/android/settings/security/CredentialManagementAppAdapter;)Z
 
     move-result p1
 
     if-eqz p1, :cond_0
 
-    const p1, 0x7f0d0098
+    const p1, 0x7f0d009b
 
     invoke-virtual {p2, p1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -210,7 +210,7 @@
 
     iget-object p0, p0, Lcom/android/settings/security/CredentialManagementAppAdapter$AppAuthenticationViewHolder;->this$0:Lcom/android/settings/security/CredentialManagementAppAdapter;
 
-    invoke-static {p0}, Lcom/android/settings/security/CredentialManagementAppAdapter;->access$700(Lcom/android/settings/security/CredentialManagementAppAdapter;)Landroidx/recyclerview/widget/RecyclerView$RecycledViewPool;
+    invoke-static {p0}, Lcom/android/settings/security/CredentialManagementAppAdapter;->-$$Nest$fgetmViewPool(Lcom/android/settings/security/CredentialManagementAppAdapter;)Landroidx/recyclerview/widget/RecyclerView$RecycledViewPool;
 
     move-result-object p0
 
@@ -224,7 +224,7 @@
 
     iget-object v0, p0, Lcom/android/settings/security/CredentialManagementAppAdapter$AppAuthenticationViewHolder;->this$0:Lcom/android/settings/security/CredentialManagementAppAdapter;
 
-    invoke-static {v0}, Lcom/android/settings/security/CredentialManagementAppAdapter;->access$500(Lcom/android/settings/security/CredentialManagementAppAdapter;)Z
+    invoke-static {v0}, Lcom/android/settings/security/CredentialManagementAppAdapter;->-$$Nest$fgetmIncludeExpander(Lcom/android/settings/security/CredentialManagementAppAdapter;)Z
 
     move-result v0
 
@@ -252,13 +252,13 @@
 
     iget-object v0, p0, Lcom/android/settings/security/CredentialManagementAppAdapter$AppAuthenticationViewHolder;->mExpanderIconView:Landroid/widget/ImageView;
 
-    const v1, 0x7f0201c9
+    const v1, 0x7f0201e6
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
     iget-object v0, p0, Lcom/android/settings/security/CredentialManagementAppAdapter$AppAuthenticationViewHolder;->this$0:Lcom/android/settings/security/CredentialManagementAppAdapter;
 
-    invoke-static {v0}, Lcom/android/settings/security/CredentialManagementAppAdapter;->access$600(Lcom/android/settings/security/CredentialManagementAppAdapter;)Ljava/util/Map;
+    invoke-static {v0}, Lcom/android/settings/security/CredentialManagementAppAdapter;->-$$Nest$fgetmAppUriAuthentication(Lcom/android/settings/security/CredentialManagementAppAdapter;)Ljava/util/Map;
 
     move-result-object v0
 
@@ -285,7 +285,7 @@
 
     iget-object v1, p0, Lcom/android/settings/security/CredentialManagementAppAdapter$AppAuthenticationViewHolder;->this$0:Lcom/android/settings/security/CredentialManagementAppAdapter;
 
-    invoke-static {v1}, Lcom/android/settings/security/CredentialManagementAppAdapter;->access$600(Lcom/android/settings/security/CredentialManagementAppAdapter;)Ljava/util/Map;
+    invoke-static {v1}, Lcom/android/settings/security/CredentialManagementAppAdapter;->-$$Nest$fgetmAppUriAuthentication(Lcom/android/settings/security/CredentialManagementAppAdapter;)Ljava/util/Map;
 
     move-result-object v1
 
@@ -303,7 +303,7 @@
 
     iget-object p0, p0, Lcom/android/settings/security/CredentialManagementAppAdapter$AppAuthenticationViewHolder;->mExpanderIconView:Landroid/widget/ImageView;
 
-    const p1, 0x10803a1
+    const p1, 0x10803ab
 
     invoke-virtual {p0, p1}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -320,7 +320,7 @@
 
     iget-object v0, p0, Lcom/android/settings/security/CredentialManagementAppAdapter$AppAuthenticationViewHolder;->this$0:Lcom/android/settings/security/CredentialManagementAppAdapter;
 
-    invoke-static {v0}, Lcom/android/settings/security/CredentialManagementAppAdapter;->access$600(Lcom/android/settings/security/CredentialManagementAppAdapter;)Ljava/util/Map;
+    invoke-static {v0}, Lcom/android/settings/security/CredentialManagementAppAdapter;->-$$Nest$fgetmAppUriAuthentication(Lcom/android/settings/security/CredentialManagementAppAdapter;)Ljava/util/Map;
 
     move-result-object v0
 
@@ -351,7 +351,7 @@
 
     iget-object p0, p0, Lcom/android/settings/security/CredentialManagementAppAdapter$AppAuthenticationViewHolder;->this$0:Lcom/android/settings/security/CredentialManagementAppAdapter;
 
-    invoke-static {p0}, Lcom/android/settings/security/CredentialManagementAppAdapter;->access$200(Lcom/android/settings/security/CredentialManagementAppAdapter;)Landroid/content/Context;
+    invoke-static {p0}, Lcom/android/settings/security/CredentialManagementAppAdapter;->-$$Nest$fgetmContext(Lcom/android/settings/security/CredentialManagementAppAdapter;)Landroid/content/Context;
 
     move-result-object p0
 
@@ -393,7 +393,7 @@
 
     iget-object p1, p0, Lcom/android/settings/security/CredentialManagementAppAdapter$AppAuthenticationViewHolder;->this$0:Lcom/android/settings/security/CredentialManagementAppAdapter;
 
-    invoke-static {p1}, Lcom/android/settings/security/CredentialManagementAppAdapter;->access$400(Lcom/android/settings/security/CredentialManagementAppAdapter;)Ljava/util/List;
+    invoke-static {p1}, Lcom/android/settings/security/CredentialManagementAppAdapter;->-$$Nest$fgetmSortedAppNames(Lcom/android/settings/security/CredentialManagementAppAdapter;)Ljava/util/List;
 
     move-result-object p1
 
@@ -439,7 +439,7 @@
 
     iget-object v0, p0, Lcom/android/settings/security/CredentialManagementAppAdapter$AppAuthenticationViewHolder;->this$0:Lcom/android/settings/security/CredentialManagementAppAdapter;
 
-    invoke-static {v0}, Lcom/android/settings/security/CredentialManagementAppAdapter;->access$400(Lcom/android/settings/security/CredentialManagementAppAdapter;)Ljava/util/List;
+    invoke-static {v0}, Lcom/android/settings/security/CredentialManagementAppAdapter;->-$$Nest$fgetmSortedAppNames(Lcom/android/settings/security/CredentialManagementAppAdapter;)Ljava/util/List;
 
     move-result-object v0
 
@@ -452,7 +452,7 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/settings/security/CredentialManagementAppAdapter$AppAuthenticationViewHolder;->this$0:Lcom/android/settings/security/CredentialManagementAppAdapter;
 
-    invoke-static {v0}, Lcom/android/settings/security/CredentialManagementAppAdapter;->access$100(Lcom/android/settings/security/CredentialManagementAppAdapter;)Landroid/content/pm/PackageManager;
+    invoke-static {v0}, Lcom/android/settings/security/CredentialManagementAppAdapter;->-$$Nest$fgetmPackageManager(Lcom/android/settings/security/CredentialManagementAppAdapter;)Landroid/content/pm/PackageManager;
 
     move-result-object v0
 
@@ -466,7 +466,7 @@
 
     iget-object v2, p0, Lcom/android/settings/security/CredentialManagementAppAdapter$AppAuthenticationViewHolder;->this$0:Lcom/android/settings/security/CredentialManagementAppAdapter;
 
-    invoke-static {v2}, Lcom/android/settings/security/CredentialManagementAppAdapter;->access$100(Lcom/android/settings/security/CredentialManagementAppAdapter;)Landroid/content/pm/PackageManager;
+    invoke-static {v2}, Lcom/android/settings/security/CredentialManagementAppAdapter;->-$$Nest$fgetmPackageManager(Lcom/android/settings/security/CredentialManagementAppAdapter;)Landroid/content/pm/PackageManager;
 
     move-result-object v2
 
@@ -480,7 +480,7 @@
 
     iget-object v2, p0, Lcom/android/settings/security/CredentialManagementAppAdapter$AppAuthenticationViewHolder;->this$0:Lcom/android/settings/security/CredentialManagementAppAdapter;
 
-    invoke-static {v2}, Lcom/android/settings/security/CredentialManagementAppAdapter;->access$100(Lcom/android/settings/security/CredentialManagementAppAdapter;)Landroid/content/pm/PackageManager;
+    invoke-static {v2}, Lcom/android/settings/security/CredentialManagementAppAdapter;->-$$Nest$fgetmPackageManager(Lcom/android/settings/security/CredentialManagementAppAdapter;)Landroid/content/pm/PackageManager;
 
     move-result-object v2
 

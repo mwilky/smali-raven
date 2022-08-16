@@ -57,17 +57,17 @@
 
     move-result p1
 
-    invoke-static {p2, p1}, Lcom/android/settings/wifi/WifiAPITest;->access$002(Lcom/android/settings/wifi/WifiAPITest;I)I
+    invoke-static {p2, p1}, Lcom/android/settings/wifi/WifiAPITest;->-$$Nest$fputnetid(Lcom/android/settings/wifi/WifiAPITest;I)V
 
     iget-object p1, p0, Lcom/android/settings/wifi/WifiAPITest$3;->this$0:Lcom/android/settings/wifi/WifiAPITest;
 
-    invoke-static {p1}, Lcom/android/settings/wifi/WifiAPITest;->access$100(Lcom/android/settings/wifi/WifiAPITest;)Landroid/net/wifi/WifiManager;
+    invoke-static {p1}, Lcom/android/settings/wifi/WifiAPITest;->-$$Nest$fgetmWifiManager(Lcom/android/settings/wifi/WifiAPITest;)Landroid/net/wifi/WifiManager;
 
     move-result-object p1
 
     iget-object p0, p0, Lcom/android/settings/wifi/WifiAPITest$3;->this$0:Lcom/android/settings/wifi/WifiAPITest;
 
-    invoke-static {p0}, Lcom/android/settings/wifi/WifiAPITest;->access$000(Lcom/android/settings/wifi/WifiAPITest;)I
+    invoke-static {p0}, Lcom/android/settings/wifi/WifiAPITest;->-$$Nest$fgetnetid(Lcom/android/settings/wifi/WifiAPITest;)I
 
     move-result p0
 

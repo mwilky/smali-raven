@@ -51,13 +51,13 @@
     goto :goto_0
 
     :cond_0
-    const-string v0, "reason"
+    const-string/jumbo v0, "reason"
 
     invoke-virtual {p2, v0}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p2
 
-    const-string v0, "recentapps"
+    const-string/jumbo v0, "recentapps"
 
     invoke-virtual {v0, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -76,7 +76,7 @@
     return-void
 
     :cond_1
-    invoke-static {}, Lcom/android/settings/homepage/contextualcards/ContextualCardsFragment;->access$000()Z
+    invoke-static {}, Lcom/android/settings/homepage/contextualcards/ContextualCardsFragment;->-$$Nest$sfgetDEBUG()Z
 
     move-result v0
 
@@ -103,7 +103,7 @@
     :cond_2
     iget-object p0, p0, Lcom/android/settings/homepage/contextualcards/ContextualCardsFragment$KeyEventReceiver;->this$0:Lcom/android/settings/homepage/contextualcards/ContextualCardsFragment;
 
-    invoke-static {p0, p1}, Lcom/android/settings/homepage/contextualcards/ContextualCardsFragment;->access$100(Lcom/android/settings/homepage/contextualcards/ContextualCardsFragment;Landroid/content/Context;)V
+    invoke-static {p0, p1}, Lcom/android/settings/homepage/contextualcards/ContextualCardsFragment;->-$$Nest$mresetSession(Lcom/android/settings/homepage/contextualcards/ContextualCardsFragment;Landroid/content/Context;)V
 
     :cond_3
     :goto_0

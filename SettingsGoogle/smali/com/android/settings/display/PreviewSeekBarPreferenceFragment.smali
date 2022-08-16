@@ -56,6 +56,54 @@
     return-void
 .end method
 
+.method static bridge synthetic -$$Nest$fgetmLastCommitTime(Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;)J
+    .locals 2
+
+    iget-wide v0, p0, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;->mLastCommitTime:J
+
+    return-wide v0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmPreviewPager(Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;)Landroidx/viewpager/widget/ViewPager;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;->mPreviewPager:Landroidx/viewpager/widget/ViewPager;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmPreviewPagerAdapter(Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;)Lcom/android/settings/display/PreviewPagerAdapter;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;->mPreviewPagerAdapter:Lcom/android/settings/display/PreviewPagerAdapter;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmLastCommitTime(Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;J)V
+    .locals 0
+
+    iput-wide p1, p0, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;->mLastCommitTime:J
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$msetPagerIndicatorContentDescription(Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;->setPagerIndicatorContentDescription(I)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$msetPreviewLayer(Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;IZ)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;->setPreviewLayer(IZ)V
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 1
 
@@ -72,54 +120,6 @@
     invoke-direct {v0, p0}, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment$2;-><init>(Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;)V
 
     iput-object v0, p0, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;->mPageIndicatorPageChangeListener:Landroidx/viewpager/widget/ViewPager$OnPageChangeListener;
-
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;IZ)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;->setPreviewLayer(IZ)V
-
-    return-void
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;)Lcom/android/settings/display/PreviewPagerAdapter;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;->mPreviewPagerAdapter:Lcom/android/settings/display/PreviewPagerAdapter;
-
-    return-object p0
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;)J
-    .locals 2
-
-    iget-wide v0, p0, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;->mLastCommitTime:J
-
-    return-wide v0
-.end method
-
-.method static synthetic access$202(Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;J)J
-    .locals 0
-
-    iput-wide p1, p0, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;->mLastCommitTime:J
-
-    return-wide p1
-.end method
-
-.method static synthetic access$400(Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;)Landroidx/viewpager/widget/ViewPager;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;->mPreviewPager:Landroidx/viewpager/widget/ViewPager;
-
-    return-object p0
-.end method
-
-.method static synthetic access$500(Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;I)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;->setPagerIndicatorContentDescription(I)V
 
     return-void
 .end method
@@ -209,7 +209,7 @@
 
     aput-object p1, v1, v2
 
-    const p1, 0x7f040f95
+    const p1, 0x7f04102e
 
     invoke-virtual {p0, p1, v1}, Landroidx/fragment/app/Fragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -343,7 +343,7 @@
 
     invoke-virtual {p3, p1}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
-    const p3, 0x7f0d0192
+    const p3, 0x7f0d01a8
 
     invoke-virtual {p1, p3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -365,7 +365,7 @@
 
     move-result p3
 
-    const v2, 0x7f0d04da
+    const v2, 0x7f0d0517
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -383,7 +383,7 @@
 
     invoke-virtual {v2, p3}, Landroid/widget/SeekBar;->setMax(I)V
 
-    const p3, 0x7f0d0517
+    const p3, 0x7f0d0559
 
     invoke-virtual {p1, p3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -391,13 +391,13 @@
 
     iput-object p3, p0, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;->mSmaller:Landroid/view/View;
 
-    new-instance v2, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment$$ExternalSyntheticLambda1;
+    new-instance v2, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment$$ExternalSyntheticLambda0;
 
-    invoke-direct {v2, p0}, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;)V
+    invoke-direct {v2, p0}, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;)V
 
     invoke-virtual {p3, v2}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const p3, 0x7f0d031d
+    const p3, 0x7f0d0347
 
     invoke-virtual {p1, p3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -405,9 +405,9 @@
 
     iput-object p3, p0, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;->mLarger:Landroid/view/View;
 
-    new-instance v2, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment$$ExternalSyntheticLambda0;
+    new-instance v2, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment$$ExternalSyntheticLambda1;
 
-    invoke-direct {v2, p0}, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;)V
+    invoke-direct {v2, p0}, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;)V
 
     invoke-virtual {p3, v2}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
@@ -478,7 +478,7 @@
 
     move-result-object v2
 
-    const v5, 0x7f0d0452
+    const v5, 0x7f0d0483
 
     invoke-virtual {p1, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -520,7 +520,7 @@
 
     invoke-virtual {p3, v3}, Landroidx/viewpager/widget/ViewPager;->addOnPageChangeListener(Landroidx/viewpager/widget/ViewPager$OnPageChangeListener;)V
 
-    const p3, 0x7f0d0411
+    const p3, 0x7f0d0441
 
     invoke-virtual {p1, p3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -580,7 +580,7 @@
 .method public onStart()V
     .locals 3
 
-    invoke-super {p0}, Lcom/android/settingslib/core/lifecycle/ObservablePreferenceFragment;->onStart()V
+    invoke-super {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->onStart()V
 
     iget-object v0, p0, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;->mSeekBar:Lcom/android/settings/widget/LabeledSeekBar;
 
@@ -594,7 +594,7 @@
 
     const/4 v2, 0x0
 
-    invoke-direct {v1, p0, v2}, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment$onPreviewSeekBarChangeListener;-><init>(Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;Lcom/android/settings/display/PreviewSeekBarPreferenceFragment$1;)V
+    invoke-direct {v1, p0, v2}, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment$onPreviewSeekBarChangeListener;-><init>(Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;Lcom/android/settings/display/PreviewSeekBarPreferenceFragment$onPreviewSeekBarChangeListener-IA;)V
 
     invoke-virtual {v0, v1}, Lcom/android/settings/widget/LabeledSeekBar;->setOnSeekBarChangeListener(Landroid/widget/SeekBar$OnSeekBarChangeListener;)V
 

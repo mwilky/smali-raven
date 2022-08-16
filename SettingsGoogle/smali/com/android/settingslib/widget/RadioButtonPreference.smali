@@ -26,16 +26,6 @@
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
-
-    const/4 v0, 0x0
-
-    invoke-direct {p0, p1, v0}, Lcom/android/settingslib/widget/RadioButtonPreference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-
-    return-void
-.end method
-
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 0
 
@@ -182,21 +172,6 @@
     return-void
 .end method
 
-.method public setAppendixVisibility(I)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/settingslib/widget/RadioButtonPreference;->mAppendix:Landroid/view/View;
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {v0, p1}, Landroid/view/View;->setVisibility(I)V
-
-    :cond_0
-    iput p1, p0, Lcom/android/settingslib/widget/RadioButtonPreference;->mAppendixVisibility:I
-
-    return-void
-.end method
-
 .method public setExtraWidgetOnClickListener(Landroid/view/View$OnClickListener;)V
     .locals 2
 
@@ -233,13 +208,5 @@
 
     :cond_2
     :goto_1
-    return-void
-.end method
-
-.method public setOnClickListener(Lcom/android/settingslib/widget/RadioButtonPreference$OnClickListener;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/settingslib/widget/RadioButtonPreference;->mListener:Lcom/android/settingslib/widget/RadioButtonPreference$OnClickListener;
-
     return-void
 .end method

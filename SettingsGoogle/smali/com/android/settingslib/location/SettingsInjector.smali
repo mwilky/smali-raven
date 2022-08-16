@@ -31,6 +31,22 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmContext(Lcom/android/settingslib/location/SettingsInjector;)Landroid/content/Context;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settingslib/location/SettingsInjector;->mContext:Landroid/content/Context;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmHandler(Lcom/android/settingslib/location/SettingsInjector;)Landroid/os/Handler;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settingslib/location/SettingsInjector;->mHandler:Landroid/os/Handler;
+
+    return-object p0
+.end method
+
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
 
@@ -51,22 +67,6 @@
     iput-object v0, p0, Lcom/android/settingslib/location/SettingsInjector;->mHandler:Landroid/os/Handler;
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settingslib/location/SettingsInjector;)Landroid/content/Context;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/location/SettingsInjector;->mContext:Landroid/content/Context;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settingslib/location/SettingsInjector;)Landroid/os/Handler;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/location/SettingsInjector;->mHandler:Landroid/os/Handler;
-
-    return-object p0
 .end method
 
 .method private static parseAttributes(Ljava/lang/String;Ljava/lang/String;Landroid/os/UserHandle;Landroid/content/res/Resources;Landroid/util/AttributeSet;)Lcom/android/settingslib/location/InjectedSetting;
@@ -407,7 +407,7 @@
 .method protected createPreference(Landroid/content/Context;Lcom/android/settingslib/location/InjectedSetting;)Landroidx/preference/Preference;
     .locals 0
 
-    const p0, 0x0
+    const/4 p0, 0x0
 
     throw p0
 .end method
@@ -756,7 +756,7 @@
 .method protected logPreferenceClick(Landroid/content/Intent;)V
     .locals 0
 
-    const p0, 0x0
+    const/4 p0, 0x0
 
     throw p0
 .end method
@@ -778,7 +778,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "reloadingStatusMessages: "
+    const-string/jumbo v2, "reloadingStatusMessages: "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

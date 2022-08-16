@@ -43,7 +43,7 @@
 
     iget-object p0, p0, Lcom/android/settings/print/PrintServiceSettingsFragment$PrintersLoader$1;->this$0:Lcom/android/settings/print/PrintServiceSettingsFragment$PrintersLoader;
 
-    invoke-static {p0}, Lcom/android/settings/print/PrintServiceSettingsFragment$PrintersLoader;->access$900(Lcom/android/settings/print/PrintServiceSettingsFragment$PrintersLoader;)Landroid/print/PrinterDiscoverySession;
+    invoke-static {p0}, Lcom/android/settings/print/PrintServiceSettingsFragment$PrintersLoader;->-$$Nest$fgetmDiscoverySession(Lcom/android/settings/print/PrintServiceSettingsFragment$PrintersLoader;)Landroid/print/PrinterDiscoverySession;
 
     move-result-object p0
 

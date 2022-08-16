@@ -71,18 +71,18 @@
 
     array-length v1, v1
 
-    const/4 v2, 0x0
+    const/4 v2, 0x1
 
-    const/4 v3, 0x1
+    const/4 v3, 0x0
 
     if-eqz v1, :cond_1
 
-    move v1, v3
+    move v1, v2
 
     goto :goto_0
 
     :cond_1
-    move v1, v2
+    move v1, v3
 
     :goto_0
     if-eqz v1, :cond_2
@@ -107,39 +107,44 @@
 
     if-eqz v0, :cond_4
 
-    move v2, v3
+    move v0, v2
+
+    goto :goto_1
 
     :cond_4
-    if-nez v2, :cond_5
+    move v0, v3
+
+    :goto_1
+    if-nez v0, :cond_5
 
     const-string v0, "enable_bluetooth_tethering"
 
     invoke-interface {p0, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     :cond_5
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    const-class v0, Landroid/net/EthernetManager;
+
+    invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object p1
 
-    const v0, 0x104023f
+    check-cast p1, Landroid/net/EthernetManager;
 
-    invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    if-eqz p1, :cond_6
 
-    move-result-object p1
+    goto :goto_2
 
-    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    :cond_6
+    move v2, v3
 
-    move-result p1
-
-    xor-int/2addr p1, v3
-
-    if-nez p1, :cond_6
+    :goto_2
+    if-nez v2, :cond_7
 
     const-string p1, "enable_ethernet_tethering"
 
     invoke-interface {p0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    :cond_6
+    :cond_7
     return-object p0
 .end method
 
@@ -160,7 +165,7 @@
 
     invoke-direct {p0, p1}, Landroid/provider/SearchIndexableResource;-><init>(Landroid/content/Context;)V
 
-    const p1, 0x7f1500f7
+    const p1, 0x7f1500fd
 
     iput p1, p0, Landroid/provider/SearchIndexableResource;->xmlResId:I
 

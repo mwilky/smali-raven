@@ -108,9 +108,9 @@
 .method private handleOnActivityResultWhileConsenting(IILandroid/content/Intent;)V
     .locals 4
 
-    const v0, 0x7f07003a
+    const v0, 0x7f070039
 
-    const v1, 0x7f07003b
+    const v1, 0x7f07003a
 
     invoke-virtual {p0, v0, v1}, Landroid/app/Activity;->overridePendingTransition(II)V
 
@@ -325,9 +325,9 @@
 
     if-nez v1, :cond_4
 
-    const v1, 0x7f07003a
+    const v1, 0x7f070039
 
-    const v2, 0x7f07003b
+    const v2, 0x7f07003a
 
     invoke-virtual {p0, v1, v2}, Landroid/app/Activity;->overridePendingTransition(II)V
 
@@ -526,7 +526,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    const-string v1, "request_gk_pw_handle"
+    const-string/jumbo v1, "request_gk_pw_handle"
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
@@ -1278,7 +1278,7 @@
 
     move-result p2
 
-    const v0, 0x7f1301cb
+    const v0, 0x7f13020d
 
     const/4 v1, 0x1
 
@@ -1554,7 +1554,7 @@
 
     invoke-static {v3, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string v2, "require_consent"
+    const-string/jumbo v2, "require_consent"
 
     invoke-virtual {v0, v2, v1}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
@@ -1656,7 +1656,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0e0031
+    const v8, 0x7f0e0052
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1771,7 +1771,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0e0032
+    const v7, 0x7f0e0053
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getInteger(I)I
 

@@ -36,7 +36,7 @@
 
     iget-object p1, p0, Lcom/android/settings/homepage/contextualcards/slices/DarkThemeSlice$DarkThemeWorker$1;->this$0:Lcom/android/settings/homepage/contextualcards/slices/DarkThemeSlice$DarkThemeWorker;
 
-    invoke-static {p1}, Lcom/android/settings/homepage/contextualcards/slices/DarkThemeSlice$DarkThemeWorker;->access$000(Lcom/android/settings/homepage/contextualcards/slices/DarkThemeSlice$DarkThemeWorker;)Landroid/content/Context;
+    invoke-static {p1}, Lcom/android/settings/homepage/contextualcards/slices/DarkThemeSlice$DarkThemeWorker;->-$$Nest$fgetmContext(Lcom/android/settings/homepage/contextualcards/slices/DarkThemeSlice$DarkThemeWorker;)Landroid/content/Context;
 
     move-result-object p1
 
@@ -56,7 +56,7 @@
 
     iget-object p0, p0, Lcom/android/settings/homepage/contextualcards/slices/DarkThemeSlice$DarkThemeWorker$1;->this$0:Lcom/android/settings/homepage/contextualcards/slices/DarkThemeSlice$DarkThemeWorker;
 
-    invoke-static {p0}, Lcom/android/settings/homepage/contextualcards/slices/DarkThemeSlice$DarkThemeWorker;->access$100(Lcom/android/settings/homepage/contextualcards/slices/DarkThemeSlice$DarkThemeWorker;)V
+    invoke-static {p0}, Lcom/android/settings/homepage/contextualcards/slices/DarkThemeSlice$DarkThemeWorker;->access$000(Lcom/android/settings/homepage/contextualcards/slices/DarkThemeSlice$DarkThemeWorker;)V
 
     :cond_0
     return-void

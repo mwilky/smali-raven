@@ -219,6 +219,24 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$mreset(Lcom/android/settings/applications/RunningState;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/applications/RunningState;->reset()V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mupdate(Lcom/android/settings/applications/RunningState;Landroid/content/Context;Landroid/app/ActivityManager;)Z
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/settings/applications/RunningState;->update(Landroid/content/Context;Landroid/app/ActivityManager;)Z
+
+    move-result p0
+
+    return p0
+.end method
+
 .method static constructor <clinit>()V
     .locals 1
 
@@ -352,7 +370,7 @@
 
     const/4 v2, 0x0
 
-    invoke-direct {v1, p0, v2}, Lcom/android/settings/applications/RunningState$UserManagerBroadcastReceiver;-><init>(Lcom/android/settings/applications/RunningState;Lcom/android/settings/applications/RunningState$1;)V
+    invoke-direct {v1, p0, v2}, Lcom/android/settings/applications/RunningState$UserManagerBroadcastReceiver;-><init>(Lcom/android/settings/applications/RunningState;Lcom/android/settings/applications/RunningState$UserManagerBroadcastReceiver-IA;)V
 
     iput-object v1, p0, Lcom/android/settings/applications/RunningState;->mUmBroadcastReceiver:Lcom/android/settings/applications/RunningState$UserManagerBroadcastReceiver;
 
@@ -445,24 +463,6 @@
     invoke-virtual {v1, p1}, Lcom/android/settings/applications/RunningState$UserManagerBroadcastReceiver;->register(Landroid/content/Context;)V
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/applications/RunningState;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/applications/RunningState;->reset()V
-
-    return-void
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/applications/RunningState;Landroid/content/Context;Landroid/app/ActivityManager;)Z
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/settings/applications/RunningState;->update(Landroid/content/Context;Landroid/app/ActivityManager;)Z
-
-    move-result p0
-
-    return p0
 .end method
 
 .method private addOtherUserItem(Landroid/content/Context;Ljava/util/ArrayList;Landroid/util/SparseArray;Lcom/android/settings/applications/RunningState$MergedItem;)V

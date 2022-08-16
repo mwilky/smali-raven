@@ -22,14 +22,6 @@
 # direct methods
 .method public constructor <init>(I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "maxPoolSize"
-        }
-    .end annotation
 
     invoke-direct {p0, p1}, Landroidx/core/util/Pools$SimplePool;-><init>(I)V
 
@@ -77,15 +69,6 @@
 
 .method public release(Ljava/lang/Object;)Z
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "element"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)Z"

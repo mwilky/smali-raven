@@ -10,8 +10,8 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Lcom/google/common/collect/Ordering<",
-        "Ljava/lang/Comparable;",
-        ">;",
+        "Ljava/lang/Comparable<",
+        "*>;>;",
         "Ljava/io/Serializable;"
     }
 .end annotation
@@ -56,6 +56,15 @@
 # virtual methods
 .method public compare(Ljava/lang/Comparable;Ljava/lang/Comparable;)I
     .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/Comparable<",
+            "*>;",
+            "Ljava/lang/Comparable<",
+            "*>;)I"
+        }
+    .end annotation
 
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -87,8 +96,8 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<S::",
-            "Ljava/lang/Comparable;",
-            ">()",
+            "Ljava/lang/Comparable<",
+            "*>;>()",
             "Lcom/google/common/collect/Ordering<",
             "TS;>;"
         }

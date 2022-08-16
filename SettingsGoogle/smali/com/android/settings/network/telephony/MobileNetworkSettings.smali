@@ -30,10 +30,34 @@
 
 
 # direct methods
-.method public static synthetic $r8$lambda$BOgTxwYUXj7e1K3scPrItdrb44c(Lcom/android/settings/network/telephony/MobileNetworkSettings;)V
+.method public static synthetic $r8$lambda$2so2PxzibKAwFQHsj_YqOKr90cI(Lcom/android/settings/network/telephony/MobileNetworkSettings;Ljava/util/function/Consumer;)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/settings/network/telephony/MobileNetworkSettings;->lambda$onSubscriptionDetailChanged$0()V
+    invoke-direct {p0, p1}, Lcom/android/settings/network/telephony/MobileNetworkSettings;->lambda$onSubscriptionDetailChanged$1(Ljava/util/function/Consumer;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$Uo0SJudzFnocZFcYN2idJ4RZ7P4(Landroid/telephony/SubscriptionInfo;Landroid/app/Activity;)V
+    .locals 0
+
+    invoke-static {p0, p1}, Lcom/android/settings/network/telephony/MobileNetworkSettings;->lambda$onSubscriptionDetailChanged$0(Landroid/telephony/SubscriptionInfo;Landroid/app/Activity;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$r4BdkX8848GsaMwNBXy9kjpgJ9s(Lcom/android/settings/network/telephony/MobileNetworkSettings;Landroid/telephony/SubscriptionInfo;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/network/telephony/MobileNetworkSettings;->lambda$onSubscriptionDetailChanged$2(Landroid/telephony/SubscriptionInfo;)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$monSubscriptionDetailChanged(Lcom/android/settings/network/telephony/MobileNetworkSettings;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/network/telephony/MobileNetworkSettings;->onSubscriptionDetailChanged()V
 
     return-void
 .end method
@@ -43,7 +67,7 @@
 
     new-instance v0, Lcom/android/settings/network/telephony/MobileNetworkSettings$2;
 
-    const v1, 0x7f15009b
+    const v1, 0x7f15009c
 
     invoke-direct {v0, v1}, Lcom/android/settings/network/telephony/MobileNetworkSettings$2;-><init>(I)V
 
@@ -66,20 +90,78 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/settings/network/telephony/MobileNetworkSettings;)V
+.method private getContactDiscoveryFragment(I)Lcom/android/settings/network/telephony/ContactDiscoveryDialogFragment;
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/settings/network/telephony/MobileNetworkSettings;->onSubscriptionDetailChanged()V
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getChildFragmentManager()Landroidx/fragment/app/FragmentManager;
+
+    move-result-object p0
+
+    invoke-static {p1}, Lcom/android/settings/network/telephony/ContactDiscoveryDialogFragment;->getFragmentTag(I)Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {p0, p1}, Landroidx/fragment/app/FragmentManager;->findFragmentByTag(Ljava/lang/String;)Landroidx/fragment/app/Fragment;
+
+    move-result-object p0
+
+    check-cast p0, Lcom/android/settings/network/telephony/ContactDiscoveryDialogFragment;
+
+    return-object p0
+.end method
+
+.method private static synthetic lambda$onSubscriptionDetailChanged$0(Landroid/telephony/SubscriptionInfo;Landroid/app/Activity;)V
+    .locals 1
+
+    if-eqz p1, :cond_0
+
+    invoke-virtual {p1}, Landroid/app/Activity;->isFinishing()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    instance-of v0, p1, Lcom/android/settings/SettingsActivity;
+
+    if-eqz v0, :cond_0
+
+    invoke-static {p0, p1}, Lcom/android/settings/network/SubscriptionUtil;->getUniqueSubscriptionDisplayName(Landroid/telephony/SubscriptionInfo;Landroid/content/Context;)Ljava/lang/CharSequence;
+
+    move-result-object p0
+
+    check-cast p1, Lcom/android/settings/SettingsActivity;
+
+    invoke-virtual {p1, p0}, Lcom/android/settings/core/SettingsBaseActivity;->setTitle(Ljava/lang/CharSequence;)V
+
+    :cond_0
+    return-void
+.end method
+
+.method private synthetic lambda$onSubscriptionDetailChanged$1(Ljava/util/function/Consumer;)V
+    .locals 0
+
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
+
+    move-result-object p0
+
+    invoke-interface {p1, p0}, Ljava/util/function/Consumer;->accept(Ljava/lang/Object;)V
 
     return-void
 .end method
 
-.method private synthetic lambda$onSubscriptionDetailChanged$0()V
-    .locals 1
+.method private synthetic lambda$onSubscriptionDetailChanged$2(Landroid/telephony/SubscriptionInfo;)V
+    .locals 0
 
-    const/4 v0, 0x0
+    if-nez p1, :cond_0
 
-    iput v0, p0, Lcom/android/settings/network/telephony/MobileNetworkSettings;->mActiveSubscriptionsListenerCount:I
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->finishFragment()V
+
+    return-void
+
+    :cond_0
+    const/4 p1, 0x0
+
+    iput p1, p0, Lcom/android/settings/network/telephony/MobileNetworkSettings;->mActiveSubscriptionsListenerCount:I
 
     invoke-virtual {p0}, Lcom/android/settings/network/telephony/AbstractMobileNetworkSettings;->redrawPreferenceControllers()V
 
@@ -87,7 +169,7 @@
 .end method
 
 .method private onSubscriptionDetailChanged()V
-    .locals 2
+    .locals 3
 
     iget-boolean v0, p0, Lcom/android/settings/network/telephony/MobileNetworkSettings;->mDropFirstSubscriptionChangeNotify:Z
 
@@ -106,24 +188,154 @@
     return-void
 
     :cond_0
-    iget v0, p0, Lcom/android/settings/network/telephony/MobileNetworkSettings;->mActiveSubscriptionsListenerCount:I
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
 
-    const/4 v1, 0x1
+    move-result-object v0
 
-    add-int/2addr v0, v1
+    iget v1, p0, Lcom/android/settings/network/telephony/MobileNetworkSettings;->mSubId:I
 
-    iput v0, p0, Lcom/android/settings/network/telephony/MobileNetworkSettings;->mActiveSubscriptionsListenerCount:I
+    invoke-static {v0, v1}, Lcom/android/settings/network/SubscriptionUtil;->getSubscriptionOrDefault(Landroid/content/Context;I)Landroid/telephony/SubscriptionInfo;
 
-    if-eq v0, v1, :cond_1
+    move-result-object v0
+
+    if-eqz v0, :cond_1
+
+    new-instance v1, Lcom/android/settings/network/telephony/MobileNetworkSettings$$ExternalSyntheticLambda0;
+
+    invoke-direct {v1, v0}, Lcom/android/settings/network/telephony/MobileNetworkSettings$$ExternalSyntheticLambda0;-><init>(Landroid/telephony/SubscriptionInfo;)V
+
+    new-instance v2, Lcom/android/settings/network/telephony/MobileNetworkSettings$$ExternalSyntheticLambda1;
+
+    invoke-direct {v2, p0, v1}, Lcom/android/settings/network/telephony/MobileNetworkSettings$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/network/telephony/MobileNetworkSettings;Ljava/util/function/Consumer;)V
+
+    invoke-static {v2}, Lcom/android/settingslib/utils/ThreadUtils;->postOnMainThread(Ljava/lang/Runnable;)V
+
+    :cond_1
+    iget v1, p0, Lcom/android/settings/network/telephony/MobileNetworkSettings;->mActiveSubscriptionsListenerCount:I
+
+    const/4 v2, 0x1
+
+    add-int/2addr v1, v2
+
+    iput v1, p0, Lcom/android/settings/network/telephony/MobileNetworkSettings;->mActiveSubscriptionsListenerCount:I
+
+    if-eq v1, v2, :cond_2
 
     return-void
 
+    :cond_2
+    new-instance v1, Lcom/android/settings/network/telephony/MobileNetworkSettings$$ExternalSyntheticLambda2;
+
+    invoke-direct {v1, p0, v0}, Lcom/android/settings/network/telephony/MobileNetworkSettings$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/network/telephony/MobileNetworkSettings;Landroid/telephony/SubscriptionInfo;)V
+
+    invoke-static {v1}, Lcom/android/settingslib/utils/ThreadUtils;->postOnMainThread(Ljava/lang/Runnable;)V
+
+    return-void
+.end method
+
+.method private removeContactDiscoveryDialog(I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/network/telephony/MobileNetworkSettings;->getContactDiscoveryFragment(I)Lcom/android/settings/network/telephony/ContactDiscoveryDialogFragment;
+
+    move-result-object p0
+
+    if-eqz p0, :cond_0
+
+    invoke-virtual {p0}, Landroidx/fragment/app/DialogFragment;->dismiss()V
+
+    :cond_0
+    return-void
+.end method
+
+.method private showContactDiscoveryDialog(Landroid/telephony/SubscriptionInfo;)V
+    .locals 1
+
+    if-nez p1, :cond_0
+
+    new-instance p1, Ljava/lang/StringBuilder;
+
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v0, "Invalid subId request "
+
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget v0, p0, Lcom/android/settings/network/telephony/MobileNetworkSettings;->mSubId:I
+
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    const-string v0, "NetworkSettings"
+
+    invoke-static {v0, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {p0}, Lcom/android/settings/network/telephony/MobileNetworkSettings;->onDestroy()V
+
+    return-void
+
+    :cond_0
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-static {p1, v0}, Lcom/android/settings/network/SubscriptionUtil;->getUniqueSubscriptionDisplayName(Landroid/telephony/SubscriptionInfo;Landroid/content/Context;)Ljava/lang/CharSequence;
+
+    move-result-object p1
+
+    iget v0, p0, Lcom/android/settings/network/telephony/MobileNetworkSettings;->mSubId:I
+
+    invoke-direct {p0, v0}, Lcom/android/settings/network/telephony/MobileNetworkSettings;->getContactDiscoveryFragment(I)Lcom/android/settings/network/telephony/ContactDiscoveryDialogFragment;
+
+    move-result-object v0
+
+    if-nez v0, :cond_1
+
+    iget v0, p0, Lcom/android/settings/network/telephony/MobileNetworkSettings;->mSubId:I
+
+    invoke-static {v0, p1}, Lcom/android/settings/network/telephony/ContactDiscoveryDialogFragment;->newInstance(ILjava/lang/CharSequence;)Lcom/android/settings/network/telephony/ContactDiscoveryDialogFragment;
+
+    move-result-object v0
+
     :cond_1
-    new-instance v0, Lcom/android/settings/network/telephony/MobileNetworkSettings$$ExternalSyntheticLambda0;
+    invoke-virtual {v0}, Landroidx/fragment/app/Fragment;->isAdded()Z
 
-    invoke-direct {v0, p0}, Lcom/android/settings/network/telephony/MobileNetworkSettings$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/network/telephony/MobileNetworkSettings;)V
+    move-result p1
 
-    invoke-static {v0}, Lcom/android/settingslib/utils/ThreadUtils;->postOnMainThread(Ljava/lang/Runnable;)V
+    if-nez p1, :cond_2
+
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getChildFragmentManager()Landroidx/fragment/app/FragmentManager;
+
+    move-result-object p1
+
+    iget p0, p0, Lcom/android/settings/network/telephony/MobileNetworkSettings;->mSubId:I
+
+    invoke-static {p0}, Lcom/android/settings/network/telephony/ContactDiscoveryDialogFragment;->getFragmentTag(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {v0, p1, p0}, Landroidx/fragment/app/DialogFragment;->show(Landroidx/fragment/app/FragmentManager;Ljava/lang/String;)V
+
+    :cond_2
+    return-void
+.end method
+
+.method private updateSubscriptions(Landroid/telephony/SubscriptionInfo;)V
+    .locals 0
+
+    if-nez p1, :cond_0
+
+    return-void
+
+    :cond_0
+    invoke-virtual {p1}, Landroid/telephony/SubscriptionInfo;->getSubscriptionId()I
+
+    move-result p1
+
+    iput p1, p0, Lcom/android/settings/network/telephony/MobileNetworkSettings;->mSubId:I
 
     return-void
 .end method
@@ -147,13 +359,23 @@
 
     move-result-object v0
 
+    const-string v1, "android.provider.extra.SUB_ID"
+
+    const-string v2, "NetworkSettings"
+
+    if-nez v0, :cond_1
+
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getIntent()Landroid/content/Intent;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
     invoke-static {p1}, Lcom/android/settings/network/telephony/MobileNetworkUtils;->getSearchableSubscriptionId(Landroid/content/Context;)I
 
     move-result p1
 
-    const-string v1, "android.provider.extra.SUB_ID"
-
-    invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
+    invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result p1
 
@@ -163,7 +385,7 @@
 
     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v0, "display subId: "
+    const-string v0, "display subId from intent: "
 
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -175,10 +397,51 @@
 
     move-result-object p1
 
-    const-string v0, "NetworkSettings"
+    invoke-static {v2, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {v0, p1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    goto :goto_0
 
+    :cond_0
+    const-string p1, "intent is null, can not get the subId from intent."
+
+    invoke-static {v2, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    :cond_1
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getArguments()Landroid/os/Bundle;
+
+    move-result-object v0
+
+    invoke-static {p1}, Lcom/android/settings/network/telephony/MobileNetworkUtils;->getSearchableSubscriptionId(Landroid/content/Context;)I
+
+    move-result p1
+
+    invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
+
+    move-result p1
+
+    iput p1, p0, Lcom/android/settings/network/telephony/MobileNetworkSettings;->mSubId:I
+
+    new-instance p1, Ljava/lang/StringBuilder;
+
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v0, "display subId from getArguments(): "
+
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget v0, p0, Lcom/android/settings/network/telephony/MobileNetworkSettings;->mSubId:I
+
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-static {v2, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :goto_0
     iget p1, p0, Lcom/android/settings/network/telephony/MobileNetworkSettings;->mSubId:I
 
     invoke-static {p1}, Landroid/telephony/SubscriptionManager;->isValidSubscriptionId(I)Z
@@ -187,7 +450,7 @@
 
     const/4 v0, 0x0
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_2
 
     new-array p0, v0, [Lcom/android/settingslib/core/AbstractPreferenceController;
 
@@ -197,7 +460,7 @@
 
     return-object p0
 
-    :cond_0
+    :cond_2
     const/4 p1, 0x1
 
     new-array p1, p1, [Lcom/android/settingslib/core/AbstractPreferenceController;
@@ -244,7 +507,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f15009b
+    const p0, 0x7f15009c
 
     return p0
 .end method
@@ -310,6 +573,69 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/dashboard/DashboardFragment;->onAttach(Landroid/content/Context;)V
 
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getIntent()Landroid/content/Intent;
+
+    move-result-object v1
+
+    iget v2, p0, Lcom/android/settings/network/telephony/MobileNetworkSettings;->mSubId:I
+
+    invoke-static {p1, v2}, Lcom/android/settings/network/SubscriptionUtil;->getSubscriptionOrDefault(Landroid/content/Context;I)Landroid/telephony/SubscriptionInfo;
+
+    move-result-object v2
+
+    if-nez v2, :cond_0
+
+    new-instance p1, Ljava/lang/StringBuilder;
+
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v0, "Invalid subId request "
+
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget p0, p0, Lcom/android/settings/network/telephony/MobileNetworkSettings;->mSubId:I
+
+    invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    const-string p1, "NetworkSettings"
+
+    invoke-static {p1, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_0
+    iget v3, p0, Lcom/android/settings/network/telephony/MobileNetworkSettings;->mSubId:I
+
+    invoke-direct {p0, v2}, Lcom/android/settings/network/telephony/MobileNetworkSettings;->updateSubscriptions(Landroid/telephony/SubscriptionInfo;)V
+
+    invoke-static {v1}, Lcom/android/settings/Settings$MobileNetworkActivity;->doesIntentContainOptInAction(Landroid/content/Intent;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_1
+
+    invoke-direct {p0, v3}, Lcom/android/settings/network/telephony/MobileNetworkSettings;->removeContactDiscoveryDialog(I)V
+
+    :cond_1
+    invoke-static {v1}, Lcom/android/settings/Settings$MobileNetworkActivity;->doesIntentContainOptInAction(Landroid/content/Intent;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    iget v1, p0, Lcom/android/settings/network/telephony/MobileNetworkSettings;->mSubId:I
+
+    invoke-static {p1, v1}, Lcom/android/settings/network/SubscriptionUtil;->getSubscriptionOrDefault(Landroid/content/Context;I)Landroid/telephony/SubscriptionInfo;
+
+    move-result-object v1
+
+    invoke-direct {p0, v1}, Lcom/android/settings/network/telephony/MobileNetworkSettings;->showContactDiscoveryDialog(Landroid/telephony/SubscriptionInfo;)V
+
+    :cond_2
     const-class v1, Lcom/android/settings/datausage/DataUsageSummaryPreferenceController;
 
     invoke-virtual {p0, v1}, Lcom/android/settings/dashboard/DashboardFragment;->use(Ljava/lang/Class;)Lcom/android/settingslib/core/AbstractPreferenceController;
@@ -318,41 +644,13 @@
 
     check-cast v1, Lcom/android/settings/datausage/DataUsageSummaryPreferenceController;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_3
 
     iget v2, p0, Lcom/android/settings/network/telephony/MobileNetworkSettings;->mSubId:I
 
     invoke-virtual {v1, v2}, Lcom/android/settings/datausage/DataUsageSummaryPreferenceController;->init(I)V
 
-    :cond_0
-    const-class v1, Lcom/android/settings/network/telephony/CallsDefaultSubscriptionController;
-
-    invoke-virtual {p0, v1}, Lcom/android/settings/dashboard/DashboardFragment;->use(Ljava/lang/Class;)Lcom/android/settingslib/core/AbstractPreferenceController;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/android/settings/network/telephony/CallsDefaultSubscriptionController;
-
-    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getLifecycle()Landroidx/lifecycle/Lifecycle;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Lcom/android/settings/network/telephony/DefaultSubscriptionController;->init(Landroidx/lifecycle/Lifecycle;)V
-
-    const-class v1, Lcom/android/settings/network/telephony/SmsDefaultSubscriptionController;
-
-    invoke-virtual {p0, v1}, Lcom/android/settings/dashboard/DashboardFragment;->use(Ljava/lang/Class;)Lcom/android/settingslib/core/AbstractPreferenceController;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/android/settings/network/telephony/SmsDefaultSubscriptionController;
-
-    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getLifecycle()Landroidx/lifecycle/Lifecycle;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Lcom/android/settings/network/telephony/DefaultSubscriptionController;->init(Landroidx/lifecycle/Lifecycle;)V
-
+    :cond_3
     const-class v1, Lcom/android/settings/network/telephony/MobileNetworkSwitchController;
 
     invoke-virtual {p0, v1}, Lcom/android/settings/dashboard/DashboardFragment;->use(Ljava/lang/Class;)Lcom/android/settingslib/core/AbstractPreferenceController;
@@ -361,13 +659,9 @@
 
     check-cast v1, Lcom/android/settings/network/telephony/MobileNetworkSwitchController;
 
-    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getLifecycle()Landroidx/lifecycle/Lifecycle;
+    iget v2, p0, Lcom/android/settings/network/telephony/MobileNetworkSettings;->mSubId:I
 
-    move-result-object v2
-
-    iget v3, p0, Lcom/android/settings/network/telephony/MobileNetworkSettings;->mSubId:I
-
-    invoke-virtual {v1, v2, v3}, Lcom/android/settings/network/telephony/MobileNetworkSwitchController;->init(Landroidx/lifecycle/Lifecycle;I)V
+    invoke-virtual {v1, v2}, Lcom/android/settings/network/telephony/MobileNetworkSwitchController;->init(I)V
 
     const-class v1, Lcom/android/settings/network/telephony/CarrierSettingsVersionPreferenceController;
 
@@ -413,13 +707,9 @@
 
     check-cast v1, Lcom/android/settings/network/telephony/DataDuringCallsPreferenceController;
 
-    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getLifecycle()Landroidx/lifecycle/Lifecycle;
+    iget v2, p0, Lcom/android/settings/network/telephony/MobileNetworkSettings;->mSubId:I
 
-    move-result-object v2
-
-    iget v3, p0, Lcom/android/settings/network/telephony/MobileNetworkSettings;->mSubId:I
-
-    invoke-virtual {v1, v2, v3}, Lcom/android/settings/network/telephony/DataDuringCallsPreferenceController;->init(Landroidx/lifecycle/Lifecycle;I)V
+    invoke-virtual {v1, v2}, Lcom/android/settings/network/telephony/DataDuringCallsPreferenceController;->init(I)V
 
     const-class v1, Lcom/android/settings/network/telephony/DisabledSubscriptionController;
 
@@ -429,13 +719,9 @@
 
     check-cast v1, Lcom/android/settings/network/telephony/DisabledSubscriptionController;
 
-    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getLifecycle()Landroidx/lifecycle/Lifecycle;
+    iget v2, p0, Lcom/android/settings/network/telephony/MobileNetworkSettings;->mSubId:I
 
-    move-result-object v2
-
-    iget v3, p0, Lcom/android/settings/network/telephony/MobileNetworkSettings;->mSubId:I
-
-    invoke-virtual {v1, v2, v3}, Lcom/android/settings/network/telephony/DisabledSubscriptionController;->init(Landroidx/lifecycle/Lifecycle;I)V
+    invoke-virtual {v1, v2}, Lcom/android/settings/network/telephony/DisabledSubscriptionController;->init(I)V
 
     const-class v1, Lcom/android/settings/network/telephony/DeleteSimProfilePreferenceController;
 
@@ -579,13 +865,9 @@
 
     check-cast p1, Lcom/android/settings/network/telephony/EnabledNetworkModePreferenceController;
 
-    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getLifecycle()Landroidx/lifecycle/Lifecycle;
+    iget v0, p0, Lcom/android/settings/network/telephony/MobileNetworkSettings;->mSubId:I
 
-    move-result-object v0
-
-    iget v1, p0, Lcom/android/settings/network/telephony/MobileNetworkSettings;->mSubId:I
-
-    invoke-virtual {p1, v0, v1}, Lcom/android/settings/network/telephony/EnabledNetworkModePreferenceController;->init(Landroidx/lifecycle/Lifecycle;I)V
+    invoke-virtual {p1, v0}, Lcom/android/settings/network/telephony/EnabledNetworkModePreferenceController;->init(I)V
 
     const-class p1, Lcom/android/settings/network/telephony/DataServiceSetupPreferenceController;
 
@@ -649,13 +931,9 @@
 
     check-cast v0, Lcom/android/settings/network/telephony/gsm/OpenNetworkSelectPagePreferenceController;
 
-    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getLifecycle()Landroidx/lifecycle/Lifecycle;
+    iget v1, p0, Lcom/android/settings/network/telephony/MobileNetworkSettings;->mSubId:I
 
-    move-result-object v1
-
-    iget v2, p0, Lcom/android/settings/network/telephony/MobileNetworkSettings;->mSubId:I
-
-    invoke-virtual {v0, v1, v2}, Lcom/android/settings/network/telephony/gsm/OpenNetworkSelectPagePreferenceController;->init(Landroidx/lifecycle/Lifecycle;I)Lcom/android/settings/network/telephony/gsm/OpenNetworkSelectPagePreferenceController;
+    invoke-virtual {v0, v1}, Lcom/android/settings/network/telephony/gsm/OpenNetworkSelectPagePreferenceController;->init(I)Lcom/android/settings/network/telephony/gsm/OpenNetworkSelectPagePreferenceController;
 
     move-result-object v0
 
@@ -667,13 +945,9 @@
 
     check-cast v1, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;
 
-    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getLifecycle()Landroidx/lifecycle/Lifecycle;
+    iget v2, p0, Lcom/android/settings/network/telephony/MobileNetworkSettings;->mSubId:I
 
-    move-result-object v2
-
-    iget v3, p0, Lcom/android/settings/network/telephony/MobileNetworkSettings;->mSubId:I
-
-    invoke-virtual {v1, v2, v3}, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;->init(Landroidx/lifecycle/Lifecycle;I)Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;
+    invoke-virtual {v1, v2}, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;->init(I)Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;
 
     move-result-object v1
 
@@ -689,13 +963,9 @@
 
     check-cast v1, Lcom/android/settings/network/telephony/NetworkPreferenceCategoryController;
 
-    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getLifecycle()Landroidx/lifecycle/Lifecycle;
+    iget v2, p0, Lcom/android/settings/network/telephony/MobileNetworkSettings;->mSubId:I
 
-    move-result-object v2
-
-    iget v3, p0, Lcom/android/settings/network/telephony/MobileNetworkSettings;->mSubId:I
-
-    invoke-virtual {v1, v2, v3}, Lcom/android/settings/network/telephony/NetworkPreferenceCategoryController;->init(Landroidx/lifecycle/Lifecycle;I)Lcom/android/settings/network/telephony/NetworkPreferenceCategoryController;
+    invoke-virtual {v1, v2}, Lcom/android/settings/network/telephony/NetworkPreferenceCategoryController;->init(I)Lcom/android/settings/network/telephony/NetworkPreferenceCategoryController;
 
     move-result-object v1
 
@@ -865,11 +1135,7 @@
 
     iget v1, p0, Lcom/android/settings/network/telephony/MobileNetworkSettings;->mSubId:I
 
-    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getLifecycle()Landroidx/lifecycle/Lifecycle;
-
-    move-result-object v2
-
-    invoke-virtual {p1, v0, v1, v2}, Lcom/android/settings/network/telephony/ContactDiscoveryPreferenceController;->init(Landroidx/fragment/app/FragmentManager;ILandroidx/lifecycle/Lifecycle;)Lcom/android/settings/network/telephony/ContactDiscoveryPreferenceController;
+    invoke-virtual {p1, v0, v1}, Lcom/android/settings/network/telephony/ContactDiscoveryPreferenceController;->init(Landroidx/fragment/app/FragmentManager;I)V
 
     const-class p1, Lcom/android/settings/network/telephony/NrAdvancedCallingPreferenceController;
 
@@ -953,9 +1219,9 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0d01f0
+    const v0, 0x7f0d020c
 
-    const v1, 0x7f040d4c
+    const v1, 0x7f040dc8
 
     const/4 v2, 0x0
 
@@ -963,7 +1229,7 @@
 
     move-result-object v0
 
-    const v1, 0x10804ee
+    const v1, 0x10804fa
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -1015,7 +1281,7 @@
 
     move-result v0
 
-    const v1, 0x7f0d01f0
+    const v1, 0x7f0d020c
 
     if-ne v0, v1, :cond_0
 

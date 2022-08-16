@@ -131,7 +131,7 @@
 
     new-instance v0, Landroidx/dynamicanimation/animation/DynamicAnimation$4;
 
-    const-string v1, "scaleX"
+    const-string/jumbo v1, "scaleX"
 
     invoke-direct {v0, v1}, Landroidx/dynamicanimation/animation/DynamicAnimation$4;-><init>(Ljava/lang/String;)V
 
@@ -139,7 +139,7 @@
 
     new-instance v0, Landroidx/dynamicanimation/animation/DynamicAnimation$5;
 
-    const-string v1, "scaleY"
+    const-string/jumbo v1, "scaleY"
 
     invoke-direct {v0, v1}, Landroidx/dynamicanimation/animation/DynamicAnimation$5;-><init>(Ljava/lang/String;)V
 
@@ -147,7 +147,7 @@
 
     new-instance v0, Landroidx/dynamicanimation/animation/DynamicAnimation$6;
 
-    const-string v1, "rotation"
+    const-string/jumbo v1, "rotation"
 
     invoke-direct {v0, v1}, Landroidx/dynamicanimation/animation/DynamicAnimation$6;-><init>(Ljava/lang/String;)V
 
@@ -155,7 +155,7 @@
 
     new-instance v0, Landroidx/dynamicanimation/animation/DynamicAnimation$7;
 
-    const-string v1, "rotationX"
+    const-string/jumbo v1, "rotationX"
 
     invoke-direct {v0, v1}, Landroidx/dynamicanimation/animation/DynamicAnimation$7;-><init>(Ljava/lang/String;)V
 
@@ -163,7 +163,7 @@
 
     new-instance v0, Landroidx/dynamicanimation/animation/DynamicAnimation$8;
 
-    const-string v1, "rotationY"
+    const-string/jumbo v1, "rotationY"
 
     invoke-direct {v0, v1}, Landroidx/dynamicanimation/animation/DynamicAnimation$8;-><init>(Ljava/lang/String;)V
 
@@ -203,7 +203,7 @@
 
     new-instance v0, Landroidx/dynamicanimation/animation/DynamicAnimation$13;
 
-    const-string v1, "scrollX"
+    const-string/jumbo v1, "scrollX"
 
     invoke-direct {v0, v1}, Landroidx/dynamicanimation/animation/DynamicAnimation$13;-><init>(Ljava/lang/String;)V
 
@@ -211,7 +211,7 @@
 
     new-instance v0, Landroidx/dynamicanimation/animation/DynamicAnimation$14;
 
-    const-string v1, "scrollY"
+    const-string/jumbo v1, "scrollY"
 
     invoke-direct {v0, v1}, Landroidx/dynamicanimation/animation/DynamicAnimation$14;-><init>(Ljava/lang/String;)V
 
@@ -222,17 +222,6 @@
 
 .method constructor <init>(Ljava/lang/Object;Landroidx/dynamicanimation/animation/FloatPropertyCompat;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "object",
-            "property"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -348,14 +337,6 @@
 
 .method private endAnimationInternal(Z)V
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "canceled"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -433,15 +414,6 @@
 
 .method private static removeNullEntries(Ljava/util/ArrayList;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "list"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -540,50 +512,8 @@
 
 
 # virtual methods
-.method public cancel()V
-    .locals 1
-
-    invoke-virtual {p0}, Landroidx/dynamicanimation/animation/DynamicAnimation;->getAnimationHandler()Landroidx/dynamicanimation/animation/AnimationHandler;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroidx/dynamicanimation/animation/AnimationHandler;->isCurrentThread()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    iget-boolean v0, p0, Landroidx/dynamicanimation/animation/DynamicAnimation;->mRunning:Z
-
-    if-eqz v0, :cond_0
-
-    const/4 v0, 0x1
-
-    invoke-direct {p0, v0}, Landroidx/dynamicanimation/animation/DynamicAnimation;->endAnimationInternal(Z)V
-
-    :cond_0
-    return-void
-
-    :cond_1
-    new-instance p0, Landroid/util/AndroidRuntimeException;
-
-    const-string v0, "Animations may only be canceled from the same thread as the animation handler"
-
-    invoke-direct {p0, v0}, Landroid/util/AndroidRuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw p0
-.end method
-
 .method public doAnimationFrame(J)Z
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "frameTime"
-        }
-    .end annotation
 
     iget-wide v0, p0, Landroidx/dynamicanimation/animation/DynamicAnimation;->mLastFrameTime:J
 
@@ -608,7 +538,33 @@
 
     iput-wide p1, p0, Landroidx/dynamicanimation/animation/DynamicAnimation;->mLastFrameTime:J
 
-    invoke-virtual {p0, v0, v1}, Landroidx/dynamicanimation/animation/DynamicAnimation;->updateValueAndVelocity(J)Z
+    invoke-virtual {p0}, Landroidx/dynamicanimation/animation/DynamicAnimation;->getAnimationHandler()Landroidx/dynamicanimation/animation/AnimationHandler;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Landroidx/dynamicanimation/animation/AnimationHandler;->getDurationScale()F
+
+    move-result p1
+
+    const/4 p2, 0x0
+
+    cmpl-float p2, p1, p2
+
+    if-nez p2, :cond_1
+
+    const-wide/32 p1, 0x7fffffff
+
+    goto :goto_0
+
+    :cond_1
+    long-to-float p2, v0
+
+    div-float/2addr p2, p1
+
+    float-to-long p1, p2
+
+    :goto_0
+    invoke-virtual {p0, p1, p2}, Landroidx/dynamicanimation/animation/DynamicAnimation;->updateValueAndVelocity(J)Z
 
     move-result p1
 
@@ -632,30 +588,29 @@
 
     invoke-virtual {p0, p2}, Landroidx/dynamicanimation/animation/DynamicAnimation;->setPropertyValue(F)V
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_2
 
     invoke-direct {p0, v3}, Landroidx/dynamicanimation/animation/DynamicAnimation;->endAnimationInternal(Z)V
 
-    :cond_1
+    :cond_2
     return p1
 .end method
 
 .method public getAnimationHandler()Landroidx/dynamicanimation/animation/AnimationHandler;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Landroidx/dynamicanimation/animation/DynamicAnimation;->mAnimationHandler:Landroidx/dynamicanimation/animation/AnimationHandler;
-
-    if-nez v0, :cond_0
-
-    invoke-static {}, Landroidx/dynamicanimation/animation/AnimationHandler;->getInstance()Landroidx/dynamicanimation/animation/AnimationHandler;
-
-    move-result-object v0
-
-    iput-object v0, p0, Landroidx/dynamicanimation/animation/DynamicAnimation;->mAnimationHandler:Landroidx/dynamicanimation/animation/AnimationHandler;
-
-    :cond_0
     iget-object p0, p0, Landroidx/dynamicanimation/animation/DynamicAnimation;->mAnimationHandler:Landroidx/dynamicanimation/animation/AnimationHandler;
 
+    if-eqz p0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    invoke-static {}, Landroidx/dynamicanimation/animation/AnimationHandler;->getInstance()Landroidx/dynamicanimation/animation/AnimationHandler;
+
+    move-result-object p0
+
+    :goto_0
     return-object p0
 .end method
 
@@ -681,14 +636,6 @@
 
 .method setPropertyValue(F)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "value"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/dynamicanimation/animation/DynamicAnimation;->mProperty:Landroidx/dynamicanimation/animation/FloatPropertyCompat;
 
@@ -744,15 +691,6 @@
 
 .method public setStartValue(F)Landroidx/dynamicanimation/animation/DynamicAnimation;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "startValue"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(F)TT;"
@@ -801,12 +739,4 @@
 .end method
 
 .method abstract updateValueAndVelocity(J)Z
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "deltaT"
-        }
-    .end annotation
 .end method

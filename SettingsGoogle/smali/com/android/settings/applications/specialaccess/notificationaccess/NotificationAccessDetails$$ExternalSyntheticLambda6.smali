@@ -1,29 +1,22 @@
 .class public final synthetic Lcom/android/settings/applications/specialaccess/notificationaccess/NotificationAccessDetails$$ExternalSyntheticLambda6;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/settings/applications/specialaccess/notificationaccess/NotificationAccessDetails;
-
-.field public final synthetic f$1:Lcom/android/settings/notification/NotificationBackend;
-
-.field public final synthetic f$2:I
+.field public final synthetic f$0:Landroidx/preference/PreferenceScreen;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/settings/applications/specialaccess/notificationaccess/NotificationAccessDetails;Lcom/android/settings/notification/NotificationBackend;I)V
+.method public synthetic constructor <init>(Landroidx/preference/PreferenceScreen;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/settings/applications/specialaccess/notificationaccess/NotificationAccessDetails$$ExternalSyntheticLambda6;->f$0:Lcom/android/settings/applications/specialaccess/notificationaccess/NotificationAccessDetails;
-
-    iput-object p2, p0, Lcom/android/settings/applications/specialaccess/notificationaccess/NotificationAccessDetails$$ExternalSyntheticLambda6;->f$1:Lcom/android/settings/notification/NotificationBackend;
-
-    iput p3, p0, Lcom/android/settings/applications/specialaccess/notificationaccess/NotificationAccessDetails$$ExternalSyntheticLambda6;->f$2:I
+    iput-object p1, p0, Lcom/android/settings/applications/specialaccess/notificationaccess/NotificationAccessDetails$$ExternalSyntheticLambda6;->f$0:Landroidx/preference/PreferenceScreen;
 
     return-void
 .end method
@@ -31,17 +24,13 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 2
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/settings/applications/specialaccess/notificationaccess/NotificationAccessDetails$$ExternalSyntheticLambda6;->f$0:Lcom/android/settings/applications/specialaccess/notificationaccess/NotificationAccessDetails;
+    iget-object p0, p0, Lcom/android/settings/applications/specialaccess/notificationaccess/NotificationAccessDetails$$ExternalSyntheticLambda6;->f$0:Landroidx/preference/PreferenceScreen;
 
-    iget-object v1, p0, Lcom/android/settings/applications/specialaccess/notificationaccess/NotificationAccessDetails$$ExternalSyntheticLambda6;->f$1:Lcom/android/settings/notification/NotificationBackend;
+    check-cast p1, Lcom/android/settingslib/core/AbstractPreferenceController;
 
-    iget p0, p0, Lcom/android/settings/applications/specialaccess/notificationaccess/NotificationAccessDetails$$ExternalSyntheticLambda6;->f$2:I
-
-    check-cast p1, Ljava/util/List;
-
-    invoke-static {v0, v1, p0, p1}, Lcom/android/settings/applications/specialaccess/notificationaccess/NotificationAccessDetails;->$r8$lambda$eDyaXeFatGnudIi66S7WHaj3qzs(Lcom/android/settings/applications/specialaccess/notificationaccess/NotificationAccessDetails;Lcom/android/settings/notification/NotificationBackend;ILjava/util/List;)V
+    invoke-static {p0, p1}, Lcom/android/settings/applications/specialaccess/notificationaccess/NotificationAccessDetails;->$r8$lambda$cQH0xqVmJeSdlPVM_yia0rwXcqg(Landroidx/preference/PreferenceScreen;Lcom/android/settingslib/core/AbstractPreferenceController;)V
 
     return-void
 .end method

@@ -28,7 +28,7 @@
 
 
 # direct methods
-.method constructor <init>(Landroid/content/Context;Landroid/os/Handler;Lcom/google/android/wifitrackerlib/WsuProvider;Landroid/net/wifi/WifiManager;Landroid/net/wifi/WifiNetworkScoreCache;)V
+.method constructor <init>(Landroid/content/Context;Landroid/os/Handler;Lcom/google/android/wifitrackerlib/WsuProvider;Landroid/net/wifi/WifiManager;)V
     .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -38,7 +38,7 @@
 
     const/4 v0, 0x0
 
-    invoke-direct {p0, p2, p4, p5, v0}, Lcom/android/wifitrackerlib/WifiEntry;-><init>(Landroid/os/Handler;Landroid/net/wifi/WifiManager;Landroid/net/wifi/WifiNetworkScoreCache;Z)V
+    invoke-direct {p0, p2, p4, v0}, Lcom/android/wifitrackerlib/WifiEntry;-><init>(Landroid/os/Handler;Landroid/net/wifi/WifiManager;Z)V
 
     new-instance p2, Ljava/lang/Object;
 

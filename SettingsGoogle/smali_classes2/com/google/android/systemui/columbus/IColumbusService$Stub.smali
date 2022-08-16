@@ -57,11 +57,3 @@
 
     return-object v0
 .end method
-
-.method public static getDefaultImpl()Lcom/google/android/systemui/columbus/IColumbusService;
-    .locals 1
-
-    sget-object v0, Lcom/google/android/systemui/columbus/IColumbusService$Stub$Proxy;->sDefaultImpl:Lcom/google/android/systemui/columbus/IColumbusService;
-
-    return-object v0
-.end method

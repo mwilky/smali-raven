@@ -104,7 +104,7 @@
     const/4 p3, 0x1
 
     :cond_1
-    const v0, 0x7f0d0166
+    const v0, 0x7f0d017a
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -118,13 +118,13 @@
 
     check-cast v1, Lcom/android/settings/network/telephony/RenameMobileNetworkDialogFragment$Color;
 
-    invoke-static {v1, p3}, Lcom/android/settings/network/telephony/RenameMobileNetworkDialogFragment$Color;->access$000(Lcom/android/settings/network/telephony/RenameMobileNetworkDialogFragment$Color;Z)Landroid/graphics/drawable/ShapeDrawable;
+    invoke-static {v1, p3}, Lcom/android/settings/network/telephony/RenameMobileNetworkDialogFragment$Color;->-$$Nest$mgetDrawable(Lcom/android/settings/network/telephony/RenameMobileNetworkDialogFragment$Color;Z)Landroid/graphics/drawable/ShapeDrawable;
 
     move-result-object p3
 
     invoke-virtual {v0, p3}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    const p3, 0x7f0d0167
+    const p3, 0x7f0d017b
 
     invoke-virtual {p2, p3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -138,7 +138,7 @@
 
     check-cast p0, Lcom/android/settings/network/telephony/RenameMobileNetworkDialogFragment$Color;
 
-    invoke-static {p0}, Lcom/android/settings/network/telephony/RenameMobileNetworkDialogFragment$Color;->access$100(Lcom/android/settings/network/telephony/RenameMobileNetworkDialogFragment$Color;)Ljava/lang/String;
+    invoke-static {p0}, Lcom/android/settings/network/telephony/RenameMobileNetworkDialogFragment$Color;->-$$Nest$mgetLabel(Lcom/android/settings/network/telephony/RenameMobileNetworkDialogFragment$Color;)Ljava/lang/String;
 
     move-result-object p0
 

@@ -112,6 +112,8 @@
 
     move-result-object v0
 
+    check-cast v0, Landroidx/lifecycle/ClassesInfoCache$MethodReference;
+
     invoke-interface {v2, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_0

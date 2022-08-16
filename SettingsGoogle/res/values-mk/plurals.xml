@@ -9,8 +9,8 @@
         <item quantity="one">Пред %d мин.</item>
     </plurals>
     <plurals name="abc_slice_duration_years">
-        <item quantity="other">Пред %d год.</item>
-        <item quantity="one">Пред %d год.</item>
+        <item quantity="other">Пред %d г.</item>
+        <item quantity="one">Пред %d г.</item>
     </plurals>
     <plurals name="accessibility_usage_summary">
         <item quantity="other">%1$d апликации имаат целосен пристап до уредот</item>
@@ -233,12 +233,12 @@
         <item quantity="one">%d категорија е исклучена</item>
     </plurals>
     <plurals name="notifications_sent_daily">
-        <item quantity="other">околу %d известувања дневно</item>
-        <item quantity="one">околу %d известување дневно</item>
+        <item quantity="other">околу %,d известувања дневно</item>
+        <item quantity="one">околу %,d известување дневно</item>
     </plurals>
     <plurals name="notifications_sent_weekly">
-        <item quantity="other">околу %d известувања неделно</item>
-        <item quantity="one">околу %d известување неделно</item>
+        <item quantity="other">околу %,d известувања неделно</item>
+        <item quantity="one">околу %,d известување неделно</item>
     </plurals>
     <plurals name="number_of_device_admins">
         <item quantity="other">%d активни апликации</item>
@@ -328,22 +328,6 @@
         <item quantity="other">Или имајте доверба или отстранете ги сертификатите</item>
         <item quantity="one">Или имајте доверба или отстранете ги сертификатите</item>
     </plurals>
-    <plurals name="ssl_ca_cert_info_message">
-        <item quantity="other">"%s инсталираше авторитети за сертификати за вашиот работен профил, што може да им дозволат да ја следат активноста на работната мрежа, вклучувајќи ги е-пораките, апликациите и безбедните веб-сајтови.
-
-За повеќе информации за овие сертификати, контактирајте со администраторот."</item>
-        <item quantity="one">"%s инсталираше авторитети за сертификати за вашиот работен профил, што може да им дозволат да ја следат активноста на работната мрежа, вклучувајќи ги е-пораките, апликациите и безбедните веб-сајтови.
-
-За повеќе информации за овие сертификати, контактирајте со администраторот."</item>
-    </plurals>
-    <plurals name="ssl_ca_cert_info_message_device_owner">
-        <item quantity="other">"%s инсталираше авторитети за сертификати на вашиот уред, што може да им дозволат да ја следат активноста на мрежата на уредот, вклучувајќи ги е-пораките, апликациите и безбедните веб-сајтови.
-
-За повеќе информации за овие сертификати, контактирајте со администраторот."</item>
-        <item quantity="one">"%s инсталираше авторитети за сертификати на вашиот уред, што може да им дозволат да ја следат активноста на мрежата на уредот, вклучувајќи ги е-пораките, апликациите и безбедните веб-сајтови.
-
-За повеќе информации за овие сертификати, контактирајте со администраторот."</item>
-    </plurals>
     <plurals name="ssl_ca_cert_settings_button">
         <item quantity="other">Проверка на сертификати</item>
         <item quantity="one">Проверка на сертификати</item>
@@ -375,10 +359,6 @@
     <plurals name="wifi_saved_passpoint_access_points_summary">
         <item quantity="other">%d претплати</item>
         <item quantity="one">%d претплата</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">Поврзани се %1$d уреди</item>
-        <item quantity="one">Поврзан е %1$d уред</item>
     </plurals>
     <plurals name="wrong_pin_code">
         <item quantity="other">Погрешен PIN-код за SIM, имате уште %d обиди.</item>

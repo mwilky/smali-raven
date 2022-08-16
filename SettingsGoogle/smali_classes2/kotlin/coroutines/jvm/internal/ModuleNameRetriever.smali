@@ -11,7 +11,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nDebugMetadata.kt\nKotlin\n*S Kotlin\n*F\n+ 1 DebugMetadata.kt\nkotlin/coroutines/jvm/internal/ModuleNameRetriever\n+ 2 fake.kt\nkotlin/jvm/internal/FakeKt\n*L\n1#1,135:1\n1#2:136\n*E\n"
+    value = "SMAP\nDebugMetadata.kt\nKotlin\n*S Kotlin\n*F\n+ 1 DebugMetadata.kt\nkotlin/coroutines/jvm/internal/ModuleNameRetriever\n+ 2 fake.kt\nkotlin/jvm/internal/FakeKt\n*L\n1#1,134:1\n1#2:135\n*E\n"
 .end annotation
 
 
@@ -21,12 +21,15 @@
     .end annotation
 .end field
 
-.field public static cache:Lkotlin/coroutines/jvm/internal/ModuleNameRetriever$Cache;
+.field private static cache:Lkotlin/coroutines/jvm/internal/ModuleNameRetriever$Cache;
     .annotation build Lorg/jetbrains/annotations/Nullable;
     .end annotation
 .end field
 
 .field private static final notOnJava9:Lkotlin/coroutines/jvm/internal/ModuleNameRetriever$Cache;
+    .annotation build Lorg/jetbrains/annotations/NotNull;
+    .end annotation
+.end field
 
 
 # direct methods
@@ -153,16 +156,13 @@
 
     sget-object v0, Lkotlin/coroutines/jvm/internal/ModuleNameRetriever;->cache:Lkotlin/coroutines/jvm/internal/ModuleNameRetriever$Cache;
 
-    if-eqz v0, :cond_0
+    if-nez v0, :cond_0
 
-    goto :goto_0
-
-    :cond_0
     invoke-direct {p0, p1}, Lkotlin/coroutines/jvm/internal/ModuleNameRetriever;->buildCache(Lkotlin/coroutines/jvm/internal/BaseContinuationImpl;)Lkotlin/coroutines/jvm/internal/ModuleNameRetriever$Cache;
 
     move-result-object v0
 
-    :goto_0
+    :cond_0
     sget-object p0, Lkotlin/coroutines/jvm/internal/ModuleNameRetriever;->notOnJava9:Lkotlin/coroutines/jvm/internal/ModuleNameRetriever$Cache;
 
     const/4 v1, 0x0
@@ -174,13 +174,18 @@
     :cond_1
     iget-object p0, v0, Lkotlin/coroutines/jvm/internal/ModuleNameRetriever$Cache;->getModuleMethod:Ljava/lang/reflect/Method;
 
-    if-eqz p0, :cond_4
+    const/4 v2, 0x0
 
+    if-nez p0, :cond_2
+
+    move-object p0, v1
+
+    goto :goto_0
+
+    :cond_2
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object p1
-
-    const/4 v2, 0x0
 
     new-array v3, v2, [Ljava/lang/Object;
 
@@ -188,48 +193,57 @@
 
     move-result-object p0
 
-    if-eqz p0, :cond_4
+    :goto_0
+    if-nez p0, :cond_3
 
+    return-object v1
+
+    :cond_3
     iget-object p1, v0, Lkotlin/coroutines/jvm/internal/ModuleNameRetriever$Cache;->getDescriptorMethod:Ljava/lang/reflect/Method;
 
-    if-eqz p1, :cond_4
+    if-nez p1, :cond_4
 
+    move-object p0, v1
+
+    goto :goto_1
+
+    :cond_4
     new-array v3, v2, [Ljava/lang/Object;
 
     invoke-virtual {p1, p0, v3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p0
 
-    if-eqz p0, :cond_4
+    :goto_1
+    if-nez p0, :cond_5
 
+    return-object v1
+
+    :cond_5
     iget-object p1, v0, Lkotlin/coroutines/jvm/internal/ModuleNameRetriever$Cache;->nameMethod:Ljava/lang/reflect/Method;
 
-    if-eqz p1, :cond_2
+    if-nez p1, :cond_6
 
+    move-object p0, v1
+
+    goto :goto_2
+
+    :cond_6
     new-array v0, v2, [Ljava/lang/Object;
 
     invoke-virtual {p1, p0, v0}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p0
 
-    goto :goto_1
-
-    :cond_2
-    move-object p0, v1
-
-    :goto_1
+    :goto_2
     instance-of p1, p0, Ljava/lang/String;
 
-    if-nez p1, :cond_3
+    if-eqz p1, :cond_7
 
-    goto :goto_2
-
-    :cond_3
     move-object v1, p0
 
-    :goto_2
     check-cast v1, Ljava/lang/String;
 
-    :cond_4
+    :cond_7
     return-object v1
 .end method

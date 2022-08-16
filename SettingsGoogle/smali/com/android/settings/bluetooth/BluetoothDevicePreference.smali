@@ -42,6 +42,14 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmCachedDevice(Lcom/android/settings/bluetooth/BluetoothDevicePreference;)Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/bluetooth/BluetoothDevicePreference;->mCachedDevice:Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
+
+    return-object p0
+.end method
+
 .method static constructor <clinit>()V
     .locals 0
 
@@ -124,7 +132,7 @@
 
     new-instance p1, Lcom/android/settings/bluetooth/BluetoothDevicePreference$BluetoothDevicePreferenceCallback;
 
-    invoke-direct {p1, p0, v0}, Lcom/android/settings/bluetooth/BluetoothDevicePreference$BluetoothDevicePreferenceCallback;-><init>(Lcom/android/settings/bluetooth/BluetoothDevicePreference;Lcom/android/settings/bluetooth/BluetoothDevicePreference$1;)V
+    invoke-direct {p1, p0, v0}, Lcom/android/settings/bluetooth/BluetoothDevicePreference$BluetoothDevicePreferenceCallback;-><init>(Lcom/android/settings/bluetooth/BluetoothDevicePreference;Lcom/android/settings/bluetooth/BluetoothDevicePreference$BluetoothDevicePreferenceCallback-IA;)V
 
     iput-object p1, p0, Lcom/android/settings/bluetooth/BluetoothDevicePreference;->mCallback:Lcom/android/settings/bluetooth/BluetoothDevicePreference$BluetoothDevicePreferenceCallback;
 
@@ -141,14 +149,6 @@
     invoke-virtual {p0}, Lcom/android/settings/bluetooth/BluetoothDevicePreference;->onPreferenceAttributesChanged()V
 
     return-void
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/bluetooth/BluetoothDevicePreference;)Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/bluetooth/BluetoothDevicePreference;->mCachedDevice:Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
-
-    return-object p0
 .end method
 
 .method private askDisconnect()V
@@ -170,14 +170,14 @@
 
     if-eqz v2, :cond_0
 
-    const v1, 0x7f040449
+    const v1, 0x7f040492
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
     :cond_0
-    const v2, 0x7f040466
+    const v2, 0x7f0404b0
 
     const/4 v3, 0x1
 
@@ -191,7 +191,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f04046c
+    const v2, 0x7f0404b6
 
     invoke-virtual {v0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -237,7 +237,7 @@
 
     move-result-object p0
 
-    const v1, 0x7f0404b3
+    const v1, 0x7f040509
 
     invoke-static {v0, p0, v1}, Lcom/android/settings/bluetooth/Utils;->showError(Landroid/content/Context;Ljava/lang/String;I)V
 
@@ -372,7 +372,7 @@
 .method protected getSecondTargetResId()I
     .locals 0
 
-    const p0, 0x7f0601b8
+    const p0, 0x7f0601c4
 
     return p0
 .end method
@@ -446,7 +446,7 @@
 
     if-ne v0, v1, :cond_1
 
-    const v0, 0x7f0d04e6
+    const v0, 0x7f0d0526
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -485,7 +485,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b00b2
+    const v2, 0x7f0b00cf
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 

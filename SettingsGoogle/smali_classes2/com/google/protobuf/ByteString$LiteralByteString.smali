@@ -28,7 +28,7 @@
 
     invoke-direct {p0}, Lcom/google/protobuf/ByteString$LeafByteString;-><init>()V
 
-    invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     iput-object p1, p0, Lcom/google/protobuf/ByteString$LiteralByteString;->bytes:[B
 

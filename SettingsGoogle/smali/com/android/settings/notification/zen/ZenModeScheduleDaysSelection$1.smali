@@ -43,7 +43,7 @@
 
     iget-object p1, p0, Lcom/android/settings/notification/zen/ZenModeScheduleDaysSelection$1;->this$0:Lcom/android/settings/notification/zen/ZenModeScheduleDaysSelection;
 
-    invoke-static {p1}, Lcom/android/settings/notification/zen/ZenModeScheduleDaysSelection;->access$000(Lcom/android/settings/notification/zen/ZenModeScheduleDaysSelection;)Landroid/util/SparseBooleanArray;
+    invoke-static {p1}, Lcom/android/settings/notification/zen/ZenModeScheduleDaysSelection;->-$$Nest$fgetmDays(Lcom/android/settings/notification/zen/ZenModeScheduleDaysSelection;)Landroid/util/SparseBooleanArray;
 
     move-result-object p1
 
@@ -53,7 +53,7 @@
 
     iget-object p0, p0, Lcom/android/settings/notification/zen/ZenModeScheduleDaysSelection$1;->this$0:Lcom/android/settings/notification/zen/ZenModeScheduleDaysSelection;
 
-    invoke-static {p0}, Lcom/android/settings/notification/zen/ZenModeScheduleDaysSelection;->access$100(Lcom/android/settings/notification/zen/ZenModeScheduleDaysSelection;)[I
+    invoke-static {p0}, Lcom/android/settings/notification/zen/ZenModeScheduleDaysSelection;->-$$Nest$mgetDays(Lcom/android/settings/notification/zen/ZenModeScheduleDaysSelection;)[I
 
     move-result-object p1
 

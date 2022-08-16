@@ -1,28 +1,13 @@
 .class public final synthetic Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda10;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Function;
-
-
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda10;
+.implements Ljava/util/function/Predicate;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda10;
-
-    invoke-direct {v0}, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda10;-><init>()V
-
-    sput-object v0, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda10;->INSTANCE:Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda10;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,14 +17,14 @@
 
 
 # virtual methods
-.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
+.method public final test(Ljava/lang/Object;)Z
     .locals 0
 
-    check-cast p1, Ljava/util/List;
+    check-cast p1, Landroidx/preference/Preference;
 
-    invoke-interface {p1}, Ljava/util/Collection;->stream()Ljava/util/stream/Stream;
+    invoke-static {p1}, Ljava/util/Objects;->nonNull(Ljava/lang/Object;)Z
 
-    move-result-object p0
+    move-result p0
 
-    return-object p0
+    return p0
 .end method

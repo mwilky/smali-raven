@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/google/android/settings/biometrics/face/FaceErrorDialog$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/google/android/settings/biometrics/face/FaceEnrollDialogFactory$OnBackKeyListener;

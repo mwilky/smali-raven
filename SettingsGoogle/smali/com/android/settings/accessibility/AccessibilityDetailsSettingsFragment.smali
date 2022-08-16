@@ -11,6 +11,10 @@
 .end annotation
 
 
+# instance fields
+.field private mAppOps:Landroid/app/AppOpsManager;
+
+
 # direct methods
 .method public constructor <init>()V
     .locals 0
@@ -83,7 +87,7 @@
 
     if-eqz v6, :cond_0
 
-    const v5, 0x7f0400d3
+    const v5, 0x7f0400d4
 
     invoke-virtual {p0, v5}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -110,7 +114,7 @@
 
     invoke-virtual {v6, v2, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string v1, "resolve_info"
+    const-string/jumbo v1, "resolve_info"
 
     invoke-virtual {v6, v1, v0}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
@@ -128,7 +132,7 @@
 
     if-nez v1, :cond_1
 
-    const v1, 0x7f0400ff
+    const v1, 0x7f04010d
 
     invoke-virtual {p0, v1}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -151,6 +155,29 @@
     invoke-virtual {v6, v1, v0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_1
+    invoke-virtual {p1}, Landroid/accessibilityservice/AccessibilityServiceInfo;->getTileServiceName()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_2
+
+    new-instance v1, Landroid/content/ComponentName;
+
+    invoke-direct {v1, v3, v0}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-virtual {v1}, Landroid/content/ComponentName;->flattenToString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "tile_service_component_name"
+
+    invoke-virtual {v6, v1, v0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_2
     const-string v0, "component_name"
 
     invoke-virtual {v6, v0, v4}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
@@ -165,19 +192,53 @@
 
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
 
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/app/Activity;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/accessibilityservice/AccessibilityServiceInfo;->loadHtmlDescription(Landroid/content/pm/PackageManager;)Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "html_description"
+
+    invoke-virtual {v6, v1, v0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/app/Activity;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/accessibilityservice/AccessibilityServiceInfo;->loadIntro(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
+
+    move-result-object p1
+
+    const-string v0, "intro"
+
+    invoke-virtual {v6, v0, p1}, Landroid/os/Bundle;->putCharSequence(Ljava/lang/String;Ljava/lang/CharSequence;)V
+
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
+
     move-result-object p0
 
-    invoke-virtual {p0}, Landroid/app/Activity;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object p0
 
-    invoke-virtual {p1, p0}, Landroid/accessibilityservice/AccessibilityServiceInfo;->loadHtmlDescription(Landroid/content/pm/PackageManager;)Ljava/lang/String;
+    const-wide/16 v0, 0x0
 
-    move-result-object p0
+    const-string/jumbo p1, "start_time_to_log_a11y_tool"
 
-    const-string p1, "html_description"
+    invoke-virtual {p0, p1, v0, v1}, Landroid/content/Intent;->getLongExtra(Ljava/lang/String;J)J
 
-    invoke-virtual {v6, p1, p0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    move-result-wide v0
+
+    invoke-virtual {v6, p1, v0, v1}, Landroid/os/Bundle;->putLong(Ljava/lang/String;J)V
 
     return-object v6
 .end method
@@ -340,7 +401,7 @@
 .end method
 
 .method private openAccessibilityDetailsSettingsAndFinish(Landroid/content/ComponentName;)Z
-    .locals 3
+    .locals 4
 
     invoke-direct {p0, p1}, Lcom/android/settings/accessibility/AccessibilityDetailsSettingsFragment;->getAccessibilityServiceInfo(Landroid/content/ComponentName;)Landroid/accessibilityservice/AccessibilityServiceInfo;
 
@@ -359,17 +420,27 @@
     return v1
 
     :cond_0
+    invoke-virtual {v0}, Landroid/accessibilityservice/AccessibilityServiceInfo;->getResolveInfo()Landroid/content/pm/ResolveInfo;
+
+    move-result-object v3
+
+    iget-object v3, v3, Landroid/content/pm/ResolveInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
+
+    iget-object v3, v3, Landroid/content/pm/ServiceInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    iget v3, v3, Landroid/content/pm/ApplicationInfo;->uid:I
+
     invoke-virtual {p1}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
     move-result-object p1
 
-    invoke-virtual {p0, p1}, Lcom/android/settings/accessibility/AccessibilityDetailsSettingsFragment;->isServiceAllowed(Ljava/lang/String;)Z
+    invoke-virtual {p0, v3, p1}, Lcom/android/settings/accessibility/AccessibilityDetailsSettingsFragment;->isServiceAllowed(ILjava/lang/String;)Z
 
     move-result p1
 
     if-nez p1, :cond_1
 
-    const-string p0, "openAccessibilityDetailsSettingsAndFinish: target accessibility service isprohibited by Device Admin."
+    const-string p0, "openAccessibilityDetailsSettingsAndFinish: target accessibility service isprohibited by Device Admin or App Op."
 
     invoke-static {v2, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -482,58 +553,103 @@
     return p0
 .end method
 
-.method isServiceAllowed(Ljava/lang/String;)Z
-    .locals 1
+.method isServiceAllowed(ILjava/lang/String;)Z
+    .locals 4
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
 
-    move-result-object p0
+    move-result-object v0
 
-    const-class v0, Landroid/app/admin/DevicePolicyManager;
+    const-class v1, Landroid/app/admin/DevicePolicyManager;
 
-    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object p0
+    move-result-object v0
 
-    check-cast p0, Landroid/app/admin/DevicePolicyManager;
+    check-cast v0, Landroid/app/admin/DevicePolicyManager;
 
     invoke-static {}, Landroid/os/UserHandle;->myUserId()I
 
+    move-result v1
+
+    invoke-virtual {v0, v1}, Landroid/app/admin/DevicePolicyManager;->getPermittedAccessibilityServices(I)Ljava/util/List;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {v0, p2}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+
     move-result v0
 
-    invoke-virtual {p0, v0}, Landroid/app/admin/DevicePolicyManager;->getPermittedAccessibilityServices(I)Ljava/util/List;
+    if-nez v0, :cond_0
+
+    return v1
+
+    :cond_0
+    const/4 v0, 0x1
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/settings/accessibility/AccessibilityDetailsSettingsFragment;->mAppOps:Landroid/app/AppOpsManager;
+
+    const/16 v3, 0x77
+
+    invoke-virtual {v2, v3, p1, p2}, Landroid/app/AppOpsManager;->noteOpNoThrow(IILjava/lang/String;)I
+
+    move-result p1
+
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
 
     move-result-object p0
 
-    if-eqz p0, :cond_1
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    invoke-interface {p0, p1}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+    move-result-object p0
+
+    const p2, 0x1110149
+
+    invoke-virtual {p0, p2}, Landroid/content/res/Resources;->getBoolean(I)Z
 
     move-result p0
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_1
 
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    goto :goto_1
+    if-nez p1, :cond_2
 
     :cond_1
-    :goto_0
-    const/4 p0, 0x1
+    move v1, v0
 
-    :goto_1
-    return p0
+    :cond_2
+    return v1
+
+    :catch_0
+    return v0
 .end method
 
 .method public onCreate(Landroid/os/Bundle;)V
     .locals 1
 
     invoke-super {p0, p1}, Lcom/android/settingslib/core/lifecycle/ObservableFragment;->onCreate(Landroid/os/Bundle;)V
+
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
+
+    move-result-object p1
+
+    const-class v0, Landroid/app/AppOpsManager;
+
+    invoke-virtual {p1, v0}, Landroid/app/Activity;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Landroid/app/AppOpsManager;
+
+    iput-object p1, p0, Lcom/android/settings/accessibility/AccessibilityDetailsSettingsFragment;->mAppOps:Landroid/app/AppOpsManager;
 
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
 

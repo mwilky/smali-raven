@@ -35,14 +35,6 @@
 
 .method constructor <init>(Landroidx/core/view/WindowInsetsCompat;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "insets"
-        }
-    .end annotation
 
     invoke-direct {p0, p1}, Landroidx/core/view/WindowInsetsCompat$BuilderImpl;-><init>(Landroidx/core/view/WindowInsetsCompat;)V
 
@@ -95,14 +87,6 @@
 
 .method setMandatorySystemGestureInsets(Landroidx/core/graphics/Insets;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "insets"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/core/view/WindowInsetsCompat$BuilderImpl29;->mPlatBuilder:Landroid/view/WindowInsets$Builder;
 
@@ -117,14 +101,6 @@
 
 .method setStableInsets(Landroidx/core/graphics/Insets;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "insets"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/core/view/WindowInsetsCompat$BuilderImpl29;->mPlatBuilder:Landroid/view/WindowInsets$Builder;
 
@@ -139,14 +115,6 @@
 
 .method setSystemGestureInsets(Landroidx/core/graphics/Insets;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "insets"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/core/view/WindowInsetsCompat$BuilderImpl29;->mPlatBuilder:Landroid/view/WindowInsets$Builder;
 
@@ -161,14 +129,6 @@
 
 .method setSystemWindowInsets(Landroidx/core/graphics/Insets;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "insets"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/core/view/WindowInsetsCompat$BuilderImpl29;->mPlatBuilder:Landroid/view/WindowInsets$Builder;
 
@@ -183,14 +143,6 @@
 
 .method setTappableElementInsets(Landroidx/core/graphics/Insets;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "insets"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/core/view/WindowInsetsCompat$BuilderImpl29;->mPlatBuilder:Landroid/view/WindowInsets$Builder;
 

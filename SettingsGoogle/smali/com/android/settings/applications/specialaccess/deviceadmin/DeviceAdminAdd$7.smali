@@ -49,7 +49,7 @@
 
     iget-object p0, p0, Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminAdd$7;->this$0:Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminAdd;
 
-    invoke-static {p0}, Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminAdd;->access$000(Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminAdd;)V
+    invoke-static {p0}, Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminAdd;->-$$Nest$mshowPolicyTransparencyDialogIfRequired(Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminAdd;)V
 
     return-void
 
@@ -67,7 +67,7 @@
     :cond_1
     iget-object v0, p1, Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminAdd;->mDeviceAdmin:Landroid/app/admin/DeviceAdminInfo;
 
-    invoke-static {p1, v0}, Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminAdd;->access$100(Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminAdd;Landroid/app/admin/DeviceAdminInfo;)Z
+    invoke-static {p1, v0}, Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminAdd;->-$$Nest$misManagedProfile(Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminAdd;Landroid/app/admin/DeviceAdminInfo;)Z
 
     move-result p1
 

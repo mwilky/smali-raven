@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment$$ExternalSyntheticLambda5;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/settings/accessibility/AccessibilityServiceWarning$UninstallActionPerformer;
+.implements Lcom/android/settings/accessibility/AccessibilitySettingsContentObserver$ContentObserverCallback;
 
 
 # instance fields
@@ -22,12 +23,12 @@
 
 
 # virtual methods
-.method public final uninstallPackage()V
+.method public final onChange(Ljava/lang/String;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment$$ExternalSyntheticLambda5;->f$0:Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;
 
-    invoke-static {p0}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->$r8$lambda$ctyeSlz3fYa5iRGU4JNEQ81aQbw(Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;)V
+    invoke-static {p0, p1}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->$r8$lambda$Z-orruyoYgXEMzXP9JvPnfdPAJo(Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;Ljava/lang/String;)V
 
     return-void
 .end method

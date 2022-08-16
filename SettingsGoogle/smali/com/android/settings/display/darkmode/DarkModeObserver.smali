@@ -14,6 +14,14 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmCallback(Lcom/android/settings/display/darkmode/DarkModeObserver;)Ljava/lang/Runnable;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/display/darkmode/DarkModeObserver;->mCallback:Ljava/lang/Runnable;
+
+    return-object p0
+.end method
+
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 2
 
@@ -44,14 +52,6 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/settings/display/darkmode/DarkModeObserver;)Ljava/lang/Runnable;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/display/darkmode/DarkModeObserver;->mCallback:Ljava/lang/Runnable;
-
-    return-object p0
-.end method
-
 
 # virtual methods
 .method protected getContentObserver()Landroid/database/ContentObserver;
@@ -75,7 +75,7 @@
 .end method
 
 .method public subscribe(Ljava/lang/Runnable;)V
-    .locals 5
+    .locals 6
 
     invoke-interface {p1}, Ljava/lang/Runnable;->run()V
 
@@ -87,29 +87,35 @@
 
     move-result-object p1
 
-    const-string v0, "dark_theme_custom_start_time"
+    const-string/jumbo v0, "ui_night_mode_custom_type"
 
     invoke-static {v0}, Landroid/provider/Settings$Secure;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v0
 
-    const-string v1, "dark_theme_custom_end_time"
+    const-string v1, "dark_theme_custom_start_time"
 
     invoke-static {v1}, Landroid/provider/Settings$Secure;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/android/settings/display/darkmode/DarkModeObserver;->mContext:Landroid/content/Context;
+    const-string v2, "dark_theme_custom_end_time"
 
-    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-static {v2}, Landroid/provider/Settings$Secure;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v2
 
-    iget-object v3, p0, Lcom/android/settings/display/darkmode/DarkModeObserver;->mContentObserver:Landroid/database/ContentObserver;
+    iget-object v3, p0, Lcom/android/settings/display/darkmode/DarkModeObserver;->mContext:Landroid/content/Context;
 
-    const/4 v4, 0x0
+    invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    invoke-virtual {v2, p1, v4, v3}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
+    move-result-object v3
+
+    iget-object v4, p0, Lcom/android/settings/display/darkmode/DarkModeObserver;->mContentObserver:Landroid/database/ContentObserver;
+
+    const/4 v5, 0x0
+
+    invoke-virtual {v3, p1, v5, v4}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
     iget-object p1, p0, Lcom/android/settings/display/darkmode/DarkModeObserver;->mContext:Landroid/content/Context;
 
@@ -117,9 +123,9 @@
 
     move-result-object p1
 
-    iget-object v2, p0, Lcom/android/settings/display/darkmode/DarkModeObserver;->mContentObserver:Landroid/database/ContentObserver;
+    iget-object v3, p0, Lcom/android/settings/display/darkmode/DarkModeObserver;->mContentObserver:Landroid/database/ContentObserver;
 
-    invoke-virtual {p1, v0, v4, v2}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
+    invoke-virtual {p1, v0, v5, v3}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
     iget-object p1, p0, Lcom/android/settings/display/darkmode/DarkModeObserver;->mContext:Landroid/content/Context;
 
@@ -129,7 +135,17 @@
 
     iget-object v0, p0, Lcom/android/settings/display/darkmode/DarkModeObserver;->mContentObserver:Landroid/database/ContentObserver;
 
-    invoke-virtual {p1, v1, v4, v0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
+    invoke-virtual {p1, v1, v5, v0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
+
+    iget-object p1, p0, Lcom/android/settings/display/darkmode/DarkModeObserver;->mContext:Landroid/content/Context;
+
+    invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object p1
+
+    iget-object v0, p0, Lcom/android/settings/display/darkmode/DarkModeObserver;->mContentObserver:Landroid/database/ContentObserver;
+
+    invoke-virtual {p1, v2, v5, v0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
     new-instance p1, Landroid/content/IntentFilter;
 

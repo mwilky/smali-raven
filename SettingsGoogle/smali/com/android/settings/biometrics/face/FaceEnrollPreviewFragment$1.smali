@@ -39,7 +39,7 @@
 
     iget-object p0, p0, Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment$1;->this$0:Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;
 
-    invoke-static {p0}, Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;->access$000(Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;)Lcom/android/settings/biometrics/face/ParticleCollection$Listener;
+    invoke-static {p0}, Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;->-$$Nest$fgetmListener(Lcom/android/settings/biometrics/face/FaceEnrollPreviewFragment;)Lcom/android/settings/biometrics/face/ParticleCollection$Listener;
 
     move-result-object p0
 

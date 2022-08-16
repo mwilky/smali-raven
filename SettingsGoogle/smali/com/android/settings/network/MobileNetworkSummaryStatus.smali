@@ -138,7 +138,9 @@
 
     move-result-object p0
 
-    sget-object p1, Lcom/android/settings/network/MobileNetworkSummaryStatus$$ExternalSyntheticLambda3;->INSTANCE:Lcom/android/settings/network/MobileNetworkSummaryStatus$$ExternalSyntheticLambda3;
+    new-instance p1, Lcom/android/settings/network/MobileNetworkSummaryStatus$$ExternalSyntheticLambda3;
+
+    invoke-direct {p1}, Lcom/android/settings/network/MobileNetworkSummaryStatus$$ExternalSyntheticLambda3;-><init>()V
 
     invoke-interface {p0, p1}, Ljava/util/stream/Stream;->filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
 
@@ -478,6 +480,16 @@
 
     invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    new-instance v0, Lcom/android/settings/network/MobileNetworkSummaryStatus$$ExternalSyntheticLambda0;
+
+    invoke-direct {v0, p0, p1}, Lcom/android/settings/network/MobileNetworkSummaryStatus$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/network/MobileNetworkSummaryStatus;Landroid/content/Context;)V
+
+    invoke-static {v0}, Lcom/android/settingslib/utils/ThreadUtils;->postOnBackgroundThread(Ljava/util/concurrent/Callable;)Ljava/util/concurrent/Future;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/settings/network/MobileNetworkSummaryStatus;->mIsEuiccConfiguable:Ljava/util/concurrent/Future;
+
     new-instance v0, Lcom/android/settings/network/MobileNetworkSummaryStatus$$ExternalSyntheticLambda1;
 
     invoke-direct {v0, p0, p1}, Lcom/android/settings/network/MobileNetworkSummaryStatus$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/network/MobileNetworkSummaryStatus;Landroid/content/Context;)V
@@ -486,21 +498,11 @@
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/android/settings/network/MobileNetworkSummaryStatus;->mIsEuiccConfiguable:Ljava/util/concurrent/Future;
+    iput-object v0, p0, Lcom/android/settings/network/MobileNetworkSummaryStatus;->mUniqueNameMapping:Ljava/util/concurrent/Future;
 
     new-instance v0, Lcom/android/settings/network/MobileNetworkSummaryStatus$$ExternalSyntheticLambda2;
 
     invoke-direct {v0, p0, p1}, Lcom/android/settings/network/MobileNetworkSummaryStatus$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/network/MobileNetworkSummaryStatus;Landroid/content/Context;)V
-
-    invoke-static {v0}, Lcom/android/settingslib/utils/ThreadUtils;->postOnBackgroundThread(Ljava/util/concurrent/Callable;)Ljava/util/concurrent/Future;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/settings/network/MobileNetworkSummaryStatus;->mUniqueNameMapping:Ljava/util/concurrent/Future;
-
-    new-instance v0, Lcom/android/settings/network/MobileNetworkSummaryStatus$$ExternalSyntheticLambda0;
-
-    invoke-direct {v0, p0, p1}, Lcom/android/settings/network/MobileNetworkSummaryStatus$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/network/MobileNetworkSummaryStatus;Landroid/content/Context;)V
 
     invoke-static {v0}, Lcom/android/settingslib/utils/ThreadUtils;->postOnBackgroundThread(Ljava/util/concurrent/Callable;)Ljava/util/concurrent/Future;
 

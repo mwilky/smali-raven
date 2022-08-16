@@ -247,7 +247,9 @@
 
     move-result-object p0
 
-    sget-object p1, Lcom/android/settings/network/ProxySubscriptionManager$$ExternalSyntheticLambda2;->INSTANCE:Lcom/android/settings/network/ProxySubscriptionManager$$ExternalSyntheticLambda2;
+    new-instance p1, Lcom/android/settings/network/ProxySubscriptionManager$$ExternalSyntheticLambda4;
+
+    invoke-direct {p1}, Lcom/android/settings/network/ProxySubscriptionManager$$ExternalSyntheticLambda4;-><init>()V
 
     invoke-interface {p0, p1}, Ljava/util/stream/Stream;->forEach(Ljava/util/function/Consumer;)V
 
@@ -297,9 +299,9 @@
 
     move-result-object p1
 
-    new-instance v0, Lcom/android/settings/network/ProxySubscriptionManager$$ExternalSyntheticLambda3;
+    new-instance v0, Lcom/android/settings/network/ProxySubscriptionManager$$ExternalSyntheticLambda0;
 
-    invoke-direct {v0, p0}, Lcom/android/settings/network/ProxySubscriptionManager$$ExternalSyntheticLambda3;-><init>(Lcom/android/settings/network/ProxySubscriptionManager;)V
+    invoke-direct {v0, p0}, Lcom/android/settings/network/ProxySubscriptionManager$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/network/ProxySubscriptionManager;)V
 
     invoke-static {v0}, Ljava/util/stream/Collectors;->groupingBy(Ljava/util/function/Function;)Ljava/util/stream/Collector;
 
@@ -329,9 +331,9 @@
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/settings/network/ProxySubscriptionManager$$ExternalSyntheticLambda0;
+    new-instance v1, Lcom/android/settings/network/ProxySubscriptionManager$$ExternalSyntheticLambda2;
 
-    invoke-direct {v1, p0}, Lcom/android/settings/network/ProxySubscriptionManager$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/network/ProxySubscriptionManager;)V
+    invoke-direct {v1, p0}, Lcom/android/settings/network/ProxySubscriptionManager$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/network/ProxySubscriptionManager;)V
 
     invoke-interface {p1, v0, v1}, Ljava/util/Map;->computeIfPresent(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;
 
@@ -350,9 +352,9 @@
         }
     .end annotation
 
-    new-instance v0, Lcom/android/settings/network/ProxySubscriptionManager$$ExternalSyntheticLambda4;
+    new-instance v0, Lcom/android/settings/network/ProxySubscriptionManager$$ExternalSyntheticLambda3;
 
-    invoke-direct {v0, p0, p1}, Lcom/android/settings/network/ProxySubscriptionManager$$ExternalSyntheticLambda4;-><init>(Lcom/android/settings/network/ProxySubscriptionManager;Lcom/android/settings/network/ProxySubscriptionManager$OnActiveSubscriptionChangedListener;)V
+    invoke-direct {v0, p0, p1}, Lcom/android/settings/network/ProxySubscriptionManager$$ExternalSyntheticLambda3;-><init>(Lcom/android/settings/network/ProxySubscriptionManager;Lcom/android/settings/network/ProxySubscriptionManager$OnActiveSubscriptionChangedListener;)V
 
     invoke-interface {p2, v0}, Ljava/util/List;->removeIf(Ljava/util/function/Predicate;)Z
 

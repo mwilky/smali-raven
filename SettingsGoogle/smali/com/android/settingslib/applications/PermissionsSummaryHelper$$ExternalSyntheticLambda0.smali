@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settingslib/applications/PermissionsSummaryHelper$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/permission/PermissionControllerManager$OnGetAppPermissionResultCallback;

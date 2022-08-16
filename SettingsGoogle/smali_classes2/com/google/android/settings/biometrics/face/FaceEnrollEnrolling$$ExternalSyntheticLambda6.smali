@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling$$ExternalSyntheticLambda6;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Lcom/google/android/settings/biometrics/face/FaceEnrollDialogFactory$OnBackKeyListener;
 
 
 # instance fields
@@ -22,12 +23,12 @@
 
 
 # virtual methods
-.method public final run()V
+.method public final onBackKeyUp(Landroid/content/DialogInterface;Landroid/view/KeyEvent;)V
     .locals 0
 
     iget-object p0, p0, Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling$$ExternalSyntheticLambda6;->f$0:Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling;
 
-    invoke-static {p0}, Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling;->$r8$lambda$NNhJ2gq_WPNQHUTI9QQBKg37UoQ(Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling;)V
+    invoke-static {p0, p1, p2}, Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling;->$r8$lambda$MGQjrKuHyl0MfB7SsXIrDqwb4Qk(Lcom/google/android/settings/biometrics/face/FaceEnrollEnrolling;Landroid/content/DialogInterface;Landroid/view/KeyEvent;)V
 
     return-void
 .end method

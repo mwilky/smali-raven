@@ -34,7 +34,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a0b
+    const p0, 0x7f040a62
 
     return p0
 .end method
@@ -52,7 +52,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/applications/ProcessStatsBase;->onCreate(Landroid/os/Bundle;)V
 
-    const p1, 0x7f1500c4
+    const p1, 0x7f1500c8
 
     invoke-virtual {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->addPreferencesFromResource(I)V
 
@@ -156,7 +156,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f040cf7
+    const v2, 0x7f040d72
 
     invoke-virtual {v0, v2}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 
@@ -231,7 +231,7 @@
 
     move-result-object v12
 
-    const v13, 0x7f0100aa
+    const v13, 0x7f0100b4
 
     invoke-virtual {v12, v13}, Landroid/content/res/Resources;->getTextArray(I)[Ljava/lang/CharSequence;
 

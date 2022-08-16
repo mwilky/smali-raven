@@ -10,6 +10,14 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$monSettingsButtonClicked(Lcom/android/settings/inputmethod/SpellCheckerPreference;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/inputmethod/SpellCheckerPreference;->onSettingsButtonClicked()V
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;[Landroid/view/textservice/SpellCheckerInfo;)V
     .locals 5
 
@@ -19,7 +27,7 @@
 
     iput-object p2, p0, Lcom/android/settings/inputmethod/SpellCheckerPreference;->mScis:[Landroid/view/textservice/SpellCheckerInfo;
 
-    const v0, 0x7f0601b8
+    const v0, 0x7f0601c4
 
     invoke-virtual {p0, v0}, Landroidx/preference/Preference;->setWidgetLayoutResource(I)V
 
@@ -64,14 +72,6 @@
     invoke-virtual {p0, v0}, Landroidx/preference/ListPreference;->setEntries([Ljava/lang/CharSequence;)V
 
     invoke-virtual {p0, v1}, Landroidx/preference/ListPreference;->setEntryValues([Ljava/lang/CharSequence;)V
-
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/inputmethod/SpellCheckerPreference;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/inputmethod/SpellCheckerPreference;->onSettingsButtonClicked()V
 
     return-void
 .end method
@@ -132,7 +132,7 @@
 
     invoke-super {p0, p1}, Landroidx/preference/Preference;->onBindViewHolder(Landroidx/preference/PreferenceViewHolder;)V
 
-    const v0, 0x7f0d04e6
+    const v0, 0x7f0d0526
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -164,7 +164,7 @@
 .method protected onPrepareDialogBuilder(Landroidx/appcompat/app/AlertDialog$Builder;Landroid/content/DialogInterface$OnClickListener;)V
     .locals 2
 
-    const v0, 0x7f0405c7
+    const v0, 0x7f040623
 
     invoke-virtual {p1, v0}, Landroidx/appcompat/app/AlertDialog$Builder;->setTitle(I)Landroidx/appcompat/app/AlertDialog$Builder;
 

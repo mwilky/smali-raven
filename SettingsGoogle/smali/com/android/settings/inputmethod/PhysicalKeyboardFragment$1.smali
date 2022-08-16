@@ -36,7 +36,7 @@
 
     iget-object p0, p0, Lcom/android/settings/inputmethod/PhysicalKeyboardFragment$1;->this$0:Lcom/android/settings/inputmethod/PhysicalKeyboardFragment;
 
-    invoke-static {p0}, Lcom/android/settings/inputmethod/PhysicalKeyboardFragment;->access$000(Lcom/android/settings/inputmethod/PhysicalKeyboardFragment;)V
+    invoke-static {p0}, Lcom/android/settings/inputmethod/PhysicalKeyboardFragment;->-$$Nest$mupdateShowVirtualKeyboardSwitch(Lcom/android/settings/inputmethod/PhysicalKeyboardFragment;)V
 
     return-void
 .end method

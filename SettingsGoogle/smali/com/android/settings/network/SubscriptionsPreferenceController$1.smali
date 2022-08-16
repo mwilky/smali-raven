@@ -48,13 +48,13 @@
 
     iget-object p1, p0, Lcom/android/settings/network/SubscriptionsPreferenceController$1;->this$0:Lcom/android/settings/network/SubscriptionsPreferenceController;
 
-    invoke-static {p1}, Lcom/android/settings/network/SubscriptionsPreferenceController;->access$200(Lcom/android/settings/network/SubscriptionsPreferenceController;)Lcom/android/settings/network/SubscriptionsPreferenceController$SubsPrefCtrlInjector;
+    invoke-static {p1}, Lcom/android/settings/network/SubscriptionsPreferenceController;->-$$Nest$fgetmSubsPrefCtrlInjector(Lcom/android/settings/network/SubscriptionsPreferenceController;)Lcom/android/settings/network/SubscriptionsPreferenceController$SubsPrefCtrlInjector;
 
     move-result-object p2
 
     iget-object v0, p0, Lcom/android/settings/network/SubscriptionsPreferenceController$1;->this$0:Lcom/android/settings/network/SubscriptionsPreferenceController;
 
-    invoke-static {v0}, Lcom/android/settings/network/SubscriptionsPreferenceController;->access$100(Lcom/android/settings/network/SubscriptionsPreferenceController;)Landroid/content/Context;
+    invoke-static {v0}, Lcom/android/settings/network/SubscriptionsPreferenceController;->access$000(Lcom/android/settings/network/SubscriptionsPreferenceController;)Landroid/content/Context;
 
     move-result-object v0
 
@@ -62,11 +62,11 @@
 
     move-result-object p2
 
-    invoke-static {p1, p2}, Lcom/android/settings/network/SubscriptionsPreferenceController;->access$002(Lcom/android/settings/network/SubscriptionsPreferenceController;Lcom/android/settingslib/mobile/MobileMappings$Config;)Lcom/android/settingslib/mobile/MobileMappings$Config;
+    invoke-static {p1, p2}, Lcom/android/settings/network/SubscriptionsPreferenceController;->-$$Nest$fputmConfig(Lcom/android/settings/network/SubscriptionsPreferenceController;Lcom/android/settingslib/mobile/MobileMappings$Config;)V
 
     iget-object p0, p0, Lcom/android/settings/network/SubscriptionsPreferenceController$1;->this$0:Lcom/android/settings/network/SubscriptionsPreferenceController;
 
-    invoke-static {p0}, Lcom/android/settings/network/SubscriptionsPreferenceController;->access$300(Lcom/android/settings/network/SubscriptionsPreferenceController;)V
+    invoke-static {p0}, Lcom/android/settings/network/SubscriptionsPreferenceController;->-$$Nest$mupdate(Lcom/android/settings/network/SubscriptionsPreferenceController;)V
 
     goto :goto_0
 
@@ -81,7 +81,7 @@
 
     iget-object p0, p0, Lcom/android/settings/network/SubscriptionsPreferenceController$1;->this$0:Lcom/android/settings/network/SubscriptionsPreferenceController;
 
-    invoke-static {p0}, Lcom/android/settings/network/SubscriptionsPreferenceController;->access$300(Lcom/android/settings/network/SubscriptionsPreferenceController;)V
+    invoke-static {p0}, Lcom/android/settings/network/SubscriptionsPreferenceController;->-$$Nest$mupdate(Lcom/android/settings/network/SubscriptionsPreferenceController;)V
 
     :cond_1
     :goto_0

@@ -268,7 +268,7 @@
 
     move-result p1
 
-    invoke-static {v0, v1, p0, p1}, Lcom/android/settings/security/CredentialStorage;->access$500(Lcom/android/settings/security/CredentialStorage;Ljava/lang/String;IZ)V
+    invoke-static {v0, v1, p0, p1}, Lcom/android/settings/security/CredentialStorage;->-$$Nest$monKeyInstalled(Lcom/android/settings/security/CredentialStorage;Ljava/lang/String;IZ)V
 
     return-void
 .end method

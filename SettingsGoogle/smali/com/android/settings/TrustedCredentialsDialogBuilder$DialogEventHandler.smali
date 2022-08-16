@@ -21,7 +21,7 @@
 # instance fields
 .field private final mActivity:Landroid/app/Activity;
 
-.field private mCertHolders:[Lcom/android/settings/TrustedCredentialsSettings$CertHolder;
+.field private mCertHolders:[Lcom/android/settings/TrustedCredentialsFragment$CertHolder;
 
 .field private mCurrentCertIndex:I
 
@@ -53,6 +53,54 @@
     return-void
 .end method
 
+.method static bridge synthetic -$$Nest$fgetmActivity(Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;)Landroid/app/Activity;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;->mActivity:Landroid/app/Activity;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmCurrentCertLayout(Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;)Landroid/view/View;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;->mCurrentCertLayout:Landroid/view/View;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmDelegate(Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;)Lcom/android/settings/TrustedCredentialsDialogBuilder$DelegateInterface;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;->mDelegate:Lcom/android/settings/TrustedCredentialsDialogBuilder$DelegateInterface;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmRootContainer(Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;)Landroid/widget/LinearLayout;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;->mRootContainer:Landroid/widget/LinearLayout;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$maddAndAnimateNewContent(Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;Landroid/view/View;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;->addAndAnimateNewContent(Landroid/view/View;)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mnextOrDismiss(Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;->nextOrDismiss()V
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/app/Activity;Lcom/android/settings/TrustedCredentialsDialogBuilder$DelegateInterface;)V
     .locals 1
 
@@ -64,9 +112,9 @@
 
     const/4 v0, 0x0
 
-    new-array v0, v0, [Lcom/android/settings/TrustedCredentialsSettings$CertHolder;
+    new-array v0, v0, [Lcom/android/settings/TrustedCredentialsFragment$CertHolder;
 
-    iput-object v0, p0, Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;->mCertHolders:[Lcom/android/settings/TrustedCredentialsSettings$CertHolder;
+    iput-object v0, p0, Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;->mCertHolders:[Lcom/android/settings/TrustedCredentialsFragment$CertHolder;
 
     const/4 v0, 0x0
 
@@ -107,54 +155,6 @@
     invoke-virtual {p2, p0}, Landroid/widget/LinearLayout;->setOrientation(I)V
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;)Landroid/widget/LinearLayout;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;->mRootContainer:Landroid/widget/LinearLayout;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;)Lcom/android/settings/TrustedCredentialsDialogBuilder$DelegateInterface;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;->mDelegate:Lcom/android/settings/TrustedCredentialsDialogBuilder$DelegateInterface;
-
-    return-object p0
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;->nextOrDismiss()V
-
-    return-void
-.end method
-
-.method static synthetic access$300(Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;Landroid/view/View;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;->addAndAnimateNewContent(Landroid/view/View;)V
-
-    return-void
-.end method
-
-.method static synthetic access$400(Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;)Landroid/view/View;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;->mCurrentCertLayout:Landroid/view/View;
-
-    return-object p0
-.end method
-
-.method static synthetic access$500(Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;)Landroid/app/Activity;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;->mActivity:Landroid/app/Activity;
-
-    return-object p0
 .end method
 
 .method private addAndAnimateNewContent(Landroid/view/View;)V
@@ -235,38 +235,38 @@
     return-void
 .end method
 
-.method private static getButtonLabel(Lcom/android/settings/TrustedCredentialsSettings$CertHolder;)I
+.method private static getButtonLabel(Lcom/android/settings/TrustedCredentialsFragment$CertHolder;)I
     .locals 1
 
-    invoke-virtual {p0}, Lcom/android/settings/TrustedCredentialsSettings$CertHolder;->isSystemCert()Z
+    invoke-virtual {p0}, Lcom/android/settings/TrustedCredentialsFragment$CertHolder;->isSystemCert()Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    invoke-virtual {p0}, Lcom/android/settings/TrustedCredentialsSettings$CertHolder;->isDeleted()Z
+    invoke-virtual {p0}, Lcom/android/settings/TrustedCredentialsFragment$CertHolder;->isDeleted()Z
 
     move-result p0
 
     if-eqz p0, :cond_0
 
-    const p0, 0x7f04140e
+    const p0, 0x7f041508
 
     goto :goto_0
 
     :cond_0
-    const p0, 0x7f04140c
+    const p0, 0x7f041506
 
     goto :goto_0
 
     :cond_1
-    const p0, 0x7f041410
+    const p0, 0x7f04150a
 
     :goto_0
     return p0
 .end method
 
-.method private getCertLayout(Lcom/android/settings/TrustedCredentialsSettings$CertHolder;)Landroid/widget/LinearLayout;
+.method private getCertLayout(Lcom/android/settings/TrustedCredentialsFragment$CertHolder;)Landroid/widget/LinearLayout;
     .locals 4
 
     new-instance v0, Ljava/util/ArrayList;
@@ -279,7 +279,7 @@
 
     iget-object v2, p0, Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;->mDelegate:Lcom/android/settings/TrustedCredentialsDialogBuilder$DelegateInterface;
 
-    invoke-interface {v2, p1}, Lcom/android/settings/TrustedCredentialsDialogBuilder$DelegateInterface;->getX509CertsFromCertHolder(Lcom/android/settings/TrustedCredentialsSettings$CertHolder;)Ljava/util/List;
+    invoke-interface {v2, p1}, Lcom/android/settings/TrustedCredentialsDialogBuilder$DelegateInterface;->getX509CertsFromCertHolder(Lcom/android/settings/TrustedCredentialsFragment$CertHolder;)Ljava/util/List;
 
     move-result-object p1
 
@@ -404,12 +404,12 @@
     return-object p1
 .end method
 
-.method private getCurrentCertInfo()Lcom/android/settings/TrustedCredentialsSettings$CertHolder;
+.method private getCurrentCertInfo()Lcom/android/settings/TrustedCredentialsFragment$CertHolder;
     .locals 2
 
     iget v0, p0, Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;->mCurrentCertIndex:I
 
-    iget-object p0, p0, Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;->mCertHolders:[Lcom/android/settings/TrustedCredentialsSettings$CertHolder;
+    iget-object p0, p0, Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;->mCertHolders:[Lcom/android/settings/TrustedCredentialsFragment$CertHolder;
 
     array-length v1, p0
 
@@ -480,13 +480,13 @@
     :goto_0
     iget v0, p0, Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;->mCurrentCertIndex:I
 
-    iget-object v1, p0, Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;->mCertHolders:[Lcom/android/settings/TrustedCredentialsSettings$CertHolder;
+    iget-object v1, p0, Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;->mCertHolders:[Lcom/android/settings/TrustedCredentialsFragment$CertHolder;
 
     array-length v1, v1
 
     if-ge v0, v1, :cond_0
 
-    invoke-direct {p0}, Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;->getCurrentCertInfo()Lcom/android/settings/TrustedCredentialsSettings$CertHolder;
+    invoke-direct {p0}, Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;->getCurrentCertInfo()Lcom/android/settings/TrustedCredentialsFragment$CertHolder;
 
     move-result-object v0
 
@@ -503,7 +503,7 @@
     :cond_0
     iget v0, p0, Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;->mCurrentCertIndex:I
 
-    iget-object v1, p0, Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;->mCertHolders:[Lcom/android/settings/TrustedCredentialsSettings$CertHolder;
+    iget-object v1, p0, Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;->mCertHolders:[Lcom/android/settings/TrustedCredentialsFragment$CertHolder;
 
     array-length v1, v1
 
@@ -528,15 +528,15 @@
 .method private onClickEnableOrDisable()V
     .locals 3
 
-    invoke-direct {p0}, Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;->getCurrentCertInfo()Lcom/android/settings/TrustedCredentialsSettings$CertHolder;
+    invoke-direct {p0}, Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;->getCurrentCertInfo()Lcom/android/settings/TrustedCredentialsFragment$CertHolder;
 
     move-result-object v0
 
     new-instance v1, Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler$1;
 
-    invoke-direct {v1, p0, v0}, Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler$1;-><init>(Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;Lcom/android/settings/TrustedCredentialsSettings$CertHolder;)V
+    invoke-direct {v1, p0, v0}, Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler$1;-><init>(Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;Lcom/android/settings/TrustedCredentialsFragment$CertHolder;)V
 
-    invoke-virtual {v0}, Lcom/android/settings/TrustedCredentialsSettings$CertHolder;->isSystemCert()Z
+    invoke-virtual {v0}, Lcom/android/settings/TrustedCredentialsFragment$CertHolder;->isSystemCert()Z
 
     move-result v0
 
@@ -557,7 +557,7 @@
 
     invoke-direct {v0, p0}, Landroidx/appcompat/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const p0, 0x7f04140f
+    const p0, 0x7f041509
 
     invoke-virtual {v0, p0}, Landroidx/appcompat/app/AlertDialog$Builder;->setMessage(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
@@ -592,13 +592,13 @@
 .method private onClickTrust()V
     .locals 4
 
-    invoke-direct {p0}, Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;->getCurrentCertInfo()Lcom/android/settings/TrustedCredentialsSettings$CertHolder;
+    invoke-direct {p0}, Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;->getCurrentCertInfo()Lcom/android/settings/TrustedCredentialsFragment$CertHolder;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;->mDelegate:Lcom/android/settings/TrustedCredentialsDialogBuilder$DelegateInterface;
 
-    invoke-virtual {v0}, Lcom/android/settings/TrustedCredentialsSettings$CertHolder;->getUserId()I
+    invoke-virtual {v0}, Lcom/android/settings/TrustedCredentialsFragment$CertHolder;->getUserId()I
 
     move-result v2
 
@@ -614,11 +614,11 @@
 
     iget-object v1, p0, Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;->mDpm:Landroid/app/admin/DevicePolicyManager;
 
-    invoke-virtual {v0}, Lcom/android/settings/TrustedCredentialsSettings$CertHolder;->getAlias()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/android/settings/TrustedCredentialsFragment$CertHolder;->getAlias()Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-virtual {v0}, Lcom/android/settings/TrustedCredentialsSettings$CertHolder;->getUserId()I
+    invoke-virtual {v0}, Lcom/android/settings/TrustedCredentialsFragment$CertHolder;->getUserId()I
 
     move-result v0
 
@@ -647,17 +647,17 @@
 
     if-eqz v0, :cond_0
 
-    invoke-direct {p0}, Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;->getCurrentCertInfo()Lcom/android/settings/TrustedCredentialsSettings$CertHolder;
+    invoke-direct {p0}, Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;->getCurrentCertInfo()Lcom/android/settings/TrustedCredentialsFragment$CertHolder;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    invoke-direct {p0}, Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;->getCurrentCertInfo()Lcom/android/settings/TrustedCredentialsSettings$CertHolder;
+    invoke-direct {p0}, Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;->getCurrentCertInfo()Lcom/android/settings/TrustedCredentialsFragment$CertHolder;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/settings/TrustedCredentialsSettings$CertHolder;->getUserId()I
+    invoke-virtual {v0}, Lcom/android/settings/TrustedCredentialsFragment$CertHolder;->getUserId()I
 
     move-result v0
 
@@ -694,7 +694,7 @@
 .method private updateNegativeButton()V
     .locals 4
 
-    invoke-direct {p0}, Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;->getCurrentCertInfo()Lcom/android/settings/TrustedCredentialsSettings$CertHolder;
+    invoke-direct {p0}, Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;->getCurrentCertInfo()Lcom/android/settings/TrustedCredentialsFragment$CertHolder;
 
     move-result-object v0
 
@@ -702,7 +702,7 @@
 
     new-instance v2, Landroid/os/UserHandle;
 
-    invoke-virtual {v0}, Lcom/android/settings/TrustedCredentialsSettings$CertHolder;->getUserId()I
+    invoke-virtual {v0}, Lcom/android/settings/TrustedCredentialsFragment$CertHolder;->getUserId()I
 
     move-result v3
 
@@ -718,7 +718,7 @@
 
     iget-object v2, p0, Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;->mActivity:Landroid/app/Activity;
 
-    invoke-static {v0}, Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;->getButtonLabel(Lcom/android/settings/TrustedCredentialsSettings$CertHolder;)I
+    invoke-static {v0}, Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;->getButtonLabel(Lcom/android/settings/TrustedCredentialsFragment$CertHolder;)I
 
     move-result v0
 
@@ -752,11 +752,11 @@
 .method private updatePositiveButton()V
     .locals 6
 
-    invoke-direct {p0}, Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;->getCurrentCertInfo()Lcom/android/settings/TrustedCredentialsSettings$CertHolder;
+    invoke-direct {p0}, Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;->getCurrentCertInfo()Lcom/android/settings/TrustedCredentialsFragment$CertHolder;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/settings/TrustedCredentialsSettings$CertHolder;->isSystemCert()Z
+    invoke-virtual {v0}, Lcom/android/settings/TrustedCredentialsFragment$CertHolder;->isSystemCert()Z
 
     move-result v1
 
@@ -766,7 +766,7 @@
 
     if-nez v1, :cond_0
 
-    invoke-virtual {v0}, Lcom/android/settings/TrustedCredentialsSettings$CertHolder;->getUserId()I
+    invoke-virtual {v0}, Lcom/android/settings/TrustedCredentialsFragment$CertHolder;->getUserId()I
 
     move-result v1
 
@@ -778,11 +778,11 @@
 
     iget-object v1, p0, Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;->mDpm:Landroid/app/admin/DevicePolicyManager;
 
-    invoke-virtual {v0}, Lcom/android/settings/TrustedCredentialsSettings$CertHolder;->getAlias()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/android/settings/TrustedCredentialsFragment$CertHolder;->getAlias()Ljava/lang/String;
 
     move-result-object v4
 
-    invoke-virtual {v0}, Lcom/android/settings/TrustedCredentialsSettings$CertHolder;->getUserId()I
+    invoke-virtual {v0}, Lcom/android/settings/TrustedCredentialsFragment$CertHolder;->getUserId()I
 
     move-result v5
 
@@ -804,7 +804,7 @@
 
     iget-object v1, p0, Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;->mActivity:Landroid/app/Activity;
 
-    invoke-virtual {v0}, Lcom/android/settings/TrustedCredentialsSettings$CertHolder;->getUserId()I
+    invoke-virtual {v0}, Lcom/android/settings/TrustedCredentialsFragment$CertHolder;->getUserId()I
 
     move-result v0
 
@@ -832,7 +832,7 @@
 
     if-eqz v1, :cond_2
 
-    const v1, 0x7f041413
+    const v1, 0x7f04150d
 
     goto :goto_2
 
@@ -858,11 +858,11 @@
 .method private updateViewContainer()V
     .locals 2
 
-    invoke-direct {p0}, Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;->getCurrentCertInfo()Lcom/android/settings/TrustedCredentialsSettings$CertHolder;
+    invoke-direct {p0}, Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;->getCurrentCertInfo()Lcom/android/settings/TrustedCredentialsFragment$CertHolder;
 
     move-result-object v0
 
-    invoke-direct {p0, v0}, Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;->getCertLayout(Lcom/android/settings/TrustedCredentialsSettings$CertHolder;)Landroid/widget/LinearLayout;
+    invoke-direct {p0, v0}, Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;->getCertLayout(Lcom/android/settings/TrustedCredentialsFragment$CertHolder;)Landroid/widget/LinearLayout;
 
     move-result-object v0
 
@@ -927,10 +927,10 @@
     return-void
 .end method
 
-.method public setCertHolders([Lcom/android/settings/TrustedCredentialsSettings$CertHolder;)V
+.method public setCertHolders([Lcom/android/settings/TrustedCredentialsFragment$CertHolder;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;->mCertHolders:[Lcom/android/settings/TrustedCredentialsSettings$CertHolder;
+    iput-object p1, p0, Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;->mCertHolders:[Lcom/android/settings/TrustedCredentialsFragment$CertHolder;
 
     return-void
 .end method

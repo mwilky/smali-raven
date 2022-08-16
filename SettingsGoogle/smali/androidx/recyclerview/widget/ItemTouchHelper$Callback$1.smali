@@ -30,14 +30,6 @@
 # virtual methods
 .method public getInterpolation(F)F
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "t"
-        }
-    .end annotation
 
     mul-float p0, p1, p1
 

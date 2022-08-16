@@ -45,7 +45,7 @@
 
     const/4 v2, 0x0
 
-    const v3, 0x7f040820
+    const v3, 0x7f040869
 
     invoke-direct {v1, p0, v2, v3}, Lcom/android/settings/display/VrDisplayPreferencePicker$VrCandidateInfo;-><init>(Landroid/content/Context;II)V
 
@@ -55,7 +55,7 @@
 
     const/4 v2, 0x1
 
-    const v3, 0x7f040821
+    const v3, 0x7f04086a
 
     invoke-direct {v1, p0, v2, v3}, Lcom/android/settings/display/VrDisplayPreferencePicker$VrCandidateInfo;-><init>(Landroid/content/Context;II)V
 
@@ -113,7 +113,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f15010b
+    const p0, 0x7f150113
 
     return p0
 .end method

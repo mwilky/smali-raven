@@ -460,22 +460,3 @@
 
     return-object v0
 .end method
-
-.method public static newLinkedList()Ljava/util/LinkedList;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<E:",
-            "Ljava/lang/Object;",
-            ">()",
-            "Ljava/util/LinkedList<",
-            "TE;>;"
-        }
-    .end annotation
-
-    new-instance v0, Ljava/util/LinkedList;
-
-    invoke-direct {v0}, Ljava/util/LinkedList;-><init>()V
-
-    return-object v0
-.end method

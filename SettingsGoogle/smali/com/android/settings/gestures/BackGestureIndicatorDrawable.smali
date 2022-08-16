@@ -30,6 +30,54 @@
     return-void
 .end method
 
+.method static bridge synthetic -$$Nest$fgetmCurrentWidth(Lcom/android/settings/gestures/BackGestureIndicatorDrawable;)F
+    .locals 0
+
+    iget p0, p0, Lcom/android/settings/gestures/BackGestureIndicatorDrawable;->mCurrentWidth:F
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmFinalWidth(Lcom/android/settings/gestures/BackGestureIndicatorDrawable;)F
+    .locals 0
+
+    iget p0, p0, Lcom/android/settings/gestures/BackGestureIndicatorDrawable;->mFinalWidth:F
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmTimeAnimator(Lcom/android/settings/gestures/BackGestureIndicatorDrawable;)Landroid/animation/TimeAnimator;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/gestures/BackGestureIndicatorDrawable;->mTimeAnimator:Landroid/animation/TimeAnimator;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmCurrentWidth(Lcom/android/settings/gestures/BackGestureIndicatorDrawable;F)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/settings/gestures/BackGestureIndicatorDrawable;->mCurrentWidth:F
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fputmFinalWidth(Lcom/android/settings/gestures/BackGestureIndicatorDrawable;F)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/settings/gestures/BackGestureIndicatorDrawable;->mFinalWidth:F
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fputmWidthChangePerMs(Lcom/android/settings/gestures/BackGestureIndicatorDrawable;F)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/settings/gestures/BackGestureIndicatorDrawable;->mWidthChangePerMs:F
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Z)V
     .locals 2
 
@@ -70,54 +118,6 @@
     invoke-virtual {p1, p2}, Landroid/animation/TimeAnimator;->setTimeListener(Landroid/animation/TimeAnimator$TimeListener;)V
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/gestures/BackGestureIndicatorDrawable;)Landroid/animation/TimeAnimator;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/gestures/BackGestureIndicatorDrawable;->mTimeAnimator:Landroid/animation/TimeAnimator;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/gestures/BackGestureIndicatorDrawable;)F
-    .locals 0
-
-    iget p0, p0, Lcom/android/settings/gestures/BackGestureIndicatorDrawable;->mFinalWidth:F
-
-    return p0
-.end method
-
-.method static synthetic access$102(Lcom/android/settings/gestures/BackGestureIndicatorDrawable;F)F
-    .locals 0
-
-    iput p1, p0, Lcom/android/settings/gestures/BackGestureIndicatorDrawable;->mFinalWidth:F
-
-    return p1
-.end method
-
-.method static synthetic access$202(Lcom/android/settings/gestures/BackGestureIndicatorDrawable;F)F
-    .locals 0
-
-    iput p1, p0, Lcom/android/settings/gestures/BackGestureIndicatorDrawable;->mWidthChangePerMs:F
-
-    return p1
-.end method
-
-.method static synthetic access$300(Lcom/android/settings/gestures/BackGestureIndicatorDrawable;)F
-    .locals 0
-
-    iget p0, p0, Lcom/android/settings/gestures/BackGestureIndicatorDrawable;->mCurrentWidth:F
-
-    return p0
-.end method
-
-.method static synthetic access$302(Lcom/android/settings/gestures/BackGestureIndicatorDrawable;F)F
-    .locals 0
-
-    iput p1, p0, Lcom/android/settings/gestures/BackGestureIndicatorDrawable;->mCurrentWidth:F
-
-    return p1
 .end method
 
 .method private synthetic lambda$new$0(Landroid/animation/TimeAnimator;JJ)V
@@ -235,7 +235,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a0036
+    const v2, 0x7f0a0039
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
 

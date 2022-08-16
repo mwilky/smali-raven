@@ -57,11 +57,3 @@
 
     return-object v0
 .end method
-
-.method public static getDefaultImpl()Lcom/android/wsuinterface/IWsuService;
-    .locals 1
-
-    sget-object v0, Lcom/android/wsuinterface/IWsuService$Stub$Proxy;->sDefaultImpl:Lcom/android/wsuinterface/IWsuService;
-
-    return-object v0
-.end method

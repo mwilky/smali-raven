@@ -134,6 +134,54 @@
     return-void
 .end method
 
+.method static bridge synthetic -$$Nest$fgetmMaxHeight(Lcom/android/settings/panel/PanelFragment;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/settings/panel/PanelFragment;->mMaxHeight:I
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmPanelSlices(Lcom/android/settings/panel/PanelFragment;)Landroidx/recyclerview/widget/RecyclerView;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/panel/PanelFragment;->mPanelSlices:Landroidx/recyclerview/widget/RecyclerView;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmPanelClosedKey(Lcom/android/settings/panel/PanelFragment;Ljava/lang/String;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/settings/panel/PanelFragment;->mPanelClosedKey:Ljava/lang/String;
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fputmPanelCreating(Lcom/android/settings/panel/PanelFragment;Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/settings/panel/PanelFragment;->mPanelCreating:Z
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$manimateIn(Lcom/android/settings/panel/PanelFragment;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/panel/PanelFragment;->animateIn()V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mcreatePanelContent(Lcom/android/settings/panel/PanelFragment;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/panel/PanelFragment;->createPanelContent()V
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 1
 
@@ -145,7 +193,9 @@
 
     iput-object v0, p0, Lcom/android/settings/panel/PanelFragment;->mSliceLiveData:Ljava/util/Map;
 
-    sget-object v0, Lcom/android/settings/panel/PanelFragment$$ExternalSyntheticLambda3;->INSTANCE:Lcom/android/settings/panel/PanelFragment$$ExternalSyntheticLambda3;
+    new-instance v0, Lcom/android/settings/panel/PanelFragment$$ExternalSyntheticLambda0;
+
+    invoke-direct {v0}, Lcom/android/settings/panel/PanelFragment$$ExternalSyntheticLambda0;-><init>()V
 
     iput-object v0, p0, Lcom/android/settings/panel/PanelFragment;->mOnPreDrawListener:Landroid/view/ViewTreeObserver$OnPreDrawListener;
 
@@ -164,60 +214,12 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/settings/panel/PanelFragment;)I
-    .locals 0
-
-    iget p0, p0, Lcom/android/settings/panel/PanelFragment;->mMaxHeight:I
-
-    return p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/panel/PanelFragment;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/panel/PanelFragment;->animateIn()V
-
-    return-void
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/panel/PanelFragment;)Landroidx/recyclerview/widget/RecyclerView;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/panel/PanelFragment;->mPanelSlices:Landroidx/recyclerview/widget/RecyclerView;
-
-    return-object p0
-.end method
-
-.method static synthetic access$302(Lcom/android/settings/panel/PanelFragment;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/settings/panel/PanelFragment;->mPanelCreating:Z
-
-    return p1
-.end method
-
-.method static synthetic access$400(Lcom/android/settings/panel/PanelFragment;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/panel/PanelFragment;->createPanelContent()V
-
-    return-void
-.end method
-
-.method static synthetic access$502(Lcom/android/settings/panel/PanelFragment;Ljava/lang/String;)Ljava/lang/String;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/settings/panel/PanelFragment;->mPanelClosedKey:Ljava/lang/String;
-
-    return-object p1
-.end method
-
 .method private animateIn()V
     .locals 7
 
     iget-object v0, p0, Lcom/android/settings/panel/PanelFragment;->mLayoutView:Landroid/view/View;
 
-    const v1, 0x7f0d0418
+    const v1, 0x7f0d0449
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -281,7 +283,7 @@
 .method private static buildAnimatorSet(Landroid/view/View;FFFFI)Landroid/animation/AnimatorSet;
     .locals 5
 
-    const v0, 0x7f0d0418
+    const v0, 0x7f0d0449
 
     invoke-virtual {p0, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -377,7 +379,7 @@
 
     iget-object v1, p0, Lcom/android/settings/panel/PanelFragment;->mLayoutView:Landroid/view/View;
 
-    const v2, 0x7f0d041a
+    const v2, 0x7f0d044b
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -389,7 +391,7 @@
 
     iget-object v1, p0, Lcom/android/settings/panel/PanelFragment;->mLayoutView:Landroid/view/View;
 
-    const v2, 0x7f0d04d9
+    const v2, 0x7f0d0516
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -401,7 +403,7 @@
 
     iget-object v1, p0, Lcom/android/settings/panel/PanelFragment;->mLayoutView:Landroid/view/View;
 
-    const v2, 0x7f0d01de
+    const v2, 0x7f0d01f7
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -413,7 +415,7 @@
 
     iget-object v1, p0, Lcom/android/settings/panel/PanelFragment;->mLayoutView:Landroid/view/View;
 
-    const v2, 0x7f0d041b
+    const v2, 0x7f0d044c
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -425,7 +427,7 @@
 
     iget-object v1, p0, Lcom/android/settings/panel/PanelFragment;->mLayoutView:Landroid/view/View;
 
-    const v2, 0x7f0d0419
+    const v2, 0x7f0d044a
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -437,7 +439,7 @@
 
     iget-object v1, p0, Lcom/android/settings/panel/PanelFragment;->mLayoutView:Landroid/view/View;
 
-    const v2, 0x7f0d05d4
+    const v2, 0x7f0d0616
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -449,7 +451,7 @@
 
     iget-object v1, p0, Lcom/android/settings/panel/PanelFragment;->mLayoutView:Landroid/view/View;
 
-    const v2, 0x7f0d05d3
+    const v2, 0x7f0d0615
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -461,7 +463,7 @@
 
     iget-object v1, p0, Lcom/android/settings/panel/PanelFragment;->mLayoutView:Landroid/view/View;
 
-    const v2, 0x7f0d028c
+    const v2, 0x7f0d02ae
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -473,7 +475,7 @@
 
     iget-object v1, p0, Lcom/android/settings/panel/PanelFragment;->mLayoutView:Landroid/view/View;
 
-    const v2, 0x7f0d028e
+    const v2, 0x7f0d02b0
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -485,7 +487,7 @@
 
     iget-object v1, p0, Lcom/android/settings/panel/PanelFragment;->mLayoutView:Landroid/view/View;
 
-    const v2, 0x7f0d028d
+    const v2, 0x7f0d02af
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -497,7 +499,7 @@
 
     iget-object v1, p0, Lcom/android/settings/panel/PanelFragment;->mLayoutView:Landroid/view/View;
 
-    const v2, 0x7f0d046b
+    const v2, 0x7f0d049e
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -827,7 +829,7 @@
 
     move-result-object p1
 
-    const p2, 0x7f0b02df
+    const p2, 0x7f0b0398
 
     invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -921,7 +923,7 @@
 .method private synthetic lambda$getSeeMoreListener$4(Landroid/view/View;)V
     .locals 1
 
-    const-string p1, "see_more"
+    const-string/jumbo p1, "see_more"
 
     iput-object p1, p0, Lcom/android/settings/panel/PanelFragment;->mPanelClosedKey:Ljava/lang/String;
 
@@ -1112,9 +1114,9 @@
 
     move-result-object v2
 
-    new-instance v3, Lcom/android/settings/panel/PanelFragment$$ExternalSyntheticLambda5;
+    new-instance v3, Lcom/android/settings/panel/PanelFragment$$ExternalSyntheticLambda4;
 
-    invoke-direct {v3, p0, v1}, Lcom/android/settings/panel/PanelFragment$$ExternalSyntheticLambda5;-><init>(Lcom/android/settings/panel/PanelFragment;Landroid/net/Uri;)V
+    invoke-direct {v3, p0, v1}, Lcom/android/settings/panel/PanelFragment$$ExternalSyntheticLambda4;-><init>(Lcom/android/settings/panel/PanelFragment;Landroid/net/Uri;)V
 
     invoke-static {v2, v1, v3}, Landroidx/slice/widget/SliceLiveData;->fromUri(Landroid/content/Context;Landroid/net/Uri;Landroidx/slice/widget/SliceLiveData$OnErrorListener;)Landroidx/lifecycle/LiveData;
 
@@ -1128,9 +1130,9 @@
 
     move-result-object v3
 
-    new-instance v4, Lcom/android/settings/panel/PanelFragment$$ExternalSyntheticLambda4;
+    new-instance v4, Lcom/android/settings/panel/PanelFragment$$ExternalSyntheticLambda5;
 
-    invoke-direct {v4, p0, v1}, Lcom/android/settings/panel/PanelFragment$$ExternalSyntheticLambda4;-><init>(Lcom/android/settings/panel/PanelFragment;Landroid/net/Uri;)V
+    invoke-direct {v4, p0, v1}, Lcom/android/settings/panel/PanelFragment$$ExternalSyntheticLambda5;-><init>(Lcom/android/settings/panel/PanelFragment;Landroid/net/Uri;)V
 
     invoke-virtual {v2, v3, v4}, Landroidx/lifecycle/LiveData;->observe(Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Observer;)V
 
@@ -1225,7 +1227,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f010067
+    const v1, 0x7f010069
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -1290,9 +1292,9 @@
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 
-    new-instance v0, Lcom/android/settings/panel/PanelFragment$$ExternalSyntheticLambda0;
+    new-instance v0, Lcom/android/settings/panel/PanelFragment$$ExternalSyntheticLambda3;
 
-    invoke-direct {v0, p0}, Lcom/android/settings/panel/PanelFragment$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/panel/PanelFragment;)V
+    invoke-direct {v0, p0}, Lcom/android/settings/panel/PanelFragment$$ExternalSyntheticLambda3;-><init>(Lcom/android/settings/panel/PanelFragment;)V
 
     return-object v0
 .end method
@@ -1344,7 +1346,7 @@
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 1
 
-    const p3, 0x7f060180
+    const p3, 0x7f06018a
 
     const/4 v0, 0x0
 
@@ -1366,7 +1368,7 @@
 
     move-result-object p1
 
-    const p2, 0x7f0b02e0
+    const p2, 0x7f0b0399
 
     invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1449,7 +1451,7 @@
 
     iget-object v0, p0, Lcom/android/settings/panel/PanelFragment;->mLayoutView:Landroid/view/View;
 
-    const v1, 0x7f0d0418
+    const v1, 0x7f0d0449
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

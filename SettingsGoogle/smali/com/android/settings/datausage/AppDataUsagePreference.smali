@@ -49,7 +49,7 @@
 
     if-gtz p3, :cond_0
 
-    const p1, 0x7f04072c
+    const p1, 0x7f040771
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -82,9 +82,13 @@
     goto :goto_1
 
     :cond_1
-    new-instance p1, Lcom/android/settings/datausage/AppDataUsagePreference$$ExternalSyntheticLambda1;
+    const p1, 0x7f04004e
 
-    invoke-direct {p1, p0, p4}, Lcom/android/settings/datausage/AppDataUsagePreference$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/datausage/AppDataUsagePreference;Lcom/android/settingslib/net/UidDetailProvider;)V
+    invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setTitle(I)V
+
+    new-instance p1, Lcom/android/settings/datausage/AppDataUsagePreference$$ExternalSyntheticLambda0;
+
+    invoke-direct {p1, p0, p4}, Lcom/android/settings/datausage/AppDataUsagePreference$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/datausage/AppDataUsagePreference;Lcom/android/settingslib/net/UidDetailProvider;)V
 
     invoke-static {p1}, Lcom/android/settingslib/utils/ThreadUtils;->postOnBackgroundThread(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;
 
@@ -115,9 +119,9 @@
 
     iput-object p1, p0, Lcom/android/settings/datausage/AppDataUsagePreference;->mDetail:Lcom/android/settingslib/net/UidDetail;
 
-    new-instance p1, Lcom/android/settings/datausage/AppDataUsagePreference$$ExternalSyntheticLambda0;
+    new-instance p1, Lcom/android/settings/datausage/AppDataUsagePreference$$ExternalSyntheticLambda1;
 
-    invoke-direct {p1, p0}, Lcom/android/settings/datausage/AppDataUsagePreference$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/datausage/AppDataUsagePreference;)V
+    invoke-direct {p1, p0}, Lcom/android/settings/datausage/AppDataUsagePreference$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/datausage/AppDataUsagePreference;)V
 
     invoke-static {p1}, Lcom/android/settingslib/utils/ThreadUtils;->postOnMainThread(Ljava/lang/Runnable;)V
 

@@ -41,14 +41,6 @@
 # direct methods
 .method constructor <init>(Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x1010
-        }
-        names = {
-            "this$0"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter$CallbackHandler;->this$0:Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;
 
@@ -71,20 +63,6 @@
 
 .method private invokeCallback(Landroidx/mediarouter/media/MediaRouter$CallbackRecord;ILjava/lang/Object;I)V
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "record",
-            "what",
-            "obj",
-            "arg"
-        }
-    .end annotation
 
     iget-object p0, p1, Landroidx/mediarouter/media/MediaRouter$CallbackRecord;->mRouter:Landroidx/mediarouter/media/MediaRouter;
 
@@ -96,15 +74,33 @@
 
     const/16 v2, 0x100
 
-    if-eq v1, v2, :cond_1
+    if-eq v1, v2, :cond_3
 
     const/16 p1, 0x200
+
+    if-eq v1, p1, :cond_2
+
+    const/16 p1, 0x300
 
     if-eq v1, p1, :cond_0
 
     goto/16 :goto_4
 
     :cond_0
+    const/16 p1, 0x301
+
+    if-eq p2, p1, :cond_1
+
+    goto/16 :goto_4
+
+    :cond_1
+    check-cast p3, Landroidx/mediarouter/media/MediaRouterParams;
+
+    invoke-virtual {v0, p0, p3}, Landroidx/mediarouter/media/MediaRouter$Callback;->onRouterParamsChanged(Landroidx/mediarouter/media/MediaRouter;Landroidx/mediarouter/media/MediaRouterParams;)V
+
+    goto/16 :goto_4
+
+    :cond_2
     check-cast p3, Landroidx/mediarouter/media/MediaRouter$ProviderInfo;
 
     packed-switch p2, :pswitch_data_0
@@ -126,25 +122,25 @@
 
     goto :goto_4
 
-    :cond_1
+    :cond_3
     const/16 v1, 0x106
 
     const/16 v2, 0x108
 
-    if-eq p2, v2, :cond_3
+    if-eq p2, v2, :cond_5
 
-    if-ne p2, v1, :cond_2
+    if-ne p2, v1, :cond_4
 
     goto :goto_0
 
-    :cond_2
+    :cond_4
     move-object v3, p3
 
     check-cast v3, Landroidx/mediarouter/media/MediaRouter$RouteInfo;
 
     goto :goto_1
 
-    :cond_3
+    :cond_5
     :goto_0
     move-object v3, p3
 
@@ -155,18 +151,18 @@
     check-cast v3, Landroidx/mediarouter/media/MediaRouter$RouteInfo;
 
     :goto_1
-    if-eq p2, v2, :cond_5
+    if-eq p2, v2, :cond_7
 
-    if-ne p2, v1, :cond_4
+    if-ne p2, v1, :cond_6
 
     goto :goto_2
 
-    :cond_4
+    :cond_6
     const/4 p3, 0x0
 
     goto :goto_3
 
-    :cond_5
+    :cond_7
     :goto_2
     check-cast p3, Landroidx/core/util/Pair;
 
@@ -175,17 +171,17 @@
     check-cast p3, Landroidx/mediarouter/media/MediaRouter$RouteInfo;
 
     :goto_3
-    if-eqz v3, :cond_7
+    if-eqz v3, :cond_9
 
     invoke-virtual {p1, v3, p2, p3, p4}, Landroidx/mediarouter/media/MediaRouter$CallbackRecord;->filterRouteEvent(Landroidx/mediarouter/media/MediaRouter$RouteInfo;ILandroidx/mediarouter/media/MediaRouter$RouteInfo;I)Z
 
     move-result p1
 
-    if-nez p1, :cond_6
+    if-nez p1, :cond_8
 
     goto :goto_4
 
-    :cond_6
+    :cond_8
     packed-switch p2, :pswitch_data_1
 
     goto :goto_4
@@ -228,11 +224,9 @@
     :pswitch_a
     invoke-virtual {v0, p0, v3}, Landroidx/mediarouter/media/MediaRouter$Callback;->onRouteAdded(Landroidx/mediarouter/media/MediaRouter;Landroidx/mediarouter/media/MediaRouter$RouteInfo;)V
 
-    :cond_7
+    :cond_9
     :goto_4
     return-void
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x201
@@ -256,16 +250,6 @@
 
 .method private syncWithSystemProvider(ILjava/lang/Object;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "what",
-            "obj"
-        }
-    .end annotation
 
     const/16 v0, 0x106
 
@@ -352,9 +336,7 @@
 
     iget-object p2, p0, Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter$CallbackHandler;->this$0:Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;
 
-    invoke-static {p2}, Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;->access$100(Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;)Landroidx/mediarouter/media/MediaRouter$RouteInfo;
-
-    move-result-object p2
+    iget-object p2, p2, Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;->mDefaultRoute:Landroidx/mediarouter/media/MediaRouter$RouteInfo;
 
     if-eqz p2, :cond_3
 
@@ -412,14 +394,6 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 5
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "msg"
-        }
-    .end annotation
 
     iget v0, p1, Landroid/os/Message;->what:I
 
@@ -560,16 +534,6 @@
 
 .method public post(ILjava/lang/Object;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "msg",
-            "obj"
-        }
-    .end annotation
 
     invoke-virtual {p0, p1, p2}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
@@ -582,18 +546,6 @@
 
 .method public post(ILjava/lang/Object;I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "msg",
-            "obj",
-            "arg"
-        }
-    .end annotation
 
     invoke-virtual {p0, p1, p2}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 

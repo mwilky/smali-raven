@@ -231,7 +231,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0100bd
+    const v2, 0x7f0100c7
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -575,7 +575,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040655
+    const v1, 0x7f0406b4
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -649,7 +649,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f04065a
+    const v0, 0x7f0406b9
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -724,9 +724,9 @@
 
     :cond_1
     :goto_0
-    new-instance v5, Lcom/android/settings/slices/SettingsSliceProvider$$ExternalSyntheticLambda2;
+    new-instance v5, Lcom/android/settings/slices/SettingsSliceProvider$$ExternalSyntheticLambda1;
 
-    invoke-direct {v5, p0, v4, p1}, Lcom/android/settings/slices/SettingsSliceProvider$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/slices/SettingsSliceProvider;Lcom/android/settings/core/BasePreferenceController;Landroid/net/Uri;)V
+    invoke-direct {v5, p0, v4, p1}, Lcom/android/settings/slices/SettingsSliceProvider$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/slices/SettingsSliceProvider;Lcom/android/settings/core/BasePreferenceController;Landroid/net/Uri;)V
 
     invoke-static {v5}, Lcom/android/settingslib/utils/ThreadUtils;->postOnMainThread(Ljava/lang/Runnable;)V
 
@@ -937,7 +937,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f13035d
+    const v5, 0x7f130420
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->setTheme(I)V
 
@@ -1628,9 +1628,9 @@
     invoke-virtual {p0, v1, p1}, Lcom/android/settings/slices/SettingsSliceProvider;->registerIntentToUri(Landroid/content/IntentFilter;Landroid/net/Uri;)V
 
     :cond_1
-    new-instance v1, Lcom/android/settings/slices/SettingsSliceProvider$$ExternalSyntheticLambda3;
+    new-instance v1, Lcom/android/settings/slices/SettingsSliceProvider$$ExternalSyntheticLambda4;
 
-    invoke-direct {v1, p0, v0, p1}, Lcom/android/settings/slices/SettingsSliceProvider$$ExternalSyntheticLambda3;-><init>(Lcom/android/settings/slices/SettingsSliceProvider;Lcom/android/settings/slices/CustomSliceable;Landroid/net/Uri;)V
+    invoke-direct {v1, p0, v0, p1}, Lcom/android/settings/slices/SettingsSliceProvider$$ExternalSyntheticLambda4;-><init>(Lcom/android/settings/slices/SettingsSliceProvider;Lcom/android/settings/slices/CustomSliceable;Landroid/net/Uri;)V
 
     invoke-static {v1}, Lcom/android/settingslib/utils/ThreadUtils;->postOnMainThread(Ljava/lang/Runnable;)V
 
@@ -1688,9 +1688,9 @@
     invoke-static {v0, p1}, Lcom/android/settingslib/SliceBroadcastRelay;->unregisterReceivers(Landroid/content/Context;Landroid/net/Uri;)V
 
     :cond_0
-    new-instance v0, Lcom/android/settings/slices/SettingsSliceProvider$$ExternalSyntheticLambda1;
+    new-instance v0, Lcom/android/settings/slices/SettingsSliceProvider$$ExternalSyntheticLambda3;
 
-    invoke-direct {v0, p0, p1}, Lcom/android/settings/slices/SettingsSliceProvider$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/slices/SettingsSliceProvider;Landroid/net/Uri;)V
+    invoke-direct {v0, p0, p1}, Lcom/android/settings/slices/SettingsSliceProvider$$ExternalSyntheticLambda3;-><init>(Lcom/android/settings/slices/SettingsSliceProvider;Landroid/net/Uri;)V
 
     invoke-static {v0}, Lcom/android/settingslib/utils/ThreadUtils;->postOnMainThread(Ljava/lang/Runnable;)V
 
@@ -1714,7 +1714,9 @@
 .method public shutdown()V
     .locals 0
 
-    sget-object p0, Lcom/android/settings/slices/SettingsSliceProvider$$ExternalSyntheticLambda4;->INSTANCE:Lcom/android/settings/slices/SettingsSliceProvider$$ExternalSyntheticLambda4;
+    new-instance p0, Lcom/android/settings/slices/SettingsSliceProvider$$ExternalSyntheticLambda2;
+
+    invoke-direct {p0}, Lcom/android/settings/slices/SettingsSliceProvider$$ExternalSyntheticLambda2;-><init>()V
 
     invoke-static {p0}, Lcom/android/settingslib/utils/ThreadUtils;->postOnMainThread(Ljava/lang/Runnable;)V
 

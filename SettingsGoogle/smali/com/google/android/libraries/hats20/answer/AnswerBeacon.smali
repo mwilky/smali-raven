@@ -74,11 +74,18 @@
 
     iput-object p1, p0, Lcom/google/android/libraries/hats20/answer/AnswerBeacon;->parameterBundle:Landroid/os/Bundle;
 
-    const-string p0, "Parcel did not contain required Bundle while unparceling an AnswerBeacon."
-
-    invoke-static {p1, p0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    if-eqz p1, :cond_0
 
     return-void
+
+    :cond_0
+    new-instance p0, Ljava/lang/NullPointerException;
+
+    const-string p1, "Parcel did not contain required Bundle while unparceling an AnswerBeacon."
+
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+
+    throw p0
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Lcom/google/android/libraries/hats20/answer/AnswerBeacon$1;)V
@@ -102,7 +109,7 @@
 
     iget-object p0, p0, Lcom/google/android/libraries/hats20/answer/AnswerBeacon;->parameterBundle:Landroid/os/Bundle;
 
-    const-string v0, "r.r-"
+    const-string/jumbo v0, "r.r-"
 
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
@@ -215,7 +222,7 @@
 .method private hasWriteIn(IZ)V
     .locals 3
 
-    const-string v0, "r.t-"
+    const-string/jumbo v0, "r.t-"
 
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
@@ -419,7 +426,7 @@
 .method private setOrdering(ILjava/lang/String;)V
     .locals 3
 
-    const-string v0, "r.o-"
+    const-string/jumbo v0, "r.o-"
 
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
@@ -703,9 +710,7 @@
 .method public setBeaconType(Ljava/lang/String;)Lcom/google/android/libraries/hats20/answer/AnswerBeacon;
     .locals 1
 
-    const-string v0, "Beacon type cannot be null."
-
-    invoke-static {p1, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    if-eqz p1, :cond_0
 
     const-string/jumbo v0, "t"
 
@@ -714,6 +719,15 @@
     move-result-object p0
 
     return-object p0
+
+    :cond_0
+    new-instance p0, Ljava/lang/NullPointerException;
+
+    const-string p1, "Beacon type cannot be null."
+
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+
+    throw p0
 .end method
 
 .method public setPromptParams(Ljava/lang/String;)Lcom/google/android/libraries/hats20/answer/AnswerBeacon;
@@ -761,7 +775,7 @@
 .method public setShown(I)Lcom/google/android/libraries/hats20/answer/AnswerBeacon;
     .locals 3
 
-    const-string v0, "r.s-"
+    const-string/jumbo v0, "r.s-"
 
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 

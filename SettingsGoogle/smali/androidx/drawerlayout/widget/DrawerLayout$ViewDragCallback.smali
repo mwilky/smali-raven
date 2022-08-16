@@ -27,16 +27,6 @@
 # direct methods
 .method constructor <init>(Landroidx/drawerlayout/widget/DrawerLayout;I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x1010,
-            0x0
-        }
-        names = {
-            "this$0",
-            "gravity"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/drawerlayout/widget/DrawerLayout$ViewDragCallback;->this$0:Landroidx/drawerlayout/widget/DrawerLayout;
 
@@ -85,18 +75,6 @@
 # virtual methods
 .method public clampViewPositionHorizontal(Landroid/view/View;II)I
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "child",
-            "left",
-            "dx"
-        }
-    .end annotation
 
     iget-object p3, p0, Landroidx/drawerlayout/widget/DrawerLayout$ViewDragCallback;->this$0:Landroidx/drawerlayout/widget/DrawerLayout;
 
@@ -152,18 +130,6 @@
 
 .method public clampViewPositionVertical(Landroid/view/View;II)I
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "child",
-            "top",
-            "dy"
-        }
-    .end annotation
 
     invoke-virtual {p1}, Landroid/view/View;->getTop()I
 
@@ -174,14 +140,6 @@
 
 .method public getViewHorizontalDragRange(Landroid/view/View;)I
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "child"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/drawerlayout/widget/DrawerLayout$ViewDragCallback;->this$0:Landroidx/drawerlayout/widget/DrawerLayout;
 
@@ -206,16 +164,6 @@
 
 .method public onEdgeDragStarted(II)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "edgeFlags",
-            "pointerId"
-        }
-    .end annotation
 
     const/4 v0, 0x1
 
@@ -263,14 +211,6 @@
 
 .method public onEdgeLock(I)Z
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "edgeFlags"
-        }
-    .end annotation
 
     const/4 p0, 0x0
 
@@ -279,16 +219,6 @@
 
 .method public onEdgeTouched(II)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "edgeFlags",
-            "pointerId"
-        }
-    .end annotation
 
     iget-object p1, p0, Landroidx/drawerlayout/widget/DrawerLayout$ViewDragCallback;->this$0:Landroidx/drawerlayout/widget/DrawerLayout;
 
@@ -303,16 +233,6 @@
 
 .method public onViewCaptured(Landroid/view/View;I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "capturedChild",
-            "activePointerId"
-        }
-    .end annotation
 
     invoke-virtual {p1}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
@@ -331,14 +251,6 @@
 
 .method public onViewDragStateChanged(I)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "state"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/drawerlayout/widget/DrawerLayout$ViewDragCallback;->this$0:Landroidx/drawerlayout/widget/DrawerLayout;
 
@@ -355,22 +267,6 @@
 
 .method public onViewPositionChanged(Landroid/view/View;IIII)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "changedView",
-            "left",
-            "top",
-            "dx",
-            "dy"
-        }
-    .end annotation
 
     invoke-virtual {p1}, Landroid/view/View;->getWidth()I
 
@@ -437,18 +333,6 @@
 
 .method public onViewReleased(Landroid/view/View;FF)V
     .locals 5
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "releasedChild",
-            "xvel",
-            "yvel"
-        }
-    .end annotation
 
     iget-object p3, p0, Landroidx/drawerlayout/widget/DrawerLayout$ViewDragCallback;->this$0:Landroidx/drawerlayout/widget/DrawerLayout;
 
@@ -676,14 +560,6 @@
 
 .method public setDragger(Landroidx/customview/widget/ViewDragHelper;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "dragger"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/drawerlayout/widget/DrawerLayout$ViewDragCallback;->mDragger:Landroidx/customview/widget/ViewDragHelper;
 
@@ -692,16 +568,6 @@
 
 .method public tryCaptureView(Landroid/view/View;I)Z
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "child",
-            "pointerId"
-        }
-    .end annotation
 
     iget-object p2, p0, Landroidx/drawerlayout/widget/DrawerLayout$ViewDragCallback;->this$0:Landroidx/drawerlayout/widget/DrawerLayout;
 

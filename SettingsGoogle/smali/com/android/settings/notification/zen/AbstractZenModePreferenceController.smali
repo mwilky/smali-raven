@@ -37,6 +37,16 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$smgetNextAlarm(Landroid/content/Context;)J
+    .locals 2
+
+    invoke-static {p0}, Lcom/android/settings/notification/zen/AbstractZenModePreferenceController;->getNextAlarm(Landroid/content/Context;)J
+
+    move-result-wide v0
+
+    return-wide v0
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
     .locals 1
 
@@ -84,16 +94,6 @@
     iput-object p1, p0, Lcom/android/settings/notification/zen/AbstractZenModePreferenceController;->mBackend:Lcom/android/settings/notification/zen/ZenModeBackend;
 
     return-void
-.end method
-
-.method static synthetic access$000(Landroid/content/Context;)J
-    .locals 2
-
-    invoke-static {p0}, Lcom/android/settings/notification/zen/AbstractZenModePreferenceController;->getNextAlarm(Landroid/content/Context;)J
-
-    move-result-wide v0
-
-    return-wide v0
 .end method
 
 .method private static getNextAlarm(Landroid/content/Context;)J

@@ -407,7 +407,7 @@
 
     invoke-static {p0, p1}, Lcom/android/settings/deviceinfo/legal/ModuleLicenseProvider;->checkUri(Landroid/content/Context;Landroid/net/Uri;)V
 
-    const-string v1, "r"
+    const-string/jumbo v1, "r"
 
     invoke-virtual {v1, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

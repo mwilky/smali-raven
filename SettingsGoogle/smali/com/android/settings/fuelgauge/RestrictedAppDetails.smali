@@ -135,7 +135,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f041052
+    const v0, 0x7f0410f8
 
     invoke-virtual {p1, v0}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 
@@ -207,7 +207,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a0c
+    const p0, 0x7f040a63
 
     return p0
 .end method
@@ -257,7 +257,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f1500c9
+    const p0, 0x7f1500cd
 
     return p0
 .end method
@@ -322,7 +322,7 @@
 
     move-result-object p1
 
-    const-string v0, "restrict_app_list"
+    const-string/jumbo v0, "restrict_app_list"
 
     invoke-virtual {p0, v0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -520,7 +520,7 @@
 
     if-eqz v9, :cond_0
 
-    const v9, 0x7f041051
+    const v9, 0x7f0410f7
 
     const/4 v10, 0x1
 

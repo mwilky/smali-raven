@@ -40,7 +40,7 @@
 
     const/4 p0, 0x0
 
-    invoke-static {p1, p0, p0}, Lcom/android/settings/fuelgauge/SmartBatterySettings;->access$000(Landroid/content/Context;Lcom/android/settings/SettingsActivity;Lcom/android/settings/core/InstrumentedPreferenceFragment;)Ljava/util/List;
+    invoke-static {p1, p0, p0}, Lcom/android/settings/fuelgauge/SmartBatterySettings;->-$$Nest$smbuildPreferenceControllers(Landroid/content/Context;Lcom/android/settings/SettingsActivity;Lcom/android/settings/core/InstrumentedPreferenceFragment;)Ljava/util/List;
 
     move-result-object p0
 
@@ -64,7 +64,7 @@
 
     invoke-direct {p0, p1}, Landroid/provider/SearchIndexableResource;-><init>(Landroid/content/Context;)V
 
-    const p1, 0x7f1500df
+    const p1, 0x7f1500e4
 
     iput p1, p0, Landroid/provider/SearchIndexableResource;->xmlResId:I
 

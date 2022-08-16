@@ -23,6 +23,16 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$mgetHandler(Lcom/android/settingslib/deviceinfo/AbstractConnectivityPreferenceController;)Landroid/os/Handler;
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settingslib/deviceinfo/AbstractConnectivityPreferenceController;->getHandler()Landroid/os/Handler;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
     .locals 0
 
@@ -40,16 +50,6 @@
 
     :cond_0
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settingslib/deviceinfo/AbstractConnectivityPreferenceController;)Landroid/os/Handler;
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settingslib/deviceinfo/AbstractConnectivityPreferenceController;->getHandler()Landroid/os/Handler;
-
-    move-result-object p0
-
-    return-object p0
 .end method
 
 .method private getHandler()Landroid/os/Handler;
@@ -77,41 +77,43 @@
 .end method
 
 .method public onStart()V
-    .locals 5
+    .locals 6
 
-    new-instance v0, Landroid/content/IntentFilter;
+    new-instance v2, Landroid/content/IntentFilter;
 
-    invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
+    invoke-direct {v2}, Landroid/content/IntentFilter;-><init>()V
 
     invoke-virtual {p0}, Lcom/android/settingslib/deviceinfo/AbstractConnectivityPreferenceController;->getConnectivityIntents()[Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    array-length v2, v1
+    array-length v1, v0
 
     const/4 v3, 0x0
 
     :goto_0
-    if-ge v3, v2, :cond_0
+    if-ge v3, v1, :cond_0
 
-    aget-object v4, v1, v3
+    aget-object v4, v0, v3
 
-    invoke-virtual {v0, v4}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+    invoke-virtual {v2, v4}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
     :cond_0
-    iget-object v1, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    iget-object p0, p0, Lcom/android/settingslib/deviceinfo/AbstractConnectivityPreferenceController;->mConnectivityReceiver:Landroid/content/BroadcastReceiver;
+    iget-object v1, p0, Lcom/android/settingslib/deviceinfo/AbstractConnectivityPreferenceController;->mConnectivityReceiver:Landroid/content/BroadcastReceiver;
 
-    const/4 v2, 0x0
+    const/4 v4, 0x0
+
+    const/4 v5, 0x2
 
     const-string v3, "android.permission.CHANGE_NETWORK_STATE"
 
-    invoke-virtual {v1, p0, v0, v3, v2}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
+    invoke-virtual/range {v0 .. v5}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;I)Landroid/content/Intent;
 
     return-void
 .end method

@@ -629,7 +629,7 @@
 
     invoke-direct {v13}, Ljava/util/ArrayList;-><init>()V
 
-    const/16 v1, 0x74
+    const/16 v1, 0x79
 
     new-array v14, v1, [I
 

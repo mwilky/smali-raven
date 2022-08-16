@@ -173,11 +173,11 @@
 
     if-nez v1, :cond_0
 
-    invoke-virtual {v0}, Landroid/app/NotificationChannel;->isImportanceLockedByOEM()Z
+    invoke-virtual {p0, v0}, Lcom/android/settings/notification/app/NotificationPreferenceController;->isChannelConfigurable(Landroid/app/NotificationChannel;)Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-eqz v0, :cond_0
 
     move v0, v3
 
@@ -193,11 +193,9 @@
 
     iget-object v0, p0, Lcom/android/settings/notification/app/NotificationPreferenceController;->mChannel:Landroid/app/NotificationChannel;
 
-    invoke-virtual {v0}, Landroid/app/NotificationChannel;->isImportanceLockedByOEM()Z
+    invoke-virtual {p0, v0}, Lcom/android/settings/notification/app/NotificationPreferenceController;->isChannelConfigurable(Landroid/app/NotificationChannel;)Z
 
     move-result v0
-
-    xor-int/2addr v0, v3
 
     invoke-virtual {p1, v0}, Lcom/android/settings/notification/app/ImportancePreference;->setConfigurable(Z)V
 

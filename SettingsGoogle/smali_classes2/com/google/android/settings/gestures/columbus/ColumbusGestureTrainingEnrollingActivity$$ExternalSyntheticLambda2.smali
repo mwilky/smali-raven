@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/google/android/settings/gestures/columbus/ColumbusGestureTrainingEnrollingActivity$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -27,7 +28,7 @@
 
     iget-object p0, p0, Lcom/google/android/settings/gestures/columbus/ColumbusGestureTrainingEnrollingActivity$$ExternalSyntheticLambda2;->f$0:Lcom/google/android/settings/gestures/columbus/ColumbusGestureTrainingEnrollingActivity;
 
-    invoke-static {p0}, Lcom/google/android/settings/gestures/columbus/ColumbusGestureTrainingEnrollingActivity;->$r8$lambda$0XxQd0fxxldymFZ0QytzRzreMOU(Lcom/google/android/settings/gestures/columbus/ColumbusGestureTrainingEnrollingActivity;)V
+    invoke-static {p0}, Lcom/google/android/settings/gestures/columbus/ColumbusGestureTrainingEnrollingActivity;->$r8$lambda$zC7q0_tX1g852unLHD800icuCVY(Lcom/google/android/settings/gestures/columbus/ColumbusGestureTrainingEnrollingActivity;)V
 
     return-void
 .end method

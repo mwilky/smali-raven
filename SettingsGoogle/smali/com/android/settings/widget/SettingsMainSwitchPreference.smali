@@ -7,6 +7,8 @@
 
 
 # instance fields
+.field private mApplyPartnerCustomizationPaddingStyle:Z
+
 .field private final mBeforeCheckedChangeListeners:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -130,7 +132,7 @@
 .method private init(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 3
 
-    const v0, 0x7f0601bc
+    const v0, 0x7f0601c8
 
     invoke-virtual {p0, v0}, Landroidx/preference/Preference;->setLayoutResource(I)V
 
@@ -257,14 +259,6 @@
     goto :goto_1
 
     :cond_1
-    iget-object v0, p0, Lcom/android/settings/widget/SettingsMainSwitchPreference;->mBeforeCheckedChangeListeners:Ljava/util/List;
-
-    invoke-interface {v0}, Ljava/util/List;->clear()V
-
-    iget-object p0, p0, Lcom/android/settings/widget/SettingsMainSwitchPreference;->mSwitchChangeListeners:Ljava/util/List;
-
-    invoke-interface {p0}, Ljava/util/List;->clear()V
-
     return-void
 .end method
 
@@ -273,20 +267,38 @@
 .method public addOnSwitchChangeListener(Lcom/android/settingslib/widget/OnMainSwitchChangeListener;)V
     .locals 1
 
-    iget-object v0, p0, Lcom/android/settings/widget/SettingsMainSwitchPreference;->mMainSwitchBar:Lcom/android/settings/widget/SettingsMainSwitchBar;
+    iget-object v0, p0, Lcom/android/settings/widget/SettingsMainSwitchPreference;->mSwitchChangeListeners:Ljava/util/List;
+
+    invoke-interface {v0, p1}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+
+    move-result v0
 
     if-nez v0, :cond_0
 
-    iget-object p0, p0, Lcom/android/settings/widget/SettingsMainSwitchPreference;->mSwitchChangeListeners:Ljava/util/List;
+    iget-object v0, p0, Lcom/android/settings/widget/SettingsMainSwitchPreference;->mSwitchChangeListeners:Ljava/util/List;
 
-    invoke-interface {p0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    goto :goto_0
+    invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     :cond_0
-    invoke-virtual {v0, p1}, Lcom/android/settingslib/widget/MainSwitchBar;->addOnSwitchChangeListener(Lcom/android/settingslib/widget/OnMainSwitchChangeListener;)V
+    iget-object p0, p0, Lcom/android/settings/widget/SettingsMainSwitchPreference;->mMainSwitchBar:Lcom/android/settings/widget/SettingsMainSwitchBar;
 
-    :goto_0
+    if-eqz p0, :cond_1
+
+    invoke-virtual {p0, p1}, Lcom/android/settingslib/widget/MainSwitchBar;->addOnSwitchChangeListener(Lcom/android/settingslib/widget/OnMainSwitchChangeListener;)V
+
+    :cond_1
+    return-void
+.end method
+
+.method public applyPartnerCustomizationPaddingStyle()V
+    .locals 1
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/settings/widget/SettingsMainSwitchPreference;->mApplyPartnerCustomizationPaddingStyle:Z
+
+    invoke-virtual {p0}, Landroidx/preference/Preference;->notifyChanged()V
+
     return-void
 .end method
 
@@ -329,7 +341,7 @@
     iput-object v0, p0, Lcom/android/settings/widget/SettingsMainSwitchPreference;->mEnforcedAdmin:Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
 
     :cond_0
-    const v0, 0x7f0d034b
+    const v0, 0x7f0d0376
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -375,11 +387,26 @@
     goto :goto_0
 
     :cond_2
-    iget-object p0, p0, Lcom/android/settings/widget/SettingsMainSwitchPreference;->mMainSwitchBar:Lcom/android/settings/widget/SettingsMainSwitchBar;
+    iget-object p1, p0, Lcom/android/settings/widget/SettingsMainSwitchPreference;->mMainSwitchBar:Lcom/android/settings/widget/SettingsMainSwitchBar;
 
-    invoke-virtual {p0}, Lcom/android/settingslib/widget/MainSwitchBar;->hide()V
+    invoke-virtual {p1}, Lcom/android/settingslib/widget/MainSwitchBar;->hide()V
 
     :goto_0
+    iget-boolean p1, p0, Lcom/android/settings/widget/SettingsMainSwitchPreference;->mApplyPartnerCustomizationPaddingStyle:Z
+
+    if-eqz p1, :cond_3
+
+    iget-object p0, p0, Lcom/android/settings/widget/SettingsMainSwitchPreference;->mMainSwitchBar:Lcom/android/settings/widget/SettingsMainSwitchBar;
+
+    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getParent()Landroid/view/ViewParent;
+
+    move-result-object p0
+
+    check-cast p0, Landroid/view/ViewGroup;
+
+    invoke-static {p0}, Lcom/google/android/setupdesign/util/LayoutStyler;->applyPartnerCustomizationLayoutPaddingStyle(Landroid/view/View;)V
+
+    :cond_3
     return-void
 .end method
 
@@ -388,6 +415,29 @@
 
     invoke-super {p0, p2}, Landroidx/preference/TwoStatePreference;->setChecked(Z)V
 
+    invoke-virtual {p0}, Landroidx/preference/Preference;->getKey()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-static {p0, p1}, Lcom/android/settingslib/core/instrumentation/SettingsJankMonitor;->detectToggleJank(Ljava/lang/String;Landroid/view/View;)V
+
+    return-void
+.end method
+
+.method public removeOnSwitchChangeListener(Lcom/android/settingslib/widget/OnMainSwitchChangeListener;)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/settings/widget/SettingsMainSwitchPreference;->mSwitchChangeListeners:Ljava/util/List;
+
+    invoke-interface {v0, p1}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
+
+    iget-object p0, p0, Lcom/android/settings/widget/SettingsMainSwitchPreference;->mMainSwitchBar:Lcom/android/settings/widget/SettingsMainSwitchBar;
+
+    if-eqz p0, :cond_0
+
+    invoke-virtual {p0, p1}, Lcom/android/settingslib/widget/MainSwitchBar;->removeOnSwitchChangeListener(Lcom/android/settingslib/widget/OnMainSwitchChangeListener;)V
+
+    :cond_0
     return-void
 .end method
 
@@ -439,20 +489,26 @@
 .method public setOnBeforeCheckedChangeListener(Lcom/android/settings/widget/SettingsMainSwitchBar$OnBeforeCheckedChangeListener;)V
     .locals 1
 
-    iget-object v0, p0, Lcom/android/settings/widget/SettingsMainSwitchPreference;->mMainSwitchBar:Lcom/android/settings/widget/SettingsMainSwitchBar;
+    iget-object v0, p0, Lcom/android/settings/widget/SettingsMainSwitchPreference;->mBeforeCheckedChangeListeners:Ljava/util/List;
+
+    invoke-interface {v0, p1}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+
+    move-result v0
 
     if-nez v0, :cond_0
 
-    iget-object p0, p0, Lcom/android/settings/widget/SettingsMainSwitchPreference;->mBeforeCheckedChangeListeners:Ljava/util/List;
+    iget-object v0, p0, Lcom/android/settings/widget/SettingsMainSwitchPreference;->mBeforeCheckedChangeListeners:Ljava/util/List;
 
-    invoke-interface {p0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    goto :goto_0
+    invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     :cond_0
-    invoke-virtual {v0, p1}, Lcom/android/settings/widget/SettingsMainSwitchBar;->setOnBeforeCheckedChangeListener(Lcom/android/settings/widget/SettingsMainSwitchBar$OnBeforeCheckedChangeListener;)V
+    iget-object p0, p0, Lcom/android/settings/widget/SettingsMainSwitchPreference;->mMainSwitchBar:Lcom/android/settings/widget/SettingsMainSwitchBar;
 
-    :goto_0
+    if-eqz p0, :cond_1
+
+    invoke-virtual {p0, p1}, Lcom/android/settings/widget/SettingsMainSwitchBar;->setOnBeforeCheckedChangeListener(Lcom/android/settings/widget/SettingsMainSwitchBar$OnBeforeCheckedChangeListener;)V
+
+    :cond_1
     return-void
 .end method
 

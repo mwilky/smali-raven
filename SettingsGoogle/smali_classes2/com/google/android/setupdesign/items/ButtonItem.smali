@@ -6,20 +6,10 @@
 .implements Landroid/view/View$OnClickListener;
 
 
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/google/android/setupdesign/items/ButtonItem$OnClickListener;
-    }
-.end annotation
-
-
 # instance fields
 .field private button:Landroid/widget/Button;
 
 .field private enabled:Z
-
-.field private listener:Lcom/google/android/setupdesign/items/ButtonItem$OnClickListener;
 
 .field private text:Ljava/lang/CharSequence;
 
@@ -241,12 +231,5 @@
 .method public onClick(Landroid/view/View;)V
     .locals 0
 
-    iget-object p1, p0, Lcom/google/android/setupdesign/items/ButtonItem;->listener:Lcom/google/android/setupdesign/items/ButtonItem$OnClickListener;
-
-    if-eqz p1, :cond_0
-
-    invoke-interface {p1, p0}, Lcom/google/android/setupdesign/items/ButtonItem$OnClickListener;->onClick(Lcom/google/android/setupdesign/items/ButtonItem;)V
-
-    :cond_0
     return-void
 .end method

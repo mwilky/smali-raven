@@ -59,6 +59,8 @@
 
 .field public static final sud_decelerate_quart:I = 0x7f0f0015
 
+.field public static final sud_interpolator:I = 0x7f0f0016
+
 
 # direct methods
 .method public constructor <init>()V

@@ -33,12 +33,38 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmActivePrintJobsCategory(Lcom/android/settings/print/PrintSettingsFragment;)Landroidx/preference/PreferenceCategory;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/print/PrintSettingsFragment;->mActivePrintJobsCategory:Landroidx/preference/PreferenceCategory;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmPrintServicesCategory(Lcom/android/settings/print/PrintSettingsFragment;)Landroidx/preference/PreferenceCategory;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/print/PrintSettingsFragment;->mPrintServicesCategory:Landroidx/preference/PreferenceCategory;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$mnewAddServicePreferenceOrNull(Lcom/android/settings/print/PrintSettingsFragment;)Landroidx/preference/Preference;
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/print/PrintSettingsFragment;->newAddServicePreferenceOrNull()Landroidx/preference/Preference;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method static constructor <clinit>()V
     .locals 2
 
     new-instance v0, Lcom/android/settings/search/BaseSearchIndexProvider;
 
-    const v1, 0x7f1500c1
+    const v1, 0x7f1500c3
 
     invoke-direct {v0, v1}, Lcom/android/settings/search/BaseSearchIndexProvider;-><init>(I)V
 
@@ -55,15 +81,7 @@
     return-void
 .end method
 
-.method static synthetic access$200(Lcom/android/settings/print/PrintSettingsFragment;)Landroidx/preference/PreferenceCategory;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/print/PrintSettingsFragment;->mPrintServicesCategory:Landroidx/preference/PreferenceCategory;
-
-    return-object p0
-.end method
-
-.method static synthetic access$300(Lcom/android/settings/print/PrintSettingsFragment;)Landroid/content/Context;
+.method static synthetic access$000(Lcom/android/settings/print/PrintSettingsFragment;)Landroid/content/Context;
     .locals 0
 
     invoke-virtual {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->getPrefContext()Landroid/content/Context;
@@ -73,25 +91,7 @@
     return-object p0
 .end method
 
-.method static synthetic access$400(Lcom/android/settings/print/PrintSettingsFragment;)Landroidx/preference/Preference;
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/print/PrintSettingsFragment;->newAddServicePreferenceOrNull()Landroidx/preference/Preference;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method static synthetic access$500(Lcom/android/settings/print/PrintSettingsFragment;)Landroidx/preference/PreferenceCategory;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/print/PrintSettingsFragment;->mActivePrintJobsCategory:Landroidx/preference/PreferenceCategory;
-
-    return-object p0
-.end method
-
-.method static synthetic access$600(Lcom/android/settings/print/PrintSettingsFragment;)Landroid/content/Context;
+.method static synthetic access$100(Lcom/android/settings/print/PrintSettingsFragment;)Landroid/content/Context;
     .locals 0
 
     invoke-virtual {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->getPrefContext()Landroid/content/Context;
@@ -160,11 +160,11 @@
 
     invoke-direct {v1, p0}, Landroidx/preference/Preference;-><init>(Landroid/content/Context;)V
 
-    const p0, 0x7f040fa3
+    const p0, 0x7f04103c
 
     invoke-virtual {v1, p0}, Landroidx/preference/Preference;->setTitle(I)V
 
-    const p0, 0x7f020171
+    const p0, 0x7f020185
 
     invoke-virtual {v1, p0}, Landroidx/preference/Preference;->setIcon(I)V
 
@@ -228,7 +228,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a08
+    const p0, 0x7f040a5f
 
     return p0
 .end method
@@ -290,7 +290,7 @@
 
     move-result-object p1
 
-    const p2, 0x7f1500c1
+    const p2, 0x7f1500c3
 
     invoke-virtual {p0, p2}, Lcom/android/settings/SettingsPreferenceFragment;->addPreferencesFromResource(I)V
 
@@ -326,7 +326,7 @@
 
     const/4 p3, 0x0
 
-    invoke-direct {p2, p0, p3}, Lcom/android/settings/print/PrintSettingsFragment$PrintJobsController;-><init>(Lcom/android/settings/print/PrintSettingsFragment;Lcom/android/settings/print/PrintSettingsFragment$1;)V
+    invoke-direct {p2, p0, p3}, Lcom/android/settings/print/PrintSettingsFragment$PrintJobsController;-><init>(Lcom/android/settings/print/PrintSettingsFragment;Lcom/android/settings/print/PrintSettingsFragment$PrintJobsController-IA;)V
 
     iput-object p2, p0, Lcom/android/settings/print/PrintSettingsFragment;->mPrintJobsController:Lcom/android/settings/print/PrintSettingsFragment$PrintJobsController;
 
@@ -342,7 +342,7 @@
 
     new-instance p2, Lcom/android/settings/print/PrintSettingsFragment$PrintServicesController;
 
-    invoke-direct {p2, p0, p3}, Lcom/android/settings/print/PrintSettingsFragment$PrintServicesController;-><init>(Lcom/android/settings/print/PrintSettingsFragment;Lcom/android/settings/print/PrintSettingsFragment$1;)V
+    invoke-direct {p2, p0, p3}, Lcom/android/settings/print/PrintSettingsFragment$PrintServicesController;-><init>(Lcom/android/settings/print/PrintSettingsFragment;Lcom/android/settings/print/PrintSettingsFragment$PrintServicesController-IA;)V
 
     iput-object p2, p0, Lcom/android/settings/print/PrintSettingsFragment;->mPrintServicesController:Lcom/android/settings/print/PrintSettingsFragment$PrintServicesController;
 
@@ -362,7 +362,7 @@
 .method public onStart()V
     .locals 1
 
-    invoke-super {p0}, Lcom/android/settingslib/core/lifecycle/ObservablePreferenceFragment;->onStart()V
+    invoke-super {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->onStart()V
 
     const/4 v0, 0x1
 
@@ -396,7 +396,7 @@
 
     move-result-object p2
 
-    const v0, 0x7f0600da
+    const v0, 0x7f0600dc
 
     const/4 v1, 0x0
 
@@ -404,7 +404,7 @@
 
     move-result-object p2
 
-    const v0, 0x7f0d0366
+    const v0, 0x7f0d0392
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -412,7 +412,7 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    const v2, 0x7f040fa7
+    const v2, 0x7f041040
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setText(I)V
 

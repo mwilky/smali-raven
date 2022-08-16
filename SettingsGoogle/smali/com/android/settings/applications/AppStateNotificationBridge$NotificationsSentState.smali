@@ -27,8 +27,6 @@
 
 .field public sentCount:I
 
-.field public systemApp:Z
-
 
 # direct methods
 .method public constructor <init>()V

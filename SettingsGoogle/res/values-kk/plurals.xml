@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="abc_slice_duration_days">
-        <item quantity="other">%d күн бұрын</item>
-        <item quantity="one">%d күн бұрын</item>
+        <item quantity="other">%d күн бұрын</item>
+        <item quantity="one">%d күн бұрын</item>
     </plurals>
     <plurals name="abc_slice_duration_min">
-        <item quantity="other">%d минут бұрын</item>
-        <item quantity="one">%d минут бұрын</item>
+        <item quantity="other">%d мин бұрын</item>
+        <item quantity="one">%d мин бұрын</item>
     </plurals>
     <plurals name="abc_slice_duration_years">
         <item quantity="other">%d жыл бұрын</item>
@@ -177,8 +177,8 @@
         <item quantity="one">%d таңбадан аз болуы керек</item>
     </plurals>
     <plurals name="lockpassword_password_too_short">
-        <item quantity="other">Кемінде %d таңба болуы керек</item>
-        <item quantity="one">Кемінде %d таңба болуы керек</item>
+        <item quantity="other">Кемінде %d таңба болуы керек.</item>
+        <item quantity="one">Кемінде %d таңба болуы керек.</item>
     </plurals>
     <plurals name="lockpassword_pin_too_long">
         <item quantity="other">%d таңбадан аз болуы керек</item>
@@ -193,8 +193,8 @@
         <item quantity="one">%d қолданба хабарларды оқи алады</item>
     </plurals>
     <plurals name="manage_trust_agents_summary_on">
-        <item quantity="other">%d белсенді сенімді агент</item>
-        <item quantity="one">1 белсенді сенімді агент</item>
+        <item quantity="other">%d сенімді агент істеп тұр</item>
+        <item quantity="one">1 сенімді агент істеп тұр</item>
     </plurals>
     <plurals name="memory_usage_apps_summary">
         <item quantity="other">%1$d қолданба жадты соңғы %2$s бойы пайдаланды</item>
@@ -233,11 +233,11 @@
         <item quantity="one">%d санат өшірілді</item>
     </plurals>
     <plurals name="notifications_sent_daily">
-        <item quantity="other">Күніне ~%d хабарландыру</item>
+        <item quantity="other">Күніне ~%,d хабарландыру</item>
         <item quantity="one">Күніне ~%d хабарландыру</item>
     </plurals>
     <plurals name="notifications_sent_weekly">
-        <item quantity="other">Аптасына ~%d хабарландыру</item>
+        <item quantity="other">Аптасына ~%,d хабарландыру</item>
         <item quantity="one">Аптасына ~%d хабарландыру</item>
     </plurals>
     <plurals name="number_of_device_admins">
@@ -269,8 +269,8 @@
         <item quantity="one">1 басып шығару тапсырмасы</item>
     </plurals>
     <plurals name="print_settings_summary">
-        <item quantity="other">%1$d басып шығару қызметі қосулы</item>
-        <item quantity="one">1 басып шығару қызметі қосулы</item>
+        <item quantity="other">%1$d баспа қызметі қосулы</item>
+        <item quantity="one">1 баспа қызметі қосулы</item>
     </plurals>
     <plurals name="priority_conversation_count">
         <item quantity="other">%d маңызды әңгіме</item>
@@ -328,22 +328,6 @@
         <item quantity="other">Сертификаттарды қабылдау немесе жою</item>
         <item quantity="one">Сертификатты қабылдау немесе жою</item>
     </plurals>
-    <plurals name="ssl_ca_cert_info_message">
-        <item quantity="other">"%s жұмыс профиліңізге сертификат орнатты. Бұл желідегі әрекеттеріңізді, оның ішінде электрондық хаттарды, қолданбаларды және қауіпсіз вебсайттарды бақылауға мүмкіндік береді.
-
-Бұл сертификаттар туралы толығырақ ақпарат алу үшін әкімшіңізге хабарласыңыз."</item>
-        <item quantity="one">"%s жұмыс профиліңізге сертификат орнатты. Бұл желідегі әрекеттеріңізді, оның ішінде электрондық хаттарды, қолданбаларды және қауіпсіз вебсайттарды бақылауға мүмкіндік береді.
-
-Бұл сертификат туралы толығырақ ақпарат алу үшін әкімшіңізге хабарласыңыз."</item>
-    </plurals>
-    <plurals name="ssl_ca_cert_info_message_device_owner">
-        <item quantity="other">"%s құрылғыңызға сертификат құқықтарын орнатты. Бұл сертификаттар құрылғыдағы электрондық пошта, қолданбалар және қауіпсіз вебсайттар сияқты желі әрекеттерін бақылауға мүмкіндік береді.
-
-Бұл сертификаттар туралы толығырақ ақпарат алу үшін әкімшіңізге хабарласыңыз."</item>
-        <item quantity="one">"%s құрылғыңызға сертификат құқығын орнатты. Бұл сертификат құрылғыдағы электрондық пошта, қолданбалар және қауіпсіз вебсайттар сияқты желі әрекеттерін бақылауға мүмкіндік береді.
-
-Бұл сертификат туралы толығырақ ақпарат алу үшін әкімшіңізге хабарласыңыз."</item>
-    </plurals>
     <plurals name="ssl_ca_cert_settings_button">
         <item quantity="other">Сертификаттарға құсбелгі қою</item>
         <item quantity="one">Сертификатқа құлбелгі қою</item>
@@ -375,10 +359,6 @@
     <plurals name="wifi_saved_passpoint_access_points_summary">
         <item quantity="other">%d жазылым</item>
         <item quantity="one">1 жазылым</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$d құрылғы қосылды</item>
-        <item quantity="one">%1$d құрылғы қосылды</item>
     </plurals>
     <plurals name="wrong_pin_code">
         <item quantity="other">SIM PIN коды дұрыс емес, %d әрекет қалды.</item>

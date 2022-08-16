@@ -53,7 +53,7 @@
 
     iput-object v0, p0, Lcom/android/settings/applications/manageapplications/ApplicationViewHolder;->mSummary:Landroid/widget/TextView;
 
-    const v0, 0x7f0d00a8
+    const v0, 0x7f0d00ab
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -63,7 +63,7 @@
 
     iput-object v0, p0, Lcom/android/settings/applications/manageapplications/ApplicationViewHolder;->mDisabled:Landroid/widget/TextView;
 
-    const v0, 0x7f0d0591
+    const v0, 0x7f0d05d6
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -86,6 +86,40 @@
     return-void
 .end method
 
+.method static newHeader(Landroid/view/ViewGroup;I)Landroid/view/View;
+    .locals 3
+
+    invoke-virtual {p0}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-static {v0}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
+
+    move-result-object v0
+
+    const v1, 0x7f060194
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v1, p0, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+
+    move-result-object p0
+
+    check-cast p0, Landroid/view/ViewGroup;
+
+    const v0, 0x7f0d00b1
+
+    invoke-virtual {p0, v0}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/TextView;
+
+    invoke-virtual {v0, p1}, Landroid/widget/TextView;->setText(I)V
+
+    return-object p0
+.end method
+
 .method static newView(Landroid/view/ViewGroup;Z)Landroid/view/View;
     .locals 5
 
@@ -97,7 +131,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f060189
+    const v1, 0x7f060193
 
     const/4 v2, 0x0
 
@@ -127,7 +161,7 @@
 
     move-result-object p1
 
-    const v3, 0x7f0601be
+    const v3, 0x7f0601ca
 
     const/4 v4, 0x1
 
@@ -141,7 +175,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f0601ae
+    const p1, 0x7f0601ba
 
     invoke-virtual {p0, p1, v0, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -167,6 +201,34 @@
     :cond_1
     :goto_0
     return-object v0
+.end method
+
+.method private updateSummaryVisibility()V
+    .locals 1
+
+    iget-object p0, p0, Lcom/android/settings/applications/manageapplications/ApplicationViewHolder;->mSummary:Landroid/widget/TextView;
+
+    invoke-virtual {p0}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
+
+    move-result-object v0
+
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/16 v0, 0x8
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    invoke-virtual {p0, v0}, Landroid/widget/TextView;->setVisibility(I)V
+
+    return-void
 .end method
 
 
@@ -197,21 +259,25 @@
 .end method
 
 .method setSummary(I)V
-    .locals 0
+    .locals 1
 
-    iget-object p0, p0, Lcom/android/settings/applications/manageapplications/ApplicationViewHolder;->mSummary:Landroid/widget/TextView;
+    iget-object v0, p0, Lcom/android/settings/applications/manageapplications/ApplicationViewHolder;->mSummary:Landroid/widget/TextView;
 
-    invoke-virtual {p0, p1}, Landroid/widget/TextView;->setText(I)V
+    invoke-virtual {v0, p1}, Landroid/widget/TextView;->setText(I)V
+
+    invoke-direct {p0}, Lcom/android/settings/applications/manageapplications/ApplicationViewHolder;->updateSummaryVisibility()V
 
     return-void
 .end method
 
 .method setSummary(Ljava/lang/CharSequence;)V
-    .locals 0
+    .locals 1
 
-    iget-object p0, p0, Lcom/android/settings/applications/manageapplications/ApplicationViewHolder;->mSummary:Landroid/widget/TextView;
+    iget-object v0, p0, Lcom/android/settings/applications/manageapplications/ApplicationViewHolder;->mSummary:Landroid/widget/TextView;
 
-    invoke-virtual {p0, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    invoke-direct {p0}, Lcom/android/settings/applications/manageapplications/ApplicationViewHolder;->updateSummaryVisibility()V
 
     return-void
 .end method
@@ -263,7 +329,7 @@
 
     iget-object p0, p0, Lcom/android/settings/applications/manageapplications/ApplicationViewHolder;->mDisabled:Landroid/widget/TextView;
 
-    const p1, 0x7f040e30
+    const p1, 0x7f040ec4
 
     invoke-virtual {p0, p1}, Landroid/widget/TextView;->setText(I)V
 
@@ -299,7 +365,7 @@
 
     iget-object p0, p0, Lcom/android/settings/applications/manageapplications/ApplicationViewHolder;->mDisabled:Landroid/widget/TextView;
 
-    const p1, 0x7f040802
+    const p1, 0x7f04084a
 
     invoke-virtual {p0, p1}, Landroid/widget/TextView;->setText(I)V
 

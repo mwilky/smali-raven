@@ -47,11 +47,11 @@
 
     :array_0
     .array-data 4
-        0x7f040105
-        0x7f040179
-        0x7f04017e
-        0x7f04017d
-        0x7f04017c
+        0x7f040113
+        0x7f04019f
+        0x7f0401a4
+        0x7f0401a3
+        0x7f0401a2
     .end array-data
 .end method
 
@@ -304,7 +304,7 @@
 
     iget-object p0, p0, Lcom/android/settings/wifi/slice/WifiSliceItem;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f04017a
+    const v0, 0x7f0401a0
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -315,7 +315,7 @@
     :cond_2
     iget-object p0, p0, Lcom/android/settings/wifi/slice/WifiSliceItem;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f04017b
+    const v0, 0x7f0401a1
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

@@ -39,15 +39,15 @@
 
     iget-object v0, p0, Lcom/android/settings/IccLockSettings$4;->this$0:Lcom/android/settings/IccLockSettings;
 
-    invoke-static {v0, p1}, Lcom/android/settings/IccLockSettings;->access$900(Lcom/android/settings/IccLockSettings;Ljava/lang/String;)I
+    invoke-static {v0, p1}, Lcom/android/settings/IccLockSettings;->-$$Nest$mgetSlotIndexFromTag(Lcom/android/settings/IccLockSettings;Ljava/lang/String;)I
 
     move-result p1
 
-    invoke-static {v0, p1}, Lcom/android/settings/IccLockSettings;->access$802(Lcom/android/settings/IccLockSettings;I)I
+    invoke-static {v0, p1}, Lcom/android/settings/IccLockSettings;->-$$Nest$fputmSlotId(Lcom/android/settings/IccLockSettings;I)V
 
     iget-object p0, p0, Lcom/android/settings/IccLockSettings$4;->this$0:Lcom/android/settings/IccLockSettings;
 
-    invoke-static {p0}, Lcom/android/settings/IccLockSettings;->access$000(Lcom/android/settings/IccLockSettings;)V
+    invoke-static {p0}, Lcom/android/settings/IccLockSettings;->-$$Nest$mupdatePreferences(Lcom/android/settings/IccLockSettings;)V
 
     return-void
 .end method

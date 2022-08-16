@@ -25,7 +25,7 @@
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 2
 
-    const v0, 0x7f0501c4
+    const v0, 0x7f0501fe
 
     const v1, 0x101008e
 
@@ -43,7 +43,7 @@
 
     invoke-direct {p0, p1, p2, p3}, Landroidx/preference/Preference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    const p1, 0x7f020231
+    const p1, 0x7f02024f
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setIcon(I)V
 

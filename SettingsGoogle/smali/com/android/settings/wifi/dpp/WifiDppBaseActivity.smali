@@ -16,6 +16,28 @@
     return-void
 .end method
 
+.method private applyTheme()V
+    .locals 1
+
+    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
+
+    move-result-object v0
+
+    invoke-static {p0, v0}, Lcom/android/settings/SetupWizardUtils;->getTheme(Landroid/content/Context;Landroid/content/Intent;)I
+
+    move-result v0
+
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->setTheme(I)V
+
+    const v0, 0x7f130204
+
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->setTheme(I)V
+
+    invoke-static {p0}, Lcom/google/android/setupdesign/util/ThemeHelper;->trySetDynamicColor(Landroid/content/Context;)Z
+
+    return-void
+.end method
+
 
 # virtual methods
 .method protected abstract handleIntent(Landroid/content/Intent;)V
@@ -24,15 +46,7 @@
 .method protected onApplyThemeResource(Landroid/content/res/Resources$Theme;IZ)V
     .locals 2
 
-    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
-
-    move-result-object p2
-
-    invoke-static {p0, p2}, Lcom/android/settings/SetupWizardUtils;->getTheme(Landroid/content/Context;Landroid/content/Intent;)I
-
-    move-result p2
-
-    const v0, 0x7f1301cb
+    const v0, 0x7f13020d
 
     const/4 v1, 0x1
 
@@ -48,7 +62,9 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/core/InstrumentedActivity;->onCreate(Landroid/os/Bundle;)V
 
-    const v0, 0x7f0602ba
+    invoke-direct {p0}, Lcom/android/settings/wifi/dpp/WifiDppBaseActivity;->applyTheme()V
+
+    const v0, 0x7f0602cd
 
     invoke-virtual {p0, v0}, Landroidx/activity/ComponentActivity;->setContentView(I)V
 

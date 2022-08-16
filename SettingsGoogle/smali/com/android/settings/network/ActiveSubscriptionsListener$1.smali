@@ -74,7 +74,7 @@
 
     iget-object p2, p0, Lcom/android/settings/network/ActiveSubscriptionsListener$1;->this$0:Lcom/android/settings/network/ActiveSubscriptionsListener;
 
-    invoke-static {p2, p1}, Lcom/android/settings/network/ActiveSubscriptionsListener;->access$000(Lcom/android/settings/network/ActiveSubscriptionsListener;I)Z
+    invoke-static {p2, p1}, Lcom/android/settings/network/ActiveSubscriptionsListener;->-$$Nest$mclearCachedSubId(Lcom/android/settings/network/ActiveSubscriptionsListener;I)Z
 
     move-result p2
 
@@ -85,7 +85,7 @@
     :cond_2
     iget-object p2, p0, Lcom/android/settings/network/ActiveSubscriptionsListener$1;->this$0:Lcom/android/settings/network/ActiveSubscriptionsListener;
 
-    invoke-static {p2}, Lcom/android/settings/network/ActiveSubscriptionsListener;->access$100(Lcom/android/settings/network/ActiveSubscriptionsListener;)I
+    invoke-static {p2}, Lcom/android/settings/network/ActiveSubscriptionsListener;->-$$Nest$fgetmTargetSubscriptionId(Lcom/android/settings/network/ActiveSubscriptionsListener;)I
 
     move-result p2
 
@@ -103,7 +103,7 @@
 
     iget-object p2, p0, Lcom/android/settings/network/ActiveSubscriptionsListener$1;->this$0:Lcom/android/settings/network/ActiveSubscriptionsListener;
 
-    invoke-static {p2}, Lcom/android/settings/network/ActiveSubscriptionsListener;->access$100(Lcom/android/settings/network/ActiveSubscriptionsListener;)I
+    invoke-static {p2}, Lcom/android/settings/network/ActiveSubscriptionsListener;->-$$Nest$fgetmTargetSubscriptionId(Lcom/android/settings/network/ActiveSubscriptionsListener;)I
 
     move-result p2
 

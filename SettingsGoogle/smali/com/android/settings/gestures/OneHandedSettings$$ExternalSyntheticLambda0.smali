@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/settings/gestures/OneHandedSettings$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/settings/gestures/OneHandedSettingsUtils$TogglesCallback;
+.implements Lcom/android/settingslib/widget/OnMainSwitchChangeListener;
 
 
 # instance fields
@@ -22,12 +23,12 @@
 
 
 # virtual methods
-.method public final onChange(Landroid/net/Uri;)V
+.method public final onSwitchChanged(Landroid/widget/Switch;Z)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/settings/gestures/OneHandedSettings$$ExternalSyntheticLambda0;->f$0:Lcom/android/settings/gestures/OneHandedSettings;
 
-    invoke-static {p0, p1}, Lcom/android/settings/gestures/OneHandedSettings;->$r8$lambda$JX3eSzMHoIdxOF8jb_p0iEHcYaY(Lcom/android/settings/gestures/OneHandedSettings;Landroid/net/Uri;)V
+    invoke-static {p0, p1, p2}, Lcom/android/settings/gestures/OneHandedSettings;->$r8$lambda$1QV5CW1OVPHvFGKFTMrKWcoSnoY(Lcom/android/settings/gestures/OneHandedSettings;Landroid/widget/Switch;Z)V
 
     return-void
 .end method

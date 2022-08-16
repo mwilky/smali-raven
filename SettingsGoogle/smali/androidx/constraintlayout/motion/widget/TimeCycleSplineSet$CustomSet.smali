@@ -205,9 +205,9 @@
 
     iget-object v4, p0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet$CustomSet;->mTempValues:[F
 
-    aget v5, v4, v0
+    aget v4, v4, v0
 
-    float-to-double v5, v5
+    float-to-double v5, v4
 
     const-wide/16 v7, 0x0
 
@@ -227,13 +227,11 @@
 
     iput-boolean v3, p0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->mContinue:Z
 
-    aget v3, v4, v0
+    mul-float/2addr v4, p3
 
-    mul-float/2addr v3, p3
+    add-float/2addr v4, p2
 
-    add-float/2addr v3, p2
-
-    aput v3, v2, v0
+    aput v4, v2, v0
 
     add-int/lit8 v0, v0, 0x1
 
@@ -387,8 +385,6 @@
     float-to-double v10, v8
 
     aput-wide v10, v7, v1
-
-    aget-object v7, v4, v5
 
     add-int/lit8 v8, v1, 0x1
 

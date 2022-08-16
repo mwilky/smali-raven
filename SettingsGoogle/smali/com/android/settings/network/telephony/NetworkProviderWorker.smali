@@ -52,6 +52,22 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fputmTelephonyDisplayInfo(Lcom/android/settings/network/telephony/NetworkProviderWorker;Landroid/telephony/TelephonyDisplayInfo;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/settings/network/telephony/NetworkProviderWorker;->mTelephonyDisplayInfo:Landroid/telephony/TelephonyDisplayInfo;
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mupdateListener(Lcom/android/settings/network/telephony/NetworkProviderWorker;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/network/telephony/NetworkProviderWorker;->updateListener()V
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Landroid/net/Uri;)V
     .locals 1
 
@@ -192,22 +208,6 @@
     iput p1, p0, Lcom/android/settings/network/telephony/NetworkProviderWorker;->mInternetType:I
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/network/telephony/NetworkProviderWorker;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/network/telephony/NetworkProviderWorker;->updateListener()V
-
-    return-void
-.end method
-
-.method static synthetic access$102(Lcom/android/settings/network/telephony/NetworkProviderWorker;Landroid/telephony/TelephonyDisplayInfo;)Landroid/telephony/TelephonyDisplayInfo;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/settings/network/telephony/NetworkProviderWorker;->mTelephonyDisplayInfo:Landroid/telephony/TelephonyDisplayInfo;
-
-    return-object p1
 .end method
 
 .method private updateListener()V

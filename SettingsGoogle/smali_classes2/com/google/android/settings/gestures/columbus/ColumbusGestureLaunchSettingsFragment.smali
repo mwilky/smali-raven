@@ -36,7 +36,7 @@
 
     iget-object p0, p0, Lcom/google/android/settings/gestures/columbus/ColumbusGestureLaunchSettingsFragment;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f0405f0
+    const v0, 0x7f04064c
 
     const/4 v1, 0x0
 
@@ -70,7 +70,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150048
+    const p0, 0x7f15004b
 
     return p0
 .end method

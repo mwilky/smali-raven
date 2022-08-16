@@ -28,18 +28,6 @@
 # direct methods
 .method constructor <init>(Landroidx/slice/widget/RowView;Landroidx/slice/SliceItem;I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x1010,
-            0x0,
-            0x0
-        }
-        names = {
-            "this$0",
-            "timePickerItem",
-            "mRowIndex"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/slice/widget/RowView$TimeSetListener;->this$0:Landroidx/slice/widget/RowView;
 
@@ -56,18 +44,6 @@
 # virtual methods
 .method public onTimeSet(Landroid/widget/TimePicker;II)V
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "timePicker",
-            "hour",
-            "minute"
-        }
-    .end annotation
 
     invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
 

@@ -55,7 +55,7 @@
 
     move-result p1
 
-    invoke-static {v0, v1, p0, p1}, Lcom/google/android/material/tabs/TabLayout$SlidingTabIndicator;->access$1300(Lcom/google/android/material/tabs/TabLayout$SlidingTabIndicator;Landroid/view/View;Landroid/view/View;F)V
+    invoke-static {v0, v1, p0, p1}, Lcom/google/android/material/tabs/TabLayout$SlidingTabIndicator;->access$1400(Lcom/google/android/material/tabs/TabLayout$SlidingTabIndicator;Landroid/view/View;Landroid/view/View;F)V
 
     return-void
 .end method

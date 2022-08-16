@@ -26,14 +26,4 @@
 
 # virtual methods
 .method public abstract onFling(II)Z
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "velocityX",
-            "velocityY"
-        }
-    .end annotation
 .end method

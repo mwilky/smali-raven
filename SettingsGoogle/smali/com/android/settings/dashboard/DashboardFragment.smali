@@ -8,6 +8,14 @@
 .implements Lcom/android/settings/core/BasePreferenceController$UiBlockListener;
 
 
+# static fields
+.field public static final CATEGORY:Ljava/lang/String; = "category"
+
+.field private static final TAG:Ljava/lang/String; = "DashboardFragment"
+
+.field private static final TIMEOUT_MILLIS:J = 0x32L
+
+
 # instance fields
 .field mBlockerController:Lcom/android/settings/dashboard/UiBlockerController;
 
@@ -73,34 +81,42 @@
 
 
 # direct methods
-.method public static synthetic $r8$lambda$-eV8Nc0LVdFr9s5Szw9xTEgZrPc(Lcom/android/settings/dashboard/DashboardFragment;Landroid/content/ContentResolver;Lcom/android/settings/dashboard/DynamicDataObserver;)V
+.method public static synthetic $r8$lambda$-PacQ4O6mJeRU9mHarV3V9w58rs(Lcom/android/settings/dashboard/DashboardFragment;Ljava/util/List;)V
     .locals 0
 
-    invoke-direct {p0, p1, p2}, Lcom/android/settings/dashboard/DashboardFragment;->lambda$onStart$6(Landroid/content/ContentResolver;Lcom/android/settings/dashboard/DynamicDataObserver;)V
+    invoke-direct {p0, p1}, Lcom/android/settings/dashboard/DashboardFragment;->lambda$checkUiBlocker$4(Ljava/util/List;)V
 
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$56UZ8GQDFVN5JzSoKbrAtRGNJ_8(Lcom/android/settings/dashboard/DashboardFragment;Landroidx/preference/Preference;)V
+.method public static synthetic $r8$lambda$3q0Hr23xfrLoAulINHcOsF6Cva0(Lcom/android/settings/dashboard/DashboardFragment;Ljava/util/List;Ljava/util/concurrent/CountDownLatch;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/settings/dashboard/DashboardFragment;->lambda$onCreatePreferences$5(Landroidx/preference/Preference;)V
+    invoke-direct {p0, p1, p2}, Lcom/android/settings/dashboard/DashboardFragment;->lambda$refreshDashboardTiles$10(Ljava/util/List;Ljava/util/concurrent/CountDownLatch;)V
 
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$7KgqziyHu5rnhM8JHZ4buqOlhzM(Landroidx/preference/PreferenceScreen;Lcom/android/settingslib/core/AbstractPreferenceController;)V
+.method public static synthetic $r8$lambda$8SaLBTXQQBM9pmTVyMzUlx4pFUg(Landroidx/preference/PreferenceScreen;Lcom/android/settingslib/core/AbstractPreferenceController;)V
     .locals 0
 
-    invoke-static {p0, p1}, Lcom/android/settings/dashboard/DashboardFragment;->lambda$displayResourceTilesToScreen$7(Landroidx/preference/PreferenceScreen;Lcom/android/settingslib/core/AbstractPreferenceController;)V
+    invoke-static {p0, p1}, Lcom/android/settings/dashboard/DashboardFragment;->lambda$displayResourceTilesToScreen$8(Landroidx/preference/PreferenceScreen;Lcom/android/settingslib/core/AbstractPreferenceController;)V
 
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$FR83hAz4q389jzBUl-CPy7UkL8k(Lcom/android/settings/dashboard/DashboardFragment;Landroid/content/ContentResolver;Lcom/android/settings/dashboard/DynamicDataObserver;)V
+.method public static synthetic $r8$lambda$AZow6y6fem42MRbCAGAK3IWm7sg(Lcom/android/settings/core/BasePreferenceController;)V
     .locals 0
 
-    invoke-direct {p0, p1, p2}, Lcom/android/settings/dashboard/DashboardFragment;->lambda$unregisterDynamicDataObservers$9(Landroid/content/ContentResolver;Lcom/android/settings/dashboard/DynamicDataObserver;)V
+    invoke-static {p0}, Lcom/android/settings/dashboard/DashboardFragment;->lambda$checkUiBlocker$3(Lcom/android/settings/core/BasePreferenceController;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$CKsn2SLI91hbZP2Y__uxUuV7Hqc(Lcom/android/settings/dashboard/DashboardFragment;Ljava/util/List;Ljava/util/List;Lcom/android/settingslib/core/AbstractPreferenceController;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/settings/dashboard/DashboardFragment;->lambda$checkUiBlocker$2(Ljava/util/List;Ljava/util/List;Lcom/android/settingslib/core/AbstractPreferenceController;)V
 
     return-void
 .end method
@@ -113,36 +129,52 @@
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$L5K1SCwxd0D3gThxPZOuk68ui7Q(Lcom/android/settings/dashboard/DashboardFragment;)V
+.method public static synthetic $r8$lambda$PoqS5x4gd4xA8vdZqg9lIZtnNcE(Lcom/android/settings/dashboard/DashboardFragment;Landroid/content/ContentResolver;Lcom/android/settings/dashboard/DynamicDataObserver;)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/settings/dashboard/DashboardFragment;->lambda$checkUiBlocker$3()V
+    invoke-direct {p0, p1, p2}, Lcom/android/settings/dashboard/DashboardFragment;->lambda$onStart$7(Landroid/content/ContentResolver;Lcom/android/settings/dashboard/DynamicDataObserver;)V
 
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$NzA_THdDKh73ORaB6I1a-y5r8xU(Lcom/android/settings/dashboard/DashboardFragment;Landroid/content/ContentResolver;Lcom/android/settings/dashboard/DynamicDataObserver;)V
+.method public static synthetic $r8$lambda$U2_NK0df1t6hKVQq0DbBVuN2xh0(Lcom/android/settings/dashboard/DashboardFragment;Lcom/android/settingslib/core/AbstractPreferenceController;)Landroidx/preference/Preference;
     .locals 0
 
-    invoke-direct {p0, p1, p2}, Lcom/android/settings/dashboard/DashboardFragment;->lambda$registerDynamicDataObservers$8(Landroid/content/ContentResolver;Lcom/android/settings/dashboard/DynamicDataObserver;)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$j0zdNtoN2XTJnd0Gg6zbsmXG7Yk(Lcom/android/settings/dashboard/DashboardFragment;Lcom/android/settingslib/core/AbstractPreferenceController;)Landroidx/preference/Preference;
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/dashboard/DashboardFragment;->lambda$onCreatePreferences$4(Lcom/android/settingslib/core/AbstractPreferenceController;)Landroidx/preference/Preference;
+    invoke-direct {p0, p1}, Lcom/android/settings/dashboard/DashboardFragment;->lambda$onCreatePreferences$5(Lcom/android/settingslib/core/AbstractPreferenceController;)Landroidx/preference/Preference;
 
     move-result-object p0
 
     return-object p0
 .end method
 
-.method public static synthetic $r8$lambda$vYhL_jhPHspBxQfaf36yscrbiyU(Lcom/android/settings/dashboard/DashboardFragment;Ljava/util/List;Lcom/android/settingslib/core/AbstractPreferenceController;)V
+.method public static synthetic $r8$lambda$Vee_mOxXOY0uiqIWr0Rum-awdOE(Lcom/android/settings/dashboard/DashboardFragment;Landroidx/preference/Preference;)V
     .locals 0
 
-    invoke-direct {p0, p1, p2}, Lcom/android/settings/dashboard/DashboardFragment;->lambda$checkUiBlocker$2(Ljava/util/List;Lcom/android/settingslib/core/AbstractPreferenceController;)V
+    invoke-direct {p0, p1}, Lcom/android/settings/dashboard/DashboardFragment;->lambda$onCreatePreferences$6(Landroidx/preference/Preference;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$lsvcduYn1JPjnKgsFzChH38Gqmo(Lcom/android/settings/dashboard/DashboardFragment;Lcom/android/settings/dashboard/DynamicDataObserver;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/dashboard/DashboardFragment;->lambda$refreshDashboardTiles$9(Lcom/android/settings/dashboard/DynamicDataObserver;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$uVV-4SjHZSdcYMb_WMej7QVIo_4(Lcom/android/settings/dashboard/DashboardFragment;Landroid/content/ContentResolver;Lcom/android/settings/dashboard/DynamicDataObserver;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/settings/dashboard/DashboardFragment;->lambda$registerDynamicDataObservers$11(Landroid/content/ContentResolver;Lcom/android/settings/dashboard/DynamicDataObserver;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$vEdwxZBrNXOFyCLQhMIkUgk9eOw(Lcom/android/settings/dashboard/DashboardFragment;Landroid/content/ContentResolver;Lcom/android/settings/dashboard/DynamicDataObserver;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/settings/dashboard/DashboardFragment;->lambda$unregisterDynamicDataObservers$12(Landroid/content/ContentResolver;Lcom/android/settings/dashboard/DynamicDataObserver;)V
 
     return-void
 .end method
@@ -187,6 +219,22 @@
     return-void
 .end method
 
+.method private awaitObserverLatch(Ljava/util/concurrent/CountDownLatch;)V
+    .locals 2
+
+    const-wide/16 v0, 0x32
+
+    :try_start_0
+    sget-object p0, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
+
+    invoke-virtual {p1, v0, v1, p0}, Ljava/util/concurrent/CountDownLatch;->await(JLjava/util/concurrent/TimeUnit;)Z
+    :try_end_0
+    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :catch_0
+    return-void
+.end method
+
 .method private displayResourceTiles()V
     .locals 1
 
@@ -212,46 +260,64 @@
     return-void
 .end method
 
-.method private synthetic lambda$checkUiBlocker$2(Ljava/util/List;Lcom/android/settingslib/core/AbstractPreferenceController;)V
+.method private synthetic lambda$checkUiBlocker$2(Ljava/util/List;Ljava/util/List;Lcom/android/settingslib/core/AbstractPreferenceController;)V
     .locals 1
 
-    instance-of v0, p2, Lcom/android/settings/core/BasePreferenceController$UiBlocker;
+    instance-of v0, p3, Lcom/android/settings/core/BasePreferenceController$UiBlocker;
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {p2}, Lcom/android/settingslib/core/AbstractPreferenceController;->isAvailable()Z
+    invoke-virtual {p3}, Lcom/android/settingslib/core/AbstractPreferenceController;->isAvailable()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    move-object v0, p2
+    move-object v0, p3
 
     check-cast v0, Lcom/android/settings/core/BasePreferenceController;
 
     invoke-virtual {v0, p0}, Lcom/android/settings/core/BasePreferenceController;->setUiBlockListener(Lcom/android/settings/core/BasePreferenceController$UiBlockListener;)V
 
-    invoke-virtual {p2}, Lcom/android/settingslib/core/AbstractPreferenceController;->getPreferenceKey()Ljava/lang/String;
+    invoke-virtual {p3}, Lcom/android/settingslib/core/AbstractPreferenceController;->getPreferenceKey()Ljava/lang/String;
 
     move-result-object p0
 
     invoke-interface {p1, p0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
+    invoke-interface {p2, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
     :cond_0
     return-void
 .end method
 
-.method private synthetic lambda$checkUiBlocker$3()V
+.method private static synthetic lambda$checkUiBlocker$3(Lcom/android/settings/core/BasePreferenceController;)V
+    .locals 1
+
+    const/4 v0, 0x1
+
+    invoke-virtual {p0, v0}, Lcom/android/settings/core/BasePreferenceController;->setUiBlockerFinished(Z)V
+
+    return-void
+.end method
+
+.method private synthetic lambda$checkUiBlocker$4(Ljava/util/List;)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/settings/dashboard/DashboardFragment;->mPreferenceControllers:Ljava/util/Map;
 
     invoke-virtual {p0, v0}, Lcom/android/settings/dashboard/DashboardFragment;->updatePreferenceVisibility(Ljava/util/Map;)V
 
+    new-instance p0, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda0;
+
+    invoke-direct {p0}, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda0;-><init>()V
+
+    invoke-interface {p1, p0}, Ljava/util/List;->forEach(Ljava/util/function/Consumer;)V
+
     return-void
 .end method
 
-.method private static synthetic lambda$displayResourceTilesToScreen$7(Landroidx/preference/PreferenceScreen;Lcom/android/settingslib/core/AbstractPreferenceController;)V
+.method private static synthetic lambda$displayResourceTilesToScreen$8(Landroidx/preference/PreferenceScreen;Lcom/android/settingslib/core/AbstractPreferenceController;)V
     .locals 0
 
     invoke-virtual {p1, p0}, Lcom/android/settingslib/core/AbstractPreferenceController;->displayPreference(Landroidx/preference/PreferenceScreen;)V
@@ -262,11 +328,11 @@
 .method private static synthetic lambda$onAttach$0(Lcom/android/settingslib/core/lifecycle/Lifecycle;Lcom/android/settings/core/BasePreferenceController;)V
     .locals 1
 
-    instance-of v0, p1, Lcom/android/settingslib/core/lifecycle/LifecycleObserver;
+    instance-of v0, p1, Landroidx/lifecycle/LifecycleObserver;
 
     if-eqz v0, :cond_0
 
-    check-cast p1, Lcom/android/settingslib/core/lifecycle/LifecycleObserver;
+    check-cast p1, Landroidx/lifecycle/LifecycleObserver;
 
     invoke-virtual {p0, p1}, Lcom/android/settingslib/core/lifecycle/Lifecycle;->addObserver(Landroidx/lifecycle/LifecycleObserver;)V
 
@@ -289,7 +355,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$onCreatePreferences$4(Lcom/android/settingslib/core/AbstractPreferenceController;)Landroidx/preference/Preference;
+.method private synthetic lambda$onCreatePreferences$5(Lcom/android/settingslib/core/AbstractPreferenceController;)Landroidx/preference/Preference;
     .locals 0
 
     invoke-virtual {p1}, Lcom/android/settingslib/core/AbstractPreferenceController;->getPreferenceKey()Ljava/lang/String;
@@ -303,7 +369,7 @@
     return-object p0
 .end method
 
-.method private synthetic lambda$onCreatePreferences$5(Landroidx/preference/Preference;)V
+.method private synthetic lambda$onCreatePreferences$6(Landroidx/preference/Preference;)V
     .locals 1
 
     invoke-virtual {p1}, Landroidx/preference/Preference;->getExtras()Landroid/os/Bundle;
@@ -321,7 +387,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$onStart$6(Landroid/content/ContentResolver;Lcom/android/settings/dashboard/DynamicDataObserver;)V
+.method private synthetic lambda$onStart$7(Landroid/content/ContentResolver;Lcom/android/settings/dashboard/DynamicDataObserver;)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/settings/dashboard/DashboardFragment;->mRegisteredObservers:Ljava/util/List;
@@ -338,7 +404,33 @@
     return-void
 .end method
 
-.method private synthetic lambda$registerDynamicDataObservers$8(Landroid/content/ContentResolver;Lcom/android/settings/dashboard/DynamicDataObserver;)V
+.method private synthetic lambda$refreshDashboardTiles$10(Ljava/util/List;Ljava/util/concurrent/CountDownLatch;)V
+    .locals 1
+
+    new-instance v0, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda3;
+
+    invoke-direct {v0, p0}, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda3;-><init>(Lcom/android/settings/dashboard/DashboardFragment;)V
+
+    invoke-interface {p1, v0}, Ljava/util/List;->forEach(Ljava/util/function/Consumer;)V
+
+    invoke-virtual {p2}, Ljava/util/concurrent/CountDownLatch;->countDown()V
+
+    return-void
+.end method
+
+.method private synthetic lambda$refreshDashboardTiles$9(Lcom/android/settings/dashboard/DynamicDataObserver;)V
+    .locals 0
+
+    invoke-virtual {p1}, Lcom/android/settings/dashboard/DynamicDataObserver;->getCountDownLatch()Ljava/util/concurrent/CountDownLatch;
+
+    move-result-object p1
+
+    invoke-direct {p0, p1}, Lcom/android/settings/dashboard/DashboardFragment;->awaitObserverLatch(Ljava/util/concurrent/CountDownLatch;)V
+
+    return-void
+.end method
+
+.method private synthetic lambda$registerDynamicDataObservers$11(Landroid/content/ContentResolver;Lcom/android/settings/dashboard/DynamicDataObserver;)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/settings/dashboard/DashboardFragment;->registerDynamicDataObserver(Landroid/content/ContentResolver;Lcom/android/settings/dashboard/DynamicDataObserver;)V
@@ -346,7 +438,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$unregisterDynamicDataObservers$9(Landroid/content/ContentResolver;Lcom/android/settings/dashboard/DynamicDataObserver;)V
+.method private synthetic lambda$unregisterDynamicDataObservers$12(Landroid/content/ContentResolver;Lcom/android/settings/dashboard/DynamicDataObserver;)V
     .locals 2
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -431,232 +523,257 @@
 .end method
 
 .method private refreshDashboardTiles(Ljava/lang/String;)V
-    .locals 14
+    .locals 18
 
-    invoke-virtual {p0}, Landroidx/preference/PreferenceFragmentCompat;->getPreferenceScreen()Landroidx/preference/PreferenceScreen;
+    move-object/from16 v8, p0
 
-    move-result-object v0
+    move-object/from16 v9, p1
 
-    iget-object v1, p0, Lcom/android/settings/dashboard/DashboardFragment;->mDashboardFeatureProvider:Lcom/android/settings/dashboard/DashboardFeatureProvider;
+    invoke-virtual/range {p0 .. p0}, Landroidx/preference/PreferenceFragmentCompat;->getPreferenceScreen()Landroidx/preference/PreferenceScreen;
 
-    invoke-virtual {p0}, Lcom/android/settings/dashboard/DashboardFragment;->getCategoryKey()Ljava/lang/String;
+    move-result-object v10
 
-    move-result-object v2
+    iget-object v0, v8, Lcom/android/settings/dashboard/DashboardFragment;->mDashboardFeatureProvider:Lcom/android/settings/dashboard/DashboardFeatureProvider;
 
-    invoke-interface {v1, v2}, Lcom/android/settings/dashboard/DashboardFeatureProvider;->getTilesForCategory(Ljava/lang/String;)Lcom/android/settingslib/drawer/DashboardCategory;
+    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/dashboard/DashboardFragment;->getCategoryKey()Ljava/lang/String;
 
     move-result-object v1
 
-    if-nez v1, :cond_0
+    invoke-interface {v0, v1}, Lcom/android/settings/dashboard/DashboardFeatureProvider;->getTilesForCategory(Ljava/lang/String;)Lcom/android/settingslib/drawer/DashboardCategory;
 
-    new-instance p0, Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
+    if-nez v0, :cond_0
 
-    const-string v0, "NO dashboard tiles for "
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, "NO dashboard tiles for "
 
-    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object p0
+    invoke-virtual {v0, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {p1, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v9, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
     :cond_0
-    invoke-virtual {v1}, Lcom/android/settingslib/drawer/DashboardCategory;->getTiles()Ljava/util/List;
+    invoke-virtual {v0}, Lcom/android/settingslib/drawer/DashboardCategory;->getTiles()Ljava/util/List;
 
-    move-result-object v2
+    move-result-object v1
 
-    if-nez v2, :cond_1
+    if-nez v1, :cond_1
 
-    new-instance p0, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v0, "tile list is empty, skipping category "
+    const-string/jumbo v2, "tile list is empty, skipping category "
 
-    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v0, v1, Lcom/android/settingslib/drawer/DashboardCategory;->key:Ljava/lang/String;
+    iget-object v0, v0, Lcom/android/settingslib/drawer/DashboardCategory;->key:Ljava/lang/String;
 
-    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-static {p1, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v9, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
     :cond_1
-    new-instance v1, Landroid/util/ArrayMap;
+    new-instance v11, Landroid/util/ArrayMap;
 
-    iget-object v3, p0, Lcom/android/settings/dashboard/DashboardFragment;->mDashboardTilePrefKeys:Landroid/util/ArrayMap;
+    iget-object v0, v8, Lcom/android/settings/dashboard/DashboardFragment;->mDashboardTilePrefKeys:Landroid/util/ArrayMap;
 
-    invoke-direct {v1, v3}, Landroid/util/ArrayMap;-><init>(Landroid/util/ArrayMap;)V
+    invoke-direct {v11, v0}, Landroid/util/ArrayMap;-><init>(Landroid/util/ArrayMap;)V
 
-    invoke-virtual {p0}, Lcom/android/settings/dashboard/DashboardFragment;->shouldForceRoundedIcon()Z
+    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/dashboard/DashboardFragment;->shouldForceRoundedIcon()Z
 
-    move-result v3
+    move-result v12
 
-    invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    new-instance v13, Ljava/util/ArrayList;
 
-    move-result-object v2
+    invoke-direct {v13}, Ljava/util/ArrayList;-><init>()V
+
+    invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v14
 
     :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v14}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v4
+    move-result v0
 
-    if-eqz v4, :cond_5
+    if-eqz v0, :cond_6
 
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v14}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v0
 
-    move-object v9, v4
+    move-object v5, v0
 
-    check-cast v9, Lcom/android/settingslib/drawer/Tile;
+    check-cast v5, Lcom/android/settingslib/drawer/Tile;
 
-    iget-object v4, p0, Lcom/android/settings/dashboard/DashboardFragment;->mDashboardFeatureProvider:Lcom/android/settings/dashboard/DashboardFeatureProvider;
+    iget-object v0, v8, Lcom/android/settings/dashboard/DashboardFragment;->mDashboardFeatureProvider:Lcom/android/settings/dashboard/DashboardFeatureProvider;
 
-    invoke-interface {v4, v9}, Lcom/android/settings/dashboard/DashboardFeatureProvider;->getDashboardKeyForTile(Lcom/android/settingslib/drawer/Tile;)Ljava/lang/String;
+    invoke-interface {v0, v5}, Lcom/android/settings/dashboard/DashboardFeatureProvider;->getDashboardKeyForTile(Lcom/android/settingslib/drawer/Tile;)Ljava/lang/String;
 
-    move-result-object v12
+    move-result-object v15
 
-    invoke-static {v12}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {v15}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v4
+    move-result v0
 
-    if-eqz v4, :cond_2
+    if-eqz v0, :cond_2
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v5, "tile does not contain a key, skipping "
+    const-string/jumbo v1, "tile does not contain a key, skipping "
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-static {p1, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v9, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
     :cond_2
-    invoke-virtual {p0, v9}, Lcom/android/settings/dashboard/DashboardFragment;->displayTile(Lcom/android/settingslib/drawer/Tile;)Z
+    invoke-virtual {v8, v5}, Lcom/android/settings/dashboard/DashboardFragment;->displayTile(Lcom/android/settingslib/drawer/Tile;)Z
 
-    move-result v4
+    move-result v0
 
-    if-nez v4, :cond_3
+    if-nez v0, :cond_3
 
     goto :goto_0
 
     :cond_3
-    iget-object v4, p0, Lcom/android/settings/dashboard/DashboardFragment;->mDashboardTilePrefKeys:Landroid/util/ArrayMap;
+    iget-object v0, v8, Lcom/android/settings/dashboard/DashboardFragment;->mDashboardTilePrefKeys:Landroid/util/ArrayMap;
 
-    invoke-virtual {v4, v12}, Landroid/util/ArrayMap;->containsKey(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v15}, Landroid/util/ArrayMap;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result v0
 
-    if-eqz v4, :cond_4
+    if-eqz v0, :cond_4
 
-    invoke-virtual {v0, v12}, Landroidx/preference/PreferenceGroup;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
+    invoke-virtual {v10, v15}, Landroidx/preference/PreferenceGroup;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
-    move-result-object v8
+    move-result-object v4
 
-    iget-object v4, p0, Lcom/android/settings/dashboard/DashboardFragment;->mDashboardFeatureProvider:Lcom/android/settings/dashboard/DashboardFeatureProvider;
+    iget-object v0, v8, Lcom/android/settings/dashboard/DashboardFragment;->mDashboardFeatureProvider:Lcom/android/settings/dashboard/DashboardFeatureProvider;
 
-    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
+    invoke-virtual/range {p0 .. p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
 
-    move-result-object v5
+    move-result-object v1
 
-    iget-object v6, p0, Lcom/android/settings/dashboard/DashboardFragment;->mPlaceholderPreferenceController:Lcom/android/settings/dashboard/DashboardTilePlaceholderPreferenceController;
+    iget-object v2, v8, Lcom/android/settings/dashboard/DashboardFragment;->mPlaceholderPreferenceController:Lcom/android/settings/dashboard/DashboardTilePlaceholderPreferenceController;
 
-    invoke-virtual {v6}, Lcom/android/settings/dashboard/DashboardTilePlaceholderPreferenceController;->getOrder()I
+    invoke-virtual {v2}, Lcom/android/settings/dashboard/DashboardTilePlaceholderPreferenceController;->getOrder()I
 
-    move-result v11
+    move-result v7
 
-    move-object v6, p0
+    move-object/from16 v2, p0
 
-    move v7, v3
+    move v3, v12
 
-    move-object v10, v12
+    move-object v6, v15
 
-    invoke-interface/range {v4 .. v11}, Lcom/android/settings/dashboard/DashboardFeatureProvider;->bindPreferenceToTileAndGetObservers(Landroidx/fragment/app/FragmentActivity;Lcom/android/settings/dashboard/DashboardFragment;ZLandroidx/preference/Preference;Lcom/android/settingslib/drawer/Tile;Ljava/lang/String;I)Ljava/util/List;
+    invoke-interface/range {v0 .. v7}, Lcom/android/settings/dashboard/DashboardFeatureProvider;->bindPreferenceToTileAndGetObservers(Landroidx/fragment/app/FragmentActivity;Lcom/android/settings/dashboard/DashboardFragment;ZLandroidx/preference/Preference;Lcom/android/settingslib/drawer/Tile;Ljava/lang/String;I)Ljava/util/List;
+
+    move-result-object v0
+
+    move/from16 v17, v12
 
     goto :goto_1
 
     :cond_4
-    invoke-virtual {p0, v9}, Lcom/android/settings/dashboard/DashboardFragment;->createPreference(Lcom/android/settingslib/drawer/Tile;)Landroidx/preference/Preference;
+    invoke-virtual {v8, v5}, Lcom/android/settings/dashboard/DashboardFragment;->createPreference(Lcom/android/settingslib/drawer/Tile;)Landroidx/preference/Preference;
 
-    move-result-object v13
+    move-result-object v7
 
-    iget-object v4, p0, Lcom/android/settings/dashboard/DashboardFragment;->mDashboardFeatureProvider:Lcom/android/settings/dashboard/DashboardFeatureProvider;
+    iget-object v0, v8, Lcom/android/settings/dashboard/DashboardFragment;->mDashboardFeatureProvider:Lcom/android/settings/dashboard/DashboardFeatureProvider;
 
-    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
+    invoke-virtual/range {p0 .. p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
 
-    move-result-object v5
+    move-result-object v1
 
-    iget-object v6, p0, Lcom/android/settings/dashboard/DashboardFragment;->mPlaceholderPreferenceController:Lcom/android/settings/dashboard/DashboardTilePlaceholderPreferenceController;
+    iget-object v2, v8, Lcom/android/settings/dashboard/DashboardFragment;->mPlaceholderPreferenceController:Lcom/android/settings/dashboard/DashboardTilePlaceholderPreferenceController;
 
-    invoke-virtual {v6}, Lcom/android/settings/dashboard/DashboardTilePlaceholderPreferenceController;->getOrder()I
+    invoke-virtual {v2}, Lcom/android/settings/dashboard/DashboardTilePlaceholderPreferenceController;->getOrder()I
 
-    move-result v11
+    move-result v16
 
-    move-object v6, p0
+    move-object/from16 v2, p0
 
-    move v7, v3
+    move v3, v12
 
-    move-object v8, v13
+    move-object v4, v7
 
-    move-object v10, v12
+    move-object v6, v15
 
-    invoke-interface/range {v4 .. v11}, Lcom/android/settings/dashboard/DashboardFeatureProvider;->bindPreferenceToTileAndGetObservers(Landroidx/fragment/app/FragmentActivity;Lcom/android/settings/dashboard/DashboardFragment;ZLandroidx/preference/Preference;Lcom/android/settingslib/drawer/Tile;Ljava/lang/String;I)Ljava/util/List;
+    move/from16 v17, v12
 
-    move-result-object v4
+    move-object v12, v7
 
-    invoke-virtual {v0, v13}, Landroidx/preference/PreferenceGroup;->addPreference(Landroidx/preference/Preference;)Z
+    move/from16 v7, v16
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/dashboard/DashboardFragment;->registerDynamicDataObservers(Ljava/util/List;)V
+    invoke-interface/range {v0 .. v7}, Lcom/android/settings/dashboard/DashboardFeatureProvider;->bindPreferenceToTileAndGetObservers(Landroidx/fragment/app/FragmentActivity;Lcom/android/settings/dashboard/DashboardFragment;ZLandroidx/preference/Preference;Lcom/android/settingslib/drawer/Tile;Ljava/lang/String;I)Ljava/util/List;
 
-    iget-object v5, p0, Lcom/android/settings/dashboard/DashboardFragment;->mDashboardTilePrefKeys:Landroid/util/ArrayMap;
+    move-result-object v0
 
-    invoke-virtual {v5, v12, v4}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v10, v12}, Landroidx/preference/PreferenceGroup;->addPreference(Landroidx/preference/Preference;)Z
+
+    invoke-virtual {v8, v0}, Lcom/android/settings/dashboard/DashboardFragment;->registerDynamicDataObservers(Ljava/util/List;)V
+
+    iget-object v1, v8, Lcom/android/settings/dashboard/DashboardFragment;->mDashboardTilePrefKeys:Landroid/util/ArrayMap;
+
+    invoke-virtual {v1, v15, v0}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     :goto_1
-    invoke-interface {v1, v12}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    if-eqz v0, :cond_5
 
-    goto :goto_0
+    invoke-interface {v13, v0}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
 
     :cond_5
-    invoke-interface {v1}, Ljava/util/Map;->entrySet()Ljava/util/Set;
+    invoke-interface {v11, v15}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object p1
+    move/from16 v12, v17
 
-    invoke-interface {p1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    goto/16 :goto_0
 
-    move-result-object p1
+    :cond_6
+    invoke-interface {v11}, Ljava/util/Map;->entrySet()Ljava/util/Set;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
+    move-result-object v0
 
     :goto_2
-    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_8
 
-    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
 
@@ -668,30 +785,69 @@
 
     check-cast v2, Ljava/lang/String;
 
-    iget-object v3, p0, Lcom/android/settings/dashboard/DashboardFragment;->mDashboardTilePrefKeys:Landroid/util/ArrayMap;
+    iget-object v3, v8, Lcom/android/settings/dashboard/DashboardFragment;->mDashboardTilePrefKeys:Landroid/util/ArrayMap;
 
     invoke-virtual {v3, v2}, Landroid/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {v0, v2}, Landroidx/preference/PreferenceGroup;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
+    invoke-virtual {v10, v2}, Landroidx/preference/PreferenceGroup;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
     move-result-object v2
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_7
 
-    invoke-virtual {v0, v2}, Landroidx/preference/PreferenceGroup;->removePreference(Landroidx/preference/Preference;)Z
+    invoke-virtual {v10, v2}, Landroidx/preference/PreferenceGroup;->removePreference(Landroidx/preference/Preference;)Z
 
-    :cond_6
+    :cond_7
     invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Ljava/util/List;
 
-    invoke-direct {p0, v1}, Lcom/android/settings/dashboard/DashboardFragment;->unregisterDynamicDataObservers(Ljava/util/List;)V
+    invoke-direct {v8, v1}, Lcom/android/settings/dashboard/DashboardFragment;->unregisterDynamicDataObservers(Ljava/util/List;)V
 
     goto :goto_2
 
-    :cond_7
+    :cond_8
+    invoke-interface {v13}, Ljava/util/List;->isEmpty()Z
+
+    move-result v0
+
+    if-nez v0, :cond_9
+
+    new-instance v0, Ljava/util/concurrent/CountDownLatch;
+
+    const/4 v1, 0x1
+
+    invoke-direct {v0, v1}, Ljava/util/concurrent/CountDownLatch;-><init>(I)V
+
+    new-instance v1, Ljava/lang/Thread;
+
+    new-instance v2, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda7;
+
+    invoke-direct {v2, v8, v13, v0}, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda7;-><init>(Lcom/android/settings/dashboard/DashboardFragment;Ljava/util/List;Ljava/util/concurrent/CountDownLatch;)V
+
+    invoke-direct {v1, v2}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
+
+    invoke-virtual {v1}, Ljava/lang/Thread;->start()V
+
+    const-string v1, "Start waiting observers"
+
+    invoke-static {v9, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-direct {v8, v0}, Lcom/android/settings/dashboard/DashboardFragment;->awaitObserverLatch(Ljava/util/concurrent/CountDownLatch;)V
+
+    const-string v0, "Stop waiting observers"
+
+    invoke-static {v9, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-instance v0, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda8;
+
+    invoke-direct {v0}, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda8;-><init>()V
+
+    invoke-interface {v13, v0}, Ljava/util/List;->forEach(Ljava/util/function/Consumer;)V
+
+    :cond_9
     return-void
 .end method
 
@@ -702,7 +858,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "register observer: @"
+    const-string/jumbo v1, "register observer: @"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -775,9 +931,9 @@
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda5;
+    new-instance v1, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda6;
 
-    invoke-direct {v1, p0, v0}, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda5;-><init>(Lcom/android/settings/dashboard/DashboardFragment;Landroid/content/ContentResolver;)V
+    invoke-direct {v1, p0, v0}, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda6;-><init>(Lcom/android/settings/dashboard/DashboardFragment;Landroid/content/ContentResolver;)V
 
     invoke-interface {p1, v1}, Ljava/util/List;->forEach(Ljava/util/function/Consumer;)V
 
@@ -834,7 +990,7 @@
 .end method
 
 .method checkUiBlocker(Ljava/util/List;)V
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -848,11 +1004,15 @@
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    new-instance v1, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda7;
+    new-instance v1, Ljava/util/ArrayList;
 
-    invoke-direct {v1, p0, v0}, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda7;-><init>(Lcom/android/settings/dashboard/DashboardFragment;Ljava/util/List;)V
+    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
-    invoke-interface {p1, v1}, Ljava/util/List;->forEach(Ljava/util/function/Consumer;)V
+    new-instance v2, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda1;
+
+    invoke-direct {v2, p0, v0, v1}, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/dashboard/DashboardFragment;Ljava/util/List;Ljava/util/List;)V
+
+    invoke-interface {p1, v2}, Ljava/util/List;->forEach(Ljava/util/function/Consumer;)V
 
     invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
 
@@ -866,9 +1026,9 @@
 
     iput-object p1, p0, Lcom/android/settings/dashboard/DashboardFragment;->mBlockerController:Lcom/android/settings/dashboard/UiBlockerController;
 
-    new-instance v0, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda0;
+    new-instance v0, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda2;
 
-    invoke-direct {v0, p0}, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/dashboard/DashboardFragment;)V
+    invoke-direct {v0, p0, v1}, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/dashboard/DashboardFragment;Ljava/util/List;)V
 
     invoke-virtual {p1, v0}, Lcom/android/settings/dashboard/UiBlockerController;->start(Ljava/lang/Runnable;)Z
 
@@ -900,13 +1060,13 @@
 
     if-eqz p1, :cond_1
 
-    new-instance p1, Lcom/android/settings/widget/PrimarySwitchPreference;
+    new-instance p1, Lcom/android/settingslib/PrimarySwitchPreference;
 
     invoke-virtual {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->getPrefContext()Landroid/content/Context;
 
     move-result-object p0
 
-    invoke-direct {p1, p0}, Lcom/android/settings/widget/PrimarySwitchPreference;-><init>(Landroid/content/Context;)V
+    invoke-direct {p1, p0}, Lcom/android/settingslib/PrimarySwitchPreference;-><init>(Landroid/content/Context;)V
 
     goto :goto_0
 
@@ -954,15 +1114,17 @@
 
     move-result-object p0
 
-    sget-object v0, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda10;->INSTANCE:Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda10;
+    new-instance v0, Lcom/android/settings/bluetooth/BluetoothDetailsRelatedToolsController$$ExternalSyntheticLambda2;
+
+    invoke-direct {v0}, Lcom/android/settings/bluetooth/BluetoothDetailsRelatedToolsController$$ExternalSyntheticLambda2;-><init>()V
 
     invoke-interface {p0, v0}, Ljava/util/stream/Stream;->flatMap(Ljava/util/function/Function;)Ljava/util/stream/Stream;
 
     move-result-object p0
 
-    new-instance v0, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda2;
+    new-instance v0, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda13;
 
-    invoke-direct {v0, p1}, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda2;-><init>(Landroidx/preference/PreferenceScreen;)V
+    invoke-direct {v0, p1}, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda13;-><init>(Landroidx/preference/PreferenceScreen;)V
 
     invoke-interface {p0, v0}, Ljava/util/stream/Stream;->forEach(Ljava/util/function/Consumer;)V
 
@@ -1055,24 +1217,16 @@
 .method protected abstract getPreferenceScreenResId()I
 .end method
 
-.method protected isParalleledControllers()Z
-    .locals 0
-
-    const/4 p0, 0x0
-
-    return p0
-.end method
-
 .method public onAttach(Landroid/content/Context;)V
     .locals 3
 
-    invoke-super {p0, p1}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->onAttach(Landroid/content/Context;)V
+    invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onAttach(Landroid/content/Context;)V
 
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x7f01006f
+    const v1, 0x7f010074
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -1125,9 +1279,9 @@
 
     move-result-object v0
 
-    new-instance v2, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda8;
+    new-instance v2, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda14;
 
-    invoke-direct {v2, v0}, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda8;-><init>(Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
+    invoke-direct {v2, v0}, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda14;-><init>(Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
 
     invoke-interface {v1, v2}, Ljava/util/List;->forEach(Ljava/util/function/Consumer;)V
 
@@ -1137,9 +1291,9 @@
 
     iget-object v1, p0, Lcom/android/settings/dashboard/DashboardFragment;->mControllers:Ljava/util/List;
 
-    new-instance v2, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda1;
+    new-instance v2, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda15;
 
-    invoke-direct {v2, v0}, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda1;-><init>(I)V
+    invoke-direct {v2, v0}, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda15;-><init>(I)V
 
     invoke-interface {v1, v2}, Ljava/util/List;->forEach(Ljava/util/function/Consumer;)V
 
@@ -1181,15 +1335,23 @@
 .end method
 
 .method public onBlockerWorkFinished(Lcom/android/settings/core/BasePreferenceController;)V
-    .locals 0
+    .locals 2
 
-    iget-object p0, p0, Lcom/android/settings/dashboard/DashboardFragment;->mBlockerController:Lcom/android/settings/dashboard/UiBlockerController;
+    iget-object v0, p0, Lcom/android/settings/dashboard/DashboardFragment;->mBlockerController:Lcom/android/settings/dashboard/UiBlockerController;
 
     invoke-virtual {p1}, Lcom/android/settings/core/BasePreferenceController;->getPreferenceKey()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-virtual {p0, p1}, Lcom/android/settings/dashboard/UiBlockerController;->countDown(Ljava/lang/String;)Z
+    invoke-virtual {v0, v1}, Lcom/android/settings/dashboard/UiBlockerController;->countDown(Ljava/lang/String;)Z
+
+    iget-object p0, p0, Lcom/android/settings/dashboard/DashboardFragment;->mBlockerController:Lcom/android/settings/dashboard/UiBlockerController;
+
+    invoke-virtual {p0}, Lcom/android/settings/dashboard/UiBlockerController;->isBlockerFinished()Z
+
+    move-result p0
+
+    invoke-virtual {p1, p0}, Lcom/android/settings/core/BasePreferenceController;->setUiBlockerFinished(Z)V
 
     return-void
 .end method
@@ -1241,7 +1403,7 @@
 
     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "refresh tiles for "
+    const-string/jumbo v1, "refresh tiles for "
 
     invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1316,15 +1478,17 @@
 
     move-result-object p1
 
-    sget-object p2, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda11;->INSTANCE:Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda11;
+    new-instance p2, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda10;
+
+    invoke-direct {p2}, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda10;-><init>()V
 
     invoke-interface {p1, p2}, Ljava/util/stream/Stream;->filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
 
     move-result-object p1
 
-    new-instance p2, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda3;
+    new-instance p2, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda11;
 
-    invoke-direct {p2, p0}, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda3;-><init>(Lcom/android/settings/dashboard/DashboardFragment;)V
+    invoke-direct {p2, p0}, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda11;-><init>(Lcom/android/settings/dashboard/DashboardFragment;)V
 
     invoke-interface {p1, p2}, Ljava/util/stream/Stream;->forEach(Ljava/util/function/Consumer;)V
 
@@ -1423,27 +1587,11 @@
 
     invoke-virtual {p0}, Lcom/android/settings/dashboard/DashboardFragment;->updatePreferenceStates()V
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const/16 v0, 0x6c1
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "isParalleledControllers:false"
 
-    const-string v1, "isParalleledControllers:"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p0}, Lcom/android/settings/dashboard/DashboardFragment;->isParalleledControllers()Z
-
-    move-result v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    const/16 v1, 0x6c1
-
-    invoke-virtual {p0, v1, v0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->writeElapsedTimeMetric(ILjava/lang/String;)V
+    invoke-virtual {p0, v0, v1}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->writeElapsedTimeMetric(ILjava/lang/String;)V
 
     return-void
 .end method
@@ -1451,7 +1599,7 @@
 .method public onStart()V
     .locals 3
 
-    invoke-super {p0}, Lcom/android/settingslib/core/lifecycle/ObservablePreferenceFragment;->onStart()V
+    invoke-super {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->onStart()V
 
     iget-object v0, p0, Lcom/android/settings/dashboard/DashboardFragment;->mDashboardFeatureProvider:Lcom/android/settings/dashboard/DashboardFeatureProvider;
 
@@ -1503,21 +1651,25 @@
 
     move-result-object v1
 
-    sget-object v2, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda12;->INSTANCE:Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda12;
+    new-instance v2, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda4;
+
+    invoke-direct {v2}, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda4;-><init>()V
 
     invoke-interface {v1, v2}, Ljava/util/stream/Stream;->filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
 
     move-result-object v1
 
-    sget-object v2, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda10;->INSTANCE:Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda10;
+    new-instance v2, Lcom/android/settings/bluetooth/BluetoothDetailsRelatedToolsController$$ExternalSyntheticLambda2;
+
+    invoke-direct {v2}, Lcom/android/settings/bluetooth/BluetoothDetailsRelatedToolsController$$ExternalSyntheticLambda2;-><init>()V
 
     invoke-interface {v1, v2}, Ljava/util/stream/Stream;->flatMap(Ljava/util/function/Function;)Ljava/util/stream/Stream;
 
     move-result-object v1
 
-    new-instance v2, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda4;
+    new-instance v2, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda5;
 
-    invoke-direct {v2, p0, v0}, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda4;-><init>(Lcom/android/settings/dashboard/DashboardFragment;Landroid/content/ContentResolver;)V
+    invoke-direct {v2, p0, v0}, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda5;-><init>(Lcom/android/settings/dashboard/DashboardFragment;Landroid/content/ContentResolver;)V
 
     invoke-interface {v1, v2}, Ljava/util/stream/Stream;->forEach(Ljava/util/function/Consumer;)V
 
@@ -1592,9 +1744,9 @@
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda6;
+    new-instance v1, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda12;
 
-    invoke-direct {v1, p0, v0}, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda6;-><init>(Lcom/android/settings/dashboard/DashboardFragment;Landroid/content/ContentResolver;)V
+    invoke-direct {v1, p0, v0}, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda12;-><init>(Lcom/android/settings/dashboard/DashboardFragment;Landroid/content/ContentResolver;)V
 
     invoke-interface {p1, v1}, Ljava/util/List;->forEach(Ljava/util/function/Consumer;)V
 
@@ -1749,148 +1901,8 @@
     return-void
 .end method
 
-.method updatePreferenceStatesInParallel()V
-    .locals 9
-
-    invoke-virtual {p0}, Landroidx/preference/PreferenceFragmentCompat;->getPreferenceScreen()Landroidx/preference/PreferenceScreen;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/settings/dashboard/DashboardFragment;->mPreferenceControllers:Ljava/util/Map;
-
-    invoke-interface {v1}, Ljava/util/Map;->values()Ljava/util/Collection;
-
-    move-result-object v1
-
-    new-instance v2, Ljava/util/ArrayList;
-
-    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
-
-    invoke-interface {v1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
-
-    move-result-object v1
-
-    :cond_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_1
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Ljava/util/List;
-
-    invoke-interface {v3}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v3
-
-    :goto_0
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_0
-
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Lcom/android/settingslib/core/AbstractPreferenceController;
-
-    new-instance v5, Lcom/android/settings/dashboard/ControllerFutureTask;
-
-    new-instance v6, Lcom/android/settings/dashboard/ControllerTask;
-
-    iget-object v7, p0, Lcom/android/settings/core/InstrumentedPreferenceFragment;->mMetricsFeatureProvider:Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;
-
-    invoke-interface {p0}, Lcom/android/settingslib/core/instrumentation/Instrumentable;->getMetricsCategory()I
-
-    move-result v8
-
-    invoke-direct {v6, v4, v0, v7, v8}, Lcom/android/settings/dashboard/ControllerTask;-><init>(Lcom/android/settingslib/core/AbstractPreferenceController;Landroidx/preference/PreferenceScreen;Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;I)V
-
-    const/4 v4, 0x0
-
-    invoke-direct {v5, v6, v4}, Lcom/android/settings/dashboard/ControllerFutureTask;-><init>(Lcom/android/settings/dashboard/ControllerTask;Ljava/lang/Void;)V
-
-    invoke-interface {v2, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    invoke-static {v5}, Lcom/android/settingslib/utils/ThreadUtils;->postOnBackgroundThread(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;
-
-    goto :goto_0
-
-    :cond_1
-    invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object p0
-
-    :goto_1
-    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/settings/dashboard/ControllerFutureTask;
-
-    :try_start_0
-    invoke-virtual {v0}, Ljava/util/concurrent/FutureTask;->get()Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_1
-
-    :catch_0
-    move-exception v1
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v0}, Lcom/android/settings/dashboard/ControllerFutureTask;->getController()Lcom/android/settingslib/core/AbstractPreferenceController;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/settingslib/core/AbstractPreferenceController;->getPreferenceKey()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v0, " "
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string v1, "DashboardFragment"
-
-    invoke-static {v1, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_1
-
-    :cond_2
-    return-void
-.end method
-
 .method updatePreferenceVisibility(Ljava/util/Map;)V
-    .locals 4
+    .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1906,15 +1918,15 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_6
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_6
 
     iget-object v0, p0, Lcom/android/settings/dashboard/DashboardFragment;->mBlockerController:Lcom/android/settings/dashboard/UiBlockerController;
 
     if-nez v0, :cond_0
 
-    goto :goto_2
+    goto :goto_3
 
     :cond_0
     invoke-virtual {v0}, Lcom/android/settings/dashboard/UiBlockerController;->isBlockerFinished()Z
@@ -1934,7 +1946,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_6
 
     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1946,7 +1958,6 @@
 
     move-result-object v1
 
-    :cond_2
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -1968,7 +1979,26 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_2
+    if-nez v3, :cond_2
+
+    goto :goto_0
+
+    :cond_2
+    instance-of v4, v2, Lcom/android/settings/core/BasePreferenceController$UiBlocker;
+
+    const/4 v5, 0x1
+
+    const/4 v6, 0x0
+
+    if-eqz v4, :cond_4
+
+    move-object v4, v2
+
+    check-cast v4, Lcom/android/settings/core/BasePreferenceController;
+
+    invoke-virtual {v4}, Lcom/android/settings/core/BasePreferenceController;->getSavedPrefVisibility()Z
+
+    move-result v4
 
     if-eqz v0, :cond_3
 
@@ -1978,20 +2008,39 @@
 
     if-eqz v2, :cond_3
 
-    const/4 v2, 0x1
+    if-eqz v4, :cond_3
 
     goto :goto_1
 
     :cond_3
-    const/4 v2, 0x0
+    move v5, v6
 
     :goto_1
-    invoke-virtual {v3, v2}, Landroidx/preference/Preference;->setVisible(Z)V
+    invoke-virtual {v3, v5}, Landroidx/preference/Preference;->setVisible(Z)V
 
     goto :goto_0
 
     :cond_4
+    if-eqz v0, :cond_5
+
+    invoke-virtual {v2}, Lcom/android/settingslib/core/AbstractPreferenceController;->isAvailable()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_5
+
+    goto :goto_2
+
+    :cond_5
+    move v5, v6
+
     :goto_2
+    invoke-virtual {v3, v5}, Landroidx/preference/Preference;->setVisible(Z)V
+
+    goto :goto_0
+
+    :cond_6
+    :goto_3
     return-void
 .end method
 
@@ -2064,6 +2113,35 @@
 
     :cond_1
     const/4 p0, 0x0
+
+    return-object p0
+.end method
+
+.method protected useAll(Ljava/lang/Class;)Ljava/util/List;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<T:",
+            "Lcom/android/settingslib/core/AbstractPreferenceController;",
+            ">(",
+            "Ljava/lang/Class<",
+            "TT;>;)",
+            "Ljava/util/List<",
+            "TT;>;"
+        }
+    .end annotation
+
+    iget-object p0, p0, Lcom/android/settings/dashboard/DashboardFragment;->mPreferenceControllers:Ljava/util/Map;
+
+    invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
+
+    move-result-object v0
+
+    invoke-interface {p0, p1, v0}, Ljava/util/Map;->getOrDefault(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Ljava/util/List;
 
     return-object p0
 .end method

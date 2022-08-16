@@ -233,11 +233,11 @@
         <item quantity="one">%d kategooria on välja lülitatud</item>
     </plurals>
     <plurals name="notifications_sent_daily">
-        <item quantity="other">~%d märguannet päevas</item>
+        <item quantity="other">~%,d märguannet päevas</item>
         <item quantity="one">~%d märguanne päevas</item>
     </plurals>
     <plurals name="notifications_sent_weekly">
-        <item quantity="other">~%d märguannet nädalas</item>
+        <item quantity="other">~%,d märguannet nädalas</item>
         <item quantity="one">~%d märguanne nädalas</item>
     </plurals>
     <plurals name="number_of_device_admins">
@@ -328,22 +328,6 @@
         <item quantity="other">Sertifikaatide usaldamine või eemaldamine</item>
         <item quantity="one">Sertifikaadi usaldamine või eemaldamine</item>
     </plurals>
-    <plurals name="ssl_ca_cert_info_message">
-        <item quantity="other">"Domeen %s installis teie tööprofiilile sertifikaadi volitused, mis võivad lubada jälgida töökoha võrgutegevusi (sh meilid, rakendused ja turvalised veebisaidid).
-
-Lisateabe saamiseks nende sertifikaatide kohta võtke ühendust administraatoriga."</item>
-        <item quantity="one">"Domeen %s installis teie tööprofiilile sertifikaadi volituse, mis võib lubada jälgida töökoha võrgutegevusi (sh meilid, rakendused ja turvalised veebisaidid).
-
-Lisateabe saamiseks selle sertifikaadi kohta võtke ühendust administraatoriga."</item>
-    </plurals>
-    <plurals name="ssl_ca_cert_info_message_device_owner">
-        <item quantity="other">"Domeen %s installis teie seadmesse sertifikaadi volitused, mis võivad lubada jälgida teie seadme võrgutegevusi (sh meilid, rakendused ja turvalised veebisaidid).
-
-Lisateabe saamiseks nende sertifikaatide kohta võtke ühendust administraatoriga."</item>
-        <item quantity="one">"Domeen %s installis teie seadmesse sertifikaadi volituse, mis võib lubada jälgida teie seadme võrgutegevusi (sh meilid, rakendused ja turvalised veebisaidid).
-
-Lisateabe saamiseks selle sertifikaadi kohta võtke ühendust administraatoriga."</item>
-    </plurals>
     <plurals name="ssl_ca_cert_settings_button">
         <item quantity="other">Kontrollige sertifikaate</item>
         <item quantity="one">Kontrollige sertifikaati</item>
@@ -375,10 +359,6 @@ Lisateabe saamiseks selle sertifikaadi kohta võtke ühendust administraatoriga.
     <plurals name="wifi_saved_passpoint_access_points_summary">
         <item quantity="other">%d tellimust</item>
         <item quantity="one">Üks tellimus</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$d seadet on ühendatud</item>
-        <item quantity="one">%1$d seade on ühendatud</item>
     </plurals>
     <plurals name="wrong_pin_code">
         <item quantity="other">Vale SIM-kaardi PIN-kood, teil on jäänud veel %d katset.</item>

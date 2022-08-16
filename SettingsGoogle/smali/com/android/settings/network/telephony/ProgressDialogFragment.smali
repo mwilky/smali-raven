@@ -142,7 +142,7 @@
 
 # virtual methods
 .method public onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;
-    .locals 1
+    .locals 2
 
     new-instance p1, Landroid/app/ProgressDialog;
 
@@ -151,6 +151,14 @@
     move-result-object v0
 
     invoke-direct {p1, v0}, Landroid/app/ProgressDialog;-><init>(Landroid/content/Context;)V
+
+    invoke-virtual {p1}, Landroid/app/ProgressDialog;->getWindow()Landroid/view/Window;
+
+    move-result-object v0
+
+    const v1, 0x7f020463
+
+    invoke-virtual {v0, v1}, Landroid/view/Window;->setBackgroundDrawableResource(I)V
 
     const/4 v0, 0x0
 
@@ -170,7 +178,9 @@
 
     invoke-virtual {p1, p0}, Landroid/app/ProgressDialog;->setMessage(Ljava/lang/CharSequence;)V
 
-    sget-object p0, Lcom/android/settings/network/telephony/ProgressDialogFragment$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/settings/network/telephony/ProgressDialogFragment$$ExternalSyntheticLambda0;
+    new-instance p0, Lcom/android/settings/network/telephony/ProgressDialogFragment$$ExternalSyntheticLambda0;
+
+    invoke-direct {p0}, Lcom/android/settings/network/telephony/ProgressDialogFragment$$ExternalSyntheticLambda0;-><init>()V
 
     invoke-virtual {p1, p0}, Landroid/app/ProgressDialog;->setOnKeyListener(Landroid/content/DialogInterface$OnKeyListener;)V
 

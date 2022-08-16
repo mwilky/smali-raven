@@ -172,7 +172,7 @@
 
     check-cast p2, Landroid/app/Activity;
 
-    const v1, 0x7f0d0227
+    const v1, 0x7f0d023f
 
     invoke-virtual {p2, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -182,7 +182,7 @@
 
     iput-object p2, p0, Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationBase;->mFaceIcon:Landroid/widget/ImageView;
 
-    const v1, 0x7f020137
+    const v1, 0x7f020142
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

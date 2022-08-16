@@ -24,6 +24,16 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$mVTrU8mKQHl-t_o8D3-BuZlCc38(Lcom/android/settings/applications/UsageAccessDetails;)Ljava/lang/String;
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/applications/UsageAccessDetails;->lambda$onPreferenceChange$0()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method public constructor <init>()V
     .locals 0
 
@@ -63,6 +73,18 @@
 
     :cond_1
     return v1
+.end method
+
+.method private synthetic lambda$onPreferenceChange$0()Ljava/lang/String;
+    .locals 1
+
+    const v0, 0x7f0418a4
+
+    invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method private setHasAccess(Z)V
@@ -234,7 +256,7 @@
 
     iput-object p1, p0, Lcom/android/settings/applications/UsageAccessDetails;->mDpm:Landroid/app/admin/DevicePolicyManager;
 
-    const p1, 0x7f150029
+    const p1, 0x7f15002a
 
     invoke-virtual {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->addPreferencesFromResource(I)V
 
@@ -260,19 +282,19 @@
 
     move-result-object p1
 
-    const v0, 0x7f041486
+    const v0, 0x7f041583
 
     invoke-virtual {p1, v0}, Landroidx/preference/Preference;->setTitle(I)V
 
     iget-object p1, p0, Lcom/android/settings/applications/UsageAccessDetails;->mSwitchPref:Landroidx/preference/SwitchPreference;
 
-    const v0, 0x7f040f05
+    const v0, 0x7f040f9b
 
     invoke-virtual {p1, v0}, Landroidx/preference/Preference;->setTitle(I)V
 
     iget-object p1, p0, Lcom/android/settings/applications/UsageAccessDetails;->mUsageDesc:Landroidx/preference/Preference;
 
-    const v0, 0x7f041487
+    const v0, 0x7f041584
 
     invoke-virtual {p1, v0}, Landroidx/preference/Preference;->setTitle(I)V
 
@@ -304,7 +326,7 @@
 .end method
 
 .method public onPreferenceChange(Landroidx/preference/Preference;Ljava/lang/Object;)Z
-    .locals 2
+    .locals 3
 
     iget-object v0, p0, Lcom/android/settings/applications/UsageAccessDetails;->mSwitchPref:Landroidx/preference/SwitchPreference;
 
@@ -356,7 +378,7 @@
 
     invoke-direct {p1, p2}, Landroidx/appcompat/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const p2, 0x1080382
+    const p2, 0x108038c
 
     invoke-virtual {p1, p2}, Landroidx/appcompat/app/AlertDialog$Builder;->setIcon(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
@@ -368,13 +390,27 @@
 
     move-result-object p1
 
-    const p2, 0x7f0417a9
+    iget-object p2, p0, Lcom/android/settings/applications/UsageAccessDetails;->mDpm:Landroid/app/admin/DevicePolicyManager;
 
-    invoke-virtual {p1, p2}, Landroidx/appcompat/app/AlertDialog$Builder;->setMessage(I)Landroidx/appcompat/app/AlertDialog$Builder;
+    invoke-virtual {p2}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
+
+    move-result-object p2
+
+    new-instance v1, Lcom/android/settings/applications/UsageAccessDetails$$ExternalSyntheticLambda0;
+
+    invoke-direct {v1, p0}, Lcom/android/settings/applications/UsageAccessDetails$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/applications/UsageAccessDetails;)V
+
+    const-string v2, "Settings.WORK_PROFILE_DISABLE_USAGE_ACCESS_WARNING"
+
+    invoke-virtual {p2, v2, v1}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
+
+    move-result-object p2
+
+    invoke-virtual {p1, p2}, Landroidx/appcompat/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroidx/appcompat/app/AlertDialog$Builder;
 
     move-result-object p1
 
-    const p2, 0x7f040ecc
+    const p2, 0x7f040f60
 
     const/4 v1, 0x0
 

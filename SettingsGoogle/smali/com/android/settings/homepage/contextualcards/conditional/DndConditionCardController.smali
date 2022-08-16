@@ -31,6 +31,14 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmConditionManager(Lcom/android/settings/homepage/contextualcards/conditional/DndConditionCardController;)Lcom/android/settings/homepage/contextualcards/conditional/ConditionManager;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/homepage/contextualcards/conditional/DndConditionCardController;->mConditionManager:Lcom/android/settings/homepage/contextualcards/conditional/ConditionManager;
+
+    return-object p0
+.end method
+
 .method static constructor <clinit>()V
     .locals 3
 
@@ -89,14 +97,6 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/settings/homepage/contextualcards/conditional/DndConditionCardController;)Lcom/android/settings/homepage/contextualcards/conditional/ConditionManager;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/homepage/contextualcards/conditional/DndConditionCardController;->mConditionManager:Lcom/android/settings/homepage/contextualcards/conditional/ConditionManager;
-
-    return-object p0
-.end method
-
 .method private getSummary()Ljava/lang/String;
     .locals 1
 
@@ -114,7 +114,7 @@
 
     iget-object p0, p0, Lcom/android/settings/homepage/contextualcards/conditional/DndConditionCardController;->mAppContext:Landroid/content/Context;
 
-    const v0, 0x7f04063c
+    const v0, 0x7f04069a
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -129,7 +129,7 @@
     :cond_0
     iget-object p0, p0, Lcom/android/settings/homepage/contextualcards/conditional/DndConditionCardController;->mAppContext:Landroid/content/Context;
 
-    const v0, 0x7f04063d
+    const v0, 0x7f04069b
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -167,7 +167,7 @@
 
     iget-object v1, p0, Lcom/android/settings/homepage/contextualcards/conditional/DndConditionCardController;->mAppContext:Landroid/content/Context;
 
-    const v2, 0x7f040638
+    const v2, 0x7f040696
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -195,7 +195,7 @@
 
     iget-object v2, p0, Lcom/android/settings/homepage/contextualcards/conditional/DndConditionCardController;->mAppContext:Landroid/content/Context;
 
-    const v3, 0x7f04063e
+    const v3, 0x7f04069c
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -235,7 +235,7 @@
 
     iget-object p0, p0, Lcom/android/settings/homepage/contextualcards/conditional/DndConditionCardController;->mAppContext:Landroid/content/Context;
 
-    const v1, 0x7f0201be
+    const v1, 0x7f0201d9
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -245,7 +245,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f06008d
+    const v0, 0x7f060098
 
     invoke-virtual {p0, v0}, Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;->setViewType(I)Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;
 
@@ -329,7 +329,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f04188a
+    const p1, 0x7f041988
 
     invoke-virtual {p0, p1}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 

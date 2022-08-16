@@ -76,6 +76,46 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$M6E0Z0FeBs8Vhq4df3jJsTb0JD0(Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment;->lambda$onOptionsItemSelected$1()V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$aJNtYEXNvRPjqTtMltaY2du9C0U(Landroid/os/Handler;Ljava/lang/Runnable;)V
+    .locals 0
+
+    invoke-static {p0, p1}, Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment;->lambda$showLockScreen$0(Landroid/os/Handler;Ljava/lang/Runnable;)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmAppEntry(Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment;)Lcom/android/settingslib/applications/ApplicationsState$AppEntry;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment;->mAppEntry:Lcom/android/settingslib/applications/ApplicationsState$AppEntry;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmPackageInfo(Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment;)Landroid/content/pm/PackageInfo;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment;->mPackageInfo:Landroid/content/pm/PackageInfo;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$monPackageRemoved(Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment;->onPackageRemoved()V
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 1
 
@@ -91,37 +131,13 @@
 
     iput-object v0, p0, Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment;->mCallbacks:Ljava/util/List;
 
-    new-instance v0, Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment$1;
+    new-instance v0, Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment$2;
 
-    invoke-direct {v0, p0}, Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment$1;-><init>(Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment;)V
+    invoke-direct {v0, p0}, Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment$2;-><init>(Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment;)V
 
     iput-object v0, p0, Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment;->mPackageRemovedReceiver:Landroid/content/BroadcastReceiver;
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment;)Lcom/android/settingslib/applications/ApplicationsState$AppEntry;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment;->mAppEntry:Lcom/android/settingslib/applications/ApplicationsState$AppEntry;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment;->onPackageRemoved()V
-
-    return-void
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment;)Landroid/content/pm/PackageInfo;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment;->mPackageInfo:Landroid/content/pm/PackageInfo;
-
-    return-object p0
 .end method
 
 .method private getPackageName()Ljava/lang/String;
@@ -277,6 +293,82 @@
     return p0
 .end method
 
+.method private synthetic lambda$onOptionsItemSelected$1()V
+    .locals 5
+
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    const-class v1, Landroid/app/AppOpsManager;
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/app/AppOpsManager;
+
+    invoke-direct {p0}, Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment;->getUid()I
+
+    move-result v1
+
+    invoke-direct {p0}, Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment;->getPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    const/16 v3, 0x77
+
+    const/4 v4, 0x0
+
+    invoke-virtual {v0, v3, v1, v2, v4}, Landroid/app/AppOpsManager;->setMode(IILjava/lang/String;I)V
+
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/app/Activity;->invalidateOptionsMenu()V
+
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    const/4 v1, 0x1
+
+    new-array v2, v1, [Ljava/lang/Object;
+
+    iget-object v3, p0, Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment;->mAppEntry:Lcom/android/settingslib/applications/ApplicationsState$AppEntry;
+
+    iget-object v3, v3, Lcom/android/settingslib/applications/ApplicationsState$AppEntry;->label:Ljava/lang/String;
+
+    aput-object v3, v2, v4
+
+    const v3, 0x7f0414f2
+
+    invoke-virtual {v0, v3, v2}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
+
+    move-result-object p0
+
+    invoke-static {p0, v0, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroid/widget/Toast;->show()V
+
+    return-void
+.end method
+
+.method private static synthetic lambda$showLockScreen$0(Landroid/os/Handler;Ljava/lang/Runnable;)V
+    .locals 0
+
+    invoke-virtual {p0, p1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
+    return-void
+.end method
+
 .method private onPackageRemoved()V
     .locals 2
 
@@ -322,6 +414,136 @@
 
     iput-boolean p1, p0, Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment;->mFinishing:Z
 
+    return-void
+.end method
+
+.method private shouldShowAccessRestrictedSettings()Z
+    .locals 4
+
+    const/4 v0, 0x0
+
+    :try_start_0
+    const-class v1, Landroid/app/AppOpsManager;
+
+    invoke-virtual {p0, v1}, Lcom/android/settings/SettingsPreferenceFragment;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/app/AppOpsManager;
+
+    const/16 v2, 0x77
+
+    invoke-direct {p0}, Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment;->getUid()I
+
+    move-result v3
+
+    invoke-direct {p0}, Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment;->getPackageName()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {v1, v2, v3, p0}, Landroid/app/AppOpsManager;->noteOpNoThrow(IILjava/lang/String;)I
+
+    move-result p0
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    const/4 v1, 0x1
+
+    if-ne p0, v1, :cond_0
+
+    move v0, v1
+
+    :catch_0
+    :cond_0
+    return v0
+.end method
+
+.method private static showLockScreen(Landroid/content/Context;Ljava/lang/Runnable;)V
+    .locals 3
+
+    const-class v0, Landroid/app/KeyguardManager;
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/app/KeyguardManager;
+
+    invoke-virtual {v0}, Landroid/app/KeyguardManager;->isKeyguardSecure()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    new-instance v0, Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment$1;
+
+    invoke-direct {v0, p1}, Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment$1;-><init>(Ljava/lang/Runnable;)V
+
+    new-instance p1, Landroid/hardware/biometrics/BiometricPrompt$Builder;
+
+    invoke-direct {p1, p0}, Landroid/hardware/biometrics/BiometricPrompt$Builder;-><init>(Landroid/content/Context;)V
+
+    invoke-virtual {p1}, Landroid/hardware/biometrics/BiometricPrompt$Builder;->setUseDefaultTitle()Landroid/hardware/biometrics/BiometricPrompt$Builder;
+
+    move-result-object p1
+
+    const-class v1, Landroid/hardware/biometrics/BiometricManager;
+
+    invoke-virtual {p0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Landroid/hardware/biometrics/BiometricManager;
+
+    const v1, 0x80ff
+
+    invoke-virtual {p0, v1}, Landroid/hardware/biometrics/BiometricManager;->canAuthenticate(I)I
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    invoke-virtual {p1, v1}, Landroid/hardware/biometrics/BiometricPrompt$Builder;->setAllowedAuthenticators(I)Landroid/hardware/biometrics/BiometricPrompt$Builder;
+
+    invoke-virtual {p0, v1}, Landroid/hardware/biometrics/BiometricManager;->getStrings(I)Landroid/hardware/biometrics/BiometricManager$Strings;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroid/hardware/biometrics/BiometricManager$Strings;->getPromptMessage()Ljava/lang/CharSequence;
+
+    move-result-object p0
+
+    invoke-virtual {p1, p0}, Landroid/hardware/biometrics/BiometricPrompt$Builder;->setSubtitle(Ljava/lang/CharSequence;)Landroid/hardware/biometrics/BiometricPrompt$Builder;
+
+    :cond_0
+    invoke-virtual {p1}, Landroid/hardware/biometrics/BiometricPrompt$Builder;->build()Landroid/hardware/biometrics/BiometricPrompt;
+
+    move-result-object p0
+
+    new-instance p1, Landroid/os/Handler;
+
+    invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
+
+    move-result-object v1
+
+    invoke-direct {p1, v1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
+
+    new-instance v1, Landroid/os/CancellationSignal;
+
+    invoke-direct {v1}, Landroid/os/CancellationSignal;-><init>()V
+
+    new-instance v2, Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment$$ExternalSyntheticLambda1;
+
+    invoke-direct {v2, p1}, Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment$$ExternalSyntheticLambda1;-><init>(Landroid/os/Handler;)V
+
+    invoke-virtual {p0, v1, v2, v0}, Landroid/hardware/biometrics/BiometricPrompt;->authenticate(Landroid/os/CancellationSignal;Ljava/util/concurrent/Executor;Landroid/hardware/biometrics/BiometricPrompt$AuthenticationCallback;)V
+
+    goto :goto_0
+
+    :cond_1
+    invoke-interface {p1}, Ljava/lang/Runnable;->run()V
+
+    :goto_0
     return-void
 .end method
 
@@ -907,9 +1129,11 @@
 .end method
 
 .method public onAttach(Landroid/content/Context;)V
-    .locals 8
+    .locals 9
 
-    const-class v0, Lcom/android/settings/applications/appinfo/AppPermissionPreferenceController;
+    const-class v0, Lcom/android/settings/applications/appinfo/AppAllServicesPreferenceController;
+
+    const-class v1, Lcom/android/settings/applications/appinfo/AppPermissionPreferenceController;
 
     invoke-super {p0, p1}, Lcom/android/settings/dashboard/DashboardFragment;->onAttach(Landroid/content/Context;)V
 
@@ -917,115 +1141,133 @@
 
     move-result-object p1
 
-    const-class v1, Lcom/android/settings/applications/appinfo/TimeSpentInAppPreferenceController;
-
-    invoke-virtual {p0, v1}, Lcom/android/settings/dashboard/DashboardFragment;->use(Ljava/lang/Class;)Lcom/android/settingslib/core/AbstractPreferenceController;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/android/settings/applications/appinfo/TimeSpentInAppPreferenceController;
-
-    invoke-virtual {v1, p1}, Lcom/android/settings/applications/appinfo/TimeSpentInAppPreferenceController;->setPackageName(Ljava/lang/String;)V
-
-    invoke-virtual {v1, p0}, Lcom/android/settings/core/LiveDataController;->initLifeCycleOwner(Landroidx/fragment/app/Fragment;)V
-
-    const-class v1, Lcom/android/settings/applications/appinfo/AppDataUsagePreferenceController;
-
-    invoke-virtual {p0, v1}, Lcom/android/settings/dashboard/DashboardFragment;->use(Ljava/lang/Class;)Lcom/android/settingslib/core/AbstractPreferenceController;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/android/settings/applications/appinfo/AppDataUsagePreferenceController;
-
-    invoke-virtual {v1, p0}, Lcom/android/settings/applications/appinfo/AppInfoPreferenceControllerBase;->setParentFragment(Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment;)V
-
-    const-class v1, Lcom/android/settings/applications/appinfo/AppInstallerInfoPreferenceController;
-
-    invoke-virtual {p0, v1}, Lcom/android/settings/dashboard/DashboardFragment;->use(Ljava/lang/Class;)Lcom/android/settingslib/core/AbstractPreferenceController;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/android/settings/applications/appinfo/AppInstallerInfoPreferenceController;
-
-    invoke-virtual {v1, p1}, Lcom/android/settings/applications/appinfo/AppInstallerInfoPreferenceController;->setPackageName(Ljava/lang/String;)V
-
-    invoke-virtual {v1, p0}, Lcom/android/settings/applications/appinfo/AppInfoPreferenceControllerBase;->setParentFragment(Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment;)V
-
-    const-class v2, Lcom/android/settings/applications/appinfo/AppInstallerPreferenceCategoryController;
+    const-class v2, Lcom/android/settings/applications/appinfo/TimeSpentInAppPreferenceController;
 
     invoke-virtual {p0, v2}, Lcom/android/settings/dashboard/DashboardFragment;->use(Ljava/lang/Class;)Lcom/android/settingslib/core/AbstractPreferenceController;
 
     move-result-object v2
 
-    check-cast v2, Lcom/android/settings/applications/appinfo/AppInstallerPreferenceCategoryController;
+    check-cast v2, Lcom/android/settings/applications/appinfo/TimeSpentInAppPreferenceController;
 
-    const/4 v3, 0x1
+    invoke-virtual {v2, p1}, Lcom/android/settings/applications/appinfo/TimeSpentInAppPreferenceController;->setPackageName(Ljava/lang/String;)V
 
-    new-array v4, v3, [Lcom/android/settingslib/core/AbstractPreferenceController;
+    invoke-virtual {v2, p0}, Lcom/android/settings/applications/appinfo/TimeSpentInAppPreferenceController;->setParentFragment(Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment;)V
 
-    const/4 v5, 0x0
+    invoke-virtual {v2, p0}, Lcom/android/settings/core/LiveDataController;->initLifeCycleOwner(Landroidx/fragment/app/Fragment;)V
 
-    aput-object v1, v4, v5
+    const-class v2, Lcom/android/settings/applications/appinfo/AppDataUsagePreferenceController;
 
-    invoke-static {v4}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+    invoke-virtual {p0, v2}, Lcom/android/settings/dashboard/DashboardFragment;->use(Ljava/lang/Class;)Lcom/android/settingslib/core/AbstractPreferenceController;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v2, v1}, Lcom/android/settings/widget/PreferenceCategoryController;->setChildren(Ljava/util/List;)Lcom/android/settings/widget/PreferenceCategoryController;
+    check-cast v2, Lcom/android/settings/applications/appinfo/AppDataUsagePreferenceController;
 
-    const-class v1, Lcom/android/settings/applications/appinfo/AppNotificationPreferenceController;
+    invoke-virtual {v2, p0}, Lcom/android/settings/applications/appinfo/AppInfoPreferenceControllerBase;->setParentFragment(Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment;)V
+
+    const-class v2, Lcom/android/settings/applications/appinfo/AppInstallerInfoPreferenceController;
+
+    invoke-virtual {p0, v2}, Lcom/android/settings/dashboard/DashboardFragment;->use(Ljava/lang/Class;)Lcom/android/settingslib/core/AbstractPreferenceController;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/settings/applications/appinfo/AppInstallerInfoPreferenceController;
+
+    invoke-virtual {v2, p1}, Lcom/android/settings/applications/appinfo/AppInstallerInfoPreferenceController;->setPackageName(Ljava/lang/String;)V
+
+    invoke-virtual {v2, p0}, Lcom/android/settings/applications/appinfo/AppInfoPreferenceControllerBase;->setParentFragment(Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment;)V
+
+    const-class v3, Lcom/android/settings/applications/appinfo/AppInstallerPreferenceCategoryController;
+
+    invoke-virtual {p0, v3}, Lcom/android/settings/dashboard/DashboardFragment;->use(Ljava/lang/Class;)Lcom/android/settingslib/core/AbstractPreferenceController;
+
+    move-result-object v3
+
+    check-cast v3, Lcom/android/settings/applications/appinfo/AppInstallerPreferenceCategoryController;
+
+    const/4 v4, 0x1
+
+    new-array v5, v4, [Lcom/android/settingslib/core/AbstractPreferenceController;
+
+    const/4 v6, 0x0
+
+    aput-object v2, v5, v6
+
+    invoke-static {v5}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+
+    move-result-object v2
+
+    invoke-virtual {v3, v2}, Lcom/android/settings/widget/PreferenceCategoryController;->setChildren(Ljava/util/List;)Lcom/android/settings/widget/PreferenceCategoryController;
+
+    const-class v2, Lcom/android/settings/applications/appinfo/AppNotificationPreferenceController;
+
+    invoke-virtual {p0, v2}, Lcom/android/settings/dashboard/DashboardFragment;->use(Ljava/lang/Class;)Lcom/android/settingslib/core/AbstractPreferenceController;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/settings/applications/appinfo/AppNotificationPreferenceController;
+
+    invoke-virtual {v2, p0}, Lcom/android/settings/applications/appinfo/AppNotificationPreferenceController;->setParentFragment(Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment;)V
+
+    const-class v2, Lcom/android/settings/applications/appinfo/AppOpenByDefaultPreferenceController;
+
+    invoke-virtual {p0, v2}, Lcom/android/settings/dashboard/DashboardFragment;->use(Ljava/lang/Class;)Lcom/android/settingslib/core/AbstractPreferenceController;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/settings/applications/appinfo/AppOpenByDefaultPreferenceController;
+
+    invoke-virtual {v2, p1}, Lcom/android/settings/applications/appinfo/AppOpenByDefaultPreferenceController;->setPackageName(Ljava/lang/String;)Lcom/android/settings/applications/appinfo/AppOpenByDefaultPreferenceController;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p0}, Lcom/android/settings/applications/appinfo/AppInfoPreferenceControllerBase;->setParentFragment(Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment;)V
 
     invoke-virtual {p0, v1}, Lcom/android/settings/dashboard/DashboardFragment;->use(Ljava/lang/Class;)Lcom/android/settingslib/core/AbstractPreferenceController;
 
-    move-result-object v1
+    move-result-object v2
 
-    check-cast v1, Lcom/android/settings/applications/appinfo/AppNotificationPreferenceController;
+    check-cast v2, Lcom/android/settings/applications/appinfo/AppPermissionPreferenceController;
 
-    invoke-virtual {v1, p0}, Lcom/android/settings/applications/appinfo/AppNotificationPreferenceController;->setParentFragment(Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment;)V
-
-    const-class v1, Lcom/android/settings/applications/appinfo/AppOpenByDefaultPreferenceController;
+    invoke-virtual {v2, p0}, Lcom/android/settings/applications/appinfo/AppInfoPreferenceControllerBase;->setParentFragment(Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment;)V
 
     invoke-virtual {p0, v1}, Lcom/android/settings/dashboard/DashboardFragment;->use(Ljava/lang/Class;)Lcom/android/settingslib/core/AbstractPreferenceController;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/android/settings/applications/appinfo/AppOpenByDefaultPreferenceController;
-
-    invoke-virtual {v1, p1}, Lcom/android/settings/applications/appinfo/AppOpenByDefaultPreferenceController;->setPackageName(Ljava/lang/String;)Lcom/android/settings/applications/appinfo/AppOpenByDefaultPreferenceController;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p0}, Lcom/android/settings/applications/appinfo/AppInfoPreferenceControllerBase;->setParentFragment(Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment;)V
-
-    invoke-virtual {p0, v0}, Lcom/android/settings/dashboard/DashboardFragment;->use(Ljava/lang/Class;)Lcom/android/settingslib/core/AbstractPreferenceController;
 
     move-result-object v1
 
     check-cast v1, Lcom/android/settings/applications/appinfo/AppPermissionPreferenceController;
 
+    invoke-virtual {v1, p1}, Lcom/android/settings/applications/appinfo/AppPermissionPreferenceController;->setPackageName(Ljava/lang/String;)V
+
+    const-class v1, Lcom/android/settings/applications/appinfo/AppSettingPreferenceController;
+
+    invoke-virtual {p0, v1}, Lcom/android/settings/dashboard/DashboardFragment;->use(Ljava/lang/Class;)Lcom/android/settingslib/core/AbstractPreferenceController;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/settings/applications/appinfo/AppSettingPreferenceController;
+
+    invoke-virtual {v1, p1}, Lcom/android/settings/applications/appinfo/AppSettingPreferenceController;->setPackageName(Ljava/lang/String;)Lcom/android/settings/applications/appinfo/AppSettingPreferenceController;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p0}, Lcom/android/settings/applications/appinfo/AppInfoPreferenceControllerBase;->setParentFragment(Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment;)V
+
+    invoke-virtual {p0, v0}, Lcom/android/settings/dashboard/DashboardFragment;->use(Ljava/lang/Class;)Lcom/android/settingslib/core/AbstractPreferenceController;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/settings/applications/appinfo/AppAllServicesPreferenceController;
+
     invoke-virtual {v1, p0}, Lcom/android/settings/applications/appinfo/AppInfoPreferenceControllerBase;->setParentFragment(Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment;)V
 
     invoke-virtual {p0, v0}, Lcom/android/settings/dashboard/DashboardFragment;->use(Ljava/lang/Class;)Lcom/android/settingslib/core/AbstractPreferenceController;
 
     move-result-object v0
 
-    check-cast v0, Lcom/android/settings/applications/appinfo/AppPermissionPreferenceController;
+    check-cast v0, Lcom/android/settings/applications/appinfo/AppAllServicesPreferenceController;
 
-    invoke-virtual {v0, p1}, Lcom/android/settings/applications/appinfo/AppPermissionPreferenceController;->setPackageName(Ljava/lang/String;)V
-
-    const-class v0, Lcom/android/settings/applications/appinfo/AppSettingPreferenceController;
-
-    invoke-virtual {p0, v0}, Lcom/android/settings/dashboard/DashboardFragment;->use(Ljava/lang/Class;)Lcom/android/settingslib/core/AbstractPreferenceController;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/settings/applications/appinfo/AppSettingPreferenceController;
-
-    invoke-virtual {v0, p1}, Lcom/android/settings/applications/appinfo/AppSettingPreferenceController;->setPackageName(Ljava/lang/String;)Lcom/android/settings/applications/appinfo/AppSettingPreferenceController;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p0}, Lcom/android/settings/applications/appinfo/AppInfoPreferenceControllerBase;->setParentFragment(Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment;)V
+    invoke-virtual {v0, p1}, Lcom/android/settings/applications/appinfo/AppAllServicesPreferenceController;->setPackageName(Ljava/lang/String;)V
 
     const-class v0, Lcom/android/settings/applications/appinfo/AppStoragePreferenceController;
 
@@ -1057,16 +1299,6 @@
 
     invoke-virtual {v0, p0}, Lcom/android/settings/applications/appinfo/AppInfoPreferenceControllerBase;->setParentFragment(Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment;)V
 
-    const-class v0, Lcom/android/settings/applications/appinfo/ExtraAppInfoPreferenceController;
-
-    invoke-virtual {p0, v0}, Lcom/android/settings/dashboard/DashboardFragment;->use(Ljava/lang/Class;)Lcom/android/settingslib/core/AbstractPreferenceController;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/settings/applications/appinfo/ExtraAppInfoPreferenceController;
-
-    invoke-virtual {v0, p1}, Lcom/android/settings/applications/appinfo/ExtraAppInfoPreferenceController;->setPackageName(Ljava/lang/String;)V
-
     const-class v0, Lcom/android/settings/applications/appinfo/HibernationSwitchPreferenceController;
 
     invoke-virtual {p0, v0}, Lcom/android/settings/dashboard/DashboardFragment;->use(Ljava/lang/Class;)Lcom/android/settingslib/core/AbstractPreferenceController;
@@ -1087,9 +1319,9 @@
 
     check-cast v1, Lcom/android/settings/applications/appinfo/AppHibernationPreferenceCategoryController;
 
-    new-array v2, v3, [Lcom/android/settingslib/core/AbstractPreferenceController;
+    new-array v2, v4, [Lcom/android/settingslib/core/AbstractPreferenceController;
 
-    aput-object v0, v2, v5
+    aput-object v0, v2, v6
 
     invoke-static {v2}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
@@ -1129,29 +1361,29 @@
 
     invoke-virtual {v2, p0}, Lcom/android/settings/applications/appinfo/AppInfoPreferenceControllerBase;->setParentFragment(Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment;)V
 
-    const-class v4, Lcom/android/settings/applications/appinfo/ExternalSourceDetailPreferenceController;
+    const-class v3, Lcom/android/settings/applications/appinfo/ExternalSourceDetailPreferenceController;
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/dashboard/DashboardFragment;->use(Ljava/lang/Class;)Lcom/android/settingslib/core/AbstractPreferenceController;
+    invoke-virtual {p0, v3}, Lcom/android/settings/dashboard/DashboardFragment;->use(Ljava/lang/Class;)Lcom/android/settingslib/core/AbstractPreferenceController;
 
-    move-result-object v4
+    move-result-object v3
 
-    check-cast v4, Lcom/android/settings/applications/appinfo/ExternalSourceDetailPreferenceController;
+    check-cast v3, Lcom/android/settings/applications/appinfo/ExternalSourceDetailPreferenceController;
 
-    invoke-virtual {v4, p1}, Lcom/android/settings/applications/appinfo/ExternalSourceDetailPreferenceController;->setPackageName(Ljava/lang/String;)V
+    invoke-virtual {v3, p1}, Lcom/android/settings/applications/appinfo/ExternalSourceDetailPreferenceController;->setPackageName(Ljava/lang/String;)V
 
-    invoke-virtual {v4, p0}, Lcom/android/settings/applications/appinfo/AppInfoPreferenceControllerBase;->setParentFragment(Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment;)V
+    invoke-virtual {v3, p0}, Lcom/android/settings/applications/appinfo/AppInfoPreferenceControllerBase;->setParentFragment(Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment;)V
 
-    const-class v6, Lcom/android/settings/applications/specialaccess/interactacrossprofiles/InteractAcrossProfilesDetailsPreferenceController;
+    const-class v5, Lcom/android/settings/applications/specialaccess/interactacrossprofiles/InteractAcrossProfilesDetailsPreferenceController;
 
-    invoke-virtual {p0, v6}, Lcom/android/settings/dashboard/DashboardFragment;->use(Ljava/lang/Class;)Lcom/android/settingslib/core/AbstractPreferenceController;
+    invoke-virtual {p0, v5}, Lcom/android/settings/dashboard/DashboardFragment;->use(Ljava/lang/Class;)Lcom/android/settingslib/core/AbstractPreferenceController;
 
-    move-result-object v6
+    move-result-object v5
 
-    check-cast v6, Lcom/android/settings/applications/specialaccess/interactacrossprofiles/InteractAcrossProfilesDetailsPreferenceController;
+    check-cast v5, Lcom/android/settings/applications/specialaccess/interactacrossprofiles/InteractAcrossProfilesDetailsPreferenceController;
 
-    invoke-virtual {v6, p1}, Lcom/android/settings/applications/specialaccess/interactacrossprofiles/InteractAcrossProfilesDetailsPreferenceController;->setPackageName(Ljava/lang/String;)V
+    invoke-virtual {v5, p1}, Lcom/android/settings/applications/specialaccess/interactacrossprofiles/InteractAcrossProfilesDetailsPreferenceController;->setPackageName(Ljava/lang/String;)V
 
-    invoke-virtual {v6, p0}, Lcom/android/settings/applications/appinfo/AppInfoPreferenceControllerBase;->setParentFragment(Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment;)V
+    invoke-virtual {v5, p0}, Lcom/android/settings/applications/appinfo/AppInfoPreferenceControllerBase;->setParentFragment(Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment;)V
 
     const-class v7, Lcom/android/settings/applications/appinfo/AlarmsAndRemindersDetailPreferenceController;
 
@@ -1169,45 +1401,55 @@
 
     invoke-virtual {p0, p1}, Lcom/android/settings/dashboard/DashboardFragment;->use(Ljava/lang/Class;)Lcom/android/settingslib/core/AbstractPreferenceController;
 
-    move-result-object p0
+    move-result-object p1
 
-    check-cast p0, Lcom/android/settings/applications/appinfo/AdvancedAppInfoPreferenceCategoryController;
+    check-cast p1, Lcom/android/settings/applications/appinfo/AdvancedAppInfoPreferenceCategoryController;
 
-    const/4 p1, 0x6
+    const/4 v8, 0x6
 
-    new-array p1, p1, [Lcom/android/settingslib/core/AbstractPreferenceController;
+    new-array v8, v8, [Lcom/android/settingslib/core/AbstractPreferenceController;
 
-    aput-object v0, p1, v5
+    aput-object v0, v8, v6
 
-    aput-object v1, p1, v3
+    aput-object v1, v8, v4
 
     const/4 v0, 0x2
 
-    aput-object v2, p1, v0
+    aput-object v2, v8, v0
 
     const/4 v0, 0x3
 
-    aput-object v4, p1, v0
+    aput-object v3, v8, v0
 
     const/4 v0, 0x4
 
-    aput-object v6, p1, v0
+    aput-object v5, v8, v0
 
     const/4 v0, 0x5
 
-    aput-object v7, p1, v0
+    aput-object v7, v8, v0
 
-    invoke-static {p1}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+    invoke-static {v8}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Lcom/android/settings/widget/PreferenceCategoryController;->setChildren(Ljava/util/List;)Lcom/android/settings/widget/PreferenceCategoryController;
+
+    const-class p1, Lcom/android/settings/applications/appinfo/AppLocalePreferenceController;
+
+    invoke-virtual {p0, p1}, Lcom/android/settings/dashboard/DashboardFragment;->use(Ljava/lang/Class;)Lcom/android/settingslib/core/AbstractPreferenceController;
 
     move-result-object p1
 
-    invoke-virtual {p0, p1}, Lcom/android/settings/widget/PreferenceCategoryController;->setChildren(Ljava/util/List;)Lcom/android/settings/widget/PreferenceCategoryController;
+    check-cast p1, Lcom/android/settings/applications/appinfo/AppLocalePreferenceController;
+
+    invoke-virtual {p1, p0}, Lcom/android/settings/applications/appinfo/AppInfoPreferenceControllerBase;->setParentFragment(Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment;)V
 
     return-void
 .end method
 
 .method public onCreate(Landroid/os/Bundle;)V
-    .locals 1
+    .locals 2
 
     invoke-super {p0, p1}, Lcom/android/settings/dashboard/DashboardFragment;->onCreate(Landroid/os/Bundle;)V
 
@@ -1269,6 +1511,14 @@
 
     invoke-virtual {p0, p1}, Landroidx/fragment/app/Fragment;->setHasOptionsMenu(Z)V
 
+    const p1, 0x7f040b1b
+
+    const-string v0, "interact_across_profiles"
+
+    const-string v1, "Settings.CONNECTED_WORK_AND_PERSONAL_APPS_TITLE"
+
+    invoke-virtual {p0, v0, v1, p1}, Lcom/android/settings/SettingsPreferenceFragment;->replaceEnterpriseStringTitle(Ljava/lang/String;Ljava/lang/String;I)V
+
     return-void
 .end method
 
@@ -1281,7 +1531,7 @@
 
     const/4 p2, 0x2
 
-    const v0, 0x7f04023d
+    const v0, 0x7f04026b
 
     invoke-interface {p1, p0, p2, p0, v0}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -1291,9 +1541,19 @@
 
     const/4 p2, 0x1
 
-    const v0, 0x7f041443
+    const v0, 0x7f04153e
 
     invoke-interface {p1, p0, p2, p2, v0}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
+
+    move-result-object p2
+
+    invoke-interface {p2, p0}, Landroid/view/MenuItem;->setShowAsAction(I)V
+
+    const/4 p2, 0x4
+
+    const v0, 0x7f0402ab
+
+    invoke-interface {p1, p0, p2, p0, v0}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
     move-result-object p1
 
@@ -1356,11 +1616,15 @@
 
     const/4 v2, 0x1
 
-    if-eq v0, v2, :cond_1
+    if-eq v0, v2, :cond_2
 
     const/4 v3, 0x2
 
-    if-eq v0, v3, :cond_0
+    if-eq v0, v3, :cond_1
+
+    const/4 v1, 0x4
+
+    if-eq v0, v1, :cond_0
 
     invoke-super {p0, p1}, Lcom/android/settingslib/core/lifecycle/ObservablePreferenceFragment;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
 
@@ -1369,6 +1633,19 @@
     return p0
 
     :cond_0
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
+
+    move-result-object p1
+
+    new-instance v0, Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment$$ExternalSyntheticLambda0;
+
+    invoke-direct {v0, p0}, Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment;)V
+
+    invoke-static {p1, v0}, Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment;->showLockScreen(Landroid/content/Context;Ljava/lang/Runnable;)V
+
+    return v2
+
+    :cond_1
     iget-object p1, p0, Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment;->mAppEntry:Lcom/android/settingslib/applications/ApplicationsState$AppEntry;
 
     iget-object p1, p1, Lcom/android/settingslib/applications/ApplicationsState$AppEntry;->info:Landroid/content/pm/ApplicationInfo;
@@ -1379,7 +1656,7 @@
 
     return v2
 
-    :cond_1
+    :cond_2
     iget-object p1, p0, Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment;->mAppEntry:Lcom/android/settingslib/applications/ApplicationsState$AppEntry;
 
     iget-object p1, p1, Lcom/android/settingslib/applications/ApplicationsState$AppEntry;->info:Landroid/content/pm/ApplicationInfo;
@@ -1465,6 +1742,18 @@
 
     invoke-interface {v1, v2}, Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;
 
+    const/4 v1, 0x4
+
+    invoke-interface {p1, v1}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
+
+    move-result-object v1
+
+    invoke-direct {p0}, Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment;->shouldShowAccessRestrictedSettings()Z
+
+    move-result v2
+
+    invoke-interface {v1, v2}, Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;
+
     iget-object v1, p0, Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment;->mAppEntry:Lcom/android/settingslib/applications/ApplicationsState$AppEntry;
 
     iget-object v1, v1, Lcom/android/settingslib/applications/ApplicationsState$AppEntry;->info:Landroid/content/pm/ApplicationInfo;
@@ -1501,7 +1790,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f090007
+    const v3, 0x7f090008
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -1603,6 +1892,12 @@
     invoke-direct {p0, v0, v0}, Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment;->setIntentAndFinish(ZZ)V
 
     :cond_0
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroid/app/Activity;->invalidateOptionsMenu()V
+
     return-void
 .end method
 
@@ -1990,6 +2285,14 @@
     :cond_8
     :goto_1
     return v1
+.end method
+
+.method protected shouldSkipForInitialSUW()Z
+    .locals 0
+
+    const/4 p0, 0x1
+
+    return p0
 .end method
 
 .method startListeningToPackageRemove()V

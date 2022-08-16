@@ -29,6 +29,14 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmPreference(Lcom/android/settings/notification/RedactNotificationPreferenceController;)Lcom/android/settingslib/RestrictedSwitchPreference;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/notification/RedactNotificationPreferenceController;->mPreference:Lcom/android/settingslib/RestrictedSwitchPreference;
+
+    return-object p0
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;)V
     .locals 3
 
@@ -108,14 +116,6 @@
 
     :cond_1
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/notification/RedactNotificationPreferenceController;)Lcom/android/settingslib/RestrictedSwitchPreference;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/notification/RedactNotificationPreferenceController;->mPreference:Lcom/android/settingslib/RestrictedSwitchPreference;
-
-    return-object p0
 .end method
 
 .method private getAllowPrivateNotifications(I)Z
@@ -209,18 +209,10 @@
 
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public displayPreference(Landroidx/preference/PreferenceScreen;)V
     .locals 1
 
-    invoke-super {p0, p1}, Lcom/android/settings/core/BasePreferenceController;->displayPreference(Landroidx/preference/PreferenceScreen;)V
+    invoke-super {p0, p1}, Lcom/android/settings/core/TogglePreferenceController;->displayPreference(Landroidx/preference/PreferenceScreen;)V
 
     invoke-virtual {p0}, Lcom/android/settings/core/BasePreferenceController;->getPreferenceKey()Ljava/lang/String;
 
@@ -388,15 +380,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -418,7 +401,7 @@
 .method public getSliceHighlightMenuRes()I
     .locals 0
 
-    const p0, 0x7f040d0b
+    const p0, 0x7f040d86
 
     return p0
 .end method
@@ -459,16 +442,6 @@
 
     :goto_0
     invoke-direct {p0, v0}, Lcom/android/settings/notification/RedactNotificationPreferenceController;->getAllowPrivateNotifications(I)Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
 
     move-result p0
 

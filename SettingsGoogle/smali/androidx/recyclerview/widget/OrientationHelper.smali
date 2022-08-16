@@ -14,14 +14,6 @@
 # direct methods
 .method private constructor <init>(Landroidx/recyclerview/widget/RecyclerView$LayoutManager;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "layoutManager"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -50,14 +42,6 @@
 
 .method public static createHorizontalHelper(Landroidx/recyclerview/widget/RecyclerView$LayoutManager;)Landroidx/recyclerview/widget/OrientationHelper;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "layoutManager"
-        }
-    .end annotation
 
     new-instance v0, Landroidx/recyclerview/widget/OrientationHelper$1;
 
@@ -68,16 +52,6 @@
 
 .method public static createOrientationHelper(Landroidx/recyclerview/widget/RecyclerView$LayoutManager;I)Landroidx/recyclerview/widget/OrientationHelper;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "layoutManager",
-            "orientation"
-        }
-    .end annotation
 
     if-eqz p1, :cond_1
 
@@ -110,14 +84,6 @@
 
 .method public static createVerticalHelper(Landroidx/recyclerview/widget/RecyclerView$LayoutManager;)Landroidx/recyclerview/widget/OrientationHelper;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "layoutManager"
-        }
-    .end annotation
 
     new-instance v0, Landroidx/recyclerview/widget/OrientationHelper$2;
 
@@ -129,47 +95,15 @@
 
 # virtual methods
 .method public abstract getDecoratedEnd(Landroid/view/View;)I
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "view"
-        }
-    .end annotation
 .end method
 
 .method public abstract getDecoratedMeasurement(Landroid/view/View;)I
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "view"
-        }
-    .end annotation
 .end method
 
 .method public abstract getDecoratedMeasurementInOther(Landroid/view/View;)I
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "view"
-        }
-    .end annotation
 .end method
 
 .method public abstract getDecoratedStart(Landroid/view/View;)I
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "view"
-        }
-    .end annotation
 .end method
 
 .method public abstract getEnd()I
@@ -220,36 +154,12 @@
 .end method
 
 .method public abstract getTransformedEndWithDecoration(Landroid/view/View;)I
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "view"
-        }
-    .end annotation
 .end method
 
 .method public abstract getTransformedStartWithDecoration(Landroid/view/View;)I
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "view"
-        }
-    .end annotation
 .end method
 
 .method public abstract offsetChildren(I)V
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "amount"
-        }
-    .end annotation
 .end method
 
 .method public onLayoutComplete()V

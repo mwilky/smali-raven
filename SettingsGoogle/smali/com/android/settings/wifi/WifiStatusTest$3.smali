@@ -39,7 +39,7 @@
 
     iget-object p1, p0, Lcom/android/settings/wifi/WifiStatusTest$3;->this$0:Lcom/android/settings/wifi/WifiStatusTest;
 
-    invoke-static {p1}, Lcom/android/settings/wifi/WifiStatusTest;->access$600(Lcom/android/settings/wifi/WifiStatusTest;)Landroid/net/wifi/WifiManager;
+    invoke-static {p1}, Lcom/android/settings/wifi/WifiStatusTest;->-$$Nest$fgetmWifiManager(Lcom/android/settings/wifi/WifiStatusTest;)Landroid/net/wifi/WifiManager;
 
     move-result-object p1
 
@@ -49,7 +49,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/WifiStatusTest$3;->this$0:Lcom/android/settings/wifi/WifiStatusTest;
 
-    invoke-static {v0}, Lcom/android/settings/wifi/WifiStatusTest;->access$600(Lcom/android/settings/wifi/WifiStatusTest;)Landroid/net/wifi/WifiManager;
+    invoke-static {v0}, Lcom/android/settings/wifi/WifiStatusTest;->-$$Nest$fgetmWifiManager(Lcom/android/settings/wifi/WifiStatusTest;)Landroid/net/wifi/WifiManager;
 
     move-result-object v1
 
@@ -57,11 +57,11 @@
 
     move-result v1
 
-    invoke-static {v0, v1}, Lcom/android/settings/wifi/WifiStatusTest;->access$700(Lcom/android/settings/wifi/WifiStatusTest;I)V
+    invoke-static {v0, v1}, Lcom/android/settings/wifi/WifiStatusTest;->-$$Nest$msetWifiStateText(Lcom/android/settings/wifi/WifiStatusTest;I)V
 
     iget-object v0, p0, Lcom/android/settings/wifi/WifiStatusTest$3;->this$0:Lcom/android/settings/wifi/WifiStatusTest;
 
-    invoke-static {v0}, Lcom/android/settings/wifi/WifiStatusTest;->access$800(Lcom/android/settings/wifi/WifiStatusTest;)Landroid/widget/TextView;
+    invoke-static {v0}, Lcom/android/settings/wifi/WifiStatusTest;->-$$Nest$fgetmBSSID(Lcom/android/settings/wifi/WifiStatusTest;)Landroid/widget/TextView;
 
     move-result-object v0
 
@@ -73,7 +73,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/WifiStatusTest$3;->this$0:Lcom/android/settings/wifi/WifiStatusTest;
 
-    invoke-static {v0}, Lcom/android/settings/wifi/WifiStatusTest;->access$900(Lcom/android/settings/wifi/WifiStatusTest;)Landroid/widget/TextView;
+    invoke-static {v0}, Lcom/android/settings/wifi/WifiStatusTest;->-$$Nest$fgetmHiddenSSID(Lcom/android/settings/wifi/WifiStatusTest;)Landroid/widget/TextView;
 
     move-result-object v0
 
@@ -127,7 +127,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/WifiStatusTest$3;->this$0:Lcom/android/settings/wifi/WifiStatusTest;
 
-    invoke-static {v0}, Lcom/android/settings/wifi/WifiStatusTest;->access$1000(Lcom/android/settings/wifi/WifiStatusTest;)Landroid/widget/TextView;
+    invoke-static {v0}, Lcom/android/settings/wifi/WifiStatusTest;->-$$Nest$fgetmIPAddr(Lcom/android/settings/wifi/WifiStatusTest;)Landroid/widget/TextView;
 
     move-result-object v0
 
@@ -135,7 +135,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/WifiStatusTest$3;->this$0:Lcom/android/settings/wifi/WifiStatusTest;
 
-    invoke-static {v0}, Lcom/android/settings/wifi/WifiStatusTest;->access$1100(Lcom/android/settings/wifi/WifiStatusTest;)Landroid/widget/TextView;
+    invoke-static {v0}, Lcom/android/settings/wifi/WifiStatusTest;->-$$Nest$fgetmTxLinkSpeed(Lcom/android/settings/wifi/WifiStatusTest;)Landroid/widget/TextView;
 
     move-result-object v0
 
@@ -165,7 +165,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/WifiStatusTest$3;->this$0:Lcom/android/settings/wifi/WifiStatusTest;
 
-    invoke-static {v0}, Lcom/android/settings/wifi/WifiStatusTest;->access$1200(Lcom/android/settings/wifi/WifiStatusTest;)Landroid/widget/TextView;
+    invoke-static {v0}, Lcom/android/settings/wifi/WifiStatusTest;->-$$Nest$fgetmRxLinkSpeed(Lcom/android/settings/wifi/WifiStatusTest;)Landroid/widget/TextView;
 
     move-result-object v0
 
@@ -193,7 +193,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/WifiStatusTest$3;->this$0:Lcom/android/settings/wifi/WifiStatusTest;
 
-    invoke-static {v0}, Lcom/android/settings/wifi/WifiStatusTest;->access$1300(Lcom/android/settings/wifi/WifiStatusTest;)Landroid/widget/TextView;
+    invoke-static {v0}, Lcom/android/settings/wifi/WifiStatusTest;->-$$Nest$fgetmMACAddr(Lcom/android/settings/wifi/WifiStatusTest;)Landroid/widget/TextView;
 
     move-result-object v0
 
@@ -205,7 +205,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/WifiStatusTest$3;->this$0:Lcom/android/settings/wifi/WifiStatusTest;
 
-    invoke-static {v0}, Lcom/android/settings/wifi/WifiStatusTest;->access$1400(Lcom/android/settings/wifi/WifiStatusTest;)Landroid/widget/TextView;
+    invoke-static {v0}, Lcom/android/settings/wifi/WifiStatusTest;->-$$Nest$fgetmNetworkId(Lcom/android/settings/wifi/WifiStatusTest;)Landroid/widget/TextView;
 
     move-result-object v0
 
@@ -221,7 +221,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/WifiStatusTest$3;->this$0:Lcom/android/settings/wifi/WifiStatusTest;
 
-    invoke-static {v0}, Lcom/android/settings/wifi/WifiStatusTest;->access$1500(Lcom/android/settings/wifi/WifiStatusTest;)Landroid/widget/TextView;
+    invoke-static {v0}, Lcom/android/settings/wifi/WifiStatusTest;->-$$Nest$fgetmRSSI(Lcom/android/settings/wifi/WifiStatusTest;)Landroid/widget/TextView;
 
     move-result-object v0
 
@@ -237,7 +237,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/WifiStatusTest$3;->this$0:Lcom/android/settings/wifi/WifiStatusTest;
 
-    invoke-static {v0}, Lcom/android/settings/wifi/WifiStatusTest;->access$1600(Lcom/android/settings/wifi/WifiStatusTest;)Landroid/widget/TextView;
+    invoke-static {v0}, Lcom/android/settings/wifi/WifiStatusTest;->-$$Nest$fgetmSSID(Lcom/android/settings/wifi/WifiStatusTest;)Landroid/widget/TextView;
 
     move-result-object v0
 
@@ -253,7 +253,7 @@
 
     iget-object p0, p0, Lcom/android/settings/wifi/WifiStatusTest$3;->this$0:Lcom/android/settings/wifi/WifiStatusTest;
 
-    invoke-static {p0, p1}, Lcom/android/settings/wifi/WifiStatusTest;->access$1700(Lcom/android/settings/wifi/WifiStatusTest;Landroid/net/wifi/SupplicantState;)V
+    invoke-static {p0, p1}, Lcom/android/settings/wifi/WifiStatusTest;->-$$Nest$msetSupplicantStateText(Lcom/android/settings/wifi/WifiStatusTest;Landroid/net/wifi/SupplicantState;)V
 
     return-void
 .end method

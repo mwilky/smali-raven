@@ -41,17 +41,6 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Ljava/util/List;)V
     .locals 6
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "routes"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -153,14 +142,6 @@
 
 .method private getDefaultIconDrawable(Landroidx/mediarouter/media/MediaRouter$RouteInfo;)Landroid/graphics/drawable/Drawable;
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "route"
-        }
-    .end annotation
 
     invoke-virtual {p1}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->getDeviceType()I
 
@@ -202,14 +183,6 @@
 
 .method private getIconDrawable(Landroidx/mediarouter/media/MediaRouter$RouteInfo;)Landroid/graphics/drawable/Drawable;
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "route"
-        }
-    .end annotation
 
     invoke-virtual {p1}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->getIconUri()Landroid/net/Uri;
 
@@ -283,18 +256,6 @@
 
 .method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
     .locals 6
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "position",
-            "convertView",
-            "parent"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -424,14 +385,6 @@
 
 .method public isEnabled(I)Z
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "position"
-        }
-    .end annotation
 
     invoke-virtual {p0, p1}, Landroid/widget/ArrayAdapter;->getItem(I)Ljava/lang/Object;
 
@@ -448,21 +401,6 @@
 
 .method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "parent",
-            "view",
-            "position",
-            "id"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -483,7 +421,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1
 
     sget p1, Landroidx/mediarouter/R$id;->mr_chooser_route_icon:I
 
@@ -501,6 +439,10 @@
 
     check-cast p2, Landroid/widget/ProgressBar;
 
+    if-eqz p1, :cond_0
+
+    if-eqz p2, :cond_0
+
     const/16 p3, 0x8
 
     invoke-virtual {p1, p3}, Landroid/widget/ImageView;->setVisibility(I)V
@@ -509,8 +451,9 @@
 
     invoke-virtual {p2, p1}, Landroid/widget/ProgressBar;->setVisibility(I)V
 
+    :cond_0
     invoke-virtual {p0}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->select()V
 
-    :cond_0
+    :cond_1
     return-void
 .end method

@@ -43,7 +43,7 @@
 
     iget-object v0, p0, Lcom/google/android/setupdesign/template/RequireScrollMixin$1;->this$0:Lcom/google/android/setupdesign/template/RequireScrollMixin;
 
-    invoke-static {v0}, Lcom/google/android/setupdesign/template/RequireScrollMixin;->access$000(Lcom/google/android/setupdesign/template/RequireScrollMixin;)Z
+    invoke-static {v0}, Lcom/google/android/setupdesign/template/RequireScrollMixin;->-$$Nest$fgetrequiringScrollToBottom(Lcom/google/android/setupdesign/template/RequireScrollMixin;)Z
 
     move-result v0
 
@@ -51,7 +51,7 @@
 
     iget-object p0, p0, Lcom/google/android/setupdesign/template/RequireScrollMixin$1;->this$0:Lcom/google/android/setupdesign/template/RequireScrollMixin;
 
-    invoke-static {p0}, Lcom/google/android/setupdesign/template/RequireScrollMixin;->access$100(Lcom/google/android/setupdesign/template/RequireScrollMixin;)Lcom/google/android/setupdesign/template/RequireScrollMixin$ScrollHandlingDelegate;
+    invoke-static {p0}, Lcom/google/android/setupdesign/template/RequireScrollMixin;->-$$Nest$fgetdelegate(Lcom/google/android/setupdesign/template/RequireScrollMixin;)Lcom/google/android/setupdesign/template/RequireScrollMixin$ScrollHandlingDelegate;
 
     move-result-object p0
 

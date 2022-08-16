@@ -1,28 +1,13 @@
 .class public final synthetic Lcom/android/settings/network/ProviderModelSliceHelper$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Predicate;
-
-
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/settings/network/ProviderModelSliceHelper$$ExternalSyntheticLambda2;
+.implements Ljava/util/function/Function;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/settings/network/ProviderModelSliceHelper$$ExternalSyntheticLambda2;
-
-    invoke-direct {v0}, Lcom/android/settings/network/ProviderModelSliceHelper$$ExternalSyntheticLambda2;-><init>()V
-
-    sput-object v0, Lcom/android/settings/network/ProviderModelSliceHelper$$ExternalSyntheticLambda2;->INSTANCE:Lcom/android/settings/network/ProviderModelSliceHelper$$ExternalSyntheticLambda2;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,14 +17,14 @@
 
 
 # virtual methods
-.method public final test(Ljava/lang/Object;)Z
+.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
 
-    check-cast p1, Lcom/android/settings/wifi/slice/WifiSliceItem;
+    check-cast p1, Ljava/lang/String;
 
-    invoke-static {p1}, Lcom/android/settings/network/ProviderModelSliceHelper;->$r8$lambda$q5e50VXLIIqPRaSwhn2zeeH1Ce0(Lcom/android/settings/wifi/slice/WifiSliceItem;)Z
+    invoke-virtual {p1}, Ljava/lang/String;->trim()Ljava/lang/String;
 
-    move-result p0
+    move-result-object p0
 
-    return p0
+    return-object p0
 .end method

@@ -30,6 +30,54 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmElmyraServiceGestureListener(Lcom/google/android/settings/gestures/assist/AssistGestureHelper;)Lcom/google/android/systemui/elmyra/IElmyraServiceGestureListener;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/settings/gestures/assist/AssistGestureHelper;->mElmyraServiceGestureListener:Lcom/google/android/systemui/elmyra/IElmyraServiceGestureListener;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmGestureListener(Lcom/google/android/settings/gestures/assist/AssistGestureHelper;)Lcom/google/android/settings/gestures/assist/AssistGestureHelper$GestureListener;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/settings/gestures/assist/AssistGestureHelper;->mGestureListener:Lcom/google/android/settings/gestures/assist/AssistGestureHelper$GestureListener;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmPowerManager(Lcom/google/android/settings/gestures/assist/AssistGestureHelper;)Landroid/os/PowerManager;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/settings/gestures/assist/AssistGestureHelper;->mPowerManager:Landroid/os/PowerManager;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmService(Lcom/google/android/settings/gestures/assist/AssistGestureHelper;)Lcom/google/android/systemui/elmyra/IElmyraService;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/settings/gestures/assist/AssistGestureHelper;->mService:Lcom/google/android/systemui/elmyra/IElmyraService;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmToken(Lcom/google/android/settings/gestures/assist/AssistGestureHelper;)Landroid/os/IBinder;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/settings/gestures/assist/AssistGestureHelper;->mToken:Landroid/os/IBinder;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmService(Lcom/google/android/settings/gestures/assist/AssistGestureHelper;Lcom/google/android/systemui/elmyra/IElmyraService;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/google/android/settings/gestures/assist/AssistGestureHelper;->mService:Lcom/google/android/systemui/elmyra/IElmyraService;
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
 
@@ -66,54 +114,6 @@
     iput-object p1, p0, Lcom/google/android/settings/gestures/assist/AssistGestureHelper;->mPowerManager:Landroid/os/PowerManager;
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/google/android/settings/gestures/assist/AssistGestureHelper;)Lcom/google/android/systemui/elmyra/IElmyraService;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/settings/gestures/assist/AssistGestureHelper;->mService:Lcom/google/android/systemui/elmyra/IElmyraService;
-
-    return-object p0
-.end method
-
-.method static synthetic access$002(Lcom/google/android/settings/gestures/assist/AssistGestureHelper;Lcom/google/android/systemui/elmyra/IElmyraService;)Lcom/google/android/systemui/elmyra/IElmyraService;
-    .locals 0
-
-    iput-object p1, p0, Lcom/google/android/settings/gestures/assist/AssistGestureHelper;->mService:Lcom/google/android/systemui/elmyra/IElmyraService;
-
-    return-object p1
-.end method
-
-.method static synthetic access$100(Lcom/google/android/settings/gestures/assist/AssistGestureHelper;)Lcom/google/android/settings/gestures/assist/AssistGestureHelper$GestureListener;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/settings/gestures/assist/AssistGestureHelper;->mGestureListener:Lcom/google/android/settings/gestures/assist/AssistGestureHelper$GestureListener;
-
-    return-object p0
-.end method
-
-.method static synthetic access$200(Lcom/google/android/settings/gestures/assist/AssistGestureHelper;)Landroid/os/IBinder;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/settings/gestures/assist/AssistGestureHelper;->mToken:Landroid/os/IBinder;
-
-    return-object p0
-.end method
-
-.method static synthetic access$300(Lcom/google/android/settings/gestures/assist/AssistGestureHelper;)Lcom/google/android/systemui/elmyra/IElmyraServiceGestureListener;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/settings/gestures/assist/AssistGestureHelper;->mElmyraServiceGestureListener:Lcom/google/android/systemui/elmyra/IElmyraServiceGestureListener;
-
-    return-object p0
-.end method
-
-.method static synthetic access$400(Lcom/google/android/settings/gestures/assist/AssistGestureHelper;)Landroid/os/PowerManager;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/settings/gestures/assist/AssistGestureHelper;->mPowerManager:Landroid/os/PowerManager;
-
-    return-object p0
 .end method
 
 

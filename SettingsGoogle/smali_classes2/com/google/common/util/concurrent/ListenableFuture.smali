@@ -7,10 +7,6 @@
 
 
 # annotations
-.annotation runtime Lcom/google/errorprone/annotations/DoNotMock;
-    value = "Use the methods in Futures (like immediateFuture) or SettableFuture"
-.end annotation
-
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "<V:",

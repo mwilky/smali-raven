@@ -6,14 +6,6 @@
 # direct methods
 .method public static unwrap(Landroidx/slice/Slice;)Landroid/app/slice/Slice;
     .locals 8
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "slice"
-        }
-    .end annotation
 
     if-eqz p0, :cond_a
 
@@ -399,14 +391,6 @@
 
 .method private static unwrap(Landroidx/slice/SliceSpec;)Landroid/app/slice/SliceSpec;
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "spec"
-        }
-    .end annotation
 
     if-nez p0, :cond_0
 
@@ -432,15 +416,6 @@
 
 .method static unwrap(Ljava/util/Set;)Ljava/util/Set;
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "supportedSpecs"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -490,16 +465,6 @@
 
 .method public static wrap(Landroid/app/slice/Slice;Landroid/content/Context;)Landroidx/slice/Slice;
     .locals 8
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "slice",
-            "context"
-        }
-    .end annotation
 
     const-string v0, "The icon resource isn\'t available."
 
@@ -920,14 +885,6 @@
 
 .method private static wrap(Landroid/app/slice/SliceSpec;)Landroidx/slice/SliceSpec;
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "spec"
-        }
-    .end annotation
 
     if-nez p0, :cond_0
 
@@ -953,15 +910,6 @@
 
 .method public static wrap(Ljava/util/Set;)Ljava/util/Set;
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "supportedSpecs"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

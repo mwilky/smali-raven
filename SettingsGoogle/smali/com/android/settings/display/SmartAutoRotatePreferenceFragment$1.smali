@@ -1,11 +1,11 @@
 .class Lcom/android/settings/display/SmartAutoRotatePreferenceFragment$1;
-.super Lcom/android/internal/view/RotationPolicy$RotationPolicyListener;
+.super Lcom/android/settings/search/BaseSearchIndexProvider;
 .source "SmartAutoRotatePreferenceFragment.java"
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/settings/display/SmartAutoRotatePreferenceFragment;->onResume()V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/settings/display/SmartAutoRotatePreferenceFragment;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -14,42 +14,33 @@
 .end annotation
 
 
-# instance fields
-.field final synthetic this$0:Lcom/android/settings/display/SmartAutoRotatePreferenceFragment;
-
-
 # direct methods
-.method constructor <init>(Lcom/android/settings/display/SmartAutoRotatePreferenceFragment;)V
+.method constructor <init>(I)V
     .locals 0
 
-    iput-object p1, p0, Lcom/android/settings/display/SmartAutoRotatePreferenceFragment$1;->this$0:Lcom/android/settings/display/SmartAutoRotatePreferenceFragment;
-
-    invoke-direct {p0}, Lcom/android/internal/view/RotationPolicy$RotationPolicyListener;-><init>()V
+    invoke-direct {p0, p1}, Lcom/android/settings/search/BaseSearchIndexProvider;-><init>(I)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onChange()V
-    .locals 1
+.method public getRawDataToIndex(Landroid/content/Context;Z)Ljava/util/List;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/content/Context;",
+            "Z)",
+            "Ljava/util/List<",
+            "Lcom/android/settingslib/search/SearchIndexableRaw;",
+            ">;"
+        }
+    .end annotation
 
-    iget-object v0, p0, Lcom/android/settings/display/SmartAutoRotatePreferenceFragment$1;->this$0:Lcom/android/settings/display/SmartAutoRotatePreferenceFragment;
-
-    invoke-static {v0}, Lcom/android/settings/display/SmartAutoRotatePreferenceFragment;->access$000(Lcom/android/settings/display/SmartAutoRotatePreferenceFragment;)Lcom/android/settings/display/AutoRotateSwitchBarController;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    iget-object p0, p0, Lcom/android/settings/display/SmartAutoRotatePreferenceFragment$1;->this$0:Lcom/android/settings/display/SmartAutoRotatePreferenceFragment;
-
-    invoke-static {p0}, Lcom/android/settings/display/SmartAutoRotatePreferenceFragment;->access$000(Lcom/android/settings/display/SmartAutoRotatePreferenceFragment;)Lcom/android/settings/display/AutoRotateSwitchBarController;
+    invoke-static {p1, p2}, Lcom/android/settings/display/DeviceStateAutoRotationHelper;->getRawDataToIndex(Landroid/content/Context;Z)Ljava/util/List;
 
     move-result-object p0
 
-    invoke-virtual {p0}, Lcom/android/settings/display/AutoRotateSwitchBarController;->onChange()V
-
-    :cond_0
-    return-void
+    return-object p0
 .end method

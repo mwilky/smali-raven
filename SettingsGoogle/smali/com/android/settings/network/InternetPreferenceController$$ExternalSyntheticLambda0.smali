@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settings/network/InternetPreferenceController$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -27,7 +28,7 @@
 
     iget-object p0, p0, Lcom/android/settings/network/InternetPreferenceController$$ExternalSyntheticLambda0;->f$0:Lcom/android/settings/network/InternetPreferenceController;
 
-    invoke-static {p0}, Lcom/android/settings/network/InternetPreferenceController;->$r8$lambda$Gd2_QmjVy0KTuFsIFftT3yR1WTY(Lcom/android/settings/network/InternetPreferenceController;)V
+    invoke-static {p0}, Lcom/android/settings/network/InternetPreferenceController;->$r8$lambda$RgIPLD-BQpxjDT_KuMJEvSXwlug(Lcom/android/settings/network/InternetPreferenceController;)V
 
     return-void
 .end method

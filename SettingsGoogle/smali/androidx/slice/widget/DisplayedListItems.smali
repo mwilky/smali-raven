@@ -20,17 +20,6 @@
 # direct methods
 .method constructor <init>(Ljava/util/List;I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "displayedItems",
-            "hiddenItemCount"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

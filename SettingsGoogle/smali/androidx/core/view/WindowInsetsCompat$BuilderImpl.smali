@@ -37,14 +37,6 @@
 
 .method constructor <init>(Landroidx/core/view/WindowInsetsCompat;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "insets"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -155,79 +147,47 @@
 .method build()Landroidx/core/view/WindowInsetsCompat;
     .locals 0
 
-    invoke-virtual {p0}, Landroidx/core/view/WindowInsetsCompat$BuilderImpl;->applyInsetTypes()V
+    const/4 p0, 0x0
 
-    iget-object p0, p0, Landroidx/core/view/WindowInsetsCompat$BuilderImpl;->mInsets:Landroidx/core/view/WindowInsetsCompat;
-
-    return-object p0
+    throw p0
 .end method
 
 .method setMandatorySystemGestureInsets(Landroidx/core/graphics/Insets;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "insets"
-        }
-    .end annotation
 
-    return-void
+    const/4 p0, 0x0
+
+    throw p0
 .end method
 
 .method setStableInsets(Landroidx/core/graphics/Insets;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "insets"
-        }
-    .end annotation
 
-    return-void
+    const/4 p0, 0x0
+
+    throw p0
 .end method
 
 .method setSystemGestureInsets(Landroidx/core/graphics/Insets;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "insets"
-        }
-    .end annotation
 
-    return-void
+    const/4 p0, 0x0
+
+    throw p0
 .end method
 
 .method setSystemWindowInsets(Landroidx/core/graphics/Insets;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "insets"
-        }
-    .end annotation
 
-    return-void
+    const/4 p0, 0x0
+
+    throw p0
 .end method
 
 .method setTappableElementInsets(Landroidx/core/graphics/Insets;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "insets"
-        }
-    .end annotation
 
-    return-void
+    const/4 p0, 0x0
+
+    throw p0
 .end method

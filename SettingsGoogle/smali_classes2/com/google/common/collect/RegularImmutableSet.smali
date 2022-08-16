@@ -26,6 +26,8 @@
     .end annotation
 .end field
 
+.field private static final EMPTY_ARRAY:[Ljava/lang/Object;
+
 
 # instance fields
 .field final transient elements:[Ljava/lang/Object;
@@ -43,25 +45,27 @@
 .method static constructor <clinit>()V
     .locals 7
 
-    new-instance v6, Lcom/google/common/collect/RegularImmutableSet;
-
     const/4 v0, 0x0
 
-    new-array v1, v0, [Ljava/lang/Object;
+    new-array v4, v0, [Ljava/lang/Object;
 
-    const/4 v2, 0x0
+    sput-object v4, Lcom/google/common/collect/RegularImmutableSet;->EMPTY_ARRAY:[Ljava/lang/Object;
+
+    new-instance v0, Lcom/google/common/collect/RegularImmutableSet;
 
     const/4 v3, 0x0
 
-    const/4 v4, 0x0
-
     const/4 v5, 0x0
 
-    move-object v0, v6
+    const/4 v6, 0x0
 
-    invoke-direct/range {v0 .. v5}, Lcom/google/common/collect/RegularImmutableSet;-><init>([Ljava/lang/Object;I[Ljava/lang/Object;II)V
+    move-object v1, v0
 
-    sput-object v6, Lcom/google/common/collect/RegularImmutableSet;->EMPTY:Lcom/google/common/collect/RegularImmutableSet;
+    move-object v2, v4
+
+    invoke-direct/range {v1 .. v6}, Lcom/google/common/collect/RegularImmutableSet;-><init>([Ljava/lang/Object;I[Ljava/lang/Object;II)V
+
+    sput-object v0, Lcom/google/common/collect/RegularImmutableSet;->EMPTY:Lcom/google/common/collect/RegularImmutableSet;
 
     return-void
 .end method
@@ -73,11 +77,11 @@
 
     iput-object p1, p0, Lcom/google/common/collect/RegularImmutableSet;->elements:[Ljava/lang/Object;
 
+    iput p2, p0, Lcom/google/common/collect/RegularImmutableSet;->hashCode:I
+
     iput-object p3, p0, Lcom/google/common/collect/RegularImmutableSet;->table:[Ljava/lang/Object;
 
     iput p4, p0, Lcom/google/common/collect/RegularImmutableSet;->mask:I
-
-    iput p2, p0, Lcom/google/common/collect/RegularImmutableSet;->hashCode:I
 
     iput p5, p0, Lcom/google/common/collect/RegularImmutableSet;->size:I
 
@@ -95,7 +99,9 @@
 
     if-eqz p1, :cond_3
 
-    if-nez v0, :cond_0
+    array-length v2, v0
+
+    if-nez v2, :cond_0
 
     goto :goto_1
 

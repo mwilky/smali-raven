@@ -49,76 +49,54 @@
 .end method
 
 .method private updateType(Landroidx/constraintlayout/solver/widgets/ConstraintWidget;IZ)V
-    .locals 5
+    .locals 3
 
     iput p2, p0, Landroidx/constraintlayout/widget/Barrier;->mResolvedType:I
 
-    sget p2, Landroid/os/Build$VERSION;->SDK_INT:I
+    const/4 p2, 0x1
 
-    const/4 v0, 0x1
+    const/4 v0, 0x0
 
-    const/4 v1, 0x0
+    const/4 v1, 0x6
 
-    const/4 v2, 0x6
+    const/4 v2, 0x5
 
-    const/4 v3, 0x5
+    if-eqz p3, :cond_1
 
-    const/16 v4, 0x11
+    iget p3, p0, Landroidx/constraintlayout/widget/Barrier;->mIndicatedType:I
 
-    if-ge p2, v4, :cond_1
+    if-ne p3, v2, :cond_0
 
-    iget p2, p0, Landroidx/constraintlayout/widget/Barrier;->mIndicatedType:I
-
-    if-ne p2, v3, :cond_0
-
-    iput v1, p0, Landroidx/constraintlayout/widget/Barrier;->mResolvedType:I
+    iput p2, p0, Landroidx/constraintlayout/widget/Barrier;->mResolvedType:I
 
     goto :goto_0
 
     :cond_0
-    if-ne p2, v2, :cond_5
+    if-ne p3, v1, :cond_3
 
     iput v0, p0, Landroidx/constraintlayout/widget/Barrier;->mResolvedType:I
 
     goto :goto_0
 
     :cond_1
-    if-eqz p3, :cond_3
+    iget p3, p0, Landroidx/constraintlayout/widget/Barrier;->mIndicatedType:I
 
-    iget p2, p0, Landroidx/constraintlayout/widget/Barrier;->mIndicatedType:I
-
-    if-ne p2, v3, :cond_2
+    if-ne p3, v2, :cond_2
 
     iput v0, p0, Landroidx/constraintlayout/widget/Barrier;->mResolvedType:I
 
     goto :goto_0
 
     :cond_2
-    if-ne p2, v2, :cond_5
+    if-ne p3, v1, :cond_3
 
-    iput v1, p0, Landroidx/constraintlayout/widget/Barrier;->mResolvedType:I
-
-    goto :goto_0
+    iput p2, p0, Landroidx/constraintlayout/widget/Barrier;->mResolvedType:I
 
     :cond_3
-    iget p2, p0, Landroidx/constraintlayout/widget/Barrier;->mIndicatedType:I
-
-    if-ne p2, v3, :cond_4
-
-    iput v1, p0, Landroidx/constraintlayout/widget/Barrier;->mResolvedType:I
-
-    goto :goto_0
-
-    :cond_4
-    if-ne p2, v2, :cond_5
-
-    iput v0, p0, Landroidx/constraintlayout/widget/Barrier;->mResolvedType:I
-
-    :cond_5
     :goto_0
     instance-of p2, p1, Landroidx/constraintlayout/solver/widgets/Barrier;
 
-    if-eqz p2, :cond_6
+    if-eqz p2, :cond_4
 
     check-cast p1, Landroidx/constraintlayout/solver/widgets/Barrier;
 
@@ -126,7 +104,7 @@
 
     invoke-virtual {p1, p0}, Landroidx/constraintlayout/solver/widgets/Barrier;->setBarrierType(I)V
 
-    :cond_6
+    :cond_4
     return-void
 .end method
 

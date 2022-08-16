@@ -23,7 +23,7 @@
 
     const-string/jumbo v2, "summary"
 
-    const-string v3, "screentitle"
+    const-string/jumbo v3, "screentitle"
 
     const-string v4, "keywords"
 
@@ -117,7 +117,7 @@
 
     move-result-object v2
 
-    const-string v3, "screentitle"
+    const-string/jumbo v3, "screentitle"
 
     invoke-interface {p0, v3}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
 

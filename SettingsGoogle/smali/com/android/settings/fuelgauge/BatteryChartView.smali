@@ -496,7 +496,7 @@
 .end method
 
 .method private drawPercentage(Landroid/graphics/Canvas;IF)V
-    .locals 4
+    .locals 3
 
     iget-object v0, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mTextPaint:Landroid/graphics/Paint;
 
@@ -522,15 +522,13 @@
 
     iget-object v2, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mPercentageBounds:[Landroid/graphics/Rect;
 
-    aget-object v3, v2, p2
+    aget-object p2, v2, p2
 
-    iget v3, v3, Landroid/graphics/Rect;->left:I
+    iget v2, p2, Landroid/graphics/Rect;->left:I
 
-    sub-int/2addr v1, v3
+    sub-int/2addr v1, v2
 
     int-to-float v1, v1
-
-    aget-object p2, v2, p2
 
     invoke-virtual {p2}, Landroid/graphics/Rect;->height()I
 
@@ -1325,7 +1323,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f0b00bf
+    const v0, 0x7f0b00dc
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1333,7 +1331,7 @@
 
     iput v0, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mDividerWidth:I
 
-    const v0, 0x7f0b00be
+    const v0, 0x7f0b00db
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1409,7 +1407,7 @@
 
     invoke-static {v2, v0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v0, 0x7f0b00c2
+    const v0, 0x7f0b00df
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1417,7 +1415,7 @@
 
     iput v0, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mTrapezoidHOffset:F
 
-    const v0, 0x7f0b00c1
+    const v0, 0x7f0b00de
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1449,7 +1447,7 @@
 
     new-instance v1, Landroid/graphics/CornerPathEffect;
 
-    const v2, 0x7f0b00c3
+    const v2, 0x7f0b00e0
 
     invoke-virtual {p1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1461,7 +1459,7 @@
 
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setPathEffect(Landroid/graphics/PathEffect;)Landroid/graphics/PathEffect;
 
-    const v0, 0x7f0b00c0
+    const v0, 0x7f0b00dd
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1983,19 +1981,17 @@
 
     iget-object v1, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mTextPaint:Landroid/graphics/Paint;
 
-    aget-object v2, v0, p1
-
     aget-object v0, v0, p1
 
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
-    move-result v0
+    move-result v2
 
     iget-object v3, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mPercentageBounds:[Landroid/graphics/Rect;
 
     aget-object v3, v3, p1
 
-    invoke-virtual {v1, v2, p2, v0, v3}, Landroid/graphics/Paint;->getTextBounds(Ljava/lang/String;IILandroid/graphics/Rect;)V
+    invoke-virtual {v1, v0, p2, v2, v3}, Landroid/graphics/Paint;->getTextBounds(Ljava/lang/String;IILandroid/graphics/Rect;)V
 
     add-int/lit8 p1, p1, 0x1
 
@@ -2047,19 +2043,17 @@
 
     iget-object v2, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mTimestamps:[Ljava/lang/String;
 
-    aget-object v3, v2, p1
-
     aget-object v2, v2, p1
 
     invoke-virtual {v2}, Ljava/lang/String;->length()I
 
-    move-result v2
+    move-result v3
 
     iget-object v4, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mTimestampsBounds:[Landroid/graphics/Rect;
 
     aget-object v4, v4, p1
 
-    invoke-virtual {v1, v3, p2, v2, v4}, Landroid/graphics/Paint;->getTextBounds(Ljava/lang/String;IILandroid/graphics/Rect;)V
+    invoke-virtual {v1, v2, p2, v3, v4}, Landroid/graphics/Paint;->getTextBounds(Ljava/lang/String;IILandroid/graphics/Rect;)V
 
     iget-object v1, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mTimestampsBounds:[Landroid/graphics/Rect;
 
@@ -2484,7 +2478,7 @@
 
     const/4 v3, 0x0
 
-    invoke-direct {v2, v3}, Lcom/android/settings/fuelgauge/BatteryChartView$TrapezoidSlot;-><init>(Lcom/android/settings/fuelgauge/BatteryChartView$1;)V
+    invoke-direct {v2, v3}, Lcom/android/settings/fuelgauge/BatteryChartView$TrapezoidSlot;-><init>(Lcom/android/settings/fuelgauge/BatteryChartView$TrapezoidSlot-IA;)V
 
     aput-object v2, v1, v0
 

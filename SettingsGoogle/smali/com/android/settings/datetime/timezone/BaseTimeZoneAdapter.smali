@@ -78,6 +78,30 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmLocale(Lcom/android/settings/datetime/timezone/BaseTimeZoneAdapter;)Ljava/util/Locale;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/datetime/timezone/BaseTimeZoneAdapter;->mLocale:Ljava/util/Locale;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmOriginalItems(Lcom/android/settings/datetime/timezone/BaseTimeZoneAdapter;)Ljava/util/List;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/datetime/timezone/BaseTimeZoneAdapter;->mOriginalItems:Ljava/util/List;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmItems(Lcom/android/settings/datetime/timezone/BaseTimeZoneAdapter;Ljava/util/List;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/settings/datetime/timezone/BaseTimeZoneAdapter;->mItems:Ljava/util/List;
+
+    return-void
+.end method
+
 .method public constructor <init>(Ljava/util/List;Lcom/android/settings/datetime/timezone/BaseTimeZonePicker$OnListItemClickListener;Ljava/util/Locale;ZLjava/lang/CharSequence;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
@@ -125,30 +149,6 @@
     invoke-virtual {p0, p1}, Lcom/android/settings/datetime/timezone/BaseTimeZoneAdapter;->setHasStableIds(Z)V
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/datetime/timezone/BaseTimeZoneAdapter;)Ljava/util/Locale;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/datetime/timezone/BaseTimeZoneAdapter;->mLocale:Ljava/util/Locale;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/datetime/timezone/BaseTimeZoneAdapter;)Ljava/util/List;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/datetime/timezone/BaseTimeZoneAdapter;->mOriginalItems:Ljava/util/List;
-
-    return-object p0
-.end method
-
-.method static synthetic access$202(Lcom/android/settings/datetime/timezone/BaseTimeZoneAdapter;Ljava/util/List;)Ljava/util/List;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/settings/datetime/timezone/BaseTimeZoneAdapter;->mItems:Ljava/util/List;
-
-    return-object p1
 .end method
 
 .method private getHeaderCount()I
@@ -356,7 +356,7 @@
 
     if-ne p2, v2, :cond_0
 
-    const p2, 0x7f06028a
+    const p2, 0x7f06029a
 
     invoke-virtual {v0, p2, p1, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -392,7 +392,7 @@
     throw p0
 
     :cond_1
-    const p0, 0x7f060289
+    const p0, 0x7f060299
 
     invoke-virtual {v0, p0, p1, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 

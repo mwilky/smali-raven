@@ -48,7 +48,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/widget/SettingsSpinnerPreference$1;->this$0:Lcom/android/settingslib/widget/SettingsSpinnerPreference;
 
-    invoke-static {v0}, Lcom/android/settingslib/widget/SettingsSpinnerPreference;->access$000(Lcom/android/settingslib/widget/SettingsSpinnerPreference;)I
+    invoke-static {v0}, Lcom/android/settingslib/widget/SettingsSpinnerPreference;->-$$Nest$fgetmPosition(Lcom/android/settingslib/widget/SettingsSpinnerPreference;)I
 
     move-result v0
 
@@ -59,11 +59,11 @@
     :cond_0
     iget-object v0, p0, Lcom/android/settingslib/widget/SettingsSpinnerPreference$1;->this$0:Lcom/android/settingslib/widget/SettingsSpinnerPreference;
 
-    invoke-static {v0, p3}, Lcom/android/settingslib/widget/SettingsSpinnerPreference;->access$002(Lcom/android/settingslib/widget/SettingsSpinnerPreference;I)I
+    invoke-static {v0, p3}, Lcom/android/settingslib/widget/SettingsSpinnerPreference;->-$$Nest$fputmPosition(Lcom/android/settingslib/widget/SettingsSpinnerPreference;I)V
 
     iget-object v0, p0, Lcom/android/settingslib/widget/SettingsSpinnerPreference$1;->this$0:Lcom/android/settingslib/widget/SettingsSpinnerPreference;
 
-    invoke-static {v0}, Lcom/android/settingslib/widget/SettingsSpinnerPreference;->access$100(Lcom/android/settingslib/widget/SettingsSpinnerPreference;)Landroid/widget/AdapterView$OnItemSelectedListener;
+    invoke-static {v0}, Lcom/android/settingslib/widget/SettingsSpinnerPreference;->-$$Nest$fgetmListener(Lcom/android/settingslib/widget/SettingsSpinnerPreference;)Landroid/widget/AdapterView$OnItemSelectedListener;
 
     move-result-object v0
 
@@ -71,7 +71,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/widget/SettingsSpinnerPreference$1;->this$0:Lcom/android/settingslib/widget/SettingsSpinnerPreference;
 
-    invoke-static {p0}, Lcom/android/settingslib/widget/SettingsSpinnerPreference;->access$100(Lcom/android/settingslib/widget/SettingsSpinnerPreference;)Landroid/widget/AdapterView$OnItemSelectedListener;
+    invoke-static {p0}, Lcom/android/settingslib/widget/SettingsSpinnerPreference;->-$$Nest$fgetmListener(Lcom/android/settingslib/widget/SettingsSpinnerPreference;)Landroid/widget/AdapterView$OnItemSelectedListener;
 
     move-result-object v0
 
@@ -101,7 +101,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/widget/SettingsSpinnerPreference$1;->this$0:Lcom/android/settingslib/widget/SettingsSpinnerPreference;
 
-    invoke-static {v0}, Lcom/android/settingslib/widget/SettingsSpinnerPreference;->access$100(Lcom/android/settingslib/widget/SettingsSpinnerPreference;)Landroid/widget/AdapterView$OnItemSelectedListener;
+    invoke-static {v0}, Lcom/android/settingslib/widget/SettingsSpinnerPreference;->-$$Nest$fgetmListener(Lcom/android/settingslib/widget/SettingsSpinnerPreference;)Landroid/widget/AdapterView$OnItemSelectedListener;
 
     move-result-object v0
 
@@ -109,7 +109,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/widget/SettingsSpinnerPreference$1;->this$0:Lcom/android/settingslib/widget/SettingsSpinnerPreference;
 
-    invoke-static {p0}, Lcom/android/settingslib/widget/SettingsSpinnerPreference;->access$100(Lcom/android/settingslib/widget/SettingsSpinnerPreference;)Landroid/widget/AdapterView$OnItemSelectedListener;
+    invoke-static {p0}, Lcom/android/settingslib/widget/SettingsSpinnerPreference;->-$$Nest$fgetmListener(Lcom/android/settingslib/widget/SettingsSpinnerPreference;)Landroid/widget/AdapterView$OnItemSelectedListener;
 
     move-result-object p0
 

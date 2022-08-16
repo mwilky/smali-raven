@@ -51,7 +51,7 @@
     goto :goto_0
 
     :cond_0
-    invoke-static {}, Lcom/android/settings/homepage/contextualcards/ContextualCardsFragment;->access$000()Z
+    invoke-static {}, Lcom/android/settings/homepage/contextualcards/ContextualCardsFragment;->-$$Nest$sfgetDEBUG()Z
 
     move-result p2
 
@@ -59,14 +59,14 @@
 
     const-string p2, "ContextualCardsFragment"
 
-    const-string v0, "screen off"
+    const-string/jumbo v0, "screen off"
 
     invoke-static {p2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_1
     iget-object p0, p0, Lcom/android/settings/homepage/contextualcards/ContextualCardsFragment$ScreenOffReceiver;->this$0:Lcom/android/settings/homepage/contextualcards/ContextualCardsFragment;
 
-    invoke-static {p0, p1}, Lcom/android/settings/homepage/contextualcards/ContextualCardsFragment;->access$100(Lcom/android/settings/homepage/contextualcards/ContextualCardsFragment;Landroid/content/Context;)V
+    invoke-static {p0, p1}, Lcom/android/settings/homepage/contextualcards/ContextualCardsFragment;->-$$Nest$mresetSession(Lcom/android/settings/homepage/contextualcards/ContextualCardsFragment;Landroid/content/Context;)V
 
     :cond_2
     :goto_0

@@ -190,7 +190,7 @@
 
     aput-object v0, v2, v3
 
-    const-string v0, "read"
+    const-string/jumbo v0, "read"
 
     invoke-virtual {v1, v0, v2}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 

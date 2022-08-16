@@ -3,6 +3,10 @@
 .source "LaunchAccessibilityActivityPreferenceFragment.java"
 
 
+# instance fields
+.field private mTileComponentName:Landroid/content/ComponentName;
+
+
 # direct methods
 .method public static synthetic $r8$lambda$PbzJ0SoHdpsl8nyOFmQWvEhdf6U(Lcom/android/settings/accessibility/LaunchAccessibilityActivityPreferenceFragment;Landroidx/preference/Preference;)Z
     .locals 0
@@ -172,7 +176,7 @@
 
     invoke-direct {v0, v1}, Landroidx/preference/Preference;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f060036
+    const v1, 0x7f060035
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setLayoutResource(I)V
 
@@ -191,7 +195,7 @@
     goto :goto_0
 
     :cond_0
-    const v2, 0x7f04011e
+    const v2, 0x7f040138
 
     const/4 v3, 0x1
 
@@ -388,6 +392,66 @@
     return-object p0
 .end method
 
+.method getTileComponentName()Landroid/content/ComponentName;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/accessibility/LaunchAccessibilityActivityPreferenceFragment;->mTileComponentName:Landroid/content/ComponentName;
+
+    return-object p0
+.end method
+
+.method getTileTooltipContent(I)Ljava/lang/CharSequence;
+    .locals 3
+
+    invoke-virtual {p0}, Lcom/android/settings/accessibility/LaunchAccessibilityActivityPreferenceFragment;->getTileComponentName()Landroid/content/ComponentName;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    if-nez v0, :cond_0
+
+    return-object v1
+
+    :cond_0
+    invoke-virtual {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->getPrefContext()Landroid/content/Context;
+
+    move-result-object v2
+
+    invoke-virtual {p0, v2, v0}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->loadTileLabel(Landroid/content/Context;Landroid/content/ComponentName;)Ljava/lang/CharSequence;
+
+    move-result-object v0
+
+    if-nez v0, :cond_1
+
+    return-object v1
+
+    :cond_1
+    if-nez p1, :cond_2
+
+    const p1, 0x7f04013a
+
+    goto :goto_0
+
+    :cond_2
+    const p1, 0x7f040136
+
+    :goto_0
+    const/4 v1, 0x1
+
+    new-array v1, v1, [Ljava/lang/Object;
+
+    const/4 v2, 0x0
+
+    aput-object v0, v1, v2
+
+    invoke-virtual {p0, p1, v1}, Landroidx/fragment/app/Fragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method getUserShortcutTypes()I
     .locals 1
 
@@ -534,24 +598,43 @@
 
     if-eqz v1, :cond_1
 
-    move-object p1, v2
+    move-object v1, v2
 
     goto :goto_0
 
     :cond_1
     invoke-direct {p0, p1}, Lcom/android/settings/accessibility/LaunchAccessibilityActivityPreferenceFragment;->getSettingsIntent(Landroid/os/Bundle;)Landroid/content/Intent;
 
-    move-result-object p1
+    move-result-object v1
 
     :goto_0
-    iput-object p1, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mSettingsIntent:Landroid/content/Intent;
+    iput-object v1, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mSettingsIntent:Landroid/content/Intent;
 
-    if-nez p1, :cond_2
+    if-nez v1, :cond_2
 
     move-object v0, v2
 
     :cond_2
     iput-object v0, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mSettingsTitle:Ljava/lang/CharSequence;
 
+    const-string/jumbo v0, "tile_service_component_name"
+
+    invoke-virtual {p1, v0}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_3
+
+    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-static {p1}, Landroid/content/ComponentName;->unflattenFromString(Ljava/lang/String;)Landroid/content/ComponentName;
+
+    move-result-object p1
+
+    iput-object p1, p0, Lcom/android/settings/accessibility/LaunchAccessibilityActivityPreferenceFragment;->mTileComponentName:Landroid/content/ComponentName;
+
+    :cond_3
     return-void
 .end method

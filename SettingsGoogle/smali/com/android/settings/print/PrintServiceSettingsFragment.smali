@@ -61,6 +61,46 @@
     return p0
 .end method
 
+.method static bridge synthetic -$$Nest$fgetmComponentName(Lcom/android/settings/print/PrintServiceSettingsFragment;)Landroid/content/ComponentName;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/print/PrintServiceSettingsFragment;->mComponentName:Landroid/content/ComponentName;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmLastUnfilteredItemCount(Lcom/android/settings/print/PrintServiceSettingsFragment;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/settings/print/PrintServiceSettingsFragment;->mLastUnfilteredItemCount:I
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmPrintersAdapter(Lcom/android/settings/print/PrintServiceSettingsFragment;)Lcom/android/settings/print/PrintServiceSettingsFragment$PrintersAdapter;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/print/PrintServiceSettingsFragment;->mPrintersAdapter:Lcom/android/settings/print/PrintServiceSettingsFragment$PrintersAdapter;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmLastUnfilteredItemCount(Lcom/android/settings/print/PrintServiceSettingsFragment;I)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/settings/print/PrintServiceSettingsFragment;->mLastUnfilteredItemCount:I
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mupdateEmptyView(Lcom/android/settings/print/PrintServiceSettingsFragment;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/print/PrintServiceSettingsFragment;->updateEmptyView()V
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 1
 
@@ -75,46 +115,6 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/settings/print/PrintServiceSettingsFragment;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/print/PrintServiceSettingsFragment;->updateEmptyView()V
-
-    return-void
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/print/PrintServiceSettingsFragment;)Lcom/android/settings/print/PrintServiceSettingsFragment$PrintersAdapter;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/print/PrintServiceSettingsFragment;->mPrintersAdapter:Lcom/android/settings/print/PrintServiceSettingsFragment$PrintersAdapter;
-
-    return-object p0
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/print/PrintServiceSettingsFragment;)I
-    .locals 0
-
-    iget p0, p0, Lcom/android/settings/print/PrintServiceSettingsFragment;->mLastUnfilteredItemCount:I
-
-    return p0
-.end method
-
-.method static synthetic access$202(Lcom/android/settings/print/PrintServiceSettingsFragment;I)I
-    .locals 0
-
-    iput p1, p0, Lcom/android/settings/print/PrintServiceSettingsFragment;->mLastUnfilteredItemCount:I
-
-    return p1
-.end method
-
-.method static synthetic access$800(Lcom/android/settings/print/PrintServiceSettingsFragment;)Landroid/content/ComponentName;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/print/PrintServiceSettingsFragment;->mComponentName:Landroid/content/ComponentName;
-
-    return-object p0
-.end method
-
 .method private initComponents()V
     .locals 3
 
@@ -122,7 +122,7 @@
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, p0, v1}, Lcom/android/settings/print/PrintServiceSettingsFragment$PrintersAdapter;-><init>(Lcom/android/settings/print/PrintServiceSettingsFragment;Lcom/android/settings/print/PrintServiceSettingsFragment$1;)V
+    invoke-direct {v0, p0, v1}, Lcom/android/settings/print/PrintServiceSettingsFragment$PrintersAdapter;-><init>(Lcom/android/settings/print/PrintServiceSettingsFragment;Lcom/android/settings/print/PrintServiceSettingsFragment$PrintersAdapter-IA;)V
 
     iput-object v0, p0, Lcom/android/settings/print/PrintServiceSettingsFragment;->mPrintersAdapter:Lcom/android/settings/print/PrintServiceSettingsFragment$PrintersAdapter;
 
@@ -146,7 +146,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0407b9
+    const v2, 0x7f0407fd
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -238,9 +238,9 @@
 
     move-result v2
 
-    const v3, 0x7f0d0366
+    const v3, 0x7f0d0392
 
-    const v4, 0x7f0600da
+    const v4, 0x7f0600dc
 
     const/4 v5, 0x0
 
@@ -275,7 +275,7 @@
 
     check-cast v2, Landroid/widget/TextView;
 
-    const v3, 0x7f040faf
+    const v3, 0x7f041048
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(I)V
 
@@ -311,7 +311,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0600db
+    const v2, 0x7f0600dd
 
     invoke-virtual {v1, v2, v0, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -359,7 +359,7 @@
 
     check-cast v2, Landroid/widget/TextView;
 
-    const v3, 0x7f040fa6
+    const v3, 0x7f04103f
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(I)V
 
@@ -568,7 +568,7 @@
 
     invoke-virtual {p2, v0, p1}, Landroid/view/MenuInflater;->inflate(ILandroid/view/Menu;)V
 
-    const p2, 0x7f0d0457
+    const p2, 0x7f0d0489
 
     invoke-interface {p1, p2}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
@@ -590,7 +590,7 @@
     invoke-interface {p1, p2}, Landroid/view/Menu;->removeItem(I)V
 
     :goto_0
-    const p2, 0x7f0d0459
+    const p2, 0x7f0d048b
 
     invoke-interface {p1, p2}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
@@ -612,7 +612,7 @@
     invoke-interface {p1, p2}, Landroid/view/Menu;->removeItem(I)V
 
     :goto_1
-    const p2, 0x7f0d0458
+    const p2, 0x7f0d048a
 
     invoke-interface {p1, p2}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
@@ -939,7 +939,7 @@
 .method public onStart()V
     .locals 0
 
-    invoke-super {p0}, Lcom/android/settingslib/core/lifecycle/ObservablePreferenceFragment;->onStart()V
+    invoke-super {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->onStart()V
 
     invoke-direct {p0}, Lcom/android/settings/print/PrintServiceSettingsFragment;->initComponents()V
 

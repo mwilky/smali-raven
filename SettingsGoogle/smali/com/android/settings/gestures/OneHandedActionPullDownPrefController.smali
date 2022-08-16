@@ -32,14 +32,6 @@
 
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public displayPreference(Landroidx/preference/PreferenceScreen;)V
     .locals 1
 
@@ -88,15 +80,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -151,13 +134,13 @@
 
     invoke-static {p0, v1}, Lcom/android/settings/gestures/OneHandedSettingsUtils;->setSwipeDownNotificationEnabled(Landroid/content/Context;Z)V
 
-    instance-of p0, p1, Lcom/android/settingslib/widget/RadioButtonPreference;
+    instance-of p0, p1, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     const/4 v0, 0x1
 
     if-eqz p0, :cond_1
 
-    check-cast p1, Lcom/android/settingslib/widget/RadioButtonPreference;
+    check-cast p1, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     invoke-virtual {p1, v0}, Landroidx/preference/TwoStatePreference;->setChecked(Z)V
 
@@ -169,16 +152,6 @@
     .locals 0
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->hasAsyncUpdate()Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
 
     move-result p0
 
@@ -298,11 +271,11 @@
 
     invoke-super {p0, p1}, Lcom/android/settingslib/core/AbstractPreferenceController;->updateState(Landroidx/preference/Preference;)V
 
-    instance-of v0, p1, Lcom/android/settingslib/widget/RadioButtonPreference;
+    instance-of v0, p1, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     if-eqz v0, :cond_0
 
-    check-cast p1, Lcom/android/settingslib/widget/RadioButtonPreference;
+    check-cast p1, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 

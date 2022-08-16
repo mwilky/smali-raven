@@ -69,7 +69,7 @@
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
-    const-string v2, "replacing"
+    const-string/jumbo v2, "replacing"
 
     invoke-virtual {v0, v2, p1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
@@ -180,7 +180,7 @@
 
     move-result-object p1
 
-    const-string v0, "replacing"
+    const-string/jumbo v0, "replacing"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
 
@@ -216,60 +216,60 @@
 
     if-eqz v1, :cond_0
 
-    const v2, 0x7f041595
+    const v2, 0x7f04168e
 
     goto :goto_0
 
     :cond_0
     if-eqz p1, :cond_1
 
-    const v2, 0x7f041593
+    const v2, 0x7f04168c
 
     goto :goto_0
 
     :cond_1
-    const v2, 0x7f04159b
+    const v2, 0x7f041694
 
     :goto_0
     if-eqz p1, :cond_2
 
-    const v3, 0x7f04158f
+    const v3, 0x7f041688
 
     goto :goto_1
 
     :cond_2
     if-eqz v1, :cond_3
 
-    const v3, 0x7f0415a3
+    const v3, 0x7f04169c
 
     goto :goto_1
 
     :cond_3
-    const v3, 0x7f040ecc
+    const v3, 0x7f040f60
 
     :goto_1
     if-eqz v1, :cond_5
 
     if-eqz p1, :cond_4
 
-    const p1, 0x7f041591
+    const p1, 0x7f04168a
 
     goto :goto_2
 
     :cond_4
-    const p1, 0x7f041575
+    const p1, 0x7f04166e
 
     goto :goto_2
 
     :cond_5
     if-eqz v0, :cond_6
 
-    const p1, 0x7f041590
+    const p1, 0x7f041689
 
     goto :goto_2
 
     :cond_6
-    const p1, 0x7f041592
+    const p1, 0x7f04168b
 
     :goto_2
     new-instance v0, Landroidx/appcompat/app/AlertDialog$Builder;
@@ -288,7 +288,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f040564
+    const v0, 0x7f0405c1
 
     const/4 v1, 0x0
 

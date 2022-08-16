@@ -26,14 +26,24 @@
 
 
 # direct methods
-.method public static synthetic $r8$lambda$GUi183BIMb5iGHvSvZ5FiWODAps(Lcom/android/settings/notification/NotificationAccessSettings;Landroid/content/ComponentName;Landroid/content/pm/ServiceInfo;Landroidx/preference/Preference;)Z
+.method public static synthetic $r8$lambda$86eF0GNAXMtue77fnkgr2W3igK0(Lcom/android/settings/notification/NotificationAccessSettings;)Ljava/lang/String;
     .locals 0
 
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/settings/notification/NotificationAccessSettings;->lambda$updateList$0(Landroid/content/ComponentName;Landroid/content/pm/ServiceInfo;Landroidx/preference/Preference;)Z
+    invoke-direct {p0}, Lcom/android/settings/notification/NotificationAccessSettings;->lambda$onCreate$0()Ljava/lang/String;
 
-    move-result p0
+    move-result-object p0
 
-    return p0
+    return-object p0
+.end method
+
+.method public static synthetic $r8$lambda$nqcZFgSxXcaMilyCTbMmsv6T--I(Lcom/android/settings/notification/NotificationAccessSettings;)Ljava/lang/String;
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/notification/NotificationAccessSettings;->lambda$updateList$1()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method public static synthetic $r8$lambda$zBqpTIP94fn9D47r-oA58JfwAJc(Lcom/android/settings/notification/NotificationAccessSettings;Ljava/util/List;)V
@@ -42,6 +52,16 @@
     invoke-direct {p0, p1}, Lcom/android/settings/notification/NotificationAccessSettings;->updateList(Ljava/util/List;)V
 
     return-void
+.end method
+
+.method public static synthetic $r8$lambda$z_VLx_SaIjaoN3I08GTZVBSv36g(Lcom/android/settings/notification/NotificationAccessSettings;Landroid/content/ComponentName;Landroid/content/pm/ServiceInfo;Landroidx/preference/Preference;)Z
+    .locals 0
+
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/settings/notification/NotificationAccessSettings;->lambda$updateList$2(Landroid/content/ComponentName;Landroid/content/pm/ServiceInfo;Landroidx/preference/Preference;)Z
+
+    move-result p0
+
+    return p0
 .end method
 
 .method static constructor <clinit>()V
@@ -81,19 +101,19 @@
 
     move-result-object v0
 
-    const v1, 0x7f040e7c
+    const v1, 0x7f040f10
 
     invoke-virtual {v0, v1}, Lcom/android/settings/utils/ManagedServiceSettings$Config$Builder;->setWarningDialogTitle(I)Lcom/android/settings/utils/ManagedServiceSettings$Config$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f040e7b
+    const v1, 0x7f040f0f
 
     invoke-virtual {v0, v1}, Lcom/android/settings/utils/ManagedServiceSettings$Config$Builder;->setWarningDialogSummary(I)Lcom/android/settings/utils/ManagedServiceSettings$Config$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f040e24
+    const v1, 0x7f040eb3
 
     invoke-virtual {v0, v1}, Lcom/android/settings/utils/ManagedServiceSettings$Config$Builder;->setEmptyText(I)Lcom/android/settings/utils/ManagedServiceSettings$Config$Builder;
 
@@ -107,7 +127,7 @@
 
     new-instance v0, Lcom/android/settings/search/BaseSearchIndexProvider;
 
-    const v1, 0x7f1500a9
+    const v1, 0x7f1500ab
 
     invoke-direct {v0, v1}, Lcom/android/settings/search/BaseSearchIndexProvider;-><init>(I)V
 
@@ -130,7 +150,33 @@
     return-void
 .end method
 
-.method private synthetic lambda$updateList$0(Landroid/content/ComponentName;Landroid/content/pm/ServiceInfo;Landroidx/preference/Preference;)Z
+.method private synthetic lambda$onCreate$0()Ljava/lang/String;
+    .locals 1
+
+    iget-object p0, p0, Lcom/android/settings/notification/NotificationAccessSettings;->mContext:Landroid/content/Context;
+
+    const v0, 0x7f040f34
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private synthetic lambda$updateList$1()Ljava/lang/String;
+    .locals 1
+
+    const v0, 0x7f0418a3
+
+    invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private synthetic lambda$updateList$2(Landroid/content/ComponentName;Landroid/content/pm/ServiceInfo;Landroidx/preference/Preference;)Z
     .locals 2
 
     new-instance p3, Landroid/os/Bundle;
@@ -191,7 +237,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f040c8a
+    const p1, 0x7f040d05
 
     invoke-virtual {p0, p1}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 
@@ -421,14 +467,28 @@
 
     if-nez v5, :cond_0
 
-    const v5, 0x7f0417a8
+    iget-object v5, p0, Lcom/android/settings/notification/NotificationAccessSettings;->mDpm:Landroid/app/admin/DevicePolicyManager;
 
-    invoke-virtual {v6, v5}, Landroidx/preference/Preference;->setSummary(I)V
+    invoke-virtual {v5}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
+
+    move-result-object v5
+
+    new-instance v7, Lcom/android/settings/notification/NotificationAccessSettings$$ExternalSyntheticLambda2;
+
+    invoke-direct {v7, p0}, Lcom/android/settings/notification/NotificationAccessSettings$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/notification/NotificationAccessSettings;)V
+
+    const-string v8, "Settings.WORK_PROFILE_NOTIFICATION_LISTENER_BLOCKED"
+
+    invoke-virtual {v5, v8, v7}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v6, v5}, Landroidx/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
     :cond_0
-    new-instance v5, Lcom/android/settings/notification/NotificationAccessSettings$$ExternalSyntheticLambda0;
+    new-instance v5, Lcom/android/settings/notification/NotificationAccessSettings$$ExternalSyntheticLambda3;
 
-    invoke-direct {v5, p0, v4, v3}, Lcom/android/settings/notification/NotificationAccessSettings$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/notification/NotificationAccessSettings;Landroid/content/ComponentName;Landroid/content/pm/ServiceInfo;)V
+    invoke-direct {v5, p0, v4, v3}, Lcom/android/settings/notification/NotificationAccessSettings$$ExternalSyntheticLambda3;-><init>(Lcom/android/settings/notification/NotificationAccessSettings;Landroid/content/ComponentName;Landroid/content/pm/ServiceInfo;)V
 
     invoke-virtual {v6, v5}, Landroidx/preference/Preference;->setOnPreferenceClickListener(Landroidx/preference/Preference$OnPreferenceClickListener;)V
 
@@ -474,7 +534,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f1500a9
+    const p0, 0x7f1500ab
 
     return p0
 .end method
@@ -482,7 +542,7 @@
 .method public onAttach(Landroid/content/Context;)V
     .locals 1
 
-    invoke-super {p0, p1}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->onAttach(Landroid/content/Context;)V
+    invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onAttach(Landroid/content/Context;)V
 
     const-class v0, Landroid/app/NotificationManager;
 
@@ -498,7 +558,7 @@
 .end method
 
 .method public onCreate(Landroid/os/Bundle;)V
-    .locals 2
+    .locals 3
 
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
@@ -578,9 +638,9 @@
 
     iput-object p1, p0, Lcom/android/settings/notification/NotificationAccessSettings;->mServiceListing:Lcom/android/settingslib/applications/ServiceListing;
 
-    new-instance v0, Lcom/android/settings/notification/NotificationAccessSettings$$ExternalSyntheticLambda1;
+    new-instance v0, Lcom/android/settings/notification/NotificationAccessSettings$$ExternalSyntheticLambda0;
 
-    invoke-direct {v0, p0}, Lcom/android/settings/notification/NotificationAccessSettings$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/notification/NotificationAccessSettings;)V
+    invoke-direct {v0, p0}, Lcom/android/settings/notification/NotificationAccessSettings$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/notification/NotificationAccessSettings;)V
 
     invoke-virtual {p1, v0}, Lcom/android/settingslib/applications/ServiceListing;->addCallback(Lcom/android/settingslib/applications/ServiceListing$Callback;)V
 
@@ -598,11 +658,25 @@
 
     iget-object p1, p0, Lcom/android/settings/notification/NotificationAccessSettings;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f040ea0
+    iget-object v0, p0, Lcom/android/settings/notification/NotificationAccessSettings;->mDpm:Landroid/app/admin/DevicePolicyManager;
+
+    invoke-virtual {v0}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/android/settings/notification/NotificationAccessSettings$$ExternalSyntheticLambda1;
+
+    invoke-direct {v1, p0}, Lcom/android/settings/notification/NotificationAccessSettings$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/notification/NotificationAccessSettings;)V
+
+    const-string v2, "Settings.WORK_APPS_CANNOT_ACCESS_NOTIFICATION_SETTINGS"
+
+    invoke-virtual {v0, v2, v1}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
+
+    move-result-object v0
 
     const/4 v1, 0x0
 
-    invoke-static {p1, v0, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
+    invoke-static {p1, v0, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
 
     move-result-object p1
 

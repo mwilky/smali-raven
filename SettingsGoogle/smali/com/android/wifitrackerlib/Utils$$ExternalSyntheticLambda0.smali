@@ -1,35 +1,28 @@
 .class public final synthetic Lcom/android/wifitrackerlib/Utils$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Predicate;
-
-
-# instance fields
-.field public final synthetic f$0:I
+.implements Ljava/util/function/ToIntFunction;
 
 
 # direct methods
-.method public synthetic constructor <init>(I)V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput p1, p0, Lcom/android/wifitrackerlib/Utils$$ExternalSyntheticLambda0;->f$0:I
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final test(Ljava/lang/Object;)Z
+.method public final applyAsInt(Ljava/lang/Object;)I
     .locals 0
 
-    iget p0, p0, Lcom/android/wifitrackerlib/Utils$$ExternalSyntheticLambda0;->f$0:I
+    check-cast p1, Landroid/net/wifi/ScanResult;
 
-    check-cast p1, Landroid/telephony/SubscriptionInfo;
-
-    invoke-static {p0, p1}, Lcom/android/wifitrackerlib/Utils;->$r8$lambda$95_ebnvl2VXVMOndznuyQ0oCkTw(ILandroid/telephony/SubscriptionInfo;)Z
+    invoke-static {p1}, Lcom/android/wifitrackerlib/Utils;->$r8$lambda$yrwKQyTBu7eDuDAc8u_W5DCtIec(Landroid/net/wifi/ScanResult;)I
 
     move-result p0
 

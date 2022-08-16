@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="abc_slice_duration_days">
-        <item quantity="other">%d hari lalu</item>
-        <item quantity="one">%d hari lalu</item>
+        <item quantity="other">%d hr lalu</item>
+        <item quantity="one">%d hr lalu</item>
     </plurals>
     <plurals name="abc_slice_duration_min">
-        <item quantity="other">%d menit lalu</item>
-        <item quantity="one">%d menit lalu</item>
+        <item quantity="other">%d mnt lalu</item>
+        <item quantity="one">%d mnt lalu</item>
     </plurals>
     <plurals name="abc_slice_duration_years">
-        <item quantity="other">%d tahun lalu</item>
-        <item quantity="one">%d tahun lalu</item>
+        <item quantity="other">%d thn lalu</item>
+        <item quantity="one">%d thn lalu</item>
     </plurals>
     <plurals name="accessibility_usage_summary">
         <item quantity="other">%1$d aplikasi memiliki akses penuh ke perangkat Anda</item>
@@ -85,8 +85,8 @@
         <item quantity="one">%d hari lagi</item>
     </plurals>
     <plurals name="data_saver_unrestricted_summary">
-        <item quantity="other">%1$d aplikasi diizinkan untuk menggunakan data tak terbatas saat Penghemat Data aktif</item>
-        <item quantity="one">1 aplikasi diizinkan untuk menggunakan data tak terbatas saat Penghemat Data aktif</item>
+        <item quantity="other">%1$d aplikasi diizinkan untuk menggunakan data tanpa batasan saat Penghemat Data aktif</item>
+        <item quantity="one">1 aplikasi diizinkan untuk menggunakan data tanpa batasan saat Penghemat Data aktif</item>
     </plurals>
     <plurals name="default_camera_app_title">
         <item quantity="other">Aplikasi kamera</item>
@@ -233,11 +233,11 @@
         <item quantity="one">%d kategori dinonaktifkan</item>
     </plurals>
     <plurals name="notifications_sent_daily">
-        <item quantity="other">~%d notifikasi per hari</item>
+        <item quantity="other">~%,d notifikasi per hari</item>
         <item quantity="one">~%d notifikasi per hari</item>
     </plurals>
     <plurals name="notifications_sent_weekly">
-        <item quantity="other">~%d notifikasi per minggu</item>
+        <item quantity="other">~%,d notifikasi per minggu</item>
         <item quantity="one">~%d notifikasi per minggu</item>
     </plurals>
     <plurals name="number_of_device_admins">
@@ -328,22 +328,6 @@
         <item quantity="other">Percayai atau hapus sertifikat</item>
         <item quantity="one">Percayai atau hapus sertifikat</item>
     </plurals>
-    <plurals name="ssl_ca_cert_info_message">
-        <item quantity="other">"%s telah memasang otoritas sertifikat untuk profil kerja Anda, yang mungkin mengizinkan mereka memantau aktivitas jaringan kerja, termasuk email, aplikasi, dan situs web aman.
-
-Untuk informasi selengkapnya tentang sertifikat ini, hubungi admin."</item>
-        <item quantity="one">"%s telah memasang otoritas sertifikat untuk profil kerja Anda, yang mungkin mengizinkan mereka memantau aktivitas jaringan kerja, termasuk email, aplikasi, dan situs web aman.
-
-Untuk informasi selengkapnya tentang sertifikat ini, hubungi admin."</item>
-    </plurals>
-    <plurals name="ssl_ca_cert_info_message_device_owner">
-        <item quantity="other">"%s telah memasang otoritas sertifikat di perangkat Anda, yang mungkin mengizinkan mereka memantau aktivitas jaringan perangkat, termasuk email, aplikasi, dan situs web aman.
-
-Untuk informasi selengkapnya tentang sertifikat ini, hubungi admin."</item>
-        <item quantity="one">"%s telah memasang otoritas sertifikat di perangkat Anda, yang mungkin mengizinkan mereka memantau aktivitas jaringan perangkat, termasuk email, aplikasi, dan situs web aman.
-
-Untuk informasi selengkapnya tentang sertifikat ini, hubungi admin."</item>
-    </plurals>
     <plurals name="ssl_ca_cert_settings_button">
         <item quantity="other">Periksa sertifikat</item>
         <item quantity="one">Periksa sertifikat</item>
@@ -375,10 +359,6 @@ Untuk informasi selengkapnya tentang sertifikat ini, hubungi admin."</item>
     <plurals name="wifi_saved_passpoint_access_points_summary">
         <item quantity="other">%d langganan</item>
         <item quantity="one">1 langganan</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$d perangkat terhubung</item>
-        <item quantity="one">%1$d perangkat terhubung</item>
     </plurals>
     <plurals name="wrong_pin_code">
         <item quantity="other">Kode PIN SIM salah, sisa %d percobaan.</item>

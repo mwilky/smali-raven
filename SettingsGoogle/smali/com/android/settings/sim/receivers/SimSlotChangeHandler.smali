@@ -16,6 +16,16 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$1dhxrPPdXXfukr-Pgq6y-_FPJkc(Landroid/telephony/UiccCardInfo;)Z
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/settings/sim/receivers/SimSlotChangeHandler;->lambda$isMultipleEnabledProfilesSupported$1(Landroid/telephony/UiccCardInfo;)Z
+
+    move-result p0
+
+    return p0
+.end method
+
 .method public static synthetic $r8$lambda$_rIyJ7VmT1y9FwXu3qhT5LmGpIo(Landroid/telephony/SubscriptionInfo;)Z
     .locals 0
 
@@ -107,7 +117,9 @@
 
     move-result-object p0
 
-    sget-object v0, Lcom/android/settings/sim/receivers/SimSlotChangeHandler$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/settings/sim/receivers/SimSlotChangeHandler$$ExternalSyntheticLambda0;
+    new-instance v0, Lcom/android/settings/sim/receivers/SimSlotChangeHandler$$ExternalSyntheticLambda0;
+
+    invoke-direct {v0}, Lcom/android/settings/sim/receivers/SimSlotChangeHandler$$ExternalSyntheticLambda0;-><init>()V
 
     invoke-interface {p0, v0}, Ljava/util/stream/Stream;->filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
 
@@ -141,7 +153,7 @@
 
     move-result-object p0
 
-    const-string p1, "removable_slot_state"
+    const-string/jumbo p1, "removable_slot_state"
 
     const/4 v0, 0x1
 
@@ -222,6 +234,114 @@
     return p0
 .end method
 
+.method private handleRemovableSimInsertUnderDsdsMep(Landroid/telephony/UiccSlotInfo;)V
+    .locals 4
+
+    const-string v0, "SimSlotChangeHandler"
+
+    const-string v1, "Handle Removable SIM inserted under DSDS+Mep."
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {p1}, Landroid/telephony/UiccSlotInfo;->getPorts()Ljava/util/Collection;
+
+    move-result-object v1
+
+    invoke-interface {v1}, Ljava/util/Collection;->stream()Ljava/util/stream/Stream;
+
+    move-result-object v1
+
+    invoke-interface {v1}, Ljava/util/stream/Stream;->findFirst()Ljava/util/Optional;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/util/Optional;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/telephony/UiccPortInfo;
+
+    invoke-virtual {v1}, Landroid/telephony/UiccPortInfo;->isActive()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    new-instance p0, Ljava/lang/StringBuilder;
+
+    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "The removable slot is already active. Do nothing. removableSlotInfo: "
+
+    invoke-virtual {p0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-static {v0, p0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_0
+    invoke-virtual {p0}, Lcom/android/settings/sim/receivers/SimSlotChangeHandler;->getAvailableRemovableSubscription()Ljava/util/List;
+
+    move-result-object p1
+
+    if-eqz p1, :cond_2
+
+    const/4 v1, 0x0
+
+    invoke-interface {p1, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    if-nez v2, :cond_1
+
+    goto :goto_0
+
+    :cond_1
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "getAvailableRemovableSubscription:"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v0, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-interface {p1, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Landroid/telephony/SubscriptionInfo;
+
+    invoke-virtual {p1}, Landroid/telephony/SubscriptionInfo;->getSubscriptionId()I
+
+    move-result p1
+
+    invoke-direct {p0, p1}, Lcom/android/settings/sim/receivers/SimSlotChangeHandler;->startSimConfirmDialogActivity(I)V
+
+    return-void
+
+    :cond_2
+    :goto_0
+    const-string p0, "Unable to find the removable subscriptionInfo. Do nothing."
+
+    invoke-static {v0, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+.end method
+
 .method private handleSimInsert(Landroid/telephony/UiccSlotInfo;)V
     .locals 3
 
@@ -252,7 +372,25 @@
     return-void
 
     :cond_0
-    invoke-virtual {p1}, Landroid/telephony/UiccSlotInfo;->getIsActive()Z
+    invoke-virtual {p1}, Landroid/telephony/UiccSlotInfo;->getPorts()Ljava/util/Collection;
+
+    move-result-object p1
+
+    invoke-interface {p1}, Ljava/util/Collection;->stream()Ljava/util/stream/Stream;
+
+    move-result-object p1
+
+    invoke-interface {p1}, Ljava/util/stream/Stream;->findFirst()Ljava/util/Optional;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/util/Optional;->get()Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Landroid/telephony/UiccPortInfo;
+
+    invoke-virtual {p1}, Landroid/telephony/UiccPortInfo;->isActive()Z
 
     move-result p1
 
@@ -371,11 +509,29 @@
 
     if-eqz v2, :cond_3
 
-    invoke-virtual {p1}, Landroid/telephony/UiccSlotInfo;->getIsActive()Z
+    invoke-virtual {p1}, Landroid/telephony/UiccSlotInfo;->getPorts()Ljava/util/Collection;
 
-    move-result p1
+    move-result-object v2
 
-    if-nez p1, :cond_1
+    invoke-interface {v2}, Ljava/util/Collection;->stream()Ljava/util/stream/Stream;
+
+    move-result-object v2
+
+    invoke-interface {v2}, Ljava/util/stream/Stream;->findFirst()Ljava/util/Optional;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/util/Optional;->get()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/telephony/UiccPortInfo;
+
+    invoke-virtual {v2}, Landroid/telephony/UiccPortInfo;->isActive()Z
+
+    move-result v2
+
+    if-nez v2, :cond_1
 
     goto :goto_0
 
@@ -415,7 +571,25 @@
 
     :cond_3
     :goto_0
-    const-string p0, "eSIM slot is active or no subscriptions exist. Do nothing."
+    new-instance p0, Ljava/lang/StringBuilder;
+
+    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "eSIM slot is active or no subscriptions exist. Do nothing. The removableSlotInfo: "
+
+    invoke-virtual {p0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string p1, ", groupedEmbeddedSubscriptions: "
+
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
 
     invoke-static {v0, p0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -435,7 +609,9 @@
 
     move-result-object p0
 
-    sget-object v0, Lcom/android/settings/network/SwitchToRemovableSlotSidecar$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/settings/network/SwitchToRemovableSlotSidecar$$ExternalSyntheticLambda0;
+    new-instance v0, Lcom/android/settings/network/SwitchToRemovableSlotSidecar$$ExternalSyntheticLambda0;
+
+    invoke-direct {v0}, Lcom/android/settings/network/SwitchToRemovableSlotSidecar$$ExternalSyntheticLambda0;-><init>()V
 
     invoke-interface {p0, v0}, Ljava/util/stream/Stream;->anyMatch(Ljava/util/function/Predicate;)Z
 
@@ -470,6 +646,43 @@
     iput-object p1, p0, Lcom/android/settings/sim/receivers/SimSlotChangeHandler;->mContext:Landroid/content/Context;
 
     return-void
+.end method
+
+.method private isMultipleEnabledProfilesSupported()Z
+    .locals 1
+
+    iget-object p0, p0, Lcom/android/settings/sim/receivers/SimSlotChangeHandler;->mTelMgr:Landroid/telephony/TelephonyManager;
+
+    invoke-virtual {p0}, Landroid/telephony/TelephonyManager;->getUiccCardsInfo()Ljava/util/List;
+
+    move-result-object p0
+
+    if-nez p0, :cond_0
+
+    const-string p0, "SimSlotChangeHandler"
+
+    const-string v0, "UICC cards info list is empty."
+
+    invoke-static {p0, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 p0, 0x0
+
+    return p0
+
+    :cond_0
+    invoke-interface {p0}, Ljava/util/List;->stream()Ljava/util/stream/Stream;
+
+    move-result-object p0
+
+    new-instance v0, Lcom/android/settings/sim/receivers/SimSlotChangeHandler$$ExternalSyntheticLambda1;
+
+    invoke-direct {v0}, Lcom/android/settings/sim/receivers/SimSlotChangeHandler$$ExternalSyntheticLambda1;-><init>()V
+
+    invoke-interface {p0, v0}, Ljava/util/stream/Stream;->anyMatch(Ljava/util/function/Predicate;)Z
+
+    move-result p0
+
+    return p0
 .end method
 
 .method private static isSuwFinished(Landroid/content/Context;)Z
@@ -521,6 +734,16 @@
     return p0
 .end method
 
+.method private static synthetic lambda$isMultipleEnabledProfilesSupported$1(Landroid/telephony/UiccCardInfo;)Z
+    .locals 0
+
+    invoke-virtual {p0}, Landroid/telephony/UiccCardInfo;->isMultipleEnabledProfilesSupported()Z
+
+    move-result p0
+
+    return p0
+.end method
+
 .method private setRemovableSimSlotState(Landroid/content/Context;I)V
     .locals 1
 
@@ -536,7 +759,7 @@
 
     move-result-object p0
 
-    const-string p1, "removable_slot_state"
+    const-string/jumbo p1, "removable_slot_state"
 
     invoke-interface {p0, p1, p2}, Landroid/content/SharedPreferences$Editor;->putInt(Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor;
 
@@ -619,6 +842,63 @@
     return-void
 .end method
 
+.method private startSimConfirmDialogActivity(I)V
+    .locals 3
+
+    invoke-static {p1}, Landroid/telephony/SubscriptionManager;->isUsableSubscriptionId(I)Z
+
+    move-result v0
+
+    const-string v1, "SimSlotChangeHandler"
+
+    if-nez v0, :cond_0
+
+    const-string p0, "Unable to enable subscription due to invalid subscription ID."
+
+    invoke-static {v1, p0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_0
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "Start ToggleSubscriptionDialogActivity with "
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v2, " under DSDS+Mep."
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v0, p0, Lcom/android/settings/sim/receivers/SimSlotChangeHandler;->mContext:Landroid/content/Context;
+
+    const/4 v1, 0x1
+
+    invoke-static {v0, p1, v1}, Lcom/android/settings/network/telephony/ToggleSubscriptionDialogActivity;->getIntent(Landroid/content/Context;IZ)Landroid/content/Intent;
+
+    move-result-object p1
+
+    const/high16 v0, 0x10000000
+
+    invoke-virtual {p1, v0}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
+
+    iget-object p0, p0, Lcom/android/settings/sim/receivers/SimSlotChangeHandler;->mContext:Landroid/content/Context;
+
+    invoke-virtual {p0, p1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
+
+    return-void
+.end method
+
 .method private startSwitchSlotConfirmDialogActivity(Landroid/telephony/SubscriptionInfo;)V
     .locals 3
 
@@ -647,8 +927,61 @@
 
 
 # virtual methods
+.method protected getAvailableRemovableSubscription()Ljava/util/List;
+    .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List<",
+            "Landroid/telephony/SubscriptionInfo;",
+            ">;"
+        }
+    .end annotation
+
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    iget-object p0, p0, Lcom/android/settings/sim/receivers/SimSlotChangeHandler;->mContext:Landroid/content/Context;
+
+    invoke-static {p0}, Lcom/android/settings/network/SubscriptionUtil;->getAvailableSubscriptions(Landroid/content/Context;)Ljava/util/List;
+
+    move-result-object p0
+
+    invoke-interface {p0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object p0
+
+    :cond_0
+    :goto_0
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/telephony/SubscriptionInfo;
+
+    invoke-virtual {v1}, Landroid/telephony/SubscriptionInfo;->isEmbedded()Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    goto :goto_0
+
+    :cond_1
+    return-object v0
+.end method
+
 .method onSlotsStatusChange(Landroid/content/Context;)V
-    .locals 5
+    .locals 7
 
     invoke-direct {p0, p1}, Lcom/android/settings/sim/receivers/SimSlotChangeHandler;->init(Landroid/content/Context;)V
 
@@ -660,7 +993,7 @@
 
     move-result-object v0
 
-    if-eq p1, v0, :cond_4
+    if-eq p1, v0, :cond_8
 
     iget-object p1, p0, Lcom/android/settings/sim/receivers/SimSlotChangeHandler;->mTelMgr:Landroid/telephony/TelephonyManager;
 
@@ -674,7 +1007,13 @@
 
     if-le p1, v1, :cond_0
 
-    const-string p0, "The device is already in DSDS mode. Do nothing."
+    invoke-direct {p0}, Lcom/android/settings/sim/receivers/SimSlotChangeHandler;->isMultipleEnabledProfilesSupported()Z
+
+    move-result p1
+
+    if-nez p1, :cond_0
+
+    const-string p0, "The device is already in DSDS mode and no MEP. Do nothing."
 
     invoke-static {v0, p0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -704,37 +1043,82 @@
 
     move-result v3
 
-    iget-object v4, p0, Lcom/android/settings/sim/receivers/SimSlotChangeHandler;->mContext:Landroid/content/Context;
-
-    invoke-direct {p0, v4, v3}, Lcom/android/settings/sim/receivers/SimSlotChangeHandler;->setRemovableSimSlotState(Landroid/content/Context;I)V
-
     const/4 v4, 0x2
+
+    const/4 v5, 0x0
 
     if-ne v2, v1, :cond_2
 
     if-ne v3, v4, :cond_2
 
-    invoke-direct {p0, p1}, Lcom/android/settings/sim/receivers/SimSlotChangeHandler;->handleSimInsert(Landroid/telephony/UiccSlotInfo;)V
+    move v6, v1
 
-    return-void
+    goto :goto_0
 
     :cond_2
+    move v6, v5
+
+    :goto_0
     if-ne v2, v4, :cond_3
 
     if-ne v3, v1, :cond_3
 
-    invoke-direct {p0, p1}, Lcom/android/settings/sim/receivers/SimSlotChangeHandler;->handleSimRemove(Landroid/telephony/UiccSlotInfo;)V
-
-    return-void
+    move v5, v1
 
     :cond_3
-    const-string p0, "Do nothing on slot status changes."
+    iget-object v2, p0, Lcom/android/settings/sim/receivers/SimSlotChangeHandler;->mContext:Landroid/content/Context;
+
+    invoke-direct {p0, v2, v3}, Lcom/android/settings/sim/receivers/SimSlotChangeHandler;->setRemovableSimSlotState(Landroid/content/Context;I)V
+
+    iget-object v2, p0, Lcom/android/settings/sim/receivers/SimSlotChangeHandler;->mTelMgr:Landroid/telephony/TelephonyManager;
+
+    invoke-virtual {v2}, Landroid/telephony/TelephonyManager;->getActiveModemCount()I
+
+    move-result v2
+
+    if-le v2, v1, :cond_5
+
+    invoke-direct {p0}, Lcom/android/settings/sim/receivers/SimSlotChangeHandler;->isMultipleEnabledProfilesSupported()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_5
+
+    if-nez v6, :cond_4
+
+    const-string p0, "Removable Sim is not inserted in DSDS mode and MEP. Do nothing."
 
     invoke-static {v0, p0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
     :cond_4
+    invoke-direct {p0, p1}, Lcom/android/settings/sim/receivers/SimSlotChangeHandler;->handleRemovableSimInsertUnderDsdsMep(Landroid/telephony/UiccSlotInfo;)V
+
+    return-void
+
+    :cond_5
+    if-eqz v6, :cond_6
+
+    invoke-direct {p0, p1}, Lcom/android/settings/sim/receivers/SimSlotChangeHandler;->handleSimInsert(Landroid/telephony/UiccSlotInfo;)V
+
+    return-void
+
+    :cond_6
+    if-eqz v5, :cond_7
+
+    invoke-direct {p0, p1}, Lcom/android/settings/sim/receivers/SimSlotChangeHandler;->handleSimRemove(Landroid/telephony/UiccSlotInfo;)V
+
+    return-void
+
+    :cond_7
+    const-string p0, "Do nothing on slot status changes."
+
+    invoke-static {v0, p0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_8
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string p1, "Cannot be called from main thread."

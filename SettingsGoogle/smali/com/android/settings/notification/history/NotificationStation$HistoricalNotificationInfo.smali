@@ -59,7 +59,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settings/notification/history/NotificationStation$1;)V
+.method synthetic constructor <init>(Lcom/android/settings/notification/history/NotificationStation$HistoricalNotificationInfo-IA;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/settings/notification/history/NotificationStation$HistoricalNotificationInfo;-><init>()V

@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/settings/display/ScreenTimeoutSettings$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/hardware/SensorPrivacyManager$OnSensorPrivacyChangedListener;
+.implements Ljava/util/function/Supplier;
 
 
 # instance fields
@@ -22,12 +23,14 @@
 
 
 # virtual methods
-.method public final onSensorPrivacyChanged(IZ)V
+.method public final get()Ljava/lang/Object;
     .locals 0
 
     iget-object p0, p0, Lcom/android/settings/display/ScreenTimeoutSettings$$ExternalSyntheticLambda0;->f$0:Lcom/android/settings/display/ScreenTimeoutSettings;
 
-    invoke-static {p0, p1, p2}, Lcom/android/settings/display/ScreenTimeoutSettings;->$r8$lambda$u_wdS46Dqkxgvv7qkKrxK4ZNl_I(Lcom/android/settings/display/ScreenTimeoutSettings;IZ)V
+    invoke-static {p0}, Lcom/android/settings/display/ScreenTimeoutSettings;->$r8$lambda$rnPjSEoRV4lUkrnB3uqIS_Rm7ho(Lcom/android/settings/display/ScreenTimeoutSettings;)Ljava/lang/String;
 
-    return-void
+    move-result-object p0
+
+    return-object p0
 .end method

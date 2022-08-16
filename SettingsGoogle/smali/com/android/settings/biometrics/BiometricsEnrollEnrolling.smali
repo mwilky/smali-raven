@@ -81,7 +81,7 @@
 
     iget p1, p0, Lcom/android/settings/biometrics/BiometricEnrollBase;->mSensorId:I
 
-    const-string v1, "sensor_id"
+    const-string/jumbo v1, "sensor_id"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
@@ -110,9 +110,9 @@
     :cond_0
     invoke-virtual {p0, v0}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
 
-    const p1, 0x7f07003a
+    const p1, 0x7f070039
 
-    const v0, 0x7f07003b
+    const v0, 0x7f07003a
 
     invoke-virtual {p0, p1, v0}, Landroid/app/Activity;->overridePendingTransition(II)V
 

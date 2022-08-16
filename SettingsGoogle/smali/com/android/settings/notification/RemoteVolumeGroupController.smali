@@ -198,7 +198,7 @@
     :try_start_1
     iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f041024
+    const v2, 0x7f0410ca
 
     invoke-virtual {v0, v2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -251,7 +251,7 @@
 
     check-cast v6, Lcom/android/settings/notification/RemoteVolumeSeekBarPreference;
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_2
 
     invoke-virtual {v6}, Lcom/android/settings/widget/SeekBarPreference;->getProgress()I
 
@@ -261,7 +261,7 @@
 
     move-result v8
 
-    if-eq v7, v8, :cond_2
+    if-eq v7, v8, :cond_1
 
     invoke-virtual {v4}, Landroid/media/RoutingSessionInfo;->getVolume()I
 
@@ -269,9 +269,18 @@
 
     invoke-virtual {v6, v7}, Lcom/android/settings/widget/SeekBarPreference;->setProgress(I)V
 
+    :cond_1
+    iget-object v7, p0, Lcom/android/settings/notification/RemoteVolumeGroupController;->mLocalMediaManager:Lcom/android/settingslib/media/LocalMediaManager;
+
+    invoke-virtual {v7, v4}, Lcom/android/settingslib/media/LocalMediaManager;->shouldEnableVolumeSeekBar(Landroid/media/RoutingSessionInfo;)Z
+
+    move-result v7
+
+    invoke-virtual {v6, v7}, Lcom/android/settingslib/RestrictedPreference;->setEnabled(Z)V
+
     goto :goto_1
 
-    :cond_1
+    :cond_2
     new-instance v6, Lcom/android/settings/notification/RemoteVolumeSeekBarPreference;
 
     iget-object v7, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
@@ -302,7 +311,7 @@
 
     invoke-virtual {v6, p0}, Landroidx/preference/Preference;->setOnPreferenceChangeListener(Landroidx/preference/Preference$OnPreferenceChangeListener;)V
 
-    const v7, 0x7f0203a2
+    const v7, 0x7f0203c6
 
     invoke-virtual {v6, v7}, Landroidx/preference/Preference;->setIcon(I)V
 
@@ -318,7 +327,6 @@
 
     invoke-virtual {v7, v6}, Landroidx/preference/PreferenceGroup;->addPreference(Landroidx/preference/Preference;)Z
 
-    :cond_2
     :goto_1
     iget-object v6, p0, Lcom/android/settings/notification/RemoteVolumeGroupController;->mPreferenceCategory:Landroidx/preference/PreferenceCategory;
 
@@ -356,7 +364,7 @@
 
     iget-object v8, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v9, 0x7f040cce
+    const v9, 0x7f040d49
 
     new-array v10, v3, [Ljava/lang/Object;
 
@@ -564,14 +572,6 @@
 
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public displayPreference(Landroidx/preference/PreferenceScreen;)V
     .locals 1
 
@@ -619,15 +619,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -649,7 +640,7 @@
 .method public getPreferenceKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "remote_media_group"
+    const-string/jumbo p0, "remote_media_group"
 
     return-object p0
 .end method
@@ -771,16 +762,6 @@
     return p0
 .end method
 
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
-
-    move-result p0
-
-    return p0
-.end method
-
 .method public bridge synthetic isPublicSlice()Z
     .locals 0
 
@@ -799,6 +780,22 @@
     move-result p0
 
     return p0
+.end method
+
+.method public bridge synthetic onAboutToConnectDeviceAdded(Ljava/lang/String;Ljava/lang/String;Landroid/graphics/drawable/Drawable;)V
+    .locals 0
+
+    invoke-super {p0, p1, p2, p3}, Lcom/android/settingslib/media/LocalMediaManager$DeviceCallback;->onAboutToConnectDeviceAdded(Ljava/lang/String;Ljava/lang/String;Landroid/graphics/drawable/Drawable;)V
+
+    return-void
+.end method
+
+.method public bridge synthetic onAboutToConnectDeviceRemoved()V
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settingslib/media/LocalMediaManager$DeviceCallback;->onAboutToConnectDeviceRemoved()V
+
+    return-void
 .end method
 
 .method public onDestroy()V
@@ -841,9 +838,9 @@
     return-void
 
     :cond_0
-    new-instance p1, Lcom/android/settings/notification/RemoteVolumeGroupController$$ExternalSyntheticLambda0;
+    new-instance p1, Lcom/android/settings/notification/RemoteVolumeGroupController$$ExternalSyntheticLambda1;
 
-    invoke-direct {p1, p0}, Lcom/android/settings/notification/RemoteVolumeGroupController$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/notification/RemoteVolumeGroupController;)V
+    invoke-direct {p1, p0}, Lcom/android/settings/notification/RemoteVolumeGroupController$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/notification/RemoteVolumeGroupController;)V
 
     invoke-static {p1}, Lcom/android/settingslib/utils/ThreadUtils;->postOnMainThread(Ljava/lang/Runnable;)V
 
@@ -853,9 +850,9 @@
 .method public onPreferenceChange(Landroidx/preference/Preference;Ljava/lang/Object;)Z
     .locals 1
 
-    new-instance v0, Lcom/android/settings/notification/RemoteVolumeGroupController$$ExternalSyntheticLambda1;
+    new-instance v0, Lcom/android/settings/notification/RemoteVolumeGroupController$$ExternalSyntheticLambda0;
 
-    invoke-direct {v0, p0, p1, p2}, Lcom/android/settings/notification/RemoteVolumeGroupController$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/notification/RemoteVolumeGroupController;Landroidx/preference/Preference;Ljava/lang/Object;)V
+    invoke-direct {v0, p0, p1, p2}, Lcom/android/settings/notification/RemoteVolumeGroupController$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/notification/RemoteVolumeGroupController;Landroidx/preference/Preference;Ljava/lang/Object;)V
 
     invoke-static {v0}, Lcom/android/settingslib/utils/ThreadUtils;->postOnBackgroundThread(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;
 

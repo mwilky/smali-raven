@@ -152,6 +152,16 @@
 
     new-instance v0, Lcom/android/settingslib/search/SearchIndexableData;
 
+    const-class v1, Lcom/android/settings/applications/specialaccess/turnscreenon/TurnScreenOnSettings;
+
+    sget-object v2, Lcom/android/settings/applications/specialaccess/turnscreenon/TurnScreenOnSettings;->SEARCH_INDEX_DATA_PROVIDER:Lcom/android/settings/search/BaseSearchIndexProvider;
+
+    invoke-direct {v0, v1, v2}, Lcom/android/settingslib/search/SearchIndexableData;-><init>(Ljava/lang/Class;Lcom/android/settingslib/search/Indexable$SearchIndexProvider;)V
+
+    invoke-virtual {p0, v0}, Lcom/android/settingslib/search/SearchIndexableResourcesBase;->addIndex(Lcom/android/settingslib/search/SearchIndexableData;)V
+
+    new-instance v0, Lcom/android/settingslib/search/SearchIndexableData;
+
     const-class v1, Lcom/android/settings/applications/specialaccess/vrlistener/VrListenerSettings;
 
     sget-object v2, Lcom/android/settings/applications/specialaccess/vrlistener/VrListenerSettings;->SEARCH_INDEX_DATA_PROVIDER:Lcom/android/settings/search/BaseSearchIndexProvider;
@@ -372,6 +382,26 @@
 
     new-instance v0, Lcom/android/settingslib/search/SearchIndexableData;
 
+    const-class v1, Lcom/android/settings/display/DeviceStateAutoRotateDetailsFragment;
+
+    sget-object v2, Lcom/android/settings/display/DeviceStateAutoRotateDetailsFragment;->SEARCH_INDEX_DATA_PROVIDER:Lcom/android/settingslib/search/Indexable$SearchIndexProvider;
+
+    invoke-direct {v0, v1, v2}, Lcom/android/settingslib/search/SearchIndexableData;-><init>(Ljava/lang/Class;Lcom/android/settingslib/search/Indexable$SearchIndexProvider;)V
+
+    invoke-virtual {p0, v0}, Lcom/android/settingslib/search/SearchIndexableResourcesBase;->addIndex(Lcom/android/settingslib/search/SearchIndexableData;)V
+
+    new-instance v0, Lcom/android/settingslib/search/SearchIndexableData;
+
+    const-class v1, Lcom/android/settings/display/ScreenResolutionFragment;
+
+    sget-object v2, Lcom/android/settings/display/ScreenResolutionFragment;->SEARCH_INDEX_DATA_PROVIDER:Lcom/android/settings/search/BaseSearchIndexProvider;
+
+    invoke-direct {v0, v1, v2}, Lcom/android/settingslib/search/SearchIndexableData;-><init>(Ljava/lang/Class;Lcom/android/settingslib/search/Indexable$SearchIndexProvider;)V
+
+    invoke-virtual {p0, v0}, Lcom/android/settingslib/search/SearchIndexableResourcesBase;->addIndex(Lcom/android/settingslib/search/SearchIndexableData;)V
+
+    new-instance v0, Lcom/android/settingslib/search/SearchIndexableData;
+
     const-class v1, Lcom/android/settings/display/SmartAutoRotatePreferenceFragment;
 
     sget-object v2, Lcom/android/settings/display/SmartAutoRotatePreferenceFragment;->SEARCH_INDEX_DATA_PROVIDER:Lcom/android/settingslib/search/Indexable$SearchIndexProvider;
@@ -572,16 +602,6 @@
 
     new-instance v0, Lcom/android/settingslib/search/SearchIndexableData;
 
-    const-class v1, Lcom/android/settings/inputmethod/VirtualKeyboardFragment;
-
-    sget-object v2, Lcom/android/settings/inputmethod/VirtualKeyboardFragment;->SEARCH_INDEX_DATA_PROVIDER:Lcom/android/settings/search/BaseSearchIndexProvider;
-
-    invoke-direct {v0, v1, v2}, Lcom/android/settingslib/search/SearchIndexableData;-><init>(Ljava/lang/Class;Lcom/android/settingslib/search/Indexable$SearchIndexProvider;)V
-
-    invoke-virtual {p0, v0}, Lcom/android/settingslib/search/SearchIndexableResourcesBase;->addIndex(Lcom/android/settingslib/search/SearchIndexableData;)V
-
-    new-instance v0, Lcom/android/settingslib/search/SearchIndexableData;
-
     const-class v1, Lcom/android/settings/language/LanguageAndInputSettings;
 
     sget-object v2, Lcom/android/settings/language/LanguageAndInputSettings;->SEARCH_INDEX_DATA_PROVIDER:Lcom/android/settings/search/BaseSearchIndexProvider;
@@ -644,7 +664,7 @@
 
     const-class v1, Lcom/android/settings/network/NetworkProviderSettings;
 
-    sget-object v2, Lcom/android/settings/network/NetworkProviderSettings;->SEARCH_INDEX_DATA_PROVIDER:Lcom/android/settings/search/BaseSearchIndexProvider;
+    sget-object v2, Lcom/android/settings/network/NetworkProviderSettings;->SEARCH_INDEX_DATA_PROVIDER:Lcom/android/settings/network/NetworkProviderSettings$SearchIndexProvider;
 
     invoke-direct {v0, v1, v2}, Lcom/android/settingslib/search/SearchIndexableData;-><init>(Ljava/lang/Class;Lcom/android/settingslib/search/Indexable$SearchIndexProvider;)V
 
@@ -705,6 +725,16 @@
     const-class v1, Lcom/android/settings/notification/SoundWorkSettings;
 
     sget-object v2, Lcom/android/settings/notification/SoundWorkSettings;->SEARCH_INDEX_DATA_PROVIDER:Lcom/android/settings/search/BaseSearchIndexProvider;
+
+    invoke-direct {v0, v1, v2}, Lcom/android/settingslib/search/SearchIndexableData;-><init>(Ljava/lang/Class;Lcom/android/settingslib/search/Indexable$SearchIndexProvider;)V
+
+    invoke-virtual {p0, v0}, Lcom/android/settingslib/search/SearchIndexableResourcesBase;->addIndex(Lcom/android/settingslib/search/SearchIndexableData;)V
+
+    new-instance v0, Lcom/android/settingslib/search/SearchIndexableData;
+
+    const-class v1, Lcom/android/settings/notification/SpatialAudioSettings;
+
+    sget-object v2, Lcom/android/settings/notification/SpatialAudioSettings;->SEARCH_INDEX_DATA_PROVIDER:Lcom/android/settings/search/BaseSearchIndexProvider;
 
     invoke-direct {v0, v1, v2}, Lcom/android/settingslib/search/SearchIndexableData;-><init>(Ljava/lang/Class;Lcom/android/settingslib/search/Indexable$SearchIndexProvider;)V
 
@@ -892,6 +922,16 @@
 
     new-instance v0, Lcom/android/settingslib/search/SearchIndexableData;
 
+    const-class v1, Lcom/android/settings/security/SecurityAdvancedSettings;
+
+    sget-object v2, Lcom/android/settings/security/SecurityAdvancedSettings;->SEARCH_INDEX_DATA_PROVIDER:Lcom/android/settings/search/BaseSearchIndexProvider;
+
+    invoke-direct {v0, v1, v2}, Lcom/android/settingslib/search/SearchIndexableData;-><init>(Ljava/lang/Class;Lcom/android/settingslib/search/Indexable$SearchIndexProvider;)V
+
+    invoke-virtual {p0, v0}, Lcom/android/settingslib/search/SearchIndexableResourcesBase;->addIndex(Lcom/android/settingslib/search/SearchIndexableData;)V
+
+    new-instance v0, Lcom/android/settingslib/search/SearchIndexableData;
+
     const-class v1, Lcom/android/settings/security/SecuritySettings;
 
     sget-object v2, Lcom/android/settings/security/SecuritySettings;->SEARCH_INDEX_DATA_PROVIDER:Lcom/android/settings/search/BaseSearchIndexProvider;
@@ -1014,7 +1054,7 @@
 
     const-class v1, Lcom/android/settings/wifi/tether/WifiTetherSettings;
 
-    sget-object v2, Lcom/android/settings/wifi/tether/WifiTetherSettings;->SEARCH_INDEX_DATA_PROVIDER:Lcom/android/settings/search/BaseSearchIndexProvider;
+    sget-object v2, Lcom/android/settings/wifi/tether/WifiTetherSettings;->SEARCH_INDEX_DATA_PROVIDER:Lcom/android/settings/wifi/tether/WifiTetherSettings$SearchIndexProvider;
 
     invoke-direct {v0, v1, v2}, Lcom/android/settingslib/search/SearchIndexableData;-><init>(Ljava/lang/Class;Lcom/android/settingslib/search/Indexable$SearchIndexProvider;)V
 
@@ -1082,39 +1122,9 @@
 
     new-instance v0, Lcom/android/settingslib/search/SearchIndexableData;
 
-    const-class v1, Lcom/google/android/settings/gamemode/GameModeSettings;
-
-    sget-object v2, Lcom/google/android/settings/gamemode/GameModeSettings;->SEARCH_INDEX_DATA_PROVIDER:Lcom/android/settings/search/BaseSearchIndexProvider;
-
-    invoke-direct {v0, v1, v2}, Lcom/android/settingslib/search/SearchIndexableData;-><init>(Ljava/lang/Class;Lcom/android/settingslib/search/Indexable$SearchIndexProvider;)V
-
-    invoke-virtual {p0, v0}, Lcom/android/settingslib/search/SearchIndexableResourcesBase;->addIndex(Lcom/android/settingslib/search/SearchIndexableData;)V
-
-    new-instance v0, Lcom/android/settingslib/search/SearchIndexableData;
-
-    const-class v1, Lcom/google/android/settings/games/GameSettings;
-
-    sget-object v2, Lcom/google/android/settings/games/GameSettings;->SEARCH_INDEX_DATA_PROVIDER:Lcom/android/settings/search/BaseSearchIndexProvider;
-
-    invoke-direct {v0, v1, v2}, Lcom/android/settingslib/search/SearchIndexableData;-><init>(Ljava/lang/Class;Lcom/android/settingslib/search/Indexable$SearchIndexProvider;)V
-
-    invoke-virtual {p0, v0}, Lcom/android/settingslib/search/SearchIndexableResourcesBase;->addIndex(Lcom/android/settingslib/search/SearchIndexableData;)V
-
-    new-instance v0, Lcom/android/settingslib/search/SearchIndexableData;
-
     const-class v1, Lcom/google/android/settings/gestures/columbus/ColumbusSettings;
 
     sget-object v2, Lcom/google/android/settings/gestures/columbus/ColumbusSettings;->SEARCH_INDEX_DATA_PROVIDER:Lcom/android/settings/search/BaseSearchIndexProvider;
-
-    invoke-direct {v0, v1, v2}, Lcom/android/settingslib/search/SearchIndexableData;-><init>(Ljava/lang/Class;Lcom/android/settingslib/search/Indexable$SearchIndexProvider;)V
-
-    invoke-virtual {p0, v0}, Lcom/android/settingslib/search/SearchIndexableResourcesBase;->addIndex(Lcom/android/settingslib/search/SearchIndexableData;)V
-
-    new-instance v0, Lcom/android/settingslib/search/SearchIndexableData;
-
-    const-class v1, Lcom/google/android/settings/security/SecurityAdvancedSettings;
-
-    sget-object v2, Lcom/google/android/settings/security/SecurityAdvancedSettings;->SEARCH_INDEX_DATA_PROVIDER:Lcom/android/settings/search/BaseSearchIndexProvider;
 
     invoke-direct {v0, v1, v2}, Lcom/android/settingslib/search/SearchIndexableData;-><init>(Ljava/lang/Class;Lcom/android/settingslib/search/Indexable$SearchIndexProvider;)V
 

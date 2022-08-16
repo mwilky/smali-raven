@@ -16,11 +16,6 @@
 
 
 # instance fields
-.field private transient cachedHashCode:I
-    .annotation runtime Lcom/google/errorprone/annotations/concurrent/LazyInit;
-    .end annotation
-.end field
-
 .field final transient element:Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -50,25 +45,27 @@
     return-void
 .end method
 
-.method constructor <init>(Ljava/lang/Object;I)V
+
+# virtual methods
+.method public asList()Lcom/google/common/collect/ImmutableList;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "(TE;I)V"
+            "()",
+            "Lcom/google/common/collect/ImmutableList<",
+            "TE;>;"
         }
     .end annotation
 
-    invoke-direct {p0}, Lcom/google/common/collect/ImmutableSet;-><init>()V
+    iget-object p0, p0, Lcom/google/common/collect/SingletonImmutableSet;->element:Ljava/lang/Object;
 
-    iput-object p1, p0, Lcom/google/common/collect/SingletonImmutableSet;->element:Ljava/lang/Object;
+    invoke-static {p0}, Lcom/google/common/collect/ImmutableList;->of(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableList;
 
-    iput p2, p0, Lcom/google/common/collect/SingletonImmutableSet;->cachedHashCode:I
+    move-result-object p0
 
-    return-void
+    return-object p0
 .end method
 
-
-# virtual methods
 .method public contains(Ljava/lang/Object;)Z
     .locals 0
 
@@ -93,59 +90,15 @@
     return p2
 .end method
 
-.method createAsList()Lcom/google/common/collect/ImmutableList;
+.method public final hashCode()I
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Lcom/google/common/collect/ImmutableList<",
-            "TE;>;"
-        }
-    .end annotation
 
     iget-object p0, p0, Lcom/google/common/collect/SingletonImmutableSet;->element:Ljava/lang/Object;
 
-    invoke-static {p0}, Lcom/google/common/collect/ImmutableList;->of(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableList;
+    invoke-virtual {p0}, Ljava/lang/Object;->hashCode()I
 
-    move-result-object p0
+    move-result p0
 
-    return-object p0
-.end method
-
-.method public final hashCode()I
-    .locals 1
-
-    iget v0, p0, Lcom/google/common/collect/SingletonImmutableSet;->cachedHashCode:I
-
-    if-nez v0, :cond_0
-
-    iget-object v0, p0, Lcom/google/common/collect/SingletonImmutableSet;->element:Ljava/lang/Object;
-
-    invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
-
-    move-result v0
-
-    iput v0, p0, Lcom/google/common/collect/SingletonImmutableSet;->cachedHashCode:I
-
-    :cond_0
-    return v0
-.end method
-
-.method isHashCodeFast()Z
-    .locals 0
-
-    iget p0, p0, Lcom/google/common/collect/SingletonImmutableSet;->cachedHashCode:I
-
-    if-eqz p0, :cond_0
-
-    const/4 p0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
     return p0
 .end method
 

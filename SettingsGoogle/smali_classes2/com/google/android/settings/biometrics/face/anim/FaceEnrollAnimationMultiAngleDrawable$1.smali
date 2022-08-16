@@ -65,7 +65,7 @@
     :cond_0
     iget-object p0, p0, Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationMultiAngleDrawable$1;->this$0:Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationMultiAngleDrawable;
 
-    invoke-static {p0}, Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationMultiAngleDrawable;->access$000(Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationMultiAngleDrawable;)V
+    invoke-static {p0}, Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationMultiAngleDrawable;->-$$Nest$mhandleUserNoActivityAnimation(Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationMultiAngleDrawable;)V
 
     :goto_0
     return-void

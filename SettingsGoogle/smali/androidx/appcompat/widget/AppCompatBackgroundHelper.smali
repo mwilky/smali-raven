@@ -113,37 +113,21 @@
 .end method
 
 .method private shouldApplyFrameworkTintUsingColorFilter()Z
-    .locals 4
-
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/4 v1, 0x1
-
-    const/4 v2, 0x0
-
-    const/16 v3, 0x15
-
-    if-le v0, v3, :cond_1
+    .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/widget/AppCompatBackgroundHelper;->mInternalBackgroundTint:Landroidx/appcompat/widget/TintInfo;
 
     if-eqz p0, :cond_0
 
+    const/4 p0, 0x1
+
     goto :goto_0
 
     :cond_0
-    move v1, v2
+    const/4 p0, 0x0
 
     :goto_0
-    return v1
-
-    :cond_1
-    if-ne v0, v3, :cond_2
-
-    return v1
-
-    :cond_2
-    return v2
+    return p0
 .end method
 
 

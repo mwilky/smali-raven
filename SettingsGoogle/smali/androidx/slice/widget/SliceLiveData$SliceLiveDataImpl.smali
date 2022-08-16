@@ -47,18 +47,6 @@
 
 .method constructor <init>(Landroid/content/Context;Landroid/net/Uri;Landroidx/slice/widget/SliceLiveData$OnErrorListener;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "uri",
-            "listener"
-        }
-    .end annotation
 
     invoke-direct {p0}, Landroidx/lifecycle/LiveData;-><init>()V
 
@@ -165,16 +153,6 @@
 
 .method onSliceError(ILjava/lang/Throwable;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "error",
-            "t"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/slice/widget/SliceLiveData$SliceLiveDataImpl;->mListener:Landroidx/slice/widget/SliceLiveData$OnErrorListener;
 

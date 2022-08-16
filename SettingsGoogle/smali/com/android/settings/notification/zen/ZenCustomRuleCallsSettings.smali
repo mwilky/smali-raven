@@ -57,7 +57,7 @@
 
     move-result-object v3
 
-    const v4, 0x10e00e8
+    const v4, 0x10e00f6
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -119,7 +119,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150124
+    const p0, 0x7f15012c
 
     return p0
 .end method
@@ -191,7 +191,7 @@
 
     aput-object p0, v2, v3
 
-    const p0, 0x7f04181d
+    const p0, 0x7f041918
 
     invoke-virtual {v1, p0, v2}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

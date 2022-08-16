@@ -39,7 +39,7 @@
 
     iget-object v0, p0, Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationMultiAngleDrawable$2;->this$0:Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationMultiAngleDrawable;
 
-    invoke-static {v0}, Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationMultiAngleDrawable;->access$200(Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationMultiAngleDrawable;)Landroid/os/Handler;
+    invoke-static {v0}, Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationMultiAngleDrawable;->-$$Nest$fgetmHandler(Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationMultiAngleDrawable;)Landroid/os/Handler;
 
     move-result-object v0
 
@@ -70,7 +70,7 @@
 
     iget-object v2, p0, Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationMultiAngleDrawable$2;->this$0:Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationMultiAngleDrawable;
 
-    invoke-static {v2}, Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationMultiAngleDrawable;->access$100(Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationMultiAngleDrawable;)J
+    invoke-static {v2}, Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationMultiAngleDrawable;->-$$Nest$fgetmLastVibrationMs(Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationMultiAngleDrawable;)J
 
     move-result-wide v2
 
@@ -90,7 +90,7 @@
 
     move-result-wide v2
 
-    invoke-static {v1, v2, v3}, Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationMultiAngleDrawable;->access$102(Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationMultiAngleDrawable;J)J
+    invoke-static {v1, v2, v3}, Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationMultiAngleDrawable;->-$$Nest$fputmLastVibrationMs(Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationMultiAngleDrawable;J)V
 
     goto :goto_0
 

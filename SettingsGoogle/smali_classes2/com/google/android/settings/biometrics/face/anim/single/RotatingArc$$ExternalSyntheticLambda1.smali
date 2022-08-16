@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/google/android/settings/biometrics/face/anim/single/RotatingArc$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/animation/ValueAnimator$AnimatorUpdateListener;
@@ -27,7 +28,7 @@
 
     iget-object p0, p0, Lcom/google/android/settings/biometrics/face/anim/single/RotatingArc$$ExternalSyntheticLambda1;->f$0:Lcom/google/android/settings/biometrics/face/anim/single/RotatingArc;
 
-    invoke-static {p0, p1}, Lcom/google/android/settings/biometrics/face/anim/single/RotatingArc;->$r8$lambda$jcAEv5ml4fLYHOwhe2ycEkHfufo(Lcom/google/android/settings/biometrics/face/anim/single/RotatingArc;Landroid/animation/ValueAnimator;)V
+    invoke-static {p0, p1}, Lcom/google/android/settings/biometrics/face/anim/single/RotatingArc;->$r8$lambda$_ojvuzzvtCg8JD3i-8SV-kKVsho(Lcom/google/android/settings/biometrics/face/anim/single/RotatingArc;Landroid/animation/ValueAnimator;)V
 
     return-void
 .end method

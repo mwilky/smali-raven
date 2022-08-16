@@ -79,12 +79,6 @@
 
     invoke-virtual {v0, v2, v3}, Lcom/google/android/setupcompat/internal/SetupCompatServiceInvoker;->bindBack(Ljava/lang/String;Landroid/os/Bundle;)V
 
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v2, 0x17
-
-    if-le v0, v2, :cond_2
-
     invoke-virtual {p0}, Landroid/app/Activity;->getFragmentManager()Landroid/app/FragmentManager;
 
     move-result-object v0
@@ -199,12 +193,6 @@
 .method private logScreenResume()V
     .locals 4
 
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x1d
-
-    if-lt v0, v1, :cond_0
-
     new-instance v0, Landroid/os/PersistableBundle;
 
     invoke-direct {v0}, Landroid/os/PersistableBundle;-><init>()V
@@ -237,7 +225,6 @@
 
     invoke-static {v1, p0}, Lcom/google/android/setupcompat/logging/SetupMetricsLogger;->logCustomEvent(Landroid/content/Context;Lcom/google/android/setupcompat/logging/CustomEvent;)V
 
-    :cond_0
     return-void
 .end method
 

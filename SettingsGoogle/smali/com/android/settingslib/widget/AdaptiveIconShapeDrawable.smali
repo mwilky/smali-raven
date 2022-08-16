@@ -27,7 +27,7 @@
 
     new-instance v0, Landroid/graphics/Path;
 
-    const v1, 0x104024c
+    const v1, 0x1040272
 
     invoke-virtual {p1, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

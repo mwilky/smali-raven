@@ -23,7 +23,7 @@
 
     new-instance v0, Lcom/android/settings/search/BaseSearchIndexProvider;
 
-    const v1, 0x7f150087
+    const v1, 0x7f150089
 
     invoke-direct {v0, v1}, Lcom/android/settings/search/BaseSearchIndexProvider;-><init>(I)V
 
@@ -85,75 +85,67 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150087
+    const p0, 0x7f150089
 
     return p0
 .end method
 
 .method public onAttach(Landroid/content/Context;)V
-    .locals 1
+    .locals 0
 
     invoke-super {p0, p1}, Lcom/android/settings/dashboard/DashboardFragment;->onAttach(Landroid/content/Context;)V
 
-    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getArguments()Landroid/os/Bundle;
+    const-class p1, Lcom/android/settings/location/RecentLocationAccessSeeAllPreferenceController;
+
+    invoke-virtual {p0, p1}, Lcom/android/settings/dashboard/DashboardFragment;->use(Ljava/lang/Class;)Lcom/android/settingslib/core/AbstractPreferenceController;
 
     move-result-object p1
 
-    const-string v0, "profile"
+    check-cast p1, Lcom/android/settings/location/RecentLocationAccessSeeAllPreferenceController;
 
-    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
+    iput-object p1, p0, Lcom/android/settings/location/RecentLocationAccessSeeAllFragment;->mController:Lcom/android/settings/location/RecentLocationAccessSeeAllPreferenceController;
 
-    move-result p1
+    invoke-virtual {p1, p0}, Lcom/android/settings/location/LocationBasePreferenceController;->init(Lcom/android/settings/dashboard/DashboardFragment;)V
 
-    const-class v0, Lcom/android/settings/location/RecentLocationAccessSeeAllPreferenceController;
-
-    invoke-virtual {p0, v0}, Lcom/android/settings/dashboard/DashboardFragment;->use(Ljava/lang/Class;)Lcom/android/settingslib/core/AbstractPreferenceController;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/settings/location/RecentLocationAccessSeeAllPreferenceController;
-
-    iput-object v0, p0, Lcom/android/settings/location/RecentLocationAccessSeeAllFragment;->mController:Lcom/android/settings/location/RecentLocationAccessSeeAllPreferenceController;
-
-    invoke-virtual {v0, p0}, Lcom/android/settings/location/LocationBasePreferenceController;->init(Lcom/android/settings/dashboard/DashboardFragment;)V
-
-    if-eqz p1, :cond_0
-
-    iget-object p0, p0, Lcom/android/settings/location/RecentLocationAccessSeeAllFragment;->mController:Lcom/android/settings/location/RecentLocationAccessSeeAllPreferenceController;
-
-    invoke-virtual {p0, p1}, Lcom/android/settings/location/RecentLocationAccessSeeAllPreferenceController;->setProfileType(I)V
-
-    :cond_0
     return-void
 .end method
 
 .method public onCreate(Landroid/os/Bundle;)V
-    .locals 2
+    .locals 3
 
     invoke-super {p0, p1}, Lcom/android/settings/dashboard/DashboardFragment;->onCreate(Landroid/os/Bundle;)V
 
-    if-eqz p1, :cond_0
+    const-string p1, "privacy"
 
-    iget-boolean v0, p0, Lcom/android/settings/location/RecentLocationAccessSeeAllFragment;->mShowSystem:Z
+    const-string v0, "location_indicators_small_enabled"
 
-    const-string/jumbo v1, "show_system"
+    const/4 v1, 0x0
 
-    invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-static {p1, v0, v1}, Landroid/provider/DeviceConfig;->getBoolean(Ljava/lang/String;Ljava/lang/String;Z)Z
 
     move-result p1
 
-    iput-boolean p1, p0, Lcom/android/settings/location/RecentLocationAccessSeeAllFragment;->mShowSystem:Z
+    const/4 v0, 0x1
+
+    if-eqz p1, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object p1
+
+    const-string v2, "locationShowSystemOps"
+
+    invoke-static {p1, v2, v1}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result p1
+
+    if-ne p1, v0, :cond_0
+
+    move v1, v0
 
     :cond_0
-    iget-object p1, p0, Lcom/android/settings/location/RecentLocationAccessSeeAllFragment;->mController:Lcom/android/settings/location/RecentLocationAccessSeeAllPreferenceController;
+    iput-boolean v1, p0, Lcom/android/settings/location/RecentLocationAccessSeeAllFragment;->mShowSystem:Z
 
-    if-eqz p1, :cond_1
-
-    iget-boolean p0, p0, Lcom/android/settings/location/RecentLocationAccessSeeAllFragment;->mShowSystem:Z
-
-    invoke-virtual {p1, p0}, Lcom/android/settings/location/RecentLocationAccessSeeAllPreferenceController;->setShowSystem(Z)V
-
-    :cond_1
     return-void
 .end method
 
@@ -166,7 +158,7 @@
 
     const/4 v0, 0x2
 
-    const v1, 0x7f040d1c
+    const v1, 0x7f040d98
 
     invoke-interface {p1, p2, v0, p2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -176,7 +168,7 @@
 
     const/4 v0, 0x3
 
-    const v1, 0x7f040d00
+    const v1, 0x7f040d7b
 
     invoke-interface {p1, p2, v0, p2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -229,6 +221,16 @@
     :goto_0
     iput-boolean p1, p0, Lcom/android/settings/location/RecentLocationAccessSeeAllFragment;->mShowSystem:Z
 
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object p1
+
+    iget-boolean v1, p0, Lcom/android/settings/location/RecentLocationAccessSeeAllFragment;->mShowSystem:Z
+
+    const-string v2, "locationShowSystemOps"
+
+    invoke-static {p1, v2, v1}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
     invoke-direct {p0}, Lcom/android/settings/location/RecentLocationAccessSeeAllFragment;->updateMenu()V
 
     iget-object p1, p0, Lcom/android/settings/location/RecentLocationAccessSeeAllFragment;->mController:Lcom/android/settings/location/RecentLocationAccessSeeAllPreferenceController;
@@ -241,18 +243,4 @@
 
     :cond_2
     return v0
-.end method
-
-.method public onSaveInstanceState(Landroid/os/Bundle;)V
-    .locals 1
-
-    invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onSaveInstanceState(Landroid/os/Bundle;)V
-
-    iget-boolean p0, p0, Lcom/android/settings/location/RecentLocationAccessSeeAllFragment;->mShowSystem:Z
-
-    const-string/jumbo v0, "show_system"
-
-    invoke-virtual {p1, v0, p0}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
-
-    return-void
 .end method

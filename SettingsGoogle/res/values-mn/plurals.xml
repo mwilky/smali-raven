@@ -233,11 +233,11 @@
         <item quantity="one">%d ангиллыг унтраасан</item>
     </plurals>
     <plurals name="notifications_sent_daily">
-        <item quantity="other">~Өдөрт %d мэдэгдэл</item>
+        <item quantity="other">~Өдөрт %,d мэдэгдэл</item>
         <item quantity="one">~Өдөрт %d мэдэгдэл</item>
     </plurals>
     <plurals name="notifications_sent_weekly">
-        <item quantity="other">~Долоо хоногт %d мэдэгдэл</item>
+        <item quantity="other">~Долоо хоногт %,d мэдэгдэл</item>
         <item quantity="one">~Долоо хоногт %d мэдэгдэл</item>
     </plurals>
     <plurals name="number_of_device_admins">
@@ -328,22 +328,6 @@
         <item quantity="other">Сертификатад итгэх, эсвэл устгах</item>
         <item quantity="one">Сертификатад итгэх, эсвэл устгах</item>
     </plurals>
-    <plurals name="ssl_ca_cert_info_message">
-        <item quantity="other">"%s сертификатын эрхийг таны ажлын профайлд суулгасан бөгөөд үүнд имэйл, апп, аюулгүй веб хуудас зэрэг таны ажлын сүлжээний үйл ажиллагааг удирдах зөвшөөрлийг олгоно.
-
-Эдгээр сертификатын талаарх дэлгэрэнгүй мэдээлэл авахын тулд админтайгаа холбоо барина уу."</item>
-        <item quantity="one">"%s сертификатын эрхийг таны ажлын профайлд суулгасан бөгөөд тэдгээрт имэйл, апп, аюулгүй веб хуудас зэрэг таны төхөөрөмжийн сүлжээний үйл ажиллагааг удирдах зөвшөөрлийг олгоно.
-
-Энэ сертификатын талаарх дэлгэрэнгүй мэдээлэл авахын тулд админтайгаа холбоо барина уу."</item>
-    </plurals>
-    <plurals name="ssl_ca_cert_info_message_device_owner">
-        <item quantity="other">"%s сертификатын эрхийг таны төхөөрөмжид суулгасан бөгөөд үүнд имэйл, апп, аюулгүй веб хуудас зэрэг таны төхөөрөмжийн сүлжээний үйл ажиллагааг удирдах зөвшөөрлийг олгоно.
-
-Эдгээр сертификатын талаарх дэлгэрэнгүй мэдээлэл авахын тулд админтайгаа холбоо барина уу."</item>
-        <item quantity="one">"%s сертификатын эрхийг таны төхөөрөмжид суулгасан бөгөөд тэдгээрт имэйл, апп, аюулгүй веб хуудас зэрэг таны төхөөрөмжийн сүлжээний үйл ажиллагааг удирдах зөвшөөрлийг олгоно.
-
-Энэ сертификатын талаарх дэлгэрэнгүй мэдээлэл авахын тулд админтайгаа холбоо барина уу."</item>
-    </plurals>
     <plurals name="ssl_ca_cert_settings_button">
         <item quantity="other">Сертификат шалгах</item>
         <item quantity="one">Сертификат шалгах</item>
@@ -375,10 +359,6 @@
     <plurals name="wifi_saved_passpoint_access_points_summary">
         <item quantity="other">%d захиалга</item>
         <item quantity="one">1 захиалга</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$d төхөөрөмж холбосон</item>
-        <item quantity="one">%1$d төхөөрөмж холбосон</item>
     </plurals>
     <plurals name="wrong_pin_code">
         <item quantity="other">SIM-ны ПИН код буруу байна. Та %d удаа оролдлого хийх боломжтой байна.</item>

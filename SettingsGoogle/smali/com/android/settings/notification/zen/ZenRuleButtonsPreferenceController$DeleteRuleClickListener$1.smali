@@ -51,7 +51,7 @@
 
     iget-object v1, p1, Lcom/android/settings/notification/zen/AbstractZenModePreferenceController;->mMetricsFeatureProvider:Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;
 
-    invoke-static {p1}, Lcom/android/settings/notification/zen/ZenRuleButtonsPreferenceController;->access$400(Lcom/android/settings/notification/zen/ZenRuleButtonsPreferenceController;)Landroid/content/Context;
+    invoke-static {p1}, Lcom/android/settings/notification/zen/ZenRuleButtonsPreferenceController;->access$100(Lcom/android/settings/notification/zen/ZenRuleButtonsPreferenceController;)Landroid/content/Context;
 
     move-result-object p1
 
@@ -69,7 +69,7 @@
 
     iget-object p0, p0, Lcom/android/settings/notification/zen/ZenRuleButtonsPreferenceController$DeleteRuleClickListener;->this$0:Lcom/android/settings/notification/zen/ZenRuleButtonsPreferenceController;
 
-    invoke-static {p0}, Lcom/android/settings/notification/zen/ZenRuleButtonsPreferenceController;->access$500(Lcom/android/settings/notification/zen/ZenRuleButtonsPreferenceController;)Landroid/content/Context;
+    invoke-static {p0}, Lcom/android/settings/notification/zen/ZenRuleButtonsPreferenceController;->access$200(Lcom/android/settings/notification/zen/ZenRuleButtonsPreferenceController;)Landroid/content/Context;
 
     move-result-object p0
 

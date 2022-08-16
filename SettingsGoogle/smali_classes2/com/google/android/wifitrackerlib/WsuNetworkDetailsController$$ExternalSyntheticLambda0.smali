@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/google/android/wifitrackerlib/WsuNetworkDetailsController$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/google/android/wifitrackerlib/WsuManager$WsuProvidersLoadCallback;

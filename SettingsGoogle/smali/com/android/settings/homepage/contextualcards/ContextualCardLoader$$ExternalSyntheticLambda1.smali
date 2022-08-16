@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settings/homepage/contextualcards/ContextualCardLoader$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
@@ -41,7 +42,7 @@
 
     check-cast p1, Lcom/android/settings/homepage/contextualcards/ContextualCard;
 
-    invoke-static {v0, v1, p0, p1}, Lcom/android/settings/homepage/contextualcards/ContextualCardLoader;->$r8$lambda$u_wyDunOpoqnis82cYtTVNBU1XQ(Ljava/util/List;ILjava/util/List;Lcom/android/settings/homepage/contextualcards/ContextualCard;)V
+    invoke-static {v0, v1, p0, p1}, Lcom/android/settings/homepage/contextualcards/ContextualCardLoader;->$r8$lambda$oq3t3NrIfEmkVtEaShhQ6lvJv8o(Ljava/util/List;ILjava/util/List;Lcom/android/settings/homepage/contextualcards/ContextualCard;)V
 
     return-void
 .end method

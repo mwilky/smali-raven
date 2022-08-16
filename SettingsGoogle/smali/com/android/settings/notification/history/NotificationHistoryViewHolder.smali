@@ -17,7 +17,7 @@
 
     invoke-direct {p0, p1}, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;-><init>(Landroid/view/View;)V
 
-    const v0, 0x7f0d05ce
+    const v0, 0x7f0d0610
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -27,7 +27,7 @@
 
     iput-object v0, p0, Lcom/android/settings/notification/history/NotificationHistoryViewHolder;->mTime:Landroid/widget/DateTimeView;
 
-    const v0, 0x7f0d05d0
+    const v0, 0x7f0d0612
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -37,7 +37,7 @@
 
     iput-object v0, p0, Lcom/android/settings/notification/history/NotificationHistoryViewHolder;->mTitle:Landroid/widget/TextView;
 
-    const v0, 0x7f0d05b4
+    const v0, 0x7f0d05f5
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

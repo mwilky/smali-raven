@@ -3,40 +3,31 @@
 .source "PathInterpolatorCompat.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Landroidx/core/view/animation/PathInterpolatorCompat$Api21Impl;
+    }
+.end annotation
+
+
 # direct methods
 .method public static create(FFFF)Landroid/view/animation/Interpolator;
-    .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "controlX1",
-            "controlY1",
-            "controlX2",
-            "controlY2"
-        }
-    .end annotation
+    .locals 0
 
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+    invoke-static {p0, p1, p2, p3}, Landroidx/core/view/animation/PathInterpolatorCompat$Api21Impl;->createPathInterpolator(FFFF)Landroid/view/animation/PathInterpolator;
 
-    const/16 v1, 0x15
+    move-result-object p0
 
-    if-lt v0, v1, :cond_0
+    return-object p0
+.end method
 
-    new-instance v0, Landroid/view/animation/PathInterpolator;
+.method public static create(Landroid/graphics/Path;)Landroid/view/animation/Interpolator;
+    .locals 0
 
-    invoke-direct {v0, p0, p1, p2, p3}, Landroid/view/animation/PathInterpolator;-><init>(FFFF)V
+    invoke-static {p0}, Landroidx/core/view/animation/PathInterpolatorCompat$Api21Impl;->createPathInterpolator(Landroid/graphics/Path;)Landroid/view/animation/PathInterpolator;
 
-    return-object v0
+    move-result-object p0
 
-    :cond_0
-    new-instance v0, Landroidx/core/view/animation/PathInterpolatorApi14;
-
-    invoke-direct {v0, p0, p1, p2, p3}, Landroidx/core/view/animation/PathInterpolatorApi14;-><init>(FFFF)V
-
-    return-object v0
+    return-object p0
 .end method

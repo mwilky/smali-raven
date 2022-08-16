@@ -233,11 +233,11 @@
         <item quantity="one">%d კატეგორია გამორთულია</item>
     </plurals>
     <plurals name="notifications_sent_daily">
-        <item quantity="other">~%d შეტყობინება დღეში</item>
+        <item quantity="other">~%,d შეტყობინება დღეში</item>
         <item quantity="one">~%d შეტყობინება დღეში</item>
     </plurals>
     <plurals name="notifications_sent_weekly">
-        <item quantity="other">~%d შეტყობინება კვირაში</item>
+        <item quantity="other">~%,d შეტყობინება კვირაში</item>
         <item quantity="one">~%d შეტყობინება კვირაში</item>
     </plurals>
     <plurals name="number_of_device_admins">
@@ -328,22 +328,6 @@
         <item quantity="other">სერტიფიკატების ნდობით აღჭურვა ან ამოშლა</item>
         <item quantity="one">სერტიფიკატის ნდობით აღჭურვა ან ამოშლა</item>
     </plurals>
-    <plurals name="ssl_ca_cert_info_message">
-        <item quantity="other">"დომენმა %s თქვენი სამსახურის პროფილისთვის სერტიფიცირების ორგანოების ინსტალაცია მოახდინა, რომელთა მეშვეობითაც ის თქვენი სამსახურის ქსელის აქტივობის (მათ შორის, ელფოსტის, აპებისა და დაცული ვებსაიტების) მონიტორინგს შეძლებს.
-
-ამ სერტიფიკატების შესახებ დამატებითი ინფორმაციის მისაღებად, დაუკავშირდით თქვენს ადმინისტრატორს."</item>
-        <item quantity="one">"დომენმა %s თქვენი სამსახურის პროფილისთვის სერტიფიცირების ორგანოს ინსტალაცია მოახდინა, რომლის მეშვეობითაც ის თქვენი სამსახურის ქსელის აქტივობის (მათ შორის, ელფოსტის, აპებისა და დაცული ვებსაიტების) მონიტორინგს შეძლებს.
-
-ამ სერტიფიკატის შესახებ დამატებითი ინფორმაციის მისაღებად, დაუკავშირდით თქვენს ადმინისტრატორს."</item>
-    </plurals>
-    <plurals name="ssl_ca_cert_info_message_device_owner">
-        <item quantity="other">"დომენმა %s თქვენს მოწყობილობაზე სერტიფიცირების ორგანოების ინსტალაცია მოახდინა, რომლის მეშვეობითაც ის თქვენი მოწყობილობის ქსელის აქტივობის (მათ შორის, ელფოსტის, აპებისა და დაცული ვებსაიტების) მონიტორინგს შეძლებს.
-
-ამ სერტიფიკატების შესახებ დამატებითი ინფორმაციის მისაღებად, დაუკავშირდით თქვენს ადმინისტრატორს."</item>
-        <item quantity="one">"დომენმა %s თქვენს მოწყობილობაზე სერტიფიცირების ორგანოს ინსტალაცია მოახდინა, რომლის მეშვეობითაც ის თქვენი მოწყობილობის ქსელის აქტივობის (მათ შორის, ელფოსტის, აპებისა და დაცული ვებსაიტების) მონიტორინგს შეძლებს.
-
-ამ სერტიფიკატის შესახებ დამატებითი ინფორმაციის მისაღებად, დაუკავშირდით თქვენს ადმინისტრატორს."</item>
-    </plurals>
     <plurals name="ssl_ca_cert_settings_button">
         <item quantity="other">სერტიფიკატების შემოწმება</item>
         <item quantity="one">სერტიფიკატის შემოწმება</item>
@@ -375,10 +359,6 @@
     <plurals name="wifi_saved_passpoint_access_points_summary">
         <item quantity="other">%d გამოწერა</item>
         <item quantity="one">1 გამოწერა</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">დაკავშირებულია %1$d მოწყობილობა</item>
-        <item quantity="one">დაკავშირებულია %1$d მოწყობილობა</item>
     </plurals>
     <plurals name="wrong_pin_code">
         <item quantity="other">SIM-ის PIN არასწორია. დაგრჩათ %d მცდელობა.</item>

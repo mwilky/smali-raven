@@ -54,28 +54,32 @@
 
     invoke-virtual {p1}, Landroid/widget/FrameLayout;->getContext()Landroid/content/Context;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-direct {v0, p1}, Landroidx/recyclerview/widget/LinearLayoutManager;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, v1}, Landroidx/recyclerview/widget/LinearLayoutManager;-><init>(Landroid/content/Context;)V
 
     invoke-virtual {p2, v0}, Landroidx/recyclerview/widget/RecyclerView;->setLayoutManager(Landroidx/recyclerview/widget/RecyclerView$LayoutManager;)V
 
-    instance-of p1, p2, Lcom/google/android/setupdesign/view/HeaderRecyclerView;
+    instance-of v0, p2, Lcom/google/android/setupdesign/view/HeaderRecyclerView;
 
-    if-eqz p1, :cond_0
+    if-eqz v0, :cond_0
 
-    move-object p1, p2
+    move-object v0, p2
 
-    check-cast p1, Lcom/google/android/setupdesign/view/HeaderRecyclerView;
+    check-cast v0, Lcom/google/android/setupdesign/view/HeaderRecyclerView;
 
-    invoke-virtual {p1}, Lcom/google/android/setupdesign/view/HeaderRecyclerView;->getHeader()Landroid/view/View;
+    invoke-virtual {v0}, Lcom/google/android/setupdesign/view/HeaderRecyclerView;->getHeader()Landroid/view/View;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/google/android/setupdesign/template/RecyclerMixin;->header:Landroid/view/View;
+
+    :cond_0
+    invoke-virtual {p1}, Landroid/widget/FrameLayout;->getContext()Landroid/content/Context;
 
     move-result-object p1
 
-    iput-object p1, p0, Lcom/google/android/setupdesign/template/RecyclerMixin;->header:Landroid/view/View;
-
-    :cond_0
-    invoke-direct {p0}, Lcom/google/android/setupdesign/template/RecyclerMixin;->isShowItemsDivider()Z
+    invoke-direct {p0, p1}, Lcom/google/android/setupdesign/template/RecyclerMixin;->isShowItemsDivider(Landroid/content/Context;)Z
 
     move-result p1
 
@@ -91,46 +95,68 @@
     return-void
 .end method
 
-.method private isShowItemsDivider()Z
+.method private isShowItemsDivider(Landroid/content/Context;)Z
     .locals 3
 
-    iget-object v0, p0, Lcom/google/android/setupdesign/template/RecyclerMixin;->templateLayout:Lcom/google/android/setupcompat/internal/TemplateLayout;
+    new-instance v0, Landroid/util/TypedValue;
 
-    invoke-static {v0}, Lcom/google/android/setupdesign/util/PartnerStyleHelper;->shouldApplyPartnerResource(Landroid/view/View;)Z
+    invoke-direct {v0}, Landroid/util/TypedValue;-><init>()V
 
-    move-result v0
+    invoke-virtual {p1}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
 
-    const/4 v1, 0x1
+    move-result-object p1
 
-    if-eqz v0, :cond_0
+    sget v1, Lcom/google/android/setupdesign/R$attr;->sudDividerShown:I
 
-    iget-object v0, p0, Lcom/google/android/setupdesign/template/RecyclerMixin;->recyclerView:Landroidx/recyclerview/widget/RecyclerView;
+    const/4 v2, 0x1
 
-    invoke-virtual {v0}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
+    invoke-virtual {p1, v1, v0, v2}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
 
-    move-result-object v0
+    iget p1, v0, Landroid/util/TypedValue;->data:I
 
-    invoke-static {v0}, Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;->get(Landroid/content/Context;)Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;
+    if-eqz p1, :cond_0
 
-    move-result-object v0
+    goto :goto_0
 
-    sget-object v2, Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;->CONFIG_ITEMS_DIVIDER_SHOWN:Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;
+    :cond_0
+    const/4 v2, 0x0
 
-    invoke-virtual {v0, v2}, Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;->isPartnerConfigAvailable(Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;)Z
+    :goto_0
+    iget-object p1, p0, Lcom/google/android/setupdesign/template/RecyclerMixin;->templateLayout:Lcom/google/android/setupcompat/internal/TemplateLayout;
 
-    move-result v0
+    invoke-static {p1}, Lcom/google/android/setupdesign/util/PartnerStyleHelper;->shouldApplyPartnerResource(Landroid/view/View;)Z
 
-    if-eqz v0, :cond_0
+    move-result p1
 
-    iget-object v0, p0, Lcom/google/android/setupdesign/template/RecyclerMixin;->recyclerView:Landroidx/recyclerview/widget/RecyclerView;
+    if-eqz p1, :cond_1
 
-    invoke-virtual {v0}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
+    iget-object p1, p0, Lcom/google/android/setupdesign/template/RecyclerMixin;->recyclerView:Landroidx/recyclerview/widget/RecyclerView;
 
-    move-result-object v0
+    invoke-virtual {p1}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
 
-    invoke-static {v0}, Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;->get(Landroid/content/Context;)Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;
+    move-result-object p1
 
-    move-result-object v0
+    invoke-static {p1}, Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;->get(Landroid/content/Context;)Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;
+
+    move-result-object p1
+
+    sget-object v0, Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;->CONFIG_ITEMS_DIVIDER_SHOWN:Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;
+
+    invoke-virtual {p1, v0}, Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;->isPartnerConfigAvailable(Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_1
+
+    iget-object p1, p0, Lcom/google/android/setupdesign/template/RecyclerMixin;->recyclerView:Landroidx/recyclerview/widget/RecyclerView;
+
+    invoke-virtual {p1}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
+
+    move-result-object p1
+
+    invoke-static {p1}, Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;->get(Landroid/content/Context;)Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;
+
+    move-result-object p1
 
     iget-object p0, p0, Lcom/google/android/setupdesign/template/RecyclerMixin;->recyclerView:Landroidx/recyclerview/widget/RecyclerView;
 
@@ -138,24 +164,18 @@
 
     move-result-object p0
 
-    invoke-virtual {v0, p0, v2, v1}, Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;->getBoolean(Landroid/content/Context;Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;Z)Z
+    invoke-virtual {p1, p0, v0, v2}, Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;->getBoolean(Landroid/content/Context;Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;Z)Z
 
     move-result p0
 
     return p0
 
-    :cond_0
-    return v1
+    :cond_1
+    return v2
 .end method
 
 .method private updateDivider()V
     .locals 7
-
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x13
-
-    if-lt v0, v1, :cond_0
 
     iget-object v0, p0, Lcom/google/android/setupdesign/template/RecyclerMixin;->templateLayout:Lcom/google/android/setupcompat/internal/TemplateLayout;
 
@@ -163,17 +183,11 @@
 
     move-result v0
 
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x1
-
-    :goto_0
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Lcom/google/android/setupdesign/template/RecyclerMixin;->defaultDivider:Landroid/graphics/drawable/Drawable;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_0
 
     iget-object v0, p0, Lcom/google/android/setupdesign/template/RecyclerMixin;->dividerDecoration:Lcom/google/android/setupdesign/DividerItemDecoration;
 
@@ -183,7 +197,7 @@
 
     iput-object v0, p0, Lcom/google/android/setupdesign/template/RecyclerMixin;->defaultDivider:Landroid/graphics/drawable/Drawable;
 
-    :cond_1
+    :cond_0
     iget-object v1, p0, Lcom/google/android/setupdesign/template/RecyclerMixin;->defaultDivider:Landroid/graphics/drawable/Drawable;
 
     iget v2, p0, Lcom/google/android/setupdesign/template/RecyclerMixin;->dividerInsetStart:I
@@ -206,7 +220,7 @@
 
     invoke-virtual {p0, v0}, Lcom/google/android/setupdesign/DividerItemDecoration;->setDivider(Landroid/graphics/drawable/Drawable;)V
 
-    :cond_2
+    :cond_1
     return-void
 .end method
 

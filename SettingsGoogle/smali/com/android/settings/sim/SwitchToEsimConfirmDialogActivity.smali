@@ -28,24 +28,24 @@
 
 
 # virtual methods
-.method public onConfirm(IZ)V
-    .locals 2
+.method public onConfirm(IZI)V
+    .locals 1
 
     if-nez p2, :cond_0
 
-    const p1, 0x7f0413a2
+    const p1, 0x7f04146a
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
     move-result-object p1
 
-    const p2, 0x7f0413a1
+    const p2, 0x7f041469
 
     invoke-virtual {p0, p2}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
     move-result-object p2
 
-    invoke-static {p0, p1, p2}, Lcom/android/settings/network/telephony/AlertDialogFragment;->show(Landroid/app/Activity;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {p0, p1, p2}, Lcom/android/settings/network/telephony/AlertDialogFragment;->show(Landroidx/fragment/app/FragmentActivity;Ljava/lang/String;Ljava/lang/String;)V
 
     return-void
 
@@ -64,23 +64,27 @@
 
     move-result p2
 
-    invoke-virtual {p1, p2}, Lcom/android/settings/network/SwitchToEuiccSubscriptionSidecar;->run(I)V
+    const/4 p3, -0x1
 
-    const p1, 0x7f041242
+    const/4 v0, 0x0
+
+    invoke-virtual {p1, p2, p3, v0}, Lcom/android/settings/network/SwitchToEuiccSubscriptionSidecar;->run(IILandroid/telephony/SubscriptionInfo;)V
+
+    const p1, 0x7f0412fc
 
     const/4 p2, 0x1
 
     new-array p2, p2, [Ljava/lang/Object;
 
-    const/4 v0, 0x0
+    const/4 p3, 0x0
 
-    iget-object v1, p0, Lcom/android/settings/sim/SwitchToEsimConfirmDialogActivity;->mSubToEnabled:Landroid/telephony/SubscriptionInfo;
+    iget-object v0, p0, Lcom/android/settings/sim/SwitchToEsimConfirmDialogActivity;->mSubToEnabled:Landroid/telephony/SubscriptionInfo;
 
-    invoke-virtual {v1}, Landroid/telephony/SubscriptionInfo;->getDisplayName()Ljava/lang/CharSequence;
+    invoke-virtual {v0}, Landroid/telephony/SubscriptionInfo;->getDisplayName()Ljava/lang/CharSequence;
 
-    move-result-object v1
+    move-result-object v0
 
-    aput-object v1, p2, v0
+    aput-object v0, p2, p3
 
     invoke-virtual {p0, p1, p2}, Landroid/app/Activity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -130,7 +134,7 @@
 
     invoke-static {p1, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
+    invoke-virtual {p0}, Lcom/android/settings/network/telephony/SubscriptionActionDialogActivity;->finish()V
 
     return-void
 
@@ -141,7 +145,7 @@
 
     const/4 v3, 0x1
 
-    const p1, 0x7f0413a4
+    const p1, 0x7f04146c
 
     const/4 v1, 0x1
 
@@ -159,7 +163,7 @@
 
     move-result-object v4
 
-    const p1, 0x7f0413a3
+    const p1, 0x7f04146b
 
     new-array v0, v1, [Ljava/lang/Object;
 
@@ -175,13 +179,13 @@
 
     move-result-object v5
 
-    const p1, 0x7f040ecc
+    const p1, 0x7f040f60
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
     move-result-object v6
 
-    const p1, 0x7f040564
+    const p1, 0x7f0405c1
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -189,7 +193,7 @@
 
     move-object v1, p0
 
-    invoke-static/range {v1 .. v7}, Lcom/android/settings/network/telephony/ConfirmDialogFragment;->show(Landroid/app/Activity;Ljava/lang/Class;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static/range {v1 .. v7}, Lcom/android/settings/network/telephony/ConfirmDialogFragment;->show(Landroidx/fragment/app/FragmentActivity;Ljava/lang/Class;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_1
     return-void
@@ -202,7 +206,7 @@
 
     invoke-virtual {v0, p0}, Lcom/android/settings/SidecarFragment;->removeListener(Lcom/android/settings/SidecarFragment$Listener;)Z
 
-    invoke-super {p0}, Landroid/app/Activity;->onPause()V
+    invoke-super {p0}, Landroidx/fragment/app/FragmentActivity;->onPause()V
 
     return-void
 .end method
@@ -210,7 +214,7 @@
 .method public onResume()V
     .locals 1
 
-    invoke-super {p0}, Landroid/app/Activity;->onResume()V
+    invoke-super {p0}, Landroidx/fragment/app/FragmentActivity;->onResume()V
 
     iget-object v0, p0, Lcom/android/settings/sim/SwitchToEsimConfirmDialogActivity;->mSwitchToEuiccSubscriptionSidecar:Lcom/android/settings/network/SwitchToEuiccSubscriptionSidecar;
 
@@ -253,7 +257,7 @@
 
     invoke-virtual {p0}, Lcom/android/settings/network/telephony/SubscriptionActionDialogActivity;->dismissProgressDialog()V
 
-    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
+    invoke-virtual {p0}, Lcom/android/settings/network/telephony/SubscriptionActionDialogActivity;->finish()V
 
     goto :goto_0
 
@@ -268,7 +272,7 @@
 
     invoke-virtual {p0}, Lcom/android/settings/network/telephony/SubscriptionActionDialogActivity;->dismissProgressDialog()V
 
-    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
+    invoke-virtual {p0}, Lcom/android/settings/network/telephony/SubscriptionActionDialogActivity;->finish()V
 
     :cond_2
     :goto_0

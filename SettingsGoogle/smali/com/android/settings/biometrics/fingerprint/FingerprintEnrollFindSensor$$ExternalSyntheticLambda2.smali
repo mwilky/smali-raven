@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollFindSensor$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/view/View$OnClickListener;
+.implements Landroid/hardware/fingerprint/FingerprintManager$GenerateChallengeCallback;
 
 
 # instance fields
@@ -22,12 +23,12 @@
 
 
 # virtual methods
-.method public final onClick(Landroid/view/View;)V
+.method public final onChallengeGenerated(IIJ)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollFindSensor$$ExternalSyntheticLambda2;->f$0:Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollFindSensor;
 
-    invoke-static {p0, p1}, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollFindSensor;->$r8$lambda$4daull5ZuBU2Dz0rPnqrRnvTetQ(Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollFindSensor;Landroid/view/View;)V
+    invoke-static {p0, p1, p2, p3, p4}, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollFindSensor;->$r8$lambda$BIZwhP96Hcr_xv5kvapS73PWLT4(Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollFindSensor;IIJ)V
 
     return-void
 .end method

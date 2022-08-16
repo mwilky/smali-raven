@@ -16,8 +16,18 @@
 
 .field private usePartnerResourceAttr:Z
 
+.field final windowFocusChangeListener:Landroid/view/ViewTreeObserver$OnWindowFocusChangeListener;
+
 
 # direct methods
+.method public static synthetic $r8$lambda$0I8CGaPG-55DphyAapa3mtQ-RWk(Lcom/google/android/setupcompat/PartnerCustomizationLayout;Z)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/google/android/setupcompat/PartnerCustomizationLayout;->onFocusChanged(Z)V
+
+    return-void
+.end method
+
 .method static constructor <clinit>()V
     .locals 2
 
@@ -57,6 +67,12 @@
 
     invoke-direct {p0, p1, p2, p3}, Lcom/google/android/setupcompat/internal/TemplateLayout;-><init>(Landroid/content/Context;II)V
 
+    new-instance p1, Lcom/google/android/setupcompat/PartnerCustomizationLayout$$ExternalSyntheticLambda0;
+
+    invoke-direct {p1, p0}, Lcom/google/android/setupcompat/PartnerCustomizationLayout$$ExternalSyntheticLambda0;-><init>(Lcom/google/android/setupcompat/PartnerCustomizationLayout;)V
+
+    iput-object p1, p0, Lcom/google/android/setupcompat/PartnerCustomizationLayout;->windowFocusChangeListener:Landroid/view/ViewTreeObserver$OnWindowFocusChangeListener;
+
     sget p1, Lcom/google/android/setupcompat/R$attr;->sucLayoutTheme:I
 
     const/4 p2, 0x0
@@ -70,6 +86,12 @@
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/google/android/setupcompat/internal/TemplateLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
+
+    new-instance p1, Lcom/google/android/setupcompat/PartnerCustomizationLayout$$ExternalSyntheticLambda0;
+
+    invoke-direct {p1, p0}, Lcom/google/android/setupcompat/PartnerCustomizationLayout$$ExternalSyntheticLambda0;-><init>(Lcom/google/android/setupcompat/PartnerCustomizationLayout;)V
+
+    iput-object p1, p0, Lcom/google/android/setupcompat/PartnerCustomizationLayout;->windowFocusChangeListener:Landroid/view/ViewTreeObserver$OnWindowFocusChangeListener;
 
     sget p1, Lcom/google/android/setupcompat/R$attr;->sucLayoutTheme:I
 
@@ -86,13 +108,19 @@
 
     invoke-direct {p0, p1, p2, p3}, Lcom/google/android/setupcompat/internal/TemplateLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
+    new-instance p1, Lcom/google/android/setupcompat/PartnerCustomizationLayout$$ExternalSyntheticLambda0;
+
+    invoke-direct {p1, p0}, Lcom/google/android/setupcompat/PartnerCustomizationLayout$$ExternalSyntheticLambda0;-><init>(Lcom/google/android/setupcompat/PartnerCustomizationLayout;)V
+
+    iput-object p1, p0, Lcom/google/android/setupcompat/PartnerCustomizationLayout;->windowFocusChangeListener:Landroid/view/ViewTreeObserver$OnWindowFocusChangeListener;
+
     invoke-direct {p0, p2, p3}, Lcom/google/android/setupcompat/PartnerCustomizationLayout;->init(Landroid/util/AttributeSet;I)V
 
     return-void
 .end method
 
 .method private init(Landroid/util/AttributeSet;I)V
-    .locals 6
+    .locals 4
 
     const-class v0, Lcom/google/android/setupcompat/template/SystemNavBarMixin;
 
@@ -127,52 +155,46 @@
 
     invoke-virtual {v1}, Landroid/content/res/TypedArray;->recycle()V
 
-    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v3, 0x15
-
-    if-lt v1, v3, :cond_1
-
     if-eqz v2, :cond_1
 
-    const/16 v2, 0x400
+    const/16 v1, 0x400
 
-    invoke-virtual {p0, v2}, Landroid/widget/FrameLayout;->setSystemUiVisibility(I)V
+    invoke-virtual {p0, v1}, Landroid/widget/FrameLayout;->setSystemUiVisibility(I)V
 
     :cond_1
-    const-class v2, Lcom/google/android/setupcompat/template/StatusBarMixin;
+    const-class v1, Lcom/google/android/setupcompat/template/StatusBarMixin;
 
-    new-instance v4, Lcom/google/android/setupcompat/template/StatusBarMixin;
+    new-instance v2, Lcom/google/android/setupcompat/template/StatusBarMixin;
 
-    iget-object v5, p0, Lcom/google/android/setupcompat/PartnerCustomizationLayout;->activity:Landroid/app/Activity;
+    iget-object v3, p0, Lcom/google/android/setupcompat/PartnerCustomizationLayout;->activity:Landroid/app/Activity;
 
-    invoke-virtual {v5}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
+    invoke-virtual {v3}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
 
-    move-result-object v5
+    move-result-object v3
 
-    invoke-direct {v4, p0, v5, p1, p2}, Lcom/google/android/setupcompat/template/StatusBarMixin;-><init>(Lcom/google/android/setupcompat/PartnerCustomizationLayout;Landroid/view/Window;Landroid/util/AttributeSet;I)V
+    invoke-direct {v2, p0, v3, p1, p2}, Lcom/google/android/setupcompat/template/StatusBarMixin;-><init>(Lcom/google/android/setupcompat/PartnerCustomizationLayout;Landroid/view/Window;Landroid/util/AttributeSet;I)V
 
-    invoke-virtual {p0, v2, v4}, Lcom/google/android/setupcompat/internal/TemplateLayout;->registerMixin(Ljava/lang/Class;Lcom/google/android/setupcompat/template/Mixin;)V
+    invoke-virtual {p0, v1, v2}, Lcom/google/android/setupcompat/internal/TemplateLayout;->registerMixin(Ljava/lang/Class;Lcom/google/android/setupcompat/template/Mixin;)V
 
-    new-instance v2, Lcom/google/android/setupcompat/template/SystemNavBarMixin;
+    new-instance v1, Lcom/google/android/setupcompat/template/SystemNavBarMixin;
 
-    iget-object v4, p0, Lcom/google/android/setupcompat/PartnerCustomizationLayout;->activity:Landroid/app/Activity;
+    iget-object v2, p0, Lcom/google/android/setupcompat/PartnerCustomizationLayout;->activity:Landroid/app/Activity;
 
-    invoke-virtual {v4}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
+    invoke-virtual {v2}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
 
-    move-result-object v4
+    move-result-object v2
 
-    invoke-direct {v2, p0, v4}, Lcom/google/android/setupcompat/template/SystemNavBarMixin;-><init>(Lcom/google/android/setupcompat/internal/TemplateLayout;Landroid/view/Window;)V
+    invoke-direct {v1, p0, v2}, Lcom/google/android/setupcompat/template/SystemNavBarMixin;-><init>(Lcom/google/android/setupcompat/internal/TemplateLayout;Landroid/view/Window;)V
 
-    invoke-virtual {p0, v0, v2}, Lcom/google/android/setupcompat/internal/TemplateLayout;->registerMixin(Ljava/lang/Class;Lcom/google/android/setupcompat/template/Mixin;)V
+    invoke-virtual {p0, v0, v1}, Lcom/google/android/setupcompat/internal/TemplateLayout;->registerMixin(Ljava/lang/Class;Lcom/google/android/setupcompat/template/Mixin;)V
 
-    const-class v2, Lcom/google/android/setupcompat/template/FooterBarMixin;
+    const-class v1, Lcom/google/android/setupcompat/template/FooterBarMixin;
 
-    new-instance v4, Lcom/google/android/setupcompat/template/FooterBarMixin;
+    new-instance v2, Lcom/google/android/setupcompat/template/FooterBarMixin;
 
-    invoke-direct {v4, p0, p1, p2}, Lcom/google/android/setupcompat/template/FooterBarMixin;-><init>(Lcom/google/android/setupcompat/internal/TemplateLayout;Landroid/util/AttributeSet;I)V
+    invoke-direct {v2, p0, p1, p2}, Lcom/google/android/setupcompat/template/FooterBarMixin;-><init>(Lcom/google/android/setupcompat/internal/TemplateLayout;Landroid/util/AttributeSet;I)V
 
-    invoke-virtual {p0, v2, v4}, Lcom/google/android/setupcompat/internal/TemplateLayout;->registerMixin(Ljava/lang/Class;Lcom/google/android/setupcompat/template/Mixin;)V
+    invoke-virtual {p0, v1, v2}, Lcom/google/android/setupcompat/internal/TemplateLayout;->registerMixin(Ljava/lang/Class;Lcom/google/android/setupcompat/template/Mixin;)V
 
     invoke-virtual {p0, v0}, Lcom/google/android/setupcompat/internal/TemplateLayout;->getMixin(Ljava/lang/Class;)Lcom/google/android/setupcompat/template/Mixin;
 
@@ -181,8 +203,6 @@
     check-cast v0, Lcom/google/android/setupcompat/template/SystemNavBarMixin;
 
     invoke-virtual {v0, p1, p2}, Lcom/google/android/setupcompat/template/SystemNavBarMixin;->applyPartnerCustomizations(Landroid/util/AttributeSet;I)V
-
-    if-lt v1, v3, :cond_2
 
     iget-object p1, p0, Lcom/google/android/setupcompat/PartnerCustomizationLayout;->activity:Landroid/app/Activity;
 
@@ -214,7 +234,6 @@
 
     invoke-virtual {p0, p1}, Landroid/view/Window;->clearFlags(I)V
 
-    :cond_2
     return-void
 .end method
 
@@ -256,6 +275,34 @@
     throw p0
 .end method
 
+.method private onFocusChanged(Z)V
+    .locals 3
+
+    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/google/android/setupcompat/internal/SetupCompatServiceInvoker;->get(Landroid/content/Context;)Lcom/google/android/setupcompat/internal/SetupCompatServiceInvoker;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/google/android/setupcompat/PartnerCustomizationLayout;->activity:Landroid/app/Activity;
+
+    invoke-static {v1}, Lcom/google/android/setupcompat/internal/FocusChangedMetricHelper;->getScreenName(Landroid/app/Activity;)Ljava/lang/String;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/google/android/setupcompat/PartnerCustomizationLayout;->activity:Landroid/app/Activity;
+
+    invoke-static {v2, p0, p1}, Lcom/google/android/setupcompat/internal/FocusChangedMetricHelper;->getExtraBundle(Landroid/app/Activity;Lcom/google/android/setupcompat/internal/TemplateLayout;Z)Landroid/os/Bundle;
+
+    move-result-object p0
+
+    invoke-virtual {v0, v1, p0}, Lcom/google/android/setupcompat/internal/SetupCompatServiceInvoker;->onFocusStatusChanged(Ljava/lang/String;Landroid/os/Bundle;)V
+
+    return-void
+.end method
+
 
 # virtual methods
 .method protected enablePartnerResourceLoading()Z
@@ -282,7 +329,7 @@
 .end method
 
 .method protected onAttachedToWindow()V
-    .locals 1
+    .locals 2
 
     invoke-super {p0}, Landroid/widget/FrameLayout;->onAttachedToWindow()V
 
@@ -290,6 +337,27 @@
 
     invoke-static {v0}, Lcom/google/android/setupcompat/internal/LifecycleFragment;->attachNow(Landroid/app/Activity;)Lcom/google/android/setupcompat/internal/LifecycleFragment;
 
+    iget-object v0, p0, Lcom/google/android/setupcompat/PartnerCustomizationLayout;->activity:Landroid/app/Activity;
+
+    invoke-virtual {v0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/google/android/setupcompat/util/WizardManagerHelper;->isAnySetupWizard(Landroid/content/Intent;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/google/android/setupcompat/PartnerCustomizationLayout;->windowFocusChangeListener:Landroid/view/ViewTreeObserver$OnWindowFocusChangeListener;
+
+    invoke-virtual {v0, v1}, Landroid/view/ViewTreeObserver;->addOnWindowFocusChangeListener(Landroid/view/ViewTreeObserver$OnWindowFocusChangeListener;)V
+
+    :cond_0
     const-class v0, Lcom/google/android/setupcompat/template/FooterBarMixin;
 
     invoke-virtual {p0, v0}, Lcom/google/android/setupcompat/internal/TemplateLayout;->getMixin(Ljava/lang/Class;)Lcom/google/android/setupcompat/template/Mixin;
@@ -482,16 +550,6 @@
 
     invoke-super {p0}, Landroid/widget/FrameLayout;->onDetachedFromWindow()V
 
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    if-lt v0, v1, :cond_2
-
-    const/16 v1, 0x1d
-
-    if-lt v0, v1, :cond_2
-
     iget-object v0, p0, Lcom/google/android/setupcompat/PartnerCustomizationLayout;->activity:Landroid/app/Activity;
 
     invoke-virtual {v0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
@@ -570,21 +628,29 @@
 
     move-result-object v1
 
-    iget-object p0, p0, Lcom/google/android/setupcompat/PartnerCustomizationLayout;->activity:Landroid/app/Activity;
+    iget-object v2, p0, Lcom/google/android/setupcompat/PartnerCustomizationLayout;->activity:Landroid/app/Activity;
 
-    const-string v2, "SetupCompatMetrics"
+    const-string v3, "SetupCompatMetrics"
 
-    invoke-static {v2, p0}, Lcom/google/android/setupcompat/logging/MetricKey;->get(Ljava/lang/String;Landroid/app/Activity;)Lcom/google/android/setupcompat/logging/MetricKey;
+    invoke-static {v3, v2}, Lcom/google/android/setupcompat/logging/MetricKey;->get(Ljava/lang/String;Landroid/app/Activity;)Lcom/google/android/setupcompat/logging/MetricKey;
 
-    move-result-object p0
+    move-result-object v2
 
-    invoke-static {p0, v0}, Lcom/google/android/setupcompat/logging/CustomEvent;->create(Lcom/google/android/setupcompat/logging/MetricKey;Landroid/os/PersistableBundle;)Lcom/google/android/setupcompat/logging/CustomEvent;
+    invoke-static {v2, v0}, Lcom/google/android/setupcompat/logging/CustomEvent;->create(Lcom/google/android/setupcompat/logging/MetricKey;Landroid/os/PersistableBundle;)Lcom/google/android/setupcompat/logging/CustomEvent;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-static {v1, p0}, Lcom/google/android/setupcompat/logging/SetupMetricsLogger;->logCustomEvent(Landroid/content/Context;Lcom/google/android/setupcompat/logging/CustomEvent;)V
+    invoke-static {v1, v0}, Lcom/google/android/setupcompat/logging/SetupMetricsLogger;->logCustomEvent(Landroid/content/Context;Lcom/google/android/setupcompat/logging/CustomEvent;)V
 
     :cond_2
+    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
+
+    move-result-object v0
+
+    iget-object p0, p0, Lcom/google/android/setupcompat/PartnerCustomizationLayout;->windowFocusChangeListener:Landroid/view/ViewTreeObserver$OnWindowFocusChangeListener;
+
+    invoke-virtual {v0, p0}, Landroid/view/ViewTreeObserver;->removeOnWindowFocusChangeListener(Landroid/view/ViewTreeObserver$OnWindowFocusChangeListener;)V
+
     return-void
 .end method
 
@@ -649,7 +715,7 @@
 .end method
 
 .method public shouldApplyPartnerResource()Z
-    .locals 3
+    .locals 2
 
     invoke-virtual {p0}, Lcom/google/android/setupcompat/PartnerCustomizationLayout;->enablePartnerResourceLoading()Z
 
@@ -669,15 +735,6 @@
     return v1
 
     :cond_1
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v2, 0x1d
-
-    if-ge v0, v2, :cond_2
-
-    return v1
-
-    :cond_2
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getContext()Landroid/content/Context;
 
     move-result-object p0
@@ -690,11 +747,11 @@
 
     move-result p0
 
-    if-nez p0, :cond_3
+    if-nez p0, :cond_2
 
     return v1
 
-    :cond_3
+    :cond_2
     const/4 p0, 0x1
 
     return p0

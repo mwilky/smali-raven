@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/settings/display/SmartAutoRotateCameraStateController$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/hardware/SensorPrivacyManager$OnSensorPrivacyChangedListener;
+.implements Landroid/view/View$OnClickListener;
 
 
 # instance fields
@@ -22,12 +23,12 @@
 
 
 # virtual methods
-.method public final onSensorPrivacyChanged(IZ)V
+.method public final onClick(Landroid/view/View;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/settings/display/SmartAutoRotateCameraStateController$$ExternalSyntheticLambda0;->f$0:Lcom/android/settings/display/SmartAutoRotateCameraStateController;
 
-    invoke-static {p0, p1, p2}, Lcom/android/settings/display/SmartAutoRotateCameraStateController;->$r8$lambda$I8DwQvOe8Mzuyk3xUC4M_gbcon4(Lcom/android/settings/display/SmartAutoRotateCameraStateController;IZ)V
+    invoke-static {p0, p1}, Lcom/android/settings/display/SmartAutoRotateCameraStateController;->$r8$lambda$nyxdP2_G9vEaxm2yPNYsN_E1G60(Lcom/android/settings/display/SmartAutoRotateCameraStateController;Landroid/view/View;)V
 
     return-void
 .end method

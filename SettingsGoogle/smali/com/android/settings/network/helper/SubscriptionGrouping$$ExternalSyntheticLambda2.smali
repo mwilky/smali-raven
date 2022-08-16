@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/settings/network/helper/SubscriptionGrouping$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Function;
+.implements Ljava/util/function/BiFunction;
 
 
 # instance fields
@@ -22,14 +23,16 @@
 
 
 # virtual methods
-.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
+.method public final apply(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
 
     iget-object p0, p0, Lcom/android/settings/network/helper/SubscriptionGrouping$$ExternalSyntheticLambda2;->f$0:Lcom/android/settings/network/helper/SubscriptionGrouping;
 
-    check-cast p1, Lcom/android/settings/network/helper/SubscriptionAnnotation;
+    check-cast p1, Landroid/os/ParcelUuid;
 
-    invoke-static {p0, p1}, Lcom/android/settings/network/helper/SubscriptionGrouping;->$r8$lambda$M0ro3hGhmtpQH3H07oGS3WdbWhQ(Lcom/android/settings/network/helper/SubscriptionGrouping;Lcom/android/settings/network/helper/SubscriptionAnnotation;)Landroid/os/ParcelUuid;
+    check-cast p2, Ljava/util/List;
+
+    invoke-static {p0, p1, p2}, Lcom/android/settings/network/helper/SubscriptionGrouping;->$r8$lambda$O9VpwGOCtvjTqwEIGLbWN0DRjuc(Lcom/android/settings/network/helper/SubscriptionGrouping;Landroid/os/ParcelUuid;Ljava/util/List;)Ljava/util/List;
 
     move-result-object p0
 

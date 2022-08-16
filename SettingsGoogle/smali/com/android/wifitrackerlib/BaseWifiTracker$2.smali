@@ -36,34 +36,15 @@
 
     iget-object p1, p0, Lcom/android/wifitrackerlib/BaseWifiTracker$2;->this$0:Lcom/android/wifitrackerlib/BaseWifiTracker;
 
-    invoke-static {p1}, Lcom/android/wifitrackerlib/BaseWifiTracker;->access$000(Lcom/android/wifitrackerlib/BaseWifiTracker;)Z
+    invoke-static {p1, p2}, Lcom/android/wifitrackerlib/BaseWifiTracker;->-$$Nest$misPrimaryWifiNetwork(Lcom/android/wifitrackerlib/BaseWifiTracker;Landroid/net/NetworkCapabilities;)Z
 
     move-result p1
 
     if-nez p1, :cond_0
 
-    iget-object p1, p0, Lcom/android/wifitrackerlib/BaseWifiTracker$2;->this$0:Lcom/android/wifitrackerlib/BaseWifiTracker;
-
-    const/4 v0, 0x1
-
-    invoke-static {p1, v0}, Lcom/android/wifitrackerlib/BaseWifiTracker;->access$002(Lcom/android/wifitrackerlib/BaseWifiTracker;Z)Z
-
-    iget-object p1, p0, Lcom/android/wifitrackerlib/BaseWifiTracker$2;->this$0:Lcom/android/wifitrackerlib/BaseWifiTracker;
-
-    invoke-virtual {p1}, Lcom/android/wifitrackerlib/BaseWifiTracker;->handleOnStart()V
-
-    :cond_0
-    iget-object p1, p0, Lcom/android/wifitrackerlib/BaseWifiTracker$2;->this$0:Lcom/android/wifitrackerlib/BaseWifiTracker;
-
-    invoke-static {p1, p2}, Lcom/android/wifitrackerlib/BaseWifiTracker;->access$700(Lcom/android/wifitrackerlib/BaseWifiTracker;Landroid/net/NetworkCapabilities;)Z
-
-    move-result p1
-
-    if-nez p1, :cond_1
-
     return-void
 
-    :cond_1
+    :cond_0
     iget-object p1, p0, Lcom/android/wifitrackerlib/BaseWifiTracker$2;->this$0:Lcom/android/wifitrackerlib/BaseWifiTracker;
 
     iget-boolean v0, p1, Lcom/android/wifitrackerlib/BaseWifiTracker;->mIsWifiValidated:Z
@@ -80,15 +61,15 @@
 
     move-result p1
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_1
 
     iget-object p1, p0, Lcom/android/wifitrackerlib/BaseWifiTracker$2;->this$0:Lcom/android/wifitrackerlib/BaseWifiTracker;
 
     iget-boolean v1, p1, Lcom/android/wifitrackerlib/BaseWifiTracker;->mIsWifiValidated:Z
 
-    if-eq v1, v0, :cond_2
+    if-eq v1, v0, :cond_1
 
-    invoke-static {p1}, Lcom/android/wifitrackerlib/BaseWifiTracker;->access$100(Lcom/android/wifitrackerlib/BaseWifiTracker;)Ljava/lang/String;
+    invoke-static {p1}, Lcom/android/wifitrackerlib/BaseWifiTracker;->-$$Nest$fgetmTag(Lcom/android/wifitrackerlib/BaseWifiTracker;)Ljava/lang/String;
 
     move-result-object p1
 
@@ -112,7 +93,7 @@
 
     invoke-static {p1, v0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_2
+    :cond_1
     iget-object p0, p0, Lcom/android/wifitrackerlib/BaseWifiTracker$2;->this$0:Lcom/android/wifitrackerlib/BaseWifiTracker;
 
     invoke-virtual {p0, p2}, Lcom/android/wifitrackerlib/BaseWifiTracker;->handleNetworkCapabilitiesChanged(Landroid/net/NetworkCapabilities;)V
@@ -125,40 +106,21 @@
 
     iget-object v0, p0, Lcom/android/wifitrackerlib/BaseWifiTracker$2;->this$0:Lcom/android/wifitrackerlib/BaseWifiTracker;
 
-    invoke-static {v0}, Lcom/android/wifitrackerlib/BaseWifiTracker;->access$000(Lcom/android/wifitrackerlib/BaseWifiTracker;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/wifitrackerlib/BaseWifiTracker$2;->this$0:Lcom/android/wifitrackerlib/BaseWifiTracker;
-
-    const/4 v1, 0x1
-
-    invoke-static {v0, v1}, Lcom/android/wifitrackerlib/BaseWifiTracker;->access$002(Lcom/android/wifitrackerlib/BaseWifiTracker;Z)Z
-
-    iget-object v0, p0, Lcom/android/wifitrackerlib/BaseWifiTracker$2;->this$0:Lcom/android/wifitrackerlib/BaseWifiTracker;
-
-    invoke-virtual {v0}, Lcom/android/wifitrackerlib/BaseWifiTracker;->handleOnStart()V
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/wifitrackerlib/BaseWifiTracker$2;->this$0:Lcom/android/wifitrackerlib/BaseWifiTracker;
-
     iget-object v1, v0, Lcom/android/wifitrackerlib/BaseWifiTracker;->mConnectivityManager:Landroid/net/ConnectivityManager;
 
     invoke-virtual {v1, p1}, Landroid/net/ConnectivityManager;->getNetworkCapabilities(Landroid/net/Network;)Landroid/net/NetworkCapabilities;
 
     move-result-object p1
 
-    invoke-static {v0, p1}, Lcom/android/wifitrackerlib/BaseWifiTracker;->access$700(Lcom/android/wifitrackerlib/BaseWifiTracker;Landroid/net/NetworkCapabilities;)Z
+    invoke-static {v0, p1}, Lcom/android/wifitrackerlib/BaseWifiTracker;->-$$Nest$misPrimaryWifiNetwork(Lcom/android/wifitrackerlib/BaseWifiTracker;Landroid/net/NetworkCapabilities;)Z
 
     move-result p1
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_0
 
     return-void
 
-    :cond_1
+    :cond_0
     iget-object p0, p0, Lcom/android/wifitrackerlib/BaseWifiTracker$2;->this$0:Lcom/android/wifitrackerlib/BaseWifiTracker;
 
     invoke-virtual {p0, p2}, Lcom/android/wifitrackerlib/BaseWifiTracker;->handleLinkPropertiesChanged(Landroid/net/LinkProperties;)V
@@ -171,40 +133,21 @@
 
     iget-object v0, p0, Lcom/android/wifitrackerlib/BaseWifiTracker$2;->this$0:Lcom/android/wifitrackerlib/BaseWifiTracker;
 
-    invoke-static {v0}, Lcom/android/wifitrackerlib/BaseWifiTracker;->access$000(Lcom/android/wifitrackerlib/BaseWifiTracker;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/wifitrackerlib/BaseWifiTracker$2;->this$0:Lcom/android/wifitrackerlib/BaseWifiTracker;
-
-    const/4 v1, 0x1
-
-    invoke-static {v0, v1}, Lcom/android/wifitrackerlib/BaseWifiTracker;->access$002(Lcom/android/wifitrackerlib/BaseWifiTracker;Z)Z
-
-    iget-object v0, p0, Lcom/android/wifitrackerlib/BaseWifiTracker$2;->this$0:Lcom/android/wifitrackerlib/BaseWifiTracker;
-
-    invoke-virtual {v0}, Lcom/android/wifitrackerlib/BaseWifiTracker;->handleOnStart()V
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/wifitrackerlib/BaseWifiTracker$2;->this$0:Lcom/android/wifitrackerlib/BaseWifiTracker;
-
     iget-object v1, v0, Lcom/android/wifitrackerlib/BaseWifiTracker;->mConnectivityManager:Landroid/net/ConnectivityManager;
 
     invoke-virtual {v1, p1}, Landroid/net/ConnectivityManager;->getNetworkCapabilities(Landroid/net/Network;)Landroid/net/NetworkCapabilities;
 
     move-result-object p1
 
-    invoke-static {v0, p1}, Lcom/android/wifitrackerlib/BaseWifiTracker;->access$700(Lcom/android/wifitrackerlib/BaseWifiTracker;Landroid/net/NetworkCapabilities;)Z
+    invoke-static {v0, p1}, Lcom/android/wifitrackerlib/BaseWifiTracker;->-$$Nest$misPrimaryWifiNetwork(Lcom/android/wifitrackerlib/BaseWifiTracker;Landroid/net/NetworkCapabilities;)Z
 
     move-result p1
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_0
 
     return-void
 
-    :cond_1
+    :cond_0
     iget-object p0, p0, Lcom/android/wifitrackerlib/BaseWifiTracker$2;->this$0:Lcom/android/wifitrackerlib/BaseWifiTracker;
 
     const/4 p1, 0x0

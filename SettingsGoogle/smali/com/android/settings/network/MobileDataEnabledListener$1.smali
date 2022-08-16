@@ -36,7 +36,7 @@
 
     iget-object p0, p0, Lcom/android/settings/network/MobileDataEnabledListener$1;->this$0:Lcom/android/settings/network/MobileDataEnabledListener;
 
-    invoke-static {p0}, Lcom/android/settings/network/MobileDataEnabledListener;->access$000(Lcom/android/settings/network/MobileDataEnabledListener;)Lcom/android/settings/network/MobileDataEnabledListener$Client;
+    invoke-static {p0}, Lcom/android/settings/network/MobileDataEnabledListener;->-$$Nest$fgetmClient(Lcom/android/settings/network/MobileDataEnabledListener;)Lcom/android/settings/network/MobileDataEnabledListener$Client;
 
     move-result-object p0
 

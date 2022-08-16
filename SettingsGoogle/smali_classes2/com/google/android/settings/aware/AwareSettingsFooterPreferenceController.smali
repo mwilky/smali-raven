@@ -34,14 +34,6 @@
 
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public displayPreference(Landroidx/preference/PreferenceScreen;)V
     .locals 1
 
@@ -84,15 +76,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -140,21 +123,21 @@
 
     if-eqz v1, :cond_0
 
-    const v0, 0x7f040317
+    const v0, 0x7f040351
 
     goto :goto_0
 
     :cond_0
     if-eqz v0, :cond_1
 
-    const v0, 0x7f040319
+    const v0, 0x7f040353
 
     goto :goto_0
 
     :cond_1
     if-eqz v1, :cond_2
 
-    const v0, 0x7f040318
+    const v0, 0x7f040352
 
     goto :goto_0
 
@@ -175,16 +158,6 @@
     .locals 0
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->hasAsyncUpdate()Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
 
     move-result p0
 

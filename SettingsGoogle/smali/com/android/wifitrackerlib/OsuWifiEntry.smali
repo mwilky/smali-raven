@@ -24,6 +24,8 @@
     .end annotation
 .end field
 
+.field private mHasAddConfigUserRestriction:Z
+
 .field private mIsAlreadyProvisioned:Z
 
 .field private final mKey:Ljava/lang/String;
@@ -34,62 +36,11 @@
 
 .field private mSsid:Ljava/lang/String;
 
+.field private final mUserManager:Landroid/os/UserManager;
+
 
 # direct methods
-.method constructor <init>(Landroid/content/Context;Landroid/os/Handler;Landroid/net/wifi/hotspot2/OsuProvider;Landroid/net/wifi/WifiManager;Landroid/net/wifi/WifiNetworkScoreCache;Z)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/lang/IllegalArgumentException;
-        }
-    .end annotation
-
-    invoke-direct {p0, p2, p4, p5, p6}, Lcom/android/wifitrackerlib/WifiEntry;-><init>(Landroid/os/Handler;Landroid/net/wifi/WifiManager;Landroid/net/wifi/WifiNetworkScoreCache;Z)V
-
-    new-instance p2, Ljava/util/ArrayList;
-
-    invoke-direct {p2}, Ljava/util/ArrayList;-><init>()V
-
-    iput-object p2, p0, Lcom/android/wifitrackerlib/OsuWifiEntry;->mCurrentScanResults:Ljava/util/List;
-
-    const/4 p2, 0x0
-
-    iput-boolean p2, p0, Lcom/android/wifitrackerlib/OsuWifiEntry;->mIsAlreadyProvisioned:Z
-
-    const-string p2, "Cannot construct with null osuProvider!"
-
-    invoke-static {p3, p2}, Landroidx/core/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iput-object p1, p0, Lcom/android/wifitrackerlib/OsuWifiEntry;->mContext:Landroid/content/Context;
-
-    iput-object p3, p0, Lcom/android/wifitrackerlib/OsuWifiEntry;->mOsuProvider:Landroid/net/wifi/hotspot2/OsuProvider;
-
-    invoke-static {p3}, Lcom/android/wifitrackerlib/OsuWifiEntry;->osuProviderToOsuWifiEntryKey(Landroid/net/wifi/hotspot2/OsuProvider;)Ljava/lang/String;
-
-    move-result-object p1
-
-    iput-object p1, p0, Lcom/android/wifitrackerlib/OsuWifiEntry;->mKey:Ljava/lang/String;
-
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/wifitrackerlib/OsuWifiEntry;)Ljava/lang/String;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/wifitrackerlib/OsuWifiEntry;->mOsuStatusString:Ljava/lang/String;
-
-    return-object p0
-.end method
-
-.method static synthetic access$002(Lcom/android/wifitrackerlib/OsuWifiEntry;Ljava/lang/String;)Ljava/lang/String;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/wifitrackerlib/OsuWifiEntry;->mOsuStatusString:Ljava/lang/String;
-
-    return-object p1
-.end method
-
-.method static synthetic access$100(Lcom/android/wifitrackerlib/OsuWifiEntry;)Landroid/content/Context;
+.method static bridge synthetic -$$Nest$fgetmContext(Lcom/android/wifitrackerlib/OsuWifiEntry;)Landroid/content/Context;
     .locals 0
 
     iget-object p0, p0, Lcom/android/wifitrackerlib/OsuWifiEntry;->mContext:Landroid/content/Context;
@@ -97,12 +48,111 @@
     return-object p0
 .end method
 
-.method static synthetic access$200(Lcom/android/wifitrackerlib/OsuWifiEntry;)Landroid/net/wifi/hotspot2/OsuProvider;
+.method static bridge synthetic -$$Nest$fgetmOsuProvider(Lcom/android/wifitrackerlib/OsuWifiEntry;)Landroid/net/wifi/hotspot2/OsuProvider;
     .locals 0
 
     iget-object p0, p0, Lcom/android/wifitrackerlib/OsuWifiEntry;->mOsuProvider:Landroid/net/wifi/hotspot2/OsuProvider;
 
     return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmOsuStatusString(Lcom/android/wifitrackerlib/OsuWifiEntry;)Ljava/lang/String;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/wifitrackerlib/OsuWifiEntry;->mOsuStatusString:Ljava/lang/String;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmOsuStatusString(Lcom/android/wifitrackerlib/OsuWifiEntry;Ljava/lang/String;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/wifitrackerlib/OsuWifiEntry;->mOsuStatusString:Ljava/lang/String;
+
+    return-void
+.end method
+
+.method constructor <init>(Lcom/android/wifitrackerlib/WifiTrackerInjector;Landroid/content/Context;Landroid/os/Handler;Landroid/net/wifi/hotspot2/OsuProvider;Landroid/net/wifi/WifiManager;Z)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/IllegalArgumentException;
+        }
+    .end annotation
+
+    invoke-direct {p0, p3, p5, p6}, Lcom/android/wifitrackerlib/WifiEntry;-><init>(Landroid/os/Handler;Landroid/net/wifi/WifiManager;Z)V
+
+    new-instance p3, Ljava/util/ArrayList;
+
+    invoke-direct {p3}, Ljava/util/ArrayList;-><init>()V
+
+    iput-object p3, p0, Lcom/android/wifitrackerlib/OsuWifiEntry;->mCurrentScanResults:Ljava/util/List;
+
+    const/4 p3, 0x0
+
+    iput-boolean p3, p0, Lcom/android/wifitrackerlib/OsuWifiEntry;->mIsAlreadyProvisioned:Z
+
+    iput-boolean p3, p0, Lcom/android/wifitrackerlib/OsuWifiEntry;->mHasAddConfigUserRestriction:Z
+
+    const-string p3, "Cannot construct with null osuProvider!"
+
+    invoke-static {p4, p3}, Landroidx/core/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iput-object p2, p0, Lcom/android/wifitrackerlib/OsuWifiEntry;->mContext:Landroid/content/Context;
+
+    iput-object p4, p0, Lcom/android/wifitrackerlib/OsuWifiEntry;->mOsuProvider:Landroid/net/wifi/hotspot2/OsuProvider;
+
+    invoke-static {p4}, Lcom/android/wifitrackerlib/OsuWifiEntry;->osuProviderToOsuWifiEntryKey(Landroid/net/wifi/hotspot2/OsuProvider;)Ljava/lang/String;
+
+    move-result-object p2
+
+    iput-object p2, p0, Lcom/android/wifitrackerlib/OsuWifiEntry;->mKey:Ljava/lang/String;
+
+    invoke-virtual {p1}, Lcom/android/wifitrackerlib/WifiTrackerInjector;->getUserManager()Landroid/os/UserManager;
+
+    move-result-object p1
+
+    iput-object p1, p0, Lcom/android/wifitrackerlib/OsuWifiEntry;->mUserManager:Landroid/os/UserManager;
+
+    invoke-static {}, Landroidx/core/os/BuildCompat;->isAtLeastT()Z
+
+    move-result p2
+
+    if-eqz p2, :cond_0
+
+    if-eqz p1, :cond_0
+
+    const-string p2, "no_add_wifi_config"
+
+    invoke-virtual {p1, p2}, Landroid/os/UserManager;->hasUserRestriction(Ljava/lang/String;)Z
+
+    move-result p1
+
+    iput-boolean p1, p0, Lcom/android/wifitrackerlib/OsuWifiEntry;->mHasAddConfigUserRestriction:Z
+
+    :cond_0
+    return-void
+.end method
+
+.method private hasAdminRestrictions()Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/wifitrackerlib/OsuWifiEntry;->mHasAddConfigUserRestriction:Z
+
+    if-eqz v0, :cond_0
+
+    iget-boolean p0, p0, Lcom/android/wifitrackerlib/OsuWifiEntry;->mIsAlreadyProvisioned:Z
+
+    if-nez p0, :cond_0
+
+    const/4 p0, 0x1
+
+    return p0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    return p0
 .end method
 
 .method static osuProviderToOsuWifiEntryKey(Landroid/net/wifi/hotspot2/OsuProvider;)Ljava/lang/String;
@@ -150,36 +200,47 @@
 
 # virtual methods
 .method public declared-synchronized canConnect()Z
-    .locals 2
+    .locals 3
 
     monitor-enter p0
 
     :try_start_0
-    iget v0, p0, Lcom/android/wifitrackerlib/WifiEntry;->mLevel:I
-
-    const/4 v1, -0x1
-
-    if-eq v0, v1, :cond_0
-
-    invoke-virtual {p0}, Lcom/android/wifitrackerlib/WifiEntry;->getConnectedState()I
+    invoke-direct {p0}, Lcom/android/wifitrackerlib/OsuWifiEntry;->hasAdminRestrictions()Z
 
     move-result v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-nez v0, :cond_0
+    const/4 v1, 0x0
 
-    const/4 v0, 0x1
+    if-eqz v0, :cond_0
 
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    :goto_0
     monitor-exit p0
 
-    return v0
+    return v1
+
+    :cond_0
+    :try_start_1
+    iget v0, p0, Lcom/android/wifitrackerlib/WifiEntry;->mLevel:I
+
+    const/4 v2, -0x1
+
+    if-eq v0, v2, :cond_1
+
+    invoke-virtual {p0}, Lcom/android/wifitrackerlib/WifiEntry;->getConnectedState()I
+
+    move-result v0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    if-nez v0, :cond_1
+
+    const/4 v1, 0x1
+
+    :cond_1
+    monitor-exit p0
+
+    return v1
 
     :catchall_0
     move-exception v0
@@ -327,25 +388,47 @@
     monitor-enter p0
 
     :try_start_0
-    iget-object v0, p0, Lcom/android/wifitrackerlib/OsuWifiEntry;->mOsuStatusString:Ljava/lang/String;
+    invoke-direct {p0}, Lcom/android/wifitrackerlib/OsuWifiEntry;->hasAdminRestrictions()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object p1, p0, Lcom/android/wifitrackerlib/OsuWifiEntry;->mContext:Landroid/content/Context;
+
+    sget v0, Lcom/android/wifitrackerlib/R$string;->wifitrackerlib_admin_restricted_network:I
+
+    invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object p1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-eqz v0, :cond_0
+    monitor-exit p0
+
+    return-object p1
+
+    :cond_0
+    :try_start_1
+    iget-object v0, p0, Lcom/android/wifitrackerlib/OsuWifiEntry;->mOsuStatusString:Ljava/lang/String;
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    if-eqz v0, :cond_1
 
     monitor-exit p0
 
     return-object v0
 
-    :cond_0
-    :try_start_1
+    :cond_1
+    :try_start_2
     invoke-virtual {p0}, Lcom/android/wifitrackerlib/OsuWifiEntry;->isAlreadyProvisioned()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_2
 
     iget-object p1, p0, Lcom/android/wifitrackerlib/OsuWifiEntry;->mContext:Landroid/content/Context;
 
@@ -357,7 +440,7 @@
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     iget-object p1, p0, Lcom/android/wifitrackerlib/OsuWifiEntry;->mContext:Landroid/content/Context;
 
     sget v0, Lcom/android/wifitrackerlib/R$string;->wifitrackerlib_tap_to_renew_subscription_and_connect:I
@@ -365,16 +448,16 @@
     invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object p1
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     :goto_0
     monitor-exit p0
 
     return-object p1
 
-    :cond_2
-    :try_start_2
+    :cond_3
+    :try_start_3
     iget-object p1, p0, Lcom/android/wifitrackerlib/OsuWifiEntry;->mContext:Landroid/content/Context;
 
     sget v0, Lcom/android/wifitrackerlib/R$string;->wifitrackerlib_tap_to_sign_up:I
@@ -382,8 +465,8 @@
     invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object p1
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     monitor-exit p0
 

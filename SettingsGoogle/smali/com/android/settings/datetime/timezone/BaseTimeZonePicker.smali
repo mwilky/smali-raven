@@ -142,7 +142,7 @@
 
     invoke-virtual {p2, v0, p1}, Landroid/view/MenuInflater;->inflate(ILandroid/view/Menu;)V
 
-    const p2, 0x7f0d05cd
+    const p2, 0x7f0d060f
 
     invoke-interface {p1, p2}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
@@ -197,7 +197,7 @@
     :cond_0
     iget-object p1, p0, Lcom/android/settings/datetime/timezone/BaseTimeZonePicker;->mSearchView:Landroid/widget/SearchView;
 
-    const p2, 0x1020464
+    const p2, 0x1020494
 
     invoke-virtual {p1, p2}, Landroid/widget/SearchView;->findViewById(I)Landroid/view/View;
 
@@ -217,7 +217,7 @@
 
     iget-object p0, p0, Lcom/android/settings/datetime/timezone/BaseTimeZonePicker;->mSearchView:Landroid/widget/SearchView;
 
-    const p1, 0x1020460
+    const p1, 0x1020490
 
     invoke-virtual {p0, p1}, Landroid/widget/SearchView;->findViewById(I)Landroid/view/View;
 
@@ -242,7 +242,7 @@
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 3
 
-    const p3, 0x7f0601d5
+    const p3, 0x7f0601e2
 
     const/4 v0, 0x0
 
@@ -250,7 +250,7 @@
 
     move-result-object p1
 
-    const p2, 0x7f0d048b
+    const p2, 0x7f0d04c4
 
     invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -282,7 +282,7 @@
 
     move-result-object p2
 
-    const p3, 0x7f0d0090
+    const p3, 0x7f0d0092
 
     invoke-virtual {p2, p3}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 

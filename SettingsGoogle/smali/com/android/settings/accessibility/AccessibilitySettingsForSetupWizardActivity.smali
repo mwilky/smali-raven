@@ -19,31 +19,6 @@
 .method private applyTheme()V
     .locals 1
 
-    invoke-static {p0}, Lcom/google/android/setupdesign/util/ThemeHelper;->trySetDynamicColor(Landroid/content/Context;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    invoke-static {p0}, Lcom/google/android/setupdesign/util/ThemeHelper;->isSetupWizardDayNightEnabled(Landroid/content/Context;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const v0, 0x7f130212
-
-    goto :goto_0
-
-    :cond_0
-    const v0, 0x7f130211
-
-    :goto_0
-    invoke-virtual {p0, v0}, Landroid/app/Activity;->setTheme(I)V
-
-    goto :goto_1
-
-    :cond_1
     invoke-virtual {p0}, Lcom/android/settings/SettingsActivity;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
@@ -54,7 +29,12 @@
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->setTheme(I)V
 
-    :goto_1
+    const v0, 0x7f130204
+
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->setTheme(I)V
+
+    invoke-static {p0}, Lcom/google/android/setupdesign/util/ThemeHelper;->trySetDynamicColor(Landroid/content/Context;)Z
+
     return-void
 .end method
 
@@ -67,9 +47,7 @@
 
     invoke-direct {p0}, Lcom/android/settings/accessibility/AccessibilitySettingsForSetupWizardActivity;->applyTheme()V
 
-    invoke-virtual {p0}, Lcom/android/settings/accessibility/AccessibilitySettingsForSetupWizardActivity;->tryLaunchFontSizeSettings()V
-
-    const p1, 0x7f0d017a
+    const p1, 0x7f0d018f
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -229,68 +207,5 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/SettingsActivity;->onSaveInstanceState(Landroid/os/Bundle;)V
 
-    return-void
-.end method
-
-.method tryLaunchFontSizeSettings()V
-    .locals 3
-
-    invoke-virtual {p0}, Lcom/android/settings/SettingsActivity;->getIntent()Landroid/content/Intent;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/google/android/setupcompat/util/WizardManagerHelper;->isAnySetupWizard(Landroid/content/Intent;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    new-instance v0, Landroid/content/ComponentName;
-
-    invoke-virtual {p0}, Landroid/app/Activity;->getPackageName()Ljava/lang/String;
-
-    move-result-object v1
-
-    const-string v2, "com.android.settings.FontSizeSettingsForSetupWizardActivity"
-
-    invoke-direct {v0, v1, v2}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
-
-    invoke-virtual {p0}, Lcom/android/settings/SettingsActivity;->getIntent()Landroid/content/Intent;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/content/ComponentName;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    new-instance v0, Landroid/content/Intent;
-
-    const-class v1, Lcom/android/settings/accessibility/AccessibilityScreenSizeForSetupWizardActivity;
-
-    invoke-direct {v0, p0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
-
-    const/4 v1, 0x1
-
-    const-string/jumbo v2, "vision_fragment_no"
-
-    invoke-virtual {v0, v2, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
-
-    invoke-virtual {p0, v0}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
-
-    const-string v0, "A11ySettingsForSUW"
-
-    const-string v1, "Launch font size settings"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
-
-    :cond_0
     return-void
 .end method

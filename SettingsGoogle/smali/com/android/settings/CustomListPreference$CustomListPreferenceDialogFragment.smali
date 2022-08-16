@@ -19,15 +19,7 @@
 
 
 # direct methods
-.method public constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Landroidx/preference/ListPreferenceDialogFragmentCompat;-><init>()V
-
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/CustomListPreference$CustomListPreferenceDialogFragment;)Lcom/android/settings/CustomListPreference;
+.method static bridge synthetic -$$Nest$mgetCustomizablePreference(Lcom/android/settings/CustomListPreference$CustomListPreferenceDialogFragment;)Lcom/android/settings/CustomListPreference;
     .locals 0
 
     invoke-direct {p0}, Lcom/android/settings/CustomListPreference$CustomListPreferenceDialogFragment;->getCustomizablePreference()Lcom/android/settings/CustomListPreference;
@@ -35,6 +27,14 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method public constructor <init>()V
+    .locals 0
+
+    invoke-direct {p0}, Landroidx/preference/ListPreferenceDialogFragmentCompat;-><init>()V
+
+    return-void
 .end method
 
 .method private getCustomizablePreference()Lcom/android/settings/CustomListPreference;
@@ -337,7 +337,7 @@
 
     if-nez v0, :cond_0
 
-    const v0, 0x7f040ecc
+    const v0, 0x7f040f60
 
     new-instance v1, Lcom/android/settings/CustomListPreference$CustomListPreferenceDialogFragment$1;
 

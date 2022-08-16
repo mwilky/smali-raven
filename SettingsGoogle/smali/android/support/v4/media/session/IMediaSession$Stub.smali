@@ -26,14 +26,6 @@
 # direct methods
 .method public static asInterface(Landroid/os/IBinder;)Landroid/support/v4/media/session/IMediaSession;
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "obj"
-        }
-    .end annotation
 
     if-nez p0, :cond_0
 

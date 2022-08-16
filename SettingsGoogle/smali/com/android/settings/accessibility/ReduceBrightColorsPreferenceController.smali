@@ -1,9 +1,8 @@
 .class public Lcom/android/settings/accessibility/ReduceBrightColorsPreferenceController;
-.super Lcom/android/settings/core/TogglePreferenceController;
+.super Lcom/android/settings/accessibility/AccessibilityQuickSettingsPrimarySwitchPreferenceController;
 .source "ReduceBrightColorsPreferenceController.java"
 
 # interfaces
-.implements Lcom/android/settingslib/core/lifecycle/LifecycleObserver;
 .implements Lcom/android/settingslib/core/lifecycle/events/OnStart;
 .implements Lcom/android/settingslib/core/lifecycle/events/OnStop;
 
@@ -13,16 +12,24 @@
 
 .field private final mContext:Landroid/content/Context;
 
-.field private mPreference:Lcom/android/settings/widget/PrimarySwitchPreference;
+.field private mPreference:Lcom/android/settingslib/PrimarySwitchPreference;
 
 .field private mSettingsContentObserver:Landroid/database/ContentObserver;
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmPreference(Lcom/android/settings/accessibility/ReduceBrightColorsPreferenceController;)Lcom/android/settingslib/PrimarySwitchPreference;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/accessibility/ReduceBrightColorsPreferenceController;->mPreference:Lcom/android/settingslib/PrimarySwitchPreference;
+
+    return-object p0
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;)V
     .locals 2
 
-    invoke-direct {p0, p1, p2}, Lcom/android/settings/core/TogglePreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;)V
+    invoke-direct {p0, p1, p2}, Lcom/android/settings/accessibility/AccessibilityQuickSettingsPrimarySwitchPreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
     iput-object p1, p0, Lcom/android/settings/accessibility/ReduceBrightColorsPreferenceController;->mContext:Landroid/content/Context;
 
@@ -53,28 +60,12 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/settings/accessibility/ReduceBrightColorsPreferenceController;)Lcom/android/settings/widget/PrimarySwitchPreference;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/accessibility/ReduceBrightColorsPreferenceController;->mPreference:Lcom/android/settings/widget/PrimarySwitchPreference;
-
-    return-object p0
-.end method
-
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public displayPreference(Landroidx/preference/PreferenceScreen;)V
     .locals 1
 
-    invoke-super {p0, p1}, Lcom/android/settings/core/BasePreferenceController;->displayPreference(Landroidx/preference/PreferenceScreen;)V
+    invoke-super {p0, p1}, Lcom/android/settings/accessibility/AccessibilityQuickSettingsPrimarySwitchPreferenceController;->displayPreference(Landroidx/preference/PreferenceScreen;)V
 
     invoke-virtual {p0}, Lcom/android/settings/core/BasePreferenceController;->getPreferenceKey()Ljava/lang/String;
 
@@ -84,9 +75,9 @@
 
     move-result-object p1
 
-    check-cast p1, Lcom/android/settings/widget/PrimarySwitchPreference;
+    check-cast p1, Lcom/android/settingslib/PrimarySwitchPreference;
 
-    iput-object p1, p0, Lcom/android/settings/accessibility/ReduceBrightColorsPreferenceController;->mPreference:Lcom/android/settings/widget/PrimarySwitchPreference;
+    iput-object p1, p0, Lcom/android/settings/accessibility/ReduceBrightColorsPreferenceController;->mPreference:Lcom/android/settingslib/PrimarySwitchPreference;
 
     return-void
 .end method
@@ -115,15 +106,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -145,7 +127,7 @@
 .method public getSliceHighlightMenuRes()I
     .locals 0
 
-    const p0, 0x7f040d02
+    const p0, 0x7f040d7d
 
     return p0
 .end method
@@ -155,7 +137,29 @@
 
     iget-object p0, p0, Lcom/android/settings/accessibility/ReduceBrightColorsPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f04101a
+    const v0, 0x7f0410c0
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method protected getTileComponentName()Landroid/content/ComponentName;
+    .locals 0
+
+    sget-object p0, Lcom/android/internal/accessibility/AccessibilityShortcutController;->REDUCE_BRIGHT_COLORS_TILE_SERVICE_COMPONENT_NAME:Landroid/content/ComponentName;
+
+    return-object p0
+.end method
+
+.method getTileTooltipContent()Ljava/lang/CharSequence;
+    .locals 1
+
+    iget-object p0, p0, Lcom/android/settings/accessibility/ReduceBrightColorsPreferenceController;->mContext:Landroid/content/Context;
+
+    const v0, 0x7f040120
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -186,16 +190,6 @@
     return p0
 .end method
 
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
-
-    move-result p0
-
-    return p0
-.end method
-
 .method public onStart()V
     .locals 4
 
@@ -205,7 +199,7 @@
 
     move-result-object v0
 
-    const-string v1, "reduce_bright_colors_activated"
+    const-string/jumbo v1, "reduce_bright_colors_activated"
 
     invoke-static {v1}, Landroid/provider/Settings$Secure;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
@@ -240,6 +234,8 @@
 
 .method public setChecked(Z)Z
     .locals 0
+
+    invoke-super {p0, p1}, Lcom/android/settings/accessibility/AccessibilityQuickSettingsPrimarySwitchPreferenceController;->setChecked(Z)Z
 
     iget-object p0, p0, Lcom/android/settings/accessibility/ReduceBrightColorsPreferenceController;->mColorDisplayManager:Landroid/hardware/display/ColorDisplayManager;
 

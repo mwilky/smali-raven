@@ -20,6 +20,26 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$S5I37wkc6ygQbdBDYMZSPJzxulU(Landroid/companion/AssociationInfo;)Ljava/lang/String;
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/settings/notification/NotificationBackend;->lambda$getDeviceList$1(Landroid/companion/AssociationInfo;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static synthetic $r8$lambda$UpJKuCI4tZJB7wZGXekq8lYJNSo(Ljava/lang/String;)Z
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/settings/notification/NotificationBackend;->lambda$recordCanBeBlocked$0(Ljava/lang/String;)Z
+
+    move-result p0
+
+    return p0
+.end method
+
 .method static constructor <clinit>()V
     .locals 1
 
@@ -98,6 +118,14 @@
 
     :try_start_0
     invoke-interface {p0, p2, p3}, Landroid/companion/ICompanionDeviceManager;->getAssociations(Ljava/lang/String;I)Ljava/util/List;
+
+    move-result-object p0
+
+    new-instance p2, Lcom/android/settings/notification/NotificationBackend$$ExternalSyntheticLambda0;
+
+    invoke-direct {p2}, Lcom/android/settings/notification/NotificationBackend$$ExternalSyntheticLambda0;-><init>()V
+
+    invoke-static {p0, p2}, Lcom/android/internal/util/CollectionUtils;->mapNotNull(Ljava/util/List;Ljava/util/function/Function;)Ljava/util/List;
 
     move-result-object p0
 
@@ -219,7 +247,7 @@
 
     if-nez p2, :cond_1
 
-    const p1, 0x7f040ebd
+    const p1, 0x7f040f51
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -297,58 +325,42 @@
     return-object p0
 .end method
 
-.method static markAppRowWithBlockables([Ljava/lang/String;Lcom/android/settings/notification/NotificationBackend$AppRow;Ljava/lang/String;)V
-    .locals 4
+.method private static synthetic lambda$getDeviceList$1(Landroid/companion/AssociationInfo;)Ljava/lang/String;
+    .locals 1
 
-    if-eqz p0, :cond_3
+    invoke-virtual {p0}, Landroid/companion/AssociationInfo;->isSelfManaged()Z
 
-    array-length v0, p0
+    move-result v0
 
-    const/4 v1, 0x0
+    if-eqz v0, :cond_0
 
-    :goto_0
-    if-ge v1, v0, :cond_3
-
-    aget-object v2, p0, v1
-
-    if-nez v2, :cond_0
-
-    goto :goto_1
-
-    :cond_0
-    const-string v3, ":"
-
-    invoke-virtual {v2, v3}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    goto :goto_1
-
-    :cond_1
-    aget-object v2, p0, v1
-
-    invoke-virtual {p2, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_2
-
-    const/4 v2, 0x1
-
-    iput-boolean v2, p1, Lcom/android/settings/notification/NotificationBackend$AppRow;->lockedImportance:Z
-
-    iput-boolean v2, p1, Lcom/android/settings/notification/NotificationBackend$AppRow;->systemApp:Z
-
-    :cond_2
-    :goto_1
-    add-int/lit8 v1, v1, 0x1
+    const/4 p0, 0x0
 
     goto :goto_0
 
-    :cond_3
-    return-void
+    :cond_0
+    invoke-virtual {p0}, Landroid/companion/AssociationInfo;->getDeviceMacAddress()Landroid/net/MacAddress;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroid/net/MacAddress;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    :goto_0
+    return-object p0
+.end method
+
+.method private static synthetic lambda$recordCanBeBlocked$0(Ljava/lang/String;)Z
+    .locals 1
+
+    const-string v0, "android.permission.POST_NOTIFICATIONS"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    return p0
 .end method
 
 
@@ -404,6 +416,75 @@
 
     :goto_0
     return-void
+.end method
+
+.method public enableSwitch(Landroid/content/Context;Landroid/content/pm/ApplicationInfo;)Z
+    .locals 2
+
+    const/4 v0, 0x0
+
+    :try_start_0
+    invoke-virtual {p1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object p1
+
+    iget-object p2, p2, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+
+    const/16 v1, 0x1000
+
+    invoke-virtual {p1, p2, v1}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
+
+    move-result-object p1
+
+    new-instance p2, Lcom/android/settings/notification/NotificationBackend$AppRow;
+
+    invoke-direct {p2}, Lcom/android/settings/notification/NotificationBackend$AppRow;-><init>()V
+
+    invoke-virtual {p0, p1, p2}, Lcom/android/settings/notification/NotificationBackend;->recordCanBeBlocked(Landroid/content/pm/PackageInfo;Lcom/android/settings/notification/NotificationBackend$AppRow;)V
+
+    iget-boolean p0, p2, Lcom/android/settings/notification/NotificationBackend$AppRow;->systemApp:Z
+
+    const/4 p1, 0x1
+
+    if-eqz p0, :cond_1
+
+    if-eqz p0, :cond_0
+
+    iget-boolean p0, p2, Lcom/android/settings/notification/NotificationBackend$AppRow;->banned:Z
+
+    if-eqz p0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    move p0, v0
+
+    goto :goto_1
+
+    :cond_1
+    :goto_0
+    move p0, p1
+
+    :goto_1
+    if-eqz p0, :cond_2
+
+    iget-boolean p0, p2, Lcom/android/settings/notification/NotificationBackend$AppRow;->lockedImportance:Z
+    :try_end_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+
+    if-nez p0, :cond_2
+
+    move v0, p1
+
+    :cond_2
+    return v0
+
+    :catch_0
+    move-exception p0
+
+    invoke-virtual {p0}, Landroid/content/pm/PackageManager$NameNotFoundException;->printStackTrace()V
+
+    return v0
 .end method
 
 .method public getAllowedNotificationAssistant()Landroid/content/ComponentName;
@@ -597,7 +678,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b0109
+    const v1, 0x7f0b0126
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1039,6 +1120,34 @@
     return p0
 .end method
 
+.method public hasSentValidBubble(Ljava/lang/String;I)Z
+    .locals 0
+
+    :try_start_0
+    sget-object p0, Lcom/android/settings/notification/NotificationBackend;->sINM:Landroid/app/INotificationManager;
+
+    invoke-interface {p0, p1, p2}, Landroid/app/INotificationManager;->hasSentValidBubble(Ljava/lang/String;I)Z
+
+    move-result p0
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    return p0
+
+    :catch_0
+    move-exception p0
+
+    const-string p1, "NotificationBackend"
+
+    const-string p2, "Error calling NoMan"
+
+    invoke-static {p1, p2, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    const/4 p0, 0x0
+
+    return p0
+.end method
+
 .method public hasSentValidMsg(Ljava/lang/String;I)Z
     .locals 0
 
@@ -1149,90 +1258,6 @@
     const/4 p0, 0x0
 
     return p0
-.end method
-
-.method public isSystemApp(Landroid/content/Context;Landroid/content/pm/ApplicationInfo;)Z
-    .locals 8
-
-    :try_start_0
-    invoke-virtual {p1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object v0
-
-    iget-object p2, p2, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
-
-    const/16 v1, 0x40
-
-    invoke-virtual {v0, p2, v1}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
-
-    move-result-object v6
-
-    const-class p2, Landroid/app/role/RoleManager;
-
-    invoke-virtual {p1, p2}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
-
-    move-result-object p2
-
-    move-object v5, p2
-
-    check-cast v5, Landroid/app/role/RoleManager;
-
-    new-instance p2, Lcom/android/settings/notification/NotificationBackend$AppRow;
-
-    invoke-direct {p2}, Lcom/android/settings/notification/NotificationBackend$AppRow;-><init>()V
-
-    invoke-virtual {p1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object v4
-
-    move-object v2, p0
-
-    move-object v3, p1
-
-    move-object v7, p2
-
-    invoke-virtual/range {v2 .. v7}, Lcom/android/settings/notification/NotificationBackend;->recordCanBeBlocked(Landroid/content/Context;Landroid/content/pm/PackageManager;Landroid/app/role/RoleManager;Landroid/content/pm/PackageInfo;Lcom/android/settings/notification/NotificationBackend$AppRow;)V
-
-    iget-boolean p0, p2, Lcom/android/settings/notification/NotificationBackend$AppRow;->systemApp:Z
-    :try_end_0
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
-
-    return p0
-
-    :catch_0
-    move-exception p0
-
-    invoke-virtual {p0}, Landroid/content/pm/PackageManager$NameNotFoundException;->printStackTrace()V
-
-    const/4 p0, 0x0
-
-    return p0
-.end method
-
-.method public loadAppRow(Landroid/content/Context;Landroid/content/pm/PackageManager;Landroid/app/role/RoleManager;Landroid/content/pm/PackageInfo;)Lcom/android/settings/notification/NotificationBackend$AppRow;
-    .locals 7
-
-    iget-object v0, p4, Landroid/content/pm/PackageInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
-
-    invoke-virtual {p0, p1, p2, v0}, Lcom/android/settings/notification/NotificationBackend;->loadAppRow(Landroid/content/Context;Landroid/content/pm/PackageManager;Landroid/content/pm/ApplicationInfo;)Lcom/android/settings/notification/NotificationBackend$AppRow;
-
-    move-result-object v0
-
-    move-object v1, p0
-
-    move-object v2, p1
-
-    move-object v3, p2
-
-    move-object v4, p3
-
-    move-object v5, p4
-
-    move-object v6, v0
-
-    invoke-virtual/range {v1 .. v6}, Lcom/android/settings/notification/NotificationBackend;->recordCanBeBlocked(Landroid/content/Context;Landroid/content/pm/PackageManager;Landroid/app/role/RoleManager;Landroid/content/pm/PackageInfo;Lcom/android/settings/notification/NotificationBackend$AppRow;)V
-
-    return-object v0
 .end method
 
 .method public loadAppRow(Landroid/content/Context;Landroid/content/pm/PackageManager;Landroid/content/pm/ApplicationInfo;)Lcom/android/settings/notification/NotificationBackend$AppRow;
@@ -1360,6 +1385,20 @@
     invoke-virtual {p0, p1, v0}, Lcom/android/settings/notification/NotificationBackend;->recordAggregatedUsageEvents(Landroid/content/Context;Lcom/android/settings/notification/NotificationBackend$AppRow;)V
 
     return-object v0
+.end method
+
+.method public loadAppRow(Landroid/content/Context;Landroid/content/pm/PackageManager;Landroid/content/pm/PackageInfo;)Lcom/android/settings/notification/NotificationBackend$AppRow;
+    .locals 1
+
+    iget-object v0, p3, Landroid/content/pm/PackageInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    invoke-virtual {p0, p1, p2, v0}, Lcom/android/settings/notification/NotificationBackend;->loadAppRow(Landroid/content/Context;Landroid/content/pm/PackageManager;Landroid/content/pm/ApplicationInfo;)Lcom/android/settings/notification/NotificationBackend$AppRow;
+
+    move-result-object p1
+
+    invoke-virtual {p0, p3, p1}, Lcom/android/settings/notification/NotificationBackend;->recordCanBeBlocked(Landroid/content/pm/PackageInfo;Lcom/android/settings/notification/NotificationBackend$AppRow;)V
+
+    return-object p1
 .end method
 
 .method public onlyHasDefaultChannel(Ljava/lang/String;I)Z
@@ -1547,36 +1586,61 @@
     return-void
 .end method
 
-.method recordCanBeBlocked(Landroid/content/Context;Landroid/content/pm/PackageManager;Landroid/app/role/RoleManager;Landroid/content/pm/PackageInfo;Lcom/android/settings/notification/NotificationBackend$AppRow;)V
-    .locals 0
+.method recordCanBeBlocked(Landroid/content/pm/PackageInfo;Lcom/android/settings/notification/NotificationBackend$AppRow;)V
+    .locals 2
 
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    :try_start_0
+    sget-object p0, Lcom/android/settings/notification/NotificationBackend;->sINM:Landroid/app/INotificationManager;
 
-    move-result-object p0
+    iget-object v0, p1, Landroid/content/pm/PackageInfo;->packageName:Ljava/lang/String;
 
-    invoke-static {p0, p2, p4}, Lcom/android/settingslib/Utils;->isSystemPackage(Landroid/content/res/Resources;Landroid/content/pm/PackageManager;Landroid/content/pm/PackageInfo;)Z
+    iget-object v1, p1, Landroid/content/pm/PackageInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    iget v1, v1, Landroid/content/pm/ApplicationInfo;->uid:I
+
+    invoke-interface {p0, v0, v1}, Landroid/app/INotificationManager;->isImportanceLocked(Ljava/lang/String;I)Z
 
     move-result p0
 
-    iput-boolean p0, p5, Lcom/android/settings/notification/NotificationBackend$AppRow;->systemApp:Z
+    iput-boolean p0, p2, Lcom/android/settings/notification/NotificationBackend$AppRow;->lockedImportance:Z
 
-    iget-object p0, p4, Landroid/content/pm/PackageInfo;->packageName:Ljava/lang/String;
+    iput-boolean p0, p2, Lcom/android/settings/notification/NotificationBackend$AppRow;->systemApp:Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    invoke-virtual {p3, p0}, Landroid/app/role/RoleManager;->getHeldRolesFromController(Ljava/lang/String;)Ljava/util/List;
+    goto :goto_0
+
+    :catch_0
+    move-exception p0
+
+    const-string v0, "NotificationBackend"
+
+    const-string v1, "Error calling NMS"
+
+    invoke-static {v0, v1, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    :goto_0
+    iget-object p0, p1, Landroid/content/pm/PackageInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    iget p0, p0, Landroid/content/pm/ApplicationInfo;->targetSdkVersion:I
+
+    const/16 v0, 0x20
+
+    if-le p0, v0, :cond_1
+
+    iget-object p0, p1, Landroid/content/pm/PackageInfo;->requestedPermissions:[Ljava/lang/String;
+
+    if-eqz p0, :cond_0
+
+    invoke-static {p0}, Ljava/util/Arrays;->stream([Ljava/lang/Object;)Ljava/util/stream/Stream;
 
     move-result-object p0
 
-    const-string p2, "android.app.role.DIALER"
+    new-instance p1, Lcom/android/settings/notification/NotificationBackend$$ExternalSyntheticLambda1;
 
-    invoke-interface {p0, p2}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+    invoke-direct {p1}, Lcom/android/settings/notification/NotificationBackend$$ExternalSyntheticLambda1;-><init>()V
 
-    move-result p2
-
-    if-nez p2, :cond_0
-
-    const-string p2, "android.app.role.EMERGENCY"
-
-    invoke-interface {p0, p2}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+    invoke-interface {p0, p1}, Ljava/util/stream/Stream;->noneMatch(Ljava/util/function/Predicate;)Z
 
     move-result p0
 
@@ -1585,23 +1649,9 @@
     :cond_0
     const/4 p0, 0x1
 
-    iput-boolean p0, p5, Lcom/android/settings/notification/NotificationBackend$AppRow;->systemApp:Z
+    iput-boolean p0, p2, Lcom/android/settings/notification/NotificationBackend$AppRow;->lockedImportance:Z
 
     :cond_1
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object p0
-
-    const p1, 0x107006f
-
-    invoke-virtual {p0, p1}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
-
-    move-result-object p0
-
-    iget-object p1, p4, Landroid/content/pm/PackageInfo;->packageName:Ljava/lang/String;
-
-    invoke-static {p0, p5, p1}, Lcom/android/settings/notification/NotificationBackend;->markAppRowWithBlockables([Ljava/lang/String;Lcom/android/settings/notification/NotificationBackend$AppRow;Ljava/lang/String;)V
-
     return-void
 .end method
 
@@ -1755,6 +1805,14 @@
     invoke-static {p1, p2, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_0
+    return-void
+.end method
+
+.method setNm(Landroid/app/INotificationManager;)V
+    .locals 0
+
+    sput-object p1, Lcom/android/settings/notification/NotificationBackend;->sINM:Landroid/app/INotificationManager;
+
     return-void
 .end method
 

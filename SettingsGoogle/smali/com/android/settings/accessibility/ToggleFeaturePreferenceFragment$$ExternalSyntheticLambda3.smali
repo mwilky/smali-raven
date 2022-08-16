@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment$$ExternalSyntheticLambda3;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/view/accessibility/AccessibilityManager$TouchExplorationStateChangeListener;
+.implements Landroid/text/Html$ImageGetter;
 
 
 # instance fields
@@ -22,12 +23,14 @@
 
 
 # virtual methods
-.method public final onTouchExplorationStateChanged(Z)V
+.method public final getDrawable(Ljava/lang/String;)Landroid/graphics/drawable/Drawable;
     .locals 0
 
     iget-object p0, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment$$ExternalSyntheticLambda3;->f$0:Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;
 
-    invoke-static {p0, p1}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->$r8$lambda$WdCnBpafpzSK0kqZrACYywywCyU(Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;Z)V
+    invoke-static {p0, p1}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->$r8$lambda$TkvKvJbpM5BIiKg_luet2RAqDDY(Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;Ljava/lang/String;)Landroid/graphics/drawable/Drawable;
 
-    return-void
+    move-result-object p0
+
+    return-object p0
 .end method

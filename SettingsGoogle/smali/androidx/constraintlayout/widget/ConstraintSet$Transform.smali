@@ -248,7 +248,7 @@
 .end method
 
 .method fillFromAttributeList(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 5
+    .locals 4
 
     sget-object v0, Landroidx/constraintlayout/widget/R$styleable;->Transform:[I
 
@@ -267,7 +267,7 @@
     const/4 v1, 0x0
 
     :goto_0
-    if-ge v1, v0, :cond_1
+    if-ge v1, v0, :cond_0
 
     invoke-virtual {p1, v1}, Landroid/content/res/TypedArray;->getIndex(I)I
 
@@ -279,17 +279,11 @@
 
     move-result v3
 
-    const/16 v4, 0x15
-
     packed-switch v3, :pswitch_data_0
 
-    goto/16 :goto_1
+    goto :goto_1
 
     :pswitch_0
-    sget v3, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    if-lt v3, v4, :cond_0
-
     iput-boolean p2, p0, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->applyElevation:Z
 
     iget v3, p0, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->elevation:F
@@ -303,10 +297,6 @@
     goto :goto_1
 
     :pswitch_1
-    sget v3, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    if-lt v3, v4, :cond_0
-
     iget v3, p0, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->translationZ:F
 
     invoke-virtual {p1, v2, v3}, Landroid/content/res/TypedArray;->getDimension(IF)F
@@ -414,13 +404,12 @@
 
     iput v2, p0, Landroidx/constraintlayout/widget/ConstraintSet$Transform;->rotation:F
 
-    :cond_0
     :goto_1
     add-int/lit8 v1, v1, 0x1
 
-    goto/16 :goto_0
+    goto :goto_0
 
-    :cond_1
+    :cond_0
     invoke-virtual {p1}, Landroid/content/res/TypedArray;->recycle()V
 
     return-void

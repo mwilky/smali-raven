@@ -70,14 +70,6 @@
 
 .method public constructor <init>(Landroid/view/View;)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "target"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -224,20 +216,6 @@
 
 .method private computeTargetVelocity(IFFF)F
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "direction",
-            "coordinate",
-            "srcSize",
-            "dstSize"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/core/widget/AutoScrollHelper;->mRelativeEdges:[F
 
@@ -300,18 +278,6 @@
 
 .method static constrain(FFF)F
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "value",
-            "min",
-            "max"
-        }
-    .end annotation
 
     cmpl-float v0, p0, p2
 
@@ -332,18 +298,6 @@
 
 .method static constrain(III)I
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "value",
-            "min",
-            "max"
-        }
-    .end annotation
 
     if-le p0, p2, :cond_0
 
@@ -360,16 +314,6 @@
 
 .method private constrainEdgeValue(FF)F
     .locals 5
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "current",
-            "leading"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -438,20 +382,6 @@
 
 .method private getEdgeValue(FFFF)F
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "relativeValue",
-            "size",
-            "maxValue",
-            "current"
-        }
-    .end annotation
 
     mul-float/2addr p1, p2
 
@@ -589,25 +519,9 @@
 
 # virtual methods
 .method public abstract canTargetScrollHorizontally(I)Z
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "direction"
-        }
-    .end annotation
 .end method
 
 .method public abstract canTargetScrollVertically(I)Z
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "direction"
-        }
-    .end annotation
 .end method
 
 .method cancelTargetTouch()V
@@ -642,16 +556,6 @@
 
 .method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
     .locals 5
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "v",
-            "event"
-        }
-    .end annotation
 
     iget-boolean v0, p0, Landroidx/core/widget/AutoScrollHelper;->mEnabled:Z
 
@@ -770,28 +674,10 @@
 .end method
 
 .method public abstract scrollTargetBy(II)V
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "deltaX",
-            "deltaY"
-        }
-    .end annotation
 .end method
 
 .method public setActivationDelay(I)Landroidx/core/widget/AutoScrollHelper;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "delayMillis"
-        }
-    .end annotation
 
     iput p1, p0, Landroidx/core/widget/AutoScrollHelper;->mActivationDelay:I
 
@@ -800,14 +686,6 @@
 
 .method public setEdgeType(I)Landroidx/core/widget/AutoScrollHelper;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "type"
-        }
-    .end annotation
 
     iput p1, p0, Landroidx/core/widget/AutoScrollHelper;->mEdgeType:I
 
@@ -816,14 +694,6 @@
 
 .method public setEnabled(Z)Landroidx/core/widget/AutoScrollHelper;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "enabled"
-        }
-    .end annotation
 
     iget-boolean v0, p0, Landroidx/core/widget/AutoScrollHelper;->mEnabled:Z
 
@@ -841,16 +711,6 @@
 
 .method public setMaximumEdges(FF)Landroidx/core/widget/AutoScrollHelper;
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "horizontalMax",
-            "verticalMax"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/core/widget/AutoScrollHelper;->mMaximumEdges:[F
 
@@ -867,16 +727,6 @@
 
 .method public setMaximumVelocity(FF)Landroidx/core/widget/AutoScrollHelper;
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "horizontalMax",
-            "verticalMax"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/core/widget/AutoScrollHelper;->mMaximumVelocity:[F
 
@@ -899,16 +749,6 @@
 
 .method public setMinimumVelocity(FF)Landroidx/core/widget/AutoScrollHelper;
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "horizontalMin",
-            "verticalMin"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/core/widget/AutoScrollHelper;->mMinimumVelocity:[F
 
@@ -931,14 +771,6 @@
 
 .method public setRampDownDuration(I)Landroidx/core/widget/AutoScrollHelper;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "durationMillis"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/core/widget/AutoScrollHelper;->mScroller:Landroidx/core/widget/AutoScrollHelper$ClampedScroller;
 
@@ -949,14 +781,6 @@
 
 .method public setRampUpDuration(I)Landroidx/core/widget/AutoScrollHelper;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "durationMillis"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/core/widget/AutoScrollHelper;->mScroller:Landroidx/core/widget/AutoScrollHelper$ClampedScroller;
 
@@ -967,16 +791,6 @@
 
 .method public setRelativeEdges(FF)Landroidx/core/widget/AutoScrollHelper;
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "horizontal",
-            "vertical"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/core/widget/AutoScrollHelper;->mRelativeEdges:[F
 
@@ -993,16 +807,6 @@
 
 .method public setRelativeVelocity(FF)Landroidx/core/widget/AutoScrollHelper;
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "horizontal",
-            "vertical"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/core/widget/AutoScrollHelper;->mRelativeVelocity:[F
 

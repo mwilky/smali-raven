@@ -37,7 +37,7 @@
         .end annotation
     .end param
 
-    const-string v0, "rect"
+    const-string/jumbo v0, "rect"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -72,16 +72,16 @@
     :cond_0
     const-class v1, Landroidx/window/core/Bounds;
 
-    if-nez p1, :cond_1
+    if-eqz p1, :cond_1
 
-    const/4 v2, 0x0
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v2
 
     goto :goto_0
 
     :cond_1
-    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    move-result-object v2
+    const/4 v2, 0x0
 
     :goto_0
     invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
@@ -95,9 +95,7 @@
     return v2
 
     :cond_2
-    const-string v1, "null cannot be cast to non-null type androidx.window.core.Bounds"
-
-    invoke-static {p1, v1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    if-eqz p1, :cond_7
 
     check-cast p1, Landroidx/window/core/Bounds;
 
@@ -138,6 +136,15 @@
 
     :cond_6
     return v0
+
+    :cond_7
+    new-instance p0, Ljava/lang/NullPointerException;
+
+    const-string p1, "null cannot be cast to non-null type androidx.window.core.Bounds"
+
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+
+    throw p0
 .end method
 
 .method public final getBottom()I
@@ -313,7 +320,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     const-string v1, " { ["
 

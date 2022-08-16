@@ -43,12 +43,22 @@
     return-void
 .end method
 
+.method static bridge synthetic -$$Nest$smbuildPreferenceControllers(Landroid/content/Context;Lcom/android/settings/notification/SoundSettings;Lcom/android/settingslib/core/lifecycle/Lifecycle;)Ljava/util/List;
+    .locals 0
+
+    invoke-static {p0, p1, p2}, Lcom/android/settings/notification/SoundSettings;->buildPreferenceControllers(Landroid/content/Context;Lcom/android/settings/notification/SoundSettings;Lcom/android/settingslib/core/lifecycle/Lifecycle;)Ljava/util/List;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method static constructor <clinit>()V
     .locals 2
 
     new-instance v0, Lcom/android/settings/notification/SoundSettings$2;
 
-    const v1, 0x7f1500e3
+    const v1, 0x7f1500e8
 
     invoke-direct {v0, v1}, Lcom/android/settings/notification/SoundSettings$2;-><init>(I)V
 
@@ -85,18 +95,8 @@
     return-void
 .end method
 
-.method static synthetic access$000(Landroid/content/Context;Lcom/android/settings/notification/SoundSettings;Lcom/android/settingslib/core/lifecycle/Lifecycle;)Ljava/util/List;
-    .locals 0
-
-    invoke-static {p0, p1, p2}, Lcom/android/settings/notification/SoundSettings;->buildPreferenceControllers(Landroid/content/Context;Lcom/android/settings/notification/SoundSettings;Lcom/android/settingslib/core/lifecycle/Lifecycle;)Ljava/util/List;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
 .method private static buildPreferenceControllers(Landroid/content/Context;Lcom/android/settings/notification/SoundSettings;Lcom/android/settingslib/core/lifecycle/Lifecycle;)Ljava/util/List;
-    .locals 11
+    .locals 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -152,25 +152,21 @@
 
     invoke-direct {v5, p0, p1, p2}, Lcom/android/settings/notification/TouchSoundPreferenceController;-><init>(Landroid/content/Context;Lcom/android/settings/SettingsPreferenceFragment;Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
 
-    new-instance v6, Lcom/android/settings/notification/VibrateOnTouchPreferenceController;
+    new-instance v6, Lcom/android/settings/notification/DockAudioMediaPreferenceController;
 
-    invoke-direct {v6, p0, p1, p2}, Lcom/android/settings/notification/VibrateOnTouchPreferenceController;-><init>(Landroid/content/Context;Lcom/android/settings/SettingsPreferenceFragment;Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
+    invoke-direct {v6, p0, p1, p2}, Lcom/android/settings/notification/DockAudioMediaPreferenceController;-><init>(Landroid/content/Context;Lcom/android/settings/SettingsPreferenceFragment;Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
 
-    new-instance v7, Lcom/android/settings/notification/DockAudioMediaPreferenceController;
+    new-instance v7, Lcom/android/settings/notification/BootSoundPreferenceController;
 
-    invoke-direct {v7, p0, p1, p2}, Lcom/android/settings/notification/DockAudioMediaPreferenceController;-><init>(Landroid/content/Context;Lcom/android/settings/SettingsPreferenceFragment;Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
+    invoke-direct {v7, p0}, Lcom/android/settings/notification/BootSoundPreferenceController;-><init>(Landroid/content/Context;)V
 
-    new-instance v8, Lcom/android/settings/notification/BootSoundPreferenceController;
+    new-instance v8, Lcom/android/settings/notification/EmergencyTonePreferenceController;
 
-    invoke-direct {v8, p0}, Lcom/android/settings/notification/BootSoundPreferenceController;-><init>(Landroid/content/Context;)V
+    invoke-direct {v8, p0, p1, p2}, Lcom/android/settings/notification/EmergencyTonePreferenceController;-><init>(Landroid/content/Context;Lcom/android/settings/SettingsPreferenceFragment;Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
 
-    new-instance v9, Lcom/android/settings/notification/EmergencyTonePreferenceController;
+    new-instance v9, Lcom/android/settings/notification/VibrateIconPreferenceController;
 
-    invoke-direct {v9, p0, p1, p2}, Lcom/android/settings/notification/EmergencyTonePreferenceController;-><init>(Landroid/content/Context;Lcom/android/settings/SettingsPreferenceFragment;Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
-
-    new-instance v10, Lcom/android/settings/notification/VibrateIconPreferenceController;
-
-    invoke-direct {v10, p0, p1, p2}, Lcom/android/settings/notification/VibrateIconPreferenceController;-><init>(Landroid/content/Context;Lcom/android/settings/SettingsPreferenceFragment;Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
+    invoke-direct {v9, p0, p1, p2}, Lcom/android/settings/notification/VibrateIconPreferenceController;-><init>(Landroid/content/Context;Lcom/android/settings/SettingsPreferenceFragment;Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
@@ -182,7 +178,7 @@
 
     invoke-interface {v0, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    invoke-interface {v0, v10}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v9}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     invoke-interface {v0, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
@@ -190,15 +186,13 @@
 
     invoke-interface {v0, v8}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    invoke-interface {v0, v9}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
     new-instance p1, Lcom/android/settings/widget/PreferenceCategoryController;
 
     const-string p2, "other_sounds_and_vibrations_category"
 
     invoke-direct {p1, p0, p2}, Lcom/android/settings/widget/PreferenceCategoryController;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
-    const/16 p0, 0xa
+    const/16 p0, 0x9
 
     new-array p0, p0, [Lcom/android/settingslib/core/AbstractPreferenceController;
 
@@ -224,7 +218,7 @@
 
     const/4 p2, 0x5
 
-    aput-object v10, p0, p2
+    aput-object v9, p0, p2
 
     const/4 p2, 0x6
 
@@ -237,10 +231,6 @@
     const/16 p2, 0x8
 
     aput-object v8, p0, p2
-
-    const/16 p2, 0x9
-
-    aput-object v9, p0, p2
 
     invoke-static {p0}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
@@ -305,7 +295,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a47
+    const p0, 0x7f040aa0
 
     return p0
 .end method
@@ -329,7 +319,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f1500e3
+    const p0, 0x7f1500e8
 
     return p0
 .end method
@@ -478,7 +468,7 @@
 
     const/4 v0, 0x0
 
-    const-string v1, "selected_preference"
+    const-string/jumbo v1, "selected_preference"
 
     invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
@@ -514,6 +504,14 @@
     iput-object p1, p0, Lcom/android/settings/notification/SoundSettings;->mDialogFragment:Lcom/android/settingslib/widget/UpdatableListPreferenceDialogFragment;
 
     :cond_1
+    const p1, 0x7f041376
+
+    const-string/jumbo v0, "sound_work_settings"
+
+    const-string v1, "Settings.WORK_PROFILE_SOUND_SETTINGS_SECTION_HEADER"
+
+    invoke-virtual {p0, v0, v1, p1}, Lcom/android/settings/SettingsPreferenceFragment;->replaceEnterpriseStringTitle(Ljava/lang/String;Ljava/lang/String;I)V
+
     return-void
 .end method
 
@@ -666,7 +664,7 @@
 
     move-result-object p0
 
-    const-string v0, "selected_preference"
+    const-string/jumbo v0, "selected_preference"
 
     invoke-virtual {p1, v0, p0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 

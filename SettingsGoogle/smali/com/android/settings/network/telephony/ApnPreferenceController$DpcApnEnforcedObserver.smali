@@ -36,7 +36,7 @@
 
     iget-object p0, p0, Lcom/android/settings/network/telephony/ApnPreferenceController$DpcApnEnforcedObserver;->this$0:Lcom/android/settings/network/telephony/ApnPreferenceController;
 
-    invoke-static {p0}, Lcom/android/settings/network/telephony/ApnPreferenceController;->access$000(Lcom/android/settings/network/telephony/ApnPreferenceController;)Landroidx/preference/Preference;
+    invoke-static {p0}, Lcom/android/settings/network/telephony/ApnPreferenceController;->-$$Nest$fgetmPreference(Lcom/android/settings/network/telephony/ApnPreferenceController;)Landroidx/preference/Preference;
 
     move-result-object p1
 

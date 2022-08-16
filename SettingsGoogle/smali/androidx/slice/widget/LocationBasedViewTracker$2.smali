@@ -30,14 +30,6 @@
 # virtual methods
 .method public selectView(Landroid/view/View;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "view"
-        }
-    .end annotation
 
     const/16 p0, 0x40
 

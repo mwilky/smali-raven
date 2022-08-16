@@ -39,7 +39,7 @@
 
     iget-object p0, p0, Lcom/android/settings/bluetooth/BluetoothDevicePreference$1;->this$0:Lcom/android/settings/bluetooth/BluetoothDevicePreference;
 
-    invoke-static {p0}, Lcom/android/settings/bluetooth/BluetoothDevicePreference;->access$100(Lcom/android/settings/bluetooth/BluetoothDevicePreference;)Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
+    invoke-static {p0}, Lcom/android/settings/bluetooth/BluetoothDevicePreference;->-$$Nest$fgetmCachedDevice(Lcom/android/settings/bluetooth/BluetoothDevicePreference;)Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
 
     move-result-object p0
 

@@ -65,9 +65,6 @@
 
 # virtual methods
 .method protected abstract doEquivalent(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .annotation build Lcom/google/errorprone/annotations/ForOverride;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;TT;)Z"
@@ -76,9 +73,6 @@
 .end method
 
 .method protected abstract doHash(Ljava/lang/Object;)I
-    .annotation build Lcom/google/errorprone/annotations/ForOverride;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)I"

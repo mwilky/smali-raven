@@ -444,34 +444,17 @@
 .end method
 
 .method public static getAnimationScale(Landroid/content/Context;)F
-    .locals 4
-
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/high16 v1, 0x3f800000    # 1.0f
-
-    const-string v2, "animator_duration_scale"
-
-    const/16 v3, 0x11
-
-    if-lt v0, v3, :cond_0
+    .locals 2
 
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object p0
 
-    invoke-static {p0, v2, v1}, Landroid/provider/Settings$Global;->getFloat(Landroid/content/ContentResolver;Ljava/lang/String;F)F
+    const/high16 v0, 0x3f800000    # 1.0f
 
-    move-result p0
+    const-string v1, "animator_duration_scale"
 
-    return p0
-
-    :cond_0
-    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object p0
-
-    invoke-static {p0, v2, v1}, Landroid/provider/Settings$System;->getFloat(Landroid/content/ContentResolver;Ljava/lang/String;F)F
+    invoke-static {p0, v1, v0}, Landroid/provider/Settings$Global;->getFloat(Landroid/content/ContentResolver;Ljava/lang/String;F)F
 
     move-result p0
 
@@ -771,27 +754,15 @@
 .end method
 
 .method public static saveLayerCompat(Landroid/graphics/Canvas;Landroid/graphics/RectF;Landroid/graphics/Paint;I)V
-    .locals 3
+    .locals 0
 
-    const-string v0, "Utils#saveLayer"
+    const-string p3, "Utils#saveLayer"
 
-    invoke-static {v0}, Lcom/airbnb/lottie/L;->beginSection(Ljava/lang/String;)V
+    invoke-static {p3}, Lcom/airbnb/lottie/L;->beginSection(Ljava/lang/String;)V
 
-    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v2, 0x17
-
-    if-ge v1, v2, :cond_0
-
-    invoke-virtual {p0, p1, p2, p3}, Landroid/graphics/Canvas;->saveLayer(Landroid/graphics/RectF;Landroid/graphics/Paint;I)I
-
-    goto :goto_0
-
-    :cond_0
     invoke-virtual {p0, p1, p2}, Landroid/graphics/Canvas;->saveLayer(Landroid/graphics/RectF;Landroid/graphics/Paint;)I
 
-    :goto_0
-    invoke-static {v0}, Lcom/airbnb/lottie/L;->endSection(Ljava/lang/String;)F
+    invoke-static {p3}, Lcom/airbnb/lottie/L;->endSection(Ljava/lang/String;)F
 
     return-void
 .end method

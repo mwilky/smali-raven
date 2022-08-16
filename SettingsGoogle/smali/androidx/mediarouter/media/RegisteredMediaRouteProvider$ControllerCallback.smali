@@ -16,12 +16,4 @@
 
 # virtual methods
 .method public abstract onControllerReleasedByProvider(Landroidx/mediarouter/media/MediaRouteProvider$RouteController;)V
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "controller"
-        }
-    .end annotation
 .end method

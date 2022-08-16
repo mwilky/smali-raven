@@ -313,7 +313,7 @@
 
     move-result v1
 
-    const-string v7, "searchable"
+    const-string/jumbo v7, "searchable"
 
     invoke-virtual {v6, v7, v1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 

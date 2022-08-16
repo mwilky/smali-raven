@@ -205,6 +205,7 @@
         <item>60 ଦିନରୁ ଅଧିକ ପୁରୁଣା</item>
         <item>90 ଦିନରୁ ବି ଅଧିକ ପୁରୁଣା</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>0%</item>
         <item>50%</item>
@@ -348,17 +349,10 @@
         <item>ଉଠିକରିଥିବା</item>
         <item>ସଂକ୍ଷିପ୍ତ</item>
     </string-array>
-    <string-array name="captioning_font_size_selector_summaries">
-        <item>ଅତ୍ୟଧିକ ଛୋଟ ଟେକ୍ସଟ୍ ଆକାର</item>
-        <item>ଛୋଟ ଟେକ୍ସଟ୍ ଆକାର</item>
-        <item>ଡିଫଲ୍ଟ ଟେକ୍ସଟ୍ ଆକାର</item>
-        <item>ବଡ଼ ଟେକ୍ସଟ୍ ଆକାର</item>
-        <item>ଅତ୍ୟଧିକ ବଡ଼ ଟେକ୍ସଟ୍ ଆକାର</item>
-    </string-array>
     <string-array name="captioning_font_size_selector_titles">
         <item>ବହୁତ ଛୋଟ</item>
         <item>ଛୋଟ</item>
-        <item>ଡିଫଲ୍ଟ</item>
+        <item>ମଧ୍ୟମ</item>
         <item>ବହୁତ ବଡ଼</item>
         <item>ବହୁତ ବଡ଼</item>
     </string-array>
@@ -406,7 +400,7 @@
         <item>ମାନକ</item>
     </string-array>
     <string-array name="color_picker">
-        <item>ସାଇଆନ୍</item>
+        <item>ସିଆନ୍</item>
         <item>ନୀଳ</item>
         <item>ସବୁଜ</item>
         <item>ବାଇଗଣୀ</item>
@@ -489,6 +483,14 @@
         <item>SPN</item>
         <item>IMSI</item>
         <item>GID</item>
+    </string-array>
+    <string-array name="nfc_payment_favor">
+        <item>ସର୍ବଦା</item>
+        <item>ଅନ୍ୟ ଏକ ପେମେଣ୍ଟ ଆପ ଖୋଲା ଥିବା ସମୟ ବ୍ୟତୀତ</item>
+    </string-array>
+    <string-array name="nfc_payment_favor_values">
+        <item>0</item>
+        <item>1</item>
     </string-array>
     <string-array name="overlay_display_devices_entries">
         <item>କିଛି ନାହିଁ</item>
@@ -616,6 +618,17 @@
     <string-array name="swipe_direction_values">
         <item>1</item>
         <item>0</item>
+    </string-array>
+    <string-array name="switch_to_user_zero_when_docked_timeout_entries">
+        <item>କେବେ ବି ନୁହେଁ</item>
+        <item>1 ମିନିଟ ପରେ</item>
+        <item>5 ମିନିଟ ପରେ</item>
+    </string-array>
+    <string-array name="tare_modifiers_subfactors">
+        <item>ଚାର୍ଜ ହେଉଛି</item>
+        <item>ଡଜ୍</item>
+        <item>ପାୱାର ସେଭ୍ ମୋଡ୍</item>
+        <item>ପ୍ରକ୍ରିୟାର ସ୍ଥିତି</item>
     </string-array>
     <string-array name="timezone_filters">
         <item>ଆମେରିକା</item>

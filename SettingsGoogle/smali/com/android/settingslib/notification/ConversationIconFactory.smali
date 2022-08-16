@@ -32,6 +32,22 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$sfgetCIRCLE_RADIUS()F
+    .locals 1
+
+    sget v0, Lcom/android/settingslib/notification/ConversationIconFactory;->CIRCLE_RADIUS:F
+
+    return v0
+.end method
+
+.method static bridge synthetic -$$Nest$sfgetRING_STROKE_WIDTH()F
+    .locals 1
+
+    sget v0, Lcom/android/settingslib/notification/ConversationIconFactory;->RING_STROKE_WIDTH:F
+
+    return v0
+.end method
+
 .method static constructor <clinit>()V
     .locals 4
 
@@ -108,22 +124,6 @@
     iput p1, p0, Lcom/android/settingslib/notification/ConversationIconFactory;->mImportantConversationColor:I
 
     return-void
-.end method
-
-.method static synthetic access$000()F
-    .locals 1
-
-    sget v0, Lcom/android/settingslib/notification/ConversationIconFactory;->RING_STROKE_WIDTH:F
-
-    return v0
-.end method
-
-.method static synthetic access$100()F
-    .locals 1
-
-    sget v0, Lcom/android/settingslib/notification/ConversationIconFactory;->CIRCLE_RADIUS:F
-
-    return v0
 .end method
 
 

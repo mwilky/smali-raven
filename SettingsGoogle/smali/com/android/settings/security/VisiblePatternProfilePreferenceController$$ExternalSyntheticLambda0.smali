@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settings/security/VisiblePatternProfilePreferenceController$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/concurrent/Callable;

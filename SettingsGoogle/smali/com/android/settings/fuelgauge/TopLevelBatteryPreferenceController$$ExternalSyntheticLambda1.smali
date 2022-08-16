@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/settings/fuelgauge/TopLevelBatteryPreferenceController$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/settings/fuelgauge/BatteryInfo$Callback;
+.implements Lcom/android/settings/fuelgauge/BatteryBroadcastReceiver$OnBatteryChangedListener;
 
 
 # instance fields
@@ -22,12 +23,12 @@
 
 
 # virtual methods
-.method public final onBatteryInfoLoaded(Lcom/android/settings/fuelgauge/BatteryInfo;)V
+.method public final onBatteryChanged(I)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/settings/fuelgauge/TopLevelBatteryPreferenceController$$ExternalSyntheticLambda1;->f$0:Lcom/android/settings/fuelgauge/TopLevelBatteryPreferenceController;
 
-    invoke-static {p0, p1}, Lcom/android/settings/fuelgauge/TopLevelBatteryPreferenceController;->$r8$lambda$xPATdKI0ZANOtT77m5hPZ8FnzN4(Lcom/android/settings/fuelgauge/TopLevelBatteryPreferenceController;Lcom/android/settings/fuelgauge/BatteryInfo;)V
+    invoke-static {p0, p1}, Lcom/android/settings/fuelgauge/TopLevelBatteryPreferenceController;->$r8$lambda$IYm0EAvpRMZV8cI1oDnJGsoQD7o(Lcom/android/settings/fuelgauge/TopLevelBatteryPreferenceController;I)V
 
     return-void
 .end method

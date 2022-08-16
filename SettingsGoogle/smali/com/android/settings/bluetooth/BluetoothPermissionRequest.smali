@@ -304,7 +304,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 12
+    .locals 11
 
     iput-object p1, p0, Lcom/android/settings/bluetooth/BluetoothPermissionRequest;->mContext:Landroid/content/Context;
 
@@ -322,9 +322,9 @@
 
     const v3, 0x1080080
 
-    const-string v4, "android.bluetooth.device.extra.ACCESS_REQUEST_TYPE"
+    const/4 v4, 0x2
 
-    const/4 v5, 0x2
+    const-string v5, "android.bluetooth.device.extra.ACCESS_REQUEST_TYPE"
 
     if-eqz v1, :cond_9
 
@@ -357,7 +357,7 @@
 
     const/4 v6, 0x1
 
-    invoke-virtual {p2, v4, v6}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {p2, v5, v6}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result p2
 
@@ -394,7 +394,7 @@
 
     iget v0, p0, Lcom/android/settings/bluetooth/BluetoothPermissionRequest;->mRequestType:I
 
-    invoke-virtual {p2, v4, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+    invoke-virtual {p2, v5, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothPermissionRequest;->mDevice:Landroid/bluetooth/BluetoothDevice;
 
@@ -466,100 +466,84 @@
 
     const-string v1, "android.bluetooth.device.extra.CONNECTION_ACCESS_RESULT"
 
-    invoke-virtual {v0, v1, v5}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+    invoke-virtual {v0, v1, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
     iget v1, p0, Lcom/android/settings/bluetooth/BluetoothPermissionRequest;->mRequestType:I
 
-    invoke-virtual {v0, v4, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+    invoke-virtual {v0, v5, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
     iget-object v1, p0, Lcom/android/settings/bluetooth/BluetoothPermissionRequest;->mDevice:Landroid/bluetooth/BluetoothDevice;
 
     invoke-static {p1, v1}, Lcom/android/settings/bluetooth/Utils;->createRemoteName(Landroid/content/Context;Landroid/bluetooth/BluetoothDevice;)Ljava/lang/String;
 
-    move-result-object v1
+    iget v1, p0, Lcom/android/settings/bluetooth/BluetoothPermissionRequest;->mRequestType:I
 
-    iget v4, p0, Lcom/android/settings/bluetooth/BluetoothPermissionRequest;->mRequestType:I
+    const/4 v5, 0x4
 
-    const/4 v7, 0x4
+    if-eq v1, v4, :cond_7
 
-    const/4 v8, 0x0
+    const/4 v7, 0x3
 
-    if-eq v4, v5, :cond_7
+    if-eq v1, v7, :cond_6
 
-    const/4 v9, 0x3
+    if-eq v1, v5, :cond_5
 
-    if-eq v4, v9, :cond_6
+    const v1, 0x7f04047b
 
-    if-eq v4, v7, :cond_5
-
-    const v4, 0x7f040436
-
-    invoke-virtual {p1, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v4
-
-    const v9, 0x7f040435
-
-    new-array v10, v5, [Ljava/lang/Object;
-
-    aput-object v1, v10, v8
-
-    aput-object v1, v10, v6
-
-    invoke-virtual {p1, v9, v10}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {p1, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v1
+
+    const v7, 0x7f04047a
+
+    invoke-virtual {p1, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v7
 
     goto :goto_1
 
     :cond_5
-    const v4, 0x7f040507
+    const v1, 0x7f040560
 
-    invoke-virtual {p1, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v4
-
-    const v9, 0x7f040506
-
-    new-array v10, v5, [Ljava/lang/Object;
-
-    aput-object v1, v10, v8
-
-    aput-object v1, v10, v6
-
-    invoke-virtual {p1, v9, v10}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {p1, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v1
+
+    const v7, 0x7f04055f
+
+    invoke-virtual {p1, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v7
 
     goto :goto_1
 
     :cond_6
-    const v1, 0x7f040495
-
-    invoke-virtual {p1, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v4
-
-    const v1, 0x7f04049b
+    const v1, 0x7f0404e5
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v1
+
+    const v7, 0x7f0404eb
+
+    invoke-virtual {p1, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v7
 
     goto :goto_1
 
     :cond_7
-    const v1, 0x7f0404c4
-
-    invoke-virtual {p1, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v4
-
-    const v1, 0x7f0404c3
+    const v1, 0x7f04051b
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v1
+
+    const v7, 0x7f04051a
+
+    invoke-virtual {p1, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v7
 
     :goto_1
     invoke-virtual {p1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -568,52 +552,52 @@
 
     check-cast v2, Landroid/app/NotificationManager;
 
-    iget-object v9, p0, Lcom/android/settings/bluetooth/BluetoothPermissionRequest;->mNotificationChannel:Landroid/app/NotificationChannel;
+    iget-object v8, p0, Lcom/android/settings/bluetooth/BluetoothPermissionRequest;->mNotificationChannel:Landroid/app/NotificationChannel;
 
-    const-string v10, "bluetooth_notification_channel"
+    const-string v9, "bluetooth_notification_channel"
 
-    if-nez v9, :cond_8
+    if-nez v8, :cond_8
 
-    new-instance v9, Landroid/app/NotificationChannel;
+    new-instance v8, Landroid/app/NotificationChannel;
 
-    const v11, 0x7f040417
+    const v10, 0x7f040458
 
-    invoke-virtual {p1, v11}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    invoke-virtual {p1, v10}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
-    move-result-object v11
+    move-result-object v10
 
-    invoke-direct {v9, v10, v11, v7}, Landroid/app/NotificationChannel;-><init>(Ljava/lang/String;Ljava/lang/CharSequence;I)V
+    invoke-direct {v8, v9, v10, v5}, Landroid/app/NotificationChannel;-><init>(Ljava/lang/String;Ljava/lang/CharSequence;I)V
 
-    iput-object v9, p0, Lcom/android/settings/bluetooth/BluetoothPermissionRequest;->mNotificationChannel:Landroid/app/NotificationChannel;
+    iput-object v8, p0, Lcom/android/settings/bluetooth/BluetoothPermissionRequest;->mNotificationChannel:Landroid/app/NotificationChannel;
 
-    invoke-virtual {v2, v9}, Landroid/app/NotificationManager;->createNotificationChannel(Landroid/app/NotificationChannel;)V
+    invoke-virtual {v2, v8}, Landroid/app/NotificationManager;->createNotificationChannel(Landroid/app/NotificationChannel;)V
 
     :cond_8
-    new-instance v7, Landroid/app/Notification$Builder;
+    new-instance v5, Landroid/app/Notification$Builder;
 
-    invoke-direct {v7, p1, v10}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;Ljava/lang/String;)V
+    invoke-direct {v5, p1, v9}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
-    invoke-virtual {v7, v4}, Landroid/app/Notification$Builder;->setContentTitle(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v1}, Landroid/app/Notification$Builder;->setTicker(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v1}, Landroid/app/Notification$Builder;->setContentText(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
-
-    move-result-object v4
-
-    new-instance v7, Landroid/app/Notification$BigTextStyle;
-
-    invoke-direct {v7}, Landroid/app/Notification$BigTextStyle;-><init>()V
-
-    invoke-virtual {v7, v1}, Landroid/app/Notification$BigTextStyle;->bigText(Ljava/lang/CharSequence;)Landroid/app/Notification$BigTextStyle;
+    invoke-virtual {v5, v1}, Landroid/app/Notification$Builder;->setContentTitle(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
 
     move-result-object v1
 
-    invoke-virtual {v4, v1}, Landroid/app/Notification$Builder;->setStyle(Landroid/app/Notification$Style;)Landroid/app/Notification$Builder;
+    invoke-virtual {v1, v7}, Landroid/app/Notification$Builder;->setTicker(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v7}, Landroid/app/Notification$Builder;->setContentText(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
+
+    move-result-object v1
+
+    new-instance v5, Landroid/app/Notification$BigTextStyle;
+
+    invoke-direct {v5}, Landroid/app/Notification$BigTextStyle;-><init>()V
+
+    invoke-virtual {v5, v7}, Landroid/app/Notification$BigTextStyle;->bigText(Ljava/lang/CharSequence;)Landroid/app/Notification$BigTextStyle;
+
+    move-result-object v5
+
+    invoke-virtual {v1, v5}, Landroid/app/Notification$Builder;->setStyle(Landroid/app/Notification$Style;)Landroid/app/Notification$Builder;
 
     move-result-object v1
 
@@ -625,23 +609,25 @@
 
     move-result-object v1
 
-    invoke-virtual {v1, v5}, Landroid/app/Notification$Builder;->setPriority(I)Landroid/app/Notification$Builder;
+    invoke-virtual {v1, v4}, Landroid/app/Notification$Builder;->setPriority(I)Landroid/app/Notification$Builder;
 
     move-result-object v1
 
-    invoke-virtual {v1, v8}, Landroid/app/Notification$Builder;->setOnlyAlertOnce(Z)Landroid/app/Notification$Builder;
+    const/4 v4, 0x0
+
+    invoke-virtual {v1, v4}, Landroid/app/Notification$Builder;->setOnlyAlertOnce(Z)Landroid/app/Notification$Builder;
 
     move-result-object v1
 
-    const/4 v4, -0x1
+    const/4 v5, -0x1
 
-    invoke-virtual {v1, v4}, Landroid/app/Notification$Builder;->setDefaults(I)Landroid/app/Notification$Builder;
+    invoke-virtual {v1, v5}, Landroid/app/Notification$Builder;->setDefaults(I)Landroid/app/Notification$Builder;
 
     move-result-object v1
 
-    const/high16 v4, 0x4000000
+    const/high16 v5, 0x4000000
 
-    invoke-static {p1, v8, p2, v4}, Landroid/app/PendingIntent;->getActivity(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
+    invoke-static {p1, v4, p2, v5}, Landroid/app/PendingIntent;->getActivity(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
 
     move-result-object p2
 
@@ -649,7 +635,7 @@
 
     move-result-object p2
 
-    invoke-static {p1, v8, v0, v4}, Landroid/app/PendingIntent;->getBroadcast(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
+    invoke-static {p1, v4, v0, v5}, Landroid/app/PendingIntent;->getBroadcast(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
 
     move-result-object v0
 
@@ -706,7 +692,7 @@
 
     check-cast p1, Landroid/app/NotificationManager;
 
-    invoke-virtual {p2, v4, v5}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {p2, v5, v4}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result p2
 

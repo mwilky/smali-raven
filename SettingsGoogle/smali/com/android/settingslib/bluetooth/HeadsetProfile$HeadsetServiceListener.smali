@@ -32,7 +32,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settingslib/bluetooth/HeadsetProfile;Lcom/android/settingslib/bluetooth/HeadsetProfile$1;)V
+.method synthetic constructor <init>(Lcom/android/settingslib/bluetooth/HeadsetProfile;Lcom/android/settingslib/bluetooth/HeadsetProfile$HeadsetServiceListener-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settingslib/bluetooth/HeadsetProfile$HeadsetServiceListener;-><init>(Lcom/android/settingslib/bluetooth/HeadsetProfile;)V
@@ -49,11 +49,11 @@
 
     check-cast p2, Landroid/bluetooth/BluetoothHeadset;
 
-    invoke-static {p1, p2}, Lcom/android/settingslib/bluetooth/HeadsetProfile;->access$002(Lcom/android/settingslib/bluetooth/HeadsetProfile;Landroid/bluetooth/BluetoothHeadset;)Landroid/bluetooth/BluetoothHeadset;
+    invoke-static {p1, p2}, Lcom/android/settingslib/bluetooth/HeadsetProfile;->-$$Nest$fputmService(Lcom/android/settingslib/bluetooth/HeadsetProfile;Landroid/bluetooth/BluetoothHeadset;)V
 
     iget-object p1, p0, Lcom/android/settingslib/bluetooth/HeadsetProfile$HeadsetServiceListener;->this$0:Lcom/android/settingslib/bluetooth/HeadsetProfile;
 
-    invoke-static {p1}, Lcom/android/settingslib/bluetooth/HeadsetProfile;->access$000(Lcom/android/settingslib/bluetooth/HeadsetProfile;)Landroid/bluetooth/BluetoothHeadset;
+    invoke-static {p1}, Lcom/android/settingslib/bluetooth/HeadsetProfile;->-$$Nest$fgetmService(Lcom/android/settingslib/bluetooth/HeadsetProfile;)Landroid/bluetooth/BluetoothHeadset;
 
     move-result-object p1
 
@@ -78,7 +78,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/bluetooth/HeadsetProfile$HeadsetServiceListener;->this$0:Lcom/android/settingslib/bluetooth/HeadsetProfile;
 
-    invoke-static {v0}, Lcom/android/settingslib/bluetooth/HeadsetProfile;->access$100(Lcom/android/settingslib/bluetooth/HeadsetProfile;)Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
+    invoke-static {v0}, Lcom/android/settingslib/bluetooth/HeadsetProfile;->-$$Nest$fgetmDeviceManager(Lcom/android/settingslib/bluetooth/HeadsetProfile;)Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
 
     move-result-object v0
 
@@ -108,7 +108,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/bluetooth/HeadsetProfile$HeadsetServiceListener;->this$0:Lcom/android/settingslib/bluetooth/HeadsetProfile;
 
-    invoke-static {v0}, Lcom/android/settingslib/bluetooth/HeadsetProfile;->access$100(Lcom/android/settingslib/bluetooth/HeadsetProfile;)Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
+    invoke-static {v0}, Lcom/android/settingslib/bluetooth/HeadsetProfile;->-$$Nest$fgetmDeviceManager(Lcom/android/settingslib/bluetooth/HeadsetProfile;)Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
 
     move-result-object v0
 
@@ -132,11 +132,11 @@
 
     const/4 p2, 0x1
 
-    invoke-static {p1, p2}, Lcom/android/settingslib/bluetooth/HeadsetProfile;->access$202(Lcom/android/settingslib/bluetooth/HeadsetProfile;Z)Z
+    invoke-static {p1, p2}, Lcom/android/settingslib/bluetooth/HeadsetProfile;->-$$Nest$fputmIsProfileReady(Lcom/android/settingslib/bluetooth/HeadsetProfile;Z)V
 
     iget-object p0, p0, Lcom/android/settingslib/bluetooth/HeadsetProfile$HeadsetServiceListener;->this$0:Lcom/android/settingslib/bluetooth/HeadsetProfile;
 
-    invoke-static {p0}, Lcom/android/settingslib/bluetooth/HeadsetProfile;->access$300(Lcom/android/settingslib/bluetooth/HeadsetProfile;)Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
+    invoke-static {p0}, Lcom/android/settingslib/bluetooth/HeadsetProfile;->-$$Nest$fgetmProfileManager(Lcom/android/settingslib/bluetooth/HeadsetProfile;)Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
 
     move-result-object p0
 
@@ -150,7 +150,7 @@
 
     iget-object p1, p0, Lcom/android/settingslib/bluetooth/HeadsetProfile$HeadsetServiceListener;->this$0:Lcom/android/settingslib/bluetooth/HeadsetProfile;
 
-    invoke-static {p1}, Lcom/android/settingslib/bluetooth/HeadsetProfile;->access$300(Lcom/android/settingslib/bluetooth/HeadsetProfile;)Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
+    invoke-static {p1}, Lcom/android/settingslib/bluetooth/HeadsetProfile;->-$$Nest$fgetmProfileManager(Lcom/android/settingslib/bluetooth/HeadsetProfile;)Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
 
     move-result-object p1
 
@@ -160,7 +160,7 @@
 
     const/4 p1, 0x0
 
-    invoke-static {p0, p1}, Lcom/android/settingslib/bluetooth/HeadsetProfile;->access$202(Lcom/android/settingslib/bluetooth/HeadsetProfile;Z)Z
+    invoke-static {p0, p1}, Lcom/android/settingslib/bluetooth/HeadsetProfile;->-$$Nest$fputmIsProfileReady(Lcom/android/settingslib/bluetooth/HeadsetProfile;Z)V
 
     return-void
 .end method

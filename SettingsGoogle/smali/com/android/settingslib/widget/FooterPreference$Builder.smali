@@ -21,7 +21,7 @@
 
 .field private mKey:Ljava/lang/String;
 
-.field private mLearnMoreContentDescription:Ljava/lang/CharSequence;
+.field private mLearnMoreText:Ljava/lang/CharSequence;
 
 .field private mTitle:Ljava/lang/CharSequence;
 
@@ -90,7 +90,7 @@
     invoke-virtual {v0, v1}, Lcom/android/settingslib/widget/FooterPreference;->setContentDescription(Ljava/lang/CharSequence;)V
 
     :cond_1
-    iget-object v1, p0, Lcom/android/settingslib/widget/FooterPreference$Builder;->mLearnMoreContentDescription:Ljava/lang/CharSequence;
+    iget-object v1, p0, Lcom/android/settingslib/widget/FooterPreference$Builder;->mLearnMoreText:Ljava/lang/CharSequence;
 
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -98,9 +98,9 @@
 
     if-nez v1, :cond_2
 
-    iget-object p0, p0, Lcom/android/settingslib/widget/FooterPreference$Builder;->mLearnMoreContentDescription:Ljava/lang/CharSequence;
+    iget-object p0, p0, Lcom/android/settingslib/widget/FooterPreference$Builder;->mLearnMoreText:Ljava/lang/CharSequence;
 
-    invoke-virtual {v0, p0}, Lcom/android/settingslib/widget/FooterPreference;->setLearnMoreContentDescription(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, p0}, Lcom/android/settingslib/widget/FooterPreference;->setLearnMoreText(Ljava/lang/CharSequence;)V
 
     :cond_2
     return-object v0

@@ -53,8 +53,6 @@
 
     if-eqz v2, :cond_2
 
-    aget-object v2, p2, v1
-
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     goto :goto_1

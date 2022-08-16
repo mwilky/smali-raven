@@ -15,6 +15,18 @@
 
 
 # virtual methods
+.method public onAboutToConnectDeviceAdded(Ljava/lang/String;Ljava/lang/String;Landroid/graphics/drawable/Drawable;)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onAboutToConnectDeviceRemoved()V
+    .locals 0
+
+    return-void
+.end method
+
 .method public onDeviceAttributesChanged()V
     .locals 0
 

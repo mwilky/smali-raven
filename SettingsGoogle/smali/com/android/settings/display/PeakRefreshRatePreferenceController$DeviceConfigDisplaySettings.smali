@@ -33,7 +33,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settings/display/PeakRefreshRatePreferenceController;Lcom/android/settings/display/PeakRefreshRatePreferenceController$1;)V
+.method synthetic constructor <init>(Lcom/android/settings/display/PeakRefreshRatePreferenceController;Lcom/android/settings/display/PeakRefreshRatePreferenceController$DeviceConfigDisplaySettings-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settings/display/PeakRefreshRatePreferenceController$DeviceConfigDisplaySettings;-><init>(Lcom/android/settings/display/PeakRefreshRatePreferenceController;)V
@@ -48,7 +48,7 @@
 
     iget-object v0, p0, Lcom/android/settings/display/PeakRefreshRatePreferenceController$DeviceConfigDisplaySettings;->this$0:Lcom/android/settings/display/PeakRefreshRatePreferenceController;
 
-    invoke-static {v0}, Lcom/android/settings/display/PeakRefreshRatePreferenceController;->access$300(Lcom/android/settings/display/PeakRefreshRatePreferenceController;)Landroid/os/Handler;
+    invoke-static {v0}, Lcom/android/settings/display/PeakRefreshRatePreferenceController;->-$$Nest$fgetmHandler(Lcom/android/settings/display/PeakRefreshRatePreferenceController;)Landroid/os/Handler;
 
     move-result-object v0
 
@@ -56,7 +56,7 @@
 
     iget-object p0, p0, Lcom/android/settings/display/PeakRefreshRatePreferenceController$DeviceConfigDisplaySettings;->this$0:Lcom/android/settings/display/PeakRefreshRatePreferenceController;
 
-    invoke-static {p0}, Lcom/android/settings/display/PeakRefreshRatePreferenceController;->access$300(Lcom/android/settings/display/PeakRefreshRatePreferenceController;)Landroid/os/Handler;
+    invoke-static {p0}, Lcom/android/settings/display/PeakRefreshRatePreferenceController;->-$$Nest$fgetmHandler(Lcom/android/settings/display/PeakRefreshRatePreferenceController;)Landroid/os/Handler;
 
     move-result-object p0
 
@@ -105,7 +105,7 @@
 
     iget-object p1, p0, Lcom/android/settings/display/PeakRefreshRatePreferenceController$DeviceConfigDisplaySettings;->this$0:Lcom/android/settings/display/PeakRefreshRatePreferenceController;
 
-    invoke-static {p1}, Lcom/android/settings/display/PeakRefreshRatePreferenceController;->access$200(Lcom/android/settings/display/PeakRefreshRatePreferenceController;)Lcom/android/settings/display/PeakRefreshRatePreferenceController$IDeviceConfigChange;
+    invoke-static {p1}, Lcom/android/settings/display/PeakRefreshRatePreferenceController;->-$$Nest$fgetmOnDeviceConfigChange(Lcom/android/settings/display/PeakRefreshRatePreferenceController;)Lcom/android/settings/display/PeakRefreshRatePreferenceController$IDeviceConfigChange;
 
     move-result-object p1
 
@@ -113,7 +113,7 @@
 
     iget-object p1, p0, Lcom/android/settings/display/PeakRefreshRatePreferenceController$DeviceConfigDisplaySettings;->this$0:Lcom/android/settings/display/PeakRefreshRatePreferenceController;
 
-    invoke-static {p1}, Lcom/android/settings/display/PeakRefreshRatePreferenceController;->access$200(Lcom/android/settings/display/PeakRefreshRatePreferenceController;)Lcom/android/settings/display/PeakRefreshRatePreferenceController$IDeviceConfigChange;
+    invoke-static {p1}, Lcom/android/settings/display/PeakRefreshRatePreferenceController;->-$$Nest$fgetmOnDeviceConfigChange(Lcom/android/settings/display/PeakRefreshRatePreferenceController;)Lcom/android/settings/display/PeakRefreshRatePreferenceController$IDeviceConfigChange;
 
     move-result-object p1
 
@@ -121,7 +121,7 @@
 
     iget-object p0, p0, Lcom/android/settings/display/PeakRefreshRatePreferenceController$DeviceConfigDisplaySettings;->this$0:Lcom/android/settings/display/PeakRefreshRatePreferenceController;
 
-    invoke-static {p0}, Lcom/android/settings/display/PeakRefreshRatePreferenceController;->access$100(Lcom/android/settings/display/PeakRefreshRatePreferenceController;)Landroidx/preference/Preference;
+    invoke-static {p0}, Lcom/android/settings/display/PeakRefreshRatePreferenceController;->-$$Nest$fgetmPreference(Lcom/android/settings/display/PeakRefreshRatePreferenceController;)Landroidx/preference/Preference;
 
     move-result-object p1
 

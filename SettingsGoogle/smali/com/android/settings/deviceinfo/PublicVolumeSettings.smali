@@ -18,7 +18,7 @@
 
 .field private mStorageManager:Landroid/os/storage/StorageManager;
 
-.field private mSummary:Lcom/android/settings/deviceinfo/StorageSummaryPreference;
+.field private mSummary:Lcom/android/settingslib/widget/UsageProgressBarPreference;
 
 .field private mUnmount:Landroid/widget/Button;
 
@@ -30,6 +30,38 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmStorageManager(Lcom/android/settings/deviceinfo/PublicVolumeSettings;)Landroid/os/storage/StorageManager;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/deviceinfo/PublicVolumeSettings;->mStorageManager:Landroid/os/storage/StorageManager;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmVolume(Lcom/android/settings/deviceinfo/PublicVolumeSettings;)Landroid/os/storage/VolumeInfo;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/deviceinfo/PublicVolumeSettings;->mVolume:Landroid/os/storage/VolumeInfo;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmVolumeId(Lcom/android/settings/deviceinfo/PublicVolumeSettings;)Ljava/lang/String;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/deviceinfo/PublicVolumeSettings;->mVolumeId:Ljava/lang/String;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmVolume(Lcom/android/settings/deviceinfo/PublicVolumeSettings;Landroid/os/storage/VolumeInfo;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/settings/deviceinfo/PublicVolumeSettings;->mVolume:Landroid/os/storage/VolumeInfo;
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 1
 
@@ -48,38 +80,6 @@
     iput-object v0, p0, Lcom/android/settings/deviceinfo/PublicVolumeSettings;->mStorageListener:Landroid/os/storage/StorageEventListener;
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/deviceinfo/PublicVolumeSettings;)Landroid/os/storage/VolumeInfo;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/deviceinfo/PublicVolumeSettings;->mVolume:Landroid/os/storage/VolumeInfo;
-
-    return-object p0
-.end method
-
-.method static synthetic access$002(Lcom/android/settings/deviceinfo/PublicVolumeSettings;Landroid/os/storage/VolumeInfo;)Landroid/os/storage/VolumeInfo;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/settings/deviceinfo/PublicVolumeSettings;->mVolume:Landroid/os/storage/VolumeInfo;
-
-    return-object p1
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/deviceinfo/PublicVolumeSettings;)Ljava/lang/String;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/deviceinfo/PublicVolumeSettings;->mVolumeId:Ljava/lang/String;
-
-    return-object p0
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/deviceinfo/PublicVolumeSettings;)Landroid/os/storage/StorageManager;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/deviceinfo/PublicVolumeSettings;->mStorageManager:Landroid/os/storage/StorageManager;
-
-    return-object p0
 .end method
 
 .method private addPreference(Landroidx/preference/Preference;)V
@@ -174,7 +174,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f0d0175
+    const v0, 0x7f0d018a
 
     invoke-virtual {p1, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -352,7 +352,7 @@
 
     iput-object p1, p0, Lcom/android/settings/deviceinfo/PublicVolumeSettings;->mVolumeId:Ljava/lang/String;
 
-    const p1, 0x7f150063
+    const p1, 0x7f150066
 
     invoke-virtual {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->addPreferencesFromResource(I)V
 
@@ -362,17 +362,17 @@
 
     invoke-virtual {p1, v1}, Landroidx/preference/PreferenceGroup;->setOrderingAsAdded(Z)V
 
-    new-instance p1, Lcom/android/settings/deviceinfo/StorageSummaryPreference;
+    new-instance p1, Lcom/android/settingslib/widget/UsageProgressBarPreference;
 
     invoke-virtual {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->getPrefContext()Landroid/content/Context;
 
     move-result-object v0
 
-    invoke-direct {p1, v0}, Lcom/android/settings/deviceinfo/StorageSummaryPreference;-><init>(Landroid/content/Context;)V
+    invoke-direct {p1, v0}, Lcom/android/settingslib/widget/UsageProgressBarPreference;-><init>(Landroid/content/Context;)V
 
-    iput-object p1, p0, Lcom/android/settings/deviceinfo/PublicVolumeSettings;->mSummary:Lcom/android/settings/deviceinfo/StorageSummaryPreference;
+    iput-object p1, p0, Lcom/android/settings/deviceinfo/PublicVolumeSettings;->mSummary:Lcom/android/settingslib/widget/UsageProgressBarPreference;
 
-    const p1, 0x7f041311
+    const p1, 0x7f0413d5
 
     invoke-direct {p0, p1}, Lcom/android/settings/deviceinfo/PublicVolumeSettings;->buildAction(I)Landroidx/preference/Preference;
 
@@ -390,7 +390,7 @@
 
     iput-object p1, p0, Lcom/android/settings/deviceinfo/PublicVolumeSettings;->mUnmount:Landroid/widget/Button;
 
-    const v0, 0x7f041314
+    const v0, 0x7f0413d8
 
     invoke-virtual {p1, v0}, Landroid/widget/Button;->setText(I)V
 
@@ -400,7 +400,7 @@
 
     invoke-virtual {p1, v0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const p1, 0x7f04130b
+    const p1, 0x7f0413cf
 
     invoke-direct {p0, p1}, Lcom/android/settings/deviceinfo/PublicVolumeSettings;->buildAction(I)Landroidx/preference/Preference;
 
@@ -412,7 +412,7 @@
 
     if-eqz p1, :cond_4
 
-    const p1, 0x7f04130c
+    const p1, 0x7f0413d0
 
     invoke-direct {p0, p1}, Lcom/android/settings/deviceinfo/PublicVolumeSettings;->buildAction(I)Landroidx/preference/Preference;
 
@@ -550,7 +550,7 @@
 .end method
 
 .method public update()V
-    .locals 11
+    .locals 7
 
     invoke-direct {p0}, Lcom/android/settings/deviceinfo/PublicVolumeSettings;->isVolumeValid()Z
 
@@ -599,7 +599,7 @@
 
     if-eqz v1, :cond_1
 
-    iget-object v1, p0, Lcom/android/settings/deviceinfo/PublicVolumeSettings;->mSummary:Lcom/android/settings/deviceinfo/StorageSummaryPreference;
+    iget-object v1, p0, Lcom/android/settings/deviceinfo/PublicVolumeSettings;->mSummary:Lcom/android/settingslib/widget/UsageProgressBarPreference;
 
     invoke-direct {p0, v1}, Lcom/android/settings/deviceinfo/PublicVolumeSettings;->addPreference(Landroidx/preference/Preference;)V
 
@@ -619,65 +619,29 @@
 
     sub-long v4, v2, v4
 
-    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getResources()Landroid/content/res/Resources;
+    iget-object v1, p0, Lcom/android/settings/deviceinfo/PublicVolumeSettings;->mSummary:Lcom/android/settingslib/widget/UsageProgressBarPreference;
 
-    move-result-object v1
+    const v6, 0x7f0413f7
 
-    const/4 v6, 0x0
+    invoke-static {v0, v6, v4, v5}, Lcom/android/settings/deviceinfo/storage/StorageUtils;->getStorageSummary(Landroid/content/Context;IJ)Ljava/lang/String;
 
-    invoke-static {v1, v4, v5, v6}, Landroid/text/format/Formatter;->formatBytes(Landroid/content/res/Resources;JI)Landroid/text/format/Formatter$BytesResult;
+    move-result-object v6
 
-    move-result-object v1
+    invoke-virtual {v1, v6}, Lcom/android/settingslib/widget/UsageProgressBarPreference;->setUsageSummary(Ljava/lang/CharSequence;)V
 
-    iget-object v7, p0, Lcom/android/settings/deviceinfo/PublicVolumeSettings;->mSummary:Lcom/android/settings/deviceinfo/StorageSummaryPreference;
+    iget-object v1, p0, Lcom/android/settings/deviceinfo/PublicVolumeSettings;->mSummary:Lcom/android/settingslib/widget/UsageProgressBarPreference;
 
-    const v8, 0x7f041322
+    const v6, 0x7f0413ed
 
-    invoke-virtual {p0, v8}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
-
-    move-result-object v8
-
-    const/4 v9, 0x2
-
-    new-array v9, v9, [Ljava/lang/CharSequence;
-
-    iget-object v10, v1, Landroid/text/format/Formatter$BytesResult;->value:Ljava/lang/String;
-
-    aput-object v10, v9, v6
-
-    iget-object v1, v1, Landroid/text/format/Formatter$BytesResult;->units:Ljava/lang/String;
-
-    const/4 v10, 0x1
-
-    aput-object v1, v9, v10
-
-    invoke-static {v8, v9}, Landroid/text/TextUtils;->expandTemplate(Ljava/lang/CharSequence;[Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
-
-    move-result-object v1
-
-    invoke-virtual {v7, v1}, Landroidx/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
-
-    iget-object v1, p0, Lcom/android/settings/deviceinfo/PublicVolumeSettings;->mSummary:Lcom/android/settings/deviceinfo/StorageSummaryPreference;
-
-    const v7, 0x7f041338
-
-    new-array v8, v10, [Ljava/lang/Object;
-
-    invoke-static {v0, v2, v3}, Landroid/text/format/Formatter;->formatFileSize(Landroid/content/Context;J)Ljava/lang/String;
+    invoke-static {v0, v6, v2, v3}, Lcom/android/settings/deviceinfo/storage/StorageUtils;->getStorageSummary(Landroid/content/Context;IJ)Ljava/lang/String;
 
     move-result-object v0
 
-    aput-object v0, v8, v6
+    invoke-virtual {v1, v0}, Lcom/android/settingslib/widget/UsageProgressBarPreference;->setTotalSummary(Ljava/lang/CharSequence;)V
 
-    invoke-virtual {p0, v7, v8}, Landroidx/fragment/app/Fragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    iget-object v0, p0, Lcom/android/settings/deviceinfo/PublicVolumeSettings;->mSummary:Lcom/android/settingslib/widget/UsageProgressBarPreference;
 
-    move-result-object v0
-
-    invoke-virtual {v1, v0}, Landroidx/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
-
-    iget-object v0, p0, Lcom/android/settings/deviceinfo/PublicVolumeSettings;->mSummary:Lcom/android/settings/deviceinfo/StorageSummaryPreference;
-
-    invoke-virtual {v0, v4, v5, v2, v3}, Lcom/android/settings/deviceinfo/StorageSummaryPreference;->setPercent(JJ)V
+    invoke-virtual {v0, v4, v5, v2, v3}, Lcom/android/settingslib/widget/UsageProgressBarPreference;->setPercent(JJ)V
 
     :cond_1
     iget-object v0, p0, Lcom/android/settings/deviceinfo/PublicVolumeSettings;->mVolume:Landroid/os/storage/VolumeInfo;

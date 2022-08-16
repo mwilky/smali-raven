@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="abc_slice_duration_days">
-        <item quantity="other">%d நாளுக்கு முன்</item>
-        <item quantity="one">%d நாளுக்கு முன்</item>
+        <item quantity="other">%d நா முன்பு</item>
+        <item quantity="one">%d நா முன்பு</item>
     </plurals>
     <plurals name="abc_slice_duration_min">
-        <item quantity="other">%d நிமி. முன்</item>
-        <item quantity="one">%d நிமி. முன்</item>
+        <item quantity="other">%d நிமி முன்பு</item>
+        <item quantity="one">%d நிமி முன்பு</item>
     </plurals>
     <plurals name="abc_slice_duration_years">
-        <item quantity="other">%d ஆண்டிற்கு முன்</item>
-        <item quantity="one">%d ஆண்டிற்கு முன்</item>
+        <item quantity="other">%d ஆண்டுக்கு முன்</item>
+        <item quantity="one">%d ஆண்டுக்கு முன்</item>
     </plurals>
     <plurals name="accessibility_usage_summary">
         <item quantity="other">உங்கள் சாதனத்திற்கான முழு அணுகல் %1$d ஆப்ஸிற்கு உள்ளது</item>
@@ -233,11 +233,11 @@
         <item quantity="one">%d வகை ஆஃப் செய்யப்பட்டது</item>
     </plurals>
     <plurals name="notifications_sent_daily">
-        <item quantity="other">~%d அறிவிப்புகள் / நாள்</item>
+        <item quantity="other">~%,d அறிவிப்புகள் / நாள்</item>
         <item quantity="one">~%d அறிவிப்பு / நாள்</item>
     </plurals>
     <plurals name="notifications_sent_weekly">
-        <item quantity="other">~%d அறிவிப்புகள் / வாரம்</item>
+        <item quantity="other">~%,d அறிவிப்புகள் / வாரம்</item>
         <item quantity="one">~%d அறிவிப்பு / வாரம்</item>
     </plurals>
     <plurals name="number_of_device_admins">
@@ -328,22 +328,6 @@
         <item quantity="other">சான்றிதழ்களை நம்பு அல்லது அகற்று</item>
         <item quantity="one">சான்றிதழை நம்பு அல்லது அகற்று</item>
     </plurals>
-    <plurals name="ssl_ca_cert_info_message">
-        <item quantity="other">"%s உங்கள் பணிச் சுயவிவரத்திற்குச் சான்றிதழ் அங்கீகாரங்களை நிறுவியுள்ளது. இது மின்னஞ்சல்கள், ஆப்ஸ், பாதுகாப்பான இணையதளங்கள் உட்பட பணி நெட்வொர்க் செயல்பாட்டைக் கண்காணிப்பதற்கு அவற்றை அனுமதிக்கக்கூடும்.
-
-சான்றிதழ்களைப் பற்றிய கூடுதல் தகவலுக்கு, உங்கள் நிர்வாகியைத் தொடர்புகொள்ளவும்."</item>
-        <item quantity="one">"%s உங்கள் பணிச் சுயவிவரத்திற்குச் சான்றிதழ் அங்கீகாரத்தை நிறுவியுள்ளது. இது மின்னஞ்சல்கள், ஆப்ஸ், பாதுகாப்பான இணையதளங்கள் உட்பட பணி நெட்வொர்க் செயல்பாட்டைக் கண்காணிப்பதற்கு அதை அனுமதிக்கக்கூடும்.
-
-சான்றிதழைப் பற்றிய கூடுதல் தகவலுக்கு, உங்கள் நிர்வாகியைத் தொடர்புகொள்ளவும்."</item>
-    </plurals>
-    <plurals name="ssl_ca_cert_info_message_device_owner">
-        <item quantity="other">"%s உங்கள் சாதனத்தில் சான்றிதழ் அங்கீகாரங்களை நிறுவியுள்ளது. இது மின்னஞ்சல்கள், ஆப்ஸ், பாதுகாப்பான இணையதளங்கள் உட்பட சாதன நெட்வொர்க் செயல்பாட்டைக் கண்காணிப்பதற்கு அவற்றை அனுமதிக்கக்கூடும்.
-
-சான்றிதழ்களைப் பற்றிய கூடுதல் தகவலுக்கு, உங்கள் நிர்வாகியைத் தொடர்புகொள்ளவும்."</item>
-        <item quantity="one">"%s உங்கள் சாதனத்தில் சான்றிதழ் அங்கீகாரத்தை நிறுவியுள்ளது. இது மின்னஞ்சல்கள், ஆப்ஸ், பாதுகாப்பான இணையதளங்கள் உட்பட சாதன நெட்வொர்க் செயல்பாட்டைக் கண்காணிப்பதற்கு அதை அனுமதிக்கக்கூடும்.
-
-சான்றிதழைப் பற்றிய கூடுதல் தகவலுக்கு, உங்கள் நிர்வாகியைத் தொடர்புகொள்ளவும்."</item>
-    </plurals>
     <plurals name="ssl_ca_cert_settings_button">
         <item quantity="other">சான்றிதழ்களைச் சரிபார்</item>
         <item quantity="one">சான்றிதழைச் சரிபார்</item>
@@ -375,10 +359,6 @@
     <plurals name="wifi_saved_passpoint_access_points_summary">
         <item quantity="other">%d நெட்வொர்க்குகள்</item>
         <item quantity="one">1 நெட்வொர்க்</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$d சாதனங்கள் இணைக்கப்பட்டன</item>
-        <item quantity="one">%1$d சாதனம் இணைக்கப்பட்டது</item>
     </plurals>
     <plurals name="wrong_pin_code">
         <item quantity="other">சிம்மின் பின் குறியீடு தவறானது, உங்களிடம் %d முயற்சிகள் மீதமுள்ளன.</item>

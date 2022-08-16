@@ -19,7 +19,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "setDiscoverableAlarm(): alarmTime = "
+    const-string/jumbo v1, "setDiscoverableAlarm(): alarmTime = "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -63,7 +63,7 @@
 
     invoke-virtual {v5, v4}, Landroid/app/AlarmManager;->cancel(Landroid/app/PendingIntent;)V
 
-    const-string v4, "setDiscoverableAlarm(): cancel prev alarm"
+    const-string/jumbo v4, "setDiscoverableAlarm(): cancel prev alarm"
 
     invoke-static {v1, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 

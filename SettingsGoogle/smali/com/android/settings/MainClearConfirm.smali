@@ -22,6 +22,14 @@
     return-void
 .end method
 
+.method static bridge synthetic -$$Nest$mdoMainClear(Lcom/android/settings/MainClearConfirm;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/MainClearConfirm;->doMainClear()V
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 1
 
@@ -32,14 +40,6 @@
     invoke-direct {v0, p0}, Lcom/android/settings/MainClearConfirm$1;-><init>(Lcom/android/settings/MainClearConfirm;)V
 
     iput-object v0, p0, Lcom/android/settings/MainClearConfirm;->mFinalClickListener:Landroid/view/View$OnClickListener;
-
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/MainClearConfirm;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/MainClearConfirm;->doMainClear()V
 
     return-void
 .end method
@@ -93,7 +93,7 @@
 
     iget-object v0, p0, Lcom/android/settings/MainClearConfirm;->mContentView:Landroid/view/View;
 
-    const v1, 0x7f0d04f1
+    const v1, 0x7f0d0533
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -117,7 +117,7 @@
 
     invoke-direct {v1, v2}, Lcom/google/android/setupcompat/template/FooterButton$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f040c74
+    const v2, 0x7f040cef
 
     invoke-virtual {v1, v2}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setText(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -135,7 +135,7 @@
 
     move-result-object p0
 
-    const v1, 0x7f13021c
+    const v1, 0x7f130283
 
     invoke-virtual {p0, v1}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setTheme(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -175,7 +175,7 @@
 
     iget-object v1, p0, Lcom/android/settings/MainClearConfirm;->mContentView:Landroid/view/View;
 
-    const v2, 0x7f0d0575
+    const v2, 0x7f0d05b7
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -396,7 +396,7 @@
 
     if-eqz p3, :cond_0
 
-    const p0, 0x7f06011f
+    const p0, 0x7f060128
 
     invoke-virtual {p1, p0, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -440,7 +440,7 @@
     return-object p1
 
     :cond_1
-    const p2, 0x7f06011e
+    const p2, 0x7f060127
 
     invoke-virtual {p1, p2, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -470,7 +470,7 @@
 
     iget-object p0, p0, Lcom/android/settings/MainClearConfirm;->mContentView:Landroid/view/View;
 
-    const v0, 0x7f0d0575
+    const v0, 0x7f0d05b7
 
     invoke-virtual {p0, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -478,7 +478,7 @@
 
     check-cast p0, Landroid/widget/TextView;
 
-    const v0, 0x7f040c7c
+    const v0, 0x7f040cf7
 
     invoke-virtual {p0, v0}, Landroid/widget/TextView;->setText(I)V
 

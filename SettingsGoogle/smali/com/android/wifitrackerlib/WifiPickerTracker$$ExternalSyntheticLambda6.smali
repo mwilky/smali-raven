@@ -1,47 +1,30 @@
 .class public final synthetic Lcom/android/wifitrackerlib/WifiPickerTracker$$ExternalSyntheticLambda6;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Consumer;
-
-
-# instance fields
-.field public final synthetic f$0:Ljava/util/Set;
-
-.field public final synthetic f$1:Ljava/util/Map;
-
-.field public final synthetic f$2:Ljava/util/Set;
+.implements Ljava/util/function/Predicate;
 
 
 # direct methods
-.method public synthetic constructor <init>(Ljava/util/Set;Ljava/util/Map;Ljava/util/Set;)V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/wifitrackerlib/WifiPickerTracker$$ExternalSyntheticLambda6;->f$0:Ljava/util/Set;
-
-    iput-object p2, p0, Lcom/android/wifitrackerlib/WifiPickerTracker$$ExternalSyntheticLambda6;->f$1:Ljava/util/Map;
-
-    iput-object p3, p0, Lcom/android/wifitrackerlib/WifiPickerTracker$$ExternalSyntheticLambda6;->f$2:Ljava/util/Set;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
-    .locals 2
+.method public final test(Ljava/lang/Object;)Z
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/wifitrackerlib/WifiPickerTracker$$ExternalSyntheticLambda6;->f$0:Ljava/util/Set;
+    check-cast p1, Lcom/android/wifitrackerlib/PasspointWifiEntry;
 
-    iget-object v1, p0, Lcom/android/wifitrackerlib/WifiPickerTracker$$ExternalSyntheticLambda6;->f$1:Ljava/util/Map;
+    invoke-static {p1}, Lcom/android/wifitrackerlib/WifiPickerTracker;->$r8$lambda$k9mJ_xU0qn32FmxAFLlcZtHARYc(Lcom/android/wifitrackerlib/PasspointWifiEntry;)Z
 
-    iget-object p0, p0, Lcom/android/wifitrackerlib/WifiPickerTracker$$ExternalSyntheticLambda6;->f$2:Ljava/util/Set;
+    move-result p0
 
-    check-cast p1, Lcom/android/wifitrackerlib/StandardWifiEntry;
-
-    invoke-static {v0, v1, p0, p1}, Lcom/android/wifitrackerlib/WifiPickerTracker;->$r8$lambda$lOlRcS87WTI45smiQca3vek9znY(Ljava/util/Set;Ljava/util/Map;Ljava/util/Set;Lcom/android/wifitrackerlib/StandardWifiEntry;)V
-
-    return-void
+    return p0
 .end method

@@ -9,60 +9,7 @@
 
     new-instance v0, Landroid/content/Intent;
 
-    const-string v1, "android.intent.action.GET_CONTENT"
-
-    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    const-string v1, "image/*"
-
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->setType(Ljava/lang/String;)Landroid/content/Intent;
-
-    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object v1
-
-    const/4 v2, 0x0
-
-    invoke-virtual {v1, v0, v2}, Landroid/content/pm/PackageManager;->queryIntentActivities(Landroid/content/Intent;I)Ljava/util/List;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Ljava/util/List;->size()I
-
-    move-result v0
-
-    const/4 v1, 0x1
-
-    if-lez v0, :cond_0
-
-    move v0, v1
-
-    goto :goto_0
-
-    :cond_0
-    move v0, v2
-
-    :goto_0
-    if-eqz v0, :cond_1
-
-    invoke-static {p0}, Lcom/android/settingslib/users/PhotoCapabilityUtils;->isDeviceLocked(Landroid/content/Context;)Z
-
-    move-result p0
-
-    if-nez p0, :cond_1
-
-    move v2, v1
-
-    :cond_1
-    return v2
-.end method
-
-.method public static canCropPhoto(Landroid/content/Context;)Z
-    .locals 3
-
-    new-instance v0, Landroid/content/Intent;
-
-    const-string v1, "com.android.camera.action.CROP"
+    const-string v1, "android.provider.action.PICK_IMAGES"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 

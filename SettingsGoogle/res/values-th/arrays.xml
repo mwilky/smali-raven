@@ -205,6 +205,7 @@
         <item>เกิน 60 วัน</item>
         <item>เกิน 90 วัน</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>0%</item>
         <item>50%</item>
@@ -348,17 +349,10 @@
         <item>ยกขึ้น</item>
         <item>ลดต่ำ</item>
     </string-array>
-    <string-array name="captioning_font_size_selector_summaries">
-        <item>ตัวอักษรขนาดเล็กมาก</item>
-        <item>ตัวอักษรขนาดเล็ก</item>
-        <item>ขนาดข้อความตามค่าเริ่มต้น</item>
-        <item>ตัวอักษรขนาดใหญ่</item>
-        <item>ตัวอักษรขนาดใหญ่มาก</item>
-    </string-array>
     <string-array name="captioning_font_size_selector_titles">
         <item>เล็กมาก</item>
         <item>เล็ก</item>
-        <item>ค่าเริ่มต้น</item>
+        <item>ปานกลาง</item>
         <item>ใหญ่</item>
         <item>ใหญ่มาก</item>
     </string-array>
@@ -490,6 +484,14 @@
         <item>IMSI</item>
         <item>GID</item>
     </string-array>
+    <string-array name="nfc_payment_favor">
+        <item>ทุกครั้ง</item>
+        <item>ยกเว้นเมื่อแอปการชำระเงินอื่นเปิดอยู่</item>
+    </string-array>
+    <string-array name="nfc_payment_favor_values">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
     <string-array name="overlay_display_devices_entries">
         <item>ไม่มี</item>
         <item>480p</item>
@@ -549,7 +551,7 @@
     <string-array name="proc_stats_process_states">
         <item>ต่อเนื่อง</item>
         <item>กิจกรรมแรก</item>
-        <item>สำคัญ (พื้นหน้า)</item>
+        <item>สำคัญ (เบื้องหน้า)</item>
         <item>สำคัญ (พื้นหลัง)</item>
         <item>การสำรองข้อมูล</item>
         <item>ใช้หน่วยความจำมาก</item>
@@ -616,6 +618,17 @@
     <string-array name="swipe_direction_values">
         <item>1</item>
         <item>0</item>
+    </string-array>
+    <string-array name="switch_to_user_zero_when_docked_timeout_entries">
+        <item>ไม่เลย</item>
+        <item>หลังจาก 1 นาที</item>
+        <item>หลังจาก 5 นาที</item>
+    </string-array>
+    <string-array name="tare_modifiers_subfactors">
+        <item>การชาร์จ</item>
+        <item>Doze</item>
+        <item>โหมดประหยัดพลังงาน</item>
+        <item>สถานะการประมวลผล</item>
     </string-array>
     <string-array name="timezone_filters">
         <item>อเมริกา</item>

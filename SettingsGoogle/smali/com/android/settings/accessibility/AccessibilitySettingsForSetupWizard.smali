@@ -282,7 +282,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f15000c
+    const p0, 0x7f15000b
 
     return p0
 .end method
@@ -304,7 +304,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/dashboard/DashboardFragment;->onCreate(Landroid/os/Bundle;)V
 
-    const-string p1, "screen_magnification_preference"
+    const-string/jumbo p1, "screen_magnification_preference"
 
     invoke-virtual {p0, p1}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -312,7 +312,7 @@
 
     iput-object p1, p0, Lcom/android/settings/accessibility/AccessibilitySettingsForSetupWizard;->mDisplayMagnificationPreference:Landroidx/preference/Preference;
 
-    const-string p1, "screen_reader_preference"
+    const-string/jumbo p1, "screen_reader_preference"
 
     invoke-virtual {p0, p1}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -322,7 +322,7 @@
 
     iput-object p1, p0, Lcom/android/settings/accessibility/AccessibilitySettingsForSetupWizard;->mScreenReaderPreference:Lcom/android/settingslib/RestrictedPreference;
 
-    const-string p1, "select_to_speak_preference"
+    const-string/jumbo p1, "select_to_speak_preference"
 
     invoke-virtual {p0, p1}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -431,7 +431,7 @@
 
     move-result-object p2
 
-    const v0, 0x7f04154b
+    const v0, 0x7f041644
 
     invoke-virtual {p2, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -441,7 +441,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f041549
+    const v1, 0x7f041642
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -451,7 +451,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f02016f
+    const v2, 0x7f02017f
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="abc_slice_duration_days">
-        <item quantity="other">Hace %d días</item>
-        <item quantity="one">Hace %d día</item>
+        <item quantity="other">Hace %d días</item>
+        <item quantity="one">Hace %d día</item>
     </plurals>
     <plurals name="abc_slice_duration_min">
         <item quantity="other">Hace %d min</item>
         <item quantity="one">Hace %d min</item>
     </plurals>
     <plurals name="abc_slice_duration_years">
-        <item quantity="other">Hace %d años</item>
-        <item quantity="one">Hace %d año</item>
+        <item quantity="other">Hace %d años</item>
+        <item quantity="one">Hace %d año</item>
     </plurals>
     <plurals name="accessibility_usage_summary">
         <item quantity="other">%1$d apps tienen acceso completo a tu dispositivo</item>
@@ -233,11 +233,11 @@
         <item quantity="one">%d categoría desactivada</item>
     </plurals>
     <plurals name="notifications_sent_daily">
-        <item quantity="other">Aproximadamente %d notificaciones por día</item>
+        <item quantity="other">Aproximadamente %,d notificaciones por día</item>
         <item quantity="one">Aproximadamente %d notificación por día</item>
     </plurals>
     <plurals name="notifications_sent_weekly">
-        <item quantity="other">Aproximadamente %d notificaciones por semana</item>
+        <item quantity="other">Aproximadamente %,d notificaciones por semana</item>
         <item quantity="one">Aproximadamente %d notificación por semana</item>
     </plurals>
     <plurals name="number_of_device_admins">
@@ -328,22 +328,6 @@
         <item quantity="other">Confiar o quitar certificados</item>
         <item quantity="one">Confiar o quitar certificado</item>
     </plurals>
-    <plurals name="ssl_ca_cert_info_message">
-        <item quantity="other">"%s instaló autoridades de certificación para tu perfil de trabajo que permiten controlar la actividad de tu red de trabajo, lo que incluye los correos electrónicos, las apps y los sitios web seguros.
-
-Comunícate con el administrador para obtener más información sobre las certificaciones."</item>
-        <item quantity="one">"%s instaló una autoridad de certificación para tu perfil de trabajo que permite controlar la actividad de tu red de trabajo, lo que incluye los correos electrónicos, las apps y los sitios web seguros.
-
-Comunícate con el administrador para obtener más información sobre la certificación."</item>
-    </plurals>
-    <plurals name="ssl_ca_cert_info_message_device_owner">
-        <item quantity="other">"%s instaló autoridades de certificación en tu dispositivo que permiten controlar la actividad de red en él, lo que incluye los correos electrónicos, las apps y los sitios web seguros.
-
-Comunícate con el administrador para obtener más información sobre las certificaciones."</item>
-        <item quantity="one">"%s instaló una autoridad de certificación en tu dispositivo que permite controlar la actividad de red en él, lo que incluye los correos electrónicos, las apps y los sitios web seguros.
-
-Comunícate con el administrador para obtener más información sobre la certificación."</item>
-    </plurals>
     <plurals name="ssl_ca_cert_settings_button">
         <item quantity="other">Revisar certificados</item>
         <item quantity="one">Revisar certificado</item>
@@ -375,10 +359,6 @@ Comunícate con el administrador para obtener más información sobre la certifi
     <plurals name="wifi_saved_passpoint_access_points_summary">
         <item quantity="other">%d suscripciones</item>
         <item quantity="one">1 suscripción</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$d dispositivos conectados</item>
-        <item quantity="one">%1$d dispositivo conectado</item>
     </plurals>
     <plurals name="wrong_pin_code">
         <item quantity="other">El código PIN de la tarjeta SIM es incorrecto. Tienes %d intentos más.</item>

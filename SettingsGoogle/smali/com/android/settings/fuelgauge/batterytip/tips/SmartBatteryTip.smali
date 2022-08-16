@@ -38,7 +38,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Landroid/os/Parcel;Lcom/android/settings/fuelgauge/batterytip/tips/SmartBatteryTip$1;)V
+.method synthetic constructor <init>(Landroid/os/Parcel;Lcom/android/settings/fuelgauge/batterytip/tips/SmartBatteryTip-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settings/fuelgauge/batterytip/tips/SmartBatteryTip;-><init>(Landroid/os/Parcel;)V
@@ -51,7 +51,7 @@
 .method public getIconId()I
     .locals 0
 
-    const p0, 0x7f020302
+    const p0, 0x7f020323
 
     return p0
 .end method
@@ -59,7 +59,7 @@
 .method public getSummary(Landroid/content/Context;)Ljava/lang/CharSequence;
     .locals 0
 
-    const p0, 0x7f0403e2
+    const p0, 0x7f040420
 
     invoke-virtual {p1, p0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -71,7 +71,7 @@
 .method public getTitle(Landroid/content/Context;)Ljava/lang/CharSequence;
     .locals 0
 
-    const p0, 0x7f0403e3
+    const p0, 0x7f040421
 
     invoke-virtual {p1, p0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

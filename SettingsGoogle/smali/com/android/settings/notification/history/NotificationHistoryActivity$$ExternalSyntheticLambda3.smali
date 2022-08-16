@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/settings/notification/history/NotificationHistoryActivity$$ExternalSyntheticLambda3;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/settingslib/widget/OnMainSwitchChangeListener;
+.implements Ljava/lang/Runnable;
 
 
 # instance fields
@@ -22,12 +23,12 @@
 
 
 # virtual methods
-.method public final onSwitchChanged(Landroid/widget/Switch;Z)V
+.method public final run()V
     .locals 0
 
     iget-object p0, p0, Lcom/android/settings/notification/history/NotificationHistoryActivity$$ExternalSyntheticLambda3;->f$0:Lcom/android/settings/notification/history/NotificationHistoryActivity;
 
-    invoke-static {p0, p1, p2}, Lcom/android/settings/notification/history/NotificationHistoryActivity;->$r8$lambda$FD5W5oWDDR8gzMfo6CpbGr20M1U(Lcom/android/settings/notification/history/NotificationHistoryActivity;Landroid/widget/Switch;Z)V
+    invoke-static {p0}, Lcom/android/settings/notification/history/NotificationHistoryActivity;->$r8$lambda$bTa8TY00tr-d7SmToW6lYQFEOdo(Lcom/android/settings/notification/history/NotificationHistoryActivity;)V
 
     return-void
 .end method

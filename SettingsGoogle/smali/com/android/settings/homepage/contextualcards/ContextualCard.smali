@@ -85,7 +85,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;->setCardType(I)Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;
 
-    const-string v2, "score"
+    const-string/jumbo v2, "score"
 
     invoke-interface {p1, v2}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
 
@@ -211,91 +211,91 @@
 
     iput-object p1, p0, Lcom/android/settings/homepage/contextualcards/ContextualCard;->mBuilder:Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;
 
-    invoke-static {p1}, Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;->access$000(Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;)Ljava/lang/String;
+    invoke-static {p1}, Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;->-$$Nest$fgetmName(Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;)Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/settings/homepage/contextualcards/ContextualCard;->mName:Ljava/lang/String;
 
-    invoke-static {p1}, Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;->access$100(Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;)I
+    invoke-static {p1}, Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;->-$$Nest$fgetmCardType(Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;)I
 
     move-result v0
 
     iput v0, p0, Lcom/android/settings/homepage/contextualcards/ContextualCard;->mCardType:I
 
-    invoke-static {p1}, Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;->access$200(Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;)D
+    invoke-static {p1}, Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;->-$$Nest$fgetmRankingScore(Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;)D
 
     move-result-wide v0
 
     iput-wide v0, p0, Lcom/android/settings/homepage/contextualcards/ContextualCard;->mRankingScore:D
 
-    invoke-static {p1}, Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;->access$300(Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;)Ljava/lang/String;
+    invoke-static {p1}, Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;->-$$Nest$fgetmSliceUri(Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;)Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/settings/homepage/contextualcards/ContextualCard;->mSliceUri:Ljava/lang/String;
 
-    invoke-static {p1}, Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;->access$400(Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;)I
+    invoke-static {p1}, Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;->-$$Nest$fgetmCategory(Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;)I
 
     move-result v0
 
     iput v0, p0, Lcom/android/settings/homepage/contextualcards/ContextualCard;->mCategory:I
 
-    invoke-static {p1}, Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;->access$500(Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;)Ljava/lang/String;
+    invoke-static {p1}, Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;->-$$Nest$fgetmPackageName(Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;)Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/settings/homepage/contextualcards/ContextualCard;->mPackageName:Ljava/lang/String;
 
-    invoke-static {p1}, Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;->access$600(Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;)J
+    invoke-static {p1}, Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;->-$$Nest$fgetmAppVersion(Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;)J
 
     move-result-wide v0
 
     iput-wide v0, p0, Lcom/android/settings/homepage/contextualcards/ContextualCard;->mAppVersion:J
 
-    invoke-static {p1}, Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;->access$700(Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;)Ljava/lang/String;
+    invoke-static {p1}, Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;->-$$Nest$fgetmTitleText(Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;)Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/settings/homepage/contextualcards/ContextualCard;->mTitleText:Ljava/lang/String;
 
-    invoke-static {p1}, Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;->access$800(Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;)Ljava/lang/String;
+    invoke-static {p1}, Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;->-$$Nest$fgetmSummaryText(Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;)Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/settings/homepage/contextualcards/ContextualCard;->mSummaryText:Ljava/lang/String;
 
-    invoke-static {p1}, Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;->access$900(Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;)Landroid/graphics/drawable/Drawable;
+    invoke-static {p1}, Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;->-$$Nest$fgetmIconDrawable(Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/settings/homepage/contextualcards/ContextualCard;->mIconDrawable:Landroid/graphics/drawable/Drawable;
 
-    invoke-static {p1}, Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;->access$1000(Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;)Z
+    invoke-static {p1}, Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;->-$$Nest$fgetmIsLargeCard(Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;)Z
 
     move-result v0
 
     iput-boolean v0, p0, Lcom/android/settings/homepage/contextualcards/ContextualCard;->mIsLargeCard:Z
 
-    invoke-static {p1}, Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;->access$1100(Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;)I
+    invoke-static {p1}, Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;->-$$Nest$fgetmViewType(Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;)I
 
     move-result v0
 
     iput v0, p0, Lcom/android/settings/homepage/contextualcards/ContextualCard;->mViewType:I
 
-    invoke-static {p1}, Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;->access$1200(Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;)Z
+    invoke-static {p1}, Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;->-$$Nest$fgetmIsPendingDismiss(Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;)Z
 
     move-result v0
 
     iput-boolean v0, p0, Lcom/android/settings/homepage/contextualcards/ContextualCard;->mIsPendingDismiss:Z
 
-    invoke-static {p1}, Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;->access$1300(Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;)Z
+    invoke-static {p1}, Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;->-$$Nest$fgetmHasInlineAction(Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;)Z
 
     move-result v0
 
     iput-boolean v0, p0, Lcom/android/settings/homepage/contextualcards/ContextualCard;->mHasInlineAction:Z
 
-    invoke-static {p1}, Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;->access$1400(Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;)Landroidx/slice/Slice;
+    invoke-static {p1}, Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;->-$$Nest$fgetmSlice(Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;)Landroidx/slice/Slice;
 
     move-result-object p1
 
@@ -311,7 +311,7 @@
 
     if-ne p1, p0, :cond_0
 
-    const p0, 0x7f06009a
+    const p0, 0x7f0600a4
 
     return p0
 

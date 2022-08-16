@@ -31,29 +31,29 @@
 .method private createFragment(I)Lcom/android/settings/sim/SimDialogFragment;
     .locals 4
 
-    const/4 v0, 0x0
-
     if-eqz p1, :cond_5
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    if-eq p1, v1, :cond_4
+    const/4 v1, 0x0
+
+    if-eq p1, v0, :cond_4
 
     const/4 v2, 0x2
 
-    const v3, 0x7f0411d0
+    const v3, 0x7f041285
 
     if-eq p1, v2, :cond_3
 
-    const/4 v1, 0x3
+    const/4 v0, 0x3
 
-    if-eq p1, v1, :cond_1
+    if-eq p1, v0, :cond_1
 
     const/4 p0, 0x4
 
     if-ne p1, p0, :cond_0
 
-    invoke-static {p1, v3, v0}, Lcom/android/settings/sim/SimListDialogFragment;->newInstance(IIZ)Lcom/android/settings/sim/SimListDialogFragment;
+    invoke-static {p1, v3, v1, v1}, Lcom/android/settings/sim/SimListDialogFragment;->newInstance(IIZZ)Lcom/android/settings/sim/SimListDialogFragment;
 
     move-result-object p0
 
@@ -127,29 +127,78 @@
     throw p0
 
     :cond_3
-    invoke-static {p1, v3, v1}, Lcom/android/settings/sim/SimListDialogFragment;->newInstance(IIZ)Lcom/android/settings/sim/SimListDialogFragment;
+    invoke-static {p1, v3, v0, v1}, Lcom/android/settings/sim/SimListDialogFragment;->newInstance(IIZZ)Lcom/android/settings/sim/SimListDialogFragment;
 
     move-result-object p0
 
     return-object p0
 
     :cond_4
-    const p0, 0x7f0411ce
+    const p0, 0x7f041283
 
-    invoke-static {p1, p0, v1}, Lcom/android/settings/sim/SimListDialogFragment;->newInstance(IIZ)Lcom/android/settings/sim/SimListDialogFragment;
+    invoke-static {p1, p0, v0, v1}, Lcom/android/settings/sim/SimListDialogFragment;->newInstance(IIZZ)Lcom/android/settings/sim/SimListDialogFragment;
 
     move-result-object p0
 
     return-object p0
 
     :cond_5
-    const p0, 0x7f0411cf
-
-    invoke-static {p1, p0, v0}, Lcom/android/settings/sim/SimListDialogFragment;->newInstance(IIZ)Lcom/android/settings/sim/SimListDialogFragment;
+    invoke-direct {p0}, Lcom/android/settings/sim/SimDialogActivity;->getDataPickDialogFramgent()Lcom/android/settings/sim/SimDialogFragment;
 
     move-result-object p0
 
     return-object p0
+.end method
+
+.method private getDataPickDialogFramgent()Lcom/android/settings/sim/SimDialogFragment;
+    .locals 2
+
+    invoke-static {}, Landroid/telephony/SubscriptionManager;->getDefaultDataSubscriptionId()I
+
+    move-result p0
+
+    const/4 v0, -0x1
+
+    if-ne p0, v0, :cond_0
+
+    const p0, 0x7f041284
+
+    const/4 v0, 0x1
+
+    const/4 v1, 0x0
+
+    invoke-static {v1, p0, v1, v0}, Lcom/android/settings/sim/SimListDialogFragment;->newInstance(IIZZ)Lcom/android/settings/sim/SimListDialogFragment;
+
+    move-result-object p0
+
+    return-object p0
+
+    :cond_0
+    invoke-static {}, Lcom/android/settings/sim/SelectSpecificDataSimDialogFragment;->newInstance()Lcom/android/settings/sim/SelectSpecificDataSimDialogFragment;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private getProgressState()I
+    .locals 2
+
+    const-string/jumbo v0, "sim_action_dialog_prefs"
+
+    const/4 v1, 0x0
+
+    invoke-virtual {p0, v0, v1}, Landroid/app/Activity;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+
+    move-result-object p0
+
+    const-string v0, "progress_state"
+
+    invoke-interface {p0, v0, v1}, Landroid/content/SharedPreferences;->getInt(Ljava/lang/String;I)I
+
+    move-result p0
+
+    return p0
 .end method
 
 .method private setDefaultCallsSubId(I)V
@@ -197,11 +246,15 @@
 
     invoke-virtual {v0, p1}, Landroid/telephony/SubscriptionManager;->setDefaultDataSubId(I)V
 
+    const/4 v0, -0x1
+
+    if-eq p1, v0, :cond_0
+
     const/4 p1, 0x1
 
     invoke-virtual {v1, p1}, Landroid/telephony/TelephonyManager;->setDataEnabled(Z)V
 
-    const v0, 0x7f040722
+    const v0, 0x7f040767
 
     invoke-static {p0, v0, p1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -209,6 +262,7 @@
 
     invoke-virtual {p0}, Landroid/widget/Toast;->show()V
 
+    :cond_0
     return-void
 .end method
 
@@ -264,6 +318,29 @@
     return-void
 
     :cond_0
+    const/4 v1, 0x3
+
+    if-ne v0, v1, :cond_1
+
+    invoke-direct {p0}, Lcom/android/settings/sim/SimDialogActivity;->getProgressState()I
+
+    move-result v1
+
+    const/4 v2, 0x1
+
+    if-ne v1, v2, :cond_1
+
+    sget-object v0, Lcom/android/settings/sim/SimDialogActivity;->TAG:Ljava/lang/String;
+
+    const-string v1, "Finish the sim dialog since the sim action dialog is showing the progress"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
+
+    return-void
+
+    :cond_1
     invoke-static {v0}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
     move-result-object v1
@@ -278,7 +355,7 @@
 
     check-cast v3, Lcom/android/settings/sim/SimDialogFragment;
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_2
 
     invoke-direct {p0, v0}, Lcom/android/settings/sim/SimDialogActivity;->createFragment(I)Lcom/android/settings/sim/SimDialogFragment;
 
@@ -288,7 +365,7 @@
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     invoke-virtual {v3}, Lcom/android/settings/sim/SimDialogFragment;->updateDialog()V
 
     :goto_0

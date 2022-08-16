@@ -46,79 +46,79 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    invoke-static {p1}, Lcom/android/settings/slices/SliceData$Builder;->access$000(Lcom/android/settings/slices/SliceData$Builder;)Ljava/lang/String;
+    invoke-static {p1}, Lcom/android/settings/slices/SliceData$Builder;->-$$Nest$fgetmKey(Lcom/android/settings/slices/SliceData$Builder;)Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/settings/slices/SliceData;->mKey:Ljava/lang/String;
 
-    invoke-static {p1}, Lcom/android/settings/slices/SliceData$Builder;->access$100(Lcom/android/settings/slices/SliceData$Builder;)Ljava/lang/String;
+    invoke-static {p1}, Lcom/android/settings/slices/SliceData$Builder;->-$$Nest$fgetmTitle(Lcom/android/settings/slices/SliceData$Builder;)Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/settings/slices/SliceData;->mTitle:Ljava/lang/String;
 
-    invoke-static {p1}, Lcom/android/settings/slices/SliceData$Builder;->access$200(Lcom/android/settings/slices/SliceData$Builder;)Ljava/lang/String;
+    invoke-static {p1}, Lcom/android/settings/slices/SliceData$Builder;->-$$Nest$fgetmSummary(Lcom/android/settings/slices/SliceData$Builder;)Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/settings/slices/SliceData;->mSummary:Ljava/lang/String;
 
-    invoke-static {p1}, Lcom/android/settings/slices/SliceData$Builder;->access$300(Lcom/android/settings/slices/SliceData$Builder;)Ljava/lang/CharSequence;
+    invoke-static {p1}, Lcom/android/settings/slices/SliceData$Builder;->-$$Nest$fgetmScreenTitle(Lcom/android/settings/slices/SliceData$Builder;)Ljava/lang/CharSequence;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/settings/slices/SliceData;->mScreenTitle:Ljava/lang/CharSequence;
 
-    invoke-static {p1}, Lcom/android/settings/slices/SliceData$Builder;->access$400(Lcom/android/settings/slices/SliceData$Builder;)Ljava/lang/String;
+    invoke-static {p1}, Lcom/android/settings/slices/SliceData$Builder;->-$$Nest$fgetmKeywords(Lcom/android/settings/slices/SliceData$Builder;)Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/settings/slices/SliceData;->mKeywords:Ljava/lang/String;
 
-    invoke-static {p1}, Lcom/android/settings/slices/SliceData$Builder;->access$500(Lcom/android/settings/slices/SliceData$Builder;)I
+    invoke-static {p1}, Lcom/android/settings/slices/SliceData$Builder;->-$$Nest$fgetmIconResource(Lcom/android/settings/slices/SliceData$Builder;)I
 
     move-result v0
 
     iput v0, p0, Lcom/android/settings/slices/SliceData;->mIconResource:I
 
-    invoke-static {p1}, Lcom/android/settings/slices/SliceData$Builder;->access$600(Lcom/android/settings/slices/SliceData$Builder;)Ljava/lang/String;
+    invoke-static {p1}, Lcom/android/settings/slices/SliceData$Builder;->-$$Nest$fgetmFragmentClassName(Lcom/android/settings/slices/SliceData$Builder;)Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/settings/slices/SliceData;->mFragmentClassName:Ljava/lang/String;
 
-    invoke-static {p1}, Lcom/android/settings/slices/SliceData$Builder;->access$700(Lcom/android/settings/slices/SliceData$Builder;)Landroid/net/Uri;
+    invoke-static {p1}, Lcom/android/settings/slices/SliceData$Builder;->-$$Nest$fgetmUri(Lcom/android/settings/slices/SliceData$Builder;)Landroid/net/Uri;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/settings/slices/SliceData;->mUri:Landroid/net/Uri;
 
-    invoke-static {p1}, Lcom/android/settings/slices/SliceData$Builder;->access$800(Lcom/android/settings/slices/SliceData$Builder;)Ljava/lang/String;
+    invoke-static {p1}, Lcom/android/settings/slices/SliceData$Builder;->-$$Nest$fgetmPrefControllerClassName(Lcom/android/settings/slices/SliceData$Builder;)Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/settings/slices/SliceData;->mPreferenceController:Ljava/lang/String;
 
-    invoke-static {p1}, Lcom/android/settings/slices/SliceData$Builder;->access$900(Lcom/android/settings/slices/SliceData$Builder;)I
+    invoke-static {p1}, Lcom/android/settings/slices/SliceData$Builder;->-$$Nest$fgetmSliceType(Lcom/android/settings/slices/SliceData$Builder;)I
 
     move-result v0
 
     iput v0, p0, Lcom/android/settings/slices/SliceData;->mSliceType:I
 
-    invoke-static {p1}, Lcom/android/settings/slices/SliceData$Builder;->access$1000(Lcom/android/settings/slices/SliceData$Builder;)Ljava/lang/String;
+    invoke-static {p1}, Lcom/android/settings/slices/SliceData$Builder;->-$$Nest$fgetmUnavailableSliceSubtitle(Lcom/android/settings/slices/SliceData$Builder;)Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/settings/slices/SliceData;->mUnavailableSliceSubtitle:Ljava/lang/String;
 
-    invoke-static {p1}, Lcom/android/settings/slices/SliceData$Builder;->access$1100(Lcom/android/settings/slices/SliceData$Builder;)Z
+    invoke-static {p1}, Lcom/android/settings/slices/SliceData$Builder;->-$$Nest$fgetmIsPublicSlice(Lcom/android/settings/slices/SliceData$Builder;)Z
 
     move-result v0
 
     iput-boolean v0, p0, Lcom/android/settings/slices/SliceData;->mIsPublicSlice:Z
 
-    invoke-static {p1}, Lcom/android/settings/slices/SliceData$Builder;->access$1200(Lcom/android/settings/slices/SliceData$Builder;)I
+    invoke-static {p1}, Lcom/android/settings/slices/SliceData$Builder;->-$$Nest$fgetmHighlightMenuRes(Lcom/android/settings/slices/SliceData$Builder;)I
 
     move-result p1
 
@@ -127,7 +127,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settings/slices/SliceData$Builder;Lcom/android/settings/slices/SliceData$1;)V
+.method synthetic constructor <init>(Lcom/android/settings/slices/SliceData$Builder;Lcom/android/settings/slices/SliceData-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settings/slices/SliceData;-><init>(Lcom/android/settings/slices/SliceData$Builder;)V

@@ -34,7 +34,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040822
+    const v1, 0x7f04086b
 
     const/4 v2, 0x0
 
@@ -55,19 +55,19 @@
 
     invoke-direct {p1, v0}, Landroidx/appcompat/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v0, 0x7f040979
+    const v0, 0x7f0409de
 
     invoke-virtual {p1, v0}, Landroidx/appcompat/app/AlertDialog$Builder;->setTitle(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
     move-result-object p1
 
-    const v0, 0x7f040978
+    const v0, 0x7f0409dd
 
     invoke-virtual {p1, v0}, Landroidx/appcompat/app/AlertDialog$Builder;->setMessage(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
     move-result-object p1
 
-    const v0, 0x7f040827
+    const v0, 0x7f040871
 
     invoke-virtual {p1, v0, p0}, Landroidx/appcompat/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 
@@ -88,13 +88,13 @@
 
     invoke-direct {p1, v0}, Landroidx/appcompat/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v0, 0x7f04023b
+    const v0, 0x7f040269
 
     invoke-virtual {p1, v0}, Landroidx/appcompat/app/AlertDialog$Builder;->setMessage(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
     move-result-object p1
 
-    const v0, 0x7f04023a
+    const v0, 0x7f040268
 
     invoke-virtual {p1, v0, p0}, Landroidx/appcompat/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 
@@ -144,8 +144,17 @@
 .end method
 
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 0
+    .locals 1
 
+    iget p2, p0, Lcom/android/settings/applications/appinfo/ButtonActionDialogFragment;->mId:I
+
+    const/4 v0, 0x2
+
+    if-ne p2, v0, :cond_0
+
+    invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
+
+    :cond_0
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getTargetFragment()Landroidx/fragment/app/Fragment;
 
     move-result-object p1

@@ -42,19 +42,19 @@
 
     sget-object v1, Lcom/android/settings/UserCredentialsSettings$Credential$Type;->USER_KEY:Lcom/android/settings/UserCredentialsSettings$Credential$Type;
 
-    const v2, 0x7f0d017f
+    const v2, 0x7f0d0194
 
     invoke-virtual {v0, v2, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     sget-object v1, Lcom/android/settings/UserCredentialsSettings$Credential$Type;->USER_CERTIFICATE:Lcom/android/settings/UserCredentialsSettings$Credential$Type;
 
-    const v2, 0x7f0d017e
+    const v2, 0x7f0d0193
 
     invoke-virtual {v0, v2, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     sget-object v1, Lcom/android/settings/UserCredentialsSettings$Credential$Type;->CA_CERTIFICATE:Lcom/android/settings/UserCredentialsSettings$Credential$Type;
 
-    const v2, 0x7f0d017c
+    const v2, 0x7f0d0191
 
     invoke-virtual {v0, v2, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
@@ -89,7 +89,7 @@
     move-result-object p2
 
     :cond_0
-    const p1, 0x7f0d007b
+    const p1, 0x7f0d007d
 
     invoke-virtual {p2, p1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -101,7 +101,7 @@
 
     invoke-virtual {p1, p3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const p1, 0x7f0d047f
+    const p1, 0x7f0d04b3
 
     invoke-virtual {p2, p1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -115,17 +115,17 @@
 
     if-eqz p3, :cond_1
 
-    const p3, 0x7f0406b4
+    const p3, 0x7f04070f
 
     goto :goto_0
 
     :cond_1
-    const p3, 0x7f0406b5
+    const p3, 0x7f040710
 
     :goto_0
     invoke-virtual {p1, p3}, Landroid/widget/TextView;->setText(I)V
 
-    const p1, 0x7f0d017b
+    const p1, 0x7f0d0190
 
     invoke-virtual {p2, p1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -214,7 +214,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0414eb
+    const v1, 0x7f0415ea
 
     const/4 v2, 0x1
 
@@ -267,7 +267,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f0414ed
+    const p1, 0x7f0415ec
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->setTitle(I)V
 
@@ -297,7 +297,7 @@
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, p0, v1}, Lcom/android/settings/UserCredentialsSettings$AliasLoader;-><init>(Lcom/android/settings/UserCredentialsSettings;Lcom/android/settings/UserCredentialsSettings$1;)V
+    invoke-direct {v0, p0, v1}, Lcom/android/settings/UserCredentialsSettings$AliasLoader;-><init>(Lcom/android/settings/UserCredentialsSettings;Lcom/android/settings/UserCredentialsSettings$AliasLoader-IA;)V
 
     const/4 p0, 0x0
 

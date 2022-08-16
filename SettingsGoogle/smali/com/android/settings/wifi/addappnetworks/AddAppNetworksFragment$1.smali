@@ -69,7 +69,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment;->mResultCodeArrayList:Ljava/util/List;
 
-    invoke-static {p0, p1, v0}, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment;->access$300(Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment;ILjava/util/List;)V
+    invoke-static {p0, p1, v0}, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment;->-$$Nest$mfinishWithResult(Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment;ILjava/util/List;)V
 
     goto :goto_0
 
@@ -85,7 +85,7 @@
     :cond_2
     iget-object p1, p0, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment$1;->this$0:Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment;
 
-    invoke-static {p1}, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment;->access$100(Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment;)Z
+    invoke-static {p1}, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment;->-$$Nest$fgetmIsSingleNetwork(Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment;)Z
 
     move-result p1
 
@@ -93,7 +93,7 @@
 
     iget-object p1, p0, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment$1;->this$0:Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment;
 
-    invoke-static {p1, v1}, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment;->access$200(Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment;I)V
+    invoke-static {p1, v1}, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment;->-$$Nest$mconnectNetwork(Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment;I)V
 
     :cond_3
     const-wide/16 v0, 0x3e8
@@ -111,11 +111,11 @@
 
     iget-object p1, p0, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment$1;->this$0:Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment;
 
-    invoke-static {p1, v1}, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment;->access$002(Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment;I)I
+    invoke-static {p1, v1}, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment;->-$$Nest$fputmSavingIndex(Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment;I)V
 
     iget-object p0, p0, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment$1;->this$0:Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment;
 
-    invoke-static {p0}, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment;->access$000(Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment;)I
+    invoke-static {p0}, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment;->-$$Nest$fgetmSavingIndex(Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment;)I
 
     move-result p1
 

@@ -57,6 +57,8 @@
 
     iput-boolean p4, p0, Landroidx/window/embedding/SplitPairRule;->clearTop:Z
 
+    check-cast p1, Ljava/lang/Iterable;
+
     invoke-static {p1}, Lkotlin/collections/CollectionsKt;->toSet(Ljava/lang/Iterable;)Ljava/util/Set;
 
     move-result-object p1
@@ -350,7 +352,7 @@
     return v0
 .end method
 
-.method public final plus$window_debug(Landroidx/window/embedding/SplitPairFilter;)Landroidx/window/embedding/SplitPairRule;
+.method public final plus$window_release(Landroidx/window/embedding/SplitPairFilter;)Landroidx/window/embedding/SplitPairRule;
     .locals 11
     .param p1    # Landroidx/window/embedding/SplitPairFilter;
         .annotation build Lorg/jetbrains/annotations/NotNull;
@@ -368,6 +370,8 @@
     invoke-direct {v0}, Ljava/util/LinkedHashSet;-><init>()V
 
     iget-object v1, p0, Landroidx/window/embedding/SplitPairRule;->filters:Ljava/util/Set;
+
+    check-cast v1, Ljava/util/Collection;
 
     invoke-interface {v0, v1}, Ljava/util/Set;->addAll(Ljava/util/Collection;)Z
 

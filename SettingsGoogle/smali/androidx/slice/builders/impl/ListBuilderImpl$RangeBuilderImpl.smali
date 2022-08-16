@@ -41,16 +41,6 @@
 # direct methods
 .method constructor <init>(Landroidx/slice/Slice$Builder;Landroidx/slice/builders/ListBuilder$RangeBuilder;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "sb",
-            "builder"
-        }
-    .end annotation
 
     const/4 p2, 0x0
 
@@ -81,14 +71,6 @@
 # virtual methods
 .method public apply(Landroidx/slice/Slice$Builder;)V
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "builder"
-        }
-    .end annotation
 
     iget-boolean v0, p0, Landroidx/slice/builders/impl/ListBuilderImpl$RangeBuilderImpl;->mValueSet:Z
 
@@ -219,7 +201,7 @@
 
     new-array v0, v2, [Ljava/lang/String;
 
-    const-string v1, "range_mode"
+    const-string/jumbo v1, "range_mode"
 
     invoke-virtual {p1, p0, v1, v0}, Landroidx/slice/Slice$Builder;->addInt(ILjava/lang/String;[Ljava/lang/String;)Landroidx/slice/Slice$Builder;
 

@@ -45,11 +45,41 @@
 
 
 # virtual methods
-.method public set(Ljava/lang/Object;)Z
+.method public bridge synthetic get()Ljava/lang/Object;
     .locals 0
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/InterruptedException;,
+            Ljava/util/concurrent/ExecutionException;
+        }
     .end annotation
 
+    invoke-super {p0}, Lcom/google/common/util/concurrent/AbstractFuture$TrustedFuture;->get()Ljava/lang/Object;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public bridge synthetic get(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
+    .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/InterruptedException;,
+            Ljava/util/concurrent/ExecutionException;,
+            Ljava/util/concurrent/TimeoutException;
+        }
+    .end annotation
+
+    invoke-super {p0, p1, p2, p3}, Lcom/google/common/util/concurrent/AbstractFuture$TrustedFuture;->get(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public set(Ljava/lang/Object;)Z
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TV;)Z"
@@ -65,8 +95,6 @@
 
 .method public setException(Ljava/lang/Throwable;)Z
     .locals 0
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
 
     invoke-super {p0, p1}, Lcom/google/common/util/concurrent/AbstractFuture;->setException(Ljava/lang/Throwable;)Z
 

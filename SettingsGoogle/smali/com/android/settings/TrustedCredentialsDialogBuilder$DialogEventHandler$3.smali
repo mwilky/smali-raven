@@ -45,7 +45,7 @@
 
     iget-object p0, p0, Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler$3;->val$nextCertView:Landroid/view/View;
 
-    invoke-static {v0, p0}, Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;->access$300(Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;Landroid/view/View;)V
+    invoke-static {v0, p0}, Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;->-$$Nest$maddAndAnimateNewContent(Lcom/android/settings/TrustedCredentialsDialogBuilder$DialogEventHandler;Landroid/view/View;)V
 
     return-void
 .end method

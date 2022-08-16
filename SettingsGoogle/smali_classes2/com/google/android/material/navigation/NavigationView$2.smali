@@ -77,6 +77,22 @@
 
     iget-object v3, p0, Lcom/google/android/material/navigation/NavigationView$2;->this$0:Lcom/google/android/material/navigation/NavigationView;
 
+    if-eqz v0, :cond_1
+
+    invoke-virtual {v3}, Lcom/google/android/material/navigation/NavigationView;->isTopInsetScrimEnabled()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    move v0, v1
+
+    goto :goto_1
+
+    :cond_1
+    move v0, v2
+
+    :goto_1
     invoke-virtual {v3, v0}, Lcom/google/android/material/internal/ScrimInsetsFrameLayout;->setDrawTopInsetForeground(Z)V
 
     iget-object v0, p0, Lcom/google/android/material/navigation/NavigationView$2;->this$0:Lcom/google/android/material/navigation/NavigationView;
@@ -89,13 +105,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_4
-
-    sget v3, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v4, 0x15
-
-    if-lt v3, v4, :cond_4
+    if-eqz v0, :cond_5
 
     const v3, 0x1020002
 
@@ -113,16 +123,16 @@
 
     move-result v4
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_2
 
     move v3, v1
 
-    goto :goto_1
+    goto :goto_2
 
-    :cond_1
+    :cond_2
     move v3, v2
 
-    :goto_1
+    :goto_2
     invoke-virtual {v0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
 
     move-result-object v0
@@ -135,30 +145,36 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
 
     move v0, v1
-
-    goto :goto_2
-
-    :cond_2
-    move v0, v2
-
-    :goto_2
-    iget-object p0, p0, Lcom/google/android/material/navigation/NavigationView$2;->this$0:Lcom/google/android/material/navigation/NavigationView;
-
-    if-eqz v3, :cond_3
-
-    if-eqz v0, :cond_3
 
     goto :goto_3
 
     :cond_3
-    move v1, v2
+    move v0, v2
 
     :goto_3
-    invoke-virtual {p0, v1}, Lcom/google/android/material/internal/ScrimInsetsFrameLayout;->setDrawBottomInsetForeground(Z)V
+    iget-object p0, p0, Lcom/google/android/material/navigation/NavigationView$2;->this$0:Lcom/google/android/material/navigation/NavigationView;
+
+    if-eqz v3, :cond_4
+
+    if-eqz v0, :cond_4
+
+    invoke-virtual {p0}, Lcom/google/android/material/navigation/NavigationView;->isBottomInsetScrimEnabled()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_4
+
+    goto :goto_4
 
     :cond_4
+    move v1, v2
+
+    :goto_4
+    invoke-virtual {p0, v1}, Lcom/google/android/material/internal/ScrimInsetsFrameLayout;->setDrawBottomInsetForeground(Z)V
+
+    :cond_5
     return-void
 .end method

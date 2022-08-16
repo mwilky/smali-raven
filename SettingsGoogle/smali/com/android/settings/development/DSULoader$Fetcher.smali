@@ -47,7 +47,7 @@
         }
     .end annotation
 
-    invoke-static {p1}, Lcom/android/settings/development/DSULoader;->access$000(Ljava/net/URL;)Ljava/lang/String;
+    invoke-static {p1}, Lcom/android/settings/development/DSULoader;->-$$Nest$smreadAll(Ljava/net/URL;)Ljava/lang/String;
 
     move-result-object p1
 
@@ -140,7 +140,7 @@
 
     iget-object v3, p0, Lcom/android/settings/development/DSULoader$Fetcher;->this$0:Lcom/android/settings/development/DSULoader;
 
-    invoke-static {v3}, Lcom/android/settings/development/DSULoader;->access$100(Lcom/android/settings/development/DSULoader;)Ljava/util/List;
+    invoke-static {v3}, Lcom/android/settings/development/DSULoader;->-$$Nest$fgetmDSUList(Lcom/android/settings/development/DSULoader;)Ljava/util/List;
 
     move-result-object v3
 
@@ -185,7 +185,7 @@
 
     iget-object v0, p0, Lcom/android/settings/development/DSULoader$Fetcher;->this$0:Lcom/android/settings/development/DSULoader;
 
-    invoke-static {v0}, Lcom/android/settings/development/DSULoader;->access$100(Lcom/android/settings/development/DSULoader;)Ljava/util/List;
+    invoke-static {v0}, Lcom/android/settings/development/DSULoader;->-$$Nest$fgetmDSUList(Lcom/android/settings/development/DSULoader;)Ljava/util/List;
 
     move-result-object v0
 
@@ -206,7 +206,7 @@
 
     iget-object v0, p0, Lcom/android/settings/development/DSULoader$Fetcher;->this$0:Lcom/android/settings/development/DSULoader;
 
-    invoke-static {v0}, Lcom/android/settings/development/DSULoader;->access$100(Lcom/android/settings/development/DSULoader;)Ljava/util/List;
+    invoke-static {v0}, Lcom/android/settings/development/DSULoader;->-$$Nest$fgetmDSUList(Lcom/android/settings/development/DSULoader;)Ljava/util/List;
 
     move-result-object v0
 
@@ -217,7 +217,7 @@
     :goto_0
     iget-object v0, p0, Lcom/android/settings/development/DSULoader$Fetcher;->this$0:Lcom/android/settings/development/DSULoader;
 
-    invoke-static {v0}, Lcom/android/settings/development/DSULoader;->access$100(Lcom/android/settings/development/DSULoader;)Ljava/util/List;
+    invoke-static {v0}, Lcom/android/settings/development/DSULoader;->-$$Nest$fgetmDSUList(Lcom/android/settings/development/DSULoader;)Ljava/util/List;
 
     move-result-object v0
 
@@ -229,7 +229,7 @@
 
     iget-object v0, p0, Lcom/android/settings/development/DSULoader$Fetcher;->this$0:Lcom/android/settings/development/DSULoader;
 
-    invoke-static {v0}, Lcom/android/settings/development/DSULoader;->access$100(Lcom/android/settings/development/DSULoader;)Ljava/util/List;
+    invoke-static {v0}, Lcom/android/settings/development/DSULoader;->-$$Nest$fgetmDSUList(Lcom/android/settings/development/DSULoader;)Ljava/util/List;
 
     move-result-object v0
 

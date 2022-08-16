@@ -40,7 +40,7 @@
 
     const/4 p0, 0x0
 
-    invoke-static {p1, p0}, Lcom/android/settings/connecteddevice/AdvancedConnectedDeviceDashboardFragment;->access$000(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;)Ljava/util/List;
+    invoke-static {p1, p0}, Lcom/android/settings/connecteddevice/AdvancedConnectedDeviceDashboardFragment;->-$$Nest$smbuildControllers(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;)Ljava/util/List;
 
     move-result-object p0
 
@@ -101,7 +101,7 @@
 
     invoke-direct {p0, p1}, Landroid/provider/SearchIndexableResource;-><init>(Landroid/content/Context;)V
 
-    const p1, 0x7f15004c
+    const p1, 0x7f15004f
 
     iput p1, p0, Landroid/provider/SearchIndexableResource;->xmlResId:I
 

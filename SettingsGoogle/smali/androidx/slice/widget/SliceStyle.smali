@@ -94,20 +94,6 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "attrs",
-            "defStyleAttr",
-            "defStyleRes"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -556,15 +542,6 @@
 
 .method private shouldSkipFirstListItem(Ljava/util/List;)Z
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "rowItems"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -661,16 +638,6 @@
 
 .method public getGridHeight(Landroidx/slice/widget/GridContent;Landroidx/slice/widget/SliceViewPolicy;)I
     .locals 7
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "grid",
-            "policy"
-        }
-    .end annotation
 
     invoke-virtual {p2}, Landroidx/slice/widget/SliceViewPolicy;->getMode()I
 
@@ -944,16 +911,6 @@
 
 .method public getListHeight(Landroidx/slice/widget/ListContent;Landroidx/slice/widget/SliceViewPolicy;)I
     .locals 7
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "list",
-            "policy"
-        }
-    .end annotation
 
     invoke-virtual {p2}, Landroidx/slice/widget/SliceViewPolicy;->getMode()I
 
@@ -1070,18 +1027,6 @@
 
 .method public getListItemsForNonScrollingList(Landroidx/slice/widget/ListContent;ILandroidx/slice/widget/SliceViewPolicy;)Landroidx/slice/widget/DisplayedListItems;
     .locals 9
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "list",
-            "availableHeight",
-            "policy"
-        }
-    .end annotation
 
     new-instance v0, Ljava/util/ArrayList;
 
@@ -1295,17 +1240,6 @@
 
 .method public getListItemsHeight(Ljava/util/List;Landroidx/slice/widget/SliceViewPolicy;)I
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "listItems",
-            "policy"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1367,15 +1301,6 @@
 
 .method public getListItemsToDisplay(Landroidx/slice/widget/ListContent;)Ljava/util/List;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "list"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1421,16 +1346,6 @@
 
 .method public getRowHeight(Landroidx/slice/widget/RowContent;Landroidx/slice/widget/SliceViewPolicy;)I
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "row",
-            "policy"
-        }
-    .end annotation
 
     invoke-virtual {p2}, Landroidx/slice/widget/SliceViewPolicy;->getMaxSmallHeight()I
 
@@ -1596,14 +1511,6 @@
 
 .method public getRowStyle(Landroidx/slice/SliceItem;)Landroidx/slice/widget/RowStyle;
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "sliceItem"
-        }
-    .end annotation
 
     iget v0, p0, Landroidx/slice/widget/SliceStyle;->mDefaultRowStyleRes:I
 
@@ -1723,14 +1630,6 @@
 
 .method public setRowStyleFactory(Landroidx/slice/widget/RowStyleFactory;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "rowStyleFactory"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/slice/widget/SliceStyle;->mRowStyleFactory:Landroidx/slice/widget/RowStyleFactory;
 
@@ -1739,14 +1638,6 @@
 
 .method public setTintColor(I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "tint"
-        }
-    .end annotation
 
     iput p1, p0, Landroidx/slice/widget/SliceStyle;->mTintColor:I
 

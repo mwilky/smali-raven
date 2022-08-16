@@ -14,6 +14,8 @@
 
 
 # instance fields
+.field private mDevicePolicyManager:Landroid/app/admin/DevicePolicyManager;
+
 .field private mIntentFilter:Landroid/content/IntentFilter;
 
 .field private mManagedUser:Landroid/os/UserHandle;
@@ -26,6 +28,42 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$Ovm_UClkvjGeWecxgSlVTiBs0sQ(Lcom/android/settings/accounts/WorkModePreferenceController;)Ljava/lang/String;
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/accounts/WorkModePreferenceController;->lambda$getSummary$1()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static synthetic $r8$lambda$TPhUqvfkBsl7vSLSOfDSyNC6QiY(Lcom/android/settings/accounts/WorkModePreferenceController;)Ljava/lang/String;
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/accounts/WorkModePreferenceController;->lambda$getSummary$0()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmManagedUser(Lcom/android/settings/accounts/WorkModePreferenceController;)Landroid/os/UserHandle;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/accounts/WorkModePreferenceController;->mManagedUser:Landroid/os/UserHandle;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmPreference(Lcom/android/settings/accounts/WorkModePreferenceController;)Landroidx/preference/Preference;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/accounts/WorkModePreferenceController;->mPreference:Landroidx/preference/Preference;
+
+    return-object p0
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;)V
     .locals 0
 
@@ -47,6 +85,18 @@
 
     iput-object p1, p0, Lcom/android/settings/accounts/WorkModePreferenceController;->mUserManager:Landroid/os/UserManager;
 
+    iget-object p1, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    const-class p2, Landroid/app/admin/DevicePolicyManager;
+
+    invoke-virtual {p1, p2}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Landroid/app/admin/DevicePolicyManager;
+
+    iput-object p1, p0, Lcom/android/settings/accounts/WorkModePreferenceController;->mDevicePolicyManager:Landroid/app/admin/DevicePolicyManager;
+
     new-instance p1, Landroid/content/IntentFilter;
 
     invoke-direct {p1}, Landroid/content/IntentFilter;-><init>()V
@@ -64,22 +114,6 @@
     invoke-virtual {p0, p1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/accounts/WorkModePreferenceController;)Landroid/os/UserHandle;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/accounts/WorkModePreferenceController;->mManagedUser:Landroid/os/UserHandle;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/accounts/WorkModePreferenceController;)Landroidx/preference/Preference;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/accounts/WorkModePreferenceController;->mPreference:Landroidx/preference/Preference;
-
-    return-object p0
 .end method
 
 .method private isChecked()Z
@@ -108,6 +142,34 @@
     return p0
 .end method
 
+.method private synthetic lambda$getSummary$0()Ljava/lang/String;
+    .locals 1
+
+    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    const v0, 0x7f04189c
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private synthetic lambda$getSummary$1()Ljava/lang/String;
+    .locals 1
+
+    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    const v0, 0x7f04189b
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method private setChecked(Z)Z
     .locals 2
 
@@ -131,14 +193,6 @@
 
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public displayPreference(Landroidx/preference/PreferenceScreen;)V
     .locals 1
 
@@ -177,15 +231,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -223,25 +268,46 @@
 .end method
 
 .method public getSummary()Ljava/lang/CharSequence;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+    .locals 2
 
     invoke-direct {p0}, Lcom/android/settings/accounts/WorkModePreferenceController;->isChecked()Z
 
-    move-result p0
+    move-result v0
 
-    if-eqz p0, :cond_0
+    if-eqz v0, :cond_0
 
-    const p0, 0x7f0417a1
+    iget-object v0, p0, Lcom/android/settings/accounts/WorkModePreferenceController;->mDevicePolicyManager:Landroid/app/admin/DevicePolicyManager;
 
-    goto :goto_0
+    invoke-virtual {v0}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/android/settings/accounts/WorkModePreferenceController$$ExternalSyntheticLambda0;
+
+    invoke-direct {v1, p0}, Lcom/android/settings/accounts/WorkModePreferenceController$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/accounts/WorkModePreferenceController;)V
+
+    const-string p0, "Settings.WORK_PROFILE_SETTING_ON_SUMMARY"
+
+    invoke-virtual {v0, p0, v1}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 
     :cond_0
-    const p0, 0x7f0417a0
+    iget-object v0, p0, Lcom/android/settings/accounts/WorkModePreferenceController;->mDevicePolicyManager:Landroid/app/admin/DevicePolicyManager;
 
-    :goto_0
-    invoke-virtual {v0, p0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
+    invoke-virtual {v0}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/android/settings/accounts/WorkModePreferenceController$$ExternalSyntheticLambda1;
+
+    invoke-direct {v1, p0}, Lcom/android/settings/accounts/WorkModePreferenceController$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/accounts/WorkModePreferenceController;)V
+
+    const-string p0, "Settings.WORK_PROFILE_SETTING_OFF_SUMMARY"
+
+    invoke-virtual {v0, p0, v1}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
 
     move-result-object p0
 
@@ -252,16 +318,6 @@
     .locals 0
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->hasAsyncUpdate()Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
 
     move-result p0
 
@@ -305,7 +361,7 @@
 .end method
 
 .method public onStart()V
-    .locals 2
+    .locals 3
 
     iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
@@ -313,7 +369,9 @@
 
     iget-object p0, p0, Lcom/android/settings/accounts/WorkModePreferenceController;->mIntentFilter:Landroid/content/IntentFilter;
 
-    invoke-virtual {v0, v1, p0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+    const/4 v2, 0x2
+
+    invoke-virtual {v0, v1, p0, v2}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;I)Landroid/content/Intent;
 
     return-void
 .end method

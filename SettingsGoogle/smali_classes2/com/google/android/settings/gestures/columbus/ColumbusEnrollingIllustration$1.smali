@@ -57,7 +57,7 @@
 
     int-to-float v0, v0
 
-    invoke-static {p1, v0}, Lcom/google/android/settings/gestures/columbus/ColumbusEnrollingIllustration;->access$002(Lcom/google/android/settings/gestures/columbus/ColumbusEnrollingIllustration;F)F
+    invoke-static {p1, v0}, Lcom/google/android/settings/gestures/columbus/ColumbusEnrollingIllustration;->-$$Nest$fputmGestureValue(Lcom/google/android/settings/gestures/columbus/ColumbusEnrollingIllustration;F)V
 
     iget p1, p0, Lcom/google/android/settings/gestures/columbus/ColumbusEnrollingIllustration$1;->val$gestureCount:I
 
@@ -67,7 +67,7 @@
 
     iget-object p1, p0, Lcom/google/android/settings/gestures/columbus/ColumbusEnrollingIllustration$1;->this$0:Lcom/google/android/settings/gestures/columbus/ColumbusEnrollingIllustration;
 
-    const v0, 0x7f020229
+    const v0, 0x7f020247
 
     invoke-virtual {p1, v0}, Landroid/widget/FrameLayout;->setBackgroundResource(I)V
 
@@ -76,7 +76,7 @@
 
     const/4 v0, 0x0
 
-    invoke-static {p1, v0}, Lcom/google/android/settings/gestures/columbus/ColumbusEnrollingIllustration;->access$102(Lcom/google/android/settings/gestures/columbus/ColumbusEnrollingIllustration;Landroid/animation/Animator;)Landroid/animation/Animator;
+    invoke-static {p1, v0}, Lcom/google/android/settings/gestures/columbus/ColumbusEnrollingIllustration;->-$$Nest$fputmAnimator(Lcom/google/android/settings/gestures/columbus/ColumbusEnrollingIllustration;Landroid/animation/Animator;)V
 
     iget-object p0, p0, Lcom/google/android/settings/gestures/columbus/ColumbusEnrollingIllustration$1;->val$onAnimationComplete:Ljava/lang/Runnable;
 

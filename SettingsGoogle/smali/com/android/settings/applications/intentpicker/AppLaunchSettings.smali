@@ -162,7 +162,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f040251
+    const v2, 0x7f040280
 
     invoke-virtual {v1, v2}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -288,7 +288,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f06004c
+    const v3, 0x7f06004f
 
     const/4 v4, 0x0
 
@@ -296,7 +296,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d01c4
+    const v3, 0x7f0d01dd
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -310,7 +310,7 @@
 
     invoke-virtual {v3, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const v3, 0x7f0d01c2
+    const v3, 0x7f0d01da
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -362,7 +362,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f040247
+    const v0, 0x7f040276
 
     invoke-virtual {p0, v0, v4}, Landroidx/appcompat/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 
@@ -436,7 +436,7 @@
 
     iget-object p0, p0, Lcom/android/settings/applications/intentpicker/AppLaunchSettings;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f040b62
+    const v0, 0x7f040bcb
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -539,7 +539,7 @@
 
     iget-object v0, p0, Lcom/android/settings/applications/intentpicker/AppLaunchSettings;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f040249
+    const v1, 0x7f040278
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -575,13 +575,13 @@
 
     aput-object p0, v2, v3
 
-    const p0, 0x7f040968
+    const p0, 0x7f0409cd
 
     invoke-virtual {v0, p0, v2}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object p0
 
-    invoke-virtual {v1, p0}, Lcom/android/settingslib/widget/FooterPreference;->setLearnMoreContentDescription(Ljava/lang/CharSequence;)V
+    invoke-virtual {v1, p0}, Lcom/android/settingslib/widget/FooterPreference;->setLearnMoreText(Ljava/lang/CharSequence;)V
 
     return-void
 .end method
@@ -1182,7 +1182,7 @@
 .method public onAttach(Landroid/content/Context;)V
     .locals 0
 
-    invoke-super {p0, p1}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->onAttach(Landroid/content/Context;)V
+    invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onAttach(Landroid/content/Context;)V
 
     iput-object p1, p0, Lcom/android/settings/applications/intentpicker/AppLaunchSettings;->mContext:Landroid/content/Context;
 
@@ -1217,7 +1217,7 @@
     return-void
 
     :cond_0
-    const p1, 0x7f150081
+    const p1, 0x7f150083
 
     invoke-virtual {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->addPreferencesFromResource(I)V
 

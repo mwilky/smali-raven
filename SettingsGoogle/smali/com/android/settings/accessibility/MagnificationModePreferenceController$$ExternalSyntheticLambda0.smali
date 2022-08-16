@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settings/accessibility/MagnificationModePreferenceController$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/content/DialogInterface$OnClickListener;
@@ -27,7 +28,7 @@
 
     iget-object p0, p0, Lcom/android/settings/accessibility/MagnificationModePreferenceController$$ExternalSyntheticLambda0;->f$0:Lcom/android/settings/accessibility/MagnificationModePreferenceController;
 
-    invoke-static {p0, p1, p2}, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->$r8$lambda$WhS4mR7hFmJHjpHn_4VDj53o6DY(Lcom/android/settings/accessibility/MagnificationModePreferenceController;Landroid/content/DialogInterface;I)V
+    invoke-virtual {p0, p1, p2}, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->onMagnificationTripleTapWarningDialogPositiveButtonClicked(Landroid/content/DialogInterface;I)V
 
     return-void
 .end method

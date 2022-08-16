@@ -39,13 +39,11 @@
 
     iput-boolean v0, p0, Lcom/android/settings/users/UserCapabilities;->mCanAddUser:Z
 
-    iput-boolean v0, p0, Lcom/android/settings/users/UserCapabilities;->mCanAddRestrictedProfile:Z
-
     return-void
 .end method
 
 .method public static create(Landroid/content/Context;)Lcom/android/settings/users/UserCapabilities;
-    .locals 4
+    .locals 6
 
     const-string/jumbo v0, "user"
 
@@ -65,7 +63,7 @@
 
     const/4 v3, 0x0
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_2
 
     invoke-static {}, Lcom/android/settings/Utils;->isMonkeyRunning()Z
 
@@ -82,49 +80,64 @@
 
     invoke-virtual {v0, v2}, Landroid/os/UserManager;->getUserInfo(I)Landroid/content/pm/UserInfo;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-virtual {v0}, Landroid/content/pm/UserInfo;->isGuest()Z
+    invoke-virtual {v2}, Landroid/content/pm/UserInfo;->isGuest()Z
+
+    move-result v4
+
+    iput-boolean v4, v1, Lcom/android/settings/users/UserCapabilities;->mIsGuest:Z
+
+    invoke-virtual {v2}, Landroid/content/pm/UserInfo;->isAdmin()Z
 
     move-result v2
 
-    iput-boolean v2, v1, Lcom/android/settings/users/UserCapabilities;->mIsGuest:Z
+    iput-boolean v2, v1, Lcom/android/settings/users/UserCapabilities;->mIsAdmin:Z
 
-    invoke-virtual {v0}, Landroid/content/pm/UserInfo;->isAdmin()Z
+    const-string v2, "device_policy"
+
+    invoke-virtual {p0, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/app/admin/DevicePolicyManager;
+
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v4
+
+    const v5, 0x7f090020
+
+    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getBoolean(I)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    invoke-virtual {v2}, Landroid/app/admin/DevicePolicyManager;->isDeviceManaged()Z
+
+    move-result v2
+
+    if-nez v2, :cond_1
+
+    const-string v2, "android.os.usertype.full.RESTRICTED"
+
+    invoke-virtual {v0, v2}, Landroid/os/UserManager;->isUserTypeEnabled(Ljava/lang/String;)Z
 
     move-result v0
 
-    iput-boolean v0, v1, Lcom/android/settings/users/UserCapabilities;->mIsAdmin:Z
+    if-eqz v0, :cond_1
 
-    const-string v0, "device_policy"
-
-    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/app/admin/DevicePolicyManager;
-
-    invoke-virtual {v0}, Landroid/app/admin/DevicePolicyManager;->isDeviceManaged()Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    invoke-static {p0}, Lcom/android/settings/Utils;->isVoiceCapable(Landroid/content/Context;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
+    const/4 v3, 0x1
 
     :cond_1
     iput-boolean v3, v1, Lcom/android/settings/users/UserCapabilities;->mCanAddRestrictedProfile:Z
 
-    :cond_2
     invoke-virtual {v1, p0}, Lcom/android/settings/users/UserCapabilities;->updateAddUserCapabilities(Landroid/content/Context;)V
 
     return-object v1
 
-    :cond_3
+    :cond_2
     :goto_0
     iput-boolean v3, v1, Lcom/android/settings/users/UserCapabilities;->mEnabled:Z
 
@@ -368,7 +381,19 @@
 
     iget-boolean v1, p0, Lcom/android/settings/users/UserCapabilities;->mDisallowAddUser:Z
 
-    if-eqz v1, :cond_4
+    if-nez v1, :cond_3
+
+    const-string v1, "android.os.usertype.full.SECONDARY"
+
+    invoke-virtual {v0, v1}, Landroid/os/UserManager;->isUserTypeEnabled(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_4
+
+    iget-boolean v1, p0, Lcom/android/settings/users/UserCapabilities;->mCanAddRestrictedProfile:Z
+
+    if-nez v1, :cond_4
 
     :cond_3
     iput-boolean v4, p0, Lcom/android/settings/users/UserCapabilities;->mCanAddUser:Z
@@ -409,6 +434,14 @@
     iget-boolean v1, p0, Lcom/android/settings/users/UserCapabilities;->mDisallowAddUser:Z
 
     if-nez v1, :cond_7
+
+    if-eqz p1, :cond_7
+
+    const-string p1, "android.os.usertype.full.GUEST"
+
+    invoke-virtual {v0, p1}, Landroid/os/UserManager;->isUserTypeEnabled(Ljava/lang/String;)Z
+
+    move-result p1
 
     if-eqz p1, :cond_7
 

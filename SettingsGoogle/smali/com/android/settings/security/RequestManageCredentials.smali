@@ -50,6 +50,48 @@
     return-void
 .end method
 
+.method static bridge synthetic -$$Nest$fgetmDisplayingButtonPanel(Lcom/android/settings/security/RequestManageCredentials;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/settings/security/RequestManageCredentials;->mDisplayingButtonPanel:Z
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmExtendedFab(Lcom/android/settings/security/RequestManageCredentials;)Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/security/RequestManageCredentials;->mExtendedFab:Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$mhideButtonPanel(Lcom/android/settings/security/RequestManageCredentials;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/security/RequestManageCredentials;->hideButtonPanel()V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$misRecyclerScrollable(Lcom/android/settings/security/RequestManageCredentials;)Z
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/security/RequestManageCredentials;->isRecyclerScrollable()Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$mshowButtonPanel(Lcom/android/settings/security/RequestManageCredentials;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/security/RequestManageCredentials;->showButtonPanel()V
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 1
 
@@ -60,48 +102,6 @@
     iput-boolean v0, p0, Lcom/android/settings/security/RequestManageCredentials;->mDisplayingButtonPanel:Z
 
     iput-boolean v0, p0, Lcom/android/settings/security/RequestManageCredentials;->mIsLandscapeMode:Z
-
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/security/RequestManageCredentials;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/settings/security/RequestManageCredentials;->mDisplayingButtonPanel:Z
-
-    return p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/security/RequestManageCredentials;)Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/security/RequestManageCredentials;->mExtendedFab:Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;
-
-    return-object p0
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/security/RequestManageCredentials;)Z
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/security/RequestManageCredentials;->isRecyclerScrollable()Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method static synthetic access$300(Lcom/android/settings/security/RequestManageCredentials;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/security/RequestManageCredentials;->hideButtonPanel()V
-
-    return-void
-.end method
-
-.method static synthetic access$400(Lcom/android/settings/security/RequestManageCredentials;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/security/RequestManageCredentials;->showButtonPanel()V
 
     return-void
 .end method
@@ -515,7 +515,7 @@
 .method private loadButtons()V
     .locals 3
 
-    const v0, 0x7f0d012d
+    const v0, 0x7f0d013d
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -525,7 +525,7 @@
 
     iput-object v0, p0, Lcom/android/settings/security/RequestManageCredentials;->mButtonPanel:Landroid/widget/LinearLayout;
 
-    const v0, 0x7f0d01df
+    const v0, 0x7f0d01f8
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -537,7 +537,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setFilterTouchesWhenObscured(Z)V
 
-    const v2, 0x7f0d007f
+    const v2, 0x7f0d0081
 
     invoke-virtual {p0, v2}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -547,9 +547,9 @@
 
     invoke-virtual {v2, v1}, Landroid/widget/Button;->setFilterTouchesWhenObscured(Z)V
 
-    new-instance v1, Lcom/android/settings/security/RequestManageCredentials$$ExternalSyntheticLambda0;
+    new-instance v1, Lcom/android/settings/security/RequestManageCredentials$$ExternalSyntheticLambda1;
 
-    invoke-direct {v1, p0}, Lcom/android/settings/security/RequestManageCredentials$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/security/RequestManageCredentials;)V
+    invoke-direct {v1, p0}, Lcom/android/settings/security/RequestManageCredentials$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/security/RequestManageCredentials;)V
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
@@ -565,7 +565,7 @@
 .method private loadExtendedFloatingActionButton()V
     .locals 2
 
-    const v0, 0x7f0d0221
+    const v0, 0x7f0d0239
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -575,9 +575,9 @@
 
     iput-object v0, p0, Lcom/android/settings/security/RequestManageCredentials;->mExtendedFab:Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;
 
-    new-instance v1, Lcom/android/settings/security/RequestManageCredentials$$ExternalSyntheticLambda1;
+    new-instance v1, Lcom/android/settings/security/RequestManageCredentials$$ExternalSyntheticLambda0;
 
-    invoke-direct {v1, p0}, Lcom/android/settings/security/RequestManageCredentials$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/security/RequestManageCredentials;)V
+    invoke-direct {v1, p0}, Lcom/android/settings/security/RequestManageCredentials$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/security/RequestManageCredentials;)V
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
@@ -587,7 +587,7 @@
 .method private loadHeader()V
     .locals 9
 
-    const v0, 0x7f0d018f
+    const v0, 0x7f0d01a5
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -595,7 +595,7 @@
 
     check-cast v0, Landroid/widget/ImageView;
 
-    const v1, 0x7f0d0190
+    const v1, 0x7f0d01a6
 
     invoke-virtual {p0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -605,7 +605,7 @@
 
     const/4 v2, 0x1
 
-    const v3, 0x7f041034
+    const v3, 0x7f0410da
 
     const/4 v4, 0x0
 
@@ -690,7 +690,7 @@
 
     iput-object v0, p0, Lcom/android/settings/security/RequestManageCredentials;->mLayoutManager:Landroidx/recyclerview/widget/LinearLayoutManager;
 
-    const v0, 0x7f0d00ad
+    const v0, 0x7f0d00b0
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -970,7 +970,7 @@
 
     invoke-virtual {p1}, Landroid/app/admin/DevicePolicyEventLogger;->write()V
 
-    const p1, 0x7f0601da
+    const p1, 0x7f0601e7
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->setContentView(I)V
 

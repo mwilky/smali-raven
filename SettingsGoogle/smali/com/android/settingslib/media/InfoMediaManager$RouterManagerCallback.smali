@@ -58,7 +58,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/media/InfoMediaManager$RouterManagerCallback;->this$0:Lcom/android/settingslib/media/InfoMediaManager;
 
-    invoke-static {p0}, Lcom/android/settingslib/media/InfoMediaManager;->access$000(Lcom/android/settingslib/media/InfoMediaManager;)V
+    invoke-static {p0}, Lcom/android/settingslib/media/InfoMediaManager;->-$$Nest$mrefreshDevices(Lcom/android/settingslib/media/InfoMediaManager;)V
 
     :cond_0
     return-void
@@ -87,7 +87,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/media/InfoMediaManager$RouterManagerCallback;->this$0:Lcom/android/settingslib/media/InfoMediaManager;
 
-    invoke-static {p0}, Lcom/android/settingslib/media/InfoMediaManager;->access$000(Lcom/android/settingslib/media/InfoMediaManager;)V
+    invoke-static {p0}, Lcom/android/settingslib/media/InfoMediaManager;->-$$Nest$mrefreshDevices(Lcom/android/settingslib/media/InfoMediaManager;)V
 
     return-void
 .end method
@@ -105,7 +105,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/media/InfoMediaManager$RouterManagerCallback;->this$0:Lcom/android/settingslib/media/InfoMediaManager;
 
-    invoke-static {p0}, Lcom/android/settingslib/media/InfoMediaManager;->access$000(Lcom/android/settingslib/media/InfoMediaManager;)V
+    invoke-static {p0}, Lcom/android/settingslib/media/InfoMediaManager;->-$$Nest$mrefreshDevices(Lcom/android/settingslib/media/InfoMediaManager;)V
 
     return-void
 .end method
@@ -123,7 +123,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/media/InfoMediaManager$RouterManagerCallback;->this$0:Lcom/android/settingslib/media/InfoMediaManager;
 
-    invoke-static {p0}, Lcom/android/settingslib/media/InfoMediaManager;->access$000(Lcom/android/settingslib/media/InfoMediaManager;)V
+    invoke-static {p0}, Lcom/android/settingslib/media/InfoMediaManager;->-$$Nest$mrefreshDevices(Lcom/android/settingslib/media/InfoMediaManager;)V
 
     return-void
 .end method
@@ -153,7 +153,7 @@
 .method public onTransferred(Landroid/media/RoutingSessionInfo;Landroid/media/RoutingSessionInfo;)V
     .locals 2
 
-    invoke-static {}, Lcom/android/settingslib/media/InfoMediaManager;->access$100()Z
+    invoke-static {}, Lcom/android/settingslib/media/InfoMediaManager;->-$$Nest$sfgetDEBUG()Z
 
     move-result v0
 
@@ -202,7 +202,7 @@
 
     const/4 p2, 0x0
 
-    invoke-static {p1, p2}, Lcom/android/settingslib/media/InfoMediaManager;->access$202(Lcom/android/settingslib/media/InfoMediaManager;Lcom/android/settingslib/media/MediaDevice;)Lcom/android/settingslib/media/MediaDevice;
+    invoke-static {p1, p2}, Lcom/android/settingslib/media/InfoMediaManager;->-$$Nest$fputmCurrentConnectedDevice(Lcom/android/settingslib/media/InfoMediaManager;Lcom/android/settingslib/media/MediaDevice;)V
 
     iget-object p1, p0, Lcom/android/settingslib/media/InfoMediaManager$RouterManagerCallback;->this$0:Lcom/android/settingslib/media/InfoMediaManager;
 
@@ -216,19 +216,19 @@
 
     iget-object p1, p0, Lcom/android/settingslib/media/InfoMediaManager$RouterManagerCallback;->this$0:Lcom/android/settingslib/media/InfoMediaManager;
 
-    invoke-static {p1}, Lcom/android/settingslib/media/InfoMediaManager;->access$300(Lcom/android/settingslib/media/InfoMediaManager;)V
+    invoke-static {p1}, Lcom/android/settingslib/media/InfoMediaManager;->-$$Nest$mbuildAllRoutes(Lcom/android/settingslib/media/InfoMediaManager;)V
 
     goto :goto_0
 
     :cond_1
     iget-object p1, p0, Lcom/android/settingslib/media/InfoMediaManager$RouterManagerCallback;->this$0:Lcom/android/settingslib/media/InfoMediaManager;
 
-    invoke-static {p1}, Lcom/android/settingslib/media/InfoMediaManager;->access$400(Lcom/android/settingslib/media/InfoMediaManager;)V
+    invoke-static {p1}, Lcom/android/settingslib/media/InfoMediaManager;->-$$Nest$mbuildAvailableRoutes(Lcom/android/settingslib/media/InfoMediaManager;)V
 
     :goto_0
     iget-object p1, p0, Lcom/android/settingslib/media/InfoMediaManager$RouterManagerCallback;->this$0:Lcom/android/settingslib/media/InfoMediaManager;
 
-    invoke-static {p1}, Lcom/android/settingslib/media/InfoMediaManager;->access$200(Lcom/android/settingslib/media/InfoMediaManager;)Lcom/android/settingslib/media/MediaDevice;
+    invoke-static {p1}, Lcom/android/settingslib/media/InfoMediaManager;->-$$Nest$fgetmCurrentConnectedDevice(Lcom/android/settingslib/media/InfoMediaManager;)Lcom/android/settingslib/media/MediaDevice;
 
     move-result-object p1
 
@@ -236,7 +236,7 @@
 
     iget-object p1, p0, Lcom/android/settingslib/media/InfoMediaManager$RouterManagerCallback;->this$0:Lcom/android/settingslib/media/InfoMediaManager;
 
-    invoke-static {p1}, Lcom/android/settingslib/media/InfoMediaManager;->access$200(Lcom/android/settingslib/media/InfoMediaManager;)Lcom/android/settingslib/media/MediaDevice;
+    invoke-static {p1}, Lcom/android/settingslib/media/InfoMediaManager;->-$$Nest$fgetmCurrentConnectedDevice(Lcom/android/settingslib/media/InfoMediaManager;)Lcom/android/settingslib/media/MediaDevice;
 
     move-result-object p1
 

@@ -23,7 +23,7 @@
 # instance fields
 .field final SECURE_KEY:Ljava/lang/String;
 
-.field private mPreference:Lcom/android/settings/widget/PrimarySwitchPreference;
+.field private mPreference:Lcom/android/settingslib/PrimarySwitchPreference;
 
 .field private mSettingObserver:Lcom/android/settings/gestures/PreventRingingParentPreferenceController$SettingObserver;
 
@@ -56,7 +56,7 @@
 
     move-result-object p0
 
-    const v1, 0x10e0071
+    const v1, 0x10e007a
 
     invoke-virtual {p0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -83,18 +83,10 @@
 
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public displayPreference(Landroidx/preference/PreferenceScreen;)V
     .locals 1
 
-    invoke-super {p0, p1}, Lcom/android/settings/core/BasePreferenceController;->displayPreference(Landroidx/preference/PreferenceScreen;)V
+    invoke-super {p0, p1}, Lcom/android/settings/core/TogglePreferenceController;->displayPreference(Landroidx/preference/PreferenceScreen;)V
 
     invoke-virtual {p0}, Lcom/android/settings/core/BasePreferenceController;->getPreferenceKey()Ljava/lang/String;
 
@@ -104,13 +96,13 @@
 
     move-result-object p1
 
-    check-cast p1, Lcom/android/settings/widget/PrimarySwitchPreference;
+    check-cast p1, Lcom/android/settingslib/PrimarySwitchPreference;
 
-    iput-object p1, p0, Lcom/android/settings/gestures/PreventRingingParentPreferenceController;->mPreference:Lcom/android/settings/widget/PrimarySwitchPreference;
+    iput-object p1, p0, Lcom/android/settings/gestures/PreventRingingParentPreferenceController;->mPreference:Lcom/android/settingslib/PrimarySwitchPreference;
 
     new-instance p1, Lcom/android/settings/gestures/PreventRingingParentPreferenceController$SettingObserver;
 
-    iget-object v0, p0, Lcom/android/settings/gestures/PreventRingingParentPreferenceController;->mPreference:Lcom/android/settings/widget/PrimarySwitchPreference;
+    iget-object v0, p0, Lcom/android/settings/gestures/PreventRingingParentPreferenceController;->mPreference:Lcom/android/settingslib/PrimarySwitchPreference;
 
     invoke-direct {p1, p0, v0}, Lcom/android/settings/gestures/PreventRingingParentPreferenceController$SettingObserver;-><init>(Lcom/android/settings/gestures/PreventRingingParentPreferenceController;Landroidx/preference/Preference;)V
 
@@ -128,7 +120,7 @@
 
     move-result-object v0
 
-    const v1, 0x111017d
+    const v1, 0x11101f4
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -158,7 +150,7 @@
 
     move-result-object p0
 
-    const v0, 0x1110106
+    const v0, 0x1110172
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -176,15 +168,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -206,7 +189,7 @@
 .method public getSliceHighlightMenuRes()I
     .locals 0
 
-    const p0, 0x7f040d0e
+    const p0, 0x7f040d8a
 
     return p0
 .end method
@@ -255,16 +238,6 @@
 
     :cond_1
     return v1
-.end method
-
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
-
-    move-result p0
-
-    return p0
 .end method
 
 .method public onStart()V
@@ -392,7 +365,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f04139f
+    const v1, 0x7f041467
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -403,7 +376,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f040f90
+    const v1, 0x7f041029
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -414,7 +387,7 @@
     :cond_1
     iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f040f94
+    const v1, 0x7f04102d
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -423,16 +396,16 @@
     :goto_0
     invoke-virtual {p1, v2}, Landroidx/preference/Preference;->setEnabled(Z)V
 
-    iget-object p0, p0, Lcom/android/settings/gestures/PreventRingingParentPreferenceController;->mPreference:Lcom/android/settings/widget/PrimarySwitchPreference;
+    iget-object p0, p0, Lcom/android/settings/gestures/PreventRingingParentPreferenceController;->mPreference:Lcom/android/settingslib/PrimarySwitchPreference;
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/widget/PrimarySwitchPreference;->setSwitchEnabled(Z)V
+    invoke-virtual {p0, v2}, Lcom/android/settingslib/PrimarySwitchPreference;->setSwitchEnabled(Z)V
 
     goto :goto_1
 
     :cond_2
     iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f040f92
+    const v1, 0x7f04102b
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -442,9 +415,9 @@
 
     invoke-virtual {p1, v1}, Landroidx/preference/Preference;->setEnabled(Z)V
 
-    iget-object p0, p0, Lcom/android/settings/gestures/PreventRingingParentPreferenceController;->mPreference:Lcom/android/settings/widget/PrimarySwitchPreference;
+    iget-object p0, p0, Lcom/android/settings/gestures/PreventRingingParentPreferenceController;->mPreference:Lcom/android/settingslib/PrimarySwitchPreference;
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/widget/PrimarySwitchPreference;->setSwitchEnabled(Z)V
+    invoke-virtual {p0, v1}, Lcom/android/settingslib/PrimarySwitchPreference;->setSwitchEnabled(Z)V
 
     :goto_1
     invoke-virtual {p1, v0}, Landroidx/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V

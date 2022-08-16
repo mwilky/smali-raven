@@ -23,6 +23,8 @@
 
 .field private mSize:J
 
+.field private mStorageCacheHelper:Lcom/android/settings/deviceinfo/storage/StorageCacheHelper;
+
 .field private mStoragePreference:Lcom/android/settings/deviceinfo/StorageItemPreference;
 
 .field private mTotalSizeBytes:J
@@ -34,15 +36,23 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;Landroid/content/pm/UserInfo;)V
-    .locals 0
+    .locals 2
 
     invoke-direct {p0, p1}, Lcom/android/settingslib/core/AbstractPreferenceController;-><init>(Landroid/content/Context;)V
 
     iput-object p2, p0, Lcom/android/settings/deviceinfo/storage/SecondaryUserController;->mUser:Landroid/content/pm/UserInfo;
 
-    const-wide/16 p1, -0x1
+    const-wide/16 v0, -0x1
 
-    iput-wide p1, p0, Lcom/android/settings/deviceinfo/storage/SecondaryUserController;->mSize:J
+    iput-wide v0, p0, Lcom/android/settings/deviceinfo/storage/SecondaryUserController;->mSize:J
+
+    new-instance v0, Lcom/android/settings/deviceinfo/storage/StorageCacheHelper;
+
+    iget p2, p2, Landroid/content/pm/UserInfo;->id:I
+
+    invoke-direct {v0, p1, p2}, Lcom/android/settings/deviceinfo/storage/StorageCacheHelper;-><init>(Landroid/content/Context;I)V
+
+    iput-object v0, p0, Lcom/android/settings/deviceinfo/storage/SecondaryUserController;->mStorageCacheHelper:Lcom/android/settings/deviceinfo/storage/StorageCacheHelper;
 
     return-void
 .end method
@@ -165,11 +175,11 @@
 
 # virtual methods
 .method public displayPreference(Landroidx/preference/PreferenceScreen;)V
-    .locals 4
+    .locals 2
 
     iget-object v0, p0, Lcom/android/settings/deviceinfo/storage/SecondaryUserController;->mStoragePreference:Lcom/android/settings/deviceinfo/StorageItemPreference;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_0
 
     new-instance v0, Lcom/android/settings/deviceinfo/StorageItemPreference;
 
@@ -221,21 +231,16 @@
 
     invoke-virtual {p1, v0}, Landroidx/preference/Preference;->setKey(Ljava/lang/String;)V
 
-    iget-wide v0, p0, Lcom/android/settings/deviceinfo/storage/SecondaryUserController;->mSize:J
+    iget-object p1, p0, Lcom/android/settings/deviceinfo/storage/SecondaryUserController;->mStorageCacheHelper:Lcom/android/settings/deviceinfo/storage/StorageCacheHelper;
 
-    const-wide/16 v2, -0x1
+    invoke-virtual {p1}, Lcom/android/settings/deviceinfo/storage/StorageCacheHelper;->retrieveUsedSize()J
 
-    cmp-long p1, v0, v2
+    move-result-wide v0
 
-    if-eqz p1, :cond_0
+    const/4 p1, 0x0
 
-    iget-object p1, p0, Lcom/android/settings/deviceinfo/storage/SecondaryUserController;->mStoragePreference:Lcom/android/settings/deviceinfo/StorageItemPreference;
+    invoke-virtual {p0, v0, v1, p1}, Lcom/android/settings/deviceinfo/storage/SecondaryUserController;->setSize(JZ)V
 
-    iget-wide v2, p0, Lcom/android/settings/deviceinfo/storage/SecondaryUserController;->mTotalSizeBytes:J
-
-    invoke-virtual {p1, v0, v1, v2, v3}, Lcom/android/settings/deviceinfo/StorageItemPreference;->setStorageSize(JJ)V
-
-    :cond_0
     iget-object p1, p0, Lcom/android/settings/deviceinfo/storage/SecondaryUserController;->mPreferenceGroup:Landroidx/preference/PreferenceGroup;
 
     iget-boolean v0, p0, Lcom/android/settings/deviceinfo/storage/SecondaryUserController;->mIsVisible:Z
@@ -250,7 +255,7 @@
 
     invoke-direct {p0}, Lcom/android/settings/deviceinfo/storage/SecondaryUserController;->maybeSetIcon()V
 
-    :cond_1
+    :cond_0
     return-void
 .end method
 
@@ -283,7 +288,7 @@
 .end method
 
 .method public handleResult(Landroid/util/SparseArray;)V
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -293,6 +298,21 @@
         }
     .end annotation
 
+    if-nez p1, :cond_0
+
+    iget-object p1, p0, Lcom/android/settings/deviceinfo/storage/SecondaryUserController;->mStorageCacheHelper:Lcom/android/settings/deviceinfo/storage/StorageCacheHelper;
+
+    invoke-virtual {p1}, Lcom/android/settings/deviceinfo/storage/StorageCacheHelper;->retrieveUsedSize()J
+
+    move-result-wide v0
+
+    const/4 p1, 0x0
+
+    invoke-virtual {p0, v0, v1, p1}, Lcom/android/settings/deviceinfo/storage/SecondaryUserController;->setSize(JZ)V
+
+    return-void
+
+    :cond_0
     invoke-virtual {p0}, Lcom/android/settings/deviceinfo/storage/SecondaryUserController;->getUser()Landroid/content/pm/UserInfo;
 
     move-result-object v0
@@ -305,15 +325,25 @@
 
     check-cast p1, Lcom/android/settings/deviceinfo/storage/StorageAsyncLoader$StorageResult;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1
+
+    iget-object v0, p1, Lcom/android/settings/deviceinfo/storage/StorageAsyncLoader$StorageResult;->externalStats:Lcom/android/settingslib/applications/StorageStatsSource$ExternalStorageStats;
+
+    iget-wide v0, v0, Lcom/android/settingslib/applications/StorageStatsSource$ExternalStorageStats;->totalBytes:J
+
+    const/4 v2, 0x1
+
+    invoke-virtual {p0, v0, v1, v2}, Lcom/android/settings/deviceinfo/storage/SecondaryUserController;->setSize(JZ)V
+
+    iget-object p0, p0, Lcom/android/settings/deviceinfo/storage/SecondaryUserController;->mStorageCacheHelper:Lcom/android/settings/deviceinfo/storage/StorageCacheHelper;
 
     iget-object p1, p1, Lcom/android/settings/deviceinfo/storage/StorageAsyncLoader$StorageResult;->externalStats:Lcom/android/settingslib/applications/StorageStatsSource$ExternalStorageStats;
 
     iget-wide v0, p1, Lcom/android/settingslib/applications/StorageStatsSource$ExternalStorageStats;->totalBytes:J
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/settings/deviceinfo/storage/SecondaryUserController;->setSize(J)V
+    invoke-virtual {p0, v0, v1}, Lcom/android/settings/deviceinfo/storage/StorageCacheHelper;->cacheUsedSize(J)V
 
-    :cond_0
+    :cond_1
     return-void
 .end method
 
@@ -368,8 +398,8 @@
     return-void
 .end method
 
-.method public setSize(J)V
-    .locals 3
+.method public setSize(JZ)V
+    .locals 6
 
     iput-wide p1, p0, Lcom/android/settings/deviceinfo/storage/SecondaryUserController;->mSize:J
 
@@ -377,9 +407,13 @@
 
     if-eqz v0, :cond_0
 
-    iget-wide v1, p0, Lcom/android/settings/deviceinfo/storage/SecondaryUserController;->mTotalSizeBytes:J
+    iget-wide v3, p0, Lcom/android/settings/deviceinfo/storage/SecondaryUserController;->mTotalSizeBytes:J
 
-    invoke-virtual {v0, p1, p2, v1, v2}, Lcom/android/settings/deviceinfo/StorageItemPreference;->setStorageSize(JJ)V
+    move-wide v1, p1
+
+    move v5, p3
+
+    invoke-virtual/range {v0 .. v5}, Lcom/android/settings/deviceinfo/StorageItemPreference;->setStorageSize(JJZ)V
 
     :cond_0
     return-void

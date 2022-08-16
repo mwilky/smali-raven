@@ -39,7 +39,7 @@
 
     iget-object p0, p0, Lcom/android/settings/network/telephony/SignalStrengthListener$SignalStrengthTelephonyCallback;->this$0:Lcom/android/settings/network/telephony/SignalStrengthListener;
 
-    invoke-static {p0}, Lcom/android/settings/network/telephony/SignalStrengthListener;->access$000(Lcom/android/settings/network/telephony/SignalStrengthListener;)Lcom/android/settings/network/telephony/SignalStrengthListener$Callback;
+    invoke-static {p0}, Lcom/android/settings/network/telephony/SignalStrengthListener;->-$$Nest$fgetmCallback(Lcom/android/settings/network/telephony/SignalStrengthListener;)Lcom/android/settings/network/telephony/SignalStrengthListener$Callback;
 
     move-result-object p0
 

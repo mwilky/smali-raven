@@ -14,23 +14,7 @@
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/settingslib/CustomDialogPreferenceCompat;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/BugreportPreference;)Landroid/widget/CheckedTextView;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/BugreportPreference;->mFullTitle:Landroid/widget/CheckedTextView;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/BugreportPreference;)Landroid/widget/TextView;
+.method static bridge synthetic -$$Nest$fgetmFullSummary(Lcom/android/settings/BugreportPreference;)Landroid/widget/TextView;
     .locals 0
 
     iget-object p0, p0, Lcom/android/settings/BugreportPreference;->mFullSummary:Landroid/widget/TextView;
@@ -38,7 +22,23 @@
     return-object p0
 .end method
 
-.method static synthetic access$200(Lcom/android/settings/BugreportPreference;)Landroid/widget/CheckedTextView;
+.method static bridge synthetic -$$Nest$fgetmFullTitle(Lcom/android/settings/BugreportPreference;)Landroid/widget/CheckedTextView;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/BugreportPreference;->mFullTitle:Landroid/widget/CheckedTextView;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmInteractiveSummary(Lcom/android/settings/BugreportPreference;)Landroid/widget/TextView;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/BugreportPreference;->mInteractiveSummary:Landroid/widget/TextView;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmInteractiveTitle(Lcom/android/settings/BugreportPreference;)Landroid/widget/CheckedTextView;
     .locals 0
 
     iget-object p0, p0, Lcom/android/settings/BugreportPreference;->mInteractiveTitle:Landroid/widget/CheckedTextView;
@@ -46,12 +46,12 @@
     return-object p0
 .end method
 
-.method static synthetic access$300(Lcom/android/settings/BugreportPreference;)Landroid/widget/TextView;
+.method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 0
 
-    iget-object p0, p0, Lcom/android/settings/BugreportPreference;->mInteractiveSummary:Landroid/widget/TextView;
+    invoke-direct {p0, p1, p2}, Lcom/android/settingslib/CustomDialogPreferenceCompat;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    return-object p0
+    return-void
 .end method
 
 
@@ -168,7 +168,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f060073
+    const v1, 0x7f06007b
 
     const/4 v2, 0x0
 
@@ -176,7 +176,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0122
+    const v1, 0x7f0d0131
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -186,7 +186,7 @@
 
     iput-object v1, p0, Lcom/android/settings/BugreportPreference;->mInteractiveTitle:Landroid/widget/CheckedTextView;
 
-    const v1, 0x7f0d0121
+    const v1, 0x7f0d0130
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -196,7 +196,7 @@
 
     iput-object v1, p0, Lcom/android/settings/BugreportPreference;->mInteractiveSummary:Landroid/widget/TextView;
 
-    const v1, 0x7f0d0120
+    const v1, 0x7f0d012f
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -206,7 +206,7 @@
 
     iput-object v1, p0, Lcom/android/settings/BugreportPreference;->mFullTitle:Landroid/widget/CheckedTextView;
 
-    const v1, 0x7f0d011f
+    const v1, 0x7f0d012e
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -236,7 +236,7 @@
 
     invoke-virtual {p0, v1}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const p0, 0x1040777
+    const p0, 0x10407e8
 
     invoke-virtual {p1, p0, p2}, Landroidx/appcompat/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 

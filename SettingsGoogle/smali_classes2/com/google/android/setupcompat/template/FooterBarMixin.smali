@@ -15,7 +15,7 @@
 
 .field final applyPartnerResources:Z
 
-.field buttonContainer:Landroid/widget/LinearLayout;
+.field public buttonContainer:Landroid/widget/LinearLayout;
 
 .field private final context:Landroid/content/Context;
 
@@ -57,6 +57,38 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetisSecondaryButtonInPrimaryStyle(Lcom/google/android/setupcompat/template/FooterBarMixin;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/google/android/setupcompat/template/FooterBarMixin;->isSecondaryButtonInPrimaryStyle:Z
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetprimaryButtonId(Lcom/google/android/setupcompat/template/FooterBarMixin;)I
+    .locals 0
+
+    iget p0, p0, Lcom/google/android/setupcompat/template/FooterBarMixin;->primaryButtonId:I
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$mautoSetButtonBarVisibility(Lcom/google/android/setupcompat/template/FooterBarMixin;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/google/android/setupcompat/template/FooterBarMixin;->autoSetButtonBarVisibility()V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mupdateButtonTextColorWithStates(Lcom/google/android/setupcompat/template/FooterBarMixin;Landroid/widget/Button;Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2, p3}, Lcom/google/android/setupcompat/template/FooterBarMixin;->updateButtonTextColorWithStates(Landroid/widget/Button;Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;)V
+
+    return-void
+.end method
+
 .method static constructor <clinit>()V
     .locals 2
 
@@ -281,38 +313,6 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/google/android/setupcompat/template/FooterBarMixin;)I
-    .locals 0
-
-    iget p0, p0, Lcom/google/android/setupcompat/template/FooterBarMixin;->primaryButtonId:I
-
-    return p0
-.end method
-
-.method static synthetic access$100(Lcom/google/android/setupcompat/template/FooterBarMixin;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/google/android/setupcompat/template/FooterBarMixin;->isSecondaryButtonInPrimaryStyle:Z
-
-    return p0
-.end method
-
-.method static synthetic access$200(Lcom/google/android/setupcompat/template/FooterBarMixin;Landroid/widget/Button;Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2, p3}, Lcom/google/android/setupcompat/template/FooterBarMixin;->updateButtonTextColorWithStates(Landroid/widget/Button;Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;)V
-
-    return-void
-.end method
-
-.method static synthetic access$300(Lcom/google/android/setupcompat/template/FooterBarMixin;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/google/android/setupcompat/template/FooterBarMixin;->autoSetButtonBarVisibility()V
-
-    return-void
-.end method
-
 .method private addSpace()Landroid/view/View;
     .locals 4
 
@@ -475,34 +475,6 @@
     return-object p0
 .end method
 
-.method private static generateViewId()I
-    .locals 4
-
-    :cond_0
-    sget-object v0, Lcom/google/android/setupcompat/template/FooterBarMixin;->nextGeneratedId:Ljava/util/concurrent/atomic/AtomicInteger;
-
-    invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->get()I
-
-    move-result v1
-
-    add-int/lit8 v2, v1, 0x1
-
-    const v3, 0xffffff
-
-    if-le v2, v3, :cond_1
-
-    const/4 v2, 0x1
-
-    :cond_1
-    invoke-virtual {v0, v1, v2}, Ljava/util/concurrent/atomic/AtomicInteger;->compareAndSet(II)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    return v1
-.end method
-
 .method private static getDrawablePartnerConfig(I)Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;
     .locals 0
 
@@ -615,8 +587,6 @@
     goto :goto_1
 
     :cond_2
-    if-eqz p0, :cond_3
-
     sget p2, Lcom/google/android/setupcompat/R$style;->SucPartnerCustomizationButton_Primary:I
 
     :cond_3
@@ -625,7 +595,7 @@
 .end method
 
 .method private inflateButton(Lcom/google/android/setupcompat/template/FooterButton;Lcom/google/android/setupcompat/internal/FooterButtonPartnerConfig;)Lcom/google/android/setupcompat/template/FooterActionButton;
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/google/android/setupcompat/template/FooterBarMixin;->context:Landroid/content/Context;
 
@@ -637,28 +607,12 @@
 
     move-result-object p2
 
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x11
-
-    if-lt v0, v1, :cond_0
-
     invoke-static {}, Landroid/view/View;->generateViewId()I
 
     move-result v0
 
     invoke-virtual {p2, v0}, Landroid/widget/Button;->setId(I)V
 
-    goto :goto_0
-
-    :cond_0
-    invoke-static {}, Lcom/google/android/setupcompat/template/FooterBarMixin;->generateViewId()I
-
-    move-result v0
-
-    invoke-virtual {p2, v0}, Landroid/widget/Button;->setId(I)V
-
-    :goto_0
     invoke-virtual {p1}, Lcom/google/android/setupcompat/template/FooterButton;->getText()Ljava/lang/CharSequence;
 
     move-result-object v0
@@ -692,43 +646,6 @@
     invoke-virtual {p1, p0}, Lcom/google/android/setupcompat/template/FooterButton;->setOnButtonEventListener(Lcom/google/android/setupcompat/template/FooterButton$OnButtonEventListener;)V
 
     return-object p2
-.end method
-
-.method private isFooterButtonAlignedEnd()Z
-    .locals 3
-
-    iget-object v0, p0, Lcom/google/android/setupcompat/template/FooterBarMixin;->context:Landroid/content/Context;
-
-    invoke-static {v0}, Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;->get(Landroid/content/Context;)Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;
-
-    move-result-object v0
-
-    sget-object v1, Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;->CONFIG_FOOTER_BUTTON_ALIGNED_END:Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;
-
-    invoke-virtual {v0, v1}, Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;->isPartnerConfigAvailable(Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;)Z
-
-    move-result v0
-
-    const/4 v2, 0x0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/google/android/setupcompat/template/FooterBarMixin;->context:Landroid/content/Context;
-
-    invoke-static {v0}, Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;->get(Landroid/content/Context;)Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;
-
-    move-result-object v0
-
-    iget-object p0, p0, Lcom/google/android/setupcompat/template/FooterBarMixin;->context:Landroid/content/Context;
-
-    invoke-virtual {v0, p0, v1, v2}, Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;->getBoolean(Landroid/content/Context;Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;Z)Z
-
-    move-result p0
-
-    return p0
-
-    :cond_0
-    return v2
 .end method
 
 .method private onFooterButtonApplyPartnerResource(Landroid/widget/Button;Lcom/google/android/setupcompat/internal/FooterButtonPartnerConfig;)V
@@ -787,53 +704,50 @@
 .method private setEvenlyWeightedButtons(Landroid/widget/Button;Landroid/widget/Button;Z)V
     .locals 1
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_0
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_0
 
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_0
+
+    const/4 p0, 0x0
+
+    invoke-virtual {p1, p0, p0}, Landroid/widget/Button;->measure(II)V
+
+    invoke-virtual {p1}, Landroid/widget/Button;->getMeasuredWidth()I
+
+    move-result p3
+
+    invoke-virtual {p2, p0, p0}, Landroid/widget/Button;->measure(II)V
+
+    invoke-virtual {p2}, Landroid/widget/Button;->getMeasuredWidth()I
+
+    move-result p0
+
+    invoke-static {p3, p0}, Ljava/lang/Math;->max(II)I
+
+    move-result p0
 
     invoke-virtual {p1}, Landroid/widget/Button;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
-    move-result-object p0
+    move-result-object p1
 
-    check-cast p0, Landroid/widget/LinearLayout$LayoutParams;
+    iput p0, p1, Landroid/view/ViewGroup$LayoutParams;->width:I
 
-    const/high16 p3, 0x3f800000    # 1.0f
-
-    const/4 v0, 0x0
-
-    if-eqz p0, :cond_0
-
-    iput v0, p0, Landroid/widget/LinearLayout$LayoutParams;->width:I
-
-    iput p3, p0, Landroid/widget/LinearLayout$LayoutParams;->weight:F
-
-    invoke-virtual {p1, p0}, Landroid/widget/Button;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
-
-    :cond_0
     invoke-virtual {p2}, Landroid/widget/Button;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
-    move-result-object p0
+    move-result-object p1
 
-    check-cast p0, Landroid/widget/LinearLayout$LayoutParams;
-
-    if-eqz p0, :cond_3
-
-    iput v0, p0, Landroid/widget/LinearLayout$LayoutParams;->width:I
-
-    iput p3, p0, Landroid/widget/LinearLayout$LayoutParams;->weight:F
-
-    invoke-virtual {p2, p0}, Landroid/widget/Button;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+    iput p0, p1, Landroid/view/ViewGroup$LayoutParams;->width:I
 
     goto :goto_0
 
-    :cond_1
+    :cond_0
     const/4 p0, 0x0
 
     const/4 p3, -0x2
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_1
 
     invoke-virtual {p1}, Landroid/widget/Button;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
@@ -841,7 +755,7 @@
 
     check-cast v0, Landroid/widget/LinearLayout$LayoutParams;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1
 
     iput p3, v0, Landroid/widget/LinearLayout$LayoutParams;->width:I
 
@@ -849,8 +763,8 @@
 
     invoke-virtual {p1, v0}, Landroid/widget/Button;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    :cond_2
-    if-eqz p2, :cond_3
+    :cond_1
+    if-eqz p2, :cond_2
 
     invoke-virtual {p2}, Landroid/widget/Button;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
@@ -858,7 +772,7 @@
 
     check-cast p1, Landroid/widget/LinearLayout$LayoutParams;
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_2
 
     iput p3, p1, Landroid/widget/LinearLayout$LayoutParams;->width:I
 
@@ -866,7 +780,7 @@
 
     invoke-virtual {p2, p1}, Landroid/widget/Button;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    :cond_3
+    :cond_2
     :goto_0
     return-void
 .end method
@@ -1091,12 +1005,6 @@
 .method protected inflateFooter(I)Landroid/view/View;
     .locals 3
 
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x10
-
-    if-lt v0, v1, :cond_0
-
     new-instance v0, Landroid/view/ContextThemeWrapper;
 
     iget-object v1, p0, Lcom/google/android/setupcompat/template/FooterBarMixin;->context:Landroid/content/Context;
@@ -1113,7 +1021,6 @@
 
     invoke-virtual {v1, v0}, Landroid/view/ViewStub;->setLayoutInflater(Landroid/view/LayoutInflater;)V
 
-    :cond_0
     iget-object v0, p0, Lcom/google/android/setupcompat/template/FooterBarMixin;->footerStub:Landroid/view/ViewStub;
 
     invoke-virtual {v0, p1}, Landroid/view/ViewStub;->setLayoutResource(I)V
@@ -1127,37 +1034,58 @@
     return-object p0
 .end method
 
-.method protected isFooterButtonsEvenlyWeighted()Z
+.method protected isFooterButtonAlignedEnd()Z
     .locals 3
+
+    iget-object v0, p0, Lcom/google/android/setupcompat/template/FooterBarMixin;->context:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;->get(Landroid/content/Context;)Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;
+
+    move-result-object v0
+
+    sget-object v1, Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;->CONFIG_FOOTER_BUTTON_ALIGNED_END:Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;
+
+    invoke-virtual {v0, v1}, Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;->isPartnerConfigAvailable(Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;)Z
+
+    move-result v0
+
+    const/4 v2, 0x0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/google/android/setupcompat/template/FooterBarMixin;->context:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;->get(Landroid/content/Context;)Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;
+
+    move-result-object v0
+
+    iget-object p0, p0, Lcom/google/android/setupcompat/template/FooterBarMixin;->context:Landroid/content/Context;
+
+    invoke-virtual {v0, p0, v1, v2}, Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;->getBoolean(Landroid/content/Context;Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;Z)Z
+
+    move-result p0
+
+    return p0
+
+    :cond_0
+    return v2
+.end method
+
+.method protected isFooterButtonsEvenlyWeighted()Z
+    .locals 1
 
     iget-boolean v0, p0, Lcom/google/android/setupcompat/template/FooterBarMixin;->isSecondaryButtonInPrimaryStyle:Z
 
-    const/4 v1, 0x0
-
     if-nez v0, :cond_0
 
-    return v1
+    const/4 p0, 0x0
+
+    return p0
 
     :cond_0
     iget-object v0, p0, Lcom/google/android/setupcompat/template/FooterBarMixin;->context:Landroid/content/Context;
 
     invoke-static {v0}, Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;->get(Landroid/content/Context;)Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;
-
-    iget-object v0, p0, Lcom/google/android/setupcompat/template/FooterBarMixin;->context:Landroid/content/Context;
-
-    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
-
-    move-result-object v0
-
-    iget v0, v0, Landroid/content/res/Configuration;->smallestScreenWidthDp:I
-
-    const/16 v2, 0x258
-
-    if-lt v0, v2, :cond_1
 
     iget-object p0, p0, Lcom/google/android/setupcompat/template/FooterBarMixin;->context:Landroid/content/Context;
 
@@ -1165,12 +1093,7 @@
 
     move-result p0
 
-    if-eqz p0, :cond_1
-
-    const/4 v1, 0x1
-
-    :cond_1
-    return v1
+    return p0
 .end method
 
 .method isPrimaryButtonVisible()Z
@@ -1493,28 +1416,12 @@
     return-void
 
     :cond_0
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x11
-
-    if-lt v0, v1, :cond_1
-
     invoke-static {}, Landroid/view/View;->generateViewId()I
 
     move-result v0
 
     invoke-virtual {p1, v0}, Landroid/widget/LinearLayout;->setId(I)V
 
-    goto :goto_0
-
-    :cond_1
-    invoke-static {}, Lcom/google/android/setupcompat/template/FooterBarMixin;->generateViewId()I
-
-    move-result v0
-
-    invoke-virtual {p1, v0}, Landroid/widget/LinearLayout;->setId(I)V
-
-    :goto_0
     iget v3, p0, Lcom/google/android/setupcompat/template/FooterBarMixin;->footerBarPaddingStart:I
 
     iget v4, p0, Lcom/google/android/setupcompat/template/FooterBarMixin;->footerBarPaddingTop:I
@@ -1529,17 +1436,17 @@
 
     invoke-direct/range {v1 .. v6}, Lcom/google/android/setupcompat/template/FooterBarMixin;->updateFooterBarPadding(Landroid/widget/LinearLayout;IIII)V
 
-    invoke-direct {p0}, Lcom/google/android/setupcompat/template/FooterBarMixin;->isFooterButtonAlignedEnd()Z
+    invoke-virtual {p0}, Lcom/google/android/setupcompat/template/FooterBarMixin;->isFooterButtonAlignedEnd()Z
 
     move-result p0
 
-    if-eqz p0, :cond_2
+    if-eqz p0, :cond_1
 
     const p0, 0x800015
 
     invoke-virtual {p1, p0}, Landroid/widget/LinearLayout;->setGravity(I)V
 
-    :cond_2
+    :cond_1
     return-void
 .end method
 
@@ -1561,7 +1468,7 @@
 .end method
 
 .method protected repopulateButtons()V
-    .locals 11
+    .locals 10
 
     invoke-direct {p0}, Lcom/google/android/setupcompat/template/FooterBarMixin;->ensureFooterInflated()Landroid/widget/LinearLayout;
 
@@ -1605,13 +1512,11 @@
     const/4 v0, 0x0
 
     :goto_0
-    move v10, v0
-
-    if-eqz v10, :cond_1
+    if-eqz v0, :cond_1
 
     if-eqz v9, :cond_1
 
-    invoke-direct {p0}, Lcom/google/android/setupcompat/template/FooterBarMixin;->isFooterButtonAlignedEnd()Z
+    invoke-virtual {p0}, Lcom/google/android/setupcompat/template/FooterBarMixin;->isFooterButtonAlignedEnd()Z
 
     move-result v0
 
@@ -1652,27 +1557,20 @@
     invoke-virtual {v6, v8}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
     :cond_3
-    invoke-direct {p0}, Lcom/google/android/setupcompat/template/FooterBarMixin;->isFooterButtonAlignedEnd()Z
+    invoke-virtual {p0}, Lcom/google/android/setupcompat/template/FooterBarMixin;->isFooterButtonAlignedEnd()Z
 
     move-result v0
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_4
 
-    if-eqz v9, :cond_4
-
-    if-eqz v9, :cond_5
-
-    if-eqz v10, :cond_5
-
-    :cond_4
     invoke-direct {p0}, Lcom/google/android/setupcompat/template/FooterBarMixin;->addSpace()Landroid/view/View;
 
-    :cond_5
-    if-eqz v7, :cond_6
+    :cond_4
+    if-eqz v7, :cond_5
 
     invoke-virtual {v6, v7}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    :cond_6
+    :cond_5
     invoke-direct {p0, v7, v8, v9}, Lcom/google/android/setupcompat/template/FooterBarMixin;->setEvenlyWeightedButtons(Landroid/widget/Button;Landroid/widget/Button;Z)V
 
     return-void

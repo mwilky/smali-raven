@@ -57,17 +57,17 @@
 
     iget-object v1, p0, Lcom/google/android/setupdesign/template/HeaderMixin$1;->this$0:Lcom/google/android/setupdesign/template/HeaderMixin;
 
-    invoke-static {v1}, Lcom/google/android/setupdesign/template/HeaderMixin;->access$000(Lcom/google/android/setupdesign/template/HeaderMixin;)I
+    invoke-static {v1}, Lcom/google/android/setupdesign/template/HeaderMixin;->-$$Nest$fgetheaderAutoSizeMaxLineOfMaxSize(Lcom/google/android/setupdesign/template/HeaderMixin;)I
 
     move-result v1
 
-    if-le v0, v1, :cond_1
+    if-le v0, v1, :cond_0
 
     iget-object v0, p0, Lcom/google/android/setupdesign/template/HeaderMixin$1;->val$titleView:Landroid/widget/TextView;
 
     iget-object v1, p0, Lcom/google/android/setupdesign/template/HeaderMixin$1;->this$0:Lcom/google/android/setupdesign/template/HeaderMixin;
 
-    invoke-static {v1}, Lcom/google/android/setupdesign/template/HeaderMixin;->access$100(Lcom/google/android/setupdesign/template/HeaderMixin;)F
+    invoke-static {v1}, Lcom/google/android/setupdesign/template/HeaderMixin;->-$$Nest$fgetheaderAutoSizeMinTextSizeInPx(Lcom/google/android/setupdesign/template/HeaderMixin;)F
 
     move-result v1
 
@@ -75,23 +75,17 @@
 
     invoke-virtual {v0, v2, v1}, Landroid/widget/TextView;->setTextSize(IF)V
 
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x1c
-
-    if-lt v0, v1, :cond_0
-
     iget-object v0, p0, Lcom/google/android/setupdesign/template/HeaderMixin$1;->val$titleView:Landroid/widget/TextView;
 
     iget-object v1, p0, Lcom/google/android/setupdesign/template/HeaderMixin$1;->this$0:Lcom/google/android/setupdesign/template/HeaderMixin;
 
-    invoke-static {v1}, Lcom/google/android/setupdesign/template/HeaderMixin;->access$200(Lcom/google/android/setupdesign/template/HeaderMixin;)F
+    invoke-static {v1}, Lcom/google/android/setupdesign/template/HeaderMixin;->-$$Nest$fgetheaderAutoSizeLineExtraSpacingInPx(Lcom/google/android/setupdesign/template/HeaderMixin;)F
 
     move-result v1
 
     iget-object v3, p0, Lcom/google/android/setupdesign/template/HeaderMixin$1;->this$0:Lcom/google/android/setupdesign/template/HeaderMixin;
 
-    invoke-static {v3}, Lcom/google/android/setupdesign/template/HeaderMixin;->access$100(Lcom/google/android/setupdesign/template/HeaderMixin;)F
+    invoke-static {v3}, Lcom/google/android/setupdesign/template/HeaderMixin;->-$$Nest$fgetheaderAutoSizeMinTextSizeInPx(Lcom/google/android/setupdesign/template/HeaderMixin;)F
 
     move-result v3
 
@@ -103,14 +97,13 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setLineHeight(I)V
 
-    :cond_0
     iget-object p0, p0, Lcom/google/android/setupdesign/template/HeaderMixin$1;->val$titleView:Landroid/widget/TextView;
 
     invoke-virtual {p0}, Landroid/widget/TextView;->invalidate()V
 
     return v2
 
-    :cond_1
+    :cond_0
     const/4 p0, 0x1
 
     return p0

@@ -16,37 +16,13 @@
 
 # virtual methods
 .method public abstract changeCursor(Landroid/database/Cursor;)V
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "cursor"
-        }
-    .end annotation
 .end method
 
 .method public abstract convertToString(Landroid/database/Cursor;)Ljava/lang/CharSequence;
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "cursor"
-        }
-    .end annotation
 .end method
 
 .method public abstract getCursor()Landroid/database/Cursor;
 .end method
 
 .method public abstract runQueryOnBackgroundThread(Ljava/lang/CharSequence;)Landroid/database/Cursor;
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "constraint"
-        }
-    .end annotation
 .end method

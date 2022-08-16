@@ -56,7 +56,15 @@
 
     new-instance p2, Landroid/content/ComponentName;
 
-    invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
 
@@ -87,7 +95,7 @@
 
     move-result-object p1
 
-    const-string v1, "(this as java.lang.Strin\u2026ing(startIndex, endIndex)"
+    const-string/jumbo v1, "this as java.lang.String\u2026ing(startIndex, endIndex)"
 
     invoke-static {p1, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -97,7 +105,7 @@
 
     move-result-object p0
 
-    const-string p2, "(this as java.lang.String).substring(startIndex)"
+    const-string/jumbo p2, "this as java.lang.String).substring(startIndex)"
 
     invoke-static {p0, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -170,6 +178,8 @@
 
     move-result-object v0
 
+    check-cast p2, Landroid/util/AttributeSet;
+
     sget-object v1, Landroidx/window/R$styleable;->ActivityFilter:[I
 
     const/4 v2, 0x0
@@ -220,6 +230,8 @@
 
     move-result-object p0
 
+    check-cast p2, Landroid/util/AttributeSet;
+
     sget-object p1, Landroidx/window/R$styleable;->ActivityRule:[I
 
     const/4 v0, 0x0
@@ -251,6 +263,8 @@
     invoke-virtual {p1}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
 
     move-result-object v0
+
+    check-cast p2, Landroid/util/AttributeSet;
 
     sget-object v1, Landroidx/window/R$styleable;->SplitPairFilter:[I
 
@@ -311,6 +325,8 @@
     invoke-virtual {p1}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
 
     move-result-object p0
+
+    check-cast p2, Landroid/util/AttributeSet;
 
     sget-object p1, Landroidx/window/R$styleable;->SplitPairRule:[I
 
@@ -391,6 +407,8 @@
     invoke-virtual {p1}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
 
     move-result-object v0
+
+    check-cast p2, Landroid/util/AttributeSet;
 
     sget-object v1, Landroidx/window/R$styleable;->SplitPlaceholderRule:[I
 
@@ -517,7 +535,7 @@
 
     move-result-object p2
 
-    const-string v0, "resources.getXml(splitResourceId)"
+    const-string/jumbo v0, "resources.getXml(splitResourceId)"
 
     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
     :try_end_0
@@ -668,7 +686,7 @@
 
     invoke-virtual {v0, v5}, Ljava/util/HashSet;->remove(Ljava/lang/Object;)Z
 
-    invoke-virtual {v5, v3}, Landroidx/window/embedding/SplitPairRule;->plus$window_debug(Landroidx/window/embedding/SplitPairFilter;)Landroidx/window/embedding/SplitPairRule;
+    invoke-virtual {v5, v3}, Landroidx/window/embedding/SplitPairRule;->plus$window_release(Landroidx/window/embedding/SplitPairFilter;)Landroidx/window/embedding/SplitPairRule;
 
     move-result-object v3
 
@@ -749,7 +767,7 @@
 
     invoke-virtual {v0, v4}, Ljava/util/HashSet;->remove(Ljava/lang/Object;)Z
 
-    invoke-virtual {v4, v3}, Landroidx/window/embedding/ActivityRule;->plus$window_debug(Landroidx/window/embedding/ActivityFilter;)Landroidx/window/embedding/ActivityRule;
+    invoke-virtual {v4, v3}, Landroidx/window/embedding/ActivityRule;->plus$window_release(Landroidx/window/embedding/ActivityFilter;)Landroidx/window/embedding/ActivityRule;
 
     move-result-object v3
 
@@ -762,7 +780,7 @@
 
     invoke-virtual {v0, v6}, Ljava/util/HashSet;->remove(Ljava/lang/Object;)Z
 
-    invoke-virtual {v6, v3}, Landroidx/window/embedding/SplitPlaceholderRule;->plus$window_debug(Landroidx/window/embedding/ActivityFilter;)Landroidx/window/embedding/SplitPlaceholderRule;
+    invoke-virtual {v6, v3}, Landroidx/window/embedding/SplitPlaceholderRule;->plus$window_release(Landroidx/window/embedding/ActivityFilter;)Landroidx/window/embedding/SplitPlaceholderRule;
 
     move-result-object v3
 
@@ -792,6 +810,8 @@
     :catch_0
     return-object v1
 
+    nop
+
     :sswitch_data_0
     .sparse-switch
         0x1e7baf87 -> :sswitch_4
@@ -804,7 +824,7 @@
 
 
 # virtual methods
-.method public final parseSplitRules$window_debug(Landroid/content/Context;I)Ljava/util/Set;
+.method public final parseSplitRules$window_release(Landroid/content/Context;I)Ljava/util/Set;
     .locals 1
     .param p1    # Landroid/content/Context;
         .annotation build Lorg/jetbrains/annotations/NotNull;

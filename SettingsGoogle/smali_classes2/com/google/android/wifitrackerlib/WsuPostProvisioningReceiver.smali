@@ -62,6 +62,14 @@
     return-void
 .end method
 
+.method static bridge synthetic -$$Nest$mconnectToCandidate(Lcom/google/android/wifitrackerlib/WsuPostProvisioningReceiver;Ljava/util/Optional;Ljava/lang/String;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/google/android/wifitrackerlib/WsuPostProvisioningReceiver;->connectToCandidate(Ljava/util/Optional;Ljava/lang/String;)V
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 1
 
@@ -70,14 +78,6 @@
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/google/android/wifitrackerlib/WsuPostProvisioningReceiver;->mWifiManager:Landroid/net/wifi/WifiManager;
-
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/google/android/wifitrackerlib/WsuPostProvisioningReceiver;Ljava/util/Optional;Ljava/lang/String;)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/google/android/wifitrackerlib/WsuPostProvisioningReceiver;->connectToCandidate(Ljava/util/Optional;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -95,9 +95,9 @@
         }
     .end annotation
 
-    new-instance p2, Lcom/google/android/wifitrackerlib/WsuPostProvisioningReceiver$$ExternalSyntheticLambda2;
+    new-instance p2, Lcom/google/android/wifitrackerlib/WsuPostProvisioningReceiver$$ExternalSyntheticLambda4;
 
-    invoke-direct {p2, p0}, Lcom/google/android/wifitrackerlib/WsuPostProvisioningReceiver$$ExternalSyntheticLambda2;-><init>(Lcom/google/android/wifitrackerlib/WsuPostProvisioningReceiver;)V
+    invoke-direct {p2, p0}, Lcom/google/android/wifitrackerlib/WsuPostProvisioningReceiver$$ExternalSyntheticLambda4;-><init>(Lcom/google/android/wifitrackerlib/WsuPostProvisioningReceiver;)V
 
     invoke-virtual {p1, p2}, Ljava/util/Optional;->ifPresent(Ljava/util/function/Consumer;)V
 
@@ -400,7 +400,9 @@
     return-object p0
 
     :cond_1
-    sget-object p0, Lcom/google/android/wifitrackerlib/WsuPostProvisioningReceiver$$ExternalSyntheticLambda1;->INSTANCE:Lcom/google/android/wifitrackerlib/WsuPostProvisioningReceiver$$ExternalSyntheticLambda1;
+    new-instance p0, Lcom/google/android/wifitrackerlib/WsuPostProvisioningReceiver$$ExternalSyntheticLambda1;
+
+    invoke-direct {p0}, Lcom/google/android/wifitrackerlib/WsuPostProvisioningReceiver$$ExternalSyntheticLambda1;-><init>()V
 
     invoke-interface {v1, p0}, Ljava/util/List;->sort(Ljava/util/Comparator;)V
 
@@ -642,9 +644,9 @@
 
     move-result-object p3
 
-    new-instance v1, Lcom/google/android/wifitrackerlib/WsuPostProvisioningReceiver$$ExternalSyntheticLambda4;
+    new-instance v1, Lcom/google/android/wifitrackerlib/WsuPostProvisioningReceiver$$ExternalSyntheticLambda2;
 
-    invoke-direct {v1, p1}, Lcom/google/android/wifitrackerlib/WsuPostProvisioningReceiver$$ExternalSyntheticLambda4;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, p1}, Lcom/google/android/wifitrackerlib/WsuPostProvisioningReceiver$$ExternalSyntheticLambda2;-><init>(Ljava/lang/String;)V
 
     invoke-interface {p3, v1}, Ljava/util/stream/Stream;->filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
 

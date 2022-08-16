@@ -7,7 +7,7 @@
 
 
 # instance fields
-.field private mAdapter:Lcom/android/settingslib/widget/settingsspinner/SettingsSpinnerAdapter;
+.field private mAdapter:Lcom/android/settingslib/widget/SettingsSpinnerAdapter;
 
 .field private mListener:Landroid/widget/AdapterView$OnItemSelectedListener;
 
@@ -19,6 +19,30 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmListener(Lcom/android/settingslib/widget/SettingsSpinnerPreference;)Landroid/widget/AdapterView$OnItemSelectedListener;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settingslib/widget/SettingsSpinnerPreference;->mListener:Landroid/widget/AdapterView$OnItemSelectedListener;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmPosition(Lcom/android/settingslib/widget/SettingsSpinnerPreference;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/settingslib/widget/SettingsSpinnerPreference;->mPosition:I
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmPosition(Lcom/android/settingslib/widget/SettingsSpinnerPreference;I)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/settingslib/widget/SettingsSpinnerPreference;->mPosition:I
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
 
@@ -69,36 +93,12 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/settingslib/widget/SettingsSpinnerPreference;)I
-    .locals 0
-
-    iget p0, p0, Lcom/android/settingslib/widget/SettingsSpinnerPreference;->mPosition:I
-
-    return p0
-.end method
-
-.method static synthetic access$002(Lcom/android/settingslib/widget/SettingsSpinnerPreference;I)I
-    .locals 0
-
-    iput p1, p0, Lcom/android/settingslib/widget/SettingsSpinnerPreference;->mPosition:I
-
-    return p1
-.end method
-
-.method static synthetic access$100(Lcom/android/settingslib/widget/SettingsSpinnerPreference;)Landroid/widget/AdapterView$OnItemSelectedListener;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/widget/SettingsSpinnerPreference;->mListener:Landroid/widget/AdapterView$OnItemSelectedListener;
-
-    return-object p0
-.end method
-
 
 # virtual methods
 .method public getSelectedItem()Ljava/lang/Object;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/settingslib/widget/SettingsSpinnerPreference;->mAdapter:Lcom/android/settingslib/widget/settingsspinner/SettingsSpinnerAdapter;
+    iget-object v0, p0, Lcom/android/settingslib/widget/SettingsSpinnerPreference;->mAdapter:Lcom/android/settingslib/widget/SettingsSpinnerAdapter;
 
     if-nez v0, :cond_0
 
@@ -128,9 +128,9 @@
 
     move-result-object p1
 
-    check-cast p1, Lcom/android/settingslib/widget/settingsspinner/SettingsSpinner;
+    check-cast p1, Landroid/widget/Spinner;
 
-    iget-object v0, p0, Lcom/android/settingslib/widget/SettingsSpinnerPreference;->mAdapter:Lcom/android/settingslib/widget/settingsspinner/SettingsSpinnerAdapter;
+    iget-object v0, p0, Lcom/android/settingslib/widget/SettingsSpinnerPreference;->mAdapter:Lcom/android/settingslib/widget/SettingsSpinnerAdapter;
 
     invoke-virtual {p1, v0}, Landroid/widget/Spinner;->setAdapter(Landroid/widget/SpinnerAdapter;)V
 
@@ -168,17 +168,17 @@
     return p1
 .end method
 
-.method public setAdapter(Lcom/android/settingslib/widget/settingsspinner/SettingsSpinnerAdapter;)V
+.method public setAdapter(Lcom/android/settingslib/widget/SettingsSpinnerAdapter;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
-            "Lcom/android/settingslib/widget/settingsspinner/SettingsSpinnerAdapter;",
+            "Lcom/android/settingslib/widget/SettingsSpinnerAdapter;",
             ">(TT;)V"
         }
     .end annotation
 
-    iput-object p1, p0, Lcom/android/settingslib/widget/SettingsSpinnerPreference;->mAdapter:Lcom/android/settingslib/widget/settingsspinner/SettingsSpinnerAdapter;
+    iput-object p1, p0, Lcom/android/settingslib/widget/SettingsSpinnerPreference;->mAdapter:Lcom/android/settingslib/widget/SettingsSpinnerAdapter;
 
     invoke-virtual {p0}, Landroidx/preference/Preference;->notifyChanged()V
 

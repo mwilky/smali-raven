@@ -183,7 +183,7 @@
 .end method
 
 .method public updateState(Landroidx/preference/Preference;)V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/settings/notification/app/NotificationPreferenceController;->mAppRow:Lcom/android/settings/notification/NotificationBackend$AppRow;
 
@@ -191,19 +191,17 @@
 
     iget-object v0, p0, Lcom/android/settings/notification/app/NotificationPreferenceController;->mAdmin:Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
 
-    const/4 v1, 0x1
-
     if-nez v0, :cond_0
 
     iget-object v0, p0, Lcom/android/settings/notification/app/NotificationPreferenceController;->mChannel:Landroid/app/NotificationChannel;
 
-    invoke-virtual {v0}, Landroid/app/NotificationChannel;->isImportanceLockedByOEM()Z
+    invoke-virtual {p0, v0}, Lcom/android/settings/notification/app/NotificationPreferenceController;->isChannelConfigurable(Landroid/app/NotificationChannel;)Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-eqz v0, :cond_0
 
-    move v0, v1
+    const/4 v0, 0x1
 
     goto :goto_0
 
@@ -217,11 +215,9 @@
 
     iget-object v0, p0, Lcom/android/settings/notification/app/NotificationPreferenceController;->mChannel:Landroid/app/NotificationChannel;
 
-    invoke-virtual {v0}, Landroid/app/NotificationChannel;->isImportanceLockedByOEM()Z
+    invoke-virtual {p0, v0}, Lcom/android/settings/notification/app/NotificationPreferenceController;->isChannelConfigurable(Landroid/app/NotificationChannel;)Z
 
     move-result v0
-
-    xor-int/2addr v0, v1
 
     invoke-virtual {p1, v0}, Lcom/android/settings/notification/app/ConversationPriorityPreference;->setConfigurable(Z)V
 

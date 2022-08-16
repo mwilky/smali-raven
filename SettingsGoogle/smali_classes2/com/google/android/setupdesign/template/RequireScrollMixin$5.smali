@@ -43,7 +43,7 @@
 
     iget-object v0, p0, Lcom/google/android/setupdesign/template/RequireScrollMixin$5;->this$0:Lcom/google/android/setupdesign/template/RequireScrollMixin;
 
-    invoke-static {v0}, Lcom/google/android/setupdesign/template/RequireScrollMixin;->access$200(Lcom/google/android/setupdesign/template/RequireScrollMixin;)Lcom/google/android/setupdesign/template/RequireScrollMixin$OnRequireScrollStateChangedListener;
+    invoke-static {v0}, Lcom/google/android/setupdesign/template/RequireScrollMixin;->-$$Nest$fgetlistener(Lcom/google/android/setupdesign/template/RequireScrollMixin;)Lcom/google/android/setupdesign/template/RequireScrollMixin$OnRequireScrollStateChangedListener;
 
     move-result-object v0
 
@@ -51,7 +51,7 @@
 
     iget-object v0, p0, Lcom/google/android/setupdesign/template/RequireScrollMixin$5;->this$0:Lcom/google/android/setupdesign/template/RequireScrollMixin;
 
-    invoke-static {v0}, Lcom/google/android/setupdesign/template/RequireScrollMixin;->access$200(Lcom/google/android/setupdesign/template/RequireScrollMixin;)Lcom/google/android/setupdesign/template/RequireScrollMixin$OnRequireScrollStateChangedListener;
+    invoke-static {v0}, Lcom/google/android/setupdesign/template/RequireScrollMixin;->-$$Nest$fgetlistener(Lcom/google/android/setupdesign/template/RequireScrollMixin;)Lcom/google/android/setupdesign/template/RequireScrollMixin$OnRequireScrollStateChangedListener;
 
     move-result-object v0
 

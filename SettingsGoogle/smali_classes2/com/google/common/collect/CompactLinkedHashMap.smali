@@ -82,9 +82,9 @@
 .method private getPredecessor(I)I
     .locals 1
 
-    iget-object p0, p0, Lcom/google/common/collect/CompactLinkedHashMap;->links:[J
+    invoke-direct {p0, p1}, Lcom/google/common/collect/CompactLinkedHashMap;->link(I)J
 
-    aget-wide p0, p0, p1
+    move-result-wide p0
 
     const/16 v0, 0x20
 
@@ -97,12 +97,48 @@
     return p0
 .end method
 
-.method private setPredecessor(II)V
-    .locals 4
+.method private link(I)J
+    .locals 0
+
+    invoke-direct {p0}, Lcom/google/common/collect/CompactLinkedHashMap;->requireLinks()[J
+
+    move-result-object p0
+
+    aget-wide p0, p0, p1
+
+    return-wide p0
+.end method
+
+.method private requireLinks()[J
+    .locals 0
 
     iget-object p0, p0, Lcom/google/common/collect/CompactLinkedHashMap;->links:[J
 
-    aget-wide v0, p0, p1
+    invoke-static {p0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+
+    check-cast p0, [J
+
+    return-object p0
+.end method
+
+.method private setLink(IJ)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/google/common/collect/CompactLinkedHashMap;->requireLinks()[J
+
+    move-result-object p0
+
+    aput-wide p2, p0, p1
+
+    return-void
+.end method
+
+.method private setPredecessor(II)V
+    .locals 4
+
+    invoke-direct {p0, p1}, Lcom/google/common/collect/CompactLinkedHashMap;->link(I)J
+
+    move-result-wide v0
 
     const-wide v2, 0xffffffffL
 
@@ -118,7 +154,7 @@
 
     or-long/2addr v0, v2
 
-    aput-wide v0, p0, p1
+    invoke-direct {p0, p1, v0, v1}, Lcom/google/common/collect/CompactLinkedHashMap;->setLink(IJ)V
 
     return-void
 .end method
@@ -154,9 +190,9 @@
 .method private setSuccessor(II)V
     .locals 6
 
-    iget-object p0, p0, Lcom/google/common/collect/CompactLinkedHashMap;->links:[J
+    invoke-direct {p0, p1}, Lcom/google/common/collect/CompactLinkedHashMap;->link(I)J
 
-    aget-wide v0, p0, p1
+    move-result-wide v0
 
     const-wide v2, -0x100000000L
 
@@ -172,7 +208,7 @@
 
     or-long/2addr v0, v2
 
-    aput-wide v0, p0, p1
+    invoke-direct {p0, p1, v0, v1}, Lcom/google/common/collect/CompactLinkedHashMap;->setLink(IJ)V
 
     return-void
 .end method
@@ -279,9 +315,6 @@
 
 .method convertToHashFloodingResistantImplementation()Ljava/util/Map;
     .locals 2
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -333,9 +366,9 @@
 .method getSuccessor(I)I
     .locals 0
 
-    iget-object p0, p0, Lcom/google/common/collect/CompactLinkedHashMap;->links:[J
+    invoke-direct {p0, p1}, Lcom/google/common/collect/CompactLinkedHashMap;->link(I)J
 
-    aget-wide p0, p0, p1
+    move-result-wide p0
 
     long-to-int p0, p0
 
@@ -415,11 +448,9 @@
     invoke-direct {p0, p1, p2}, Lcom/google/common/collect/CompactLinkedHashMap;->setSucceeds(II)V
 
     :cond_0
-    iget-object p0, p0, Lcom/google/common/collect/CompactLinkedHashMap;->links:[J
-
     const-wide/16 p1, 0x0
 
-    aput-wide p1, p0, v0
+    invoke-direct {p0, v0, p1, p2}, Lcom/google/common/collect/CompactLinkedHashMap;->setLink(IJ)V
 
     return-void
 .end method
@@ -429,7 +460,9 @@
 
     invoke-super {p0, p1}, Lcom/google/common/collect/CompactHashMap;->resizeEntries(I)V
 
-    iget-object v0, p0, Lcom/google/common/collect/CompactLinkedHashMap;->links:[J
+    invoke-direct {p0}, Lcom/google/common/collect/CompactLinkedHashMap;->requireLinks()[J
+
+    move-result-object v0
 
     invoke-static {v0, p1}, Ljava/util/Arrays;->copyOf([JI)[J
 

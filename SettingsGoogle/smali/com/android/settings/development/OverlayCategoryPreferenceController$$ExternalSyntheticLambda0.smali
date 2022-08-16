@@ -1,28 +1,13 @@
 .class public final synthetic Lcom/android/settings/development/OverlayCategoryPreferenceController$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Function;
-
-
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/settings/development/OverlayCategoryPreferenceController$$ExternalSyntheticLambda0;
+.implements Ljava/util/function/ToIntFunction;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/settings/development/OverlayCategoryPreferenceController$$ExternalSyntheticLambda0;
-
-    invoke-direct {v0}, Lcom/android/settings/development/OverlayCategoryPreferenceController$$ExternalSyntheticLambda0;-><init>()V
-
-    sput-object v0, Lcom/android/settings/development/OverlayCategoryPreferenceController$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/settings/development/OverlayCategoryPreferenceController$$ExternalSyntheticLambda0;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,14 +17,14 @@
 
 
 # virtual methods
-.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
+.method public final applyAsInt(Ljava/lang/Object;)I
     .locals 0
 
     check-cast p1, Landroid/content/om/OverlayInfo;
 
-    invoke-static {p1}, Lcom/android/settings/development/OverlayCategoryPreferenceController;->$r8$lambda$5tsPulLjnlt_JLmZBWFr9fX5T9E(Landroid/content/om/OverlayInfo;)Ljava/lang/String;
+    invoke-static {p1}, Lcom/android/settings/development/OverlayCategoryPreferenceController;->$r8$lambda$K-aBikKXMTUXvCbsejG9IePxGfw(Landroid/content/om/OverlayInfo;)I
 
-    move-result-object p0
+    move-result p0
 
-    return-object p0
+    return p0
 .end method

@@ -71,7 +71,7 @@
     :cond_1
     iget-object p1, p0, Lcom/android/settings/applications/specialaccess/PaymentSettingsEnabler;->mPreference:Landroidx/preference/Preference;
 
-    const v1, 0x7f040dd9
+    const v1, 0x7f040e56
 
     invoke-virtual {p1, v1}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -84,7 +84,7 @@
     :cond_2
     iget-object p1, p0, Lcom/android/settings/applications/specialaccess/PaymentSettingsEnabler;->mPreference:Landroidx/preference/Preference;
 
-    const v1, 0x7f040dda
+    const v1, 0x7f040e57
 
     invoke-virtual {p1, v1}, Landroidx/preference/Preference;->setSummary(I)V
 

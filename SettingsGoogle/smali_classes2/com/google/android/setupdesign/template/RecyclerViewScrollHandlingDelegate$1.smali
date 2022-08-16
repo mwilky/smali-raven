@@ -36,13 +36,13 @@
 
     iget-object p1, p0, Lcom/google/android/setupdesign/template/RecyclerViewScrollHandlingDelegate$1;->this$0:Lcom/google/android/setupdesign/template/RecyclerViewScrollHandlingDelegate;
 
-    invoke-static {p1}, Lcom/google/android/setupdesign/template/RecyclerViewScrollHandlingDelegate;->access$100(Lcom/google/android/setupdesign/template/RecyclerViewScrollHandlingDelegate;)Lcom/google/android/setupdesign/template/RequireScrollMixin;
+    invoke-static {p1}, Lcom/google/android/setupdesign/template/RecyclerViewScrollHandlingDelegate;->-$$Nest$fgetrequireScrollMixin(Lcom/google/android/setupdesign/template/RecyclerViewScrollHandlingDelegate;)Lcom/google/android/setupdesign/template/RequireScrollMixin;
 
     move-result-object p1
 
     iget-object p0, p0, Lcom/google/android/setupdesign/template/RecyclerViewScrollHandlingDelegate$1;->this$0:Lcom/google/android/setupdesign/template/RecyclerViewScrollHandlingDelegate;
 
-    invoke-static {p0}, Lcom/google/android/setupdesign/template/RecyclerViewScrollHandlingDelegate;->access$000(Lcom/google/android/setupdesign/template/RecyclerViewScrollHandlingDelegate;)Z
+    invoke-static {p0}, Lcom/google/android/setupdesign/template/RecyclerViewScrollHandlingDelegate;->-$$Nest$mcanScrollDown(Lcom/google/android/setupdesign/template/RecyclerViewScrollHandlingDelegate;)Z
 
     move-result p0
 

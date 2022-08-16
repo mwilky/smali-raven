@@ -42,7 +42,7 @@
 .method public updateState(Landroidx/preference/Preference;)V
     .locals 4
 
-    const v0, 0x7f04120f
+    const v0, 0x7f0412c4
 
     const/4 v1, 0x0
 
@@ -75,7 +75,7 @@
 
     if-eqz p0, :cond_1
 
-    const p0, 0x7f041211
+    const p0, 0x7f0412c6
 
     goto :goto_1
 

@@ -119,7 +119,7 @@
 
     iget-object v3, p0, Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController$2;->this$0:Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;
 
-    invoke-static {v3, v2}, Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;->access$400(Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;Landroid/app/NotificationChannel;)Z
+    invoke-static {v3, v2}, Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;->-$$Nest$misConversation(Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;Landroid/app/NotificationChannel;)Z
 
     move-result v3
 
@@ -136,7 +136,7 @@
 
     iget-object p0, p0, Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController$2;->this$0:Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;
 
-    invoke-static {p0, p1}, Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;->access$002(Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;Ljava/util/List;)Ljava/util/List;
+    invoke-static {p0, p1}, Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;->-$$Nest$fputmChannels(Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;Ljava/util/List;)V
 
     const/4 p0, 0x0
 
@@ -165,7 +165,7 @@
     return-void
 
     :cond_0
-    invoke-static {p0}, Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;->access$500(Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;)V
+    invoke-static {p0}, Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;->-$$Nest$mpopulateList(Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;)V
 
     return-void
 .end method

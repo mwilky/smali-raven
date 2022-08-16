@@ -205,6 +205,7 @@
         <item>60일 이상 경과</item>
         <item>90일 이상 경과</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>0%</item>
         <item>50%</item>
@@ -348,17 +349,10 @@
         <item>높임</item>
         <item>낮춤</item>
     </string-array>
-    <string-array name="captioning_font_size_selector_summaries">
-        <item>아주 작은 텍스트 크기</item>
-        <item>작은 텍스트 크기</item>
-        <item>기본 텍스트 크기</item>
-        <item>큰 텍스트 크기</item>
-        <item>아주 큰 텍스트 크기</item>
-    </string-array>
     <string-array name="captioning_font_size_selector_titles">
         <item>아주 작게</item>
         <item>작게</item>
-        <item>기본값</item>
+        <item>중간</item>
         <item>크게</item>
         <item>아주 크게</item>
     </string-array>
@@ -490,6 +484,14 @@
         <item>IMSI</item>
         <item>GID</item>
     </string-array>
+    <string-array name="nfc_payment_favor">
+        <item>항상</item>
+        <item>다른 결제 앱이 열려 있는 경우 제외</item>
+    </string-array>
+    <string-array name="nfc_payment_favor_values">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
     <string-array name="overlay_display_devices_entries">
         <item>없음</item>
         <item>480p</item>
@@ -616,6 +618,17 @@
     <string-array name="swipe_direction_values">
         <item>1</item>
         <item>0</item>
+    </string-array>
+    <string-array name="switch_to_user_zero_when_docked_timeout_entries">
+        <item>사용 안함</item>
+        <item>1분 후</item>
+        <item>5분 후</item>
+    </string-array>
+    <string-array name="tare_modifiers_subfactors">
+        <item>충전 중</item>
+        <item>잠자기</item>
+        <item>절전 모드</item>
+        <item>프로세스 상태</item>
     </string-array>
     <string-array name="timezone_filters">
         <item>미국</item>

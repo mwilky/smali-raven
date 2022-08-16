@@ -1,63 +1,48 @@
 .class public final synthetic Lcom/android/settings/notification/app/RecentConversationsPreferenceController$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/settings/notification/app/RecentConversationPreference$OnClearClickListener;
+.implements Ljava/util/function/Consumer;
 
 
 # instance fields
 .field public final synthetic f$0:Lcom/android/settings/notification/app/RecentConversationsPreferenceController;
 
-.field public final synthetic f$1:Ljava/lang/String;
+.field public final synthetic f$1:Ljava/util/concurrent/atomic/AtomicInteger;
 
-.field public final synthetic f$2:I
-
-.field public final synthetic f$3:Ljava/lang/String;
-
-.field public final synthetic f$4:Lcom/android/settings/notification/app/RecentConversationPreference;
-
-.field public final synthetic f$5:Landroidx/preference/PreferenceGroup;
+.field public final synthetic f$2:Ljava/util/concurrent/atomic/AtomicBoolean;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/settings/notification/app/RecentConversationsPreferenceController;Ljava/lang/String;ILjava/lang/String;Lcom/android/settings/notification/app/RecentConversationPreference;Landroidx/preference/PreferenceGroup;)V
+.method public synthetic constructor <init>(Lcom/android/settings/notification/app/RecentConversationsPreferenceController;Ljava/util/concurrent/atomic/AtomicInteger;Ljava/util/concurrent/atomic/AtomicBoolean;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/settings/notification/app/RecentConversationsPreferenceController$$ExternalSyntheticLambda2;->f$0:Lcom/android/settings/notification/app/RecentConversationsPreferenceController;
 
-    iput-object p2, p0, Lcom/android/settings/notification/app/RecentConversationsPreferenceController$$ExternalSyntheticLambda2;->f$1:Ljava/lang/String;
+    iput-object p2, p0, Lcom/android/settings/notification/app/RecentConversationsPreferenceController$$ExternalSyntheticLambda2;->f$1:Ljava/util/concurrent/atomic/AtomicInteger;
 
-    iput p3, p0, Lcom/android/settings/notification/app/RecentConversationsPreferenceController$$ExternalSyntheticLambda2;->f$2:I
-
-    iput-object p4, p0, Lcom/android/settings/notification/app/RecentConversationsPreferenceController$$ExternalSyntheticLambda2;->f$3:Ljava/lang/String;
-
-    iput-object p5, p0, Lcom/android/settings/notification/app/RecentConversationsPreferenceController$$ExternalSyntheticLambda2;->f$4:Lcom/android/settings/notification/app/RecentConversationPreference;
-
-    iput-object p6, p0, Lcom/android/settings/notification/app/RecentConversationsPreferenceController$$ExternalSyntheticLambda2;->f$5:Landroidx/preference/PreferenceGroup;
+    iput-object p3, p0, Lcom/android/settings/notification/app/RecentConversationsPreferenceController$$ExternalSyntheticLambda2;->f$2:Ljava/util/concurrent/atomic/AtomicBoolean;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final onClear()V
-    .locals 6
+.method public final accept(Ljava/lang/Object;)V
+    .locals 2
 
     iget-object v0, p0, Lcom/android/settings/notification/app/RecentConversationsPreferenceController$$ExternalSyntheticLambda2;->f$0:Lcom/android/settings/notification/app/RecentConversationsPreferenceController;
 
-    iget-object v1, p0, Lcom/android/settings/notification/app/RecentConversationsPreferenceController$$ExternalSyntheticLambda2;->f$1:Ljava/lang/String;
+    iget-object v1, p0, Lcom/android/settings/notification/app/RecentConversationsPreferenceController$$ExternalSyntheticLambda2;->f$1:Ljava/util/concurrent/atomic/AtomicInteger;
 
-    iget v2, p0, Lcom/android/settings/notification/app/RecentConversationsPreferenceController$$ExternalSyntheticLambda2;->f$2:I
+    iget-object p0, p0, Lcom/android/settings/notification/app/RecentConversationsPreferenceController$$ExternalSyntheticLambda2;->f$2:Ljava/util/concurrent/atomic/AtomicBoolean;
 
-    iget-object v3, p0, Lcom/android/settings/notification/app/RecentConversationsPreferenceController$$ExternalSyntheticLambda2;->f$3:Ljava/lang/String;
+    check-cast p1, Lcom/android/settings/notification/app/RecentConversationPreference;
 
-    iget-object v4, p0, Lcom/android/settings/notification/app/RecentConversationsPreferenceController$$ExternalSyntheticLambda2;->f$4:Lcom/android/settings/notification/app/RecentConversationPreference;
-
-    iget-object v5, p0, Lcom/android/settings/notification/app/RecentConversationsPreferenceController$$ExternalSyntheticLambda2;->f$5:Landroidx/preference/PreferenceGroup;
-
-    invoke-static/range {v0 .. v5}, Lcom/android/settings/notification/app/RecentConversationsPreferenceController;->$r8$lambda$10BOmApnh7syjQPE2IAf36B0vH0(Lcom/android/settings/notification/app/RecentConversationsPreferenceController;Ljava/lang/String;ILjava/lang/String;Lcom/android/settings/notification/app/RecentConversationPreference;Landroidx/preference/PreferenceGroup;)V
+    invoke-static {v0, v1, p0, p1}, Lcom/android/settings/notification/app/RecentConversationsPreferenceController;->$r8$lambda$yK-i2tJuHC-y12e8Jn2Q_vepkUo(Lcom/android/settings/notification/app/RecentConversationsPreferenceController;Ljava/util/concurrent/atomic/AtomicInteger;Ljava/util/concurrent/atomic/AtomicBoolean;Lcom/android/settings/notification/app/RecentConversationPreference;)V
 
     return-void
 .end method

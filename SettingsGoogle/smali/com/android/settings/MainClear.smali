@@ -31,12 +31,42 @@
 
 
 # direct methods
-.method public static synthetic $r8$lambda$Jv8PtXFW-fkQx_bfM4Hi8oJ6wQs(Lcom/android/settings/MainClear;Landroid/content/DialogInterface;)V
+.method public static synthetic $r8$lambda$1obZxIkdPycDdeXljB-QHrbcnMs(Lcom/android/settings/MainClear;)Ljava/lang/String;
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/settings/MainClear;->lambda$onCreateView$0(Landroid/content/DialogInterface;)V
+    invoke-direct {p0}, Lcom/android/settings/MainClear;->lambda$loadAccountList$0()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static synthetic $r8$lambda$sTow67Ak-drHhZaD9k0MXEm0X-o(Lcom/android/settings/MainClear;Landroid/content/DialogInterface;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/MainClear;->lambda$onCreateView$2(Landroid/content/DialogInterface;)V
 
     return-void
+.end method
+
+.method public static synthetic $r8$lambda$vytkT4JMo9D29JLHC3-O7q8aquI(Lcom/android/settings/MainClear;)Ljava/lang/String;
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/MainClear;->lambda$loadAccountList$1()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$mrunKeyguardConfirmation(Lcom/android/settings/MainClear;I)Z
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/MainClear;->runKeyguardConfirmation(I)Z
+
+    move-result p0
+
+    return p0
 .end method
 
 .method public constructor <init>()V
@@ -51,16 +81,6 @@
     iput-object v0, p0, Lcom/android/settings/MainClear;->mInitiateListener:Landroid/view/View$OnClickListener;
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/MainClear;I)Z
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/MainClear;->runKeyguardConfirmation(I)Z
-
-    move-result p0
-
-    return p0
 .end method
 
 .method private getContentDescription(Landroid/view/View;Ljava/lang/StringBuffer;)V
@@ -145,7 +165,31 @@
     return p0
 .end method
 
-.method private synthetic lambda$onCreateView$0(Landroid/content/DialogInterface;)V
+.method private synthetic lambda$loadAccountList$0()Ljava/lang/String;
+    .locals 1
+
+    const v0, 0x7f0405f6
+
+    invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private synthetic lambda$loadAccountList$1()Ljava/lang/String;
+    .locals 1
+
+    const v0, 0x7f0405f5
+
+    invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private synthetic lambda$onCreateView$2(Landroid/content/DialogInterface;)V
     .locals 0
 
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
@@ -158,7 +202,7 @@
 .end method
 
 .method private loadAccountList(Landroid/os/UserManager;)V
-    .locals 23
+    .locals 22
 
     move-object/from16 v1, p0
 
@@ -243,14 +287,16 @@
 
     if-nez v12, :cond_0
 
-    move-object/from16 v18, v6
+    move-object/from16 v17, v6
 
-    move-object/from16 v20, v8
+    move/from16 v19, v7
 
-    goto/16 :goto_9
+    move-object/from16 v18, v8
+
+    goto/16 :goto_b
 
     :cond_0
-    add-int v17, v0, v12
+    add-int v16, v0, v12
 
     invoke-static {v4}, Landroid/accounts/AccountManager;->get(Landroid/content/Context;)Landroid/accounts/AccountManager;
 
@@ -262,9 +308,7 @@
 
     array-length v5, v14
 
-    move-object/from16 v18, v6
-
-    const v6, 0x1020016
+    move-object/from16 v17, v6
 
     const/4 v0, 0x1
 
@@ -274,231 +318,276 @@
 
     move-result-object v0
 
+    invoke-virtual {v0}, Landroid/view/View;->getPaddingTop()I
+
+    move-result v6
+
+    move-object/from16 v18, v8
+
+    invoke-virtual {v0}, Landroid/view/View;->getPaddingBottom()I
+
+    move-result v8
+
+    move/from16 v19, v7
+
+    const/4 v7, 0x0
+
+    invoke-virtual {v0, v7, v6, v7, v8}, Landroid/view/View;->setPadding(IIII)V
+
+    const v6, 0x1020016
+
     invoke-virtual {v0, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v16
+    move-result-object v7
 
-    move-object/from16 v6, v16
+    check-cast v7, Landroid/widget/TextView;
 
-    check-cast v6, Landroid/widget/TextView;
+    const-class v6, Landroid/app/admin/DevicePolicyManager;
+
+    invoke-virtual {v4, v6}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Landroid/app/admin/DevicePolicyManager;
 
     invoke-virtual {v13}, Landroid/content/pm/UserInfo;->isManagedProfile()Z
 
-    move-result v13
+    move-result v8
 
-    if-eqz v13, :cond_1
+    if-eqz v8, :cond_1
 
-    const v13, 0x7f040599
+    invoke-virtual {v6}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
+
+    move-result-object v6
+
+    new-instance v8, Lcom/android/settings/MainClear$$ExternalSyntheticLambda1;
+
+    invoke-direct {v8, v1}, Lcom/android/settings/MainClear$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/MainClear;)V
+
+    const-string v13, "Settings.WORK_CATEGORY_HEADER"
+
+    invoke-virtual {v6, v13, v8}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v7, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     goto :goto_1
 
     :cond_1
-    const v13, 0x7f040598
+    invoke-virtual {v6}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
+
+    move-result-object v6
+
+    new-instance v8, Lcom/android/settings/MainClear$$ExternalSyntheticLambda2;
+
+    invoke-direct {v8, v1}, Lcom/android/settings/MainClear$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/MainClear;)V
+
+    const-string v13, "Settings.PERSONAL_CATEGORY_HEADER"
+
+    invoke-virtual {v6, v13, v8}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v7, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     :goto_1
-    invoke-virtual {v6, v13}, Landroid/widget/TextView;->setText(I)V
-
     invoke-virtual {v3, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
+    goto :goto_2
+
     :cond_2
-    const/4 v6, 0x0
+    move/from16 v19, v7
+
+    move-object/from16 v18, v8
 
     :goto_2
-    if-ge v6, v12, :cond_8
+    const/4 v7, 0x0
 
-    aget-object v13, v10, v6
+    :goto_3
+    if-ge v7, v12, :cond_8
+
+    aget-object v6, v10, v7
 
     const/4 v0, 0x0
 
-    :goto_3
-    const/16 v16, 0x0
-
-    move/from16 v19, v5
-
+    :goto_4
     if-ge v0, v5, :cond_4
 
-    iget-object v5, v13, Landroid/accounts/Account;->type:Ljava/lang/String;
-
-    move-object/from16 v20, v8
+    iget-object v13, v6, Landroid/accounts/Account;->type:Ljava/lang/String;
 
     aget-object v8, v14, v0
 
     iget-object v8, v8, Landroid/accounts/AuthenticatorDescription;->type:Ljava/lang/String;
 
-    invoke-virtual {v5, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v13, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v8
 
-    if-eqz v5, :cond_3
+    if-eqz v8, :cond_3
 
     aget-object v0, v14, v0
 
-    move-object v5, v0
+    move-object v8, v0
 
-    goto :goto_4
+    goto :goto_5
 
     :cond_3
     add-int/lit8 v0, v0, 0x1
 
-    move/from16 v5, v19
-
-    move-object/from16 v8, v20
-
-    goto :goto_3
+    goto :goto_4
 
     :cond_4
-    move-object/from16 v20, v8
+    const/4 v8, 0x0
 
-    move-object/from16 v5, v16
+    :goto_5
+    const-string v13, "MainClear"
 
-    :goto_4
-    const-string v8, "MainClear"
-
-    if-nez v5, :cond_5
+    if-nez v8, :cond_5
 
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "No descriptor for account name="
+    const-string v8, "No descriptor for account name="
 
-    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v5, v13, Landroid/accounts/Account;->name:Ljava/lang/String;
+    iget-object v8, v6, Landroid/accounts/Account;->name:Ljava/lang/String;
 
-    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v5, " type="
+    const-string v8, " type="
 
-    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v5, v13, Landroid/accounts/Account;->type:Ljava/lang/String;
+    iget-object v6, v6, Landroid/accounts/Account;->type:Ljava/lang/String;
 
-    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-static {v8, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v13, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    move/from16 v20, v5
 
     move-object/from16 v21, v10
 
-    move/from16 v22, v12
+    const v5, 0x1020016
 
-    const v8, 0x1020016
-
-    goto/16 :goto_8
+    goto/16 :goto_a
 
     :cond_5
     :try_start_0
-    iget v0, v5, Landroid/accounts/AuthenticatorDescription;->iconId:I
+    iget v0, v8, Landroid/accounts/AuthenticatorDescription;->iconId:I
 
     if-eqz v0, :cond_6
 
-    iget-object v0, v5, Landroid/accounts/AuthenticatorDescription;->packageName:Ljava/lang/String;
+    iget-object v0, v8, Landroid/accounts/AuthenticatorDescription;->packageName:Ljava/lang/String;
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_3
     .catch Landroid/content/res/Resources$NotFoundException; {:try_start_0 .. :try_end_0} :catch_2
 
-    move-object/from16 v21, v10
+    move/from16 v20, v5
 
-    const/4 v10, 0x0
+    const/4 v5, 0x0
 
     :try_start_1
-    invoke-virtual {v4, v0, v10, v15}, Landroid/content/Context;->createPackageContextAsUser(Ljava/lang/String;ILandroid/os/UserHandle;)Landroid/content/Context;
+    invoke-virtual {v4, v0, v5, v15}, Landroid/content/Context;->createPackageContextAsUser(Ljava/lang/String;ILandroid/os/UserHandle;)Landroid/content/Context;
 
     move-result-object v0
 
     invoke-virtual {v4}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v10
+    move-result-object v5
     :try_end_1
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_1 .. :try_end_1} :catch_4
     .catch Landroid/content/res/Resources$NotFoundException; {:try_start_1 .. :try_end_1} :catch_1
 
-    move/from16 v22, v12
+    move-object/from16 v21, v10
 
     :try_start_2
-    iget v12, v5, Landroid/accounts/AuthenticatorDescription;->iconId:I
+    iget v10, v8, Landroid/accounts/AuthenticatorDescription;->iconId:I
 
-    invoke-virtual {v0, v12}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v0, v10}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    invoke-virtual {v10, v0, v15}, Landroid/content/pm/PackageManager;->getUserBadgedIcon(Landroid/graphics/drawable/Drawable;Landroid/os/UserHandle;)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v5, v0, v15}, Landroid/content/pm/PackageManager;->getUserBadgedIcon(Landroid/graphics/drawable/Drawable;Landroid/os/UserHandle;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
     :try_end_2
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_2 .. :try_end_2} :catch_5
     .catch Landroid/content/res/Resources$NotFoundException; {:try_start_2 .. :try_end_2} :catch_0
 
-    move-object/from16 v16, v0
+    move-object v8, v0
 
-    goto :goto_7
+    goto :goto_9
 
     :catch_0
     move-exception v0
 
-    goto :goto_6
+    goto :goto_7
 
     :catch_1
     move-exception v0
 
-    goto :goto_5
+    goto :goto_6
 
     :cond_6
+    move/from16 v20, v5
+
     move-object/from16 v21, v10
 
-    move/from16 v22, v12
-
-    goto :goto_7
+    goto :goto_8
 
     :catch_2
     move-exception v0
 
-    move-object/from16 v21, v10
-
-    :goto_5
-    move/from16 v22, v12
+    move/from16 v20, v5
 
     :goto_6
-    new-instance v10, Ljava/lang/StringBuilder;
+    move-object/from16 v21, v10
 
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+    :goto_7
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    const-string v12, "Invalid icon id for account type "
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v10, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v10, "Invalid icon id for account type "
 
-    iget-object v5, v5, Landroid/accounts/AuthenticatorDescription;->type:Ljava/lang/String;
+    invoke-virtual {v5, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v10, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v8, v8, Landroid/accounts/AuthenticatorDescription;->type:Ljava/lang/String;
 
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v5, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v5
 
-    invoke-static {v8, v5, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v13, v5, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_7
+    goto :goto_8
 
     :catch_3
-    move-object/from16 v21, v10
+    move/from16 v20, v5
 
     :catch_4
-    move/from16 v22, v12
+    move-object/from16 v21, v10
 
     :catch_5
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v10, "Bad package name for account type "
+    const-string v5, "Bad package name for account type "
 
-    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v5, v5, Landroid/accounts/AuthenticatorDescription;->type:Ljava/lang/String;
+    iget-object v5, v8, Landroid/accounts/AuthenticatorDescription;->type:Ljava/lang/String;
 
     invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -506,10 +595,13 @@
 
     move-result-object v0
 
-    invoke-static {v8, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v13, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    :goto_7
-    if-nez v16, :cond_7
+    :goto_8
+    const/4 v8, 0x0
+
+    :goto_9
+    if-nez v8, :cond_7
 
     invoke-virtual {v4}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
@@ -517,73 +609,69 @@
 
     invoke-virtual {v0}, Landroid/content/pm/PackageManager;->getDefaultActivityIcon()Landroid/graphics/drawable/Drawable;
 
-    move-result-object v16
-
-    :cond_7
-    move-object/from16 v0, v16
-
-    const v5, 0x7f06011d
-
-    const/4 v8, 0x0
-
-    invoke-virtual {v9, v5, v3, v8}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
-
-    move-result-object v5
-
-    const v8, 0x1020006
-
-    invoke-virtual {v5, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
     move-result-object v8
 
-    check-cast v8, Landroid/widget/ImageView;
+    :cond_7
+    const v0, 0x7f060126
 
-    invoke-virtual {v8, v0}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+    const/4 v5, 0x0
 
-    const v8, 0x1020016
-
-    invoke-virtual {v5, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v9, v0, v3, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     move-result-object v0
 
-    check-cast v0, Landroid/widget/TextView;
+    const v5, 0x1020006
 
-    iget-object v10, v13, Landroid/accounts/Account;->name:Ljava/lang/String;
+    invoke-virtual {v0, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    invoke-virtual {v0, v10}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    move-result-object v5
 
-    invoke-virtual {v3, v5}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+    check-cast v5, Landroid/widget/ImageView;
 
-    :goto_8
-    add-int/lit8 v6, v6, 0x1
+    invoke-virtual {v5, v8}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    move/from16 v5, v19
+    const v5, 0x1020016
 
-    move-object/from16 v8, v20
+    invoke-virtual {v0, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v8
+
+    check-cast v8, Landroid/widget/TextView;
+
+    iget-object v6, v6, Landroid/accounts/Account;->name:Ljava/lang/String;
+
+    invoke-virtual {v8, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    invoke-virtual {v3, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+
+    :goto_a
+    add-int/lit8 v7, v7, 0x1
+
+    move/from16 v5, v20
 
     move-object/from16 v10, v21
 
-    move/from16 v12, v22
-
-    goto/16 :goto_2
+    goto/16 :goto_3
 
     :cond_8
-    move-object/from16 v20, v8
+    move/from16 v0, v16
 
-    move/from16 v0, v17
-
-    :goto_9
+    :goto_b
     add-int/lit8 v11, v11, 0x1
 
     move-object/from16 v5, p1
 
-    move-object/from16 v6, v18
+    move-object/from16 v6, v17
 
-    move-object/from16 v8, v20
+    move-object/from16 v8, v18
+
+    move/from16 v7, v19
 
     goto/16 :goto_0
 
     :cond_9
+    move/from16 v19, v7
+
     const/4 v5, 0x1
 
     const/4 v4, 0x0
@@ -597,7 +685,7 @@
     :cond_a
     iget-object v0, v1, Lcom/android/settings/MainClear;->mContentView:Landroid/view/View;
 
-    const v1, 0x7f0d0409
+    const v1, 0x7f0d043a
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -607,28 +695,28 @@
 
     move-result v1
 
-    sub-int/2addr v1, v7
+    sub-int v1, v1, v19
 
     if-lez v1, :cond_b
 
     move v12, v5
 
-    goto :goto_a
+    goto :goto_c
 
     :cond_b
     move v12, v4
 
-    :goto_a
+    :goto_c
     if-eqz v12, :cond_c
 
     move v10, v4
 
-    goto :goto_b
+    goto :goto_d
 
     :cond_c
     const/16 v10, 0x8
 
-    :goto_b
+    :goto_d
     invoke-virtual {v0, v10}, Landroid/view/View;->setVisibility(I)V
 
     return-void
@@ -657,7 +745,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f040c81
+    const p1, 0x7f040cfc
 
     invoke-virtual {v0, p1}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -730,7 +818,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/settings/MainClear;->mContentView:Landroid/view/View;
 
-    const v1, 0x7f0d04f1
+    const v1, 0x7f0d0533
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -754,7 +842,7 @@
 
     invoke-direct {v1, v2}, Lcom/google/android/setupcompat/template/FooterButton$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f040c74
+    const v2, 0x7f040cef
 
     invoke-virtual {v1, v2}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setText(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -772,7 +860,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f13021c
+    const v2, 0x7f130283
 
     invoke-virtual {v1, v2}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setTheme(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -804,7 +892,7 @@
 
     iget-object v0, p0, Lcom/android/settings/MainClear;->mContentView:Landroid/view/View;
 
-    const v1, 0x7f0d020f
+    const v1, 0x7f0d0228
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -814,7 +902,7 @@
 
     iget-object v0, p0, Lcom/android/settings/MainClear;->mContentView:Landroid/view/View;
 
-    const v1, 0x7f0d020e
+    const v1, 0x7f0d0227
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -826,7 +914,7 @@
 
     iget-object v0, p0, Lcom/android/settings/MainClear;->mContentView:Landroid/view/View;
 
-    const v1, 0x7f0d020d
+    const v1, 0x7f0d0226
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -836,7 +924,7 @@
 
     iget-object v0, p0, Lcom/android/settings/MainClear;->mContentView:Landroid/view/View;
 
-    const v1, 0x7f0d020c
+    const v1, 0x7f0d0225
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -859,7 +947,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/settings/MainClear;->mContentView:Landroid/view/View;
 
-    const v1, 0x7f0d0347
+    const v1, 0x7f0d0372
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -914,7 +1002,7 @@
 
     iget-object v3, p0, Lcom/android/settings/MainClear;->mContentView:Landroid/view/View;
 
-    const v5, 0x7f0d0210
+    const v5, 0x7f0d0229
 
     invoke-virtual {v3, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -924,7 +1012,7 @@
 
     iget-object v3, p0, Lcom/android/settings/MainClear;->mContentView:Landroid/view/View;
 
-    const v4, 0x7f0d0082
+    const v4, 0x7f0d0084
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -968,7 +1056,7 @@
     :cond_3
     iget-object v0, p0, Lcom/android/settings/MainClear;->mContentView:Landroid/view/View;
 
-    const v3, 0x7f0d0081
+    const v3, 0x7f0d0083
 
     invoke-virtual {v0, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -978,7 +1066,7 @@
 
     iget-object v0, p0, Lcom/android/settings/MainClear;->mContentView:Landroid/view/View;
 
-    const v3, 0x7f0d03ea
+    const v3, 0x7f0d041b
 
     invoke-virtual {v0, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1018,7 +1106,7 @@
 
     iget-object v1, p0, Lcom/android/settings/MainClear;->mContentView:Landroid/view/View;
 
-    const v2, 0x7f0d0346
+    const v2, 0x7f0d0371
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1054,19 +1142,19 @@
 
     move-result-object p0
 
-    const v0, 0x7f040193
+    const v0, 0x7f0401ba
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    const v1, 0x7f040185
+    const v1, 0x7f0401ac
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    const v2, 0x7f040184
+    const v2, 0x7f0401ab
 
     invoke-virtual {p0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1421,7 +1509,7 @@
 
     if-nez p2, :cond_2
 
-    const p0, 0x7f06011f
+    const p0, 0x7f060128
 
     invoke-virtual {p1, p0, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -1465,7 +1553,7 @@
     return-object p1
 
     :cond_3
-    const p2, 0x7f06011c
+    const p2, 0x7f060125
 
     invoke-virtual {p1, p2, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -1561,7 +1649,7 @@
 
     const-string v0, ":settings:show_fragment_title_resid"
 
-    const v2, 0x7f040c75
+    const v2, 0x7f040cf0
 
     invoke-virtual {v1, v0, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 

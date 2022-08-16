@@ -32,6 +32,14 @@
     return-void
 .end method
 
+.method static bridge synthetic -$$Nest$mcloseBatteryUsageStatsIfNeeded(Lcom/android/settings/fuelgauge/PowerUsageBase;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/fuelgauge/PowerUsageBase;->closeBatteryUsageStatsIfNeeded()V
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 2
 
@@ -45,11 +53,62 @@
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, p0, v1}, Lcom/android/settings/fuelgauge/PowerUsageBase$BatteryUsageStatsLoaderCallbacks;-><init>(Lcom/android/settings/fuelgauge/PowerUsageBase;Lcom/android/settings/fuelgauge/PowerUsageBase$1;)V
+    invoke-direct {v0, p0, v1}, Lcom/android/settings/fuelgauge/PowerUsageBase$BatteryUsageStatsLoaderCallbacks;-><init>(Lcom/android/settings/fuelgauge/PowerUsageBase;Lcom/android/settings/fuelgauge/PowerUsageBase$BatteryUsageStatsLoaderCallbacks-IA;)V
 
     iput-object v0, p0, Lcom/android/settings/fuelgauge/PowerUsageBase;->mBatteryUsageStatsLoaderCallbacks:Lcom/android/settings/fuelgauge/PowerUsageBase$BatteryUsageStatsLoaderCallbacks;
 
     return-void
+.end method
+
+.method private closeBatteryUsageStatsIfNeeded()V
+    .locals 4
+
+    iget-object v0, p0, Lcom/android/settings/fuelgauge/PowerUsageBase;->mBatteryUsageStats:Landroid/os/BatteryUsageStats;
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
+    const/4 v1, 0x0
+
+    :try_start_0
+    invoke-virtual {v0}, Landroid/os/BatteryUsageStats;->close()V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :goto_0
+    iput-object v1, p0, Lcom/android/settings/fuelgauge/PowerUsageBase;->mBatteryUsageStats:Landroid/os/BatteryUsageStats;
+
+    goto :goto_1
+
+    :catchall_0
+    move-exception v0
+
+    goto :goto_2
+
+    :catch_0
+    move-exception v0
+
+    :try_start_1
+    const-string v2, "PowerUsageBase"
+
+    const-string v3, "BatteryUsageStats.close() failed"
+
+    invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    goto :goto_0
+
+    :goto_1
+    return-void
+
+    :goto_2
+    iput-object v1, p0, Lcom/android/settings/fuelgauge/PowerUsageBase;->mBatteryUsageStats:Landroid/os/BatteryUsageStats;
+
+    throw v0
 .end method
 
 .method private synthetic lambda$onCreate$0(I)V
@@ -137,13 +196,15 @@
 .end method
 
 .method public onStop()V
-    .locals 0
+    .locals 1
 
     invoke-super {p0}, Lcom/android/settings/dashboard/DashboardFragment;->onStop()V
 
-    iget-object p0, p0, Lcom/android/settings/fuelgauge/PowerUsageBase;->mBatteryBroadcastReceiver:Lcom/android/settings/fuelgauge/BatteryBroadcastReceiver;
+    iget-object v0, p0, Lcom/android/settings/fuelgauge/PowerUsageBase;->mBatteryBroadcastReceiver:Lcom/android/settings/fuelgauge/BatteryBroadcastReceiver;
 
-    invoke-virtual {p0}, Lcom/android/settings/fuelgauge/BatteryBroadcastReceiver;->unRegister()V
+    invoke-virtual {v0}, Lcom/android/settings/fuelgauge/BatteryBroadcastReceiver;->unRegister()V
+
+    invoke-direct {p0}, Lcom/android/settings/fuelgauge/PowerUsageBase;->closeBatteryUsageStatsIfNeeded()V
 
     return-void
 .end method
@@ -158,7 +219,7 @@
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
-    const-string v1, "refresh_type"
+    const-string/jumbo v1, "refresh_type"
 
     invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 

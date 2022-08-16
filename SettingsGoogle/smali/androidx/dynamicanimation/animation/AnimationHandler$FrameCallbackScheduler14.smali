@@ -3,7 +3,7 @@
 .source "AnimationHandler.java"
 
 # interfaces
-.implements Landroidx/dynamicanimation/animation/AnimationHandler$FrameCallbackScheduler;
+.implements Landroidx/dynamicanimation/animation/FrameCallbackScheduler;
 
 
 # annotations
@@ -98,14 +98,6 @@
 
 .method public postFrameCallback(Ljava/lang/Runnable;)V
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "frameCallback"
-        }
-    .end annotation
 
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 

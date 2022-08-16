@@ -73,7 +73,7 @@
 
     iput-object v1, p0, Lcom/google/android/settings/aware/AwareDialogPreferenceBase;->mMetricsFeatureProvider:Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;
 
-    const v1, 0x7f0601bb
+    const v1, 0x7f0601c7
 
     invoke-virtual {p0, v1}, Landroidx/preference/Preference;->setWidgetLayoutResource(I)V
 
@@ -139,7 +139,7 @@
 
     iput-object v0, p0, Lcom/google/android/settings/aware/AwareDialogPreferenceBase;->mSummary:Landroid/view/View;
 
-    const v0, 0x7f0d02dc
+    const v0, 0x7f0d0303
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 

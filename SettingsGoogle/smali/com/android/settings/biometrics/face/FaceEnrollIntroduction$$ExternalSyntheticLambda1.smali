@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/settings/biometrics/face/FaceEnrollIntroduction$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/hardware/face/FaceManager$GenerateChallengeCallback;
+.implements Landroid/view/View$OnClickListener;
 
 
 # instance fields
@@ -22,12 +23,12 @@
 
 
 # virtual methods
-.method public final onGenerateChallengeResult(IIJ)V
+.method public final onClick(Landroid/view/View;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/settings/biometrics/face/FaceEnrollIntroduction$$ExternalSyntheticLambda1;->f$0:Lcom/android/settings/biometrics/face/FaceEnrollIntroduction;
 
-    invoke-static {p0, p1, p2, p3, p4}, Lcom/android/settings/biometrics/face/FaceEnrollIntroduction;->$r8$lambda$Fg2g0g3c2QrcxhX68ODGm4nW38Y(Lcom/android/settings/biometrics/face/FaceEnrollIntroduction;IIJ)V
+    invoke-virtual {p0, p1}, Lcom/android/settings/biometrics/face/FaceEnrollIntroduction;->onSkipButtonClick(Landroid/view/View;)V
 
     return-void
 .end method

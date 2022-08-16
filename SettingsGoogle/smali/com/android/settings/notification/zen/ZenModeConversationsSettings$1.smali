@@ -40,7 +40,7 @@
 
     const/4 p0, 0x0
 
-    invoke-static {p1, p0, p0}, Lcom/android/settings/notification/zen/ZenModeConversationsSettings;->access$000(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;Lcom/android/settings/notification/NotificationBackend;)Ljava/util/List;
+    invoke-static {p1, p0, p0}, Lcom/android/settings/notification/zen/ZenModeConversationsSettings;->-$$Nest$smbuildPreferenceControllers(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;Lcom/android/settings/notification/NotificationBackend;)Ljava/util/List;
 
     move-result-object p0
 

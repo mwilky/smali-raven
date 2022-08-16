@@ -1,22 +1,22 @@
 .class public Lcom/android/settings/dashboard/profileselector/UserAdapter;
-.super Ljava/lang/Object;
+.super Landroid/widget/BaseAdapter;
 .source "UserAdapter.java"
-
-# interfaces
-.implements Landroid/widget/SpinnerAdapter;
-.implements Landroid/widget/ListAdapter;
 
 
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Lcom/android/settings/dashboard/profileselector/UserAdapter$OnClickListener;,
+        Lcom/android/settings/dashboard/profileselector/UserAdapter$ViewHolder;,
         Lcom/android/settings/dashboard/profileselector/UserAdapter$UserDetails;
     }
 .end annotation
 
 
 # instance fields
-.field private data:Ljava/util/ArrayList;
+.field private final mInflater:Landroid/view/LayoutInflater;
+
+.field private final mUserDetails:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/ArrayList<",
@@ -26,10 +26,16 @@
     .end annotation
 .end field
 
-.field private final mInflater:Landroid/view/LayoutInflater;
-
 
 # direct methods
+.method static bridge synthetic -$$Nest$mbindViewHolder(Lcom/android/settings/dashboard/profileselector/UserAdapter;Lcom/android/settings/dashboard/profileselector/UserAdapter$ViewHolder;I)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/settings/dashboard/profileselector/UserAdapter;->bindViewHolder(Lcom/android/settings/dashboard/profileselector/UserAdapter$ViewHolder;I)V
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Ljava/util/ArrayList;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
@@ -42,15 +48,15 @@
         }
     .end annotation
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Landroid/widget/BaseAdapter;-><init>()V
 
     if-eqz p2, :cond_0
 
-    iput-object p2, p0, Lcom/android/settings/dashboard/profileselector/UserAdapter;->data:Ljava/util/ArrayList;
+    iput-object p2, p0, Lcom/android/settings/dashboard/profileselector/UserAdapter;->mUserDetails:Ljava/util/ArrayList;
 
-    const-string p2, "layout_inflater"
+    const-class p2, Landroid/view/LayoutInflater;
 
-    invoke-virtual {p1, p2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p1, p2}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -70,24 +76,54 @@
     throw p0
 .end method
 
-.method private createUser(Landroid/view/ViewGroup;)Landroid/view/View;
-    .locals 2
+.method private bindViewHolder(Lcom/android/settings/dashboard/profileselector/UserAdapter$ViewHolder;I)V
+    .locals 1
 
-    iget-object p0, p0, Lcom/android/settings/dashboard/profileselector/UserAdapter;->mInflater:Landroid/view/LayoutInflater;
-
-    const v0, 0x7f0602a8
-
-    const/4 v1, 0x0
-
-    invoke-virtual {p0, v0, p1, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+    invoke-virtual {p0, p2}, Lcom/android/settings/dashboard/profileselector/UserAdapter;->getItem(I)Lcom/android/settings/dashboard/profileselector/UserAdapter$UserDetails;
 
     move-result-object p0
 
-    return-object p0
+    invoke-static {p1}, Lcom/android/settings/dashboard/profileselector/UserAdapter$ViewHolder;->-$$Nest$mgetIconView(Lcom/android/settings/dashboard/profileselector/UserAdapter$ViewHolder;)Landroid/widget/ImageView;
+
+    move-result-object p2
+
+    invoke-static {p0}, Lcom/android/settings/dashboard/profileselector/UserAdapter$UserDetails;->-$$Nest$fgetmIcon(Lcom/android/settings/dashboard/profileselector/UserAdapter$UserDetails;)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v0
+
+    invoke-virtual {p2, v0}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+
+    invoke-static {p0}, Lcom/android/settings/dashboard/profileselector/UserAdapter$UserDetails;->-$$Nest$fgetmTitle(Lcom/android/settings/dashboard/profileselector/UserAdapter$UserDetails;)Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-static {p1, p0}, Lcom/android/settings/dashboard/profileselector/UserAdapter$ViewHolder;->-$$Nest$msetTitle(Lcom/android/settings/dashboard/profileselector/UserAdapter$ViewHolder;Ljava/lang/CharSequence;)V
+
+    return-void
 .end method
 
-.method public static createUserAdapter(Landroid/os/UserManager;Landroid/content/Context;Ljava/util/List;)Lcom/android/settings/dashboard/profileselector/UserAdapter;
-    .locals 5
+.method private createRecyclerViewAdapter(Lcom/android/settings/dashboard/profileselector/UserAdapter$OnClickListener;)Lcom/android/internal/widget/RecyclerView$Adapter;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/android/settings/dashboard/profileselector/UserAdapter$OnClickListener;",
+            ")",
+            "Lcom/android/internal/widget/RecyclerView$Adapter<",
+            "Lcom/android/settings/dashboard/profileselector/UserAdapter$ViewHolder;",
+            ">;"
+        }
+    .end annotation
+
+    new-instance v0, Lcom/android/settings/dashboard/profileselector/UserAdapter$1;
+
+    invoke-direct {v0, p0, p1}, Lcom/android/settings/dashboard/profileselector/UserAdapter$1;-><init>(Lcom/android/settings/dashboard/profileselector/UserAdapter;Lcom/android/settings/dashboard/profileselector/UserAdapter$OnClickListener;)V
+
+    return-object v0
+.end method
+
+.method private static createUserAdapter(Landroid/os/UserManager;Landroid/content/Context;Ljava/util/List;)Lcom/android/settings/dashboard/profileselector/UserAdapter;
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -108,28 +144,28 @@
 
     invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(I)V
 
-    invoke-interface {p2}, Ljava/util/List;->size()I
+    invoke-interface {p2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object p2
+
+    :goto_0
+    invoke-interface {p2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    const/4 v2, 0x0
+    if-eqz v1, :cond_0
 
-    :goto_0
-    if-ge v2, v1, :cond_0
+    invoke-interface {p2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    new-instance v3, Lcom/android/settings/dashboard/profileselector/UserAdapter$UserDetails;
+    move-result-object v1
 
-    invoke-interface {p2, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    check-cast v1, Landroid/os/UserHandle;
 
-    move-result-object v4
+    new-instance v2, Lcom/android/settings/dashboard/profileselector/UserAdapter$UserDetails;
 
-    check-cast v4, Landroid/os/UserHandle;
+    invoke-direct {v2, v1, p0, p1}, Lcom/android/settings/dashboard/profileselector/UserAdapter$UserDetails;-><init>(Landroid/os/UserHandle;Landroid/os/UserManager;Landroid/content/Context;)V
 
-    invoke-direct {v3, v4, p0, p1}, Lcom/android/settings/dashboard/profileselector/UserAdapter$UserDetails;-><init>(Landroid/os/UserHandle;Landroid/os/UserManager;Landroid/content/Context;)V
-
-    invoke-virtual {v0, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    add-int/lit8 v2, v2, 0x1
+    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
@@ -137,6 +173,42 @@
     new-instance p0, Lcom/android/settings/dashboard/profileselector/UserAdapter;
 
     invoke-direct {p0, p1, v0}, Lcom/android/settings/dashboard/profileselector/UserAdapter;-><init>(Landroid/content/Context;Ljava/util/ArrayList;)V
+
+    return-object p0
+.end method
+
+.method public static createUserRecycleViewAdapter(Landroid/content/Context;Ljava/util/List;Lcom/android/settings/dashboard/profileselector/UserAdapter$OnClickListener;)Lcom/android/internal/widget/RecyclerView$Adapter;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/content/Context;",
+            "Ljava/util/List<",
+            "Landroid/os/UserHandle;",
+            ">;",
+            "Lcom/android/settings/dashboard/profileselector/UserAdapter$OnClickListener;",
+            ")",
+            "Lcom/android/internal/widget/RecyclerView$Adapter<",
+            "Lcom/android/settings/dashboard/profileselector/UserAdapter$ViewHolder;",
+            ">;"
+        }
+    .end annotation
+
+    const-class v0, Landroid/os/UserManager;
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/os/UserManager;
+
+    invoke-static {v0, p0, p1}, Lcom/android/settings/dashboard/profileselector/UserAdapter;->createUserAdapter(Landroid/os/UserManager;Landroid/content/Context;Ljava/util/List;)Lcom/android/settings/dashboard/profileselector/UserAdapter;
+
+    move-result-object p0
+
+    invoke-direct {p0, p2}, Lcom/android/settings/dashboard/profileselector/UserAdapter;->createRecyclerViewAdapter(Lcom/android/settings/dashboard/profileselector/UserAdapter$OnClickListener;)Lcom/android/internal/widget/RecyclerView$Adapter;
+
+    move-result-object p0
 
     return-object p0
 .end method
@@ -182,55 +254,12 @@
     return-object p0
 .end method
 
-.method private getTitle(Lcom/android/settings/dashboard/profileselector/UserAdapter$UserDetails;)I
-    .locals 0
-
-    invoke-static {p1}, Lcom/android/settings/dashboard/profileselector/UserAdapter$UserDetails;->access$000(Lcom/android/settings/dashboard/profileselector/UserAdapter$UserDetails;)Landroid/os/UserHandle;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Landroid/os/UserHandle;->getIdentifier()I
-
-    move-result p0
-
-    const/4 p1, -0x2
-
-    if-eq p0, p1, :cond_1
-
-    invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
-
-    move-result p1
-
-    if-ne p0, p1, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    const p0, 0x7f040599
-
-    return p0
-
-    :cond_1
-    :goto_0
-    const p0, 0x7f040598
-
-    return p0
-.end method
-
 
 # virtual methods
-.method public areAllItemsEnabled()Z
-    .locals 0
-
-    const/4 p0, 0x1
-
-    return p0
-.end method
-
 .method public getCount()I
     .locals 0
 
-    iget-object p0, p0, Lcom/android/settings/dashboard/profileselector/UserAdapter;->data:Ljava/util/ArrayList;
+    iget-object p0, p0, Lcom/android/settings/dashboard/profileselector/UserAdapter;->mUserDetails:Ljava/util/ArrayList;
 
     invoke-virtual {p0}, Ljava/util/ArrayList;->size()I
 
@@ -239,62 +268,10 @@
     return p0
 .end method
 
-.method public getDropDownView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
-    .locals 1
-
-    if-eqz p2, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    invoke-direct {p0, p3}, Lcom/android/settings/dashboard/profileselector/UserAdapter;->createUser(Landroid/view/ViewGroup;)Landroid/view/View;
-
-    move-result-object p2
-
-    :goto_0
-    iget-object p3, p0, Lcom/android/settings/dashboard/profileselector/UserAdapter;->data:Ljava/util/ArrayList;
-
-    invoke-virtual {p3, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Lcom/android/settings/dashboard/profileselector/UserAdapter$UserDetails;
-
-    const p3, 0x1020006
-
-    invoke-virtual {p2, p3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object p3
-
-    check-cast p3, Landroid/widget/ImageView;
-
-    invoke-static {p1}, Lcom/android/settings/dashboard/profileselector/UserAdapter$UserDetails;->access$100(Lcom/android/settings/dashboard/profileselector/UserAdapter$UserDetails;)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v0
-
-    invoke-virtual {p3, v0}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
-
-    const p3, 0x1020016
-
-    invoke-virtual {p2, p3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object p3
-
-    check-cast p3, Landroid/widget/TextView;
-
-    invoke-direct {p0, p1}, Lcom/android/settings/dashboard/profileselector/UserAdapter;->getTitle(Lcom/android/settings/dashboard/profileselector/UserAdapter$UserDetails;)I
-
-    move-result p0
-
-    invoke-virtual {p3, p0}, Landroid/widget/TextView;->setText(I)V
-
-    return-object p2
-.end method
-
 .method public getItem(I)Lcom/android/settings/dashboard/profileselector/UserAdapter$UserDetails;
     .locals 0
 
-    iget-object p0, p0, Lcom/android/settings/dashboard/profileselector/UserAdapter;->data:Ljava/util/ArrayList;
+    iget-object p0, p0, Lcom/android/settings/dashboard/profileselector/UserAdapter;->mUserDetails:Ljava/util/ArrayList;
 
     invoke-virtual {p0, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
@@ -318,7 +295,7 @@
 .method public getItemId(I)J
     .locals 0
 
-    iget-object p0, p0, Lcom/android/settings/dashboard/profileselector/UserAdapter;->data:Ljava/util/ArrayList;
+    iget-object p0, p0, Lcom/android/settings/dashboard/profileselector/UserAdapter;->mUserDetails:Ljava/util/ArrayList;
 
     invoke-virtual {p0, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
@@ -326,7 +303,7 @@
 
     check-cast p0, Lcom/android/settings/dashboard/profileselector/UserAdapter$UserDetails;
 
-    invoke-static {p0}, Lcom/android/settings/dashboard/profileselector/UserAdapter$UserDetails;->access$000(Lcom/android/settings/dashboard/profileselector/UserAdapter$UserDetails;)Landroid/os/UserHandle;
+    invoke-static {p0}, Lcom/android/settings/dashboard/profileselector/UserAdapter$UserDetails;->-$$Nest$fgetmUserHandle(Lcom/android/settings/dashboard/profileselector/UserAdapter$UserDetails;)Landroid/os/UserHandle;
 
     move-result-object p0
 
@@ -339,20 +316,12 @@
     return-wide p0
 .end method
 
-.method public getItemViewType(I)I
-    .locals 0
-
-    const/4 p0, 0x0
-
-    return p0
-.end method
-
 .method public getUserHandle(I)Landroid/os/UserHandle;
     .locals 1
 
     if-ltz p1, :cond_1
 
-    iget-object v0, p0, Lcom/android/settings/dashboard/profileselector/UserAdapter;->data:Ljava/util/ArrayList;
+    iget-object v0, p0, Lcom/android/settings/dashboard/profileselector/UserAdapter;->mUserDetails:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
@@ -363,7 +332,7 @@
     goto :goto_0
 
     :cond_0
-    iget-object p0, p0, Lcom/android/settings/dashboard/profileselector/UserAdapter;->data:Ljava/util/ArrayList;
+    iget-object p0, p0, Lcom/android/settings/dashboard/profileselector/UserAdapter;->mUserDetails:Ljava/util/ArrayList;
 
     invoke-virtual {p0, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
@@ -371,7 +340,7 @@
 
     check-cast p0, Lcom/android/settings/dashboard/profileselector/UserAdapter$UserDetails;
 
-    invoke-static {p0}, Lcom/android/settings/dashboard/profileselector/UserAdapter$UserDetails;->access$000(Lcom/android/settings/dashboard/profileselector/UserAdapter$UserDetails;)Landroid/os/UserHandle;
+    invoke-static {p0}, Lcom/android/settings/dashboard/profileselector/UserAdapter$UserDetails;->-$$Nest$fgetmUserHandle(Lcom/android/settings/dashboard/profileselector/UserAdapter$UserDetails;)Landroid/os/UserHandle;
 
     move-result-object p0
 
@@ -385,59 +354,39 @@
 .end method
 
 .method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
-    .locals 0
+    .locals 2
 
-    invoke-virtual {p0, p1, p2, p3}, Lcom/android/settings/dashboard/profileselector/UserAdapter;->getDropDownView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
+    if-eqz p2, :cond_0
 
-    move-result-object p0
+    invoke-virtual {p2}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
-    return-object p0
-.end method
+    move-result-object p3
 
-.method public getViewTypeCount()I
-    .locals 0
+    check-cast p3, Lcom/android/settings/dashboard/profileselector/UserAdapter$ViewHolder;
 
-    const/4 p0, 0x1
+    goto :goto_0
 
-    return p0
-.end method
+    :cond_0
+    iget-object p2, p0, Lcom/android/settings/dashboard/profileselector/UserAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-.method public hasStableIds()Z
-    .locals 0
+    const v0, 0x7f0602b8
 
-    const/4 p0, 0x0
+    const/4 v1, 0x0
 
-    return p0
-.end method
+    invoke-virtual {p2, v0, p3, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
-.method public isEmpty()Z
-    .locals 0
+    move-result-object p2
 
-    iget-object p0, p0, Lcom/android/settings/dashboard/profileselector/UserAdapter;->data:Ljava/util/ArrayList;
+    new-instance p3, Lcom/android/settings/dashboard/profileselector/UserAdapter$ViewHolder;
 
-    invoke-virtual {p0}, Ljava/util/ArrayList;->isEmpty()Z
+    const/4 v0, 0x0
 
-    move-result p0
+    invoke-direct {p3, p2, v0}, Lcom/android/settings/dashboard/profileselector/UserAdapter$ViewHolder;-><init>(Landroid/view/View;Lcom/android/settings/dashboard/profileselector/UserAdapter$ViewHolder-IA;)V
 
-    return p0
-.end method
+    invoke-virtual {p2, p3}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
 
-.method public isEnabled(I)Z
-    .locals 0
+    :goto_0
+    invoke-direct {p0, p3, p1}, Lcom/android/settings/dashboard/profileselector/UserAdapter;->bindViewHolder(Lcom/android/settings/dashboard/profileselector/UserAdapter$ViewHolder;I)V
 
-    const/4 p0, 0x1
-
-    return p0
-.end method
-
-.method public registerDataSetObserver(Landroid/database/DataSetObserver;)V
-    .locals 0
-
-    return-void
-.end method
-
-.method public unregisterDataSetObserver(Landroid/database/DataSetObserver;)V
-    .locals 0
-
-    return-void
+    return-object p2
 .end method

@@ -41,7 +41,7 @@
         }
     .end annotation
 
-    const-wide/16 v0, 0x1f4
+    const-wide/16 v0, 0x12c
 
     invoke-direct {p0, p1, v0, v1}, Lcom/android/settings/dashboard/UiBlockerController;-><init>(Ljava/util/List;J)V
 

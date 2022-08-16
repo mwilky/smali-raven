@@ -26,6 +26,62 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmAppWidgetManager(Lcom/android/settings/applications/ClearDefaultsPreference;)Landroid/appwidget/AppWidgetManager;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/applications/ClearDefaultsPreference;->mAppWidgetManager:Landroid/appwidget/AppWidgetManager;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmAppsControlDisallowedAdmin(Lcom/android/settings/applications/ClearDefaultsPreference;)Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/applications/ClearDefaultsPreference;->mAppsControlDisallowedAdmin:Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmAppsControlDisallowedBySystem(Lcom/android/settings/applications/ClearDefaultsPreference;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/settings/applications/ClearDefaultsPreference;->mAppsControlDisallowedBySystem:Z
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmPackageName(Lcom/android/settings/applications/ClearDefaultsPreference;)Ljava/lang/String;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/applications/ClearDefaultsPreference;->mPackageName:Ljava/lang/String;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmPm(Lcom/android/settings/applications/ClearDefaultsPreference;)Landroid/content/pm/PackageManager;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/applications/ClearDefaultsPreference;->mPm:Landroid/content/pm/PackageManager;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmUsbManager(Lcom/android/settings/applications/ClearDefaultsPreference;)Landroid/hardware/usb/IUsbManager;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/applications/ClearDefaultsPreference;->mUsbManager:Landroid/hardware/usb/IUsbManager;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$mresetLaunchDefaultsUi(Lcom/android/settings/applications/ClearDefaultsPreference;Landroid/widget/TextView;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/applications/ClearDefaultsPreference;->resetLaunchDefaultsUi(Landroid/widget/TextView;)V
+
+    return-void
+.end method
+
 .method static constructor <clinit>()V
     .locals 1
 
@@ -53,7 +109,7 @@
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 2
 
-    const v0, 0x7f050338
+    const v0, 0x7f05038e
 
     const v1, 0x101008e
 
@@ -81,7 +137,7 @@
 
     invoke-direct {p0, p1, p2, p3, p4}, Landroidx/preference/Preference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
 
-    const p2, 0x7f060051
+    const p2, 0x7f060055
 
     invoke-virtual {p0, p2}, Landroidx/preference/Preference;->setLayoutResource(I)V
 
@@ -142,66 +198,10 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/settings/applications/ClearDefaultsPreference;)Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/applications/ClearDefaultsPreference;->mAppsControlDisallowedAdmin:Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/applications/ClearDefaultsPreference;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/settings/applications/ClearDefaultsPreference;->mAppsControlDisallowedBySystem:Z
-
-    return p0
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/applications/ClearDefaultsPreference;)Landroid/hardware/usb/IUsbManager;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/applications/ClearDefaultsPreference;->mUsbManager:Landroid/hardware/usb/IUsbManager;
-
-    return-object p0
-.end method
-
-.method static synthetic access$300(Lcom/android/settings/applications/ClearDefaultsPreference;)Ljava/lang/String;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/applications/ClearDefaultsPreference;->mPackageName:Ljava/lang/String;
-
-    return-object p0
-.end method
-
-.method static synthetic access$400(Lcom/android/settings/applications/ClearDefaultsPreference;)Landroid/content/pm/PackageManager;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/applications/ClearDefaultsPreference;->mPm:Landroid/content/pm/PackageManager;
-
-    return-object p0
-.end method
-
-.method static synthetic access$500(Lcom/android/settings/applications/ClearDefaultsPreference;)Landroid/appwidget/AppWidgetManager;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/applications/ClearDefaultsPreference;->mAppWidgetManager:Landroid/appwidget/AppWidgetManager;
-
-    return-object p0
-.end method
-
-.method static synthetic access$600(Lcom/android/settings/applications/ClearDefaultsPreference;Landroid/widget/TextView;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/applications/ClearDefaultsPreference;->resetLaunchDefaultsUi(Landroid/widget/TextView;)V
-
-    return-void
-.end method
-
 .method private resetLaunchDefaultsUi(Landroid/widget/TextView;)V
     .locals 1
 
-    const v0, 0x7f0402df
+    const v0, 0x7f040315
 
     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setText(I)V
 
@@ -221,7 +221,7 @@
 
     invoke-super {p0, p1}, Landroidx/preference/Preference;->onBindViewHolder(Landroidx/preference/PreferenceViewHolder;)V
 
-    const v0, 0x7f0d0159
+    const v0, 0x7f0d016d
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -273,7 +273,7 @@
 
     move-result v0
 
-    const v1, 0x7f0d00bb
+    const v1, 0x7f0d00bf
 
     invoke-virtual {p1, v1}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -352,14 +352,14 @@
     :goto_2
     if-eqz v0, :cond_4
 
-    const v5, 0x7f0402e2
+    const v5, 0x7f040318
 
     invoke-virtual {p1, v5}, Landroid/widget/TextView;->setText(I)V
 
     goto :goto_3
 
     :cond_4
-    const v5, 0x7f0402e1
+    const v5, 0x7f040317
 
     invoke-virtual {p1, v5}, Landroid/widget/TextView;->setText(I)V
 
@@ -374,7 +374,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0b01b8
+    const v8, 0x7f0b01e5
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -386,7 +386,7 @@
 
     if-eqz v1, :cond_6
 
-    const v1, 0x7f0402e0
+    const v1, 0x7f040316
 
     invoke-virtual {v5, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -422,7 +422,7 @@
     :cond_6
     if-eqz v0, :cond_9
 
-    const v0, 0x7f040204
+    const v0, 0x7f040231
 
     invoke-virtual {v5, v0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 

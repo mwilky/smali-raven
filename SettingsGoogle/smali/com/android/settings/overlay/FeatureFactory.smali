@@ -59,7 +59,7 @@
     sput-object v0, Lcom/android/settings/overlay/FeatureFactory;->sAppContext:Landroid/content/Context;
 
     :cond_1
-    const v0, 0x7f040650
+    const v0, 0x7f0406af
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -139,7 +139,7 @@
 .method public abstract getBatteryStatusFeatureProvider(Landroid/content/Context;)Lcom/android/settings/fuelgauge/BatteryStatusFeatureProvider;
 .end method
 
-.method public abstract getBluetoothFeatureProvider(Landroid/content/Context;)Lcom/android/settings/bluetooth/BluetoothFeatureProvider;
+.method public abstract getBluetoothFeatureProvider()Lcom/android/settings/bluetooth/BluetoothFeatureProvider;
 .end method
 
 .method public abstract getContextualCardFeatureProvider(Landroid/content/Context;)Lcom/android/settings/homepage/contextualcards/ContextualCardFeatureProvider;
@@ -154,13 +154,7 @@
 .method public abstract getEnterprisePrivacyFeatureProvider(Landroid/content/Context;)Lcom/android/settings/enterprise/EnterprisePrivacyFeatureProvider;
 .end method
 
-.method public abstract getExtraAppInfoFeatureProvider()Lcom/android/settings/applications/appinfo/ExtraAppInfoFeatureProvider;
-.end method
-
 .method public abstract getFaceFeatureProvider()Lcom/android/settings/biometrics/face/FaceFeatureProvider;
-.end method
-
-.method public abstract getGameSettingsFeatureProvider()Lcom/android/settings/applications/GameSettingsFeatureProvider;
 .end method
 
 .method public abstract getLocaleFeatureProvider()Lcom/android/settings/localepicker/LocaleFeatureProvider;

@@ -23,6 +23,9 @@
 
 # instance fields
 .field private volatile _value:Ljava/lang/Object;
+    .annotation build Lorg/jetbrains/annotations/Nullable;
+    .end annotation
+.end field
 
 .field private initializer:Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
@@ -31,9 +34,15 @@
             "+TT;>;"
         }
     .end annotation
+
+    .annotation build Lorg/jetbrains/annotations/Nullable;
+    .end annotation
 .end field
 
 .field private final lock:Ljava/lang/Object;
+    .annotation build Lorg/jetbrains/annotations/NotNull;
+    .end annotation
+.end field
 
 
 # direct methods
@@ -69,14 +78,11 @@
 
     iput-object p1, p0, Lkotlin/SynchronizedLazyImpl;->_value:Ljava/lang/Object;
 
-    if-eqz p2, :cond_0
+    if-nez p2, :cond_0
 
-    goto :goto_0
-
-    :cond_0
     move-object p2, p0
 
-    :goto_0
+    :cond_0
     iput-object p2, p0, Lkotlin/SynchronizedLazyImpl;->lock:Ljava/lang/Object;
 
     return-void

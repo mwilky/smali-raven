@@ -122,7 +122,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150064
+    const p0, 0x7f150067
 
     return p0
 .end method
@@ -221,7 +221,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f0407de
+    const v0, 0x7f040826
 
     invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -273,7 +273,7 @@
 
     const-string p1, "DevicePickerFragment"
 
-    const-string v1, "sendDevicePickedIntent() launch package name is not equivalent to calling package name!"
+    const-string/jumbo v1, "sendDevicePickedIntent() launch package name is not equivalent to calling package name!"
 
     invoke-static {p1, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -426,6 +426,16 @@
     .locals 1
 
     invoke-super {p0}, Lcom/android/settings/bluetooth/DeviceListPreferenceFragment;->onStart()V
+
+    iget-object v0, p0, Lcom/android/settings/bluetooth/DeviceListPreferenceFragment;->mLocalManager:Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
+
+    invoke-virtual {v0}, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;->getCachedDeviceManager()Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;->clearNonBondedDevices()V
+
+    invoke-virtual {p0}, Lcom/android/settings/bluetooth/DeviceListPreferenceFragment;->removeAllDevices()V
 
     invoke-virtual {p0}, Lcom/android/settings/bluetooth/DeviceListPreferenceFragment;->addCachedDevices()V
 

@@ -15,11 +15,11 @@
 
 
 # virtual methods
-.method public abstract getX509CertsFromCertHolder(Lcom/android/settings/TrustedCredentialsSettings$CertHolder;)Ljava/util/List;
+.method public abstract getX509CertsFromCertHolder(Lcom/android/settings/TrustedCredentialsFragment$CertHolder;)Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/android/settings/TrustedCredentialsSettings$CertHolder;",
+            "Lcom/android/settings/TrustedCredentialsFragment$CertHolder;",
             ")",
             "Ljava/util/List<",
             "Ljava/security/cert/X509Certificate;",
@@ -28,7 +28,7 @@
     .end annotation
 .end method
 
-.method public abstract removeOrInstallCert(Lcom/android/settings/TrustedCredentialsSettings$CertHolder;)V
+.method public abstract removeOrInstallCert(Lcom/android/settings/TrustedCredentialsFragment$CertHolder;)V
 .end method
 
 .method public abstract startConfirmCredentialIfNotConfirmed(ILjava/util/function/IntConsumer;)Z

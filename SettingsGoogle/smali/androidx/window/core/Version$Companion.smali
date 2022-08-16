@@ -92,7 +92,7 @@
 
     const/4 p0, 0x0
 
-    if-eqz p1, :cond_9
+    if-eqz p1, :cond_3
 
     invoke-static {p1}, Lkotlin/text/StringsKt;->isBlank(Ljava/lang/CharSequence;)Z
 
@@ -100,7 +100,7 @@
 
     if-eqz v0, :cond_0
 
-    goto/16 :goto_4
+    goto :goto_1
 
     :cond_0
     const-string v0, "(\\d+)(?:\\.(\\d+))(?:\\.(\\d+))(?:-(.+))?"
@@ -128,28 +128,9 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_2
+    if-eqz v0, :cond_3
 
-    move-object v0, p0
-
-    goto :goto_0
-
-    :cond_2
     invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-
-    move-result v0
-
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v0
-
-    :goto_0
-    if-nez v0, :cond_3
-
-    return-object p0
-
-    :cond_3
-    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v2
 
@@ -159,28 +140,9 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_4
+    if-eqz v0, :cond_3
 
-    move-object v0, p0
-
-    goto :goto_1
-
-    :cond_4
     invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-
-    move-result v0
-
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v0
-
-    :goto_1
-    if-nez v0, :cond_5
-
-    return-object p0
-
-    :cond_5
-    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v3
 
@@ -190,28 +152,9 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_6
+    if-eqz v0, :cond_3
 
-    move-object v0, p0
-
-    goto :goto_2
-
-    :cond_6
     invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-
-    move-result v0
-
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v0
-
-    :goto_2
-    if-nez v0, :cond_7
-
-    return-object p0
-
-    :cond_7
-    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v4
 
@@ -221,18 +164,18 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_2
 
     invoke-virtual {p1, p0}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
 
     move-result-object p0
 
-    goto :goto_3
+    goto :goto_0
 
-    :cond_8
+    :cond_2
     const-string p0, ""
 
-    :goto_3
+    :goto_0
     move-object v5, p0
 
     new-instance p0, Landroidx/window/core/Version;
@@ -247,7 +190,7 @@
 
     invoke-direct/range {v1 .. v6}, Landroidx/window/core/Version;-><init>(IIILjava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 
-    :cond_9
-    :goto_4
+    :cond_3
+    :goto_1
     return-object p0
 .end method

@@ -17,7 +17,7 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    const/16 v0, 0x14
+    const/16 v0, 0x15
 
     new-array v0, v0, [Lcom/android/settings/applications/manageapplications/AppFilterItem;
 
@@ -35,7 +35,7 @@
 
     const/4 v2, 0x0
 
-    const v4, 0x7f040a5e
+    const v4, 0x7f040ab7
 
     invoke-direct {p0, v1, v2, v4}, Lcom/android/settings/applications/manageapplications/AppFilterItem;-><init>(Lcom/android/settingslib/applications/ApplicationsState$AppFilter;II)V
 
@@ -51,7 +51,7 @@
 
     const/4 v2, 0x1
 
-    const v4, 0x7f04092b
+    const v4, 0x7f040981
 
     invoke-direct {p0, v1, v2, v4}, Lcom/android/settings/applications/manageapplications/AppFilterItem;-><init>(Lcom/android/settingslib/applications/ApplicationsState$AppFilter;II)V
 
@@ -71,7 +71,7 @@
 
     const/4 v1, 0x5
 
-    const v2, 0x7f040932
+    const v2, 0x7f040988
 
     invoke-direct {p0, v3, v1, v2}, Lcom/android/settings/applications/manageapplications/AppFilterItem;-><init>(Lcom/android/settingslib/applications/ApplicationsState$AppFilter;II)V
 
@@ -83,7 +83,7 @@
 
     const/4 v2, 0x7
 
-    const v3, 0x7f04092d
+    const v3, 0x7f040983
 
     invoke-direct {p0, v1, v2, v3}, Lcom/android/settings/applications/manageapplications/AppFilterItem;-><init>(Lcom/android/settingslib/applications/ApplicationsState$AppFilter;II)V
 
@@ -95,7 +95,7 @@
 
     const/4 v2, 0x6
 
-    const v3, 0x7f040934
+    const v3, 0x7f04098a
 
     invoke-direct {p0, v1, v2, v3}, Lcom/android/settings/applications/manageapplications/AppFilterItem;-><init>(Lcom/android/settingslib/applications/ApplicationsState$AppFilter;II)V
 
@@ -107,7 +107,7 @@
 
     const/4 v2, 0x2
 
-    const v3, 0x7f0412b2
+    const v3, 0x7f04136c
 
     invoke-direct {p0, v1, v2, v3}, Lcom/android/settings/applications/manageapplications/AppFilterItem;-><init>(Lcom/android/settingslib/applications/ApplicationsState$AppFilter;II)V
 
@@ -119,7 +119,7 @@
 
     const/4 v2, 0x3
 
-    const v3, 0x7f0412b1
+    const v3, 0x7f04136b
 
     invoke-direct {p0, v1, v2, v3}, Lcom/android/settings/applications/manageapplications/AppFilterItem;-><init>(Lcom/android/settingslib/applications/ApplicationsState$AppFilter;II)V
 
@@ -131,7 +131,7 @@
 
     const/16 v2, 0x8
 
-    const v3, 0x7f040598
+    const v3, 0x7f0405f5
 
     invoke-direct {p0, v1, v2, v3}, Lcom/android/settings/applications/manageapplications/AppFilterItem;-><init>(Lcom/android/settingslib/applications/ApplicationsState$AppFilter;II)V
 
@@ -143,7 +143,7 @@
 
     const/16 v2, 0x9
 
-    const v3, 0x7f040599
+    const v3, 0x7f0405f6
 
     invoke-direct {p0, v1, v2, v3}, Lcom/android/settings/applications/manageapplications/AppFilterItem;-><init>(Lcom/android/settingslib/applications/ApplicationsState$AppFilter;II)V
 
@@ -165,7 +165,7 @@
 
     const/16 v2, 0xb
 
-    const v3, 0x7f04093c
+    const v3, 0x7f040992
 
     invoke-direct {p0, v1, v2, v3}, Lcom/android/settings/applications/manageapplications/AppFilterItem;-><init>(Lcom/android/settingslib/applications/ApplicationsState$AppFilter;II)V
 
@@ -177,7 +177,7 @@
 
     const/16 v2, 0xc
 
-    const v3, 0x7f04093d
+    const v3, 0x7f040993
 
     invoke-direct {p0, v1, v2, v3}, Lcom/android/settings/applications/manageapplications/AppFilterItem;-><init>(Lcom/android/settingslib/applications/ApplicationsState$AppFilter;II)V
 
@@ -189,7 +189,7 @@
 
     const/16 v2, 0xd
 
-    const v4, 0x7f040933
+    const v4, 0x7f040989
 
     invoke-direct {p0, v1, v2, v4}, Lcom/android/settings/applications/manageapplications/AppFilterItem;-><init>(Lcom/android/settingslib/applications/ApplicationsState$AppFilter;II)V
 
@@ -211,7 +211,7 @@
 
     const/16 v2, 0x10
 
-    const v3, 0x7f040937
+    const v3, 0x7f04098d
 
     invoke-direct {p0, v1, v2, v3}, Lcom/android/settings/applications/manageapplications/AppFilterItem;-><init>(Lcom/android/settingslib/applications/ApplicationsState$AppFilter;II)V
 
@@ -223,7 +223,7 @@
 
     const/16 v2, 0x11
 
-    const v3, 0x7f040935
+    const v3, 0x7f04098b
 
     invoke-direct {p0, v1, v2, v3}, Lcom/android/settings/applications/manageapplications/AppFilterItem;-><init>(Lcom/android/settingslib/applications/ApplicationsState$AppFilter;II)V
 
@@ -235,7 +235,7 @@
 
     const/16 v2, 0x12
 
-    const v3, 0x7f0401f5
+    const v3, 0x7f04021d
 
     invoke-direct {p0, v1, v2, v3}, Lcom/android/settings/applications/manageapplications/AppFilterItem;-><init>(Lcom/android/settingslib/applications/ApplicationsState$AppFilter;II)V
 
@@ -247,7 +247,19 @@
 
     const/16 v2, 0x13
 
-    const v3, 0x7f040cc5
+    const v3, 0x7f040d40
+
+    invoke-direct {p0, v1, v2, v3}, Lcom/android/settings/applications/manageapplications/AppFilterItem;-><init>(Lcom/android/settingslib/applications/ApplicationsState$AppFilter;II)V
+
+    aput-object p0, v0, v2
+
+    new-instance p0, Lcom/android/settings/applications/manageapplications/AppFilterItem;
+
+    sget-object v1, Lcom/android/settings/applications/AppStateLocaleBridge;->FILTER_APPS_LOCALE:Lcom/android/settingslib/applications/ApplicationsState$AppFilter;
+
+    const/16 v2, 0x14
+
+    const v3, 0x7f040288
 
     invoke-direct {p0, v1, v2, v3}, Lcom/android/settings/applications/manageapplications/AppFilterItem;-><init>(Lcom/android/settingslib/applications/ApplicationsState$AppFilter;II)V
 
@@ -298,68 +310,72 @@
     return p0
 
     :pswitch_1
-    const/16 p0, 0x13
+    const/16 p0, 0x14
 
     return p0
 
     :pswitch_2
-    const/16 p0, 0x12
+    const/16 p0, 0x13
 
     return p0
 
     :pswitch_3
-    const/16 p0, 0x11
+    const/16 p0, 0x12
 
     return p0
 
     :pswitch_4
-    const/16 p0, 0xf
+    const/16 p0, 0x11
 
     return p0
 
     :pswitch_5
-    const/16 p0, 0xd
+    const/16 p0, 0xf
 
     return p0
 
     :pswitch_6
-    const/16 p0, 0xc
+    const/16 p0, 0xd
 
     return p0
 
     :pswitch_7
-    const/16 p0, 0xb
+    const/16 p0, 0xc
 
     return p0
 
     :pswitch_8
-    const/4 p0, 0x0
+    const/16 p0, 0xb
 
     return p0
 
     :pswitch_9
-    const/16 p0, 0xa
+    const/4 p0, 0x0
 
     return p0
 
     :pswitch_a
+    const/16 p0, 0xa
+
+    return p0
+
+    :pswitch_b
     const/4 p0, 0x2
 
     return p0
 
-    nop
-
     :pswitch_data_0
     .packed-switch 0x1
+        :pswitch_b
+        :pswitch_0
+        :pswitch_0
         :pswitch_a
-        :pswitch_0
-        :pswitch_0
         :pswitch_9
         :pswitch_8
         :pswitch_7
         :pswitch_6
-        :pswitch_5
         :pswitch_0
+        :pswitch_5
         :pswitch_4
         :pswitch_3
         :pswitch_2

@@ -30,9 +30,7 @@
 
     move-result-object v0
 
-    const-string v1, "sucLayoutStatus cannot be null in StatusBarMixin"
-
-    invoke-static {v0, v1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    if-eqz v0, :cond_1
 
     instance-of v1, v0, Lcom/google/android/setupcompat/view/StatusBarBackgroundLayout;
 
@@ -55,12 +53,6 @@
     move-result-object v0
 
     iput-object v0, p0, Lcom/google/android/setupcompat/template/StatusBarMixin;->decorView:Landroid/view/View;
-
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x17
-
-    if-lt v0, v1, :cond_1
 
     const/4 v0, 0x0
 
@@ -98,22 +90,22 @@
 
     invoke-virtual {p1}, Landroid/content/res/TypedArray;->recycle()V
 
-    :cond_1
     return-void
+
+    :cond_1
+    new-instance p0, Ljava/lang/NullPointerException;
+
+    const-string p1, "sucLayoutStatus cannot be null in StatusBarMixin"
+
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+
+    throw p0
 .end method
 
 
 # virtual methods
 .method public isLightStatusBar()Z
-    .locals 3
-
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/4 v1, 0x1
-
-    const/16 v2, 0x17
-
-    if-lt v0, v2, :cond_1
+    .locals 1
 
     iget-object p0, p0, Lcom/google/android/setupcompat/template/StatusBarMixin;->decorView:Landroid/view/View;
 
@@ -127,24 +119,19 @@
 
     if-ne p0, v0, :cond_0
 
+    const/4 p0, 0x1
+
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 p0, 0x0
 
-    :cond_1
     :goto_0
-    return v1
+    return p0
 .end method
 
 .method public setLightStatusBar(Z)V
     .locals 3
-
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x17
-
-    if-lt v0, v1, :cond_2
 
     iget-object v0, p0, Lcom/google/android/setupcompat/template/StatusBarMixin;->partnerCustomizationLayout:Lcom/google/android/setupcompat/PartnerCustomizationLayout;
 
@@ -198,7 +185,6 @@
 
     invoke-virtual {p0, p1}, Landroid/view/View;->setSystemUiVisibility(I)V
 
-    :cond_2
     :goto_0
     return-void
 .end method

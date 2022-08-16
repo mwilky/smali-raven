@@ -68,7 +68,7 @@
 
     aput-object p1, p2, v0
 
-    invoke-static {p0, p2}, Lcom/android/settings/deviceinfo/StorageWizardFormatProgress$PartitionTask;->access$100(Lcom/android/settings/deviceinfo/StorageWizardFormatProgress$PartitionTask;[Ljava/lang/Object;)V
+    invoke-static {p0, p2}, Lcom/android/settings/deviceinfo/StorageWizardFormatProgress$PartitionTask;->access$000(Lcom/android/settings/deviceinfo/StorageWizardFormatProgress$PartitionTask;[Ljava/lang/Object;)V
 
     return-void
 .end method

@@ -45,7 +45,7 @@
 
     iget-object p0, p0, Lcom/android/settings/inputmethod/SpellCheckersSettings$2;->val$sci:Landroid/view/textservice/SpellCheckerInfo;
 
-    invoke-static {p1, p0}, Lcom/android/settings/inputmethod/SpellCheckersSettings;->access$300(Lcom/android/settings/inputmethod/SpellCheckersSettings;Landroid/view/textservice/SpellCheckerInfo;)V
+    invoke-static {p1, p0}, Lcom/android/settings/inputmethod/SpellCheckersSettings;->-$$Nest$mchangeCurrentSpellChecker(Lcom/android/settings/inputmethod/SpellCheckersSettings;Landroid/view/textservice/SpellCheckerInfo;)V
 
     return-void
 .end method

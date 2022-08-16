@@ -36,7 +36,7 @@
 
     iget-object p0, p0, Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController$2;->this$0:Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;
 
-    invoke-static {p0}, Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;->access$500(Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;)Lcom/android/settings/homepage/contextualcards/conditional/ConditionManager;
+    invoke-static {p0}, Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;->-$$Nest$fgetmConditionManager(Lcom/android/settings/homepage/contextualcards/conditional/CellularDataConditionController;)Lcom/android/settings/homepage/contextualcards/conditional/ConditionManager;
 
     move-result-object p0
 

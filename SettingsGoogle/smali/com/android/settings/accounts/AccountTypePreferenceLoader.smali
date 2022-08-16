@@ -20,6 +20,32 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmFragment(Lcom/android/settings/accounts/AccountTypePreferenceLoader;)Landroidx/preference/PreferenceFragmentCompat;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/accounts/AccountTypePreferenceLoader;->mFragment:Landroidx/preference/PreferenceFragmentCompat;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmUserHandle(Lcom/android/settings/accounts/AccountTypePreferenceLoader;)Landroid/os/UserHandle;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/accounts/AccountTypePreferenceLoader;->mUserHandle:Landroid/os/UserHandle;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$misSafeIntent(Lcom/android/settings/accounts/AccountTypePreferenceLoader;Landroid/content/pm/PackageManager;Landroid/content/Intent;Ljava/lang/String;)Z
+    .locals 0
+
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/settings/accounts/AccountTypePreferenceLoader;->isSafeIntent(Landroid/content/pm/PackageManager;Landroid/content/Intent;Ljava/lang/String;)Z
+
+    move-result p0
+
+    return p0
+.end method
+
 .method public constructor <init>(Landroidx/preference/PreferenceFragmentCompat;Lcom/android/settingslib/accounts/AuthenticatorHelper;Landroid/os/UserHandle;)V
     .locals 0
 
@@ -32,32 +58,6 @@
     iput-object p3, p0, Lcom/android/settings/accounts/AccountTypePreferenceLoader;->mUserHandle:Landroid/os/UserHandle;
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/accounts/AccountTypePreferenceLoader;Landroid/content/pm/PackageManager;Landroid/content/Intent;Ljava/lang/String;)Z
-    .locals 0
-
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/settings/accounts/AccountTypePreferenceLoader;->isSafeIntent(Landroid/content/pm/PackageManager;Landroid/content/Intent;Ljava/lang/String;)Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/accounts/AccountTypePreferenceLoader;)Landroid/os/UserHandle;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/accounts/AccountTypePreferenceLoader;->mUserHandle:Landroid/os/UserHandle;
-
-    return-object p0
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/accounts/AccountTypePreferenceLoader;)Landroidx/preference/PreferenceFragmentCompat;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/accounts/AccountTypePreferenceLoader;->mFragment:Landroidx/preference/PreferenceFragmentCompat;
-
-    return-object p0
 .end method
 
 .method private isSafeIntent(Landroid/content/pm/PackageManager;Landroid/content/Intent;Ljava/lang/String;)Z
@@ -184,7 +184,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f13035d
+    const v5, 0x7f130420
 
     const/4 v7, 0x1
 
@@ -192,7 +192,9 @@
 
     new-instance v5, Lcom/android/settings/utils/LocalClassLoaderContextThemeWrapper;
 
-    const-class v7, Lcom/android/settings/accounts/AccountTypePreferenceLoader;
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v7
 
     invoke-direct {v5, v7, v2, v6}, Lcom/android/settings/utils/LocalClassLoaderContextThemeWrapper;-><init>(Ljava/lang/Class;Landroid/content/Context;I)V
 
@@ -331,7 +333,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f040b9f
+    const v5, 0x7f040c09
 
     invoke-direct {v3, p0, v4, v5}, Lcom/android/settings/accounts/AccountTypePreferenceLoader$FragmentStarter;-><init>(Lcom/android/settings/accounts/AccountTypePreferenceLoader;Ljava/lang/String;I)V
 

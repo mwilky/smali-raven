@@ -39,7 +39,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settings/users/AppRestrictionsFragment;Lcom/android/settings/users/AppRestrictionsFragment$1;)V
+.method synthetic constructor <init>(Lcom/android/settings/users/AppRestrictionsFragment;Lcom/android/settings/users/AppRestrictionsFragment$AppLoadingTask-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settings/users/AppRestrictionsFragment$AppLoadingTask;-><init>(Lcom/android/settings/users/AppRestrictionsFragment;)V
@@ -66,7 +66,7 @@
 
     iget-object p0, p0, Lcom/android/settings/users/AppRestrictionsFragment$AppLoadingTask;->this$0:Lcom/android/settings/users/AppRestrictionsFragment;
 
-    invoke-static {p0}, Lcom/android/settings/users/AppRestrictionsFragment;->access$100(Lcom/android/settings/users/AppRestrictionsFragment;)Lcom/android/settingslib/users/AppRestrictionsHelper;
+    invoke-static {p0}, Lcom/android/settings/users/AppRestrictionsFragment;->-$$Nest$fgetmHelper(Lcom/android/settings/users/AppRestrictionsFragment;)Lcom/android/settingslib/users/AppRestrictionsHelper;
 
     move-result-object p0
 
@@ -92,7 +92,7 @@
 
     iget-object p0, p0, Lcom/android/settings/users/AppRestrictionsFragment$AppLoadingTask;->this$0:Lcom/android/settings/users/AppRestrictionsFragment;
 
-    invoke-static {p0}, Lcom/android/settings/users/AppRestrictionsFragment;->access$500(Lcom/android/settings/users/AppRestrictionsFragment;)V
+    invoke-static {p0}, Lcom/android/settings/users/AppRestrictionsFragment;->-$$Nest$mpopulateApps(Lcom/android/settings/users/AppRestrictionsFragment;)V
 
     return-void
 .end method

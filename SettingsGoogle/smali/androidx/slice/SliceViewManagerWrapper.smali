@@ -42,14 +42,6 @@
 # direct methods
 .method constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "context"
-        }
-    .end annotation
 
     const-class v0, Landroid/app/slice/SliceManager;
 
@@ -66,16 +58,6 @@
 
 .method constructor <init>(Landroid/content/Context;Landroid/app/slice/SliceManager;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "manager"
-        }
-    .end annotation
 
     invoke-direct {p0, p1}, Landroidx/slice/SliceViewManagerBase;-><init>(Landroid/content/Context;)V
 
@@ -106,14 +88,6 @@
 
 .method private isAuthoritySuspended(Ljava/lang/String;)Z
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "authority"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/slice/SliceViewManagerWrapper;->mCachedAuthorities:Landroidx/collection/ArrayMap;
 
@@ -158,14 +132,6 @@
 
 .method private isPackageSuspended(Landroid/content/Intent;)Z
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "intent"
-        }
-    .end annotation
 
     invoke-virtual {p1}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
 
@@ -233,14 +199,6 @@
 
 .method private isPackageSuspended(Ljava/lang/String;)Z
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "pkg"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/slice/SliceViewManagerWrapper;->mCachedSuspendFlags:Landroidx/collection/ArrayMap;
 
@@ -311,14 +269,6 @@
 # virtual methods
 .method public bindSlice(Landroid/content/Intent;)Landroidx/slice/Slice;
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "intent"
-        }
-    .end annotation
 
     invoke-direct {p0, p1}, Landroidx/slice/SliceViewManagerWrapper;->isPackageSuspended(Landroid/content/Intent;)Z
 
@@ -350,14 +300,6 @@
 
 .method public bindSlice(Landroid/net/Uri;)Landroidx/slice/Slice;
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "uri"
-        }
-    .end annotation
 
     invoke-virtual {p1}, Landroid/net/Uri;->getAuthority()Ljava/lang/String;
 
@@ -396,15 +338,6 @@
     .annotation build Landroid/annotation/SuppressLint;
         value = {
             "WrongThread"
-        }
-    .end annotation
-
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "uri"
         }
     .end annotation
 
@@ -473,14 +406,6 @@
 
 .method public pinSlice(Landroid/net/Uri;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "uri"
-        }
-    .end annotation
 
     :try_start_0
     iget-object v0, p0, Landroidx/slice/SliceViewManagerWrapper;->mManager:Landroid/app/slice/SliceManager;
@@ -536,14 +461,6 @@
 
 .method public unpinSlice(Landroid/net/Uri;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "uri"
-        }
-    .end annotation
 
     :try_start_0
     iget-object p0, p0, Landroidx/slice/SliceViewManagerWrapper;->mManager:Landroid/app/slice/SliceManager;

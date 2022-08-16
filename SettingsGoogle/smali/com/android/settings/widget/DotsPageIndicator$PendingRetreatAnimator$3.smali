@@ -56,13 +56,13 @@
 
     const/high16 v0, -0x40800000    # -1.0f
 
-    invoke-static {p1, v0}, Lcom/android/settings/widget/DotsPageIndicator;->access$1202(Lcom/android/settings/widget/DotsPageIndicator;F)F
+    invoke-static {p1, v0}, Lcom/android/settings/widget/DotsPageIndicator;->-$$Nest$fputretreatingJoinX1(Lcom/android/settings/widget/DotsPageIndicator;F)V
 
     iget-object p1, p0, Lcom/android/settings/widget/DotsPageIndicator$PendingRetreatAnimator$3;->this$1:Lcom/android/settings/widget/DotsPageIndicator$PendingRetreatAnimator;
 
     iget-object p1, p1, Lcom/android/settings/widget/DotsPageIndicator$PendingRetreatAnimator;->this$0:Lcom/android/settings/widget/DotsPageIndicator;
 
-    invoke-static {p1, v0}, Lcom/android/settings/widget/DotsPageIndicator;->access$1302(Lcom/android/settings/widget/DotsPageIndicator;F)F
+    invoke-static {p1, v0}, Lcom/android/settings/widget/DotsPageIndicator;->-$$Nest$fputretreatingJoinX2(Lcom/android/settings/widget/DotsPageIndicator;F)V
 
     iget-object p0, p0, Lcom/android/settings/widget/DotsPageIndicator$PendingRetreatAnimator$3;->this$1:Lcom/android/settings/widget/DotsPageIndicator$PendingRetreatAnimator;
 
@@ -80,13 +80,13 @@
 
     iget-object p1, p1, Lcom/android/settings/widget/DotsPageIndicator$PendingRetreatAnimator;->this$0:Lcom/android/settings/widget/DotsPageIndicator;
 
-    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator;->access$1400(Lcom/android/settings/widget/DotsPageIndicator;)V
+    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator;->-$$Nest$mcancelJoiningAnimations(Lcom/android/settings/widget/DotsPageIndicator;)V
 
     iget-object p1, p0, Lcom/android/settings/widget/DotsPageIndicator$PendingRetreatAnimator$3;->this$1:Lcom/android/settings/widget/DotsPageIndicator$PendingRetreatAnimator;
 
     iget-object p1, p1, Lcom/android/settings/widget/DotsPageIndicator$PendingRetreatAnimator;->this$0:Lcom/android/settings/widget/DotsPageIndicator;
 
-    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator;->access$1500(Lcom/android/settings/widget/DotsPageIndicator;)V
+    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator;->-$$Nest$mclearJoiningFractions(Lcom/android/settings/widget/DotsPageIndicator;)V
 
     iget-object p1, p0, Lcom/android/settings/widget/DotsPageIndicator$PendingRetreatAnimator$3;->val$dotsToHide:[I
 
@@ -105,7 +105,7 @@
 
     const v4, 0x3727c5ac    # 1.0E-5f
 
-    invoke-static {v3, v2, v4}, Lcom/android/settings/widget/DotsPageIndicator;->access$1600(Lcom/android/settings/widget/DotsPageIndicator;IF)V
+    invoke-static {v3, v2, v4}, Lcom/android/settings/widget/DotsPageIndicator;->-$$Nest$msetDotRevealFraction(Lcom/android/settings/widget/DotsPageIndicator;IF)V
 
     add-int/lit8 v1, v1, 0x1
 
@@ -118,7 +118,7 @@
 
     iget v0, p0, Lcom/android/settings/widget/DotsPageIndicator$PendingRetreatAnimator$3;->val$initialX1:F
 
-    invoke-static {p1, v0}, Lcom/android/settings/widget/DotsPageIndicator;->access$1202(Lcom/android/settings/widget/DotsPageIndicator;F)F
+    invoke-static {p1, v0}, Lcom/android/settings/widget/DotsPageIndicator;->-$$Nest$fputretreatingJoinX1(Lcom/android/settings/widget/DotsPageIndicator;F)V
 
     iget-object p1, p0, Lcom/android/settings/widget/DotsPageIndicator$PendingRetreatAnimator$3;->this$1:Lcom/android/settings/widget/DotsPageIndicator$PendingRetreatAnimator;
 
@@ -126,7 +126,7 @@
 
     iget v0, p0, Lcom/android/settings/widget/DotsPageIndicator$PendingRetreatAnimator$3;->val$initialX2:F
 
-    invoke-static {p1, v0}, Lcom/android/settings/widget/DotsPageIndicator;->access$1302(Lcom/android/settings/widget/DotsPageIndicator;F)F
+    invoke-static {p1, v0}, Lcom/android/settings/widget/DotsPageIndicator;->-$$Nest$fputretreatingJoinX2(Lcom/android/settings/widget/DotsPageIndicator;F)V
 
     iget-object p0, p0, Lcom/android/settings/widget/DotsPageIndicator$PendingRetreatAnimator$3;->this$1:Lcom/android/settings/widget/DotsPageIndicator$PendingRetreatAnimator;
 

@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
+.implements Ljava/lang/Runnable;
 
 
 # instance fields
@@ -22,12 +23,12 @@
 
 
 # virtual methods
-.method public final onClick(Landroid/content/DialogInterface;I)V
+.method public final run()V
     .locals 0
 
     iget-object p0, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment$$ExternalSyntheticLambda0;->f$0:Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;
 
-    invoke-virtual {p0, p1, p2}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->callOnAlertDialogCheckboxClicked(Landroid/content/DialogInterface;I)V
+    invoke-static {p0}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->$r8$lambda$Y_hEmLJgxNdwmJY6EratXHYazKg(Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;)V
 
     return-void
 .end method

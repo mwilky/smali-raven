@@ -36,7 +36,7 @@
 
     new-instance v0, Lcom/android/settings/search/BaseSearchIndexProvider;
 
-    const v1, 0x7f15011e
+    const v1, 0x7f150126
 
     invoke-direct {v0, v1}, Lcom/android/settings/search/BaseSearchIndexProvider;-><init>(I)V
 
@@ -70,12 +70,12 @@
 
     if-eqz p0, :cond_0
 
-    const p0, 0x7f040270
+    const p0, 0x7f0402a3
 
     goto :goto_0
 
     :cond_0
-    const p0, 0x7f040271
+    const p0, 0x7f0402a4
 
     :goto_0
     return p0
@@ -86,13 +86,17 @@
 
     const-class v0, Lcom/android/settings/applications/specialaccess/zenaccess/ZenAccessDetails;
 
+    const p3, 0x7f040d09
+
+    invoke-virtual {p0, p3}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
     iget v3, p2, Landroid/content/pm/ApplicationInfo;->uid:I
 
     invoke-virtual {p0}, Lcom/android/settings/notification/zen/ZenAccessSettings;->getMetricsCategory()I
 
     move-result v6
-
-    const v1, 0x7f040c8e
 
     const/4 v5, -0x1
 
@@ -100,7 +104,7 @@
 
     move-object v4, p0
 
-    invoke-static/range {v0 .. v6}, Lcom/android/settings/applications/AppInfoBase;->startAppInfoFragment(Ljava/lang/Class;ILjava/lang/String;ILandroidx/fragment/app/Fragment;II)V
+    invoke-static/range {v0 .. v6}, Lcom/android/settings/applications/AppInfoBase;->startAppInfoFragment(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;ILandroidx/fragment/app/Fragment;II)V
 
     const/4 p0, 0x1
 
@@ -279,7 +283,7 @@
 
     invoke-virtual {v7, v4}, Landroidx/preference/Preference;->setEnabled(Z)V
 
-    const v6, 0x7f0417bd
+    const v6, 0x7f0418b8
 
     invoke-virtual {p0, v6}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -324,7 +328,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f15011e
+    const p0, 0x7f150126
 
     return p0
 .end method
@@ -390,7 +394,7 @@
 
     invoke-super {p0, p1, p2}, Lcom/android/settings/widget/EmptyTextSettings;->onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
 
-    const p1, 0x7f0417be
+    const p1, 0x7f0418b9
 
     invoke-virtual {p0, p1}, Lcom/android/settings/widget/EmptyTextSettings;->setEmptyText(I)V
 

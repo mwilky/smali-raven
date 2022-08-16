@@ -14,7 +14,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nOptions.kt\nKotlin\n*S Kotlin\n*F\n+ 1 Options.kt\nokio/Options$Companion\n+ 2 _Arrays.kt\nkotlin/collections/ArraysKt___ArraysKt\n+ 3 ArraysJVM.kt\nkotlin/collections/ArraysKt__ArraysJVMKt\n+ 4 fake.kt\nkotlin/jvm/internal/FakeKt\n+ 5 -Util.kt\nokio/-Util\n*L\n1#1,236:1\n11298#2:237\n11633#2,3:238\n13571#2,3:243\n37#3,2:241\n1#4:246\n74#5:247\n74#5:248\n*E\n*S KotlinDebug\n*F\n+ 1 Options.kt\nokio/Options$Companion\n*L\n43#1:237\n43#1,3:238\n44#1,3:243\n43#1,2:241\n151#1:247\n208#1:248\n*E\n"
+    value = "SMAP\nOptions.kt\nKotlin\n*S Kotlin\n*F\n+ 1 Options.kt\nokio/Options$Companion\n+ 2 _Arrays.kt\nkotlin/collections/ArraysKt___ArraysKt\n+ 3 ArraysJVM.kt\nkotlin/collections/ArraysKt__ArraysJVMKt\n+ 4 fake.kt\nkotlin/jvm/internal/FakeKt\n+ 5 -Util.kt\nokio/-Util\n*L\n1#1,236:1\n11328#2:237\n11663#2,3:238\n13601#2,3:245\n37#3:241\n36#3,3:242\n1#4:248\n74#5:249\n74#5:250\n*S KotlinDebug\n*F\n+ 1 Options.kt\nokio/Options$Companion\n*L\n43#1:237\n43#1:238,3\n44#1:245,3\n43#1:241\n43#1:242,3\n151#1:249\n208#1:250\n*E\n"
 .end annotation
 
 
@@ -66,9 +66,11 @@
 
     move-object/from16 v14, p8
 
+    const/4 v2, 0x1
+
     if-ge v0, v13, :cond_0
 
-    const/4 v3, 0x1
+    move v3, v2
 
     goto :goto_0
 
@@ -78,13 +80,13 @@
     :goto_0
     const-string v4, "Failed requirement."
 
-    if-eqz v3, :cond_1b
-
-    if-ge v0, v13, :cond_4
+    if-eqz v3, :cond_14
 
     move v3, v0
 
     :goto_1
+    if-ge v3, v13, :cond_3
+
     add-int/lit8 v5, v3, 0x1
 
     invoke-interface {v12, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -99,7 +101,7 @@
 
     if-lt v3, v11, :cond_1
 
-    const/4 v3, 0x1
+    move v3, v2
 
     goto :goto_2
 
@@ -107,18 +109,13 @@
     const/4 v3, 0x0
 
     :goto_2
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_2
 
-    if-lt v5, v13, :cond_2
-
-    goto :goto_3
-
-    :cond_2
     move v3, v5
 
     goto :goto_1
 
-    :cond_3
+    :cond_2
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     invoke-virtual {v4}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -129,8 +126,7 @@
 
     throw v0
 
-    :cond_4
-    :goto_3
+    :cond_3
     invoke-interface/range {p5 .. p6}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v3
@@ -151,7 +147,7 @@
 
     const/4 v15, -0x1
 
-    if-ne v11, v5, :cond_5
+    if-ne v11, v5, :cond_4
 
     invoke-interface {v14, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -177,14 +173,14 @@
 
     move-object v3, v5
 
-    goto :goto_4
+    goto :goto_3
 
-    :cond_5
+    :cond_4
     move v6, v0
 
     move v0, v15
 
-    :goto_4
+    :goto_3
     invoke-virtual {v3, v11}, Lokio/ByteString;->getByte(I)B
 
     move-result v5
@@ -195,15 +191,13 @@
 
     const/4 v8, 0x2
 
-    if-eq v5, v7, :cond_12
+    if-eq v5, v7, :cond_e
 
     add-int/lit8 v1, v6, 0x1
 
-    const/4 v2, 0x1
+    :goto_4
+    if-ge v1, v13, :cond_6
 
-    if-ge v1, v13, :cond_8
-
-    :goto_5
     add-int/lit8 v3, v1, 0x1
 
     add-int/lit8 v4, v1, -0x1
@@ -228,22 +222,16 @@
 
     move-result v1
 
-    if-eq v4, v1, :cond_6
+    if-eq v4, v1, :cond_5
 
     add-int/lit8 v2, v2, 0x1
 
-    :cond_6
-    if-lt v3, v13, :cond_7
-
-    goto :goto_6
-
-    :cond_7
+    :cond_5
     move v1, v3
 
-    goto :goto_5
+    goto :goto_4
 
-    :cond_8
-    :goto_6
+    :cond_6
     invoke-direct {v9, v10}, Lokio/Options$Companion;->getIntCount(Lokio/Buffer;)J
 
     move-result-wide v3
@@ -264,11 +252,11 @@
 
     invoke-virtual {v10, v0}, Lokio/Buffer;->writeInt(I)Lokio/Buffer;
 
-    if-ge v6, v13, :cond_c
-
     move v0, v6
 
-    :goto_7
+    :goto_5
+    if-ge v0, v13, :cond_9
+
     add-int/lit8 v1, v0, 0x1
 
     invoke-interface {v12, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -281,7 +269,7 @@
 
     move-result v2
 
-    if-eq v0, v6, :cond_9
+    if-eq v0, v6, :cond_7
 
     add-int/lit8 v0, v0, -0x1
 
@@ -295,31 +283,25 @@
 
     move-result v0
 
-    if-eq v2, v0, :cond_a
+    if-eq v2, v0, :cond_8
 
-    :cond_9
+    :cond_7
     and-int/lit16 v0, v2, 0xff
 
     invoke-virtual {v10, v0}, Lokio/Buffer;->writeInt(I)Lokio/Buffer;
 
-    :cond_a
-    if-lt v1, v13, :cond_b
-
-    goto :goto_8
-
-    :cond_b
+    :cond_8
     move v0, v1
 
-    goto :goto_7
+    goto :goto_5
 
-    :cond_c
-    :goto_8
+    :cond_9
     new-instance v8, Lokio/Buffer;
 
     invoke-direct {v8}, Lokio/Buffer;-><init>()V
 
-    :goto_9
-    if-ge v6, v13, :cond_11
+    :goto_6
+    if-ge v6, v13, :cond_d
 
     invoke-interface {v12, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -333,11 +315,11 @@
 
     add-int/lit8 v1, v6, 0x1
 
-    if-ge v1, v13, :cond_f
-
     move v2, v1
 
-    :goto_a
+    :goto_7
+    if-ge v2, v13, :cond_b
+
     add-int/lit8 v3, v2, 0x1
 
     invoke-interface {v12, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -350,28 +332,22 @@
 
     move-result v4
 
-    if-eq v0, v4, :cond_d
+    if-eq v0, v4, :cond_a
 
     move v7, v2
 
-    goto :goto_c
+    goto :goto_8
 
-    :cond_d
-    if-lt v3, v13, :cond_e
-
-    goto :goto_b
-
-    :cond_e
+    :cond_a
     move v2, v3
 
-    goto :goto_a
+    goto :goto_7
 
-    :cond_f
-    :goto_b
+    :cond_b
     move v7, v13
 
-    :goto_c
-    if-ne v1, v7, :cond_10
+    :goto_8
+    if-ne v1, v7, :cond_c
 
     add-int/lit8 v0, v11, 0x1
 
@@ -385,7 +361,7 @@
 
     move-result v1
 
-    if-ne v0, v1, :cond_10
+    if-ne v0, v1, :cond_c
 
     invoke-interface {v14, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -403,9 +379,9 @@
 
     move-object v15, v8
 
-    goto :goto_d
+    goto :goto_9
 
-    :cond_10
+    :cond_c
     invoke-direct {v9, v8}, Lokio/Options$Companion;->getIntCount(Lokio/Buffer;)J
 
     move-result-wide v0
@@ -436,23 +412,23 @@
 
     invoke-direct/range {v0 .. v8}, Lokio/Options$Companion;->buildTrieRecursive(JLokio/Buffer;ILjava/util/List;IILjava/util/List;)V
 
-    :goto_d
+    :goto_9
     move-object v8, v15
 
     move/from16 v6, v18
 
     const/4 v15, -0x1
 
-    goto :goto_9
+    goto :goto_6
 
-    :cond_11
+    :cond_d
     move-object v15, v8
 
     invoke-virtual {v10, v15}, Lokio/Buffer;->writeAll(Lokio/Source;)J
 
-    goto/16 :goto_13
+    goto/16 :goto_d
 
-    :cond_12
+    :cond_e
     invoke-virtual {v3}, Lokio/ByteString;->size()I
 
     move-result v5
@@ -465,94 +441,79 @@
 
     move-result v5
 
-    if-ge v11, v5, :cond_14
-
     move v7, v11
 
     const/4 v15, 0x0
 
-    :goto_e
-    add-int/lit8 v1, v7, 0x1
+    :goto_a
+    if-ge v7, v5, :cond_f
+
+    add-int/lit8 v16, v7, 0x1
 
     invoke-virtual {v3, v7}, Lokio/ByteString;->getByte(I)B
 
-    move-result v2
+    move-result v1
 
     invoke-virtual {v4, v7}, Lokio/ByteString;->getByte(I)B
 
     move-result v7
 
-    if-ne v2, v7, :cond_15
+    if-ne v1, v7, :cond_f
 
     add-int/lit8 v15, v15, 0x1
 
-    if-lt v1, v5, :cond_13
+    move/from16 v7, v16
 
-    goto :goto_f
+    goto :goto_a
 
-    :cond_13
-    move v7, v1
-
-    goto :goto_e
-
-    :cond_14
-    const/4 v15, 0x0
-
-    :cond_15
-    :goto_f
+    :cond_f
     invoke-direct {v9, v10}, Lokio/Options$Companion;->getIntCount(Lokio/Buffer;)J
 
-    move-result-wide v1
+    move-result-wide v4
 
-    add-long v1, p1, v1
+    add-long v4, p1, v4
 
-    int-to-long v4, v8
+    int-to-long v7, v8
 
-    add-long/2addr v1, v4
+    add-long/2addr v4, v7
 
-    int-to-long v4, v15
+    int-to-long v7, v15
 
-    add-long/2addr v1, v4
+    add-long/2addr v4, v7
 
-    const-wide/16 v4, 0x1
+    const-wide/16 v7, 0x1
 
-    add-long/2addr v1, v4
+    add-long/2addr v4, v7
 
-    neg-int v4, v15
+    neg-int v1, v15
 
-    invoke-virtual {v10, v4}, Lokio/Buffer;->writeInt(I)Lokio/Buffer;
+    invoke-virtual {v10, v1}, Lokio/Buffer;->writeInt(I)Lokio/Buffer;
 
     invoke-virtual {v10, v0}, Lokio/Buffer;->writeInt(I)Lokio/Buffer;
 
-    add-int v4, v11, v15
+    add-int v7, v11, v15
 
-    if-ge v11, v4, :cond_17
+    :goto_b
+    if-ge v11, v7, :cond_10
 
-    :goto_10
     add-int/lit8 v0, v11, 0x1
 
     invoke-virtual {v3, v11}, Lokio/ByteString;->getByte(I)B
 
-    move-result v5
+    move-result v1
 
-    and-int/lit16 v5, v5, 0xff
+    and-int/lit16 v1, v1, 0xff
 
-    invoke-virtual {v10, v5}, Lokio/Buffer;->writeInt(I)Lokio/Buffer;
+    invoke-virtual {v10, v1}, Lokio/Buffer;->writeInt(I)Lokio/Buffer;
 
-    if-lt v0, v4, :cond_16
-
-    goto :goto_11
-
-    :cond_16
     move v11, v0
 
-    goto :goto_10
+    goto :goto_b
 
-    :cond_17
-    :goto_11
+    :cond_10
     add-int/lit8 v0, v6, 0x1
 
-    if-ne v0, v13, :cond_1a
+    if-ne v0, v13, :cond_13
 
     invoke-interface {v12, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -564,17 +525,17 @@
 
     move-result v0
 
-    if-ne v4, v0, :cond_18
+    if-ne v7, v0, :cond_11
 
-    const/4 v1, 0x1
+    move v1, v2
 
-    goto :goto_12
+    goto :goto_c
 
-    :cond_18
+    :cond_11
     const/4 v1, 0x0
 
-    :goto_12
-    if-eqz v1, :cond_19
+    :goto_c
+    if-eqz v1, :cond_12
 
     invoke-interface {v14, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -588,9 +549,9 @@
 
     invoke-virtual {v10, v0}, Lokio/Buffer;->writeInt(I)Lokio/Buffer;
 
-    goto :goto_13
+    goto :goto_d
 
-    :cond_19
+    :cond_12
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Check failed."
@@ -603,28 +564,32 @@
 
     throw v0
 
-    :cond_1a
+    :cond_13
     new-instance v11, Lokio/Buffer;
 
     invoke-direct {v11}, Lokio/Buffer;-><init>()V
 
     invoke-direct {v9, v11}, Lokio/Options$Companion;->getIntCount(Lokio/Buffer;)J
 
-    move-result-wide v7
+    move-result-wide v0
 
-    add-long/2addr v7, v1
+    add-long/2addr v0, v4
 
-    long-to-int v0, v7
+    long-to-int v0, v0
 
-    const/4 v3, -0x1
+    const/4 v1, -0x1
 
-    mul-int/2addr v0, v3
+    mul-int/2addr v0, v1
 
     invoke-virtual {v10, v0}, Lokio/Buffer;->writeInt(I)Lokio/Buffer;
 
     move-object/from16 v0, p0
 
+    move-wide v1, v4
+
     move-object v3, v11
+
+    move v4, v7
 
     move-object/from16 v5, p5
 
@@ -636,10 +601,10 @@
 
     invoke-virtual {v10, v11}, Lokio/Buffer;->writeAll(Lokio/Source;)J
 
-    :goto_13
+    :goto_d
     return-void
 
-    :cond_1b
+    :cond_14
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     invoke-virtual {v4}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -812,6 +777,8 @@
 
     aget-object v8, v0, v7
 
+    add-int/lit8 v7, v7, 0x1
+
     const/4 v8, -0x1
 
     invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -819,8 +786,6 @@
     move-result-object v8
 
     invoke-interface {v5, v8}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
-
-    add-int/lit8 v7, v7, 0x1
 
     goto :goto_1
 
@@ -831,36 +796,34 @@
 
     move-result-object v5
 
-    const-string v6, "null cannot be cast to non-null type kotlin.Array<T>"
-
-    invoke-static {v5, v6}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    if-eqz v5, :cond_d
 
     check-cast v5, [Ljava/lang/Integer;
 
     array-length v6, v5
 
-    new-array v6, v6, [Ljava/lang/Integer;
+    invoke-static {v5, v6}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
 
-    array-length v7, v5
+    move-result-object v5
 
-    invoke-static {v5, v3, v6, v3, v7}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
-
-    invoke-static {v6}, Lkotlin/collections/CollectionsKt;->mutableListOf([Ljava/lang/Object;)Ljava/util/List;
+    invoke-static {v5}, Lkotlin/collections/CollectionsKt;->mutableListOf([Ljava/lang/Object;)Ljava/util/List;
 
     move-result-object v13
 
     array-length v11, v0
 
-    move v12, v3
+    move v5, v3
 
-    move v14, v12
+    move v12, v5
 
     :goto_2
-    if-ge v12, v11, :cond_3
+    if-ge v5, v11, :cond_3
 
-    aget-object v6, v0, v12
+    aget-object v6, v0, v5
 
-    add-int/lit8 v15, v14, 0x1
+    add-int/lit8 v14, v5, 0x1
+
+    add-int/lit8 v15, v12, 0x1
 
     const/4 v7, 0x0
 
@@ -876,15 +839,15 @@
 
     move-result v5
 
-    invoke-static {v14}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v12}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v6
 
     invoke-interface {v13, v5, v6}, Ljava/util/List;->set(ILjava/lang/Object;)Ljava/lang/Object;
 
-    add-int/lit8 v12, v12, 0x1
+    move v5, v14
 
-    move v14, v15
+    move v12, v15
 
     goto :goto_2
 
@@ -1091,7 +1054,7 @@
 
     move-result-object v0
 
-    const-string v3, "java.util.Arrays.copyOf(this, size)"
+    const-string v3, "copyOf(this, size)"
 
     invoke-static {v0, v3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -1111,6 +1074,15 @@
     move-result-object v1
 
     invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_d
+    new-instance v0, Ljava/lang/NullPointerException;
+
+    const-string v1, "null cannot be cast to non-null type kotlin.Array<T of kotlin.collections.ArraysKt__ArraysJVMKt.toTypedArray>"
+
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
     throw v0
 

@@ -52,7 +52,7 @@
 
     iget-object p1, p0, Lcom/google/android/settings/biometrics/face/anim/curve/CellState$2;->this$0:Lcom/google/android/settings/biometrics/face/anim/curve/CellState;
 
-    invoke-static {p1}, Lcom/google/android/settings/biometrics/face/anim/curve/CellState;->access$100(Lcom/google/android/settings/biometrics/face/anim/curve/CellState;)Z
+    invoke-static {p1}, Lcom/google/android/settings/biometrics/face/anim/curve/CellState;->-$$Nest$fgetmNoActivityPulseShouldRepeat(Lcom/google/android/settings/biometrics/face/anim/curve/CellState;)Z
 
     move-result p1
 
@@ -66,7 +66,7 @@
 
     iget-object p1, p0, Lcom/google/android/settings/biometrics/face/anim/curve/CellState$2;->this$0:Lcom/google/android/settings/biometrics/face/anim/curve/CellState;
 
-    invoke-static {p1}, Lcom/google/android/settings/biometrics/face/anim/curve/CellState;->access$200(Lcom/google/android/settings/biometrics/face/anim/curve/CellState;)Landroid/animation/ValueAnimator;
+    invoke-static {p1}, Lcom/google/android/settings/biometrics/face/anim/curve/CellState;->-$$Nest$fgetmNoActivityAnimator(Lcom/google/android/settings/biometrics/face/anim/curve/CellState;)Landroid/animation/ValueAnimator;
 
     move-result-object p1
 
@@ -83,7 +83,7 @@
     :cond_0
     iget-object p0, p0, Lcom/google/android/settings/biometrics/face/anim/curve/CellState$2;->this$0:Lcom/google/android/settings/biometrics/face/anim/curve/CellState;
 
-    invoke-static {p0}, Lcom/google/android/settings/biometrics/face/anim/curve/CellState;->access$300(Lcom/google/android/settings/biometrics/face/anim/curve/CellState;)Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationMultiAngleDrawable$BucketListener;
+    invoke-static {p0}, Lcom/google/android/settings/biometrics/face/anim/curve/CellState;->-$$Nest$fgetmBucketListener(Lcom/google/android/settings/biometrics/face/anim/curve/CellState;)Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationMultiAngleDrawable$BucketListener;
 
     move-result-object p0
 

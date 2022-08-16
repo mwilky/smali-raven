@@ -49,7 +49,7 @@
 
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    const p2, 0x7f0a0133
+    const p2, 0x7f0a02b7
 
     invoke-virtual {p1, p2}, Landroid/content/Context;->getColor(I)I
 
@@ -67,7 +67,7 @@
 
     iput-object p3, p0, Lcom/android/settings/fuelgauge/BatteryMeterView;->mAccentColorFilter:Landroid/graphics/ColorFilter;
 
-    const p3, 0x7f0a0045
+    const p3, 0x7f0a0048
 
     invoke-virtual {p1, p3}, Landroid/content/Context;->getColor(I)I
 

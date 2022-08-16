@@ -55,7 +55,7 @@
 
     move-result-object p0
 
-    invoke-static {p1, v0, p0}, Lcom/android/settings/applications/ProcessStatsDetail;->access$000(Lcom/android/settings/applications/ProcessStatsDetail;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {p1, v0, p0}, Lcom/android/settings/applications/ProcessStatsDetail;->-$$Nest$mstopService(Lcom/android/settings/applications/ProcessStatsDetail;Ljava/lang/String;Ljava/lang/String;)V
 
     return-void
 .end method

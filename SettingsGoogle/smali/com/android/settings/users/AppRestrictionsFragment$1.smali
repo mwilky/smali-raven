@@ -36,7 +36,7 @@
 
     iget-object p1, p0, Lcom/android/settings/users/AppRestrictionsFragment$1;->this$0:Lcom/android/settings/users/AppRestrictionsFragment;
 
-    invoke-static {p1}, Lcom/android/settings/users/AppRestrictionsFragment;->access$000(Lcom/android/settings/users/AppRestrictionsFragment;)Z
+    invoke-static {p1}, Lcom/android/settings/users/AppRestrictionsFragment;->-$$Nest$fgetmAppListChanged(Lcom/android/settings/users/AppRestrictionsFragment;)Z
 
     move-result p1
 
@@ -44,7 +44,7 @@
 
     iget-object p1, p0, Lcom/android/settings/users/AppRestrictionsFragment$1;->this$0:Lcom/android/settings/users/AppRestrictionsFragment;
 
-    invoke-static {p1}, Lcom/android/settings/users/AppRestrictionsFragment;->access$100(Lcom/android/settings/users/AppRestrictionsFragment;)Lcom/android/settingslib/users/AppRestrictionsHelper;
+    invoke-static {p1}, Lcom/android/settings/users/AppRestrictionsFragment;->-$$Nest$fgetmHelper(Lcom/android/settings/users/AppRestrictionsFragment;)Lcom/android/settingslib/users/AppRestrictionsHelper;
 
     move-result-object p1
 

@@ -55,7 +55,7 @@
 
     iput-object v0, p0, Lcom/android/settings/security/CredentialManagementAppPolicyPreference;->mHandler:Landroid/os/Handler;
 
-    const v0, 0x7f0600a3
+    const v0, 0x7f0600ad
 
     invoke-virtual {p0, v0}, Landroidx/preference/Preference;->setLayoutResource(I)V
 
@@ -71,7 +71,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0d048b
+    const v0, 0x7f0d04c4
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -168,9 +168,9 @@
     :goto_0
     iget-object v0, p0, Lcom/android/settings/security/CredentialManagementAppPolicyPreference;->mHandler:Landroid/os/Handler;
 
-    new-instance v1, Lcom/android/settings/security/CredentialManagementAppPolicyPreference$$ExternalSyntheticLambda0;
+    new-instance v1, Lcom/android/settings/security/CredentialManagementAppPolicyPreference$$ExternalSyntheticLambda1;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/settings/security/CredentialManagementAppPolicyPreference$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/security/CredentialManagementAppPolicyPreference;Landroidx/preference/PreferenceViewHolder;)V
+    invoke-direct {v1, p0, p1}, Lcom/android/settings/security/CredentialManagementAppPolicyPreference$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/security/CredentialManagementAppPolicyPreference;Landroidx/preference/PreferenceViewHolder;)V
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
@@ -186,9 +186,9 @@
 
     iget-object v0, p0, Lcom/android/settings/security/CredentialManagementAppPolicyPreference;->mExecutor:Ljava/util/concurrent/ExecutorService;
 
-    new-instance v1, Lcom/android/settings/security/CredentialManagementAppPolicyPreference$$ExternalSyntheticLambda1;
+    new-instance v1, Lcom/android/settings/security/CredentialManagementAppPolicyPreference$$ExternalSyntheticLambda0;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/settings/security/CredentialManagementAppPolicyPreference$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/security/CredentialManagementAppPolicyPreference;Landroidx/preference/PreferenceViewHolder;)V
+    invoke-direct {v1, p0, p1}, Lcom/android/settings/security/CredentialManagementAppPolicyPreference$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/security/CredentialManagementAppPolicyPreference;Landroidx/preference/PreferenceViewHolder;)V
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/ExecutorService;->execute(Ljava/lang/Runnable;)V
 

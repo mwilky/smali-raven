@@ -87,7 +87,7 @@
 .end method
 
 .method protected static decrement([I[F)V
-    .locals 5
+    .locals 6
 
     const/4 v0, 0x0
 
@@ -104,15 +104,13 @@
 
     aget v4, p1, v3
 
-    cmpg-float v4, v4, v1
+    cmpg-float v5, v4, v1
 
-    if-gez v4, :cond_0
-
-    aget v0, p1, v3
-
-    move v1, v0
+    if-gez v5, :cond_0
 
     move v0, v3
+
+    move v1, v4
 
     :cond_0
     add-int/lit8 v3, v3, 0x1
@@ -130,7 +128,7 @@
 .end method
 
 .method protected static increment([I[F)V
-    .locals 5
+    .locals 6
 
     const/4 v0, 0x0
 
@@ -147,15 +145,13 @@
 
     aget v4, p1, v3
 
-    cmpl-float v4, v4, v1
+    cmpl-float v5, v4, v1
 
-    if-lez v4, :cond_0
-
-    aget v0, p1, v3
-
-    move v1, v0
+    if-lez v5, :cond_0
 
     move v0, v3
+
+    move v1, v4
 
     :cond_0
     add-int/lit8 v3, v3, 0x1

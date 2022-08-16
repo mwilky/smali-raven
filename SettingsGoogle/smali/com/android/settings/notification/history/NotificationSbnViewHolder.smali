@@ -33,7 +33,7 @@
 
     invoke-direct {p0, p1}, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;-><init>(Landroid/view/View;)V
 
-    const v0, 0x7f0d0449
+    const v0, 0x7f0d0478
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -43,7 +43,7 @@
 
     iput-object v0, p0, Lcom/android/settings/notification/history/NotificationSbnViewHolder;->mPkgName:Landroid/widget/TextView;
 
-    const v0, 0x7f0d02b1
+    const v0, 0x7f0d02d3
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -53,7 +53,7 @@
 
     iput-object v0, p0, Lcom/android/settings/notification/history/NotificationSbnViewHolder;->mIcon:Landroid/widget/ImageView;
 
-    const v0, 0x7f0d05ce
+    const v0, 0x7f0d0610
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -63,7 +63,7 @@
 
     iput-object v0, p0, Lcom/android/settings/notification/history/NotificationSbnViewHolder;->mTime:Landroid/widget/DateTimeView;
 
-    const v0, 0x7f0d05d0
+    const v0, 0x7f0d0612
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -73,7 +73,7 @@
 
     iput-object v0, p0, Lcom/android/settings/notification/history/NotificationSbnViewHolder;->mTitle:Landroid/widget/TextView;
 
-    const v0, 0x7f0d05b4
+    const v0, 0x7f0d05f5
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -83,7 +83,7 @@
 
     iput-object v0, p0, Lcom/android/settings/notification/history/NotificationSbnViewHolder;->mSummary:Landroid/widget/TextView;
 
-    const v0, 0x7f0d0467
+    const v0, 0x7f0d0499
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -93,7 +93,7 @@
 
     iput-object v0, p0, Lcom/android/settings/notification/history/NotificationSbnViewHolder;->mProfileBadge:Landroid/widget/ImageView;
 
-    const v0, 0x7f0d01d4
+    const v0, 0x7f0d01ed
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -218,31 +218,22 @@
 
     move-result-object v10
 
-    const/4 v0, 0x0
-
     if-eqz p5, :cond_0
 
-    iget-object v1, v12, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
+    invoke-virtual/range {p5 .. p5}, Landroid/app/PendingIntent;->isActivity()Z
 
-    invoke-virtual {v1}, Landroid/view/View;->getContext()Landroid/content/Context;
+    move-result v0
 
-    move-result-object v1
-
-    invoke-virtual/range {p5 .. p5}, Landroid/app/PendingIntent;->getIntent()Landroid/content/Intent;
-
-    move-result-object v2
-
-    const/high16 v3, 0x24000000
-
-    invoke-static {v1, v0, v2, v3}, Landroid/app/PendingIntent;->getActivity(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
+    goto :goto_0
+
     :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
     move v9, v0
 
     if-nez v9, :cond_1

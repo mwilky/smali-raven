@@ -61,18 +61,6 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroidx/slice/widget/SliceStyle;Landroidx/slice/widget/RowStyle;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "style",
-            "rowStyle"
-        }
-    .end annotation
 
     invoke-direct {p0, p1}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
 
@@ -309,16 +297,6 @@
 
 .method public onCheckedChanged(Landroid/widget/CompoundButton;Z)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "buttonView",
-            "isChecked"
-        }
-    .end annotation
 
     iget-object p1, p0, Landroidx/slice/widget/SliceActionView;->mSliceAction:Landroidx/slice/core/SliceActionImpl;
 
@@ -340,14 +318,6 @@
 
 .method public onClick(Landroid/view/View;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "v"
-        }
-    .end annotation
 
     iget-object p1, p0, Landroidx/slice/widget/SliceActionView;->mSliceAction:Landroidx/slice/core/SliceActionImpl;
 
@@ -396,22 +366,6 @@
 
 .method public setAction(Landroidx/slice/core/SliceActionImpl;Landroidx/slice/widget/EventInfo;Landroidx/slice/widget/SliceView$OnSliceActionListener;ILandroidx/slice/widget/SliceActionView$SliceActionLoadingListener;)V
     .locals 7
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "action",
-            "info",
-            "listener",
-            "color",
-            "loadingListener"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/slice/widget/SliceActionView;->mActionView:Landroid/view/View;
 
@@ -610,7 +564,9 @@
 
     iput-object p2, p0, Landroidx/slice/widget/SliceActionView;->mActionView:Landroid/view/View;
 
-    check-cast p2, Landroid/widget/Button;
+    move-object p3, p2
+
+    check-cast p3, Landroid/widget/Button;
 
     invoke-virtual {p1}, Landroidx/slice/core/SliceActionImpl;->getTitle()Ljava/lang/CharSequence;
 
@@ -657,7 +613,7 @@
 
     move-result-object p2
 
-    if-eqz p2, :cond_b
+    if-eqz p2, :cond_a
 
     invoke-virtual {p1}, Landroidx/slice/core/SliceActionImpl;->isToggle()Z
 
@@ -781,17 +737,8 @@
 
     invoke-virtual {p2, v0, v0, v0, v0}, Landroid/view/View;->setPadding(IIII)V
 
-    const p2, 0x101030e
-
-    sget p3, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 p4, 0x15
-
-    if-lt p3, p4, :cond_a
-
     const p2, 0x101045c
 
-    :cond_a
     iget-object p3, p0, Landroidx/slice/widget/SliceActionView;->mActionView:Landroid/view/View;
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getContext()Landroid/content/Context;
@@ -808,17 +755,17 @@
 
     invoke-virtual {p2, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    :cond_b
+    :cond_a
     :goto_2
     iget-object p2, p0, Landroidx/slice/widget/SliceActionView;->mActionView:Landroid/view/View;
 
-    if-eqz p2, :cond_d
+    if-eqz p2, :cond_c
 
     invoke-virtual {p1}, Landroidx/slice/core/SliceActionImpl;->getContentDescription()Ljava/lang/CharSequence;
 
     move-result-object p2
 
-    if-eqz p2, :cond_c
+    if-eqz p2, :cond_b
 
     invoke-virtual {p1}, Landroidx/slice/core/SliceActionImpl;->getContentDescription()Ljava/lang/CharSequence;
 
@@ -826,7 +773,7 @@
 
     goto :goto_3
 
-    :cond_c
+    :cond_b
     invoke-virtual {p1}, Landroidx/slice/core/SliceActionImpl;->getTitle()Ljava/lang/CharSequence;
 
     move-result-object p1
@@ -836,20 +783,12 @@
 
     invoke-virtual {p0, p1}, Landroid/view/View;->setContentDescription(Ljava/lang/CharSequence;)V
 
-    :cond_d
+    :cond_c
     return-void
 .end method
 
 .method public setLoading(Z)V
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "isLoading"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 

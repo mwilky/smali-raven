@@ -53,7 +53,7 @@
 
     iget-object p0, p0, Lcom/google/android/material/tabs/TabLayout$TabView$1;->val$view:Landroid/view/View;
 
-    invoke-static {p1, p0}, Lcom/google/android/material/tabs/TabLayout$TabView;->access$1000(Lcom/google/android/material/tabs/TabLayout$TabView;Landroid/view/View;)V
+    invoke-static {p1, p0}, Lcom/google/android/material/tabs/TabLayout$TabView;->access$1100(Lcom/google/android/material/tabs/TabLayout$TabView;Landroid/view/View;)V
 
     :cond_0
     return-void

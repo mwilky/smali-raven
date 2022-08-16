@@ -24,7 +24,8 @@
         "Ljava/lang/Object;",
         ">",
         "Lcom/google/protobuf/GeneratedMessageLite<",
-        "TMessageType;TBuilderType;>;"
+        "TMessageType;TBuilderType;>;",
+        "Lcom/google/protobuf/MessageLiteOrBuilder;"
     }
 .end annotation
 

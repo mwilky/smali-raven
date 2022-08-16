@@ -13,11 +13,11 @@
 
     invoke-direct {p0, p1, p2}, Lcom/android/settings/accessibility/ListDialogPreference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    const p1, 0x7f060047
+    const p1, 0x7f06004a
 
     invoke-virtual {p0, p1}, Landroidx/preference/DialogPreference;->setDialogLayoutResource(I)V
 
-    const p1, 0x7f060048
+    const p1, 0x7f06004b
 
     invoke-virtual {p0, p1}, Lcom/android/settings/accessibility/ListDialogPreference;->setListItemLayoutResource(I)V
 
@@ -37,7 +37,7 @@
 
     if-nez v1, :cond_0
 
-    const p0, 0x7f040845
+    const p0, 0x7f04088f
 
     invoke-virtual {v0, p0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -56,12 +56,12 @@
 
     if-ne p0, v2, :cond_1
 
-    const p0, 0x7f040846
+    const p0, 0x7f040890
 
     goto :goto_0
 
     :cond_1
-    const p0, 0x7f040847
+    const p0, 0x7f040891
 
     :goto_0
     new-array v2, v2, [Ljava/lang/Object;
@@ -86,7 +86,7 @@
 
     if-eqz p0, :cond_0
 
-    const p2, 0x7f0d01dd
+    const p2, 0x7f0d01f6
 
     invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

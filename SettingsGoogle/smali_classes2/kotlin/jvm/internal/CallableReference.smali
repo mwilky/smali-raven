@@ -219,7 +219,8 @@
         value = {
             "()",
             "Ljava/util/List<",
-            "*>;"
+            "Ljava/lang/Object;",
+            ">;"
         }
     .end annotation
 
@@ -281,7 +282,8 @@
         value = {
             "()",
             "Ljava/util/List<",
-            "*>;"
+            "Ljava/lang/Object;",
+            ">;"
         }
     .end annotation
 

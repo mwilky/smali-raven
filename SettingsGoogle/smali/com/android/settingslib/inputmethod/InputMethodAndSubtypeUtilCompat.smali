@@ -268,7 +268,7 @@
     .locals 1
 
     :try_start_0
-    const-string v0, "selected_input_method_subtype"
+    const-string/jumbo v0, "selected_input_method_subtype"
 
     invoke-static {p0, v0}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;)I
 
@@ -499,7 +499,7 @@
 .method private static putSelectedInputMethodSubtype(Landroid/content/ContentResolver;I)V
     .locals 1
 
-    const-string v0, "selected_input_method_subtype"
+    const-string/jumbo v0, "selected_input_method_subtype"
 
     invoke-static {p0, v0, p1}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
@@ -552,7 +552,7 @@
 .end method
 
 .method public static saveInputMethodSubtypeList(Landroidx/preference/PreferenceFragmentCompat;Landroid/content/ContentResolver;Ljava/util/List;Z)V
-    .locals 22
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -561,6 +561,46 @@
             "Ljava/util/List<",
             "Landroid/view/inputmethod/InputMethodInfo;",
             ">;Z)V"
+        }
+    .end annotation
+
+    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
+
+    move-result v0
+
+    invoke-static {p0, p1, p2, p3, v0}, Lcom/android/settingslib/inputmethod/InputMethodAndSubtypeUtilCompat;->saveInputMethodSubtypeListForUserInternal(Landroidx/preference/PreferenceFragmentCompat;Landroid/content/ContentResolver;Ljava/util/List;ZI)V
+
+    return-void
+.end method
+
+.method public static saveInputMethodSubtypeListForUser(Landroidx/preference/PreferenceFragmentCompat;Landroid/content/ContentResolver;Ljava/util/List;ZI)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroidx/preference/PreferenceFragmentCompat;",
+            "Landroid/content/ContentResolver;",
+            "Ljava/util/List<",
+            "Landroid/view/inputmethod/InputMethodInfo;",
+            ">;ZI)V"
+        }
+    .end annotation
+
+    invoke-static {p0, p1, p2, p3, p4}, Lcom/android/settingslib/inputmethod/InputMethodAndSubtypeUtilCompat;->saveInputMethodSubtypeListForUserInternal(Landroidx/preference/PreferenceFragmentCompat;Landroid/content/ContentResolver;Ljava/util/List;ZI)V
+
+    return-void
+.end method
+
+.method private static saveInputMethodSubtypeListForUserInternal(Landroidx/preference/PreferenceFragmentCompat;Landroid/content/ContentResolver;Ljava/util/List;ZI)V
+    .locals 22
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroidx/preference/PreferenceFragmentCompat;",
+            "Landroid/content/ContentResolver;",
+            "Ljava/util/List<",
+            "Landroid/view/inputmethod/InputMethodInfo;",
+            ">;ZI)V"
         }
     .end annotation
 
@@ -597,7 +637,7 @@
 
     move-result v10
 
-    if-eqz v10, :cond_e
+    if-eqz v10, :cond_10
 
     invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -631,6 +671,19 @@
     goto :goto_1
 
     :cond_1
+    instance-of v13, v12, Lcom/android/settingslib/PrimarySwitchPreference;
+
+    if-eqz v13, :cond_2
+
+    check-cast v12, Lcom/android/settingslib/PrimarySwitchPreference;
+
+    invoke-virtual {v12}, Lcom/android/settingslib/PrimarySwitchPreference;->isChecked()Z
+
+    move-result v12
+
+    goto :goto_1
+
+    :cond_2
     invoke-virtual {v5, v11}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
 
     move-result v12
@@ -644,59 +697,87 @@
 
     move-result v14
 
-    if-nez p3, :cond_2
+    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
+
+    move-result v15
+
+    move/from16 v8, p4
+
+    if-ne v8, v15, :cond_3
 
     invoke-virtual/range {p0 .. p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
 
     move-result-object v15
 
-    invoke-static {v15}, Lcom/android/settingslib/inputmethod/InputMethodSettingValuesWrapper;->getInstance(Landroid/content/Context;)Lcom/android/settingslib/inputmethod/InputMethodSettingValuesWrapper;
+    move-object/from16 v16, v7
 
-    move-result-object v15
+    const/4 v8, 0x0
 
-    invoke-virtual {v15, v10}, Lcom/android/settingslib/inputmethod/InputMethodSettingValuesWrapper;->isAlwaysCheckedIme(Landroid/view/inputmethod/InputMethodInfo;)Z
-
-    move-result v15
-
-    if-nez v15, :cond_3
-
-    :cond_2
-    if-eqz v12, :cond_a
+    goto :goto_2
 
     :cond_3
-    invoke-virtual {v5, v11}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
-
-    move-result v15
-
-    if-nez v15, :cond_4
-
-    new-instance v15, Ljava/util/HashSet;
-
-    invoke-direct {v15}, Ljava/util/HashSet;-><init>()V
-
-    invoke-virtual {v5, v11, v15}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    :cond_4
-    invoke-virtual {v5, v11}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual/range {p0 .. p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
 
     move-result-object v15
-
-    check-cast v15, Ljava/util/HashSet;
-
-    invoke-virtual {v10}, Landroid/view/inputmethod/InputMethodInfo;->getSubtypeCount()I
-
-    move-result v8
 
     move-object/from16 v16, v7
 
-    const/4 v7, 0x0
+    invoke-static/range {p4 .. p4}, Landroid/os/UserHandle;->of(I)Landroid/os/UserHandle;
 
-    const/16 v17, 0x0
+    move-result-object v7
+
+    const/4 v8, 0x0
+
+    invoke-virtual {v15, v7, v8}, Landroid/app/Activity;->createContextAsUser(Landroid/os/UserHandle;I)Landroid/content/Context;
+
+    move-result-object v15
 
     :goto_2
-    if-ge v7, v8, :cond_9
+    if-nez p3, :cond_4
 
-    invoke-virtual {v10, v7}, Landroid/view/inputmethod/InputMethodInfo;->getSubtypeAt(I)Landroid/view/inputmethod/InputMethodSubtype;
+    invoke-static {v15}, Lcom/android/settingslib/inputmethod/InputMethodSettingValuesWrapper;->getInstance(Landroid/content/Context;)Lcom/android/settingslib/inputmethod/InputMethodSettingValuesWrapper;
+
+    move-result-object v7
+
+    invoke-virtual {v7, v10}, Lcom/android/settingslib/inputmethod/InputMethodSettingValuesWrapper;->isAlwaysCheckedIme(Landroid/view/inputmethod/InputMethodInfo;)Z
+
+    move-result v7
+
+    if-nez v7, :cond_5
+
+    :cond_4
+    if-eqz v12, :cond_c
+
+    :cond_5
+    invoke-virtual {v5, v11}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v7
+
+    if-nez v7, :cond_6
+
+    new-instance v7, Ljava/util/HashSet;
+
+    invoke-direct {v7}, Ljava/util/HashSet;-><init>()V
+
+    invoke-virtual {v5, v11, v7}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    :cond_6
+    invoke-virtual {v5, v11}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v7
+
+    check-cast v7, Ljava/util/HashSet;
+
+    invoke-virtual {v10}, Landroid/view/inputmethod/InputMethodInfo;->getSubtypeCount()I
+
+    move-result v15
+
+    move/from16 v17, v8
+
+    :goto_3
+    if-ge v8, v15, :cond_b
+
+    invoke-virtual {v10, v8}, Landroid/view/inputmethod/InputMethodInfo;->getSubtypeAt(I)Landroid/view/inputmethod/InputMethodSubtype;
 
     move-result-object v18
 
@@ -704,134 +785,132 @@
 
     move-result v19
 
-    move/from16 v20, v8
+    move/from16 v20, v9
 
     invoke-static/range {v19 .. v19}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    move-result-object v8
-
-    move/from16 v19, v9
-
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v9, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v9, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
     move-result-object v9
 
-    invoke-virtual {v0, v9}, Landroidx/preference/PreferenceFragmentCompat;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
+    move-object/from16 v19, v10
 
-    move-result-object v9
+    new-instance v10, Ljava/lang/StringBuilder;
 
-    check-cast v9, Landroidx/preference/TwoStatePreference;
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
 
-    if-nez v9, :cond_6
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_5
-    :goto_3
-    move/from16 v9, v19
+    invoke-virtual {v10, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_4
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    :cond_6
+    move-result-object v10
+
+    invoke-virtual {v0, v10}, Landroidx/preference/PreferenceFragmentCompat;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
+
+    move-result-object v10
+
+    check-cast v10, Landroidx/preference/TwoStatePreference;
+
+    if-nez v10, :cond_8
+
+    :cond_7
+    :goto_4
+    move/from16 v9, v20
+
+    goto :goto_5
+
+    :cond_8
     const/16 v21, 0x1
 
-    if-nez v17, :cond_7
+    if-nez v17, :cond_9
 
-    invoke-virtual {v15}, Ljava/util/HashSet;->clear()V
+    invoke-virtual {v7}, Ljava/util/HashSet;->clear()V
 
     move/from16 v17, v21
 
-    move/from16 v19, v17
+    move/from16 v20, v17
 
-    :cond_7
-    invoke-virtual {v9}, Landroidx/preference/Preference;->isEnabled()Z
+    :cond_9
+    invoke-virtual {v10}, Landroidx/preference/Preference;->isEnabled()Z
 
     move-result v21
 
-    if-eqz v21, :cond_8
+    if-eqz v21, :cond_a
 
-    invoke-virtual {v9}, Landroidx/preference/TwoStatePreference;->isChecked()Z
+    invoke-virtual {v10}, Landroidx/preference/TwoStatePreference;->isChecked()Z
 
-    move-result v9
+    move-result v10
 
-    if-eqz v9, :cond_8
+    if-eqz v10, :cond_a
 
-    invoke-virtual {v15, v8}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v7, v9}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    if-eqz v13, :cond_5
+    if-eqz v13, :cond_7
 
     invoke-virtual/range {v18 .. v18}, Landroid/view/inputmethod/InputMethodSubtype;->hashCode()I
 
-    move-result v8
+    move-result v9
 
-    if-ne v4, v8, :cond_5
+    if-ne v4, v9, :cond_7
 
     const/4 v9, 0x0
-
-    goto :goto_4
-
-    :cond_8
-    invoke-virtual {v15, v8}, Ljava/util/HashSet;->remove(Ljava/lang/Object;)Z
-
-    goto :goto_3
-
-    :goto_4
-    add-int/lit8 v7, v7, 0x1
-
-    move/from16 v8, v20
-
-    goto :goto_2
-
-    :cond_9
-    move/from16 v19, v9
 
     goto :goto_5
 
     :cond_a
-    move-object/from16 v16, v7
+    invoke-virtual {v7, v9}, Ljava/util/HashSet;->remove(Ljava/lang/Object;)Z
 
+    goto :goto_4
+
+    :goto_5
+    add-int/lit8 v8, v8, 0x1
+
+    move-object/from16 v10, v19
+
+    goto :goto_3
+
+    :cond_b
+    move/from16 v20, v9
+
+    goto :goto_6
+
+    :cond_c
     invoke-virtual {v5, v11}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    if-eqz v13, :cond_b
+    if-eqz v13, :cond_d
 
     const/4 v3, 0x0
 
-    :cond_b
-    :goto_5
-    if-eqz v14, :cond_d
+    :cond_d
+    :goto_6
+    if-eqz v14, :cond_f
 
-    if-eqz p3, :cond_d
+    if-eqz p3, :cond_f
 
     invoke-virtual {v6, v11}, Ljava/util/HashSet;->contains(Ljava/lang/Object;)Z
 
     move-result v7
 
-    if-eqz v7, :cond_c
+    if-eqz v7, :cond_e
 
-    if-eqz v12, :cond_d
+    if-eqz v12, :cond_f
 
     invoke-virtual {v6, v11}, Ljava/util/HashSet;->remove(Ljava/lang/Object;)Z
 
-    goto :goto_6
+    goto :goto_7
 
-    :cond_c
-    if-nez v12, :cond_d
+    :cond_e
+    if-nez v12, :cond_f
 
     invoke-virtual {v6, v11}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    :cond_d
-    :goto_6
+    :cond_f
+    :goto_7
     move-object/from16 v7, v16
 
     goto/16 :goto_0
 
-    :cond_e
+    :cond_10
     invoke-static {v5}, Lcom/android/settingslib/inputmethod/InputMethodAndSubtypeUtilCompat;->buildInputMethodsAndSubtypesString(Ljava/util/HashMap;)Ljava/lang/String;
 
     move-result-object v0
@@ -840,20 +919,20 @@
 
     move-result-object v4
 
-    if-nez v9, :cond_f
+    if-nez v9, :cond_11
 
     invoke-static/range {p1 .. p1}, Lcom/android/settingslib/inputmethod/InputMethodAndSubtypeUtilCompat;->isInputMethodSubtypeSelected(Landroid/content/ContentResolver;)Z
 
     move-result v5
 
-    if-nez v5, :cond_10
+    if-nez v5, :cond_12
 
-    :cond_f
+    :cond_11
     const/4 v5, -0x1
 
     invoke-static {v1, v5}, Lcom/android/settingslib/inputmethod/InputMethodAndSubtypeUtilCompat;->putSelectedInputMethodSubtype(Landroid/content/ContentResolver;I)V
 
-    :cond_10
+    :cond_12
     const-string v5, "enabled_input_methods"
 
     invoke-static {v1, v5, v0}, Landroid/provider/Settings$Secure;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
@@ -862,21 +941,21 @@
 
     move-result v0
 
-    if-lez v0, :cond_11
+    if-lez v0, :cond_13
 
     const-string v0, "disabled_system_input_methods"
 
     invoke-static {v1, v0, v4}, Landroid/provider/Settings$Secure;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
 
-    :cond_11
-    if-eqz v3, :cond_12
+    :cond_13
+    if-eqz v3, :cond_14
 
-    goto :goto_7
+    goto :goto_8
 
-    :cond_12
+    :cond_14
     const-string v3, ""
 
-    :goto_7
+    :goto_8
     invoke-static {v1, v2, v3}, Landroid/provider/Settings$Secure;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
 
     return-void

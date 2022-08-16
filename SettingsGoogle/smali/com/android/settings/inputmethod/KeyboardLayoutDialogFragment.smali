@@ -39,6 +39,22 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$monKeyboardLayoutClicked(Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment;->onKeyboardLayoutClicked(I)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$monSetupLayoutsButtonClicked(Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment;->onSetupLayoutsButtonClicked()V
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 1
 
@@ -61,22 +77,6 @@
     iput v0, p0, Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment;->mInputDeviceId:I
 
     iput-object p1, p0, Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment;->mInputDeviceIdentifier:Landroid/hardware/input/InputDeviceIdentifier;
-
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment;I)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment;->onKeyboardLayoutClicked(I)V
-
-    return-void
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment;->onSetupLayoutsButtonClicked()V
 
     return-void
 .end method
@@ -148,7 +148,7 @@
 
     if-eqz v0, :cond_1
 
-    const v1, 0x7f0d0196
+    const v1, 0x7f0d01ac
 
     invoke-virtual {v0, v1}, Landroidx/appcompat/app/AppCompatDialog;->findViewById(I)Landroid/view/View;
 
@@ -292,7 +292,7 @@
 
     invoke-direct {v1, p1}, Landroidx/appcompat/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const p1, 0x7f040ad1
+    const p1, 0x7f040b2f
 
     invoke-virtual {v1, p1}, Landroidx/appcompat/app/AlertDialog$Builder;->setTitle(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
@@ -302,7 +302,7 @@
 
     invoke-direct {v1, p0}, Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment$2;-><init>(Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment;)V
 
-    const v2, 0x7f040acf
+    const v2, 0x7f040b2d
 
     invoke-virtual {p1, v2, v1}, Landroidx/appcompat/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 
@@ -320,7 +320,7 @@
 
     move-result-object p1
 
-    const v1, 0x7f060113
+    const v1, 0x7f060117
 
     const/4 v2, 0x0
 

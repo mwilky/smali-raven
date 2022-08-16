@@ -180,9 +180,9 @@
 
     add-int/lit8 v5, v6, -0x1
 
-    aget-object v10, v3, v5
+    aget-object v5, v3, v5
 
-    aget v10, v10, v9
+    aget v10, v5, v9
 
     aget-object v11, v3, v6
 
@@ -195,8 +195,6 @@
     mul-int/2addr v11, v13
 
     add-int/2addr v10, v11
-
-    aget-object v5, v3, v5
 
     aget v5, v5, v12
 

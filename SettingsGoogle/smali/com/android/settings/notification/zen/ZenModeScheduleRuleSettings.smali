@@ -14,8 +14,6 @@
 # instance fields
 .field private mDayDialog:Landroidx/appcompat/app/AlertDialog;
 
-.field private final mDayFormat:Ljava/text/SimpleDateFormat;
-
 .field private mDays:Landroidx/preference/Preference;
 
 .field private mEnd:Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings$TimePickerPreference;
@@ -24,35 +22,13 @@
 
 .field private mSchedule:Landroid/service/notification/ZenModeConfig$ScheduleInfo;
 
+.field private final mScheduleHelper:Lcom/android/settings/notification/zen/ZenRuleScheduleHelper;
+
 .field private mStart:Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings$TimePickerPreference;
 
 
 # direct methods
-.method public constructor <init>()V
-    .locals 2
-
-    invoke-direct {p0}, Lcom/android/settings/notification/zen/ZenModeRuleSettingsBase;-><init>()V
-
-    new-instance v0, Ljava/text/SimpleDateFormat;
-
-    const-string v1, "EEE"
-
-    invoke-direct {v0, v1}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;)V
-
-    iput-object v0, p0, Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings;->mDayFormat:Ljava/text/SimpleDateFormat;
-
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings;->showDaysDialog()V
-
-    return-void
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings;)Landroid/service/notification/ZenModeConfig$ScheduleInfo;
+.method static bridge synthetic -$$Nest$fgetmSchedule(Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings;)Landroid/service/notification/ZenModeConfig$ScheduleInfo;
     .locals 0
 
     iget-object p0, p0, Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings;->mSchedule:Landroid/service/notification/ZenModeConfig$ScheduleInfo;
@@ -60,10 +36,32 @@
     return-object p0
 .end method
 
-.method static synthetic access$200(Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings;)V
+.method static bridge synthetic -$$Nest$mshowDaysDialog(Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings;->showDaysDialog()V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mupdateDays(Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings;->updateDays()V
+
+    return-void
+.end method
+
+.method public constructor <init>()V
+    .locals 1
+
+    invoke-direct {p0}, Lcom/android/settings/notification/zen/ZenModeRuleSettingsBase;-><init>()V
+
+    new-instance v0, Lcom/android/settings/notification/zen/ZenRuleScheduleHelper;
+
+    invoke-direct {v0}, Lcom/android/settings/notification/zen/ZenRuleScheduleHelper;-><init>()V
+
+    iput-object v0, p0, Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings;->mScheduleHelper:Lcom/android/settings/notification/zen/ZenRuleScheduleHelper;
 
     return-void
 .end method
@@ -73,11 +71,11 @@
 
     new-instance v0, Landroidx/appcompat/app/AlertDialog$Builder;
 
-    iget-object v1, p0, Lcom/android/settings/notification/zen/ZenModeRuleSettingsBase;->mContext:Landroid/content/Context;
+    iget-object v1, p0, Lcom/android/settings/notification/zen/ZenModeSettingsBase;->mContext:Landroid/content/Context;
 
     invoke-direct {v0, v1}, Landroidx/appcompat/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f041877
+    const v1, 0x7f041975
 
     invoke-virtual {v0, v1}, Landroidx/appcompat/app/AlertDialog$Builder;->setTitle(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
@@ -85,7 +83,7 @@
 
     new-instance v1, Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings$6;
 
-    iget-object v2, p0, Lcom/android/settings/notification/zen/ZenModeRuleSettingsBase;->mContext:Landroid/content/Context;
+    iget-object v2, p0, Lcom/android/settings/notification/zen/ZenModeSettingsBase;->mContext:Landroid/content/Context;
 
     iget-object v3, p0, Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings;->mSchedule:Landroid/service/notification/ZenModeConfig$ScheduleInfo;
 
@@ -105,7 +103,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f04084a
+    const v1, 0x7f040894
 
     const/4 v2, 0x0
 
@@ -123,119 +121,36 @@
 .end method
 
 .method private updateDays()V
-    .locals 9
+    .locals 3
 
-    iget-object v0, p0, Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings;->mSchedule:Landroid/service/notification/ZenModeConfig$ScheduleInfo;
+    iget-object v0, p0, Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings;->mScheduleHelper:Lcom/android/settings/notification/zen/ZenRuleScheduleHelper;
 
-    iget-object v0, v0, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->days:[I
+    iget-object v1, p0, Lcom/android/settings/notification/zen/ZenModeSettingsBase;->mContext:Landroid/content/Context;
 
-    if-eqz v0, :cond_4
+    iget-object v2, p0, Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings;->mSchedule:Landroid/service/notification/ZenModeConfig$ScheduleInfo;
 
-    array-length v1, v0
+    invoke-virtual {v0, v1, v2}, Lcom/android/settings/notification/zen/ZenRuleScheduleHelper;->getDaysDescription(Landroid/content/Context;Landroid/service/notification/ZenModeConfig$ScheduleInfo;)Ljava/lang/String;
 
-    if-lez v1, :cond_4
+    move-result-object v0
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    if-eqz v0, :cond_0
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    iget-object v1, p0, Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings;->mDays:Landroidx/preference/Preference;
 
-    invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
-
-    move-result-object v2
-
-    invoke-static {v2}, Lcom/android/settings/notification/zen/ZenModeScheduleDaysSelection;->getDaysOfWeekForLocale(Ljava/util/Calendar;)[I
-
-    move-result-object v3
-
-    const/4 v4, 0x0
-
-    move v5, v4
-
-    :goto_0
-    array-length v6, v3
-
-    if-ge v5, v6, :cond_3
-
-    aget v6, v3, v5
-
-    move v7, v4
-
-    :goto_1
-    array-length v8, v0
-
-    if-ge v7, v8, :cond_2
-
-    aget v8, v0, v7
-
-    if-ne v6, v8, :cond_1
-
-    const/4 v7, 0x7
-
-    invoke-virtual {v2, v7, v6}, Ljava/util/Calendar;->set(II)V
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->length()I
-
-    move-result v6
-
-    if-lez v6, :cond_0
-
-    iget-object v6, p0, Lcom/android/settings/notification/zen/ZenModeRuleSettingsBase;->mContext:Landroid/content/Context;
-
-    const v7, 0x7f041390
-
-    invoke-virtual {v6, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v1, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    :cond_0
-    iget-object v6, p0, Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings;->mDayFormat:Ljava/text/SimpleDateFormat;
-
-    invoke-virtual {v2}, Ljava/util/Calendar;->getTime()Ljava/util/Date;
-
-    move-result-object v7
-
-    invoke-virtual {v6, v7}, Ljava/text/SimpleDateFormat;->format(Ljava/util/Date;)Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v1, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    goto :goto_2
-
-    :cond_1
-    add-int/lit8 v7, v7, 0x1
-
-    goto :goto_1
-
-    :cond_2
-    :goto_2
-    add-int/lit8 v5, v5, 0x1
-
-    goto :goto_0
-
-    :cond_3
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->length()I
-
-    move-result v0
-
-    if-lez v0, :cond_4
-
-    iget-object v0, p0, Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings;->mDays:Landroidx/preference/Preference;
-
-    invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v1, v0}, Landroidx/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
     iget-object p0, p0, Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings;->mDays:Landroidx/preference/Preference;
 
-    invoke-virtual {p0, v4}, Landroidx/preference/Preference;->notifyDependencyChange(Z)V
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Landroidx/preference/Preference;->notifyDependencyChange(Z)V
 
     return-void
 
-    :cond_4
+    :cond_0
     iget-object v0, p0, Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings;->mDays:Landroidx/preference/Preference;
 
-    const v1, 0x7f041879
+    const v1, 0x7f041977
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -283,7 +198,7 @@
     :goto_0
     if-eqz v1, :cond_1
 
-    const v0, 0x7f04182b
+    const v0, 0x7f041926
 
     :cond_1
     iget-object p0, p0, Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings;->mEnd:Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings$TimePickerPreference;
@@ -368,7 +283,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f15012c
+    const p0, 0x7f150134
 
     return p0
 .end method
@@ -414,7 +329,7 @@
 
     iget-object v2, p0, Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings;->mStart:Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings$TimePickerPreference;
 
-    const v3, 0x7f041895
+    const v3, 0x7f041993
 
     invoke-virtual {v2, v3}, Landroidx/preference/Preference;->setTitle(I)V
 
@@ -456,7 +371,7 @@
 
     iget-object v1, p0, Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings;->mEnd:Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings$TimePickerPreference;
 
-    const v2, 0x7f04182a
+    const v2, 0x7f041925
 
     invoke-virtual {v1, v2}, Landroidx/preference/Preference;->setTitle(I)V
 

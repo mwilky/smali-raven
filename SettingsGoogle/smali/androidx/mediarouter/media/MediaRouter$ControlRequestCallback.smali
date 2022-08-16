@@ -27,30 +27,12 @@
 # virtual methods
 .method public onError(Ljava/lang/String;Landroid/os/Bundle;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "error",
-            "data"
-        }
-    .end annotation
 
     return-void
 .end method
 
 .method public onResult(Landroid/os/Bundle;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "data"
-        }
-    .end annotation
 
     return-void
 .end method

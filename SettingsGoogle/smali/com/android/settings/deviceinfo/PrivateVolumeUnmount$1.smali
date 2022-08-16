@@ -47,7 +47,7 @@
 
     iget-object v1, p0, Lcom/android/settings/deviceinfo/PrivateVolumeUnmount$1;->this$0:Lcom/android/settings/deviceinfo/PrivateVolumeUnmount;
 
-    invoke-static {v1}, Lcom/android/settings/deviceinfo/PrivateVolumeUnmount;->access$000(Lcom/android/settings/deviceinfo/PrivateVolumeUnmount;)Landroid/os/storage/VolumeInfo;
+    invoke-static {v1}, Lcom/android/settings/deviceinfo/PrivateVolumeUnmount;->-$$Nest$fgetmVolume(Lcom/android/settings/deviceinfo/PrivateVolumeUnmount;)Landroid/os/storage/VolumeInfo;
 
     move-result-object v1
 

@@ -36,19 +36,19 @@
 
     iget-object p1, p0, Lcom/android/settings/network/EnableMultiSimSidecar$1;->this$0:Lcom/android/settings/network/EnableMultiSimSidecar;
 
-    invoke-static {p1}, Lcom/android/settings/network/EnableMultiSimSidecar;->access$000(Lcom/android/settings/network/EnableMultiSimSidecar;)I
+    invoke-static {p1}, Lcom/android/settings/network/EnableMultiSimSidecar;->-$$Nest$mgetReadySimsCount(Lcom/android/settings/network/EnableMultiSimSidecar;)I
 
     move-result p1
 
     iget-object p2, p0, Lcom/android/settings/network/EnableMultiSimSidecar$1;->this$0:Lcom/android/settings/network/EnableMultiSimSidecar;
 
-    invoke-static {p2}, Lcom/android/settings/network/EnableMultiSimSidecar;->access$100(Lcom/android/settings/network/EnableMultiSimSidecar;)I
+    invoke-static {p2}, Lcom/android/settings/network/EnableMultiSimSidecar;->-$$Nest$mgetActivePortsCount(Lcom/android/settings/network/EnableMultiSimSidecar;)I
 
     move-result p2
 
     iget-object v0, p0, Lcom/android/settings/network/EnableMultiSimSidecar$1;->this$0:Lcom/android/settings/network/EnableMultiSimSidecar;
 
-    invoke-static {v0}, Lcom/android/settings/network/EnableMultiSimSidecar;->access$200(Lcom/android/settings/network/EnableMultiSimSidecar;)I
+    invoke-static {v0}, Lcom/android/settings/network/EnableMultiSimSidecar;->-$$Nest$fgetmNumOfActiveSim(Lcom/android/settings/network/EnableMultiSimSidecar;)I
 
     move-result v0
 
@@ -62,7 +62,7 @@
 
     iget-object v0, p0, Lcom/android/settings/network/EnableMultiSimSidecar$1;->this$0:Lcom/android/settings/network/EnableMultiSimSidecar;
 
-    invoke-static {v0}, Lcom/android/settings/network/EnableMultiSimSidecar;->access$200(Lcom/android/settings/network/EnableMultiSimSidecar;)I
+    invoke-static {v0}, Lcom/android/settings/network/EnableMultiSimSidecar;->-$$Nest$fgetmNumOfActiveSim(Lcom/android/settings/network/EnableMultiSimSidecar;)I
 
     move-result v0
 
@@ -72,7 +72,7 @@
 
     iget-object p2, p0, Lcom/android/settings/network/EnableMultiSimSidecar$1;->this$0:Lcom/android/settings/network/EnableMultiSimSidecar;
 
-    invoke-static {p2}, Lcom/android/settings/network/EnableMultiSimSidecar;->access$200(Lcom/android/settings/network/EnableMultiSimSidecar;)I
+    invoke-static {p2}, Lcom/android/settings/network/EnableMultiSimSidecar;->-$$Nest$fgetmNumOfActiveSim(Lcom/android/settings/network/EnableMultiSimSidecar;)I
 
     move-result p2
 
@@ -82,7 +82,7 @@
 
     aput-object p2, p1, v2
 
-    const-string p2, "%d slots are active and ready."
+    const-string p2, "%d ports are active and ready."
 
     invoke-static {p2, p1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -115,7 +115,7 @@
 
     aput-object p1, p0, v1
 
-    const-string p1, "%d slots are active and %d SIMs are ready. Keep waiting until timeout."
+    const-string p1, "%d ports are active and %d SIMs are ready. Keep waiting until timeout."
 
     invoke-static {p1, p0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 

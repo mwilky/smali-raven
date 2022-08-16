@@ -11,9 +11,9 @@
         <item quantity="few">Prije %d min</item>
     </plurals>
     <plurals name="abc_slice_duration_years">
-        <item quantity="other">Prije %d godina</item>
-        <item quantity="one">Prije %d godinu</item>
-        <item quantity="few">Prije %d godine</item>
+        <item quantity="other">Prije %d god.</item>
+        <item quantity="one">Prije %d god.</item>
+        <item quantity="few">Prije %d god.</item>
     </plurals>
     <plurals name="accessibility_usage_summary">
         <item quantity="other">%1$d aplikacija ima potpuni pristup vašem uređaju</item>
@@ -106,9 +106,9 @@
         <item quantity="few">Još %d dana</item>
     </plurals>
     <plurals name="data_saver_unrestricted_summary">
-        <item quantity="other">%1$d aplikacija smije neograničeno upotrebljavati podatkovni promet kad je uključena Štednja podatkovnog prometa</item>
+        <item quantity="other">%1$d aplikacija smije neograničeno upotrebljavati podatkovni promet kad je uključena štednja podatkovnog prometa</item>
         <item quantity="one">%1$d aplikacija smije neograničeno upotrebljavati podatkovni promet kad je uključena štednja podatkovnog prometa</item>
-        <item quantity="few">%1$d aplikacije smiju neograničeno upotrebljavati podatkovni promet kad je uključena Štednja podatkovnog prometa</item>
+        <item quantity="few">%1$d aplikacije smiju neograničeno upotrebljavati podatkovni promet kad je uključena štednja podatkovnog prometa</item>
     </plurals>
     <plurals name="default_camera_app_title">
         <item quantity="other">Aplikacija za snimanje</item>
@@ -291,14 +291,14 @@
         <item quantity="few">Isključene su %d kategorije</item>
     </plurals>
     <plurals name="notifications_sent_daily">
-        <item quantity="other">~%d obavijesti dnevno</item>
-        <item quantity="one">~%d obavijest dnevno</item>
-        <item quantity="few">~%d obavijesti dnevno</item>
+        <item quantity="other">~%,d obavijesti dnevno</item>
+        <item quantity="one">~%,d obavijest dnevno</item>
+        <item quantity="few">~%,d obavijesti dnevno</item>
     </plurals>
     <plurals name="notifications_sent_weekly">
-        <item quantity="other">~%d obavijesti tjedno</item>
-        <item quantity="one">~%d obavijest tjedno</item>
-        <item quantity="few">~%d obavijesti tjedno</item>
+        <item quantity="other">~%,d obavijesti tjedno</item>
+        <item quantity="one">~%,d obavijest tjedno</item>
+        <item quantity="few">~%,d obavijesti tjedno</item>
     </plurals>
     <plurals name="number_of_device_admins">
         <item quantity="other">%d aktivnih aplikacija</item>
@@ -410,28 +410,6 @@
         <item quantity="one">Označite certifikate kao pouzdane ili ih uklonite</item>
         <item quantity="few">Označite certifikate kao pouzdane ili ih uklonite</item>
     </plurals>
-    <plurals name="ssl_ca_cert_info_message">
-        <item quantity="other">"Domena %s instalirala je izdavače certifikata za vaš poslovni profil, što joj može omogućiti nadzor nad aktivnostima poslovne mreže, uključujući e-poruke, aplikacije i zaštićene web-lokacije.
-
-Više informacija o certifikatima možete saznati od administratora."</item>
-        <item quantity="one">"Domena %s instalirala je izdavače certifikata za vaš poslovni profil, što joj može omogućiti nadzor nad aktivnostima poslovne mreže, uključujući e-poruke, aplikacije i zaštićene web-lokacije.
-
-Više informacija o certifikatima možete saznati od administratora."</item>
-        <item quantity="few">"Domena %s instalirala je izdavače certifikata za vaš poslovni profil, što joj može omogućiti nadzor nad aktivnostima poslovne mreže, uključujući e-poruke, aplikacije i zaštićene web-lokacije.
-
-Više informacija o certifikatima možete saznati od administratora."</item>
-    </plurals>
-    <plurals name="ssl_ca_cert_info_message_device_owner">
-        <item quantity="other">"Domena %s instalirala je izdavače certifikata na vaš uređaj, što joj može omogućiti nadzor nad mrežnim aktivnostima uređaja, uključujući e-poruke, aplikacije i zaštićene web-lokacije.
-
-Više informacija o certifikatima možete saznati od administratora."</item>
-        <item quantity="one">"Domena %s instalirala je izdavače certifikata na vaš uređaj, što joj može omogućiti nadzor nad mrežnim aktivnostima uređaja, uključujući e-poruke, aplikacije i zaštićene web-lokacije.
-
-Više informacija o certifikatima možete saznati od administratora."</item>
-        <item quantity="few">"Domena %s instalirala je izdavače certifikata na vaš uređaj, što joj može omogućiti nadzor nad mrežnim aktivnostima uređaja, uključujući e-poruke, aplikacije i zaštićene web-lokacije.
-
-Više informacija o certifikatima možete saznati od administratora."</item>
-    </plurals>
     <plurals name="ssl_ca_cert_settings_button">
         <item quantity="other">Provjeri certifikate</item>
         <item quantity="one">Provjeri certifikate</item>
@@ -471,11 +449,6 @@ Više informacija o certifikatima možete saznati od administratora."</item>
         <item quantity="other">%d pretplata</item>
         <item quantity="one">%d pretplata</item>
         <item quantity="few">%d pretplate</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">Povezano je %1$d uređaja</item>
-        <item quantity="one">Povezan je %1$d uređaj</item>
-        <item quantity="few">Povezana su %1$d uređaja</item>
     </plurals>
     <plurals name="wrong_pin_code">
         <item quantity="other">Netočan PIN kôd SIM kartice; imate još %d pokušaja.</item>

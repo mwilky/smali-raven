@@ -80,9 +80,7 @@
 
     aput v7, v6, v0
 
-    aget v6, v6, v0
-
-    invoke-static {v6}, Ljava/lang/Math;->abs(F)F
+    invoke-static {v7}, Ljava/lang/Math;->abs(F)F
 
     move-result v6
 

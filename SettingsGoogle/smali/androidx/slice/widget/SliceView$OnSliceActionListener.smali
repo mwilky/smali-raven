@@ -16,14 +16,4 @@
 
 # virtual methods
 .method public abstract onSliceAction(Landroidx/slice/widget/EventInfo;Landroidx/slice/SliceItem;)V
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "info",
-            "item"
-        }
-    .end annotation
 .end method

@@ -53,12 +53,42 @@
 
 
 # direct methods
-.method public static synthetic $r8$lambda$Xr1WLrh-LSqGdBE4rUgCzov3_mA(Lcom/android/settings/password/ConfirmLockPassword;Landroid/content/Intent;)V
+.method public static synthetic $r8$lambda$7LfSoBF-SO4hY-Xm--83SUtg1QU(Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment;)Ljava/lang/String;
     .locals 0
 
-    invoke-static {p0, p1}, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment;->lambda$startDisappearAnimation$2(Lcom/android/settings/password/ConfirmLockPassword;Landroid/content/Intent;)V
+    invoke-direct {p0}, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment;->lambda$getDefaultHeader$1()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static synthetic $r8$lambda$DD2rKE2GGdbTX9HiJMmDU_Mnpqk(Lcom/android/settings/password/ConfirmLockPassword;Landroid/content/Intent;)V
+    .locals 0
+
+    invoke-static {p0, p1}, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment;->lambda$startDisappearAnimation$5(Lcom/android/settings/password/ConfirmLockPassword;Landroid/content/Intent;)V
 
     return-void
+.end method
+
+.method public static synthetic $r8$lambda$O9NJMIyMsdydt9ALyyRmt_C1zec(Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment;)Ljava/lang/String;
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment;->lambda$getDefaultHeader$2()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static synthetic $r8$lambda$e08tA699hPd280TY7a1tsNkrCEM(Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment;I)Ljava/lang/String;
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment;->lambda$getDefaultDetails$3(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method public static synthetic $r8$lambda$i3Zk7kG7BYoTMTvR3s1dfo5Amzw(Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment;)V
@@ -69,10 +99,10 @@
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$rFmfa-QnK-Oq7NmdPyhEYycHjBU(Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment;ILandroid/content/Intent;ILcom/android/internal/widget/VerifyCredentialResponse;I)V
+.method public static synthetic $r8$lambda$jPWe5ZWLi_lI8dUuQKewPsBuBBc(Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment;ILandroid/content/Intent;ILcom/android/internal/widget/VerifyCredentialResponse;I)V
     .locals 0
 
-    invoke-direct/range {p0 .. p5}, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment;->lambda$startVerifyPassword$1(ILandroid/content/Intent;ILcom/android/internal/widget/VerifyCredentialResponse;I)V
+    invoke-direct/range {p0 .. p5}, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment;->lambda$startVerifyPassword$4(ILandroid/content/Intent;ILcom/android/internal/widget/VerifyCredentialResponse;I)V
 
     return-void
 .end method
@@ -85,27 +115,23 @@
     return-void
 .end method
 
-.method public constructor <init>()V
-    .locals 1
+.method static bridge synthetic -$$Nest$fgetmCredentialCheckResultTracker(Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment;)Lcom/android/settings/password/CredentialCheckResultTracker;
+    .locals 0
 
-    invoke-direct {p0}, Lcom/android/settings/password/ConfirmDeviceCredentialBaseFragment;-><init>()V
+    iget-object p0, p0, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment;->mCredentialCheckResultTracker:Lcom/android/settings/password/CredentialCheckResultTracker;
 
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment;->mDisappearing:Z
-
-    return-void
+    return-object p0
 .end method
 
-.method static synthetic access$102(Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment;Landroid/os/AsyncTask;)Landroid/os/AsyncTask;
+.method static bridge synthetic -$$Nest$fputmPendingLockCheck(Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment;Landroid/os/AsyncTask;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment;->mPendingLockCheck:Landroid/os/AsyncTask;
 
-    return-object p1
+    return-void
 .end method
 
-.method static synthetic access$200(Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment;)Z
+.method static bridge synthetic -$$Nest$misInternalActivity(Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment;)Z
     .locals 0
 
     invoke-direct {p0}, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment;->isInternalActivity()Z
@@ -115,26 +141,22 @@
     return p0
 .end method
 
-.method static synthetic access$300(Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment;->mIsAlpha:Z
-
-    return p0
-.end method
-
-.method static synthetic access$400(Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment;)Lcom/android/settings/password/CredentialCheckResultTracker;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment;->mCredentialCheckResultTracker:Lcom/android/settings/password/CredentialCheckResultTracker;
-
-    return-object p0
-.end method
-
-.method static synthetic access$500(Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment;)V
+.method static bridge synthetic -$$Nest$mupdatePasswordEntry(Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment;->updatePasswordEntry()V
+
+    return-void
+.end method
+
+.method public constructor <init>()V
+    .locals 1
+
+    invoke-direct {p0}, Lcom/android/settings/password/ConfirmDeviceCredentialBaseFragment;-><init>()V
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment;->mDisappearing:Z
 
     return-void
 .end method
@@ -203,26 +225,34 @@
     return-object p0
 .end method
 
-.method private getDefaultDetails()I
-    .locals 2
+.method private getDefaultDetails()Ljava/lang/String;
+    .locals 4
 
     iget-boolean v0, p0, Lcom/android/settings/password/ConfirmDeviceCredentialBaseFragment;->mFrp:Z
 
     if-eqz v0, :cond_1
 
-    iget-boolean p0, p0, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment;->mIsAlpha:Z
+    iget-boolean v0, p0, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment;->mIsAlpha:Z
 
-    if-eqz p0, :cond_0
+    if-eqz v0, :cond_0
 
-    const p0, 0x7f040c1a
+    const v0, 0x7f040c81
+
+    invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
 
     goto :goto_0
 
     :cond_0
-    const p0, 0x7f040c24
+    const v0, 0x7f040c8b
+
+    invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
 
     :goto_0
-    return p0
+    return-object p0
 
     :cond_1
     invoke-virtual {p0}, Lcom/android/settings/password/ConfirmDeviceCredentialBaseFragment;->isStrongAuthRequired()Z
@@ -237,73 +267,130 @@
 
     add-int/2addr v0, v1
 
-    iget-boolean p0, p0, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment;->mIsAlpha:Z
+    iget-boolean v1, p0, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment;->mIsAlpha:Z
 
-    add-int/2addr v0, p0
+    add-int/2addr v0, v1
 
-    invoke-static {}, Lcom/android/settings/password/ConfirmLockPassword;->access$000()[I
+    iget-object v1, p0, Lcom/android/settings/password/ConfirmDeviceCredentialBaseFragment;->mDevicePolicyManager:Landroid/app/admin/DevicePolicyManager;
+
+    invoke-virtual {v1}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
+
+    move-result-object v1
+
+    invoke-static {}, Lcom/android/settings/password/ConfirmLockPassword;->-$$Nest$sfgetDETAIL_TEXT_OVERRIDES()[Ljava/lang/String;
+
+    move-result-object v2
+
+    aget-object v2, v2, v0
+
+    new-instance v3, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment$$ExternalSyntheticLambda4;
+
+    invoke-direct {v3, p0, v0}, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment$$ExternalSyntheticLambda4;-><init>(Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment;I)V
+
+    invoke-virtual {v1, v2, v3}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
 
     move-result-object p0
 
-    aget p0, p0, v0
-
-    return p0
+    return-object p0
 .end method
 
-.method private getDefaultHeader()I
-    .locals 1
+.method private getDefaultHeader()Ljava/lang/String;
+    .locals 2
 
     iget-boolean v0, p0, Lcom/android/settings/password/ConfirmDeviceCredentialBaseFragment;->mFrp:Z
 
     if-eqz v0, :cond_1
 
-    iget-boolean p0, p0, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment;->mIsAlpha:Z
+    iget-boolean v0, p0, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment;->mIsAlpha:Z
 
-    if-eqz p0, :cond_0
+    if-eqz v0, :cond_0
 
-    const p0, 0x7f040c1e
+    const v0, 0x7f040c85
+
+    invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
 
     goto :goto_0
 
     :cond_0
-    const p0, 0x7f040c28
+    const v0, 0x7f040c8f
+
+    invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
 
     :goto_0
-    return p0
+    return-object p0
 
     :cond_1
     iget-boolean v0, p0, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment;->mIsManagedProfile:Z
 
     if-eqz v0, :cond_3
 
-    iget-boolean p0, p0, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment;->mIsAlpha:Z
+    iget-boolean v0, p0, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment;->mIsAlpha:Z
 
-    if-eqz p0, :cond_2
+    if-eqz v0, :cond_2
 
-    const p0, 0x7f040c29
+    iget-object v0, p0, Lcom/android/settings/password/ConfirmDeviceCredentialBaseFragment;->mDevicePolicyManager:Landroid/app/admin/DevicePolicyManager;
+
+    invoke-virtual {v0}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment$$ExternalSyntheticLambda2;
+
+    invoke-direct {v1, p0}, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment;)V
+
+    const-string p0, "Settings.CONFIRM_WORK_PROFILE_PASSWORD_HEADER"
+
+    invoke-virtual {v0, p0, v1}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
+    :cond_2
+    iget-object v0, p0, Lcom/android/settings/password/ConfirmDeviceCredentialBaseFragment;->mDevicePolicyManager:Landroid/app/admin/DevicePolicyManager;
+
+    invoke-virtual {v0}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment$$ExternalSyntheticLambda3;
+
+    invoke-direct {v1, p0}, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment$$ExternalSyntheticLambda3;-><init>(Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment;)V
+
+    const-string p0, "Settings.CONFIRM_WORK_PROFILE_PIN_HEADER"
+
+    invoke-virtual {v0, p0, v1}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
+    :cond_3
+    iget-boolean v0, p0, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment;->mIsAlpha:Z
+
+    if-eqz v0, :cond_4
+
+    const v0, 0x7f040c84
+
+    invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
 
     goto :goto_1
 
-    :cond_2
-    const p0, 0x7f040c2b
+    :cond_4
+    const v0, 0x7f040c8e
+
+    invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
 
     :goto_1
-    return p0
-
-    :cond_3
-    iget-boolean p0, p0, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment;->mIsAlpha:Z
-
-    if-eqz p0, :cond_4
-
-    const p0, 0x7f040c1d
-
-    goto :goto_2
-
-    :cond_4
-    const p0, 0x7f040c27
-
-    :goto_2
-    return p0
+    return-object p0
 .end method
 
 .method private getErrorMessage()I
@@ -313,12 +400,12 @@
 
     if-eqz p0, :cond_0
 
-    const p0, 0x7f040c33
+    const p0, 0x7f040c9a
 
     goto :goto_0
 
     :cond_0
-    const p0, 0x7f040c34
+    const p0, 0x7f040c9b
 
     :goto_0
     return p0
@@ -469,6 +556,46 @@
     return p0
 .end method
 
+.method private synthetic lambda$getDefaultDetails$3(I)Ljava/lang/String;
+    .locals 1
+
+    invoke-static {}, Lcom/android/settings/password/ConfirmLockPassword;->-$$Nest$sfgetDETAIL_TEXTS()[I
+
+    move-result-object v0
+
+    aget p1, v0, p1
+
+    invoke-virtual {p0, p1}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private synthetic lambda$getDefaultHeader$1()Ljava/lang/String;
+    .locals 1
+
+    const v0, 0x7f040c90
+
+    invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private synthetic lambda$getDefaultHeader$2()Ljava/lang/String;
+    .locals 1
+
+    const v0, 0x7f040c92
+
+    invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method private static synthetic lambda$onDestroy$0()V
     .locals 0
 
@@ -481,7 +608,7 @@
     return-void
 .end method
 
-.method private static synthetic lambda$startDisappearAnimation$2(Lcom/android/settings/password/ConfirmLockPassword;Landroid/content/Intent;)V
+.method private static synthetic lambda$startDisappearAnimation$5(Lcom/android/settings/password/ConfirmLockPassword;Landroid/content/Intent;)V
     .locals 1
 
     const/4 v0, -0x1
@@ -499,7 +626,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$startVerifyPassword$1(ILandroid/content/Intent;ILcom/android/internal/widget/VerifyCredentialResponse;I)V
+.method private synthetic lambda$startVerifyPassword$4(ILandroid/content/Intent;ILcom/android/internal/widget/VerifyCredentialResponse;I)V
     .locals 3
 
     const/4 v0, 0x0
@@ -681,9 +808,9 @@
 
     move-result-object p0
 
-    new-instance v2, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment$$ExternalSyntheticLambda2;
+    new-instance v2, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment$$ExternalSyntheticLambda6;
 
-    invoke-direct {v2, v0, p1}, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/password/ConfirmLockPassword;Landroid/content/Intent;)V
+    invoke-direct {v2, v0, p1}, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment$$ExternalSyntheticLambda6;-><init>(Lcom/android/settings/password/ConfirmLockPassword;Landroid/content/Intent;)V
 
     invoke-virtual {v1, p0, v2}, Lcom/android/settingslib/animation/AppearAnimationUtils;->startAnimation([Landroid/view/View;Ljava/lang/Runnable;)V
 
@@ -708,9 +835,9 @@
 
     iget v1, p0, Lcom/android/settings/password/ConfirmDeviceCredentialBaseFragment;->mUserId:I
 
-    new-instance v2, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment$$ExternalSyntheticLambda0;
+    new-instance v2, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment$$ExternalSyntheticLambda5;
 
-    invoke-direct {v2, p0, p3, p2, v0}, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment;ILandroid/content/Intent;I)V
+    invoke-direct {v2, p0, p3, p2, v0}, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment$$ExternalSyntheticLambda5;-><init>(Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment;ILandroid/content/Intent;I)V
 
     if-ne v0, v1, :cond_0
 
@@ -799,7 +926,7 @@
 
 
 # virtual methods
-.method protected getLastTryErrorMessage(I)I
+.method protected getLastTryDefaultErrorMessage(I)I
     .locals 2
 
     const/4 v0, 0x1
@@ -818,12 +945,12 @@
 
     if-eqz p0, :cond_0
 
-    const p0, 0x7f040bb8
+    const p0, 0x7f040c1f
 
     goto :goto_0
 
     :cond_0
-    const p0, 0x7f040bbe
+    const p0, 0x7f040c25
 
     :goto_0
     return p0
@@ -854,12 +981,12 @@
 
     if-eqz p0, :cond_3
 
-    const p0, 0x7f040bb7
+    const p0, 0x7f040c1e
 
     goto :goto_1
 
     :cond_3
-    const p0, 0x7f040bbd
+    const p0, 0x7f040c24
 
     :goto_1
     return p0
@@ -869,15 +996,42 @@
 
     if-eqz p0, :cond_5
 
-    const p0, 0x7f040bb6
+    const p0, 0x7f040c1d
 
     goto :goto_2
 
     :cond_5
-    const p0, 0x7f040bbc
+    const p0, 0x7f040c23
 
     :goto_2
     return p0
+.end method
+
+.method protected getLastTryOverrideErrorMessageId(I)Ljava/lang/String;
+    .locals 1
+
+    const/4 v0, 0x2
+
+    if-ne p1, v0, :cond_1
+
+    iget-boolean p0, p0, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment;->mIsAlpha:Z
+
+    if-eqz p0, :cond_0
+
+    const-string p0, "Settings.WORK_PROFILE_LAST_PASSWORD_ATTEMPT_BEFORE_WIPE"
+
+    goto :goto_0
+
+    :cond_0
+    const-string p0, "Settings.WORK_PROFILE_LAST_PIN_ATTEMPT_BEFORE_WIPE"
+
+    :goto_0
+    return-object p0
+
+    :cond_1
+    const-string p0, "UNDEFINED"
+
+    return-object p0
 .end method
 
 .method public getMetricsCategory()I
@@ -895,7 +1049,7 @@
 
     move-result v0
 
-    const v1, 0x7f0d03e1
+    const v1, 0x7f0d0412
 
     if-ne v0, v1, :cond_0
 
@@ -908,7 +1062,7 @@
 
     move-result p1
 
-    const v0, 0x7f0d013a
+    const v0, 0x7f0d014b
 
     if-ne p1, v0, :cond_1
 
@@ -958,12 +1112,12 @@
 
     if-ne v2, v3, :cond_0
 
-    const v2, 0x7f060094
+    const v2, 0x7f06009e
 
     goto :goto_0
 
     :cond_0
-    const v2, 0x7f060092
+    const v2, 0x7f06009c
 
     :goto_0
     const/4 v3, 0x0
@@ -976,7 +1130,7 @@
 
     move-result-object v2
 
-    const v4, 0x7f0d04f1
+    const v4, 0x7f0d0533
 
     invoke-virtual {v2, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -986,7 +1140,7 @@
 
     iput-object v4, v0, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment;->mGlifLayout:Lcom/google/android/setupdesign/GlifLayout;
 
-    const v4, 0x7f0d0424
+    const v4, 0x7f0d0454
 
     invoke-virtual {v2, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1010,7 +1164,7 @@
 
     iput-object v4, v0, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment;->mPasswordEntryInputDisabler:Lcom/android/internal/widget/TextViewInputDisabler;
 
-    const v4, 0x7f0d0211
+    const v4, 0x7f0d022a
 
     invoke-virtual {v2, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1127,11 +1281,7 @@
 
     if-eqz v5, :cond_4
 
-    invoke-direct/range {p0 .. p0}, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment;->getDefaultHeader()I
-
-    move-result v4
-
-    invoke-virtual {v0, v4}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
+    invoke-direct/range {p0 .. p0}, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment;->getDefaultHeader()Ljava/lang/String;
 
     move-result-object v4
 
@@ -1142,11 +1292,7 @@
 
     if-eqz v5, :cond_5
 
-    invoke-direct/range {p0 .. p0}, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment;->getDefaultDetails()I
-
-    move-result v1
-
-    invoke-virtual {v0, v1}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
+    invoke-direct/range {p0 .. p0}, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment;->getDefaultDetails()Ljava/lang/String;
 
     move-result-object v1
 
@@ -1180,7 +1326,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f041478
+    const v5, 0x7f041573
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1203,7 +1349,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f04147c
+    const v5, 0x7f041577
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1218,7 +1364,7 @@
 
     move-result-object v4
 
-    const v5, 0x1040248
+    const v5, 0x104026e
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1363,7 +1509,9 @@
 
     invoke-direct {p0, v0}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
-    sget-object v0, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment$$ExternalSyntheticLambda3;->INSTANCE:Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment$$ExternalSyntheticLambda3;
+    new-instance v0, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment$$ExternalSyntheticLambda1;
+
+    invoke-direct {v0}, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment$$ExternalSyntheticLambda1;-><init>()V
 
     const-wide/16 v1, 0x1388
 
@@ -1503,12 +1651,12 @@
 
     if-eqz p0, :cond_0
 
-    const p0, 0x7f040c2f
+    const p0, 0x7f040c96
 
     goto :goto_0
 
     :cond_0
-    const p0, 0x7f040c31
+    const p0, 0x7f040c98
 
     :goto_0
     invoke-virtual {p1, p0}, Landroid/widget/Button;->setText(I)V
@@ -1527,9 +1675,9 @@
     :cond_0
     iget-object p1, p0, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment;->mPasswordEntry:Landroid/widget/ImeAwareEditText;
 
-    new-instance v0, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment$$ExternalSyntheticLambda1;
+    new-instance v0, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment$$ExternalSyntheticLambda0;
 
-    invoke-direct {v0, p0}, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment;)V
+    invoke-direct {v0, p0}, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment;)V
 
     invoke-virtual {p1, v0}, Landroid/widget/ImeAwareEditText;->post(Ljava/lang/Runnable;)Z
 
@@ -1592,9 +1740,9 @@
 
     move-result-object v1
 
-    new-instance v2, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment$$ExternalSyntheticLambda1;
+    new-instance v2, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment$$ExternalSyntheticLambda0;
 
-    invoke-direct {v2, p0}, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment;)V
+    invoke-direct {v2, p0}, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment;)V
 
     invoke-virtual {v0, v1, v2}, Lcom/android/settingslib/animation/AppearAnimationUtils;->startAnimation([Landroid/view/View;Ljava/lang/Runnable;)V
 

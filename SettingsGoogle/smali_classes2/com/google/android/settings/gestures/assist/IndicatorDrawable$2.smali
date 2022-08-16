@@ -39,7 +39,7 @@
 
     iget-object p4, p0, Lcom/google/android/settings/gestures/assist/IndicatorDrawable$2;->this$0:Lcom/google/android/settings/gestures/assist/IndicatorDrawable;
 
-    invoke-static {p4, p2, p3}, Lcom/google/android/settings/gestures/assist/IndicatorDrawable;->access$102(Lcom/google/android/settings/gestures/assist/IndicatorDrawable;J)J
+    invoke-static {p4, p2, p3}, Lcom/google/android/settings/gestures/assist/IndicatorDrawable;->-$$Nest$fputmTime(Lcom/google/android/settings/gestures/assist/IndicatorDrawable;J)V
 
     const-wide/16 p4, 0x96
 

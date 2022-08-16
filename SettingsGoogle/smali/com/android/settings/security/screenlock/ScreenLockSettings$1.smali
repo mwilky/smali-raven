@@ -44,7 +44,7 @@
 
     const/4 v0, 0x0
 
-    invoke-static {p1, v0, p0}, Lcom/android/settings/security/screenlock/ScreenLockSettings;->access$000(Landroid/content/Context;Lcom/android/settings/dashboard/DashboardFragment;Lcom/android/internal/widget/LockPatternUtils;)Ljava/util/List;
+    invoke-static {p1, v0, p0}, Lcom/android/settings/security/screenlock/ScreenLockSettings;->-$$Nest$smbuildPreferenceControllers(Landroid/content/Context;Lcom/android/settings/dashboard/DashboardFragment;Lcom/android/internal/widget/LockPatternUtils;)Ljava/util/List;
 
     move-result-object p0
 

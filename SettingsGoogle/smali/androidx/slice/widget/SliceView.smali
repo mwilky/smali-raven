@@ -126,14 +126,6 @@
 
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "context"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -144,16 +136,6 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "attrs"
-        }
-    .end annotation
 
     sget v0, Landroidx/slice/view/R$attr;->sliceViewStyle:I
 
@@ -164,18 +146,6 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "attrs",
-            "defStyleAttr"
-        }
-    .end annotation
 
     invoke-direct {p0, p1, p2, p3}, Landroid/view/ViewGroup;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
@@ -220,20 +190,6 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "attrs",
-            "defStyleAttr",
-            "defStyleRes"
-        }
-    .end annotation
 
     invoke-direct {p0, p1, p2, p3, p4}, Landroid/view/ViewGroup;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
 
@@ -340,14 +296,6 @@
 
 .method private getChildLp(Landroid/view/View;)Landroid/view/ViewGroup$LayoutParams;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "child"
-        }
-    .end annotation
 
     instance-of p1, p1, Landroidx/slice/widget/ShortcutView;
 
@@ -416,14 +364,6 @@
 
 .method private handleTouchForLongpress(Landroid/view/MotionEvent;)Z
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "ev"
-        }
-    .end annotation
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
 
@@ -550,20 +490,6 @@
 
 .method private init(Landroid/content/Context;Landroid/util/AttributeSet;II)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "attrs",
-            "defStyleAttr",
-            "defStyleRes"
-        }
-    .end annotation
 
     new-instance v0, Landroidx/slice/widget/SliceStyle;
 
@@ -726,14 +652,6 @@
 
 .method private initSliceMetrics(Landroidx/slice/Slice;)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "slice"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -800,16 +718,6 @@
 
 .method private logSliceMetricsOnTouch(Landroidx/slice/SliceItem;Landroidx/slice/widget/EventInfo;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "item",
-            "info"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/slice/widget/SliceView;->mCurrentSliceMetrics:Landroidx/slice/widget/SliceMetrics;
 
@@ -851,14 +759,6 @@
 
 .method private logSliceMetricsVisibilityChange(Z)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "visibility"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/slice/widget/SliceView;->mCurrentSliceMetrics:Landroidx/slice/widget/SliceMetrics;
 
@@ -897,14 +797,6 @@
 
 .method public static modeToString(I)Ljava/lang/String;
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "mode"
-        }
-    .end annotation
 
     const/4 v0, 0x1
 
@@ -952,14 +844,6 @@
 
 .method private refreshLastUpdatedLabel(Z)V
     .locals 6
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "visibility"
-        }
-    .end annotation
 
     iget-boolean v0, p0, Landroidx/slice/widget/SliceView;->mShowLastUpdated:Z
 
@@ -1295,14 +1179,6 @@
 # virtual methods
 .method protected configureViewPolicy(I)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "maxHeight"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/slice/widget/SliceView;->mListContent:Landroidx/slice/widget/ListContent;
 
@@ -1483,14 +1359,6 @@
 
 .method public onChanged(Landroidx/slice/Slice;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "slice"
-        }
-    .end annotation
 
     invoke-virtual {p0, p1}, Landroidx/slice/widget/SliceView;->setSlice(Landroidx/slice/Slice;)V
 
@@ -1499,14 +1367,6 @@
 
 .method public bridge synthetic onChanged(Ljava/lang/Object;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x1000
-        }
-        names = {
-            "slice"
-        }
-    .end annotation
 
     check-cast p1, Landroidx/slice/Slice;
 
@@ -1517,14 +1377,6 @@
 
 .method public onClick(Landroid/view/View;)V
     .locals 6
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "v"
-        }
-    .end annotation
 
     iget-object p1, p0, Landroidx/slice/widget/SliceView;->mListContent:Landroidx/slice/widget/ListContent;
 
@@ -1681,14 +1533,6 @@
 
 .method public onInterceptTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "ev"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/slice/widget/SliceView;->mLongClickListener:Landroid/view/View$OnLongClickListener;
 
@@ -1721,22 +1565,6 @@
 
 .method protected onLayout(ZIIII)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "changed",
-            "l",
-            "t",
-            "r",
-            "b"
-        }
-    .end annotation
 
     iget-object p1, p0, Landroidx/slice/widget/SliceView;->mCurrentView:Landroidx/slice/widget/SliceChildView;
 
@@ -1788,16 +1616,6 @@
 
 .method protected onMeasure(II)V
     .locals 7
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "widthMeasureSpec",
-            "heightMeasureSpec"
-        }
-    .end annotation
 
     invoke-static {p1}, Landroid/view/View$MeasureSpec;->getSize(I)I
 
@@ -2063,14 +1881,6 @@
 
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "ev"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/slice/widget/SliceView;->mLongClickListener:Landroid/view/View$OnLongClickListener;
 
@@ -2103,16 +1913,6 @@
 
 .method protected onVisibilityChanged(Landroid/view/View;I)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "changedView",
-            "visibility"
-        }
-    .end annotation
 
     invoke-super {p0, p1, p2}, Landroid/view/ViewGroup;->onVisibilityChanged(Landroid/view/View;I)V
 
@@ -2154,14 +1954,6 @@
 
 .method protected onWindowVisibilityChanged(I)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "visibility"
-        }
-    .end annotation
 
     invoke-super {p0, p1}, Landroid/view/ViewGroup;->onWindowVisibilityChanged(I)V
 
@@ -2196,14 +1988,6 @@
 
 .method public setAccentColor(I)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "accentColor"
-        }
-    .end annotation
 
     iput p1, p0, Landroidx/slice/widget/SliceView;->mThemeTintColor:I
 
@@ -2224,14 +2008,6 @@
 
 .method public setClickInfo([I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "info"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/slice/widget/SliceView;->mClickInfo:[I
 
@@ -2240,14 +2016,6 @@
 
 .method public setCurrentView(Landroidx/slice/widget/SliceChildView;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "currentView"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/slice/widget/SliceView;->mCurrentView:Landroidx/slice/widget/SliceChildView;
 
@@ -2274,14 +2042,6 @@
 
 .method public setMode(I)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "mode"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -2292,16 +2052,6 @@
 
 .method public setMode(IZ)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "mode",
-            "animate"
-        }
-    .end annotation
 
     const-string v0, "SliceView"
 
@@ -2369,14 +2119,6 @@
 
 .method public setOnClickListener(Landroid/view/View$OnClickListener;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "listener"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/slice/widget/SliceView;->mOnClickListener:Landroid/view/View$OnClickListener;
 
@@ -2385,14 +2127,6 @@
 
 .method public setOnLongClickListener(Landroid/view/View$OnLongClickListener;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "listener"
-        }
-    .end annotation
 
     invoke-super {p0, p1}, Landroid/view/ViewGroup;->setOnLongClickListener(Landroid/view/View$OnLongClickListener;)V
 
@@ -2403,14 +2137,6 @@
 
 .method public setOnSliceActionListener(Landroidx/slice/widget/SliceView$OnSliceActionListener;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "observer"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/slice/widget/SliceView;->mSliceObserver:Landroidx/slice/widget/SliceView$OnSliceActionListener;
 
@@ -2423,14 +2149,6 @@
 
 .method public setRowStyleFactory(Landroidx/slice/widget/RowStyleFactory;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "rowStyleFactory"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/slice/widget/SliceView;->mSliceStyle:Landroidx/slice/widget/SliceStyle;
 
@@ -2441,14 +2159,6 @@
 
 .method public setScrollable(Z)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "isScrollable"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/slice/widget/SliceView;->mViewPolicy:Landroidx/slice/widget/SliceViewPolicy;
 
@@ -2468,14 +2178,6 @@
 
 .method public setShowActionDividers(Z)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "enabled"
-        }
-    .end annotation
 
     iput-boolean p1, p0, Landroidx/slice/widget/SliceView;->mShowActionDividers:Z
 
@@ -2491,14 +2193,6 @@
 
 .method public setShowActionRow(Z)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "show"
-        }
-    .end annotation
 
     iput-boolean p1, p0, Landroidx/slice/widget/SliceView;->mShowActions:Z
 
@@ -2509,14 +2203,6 @@
 
 .method public setShowHeaderDivider(Z)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "enabled"
-        }
-    .end annotation
 
     iput-boolean p1, p0, Landroidx/slice/widget/SliceView;->mShowHeaderDivider:Z
 
@@ -2532,14 +2218,6 @@
 
 .method public setShowTitleItems(Z)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "enabled"
-        }
-    .end annotation
 
     iput-boolean p1, p0, Landroidx/slice/widget/SliceView;->mShowTitleItems:Z
 
@@ -2555,14 +2233,6 @@
 
 .method public setSlice(Landroidx/slice/Slice;)V
     .locals 6
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "slice"
-        }
-    .end annotation
 
     invoke-static {p0}, Landroidx/slice/widget/LocationBasedViewTracker;->trackInputFocused(Landroid/view/ViewGroup;)V
 
@@ -2820,15 +2490,6 @@
 
 .method public setSliceActions(Ljava/util/List;)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "newActions"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2928,14 +2589,6 @@
 
 .method setSliceViewPolicy(Landroidx/slice/widget/SliceViewPolicy;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "policy"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/slice/widget/SliceView;->mViewPolicy:Landroidx/slice/widget/SliceViewPolicy;
 
@@ -2944,15 +2597,6 @@
 
 .method public showActionDividers(Z)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "enabled"
-        }
-    .end annotation
-
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -2963,15 +2607,6 @@
 
 .method public showHeaderDivider(Z)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "enabled"
-        }
-    .end annotation
-
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -2982,15 +2617,6 @@
 
 .method public showTitleItems(Z)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "enabled"
-        }
-    .end annotation
-
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 

@@ -13,7 +13,7 @@
 
 
 # instance fields
-.field private mCarrierConfigManager:Landroid/telephony/CarrierConfigManager;
+.field private mCarrierConfigCache:Lcom/android/settings/network/CarrierConfigCache;
 
 .field private mFragmentManager:Landroidx/fragment/app/FragmentManager;
 
@@ -42,33 +42,27 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;)V
-    .locals 0
+    .locals 1
 
     invoke-direct {p0, p1, p2}, Lcom/android/settings/network/telephony/TelephonyTogglePreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
-    iget-object p1, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+    iget-object p2, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const-class p2, Landroid/telephony/ims/ImsManager;
+    const-class v0, Landroid/telephony/ims/ImsManager;
 
-    invoke-virtual {p1, p2}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-virtual {p2, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object p2
 
-    check-cast p1, Landroid/telephony/ims/ImsManager;
+    check-cast p2, Landroid/telephony/ims/ImsManager;
 
-    iput-object p1, p0, Lcom/android/settings/network/telephony/ContactDiscoveryPreferenceController;->mImsManager:Landroid/telephony/ims/ImsManager;
+    iput-object p2, p0, Lcom/android/settings/network/telephony/ContactDiscoveryPreferenceController;->mImsManager:Landroid/telephony/ims/ImsManager;
 
-    iget-object p1, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
-
-    const-class p2, Landroid/telephony/CarrierConfigManager;
-
-    invoke-virtual {p1, p2}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/android/settings/network/CarrierConfigCache;->getInstance(Landroid/content/Context;)Lcom/android/settings/network/CarrierConfigCache;
 
     move-result-object p1
 
-    check-cast p1, Landroid/telephony/CarrierConfigManager;
-
-    iput-object p1, p0, Lcom/android/settings/network/telephony/ContactDiscoveryPreferenceController;->mCarrierConfigManager:Landroid/telephony/CarrierConfigManager;
+    iput-object p1, p0, Lcom/android/settings/network/telephony/ContactDiscoveryPreferenceController;->mCarrierConfigCache:Lcom/android/settings/network/CarrierConfigCache;
 
     return-void
 .end method
@@ -200,18 +194,10 @@
 
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public displayPreference(Landroidx/preference/PreferenceScreen;)V
     .locals 1
 
-    invoke-super {p0, p1}, Lcom/android/settings/core/BasePreferenceController;->displayPreference(Landroidx/preference/PreferenceScreen;)V
+    invoke-super {p0, p1}, Lcom/android/settings/core/TogglePreferenceController;->displayPreference(Landroidx/preference/PreferenceScreen;)V
 
     invoke-virtual {p0}, Lcom/android/settings/core/BasePreferenceController;->getPreferenceKey()Ljava/lang/String;
 
@@ -229,9 +215,9 @@
 .method public getAvailabilityStatus(I)I
     .locals 1
 
-    iget-object p0, p0, Lcom/android/settings/network/telephony/ContactDiscoveryPreferenceController;->mCarrierConfigManager:Landroid/telephony/CarrierConfigManager;
+    iget-object p0, p0, Lcom/android/settings/network/telephony/ContactDiscoveryPreferenceController;->mCarrierConfigCache:Lcom/android/settings/network/CarrierConfigCache;
 
-    invoke-virtual {p0, p1}, Landroid/telephony/CarrierConfigManager;->getConfigForSubId(I)Landroid/os/PersistableBundle;
+    invoke-virtual {p0, p1}, Lcom/android/settings/network/CarrierConfigCache;->getConfigForSubId(I)Landroid/os/PersistableBundle;
 
     move-result-object p0
 
@@ -277,15 +263,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -314,16 +291,14 @@
     return p0
 .end method
 
-.method public init(Landroidx/fragment/app/FragmentManager;ILandroidx/lifecycle/Lifecycle;)Lcom/android/settings/network/telephony/ContactDiscoveryPreferenceController;
+.method init(Landroidx/fragment/app/FragmentManager;I)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/settings/network/telephony/ContactDiscoveryPreferenceController;->mFragmentManager:Landroidx/fragment/app/FragmentManager;
 
     iput p2, p0, Lcom/android/settings/network/telephony/TelephonyTogglePreferenceController;->mSubId:I
 
-    invoke-virtual {p3, p0}, Landroidx/lifecycle/Lifecycle;->addObserver(Landroidx/lifecycle/LifecycleObserver;)V
-
-    return-object p0
+    return-void
 .end method
 
 .method public isChecked()Z
@@ -334,16 +309,6 @@
     iget p0, p0, Lcom/android/settings/network/telephony/TelephonyTogglePreferenceController;->mSubId:I
 
     invoke-static {v0, p0}, Lcom/android/settings/network/telephony/MobileNetworkUtils;->isContactDiscoveryEnabled(Landroid/telephony/ims/ImsManager;I)Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
 
     move-result p0
 

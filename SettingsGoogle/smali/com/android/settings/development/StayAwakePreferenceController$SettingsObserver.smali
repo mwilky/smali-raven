@@ -60,7 +60,7 @@
 
     iget-object p0, p0, Lcom/android/settings/development/StayAwakePreferenceController$SettingsObserver;->this$0:Lcom/android/settings/development/StayAwakePreferenceController;
 
-    invoke-static {p0}, Lcom/android/settings/development/StayAwakePreferenceController;->access$100(Lcom/android/settings/development/StayAwakePreferenceController;)Lcom/android/settingslib/RestrictedSwitchPreference;
+    invoke-static {p0}, Lcom/android/settings/development/StayAwakePreferenceController;->-$$Nest$fgetmPreference(Lcom/android/settings/development/StayAwakePreferenceController;)Lcom/android/settingslib/RestrictedSwitchPreference;
 
     move-result-object p1
 

@@ -18,14 +18,6 @@
 # direct methods
 .method constructor <init>(Ljava/lang/Runnable;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "updateDiscoveryRequestRunnable"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -75,16 +67,6 @@
 
 .method public requestActiveScan(ZJ)V
     .locals 6
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "activeScanAsRequested",
-            "requestTimestamp"
-        }
-    .end annotation
 
     if-nez p1, :cond_0
 

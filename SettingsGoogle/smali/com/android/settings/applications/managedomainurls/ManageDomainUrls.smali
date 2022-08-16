@@ -13,7 +13,7 @@
 
     new-instance v0, Lcom/android/settings/search/BaseSearchIndexProvider;
 
-    const v1, 0x7f150095
+    const v1, 0x7f150096
 
     invoke-direct {v0, v1}, Lcom/android/settings/search/BaseSearchIndexProvider;-><init>(I)V
 
@@ -51,7 +51,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150095
+    const p0, 0x7f150096
 
     return p0
 .end method
@@ -70,6 +70,18 @@
     check-cast p1, Lcom/android/settings/applications/managedomainurls/DomainAppPreferenceController;
 
     invoke-virtual {p1, p0}, Lcom/android/settings/applications/managedomainurls/DomainAppPreferenceController;->setFragment(Lcom/android/settings/applications/managedomainurls/ManageDomainUrls;)V
+
+    return-void
+.end method
+
+.method public onDestroyView()V
+    .locals 0
+
+    invoke-super {p0}, Landroidx/preference/PreferenceFragmentCompat;->onDestroyView()V
+
+    invoke-static {}, Lcom/android/settingslib/applications/AppIconCacheManager;->getInstance()Lcom/android/settingslib/applications/AppIconCacheManager;
+
+    invoke-static {}, Lcom/android/settingslib/applications/AppIconCacheManager;->release()V
 
     return-void
 .end method

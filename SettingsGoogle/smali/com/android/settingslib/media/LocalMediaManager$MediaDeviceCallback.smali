@@ -68,7 +68,7 @@
 
     iget-object v1, p0, Lcom/android/settingslib/media/LocalMediaManager$MediaDeviceCallback;->this$0:Lcom/android/settingslib/media/LocalMediaManager;
 
-    invoke-static {v1}, Lcom/android/settingslib/media/LocalMediaManager;->access$400(Lcom/android/settingslib/media/LocalMediaManager;)Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
+    invoke-static {v1}, Lcom/android/settingslib/media/LocalMediaManager;->-$$Nest$fgetmLocalBluetoothManager(Lcom/android/settingslib/media/LocalMediaManager;)Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
 
     move-result-object v1
 
@@ -119,7 +119,7 @@
 
     if-nez v5, :cond_1
 
-    invoke-direct {p0, v4}, Lcom/android/settingslib/media/LocalMediaManager$MediaDeviceCallback;->isA2dpOrHearingAidDevice(Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;)Z
+    invoke-direct {p0, v4}, Lcom/android/settingslib/media/LocalMediaManager$MediaDeviceCallback;->isMediaDevice(Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;)Z
 
     move-result v5
 
@@ -136,7 +136,7 @@
     :cond_2
     iget-object v0, p0, Lcom/android/settingslib/media/LocalMediaManager$MediaDeviceCallback;->this$0:Lcom/android/settingslib/media/LocalMediaManager;
 
-    invoke-static {v0}, Lcom/android/settingslib/media/LocalMediaManager;->access$500(Lcom/android/settingslib/media/LocalMediaManager;)V
+    invoke-static {v0}, Lcom/android/settingslib/media/LocalMediaManager;->-$$Nest$munRegisterDeviceAttributeChangeCallback(Lcom/android/settingslib/media/LocalMediaManager;)V
 
     iget-object v0, p0, Lcom/android/settingslib/media/LocalMediaManager$MediaDeviceCallback;->this$0:Lcom/android/settingslib/media/LocalMediaManager;
 
@@ -166,7 +166,7 @@
 
     iget-object v2, p0, Lcom/android/settingslib/media/LocalMediaManager$MediaDeviceCallback;->this$0:Lcom/android/settingslib/media/LocalMediaManager;
 
-    invoke-static {v2}, Lcom/android/settingslib/media/LocalMediaManager;->access$600(Lcom/android/settingslib/media/LocalMediaManager;)Landroid/content/Context;
+    invoke-static {v2}, Lcom/android/settingslib/media/LocalMediaManager;->-$$Nest$fgetmContext(Lcom/android/settingslib/media/LocalMediaManager;)Landroid/content/Context;
 
     move-result-object v3
 
@@ -176,7 +176,7 @@
 
     iget-object v2, p0, Lcom/android/settingslib/media/LocalMediaManager$MediaDeviceCallback;->this$0:Lcom/android/settingslib/media/LocalMediaManager;
 
-    invoke-static {v2}, Lcom/android/settingslib/media/LocalMediaManager;->access$700(Lcom/android/settingslib/media/LocalMediaManager;)Ljava/lang/String;
+    invoke-static {v2}, Lcom/android/settingslib/media/LocalMediaManager;->-$$Nest$fgetmPackageName(Lcom/android/settingslib/media/LocalMediaManager;)Ljava/lang/String;
 
     move-result-object v7
 
@@ -222,7 +222,7 @@
     return-object v0
 .end method
 
-.method private isA2dpOrHearingAidDevice(Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;)Z
+.method private isMediaDevice(Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;)Z
     .locals 1
 
     invoke-virtual {p1}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->getConnectableProfiles()Ljava/util/List;
@@ -250,7 +250,11 @@
 
     if-nez v0, :cond_1
 
-    instance-of p1, p1, Lcom/android/settingslib/bluetooth/HearingAidProfile;
+    instance-of v0, p1, Lcom/android/settingslib/bluetooth/HearingAidProfile;
+
+    if-nez v0, :cond_1
+
+    instance-of p1, p1, Lcom/android/settingslib/bluetooth/LeAudioProfile;
 
     if-eqz p1, :cond_0
 
@@ -272,7 +276,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/media/LocalMediaManager$MediaDeviceCallback;->this$0:Lcom/android/settingslib/media/LocalMediaManager;
 
-    invoke-static {v0}, Lcom/android/settingslib/media/LocalMediaManager;->access$000(Lcom/android/settingslib/media/LocalMediaManager;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/settingslib/media/LocalMediaManager;->-$$Nest$fgetmMediaDevicesLock(Lcom/android/settingslib/media/LocalMediaManager;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -356,19 +360,13 @@
 
     iget-object v0, p0, Lcom/android/settingslib/media/LocalMediaManager$MediaDeviceCallback;->this$0:Lcom/android/settingslib/media/LocalMediaManager;
 
-    invoke-static {v0}, Lcom/android/settingslib/media/LocalMediaManager;->access$000(Lcom/android/settingslib/media/LocalMediaManager;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/settingslib/media/LocalMediaManager;->-$$Nest$fgetmMediaDevicesLock(Lcom/android/settingslib/media/LocalMediaManager;)Ljava/lang/Object;
 
     move-result-object v0
 
     monitor-enter v0
 
     :try_start_0
-    invoke-static {}, Lcom/android/settingslib/media/LocalMediaManager;->access$100()Ljava/util/Comparator;
-
-    move-result-object v1
-
-    invoke-static {p1, v1}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
-
     iget-object v1, p0, Lcom/android/settingslib/media/LocalMediaManager$MediaDeviceCallback;->this$0:Lcom/android/settingslib/media/LocalMediaManager;
 
     iget-object v1, v1, Lcom/android/settingslib/media/LocalMediaManager;->mMediaDevices:Ljava/util/List;
@@ -402,15 +400,15 @@
 
     move-result v1
 
-    const/4 v2, 0x1
-
-    if-eq v1, v2, :cond_1
-
     const/4 v2, 0x2
 
     if-eq v1, v2, :cond_1
 
-    const/4 v2, 0x7
+    const/4 v2, 0x3
+
+    if-eq v1, v2, :cond_1
+
+    const/4 v2, 0x1
 
     if-ne v1, v2, :cond_0
 
@@ -432,7 +430,7 @@
 
     iget-object p1, p0, Lcom/android/settingslib/media/LocalMediaManager$MediaDeviceCallback;->this$0:Lcom/android/settingslib/media/LocalMediaManager;
 
-    invoke-static {p1}, Lcom/android/settingslib/media/LocalMediaManager;->access$200(Lcom/android/settingslib/media/LocalMediaManager;)Lcom/android/settingslib/media/InfoMediaManager;
+    invoke-static {p1}, Lcom/android/settingslib/media/LocalMediaManager;->-$$Nest$fgetmInfoMediaManager(Lcom/android/settingslib/media/LocalMediaManager;)Lcom/android/settingslib/media/InfoMediaManager;
 
     move-result-object p1
 
@@ -460,7 +458,7 @@
 
     iget-object p1, p0, Lcom/android/settingslib/media/LocalMediaManager$MediaDeviceCallback;->this$0:Lcom/android/settingslib/media/LocalMediaManager;
 
-    invoke-static {p1}, Lcom/android/settingslib/media/LocalMediaManager;->access$300(Lcom/android/settingslib/media/LocalMediaManager;)Lcom/android/settingslib/media/MediaDevice;
+    invoke-static {p1}, Lcom/android/settingslib/media/LocalMediaManager;->-$$Nest$fgetmOnTransferBluetoothDevice(Lcom/android/settingslib/media/LocalMediaManager;)Lcom/android/settingslib/media/MediaDevice;
 
     move-result-object p1
 
@@ -468,7 +466,7 @@
 
     iget-object p1, p0, Lcom/android/settingslib/media/LocalMediaManager$MediaDeviceCallback;->this$0:Lcom/android/settingslib/media/LocalMediaManager;
 
-    invoke-static {p1}, Lcom/android/settingslib/media/LocalMediaManager;->access$300(Lcom/android/settingslib/media/LocalMediaManager;)Lcom/android/settingslib/media/MediaDevice;
+    invoke-static {p1}, Lcom/android/settingslib/media/LocalMediaManager;->-$$Nest$fgetmOnTransferBluetoothDevice(Lcom/android/settingslib/media/LocalMediaManager;)Lcom/android/settingslib/media/MediaDevice;
 
     move-result-object p1
 
@@ -480,7 +478,7 @@
 
     iget-object p1, p0, Lcom/android/settingslib/media/LocalMediaManager$MediaDeviceCallback;->this$0:Lcom/android/settingslib/media/LocalMediaManager;
 
-    invoke-static {p1}, Lcom/android/settingslib/media/LocalMediaManager;->access$300(Lcom/android/settingslib/media/LocalMediaManager;)Lcom/android/settingslib/media/MediaDevice;
+    invoke-static {p1}, Lcom/android/settingslib/media/LocalMediaManager;->-$$Nest$fgetmOnTransferBluetoothDevice(Lcom/android/settingslib/media/LocalMediaManager;)Lcom/android/settingslib/media/MediaDevice;
 
     move-result-object v0
 
@@ -488,7 +486,7 @@
 
     iget-object p1, p0, Lcom/android/settingslib/media/LocalMediaManager$MediaDeviceCallback;->this$0:Lcom/android/settingslib/media/LocalMediaManager;
 
-    invoke-static {p1}, Lcom/android/settingslib/media/LocalMediaManager;->access$300(Lcom/android/settingslib/media/LocalMediaManager;)Lcom/android/settingslib/media/MediaDevice;
+    invoke-static {p1}, Lcom/android/settingslib/media/LocalMediaManager;->-$$Nest$fgetmOnTransferBluetoothDevice(Lcom/android/settingslib/media/LocalMediaManager;)Lcom/android/settingslib/media/MediaDevice;
 
     move-result-object p1
 
@@ -498,7 +496,7 @@
 
     iget-object p1, p0, Lcom/android/settingslib/media/LocalMediaManager$MediaDeviceCallback;->this$0:Lcom/android/settingslib/media/LocalMediaManager;
 
-    invoke-static {p1}, Lcom/android/settingslib/media/LocalMediaManager;->access$300(Lcom/android/settingslib/media/LocalMediaManager;)Lcom/android/settingslib/media/MediaDevice;
+    invoke-static {p1}, Lcom/android/settingslib/media/LocalMediaManager;->-$$Nest$fgetmOnTransferBluetoothDevice(Lcom/android/settingslib/media/LocalMediaManager;)Lcom/android/settingslib/media/MediaDevice;
 
     move-result-object v1
 
@@ -508,7 +506,7 @@
 
     const/4 p1, 0x0
 
-    invoke-static {p0, p1}, Lcom/android/settingslib/media/LocalMediaManager;->access$302(Lcom/android/settingslib/media/LocalMediaManager;Lcom/android/settingslib/media/MediaDevice;)Lcom/android/settingslib/media/MediaDevice;
+    invoke-static {p0, p1}, Lcom/android/settingslib/media/LocalMediaManager;->-$$Nest$fputmOnTransferBluetoothDevice(Lcom/android/settingslib/media/LocalMediaManager;Lcom/android/settingslib/media/MediaDevice;)V
 
     :cond_4
     return-void
@@ -529,7 +527,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/media/LocalMediaManager$MediaDeviceCallback;->this$0:Lcom/android/settingslib/media/LocalMediaManager;
 
-    invoke-static {v0}, Lcom/android/settingslib/media/LocalMediaManager;->access$000(Lcom/android/settingslib/media/LocalMediaManager;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/settingslib/media/LocalMediaManager;->-$$Nest$fgetmMediaDevicesLock(Lcom/android/settingslib/media/LocalMediaManager;)Ljava/lang/Object;
 
     move-result-object v0
 

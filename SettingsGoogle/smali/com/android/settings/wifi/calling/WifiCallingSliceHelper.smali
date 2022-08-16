@@ -85,7 +85,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/calling/WifiCallingSliceHelper;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f020467
+    const v1, 0x7f0204a3
 
     invoke-static {v0, v1}, Landroidx/core/graphics/drawable/IconCompat;->createWithResource(Landroid/content/Context;I)Landroidx/core/graphics/drawable/IconCompat;
 
@@ -207,7 +207,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/calling/WifiCallingSliceHelper;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f020467
+    const v1, 0x7f0204a3
 
     invoke-static {v0, v1}, Landroidx/core/graphics/drawable/IconCompat;->createWithResource(Landroid/content/Context;I)Landroidx/core/graphics/drawable/IconCompat;
 
@@ -239,7 +239,7 @@
 
     invoke-direct {v2}, Landroidx/slice/builders/ListBuilder$HeaderBuilder;-><init>()V
 
-    const v3, 0x7f0415f4
+    const v3, 0x7f0416ed
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -290,7 +290,7 @@
 
     if-eqz p1, :cond_2
 
-    const v5, 0x10408ce
+    const v5, 0x1040948
 
     if-nez p2, :cond_1
 
@@ -317,7 +317,7 @@
     invoke-virtual {p3, p1}, Landroidx/slice/builders/ListBuilder;->addRow(Landroidx/slice/builders/ListBuilder$RowBuilder;)Landroidx/slice/builders/ListBuilder;
 
     :cond_2
-    const v5, 0x10408cf
+    const v5, 0x1040949
 
     const/4 p1, 0x2
 
@@ -345,7 +345,7 @@
 
     invoke-virtual {p3, p1}, Landroidx/slice/builders/ListBuilder;->addRow(Landroidx/slice/builders/ListBuilder$RowBuilder;)Landroidx/slice/builders/ListBuilder;
 
-    const v5, 0x10408cd
+    const v5, 0x1040947
 
     if-ne p2, v0, :cond_4
 
@@ -400,7 +400,7 @@
     return-object p0
 
     :cond_0
-    const p1, 0x10408cf
+    const p1, 0x1040949
 
     invoke-virtual {p0, p1}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -409,7 +409,7 @@
     return-object p0
 
     :cond_1
-    const p1, 0x10408cd
+    const p1, 0x1040947
 
     invoke-virtual {p0, p1}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -418,7 +418,7 @@
     return-object p0
 
     :cond_2
-    const p1, 0x10408ce
+    const p1, 0x1040948
 
     invoke-virtual {p0, p1}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -432,7 +432,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/calling/WifiCallingSliceHelper;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f020467
+    const v1, 0x7f0204a3
 
     invoke-static {v0, v1}, Landroidx/core/graphics/drawable/IconCompat;->createWithResource(Landroid/content/Context;I)Landroidx/core/graphics/drawable/IconCompat;
 
@@ -464,7 +464,7 @@
 
     invoke-direct {v1}, Landroidx/slice/builders/ListBuilder$RowBuilder;-><init>()V
 
-    const v2, 0x7f0415ff
+    const v2, 0x7f0416f8
 
     invoke-virtual {p3, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -560,7 +560,7 @@
 
     iget-object p1, p0, Lcom/android/settings/wifi/calling/WifiCallingSliceHelper;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f02040c
+    const v0, 0x7f020439
 
     invoke-static {p1, v0}, Landroidx/core/graphics/drawable/IconCompat;->createWithResource(Landroid/content/Context;I)Landroidx/core/graphics/drawable/IconCompat;
 
@@ -692,13 +692,13 @@
 
     move-result-object v0
 
-    const v1, 0x7f0415f4
+    const v1, 0x7f0416ed
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v1
 
-    const v2, 0x7f041603
+    const v2, 0x7f0416fc
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -794,13 +794,13 @@
 
     move-result-object v0
 
-    const v1, 0x7f0415ff
+    const v1, 0x7f0416f8
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v1
 
-    const v2, 0x7f0415fe
+    const v2, 0x7f0416f7
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 

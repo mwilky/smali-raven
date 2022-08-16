@@ -34,6 +34,22 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmHourOfDay(Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings$TimePickerPreference;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings$TimePickerPreference;->mHourOfDay:I
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmMinute(Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings$TimePickerPreference;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings$TimePickerPreference;->mMinute:I
+
+    return p0
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Landroidx/fragment/app/FragmentManager;)V
     .locals 0
 
@@ -52,22 +68,6 @@
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setOnPreferenceClickListener(Landroidx/preference/Preference$OnPreferenceClickListener;)V
 
     return-void
-.end method
-
-.method static synthetic access$300(Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings$TimePickerPreference;)I
-    .locals 0
-
-    iget p0, p0, Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings$TimePickerPreference;->mHourOfDay:I
-
-    return p0
-.end method
-
-.method static synthetic access$400(Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings$TimePickerPreference;)I
-    .locals 0
-
-    iget p0, p0, Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings$TimePickerPreference;->mMinute:I
-
-    return p0
 .end method
 
 .method private updateSummary()V

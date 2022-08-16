@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settings/deviceinfo/StorageWizardBase$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/view/View$OnClickListener;

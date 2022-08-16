@@ -167,13 +167,13 @@
 
     if-ne v0, p1, :cond_1
 
-    const p1, 0x7f040dba
+    const p1, 0x7f040e37
 
     invoke-virtual {v1, p1}, Landroidx/appcompat/app/AlertDialog$Builder;->setMessage(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
     move-result-object p1
 
-    const v0, 0x7f040dbb
+    const v0, 0x7f040e38
 
     new-instance v2, Lcom/android/settings/wifi/NetworkRequestErrorDialogFragment$$ExternalSyntheticLambda0;
 
@@ -183,7 +183,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f040564
+    const v0, 0x7f0405c1
 
     new-instance v2, Lcom/android/settings/wifi/NetworkRequestErrorDialogFragment$$ExternalSyntheticLambda1;
 
@@ -194,13 +194,13 @@
     goto :goto_1
 
     :cond_1
-    const p1, 0x7f040db5
+    const p1, 0x7f040e32
 
     invoke-virtual {v1, p1}, Landroidx/appcompat/app/AlertDialog$Builder;->setMessage(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
     move-result-object p1
 
-    const v0, 0x7f040ecc
+    const v0, 0x7f040f60
 
     new-instance v2, Lcom/android/settings/wifi/NetworkRequestErrorDialogFragment$$ExternalSyntheticLambda2;
 

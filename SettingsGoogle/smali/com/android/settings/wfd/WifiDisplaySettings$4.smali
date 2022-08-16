@@ -45,7 +45,7 @@
 
     iget-object p2, p0, Lcom/android/settings/wfd/WifiDisplaySettings$4;->this$0:Lcom/android/settings/wfd/WifiDisplaySettings;
 
-    invoke-static {p2}, Lcom/android/settings/wfd/WifiDisplaySettings;->access$600(Lcom/android/settings/wfd/WifiDisplaySettings;)I
+    invoke-static {p2}, Lcom/android/settings/wfd/WifiDisplaySettings;->-$$Nest$fgetmWpsConfig(Lcom/android/settings/wfd/WifiDisplaySettings;)I
 
     move-result p2
 
@@ -53,7 +53,7 @@
 
     iget-object p2, p0, Lcom/android/settings/wfd/WifiDisplaySettings$4;->this$0:Lcom/android/settings/wfd/WifiDisplaySettings;
 
-    invoke-static {p2, p1}, Lcom/android/settings/wfd/WifiDisplaySettings;->access$602(Lcom/android/settings/wfd/WifiDisplaySettings;I)I
+    invoke-static {p2, p1}, Lcom/android/settings/wfd/WifiDisplaySettings;->-$$Nest$fputmWpsConfig(Lcom/android/settings/wfd/WifiDisplaySettings;I)V
 
     iget-object p1, p0, Lcom/android/settings/wfd/WifiDisplaySettings$4;->this$0:Lcom/android/settings/wfd/WifiDisplaySettings;
 
@@ -75,7 +75,7 @@
 
     iget-object p0, p0, Lcom/android/settings/wfd/WifiDisplaySettings$4;->this$0:Lcom/android/settings/wfd/WifiDisplaySettings;
 
-    invoke-static {p0}, Lcom/android/settings/wfd/WifiDisplaySettings;->access$600(Lcom/android/settings/wfd/WifiDisplaySettings;)I
+    invoke-static {p0}, Lcom/android/settings/wfd/WifiDisplaySettings;->-$$Nest$fgetmWpsConfig(Lcom/android/settings/wfd/WifiDisplaySettings;)I
 
     move-result p0
 

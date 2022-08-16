@@ -53,7 +53,7 @@
 
 # virtual methods
 .method public evaluate(FLandroid/graphics/Matrix;Landroid/graphics/Matrix;)Landroid/graphics/Matrix;
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/google/android/material/animation/MatrixEvaluator;->tempStartValues:[F
 
@@ -76,11 +76,9 @@
 
     iget-object v1, p0, Lcom/google/android/material/animation/MatrixEvaluator;->tempStartValues:[F
 
-    aget v2, v1, p2
-
-    sub-float/2addr v0, v2
-
     aget v1, v1, p2
+
+    sub-float/2addr v0, v1
 
     mul-float/2addr v0, p1
 

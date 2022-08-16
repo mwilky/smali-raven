@@ -22,6 +22,8 @@
 
 
 # instance fields
+.field private mActivityEmbedded:Z
+
 .field private mCurrentKey:Ljava/lang/String;
 
 .field private mDialog:Landroid/content/DialogInterface;
@@ -46,14 +48,6 @@
     return-void
 .end method
 
-.method public constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 1
 
@@ -73,9 +67,25 @@
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    iput-object p1, p0, Lcom/android/settings/homepage/TopLevelHighlightMixin;->mHiddenKey:Ljava/lang/String;
+    iput-object v0, p0, Lcom/android/settings/homepage/TopLevelHighlightMixin;->mHiddenKey:Ljava/lang/String;
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readBoolean()Z
+
+    move-result p1
+
+    iput-boolean p1, p0, Lcom/android/settings/homepage/TopLevelHighlightMixin;->mActivityEmbedded:Z
+
+    return-void
+.end method
+
+.method public constructor <init>(Z)V
+    .locals 0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-boolean p1, p0, Lcom/android/settings/homepage/TopLevelHighlightMixin;->mActivityEmbedded:Z
 
     return-void
 .end method
@@ -167,7 +177,15 @@
     return p0
 .end method
 
-.method highlightPreferenceIfNeeded(Landroidx/fragment/app/FragmentActivity;)V
+.method getHighlightPreferenceKey()Ljava/lang/String;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/homepage/TopLevelHighlightMixin;->mCurrentKey:Ljava/lang/String;
+
+    return-object p0
+.end method
+
+.method highlightPreferenceIfNeeded()V
     .locals 0
 
     iget-object p0, p0, Lcom/android/settings/homepage/TopLevelHighlightMixin;->mTopLevelAdapter:Lcom/android/settings/widget/HighlightableTopLevelPreferenceAdapter;
@@ -178,6 +196,14 @@
 
     :cond_0
     return-void
+.end method
+
+.method isActivityEmbedded()Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/settings/homepage/TopLevelHighlightMixin;->mActivityEmbedded:Z
+
+    return p0
 .end method
 
 .method public onCancel(Landroid/content/DialogInterface;)V
@@ -203,8 +229,8 @@
     return-void
 .end method
 
-.method onCreateAdapter(Lcom/android/settings/homepage/TopLevelSettings;Landroidx/preference/PreferenceScreen;)Landroidx/recyclerview/widget/RecyclerView$Adapter;
-    .locals 3
+.method onCreateAdapter(Lcom/android/settings/homepage/TopLevelSettings;Landroidx/preference/PreferenceScreen;Z)Landroidx/recyclerview/widget/RecyclerView$Adapter;
+    .locals 8
 
     iget-object v0, p0, Lcom/android/settings/homepage/TopLevelHighlightMixin;->mCurrentKey:Ljava/lang/String;
 
@@ -251,15 +277,23 @@
 
     move-result-object v1
 
-    check-cast v1, Lcom/android/settings/homepage/SettingsHomepageActivity;
+    move-object v3, v1
+
+    check-cast v3, Lcom/android/settings/homepage/SettingsHomepageActivity;
 
     invoke-virtual {p1}, Landroidx/preference/PreferenceFragmentCompat;->getListView()Landroidx/recyclerview/widget/RecyclerView;
 
-    move-result-object p1
+    move-result-object v5
 
-    iget-object v2, p0, Lcom/android/settings/homepage/TopLevelHighlightMixin;->mCurrentKey:Ljava/lang/String;
+    iget-object v6, p0, Lcom/android/settings/homepage/TopLevelHighlightMixin;->mCurrentKey:Ljava/lang/String;
 
-    invoke-direct {v0, v1, p2, p1, v2}, Lcom/android/settings/widget/HighlightableTopLevelPreferenceAdapter;-><init>(Lcom/android/settings/homepage/SettingsHomepageActivity;Landroidx/preference/PreferenceGroup;Landroidx/recyclerview/widget/RecyclerView;Ljava/lang/String;)V
+    move-object v2, v0
+
+    move-object v4, p2
+
+    move v7, p3
+
+    invoke-direct/range {v2 .. v7}, Lcom/android/settings/widget/HighlightableTopLevelPreferenceAdapter;-><init>(Lcom/android/settings/homepage/SettingsHomepageActivity;Landroidx/preference/PreferenceGroup;Landroidx/recyclerview/widget/RecyclerView;Ljava/lang/String;Z)V
 
     iput-object v0, p0, Lcom/android/settings/homepage/TopLevelHighlightMixin;->mTopLevelAdapter:Lcom/android/settings/widget/HighlightableTopLevelPreferenceAdapter;
 
@@ -306,7 +340,7 @@
 
     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v0, "reloadHighlightMenuKey, pref key: "
+    const-string/jumbo v0, "reloadHighlightMenuKey, pref key: "
 
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -329,6 +363,14 @@
     const/4 v0, 0x1
 
     invoke-virtual {p1, p0, v0}, Lcom/android/settings/widget/HighlightableTopLevelPreferenceAdapter;->highlightPreference(Ljava/lang/String;Z)V
+
+    return-void
+.end method
+
+.method setActivityEmbedded(Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/settings/homepage/TopLevelHighlightMixin;->mActivityEmbedded:Z
 
     return-void
 .end method
@@ -484,9 +526,13 @@
 
     invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    iget-object p0, p0, Lcom/android/settings/homepage/TopLevelHighlightMixin;->mHiddenKey:Ljava/lang/String;
+    iget-object p2, p0, Lcom/android/settings/homepage/TopLevelHighlightMixin;->mHiddenKey:Ljava/lang/String;
 
-    invoke-virtual {p1, p0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    iget-boolean p0, p0, Lcom/android/settings/homepage/TopLevelHighlightMixin;->mActivityEmbedded:Z
+
+    invoke-virtual {p1, p0}, Landroid/os/Parcel;->writeBoolean(Z)V
 
     return-void
 .end method

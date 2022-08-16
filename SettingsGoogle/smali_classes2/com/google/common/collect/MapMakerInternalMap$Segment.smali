@@ -380,10 +380,6 @@
 
 .method drainKeyReferenceQueue(Ljava/lang/ref/ReferenceQueue;)V
     .locals 3
-    .annotation build Lcom/google/errorprone/annotations/concurrent/GuardedBy;
-        value = "this"
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -419,10 +415,6 @@
 
 .method drainValueReferenceQueue(Ljava/lang/ref/ReferenceQueue;)V
     .locals 3
-    .annotation build Lcom/google/errorprone/annotations/concurrent/GuardedBy;
-        value = "this"
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -458,9 +450,6 @@
 
 .method expand()V
     .locals 11
-    .annotation build Lcom/google/errorprone/annotations/concurrent/GuardedBy;
-        value = "this"
-    .end annotation
 
     iget-object v0, p0, Lcom/google/common/collect/MapMakerInternalMap$Segment;->table:Ljava/util/concurrent/atomic/AtomicReferenceArray;
 
@@ -864,9 +853,6 @@
 
 .method maybeDrainReferenceQueues()V
     .locals 0
-    .annotation build Lcom/google/errorprone/annotations/concurrent/GuardedBy;
-        value = "this"
-    .end annotation
 
     return-void
 .end method
@@ -909,9 +895,6 @@
 
 .method preWriteCleanup()V
     .locals 0
-    .annotation build Lcom/google/errorprone/annotations/concurrent/GuardedBy;
-        value = "this"
-    .end annotation
 
     invoke-virtual {p0}, Lcom/google/common/collect/MapMakerInternalMap$Segment;->runLockedCleanup()V
 
@@ -1087,9 +1070,6 @@
 
 .method reclaimKey(Lcom/google/common/collect/MapMakerInternalMap$InternalEntry;I)Z
     .locals 4
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;I)Z"
@@ -1175,9 +1155,6 @@
 
 .method reclaimValue(Ljava/lang/Object;ILcom/google/common/collect/MapMakerInternalMap$WeakValueReference;)Z
     .locals 8
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;I",
@@ -1300,9 +1277,6 @@
 
 .method remove(Ljava/lang/Object;I)Ljava/lang/Object;
     .locals 7
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1566,10 +1540,6 @@
 
 .method removeFromChain(Lcom/google/common/collect/MapMakerInternalMap$InternalEntry;Lcom/google/common/collect/MapMakerInternalMap$InternalEntry;)Lcom/google/common/collect/MapMakerInternalMap$InternalEntry;
     .locals 3
-    .annotation build Lcom/google/errorprone/annotations/concurrent/GuardedBy;
-        value = "this"
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;TE;)TE;"

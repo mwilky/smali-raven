@@ -367,7 +367,14 @@
     return p0
 .end method
 
-.method public abstract setContentHeight(I)V
+.method public setContentHeight(I)V
+    .locals 0
+
+    iput p1, p0, Landroidx/appcompat/widget/AbsActionBarView;->mContentHeight:I
+
+    invoke-virtual {p0}, Landroid/view/ViewGroup;->requestLayout()V
+
+    return-void
 .end method
 
 .method public setVisibility(I)V

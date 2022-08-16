@@ -13,7 +13,7 @@
 
 
 # direct methods
-.method public constructor <init>(Lcom/android/settings/widget/PrimarySwitchPreference;)V
+.method public constructor <init>(Lcom/android/settingslib/PrimarySwitchPreference;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/settings/widget/SwitchWidgetController;-><init>()V
@@ -62,13 +62,13 @@
 
     iget-object p0, p0, Lcom/android/settings/widget/GenericSwitchController;->mPreference:Landroidx/preference/Preference;
 
-    instance-of v0, p0, Lcom/android/settings/widget/PrimarySwitchPreference;
+    instance-of v0, p0, Lcom/android/settingslib/PrimarySwitchPreference;
 
     if-eqz v0, :cond_0
 
-    check-cast p0, Lcom/android/settings/widget/PrimarySwitchPreference;
+    check-cast p0, Lcom/android/settingslib/PrimarySwitchPreference;
 
-    invoke-virtual {p0}, Lcom/android/settings/widget/PrimarySwitchPreference;->isChecked()Z
+    invoke-virtual {p0}, Lcom/android/settingslib/PrimarySwitchPreference;->isChecked()Z
 
     move-result p0
 
@@ -140,13 +140,13 @@
 
     iget-object p0, p0, Lcom/android/settings/widget/GenericSwitchController;->mPreference:Landroidx/preference/Preference;
 
-    instance-of v0, p0, Lcom/android/settings/widget/PrimarySwitchPreference;
+    instance-of v0, p0, Lcom/android/settingslib/PrimarySwitchPreference;
 
     if-eqz v0, :cond_0
 
-    check-cast p0, Lcom/android/settings/widget/PrimarySwitchPreference;
+    check-cast p0, Lcom/android/settingslib/PrimarySwitchPreference;
 
-    invoke-virtual {p0, p1}, Lcom/android/settings/widget/PrimarySwitchPreference;->setChecked(Z)V
+    invoke-virtual {p0, p1}, Lcom/android/settingslib/PrimarySwitchPreference;->setChecked(Z)V
 
     goto :goto_0
 
@@ -169,13 +169,13 @@
 
     iget-object p0, p0, Lcom/android/settings/widget/GenericSwitchController;->mPreference:Landroidx/preference/Preference;
 
-    instance-of v0, p0, Lcom/android/settings/widget/PrimarySwitchPreference;
+    instance-of v0, p0, Lcom/android/settingslib/PrimarySwitchPreference;
 
     if-eqz v0, :cond_0
 
-    check-cast p0, Lcom/android/settings/widget/PrimarySwitchPreference;
+    check-cast p0, Lcom/android/settingslib/PrimarySwitchPreference;
 
-    invoke-virtual {p0, p1}, Lcom/android/settings/widget/PrimarySwitchPreference;->setDisabledByAdmin(Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;)V
+    invoke-virtual {p0, p1}, Lcom/android/settingslib/PrimarySwitchPreference;->setDisabledByAdmin(Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;)V
 
     goto :goto_0
 
@@ -198,13 +198,13 @@
 
     iget-object p0, p0, Lcom/android/settings/widget/GenericSwitchController;->mPreference:Landroidx/preference/Preference;
 
-    instance-of v0, p0, Lcom/android/settings/widget/PrimarySwitchPreference;
+    instance-of v0, p0, Lcom/android/settingslib/PrimarySwitchPreference;
 
     if-eqz v0, :cond_0
 
-    check-cast p0, Lcom/android/settings/widget/PrimarySwitchPreference;
+    check-cast p0, Lcom/android/settingslib/PrimarySwitchPreference;
 
-    invoke-virtual {p0, p1}, Lcom/android/settings/widget/PrimarySwitchPreference;->setSwitchEnabled(Z)V
+    invoke-virtual {p0, p1}, Lcom/android/settingslib/PrimarySwitchPreference;->setSwitchEnabled(Z)V
 
     goto :goto_0
 

@@ -32,14 +32,6 @@
 # direct methods
 .method constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "context"
-        }
-    .end annotation
 
     invoke-direct {p0}, Landroidx/slice/SliceViewManager;-><init>()V
 
@@ -56,18 +48,6 @@
 
 .method private getListener(Landroid/net/Uri;Landroidx/slice/SliceViewManager$SliceCallback;Landroidx/slice/SliceViewManagerBase$SliceListenerImpl;)Landroidx/slice/SliceViewManagerBase$SliceListenerImpl;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "uri",
-            "callback",
-            "listener"
-        }
-    .end annotation
 
     new-instance v0, Landroid/util/Pair;
 
@@ -109,16 +89,6 @@
 # virtual methods
 .method public registerSliceCallback(Landroid/net/Uri;Landroidx/slice/SliceViewManager$SliceCallback;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "uri",
-            "callback"
-        }
-    .end annotation
 
     new-instance v0, Landroid/os/Handler;
 
@@ -139,18 +109,6 @@
 
 .method public registerSliceCallback(Landroid/net/Uri;Ljava/util/concurrent/Executor;Landroidx/slice/SliceViewManager$SliceCallback;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "uri",
-            "executor",
-            "callback"
-        }
-    .end annotation
 
     new-instance v0, Landroidx/slice/SliceViewManagerBase$SliceListenerImpl;
 
@@ -167,16 +125,6 @@
 
 .method public unregisterSliceCallback(Landroid/net/Uri;Landroidx/slice/SliceViewManager$SliceCallback;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "uri",
-            "callback"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/slice/SliceViewManagerBase;->mListenerLookup:Landroid/util/ArrayMap;
 

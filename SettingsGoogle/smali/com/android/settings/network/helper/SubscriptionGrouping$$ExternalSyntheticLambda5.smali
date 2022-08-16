@@ -1,31 +1,22 @@
 .class public final synthetic Lcom/android/settings/network/helper/SubscriptionGrouping$$ExternalSyntheticLambda5;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/ToIntFunction;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/settings/network/helper/SubscriptionGrouping$$ExternalSyntheticLambda5;
+# instance fields
+.field public final synthetic f$0:Ljava/util/List;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/settings/network/helper/SubscriptionGrouping$$ExternalSyntheticLambda5;
-
-    invoke-direct {v0}, Lcom/android/settings/network/helper/SubscriptionGrouping$$ExternalSyntheticLambda5;-><init>()V
-
-    sput-object v0, Lcom/android/settings/network/helper/SubscriptionGrouping$$ExternalSyntheticLambda5;->INSTANCE:Lcom/android/settings/network/helper/SubscriptionGrouping$$ExternalSyntheticLambda5;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Ljava/util/List;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/settings/network/helper/SubscriptionGrouping$$ExternalSyntheticLambda5;->f$0:Ljava/util/List;
 
     return-void
 .end method
@@ -35,9 +26,11 @@
 .method public final applyAsInt(Ljava/lang/Object;)I
     .locals 0
 
+    iget-object p0, p0, Lcom/android/settings/network/helper/SubscriptionGrouping$$ExternalSyntheticLambda5;->f$0:Ljava/util/List;
+
     check-cast p1, Lcom/android/settings/network/helper/SubscriptionAnnotation;
 
-    invoke-static {p1}, Lcom/android/settings/network/helper/SubscriptionGrouping;->$r8$lambda$OPIL3uy8pQ_nENFUfaTkF2tKjOk(Lcom/android/settings/network/helper/SubscriptionAnnotation;)I
+    invoke-static {p0, p1}, Lcom/android/settings/network/helper/SubscriptionGrouping;->$r8$lambda$VF1_0uAXC0uqeKbeKyTneQR8rXc(Ljava/util/List;Lcom/android/settings/network/helper/SubscriptionAnnotation;)I
 
     move-result p0
 

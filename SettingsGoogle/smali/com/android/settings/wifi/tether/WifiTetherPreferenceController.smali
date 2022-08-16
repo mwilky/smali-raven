@@ -10,79 +10,21 @@
 
 
 # instance fields
-.field private final mLifecycle:Lcom/android/settingslib/core/lifecycle/Lifecycle;
+.field private mIsWifiTetherable:Z
+
+.field private mIsWifiTetheringAllow:Z
 
 .field mPreference:Landroidx/preference/Preference;
 
 .field private mSoftApState:I
 
-.field private final mTetheringManager:Landroid/net/TetheringManager;
-
-.field private final mWifiManager:Landroid/net/wifi/WifiManager;
-
-.field private final mWifiRegexs:[Ljava/lang/String;
+.field private mWifiManager:Landroid/net/wifi/WifiManager;
 
 .field mWifiTetherSoftApManager:Lcom/android/settings/wifi/tether/WifiTetherSoftApManager;
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
-    .locals 1
-
-    const/4 v0, 0x1
-
-    invoke-direct {p0, p1, p2, v0}, Lcom/android/settings/wifi/tether/WifiTetherPreferenceController;-><init>(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;Z)V
-
-    return-void
-.end method
-
-.method constructor <init>(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;Z)V
-    .locals 2
-
-    invoke-direct {p0, p1}, Lcom/android/settingslib/core/AbstractPreferenceController;-><init>(Landroid/content/Context;)V
-
-    const-class v0, Landroid/net/TetheringManager;
-
-    invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/net/TetheringManager;
-
-    iput-object v0, p0, Lcom/android/settings/wifi/tether/WifiTetherPreferenceController;->mTetheringManager:Landroid/net/TetheringManager;
-
-    const-string/jumbo v1, "wifi"
-
-    invoke-virtual {p1, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Landroid/net/wifi/WifiManager;
-
-    iput-object p1, p0, Lcom/android/settings/wifi/tether/WifiTetherPreferenceController;->mWifiManager:Landroid/net/wifi/WifiManager;
-
-    invoke-virtual {v0}, Landroid/net/TetheringManager;->getTetherableWifiRegexs()[Ljava/lang/String;
-
-    move-result-object p1
-
-    iput-object p1, p0, Lcom/android/settings/wifi/tether/WifiTetherPreferenceController;->mWifiRegexs:[Ljava/lang/String;
-
-    iput-object p2, p0, Lcom/android/settings/wifi/tether/WifiTetherPreferenceController;->mLifecycle:Lcom/android/settingslib/core/lifecycle/Lifecycle;
-
-    if-eqz p2, :cond_0
-
-    invoke-virtual {p2, p0}, Lcom/android/settingslib/core/lifecycle/Lifecycle;->addObserver(Landroidx/lifecycle/LifecycleObserver;)V
-
-    :cond_0
-    if-eqz p3, :cond_1
-
-    invoke-virtual {p0}, Lcom/android/settings/wifi/tether/WifiTetherPreferenceController;->initWifiTetherSoftApManager()V
-
-    :cond_1
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/wifi/tether/WifiTetherPreferenceController;)I
+.method static bridge synthetic -$$Nest$fgetmSoftApState(Lcom/android/settings/wifi/tether/WifiTetherPreferenceController;)I
     .locals 0
 
     iget p0, p0, Lcom/android/settings/wifi/tether/WifiTetherPreferenceController;->mSoftApState:I
@@ -90,15 +32,97 @@
     return p0
 .end method
 
-.method static synthetic access$002(Lcom/android/settings/wifi/tether/WifiTetherPreferenceController;I)I
+.method static bridge synthetic -$$Nest$fputmSoftApState(Lcom/android/settings/wifi/tether/WifiTetherPreferenceController;I)V
     .locals 0
 
     iput p1, p0, Lcom/android/settings/wifi/tether/WifiTetherPreferenceController;->mSoftApState:I
 
-    return p1
+    return-void
 .end method
 
-.method static synthetic access$100(Lcom/android/settings/wifi/tether/WifiTetherPreferenceController;)Landroid/content/Context;
+.method public constructor <init>(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
+    .locals 8
+
+    const-class v0, Landroid/net/wifi/WifiManager;
+
+    invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v4, v0
+
+    check-cast v4, Landroid/net/wifi/WifiManager;
+
+    const-class v0, Landroid/net/TetheringManager;
+
+    invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v5, v0
+
+    check-cast v5, Landroid/net/TetheringManager;
+
+    invoke-static {p1}, Lcom/android/settingslib/wifi/WifiEnterpriseRestrictionUtils;->isWifiTetheringAllowed(Landroid/content/Context;)Z
+
+    move-result v7
+
+    const/4 v6, 0x1
+
+    move-object v1, p0
+
+    move-object v2, p1
+
+    move-object v3, p2
+
+    invoke-direct/range {v1 .. v7}, Lcom/android/settings/wifi/tether/WifiTetherPreferenceController;-><init>(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;Landroid/net/wifi/WifiManager;Landroid/net/TetheringManager;ZZ)V
+
+    return-void
+.end method
+
+.method constructor <init>(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;Landroid/net/wifi/WifiManager;Landroid/net/TetheringManager;ZZ)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settingslib/core/AbstractPreferenceController;-><init>(Landroid/content/Context;)V
+
+    invoke-virtual {p4}, Landroid/net/TetheringManager;->getTetherableWifiRegexs()[Ljava/lang/String;
+
+    move-result-object p1
+
+    if-eqz p1, :cond_0
+
+    array-length p1, p1
+
+    if-eqz p1, :cond_0
+
+    const/4 p1, 0x1
+
+    iput-boolean p1, p0, Lcom/android/settings/wifi/tether/WifiTetherPreferenceController;->mIsWifiTetherable:Z
+
+    :cond_0
+    iput-boolean p6, p0, Lcom/android/settings/wifi/tether/WifiTetherPreferenceController;->mIsWifiTetheringAllow:Z
+
+    if-nez p6, :cond_1
+
+    return-void
+
+    :cond_1
+    iput-object p3, p0, Lcom/android/settings/wifi/tether/WifiTetherPreferenceController;->mWifiManager:Landroid/net/wifi/WifiManager;
+
+    if-eqz p2, :cond_2
+
+    invoke-virtual {p2, p0}, Lcom/android/settingslib/core/lifecycle/Lifecycle;->addObserver(Landroidx/lifecycle/LifecycleObserver;)V
+
+    :cond_2
+    if-eqz p5, :cond_3
+
+    invoke-virtual {p0}, Lcom/android/settings/wifi/tether/WifiTetherPreferenceController;->initWifiTetherSoftApManager()V
+
+    :cond_3
+    return-void
+.end method
+
+.method static synthetic access$000(Lcom/android/settings/wifi/tether/WifiTetherPreferenceController;)Landroid/content/Context;
     .locals 0
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
@@ -118,7 +142,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f041738
+    const v1, 0x7f041835
 
     const/4 v2, 0x1
 
@@ -164,6 +188,34 @@
 
     iput-object p1, p0, Lcom/android/settings/wifi/tether/WifiTetherPreferenceController;->mPreference:Landroidx/preference/Preference;
 
+    if-nez p1, :cond_0
+
+    return-void
+
+    :cond_0
+    iget-boolean v0, p0, Lcom/android/settings/wifi/tether/WifiTetherPreferenceController;->mIsWifiTetheringAllow:Z
+
+    if-nez v0, :cond_1
+
+    invoke-virtual {p1}, Landroidx/preference/Preference;->isEnabled()Z
+
+    move-result p1
+
+    if-eqz p1, :cond_1
+
+    iget-object p1, p0, Lcom/android/settings/wifi/tether/WifiTetherPreferenceController;->mPreference:Landroidx/preference/Preference;
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p1, v0}, Landroidx/preference/Preference;->setEnabled(Z)V
+
+    iget-object p0, p0, Lcom/android/settings/wifi/tether/WifiTetherPreferenceController;->mPreference:Landroidx/preference/Preference;
+
+    const p1, 0x7f040ec0
+
+    invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setSummary(I)V
+
+    :cond_1
     return-void
 .end method
 
@@ -186,7 +238,7 @@
 
     iget-object p0, p0, Lcom/android/settings/wifi/tether/WifiTetherPreferenceController;->mPreference:Landroidx/preference/Preference;
 
-    const p1, 0x7f0416da
+    const p1, 0x7f0417d3
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -206,7 +258,7 @@
     :pswitch_1
     iget-object p0, p0, Lcom/android/settings/wifi/tether/WifiTetherPreferenceController;->mPreference:Landroidx/preference/Preference;
 
-    const p1, 0x7f04173a
+    const p1, 0x7f041837
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -215,7 +267,7 @@
     :pswitch_2
     iget-object p0, p0, Lcom/android/settings/wifi/tether/WifiTetherPreferenceController;->mPreference:Landroidx/preference/Preference;
 
-    const p1, 0x7f04168f
+    const p1, 0x7f041786
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -224,7 +276,7 @@
     :pswitch_3
     iget-object p0, p0, Lcom/android/settings/wifi/tether/WifiTetherPreferenceController;->mPreference:Landroidx/preference/Preference;
 
-    const p1, 0x7f04173b
+    const p1, 0x7f041838
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -233,7 +285,7 @@
     :cond_0
     iget-object p0, p0, Lcom/android/settings/wifi/tether/WifiTetherPreferenceController;->mPreference:Landroidx/preference/Preference;
 
-    const p1, 0x7f041670
+    const p1, 0x7f041767
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -272,11 +324,7 @@
 .method public isAvailable()Z
     .locals 0
 
-    iget-object p0, p0, Lcom/android/settings/wifi/tether/WifiTetherPreferenceController;->mWifiRegexs:[Ljava/lang/String;
-
-    if-eqz p0, :cond_0
-
-    array-length p0, p0
+    iget-boolean p0, p0, Lcom/android/settings/wifi/tether/WifiTetherPreferenceController;->mIsWifiTetherable:Z
 
     if-eqz p0, :cond_0
 

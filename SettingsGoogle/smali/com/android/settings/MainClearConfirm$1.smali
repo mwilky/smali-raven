@@ -22,6 +22,16 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$mgetProgressDialog(Lcom/android/settings/MainClearConfirm$1;)Landroid/app/ProgressDialog;
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/MainClearConfirm$1;->getProgressDialog()Landroid/app/ProgressDialog;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method constructor <init>(Lcom/android/settings/MainClearConfirm;)V
     .locals 0
 
@@ -30,16 +40,6 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/MainClearConfirm$1;)Landroid/app/ProgressDialog;
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/MainClearConfirm$1;->getProgressDialog()Landroid/app/ProgressDialog;
-
-    move-result-object p0
-
-    return-object p0
 .end method
 
 .method private getProgressDialog()Landroid/app/ProgressDialog;
@@ -69,7 +69,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f040c80
+    const v2, 0x7f040cfb
 
     invoke-virtual {v1, v2}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -83,7 +83,7 @@
 
     move-result-object p0
 
-    const v1, 0x7f040c7f
+    const v1, 0x7f040cfa
 
     invoke-virtual {p0, v1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -108,6 +108,23 @@
     return-void
 
     :cond_0
+    const-string/jumbo p1, "ro.frp.pst"
+
+    invoke-static {p1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p1
+
+    const-string v0, ""
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_1
+
+    return-void
+
+    :cond_1
     iget-object p1, p0, Lcom/android/settings/MainClearConfirm$1;->this$0:Lcom/android/settings/MainClearConfirm;
 
     invoke-virtual {p1}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
@@ -128,7 +145,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     new-instance v0, Lcom/android/settings/MainClearConfirm$1$1;
 
@@ -142,10 +159,10 @@
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     iget-object p0, p0, Lcom/android/settings/MainClearConfirm$1;->this$0:Lcom/android/settings/MainClearConfirm;
 
-    invoke-static {p0}, Lcom/android/settings/MainClearConfirm;->access$000(Lcom/android/settings/MainClearConfirm;)V
+    invoke-static {p0}, Lcom/android/settings/MainClearConfirm;->-$$Nest$mdoMainClear(Lcom/android/settings/MainClearConfirm;)V
 
     :goto_0
     return-void

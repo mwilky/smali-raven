@@ -47,12 +47,12 @@
 
     const/4 v2, 0x0
 
-    invoke-static {v1, v2}, Lcom/android/settings/development/WirelessDebuggingFragment;->access$302(Lcom/android/settings/development/WirelessDebuggingFragment;Lcom/android/settings/development/AdbWirelessDialog;)Lcom/android/settings/development/AdbWirelessDialog;
+    invoke-static {v1, v2}, Lcom/android/settings/development/WirelessDebuggingFragment;->-$$Nest$fputmPairingCodeDialog(Lcom/android/settings/development/WirelessDebuggingFragment;Lcom/android/settings/development/AdbWirelessDialog;)V
 
     :try_start_0
     iget-object p0, p0, Lcom/android/settings/development/WirelessDebuggingFragment$PairingCodeDialogListener;->this$0:Lcom/android/settings/development/WirelessDebuggingFragment;
 
-    invoke-static {p0}, Lcom/android/settings/development/WirelessDebuggingFragment;->access$700(Lcom/android/settings/development/WirelessDebuggingFragment;)Landroid/debug/IAdbManager;
+    invoke-static {p0}, Lcom/android/settings/development/WirelessDebuggingFragment;->-$$Nest$fgetmAdbManager(Lcom/android/settings/development/WirelessDebuggingFragment;)Landroid/debug/IAdbManager;
 
     move-result-object p0
 

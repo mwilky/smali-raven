@@ -6,9 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/settingslib/net/DataUsageController$Callback;,
-        Lcom/android/settingslib/net/DataUsageController$DataUsageInfo;,
-        Lcom/android/settingslib/net/DataUsageController$NetworkNameProvider;
+        Lcom/android/settingslib/net/DataUsageController$DataUsageInfo;
     }
 .end annotation
 
@@ -22,17 +20,11 @@
 
 
 # instance fields
-.field private mCallback:Lcom/android/settingslib/net/DataUsageController$Callback;
-
 .field private final mContext:Landroid/content/Context;
-
-.field private mNetworkController:Lcom/android/settingslib/net/DataUsageController$NetworkNameProvider;
 
 .field private final mNetworkStatsManager:Landroid/app/usage/NetworkStatsManager;
 
 .field private final mPolicyManager:Landroid/net/NetworkPolicyManager;
-
-.field private final mStatsService:Landroid/net/INetworkStatsService;
 
 .field private mSubscriptionId:I
 
@@ -78,18 +70,6 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/settingslib/net/DataUsageController;->mContext:Landroid/content/Context;
-
-    const-string v0, "netstats"
-
-    invoke-static {v0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
-
-    move-result-object v0
-
-    invoke-static {v0}, Landroid/net/INetworkStatsService$Stub;->asInterface(Landroid/os/IBinder;)Landroid/net/INetworkStatsService;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/settingslib/net/DataUsageController;->mStatsService:Landroid/net/INetworkStatsService;
 
     invoke-static {p1}, Landroid/net/NetworkPolicyManager;->from(Landroid/content/Context;)Landroid/net/NetworkPolicyManager;
 
@@ -251,7 +231,7 @@
 
     invoke-static {v0, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
@@ -422,9 +402,9 @@
 
     iget-wide v1, v0, Landroid/net/NetworkPolicy;->limitBytes:J
 
-    cmp-long v3, v1, v7
+    cmp-long p0, v1, v7
 
-    if-lez v3, :cond_3
+    if-lez p0, :cond_3
 
     goto :goto_2
 
@@ -436,9 +416,9 @@
 
     iget-wide v0, v0, Landroid/net/NetworkPolicy;->warningBytes:J
 
-    cmp-long v2, v0, v7
+    cmp-long p0, v0, v7
 
-    if-lez v2, :cond_4
+    if-lez p0, :cond_4
 
     move-wide v7, v0
 
@@ -455,17 +435,6 @@
     iput-wide v0, p1, Lcom/android/settingslib/net/DataUsageController$DataUsageInfo;->warningLevel:J
 
     :goto_3
-    iget-object p0, p0, Lcom/android/settingslib/net/DataUsageController;->mNetworkController:Lcom/android/settingslib/net/DataUsageController$NetworkNameProvider;
-
-    if-eqz p0, :cond_6
-
-    invoke-interface {p0}, Lcom/android/settingslib/net/DataUsageController$NetworkNameProvider;->getMobileDataNetworkName()Ljava/lang/String;
-
-    move-result-object p0
-
-    iput-object p0, p1, Lcom/android/settingslib/net/DataUsageController$DataUsageInfo;->carrier:Ljava/lang/String;
-
-    :cond_6
     return-object p1
 .end method
 
@@ -478,7 +447,7 @@
 
     move-result-object p0
 
-    const v0, 0x10e00f1
+    const v0, 0x10e00ff
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -648,17 +617,10 @@
 
     invoke-virtual {p0}, Lcom/android/settingslib/net/DataUsageController;->getTelephonyManager()Landroid/telephony/TelephonyManager;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0, p1}, Landroid/telephony/TelephonyManager;->setDataEnabled(Z)V
+    invoke-virtual {p0, p1}, Landroid/telephony/TelephonyManager;->setDataEnabled(Z)V
 
-    iget-object p0, p0, Lcom/android/settingslib/net/DataUsageController;->mCallback:Lcom/android/settingslib/net/DataUsageController$Callback;
-
-    if-eqz p0, :cond_0
-
-    invoke-interface {p0, p1}, Lcom/android/settingslib/net/DataUsageController$Callback;->onMobileDataEnabled(Z)V
-
-    :cond_0
     return-void
 .end method
 

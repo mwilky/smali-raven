@@ -15,3 +15,43 @@
     accessFlags = 0x609
     name = "Element"
 .end annotation
+
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lkotlin/coroutines/CoroutineContext$Element$DefaultImpls;
+    }
+.end annotation
+
+
+# virtual methods
+.method public abstract get(Lkotlin/coroutines/CoroutineContext$Key;)Lkotlin/coroutines/CoroutineContext$Element;
+    .param p1    # Lkotlin/coroutines/CoroutineContext$Key;
+        .annotation build Lorg/jetbrains/annotations/NotNull;
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<E::",
+            "Lkotlin/coroutines/CoroutineContext$Element;",
+            ">(",
+            "Lkotlin/coroutines/CoroutineContext$Key<",
+            "TE;>;)TE;"
+        }
+    .end annotation
+
+    .annotation build Lorg/jetbrains/annotations/Nullable;
+    .end annotation
+.end method
+
+.method public abstract getKey()Lkotlin/coroutines/CoroutineContext$Key;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Lkotlin/coroutines/CoroutineContext$Key<",
+            "*>;"
+        }
+    .end annotation
+
+    .annotation build Lorg/jetbrains/annotations/NotNull;
+    .end annotation
+.end method

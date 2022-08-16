@@ -47,6 +47,14 @@
     return-void
 .end method
 
+.method static bridge synthetic -$$Nest$fgetmSendLogsRunnable(Lcom/android/settings/core/instrumentation/SettingsIntelligenceLogWriter;)Ljava/lang/Runnable;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/core/instrumentation/SettingsIntelligenceLogWriter;->mSendLogsRunnable:Ljava/lang/Runnable;
+
+    return-object p0
+.end method
+
 .method public constructor <init>()V
     .locals 3
 
@@ -87,14 +95,6 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/settings/core/instrumentation/SettingsIntelligenceLogWriter;)Ljava/lang/Runnable;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/core/instrumentation/SettingsIntelligenceLogWriter;->mSendLogsRunnable:Ljava/lang/Runnable;
-
-    return-object p0
-.end method
-
 .method private synthetic lambda$action$0(Lcom/android/settings/intelligence/LogProto$SettingsLog;)V
     .locals 0
 
@@ -123,7 +123,7 @@
     return-void
 
     :cond_0
-    const v1, 0x7f040659
+    const v1, 0x7f0406b8
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -147,7 +147,7 @@
 
     invoke-direct {v2}, Landroid/content/Intent;-><init>()V
 
-    const v3, 0x7f04065a
+    const v3, 0x7f0406b9
 
     invoke-virtual {v0, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -270,7 +270,7 @@
     move-exception p0
 
     :try_start_2
-    const-string v2, "serialize error"
+    const-string/jumbo v2, "serialize error"
 
     invoke-static {v1, v2, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     :try_end_2
@@ -379,11 +379,17 @@
 
     const/16 p1, 0x681
 
-    if-ne p2, p1, :cond_1
+    if-eq p2, p1, :cond_2
 
-    iget-object p0, p0, Lcom/android/settings/core/instrumentation/SettingsIntelligenceLogWriter;->mLogHandler:Lcom/android/settings/core/instrumentation/SettingsIntelligenceLogWriter$SendLogHandler;
+    iget-object p1, p0, Lcom/android/settings/core/instrumentation/SettingsIntelligenceLogWriter;->mSettingsLogList:Ljava/util/List;
 
-    invoke-virtual {p0}, Lcom/android/settings/core/instrumentation/SettingsIntelligenceLogWriter$SendLogHandler;->sendLog()V
+    invoke-interface {p1}, Ljava/util/List;->size()I
+
+    move-result p1
+
+    const/16 p2, 0x96
+
+    if-lt p1, p2, :cond_1
 
     goto :goto_1
 
@@ -392,7 +398,15 @@
 
     invoke-virtual {p0}, Lcom/android/settings/core/instrumentation/SettingsIntelligenceLogWriter$SendLogHandler;->scheduleSendLog()V
 
+    goto :goto_2
+
+    :cond_2
     :goto_1
+    iget-object p0, p0, Lcom/android/settings/core/instrumentation/SettingsIntelligenceLogWriter;->mLogHandler:Lcom/android/settings/core/instrumentation/SettingsIntelligenceLogWriter$SendLogHandler;
+
+    invoke-virtual {p0}, Lcom/android/settings/core/instrumentation/SettingsIntelligenceLogWriter$SendLogHandler;->sendLog()V
+
+    :goto_2
     return-void
 .end method
 

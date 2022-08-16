@@ -20,6 +20,22 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$mdestroyHalInterface(Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager;Lvendor/google/google_battery/V1_2/IGoogleBattery;Landroid/os/IHwBinder$DeathRecipient;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager;->destroyHalInterface(Lvendor/google/google_battery/V1_2/IGoogleBattery;Landroid/os/IHwBinder$DeathRecipient;)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$sfgetDEBUG()Z
+    .locals 1
+
+    sget-boolean v0, Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager;->DEBUG:Z
+
+    return v0
+.end method
+
 .method static constructor <clinit>()V
     .locals 2
 
@@ -46,23 +62,7 @@
     return-void
 .end method
 
-.method static synthetic access$000()Z
-    .locals 1
-
-    sget-boolean v0, Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager;->DEBUG:Z
-
-    return v0
-.end method
-
-.method static synthetic access$100(Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager;Lvendor/google/google_battery/V1_1/IGoogleBattery;Landroid/os/IHwBinder$DeathRecipient;)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager;->destroyHalInterface(Lvendor/google/google_battery/V1_1/IGoogleBattery;Landroid/os/IHwBinder$DeathRecipient;)V
-
-    return-void
-.end method
-
-.method private destroyHalInterface(Lvendor/google/google_battery/V1_1/IGoogleBattery;Landroid/os/IHwBinder$DeathRecipient;)V
+.method private destroyHalInterface(Lvendor/google/google_battery/V1_2/IGoogleBattery;Landroid/os/IHwBinder$DeathRecipient;)V
     .locals 1
 
     sget-boolean p0, Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager;->DEBUG:Z
@@ -79,7 +79,7 @@
     if-eqz p2, :cond_1
 
     :try_start_0
-    invoke-interface {p1, p2}, Lvendor/google/google_battery/V1_1/IGoogleBattery;->unlinkToDeath(Landroid/os/IHwBinder$DeathRecipient;)Z
+    invoke-interface {p1, p2}, Lvendor/google/google_battery/V1_2/IGoogleBattery;->unlinkToDeath(Landroid/os/IHwBinder$DeathRecipient;)Z
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -139,7 +139,7 @@
     return-object p0
 .end method
 
-.method private static initHalInterface(Landroid/os/IHwBinder$DeathRecipient;)Lvendor/google/google_battery/V1_1/IGoogleBattery;
+.method private static initHalInterface(Landroid/os/IHwBinder$DeathRecipient;)Lvendor/google/google_battery/V1_2/IGoogleBattery;
     .locals 4
 
     sget-boolean v0, Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager;->DEBUG:Z
@@ -154,7 +154,7 @@
 
     :cond_0
     :try_start_0
-    invoke-static {}, Lvendor/google/google_battery/V1_1/IGoogleBattery;->getService()Lvendor/google/google_battery/V1_1/IGoogleBattery;
+    invoke-static {}, Lvendor/google/google_battery/V1_2/IGoogleBattery;->getService()Lvendor/google/google_battery/V1_2/IGoogleBattery;
 
     move-result-object v0
 
@@ -164,7 +164,7 @@
 
     const-wide/16 v2, 0x0
 
-    invoke-interface {v0, p0, v2, v3}, Lvendor/google/google_battery/V1_1/IGoogleBattery;->linkToDeath(Landroid/os/IHwBinder$DeathRecipient;J)Z
+    invoke-interface {v0, p0, v2, v3}, Lvendor/google/google_battery/V1_2/IGoogleBattery;->linkToDeath(Landroid/os/IHwBinder$DeathRecipient;J)Z
     :try_end_0
     .catch Ljava/util/NoSuchElementException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
@@ -383,7 +383,7 @@
 
     invoke-direct {v0, p0, p1}, Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager$1;-><init>(Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager;Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager$AdaptiveChargingStatusReceiver;)V
 
-    invoke-static {v0}, Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager;->initHalInterface(Landroid/os/IHwBinder$DeathRecipient;)Lvendor/google/google_battery/V1_1/IGoogleBattery;
+    invoke-static {v0}, Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager;->initHalInterface(Landroid/os/IHwBinder$DeathRecipient;)Lvendor/google/google_battery/V1_2/IGoogleBattery;
 
     move-result-object v1
 
@@ -396,7 +396,7 @@
     :cond_0
     new-instance v2, Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager$2;
 
-    invoke-direct {v2, p0, p1, v1, v0}, Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager$2;-><init>(Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager;Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager$AdaptiveChargingStatusReceiver;Lvendor/google/google_battery/V1_1/IGoogleBattery;Landroid/os/IHwBinder$DeathRecipient;)V
+    invoke-direct {v2, p0, p1, v1, v0}, Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager$2;-><init>(Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager;Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager$AdaptiveChargingStatusReceiver;Lvendor/google/google_battery/V1_2/IGoogleBattery;Landroid/os/IHwBinder$DeathRecipient;)V
 
     :try_start_0
     invoke-interface {v1, v2}, Lvendor/google/google_battery/V1_0/IGoogleBattery;->getChargingStageAndDeadline(Lvendor/google/google_battery/V1_0/IGoogleBattery$getChargingStageAndDeadlineCallback;)V
@@ -414,7 +414,7 @@
 
     invoke-static {v3, v4, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    invoke-direct {p0, v1, v0}, Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager;->destroyHalInterface(Lvendor/google/google_battery/V1_1/IGoogleBattery;Landroid/os/IHwBinder$DeathRecipient;)V
+    invoke-direct {p0, v1, v0}, Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager;->destroyHalInterface(Lvendor/google/google_battery/V1_2/IGoogleBattery;Landroid/os/IHwBinder$DeathRecipient;)V
 
     invoke-interface {p1}, Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager$AdaptiveChargingStatusReceiver;->onDestroyInterface()V
 
@@ -427,7 +427,7 @@
 
     const/4 v0, 0x0
 
-    invoke-static {v0}, Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager;->initHalInterface(Landroid/os/IHwBinder$DeathRecipient;)Lvendor/google/google_battery/V1_1/IGoogleBattery;
+    invoke-static {v0}, Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager;->initHalInterface(Landroid/os/IHwBinder$DeathRecipient;)Lvendor/google/google_battery/V1_2/IGoogleBattery;
 
     move-result-object v1
 
@@ -464,7 +464,7 @@
 
     :cond_1
     :goto_0
-    invoke-direct {p0, v1, v0}, Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager;->destroyHalInterface(Lvendor/google/google_battery/V1_1/IGoogleBattery;Landroid/os/IHwBinder$DeathRecipient;)V
+    invoke-direct {p0, v1, v0}, Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager;->destroyHalInterface(Lvendor/google/google_battery/V1_2/IGoogleBattery;Landroid/os/IHwBinder$DeathRecipient;)V
 
     return v2
 .end method

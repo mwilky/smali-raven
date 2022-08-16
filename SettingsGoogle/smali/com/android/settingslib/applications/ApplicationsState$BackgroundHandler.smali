@@ -84,7 +84,7 @@
 
     check-cast v1, Lcom/android/settingslib/applications/ApplicationsState$Session;
 
-    invoke-static {v1}, Lcom/android/settingslib/applications/ApplicationsState$Session;->access$300(Lcom/android/settingslib/applications/ApplicationsState$Session;)I
+    invoke-static {v1}, Lcom/android/settingslib/applications/ApplicationsState$Session;->-$$Nest$fgetmFlags(Lcom/android/settingslib/applications/ApplicationsState$Session;)I
 
     move-result v1
 
@@ -321,7 +321,7 @@
     goto/16 :goto_e
 
     :pswitch_0
-    invoke-static {v2, v11}, Lcom/android/settingslib/applications/ApplicationsState;->access$200(II)Z
+    invoke-static {v2, v11}, Lcom/android/settingslib/applications/ApplicationsState;->-$$Nest$smhasFlag(II)Z
 
     move-result v1
 
@@ -376,7 +376,7 @@
 
     iget v7, v7, Landroid/content/pm/ApplicationInfo;->flags:I
 
-    invoke-static {v7, v5}, Lcom/android/settingslib/applications/ApplicationsState;->access$200(II)Z
+    invoke-static {v7, v5}, Lcom/android/settingslib/applications/ApplicationsState;->-$$Nest$smhasFlag(II)Z
 
     move-result v7
 
@@ -531,7 +531,7 @@
     throw v0
 
     :pswitch_1
-    invoke-static {v2, v10}, Lcom/android/settingslib/applications/ApplicationsState;->access$200(II)Z
+    invoke-static {v2, v10}, Lcom/android/settingslib/applications/ApplicationsState;->-$$Nest$smhasFlag(II)Z
 
     move-result v1
 
@@ -686,7 +686,7 @@
     :pswitch_2
     if-ne v3, v11, :cond_11
 
-    invoke-static {v2, v8}, Lcom/android/settingslib/applications/ApplicationsState;->access$200(II)Z
+    invoke-static {v2, v8}, Lcom/android/settingslib/applications/ApplicationsState;->-$$Nest$smhasFlag(II)Z
 
     move-result v3
 
@@ -699,7 +699,7 @@
 
     const/16 v3, 0x10
 
-    invoke-static {v2, v3}, Lcom/android/settingslib/applications/ApplicationsState;->access$200(II)Z
+    invoke-static {v2, v3}, Lcom/android/settingslib/applications/ApplicationsState;->-$$Nest$smhasFlag(II)Z
 
     move-result v2
 
@@ -919,7 +919,7 @@
     :pswitch_3
     move v1, v14
 
-    invoke-static {v2, v1}, Lcom/android/settingslib/applications/ApplicationsState;->access$200(II)Z
+    invoke-static {v2, v1}, Lcom/android/settingslib/applications/ApplicationsState;->-$$Nest$smhasFlag(II)Z
 
     move-result v2
 
@@ -1125,7 +1125,7 @@
 
     iget-object v11, v0, Lcom/android/settingslib/applications/ApplicationsState$BackgroundHandler;->this$0:Lcom/android/settingslib/applications/ApplicationsState;
 
-    invoke-static {v11, v7}, Lcom/android/settingslib/applications/ApplicationsState;->access$100(Lcom/android/settingslib/applications/ApplicationsState;Landroid/content/pm/ApplicationInfo;)Lcom/android/settingslib/applications/ApplicationsState$AppEntry;
+    invoke-static {v11, v7}, Lcom/android/settingslib/applications/ApplicationsState;->-$$Nest$mgetEntryLocked(Lcom/android/settingslib/applications/ApplicationsState;Landroid/content/pm/ApplicationInfo;)Lcom/android/settingslib/applications/ApplicationsState$AppEntry;
 
     :cond_1e
     if-eqz v9, :cond_20
@@ -1166,7 +1166,7 @@
 
     iget v11, v11, Landroid/content/pm/ApplicationInfo;->flags:I
 
-    invoke-static {v11, v5}, Lcom/android/settingslib/applications/ApplicationsState;->access$200(II)Z
+    invoke-static {v11, v5}, Lcom/android/settingslib/applications/ApplicationsState;->-$$Nest$smhasFlag(II)Z
 
     move-result v11
 

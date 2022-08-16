@@ -31,14 +31,6 @@
 # direct methods
 .method constructor <init>(Landroidx/core/app/JobIntentService;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x8010
-        }
-        names = {
-            "this$0"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/core/app/JobIntentService$CommandProcessor;->this$0:Landroidx/core/app/JobIntentService;
 
@@ -51,14 +43,6 @@
 # virtual methods
 .method protected bridge synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x1000
-        }
-        names = {
-            "params"
-        }
-    .end annotation
 
     check-cast p1, [Ljava/lang/Void;
 
@@ -71,14 +55,6 @@
 
 .method protected varargs doInBackground([Ljava/lang/Void;)Ljava/lang/Void;
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "params"
-        }
-    .end annotation
 
     :goto_0
     iget-object p1, p0, Landroidx/core/app/JobIntentService$CommandProcessor;->this$0:Landroidx/core/app/JobIntentService;
@@ -109,14 +85,6 @@
 
 .method protected bridge synthetic onCancelled(Ljava/lang/Object;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x1000
-        }
-        names = {
-            "aVoid"
-        }
-    .end annotation
 
     check-cast p1, Ljava/lang/Void;
 
@@ -127,14 +95,6 @@
 
 .method protected onCancelled(Ljava/lang/Void;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "aVoid"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/core/app/JobIntentService$CommandProcessor;->this$0:Landroidx/core/app/JobIntentService;
 
@@ -145,14 +105,6 @@
 
 .method protected bridge synthetic onPostExecute(Ljava/lang/Object;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x1000
-        }
-        names = {
-            "aVoid"
-        }
-    .end annotation
 
     check-cast p1, Ljava/lang/Void;
 
@@ -163,14 +115,6 @@
 
 .method protected onPostExecute(Ljava/lang/Void;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "aVoid"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/core/app/JobIntentService$CommandProcessor;->this$0:Landroidx/core/app/JobIntentService;
 

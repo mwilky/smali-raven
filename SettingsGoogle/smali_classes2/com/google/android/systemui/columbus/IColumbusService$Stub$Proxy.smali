@@ -17,10 +17,6 @@
 .end annotation
 
 
-# static fields
-.field public static sDefaultImpl:Lcom/google/android/systemui/columbus/IColumbusService;
-
-
 # instance fields
 .field private mRemote:Landroid/os/IBinder;
 
@@ -47,7 +43,7 @@
 .end method
 
 .method public registerGestureListener(Landroid/os/IBinder;Landroid/os/IBinder;)V
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -69,35 +65,14 @@
 
     iget-object p0, p0, Lcom/google/android/systemui/columbus/IColumbusService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    const/4 v2, 0x1
+    const/4 p2, 0x1
 
-    invoke-interface {p0, v2, v0, v1, v2}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    move-result p0
-
-    if-nez p0, :cond_0
-
-    invoke-static {}, Lcom/google/android/systemui/columbus/IColumbusService$Stub;->getDefaultImpl()Lcom/google/android/systemui/columbus/IColumbusService;
-
-    move-result-object p0
-
-    if-eqz p0, :cond_0
-
-    invoke-static {}, Lcom/google/android/systemui/columbus/IColumbusService$Stub;->getDefaultImpl()Lcom/google/android/systemui/columbus/IColumbusService;
-
-    move-result-object p0
-
-    invoke-interface {p0, p1, p2}, Lcom/google/android/systemui/columbus/IColumbusService;->registerGestureListener(Landroid/os/IBinder;Landroid/os/IBinder;)V
+    invoke-interface {p0, p2, v0, p1, p2}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    return-void
-
-    :cond_0
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     return-void

@@ -8,10 +8,7 @@
     value = {
         Lcom/google/common/util/concurrent/Striped$LargeLazyStriped;,
         Lcom/google/common/util/concurrent/Striped$SmallLazyStriped;,
-        Lcom/google/common/util/concurrent/Striped$PowerOfTwoStriped;,
-        Lcom/google/common/util/concurrent/Striped$WeakSafeCondition;,
-        Lcom/google/common/util/concurrent/Striped$WeakSafeLock;,
-        Lcom/google/common/util/concurrent/Striped$WeakSafeReadWriteLock;
+        Lcom/google/common/util/concurrent/Striped$PowerOfTwoStriped;
     }
 .end annotation
 

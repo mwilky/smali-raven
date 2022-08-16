@@ -40,7 +40,7 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Lcom/android/settings/notification/history/NotificationStation;->access$102(Lcom/android/settings/notification/history/NotificationStation;Landroid/service/notification/NotificationListenerService$RankingMap;)Landroid/service/notification/NotificationListenerService$RankingMap;
+    invoke-static {v0, v1}, Lcom/android/settings/notification/history/NotificationStation;->-$$Nest$fputmRanking(Lcom/android/settings/notification/history/NotificationStation;Landroid/service/notification/NotificationListenerService$RankingMap;)V
 
     const/4 v0, 0x1
 
@@ -48,7 +48,7 @@
 
     iget-object v1, p0, Lcom/android/settings/notification/history/NotificationStation$1;->this$0:Lcom/android/settings/notification/history/NotificationStation;
 
-    invoke-static {v1}, Lcom/android/settings/notification/history/NotificationStation;->access$100(Lcom/android/settings/notification/history/NotificationStation;)Landroid/service/notification/NotificationListenerService$RankingMap;
+    invoke-static {v1}, Lcom/android/settings/notification/history/NotificationStation;->-$$Nest$fgetmRanking(Lcom/android/settings/notification/history/NotificationStation;)Landroid/service/notification/NotificationListenerService$RankingMap;
 
     move-result-object v1
 
@@ -63,7 +63,7 @@
     :cond_0
     iget-object v1, p0, Lcom/android/settings/notification/history/NotificationStation$1;->this$0:Lcom/android/settings/notification/history/NotificationStation;
 
-    invoke-static {v1}, Lcom/android/settings/notification/history/NotificationStation;->access$100(Lcom/android/settings/notification/history/NotificationStation;)Landroid/service/notification/NotificationListenerService$RankingMap;
+    invoke-static {v1}, Lcom/android/settings/notification/history/NotificationStation;->-$$Nest$fgetmRanking(Lcom/android/settings/notification/history/NotificationStation;)Landroid/service/notification/NotificationListenerService$RankingMap;
 
     move-result-object v1
 
@@ -82,11 +82,11 @@
 
     const-string v1, "onListenerConnected with update for %d"
 
-    invoke-static {v1, v0}, Lcom/android/settings/notification/history/NotificationStation;->access$000(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v1, v0}, Lcom/android/settings/notification/history/NotificationStation;->-$$Nest$smlogd(Ljava/lang/String;[Ljava/lang/Object;)V
 
     iget-object p0, p0, Lcom/android/settings/notification/history/NotificationStation$1;->this$0:Lcom/android/settings/notification/history/NotificationStation;
 
-    invoke-static {p0}, Lcom/android/settings/notification/history/NotificationStation;->access$500(Lcom/android/settings/notification/history/NotificationStation;)V
+    invoke-static {p0}, Lcom/android/settings/notification/history/NotificationStation;->-$$Nest$mpopulateNotifications(Lcom/android/settings/notification/history/NotificationStation;)V
 
     return-void
 .end method
@@ -128,11 +128,11 @@
 
     const-string v1, "onNotificationPosted: %s, with update for %d"
 
-    invoke-static {v1, v0}, Lcom/android/settings/notification/history/NotificationStation;->access$000(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v1, v0}, Lcom/android/settings/notification/history/NotificationStation;->-$$Nest$smlogd(Ljava/lang/String;[Ljava/lang/Object;)V
 
     iget-object v0, p0, Lcom/android/settings/notification/history/NotificationStation$1;->this$0:Lcom/android/settings/notification/history/NotificationStation;
 
-    invoke-static {v0, p2}, Lcom/android/settings/notification/history/NotificationStation;->access$102(Lcom/android/settings/notification/history/NotificationStation;Landroid/service/notification/NotificationListenerService$RankingMap;)Landroid/service/notification/NotificationListenerService$RankingMap;
+    invoke-static {v0, p2}, Lcom/android/settings/notification/history/NotificationStation;->-$$Nest$fputmRanking(Lcom/android/settings/notification/history/NotificationStation;Landroid/service/notification/NotificationListenerService$RankingMap;)V
 
     invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getNotification()Landroid/app/Notification;
 
@@ -149,7 +149,7 @@
     :cond_1
     iget-object p0, p0, Lcom/android/settings/notification/history/NotificationStation$1;->this$0:Lcom/android/settings/notification/history/NotificationStation;
 
-    invoke-static {p0, p1}, Lcom/android/settings/notification/history/NotificationStation;->access$200(Lcom/android/settings/notification/history/NotificationStation;Landroid/service/notification/StatusBarNotification;)V
+    invoke-static {p0, p1}, Lcom/android/settings/notification/history/NotificationStation;->-$$Nest$maddOrUpdateNotification(Lcom/android/settings/notification/history/NotificationStation;Landroid/service/notification/StatusBarNotification;)V
 
     return-void
 .end method
@@ -185,15 +185,15 @@
 
     const-string v1, "onNotificationRankingUpdate with update for %d"
 
-    invoke-static {v1, v0}, Lcom/android/settings/notification/history/NotificationStation;->access$000(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v1, v0}, Lcom/android/settings/notification/history/NotificationStation;->-$$Nest$smlogd(Ljava/lang/String;[Ljava/lang/Object;)V
 
     iget-object v0, p0, Lcom/android/settings/notification/history/NotificationStation$1;->this$0:Lcom/android/settings/notification/history/NotificationStation;
 
-    invoke-static {v0, p1}, Lcom/android/settings/notification/history/NotificationStation;->access$102(Lcom/android/settings/notification/history/NotificationStation;Landroid/service/notification/NotificationListenerService$RankingMap;)Landroid/service/notification/NotificationListenerService$RankingMap;
+    invoke-static {v0, p1}, Lcom/android/settings/notification/history/NotificationStation;->-$$Nest$fputmRanking(Lcom/android/settings/notification/history/NotificationStation;Landroid/service/notification/NotificationListenerService$RankingMap;)V
 
     iget-object p0, p0, Lcom/android/settings/notification/history/NotificationStation$1;->this$0:Lcom/android/settings/notification/history/NotificationStation;
 
-    invoke-static {p0}, Lcom/android/settings/notification/history/NotificationStation;->access$400(Lcom/android/settings/notification/history/NotificationStation;)V
+    invoke-static {p0}, Lcom/android/settings/notification/history/NotificationStation;->-$$Nest$mupdateNotificationsFromRanking(Lcom/android/settings/notification/history/NotificationStation;)V
 
     return-void
 .end method
@@ -229,11 +229,11 @@
 
     const-string v1, "onNotificationRankingUpdate with update for %d"
 
-    invoke-static {v1, v0}, Lcom/android/settings/notification/history/NotificationStation;->access$000(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v1, v0}, Lcom/android/settings/notification/history/NotificationStation;->-$$Nest$smlogd(Ljava/lang/String;[Ljava/lang/Object;)V
 
     iget-object v0, p0, Lcom/android/settings/notification/history/NotificationStation$1;->this$0:Lcom/android/settings/notification/history/NotificationStation;
 
-    invoke-static {v0, p2}, Lcom/android/settings/notification/history/NotificationStation;->access$102(Lcom/android/settings/notification/history/NotificationStation;Landroid/service/notification/NotificationListenerService$RankingMap;)Landroid/service/notification/NotificationListenerService$RankingMap;
+    invoke-static {v0, p2}, Lcom/android/settings/notification/history/NotificationStation;->-$$Nest$fputmRanking(Lcom/android/settings/notification/history/NotificationStation;Landroid/service/notification/NotificationListenerService$RankingMap;)V
 
     invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getNotification()Landroid/app/Notification;
 
@@ -250,7 +250,7 @@
     :cond_1
     iget-object p0, p0, Lcom/android/settings/notification/history/NotificationStation$1;->this$0:Lcom/android/settings/notification/history/NotificationStation;
 
-    invoke-static {p0, p1}, Lcom/android/settings/notification/history/NotificationStation;->access$300(Lcom/android/settings/notification/history/NotificationStation;Landroid/service/notification/StatusBarNotification;)V
+    invoke-static {p0, p1}, Lcom/android/settings/notification/history/NotificationStation;->-$$Nest$mmarkNotificationAsDismissed(Lcom/android/settings/notification/history/NotificationStation;Landroid/service/notification/StatusBarNotification;)V
 
     return-void
 .end method

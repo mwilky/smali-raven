@@ -93,7 +93,7 @@
 
     invoke-virtual {v1, v2, v3}, Ljava/util/Calendar;->add(II)V
 
-    invoke-static {p1}, Lcom/android/settings/UsageStatsActivity;->access$000(Lcom/android/settings/UsageStatsActivity;)Landroid/app/usage/UsageStatsManager;
+    invoke-static {p1}, Lcom/android/settings/UsageStatsActivity;->-$$Nest$fgetmUsageStatsManager(Lcom/android/settings/UsageStatsActivity;)Landroid/app/usage/UsageStatsManager;
 
     move-result-object v4
 
@@ -136,7 +136,7 @@
     check-cast v5, Landroid/app/usage/UsageStats;
 
     :try_start_0
-    invoke-static {p1}, Lcom/android/settings/UsageStatsActivity;->access$100(Lcom/android/settings/UsageStatsActivity;)Landroid/content/pm/PackageManager;
+    invoke-static {p1}, Lcom/android/settings/UsageStatsActivity;->-$$Nest$fgetmPm(Lcom/android/settings/UsageStatsActivity;)Landroid/content/pm/PackageManager;
 
     move-result-object v6
 
@@ -148,7 +148,7 @@
 
     move-result-object v6
 
-    invoke-static {p1}, Lcom/android/settings/UsageStatsActivity;->access$100(Lcom/android/settings/UsageStatsActivity;)Landroid/content/pm/PackageManager;
+    invoke-static {p1}, Lcom/android/settings/UsageStatsActivity;->-$$Nest$fgetmPm(Lcom/android/settings/UsageStatsActivity;)Landroid/content/pm/PackageManager;
 
     move-result-object v7
 
@@ -308,11 +308,11 @@
 
     iget-object p2, p0, Lcom/android/settings/UsageStatsActivity$UsageStatsAdapter;->this$0:Lcom/android/settings/UsageStatsActivity;
 
-    invoke-static {p2}, Lcom/android/settings/UsageStatsActivity;->access$200(Lcom/android/settings/UsageStatsActivity;)Landroid/view/LayoutInflater;
+    invoke-static {p2}, Lcom/android/settings/UsageStatsActivity;->-$$Nest$fgetmInflater(Lcom/android/settings/UsageStatsActivity;)Landroid/view/LayoutInflater;
 
     move-result-object p2
 
-    const p3, 0x7f06029f
+    const p3, 0x7f0602af
 
     const/4 v0, 0x0
 
@@ -324,7 +324,7 @@
 
     invoke-direct {p3}, Lcom/android/settings/UsageStatsActivity$AppViewHolder;-><init>()V
 
-    const v0, 0x7f0d040f
+    const v0, 0x7f0d043f
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -334,7 +334,7 @@
 
     iput-object v0, p3, Lcom/android/settings/UsageStatsActivity$AppViewHolder;->pkgName:Landroid/widget/TextView;
 
-    const v0, 0x7f0d031e
+    const v0, 0x7f0d0348
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -344,7 +344,7 @@
 
     iput-object v0, p3, Lcom/android/settings/UsageStatsActivity$AppViewHolder;->lastTimeUsed:Landroid/widget/TextView;
 
-    const v0, 0x7f0d060c
+    const v0, 0x7f0d064e
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

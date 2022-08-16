@@ -104,7 +104,9 @@
 
     move-result-object v0
 
-    sget-object v1, Lcom/android/settings/network/telephony/NetworkScanHelper$NetworkScanSyncTask$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/settings/network/telephony/NetworkScanHelper$NetworkScanSyncTask$$ExternalSyntheticLambda0;
+    new-instance v1, Lcom/android/settings/network/telephony/NetworkScanHelper$NetworkScanSyncTask$$ExternalSyntheticLambda0;
+
+    invoke-direct {v1}, Lcom/android/settings/network/telephony/NetworkScanHelper$NetworkScanSyncTask$$ExternalSyntheticLambda0;-><init>()V
 
     invoke-interface {v0, v1}, Ljava/util/stream/Stream;->map(Ljava/util/function/Function;)Ljava/util/stream/Stream;
 
@@ -153,7 +155,7 @@
 
     move-result v0
 
-    invoke-static {v0}, Lcom/android/settings/network/telephony/NetworkScanHelper;->access$400(I)I
+    invoke-static {v0}, Lcom/android/settings/network/telephony/NetworkScanHelper;->-$$Nest$smconvertToScanErrorCode(I)I
 
     move-result v0
 

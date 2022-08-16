@@ -836,12 +836,6 @@
     :cond_8
     if-nez p2, :cond_a
 
-    sget p0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 p1, 0x13
-
-    if-lt p0, p1, :cond_a
-
     invoke-virtual {v0}, Landroid/animation/ValueAnimator;->isPaused()Z
 
     move-result p0

@@ -214,27 +214,21 @@
     :cond_8
     aget-object p0, v4, v3
 
-    aget p0, p0, v1
+    aget v2, p0, v1
 
-    aget-object v2, v4, v3
+    aget p0, p0, v3
 
-    aget v2, v2, v3
+    sub-int/2addr v2, p0
 
-    sub-int/2addr p0, v2
-
-    aget-object v2, v4, v3
-
-    aget v2, v2, v3
-
-    if-gtz v2, :cond_a
+    if-gtz p0, :cond_a
 
     sub-int/2addr v0, v1
 
-    aget-object v0, v4, v0
+    aget-object p0, v4, v0
 
-    aget v0, v0, v1
+    aget p0, p0, v1
 
-    if-ge v0, p0, :cond_9
+    if-ge p0, v2, :cond_9
 
     goto :goto_6
 

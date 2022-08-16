@@ -11,6 +11,10 @@
 
 
 # instance fields
+.field private mContentObserver:Landroid/database/ContentObserver;
+
+.field private mController:Lcom/android/settings/location/RecentLocationAccessPreferenceController;
+
 .field private mLocationEnabler:Lcom/android/settings/location/LocationEnabler;
 
 .field private mSwitchBarController:Lcom/android/settings/location/LocationSwitchBarController;
@@ -27,12 +31,20 @@
     return-object p0
 .end method
 
+.method static bridge synthetic -$$Nest$fgetmController(Lcom/android/settings/location/LocationSettings;)Lcom/android/settings/location/RecentLocationAccessPreferenceController;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/location/LocationSettings;->mController:Lcom/android/settings/location/RecentLocationAccessPreferenceController;
+
+    return-object p0
+.end method
+
 .method static constructor <clinit>()V
     .locals 2
 
     new-instance v0, Lcom/android/settings/search/BaseSearchIndexProvider;
 
-    const v1, 0x7f150090
+    const v1, 0x7f150091
 
     invoke-direct {v0, v1}, Lcom/android/settings/search/BaseSearchIndexProvider;-><init>(I)V
 
@@ -62,7 +74,9 @@
         }
     .end annotation
 
-    sget-object v0, Lcom/android/settings/location/LocationSettings$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/settings/location/LocationSettings$$ExternalSyntheticLambda0;
+    new-instance v0, Lcom/android/settings/location/LocationSettings$$ExternalSyntheticLambda0;
+
+    invoke-direct {v0}, Lcom/android/settings/location/LocationSettings$$ExternalSyntheticLambda0;-><init>()V
 
     invoke-static {v0}, Ljava/util/Comparator;->comparing(Ljava/util/function/Function;)Ljava/util/Comparator;
 
@@ -114,7 +128,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a38
+    const p0, 0x7f040a91
 
     return p0
 .end method
@@ -138,7 +152,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150090
+    const p0, 0x7f150091
 
     return p0
 .end method
@@ -162,7 +176,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f040b9d
+    const v2, 0x7f040c07
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -196,6 +210,36 @@
 
     iput-object p1, p0, Lcom/android/settings/location/LocationSettings;->mLocationEnabler:Lcom/android/settings/location/LocationEnabler;
 
+    new-instance p1, Lcom/android/settings/location/LocationSettings$1;
+
+    new-instance v0, Landroid/os/Handler;
+
+    invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
+
+    invoke-direct {p1, p0, v0}, Lcom/android/settings/location/LocationSettings$1;-><init>(Lcom/android/settings/location/LocationSettings;Landroid/os/Handler;)V
+
+    iput-object p1, p0, Lcom/android/settings/location/LocationSettings;->mContentObserver:Landroid/database/ContentObserver;
+
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object p1
+
+    const-string v0, "locationShowSystemOps"
+
+    invoke-static {v0}, Landroid/provider/Settings$Secure;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v0
+
+    iget-object p0, p0, Lcom/android/settings/location/LocationSettings;->mContentObserver:Landroid/database/ContentObserver;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {p1, v0, v1, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
+
     return-void
 .end method
 
@@ -221,6 +265,8 @@
     move-result-object p1
 
     check-cast p1, Lcom/android/settings/location/RecentLocationAccessPreferenceController;
+
+    iput-object p1, p0, Lcom/android/settings/location/LocationSettings;->mController:Lcom/android/settings/location/RecentLocationAccessPreferenceController;
 
     invoke-virtual {p1, p0}, Lcom/android/settings/location/LocationBasePreferenceController;->init(Lcom/android/settings/dashboard/DashboardFragment;)V
 
@@ -257,6 +303,38 @@
     return-void
 .end method
 
+.method public onCreate(Landroid/os/Bundle;)V
+    .locals 2
+
+    invoke-super {p0, p1}, Lcom/android/settings/dashboard/DashboardFragment;->onCreate(Landroid/os/Bundle;)V
+
+    const-string p1, "managed_profile_location_switch"
+
+    const-string v0, "Settings.WORK_PROFILE_LOCATION_SWITCH_TITLE"
+
+    const v1, 0x7f040d0f
+
+    invoke-virtual {p0, p1, v0, v1}, Lcom/android/settings/SettingsPreferenceFragment;->replaceEnterpriseStringTitle(Ljava/lang/String;Ljava/lang/String;I)V
+
+    return-void
+.end method
+
+.method public onDestroy()V
+    .locals 1
+
+    invoke-super {p0}, Lcom/android/settingslib/core/lifecycle/ObservablePreferenceFragment;->onDestroy()V
+
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    iget-object p0, p0, Lcom/android/settings/location/LocationSettings;->mContentObserver:Landroid/database/ContentObserver;
+
+    invoke-virtual {v0, p0}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
+
+    return-void
+.end method
+
 .method public onLocationModeChanged(IZ)V
     .locals 0
 
@@ -268,7 +346,7 @@
 
     if-eqz p1, :cond_0
 
-    const-string p1, "recent_location_access"
+    const-string/jumbo p1, "recent_location_access"
 
     invoke-virtual {p0, p1}, Landroidx/preference/PreferenceFragmentCompat;->scrollToPreference(Ljava/lang/String;)V
 

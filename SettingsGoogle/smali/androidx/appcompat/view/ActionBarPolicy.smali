@@ -251,30 +251,9 @@
 .end method
 
 .method public showsOverflowMenuButton()Z
-    .locals 3
+    .locals 0
 
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/4 v1, 0x1
-
-    const/16 v2, 0x13
-
-    if-lt v0, v2, :cond_0
-
-    return v1
-
-    :cond_0
-    iget-object p0, p0, Landroidx/appcompat/view/ActionBarPolicy;->mContext:Landroid/content/Context;
-
-    invoke-static {p0}, Landroid/view/ViewConfiguration;->get(Landroid/content/Context;)Landroid/view/ViewConfiguration;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Landroid/view/ViewConfiguration;->hasPermanentMenuKey()Z
-
-    move-result p0
-
-    xor-int/2addr p0, v1
+    const/4 p0, 0x1
 
     return p0
 .end method

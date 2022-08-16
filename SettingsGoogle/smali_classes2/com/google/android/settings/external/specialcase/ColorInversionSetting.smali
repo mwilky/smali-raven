@@ -32,7 +32,7 @@
 .method private getScreenTitle(Landroid/content/Context;)Ljava/lang/String;
     .locals 0
 
-    const p0, 0x7f040125
+    const p0, 0x7f040140
 
     invoke-virtual {p1, p0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -99,7 +99,7 @@
 
     const-string v2, "color_inversion"
 
-    const v5, 0x7f040d02
+    const v5, 0x7f040d7d
 
     move-object v0, p0
 
@@ -169,7 +169,7 @@
 
     const-string v3, "color_inversion"
 
-    const v6, 0x7f040d02
+    const v6, 0x7f040d7d
 
     move-object v1, p0
 

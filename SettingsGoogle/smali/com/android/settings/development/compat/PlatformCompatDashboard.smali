@@ -20,20 +20,14 @@
 
 .field mSelectedApp:Ljava/lang/String;
 
+.field private mShouldStartAppPickerOnResume:Z
+
 
 # direct methods
-.method public static synthetic $r8$lambda$P2WcMKh6Zn0h_Qkk8OMJ05j12ag(Lcom/android/settings/development/compat/PlatformCompatDashboard;Landroid/content/DialogInterface;I)V
+.method public static synthetic $r8$lambda$1fuQMumoIixqz9o8aJLih2mpeBw(Lcom/android/settings/development/compat/PlatformCompatDashboard;Landroid/content/DialogInterface;)V
     .locals 0
 
-    invoke-direct {p0, p1, p2}, Lcom/android/settings/development/compat/PlatformCompatDashboard;->lambda$onActivityResult$0(Landroid/content/DialogInterface;I)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$T_FdGoTMqprN9x7HHS4bgjUmgB8(Lcom/android/settings/development/compat/PlatformCompatDashboard;Landroid/content/DialogInterface;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/development/compat/PlatformCompatDashboard;->lambda$onActivityResult$1(Landroid/content/DialogInterface;)V
+    invoke-direct {p0, p1}, Lcom/android/settings/development/compat/PlatformCompatDashboard;->lambda$onResume$1(Landroid/content/DialogInterface;)V
 
     return-void
 .end method
@@ -48,6 +42,14 @@
     return p0
 .end method
 
+.method public static synthetic $r8$lambda$me8XVKQaJBHYBGCOirZ3R_F5UM0(Lcom/android/settings/development/compat/PlatformCompatDashboard;Landroid/content/DialogInterface;I)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/settings/development/compat/PlatformCompatDashboard;->lambda$onResume$0(Landroid/content/DialogInterface;I)V
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 1
 
@@ -58,6 +60,10 @@
     invoke-direct {v0}, Lcom/android/internal/compat/AndroidBuildClassifier;-><init>()V
 
     iput-object v0, p0, Lcom/android/settings/development/compat/PlatformCompatDashboard;->mAndroidBuildClassifier:Lcom/android/internal/compat/AndroidBuildClassifier;
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/settings/development/compat/PlatformCompatDashboard;->mShouldStartAppPickerOnResume:Z
 
     return-void
 .end method
@@ -237,7 +243,7 @@
     goto :goto_0
 
     :cond_3
-    const v3, 0x7f040f19
+    const v3, 0x7f040fb0
 
     invoke-virtual {p0, v3}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -245,7 +251,7 @@
 
     invoke-virtual {p0, v0, p1, v3}, Lcom/android/settings/development/compat/PlatformCompatDashboard;->createChangeCategoryPreference(Ljava/util/List;Lcom/android/internal/compat/CompatibilityChangeConfig;Ljava/lang/String;)Landroidx/preference/PreferenceCategory;
 
-    const v0, 0x7f040f18
+    const v0, 0x7f040faf
 
     invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -280,7 +286,7 @@
 
     check-cast v3, Ljava/util/List;
 
-    const v4, 0x7f040f1d
+    const v4, 0x7f040fb4
 
     const/4 v6, 0x1
 
@@ -343,7 +349,7 @@
     return p0
 .end method
 
-.method private synthetic lambda$onActivityResult$0(Landroid/content/DialogInterface;I)V
+.method private synthetic lambda$onResume$0(Landroid/content/DialogInterface;I)V
     .locals 0
 
     invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->finish()V
@@ -351,7 +357,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$onActivityResult$1(Landroid/content/DialogInterface;)V
+.method private synthetic lambda$onResume$1(Landroid/content/DialogInterface;)V
     .locals 0
 
     invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->finish()V
@@ -449,7 +455,7 @@
 
     aput-object p1, v0, v1
 
-    const p1, 0x7f040f1c
+    const p1, 0x7f040fb3
 
     invoke-virtual {p0, p1, v0}, Landroidx/fragment/app/Fragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -697,31 +703,104 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f1500b7
+    const p0, 0x7f1500b9
 
     return p0
 .end method
 
-.method public onActivityCreated(Landroid/os/Bundle;)V
+.method public onActivityResult(IILandroid/content/Intent;)V
     .locals 1
 
-    invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onActivityCreated(Landroid/os/Bundle;)V
+    const/4 v0, 0x6
+
+    if-ne p1, v0, :cond_4
+
+    const/4 p1, 0x0
+
+    iput-boolean p1, p0, Lcom/android/settings/development/compat/PlatformCompatDashboard;->mShouldStartAppPickerOnResume:Z
+
+    const/4 p1, -0x2
+
+    if-eq p2, p1, :cond_2
+
+    const/4 p1, -0x1
+
+    if-eq p2, p1, :cond_1
+
+    if-eqz p2, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    iget-object p1, p0, Lcom/android/settings/development/compat/PlatformCompatDashboard;->mSelectedApp:Ljava/lang/String;
+
+    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_3
+
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->finish()V
+
+    goto :goto_0
+
+    :cond_1
+    invoke-virtual {p3}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+
+    move-result-object p1
+
+    iput-object p1, p0, Lcom/android/settings/development/compat/PlatformCompatDashboard;->mSelectedApp:Ljava/lang/String;
+
+    goto :goto_0
+
+    :cond_2
+    const/4 p1, 0x0
+
+    iput-object p1, p0, Lcom/android/settings/development/compat/PlatformCompatDashboard;->mSelectedApp:Ljava/lang/String;
+
+    :cond_3
+    :goto_0
+    return-void
+
+    :cond_4
+    invoke-super {p0, p1, p2, p3}, Landroidx/fragment/app/Fragment;->onActivityResult(IILandroid/content/Intent;)V
+
+    return-void
+.end method
+
+.method public onCreate(Landroid/os/Bundle;)V
+    .locals 1
+
+    invoke-super {p0, p1}, Lcom/android/settings/dashboard/DashboardFragment;->onCreate(Landroid/os/Bundle;)V
 
     :try_start_0
     invoke-virtual {p0}, Lcom/android/settings/development/compat/PlatformCompatDashboard;->getPlatformCompat()Lcom/android/internal/compat/IPlatformCompat;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-interface {p1}, Lcom/android/internal/compat/IPlatformCompat;->listUIChanges()[Lcom/android/internal/compat/CompatibilityChangeInfo;
+    invoke-interface {v0}, Lcom/android/internal/compat/IPlatformCompat;->listUIChanges()[Lcom/android/internal/compat/CompatibilityChangeInfo;
 
-    move-result-object p1
+    move-result-object v0
 
-    iput-object p1, p0, Lcom/android/settings/development/compat/PlatformCompatDashboard;->mChanges:[Lcom/android/internal/compat/CompatibilityChangeInfo;
+    iput-object v0, p0, Lcom/android/settings/development/compat/PlatformCompatDashboard;->mChanges:[Lcom/android/internal/compat/CompatibilityChangeInfo;
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    invoke-direct {p0}, Lcom/android/settings/development/compat/PlatformCompatDashboard;->startAppPicker()V
+    if-eqz p1, :cond_0
 
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/settings/development/compat/PlatformCompatDashboard;->mShouldStartAppPickerOnResume:Z
+
+    const-string v0, "compat_app"
+
+    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p1
+
+    iput-object p1, p0, Lcom/android/settings/development/compat/PlatformCompatDashboard;->mSelectedApp:Ljava/lang/String;
+
+    :cond_0
     return-void
 
     :catch_0
@@ -736,96 +815,103 @@
     throw p1
 .end method
 
-.method public onActivityResult(IILandroid/content/Intent;)V
-    .locals 1
+.method public onResume()V
+    .locals 3
 
-    const/4 v0, 0x6
+    invoke-super {p0}, Lcom/android/settings/dashboard/DashboardFragment;->onResume()V
 
-    if-ne p1, v0, :cond_2
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->isFinishingOrDestroyed()Z
 
-    const/4 p1, -0x1
+    move-result v0
 
-    if-ne p2, p1, :cond_0
+    if-eqz v0, :cond_0
 
-    invoke-virtual {p3}, Landroid/content/Intent;->getAction()Ljava/lang/String;
-
-    move-result-object p1
-
-    iput-object p1, p0, Lcom/android/settings/development/compat/PlatformCompatDashboard;->mSelectedApp:Ljava/lang/String;
-
-    :try_start_0
-    invoke-virtual {p0}, Lcom/android/settings/development/compat/PlatformCompatDashboard;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
-
-    move-result-object p1
-
-    invoke-direct {p0, p1}, Lcom/android/settings/development/compat/PlatformCompatDashboard;->addPreferences(Landroid/content/pm/ApplicationInfo;)V
-    :try_end_0
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_0
-
-    :catch_0
-    invoke-direct {p0}, Lcom/android/settings/development/compat/PlatformCompatDashboard;->startAppPicker()V
-
-    goto :goto_0
+    return-void
 
     :cond_0
-    const/4 p1, -0x2
+    iget-boolean v0, p0, Lcom/android/settings/development/compat/PlatformCompatDashboard;->mShouldStartAppPickerOnResume:Z
 
-    if-ne p2, p1, :cond_1
+    if-nez v0, :cond_2
 
-    new-instance p1, Landroid/app/AlertDialog$Builder;
+    iget-object v0, p0, Lcom/android/settings/development/compat/PlatformCompatDashboard;->mSelectedApp:Ljava/lang/String;
+
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    new-instance v0, Landroid/app/AlertDialog$Builder;
 
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
 
-    move-result-object p2
+    move-result-object v1
 
-    invoke-direct {p1, p2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const p2, 0x7f040f1b
+    const v1, 0x7f040fb2
 
-    invoke-virtual {p1, p2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    move-result-object p1
+    move-result-object v0
 
-    const p2, 0x7f040f1a
+    const v1, 0x7f040fb1
 
-    invoke-virtual {p1, p2}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
-    move-result-object p1
+    move-result-object v0
 
-    const p2, 0x7f040ecc
+    const v1, 0x7f040f60
 
-    new-instance p3, Lcom/android/settings/development/compat/PlatformCompatDashboard$$ExternalSyntheticLambda0;
+    new-instance v2, Lcom/android/settings/development/compat/PlatformCompatDashboard$$ExternalSyntheticLambda0;
 
-    invoke-direct {p3, p0}, Lcom/android/settings/development/compat/PlatformCompatDashboard$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/development/compat/PlatformCompatDashboard;)V
+    invoke-direct {v2, p0}, Lcom/android/settings/development/compat/PlatformCompatDashboard$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/development/compat/PlatformCompatDashboard;)V
 
-    invoke-virtual {p1, p2, p3}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object p1
+    move-result-object v0
 
-    new-instance p2, Lcom/android/settings/development/compat/PlatformCompatDashboard$$ExternalSyntheticLambda1;
+    new-instance v1, Lcom/android/settings/development/compat/PlatformCompatDashboard$$ExternalSyntheticLambda1;
 
-    invoke-direct {p2, p0}, Lcom/android/settings/development/compat/PlatformCompatDashboard$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/development/compat/PlatformCompatDashboard;)V
+    invoke-direct {v1, p0}, Lcom/android/settings/development/compat/PlatformCompatDashboard$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/development/compat/PlatformCompatDashboard;)V
 
-    invoke-virtual {p1, p2}, Landroid/app/AlertDialog$Builder;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object p0
 
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    invoke-virtual {p0, p1}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {p0, v0}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;
 
     move-result-object p0
 
     invoke-virtual {p0}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
 
-    :cond_1
-    :goto_0
     return-void
 
+    :cond_1
+    :try_start_0
+    invoke-virtual {p0}, Lcom/android/settings/development/compat/PlatformCompatDashboard;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
+
+    move-result-object v0
+
+    invoke-direct {p0, v0}, Lcom/android/settings/development/compat/PlatformCompatDashboard;->addPreferences(Landroid/content/pm/ApplicationInfo;)V
+    :try_end_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-void
+
+    :catch_0
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/settings/development/compat/PlatformCompatDashboard;->mShouldStartAppPickerOnResume:Z
+
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/android/settings/development/compat/PlatformCompatDashboard;->mSelectedApp:Ljava/lang/String;
+
     :cond_2
-    invoke-super {p0, p1, p2, p3}, Landroidx/fragment/app/Fragment;->onActivityResult(IILandroid/content/Intent;)V
+    invoke-direct {p0}, Lcom/android/settings/development/compat/PlatformCompatDashboard;->startAppPicker()V
 
     return-void
 .end method

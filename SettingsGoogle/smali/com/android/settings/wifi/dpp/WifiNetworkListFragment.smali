@@ -108,7 +108,7 @@
 .end method
 
 .method public onActivityCreated(Landroid/os/Bundle;)V
-    .locals 14
+    .locals 13
 
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onActivityCreated(Landroid/os/Bundle;)V
 
@@ -168,11 +168,11 @@
 
     invoke-virtual {p1}, Landroid/os/HandlerThread;->start()V
 
-    new-instance v8, Lcom/android/settings/wifi/dpp/WifiNetworkListFragment$2;
+    new-instance v7, Lcom/android/settings/wifi/dpp/WifiNetworkListFragment$2;
 
     sget-object p1, Ljava/time/ZoneOffset;->UTC:Ljava/time/ZoneOffset;
 
-    invoke-direct {v8, p0, p1}, Lcom/android/settings/wifi/dpp/WifiNetworkListFragment$2;-><init>(Lcom/android/settings/wifi/dpp/WifiNetworkListFragment;Ljava/time/ZoneId;)V
+    invoke-direct {v7, p0, p1}, Lcom/android/settings/wifi/dpp/WifiNetworkListFragment$2;-><init>(Lcom/android/settings/wifi/dpp/WifiNetworkListFragment;Ljava/time/ZoneId;)V
 
     new-instance p1, Lcom/android/wifitrackerlib/SavedNetworkTracker;
 
@@ -200,39 +200,29 @@
 
     check-cast v4, Landroid/net/ConnectivityManager;
 
-    const-class v0, Landroid/net/NetworkScoreManager;
-
-    invoke-virtual {v2, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    move-object v5, v0
-
-    check-cast v5, Landroid/net/NetworkScoreManager;
-
-    new-instance v6, Landroid/os/Handler;
+    new-instance v5, Landroid/os/Handler;
 
     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
 
     move-result-object v0
 
-    invoke-direct {v6, v0}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
+    invoke-direct {v5, v0}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
     iget-object v0, p0, Lcom/android/settings/wifi/dpp/WifiNetworkListFragment;->mWorkerThread:Landroid/os/HandlerThread;
 
     invoke-virtual {v0}, Landroid/os/HandlerThread;->getThreadHandler()Landroid/os/Handler;
 
-    move-result-object v7
+    move-result-object v6
 
-    const-wide/16 v9, 0x3a98
+    const-wide/16 v8, 0x3a98
 
-    const-wide/16 v11, 0x2710
+    const-wide/16 v10, 0x2710
 
     move-object v0, p1
 
-    move-object v13, p0
+    move-object v12, p0
 
-    invoke-direct/range {v0 .. v13}, Lcom/android/wifitrackerlib/SavedNetworkTracker;-><init>(Landroidx/lifecycle/Lifecycle;Landroid/content/Context;Landroid/net/wifi/WifiManager;Landroid/net/ConnectivityManager;Landroid/net/NetworkScoreManager;Landroid/os/Handler;Landroid/os/Handler;Ljava/time/Clock;JJLcom/android/wifitrackerlib/SavedNetworkTracker$SavedNetworkTrackerCallback;)V
+    invoke-direct/range {v0 .. v12}, Lcom/android/wifitrackerlib/SavedNetworkTracker;-><init>(Landroidx/lifecycle/Lifecycle;Landroid/content/Context;Landroid/net/wifi/WifiManager;Landroid/net/ConnectivityManager;Landroid/os/Handler;Landroid/os/Handler;Ljava/time/Clock;JJLcom/android/wifitrackerlib/SavedNetworkTracker$SavedNetworkTrackerCallback;)V
 
     iput-object p1, p0, Lcom/android/settings/wifi/dpp/WifiNetworkListFragment;->mSavedNetworkTracker:Lcom/android/wifitrackerlib/SavedNetworkTracker;
 
@@ -275,7 +265,7 @@
 .method public onAttach(Landroid/content/Context;)V
     .locals 1
 
-    invoke-super {p0, p1}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->onAttach(Landroid/content/Context;)V
+    invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onAttach(Landroid/content/Context;)V
 
     instance-of v0, p1, Lcom/android/settings/wifi/dpp/WifiNetworkListFragment$OnChooseNetworkListener;
 
@@ -300,7 +290,7 @@
 .method public onCreatePreferences(Landroid/os/Bundle;Ljava/lang/String;)V
     .locals 0
 
-    const p1, 0x7f150117
+    const p1, 0x7f15011f
 
     invoke-virtual {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->addPreferencesFromResource(I)V
 
@@ -324,13 +314,13 @@
 
     iput-object p1, p0, Lcom/android/settings/wifi/dpp/WifiNetworkListFragment;->mAddPreference:Landroidx/preference/Preference;
 
-    const p2, 0x7f020171
+    const p2, 0x7f020185
 
     invoke-virtual {p1, p2}, Landroidx/preference/Preference;->setIcon(I)V
 
     iget-object p1, p0, Lcom/android/settings/wifi/dpp/WifiNetworkListFragment;->mAddPreference:Landroidx/preference/Preference;
 
-    const p2, 0x7f0415d3
+    const p2, 0x7f0416cc
 
     invoke-virtual {p1, p2}, Landroidx/preference/Preference;->setTitle(I)V
 
@@ -368,15 +358,15 @@
 .method public onPreferenceClick(Landroidx/preference/Preference;)Z
     .locals 8
 
-    instance-of v0, p1, Lcom/android/settingslib/wifi/WifiEntryPreference;
+    instance-of v0, p1, Lcom/android/settings/wifi/WifiEntryPreference;
 
     const/4 v1, 0x1
 
     if-eqz v0, :cond_1
 
-    check-cast p1, Lcom/android/settingslib/wifi/WifiEntryPreference;
+    check-cast p1, Lcom/android/settings/wifi/WifiEntryPreference;
 
-    invoke-virtual {p1}, Lcom/android/settingslib/wifi/WifiEntryPreference;->getWifiEntry()Lcom/android/wifitrackerlib/WifiEntry;
+    invoke-virtual {p1}, Lcom/android/settings/wifi/WifiEntryPreference;->getWifiEntry()Lcom/android/wifitrackerlib/WifiEntry;
 
     move-result-object p1
 
@@ -436,7 +426,7 @@
 
     invoke-direct {p1, v0}, Lcom/android/settings/core/SubSettingLauncher;-><init>(Landroid/content/Context;)V
 
-    const v0, 0x7f0415d3
+    const v0, 0x7f0416cc
 
     invoke-virtual {p1, v0}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 

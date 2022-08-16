@@ -37,7 +37,7 @@
 
     const/16 v0, 0x80
 
-    invoke-static {p0, v0}, Lcom/android/settingslib/applications/ApplicationsState;->access$200(II)Z
+    invoke-static {p0, v0}, Lcom/android/settingslib/applications/ApplicationsState;->-$$Nest$smhasFlag(II)Z
 
     move-result p0
 
@@ -52,7 +52,7 @@
 
     iget p0, p0, Landroid/content/pm/ApplicationInfo;->flags:I
 
-    invoke-static {p0, v0}, Lcom/android/settingslib/applications/ApplicationsState;->access$200(II)Z
+    invoke-static {p0, v0}, Lcom/android/settingslib/applications/ApplicationsState;->-$$Nest$smhasFlag(II)Z
 
     move-result p0
 

@@ -205,13 +205,9 @@
 
     aput v5, v8, v2
 
-    aget v5, v8, v2
+    cmpl-float v10, v5, v14
 
-    cmpl-float v5, v5, v14
-
-    if-lez v5, :cond_4
-
-    aget v5, v8, v2
+    if-lez v10, :cond_4
 
     move v7, v2
 

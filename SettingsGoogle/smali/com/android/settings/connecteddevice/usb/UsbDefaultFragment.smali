@@ -34,10 +34,10 @@
 
 
 # direct methods
-.method public static synthetic $r8$lambda$u6VHd0vO93yma-FOaPJQYmANie8(Lcom/android/settings/connecteddevice/usb/UsbDefaultFragment;ZJII)V
+.method public static synthetic $r8$lambda$1miThqvc140wUw9J1h76W_YOjq0(Lcom/android/settings/connecteddevice/usb/UsbDefaultFragment;ZJIIZ)V
     .locals 0
 
-    invoke-direct/range {p0 .. p5}, Lcom/android/settings/connecteddevice/usb/UsbDefaultFragment;->lambda$new$0(ZJII)V
+    invoke-direct/range {p0 .. p6}, Lcom/android/settings/connecteddevice/usb/UsbDefaultFragment;->lambda$new$0(ZJIIZ)V
 
     return-void
 .end method
@@ -68,7 +68,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$new$0(ZJII)V
+.method private synthetic lambda$new$0(ZJIIZ)V
     .locals 2
 
     iget-object p4, p0, Lcom/android/settings/connecteddevice/usb/UsbDefaultFragment;->mUsbBackend:Lcom/android/settings/connecteddevice/usb/UsbBackend;
@@ -107,6 +107,12 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
+    const-string v1, ", isUsbConfigured : "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p6}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
@@ -134,6 +140,10 @@
     if-nez v0, :cond_1
 
     :cond_0
+    cmp-long v0, p4, p2
+
+    if-nez v0, :cond_1
+
     iget-boolean v0, p0, Lcom/android/settings/connecteddevice/usb/UsbDefaultFragment;->mIsStartTethering:Z
 
     if-nez v0, :cond_1
@@ -145,23 +155,22 @@
     :cond_1
     iget-boolean p4, p0, Lcom/android/settings/connecteddevice/usb/UsbDefaultFragment;->mIsStartTethering:Z
 
-    if-eqz p4, :cond_2
+    if-nez p4, :cond_2
 
-    if-eqz p1, :cond_2
+    if-eqz p6, :cond_3
+
+    :cond_2
+    if-eqz p1, :cond_3
 
     iput-wide p2, p0, Lcom/android/settings/connecteddevice/usb/UsbDefaultFragment;->mCurrentFunctions:J
 
     invoke-direct {p0, p2, p3}, Lcom/android/settings/connecteddevice/usb/UsbDefaultFragment;->refresh(J)V
 
-    iget-object p4, p0, Lcom/android/settings/connecteddevice/usb/UsbDefaultFragment;->mUsbBackend:Lcom/android/settings/connecteddevice/usb/UsbBackend;
-
-    invoke-virtual {p4, p2, p3}, Lcom/android/settings/connecteddevice/usb/UsbBackend;->setDefaultUsbFunctions(J)V
-
     const/4 p2, 0x0
 
     iput-boolean p2, p0, Lcom/android/settings/connecteddevice/usb/UsbDefaultFragment;->mIsStartTethering:Z
 
-    :cond_2
+    :cond_3
     iput-boolean p1, p0, Lcom/android/settings/connecteddevice/usb/UsbDefaultFragment;->mIsConnected:Z
 
     return-void
@@ -210,7 +219,7 @@
 
     move-result-object v4
 
-    check-cast v4, Lcom/android/settingslib/widget/RadioButtonPreference;
+    check-cast v4, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     if-eqz v4, :cond_0
 
@@ -429,7 +438,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150101
+    const p0, 0x7f150109
 
     return p0
 .end method
@@ -511,7 +520,7 @@
 
     invoke-direct {p2, p0}, Lcom/android/settingslib/widget/FooterPreference$Builder;-><init>(Landroid/content/Context;)V
 
-    const p0, 0x7f0414a5
+    const p0, 0x7f0415a2
 
     invoke-virtual {p2, p0}, Lcom/android/settingslib/widget/FooterPreference$Builder;->setTitle(I)Lcom/android/settingslib/widget/FooterPreference$Builder;
 
@@ -530,6 +539,34 @@
     .locals 3
 
     invoke-super {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->onPause()V
+
+    iget-object v0, p0, Lcom/android/settings/connecteddevice/usb/UsbDefaultFragment;->mUsbBackend:Lcom/android/settings/connecteddevice/usb/UsbBackend;
+
+    invoke-virtual {v0}, Lcom/android/settings/connecteddevice/usb/UsbBackend;->getCurrentFunctions()J
+
+    move-result-wide v0
+
+    iput-wide v0, p0, Lcom/android/settings/connecteddevice/usb/UsbDefaultFragment;->mCurrentFunctions:J
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "onPause() : current functions : "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-wide v1, p0, Lcom/android/settings/connecteddevice/usb/UsbDefaultFragment;->mCurrentFunctions:J
+
+    invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "UsbDefaultFragment"
+
+    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v0, p0, Lcom/android/settings/connecteddevice/usb/UsbDefaultFragment;->mUsbBackend:Lcom/android/settings/connecteddevice/usb/UsbBackend;
 

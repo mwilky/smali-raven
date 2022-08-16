@@ -4,7 +4,7 @@
 
 
 # instance fields
-.field private mManager:Landroid/telephony/CarrierConfigManager;
+.field private mCarrierConfigCache:Lcom/android/settings/network/CarrierConfigCache;
 
 .field private mSubscriptionId:I
 
@@ -15,15 +15,11 @@
 
     invoke-direct {p0, p1, p2}, Lcom/android/settings/core/BasePreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
-    const-class p2, Landroid/telephony/CarrierConfigManager;
-
-    invoke-virtual {p1, p2}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/android/settings/network/CarrierConfigCache;->getInstance(Landroid/content/Context;)Lcom/android/settings/network/CarrierConfigCache;
 
     move-result-object p1
 
-    check-cast p1, Landroid/telephony/CarrierConfigManager;
-
-    iput-object p1, p0, Lcom/android/settings/network/telephony/CarrierSettingsVersionPreferenceController;->mManager:Landroid/telephony/CarrierConfigManager;
+    iput-object p1, p0, Lcom/android/settings/network/telephony/CarrierSettingsVersionPreferenceController;->mCarrierConfigCache:Lcom/android/settings/network/CarrierConfigCache;
 
     const/4 p1, -0x1
 
@@ -34,14 +30,6 @@
 
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public getAvailabilityStatus()I
     .locals 0
 
@@ -68,15 +56,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -108,11 +87,11 @@
 .method public getSummary()Ljava/lang/CharSequence;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/settings/network/telephony/CarrierSettingsVersionPreferenceController;->mManager:Landroid/telephony/CarrierConfigManager;
+    iget-object v0, p0, Lcom/android/settings/network/telephony/CarrierSettingsVersionPreferenceController;->mCarrierConfigCache:Lcom/android/settings/network/CarrierConfigCache;
 
     iget p0, p0, Lcom/android/settings/network/telephony/CarrierSettingsVersionPreferenceController;->mSubscriptionId:I
 
-    invoke-virtual {v0, p0}, Landroid/telephony/CarrierConfigManager;->getConfigForSubId(I)Landroid/os/PersistableBundle;
+    invoke-virtual {v0, p0}, Lcom/android/settings/network/CarrierConfigCache;->getConfigForSubId(I)Landroid/os/PersistableBundle;
 
     move-result-object p0
 
@@ -148,16 +127,6 @@
     iput p1, p0, Lcom/android/settings/network/telephony/CarrierSettingsVersionPreferenceController;->mSubscriptionId:I
 
     return-void
-.end method
-
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
-
-    move-result p0
-
-    return p0
 .end method
 
 .method public bridge synthetic isPublicSlice()Z

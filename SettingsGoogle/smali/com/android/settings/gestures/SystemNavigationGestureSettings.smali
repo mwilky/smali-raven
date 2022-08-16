@@ -33,10 +33,18 @@
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$u_3F231sE5Ohf4LS8TZB54wCbOw(Lcom/android/settings/gestures/SystemNavigationGestureSettings;Landroid/content/DialogInterface;)V
+.method public static synthetic $r8$lambda$5gmtegiojda7alW61vm2nUb5Ru4(Lcom/android/settings/gestures/SystemNavigationGestureSettings;Landroid/content/DialogInterface;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/settings/gestures/SystemNavigationGestureSettings;->lambda$setGestureNavigationTutorialDialog$2(Landroid/content/DialogInterface;)V
+    invoke-direct {p0, p1}, Lcom/android/settings/gestures/SystemNavigationGestureSettings;->lambda$setGestureNavigationTutorialDialog$3(Landroid/content/DialogInterface;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$wZ87CYmYTmGVM5htux-H23J1eVU(Lcom/android/settings/gestures/SystemNavigationGestureSettings;Landroid/view/View;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/gestures/SystemNavigationGestureSettings;->lambda$bindPreferenceExtra$2(Landroid/view/View;)V
 
     return-void
 .end method
@@ -54,7 +62,7 @@
 
     new-instance v0, Lcom/android/settings/gestures/SystemNavigationGestureSettings$1;
 
-    const v1, 0x7f1500f2
+    const v1, 0x7f1500f8
 
     invoke-direct {v0, v1}, Lcom/android/settings/gestures/SystemNavigationGestureSettings$1;-><init>(I)V
 
@@ -210,6 +218,38 @@
     return-void
 .end method
 
+.method private synthetic lambda$bindPreferenceExtra$2(Landroid/view/View;)V
+    .locals 0
+
+    new-instance p1, Lcom/android/settings/core/SubSettingLauncher;
+
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
+
+    move-result-object p0
+
+    invoke-direct {p1, p0}, Lcom/android/settings/core/SubSettingLauncher;-><init>(Landroid/content/Context;)V
+
+    const-class p0, Lcom/android/settings/gestures/ButtonNavigationSettingsFragment;
+
+    invoke-virtual {p0}, Ljava/lang/Class;->getName()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {p1, p0}, Lcom/android/settings/core/SubSettingLauncher;->setDestination(Ljava/lang/String;)Lcom/android/settings/core/SubSettingLauncher;
+
+    move-result-object p0
+
+    const/16 p1, 0x55e
+
+    invoke-virtual {p0, p1}, Lcom/android/settings/core/SubSettingLauncher;->setSourceMetricsCategory(I)Lcom/android/settings/core/SubSettingLauncher;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Lcom/android/settings/core/SubSettingLauncher;->launch()V
+
+    return-void
+.end method
+
 .method private synthetic lambda$onCreate$0(Landroid/content/DialogInterface;)V
     .locals 0
 
@@ -220,7 +260,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$setGestureNavigationTutorialDialog$2(Landroid/content/DialogInterface;)V
+.method private synthetic lambda$setGestureNavigationTutorialDialog$3(Landroid/content/DialogInterface;)V
     .locals 0
 
     const/4 p1, 0x0
@@ -441,9 +481,9 @@
 
     move-result-object p1
 
-    new-instance v0, Lcom/android/settings/gestures/SystemNavigationGestureSettings$$ExternalSyntheticLambda1;
+    new-instance v0, Lcom/android/settings/gestures/SystemNavigationGestureSettings$$ExternalSyntheticLambda3;
 
-    invoke-direct {v0, p0}, Lcom/android/settings/gestures/SystemNavigationGestureSettings$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/gestures/SystemNavigationGestureSettings;)V
+    invoke-direct {v0, p0}, Lcom/android/settings/gestures/SystemNavigationGestureSettings$$ExternalSyntheticLambda3;-><init>(Lcom/android/settings/gestures/SystemNavigationGestureSettings;)V
 
     invoke-static {p1, v0}, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial;->showGestureNavigationTutorialDialog(Landroid/content/Context;Landroid/content/DialogInterface$OnDismissListener;)V
 
@@ -525,21 +565,21 @@
     goto :goto_1
 
     :pswitch_0
-    const p1, 0x7f030036
+    const p1, 0x7f030039
 
     invoke-virtual {p0, p1}, Lcom/android/settingslib/widget/IllustrationPreference;->setLottieAnimationResId(I)V
 
     goto :goto_1
 
     :pswitch_1
-    const p1, 0x7f030037
+    const p1, 0x7f03003a
 
     invoke-virtual {p0, p1}, Lcom/android/settingslib/widget/IllustrationPreference;->setLottieAnimationResId(I)V
 
     goto :goto_1
 
     :pswitch_2
-    const p1, 0x7f030035
+    const p1, 0x7f030038
 
     invoke-virtual {p0, p1}, Lcom/android/settingslib/widget/IllustrationPreference;->setLottieAnimationResId(I)V
 
@@ -563,7 +603,7 @@
 
 
 # virtual methods
-.method public bindPreferenceExtra(Lcom/android/settingslib/widget/RadioButtonPreference;Ljava/lang/String;Lcom/android/settingslib/widget/CandidateInfo;Ljava/lang/String;Ljava/lang/String;)V
+.method public bindPreferenceExtra(Lcom/android/settingslib/widget/SelectorWithWidgetPreference;Ljava/lang/String;Lcom/android/settingslib/widget/CandidateInfo;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
 
     instance-of p2, p3, Lcom/android/settings/utils/CandidateInfoExtra;
@@ -587,17 +627,53 @@
 
     move-result-object p2
 
-    const-string/jumbo p3, "system_nav_gestural"
+    const-string/jumbo p4, "system_nav_gestural"
 
-    if-ne p2, p3, :cond_1
+    invoke-virtual {p4, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
+    move-result p2
+
+    if-eqz p2, :cond_1
+
+    new-instance p2, Lcom/android/settings/gestures/SystemNavigationGestureSettings$$ExternalSyntheticLambda1;
+
+    invoke-direct {p2, p0}, Lcom/android/settings/gestures/SystemNavigationGestureSettings$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/gestures/SystemNavigationGestureSettings;)V
+
+    invoke-virtual {p1, p2}, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;->setExtraWidgetOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    :cond_1
+    invoke-virtual {p3}, Lcom/android/settingslib/widget/CandidateInfo;->getKey()Ljava/lang/String;
+
+    move-result-object p2
+
+    const-string/jumbo p4, "system_nav_2buttons"
+
+    invoke-virtual {p4, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p2
+
+    if-nez p2, :cond_2
+
+    invoke-virtual {p3}, Lcom/android/settingslib/widget/CandidateInfo;->getKey()Ljava/lang/String;
+
+    move-result-object p2
+
+    const-string/jumbo p3, "system_nav_3buttons"
+
+    invoke-virtual {p3, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p2
+
+    if-eqz p2, :cond_3
+
+    :cond_2
     new-instance p2, Lcom/android/settings/gestures/SystemNavigationGestureSettings$$ExternalSyntheticLambda2;
 
     invoke-direct {p2, p0}, Lcom/android/settings/gestures/SystemNavigationGestureSettings$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/gestures/SystemNavigationGestureSettings;)V
 
-    invoke-virtual {p1, p2}, Lcom/android/settingslib/widget/RadioButtonPreference;->setExtraWidgetOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {p1, p2}, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;->setExtraWidgetOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    :cond_1
+    :cond_3
     return-void
 .end method
 
@@ -633,13 +709,13 @@
 
     new-instance v1, Lcom/android/settings/utils/CandidateInfoExtra;
 
-    const v3, 0x7f040861
+    const v3, 0x7f0408b8
 
     invoke-virtual {p0, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v3
 
-    const v4, 0x7f040860
+    const v4, 0x7f0408b7
 
     invoke-virtual {p0, v4}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -662,13 +738,13 @@
 
     new-instance v1, Lcom/android/settings/utils/CandidateInfoExtra;
 
-    const v3, 0x7f04139e
+    const v3, 0x7f041466
 
     invoke-virtual {p0, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v3
 
-    const v4, 0x7f04139d
+    const v4, 0x7f041465
 
     invoke-virtual {p0, v4}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -691,13 +767,13 @@
 
     new-instance v1, Lcom/android/settings/utils/CandidateInfoExtra;
 
-    const v3, 0x7f040b6b
+    const v3, 0x7f040bd4
 
     invoke-virtual {p0, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v3
 
-    const v4, 0x7f040b6a
+    const v4, 0x7f040bd3
 
     invoke-virtual {p0, v4}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -730,7 +806,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f0409ff
+    const p0, 0x7f040a56
 
     return p0
 .end method
@@ -746,7 +822,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f1500f2
+    const p0, 0x7f1500f8
 
     return p0
 .end method
@@ -927,19 +1003,19 @@
 
     check-cast v3, Lcom/android/settingslib/widget/CandidateInfo;
 
-    new-instance v10, Lcom/android/settingslib/widget/RadioButtonPreference;
+    new-instance v10, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     invoke-virtual {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->getPrefContext()Landroid/content/Context;
 
     move-result-object v0
 
-    invoke-direct {v10, v0}, Lcom/android/settingslib/widget/RadioButtonPreference;-><init>(Landroid/content/Context;)V
+    invoke-direct {v10, v0}, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;-><init>(Landroid/content/Context;)V
 
     invoke-virtual {v3}, Lcom/android/settingslib/widget/CandidateInfo;->getKey()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-virtual {p0, v10, v0, v3, v6}, Lcom/android/settings/widget/RadioButtonPickerFragment;->bindPreference(Lcom/android/settingslib/widget/RadioButtonPreference;Ljava/lang/String;Lcom/android/settingslib/widget/CandidateInfo;Ljava/lang/String;)Lcom/android/settingslib/widget/RadioButtonPreference;
+    invoke-virtual {p0, v10, v0, v3, v6}, Lcom/android/settings/widget/RadioButtonPickerFragment;->bindPreference(Lcom/android/settingslib/widget/SelectorWithWidgetPreference;Ljava/lang/String;Lcom/android/settingslib/widget/CandidateInfo;Ljava/lang/String;)Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     invoke-virtual {v3}, Lcom/android/settingslib/widget/CandidateInfo;->getKey()Ljava/lang/String;
 
@@ -953,7 +1029,7 @@
 
     move-object v5, v7
 
-    invoke-virtual/range {v0 .. v5}, Lcom/android/settings/gestures/SystemNavigationGestureSettings;->bindPreferenceExtra(Lcom/android/settingslib/widget/RadioButtonPreference;Ljava/lang/String;Lcom/android/settingslib/widget/CandidateInfo;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual/range {v0 .. v5}, Lcom/android/settings/gestures/SystemNavigationGestureSettings;->bindPreferenceExtra(Lcom/android/settingslib/widget/SelectorWithWidgetPreference;Ljava/lang/String;Lcom/android/settingslib/widget/CandidateInfo;Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-virtual {v8, v10}, Landroidx/preference/PreferenceGroup;->addPreference(Landroidx/preference/Preference;)Z
 

@@ -1,33 +1,28 @@
 .class public final synthetic Lcom/android/settings/wifi/calling/WifiCallingSettings$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/IntPredicate;
-
-
-# instance fields
-.field public final synthetic f$0:I
+.implements Ljava/util/function/ToIntFunction;
 
 
 # direct methods
-.method public synthetic constructor <init>(I)V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput p1, p0, Lcom/android/settings/wifi/calling/WifiCallingSettings$$ExternalSyntheticLambda0;->f$0:I
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final test(I)Z
+.method public final applyAsInt(Ljava/lang/Object;)I
     .locals 0
 
-    iget p0, p0, Lcom/android/settings/wifi/calling/WifiCallingSettings$$ExternalSyntheticLambda0;->f$0:I
+    check-cast p1, Landroid/telephony/SubscriptionInfo;
 
-    invoke-static {p0, p1}, Lcom/android/settings/wifi/calling/WifiCallingSettings;->$r8$lambda$361m7UyIqMhsmbUykY85Y9coUzc(II)Z
+    invoke-static {p1}, Lcom/android/settings/wifi/calling/WifiCallingSettings;->$r8$lambda$Jz1Zi46auzwunNmzJCztVQG29zc(Landroid/telephony/SubscriptionInfo;)I
 
     move-result p0
 

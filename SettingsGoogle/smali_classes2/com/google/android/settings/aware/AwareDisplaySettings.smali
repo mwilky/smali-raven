@@ -42,7 +42,7 @@
 
     new-instance v0, Lcom/google/android/settings/aware/AwareDisplaySettings$1;
 
-    const v1, 0x7f150033
+    const v1, 0x7f150034
 
     invoke-direct {v0, v1}, Lcom/google/android/settings/aware/AwareDisplaySettings$1;-><init>(I)V
 
@@ -61,7 +61,27 @@
 
 
 # virtual methods
-.method public bindPreference(Lcom/android/settingslib/widget/RadioButtonPreference;Ljava/lang/String;Lcom/android/settingslib/widget/CandidateInfo;Ljava/lang/String;)Lcom/android/settingslib/widget/RadioButtonPreference;
+.method protected addStaticPreferences(Landroidx/preference/PreferenceScreen;)V
+    .locals 1
+
+    new-instance v0, Lcom/android/settingslib/widget/IllustrationPreference;
+
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
+
+    move-result-object p0
+
+    invoke-direct {v0, p0}, Lcom/android/settingslib/widget/IllustrationPreference;-><init>(Landroid/content/Context;)V
+
+    const p0, 0x7f03002d
+
+    invoke-virtual {v0, p0}, Lcom/android/settingslib/widget/IllustrationPreference;->setLottieAnimationResId(I)V
+
+    invoke-virtual {p1, v0}, Landroidx/preference/PreferenceGroup;->addPreference(Landroidx/preference/Preference;)Z
+
+    return-void
+.end method
+
+.method public bindPreference(Lcom/android/settingslib/widget/SelectorWithWidgetPreference;Ljava/lang/String;Lcom/android/settingslib/widget/CandidateInfo;Ljava/lang/String;)Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
     .locals 1
 
     instance-of v0, p3, Lcom/android/settings/utils/CandidateInfoExtra;
@@ -80,10 +100,10 @@
 
     const/16 v0, 0x8
 
-    invoke-virtual {p1, v0}, Lcom/android/settingslib/widget/RadioButtonPreference;->setAppendixVisibility(I)V
+    invoke-virtual {p1, v0}, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;->setAppendixVisibility(I)V
 
     :cond_0
-    invoke-super {p0, p1, p2, p3, p4}, Lcom/android/settings/widget/RadioButtonPickerFragment;->bindPreference(Lcom/android/settingslib/widget/RadioButtonPreference;Ljava/lang/String;Lcom/android/settingslib/widget/CandidateInfo;Ljava/lang/String;)Lcom/android/settingslib/widget/RadioButtonPreference;
+    invoke-super {p0, p1, p2, p3, p4}, Lcom/android/settings/widget/RadioButtonPickerFragment;->bindPreference(Lcom/android/settingslib/widget/SelectorWithWidgetPreference;Ljava/lang/String;Lcom/android/settingslib/widget/CandidateInfo;Ljava/lang/String;)Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     move-result-object p0
 
@@ -120,13 +140,13 @@
 
     new-instance v2, Lcom/android/settings/utils/CandidateInfoExtra;
 
-    const v3, 0x7f04032a
+    const v3, 0x7f040364
 
     invoke-virtual {v0, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v3
 
-    const v4, 0x7f040328
+    const v4, 0x7f040362
 
     invoke-virtual {v0, v4}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -180,7 +200,7 @@
     :cond_1
     new-instance p0, Lcom/android/settings/utils/CandidateInfoExtra;
 
-    const v3, 0x7f04139f
+    const v3, 0x7f041467
 
     invoke-virtual {v0, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -254,7 +274,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150033
+    const p0, 0x7f150034
 
     return p0
 .end method
@@ -275,12 +295,6 @@
     invoke-direct {v0, p1}, Landroid/hardware/display/AmbientDisplayConfiguration;-><init>(Landroid/content/Context;)V
 
     iput-object v0, p0, Lcom/google/android/settings/aware/AwareDisplaySettings;->mConfig:Landroid/hardware/display/AmbientDisplayConfiguration;
-
-    const p1, 0x7f03000e
-
-    const v0, 0x7f020109
-
-    invoke-virtual {p0, p1, v0}, Lcom/android/settings/widget/RadioButtonPickerFragment;->setIllustration(II)V
 
     return-void
 .end method

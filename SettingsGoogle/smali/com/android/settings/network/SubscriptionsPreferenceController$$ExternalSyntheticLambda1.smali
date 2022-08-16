@@ -1,39 +1,36 @@
 .class public final synthetic Lcom/android/settings/network/SubscriptionsPreferenceController$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/settings/widget/GearPreference$OnGearClickListener;
+.implements Landroidx/preference/Preference$OnPreferenceClickListener;
 
 
 # instance fields
 .field public final synthetic f$0:Lcom/android/settings/network/SubscriptionsPreferenceController;
 
-.field public final synthetic f$1:Landroid/telephony/SubscriptionInfo;
-
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/settings/network/SubscriptionsPreferenceController;Landroid/telephony/SubscriptionInfo;)V
+.method public synthetic constructor <init>(Lcom/android/settings/network/SubscriptionsPreferenceController;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/settings/network/SubscriptionsPreferenceController$$ExternalSyntheticLambda1;->f$0:Lcom/android/settings/network/SubscriptionsPreferenceController;
 
-    iput-object p2, p0, Lcom/android/settings/network/SubscriptionsPreferenceController$$ExternalSyntheticLambda1;->f$1:Landroid/telephony/SubscriptionInfo;
-
     return-void
 .end method
 
 
 # virtual methods
-.method public final onGearClick(Lcom/android/settings/widget/GearPreference;)V
-    .locals 1
+.method public final onPreferenceClick(Landroidx/preference/Preference;)Z
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/settings/network/SubscriptionsPreferenceController$$ExternalSyntheticLambda1;->f$0:Lcom/android/settings/network/SubscriptionsPreferenceController;
+    iget-object p0, p0, Lcom/android/settings/network/SubscriptionsPreferenceController$$ExternalSyntheticLambda1;->f$0:Lcom/android/settings/network/SubscriptionsPreferenceController;
 
-    iget-object p0, p0, Lcom/android/settings/network/SubscriptionsPreferenceController$$ExternalSyntheticLambda1;->f$1:Landroid/telephony/SubscriptionInfo;
+    invoke-static {p0, p1}, Lcom/android/settings/network/SubscriptionsPreferenceController;->$r8$lambda$RHwXSy0mU7z-eOxPFEnzhMM-QWI(Lcom/android/settings/network/SubscriptionsPreferenceController;Landroidx/preference/Preference;)Z
 
-    invoke-static {v0, p0, p1}, Lcom/android/settings/network/SubscriptionsPreferenceController;->$r8$lambda$RsbDK_YEXt5Rd3lrrLkkbaFJy3c(Lcom/android/settings/network/SubscriptionsPreferenceController;Landroid/telephony/SubscriptionInfo;Lcom/android/settings/widget/GearPreference;)V
+    move-result p0
 
-    return-void
+    return p0
 .end method

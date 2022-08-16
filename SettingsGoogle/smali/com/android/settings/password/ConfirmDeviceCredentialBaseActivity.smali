@@ -55,7 +55,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f0d0348
+    const v0, 0x7f0d0373
 
     invoke-virtual {p0, v0}, Landroidx/fragment/app/FragmentManager;->findFragmentById(I)Landroidx/fragment/app/Fragment;
 
@@ -227,7 +227,7 @@
 
     if-eqz v0, :cond_1
 
-    const v0, 0x7f130315
+    const v0, 0x7f1303c1
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->setTheme(I)V
 
@@ -263,7 +263,7 @@
 
     if-ne v0, v2, :cond_2
 
-    const v0, 0x7f0d017a
+    const v0, 0x7f0d018f
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -398,7 +398,9 @@
 
     invoke-direct {p0, v0}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
-    sget-object v0, Lcom/android/settings/password/ConfirmDeviceCredentialBaseActivity$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/settings/password/ConfirmDeviceCredentialBaseActivity$$ExternalSyntheticLambda0;
+    new-instance v0, Lcom/android/settings/password/ConfirmDeviceCredentialBaseActivity$$ExternalSyntheticLambda0;
+
+    invoke-direct {v0}, Lcom/android/settings/password/ConfirmDeviceCredentialBaseActivity$$ExternalSyntheticLambda0;-><init>()V
 
     const-wide/16 v1, 0x1388
 
@@ -444,7 +446,7 @@
     return p0
 
     :cond_0
-    invoke-super {p0, p1}, Landroid/app/Activity;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
+    invoke-super {p0, p1}, Landroidx/activity/ComponentActivity;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
 
     move-result p0
 

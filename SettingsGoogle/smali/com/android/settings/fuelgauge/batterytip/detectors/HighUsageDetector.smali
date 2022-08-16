@@ -160,7 +160,9 @@
 
     move-result-object v3
 
-    sget-object v4, Lcom/android/settings/fuelgauge/batterytip/detectors/HighUsageDetector$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/settings/fuelgauge/batterytip/detectors/HighUsageDetector$$ExternalSyntheticLambda0;
+    new-instance v4, Lcom/android/settings/fuelgauge/batterytip/detectors/HighUsageDetector$$ExternalSyntheticLambda0;
+
+    invoke-direct {v4}, Lcom/android/settings/fuelgauge/batterytip/detectors/HighUsageDetector$$ExternalSyntheticLambda0;-><init>()V
 
     invoke-interface {v3, v4}, Ljava/util/List;->sort(Ljava/util/Comparator;)V
 

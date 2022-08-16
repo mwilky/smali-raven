@@ -17,14 +17,6 @@
 # direct methods
 .method static toPlatformType(I)I
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x10
-        }
-        names = {
-            "typeMask"
-        }
-    .end annotation
 
     const/4 v0, 0x1
 

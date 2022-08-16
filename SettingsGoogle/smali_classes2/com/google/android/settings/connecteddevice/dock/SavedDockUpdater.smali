@@ -72,6 +72,14 @@
     return p0
 .end method
 
+.method static bridge synthetic -$$Nest$mstartQuery(Lcom/google/android/settings/connecteddevice/dock/SavedDockUpdater;ILandroid/net/Uri;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/google/android/settings/connecteddevice/dock/SavedDockUpdater;->startQuery(ILandroid/net/Uri;)V
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Lcom/android/settings/connecteddevice/DevicePreferenceCallback;)V
     .locals 4
 
@@ -147,14 +155,6 @@
     iput-object v0, p0, Lcom/google/android/settings/connecteddevice/dock/SavedDockUpdater;->mAsyncQueryHandler:Lcom/google/android/settings/connecteddevice/dock/DockAsyncQueryHandler;
 
     :goto_0
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/google/android/settings/connecteddevice/dock/SavedDockUpdater;ILandroid/net/Uri;)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/google/android/settings/connecteddevice/dock/SavedDockUpdater;->startQuery(ILandroid/net/Uri;)V
-
     return-void
 .end method
 

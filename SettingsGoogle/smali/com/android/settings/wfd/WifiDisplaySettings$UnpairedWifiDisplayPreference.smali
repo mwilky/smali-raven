@@ -39,7 +39,7 @@
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
 
-    const p1, 0x10408f2
+    const p1, 0x104096c
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -66,7 +66,7 @@
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setOrder(I)V
 
-    const p1, 0x7f041639
+    const p1, 0x7f041732
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -85,7 +85,7 @@
 
     iget-object p0, p0, Lcom/android/settings/wfd/WifiDisplaySettings$UnpairedWifiDisplayPreference;->mDisplay:Landroid/hardware/display/WifiDisplay;
 
-    invoke-static {p1, p0}, Lcom/android/settings/wfd/WifiDisplaySettings;->access$1500(Lcom/android/settings/wfd/WifiDisplaySettings;Landroid/hardware/display/WifiDisplay;)V
+    invoke-static {p1, p0}, Lcom/android/settings/wfd/WifiDisplaySettings;->-$$Nest$mpairWifiDisplay(Lcom/android/settings/wfd/WifiDisplaySettings;Landroid/hardware/display/WifiDisplay;)V
 
     const/4 p0, 0x1
 

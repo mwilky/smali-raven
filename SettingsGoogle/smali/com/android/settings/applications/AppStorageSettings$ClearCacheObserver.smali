@@ -36,7 +36,7 @@
 
     iget-object p1, p0, Lcom/android/settings/applications/AppStorageSettings$ClearCacheObserver;->this$0:Lcom/android/settings/applications/AppStorageSettings;
 
-    invoke-static {p1}, Lcom/android/settings/applications/AppStorageSettings;->access$500(Lcom/android/settings/applications/AppStorageSettings;)Landroid/os/Handler;
+    invoke-static {p1}, Lcom/android/settings/applications/AppStorageSettings;->-$$Nest$fgetmHandler(Lcom/android/settings/applications/AppStorageSettings;)Landroid/os/Handler;
 
     move-result-object p1
 
@@ -60,7 +60,7 @@
 
     iget-object p0, p0, Lcom/android/settings/applications/AppStorageSettings$ClearCacheObserver;->this$0:Lcom/android/settings/applications/AppStorageSettings;
 
-    invoke-static {p0}, Lcom/android/settings/applications/AppStorageSettings;->access$500(Lcom/android/settings/applications/AppStorageSettings;)Landroid/os/Handler;
+    invoke-static {p0}, Lcom/android/settings/applications/AppStorageSettings;->-$$Nest$fgetmHandler(Lcom/android/settings/applications/AppStorageSettings;)Landroid/os/Handler;
 
     move-result-object p0
 

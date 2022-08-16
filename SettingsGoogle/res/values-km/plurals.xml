@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="abc_slice_duration_days">
-        <item quantity="other">%d ថ្ងៃ​មុន</item>
-        <item quantity="one">%d ថ្ងៃ​មុន</item>
+        <item quantity="other">%d ថ្ងៃមុន</item>
+        <item quantity="one">%d ថ្ងៃមុន</item>
     </plurals>
     <plurals name="abc_slice_duration_min">
         <item quantity="other">%d នាទី​មុន</item>
@@ -193,8 +193,8 @@
         <item quantity="one">កម្មវិធី %d អាចអានការជូនដំណឹង</item>
     </plurals>
     <plurals name="manage_trust_agents_summary_on">
-        <item quantity="other">ភ្នាក់ងារដែលទុកចិត្តចំនួន %d បានដំណើរការ</item>
-        <item quantity="one">ភ្នាក់ងារដែលទុកចិត្តចំនួន 1 បានដំណើរការ</item>
+        <item quantity="other">ភ្នាក់ងារទុកចិត្តដែលសកម្មចំនួន %d</item>
+        <item quantity="one">ភ្នាក់ងារទុកចិត្តដែលសកម្មចំនួន 1</item>
     </plurals>
     <plurals name="memory_usage_apps_summary">
         <item quantity="other">កម្មវិធី %1$d បានប្រើអង្គចងចាំក្នុងរយៈពេល %2$s ចុងក្រោយ</item>
@@ -233,11 +233,11 @@
         <item quantity="one">ប្រភេទចំនួន %d បាន​បិទ</item>
     </plurals>
     <plurals name="notifications_sent_daily">
-        <item quantity="other">ការជូន​ដំណឹង ~%d ក្នុងមួយថ្ងៃ</item>
+        <item quantity="other">ការជូន​ដំណឹង ~%,d ក្នុងមួយថ្ងៃ</item>
         <item quantity="one">ការជូន​ដំណឹង ~%d ក្នុងមួយថ្ងៃ</item>
     </plurals>
     <plurals name="notifications_sent_weekly">
-        <item quantity="other">ការ​ជូនដំណឹង ~%d ក្នុងមួយសប្ដាហ៍</item>
+        <item quantity="other">ការ​ជូនដំណឹង ~%,d ក្នុងមួយសប្ដាហ៍</item>
         <item quantity="one">ការ​ជូនដំណឹង ~%d ក្នុងមួយសប្ដាហ៍</item>
     </plurals>
     <plurals name="number_of_device_admins">
@@ -328,22 +328,6 @@
         <item quantity="other">ជឿទុកចិត្ត ឬយកវិញ្ញាបនបត្រចេញ</item>
         <item quantity="one">ជឿទុកចិត្ត ឬយកវិញ្ញាបនបត្រចេញ</item>
     </plurals>
-    <plurals name="ssl_ca_cert_info_message">
-        <item quantity="other">"%s បានដំឡើងអាជ្ញាធរវិញ្ញាបនបត្រសម្រាប់ប្រវត្តិរូបការងាររបស់អ្នក ដែលអាចអនុញ្ញាតឲ្យពួកគេត្រួតពិនិត្យសកម្មភាពបណ្តាញការងារ ដោយរាប់បញ្ចូលទាំងអ៊ីមែល កម្មវិធី និងគេហទំព័រដែលមានសុវត្ថិភាព។
-
-សម្រាប់ព័ត៌មានបន្ថែមអំពីវិញ្ញាបនបត្រនេះ សូមទាក់ទងអ្នកគ្រប់គ្រងរបស់អ្នក។"</item>
-        <item quantity="one">"%s បានដំឡើងអាជ្ញាធរវិញ្ញាបនបត្រសម្រាប់ប្រវត្តិរូបការងាររបស់អ្នក ដែលអាចអនុញ្ញាតឲ្យពួកគេត្រួតពិនិត្យសកម្មភាពបណ្តាញការងារ ដោយរាប់បញ្ចូលទាំងអ៊ីមែល កម្មវិធី និងគេហទំព័រដែលមានសុវត្ថិភាព។
-
-សម្រាប់ព័ត៌មានបន្ថែមអំពីវិញ្ញាបនបត្រនេះ សូមទាក់ទងអ្នកគ្រប់គ្រងរបស់អ្នក។"</item>
-    </plurals>
-    <plurals name="ssl_ca_cert_info_message_device_owner">
-        <item quantity="other">"%s បានដំឡើងអាជ្ញាធរវិញ្ញាបនបត្រនៅលើឧបករណ៍របស់អ្នក ដែលអនុញ្ញាតឲ្យពួកគេត្រួតពិនិត្យសកម្មភាពបណ្តាញការងារ ដោយរាប់បញ្ចូលទាំងអ៊ីមែល កម្មវិធី និងគេហទំព័រដែលមានសុវត្ថិភាព។
-
-សម្រាប់ព័ត៌មានបន្ថែមអំពីវិញ្ញាបនបត្រនេះ សូមទាក់ទងអ្នកគ្រប់គ្រងរបស់អ្នក។"</item>
-        <item quantity="one">"%s បានដំឡើងអាជ្ញាធរវិញ្ញាបនបត្រនៅលើឧបករណ៍របស់អ្នក ដែលអនុញ្ញាតឲ្យពួកគេត្រួតពិនិត្យសកម្មភាពបណ្តាញការងារ ដោយរាប់បញ្ចូលទាំងអ៊ីមែល កម្មវិធី និងគេហទំព័រដែលមានសុវត្ថិភាព។
-
-សម្រាប់ព័ត៌មានបន្ថែមអំពីវិញ្ញាបនបត្រនេះ សូមទាក់ទងអ្នកគ្រប់គ្រងរបស់អ្នក។"</item>
-    </plurals>
     <plurals name="ssl_ca_cert_settings_button">
         <item quantity="other">ពិនិត្យវិញ្ញាបនបត្រ</item>
         <item quantity="one">ពិនិត្យវិញ្ញាបនបត្រ</item>
@@ -375,10 +359,6 @@
     <plurals name="wifi_saved_passpoint_access_points_summary">
         <item quantity="other">ការ​ជាវ %d</item>
         <item quantity="one">ការ​ជាវ 1</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">ឧបករណ៍ %1$d បានភ្ជាប់</item>
-        <item quantity="one">ឧបករណ៍ %1$d បានភ្ជាប់</item>
     </plurals>
     <plurals name="wrong_pin_code">
         <item quantity="other">លេខកូដសម្ងាត់ស៊ីមមិនត្រឹមត្រូវ អ្នកនៅសល់ការព្យាយាម %d ដងទៀត។</item>

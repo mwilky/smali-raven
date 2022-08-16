@@ -20,6 +20,8 @@
 
 .field private mIconView:Landroid/widget/ImageView;
 
+.field private final mJankMonitor:Lcom/android/internal/jank/InteractionJankMonitor;
+
 .field private mMuteIconResId:I
 
 .field private mMuted:Z
@@ -40,12 +42,74 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmCallback(Lcom/android/settings/notification/VolumeSeekBarPreference;)Lcom/android/settings/notification/VolumeSeekBarPreference$Callback;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/notification/VolumeSeekBarPreference;->mCallback:Lcom/android/settings/notification/VolumeSeekBarPreference$Callback;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmJankMonitor(Lcom/android/settings/notification/VolumeSeekBarPreference;)Lcom/android/internal/jank/InteractionJankMonitor;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/notification/VolumeSeekBarPreference;->mJankMonitor:Lcom/android/internal/jank/InteractionJankMonitor;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmMuted(Lcom/android/settings/notification/VolumeSeekBarPreference;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/settings/notification/VolumeSeekBarPreference;->mMuted:Z
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmStream(Lcom/android/settings/notification/VolumeSeekBarPreference;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/settings/notification/VolumeSeekBarPreference;->mStream:I
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmZenMuted(Lcom/android/settings/notification/VolumeSeekBarPreference;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/settings/notification/VolumeSeekBarPreference;->mZenMuted:Z
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmMuted(Lcom/android/settings/notification/VolumeSeekBarPreference;Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/settings/notification/VolumeSeekBarPreference;->mMuted:Z
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fputmZenMuted(Lcom/android/settings/notification/VolumeSeekBarPreference;Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/settings/notification/VolumeSeekBarPreference;->mZenMuted:Z
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
 
     invoke-direct {p0, p1}, Lcom/android/settings/widget/SeekBarPreference;-><init>(Landroid/content/Context;)V
 
-    const v0, 0x7f0601b1
+    invoke-static {}, Lcom/android/internal/jank/InteractionJankMonitor;->getInstance()Lcom/android/internal/jank/InteractionJankMonitor;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/settings/notification/VolumeSeekBarPreference;->mJankMonitor:Lcom/android/internal/jank/InteractionJankMonitor;
+
+    const v0, 0x7f0601bd
 
     invoke-virtual {p0, v0}, Landroidx/preference/Preference;->setLayoutResource(I)V
 
@@ -67,7 +131,13 @@
 
     invoke-direct {p0, p1, p2}, Lcom/android/settings/widget/SeekBarPreference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    const p2, 0x7f0601b1
+    invoke-static {}, Lcom/android/internal/jank/InteractionJankMonitor;->getInstance()Lcom/android/internal/jank/InteractionJankMonitor;
+
+    move-result-object p2
+
+    iput-object p2, p0, Lcom/android/settings/notification/VolumeSeekBarPreference;->mJankMonitor:Lcom/android/internal/jank/InteractionJankMonitor;
+
+    const p2, 0x7f0601bd
 
     invoke-virtual {p0, p2}, Landroidx/preference/Preference;->setLayoutResource(I)V
 
@@ -89,7 +159,13 @@
 
     invoke-direct {p0, p1, p2, p3}, Lcom/android/settings/widget/SeekBarPreference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    const p2, 0x7f0601b1
+    invoke-static {}, Lcom/android/internal/jank/InteractionJankMonitor;->getInstance()Lcom/android/internal/jank/InteractionJankMonitor;
+
+    move-result-object p2
+
+    iput-object p2, p0, Lcom/android/settings/notification/VolumeSeekBarPreference;->mJankMonitor:Lcom/android/internal/jank/InteractionJankMonitor;
+
+    const p2, 0x7f0601bd
 
     invoke-virtual {p0, p2}, Landroidx/preference/Preference;->setLayoutResource(I)V
 
@@ -111,7 +187,13 @@
 
     invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/settings/widget/SeekBarPreference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
 
-    const p2, 0x7f0601b1
+    invoke-static {}, Lcom/android/internal/jank/InteractionJankMonitor;->getInstance()Lcom/android/internal/jank/InteractionJankMonitor;
+
+    move-result-object p2
+
+    iput-object p2, p0, Lcom/android/settings/notification/VolumeSeekBarPreference;->mJankMonitor:Lcom/android/internal/jank/InteractionJankMonitor;
+
+    const p2, 0x7f0601bd
 
     invoke-virtual {p0, p2}, Landroidx/preference/Preference;->setLayoutResource(I)V
 
@@ -126,54 +208,6 @@
     iput-object p1, p0, Lcom/android/settings/notification/VolumeSeekBarPreference;->mAudioManager:Landroid/media/AudioManager;
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/notification/VolumeSeekBarPreference;)Lcom/android/settings/notification/VolumeSeekBarPreference$Callback;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/notification/VolumeSeekBarPreference;->mCallback:Lcom/android/settings/notification/VolumeSeekBarPreference$Callback;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/notification/VolumeSeekBarPreference;)I
-    .locals 0
-
-    iget p0, p0, Lcom/android/settings/notification/VolumeSeekBarPreference;->mStream:I
-
-    return p0
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/notification/VolumeSeekBarPreference;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/settings/notification/VolumeSeekBarPreference;->mMuted:Z
-
-    return p0
-.end method
-
-.method static synthetic access$202(Lcom/android/settings/notification/VolumeSeekBarPreference;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/settings/notification/VolumeSeekBarPreference;->mMuted:Z
-
-    return p1
-.end method
-
-.method static synthetic access$300(Lcom/android/settings/notification/VolumeSeekBarPreference;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/settings/notification/VolumeSeekBarPreference;->mZenMuted:Z
-
-    return p0
-.end method
-
-.method static synthetic access$302(Lcom/android/settings/notification/VolumeSeekBarPreference;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/settings/notification/VolumeSeekBarPreference;->mZenMuted:Z
-
-    return p1
 .end method
 
 .method private getMediaVolumeUri()Landroid/net/Uri;
@@ -201,7 +235,7 @@
 
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const p0, 0x7f030039
+    const p0, 0x7f03003c
 
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -338,7 +372,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/widget/SeekBarPreference;->onBindViewHolder(Landroidx/preference/PreferenceViewHolder;)V
 
-    const v0, 0x1020469
+    const v0, 0x1020499
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -358,7 +392,7 @@
 
     iput-object v0, p0, Lcom/android/settings/notification/VolumeSeekBarPreference;->mIconView:Landroid/widget/ImageView;
 
-    const v0, 0x7f0d0590
+    const v0, 0x7f0d05d5
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 

@@ -346,7 +346,7 @@
 
     iget-object v0, p0, Lcom/android/settings/widget/LabeledSeekBar$LabeledSeekBarExploreByTouchHelper;->this$0:Lcom/android/settings/widget/LabeledSeekBar;
 
-    invoke-static {v0}, Lcom/android/settings/widget/LabeledSeekBar;->access$300(Lcom/android/settings/widget/LabeledSeekBar;)[Ljava/lang/String;
+    invoke-static {v0}, Lcom/android/settings/widget/LabeledSeekBar;->-$$Nest$fgetmLabels(Lcom/android/settings/widget/LabeledSeekBar;)[Ljava/lang/String;
 
     move-result-object v0
 
@@ -412,7 +412,7 @@
 
     iget-object v0, p0, Lcom/android/settings/widget/LabeledSeekBar$LabeledSeekBarExploreByTouchHelper;->this$0:Lcom/android/settings/widget/LabeledSeekBar;
 
-    invoke-static {v0}, Lcom/android/settings/widget/LabeledSeekBar;->access$300(Lcom/android/settings/widget/LabeledSeekBar;)[Ljava/lang/String;
+    invoke-static {v0}, Lcom/android/settings/widget/LabeledSeekBar;->-$$Nest$fgetmLabels(Lcom/android/settings/widget/LabeledSeekBar;)[Ljava/lang/String;
 
     move-result-object v0
 

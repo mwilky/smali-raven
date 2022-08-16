@@ -20,7 +20,7 @@
 
     move-result-object p1
 
-    const p2, 0x7f0100fc
+    const p2, 0x7f010110
 
     invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -229,10 +229,18 @@
     return v4
 .end method
 
-.method public bridge synthetic onResume(Landroid/app/AutomaticZenRule;Ljava/lang/String;)V
+.method public bridge synthetic onResume()V
     .locals 0
 
-    invoke-super {p0, p1, p2}, Lcom/android/settings/notification/zen/AbstractZenCustomRulePreferenceController;->onResume(Landroid/app/AutomaticZenRule;Ljava/lang/String;)V
+    invoke-super {p0}, Lcom/android/settings/notification/zen/AbstractZenCustomRulePreferenceController;->onResume()V
+
+    return-void
+.end method
+
+.method public bridge synthetic setIdAndRule(Ljava/lang/String;Landroid/app/AutomaticZenRule;)V
+    .locals 0
+
+    invoke-super {p0, p1, p2}, Lcom/android/settings/notification/zen/AbstractZenCustomRulePreferenceController;->setIdAndRule(Ljava/lang/String;Landroid/app/AutomaticZenRule;)V
 
     return-void
 .end method
@@ -240,7 +248,7 @@
 .method public updateState(Landroidx/preference/Preference;)V
     .locals 0
 
-    invoke-super {p0, p1}, Lcom/android/settings/notification/zen/AbstractZenCustomRulePreferenceController;->updateState(Landroidx/preference/Preference;)V
+    invoke-super {p0, p1}, Lcom/android/settingslib/core/AbstractPreferenceController;->updateState(Landroidx/preference/Preference;)V
 
     invoke-direct {p0, p1}, Lcom/android/settings/notification/zen/ZenRuleCallsPreferenceController;->updateFromContactsValue(Landroidx/preference/Preference;)V
 

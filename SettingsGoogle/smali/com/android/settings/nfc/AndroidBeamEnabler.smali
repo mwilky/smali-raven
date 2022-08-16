@@ -125,7 +125,7 @@
 
     iget-object p0, p0, Lcom/android/settings/nfc/AndroidBeamEnabler;->mPreference:Lcom/android/settingslib/RestrictedPreference;
 
-    const p1, 0x7f040214
+    const p1, 0x7f040241
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -134,7 +134,7 @@
     :cond_3
     iget-object p0, p0, Lcom/android/settings/nfc/AndroidBeamEnabler;->mPreference:Lcom/android/settingslib/RestrictedPreference;
 
-    const p1, 0x7f040213
+    const p1, 0x7f040240
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -154,7 +154,7 @@
 
     iget-object p0, p0, Lcom/android/settings/nfc/AndroidBeamEnabler;->mPreference:Lcom/android/settingslib/RestrictedPreference;
 
-    const p1, 0x7f040ddb
+    const p1, 0x7f040e5e
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setSummary(I)V
 

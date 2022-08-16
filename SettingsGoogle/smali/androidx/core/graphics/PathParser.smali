@@ -15,19 +15,6 @@
 # direct methods
 .method private static addNode(Ljava/util/ArrayList;C[F)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "list",
-            "cmd",
-            "val"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -47,17 +34,7 @@
 .end method
 
 .method public static canMorph([Landroidx/core/graphics/PathParser$PathDataNode;[Landroidx/core/graphics/PathParser$PathDataNode;)Z
-    .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "nodesFrom",
-            "nodesTo"
-        }
-    .end annotation
+    .locals 6
 
     const/4 v0, 0x0
 
@@ -86,23 +63,19 @@
 
     aget-object v2, p0, v1
 
-    iget-char v2, v2, Landroidx/core/graphics/PathParser$PathDataNode;->mType:C
+    iget-char v3, v2, Landroidx/core/graphics/PathParser$PathDataNode;->mType:C
 
-    aget-object v3, p1, v1
+    aget-object v4, p1, v1
 
-    iget-char v3, v3, Landroidx/core/graphics/PathParser$PathDataNode;->mType:C
+    iget-char v5, v4, Landroidx/core/graphics/PathParser$PathDataNode;->mType:C
 
-    if-ne v2, v3, :cond_3
-
-    aget-object v2, p0, v1
+    if-ne v3, v5, :cond_3
 
     iget-object v2, v2, Landroidx/core/graphics/PathParser$PathDataNode;->mParams:[F
 
     array-length v2, v2
 
-    aget-object v3, p1, v1
-
-    iget-object v3, v3, Landroidx/core/graphics/PathParser$PathDataNode;->mParams:[F
+    iget-object v3, v4, Landroidx/core/graphics/PathParser$PathDataNode;->mParams:[F
 
     array-length v3, v3
 
@@ -131,18 +104,6 @@
 
 .method static copyOfRange([FII)[F
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "original",
-            "start",
-            "end"
-        }
-    .end annotation
 
     if-gt p1, p2, :cond_1
 
@@ -185,14 +146,6 @@
 
 .method public static createNodesFromPathData(Ljava/lang/String;)[Landroidx/core/graphics/PathParser$PathDataNode;
     .locals 7
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "pathData"
-        }
-    .end annotation
 
     if-nez p0, :cond_0
 
@@ -296,14 +249,6 @@
 
 .method public static createPathFromPathData(Ljava/lang/String;)Landroid/graphics/Path;
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "pathData"
-        }
-    .end annotation
 
     new-instance v0, Landroid/graphics/Path;
 
@@ -353,14 +298,6 @@
 
 .method public static deepCopyNodes([Landroidx/core/graphics/PathParser$PathDataNode;)[Landroidx/core/graphics/PathParser$PathDataNode;
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "source"
-        }
-    .end annotation
 
     if-nez p0, :cond_0
 
@@ -398,18 +335,6 @@
 
 .method private static extract(Ljava/lang/String;ILandroidx/core/graphics/PathParser$ExtractFloatResult;)V
     .locals 8
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "s",
-            "start",
-            "result"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -519,14 +444,6 @@
 
 .method private static getFloats(Ljava/lang/String;)[F
     .locals 8
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "s"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -650,16 +567,6 @@
 
 .method private static nextStart(Ljava/lang/String;I)I
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "s",
-            "end"
-        }
-    .end annotation
 
     :goto_0
     invoke-virtual {p0}, Ljava/lang/String;->length()I
@@ -710,16 +617,6 @@
 
 .method public static updateNodes([Landroidx/core/graphics/PathParser$PathDataNode;[Landroidx/core/graphics/PathParser$PathDataNode;)V
     .locals 5
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "target",
-            "source"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -745,21 +642,17 @@
 
     iget-object v3, v3, Landroidx/core/graphics/PathParser$PathDataNode;->mParams:[F
 
-    array-length v3, v3
+    array-length v4, v3
 
-    if-ge v2, v3, :cond_0
+    if-ge v2, v4, :cond_0
 
-    aget-object v3, p0, v1
-
-    iget-object v3, v3, Landroidx/core/graphics/PathParser$PathDataNode;->mParams:[F
-
-    aget-object v4, p1, v1
+    aget-object v4, p0, v1
 
     iget-object v4, v4, Landroidx/core/graphics/PathParser$PathDataNode;->mParams:[F
 
-    aget v4, v4, v2
+    aget v3, v3, v2
 
-    aput v4, v3, v2
+    aput v3, v4, v2
 
     add-int/lit8 v2, v2, 0x1
 

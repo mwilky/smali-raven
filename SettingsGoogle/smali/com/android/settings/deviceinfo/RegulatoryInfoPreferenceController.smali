@@ -38,7 +38,7 @@
 .method public getPreferenceKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "regulatory_info"
+    const-string/jumbo p0, "regulatory_info"
 
     return-object p0
 .end method

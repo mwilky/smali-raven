@@ -205,6 +205,7 @@
         <item>بیش از ۶۰ روز پیش</item>
         <item>بیش از ۹۰ روز پیش</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>٪۰</item>
         <item>۵۰٪</item>
@@ -348,17 +349,10 @@
         <item>برآمده</item>
         <item>فرورفته</item>
     </string-array>
-    <string-array name="captioning_font_size_selector_summaries">
-        <item>اندازه نوشتار خیلی کوچک</item>
-        <item>اندازه نوشتار کوچک</item>
-        <item>اندازه نوشتار پیش‌فرض</item>
-        <item>اندازه نوشتار بزرگ</item>
-        <item>اندازه نوشتار خیلی بزرگ</item>
-    </string-array>
     <string-array name="captioning_font_size_selector_titles">
         <item>بسیار کوچک</item>
         <item>کوچک</item>
-        <item>پیش‌فرض</item>
+        <item>متوسط</item>
         <item>بزرگ</item>
         <item>بسیار بزرگ</item>
     </string-array>
@@ -490,6 +484,14 @@
         <item>IMSI</item>
         <item>GID</item>
     </string-array>
+    <string-array name="nfc_payment_favor">
+        <item>همیشه</item>
+        <item>به‌جز وقتی برنامه پرداخت دیگری باز است</item>
+    </string-array>
+    <string-array name="nfc_payment_favor_values">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
     <string-array name="overlay_display_devices_entries">
         <item>خالی</item>
         <item>480p</item>
@@ -616,6 +618,17 @@
     <string-array name="swipe_direction_values">
         <item>۱</item>
         <item>۰</item>
+    </string-array>
+    <string-array name="switch_to_user_zero_when_docked_timeout_entries">
+        <item>هرگز</item>
+        <item>پس‌از ۱ دقیقه</item>
+        <item>پس‌از ۵ دقیقه</item>
+    </string-array>
+    <string-array name="tare_modifiers_subfactors">
+        <item>شارژ شدن</item>
+        <item>چرت</item>
+        <item>حالت «ذخیره انرژی»</item>
+        <item>وضعیت پردازش</item>
     </string-array>
     <string-array name="timezone_filters">
         <item>امریکا</item>

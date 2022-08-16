@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settings/notification/app/ImportancePreference$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/view/View$OnClickListener;
@@ -33,7 +34,7 @@
 
     iget-object p0, p0, Lcom/android/settings/notification/app/ImportancePreference$$ExternalSyntheticLambda1;->f$1:Landroidx/preference/PreferenceViewHolder;
 
-    invoke-static {v0, p0, p1}, Lcom/android/settings/notification/app/ImportancePreference;->$r8$lambda$X2vvwyqq2UT3wQMvBkwhvIeB5WY(Lcom/android/settings/notification/app/ImportancePreference;Landroidx/preference/PreferenceViewHolder;Landroid/view/View;)V
+    invoke-static {v0, p0, p1}, Lcom/android/settings/notification/app/ImportancePreference;->$r8$lambda$QWFQvkzYDYPimLsqlvHdotVChys(Lcom/android/settings/notification/app/ImportancePreference;Landroidx/preference/PreferenceViewHolder;Landroid/view/View;)V
 
     return-void
 .end method

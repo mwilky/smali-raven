@@ -40,7 +40,7 @@
 
     if-eqz p1, :cond_0
 
-    const p2, 0x7f060221
+    const p2, 0x7f06022e
 
     invoke-virtual {p0, p2}, Lcom/android/settings/SettingsPreferenceFragment;->setPinnedHeaderView(I)Landroid/view/View;
 

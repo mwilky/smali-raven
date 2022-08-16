@@ -50,7 +50,7 @@
 
     iget-object p1, p0, Lcom/android/settings/FallbackHome$3;->this$0:Lcom/android/settings/FallbackHome;
 
-    invoke-static {p1}, Lcom/android/settings/FallbackHome;->access$100(Lcom/android/settings/FallbackHome;)Landroid/app/WallpaperManager;
+    invoke-static {p1}, Lcom/android/settings/FallbackHome;->-$$Nest$fgetmWallManager(Lcom/android/settings/FallbackHome;)Landroid/app/WallpaperManager;
 
     move-result-object p1
 
@@ -64,13 +64,13 @@
 
     iget-object p1, p0, Lcom/android/settings/FallbackHome$3;->this$0:Lcom/android/settings/FallbackHome;
 
-    invoke-static {p1}, Lcom/android/settings/FallbackHome;->access$100(Lcom/android/settings/FallbackHome;)Landroid/app/WallpaperManager;
+    invoke-static {p1}, Lcom/android/settings/FallbackHome;->-$$Nest$fgetmWallManager(Lcom/android/settings/FallbackHome;)Landroid/app/WallpaperManager;
 
     move-result-object p1
 
     iget-object p0, p0, Lcom/android/settings/FallbackHome$3;->this$0:Lcom/android/settings/FallbackHome;
 
-    invoke-static {p0}, Lcom/android/settings/FallbackHome;->access$300(Lcom/android/settings/FallbackHome;)Landroid/app/WallpaperManager$OnColorsChangedListener;
+    invoke-static {p0}, Lcom/android/settings/FallbackHome;->-$$Nest$fgetmColorsChangedListener(Lcom/android/settings/FallbackHome;)Landroid/app/WallpaperManager$OnColorsChangedListener;
 
     move-result-object p0
 
@@ -85,7 +85,7 @@
 
     iget p0, p0, Lcom/android/settings/FallbackHome$3;->val$flags:I
 
-    invoke-static {v0, p1, p0}, Lcom/android/settings/FallbackHome;->access$000(Lcom/android/settings/FallbackHome;Landroid/app/WallpaperColors;I)I
+    invoke-static {v0, p1, p0}, Lcom/android/settings/FallbackHome;->-$$Nest$mupdateVisibilityFlagsFromColors(Lcom/android/settings/FallbackHome;Landroid/app/WallpaperColors;I)I
 
     move-result p0
 

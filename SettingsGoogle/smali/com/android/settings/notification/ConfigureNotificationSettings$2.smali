@@ -40,7 +40,7 @@
 
     const/4 p0, 0x0
 
-    invoke-static {p1, p0, p0}, Lcom/android/settings/notification/ConfigureNotificationSettings;->access$000(Landroid/content/Context;Landroid/app/Application;Landroidx/fragment/app/Fragment;)Ljava/util/List;
+    invoke-static {p1, p0, p0}, Lcom/android/settings/notification/ConfigureNotificationSettings;->-$$Nest$smbuildPreferenceControllers(Landroid/content/Context;Landroid/app/Application;Landroidx/fragment/app/Fragment;)Ljava/util/List;
 
     move-result-object p0
 

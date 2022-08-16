@@ -32,6 +32,38 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmHandler(Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationMultiAngleDrawable;)Landroid/os/Handler;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationMultiAngleDrawable;->mHandler:Landroid/os/Handler;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmLastVibrationMs(Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationMultiAngleDrawable;)J
+    .locals 2
+
+    iget-wide v0, p0, Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationMultiAngleDrawable;->mLastVibrationMs:J
+
+    return-wide v0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmLastVibrationMs(Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationMultiAngleDrawable;J)V
+    .locals 0
+
+    iput-wide p1, p0, Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationMultiAngleDrawable;->mLastVibrationMs:J
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mhandleUserNoActivityAnimation(Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationMultiAngleDrawable;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationMultiAngleDrawable;->handleUserNoActivityAnimation()V
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationBase$AnimationListener;Landroid/widget/ImageView;Landroid/widget/ImageView;ZLandroid/os/Bundle;)V
     .locals 1
 
@@ -95,7 +127,7 @@
 
     move-result-object p5
 
-    const v0, 0x7f0a00c5
+    const v0, 0x7f0a00c7
 
     invoke-virtual {p5, v0}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -152,38 +184,6 @@
 
     :cond_0
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationMultiAngleDrawable;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationMultiAngleDrawable;->handleUserNoActivityAnimation()V
-
-    return-void
-.end method
-
-.method static synthetic access$100(Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationMultiAngleDrawable;)J
-    .locals 2
-
-    iget-wide v0, p0, Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationMultiAngleDrawable;->mLastVibrationMs:J
-
-    return-wide v0
-.end method
-
-.method static synthetic access$102(Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationMultiAngleDrawable;J)J
-    .locals 0
-
-    iput-wide p1, p0, Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationMultiAngleDrawable;->mLastVibrationMs:J
-
-    return-wide p1
-.end method
-
-.method static synthetic access$200(Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationMultiAngleDrawable;)Landroid/os/Handler;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationMultiAngleDrawable;->mHandler:Landroid/os/Handler;
-
-    return-object p0
 .end method
 
 .method private addDelayedUserNoActivityAnimation()V
@@ -244,7 +244,7 @@
 
     iget-object p0, p0, Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationMultiAngleDrawable;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f04091b
+    const v1, 0x7f04096d
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

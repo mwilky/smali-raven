@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/settings/display/SmartAutoRotateController$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/hardware/SensorPrivacyManager$OnSensorPrivacyChangedListener;
+.implements Lcom/android/settingslib/devicestate/DeviceStateRotationLockSettingsManager$DeviceStateRotationLockSettingsListener;
 
 
 # instance fields
@@ -22,12 +23,12 @@
 
 
 # virtual methods
-.method public final onSensorPrivacyChanged(IZ)V
+.method public final onSettingsChanged()V
     .locals 0
 
     iget-object p0, p0, Lcom/android/settings/display/SmartAutoRotateController$$ExternalSyntheticLambda0;->f$0:Lcom/android/settings/display/SmartAutoRotateController;
 
-    invoke-static {p0, p1, p2}, Lcom/android/settings/display/SmartAutoRotateController;->$r8$lambda$WQVYFwzOF3HP_S5_LI68d_fwhm8(Lcom/android/settings/display/SmartAutoRotateController;IZ)V
+    invoke-static {p0}, Lcom/android/settings/display/SmartAutoRotateController;->$r8$lambda$8Eqtuxqy79M4MCXYu8cs21T2XnQ(Lcom/android/settings/display/SmartAutoRotateController;)V
 
     return-void
 .end method

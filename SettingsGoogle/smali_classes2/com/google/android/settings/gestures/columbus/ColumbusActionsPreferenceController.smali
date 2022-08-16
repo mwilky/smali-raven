@@ -3,7 +3,7 @@
 .source "ColumbusActionsPreferenceController.java"
 
 # interfaces
-.implements Lcom/android/settingslib/widget/RadioButtonPreference$OnClickListener;
+.implements Lcom/android/settingslib/widget/SelectorWithWidgetPreference$OnClickListener;
 .implements Lcom/android/settingslib/core/lifecycle/LifecycleObserver;
 .implements Lcom/android/settingslib/core/lifecycle/events/OnStart;
 .implements Lcom/android/settingslib/core/lifecycle/events/OnStop;
@@ -105,6 +105,38 @@
     return-object p0
 .end method
 
+.method static bridge synthetic -$$Nest$fgetmContext(Lcom/google/android/settings/gestures/columbus/ColumbusActionsPreferenceController;)Landroid/content/Context;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/settings/gestures/columbus/ColumbusActionsPreferenceController;->mContext:Landroid/content/Context;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmSettingObserver(Lcom/google/android/settings/gestures/columbus/ColumbusActionsPreferenceController;)Lcom/google/android/settings/gestures/columbus/ColumbusActionsPreferenceController$SettingObserver;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/settings/gestures/columbus/ColumbusActionsPreferenceController;->mSettingObserver:Lcom/google/android/settings/gestures/columbus/ColumbusActionsPreferenceController$SettingObserver;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$sfgetCOLUMBUS_ENABLED_URI()Landroid/net/Uri;
+    .locals 1
+
+    sget-object v0, Lcom/google/android/settings/gestures/columbus/ColumbusActionsPreferenceController;->COLUMBUS_ENABLED_URI:Landroid/net/Uri;
+
+    return-object v0
+.end method
+
+.method static bridge synthetic -$$Nest$sfgetCOLUMBUS_LAUNCH_APP_URI()Landroid/net/Uri;
+    .locals 1
+
+    sget-object v0, Lcom/google/android/settings/gestures/columbus/ColumbusActionsPreferenceController;->COLUMBUS_LAUNCH_APP_URI:Landroid/net/Uri;
+
+    return-object v0
+.end method
+
 .method static constructor <clinit>()V
     .locals 3
 
@@ -130,7 +162,7 @@
 
     sput-object v0, Lcom/google/android/settings/gestures/columbus/ColumbusActionsPreferenceController;->VALUE_TO_TITLE_MAP:Ljava/util/Map;
 
-    const/4 v0, 0x6
+    const/4 v0, 0x7
 
     new-array v1, v0, [I
 
@@ -174,9 +206,15 @@
 
     aput-object v2, v0, v1
 
-    sget-object v1, Lcom/google/android/settings/gestures/columbus/ColumbusActionsPreferenceController$$ExternalSyntheticLambda1;->INSTANCE:Lcom/google/android/settings/gestures/columbus/ColumbusActionsPreferenceController$$ExternalSyntheticLambda1;
+    const/4 v1, 0x5
 
-    const/4 v2, 0x5
+    aput-object v2, v0, v1
+
+    new-instance v1, Lcom/google/android/settings/gestures/columbus/ColumbusActionsPreferenceController$$ExternalSyntheticLambda1;
+
+    invoke-direct {v1}, Lcom/google/android/settings/gestures/columbus/ColumbusActionsPreferenceController$$ExternalSyntheticLambda1;-><init>()V
+
+    const/4 v2, 0x6
 
     aput-object v1, v0, v2
 
@@ -188,22 +226,24 @@
 
     :array_0
     .array-data 4
-        0x7f04061a
-        0x7f04060d
-        0x7f040618
-        0x7f040616
-        0x7f040613
-        0x7f040611
+        0x7f040678
+        0x7f040669
+        0x7f040676
+        0x7f040674
+        0x7f040671
+        0x7f04066b
+        0x7f04066f
     .end array-data
 
     :array_1
     .array-data 4
-        0x7f040619
-        0x7f04060c
-        0x7f040617
-        0x7f040615
-        0x7f040612
-        0x7f040610
+        0x7f040677
+        0x7f040668
+        0x7f040675
+        0x7f040673
+        0x7f040670
+        0x7f04066a
+        0x7f04066e
     .end array-data
 
     :array_2
@@ -213,6 +253,7 @@
         0x6d0
         0x6d1
         0x6d2
+        0x6fb
         0x6dc
     .end array-data
 .end method
@@ -252,7 +293,7 @@
 
     iput-object p1, p0, Lcom/google/android/settings/gestures/columbus/ColumbusActionsPreferenceController;->mMetricsFeatureProvider:Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;
 
-    const/4 p1, 0x6
+    const/4 p1, 0x7
 
     new-array p1, p1, [Landroid/view/View$OnClickListener;
 
@@ -278,11 +319,15 @@
 
     aput-object v0, p1, p2
 
+    const/4 p2, 0x5
+
+    aput-object v0, p1, p2
+
     new-instance p2, Lcom/google/android/settings/gestures/columbus/ColumbusActionsPreferenceController$$ExternalSyntheticLambda0;
 
     invoke-direct {p2, p0}, Lcom/google/android/settings/gestures/columbus/ColumbusActionsPreferenceController$$ExternalSyntheticLambda0;-><init>(Lcom/google/android/settings/gestures/columbus/ColumbusActionsPreferenceController;)V
 
-    const/4 v0, 0x5
+    const/4 v0, 0x6
 
     aput-object p2, p1, v0
 
@@ -291,66 +336,51 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/google/android/settings/gestures/columbus/ColumbusActionsPreferenceController;)Lcom/google/android/settings/gestures/columbus/ColumbusActionsPreferenceController$SettingObserver;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/settings/gestures/columbus/ColumbusActionsPreferenceController;->mSettingObserver:Lcom/google/android/settings/gestures/columbus/ColumbusActionsPreferenceController$SettingObserver;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/google/android/settings/gestures/columbus/ColumbusActionsPreferenceController;)Landroid/content/Context;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/settings/gestures/columbus/ColumbusActionsPreferenceController;->mContext:Landroid/content/Context;
-
-    return-object p0
-.end method
-
-.method static synthetic access$200()Landroid/net/Uri;
+.method static columbusActionValueToTitle(Ljava/lang/String;Landroid/content/Context;)Ljava/lang/String;
     .locals 1
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
 
-    sget-object v0, Lcom/google/android/settings/gestures/columbus/ColumbusActionsPreferenceController;->COLUMBUS_ENABLED_URI:Landroid/net/Uri;
+    invoke-static {p1}, Lcom/google/android/settings/gestures/columbus/ColumbusActionsPreferenceController;->populateValueToTitleMapIfEmpty(Landroid/content/Context;)V
 
-    return-object v0
-.end method
+    if-nez p0, :cond_0
 
-.method static synthetic access$300()Landroid/net/Uri;
-    .locals 1
+    sget-object p0, Lcom/google/android/settings/gestures/columbus/ColumbusActionsPreferenceController;->sDefaultAction:Ljava/lang/String;
 
-    sget-object v0, Lcom/google/android/settings/gestures/columbus/ColumbusActionsPreferenceController;->COLUMBUS_LAUNCH_APP_URI:Landroid/net/Uri;
+    :cond_0
+    sget-object p1, Lcom/google/android/settings/gestures/columbus/ColumbusActionsPreferenceController;->VALUE_TO_TITLE_MAP:Ljava/util/Map;
 
-    return-object v0
-.end method
+    const-string v0, ""
 
-.method static getColumbusAction(Landroid/content/Context;)Ljava/lang/String;
-    .locals 2
-
-    invoke-static {p0}, Lcom/google/android/settings/gestures/columbus/ColumbusActionsPreferenceController;->populateValueToTitleMapIfEmpty(Landroid/content/Context;)V
-
-    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object p0
-
-    invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
-
-    move-result v0
-
-    const-string v1, "columbus_action"
-
-    invoke-static {p0, v1, v0}, Landroid/provider/Settings$Secure;->getStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;I)Ljava/lang/String;
-
-    move-result-object p0
-
-    sget-object v0, Lcom/google/android/settings/gestures/columbus/ColumbusActionsPreferenceController;->VALUE_TO_TITLE_MAP:Ljava/util/Map;
-
-    sget-object v1, Lcom/google/android/settings/gestures/columbus/ColumbusActionsPreferenceController;->sDefaultAction:Ljava/lang/String;
-
-    invoke-interface {v0, p0, v1}, Ljava/util/Map;->getOrDefault(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p1, p0, v0}, Ljava/util/Map;->getOrDefault(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p0
 
     check-cast p0, Ljava/lang/String;
+
+    return-object p0
+.end method
+
+.method static getColumbusAction(Landroid/content/Context;)Ljava/lang/String;
+    .locals 3
+
+    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
+
+    move-result v1
+
+    const-string v2, "columbus_action"
+
+    invoke-static {v0, v2, v1}, Landroid/provider/Settings$Secure;->getStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;I)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0, p0}, Lcom/google/android/settings/gestures/columbus/ColumbusActionsPreferenceController;->columbusActionValueToTitle(Ljava/lang/String;Landroid/content/Context;)Ljava/lang/String;
+
+    move-result-object p0
 
     return-object p0
 .end method
@@ -412,7 +442,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f04060e
+    const v1, 0x7f04066c
 
     if-eqz v0, :cond_2
 
@@ -460,7 +490,7 @@
     return-object p0
 
     :catch_0
-    const v0, 0x7f04060f
+    const v0, 0x7f04066d
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -502,9 +532,9 @@
 
     invoke-virtual {v0, p4}, Lcom/google/android/settings/gestures/columbus/ColumbusRadioButtonPreference;->setMetric(I)V
 
-    invoke-virtual {v0, p0}, Lcom/android/settingslib/widget/RadioButtonPreference;->setOnClickListener(Lcom/android/settingslib/widget/RadioButtonPreference$OnClickListener;)V
+    invoke-virtual {v0, p0}, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;->setOnClickListener(Lcom/android/settingslib/widget/SelectorWithWidgetPreference$OnClickListener;)V
 
-    invoke-virtual {v0, p5}, Lcom/android/settingslib/widget/RadioButtonPreference;->setExtraWidgetOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, p5}, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;->setExtraWidgetOnClickListener(Landroid/view/View$OnClickListener;)V
 
     iget-object p0, p0, Lcom/google/android/settings/gestures/columbus/ColumbusActionsPreferenceController;->mPreferenceCategory:Landroidx/preference/PreferenceCategory;
 
@@ -568,14 +598,6 @@
 
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public displayPreference(Landroidx/preference/PreferenceScreen;)V
     .locals 10
 
@@ -717,15 +739,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -764,16 +777,6 @@
     return p0
 .end method
 
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
-
-    move-result p0
-
-    return p0
-.end method
-
 .method public bridge synthetic isPublicSlice()Z
     .locals 0
 
@@ -794,7 +797,7 @@
     return p0
 .end method
 
-.method public onRadioButtonClicked(Lcom/android/settingslib/widget/RadioButtonPreference;)V
+.method public onRadioButtonClicked(Lcom/android/settingslib/widget/SelectorWithWidgetPreference;)V
     .locals 4
 
     invoke-virtual {p1}, Landroidx/preference/Preference;->getKey()Ljava/lang/String;

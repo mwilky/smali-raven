@@ -16,45 +16,13 @@
 
 # virtual methods
 .method public abstract onMaxHeightChanged(I)V
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "newNewHeight"
-        }
-    .end annotation
 .end method
 
 .method public abstract onMaxSmallChanged(I)V
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "newMaxSmallHeight"
-        }
-    .end annotation
 .end method
 
 .method public abstract onModeChanged(I)V
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "newMode"
-        }
-    .end annotation
 .end method
 
 .method public abstract onScrollingChanged(Z)V
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "newScrolling"
-        }
-    .end annotation
 .end method

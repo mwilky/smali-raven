@@ -249,7 +249,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f06009c
+    const v2, 0x7f0600a6
 
     invoke-virtual {v1, v2}, Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;->setViewType(I)Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;
 
@@ -329,7 +329,7 @@
 
     move-result-object v2
 
-    const v4, 0x7f06009b
+    const v4, 0x7f0600a5
 
     invoke-virtual {v2, v4}, Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;->setViewType(I)Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;
 
@@ -550,9 +550,9 @@
 
     move-result-object p1
 
-    new-instance v0, Lcom/android/settings/homepage/contextualcards/ContextualCardManager$$ExternalSyntheticLambda4;
+    new-instance v0, Lcom/android/settings/homepage/contextualcards/ContextualCardManager$$ExternalSyntheticLambda0;
 
-    invoke-direct {v0, p0}, Lcom/android/settings/homepage/contextualcards/ContextualCardManager$$ExternalSyntheticLambda4;-><init>(Lcom/android/settings/homepage/contextualcards/ContextualCardManager;)V
+    invoke-direct {v0, p0}, Lcom/android/settings/homepage/contextualcards/ContextualCardManager$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/homepage/contextualcards/ContextualCardManager;)V
 
     invoke-interface {p1, v0}, Ljava/util/stream/Stream;->filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
 
@@ -579,9 +579,9 @@
 
     move-result-object p1
 
-    new-instance v0, Lcom/android/settings/homepage/contextualcards/ContextualCardManager$$ExternalSyntheticLambda3;
+    new-instance v0, Lcom/android/settings/homepage/contextualcards/ContextualCardManager$$ExternalSyntheticLambda1;
 
-    invoke-direct {v0, p0}, Lcom/android/settings/homepage/contextualcards/ContextualCardManager$$ExternalSyntheticLambda3;-><init>(Lcom/android/settings/homepage/contextualcards/ContextualCardManager;)V
+    invoke-direct {v0, p0}, Lcom/android/settings/homepage/contextualcards/ContextualCardManager$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/homepage/contextualcards/ContextualCardManager;)V
 
     invoke-interface {p1, v0}, Ljava/util/stream/Stream;->filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
 
@@ -692,7 +692,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090064
+    const v1, 0x7f090065
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -775,9 +775,9 @@
 
     move-result-object v1
 
-    new-instance v2, Lcom/android/settings/homepage/contextualcards/ContextualCardManager$$ExternalSyntheticLambda6;
+    new-instance v2, Lcom/android/settings/homepage/contextualcards/ContextualCardManager$$ExternalSyntheticLambda2;
 
-    invoke-direct {v2, v0}, Lcom/android/settings/homepage/contextualcards/ContextualCardManager$$ExternalSyntheticLambda6;-><init>(Ljava/util/Set;)V
+    invoke-direct {v2, v0}, Lcom/android/settings/homepage/contextualcards/ContextualCardManager$$ExternalSyntheticLambda2;-><init>(Ljava/util/Set;)V
 
     invoke-interface {v1, v2}, Ljava/util/stream/Stream;->filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
 
@@ -802,9 +802,9 @@
 
     move-result-object v1
 
-    new-instance v2, Lcom/android/settings/homepage/contextualcards/ContextualCardManager$$ExternalSyntheticLambda5;
+    new-instance v2, Lcom/android/settings/homepage/contextualcards/ContextualCardManager$$ExternalSyntheticLambda3;
 
-    invoke-direct {v2, v0}, Lcom/android/settings/homepage/contextualcards/ContextualCardManager$$ExternalSyntheticLambda5;-><init>(Ljava/util/Set;)V
+    invoke-direct {v2, v0}, Lcom/android/settings/homepage/contextualcards/ContextualCardManager$$ExternalSyntheticLambda3;-><init>(Ljava/util/Set;)V
 
     invoke-interface {v1, v2}, Ljava/util/stream/Stream;->filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
 
@@ -835,7 +835,9 @@
 
     move-result-object p1
 
-    sget-object v0, Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda10;->INSTANCE:Lcom/android/settings/dashboard/DashboardFragment$$ExternalSyntheticLambda10;
+    new-instance v0, Lcom/android/settings/bluetooth/BluetoothDetailsRelatedToolsController$$ExternalSyntheticLambda2;
+
+    invoke-direct {v0}, Lcom/android/settings/bluetooth/BluetoothDetailsRelatedToolsController$$ExternalSyntheticLambda2;-><init>()V
 
     invoke-interface {p1, v0}, Ljava/util/stream/Stream;->flatMap(Ljava/util/function/Function;)Ljava/util/stream/Stream;
 
@@ -958,7 +960,9 @@
 
     move-result-object p1
 
-    sget-object v0, Lcom/android/settings/homepage/contextualcards/ContextualCardManager$$ExternalSyntheticLambda1;->INSTANCE:Lcom/android/settings/homepage/contextualcards/ContextualCardManager$$ExternalSyntheticLambda1;
+    new-instance v0, Lcom/android/settings/homepage/contextualcards/ContextualCardManager$$ExternalSyntheticLambda8;
+
+    invoke-direct {v0}, Lcom/android/settings/homepage/contextualcards/ContextualCardManager$$ExternalSyntheticLambda8;-><init>()V
 
     invoke-static {v0}, Ljava/util/stream/Collectors;->groupingBy(Ljava/util/function/Function;)Ljava/util/stream/Collector;
 
@@ -995,7 +999,9 @@
 
     move-result-object v0
 
-    sget-object v1, Lcom/android/settings/homepage/contextualcards/ContextualCardManager$$ExternalSyntheticLambda1;->INSTANCE:Lcom/android/settings/homepage/contextualcards/ContextualCardManager$$ExternalSyntheticLambda1;
+    new-instance v1, Lcom/android/settings/homepage/contextualcards/ContextualCardManager$$ExternalSyntheticLambda8;
+
+    invoke-direct {v1}, Lcom/android/settings/homepage/contextualcards/ContextualCardManager$$ExternalSyntheticLambda8;-><init>()V
 
     invoke-static {v1}, Ljava/util/stream/Collectors;->groupingBy(Ljava/util/function/Function;)Ljava/util/stream/Collector;
 
@@ -1067,13 +1073,17 @@
 
     move-result-object p0
 
-    sget-object v0, Lcom/android/settings/homepage/contextualcards/ContextualCardManager$$ExternalSyntheticLambda2;->INSTANCE:Lcom/android/settings/homepage/contextualcards/ContextualCardManager$$ExternalSyntheticLambda2;
+    new-instance v0, Lcom/android/settings/homepage/contextualcards/ContextualCardManager$$ExternalSyntheticLambda4;
+
+    invoke-direct {v0}, Lcom/android/settings/homepage/contextualcards/ContextualCardManager$$ExternalSyntheticLambda4;-><init>()V
 
     invoke-interface {p0, v0}, Ljava/util/stream/Stream;->map(Ljava/util/function/Function;)Ljava/util/stream/Stream;
 
     move-result-object p0
 
-    sget-object v0, Lcom/android/settings/homepage/contextualcards/ContextualCardManager$$ExternalSyntheticLambda8;->INSTANCE:Lcom/android/settings/homepage/contextualcards/ContextualCardManager$$ExternalSyntheticLambda8;
+    new-instance v0, Lcom/android/settings/homepage/contextualcards/ContextualCardManager$$ExternalSyntheticLambda5;
+
+    invoke-direct {v0}, Lcom/android/settings/homepage/contextualcards/ContextualCardManager$$ExternalSyntheticLambda5;-><init>()V
 
     invoke-static {v0}, Ljava/util/stream/Collectors;->toCollection(Ljava/util/function/Supplier;)Ljava/util/stream/Collector;
 
@@ -1297,7 +1307,9 @@
 
     move-result-object p0
 
-    sget-object p1, Lcom/android/settings/homepage/contextualcards/ContextualCardManager$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/settings/homepage/contextualcards/ContextualCardManager$$ExternalSyntheticLambda0;
+    new-instance p1, Lcom/android/settings/homepage/contextualcards/ContextualCardManager$$ExternalSyntheticLambda6;
+
+    invoke-direct {p1}, Lcom/android/settings/homepage/contextualcards/ContextualCardManager$$ExternalSyntheticLambda6;-><init>()V
 
     invoke-interface {p0, p1}, Ljava/util/stream/Stream;->sorted(Ljava/util/Comparator;)Ljava/util/stream/Stream;
 
@@ -1317,7 +1329,9 @@
 
     move-result-object p1
 
-    sget-object v0, Lcom/android/settings/homepage/contextualcards/ContextualCardManager$$ExternalSyntheticLambda7;->INSTANCE:Lcom/android/settings/homepage/contextualcards/ContextualCardManager$$ExternalSyntheticLambda7;
+    new-instance v0, Lcom/android/settings/homepage/contextualcards/ContextualCardManager$$ExternalSyntheticLambda7;
+
+    invoke-direct {v0}, Lcom/android/settings/homepage/contextualcards/ContextualCardManager$$ExternalSyntheticLambda7;-><init>()V
 
     invoke-interface {p1, v0}, Ljava/util/stream/Stream;->filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
 

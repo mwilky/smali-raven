@@ -35,7 +35,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settingslib/users/AppRestrictionsHelper$1;)V
+.method synthetic constructor <init>(Lcom/android/settingslib/users/AppRestrictionsHelper$AppLabelComparator-IA;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/settingslib/users/AppRestrictionsHelper$AppLabelComparator;-><init>()V

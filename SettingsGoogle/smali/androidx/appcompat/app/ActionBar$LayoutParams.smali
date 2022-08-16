@@ -24,10 +24,6 @@
 
     invoke-direct {p0, p1, p2}, Landroid/view/ViewGroup$MarginLayoutParams;-><init>(II)V
 
-    const/4 p1, 0x0
-
-    iput p1, p0, Landroidx/appcompat/app/ActionBar$LayoutParams;->gravity:I
-
     const p1, 0x800013
 
     iput p1, p0, Landroidx/appcompat/app/ActionBar$LayoutParams;->gravity:I

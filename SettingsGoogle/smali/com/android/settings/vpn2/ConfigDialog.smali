@@ -113,7 +113,7 @@
 
     iget-object v0, p0, Lcom/android/settings/vpn2/ConfigDialog;->mView:Landroid/view/View;
 
-    const v2, 0x7f0d0304
+    const v2, 0x7f0d032d
 
     invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -123,7 +123,7 @@
 
     iget-object v0, p0, Lcom/android/settings/vpn2/ConfigDialog;->mView:Landroid/view/View;
 
-    const v3, 0x7f0d02f8
+    const v3, 0x7f0d0320
 
     invoke-virtual {v0, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -133,7 +133,7 @@
 
     iget-object v0, p0, Lcom/android/settings/vpn2/ConfigDialog;->mView:Landroid/view/View;
 
-    const v4, 0x7f0d02fb
+    const v4, 0x7f0d0323
 
     invoke-virtual {v0, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -143,7 +143,7 @@
 
     iget-object v0, p0, Lcom/android/settings/vpn2/ConfigDialog;->mView:Landroid/view/View;
 
-    const v5, 0x7f0d02f7
+    const v5, 0x7f0d031f
 
     invoke-virtual {v0, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -153,7 +153,7 @@
 
     iget-object v0, p0, Lcom/android/settings/vpn2/ConfigDialog;->mView:Landroid/view/View;
 
-    const v6, 0x7f0d0407
+    const v6, 0x7f0d0438
 
     invoke-virtual {v0, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -276,7 +276,7 @@
 
     move-result v0
 
-    const v1, 0x7f0d0406
+    const v1, 0x7f0d0437
 
     const/16 v2, 0x8
 
@@ -336,7 +336,7 @@
     :cond_2
     iget-object p0, p0, Lcom/android/settings/vpn2/ConfigDialog;->mView:Landroid/view/View;
 
-    const v0, 0x7f0d03d7
+    const v0, 0x7f0d0407
 
     invoke-virtual {p0, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -637,7 +637,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0100d0
+    const v1, 0x7f0100e4
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -771,7 +771,7 @@
 
     iget-object v0, p0, Lcom/android/settings/vpn2/ConfigDialog;->mView:Landroid/view/View;
 
-    const v1, 0x7f0d061b
+    const v1, 0x7f0d065a
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -813,7 +813,7 @@
     :goto_0
     iget-object p0, p0, Lcom/android/settings/vpn2/ConfigDialog;->mView:Landroid/view/View;
 
-    const v0, 0x7f0d0634
+    const v0, 0x7f0d0673
 
     invoke-virtual {p0, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -870,7 +870,7 @@
 
     iget-object v0, p0, Lcom/android/settings/vpn2/ConfigDialog;->mAlwaysOnInvalidReason:Landroid/widget/TextView;
 
-    const v1, 0x7f041564
+    const v1, 0x7f04165d
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -893,7 +893,7 @@
 
     iget-object v0, p0, Lcom/android/settings/vpn2/ConfigDialog;->mAlwaysOnInvalidReason:Landroid/widget/TextView;
 
-    const v1, 0x7f041563
+    const v1, 0x7f04165c
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -916,7 +916,7 @@
 
     iget-object v0, p0, Lcom/android/settings/vpn2/ConfigDialog;->mAlwaysOnInvalidReason:Landroid/widget/TextView;
 
-    const v1, 0x7f041561
+    const v1, 0x7f04165a
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -939,7 +939,7 @@
 
     iget-object v0, p0, Lcom/android/settings/vpn2/ConfigDialog;->mAlwaysOnInvalidReason:Landroid/widget/TextView;
 
-    const v1, 0x7f041560
+    const v1, 0x7f041659
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -948,7 +948,7 @@
     :cond_4
     iget-object v0, p0, Lcom/android/settings/vpn2/ConfigDialog;->mAlwaysOnInvalidReason:Landroid/widget/TextView;
 
-    const v1, 0x7f041562
+    const v1, 0x7f04165b
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -1969,7 +1969,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0602ac
+    const v1, 0x7f0602bf
 
     const/4 v2, 0x0
 
@@ -1987,7 +1987,7 @@
 
     iget-object v1, p0, Lcom/android/settings/vpn2/ConfigDialog;->mView:Landroid/view/View;
 
-    const v3, 0x7f0d03ce
+    const v3, 0x7f0d03fb
 
     invoke-virtual {v1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1999,7 +1999,7 @@
 
     iget-object v1, p0, Lcom/android/settings/vpn2/ConfigDialog;->mView:Landroid/view/View;
 
-    const v3, 0x7f0d05f5
+    const v3, 0x7f0d0637
 
     invoke-virtual {v1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2011,7 +2011,7 @@
 
     iget-object v1, p0, Lcom/android/settings/vpn2/ConfigDialog;->mView:Landroid/view/View;
 
-    const v3, 0x7f0d04e1
+    const v3, 0x7f0d0521
 
     invoke-virtual {v1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2023,7 +2023,7 @@
 
     iget-object v1, p0, Lcom/android/settings/vpn2/ConfigDialog;->mView:Landroid/view/View;
 
-    const v3, 0x7f0d061a
+    const v3, 0x7f0d0659
 
     invoke-virtual {v1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2035,7 +2035,7 @@
 
     iget-object v1, p0, Lcom/android/settings/vpn2/ConfigDialog;->mView:Landroid/view/View;
 
-    const v3, 0x7f0d0421
+    const v3, 0x7f0d0452
 
     invoke-virtual {v1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2047,7 +2047,7 @@
 
     iget-object v1, p0, Lcom/android/settings/vpn2/ConfigDialog;->mView:Landroid/view/View;
 
-    const v3, 0x7f0d04ce
+    const v3, 0x7f0d050b
 
     invoke-virtual {v1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2059,7 +2059,7 @@
 
     iget-object v1, p0, Lcom/android/settings/vpn2/ConfigDialog;->mView:Landroid/view/View;
 
-    const v3, 0x7f0d01da
+    const v3, 0x7f0d01f3
 
     invoke-virtual {v1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2071,7 +2071,7 @@
 
     iget-object v1, p0, Lcom/android/settings/vpn2/ConfigDialog;->mView:Landroid/view/View;
 
-    const v3, 0x7f0d04ac
+    const v3, 0x7f0d04e8
 
     invoke-virtual {v1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2083,7 +2083,7 @@
 
     iget-object v1, p0, Lcom/android/settings/vpn2/ConfigDialog;->mView:Landroid/view/View;
 
-    const v3, 0x7f0d0637
+    const v3, 0x7f0d0676
 
     invoke-virtual {v1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2095,7 +2095,7 @@
 
     iget-object v1, p0, Lcom/android/settings/vpn2/ConfigDialog;->mView:Landroid/view/View;
 
-    const v3, 0x7f0d0635
+    const v3, 0x7f0d0674
 
     invoke-virtual {v1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2107,7 +2107,7 @@
 
     iget-object v1, p0, Lcom/android/settings/vpn2/ConfigDialog;->mView:Landroid/view/View;
 
-    const v3, 0x7f0d0636
+    const v3, 0x7f0d0675
 
     invoke-virtual {v1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2119,7 +2119,7 @@
 
     iget-object v1, p0, Lcom/android/settings/vpn2/ConfigDialog;->mView:Landroid/view/View;
 
-    const v3, 0x7f0d037f
+    const v3, 0x7f0d03ab
 
     invoke-virtual {v1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2131,7 +2131,7 @@
 
     iget-object v1, p0, Lcom/android/settings/vpn2/ConfigDialog;->mView:Landroid/view/View;
 
-    const v3, 0x7f0d0305
+    const v3, 0x7f0d032e
 
     invoke-virtual {v1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2143,7 +2143,7 @@
 
     iget-object v1, p0, Lcom/android/settings/vpn2/ConfigDialog;->mView:Landroid/view/View;
 
-    const v3, 0x7f0d02f6
+    const v3, 0x7f0d031e
 
     invoke-virtual {v1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2155,7 +2155,7 @@
 
     iget-object v1, p0, Lcom/android/settings/vpn2/ConfigDialog;->mView:Landroid/view/View;
 
-    const v3, 0x7f0d02f9
+    const v3, 0x7f0d0321
 
     invoke-virtual {v1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2167,7 +2167,7 @@
 
     iget-object v1, p0, Lcom/android/settings/vpn2/ConfigDialog;->mView:Landroid/view/View;
 
-    const v3, 0x7f0d02fc
+    const v3, 0x7f0d0324
 
     invoke-virtual {v1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2179,7 +2179,7 @@
 
     iget-object v1, p0, Lcom/android/settings/vpn2/ConfigDialog;->mView:Landroid/view/View;
 
-    const v3, 0x7f0d02f5
+    const v3, 0x7f0d031d
 
     invoke-virtual {v1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2191,7 +2191,7 @@
 
     iget-object v1, p0, Lcom/android/settings/vpn2/ConfigDialog;->mView:Landroid/view/View;
 
-    const v3, 0x7f0d02fa
+    const v3, 0x7f0d0322
 
     invoke-virtual {v1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2203,7 +2203,7 @@
 
     iget-object v1, p0, Lcom/android/settings/vpn2/ConfigDialog;->mView:Landroid/view/View;
 
-    const v3, 0x7f0d04b6
+    const v3, 0x7f0d04f2
 
     invoke-virtual {v1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2215,7 +2215,7 @@
 
     iget-object v1, p0, Lcom/android/settings/vpn2/ConfigDialog;->mView:Landroid/view/View;
 
-    const v3, 0x7f0d04fb
+    const v3, 0x7f0d053d
 
     invoke-virtual {v1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2227,7 +2227,7 @@
 
     iget-object v1, p0, Lcom/android/settings/vpn2/ConfigDialog;->mView:Landroid/view/View;
 
-    const v3, 0x7f0d0085
+    const v3, 0x7f0d0087
 
     invoke-virtual {v1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2239,7 +2239,7 @@
 
     iget-object v1, p0, Lcom/android/settings/vpn2/ConfigDialog;->mView:Landroid/view/View;
 
-    const v3, 0x7f0d0084
+    const v3, 0x7f0d0086
 
     invoke-virtual {v1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2449,7 +2449,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f041589
+    const v5, 0x7f041682
 
     iget-object v7, p0, Lcom/android/settings/vpn2/ConfigDialog;->mProfile:Lcom/android/internal/net/VpnProfile;
 
@@ -2463,7 +2463,7 @@
 
     move-result-object v1
 
-    const v4, 0x7f04158b
+    const v4, 0x7f041684
 
     iget-object v5, p0, Lcom/android/settings/vpn2/ConfigDialog;->mProfile:Lcom/android/internal/net/VpnProfile;
 
@@ -2604,13 +2604,13 @@
 
     if-eqz v1, :cond_8
 
-    const v1, 0x7f041574
+    const v1, 0x7f04166d
 
     invoke-virtual {p0, v1}, Landroidx/appcompat/app/AppCompatDialog;->setTitle(I)V
 
     iget-object v1, p0, Lcom/android/settings/vpn2/ConfigDialog;->mView:Landroid/view/View;
 
-    const v3, 0x7f0d01f1
+    const v3, 0x7f0d020d
 
     invoke-virtual {v1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2636,7 +2636,7 @@
 
     const/4 v1, -0x3
 
-    const v2, 0x7f041576
+    const v2, 0x7f04166f
 
     invoke-virtual {v0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2658,7 +2658,7 @@
 
     iget-object v1, p0, Lcom/android/settings/vpn2/ConfigDialog;->mView:Landroid/view/View;
 
-    const v2, 0x7f0d01bf
+    const v2, 0x7f0d01d5
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2669,7 +2669,7 @@
     invoke-virtual {v1, v6}, Landroid/widget/TextView;->setVisibility(I)V
 
     :cond_7
-    const v1, 0x7f041597
+    const v1, 0x7f041690
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2682,7 +2682,7 @@
     goto :goto_4
 
     :cond_8
-    const v1, 0x7f04156c
+    const v1, 0x7f041665
 
     new-array v2, v3, [Ljava/lang/Object;
 
@@ -2704,7 +2704,7 @@
 
     invoke-direct {p0, v1}, Lcom/android/settings/vpn2/ConfigDialog;->setUsernamePasswordVisibility(I)V
 
-    const v1, 0x7f04156b
+    const v1, 0x7f041664
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2717,7 +2717,7 @@
     :goto_4
     const/4 v1, -0x2
 
-    const v2, 0x7f041568
+    const v2, 0x7f041661
 
     invoke-virtual {v0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

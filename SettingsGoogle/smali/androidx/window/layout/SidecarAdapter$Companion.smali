@@ -103,7 +103,7 @@
     return p0
 .end method
 
-.method public final getSidecarDevicePosture$window_debug(Landroidx/window/sidecar/SidecarDeviceState;)I
+.method public final getSidecarDevicePosture$window_release(Landroidx/window/sidecar/SidecarDeviceState;)I
     .locals 1
     .param p1    # Landroidx/window/sidecar/SidecarDeviceState;
         .annotation build Lorg/jetbrains/annotations/NotNull;
@@ -329,7 +329,7 @@
     :try_start_1
     const-class p0, Landroidx/window/sidecar/SidecarWindowLayoutInfo;
 
-    const-string v0, "setDisplayFeatures"
+    const-string/jumbo v0, "setDisplayFeatures"
 
     const/4 v1, 0x1
 
@@ -358,177 +358,4 @@
     :catch_1
     :goto_0
     return-void
-.end method
-
-.method public final translate$window_debug(Landroidx/window/sidecar/SidecarDisplayFeature;Landroidx/window/sidecar/SidecarDeviceState;)Landroidx/window/layout/DisplayFeature;
-    .locals 6
-    .param p1    # Landroidx/window/sidecar/SidecarDisplayFeature;
-        .annotation build Lorg/jetbrains/annotations/NotNull;
-        .end annotation
-    .end param
-    .param p2    # Landroidx/window/sidecar/SidecarDeviceState;
-        .annotation build Lorg/jetbrains/annotations/NotNull;
-        .end annotation
-    .end param
-    .annotation build Lorg/jetbrains/annotations/Nullable;
-    .end annotation
-
-    const-string v0, "feature"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "deviceState"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    invoke-virtual {p1}, Landroidx/window/sidecar/SidecarDisplayFeature;->getRect()Landroid/graphics/Rect;
-
-    move-result-object v0
-
-    const-string v1, "feature.rect"
-
-    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    invoke-virtual {v0}, Landroid/graphics/Rect;->width()I
-
-    move-result v2
-
-    const/4 v3, 0x0
-
-    if-nez v2, :cond_0
-
-    invoke-virtual {v0}, Landroid/graphics/Rect;->height()I
-
-    move-result v2
-
-    if-nez v2, :cond_0
-
-    return-object v3
-
-    :cond_0
-    invoke-virtual {p1}, Landroidx/window/sidecar/SidecarDisplayFeature;->getType()I
-
-    move-result v2
-
-    const/4 v4, 0x1
-
-    if-ne v2, v4, :cond_1
-
-    invoke-virtual {v0}, Landroid/graphics/Rect;->width()I
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    invoke-virtual {v0}, Landroid/graphics/Rect;->height()I
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    return-object v3
-
-    :cond_1
-    invoke-virtual {p1}, Landroidx/window/sidecar/SidecarDisplayFeature;->getType()I
-
-    move-result v2
-
-    const/4 v5, 0x2
-
-    if-eq v2, v5, :cond_2
-
-    invoke-virtual {p1}, Landroidx/window/sidecar/SidecarDisplayFeature;->getType()I
-
-    move-result v2
-
-    if-ne v2, v4, :cond_3
-
-    :cond_2
-    iget v2, v0, Landroid/graphics/Rect;->left:I
-
-    if-eqz v2, :cond_3
-
-    iget v0, v0, Landroid/graphics/Rect;->top:I
-
-    if-eqz v0, :cond_3
-
-    return-object v3
-
-    :cond_3
-    invoke-virtual {p1}, Landroidx/window/sidecar/SidecarDisplayFeature;->getType()I
-
-    move-result v0
-
-    if-eq v0, v4, :cond_5
-
-    if-eq v0, v5, :cond_4
-
-    return-object v3
-
-    :cond_4
-    sget-object v0, Landroidx/window/layout/HardwareFoldingFeature$Type;->Companion:Landroidx/window/layout/HardwareFoldingFeature$Type$Companion;
-
-    invoke-virtual {v0}, Landroidx/window/layout/HardwareFoldingFeature$Type$Companion;->getHINGE()Landroidx/window/layout/HardwareFoldingFeature$Type;
-
-    move-result-object v0
-
-    goto :goto_0
-
-    :cond_5
-    sget-object v0, Landroidx/window/layout/HardwareFoldingFeature$Type;->Companion:Landroidx/window/layout/HardwareFoldingFeature$Type$Companion;
-
-    invoke-virtual {v0}, Landroidx/window/layout/HardwareFoldingFeature$Type$Companion;->getFOLD()Landroidx/window/layout/HardwareFoldingFeature$Type;
-
-    move-result-object v0
-
-    :goto_0
-    invoke-virtual {p0, p2}, Landroidx/window/layout/SidecarAdapter$Companion;->getSidecarDevicePosture$window_debug(Landroidx/window/sidecar/SidecarDeviceState;)I
-
-    move-result p0
-
-    if-eqz p0, :cond_8
-
-    if-eq p0, v4, :cond_8
-
-    if-eq p0, v5, :cond_7
-
-    const/4 p2, 0x3
-
-    if-eq p0, p2, :cond_6
-
-    const/4 p2, 0x4
-
-    if-eq p0, p2, :cond_8
-
-    sget-object p0, Landroidx/window/layout/FoldingFeature$State;->FLAT:Landroidx/window/layout/FoldingFeature$State;
-
-    goto :goto_1
-
-    :cond_6
-    sget-object p0, Landroidx/window/layout/FoldingFeature$State;->FLAT:Landroidx/window/layout/FoldingFeature$State;
-
-    goto :goto_1
-
-    :cond_7
-    sget-object p0, Landroidx/window/layout/FoldingFeature$State;->HALF_OPENED:Landroidx/window/layout/FoldingFeature$State;
-
-    :goto_1
-    new-instance p2, Landroidx/window/layout/HardwareFoldingFeature;
-
-    new-instance v2, Landroidx/window/core/Bounds;
-
-    invoke-virtual {p1}, Landroidx/window/sidecar/SidecarDisplayFeature;->getRect()Landroid/graphics/Rect;
-
-    move-result-object p1
-
-    invoke-static {p1, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    invoke-direct {v2, p1}, Landroidx/window/core/Bounds;-><init>(Landroid/graphics/Rect;)V
-
-    invoke-direct {p2, v2, v0, p0}, Landroidx/window/layout/HardwareFoldingFeature;-><init>(Landroidx/window/core/Bounds;Landroidx/window/layout/HardwareFoldingFeature$Type;Landroidx/window/layout/FoldingFeature$State;)V
-
-    return-object p2
-
-    :cond_8
-    return-object v3
 .end method

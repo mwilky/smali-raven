@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/settings/wifi/p2p/WifiP2pSettings;->onActivityCreated(Landroid/os/Bundle;)V
+    value = Lcom/android/settings/wifi/p2p/WifiP2pSettings;->onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -51,7 +51,7 @@
 
     if-eqz p2, :cond_2
 
-    invoke-static {p1}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->access$700(Lcom/android/settings/wifi/p2p/WifiP2pSettings;)Landroid/widget/EditText;
+    invoke-static {p1}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->-$$Nest$fgetmDeviceNameText(Lcom/android/settings/wifi/p2p/WifiP2pSettings;)Landroid/widget/EditText;
 
     move-result-object p1
 
@@ -108,7 +108,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f0416c7
+    const p1, 0x7f0417c0
 
     const/4 p2, 0x1
 
@@ -132,7 +132,7 @@
 
     iget-object v0, p1, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mChannel:Landroid/net/wifi/p2p/WifiP2pManager$Channel;
 
-    invoke-static {p1}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->access$700(Lcom/android/settings/wifi/p2p/WifiP2pSettings;)Landroid/widget/EditText;
+    invoke-static {p1}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->-$$Nest$fgetmDeviceNameText(Lcom/android/settings/wifi/p2p/WifiP2pSettings;)Landroid/widget/EditText;
 
     move-result-object p1
 

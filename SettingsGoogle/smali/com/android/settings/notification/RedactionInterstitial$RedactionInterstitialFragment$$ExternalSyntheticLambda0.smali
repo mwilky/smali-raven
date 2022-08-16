@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/settings/notification/RedactionInterstitial$RedactionInterstitialFragment$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/view/View$OnClickListener;
+.implements Ljava/util/function/Supplier;
 
 
 # instance fields
@@ -22,12 +23,14 @@
 
 
 # virtual methods
-.method public final onClick(Landroid/view/View;)V
+.method public final get()Ljava/lang/Object;
     .locals 0
 
     iget-object p0, p0, Lcom/android/settings/notification/RedactionInterstitial$RedactionInterstitialFragment$$ExternalSyntheticLambda0;->f$0:Lcom/android/settings/notification/RedactionInterstitial$RedactionInterstitialFragment;
 
-    invoke-static {p0, p1}, Lcom/android/settings/notification/RedactionInterstitial$RedactionInterstitialFragment;->$r8$lambda$6bRcNe8y0E0kAx_c87p76dmrABE(Lcom/android/settings/notification/RedactionInterstitial$RedactionInterstitialFragment;Landroid/view/View;)V
+    invoke-static {p0}, Lcom/android/settings/notification/RedactionInterstitial$RedactionInterstitialFragment;->$r8$lambda$f6dHl9XCtGryXspxZArPIZ8GNQY(Lcom/android/settings/notification/RedactionInterstitial$RedactionInterstitialFragment;)Ljava/lang/String;
 
-    return-void
+    move-result-object p0
+
+    return-object p0
 .end method

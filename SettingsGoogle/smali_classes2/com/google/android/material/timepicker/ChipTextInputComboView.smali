@@ -152,13 +152,7 @@
 .end method
 
 .method private updateHintLocales()V
-    .locals 2
-
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x18
-
-    if-lt v0, v1, :cond_0
+    .locals 1
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getContext()Landroid/content/Context;
 
@@ -180,7 +174,6 @@
 
     invoke-virtual {p0, v0}, Landroid/widget/EditText;->setImeHintLocales(Landroid/os/LocaleList;)V
 
-    :cond_0
     return-void
 .end method
 
@@ -248,7 +241,7 @@
 
     iget-object p1, p0, Lcom/google/android/material/timepicker/ChipTextInputComboView;->editText:Landroid/widget/EditText;
 
-    invoke-virtual {p1}, Landroid/widget/EditText;->requestFocus()Z
+    invoke-static {p1}, Lcom/google/android/material/internal/ViewUtils;->requestFocusAndShowKeyboard(Landroid/view/View;)V
 
     iget-object p1, p0, Lcom/google/android/material/timepicker/ChipTextInputComboView;->editText:Landroid/widget/EditText;
 

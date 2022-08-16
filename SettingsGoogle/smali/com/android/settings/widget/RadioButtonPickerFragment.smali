@@ -3,7 +3,7 @@
 .source "RadioButtonPickerFragment.java"
 
 # interfaces
-.implements Lcom/android/settingslib/widget/RadioButtonPreference$OnClickListener;
+.implements Lcom/android/settingslib/widget/SelectorWithWidgetPreference$OnClickListener;
 
 
 # static fields
@@ -88,7 +88,7 @@
     return-void
 .end method
 
-.method public bindPreference(Lcom/android/settingslib/widget/RadioButtonPreference;Ljava/lang/String;Lcom/android/settingslib/widget/CandidateInfo;Ljava/lang/String;)Lcom/android/settingslib/widget/RadioButtonPreference;
+.method public bindPreference(Lcom/android/settingslib/widget/SelectorWithWidgetPreference;Ljava/lang/String;Lcom/android/settingslib/widget/CandidateInfo;Ljava/lang/String;)Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
     .locals 1
 
     invoke-virtual {p3}, Lcom/android/settingslib/widget/CandidateInfo;->loadLabel()Ljava/lang/CharSequence;
@@ -124,12 +124,12 @@
 
     invoke-virtual {p1, p2}, Landroidx/preference/Preference;->setEnabled(Z)V
 
-    invoke-virtual {p1, p0}, Lcom/android/settingslib/widget/RadioButtonPreference;->setOnClickListener(Lcom/android/settingslib/widget/RadioButtonPreference$OnClickListener;)V
+    invoke-virtual {p1, p0}, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;->setOnClickListener(Lcom/android/settingslib/widget/SelectorWithWidgetPreference$OnClickListener;)V
 
     return-object p1
 .end method
 
-.method public bindPreferenceExtra(Lcom/android/settingslib/widget/RadioButtonPreference;Ljava/lang/String;Lcom/android/settingslib/widget/CandidateInfo;Ljava/lang/String;Ljava/lang/String;)V
+.method public bindPreferenceExtra(Lcom/android/settingslib/widget/SelectorWithWidgetPreference;Ljava/lang/String;Lcom/android/settingslib/widget/CandidateInfo;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
 
     return-void
@@ -206,11 +206,11 @@
 
     move-result-object p0
 
-    instance-of v0, p0, Lcom/android/settingslib/widget/RadioButtonPreference;
+    instance-of v0, p0, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     if-eqz v0, :cond_0
 
-    check-cast p0, Lcom/android/settingslib/widget/RadioButtonPreference;
+    check-cast p0, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     invoke-virtual {p0, v1}, Landroidx/preference/TwoStatePreference;->setChecked(Z)V
 
@@ -357,7 +357,7 @@
     return-object p1
 .end method
 
-.method public onRadioButtonClicked(Lcom/android/settingslib/widget/RadioButtonPreference;)V
+.method public onRadioButtonClicked(Lcom/android/settingslib/widget/SelectorWithWidgetPreference;)V
     .locals 0
 
     invoke-virtual {p1}, Landroidx/preference/Preference;->getKey()Ljava/lang/String;
@@ -393,16 +393,6 @@
 .end method
 
 .method protected abstract setDefaultKey(Ljava/lang/String;)Z
-.end method
-
-.method protected setIllustration(II)V
-    .locals 0
-
-    iput p1, p0, Lcom/android/settings/widget/RadioButtonPickerFragment;->mIllustrationId:I
-
-    iput p2, p0, Lcom/android/settings/widget/RadioButtonPickerFragment;->mIllustrationPreviewId:I
-
-    return-void
 .end method
 
 .method protected shouldShowItemNone()Z
@@ -492,24 +482,24 @@
 
     if-eqz v5, :cond_4
 
-    new-instance v5, Lcom/android/settingslib/widget/RadioButtonPreference;
+    new-instance v5, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     invoke-virtual {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->getPrefContext()Landroid/content/Context;
 
     move-result-object v6
 
-    invoke-direct {v5, v6}, Lcom/android/settingslib/widget/RadioButtonPreference;-><init>(Landroid/content/Context;)V
+    invoke-direct {v5, v6}, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;-><init>(Landroid/content/Context;)V
 
     if-lez v4, :cond_3
 
     invoke-virtual {v5, v4}, Landroidx/preference/Preference;->setLayoutResource(I)V
 
     :cond_3
-    const v6, 0x7f020314
+    const v6, 0x7f020337
 
     invoke-virtual {v5, v6}, Landroidx/preference/Preference;->setIcon(I)V
 
-    const v6, 0x7f040257
+    const v6, 0x7f040286
 
     invoke-virtual {v5, v6}, Landroidx/preference/Preference;->setTitle(I)V
 
@@ -519,7 +509,7 @@
 
     invoke-virtual {v5, v6}, Landroidx/preference/TwoStatePreference;->setChecked(Z)V
 
-    invoke-virtual {v5, p0}, Lcom/android/settingslib/widget/RadioButtonPreference;->setOnClickListener(Lcom/android/settingslib/widget/RadioButtonPreference$OnClickListener;)V
+    invoke-virtual {v5, p0}, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;->setOnClickListener(Lcom/android/settingslib/widget/SelectorWithWidgetPreference$OnClickListener;)V
 
     invoke-virtual {v3, v5}, Landroidx/preference/PreferenceGroup;->addPreference(Landroidx/preference/Preference;)Z
 
@@ -545,13 +535,13 @@
 
     check-cast v8, Lcom/android/settingslib/widget/CandidateInfo;
 
-    new-instance v11, Lcom/android/settingslib/widget/RadioButtonPreference;
+    new-instance v11, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     invoke-virtual {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->getPrefContext()Landroid/content/Context;
 
     move-result-object v5
 
-    invoke-direct {v11, v5}, Lcom/android/settingslib/widget/RadioButtonPreference;-><init>(Landroid/content/Context;)V
+    invoke-direct {v11, v5}, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;-><init>(Landroid/content/Context;)V
 
     if-lez v4, :cond_5
 
@@ -562,7 +552,7 @@
 
     move-result-object v5
 
-    invoke-virtual {p0, v11, v5, v8, v1}, Lcom/android/settings/widget/RadioButtonPickerFragment;->bindPreference(Lcom/android/settingslib/widget/RadioButtonPreference;Ljava/lang/String;Lcom/android/settingslib/widget/CandidateInfo;Ljava/lang/String;)Lcom/android/settingslib/widget/RadioButtonPreference;
+    invoke-virtual {p0, v11, v5, v8, v1}, Lcom/android/settings/widget/RadioButtonPickerFragment;->bindPreference(Lcom/android/settingslib/widget/SelectorWithWidgetPreference;Ljava/lang/String;Lcom/android/settingslib/widget/CandidateInfo;Ljava/lang/String;)Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     invoke-virtual {v8}, Lcom/android/settingslib/widget/CandidateInfo;->getKey()Ljava/lang/String;
 
@@ -576,7 +566,7 @@
 
     move-object v10, v2
 
-    invoke-virtual/range {v5 .. v10}, Lcom/android/settings/widget/RadioButtonPickerFragment;->bindPreferenceExtra(Lcom/android/settingslib/widget/RadioButtonPreference;Ljava/lang/String;Lcom/android/settingslib/widget/CandidateInfo;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual/range {v5 .. v10}, Lcom/android/settings/widget/RadioButtonPickerFragment;->bindPreferenceExtra(Lcom/android/settingslib/widget/SelectorWithWidgetPreference;Ljava/lang/String;Lcom/android/settingslib/widget/CandidateInfo;Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-virtual {v3, v11}, Landroidx/preference/PreferenceGroup;->addPreference(Landroidx/preference/Preference;)Z
 
@@ -617,13 +607,13 @@
 
     move-result-object v2
 
-    instance-of v3, v2, Lcom/android/settingslib/widget/RadioButtonPreference;
+    instance-of v3, v2, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     if-eqz v3, :cond_0
 
     move-object v3, v2
 
-    check-cast v3, Lcom/android/settingslib/widget/RadioButtonPreference;
+    check-cast v3, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     invoke-virtual {v2}, Landroidx/preference/Preference;->getKey()Ljava/lang/String;
 

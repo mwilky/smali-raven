@@ -523,27 +523,7 @@
     return-void
 .end method
 
-.method public static startTranslationYAnimation(Landroid/view/View;JJFLandroid/view/animation/Interpolator;)V
-    .locals 8
-
-    const/4 v7, 0x0
-
-    move-object v0, p0
-
-    move-wide v1, p1
-
-    move-wide v3, p3
-
-    move v5, p5
-
-    move-object v6, p6
-
-    invoke-static/range {v0 .. v7}, Lcom/android/settingslib/animation/AppearAnimationUtils;->startTranslationYAnimation(Landroid/view/View;JJFLandroid/view/animation/Interpolator;Landroid/animation/Animator$AnimatorListener;)V
-
-    return-void
-.end method
-
-.method public static startTranslationYAnimation(Landroid/view/View;JJFLandroid/view/animation/Interpolator;Landroid/animation/Animator$AnimatorListener;)V
+.method public static startTranslationYAnimation(Landroid/view/View;JJFLandroid/view/animation/Interpolator;Landroid/animation/AnimatorListenerAdapter;)V
     .locals 5
 
     invoke-virtual {p0}, Landroid/view/View;->isHardwareAccelerated()Z
@@ -595,6 +575,12 @@
     invoke-virtual {v0, p7}, Landroid/animation/Animator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
     :cond_1
+    new-instance p1, Lcom/android/settingslib/animation/AppearAnimationUtils$3;
+
+    invoke-direct {p1, p0, p5}, Lcom/android/settingslib/animation/AppearAnimationUtils$3;-><init>(Landroid/view/View;F)V
+
+    invoke-virtual {v0, p1}, Landroid/animation/Animator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
+
     invoke-virtual {v0}, Landroid/animation/Animator;->start()V
 
     return-void
@@ -641,142 +627,151 @@
 .end method
 
 .method public createAnimation(Landroid/view/View;JJFZLandroid/view/animation/Interpolator;Ljava/lang/Runnable;)V
+    .locals 11
+
+    const/4 v10, 0x0
+
+    move-object v0, p0
+
+    move-object v1, p1
+
+    move-wide v2, p2
+
+    move-wide v4, p4
+
+    move/from16 v6, p6
+
+    move/from16 v7, p7
+
+    move-object/from16 v8, p8
+
+    move-object/from16 v9, p9
+
+    invoke-virtual/range {v0 .. v10}, Lcom/android/settingslib/animation/AppearAnimationUtils;->createAnimation(Landroid/view/View;JJFZLandroid/view/animation/Interpolator;Ljava/lang/Runnable;Landroid/animation/AnimatorListenerAdapter;)V
+
+    return-void
+.end method
+
+.method public createAnimation(Landroid/view/View;JJFZLandroid/view/animation/Interpolator;Ljava/lang/Runnable;Landroid/animation/AnimatorListenerAdapter;)V
     .locals 12
 
     move-object v0, p0
 
     move-object v1, p1
 
-    move-object/from16 v2, p9
+    if-eqz v1, :cond_4
 
-    if-eqz v1, :cond_7
+    const/high16 v2, 0x3f800000    # 1.0f
 
-    const/high16 v3, 0x3f800000    # 1.0f
-
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
     if-eqz p7, :cond_0
 
-    move v5, v4
+    move v4, v2
 
     goto :goto_0
 
     :cond_0
-    move v5, v3
+    move v4, v3
 
     :goto_0
-    invoke-virtual {p1, v5}, Landroid/view/View;->setAlpha(F)V
-
     if-eqz p7, :cond_1
 
-    move/from16 v5, p6
+    move v5, v3
 
     goto :goto_1
 
     :cond_1
-    move v5, v4
+    move/from16 v5, p6
 
     :goto_1
-    invoke-virtual {p1, v5}, Landroid/view/View;->setTranslationY(F)V
+    sub-float/2addr v2, v4
 
-    if-eqz p7, :cond_2
+    invoke-virtual {p1, v2}, Landroid/view/View;->setAlpha(F)V
+
+    sub-float v2, p6, v5
+
+    invoke-virtual {p1, v2}, Landroid/view/View;->setTranslationY(F)V
+
+    invoke-virtual {p1}, Landroid/view/View;->isHardwareAccelerated()Z
+
+    move-result v2
+
+    const/4 v3, 0x2
+
+    if-eqz v2, :cond_2
+
+    new-instance v2, Landroid/view/RenderNodeAnimator;
+
+    const/16 v6, 0xb
+
+    invoke-direct {v2, v6, v4}, Landroid/view/RenderNodeAnimator;-><init>(IF)V
+
+    invoke-virtual {v2, p1}, Landroid/view/RenderNodeAnimator;->setTarget(Landroid/view/View;)V
 
     goto :goto_2
 
     :cond_2
-    move v3, v4
+    sget-object v2, Landroid/view/View;->ALPHA:Landroid/util/Property;
 
-    :goto_2
-    invoke-virtual {p1}, Landroid/view/View;->isHardwareAccelerated()Z
+    new-array v6, v3, [F
 
-    move-result v5
-
-    const/4 v6, 0x2
-
-    if-eqz v5, :cond_3
-
-    new-instance v5, Landroid/view/RenderNodeAnimator;
-
-    const/16 v7, 0xb
-
-    invoke-direct {v5, v7, v3}, Landroid/view/RenderNodeAnimator;-><init>(IF)V
-
-    invoke-virtual {v5, p1}, Landroid/view/RenderNodeAnimator;->setTarget(Landroid/view/View;)V
-
-    goto :goto_3
-
-    :cond_3
-    sget-object v5, Landroid/view/View;->ALPHA:Landroid/util/Property;
-
-    new-array v7, v6, [F
-
-    const/4 v8, 0x0
+    const/4 v7, 0x0
 
     invoke-virtual {p1}, Landroid/view/View;->getAlpha()F
 
-    move-result v9
+    move-result v8
 
-    aput v9, v7, v8
+    aput v8, v6, v7
 
-    const/4 v8, 0x1
+    const/4 v7, 0x1
 
-    aput v3, v7, v8
+    aput v4, v6, v7
 
-    invoke-static {p1, v5, v7}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Landroid/util/Property;[F)Landroid/animation/ObjectAnimator;
+    invoke-static {p1, v2, v6}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Landroid/util/Property;[F)Landroid/animation/ObjectAnimator;
 
-    move-result-object v5
+    move-result-object v2
 
-    :goto_3
-    move-object/from16 v7, p8
+    :goto_2
+    move-object/from16 v6, p8
 
-    invoke-virtual {v5, v7}, Landroid/animation/Animator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+    invoke-virtual {v2, v6}, Landroid/animation/Animator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
 
-    move-wide/from16 v8, p4
+    move-wide/from16 v7, p4
 
-    invoke-virtual {v5, v8, v9}, Landroid/animation/Animator;->setDuration(J)Landroid/animation/Animator;
+    invoke-virtual {v2, v7, v8}, Landroid/animation/Animator;->setDuration(J)Landroid/animation/Animator;
 
-    move-wide v10, p2
+    move-wide v9, p2
 
-    invoke-virtual {v5, p2, p3}, Landroid/animation/Animator;->setStartDelay(J)V
+    invoke-virtual {v2, p2, p3}, Landroid/animation/Animator;->setStartDelay(J)V
 
     invoke-virtual {p1}, Landroid/view/View;->hasOverlappingRendering()Z
 
-    move-result v3
+    move-result v11
 
-    if-eqz v3, :cond_4
+    if-eqz v11, :cond_3
 
-    const/4 v3, 0x0
+    const/4 v11, 0x0
 
-    invoke-virtual {p1, v6, v3}, Landroid/view/View;->setLayerType(ILandroid/graphics/Paint;)V
+    invoke-virtual {p1, v3, v11}, Landroid/view/View;->setLayerType(ILandroid/graphics/Paint;)V
 
     new-instance v3, Lcom/android/settingslib/animation/AppearAnimationUtils$1;
 
     invoke-direct {v3, p0, p1}, Lcom/android/settingslib/animation/AppearAnimationUtils$1;-><init>(Lcom/android/settingslib/animation/AppearAnimationUtils;Landroid/view/View;)V
 
-    invoke-virtual {v5, v3}, Landroid/animation/Animator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
+    invoke-virtual {v2, v3}, Landroid/animation/Animator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
-    :cond_4
-    if-eqz v2, :cond_5
-
+    :cond_3
     new-instance v3, Lcom/android/settingslib/animation/AppearAnimationUtils$2;
 
-    invoke-direct {v3, p0, v2}, Lcom/android/settingslib/animation/AppearAnimationUtils$2;-><init>(Lcom/android/settingslib/animation/AppearAnimationUtils;Ljava/lang/Runnable;)V
+    move-object/from16 v11, p9
 
-    invoke-virtual {v5, v3}, Landroid/animation/Animator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
+    invoke-direct {v3, p0, p1, v4, v11}, Lcom/android/settingslib/animation/AppearAnimationUtils$2;-><init>(Lcom/android/settingslib/animation/AppearAnimationUtils;Landroid/view/View;FLjava/lang/Runnable;)V
 
-    :cond_5
-    invoke-virtual {v5}, Landroid/animation/Animator;->start()V
+    invoke-virtual {v2, v3}, Landroid/animation/Animator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
-    if-eqz p7, :cond_6
+    invoke-virtual {v2}, Landroid/animation/Animator;->start()V
 
-    move v5, v4
-
-    goto :goto_4
-
-    :cond_6
-    move/from16 v5, p6
-
-    :goto_4
     move-object v0, p1
 
     move-wide v1, p2
@@ -785,9 +780,11 @@
 
     move-object/from16 v6, p8
 
-    invoke-static/range {v0 .. v6}, Lcom/android/settingslib/animation/AppearAnimationUtils;->startTranslationYAnimation(Landroid/view/View;JJFLandroid/view/animation/Interpolator;)V
+    move-object/from16 v7, p10
 
-    :cond_7
+    invoke-static/range {v0 .. v7}, Lcom/android/settingslib/animation/AppearAnimationUtils;->startTranslationYAnimation(Landroid/view/View;JJFLandroid/view/animation/Interpolator;Landroid/animation/AnimatorListenerAdapter;)V
+
+    :cond_4
     return-void
 .end method
 

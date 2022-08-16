@@ -6,18 +6,6 @@
 # direct methods
 .method public static clamp(FFF)F
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "value",
-            "min",
-            "max"
-        }
-    .end annotation
 
     cmpg-float v0, p0, p1
 
@@ -38,18 +26,6 @@
 
 .method public static clamp(III)I
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "value",
-            "min",
-            "max"
-        }
-    .end annotation
 
     if-ge p0, p1, :cond_0
 
@@ -66,18 +42,6 @@
 
 .method public static clamp(JJJ)J
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "value",
-            "min",
-            "max"
-        }
-    .end annotation
 
     cmp-long v0, p0, p2
 

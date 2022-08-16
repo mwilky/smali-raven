@@ -49,33 +49,71 @@
 
 # virtual methods
 .method public createCodecConfig()Landroid/bluetooth/BluetoothCodecConfig;
-    .locals 15
+    .locals 3
 
-    new-instance v14, Landroid/bluetooth/BluetoothCodecConfig;
+    new-instance v0, Landroid/bluetooth/BluetoothCodecConfig$Builder;
+
+    invoke-direct {v0}, Landroid/bluetooth/BluetoothCodecConfig$Builder;-><init>()V
 
     iget v1, p0, Lcom/android/settings/development/BluetoothA2dpConfigStore;->mCodecType:I
 
-    iget v2, p0, Lcom/android/settings/development/BluetoothA2dpConfigStore;->mCodecPriority:I
+    invoke-virtual {v0, v1}, Landroid/bluetooth/BluetoothCodecConfig$Builder;->setCodecType(I)Landroid/bluetooth/BluetoothCodecConfig$Builder;
 
-    iget v3, p0, Lcom/android/settings/development/BluetoothA2dpConfigStore;->mSampleRate:I
+    move-result-object v0
 
-    iget v4, p0, Lcom/android/settings/development/BluetoothA2dpConfigStore;->mBitsPerSample:I
+    iget v1, p0, Lcom/android/settings/development/BluetoothA2dpConfigStore;->mCodecPriority:I
 
-    iget v5, p0, Lcom/android/settings/development/BluetoothA2dpConfigStore;->mChannelMode:I
+    invoke-virtual {v0, v1}, Landroid/bluetooth/BluetoothCodecConfig$Builder;->setCodecPriority(I)Landroid/bluetooth/BluetoothCodecConfig$Builder;
 
-    iget-wide v6, p0, Lcom/android/settings/development/BluetoothA2dpConfigStore;->mCodecSpecific1Value:J
+    move-result-object v0
 
-    iget-wide v8, p0, Lcom/android/settings/development/BluetoothA2dpConfigStore;->mCodecSpecific2Value:J
+    iget v1, p0, Lcom/android/settings/development/BluetoothA2dpConfigStore;->mSampleRate:I
 
-    iget-wide v10, p0, Lcom/android/settings/development/BluetoothA2dpConfigStore;->mCodecSpecific3Value:J
+    invoke-virtual {v0, v1}, Landroid/bluetooth/BluetoothCodecConfig$Builder;->setSampleRate(I)Landroid/bluetooth/BluetoothCodecConfig$Builder;
 
-    iget-wide v12, p0, Lcom/android/settings/development/BluetoothA2dpConfigStore;->mCodecSpecific4Value:J
+    move-result-object v0
 
-    move-object v0, v14
+    iget v1, p0, Lcom/android/settings/development/BluetoothA2dpConfigStore;->mBitsPerSample:I
 
-    invoke-direct/range {v0 .. v13}, Landroid/bluetooth/BluetoothCodecConfig;-><init>(IIIIIJJJJ)V
+    invoke-virtual {v0, v1}, Landroid/bluetooth/BluetoothCodecConfig$Builder;->setBitsPerSample(I)Landroid/bluetooth/BluetoothCodecConfig$Builder;
 
-    return-object v14
+    move-result-object v0
+
+    iget v1, p0, Lcom/android/settings/development/BluetoothA2dpConfigStore;->mChannelMode:I
+
+    invoke-virtual {v0, v1}, Landroid/bluetooth/BluetoothCodecConfig$Builder;->setChannelMode(I)Landroid/bluetooth/BluetoothCodecConfig$Builder;
+
+    move-result-object v0
+
+    iget-wide v1, p0, Lcom/android/settings/development/BluetoothA2dpConfigStore;->mCodecSpecific1Value:J
+
+    invoke-virtual {v0, v1, v2}, Landroid/bluetooth/BluetoothCodecConfig$Builder;->setCodecSpecific1(J)Landroid/bluetooth/BluetoothCodecConfig$Builder;
+
+    move-result-object v0
+
+    iget-wide v1, p0, Lcom/android/settings/development/BluetoothA2dpConfigStore;->mCodecSpecific2Value:J
+
+    invoke-virtual {v0, v1, v2}, Landroid/bluetooth/BluetoothCodecConfig$Builder;->setCodecSpecific2(J)Landroid/bluetooth/BluetoothCodecConfig$Builder;
+
+    move-result-object v0
+
+    iget-wide v1, p0, Lcom/android/settings/development/BluetoothA2dpConfigStore;->mCodecSpecific3Value:J
+
+    invoke-virtual {v0, v1, v2}, Landroid/bluetooth/BluetoothCodecConfig$Builder;->setCodecSpecific3(J)Landroid/bluetooth/BluetoothCodecConfig$Builder;
+
+    move-result-object v0
+
+    iget-wide v1, p0, Lcom/android/settings/development/BluetoothA2dpConfigStore;->mCodecSpecific4Value:J
+
+    invoke-virtual {v0, v1, v2}, Landroid/bluetooth/BluetoothCodecConfig$Builder;->setCodecSpecific4(J)Landroid/bluetooth/BluetoothCodecConfig$Builder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroid/bluetooth/BluetoothCodecConfig$Builder;->build()Landroid/bluetooth/BluetoothCodecConfig;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method public setBitsPerSample(I)V

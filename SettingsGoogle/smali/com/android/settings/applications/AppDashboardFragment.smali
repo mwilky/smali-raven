@@ -12,6 +12,16 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$smbuildPreferenceControllers(Landroid/content/Context;)Ljava/util/List;
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/settings/applications/AppDashboardFragment;->buildPreferenceControllers(Landroid/content/Context;)Ljava/util/List;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method static constructor <clinit>()V
     .locals 1
 
@@ -30,16 +40,6 @@
     invoke-direct {p0}, Lcom/android/settings/dashboard/DashboardFragment;-><init>()V
 
     return-void
-.end method
-
-.method static synthetic access$000(Landroid/content/Context;)Ljava/util/List;
-    .locals 0
-
-    invoke-static {p0}, Lcom/android/settings/applications/AppDashboardFragment;->buildPreferenceControllers(Landroid/content/Context;)Ljava/util/List;
-
-    move-result-object p0
-
-    return-object p0
 .end method
 
 .method private static buildPreferenceControllers(Landroid/content/Context;)Ljava/util/List;
@@ -93,7 +93,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a1a
+    const p0, 0x7f040a72
 
     return p0
 .end method
@@ -117,7 +117,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f15002c
+    const p0, 0x7f15002d
 
     return p0
 .end method

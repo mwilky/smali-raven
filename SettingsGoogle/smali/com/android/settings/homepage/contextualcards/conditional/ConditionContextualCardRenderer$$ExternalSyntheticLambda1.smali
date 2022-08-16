@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settings/homepage/contextualcards/conditional/ConditionContextualCardRenderer$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/view/View$OnClickListener;
@@ -39,7 +40,7 @@
 
     iget-object p0, p0, Lcom/android/settings/homepage/contextualcards/conditional/ConditionContextualCardRenderer$$ExternalSyntheticLambda1;->f$2:Lcom/android/settings/homepage/contextualcards/conditional/ConditionalContextualCard;
 
-    invoke-static {v0, v1, p0, p1}, Lcom/android/settings/homepage/contextualcards/conditional/ConditionContextualCardRenderer;->$r8$lambda$ys3qQrg-8p3WSyCU0Yj9YGz7FF8(Lcom/android/settings/homepage/contextualcards/conditional/ConditionContextualCardRenderer;Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;Lcom/android/settings/homepage/contextualcards/conditional/ConditionalContextualCard;Landroid/view/View;)V
+    invoke-static {v0, v1, p0, p1}, Lcom/android/settings/homepage/contextualcards/conditional/ConditionContextualCardRenderer;->$r8$lambda$NiHwgv9nA0UGYkVu5qkgxlM_0aM(Lcom/android/settings/homepage/contextualcards/conditional/ConditionContextualCardRenderer;Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;Lcom/android/settings/homepage/contextualcards/conditional/ConditionalContextualCard;Landroid/view/View;)V
 
     return-void
 .end method

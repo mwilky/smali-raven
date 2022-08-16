@@ -126,6 +126,16 @@
     return p0
 .end method
 
+.method public onCreatePanelView(I)Landroid/view/View;
+    .locals 0
+
+    invoke-super {p0, p1}, Landroidx/appcompat/view/WindowCallbackWrapper;->onCreatePanelView(I)Landroid/view/View;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method public onMenuOpened(ILandroid/view/Menu;)Z
     .locals 0
 
@@ -178,9 +188,9 @@
     return v1
 
     :cond_1
-    if-eqz v0, :cond_2
-
     const/4 v2, 0x1
+
+    if-eqz v0, :cond_2
 
     invoke-virtual {v0, v2}, Landroidx/appcompat/view/menu/MenuBuilder;->setOverrideVisibleItems(Z)V
 
@@ -238,37 +248,9 @@
 .end method
 
 .method public onWindowStartingActionMode(Landroid/view/ActionMode$Callback;)Landroid/view/ActionMode;
-    .locals 2
-
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x17
-
-    if-lt v0, v1, :cond_0
+    .locals 0
 
     const/4 p0, 0x0
-
-    return-object p0
-
-    :cond_0
-    iget-object v0, p0, Landroidx/appcompat/app/AppCompatDelegateImpl$AppCompatWindowCallback;->this$0:Landroidx/appcompat/app/AppCompatDelegateImpl;
-
-    invoke-virtual {v0}, Landroidx/appcompat/app/AppCompatDelegateImpl;->isHandleNativeActionModesEnabled()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    invoke-virtual {p0, p1}, Landroidx/appcompat/app/AppCompatDelegateImpl$AppCompatWindowCallback;->startAsSupportActionMode(Landroid/view/ActionMode$Callback;)Landroid/view/ActionMode;
-
-    move-result-object p0
-
-    return-object p0
-
-    :cond_1
-    invoke-super {p0, p1}, Landroidx/appcompat/view/WindowCallbackWrapper;->onWindowStartingActionMode(Landroid/view/ActionMode$Callback;)Landroid/view/ActionMode;
-
-    move-result-object p0
 
     return-object p0
 .end method

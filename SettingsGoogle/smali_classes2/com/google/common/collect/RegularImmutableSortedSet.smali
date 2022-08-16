@@ -775,18 +775,6 @@
     return p0
 .end method
 
-.method isPartialView()Z
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/common/collect/RegularImmutableSortedSet;->elements:Lcom/google/common/collect/ImmutableList;
-
-    invoke-virtual {p0}, Lcom/google/common/collect/ImmutableCollection;->isPartialView()Z
-
-    move-result p0
-
-    return p0
-.end method
-
 .method public iterator()Lcom/google/common/collect/UnmodifiableIterator;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;

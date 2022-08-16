@@ -45,7 +45,7 @@
 
     iget-object p0, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity$2;->this$0:Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;
 
-    invoke-static {p0}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;->access$300(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;)Z
+    invoke-static {p0}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;->-$$Nest$fgetmShouldStartNewGame(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;)Z
 
     move-result v0
 
@@ -61,7 +61,7 @@
 
     iget-object v0, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity$2;->this$0:Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;
 
-    invoke-static {v0}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;->access$400(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;)Lcom/google/android/settings/gestures/assist/AssistGestureHelper;
+    invoke-static {v0}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;->-$$Nest$fgetmAssistGestureHelper(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;)Lcom/google/android/settings/gestures/assist/AssistGestureHelper;
 
     move-result-object v0
 
@@ -71,7 +71,7 @@
 
     iget-object v0, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity$2;->this$0:Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;
 
-    invoke-static {v0}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;->access$400(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;)Lcom/google/android/settings/gestures/assist/AssistGestureHelper;
+    invoke-static {v0}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;->-$$Nest$fgetmAssistGestureHelper(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;)Lcom/google/android/settings/gestures/assist/AssistGestureHelper;
 
     move-result-object v0
 
@@ -79,7 +79,7 @@
 
     iget-object v0, p0, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity$2;->this$0:Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;
 
-    invoke-static {v0}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;->access$500(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;)Landroid/os/Handler;
+    invoke-static {v0}, Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;->-$$Nest$fgetmHandler(Lcom/google/android/settings/gestures/assist/bubble/AssistGestureBubbleActivity;)Landroid/os/Handler;
 
     move-result-object v0
 

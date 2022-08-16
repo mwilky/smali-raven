@@ -127,6 +127,88 @@
     return p0
 .end method
 
+.method static bridge synthetic -$$Nest$fgetmContext(Lcom/android/settingslib/wifi/WifiTracker;)Landroid/content/Context;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settingslib/wifi/WifiTracker;->mContext:Landroid/content/Context;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmRegistered(Lcom/android/settingslib/wifi/WifiTracker;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/settingslib/wifi/WifiTracker;->mRegistered:Z
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmWifiManager(Lcom/android/settingslib/wifi/WifiTracker;)Landroid/net/wifi/WifiManager;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settingslib/wifi/WifiTracker;->mWifiManager:Landroid/net/wifi/WifiManager;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmLastScanSucceeded(Lcom/android/settingslib/wifi/WifiTracker;Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/settingslib/wifi/WifiTracker;->mLastScanSucceeded:Z
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fputmStaleScanResults(Lcom/android/settingslib/wifi/WifiTracker;Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/settingslib/wifi/WifiTracker;->mStaleScanResults:Z
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mfetchScansAndConfigsAndUpdateAccessPoints(Lcom/android/settingslib/wifi/WifiTracker;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settingslib/wifi/WifiTracker;->fetchScansAndConfigsAndUpdateAccessPoints()V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mupdateNetworkInfo(Lcom/android/settingslib/wifi/WifiTracker;Landroid/net/NetworkInfo;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settingslib/wifi/WifiTracker;->updateNetworkInfo(Landroid/net/NetworkInfo;)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mupdateNetworkScores(Lcom/android/settingslib/wifi/WifiTracker;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settingslib/wifi/WifiTracker;->updateNetworkScores()V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mupdateWifiState(Lcom/android/settingslib/wifi/WifiTracker;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settingslib/wifi/WifiTracker;->updateWifiState(I)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$smisVerboseLoggingEnabled()Z
+    .locals 1
+
+    invoke-static {}, Lcom/android/settingslib/wifi/WifiTracker;->isVerboseLoggingEnabled()Z
+
+    move-result v0
+
+    return v0
+.end method
+
 .method constructor <init>(Landroid/content/Context;Lcom/android/settingslib/wifi/WifiTracker$WifiListener;Landroid/net/wifi/WifiManager;Landroid/net/ConnectivityManager;Landroid/net/NetworkScoreManager;Landroid/content/IntentFilter;)V
     .locals 3
 
@@ -276,88 +358,6 @@
     const/4 v1, 0x3
 
     invoke-static {v0, v1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method static synthetic access$000(Lcom/android/settingslib/wifi/WifiTracker;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/settingslib/wifi/WifiTracker;->mRegistered:Z
-
-    return p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settingslib/wifi/WifiTracker;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settingslib/wifi/WifiTracker;->updateNetworkScores()V
-
-    return-void
-.end method
-
-.method static synthetic access$1000(Lcom/android/settingslib/wifi/WifiTracker;)Landroid/content/Context;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/wifi/WifiTracker;->mContext:Landroid/content/Context;
-
-    return-object p0
-.end method
-
-.method static synthetic access$300(Lcom/android/settingslib/wifi/WifiTracker;I)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settingslib/wifi/WifiTracker;->updateWifiState(I)V
-
-    return-void
-.end method
-
-.method static synthetic access$402(Lcom/android/settingslib/wifi/WifiTracker;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/settingslib/wifi/WifiTracker;->mStaleScanResults:Z
-
-    return p1
-.end method
-
-.method static synthetic access$502(Lcom/android/settingslib/wifi/WifiTracker;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/settingslib/wifi/WifiTracker;->mLastScanSucceeded:Z
-
-    return p1
-.end method
-
-.method static synthetic access$600(Lcom/android/settingslib/wifi/WifiTracker;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settingslib/wifi/WifiTracker;->fetchScansAndConfigsAndUpdateAccessPoints()V
-
-    return-void
-.end method
-
-.method static synthetic access$700(Lcom/android/settingslib/wifi/WifiTracker;Landroid/net/NetworkInfo;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settingslib/wifi/WifiTracker;->updateNetworkInfo(Landroid/net/NetworkInfo;)V
-
-    return-void
-.end method
-
-.method static synthetic access$800(Lcom/android/settingslib/wifi/WifiTracker;)Landroid/net/wifi/WifiManager;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/wifi/WifiTracker;->mWifiManager:Landroid/net/wifi/WifiManager;
-
-    return-object p0
-.end method
-
-.method static synthetic access$900()Z
-    .locals 1
-
-    invoke-static {}, Lcom/android/settingslib/wifi/WifiTracker;->isVerboseLoggingEnabled()Z
 
     move-result v0
 
@@ -1366,7 +1366,9 @@
 
     move-result-object v7
 
-    sget-object v10, Lcom/android/settingslib/wifi/WifiTracker$$ExternalSyntheticLambda1;->INSTANCE:Lcom/android/settingslib/wifi/WifiTracker$$ExternalSyntheticLambda1;
+    new-instance v10, Lcom/android/settingslib/wifi/WifiTracker$$ExternalSyntheticLambda1;
+
+    invoke-direct {v10}, Lcom/android/settingslib/wifi/WifiTracker$$ExternalSyntheticLambda1;-><init>()V
 
     invoke-interface {v7, v10}, Ljava/util/stream/Stream;->filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
 
@@ -2297,7 +2299,7 @@
 .end method
 
 .method public onStart()V
-    .locals 6
+    .locals 8
 
     invoke-virtual {p0}, Lcom/android/settingslib/wifi/WifiTracker;->forceUpdate()V
 
@@ -2348,21 +2350,25 @@
 
     if-nez v0, :cond_1
 
-    iget-object v0, p0, Lcom/android/settingslib/wifi/WifiTracker;->mContext:Landroid/content/Context;
+    iget-object v2, p0, Lcom/android/settingslib/wifi/WifiTracker;->mContext:Landroid/content/Context;
 
-    iget-object v2, p0, Lcom/android/settingslib/wifi/WifiTracker;->mReceiver:Landroid/content/BroadcastReceiver;
+    iget-object v3, p0, Lcom/android/settingslib/wifi/WifiTracker;->mReceiver:Landroid/content/BroadcastReceiver;
 
-    iget-object v3, p0, Lcom/android/settingslib/wifi/WifiTracker;->mFilter:Landroid/content/IntentFilter;
-
-    iget-object v4, p0, Lcom/android/settingslib/wifi/WifiTracker;->mWorkHandler:Landroid/os/Handler;
+    iget-object v4, p0, Lcom/android/settingslib/wifi/WifiTracker;->mFilter:Landroid/content/IntentFilter;
 
     const/4 v5, 0x0
 
-    invoke-virtual {v0, v2, v3, v5, v4}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
+    iget-object v6, p0, Lcom/android/settingslib/wifi/WifiTracker;->mWorkHandler:Landroid/os/Handler;
+
+    const/4 v7, 0x2
+
+    invoke-virtual/range {v2 .. v7}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;I)Landroid/content/Intent;
 
     new-instance v0, Lcom/android/settingslib/wifi/WifiTracker$WifiTrackerNetworkCallback;
 
-    invoke-direct {v0, p0, v5}, Lcom/android/settingslib/wifi/WifiTracker$WifiTrackerNetworkCallback;-><init>(Lcom/android/settingslib/wifi/WifiTracker;Lcom/android/settingslib/wifi/WifiTracker$1;)V
+    const/4 v2, 0x0
+
+    invoke-direct {v0, p0, v2}, Lcom/android/settingslib/wifi/WifiTracker$WifiTrackerNetworkCallback;-><init>(Lcom/android/settingslib/wifi/WifiTracker;Lcom/android/settingslib/wifi/WifiTracker$WifiTrackerNetworkCallback-IA;)V
 
     iput-object v0, p0, Lcom/android/settingslib/wifi/WifiTracker;->mNetworkCallback:Lcom/android/settingslib/wifi/WifiTracker$WifiTrackerNetworkCallback;
 

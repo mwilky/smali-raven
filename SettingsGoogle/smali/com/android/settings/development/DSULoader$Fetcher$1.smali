@@ -41,7 +41,7 @@
 
     iget-object v0, v0, Lcom/android/settings/development/DSULoader$Fetcher;->this$0:Lcom/android/settings/development/DSULoader;
 
-    invoke-static {v0}, Lcom/android/settings/development/DSULoader;->access$200(Lcom/android/settings/development/DSULoader;)Landroid/widget/ArrayAdapter;
+    invoke-static {v0}, Lcom/android/settings/development/DSULoader;->-$$Nest$fgetmAdapter(Lcom/android/settings/development/DSULoader;)Landroid/widget/ArrayAdapter;
 
     move-result-object v0
 
@@ -51,7 +51,7 @@
 
     iget-object v0, v0, Lcom/android/settings/development/DSULoader$Fetcher;->this$0:Lcom/android/settings/development/DSULoader;
 
-    invoke-static {v0}, Lcom/android/settings/development/DSULoader;->access$200(Lcom/android/settings/development/DSULoader;)Landroid/widget/ArrayAdapter;
+    invoke-static {v0}, Lcom/android/settings/development/DSULoader;->-$$Nest$fgetmAdapter(Lcom/android/settings/development/DSULoader;)Landroid/widget/ArrayAdapter;
 
     move-result-object v0
 
@@ -59,7 +59,7 @@
 
     iget-object p0, p0, Lcom/android/settings/development/DSULoader$Fetcher;->this$0:Lcom/android/settings/development/DSULoader;
 
-    invoke-static {p0}, Lcom/android/settings/development/DSULoader;->access$100(Lcom/android/settings/development/DSULoader;)Ljava/util/List;
+    invoke-static {p0}, Lcom/android/settings/development/DSULoader;->-$$Nest$fgetmDSUList(Lcom/android/settings/development/DSULoader;)Ljava/util/List;
 
     move-result-object p0
 

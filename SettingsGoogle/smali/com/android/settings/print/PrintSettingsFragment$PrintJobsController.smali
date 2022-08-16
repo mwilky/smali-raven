@@ -42,7 +42,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settings/print/PrintSettingsFragment;Lcom/android/settings/print/PrintSettingsFragment$1;)V
+.method synthetic constructor <init>(Lcom/android/settings/print/PrintSettingsFragment;Lcom/android/settings/print/PrintSettingsFragment$PrintJobsController-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settings/print/PrintSettingsFragment$PrintJobsController;-><init>(Lcom/android/settings/print/PrintSettingsFragment;)V
@@ -148,7 +148,7 @@
 
     iget-object v2, v0, Lcom/android/settings/print/PrintSettingsFragment$PrintJobsController;->this$0:Lcom/android/settings/print/PrintSettingsFragment;
 
-    invoke-static {v2}, Lcom/android/settings/print/PrintSettingsFragment;->access$500(Lcom/android/settings/print/PrintSettingsFragment;)Landroidx/preference/PreferenceCategory;
+    invoke-static {v2}, Lcom/android/settings/print/PrintSettingsFragment;->-$$Nest$fgetmActivePrintJobsCategory(Lcom/android/settings/print/PrintSettingsFragment;)Landroidx/preference/PreferenceCategory;
 
     move-result-object v2
 
@@ -157,7 +157,7 @@
     :cond_1
     iget-object v1, v0, Lcom/android/settings/print/PrintSettingsFragment$PrintJobsController;->this$0:Lcom/android/settings/print/PrintSettingsFragment;
 
-    invoke-static {v1}, Lcom/android/settings/print/PrintSettingsFragment;->access$500(Lcom/android/settings/print/PrintSettingsFragment;)Landroidx/preference/PreferenceCategory;
+    invoke-static {v1}, Lcom/android/settings/print/PrintSettingsFragment;->-$$Nest$fgetmActivePrintJobsCategory(Lcom/android/settings/print/PrintSettingsFragment;)Landroidx/preference/PreferenceCategory;
 
     move-result-object v1
 
@@ -165,7 +165,7 @@
 
     iget-object v1, v0, Lcom/android/settings/print/PrintSettingsFragment$PrintJobsController;->this$0:Lcom/android/settings/print/PrintSettingsFragment;
 
-    invoke-static {v1}, Lcom/android/settings/print/PrintSettingsFragment;->access$600(Lcom/android/settings/print/PrintSettingsFragment;)Landroid/content/Context;
+    invoke-static {v1}, Lcom/android/settings/print/PrintSettingsFragment;->access$100(Lcom/android/settings/print/PrintSettingsFragment;)Landroid/content/Context;
 
     move-result-object v1
 
@@ -227,7 +227,7 @@
 
     move-result v6
 
-    const v7, 0x7f040f9b
+    const v7, 0x7f041034
 
     const/4 v8, 0x6
 
@@ -252,7 +252,7 @@
     :cond_3
     iget-object v6, v0, Lcom/android/settings/print/PrintSettingsFragment$PrintJobsController;->this$0:Lcom/android/settings/print/PrintSettingsFragment;
 
-    const v7, 0x7f040f9d
+    const v7, 0x7f041036
 
     new-array v13, v12, [Ljava/lang/Object;
 
@@ -279,7 +279,7 @@
 
     iget-object v6, v0, Lcom/android/settings/print/PrintSettingsFragment$PrintJobsController;->this$0:Lcom/android/settings/print/PrintSettingsFragment;
 
-    const v7, 0x7f040f99
+    const v7, 0x7f041032
 
     new-array v13, v12, [Ljava/lang/Object;
 
@@ -325,7 +325,7 @@
 
     iget-object v6, v0, Lcom/android/settings/print/PrintSettingsFragment$PrintJobsController;->this$0:Lcom/android/settings/print/PrintSettingsFragment;
 
-    const v7, 0x7f040faa
+    const v7, 0x7f041043
 
     new-array v13, v12, [Ljava/lang/Object;
 
@@ -363,7 +363,7 @@
     :goto_1
     iget-object v6, v0, Lcom/android/settings/print/PrintSettingsFragment$PrintJobsController;->this$0:Lcom/android/settings/print/PrintSettingsFragment;
 
-    const v7, 0x7f040fa0
+    const v7, 0x7f041039
 
     new-array v13, v11, [Ljava/lang/Object;
 
@@ -440,7 +440,7 @@
 
     move-result-object v6
 
-    const v7, 0x108051e
+    const v7, 0x1080529
 
     invoke-virtual {v6, v7}, Landroid/app/Activity;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -459,7 +459,7 @@
 
     move-result-object v6
 
-    const v7, 0x108051d
+    const v7, 0x1080528
 
     invoke-virtual {v6, v7}, Landroid/app/Activity;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -488,7 +488,7 @@
 
     iget-object v3, v0, Lcom/android/settings/print/PrintSettingsFragment$PrintJobsController;->this$0:Lcom/android/settings/print/PrintSettingsFragment;
 
-    invoke-static {v3}, Lcom/android/settings/print/PrintSettingsFragment;->access$500(Lcom/android/settings/print/PrintSettingsFragment;)Landroidx/preference/PreferenceCategory;
+    invoke-static {v3}, Lcom/android/settings/print/PrintSettingsFragment;->-$$Nest$fgetmActivePrintJobsCategory(Lcom/android/settings/print/PrintSettingsFragment;)Landroidx/preference/PreferenceCategory;
 
     move-result-object v3
 
@@ -506,7 +506,7 @@
 
     iget-object v0, v0, Lcom/android/settings/print/PrintSettingsFragment$PrintJobsController;->this$0:Lcom/android/settings/print/PrintSettingsFragment;
 
-    invoke-static {v0}, Lcom/android/settings/print/PrintSettingsFragment;->access$500(Lcom/android/settings/print/PrintSettingsFragment;)Landroidx/preference/PreferenceCategory;
+    invoke-static {v0}, Lcom/android/settings/print/PrintSettingsFragment;->-$$Nest$fgetmActivePrintJobsCategory(Lcom/android/settings/print/PrintSettingsFragment;)Landroidx/preference/PreferenceCategory;
 
     move-result-object v0
 
@@ -536,7 +536,7 @@
 
     iget-object p0, p0, Lcom/android/settings/print/PrintSettingsFragment$PrintJobsController;->this$0:Lcom/android/settings/print/PrintSettingsFragment;
 
-    invoke-static {p0}, Lcom/android/settings/print/PrintSettingsFragment;->access$500(Lcom/android/settings/print/PrintSettingsFragment;)Landroidx/preference/PreferenceCategory;
+    invoke-static {p0}, Lcom/android/settings/print/PrintSettingsFragment;->-$$Nest$fgetmActivePrintJobsCategory(Lcom/android/settings/print/PrintSettingsFragment;)Landroidx/preference/PreferenceCategory;
 
     move-result-object p0
 

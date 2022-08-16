@@ -76,6 +76,22 @@
     return-void
 .end method
 
+.method static bridge synthetic -$$Nest$fgetmHandler(Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection;)Landroid/os/Handler;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection;->mHandler:Landroid/os/Handler;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmState(Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection;I)V
+    .locals 0
+
+    iput p1, p0, Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection;->mState:I
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Landroid/os/Handler;)V
     .locals 4
 
@@ -95,7 +111,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a00c8
+    const v3, 0x7f0a00ca
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -107,7 +123,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a00c7
+    const v3, 0x7f0a00c9
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -121,7 +137,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a00c6
+    const v3, 0x7f0a00c8
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -135,7 +151,7 @@
 
     move-result-object p1
 
-    const v2, 0x7f0a00c5
+    const v2, 0x7f0a00c7
 
     invoke-virtual {p1, v2}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -166,22 +182,6 @@
     iput-object p1, p0, Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection;->mArcs:Ljava/util/List;
 
     return-void
-.end method
-
-.method static synthetic access$002(Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection;I)I
-    .locals 0
-
-    iput p1, p0, Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection;->mState:I
-
-    return p1
-.end method
-
-.method static synthetic access$100(Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection;)Landroid/os/Handler;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection;->mHandler:Landroid/os/Handler;
-
-    return-object p0
 .end method
 
 .method private synthetic lambda$startFinishing$4(Landroid/animation/ValueAnimator;)V
@@ -442,9 +442,9 @@
 
     iget-object v1, p0, Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection;->mSweepAnimator:Landroid/animation/ValueAnimator;
 
-    new-instance v2, Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection$$ExternalSyntheticLambda2;
+    new-instance v2, Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection$$ExternalSyntheticLambda4;
 
-    invoke-direct {v2, p0}, Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection$$ExternalSyntheticLambda2;-><init>(Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection;)V
+    invoke-direct {v2, p0}, Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection$$ExternalSyntheticLambda4;-><init>(Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection;)V
 
     invoke-virtual {v1, v2}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
 
@@ -476,9 +476,9 @@
 
     iget-object p1, p0, Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection;->mSpeedAnimator:Landroid/animation/ValueAnimator;
 
-    new-instance v0, Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection$$ExternalSyntheticLambda1;
+    new-instance v0, Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection$$ExternalSyntheticLambda5;
 
-    invoke-direct {v0, p0}, Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection$$ExternalSyntheticLambda1;-><init>(Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection;)V
+    invoke-direct {v0, p0}, Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection$$ExternalSyntheticLambda5;-><init>(Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection;)V
 
     invoke-virtual {p1, v0}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
 
@@ -560,9 +560,9 @@
 
     iget-object v0, p0, Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection;->mSweepAnimator:Landroid/animation/ValueAnimator;
 
-    new-instance v2, Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection$$ExternalSyntheticLambda4;
+    new-instance v2, Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection$$ExternalSyntheticLambda0;
 
-    invoke-direct {v2, p0}, Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection$$ExternalSyntheticLambda4;-><init>(Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection;)V
+    invoke-direct {v2, p0}, Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection$$ExternalSyntheticLambda0;-><init>(Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection;)V
 
     invoke-virtual {v0, v2}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
 
@@ -586,9 +586,9 @@
 
     iget-object v0, p0, Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection;->mSpeedAnimator:Landroid/animation/ValueAnimator;
 
-    new-instance v1, Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection$$ExternalSyntheticLambda3;
+    new-instance v1, Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection$$ExternalSyntheticLambda1;
 
-    invoke-direct {v1, p0}, Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection$$ExternalSyntheticLambda3;-><init>(Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection;)V
+    invoke-direct {v1, p0}, Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection$$ExternalSyntheticLambda1;-><init>(Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection;)V
 
     invoke-virtual {v0, v1}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
 
@@ -735,9 +735,9 @@
 
     iget-object v2, p0, Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection;->mSweepAnimator:Landroid/animation/ValueAnimator;
 
-    new-instance v7, Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection$$ExternalSyntheticLambda0;
+    new-instance v7, Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection$$ExternalSyntheticLambda2;
 
-    invoke-direct {v7, p0}, Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection$$ExternalSyntheticLambda0;-><init>(Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection;)V
+    invoke-direct {v7, p0}, Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection$$ExternalSyntheticLambda2;-><init>(Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection;)V
 
     invoke-virtual {v2, v7}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
 
@@ -767,9 +767,9 @@
 
     iget-object v0, p0, Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection;->mSpeedAnimator:Landroid/animation/ValueAnimator;
 
-    new-instance v1, Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection$$ExternalSyntheticLambda5;
+    new-instance v1, Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection$$ExternalSyntheticLambda3;
 
-    invoke-direct {v1, p0}, Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection$$ExternalSyntheticLambda5;-><init>(Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection;)V
+    invoke-direct {v1, p0}, Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection$$ExternalSyntheticLambda3;-><init>(Lcom/google/android/settings/biometrics/face/anim/single/ArcCollection;)V
 
     invoke-virtual {v0, v1}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
 

@@ -36,7 +36,7 @@
 
     iget-object p1, p0, Lcom/android/settings/notification/RedactNotificationPreferenceController$1;->this$0:Lcom/android/settings/notification/RedactNotificationPreferenceController;
 
-    invoke-static {p1}, Lcom/android/settings/notification/RedactNotificationPreferenceController;->access$000(Lcom/android/settings/notification/RedactNotificationPreferenceController;)Lcom/android/settingslib/RestrictedSwitchPreference;
+    invoke-static {p1}, Lcom/android/settings/notification/RedactNotificationPreferenceController;->-$$Nest$fgetmPreference(Lcom/android/settings/notification/RedactNotificationPreferenceController;)Lcom/android/settingslib/RestrictedSwitchPreference;
 
     move-result-object p1
 
@@ -44,7 +44,7 @@
 
     iget-object p1, p0, Lcom/android/settings/notification/RedactNotificationPreferenceController$1;->this$0:Lcom/android/settings/notification/RedactNotificationPreferenceController;
 
-    invoke-static {p1}, Lcom/android/settings/notification/RedactNotificationPreferenceController;->access$000(Lcom/android/settings/notification/RedactNotificationPreferenceController;)Lcom/android/settingslib/RestrictedSwitchPreference;
+    invoke-static {p1}, Lcom/android/settings/notification/RedactNotificationPreferenceController;->-$$Nest$fgetmPreference(Lcom/android/settings/notification/RedactNotificationPreferenceController;)Lcom/android/settingslib/RestrictedSwitchPreference;
 
     move-result-object p1
 

@@ -19,15 +19,6 @@
         .annotation build Lorg/jetbrains/annotations/NotNull;
         .end annotation
     .end param
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<T:",
-            "Ljava/lang/Object;",
-            ">(",
-            "Ljava/lang/Iterable<",
-            "+TT;>;I)I"
-        }
-    .end annotation
 
     invoke-static {p0, p1}, Lkotlin/collections/CollectionsKt__IterablesKt;->collectionSizeOrDefault(Ljava/lang/Iterable;I)I
 
@@ -38,16 +29,6 @@
 
 .method public static bridge synthetic emptyList()Ljava/util/List;
     .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<T:",
-            "Ljava/lang/Object;",
-            ">()",
-            "Ljava/util/List<",
-            "TT;>;"
-        }
-    .end annotation
-
     .annotation build Lorg/jetbrains/annotations/NotNull;
     .end annotation
 
@@ -74,16 +55,6 @@
         .annotation build Lorg/jetbrains/annotations/NotNull;
         .end annotation
     .end param
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<T:",
-            "Ljava/lang/Object;",
-            ">([TT;)",
-            "Ljava/util/List<",
-            "TT;>;"
-        }
-    .end annotation
-
     .annotation build Lorg/jetbrains/annotations/NotNull;
     .end annotation
 
@@ -100,16 +71,6 @@
         .annotation build Lorg/jetbrains/annotations/NotNull;
         .end annotation
     .end param
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<T:",
-            "Ljava/lang/Object;",
-            ">([TT;)",
-            "Ljava/util/List<",
-            "TT;>;"
-        }
-    .end annotation
-
     .annotation build Lorg/jetbrains/annotations/NotNull;
     .end annotation
 
@@ -126,15 +87,6 @@
         .annotation build Lorg/jetbrains/annotations/NotNull;
         .end annotation
     .end param
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<T::",
-            "Ljava/lang/Comparable<",
-            "-TT;>;>(",
-            "Ljava/util/List<",
-            "TT;>;)V"
-        }
-    .end annotation
 
     invoke-static {p0}, Lkotlin/collections/CollectionsKt__MutableCollectionsJVMKt;->sort(Ljava/util/List;)V
 
@@ -155,18 +107,6 @@
         .annotation build Lorg/jetbrains/annotations/NotNull;
         .end annotation
     .end param
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<T:",
-            "Ljava/lang/Object;",
-            ">(",
-            "Ljava/lang/Iterable<",
-            "+TT;>;)",
-            "Ljava/util/Set<",
-            "TT;>;"
-        }
-    .end annotation
-
     .annotation build Lorg/jetbrains/annotations/NotNull;
     .end annotation
 

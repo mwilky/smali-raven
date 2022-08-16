@@ -1,28 +1,13 @@
 .class public final synthetic Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda3;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Function;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda3;
-
-
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda3;
-
-    invoke-direct {v0}, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda3;-><init>()V
-
-    sput-object v0, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda3;->INSTANCE:Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda3;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,7 +22,7 @@
 
     check-cast p1, Lcom/android/settings/network/SubscriptionUtil$1DisplayInfo;
 
-    invoke-static {p1}, Lcom/android/settings/network/SubscriptionUtil;->$r8$lambda$8nAEcdbXurkTrNXGLUMcO1-AVzQ(Lcom/android/settings/network/SubscriptionUtil$1DisplayInfo;)Ljava/lang/CharSequence;
+    invoke-static {p1}, Lcom/android/settings/network/SubscriptionUtil;->$r8$lambda$j_ohNwU1RifU_viF28BY4FLGeaA(Lcom/android/settings/network/SubscriptionUtil$1DisplayInfo;)Ljava/lang/CharSequence;
 
     move-result-object p0
 

@@ -4,7 +4,7 @@
 
 # interfaces
 .implements Landroidx/lifecycle/LifecycleObserver;
-.implements Lcom/android/settingslib/widget/RadioButtonPreference$OnClickListener;
+.implements Lcom/android/settingslib/widget/SelectorWithWidgetPreference$OnClickListener;
 .implements Lcom/android/settings/core/PreferenceControllerMixin;
 
 
@@ -44,7 +44,7 @@
 
 .field private mCurrentUiAutoClickMode:I
 
-.field private mDelayModePref:Lcom/android/settingslib/widget/RadioButtonPreference;
+.field private mDelayModePref:Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
 .field private mOnChangeListener:Lcom/android/settings/accessibility/ToggleAutoclickPreferenceController$OnChangeListener;
 
@@ -233,7 +233,7 @@
 
     if-ne v0, p1, :cond_0
 
-    iget-object p0, p0, Lcom/android/settings/accessibility/ToggleAutoclickPreferenceController;->mDelayModePref:Lcom/android/settingslib/widget/RadioButtonPreference;
+    iget-object p0, p0, Lcom/android/settings/accessibility/ToggleAutoclickPreferenceController;->mDelayModePref:Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     const/4 p1, 0x1
 
@@ -267,14 +267,6 @@
 
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public displayPreference(Landroidx/preference/PreferenceScreen;)V
     .locals 1
 
@@ -288,11 +280,11 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/android/settingslib/widget/RadioButtonPreference;
+    check-cast v0, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
-    iput-object v0, p0, Lcom/android/settings/accessibility/ToggleAutoclickPreferenceController;->mDelayModePref:Lcom/android/settingslib/widget/RadioButtonPreference;
+    iput-object v0, p0, Lcom/android/settings/accessibility/ToggleAutoclickPreferenceController;->mDelayModePref:Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
-    invoke-virtual {v0, p0}, Lcom/android/settingslib/widget/RadioButtonPreference;->setOnClickListener(Lcom/android/settingslib/widget/RadioButtonPreference$OnClickListener;)V
+    invoke-virtual {v0, p0}, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;->setOnClickListener(Lcom/android/settingslib/widget/SelectorWithWidgetPreference$OnClickListener;)V
 
     const-string v0, "autoclick_custom_seekbar"
 
@@ -304,7 +296,7 @@
 
     iput-object p1, p0, Lcom/android/settings/accessibility/ToggleAutoclickPreferenceController;->mSeekBerPreference:Lcom/android/settingslib/widget/LayoutPreference;
 
-    iget-object p1, p0, Lcom/android/settings/accessibility/ToggleAutoclickPreferenceController;->mDelayModePref:Lcom/android/settingslib/widget/RadioButtonPreference;
+    iget-object p1, p0, Lcom/android/settings/accessibility/ToggleAutoclickPreferenceController;->mDelayModePref:Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     invoke-virtual {p0, p1}, Lcom/android/settings/accessibility/ToggleAutoclickPreferenceController;->updateState(Landroidx/preference/Preference;)V
 
@@ -321,15 +313,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -368,16 +351,6 @@
     return p0
 .end method
 
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
-
-    move-result p0
-
-    return p0
-.end method
-
 .method public bridge synthetic isPublicSlice()Z
     .locals 0
 
@@ -398,7 +371,7 @@
     return p0
 .end method
 
-.method public onRadioButtonClicked(Lcom/android/settingslib/widget/RadioButtonPreference;)V
+.method public onRadioButtonClicked(Lcom/android/settingslib/widget/SelectorWithWidgetPreference;)V
     .locals 1
 
     iget-object p1, p0, Lcom/android/settings/accessibility/ToggleAutoclickPreferenceController;->mAccessibilityAutoclickKeyToValueMap:Ljava/util/Map;
@@ -421,7 +394,7 @@
 
     if-eqz p1, :cond_0
 
-    iget-object p0, p0, Lcom/android/settings/accessibility/ToggleAutoclickPreferenceController;->mDelayModePref:Lcom/android/settingslib/widget/RadioButtonPreference;
+    iget-object p0, p0, Lcom/android/settings/accessibility/ToggleAutoclickPreferenceController;->mDelayModePref:Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     invoke-interface {p1, p0}, Lcom/android/settings/accessibility/ToggleAutoclickPreferenceController$OnChangeListener;->onCheckedChanged(Landroidx/preference/Preference;)V
 
@@ -480,13 +453,13 @@
     :goto_1
     iput p1, p0, Lcom/android/settings/accessibility/ToggleAutoclickPreferenceController;->mCurrentUiAutoClickMode:I
 
-    iget-object p1, p0, Lcom/android/settings/accessibility/ToggleAutoclickPreferenceController;->mDelayModePref:Lcom/android/settingslib/widget/RadioButtonPreference;
+    iget-object p1, p0, Lcom/android/settings/accessibility/ToggleAutoclickPreferenceController;->mDelayModePref:Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     invoke-virtual {p1, v1}, Landroidx/preference/TwoStatePreference;->setChecked(Z)V
 
     iget-object p1, p0, Lcom/android/settings/accessibility/ToggleAutoclickPreferenceController;->mAccessibilityAutoclickKeyToValueMap:Ljava/util/Map;
 
-    iget-object v0, p0, Lcom/android/settings/accessibility/ToggleAutoclickPreferenceController;->mDelayModePref:Lcom/android/settingslib/widget/RadioButtonPreference;
+    iget-object v0, p0, Lcom/android/settings/accessibility/ToggleAutoclickPreferenceController;->mDelayModePref:Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     invoke-virtual {v0}, Landroidx/preference/Preference;->getKey()Ljava/lang/String;
 

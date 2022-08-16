@@ -1,11 +1,11 @@
 .class Lcom/android/settings/security/LockscreenDashboardFragment$1;
-.super Lcom/android/settings/search/BaseSearchIndexProvider;
+.super Landroid/database/ContentObserver;
 .source "LockscreenDashboardFragment.java"
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/android/settings/security/LockscreenDashboardFragment;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/android/settings/security/LockscreenDashboardFragment;->onAttach(Landroid/content/Context;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -14,87 +14,31 @@
 .end annotation
 
 
+# instance fields
+.field final synthetic this$0:Lcom/android/settings/security/LockscreenDashboardFragment;
+
+
 # direct methods
-.method constructor <init>(I)V
+.method constructor <init>(Lcom/android/settings/security/LockscreenDashboardFragment;Landroid/os/Handler;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/settings/search/BaseSearchIndexProvider;-><init>(I)V
+    iput-object p1, p0, Lcom/android/settings/security/LockscreenDashboardFragment$1;->this$0:Lcom/android/settings/security/LockscreenDashboardFragment;
+
+    invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public createPreferenceControllers(Landroid/content/Context;)Ljava/util/List;
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/content/Context;",
-            ")",
-            "Ljava/util/List<",
-            "Lcom/android/settingslib/core/AbstractPreferenceController;",
-            ">;"
-        }
-    .end annotation
-
-    new-instance p0, Ljava/util/ArrayList;
-
-    invoke-direct {p0}, Ljava/util/ArrayList;-><init>()V
-
-    new-instance v0, Lcom/android/settings/notification/LockScreenNotificationPreferenceController;
-
-    invoke-direct {v0, p1}, Lcom/android/settings/notification/LockScreenNotificationPreferenceController;-><init>(Landroid/content/Context;)V
-
-    invoke-interface {p0, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    new-instance v0, Lcom/android/settings/security/OwnerInfoPreferenceController;
-
-    const/4 v1, 0x0
-
-    invoke-direct {v0, p1, v1}, Lcom/android/settings/security/OwnerInfoPreferenceController;-><init>(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/ObservablePreferenceFragment;)V
-
-    invoke-interface {p0, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    return-object p0
-.end method
-
-.method public getNonIndexableKeys(Landroid/content/Context;)Ljava/util/List;
+.method public onChange(ZLandroid/net/Uri;)V
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/content/Context;",
-            ")",
-            "Ljava/util/List<",
-            "Ljava/lang/String;",
-            ">;"
-        }
-    .end annotation
 
-    invoke-super {p0, p1}, Lcom/android/settings/search/BaseSearchIndexProvider;->getNonIndexableKeys(Landroid/content/Context;)Ljava/util/List;
+    invoke-super {p0, p1, p2}, Landroid/database/ContentObserver;->onChange(ZLandroid/net/Uri;)V
 
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/settings/security/LockscreenDashboardFragment$1;->this$0:Lcom/android/settings/security/LockscreenDashboardFragment;
 
-    const-string p1, "security_lockscreen_add_users_when_locked"
+    invoke-static {p0}, Lcom/android/settings/security/LockscreenDashboardFragment;->access$000(Lcom/android/settings/security/LockscreenDashboardFragment;)V
 
-    invoke-interface {p0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    return-object p0
-.end method
-
-.method protected isPageSearchEnabled(Landroid/content/Context;)Z
-    .locals 1
-
-    new-instance p0, Lcom/android/settings/security/screenlock/LockScreenPreferenceController;
-
-    const-string v0, "anykey"
-
-    invoke-direct {p0, p1, v0}, Lcom/android/settings/security/screenlock/LockScreenPreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;)V
-
-    invoke-virtual {p0}, Lcom/android/settings/core/BasePreferenceController;->isAvailable()Z
-
-    move-result p0
-
-    return p0
+    return-void
 .end method

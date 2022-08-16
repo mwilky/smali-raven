@@ -84,9 +84,9 @@
 
     const/4 v0, 0x0
 
-    new-array v1, v0, [Ljava/lang/String;
+    new-array v0, v0, [Ljava/lang/String;
 
-    invoke-direct {p0, v1, v0}, Landroid/os/BatteryUsageStats$Builder;-><init>([Ljava/lang/String;Z)V
+    invoke-direct {p0, v0}, Landroid/os/BatteryUsageStats$Builder;-><init>([Ljava/lang/String;)V
 
     invoke-virtual {p0}, Landroid/os/BatteryUsageStats$Builder;->build()Landroid/os/BatteryUsageStats;
 

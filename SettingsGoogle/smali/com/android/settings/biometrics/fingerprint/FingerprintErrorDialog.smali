@@ -23,17 +23,17 @@
 
     if-eq p0, v0, :cond_0
 
-    const p0, 0x7f041179
+    const p0, 0x7f04122a
 
     return p0
 
     :cond_0
-    const p0, 0x7f04116f
+    const p0, 0x7f041221
 
     return p0
 
     :cond_1
-    const p0, 0x7f04117a
+    const p0, 0x7f04122b
 
     return p0
 .end method
@@ -82,9 +82,15 @@
 
     move-result v1
 
+    if-nez v1, :cond_2
+
+    invoke-virtual {v0}, Landroidx/fragment/app/FragmentManager;->isStateSaved()Z
+
+    move-result v1
+
     if-eqz v1, :cond_1
 
-    return-void
+    goto :goto_0
 
     :cond_1
     invoke-static {p1}, Lcom/android/settings/biometrics/fingerprint/FingerprintErrorDialog;->getErrorMessage(I)I
@@ -107,6 +113,8 @@
 
     invoke-virtual {p0, v0, p1}, Landroidx/fragment/app/DialogFragment;->show(Landroidx/fragment/app/FragmentManager;Ljava/lang/String;)V
 
+    :cond_2
+    :goto_0
     return-void
 .end method
 
@@ -123,7 +131,7 @@
 .method public getOkButtonTextResId()I
     .locals 0
 
-    const p0, 0x7f041173
+    const p0, 0x7f041225
 
     return p0
 .end method
@@ -131,7 +139,7 @@
 .method public getTitleResId()I
     .locals 0
 
-    const p0, 0x7f041178
+    const p0, 0x7f041229
 
     return p0
 .end method

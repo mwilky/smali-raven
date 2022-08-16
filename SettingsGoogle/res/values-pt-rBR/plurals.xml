@@ -5,12 +5,12 @@
         <item quantity="one">%d dia atrás</item>
     </plurals>
     <plurals name="abc_slice_duration_min">
-        <item quantity="other">%d min atrás</item>
-        <item quantity="one">%d min atrás</item>
+        <item quantity="other">Há %dmin</item>
+        <item quantity="one">Há %dmin</item>
     </plurals>
     <plurals name="abc_slice_duration_years">
-        <item quantity="other">%d anos atrás</item>
-        <item quantity="one">%d ano atrás</item>
+        <item quantity="other">Há %d anos</item>
+        <item quantity="one">Há %d ano</item>
     </plurals>
     <plurals name="accessibility_usage_summary">
         <item quantity="other">%1$d apps com acesso total ao seu dispositivo</item>
@@ -233,12 +233,12 @@
         <item quantity="one">%d categoria desativada</item>
     </plurals>
     <plurals name="notifications_sent_daily">
-        <item quantity="other">Cerca de %d notificações por dia</item>
-        <item quantity="one">Cerca de %d notificação por dia</item>
+        <item quantity="other">Cerca de %,d notificações por dia</item>
+        <item quantity="one">Cerca de %,d notificação por dia</item>
     </plurals>
     <plurals name="notifications_sent_weekly">
-        <item quantity="other">Cerca de %d notificações por semana</item>
-        <item quantity="one">%d notificação por semana</item>
+        <item quantity="other">Cerca de %,d notificações por semana</item>
+        <item quantity="one">%,d notificação por semana</item>
     </plurals>
     <plurals name="number_of_device_admins">
         <item quantity="other">%d apps ativos</item>
@@ -328,22 +328,6 @@
         <item quantity="other">Confiar ou remover certificados</item>
         <item quantity="one">Confiar ou remover certificados</item>
     </plurals>
-    <plurals name="ssl_ca_cert_info_message">
-        <item quantity="other">"%s instalou autoridades de certificado para seu perfil de trabalho, o que pode permitir que essa pessoa monitore sua atividade profissional na rede, incluindo e-mails, apps e websites seguros.
-
-Para ver mais informações sobre esses certificados, entre em contato com seu administrador."</item>
-        <item quantity="one">"%s instalou autoridades de certificado para seu perfil de trabalho, o que pode permitir que essa pessoa monitore sua atividade profissional na rede, incluindo e-mails, apps e websites seguros.
-
-Para ver mais informações sobre esses certificados, entre em contato com seu administrador."</item>
-    </plurals>
-    <plurals name="ssl_ca_cert_info_message_device_owner">
-        <item quantity="other">"%s instalou autoridades de certificado no seu dispositivo, o que pode permitir que essa pessoa monitore a atividade de rede do seu dispositivo, incluindo e-mails, apps e websites seguros.
-
-Para ver mais informações sobre esses certificados, entre em contato com seu administrador."</item>
-        <item quantity="one">"%s instalou autoridades de certificado no seu dispositivo, o que pode permitir que essa pessoa monitore a atividade de rede do seu dispositivo, incluindo e-mails, apps e websites seguros.
-
-Para ver mais informações sobre esses certificados, entre em contato com seu administrador."</item>
-    </plurals>
     <plurals name="ssl_ca_cert_settings_button">
         <item quantity="other">Verificar certificados</item>
         <item quantity="one">Verificar certificados</item>
@@ -375,10 +359,6 @@ Para ver mais informações sobre esses certificados, entre em contato com seu a
     <plurals name="wifi_saved_passpoint_access_points_summary">
         <item quantity="other">%d assinaturas</item>
         <item quantity="one">%d assinatura</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$d dispositivos conectados</item>
-        <item quantity="one">%1$d dispositivo conectado</item>
     </plurals>
     <plurals name="wrong_pin_code">
         <item quantity="other">Código PIN do chip incorreto. Tentativas restantes: %d.</item>

@@ -36,7 +36,7 @@
 
     iget-object p1, p0, Lcom/android/settings/display/SmartAutoRotateBatterySaverController$1;->this$0:Lcom/android/settings/display/SmartAutoRotateBatterySaverController;
 
-    invoke-static {p1}, Lcom/android/settings/display/SmartAutoRotateBatterySaverController;->access$000(Lcom/android/settings/display/SmartAutoRotateBatterySaverController;)Landroidx/preference/Preference;
+    invoke-static {p1}, Lcom/android/settings/display/SmartAutoRotateBatterySaverController;->-$$Nest$fgetmPreference(Lcom/android/settings/display/SmartAutoRotateBatterySaverController;)Landroidx/preference/Preference;
 
     move-result-object p1
 
@@ -47,7 +47,7 @@
     :cond_0
     iget-object p1, p0, Lcom/android/settings/display/SmartAutoRotateBatterySaverController$1;->this$0:Lcom/android/settings/display/SmartAutoRotateBatterySaverController;
 
-    invoke-static {p1}, Lcom/android/settings/display/SmartAutoRotateBatterySaverController;->access$000(Lcom/android/settings/display/SmartAutoRotateBatterySaverController;)Landroidx/preference/Preference;
+    invoke-static {p1}, Lcom/android/settings/display/SmartAutoRotateBatterySaverController;->-$$Nest$fgetmPreference(Lcom/android/settings/display/SmartAutoRotateBatterySaverController;)Landroidx/preference/Preference;
 
     move-result-object p1
 
@@ -61,7 +61,7 @@
 
     iget-object p0, p0, Lcom/android/settings/display/SmartAutoRotateBatterySaverController$1;->this$0:Lcom/android/settings/display/SmartAutoRotateBatterySaverController;
 
-    invoke-static {p0}, Lcom/android/settings/display/SmartAutoRotateBatterySaverController;->access$000(Lcom/android/settings/display/SmartAutoRotateBatterySaverController;)Landroidx/preference/Preference;
+    invoke-static {p0}, Lcom/android/settings/display/SmartAutoRotateBatterySaverController;->-$$Nest$fgetmPreference(Lcom/android/settings/display/SmartAutoRotateBatterySaverController;)Landroidx/preference/Preference;
 
     move-result-object p1
 

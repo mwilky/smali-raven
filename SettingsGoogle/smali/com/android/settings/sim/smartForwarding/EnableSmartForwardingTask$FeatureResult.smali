@@ -29,6 +29,22 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fputresult(Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask$FeatureResult;Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask$FeatureResult;->result:Z
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fputslotUTData(Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask$FeatureResult;[Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask$SlotUTData;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask$FeatureResult;->slotUTData:[Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask$SlotUTData;
+
+    return-void
+.end method
+
 .method public constructor <init>(Z[Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask$SlotUTData;)V
     .locals 0
 
@@ -39,22 +55,6 @@
     iput-object p2, p0, Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask$FeatureResult;->slotUTData:[Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask$SlotUTData;
 
     return-void
-.end method
-
-.method static synthetic access$202(Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask$FeatureResult;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask$FeatureResult;->result:Z
-
-    return p1
-.end method
-
-.method static synthetic access$302(Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask$FeatureResult;[Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask$SlotUTData;)[Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask$SlotUTData;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask$FeatureResult;->slotUTData:[Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask$SlotUTData;
-
-    return-object p1
 .end method
 
 

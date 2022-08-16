@@ -175,3 +175,15 @@
 
     return-void
 .end method
+
+.method public static postOnMainThreadDelayed(Ljava/lang/Runnable;J)V
+    .locals 1
+
+    invoke-static {}, Lcom/android/settingslib/utils/ThreadUtils;->getUiThreadHandler()Landroid/os/Handler;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p0, p1, p2}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+
+    return-void
+.end method

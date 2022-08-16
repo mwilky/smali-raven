@@ -43,6 +43,30 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmCharging(Lcom/android/settings/fuelgauge/BatteryInfo;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/settings/fuelgauge/BatteryInfo;->mCharging:Z
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgettimePeriod(Lcom/android/settings/fuelgauge/BatteryInfo;)J
+    .locals 2
+
+    iget-wide v0, p0, Lcom/android/settings/fuelgauge/BatteryInfo;->timePeriod:J
+
+    return-wide v0
+.end method
+
+.method static bridge synthetic -$$Nest$fputtimePeriod(Lcom/android/settings/fuelgauge/BatteryInfo;J)V
+    .locals 0
+
+    iput-wide p1, p0, Lcom/android/settings/fuelgauge/BatteryInfo;->timePeriod:J
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 2
 
@@ -63,122 +87,108 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/settings/fuelgauge/BatteryInfo;)J
-    .locals 2
-
-    iget-wide v0, p0, Lcom/android/settings/fuelgauge/BatteryInfo;->timePeriod:J
-
-    return-wide v0
-.end method
-
-.method static synthetic access$002(Lcom/android/settings/fuelgauge/BatteryInfo;J)J
-    .locals 0
-
-    iput-wide p1, p0, Lcom/android/settings/fuelgauge/BatteryInfo;->timePeriod:J
-
-    return-wide p1
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/fuelgauge/BatteryInfo;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/settings/fuelgauge/BatteryInfo;->mCharging:Z
-
-    return p0
-.end method
-
 .method public static getBatteryInfo(Landroid/content/Context;Landroid/content/Intent;Landroid/os/BatteryUsageStats;Lcom/android/settingslib/fuelgauge/Estimate;JZ)Lcom/android/settings/fuelgauge/BatteryInfo;
-    .locals 6
+    .locals 7
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide p4
 
-    new-instance v0, Lcom/android/settings/fuelgauge/BatteryInfo;
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    invoke-direct {v0}, Lcom/android/settings/fuelgauge/BatteryInfo;-><init>()V
+    move-result-object v0
 
-    iput-object p2, v0, Lcom/android/settings/fuelgauge/BatteryInfo;->mBatteryUsageStats:Landroid/os/BatteryUsageStats;
+    const v1, 0x7f090064
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
+
+    move-result v0
+
+    new-instance v1, Lcom/android/settings/fuelgauge/BatteryInfo;
+
+    invoke-direct {v1}, Lcom/android/settings/fuelgauge/BatteryInfo;-><init>()V
+
+    iput-object p2, v1, Lcom/android/settings/fuelgauge/BatteryInfo;->mBatteryUsageStats:Landroid/os/BatteryUsageStats;
 
     invoke-static {p1}, Lcom/android/settingslib/Utils;->getBatteryLevel(Landroid/content/Intent;)I
 
-    move-result v1
+    move-result v2
 
-    iput v1, v0, Lcom/android/settings/fuelgauge/BatteryInfo;->batteryLevel:I
+    iput v2, v1, Lcom/android/settings/fuelgauge/BatteryInfo;->batteryLevel:I
 
-    invoke-static {v1}, Lcom/android/settingslib/Utils;->formatPercentage(I)Ljava/lang/String;
+    invoke-static {v2}, Lcom/android/settingslib/Utils;->formatPercentage(I)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    iput-object v1, v0, Lcom/android/settings/fuelgauge/BatteryInfo;->batteryPercentString:Ljava/lang/String;
+    iput-object v2, v1, Lcom/android/settings/fuelgauge/BatteryInfo;->batteryPercentString:Ljava/lang/String;
 
-    const-string v1, "plugged"
+    const-string v2, "plugged"
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    invoke-virtual {p1, v1, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {p1, v2, v3}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
-    move-result v1
+    move-result v2
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_0
 
-    move v1, v3
+    move v2, v4
 
     goto :goto_0
 
     :cond_0
-    move v1, v2
+    move v2, v3
 
     :goto_0
-    iput-boolean v1, v0, Lcom/android/settings/fuelgauge/BatteryInfo;->mCharging:Z
+    iput-boolean v2, v1, Lcom/android/settings/fuelgauge/BatteryInfo;->mCharging:Z
 
     invoke-virtual {p3}, Lcom/android/settingslib/fuelgauge/Estimate;->getAverageDischargeTime()J
 
-    move-result-wide v4
+    move-result-wide v5
 
-    iput-wide v4, v0, Lcom/android/settings/fuelgauge/BatteryInfo;->averageTimeToDischarge:J
+    iput-wide v5, v1, Lcom/android/settings/fuelgauge/BatteryInfo;->averageTimeToDischarge:J
 
-    const-string v1, "health"
+    const-string v2, "health"
 
-    invoke-virtual {p1, v1, v3}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {p1, v2, v4}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
-    move-result v1
+    move-result v2
 
-    const/4 v4, 0x3
+    const/4 v5, 0x3
 
-    if-ne v1, v4, :cond_1
+    if-ne v2, v5, :cond_1
 
-    move v2, v3
+    move v3, v4
 
     :cond_1
-    iput-boolean v2, v0, Lcom/android/settings/fuelgauge/BatteryInfo;->isOverheated:Z
+    iput-boolean v3, v1, Lcom/android/settings/fuelgauge/BatteryInfo;->isOverheated:Z
 
-    invoke-static {p0, p1}, Lcom/android/settingslib/Utils;->getBatteryStatus(Landroid/content/Context;Landroid/content/Intent;)Ljava/lang/String;
+    invoke-static {p0, p1, v0}, Lcom/android/settingslib/Utils;->getBatteryStatus(Landroid/content/Context;Landroid/content/Intent;Z)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    iput-object v1, v0, Lcom/android/settings/fuelgauge/BatteryInfo;->statusLabel:Ljava/lang/String;
+    iput-object v2, v1, Lcom/android/settings/fuelgauge/BatteryInfo;->statusLabel:Ljava/lang/String;
 
-    const-string/jumbo v1, "status"
+    const-string/jumbo v2, "status"
 
-    invoke-virtual {p1, v1, v3}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {p1, v2, v4}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
-    move-result v1
+    move-result v2
 
-    iput v1, v0, Lcom/android/settings/fuelgauge/BatteryInfo;->batteryStatus:I
+    iput v2, v1, Lcom/android/settings/fuelgauge/BatteryInfo;->batteryStatus:I
 
-    iget-boolean v1, v0, Lcom/android/settings/fuelgauge/BatteryInfo;->mCharging:Z
+    iget-boolean v2, v1, Lcom/android/settings/fuelgauge/BatteryInfo;->mCharging:Z
 
-    if-nez v1, :cond_2
+    if-nez v2, :cond_2
 
-    invoke-static {p0, p6, p3, v0}, Lcom/android/settings/fuelgauge/BatteryInfo;->updateBatteryInfoDischarging(Landroid/content/Context;ZLcom/android/settingslib/fuelgauge/Estimate;Lcom/android/settings/fuelgauge/BatteryInfo;)V
+    invoke-static {p0, p6, p3, v1}, Lcom/android/settings/fuelgauge/BatteryInfo;->updateBatteryInfoDischarging(Landroid/content/Context;ZLcom/android/settingslib/fuelgauge/Estimate;Lcom/android/settings/fuelgauge/BatteryInfo;)V
 
     goto :goto_1
 
     :cond_2
-    invoke-static {p0, p1, p2, v0}, Lcom/android/settings/fuelgauge/BatteryInfo;->updateBatteryInfoCharging(Landroid/content/Context;Landroid/content/Intent;Landroid/os/BatteryUsageStats;Lcom/android/settings/fuelgauge/BatteryInfo;)V
+    invoke-static {p0, p1, p2, v1, v0}, Lcom/android/settings/fuelgauge/BatteryInfo;->updateBatteryInfoCharging(Landroid/content/Context;Landroid/content/Intent;Landroid/os/BatteryUsageStats;Lcom/android/settings/fuelgauge/BatteryInfo;Z)V
 
     :goto_1
     const-string p0, "BatteryInfo"
@@ -187,7 +197,7 @@
 
     invoke-static {p0, p1, p4, p5}, Lcom/android/settings/fuelgauge/BatteryUtils;->logRuntime(Ljava/lang/String;Ljava/lang/String;J)V
 
-    return-object v0
+    return-object v1
 .end method
 
 .method public static getBatteryInfo(Landroid/content/Context;Landroid/os/BatteryUsageStats;Z)Lcom/android/settings/fuelgauge/BatteryInfo;
@@ -371,7 +381,7 @@
     return-void
 .end method
 
-.method private static updateBatteryInfoCharging(Landroid/content/Context;Landroid/content/Intent;Landroid/os/BatteryUsageStats;Lcom/android/settings/fuelgauge/BatteryInfo;)V
+.method private static updateBatteryInfoCharging(Landroid/content/Context;Landroid/content/Intent;Landroid/os/BatteryUsageStats;Lcom/android/settings/fuelgauge/BatteryInfo;Z)V
     .locals 10
 
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -408,13 +418,13 @@
 
     iput-object v5, p3, Lcom/android/settings/fuelgauge/BatteryInfo;->remainingLabel:Ljava/lang/CharSequence;
 
-    const p1, 0x7f040f2a
+    const p1, 0x7f040fc1
 
     new-array p2, v3, [Ljava/lang/Object;
 
-    iget-object v0, p3, Lcom/android/settings/fuelgauge/BatteryInfo;->batteryPercentString:Ljava/lang/String;
+    iget-object p4, p3, Lcom/android/settings/fuelgauge/BatteryInfo;->batteryPercentString:Ljava/lang/String;
 
-    aput-object v0, p2, v4
+    aput-object p4, p2, v4
 
     invoke-virtual {p0, p1, p2}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -451,29 +461,29 @@
 
     move-result-object p1
 
-    const p2, 0x7f040f29
+    const p2, 0x7f040fc0
 
-    const v0, 0x7f040f42
+    const p4, 0x7f040fd9
 
-    new-array v1, v3, [Ljava/lang/Object;
+    new-array v0, v3, [Ljava/lang/Object;
 
-    aput-object p1, v1, v4
+    aput-object p1, v0, v4
 
-    invoke-virtual {p0, v0, v1}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {p0, p4, v0}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p4
 
-    iput-object v0, p3, Lcom/android/settings/fuelgauge/BatteryInfo;->remainingLabel:Ljava/lang/CharSequence;
+    iput-object p4, p3, Lcom/android/settings/fuelgauge/BatteryInfo;->remainingLabel:Ljava/lang/CharSequence;
 
-    new-array v0, v8, [Ljava/lang/Object;
+    new-array p4, v8, [Ljava/lang/Object;
 
-    iget-object v1, p3, Lcom/android/settings/fuelgauge/BatteryInfo;->batteryPercentString:Ljava/lang/String;
+    iget-object v0, p3, Lcom/android/settings/fuelgauge/BatteryInfo;->batteryPercentString:Ljava/lang/String;
 
-    aput-object v1, v0, v4
+    aput-object v0, p4, v4
 
-    aput-object p1, v0, v3
+    aput-object p1, p4, v3
 
-    invoke-virtual {p0, p2, v0}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {p0, p2, p4}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object p0
 
@@ -482,7 +492,7 @@
     goto :goto_1
 
     :cond_1
-    invoke-static {p0, p1}, Lcom/android/settingslib/Utils;->getBatteryStatus(Landroid/content/Context;Landroid/content/Intent;)Ljava/lang/String;
+    invoke-static {p0, p1, p4}, Lcom/android/settingslib/Utils;->getBatteryStatus(Landroid/content/Context;Landroid/content/Intent;Z)Ljava/lang/String;
 
     move-result-object p0
 
@@ -499,13 +509,13 @@
     goto :goto_0
 
     :cond_2
-    const p1, 0x7f040f28
+    const p1, 0x7f040fbf
 
     new-array p2, v8, [Ljava/lang/Object;
 
-    iget-object v1, p3, Lcom/android/settings/fuelgauge/BatteryInfo;->batteryPercentString:Ljava/lang/String;
+    iget-object p4, p3, Lcom/android/settings/fuelgauge/BatteryInfo;->batteryPercentString:Ljava/lang/String;
 
-    aput-object v1, p2, v4
+    aput-object p4, p2, v4
 
     invoke-virtual {p0}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
 
@@ -650,7 +660,7 @@
 
     invoke-virtual {p0, v2}, Lcom/android/settings/fuelgauge/BatteryInfo;->parseBatteryHistory([Lcom/android/settings/fuelgauge/BatteryInfo$BatteryDataParser;)V
 
-    const p2, 0x7f0405bb
+    const p2, 0x7f040618
 
     new-array v1, v3, [Ljava/lang/Object;
 
@@ -674,7 +684,7 @@
 
     if-eqz p0, :cond_1
 
-    const p0, 0x7f041023
+    const p0, 0x7f0410c9
 
     new-array v5, v3, [Ljava/lang/Object;
 

@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Z)V
-    .locals 3
+    .locals 2
 
     invoke-direct {p0, p1, p2}, Landroidx/appcompat/widget/DropDownListView;-><init>(Landroid/content/Context;Z)V
 
@@ -38,21 +38,15 @@
 
     move-result-object p1
 
-    sget p2, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v0, 0x15
-
-    const/16 v1, 0x16
-
-    const/16 v2, 0x11
-
-    if-lt p2, v2, :cond_0
-
     const/4 p2, 0x1
 
     invoke-virtual {p1}, Landroid/content/res/Configuration;->getLayoutDirection()I
 
     move-result p1
+
+    const/16 v0, 0x15
+
+    const/16 v1, 0x16
 
     if-ne p2, p1, :cond_0
 

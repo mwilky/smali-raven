@@ -39,7 +39,7 @@
 
     iget-object p0, p0, Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment$1;->this$0:Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment;
 
-    invoke-static {p0, p2}, Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment;->access$000(Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment;I)V
+    invoke-static {p0, p2}, Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment;->-$$Nest$monKeyboardLayoutClicked(Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment;I)V
 
     return-void
 .end method

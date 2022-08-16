@@ -41,6 +41,22 @@
     return-void
 .end method
 
+.method static bridge synthetic -$$Nest$fgetmCancelListener(Lcom/android/settings/applications/defaultapps/DefaultAutofillPicker;)Landroid/content/DialogInterface$OnClickListener;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/applications/defaultapps/DefaultAutofillPicker;->mCancelListener:Landroid/content/DialogInterface$OnClickListener;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$mupdate(Lcom/android/settings/applications/defaultapps/DefaultAutofillPicker;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/applications/defaultapps/DefaultAutofillPicker;->update()V
+
+    return-void
+.end method
+
 .method static constructor <clinit>()V
     .locals 2
 
@@ -65,22 +81,6 @@
     invoke-direct {v0, p0}, Lcom/android/settings/applications/defaultapps/DefaultAutofillPicker$1;-><init>(Lcom/android/settings/applications/defaultapps/DefaultAutofillPicker;)V
 
     iput-object v0, p0, Lcom/android/settings/applications/defaultapps/DefaultAutofillPicker;->mSettingsPackageMonitor:Lcom/android/internal/content/PackageMonitor;
-
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/applications/defaultapps/DefaultAutofillPicker;)Landroid/content/DialogInterface$OnClickListener;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/applications/defaultapps/DefaultAutofillPicker;->mCancelListener:Landroid/content/DialogInterface$OnClickListener;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/applications/defaultapps/DefaultAutofillPicker;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/applications/defaultapps/DefaultAutofillPicker;->update()V
 
     return-void
 .end method
@@ -219,11 +219,11 @@
 
     invoke-virtual {v2, v3}, Landroidx/preference/Preference;->setOnPreferenceClickListener(Landroidx/preference/Preference$OnPreferenceClickListener;)V
 
-    const p0, 0x7f040fa3
+    const p0, 0x7f04103c
 
     invoke-virtual {v2, p0}, Landroidx/preference/Preference;->setTitle(I)V
 
-    const p0, 0x7f020171
+    const p0, 0x7f020185
 
     invoke-virtual {v2, p0}, Landroidx/preference/Preference;->setIcon(I)V
 
@@ -416,7 +416,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f0402f7
+    const v0, 0x7f040330
 
     const/4 v1, 0x1
 
@@ -464,7 +464,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f15005c
+    const p0, 0x7f15005f
 
     return p0
 .end method

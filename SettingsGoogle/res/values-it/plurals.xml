@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="abc_slice_duration_days">
-        <item quantity="other">%d gg fa</item>
-        <item quantity="one">%d g fa</item>
+        <item quantity="other">%d giorni fa</item>
+        <item quantity="one">%d giorno fa</item>
     </plurals>
     <plurals name="abc_slice_duration_min">
         <item quantity="other">%d min fa</item>
@@ -85,8 +85,8 @@
         <item quantity="one">%d giorno rimanente</item>
     </plurals>
     <plurals name="data_saver_unrestricted_summary">
-        <item quantity="other">%1$d app autorizzate a utilizzare dati senza limitazioni quando la funzione Risparmio dati è attiva</item>
-        <item quantity="one">1 app autorizzata a utilizzare dati senza limitazioni quando la funzione Risparmio dati è attiva</item>
+        <item quantity="other">%1$d app autorizzate a usare dati senza limitazioni quando la funzionalità Risparmio dati è attiva</item>
+        <item quantity="one">1 app autorizzata a usare dati senza limitazioni quando la funzionalità Risparmio dati è attiva</item>
     </plurals>
     <plurals name="default_camera_app_title">
         <item quantity="other">App Fotocamera</item>
@@ -177,16 +177,16 @@
         <item quantity="one">Deve contenere meno di %d carattere</item>
     </plurals>
     <plurals name="lockpassword_password_too_short">
-        <item quantity="other">Deve contenere almeno %d caratteri</item>
-        <item quantity="one">Deve contenere almeno %d carattere</item>
+        <item quantity="other">Deve essere lunga almeno %d caratteri</item>
+        <item quantity="one">Deve essere lunga almeno %d carattere</item>
     </plurals>
     <plurals name="lockpassword_pin_too_long">
         <item quantity="other">Deve contenere meno di %d cifre</item>
         <item quantity="one">Deve contenere meno di %d cifra</item>
     </plurals>
     <plurals name="lockpassword_pin_too_short">
-        <item quantity="other">Il PIN deve contenere almeno %d cifre</item>
-        <item quantity="one">Il PIN deve contenere almeno %d cifra</item>
+        <item quantity="other">Il PIN deve essere lungo almeno %d cifre</item>
+        <item quantity="one">Il PIN deve essere lungo almeno %d cifra</item>
     </plurals>
     <plurals name="manage_notification_access_summary_nonzero">
         <item quantity="other">Le app %d possono leggere le notifiche</item>
@@ -233,11 +233,11 @@
         <item quantity="one">%d categoria disattivata</item>
     </plurals>
     <plurals name="notifications_sent_daily">
-        <item quantity="other">~%d notifiche al giorno</item>
+        <item quantity="other">~%,d notifiche al giorno</item>
         <item quantity="one">~%d notifica al giorno</item>
     </plurals>
     <plurals name="notifications_sent_weekly">
-        <item quantity="other">~%d notifiche alla settimana</item>
+        <item quantity="other">~%,d notifiche alla settimana</item>
         <item quantity="one">~%d notifica alla settimana</item>
     </plurals>
     <plurals name="number_of_device_admins">
@@ -328,22 +328,6 @@
         <item quantity="other">Considera attendibili i certificati o rimuovili</item>
         <item quantity="one">Considera attendibile il certificato o rimuovilo</item>
     </plurals>
-    <plurals name="ssl_ca_cert_info_message">
-        <item quantity="other">"%s ha installato autorità di certificazione per il tuo profilo di lavoro. L'amministratore potrebbe monitorare l'attività di rete lavorativa, inclusi siti web protetti, email e app.
-
-Contatta l'amministratore per avere ulteriori informazioni sui certificati."</item>
-        <item quantity="one">"%s ha installato un'autorità di certificazione per il tuo profilo di lavoro. L'amministratore potrebbe monitorare l'attività di rete lavorativa, inclusi siti web protetti, email e app.
-
-Contatta l'amministratore per avere ulteriori informazioni sul certificato."</item>
-    </plurals>
-    <plurals name="ssl_ca_cert_info_message_device_owner">
-        <item quantity="other">"%s ha installato autorità di certificazione sul tuo dispositivo, da cui è possibile monitorare l'attività di rete del dispositivo, inclusi siti web protetti, email e app.
-
-Contatta l'amministratore per avere ulteriori informazioni sui certificati."</item>
-        <item quantity="one">"%s ha installato un'autorità di certificazione sul tuo dispositivo, da cui è possibile monitorare l'attività di rete del dispositivo, inclusi siti web protetti, email e app.
-
-Contatta l'amministratore per avere ulteriori informazioni sul certificato."</item>
-    </plurals>
     <plurals name="ssl_ca_cert_settings_button">
         <item quantity="other">Controlla i certificati</item>
         <item quantity="one">Controlla il certificato</item>
@@ -375,10 +359,6 @@ Contatta l'amministratore per avere ulteriori informazioni sul certificato."</it
     <plurals name="wifi_saved_passpoint_access_points_summary">
         <item quantity="other">%d iscrizioni</item>
         <item quantity="one">1 iscrizione</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$d dispositivi connessi</item>
-        <item quantity="one">%1$d dispositivo connesso</item>
     </plurals>
     <plurals name="wrong_pin_code">
         <item quantity="other">Codice PIN della SIM errato. Hai ancora %d tentativi a disposizione.</item>

@@ -28,7 +28,7 @@
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, v1}, Lcom/android/settingslib/net/NetworkCycleChartData;-><init>(Lcom/android/settingslib/net/NetworkCycleChartData$1;)V
+    invoke-direct {v0, v1}, Lcom/android/settingslib/net/NetworkCycleChartData;-><init>(Lcom/android/settingslib/net/NetworkCycleChartData-IA;)V
 
     iput-object v0, p0, Lcom/android/settingslib/net/NetworkCycleChartData$Builder;->mObject:Lcom/android/settingslib/net/NetworkCycleChartData;
 
@@ -91,7 +91,7 @@
 
     move-result-object v0
 
-    invoke-static {v0, p1}, Lcom/android/settingslib/net/NetworkCycleChartData;->access$102(Lcom/android/settingslib/net/NetworkCycleChartData;Ljava/util/List;)Ljava/util/List;
+    invoke-static {v0, p1}, Lcom/android/settingslib/net/NetworkCycleChartData;->-$$Nest$fputmUsageBuckets(Lcom/android/settingslib/net/NetworkCycleChartData;Ljava/util/List;)V
 
     return-object p0
 .end method

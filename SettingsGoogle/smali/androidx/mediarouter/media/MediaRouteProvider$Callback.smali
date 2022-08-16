@@ -26,14 +26,4 @@
 
 # virtual methods
 .method public abstract onDescriptorChanged(Landroidx/mediarouter/media/MediaRouteProvider;Landroidx/mediarouter/media/MediaRouteProviderDescriptor;)V
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "provider",
-            "descriptor"
-        }
-    .end annotation
 .end method

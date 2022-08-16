@@ -56,7 +56,7 @@
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothPermissionActivity$1;->this$0:Lcom/android/settings/bluetooth/BluetoothPermissionActivity;
 
-    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothPermissionActivity;->access$000(Lcom/android/settings/bluetooth/BluetoothPermissionActivity;)I
+    invoke-static {v0}, Lcom/android/settings/bluetooth/BluetoothPermissionActivity;->-$$Nest$fgetmRequestType(Lcom/android/settings/bluetooth/BluetoothPermissionActivity;)I
 
     move-result v0
 
@@ -75,7 +75,7 @@
 
     iget-object p2, p0, Lcom/android/settings/bluetooth/BluetoothPermissionActivity$1;->this$0:Lcom/android/settings/bluetooth/BluetoothPermissionActivity;
 
-    invoke-static {p2}, Lcom/android/settings/bluetooth/BluetoothPermissionActivity;->access$100(Lcom/android/settings/bluetooth/BluetoothPermissionActivity;)Landroid/bluetooth/BluetoothDevice;
+    invoke-static {p2}, Lcom/android/settings/bluetooth/BluetoothPermissionActivity;->-$$Nest$fgetmDevice(Lcom/android/settings/bluetooth/BluetoothPermissionActivity;)Landroid/bluetooth/BluetoothDevice;
 
     move-result-object p2
 
@@ -87,7 +87,7 @@
 
     iget-object p0, p0, Lcom/android/settings/bluetooth/BluetoothPermissionActivity$1;->this$0:Lcom/android/settings/bluetooth/BluetoothPermissionActivity;
 
-    invoke-static {p0}, Lcom/android/settings/bluetooth/BluetoothPermissionActivity;->access$200(Lcom/android/settings/bluetooth/BluetoothPermissionActivity;)V
+    invoke-static {p0}, Lcom/android/settings/bluetooth/BluetoothPermissionActivity;->-$$Nest$mdismissDialog(Lcom/android/settings/bluetooth/BluetoothPermissionActivity;)V
 
     :cond_1
     return-void

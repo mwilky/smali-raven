@@ -35,7 +35,7 @@
 .end method
 
 .method private updateBatteryStatus(Landroid/content/Intent;Z)V
-    .locals 4
+    .locals 5
 
     if-eqz p1, :cond_6
 
@@ -61,17 +61,19 @@
 
     iget-object v1, p0, Lcom/android/settings/fuelgauge/BatteryBroadcastReceiver;->mContext:Landroid/content/Context;
 
-    invoke-static {v1, p1}, Lcom/android/settingslib/Utils;->getBatteryStatus(Landroid/content/Context;Landroid/content/Intent;)Ljava/lang/String;
+    const/4 v2, 0x0
+
+    invoke-static {v1, p1, v2}, Lcom/android/settingslib/Utils;->getBatteryStatus(Landroid/content/Context;Landroid/content/Intent;Z)Ljava/lang/String;
 
     move-result-object v1
 
-    const-string v2, "health"
+    const-string v3, "health"
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    invoke-virtual {p1, v2, v3}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {p1, v3, v4}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
-    move-result v2
+    move-result v3
 
     invoke-static {p1}, Lcom/android/settings/Utils;->isBatteryPresent(Landroid/content/Intent;)Z
 
@@ -98,16 +100,14 @@
 
     iget-object p1, p0, Lcom/android/settings/fuelgauge/BatteryBroadcastReceiver;->mBatteryListener:Lcom/android/settings/fuelgauge/BatteryBroadcastReceiver$OnBatteryChangedListener;
 
-    const/4 p2, 0x0
-
-    invoke-interface {p1, p2}, Lcom/android/settings/fuelgauge/BatteryBroadcastReceiver$OnBatteryChangedListener;->onBatteryChanged(I)V
+    invoke-interface {p1, v2}, Lcom/android/settings/fuelgauge/BatteryBroadcastReceiver$OnBatteryChangedListener;->onBatteryChanged(I)V
 
     goto :goto_0
 
     :cond_1
     iget p1, p0, Lcom/android/settings/fuelgauge/BatteryBroadcastReceiver;->mBatteryHealth:I
 
-    if-eq v2, p1, :cond_2
+    if-eq v3, p1, :cond_2
 
     iget-object p1, p0, Lcom/android/settings/fuelgauge/BatteryBroadcastReceiver;->mBatteryListener:Lcom/android/settings/fuelgauge/BatteryBroadcastReceiver$OnBatteryChangedListener;
 
@@ -128,7 +128,7 @@
 
     iget-object p1, p0, Lcom/android/settings/fuelgauge/BatteryBroadcastReceiver;->mBatteryListener:Lcom/android/settings/fuelgauge/BatteryBroadcastReceiver$OnBatteryChangedListener;
 
-    invoke-interface {p1, v3}, Lcom/android/settings/fuelgauge/BatteryBroadcastReceiver$OnBatteryChangedListener;->onBatteryChanged(I)V
+    invoke-interface {p1, v4}, Lcom/android/settings/fuelgauge/BatteryBroadcastReceiver$OnBatteryChangedListener;->onBatteryChanged(I)V
 
     goto :goto_0
 
@@ -153,7 +153,7 @@
 
     iput-object v1, p0, Lcom/android/settings/fuelgauge/BatteryBroadcastReceiver;->mBatteryStatus:Ljava/lang/String;
 
-    iput v2, p0, Lcom/android/settings/fuelgauge/BatteryBroadcastReceiver;->mBatteryHealth:I
+    iput v3, p0, Lcom/android/settings/fuelgauge/BatteryBroadcastReceiver;->mBatteryHealth:I
 
     goto :goto_1
 

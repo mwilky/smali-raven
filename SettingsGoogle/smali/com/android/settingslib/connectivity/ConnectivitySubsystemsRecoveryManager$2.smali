@@ -38,15 +38,15 @@
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/android/settingslib/connectivity/ConnectivitySubsystemsRecoveryManager;->access$102(Lcom/android/settingslib/connectivity/ConnectivitySubsystemsRecoveryManager;Z)Z
+    invoke-static {v0, v1}, Lcom/android/settingslib/connectivity/ConnectivitySubsystemsRecoveryManager;->-$$Nest$fputmWifiRestartInProgress(Lcom/android/settingslib/connectivity/ConnectivitySubsystemsRecoveryManager;Z)V
 
     iget-object v0, p0, Lcom/android/settingslib/connectivity/ConnectivitySubsystemsRecoveryManager$2;->this$0:Lcom/android/settingslib/connectivity/ConnectivitySubsystemsRecoveryManager;
 
-    invoke-static {v0}, Lcom/android/settingslib/connectivity/ConnectivitySubsystemsRecoveryManager;->access$200(Lcom/android/settingslib/connectivity/ConnectivitySubsystemsRecoveryManager;)V
+    invoke-virtual {v0}, Lcom/android/settingslib/connectivity/ConnectivitySubsystemsRecoveryManager;->stopTrackingWifiRestart()V
 
     iget-object p0, p0, Lcom/android/settingslib/connectivity/ConnectivitySubsystemsRecoveryManager$2;->this$0:Lcom/android/settingslib/connectivity/ConnectivitySubsystemsRecoveryManager;
 
-    invoke-static {p0}, Lcom/android/settingslib/connectivity/ConnectivitySubsystemsRecoveryManager;->access$300(Lcom/android/settingslib/connectivity/ConnectivitySubsystemsRecoveryManager;)V
+    invoke-static {p0}, Lcom/android/settingslib/connectivity/ConnectivitySubsystemsRecoveryManager;->-$$Nest$mcheckIfAllSubsystemsRestartsAreDone(Lcom/android/settingslib/connectivity/ConnectivitySubsystemsRecoveryManager;)V
 
     return-void
 .end method

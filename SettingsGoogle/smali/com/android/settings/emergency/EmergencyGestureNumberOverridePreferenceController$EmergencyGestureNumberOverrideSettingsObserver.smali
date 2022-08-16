@@ -36,7 +36,7 @@
 
     iget-object p1, p0, Lcom/android/settings/emergency/EmergencyGestureNumberOverridePreferenceController$EmergencyGestureNumberOverrideSettingsObserver;->this$0:Lcom/android/settings/emergency/EmergencyGestureNumberOverridePreferenceController;
 
-    invoke-static {p1}, Lcom/android/settings/emergency/EmergencyGestureNumberOverridePreferenceController;->access$000(Lcom/android/settings/emergency/EmergencyGestureNumberOverridePreferenceController;)Landroidx/preference/Preference;
+    invoke-static {p1}, Lcom/android/settings/emergency/EmergencyGestureNumberOverridePreferenceController;->-$$Nest$fgetmPreference(Lcom/android/settings/emergency/EmergencyGestureNumberOverridePreferenceController;)Landroidx/preference/Preference;
 
     move-result-object p1
 
@@ -44,7 +44,7 @@
 
     iget-object p0, p0, Lcom/android/settings/emergency/EmergencyGestureNumberOverridePreferenceController$EmergencyGestureNumberOverrideSettingsObserver;->this$0:Lcom/android/settings/emergency/EmergencyGestureNumberOverridePreferenceController;
 
-    invoke-static {p0}, Lcom/android/settings/emergency/EmergencyGestureNumberOverridePreferenceController;->access$000(Lcom/android/settings/emergency/EmergencyGestureNumberOverridePreferenceController;)Landroidx/preference/Preference;
+    invoke-static {p0}, Lcom/android/settings/emergency/EmergencyGestureNumberOverridePreferenceController;->-$$Nest$fgetmPreference(Lcom/android/settings/emergency/EmergencyGestureNumberOverridePreferenceController;)Landroidx/preference/Preference;
 
     move-result-object p1
 

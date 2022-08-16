@@ -39,7 +39,7 @@
 
     iget-object p0, p0, Lcom/android/settings/TetherSettings$1;->this$0:Lcom/android/settings/TetherSettings;
 
-    invoke-static {p0}, Lcom/android/settings/TetherSettings;->access$1100(Lcom/android/settings/TetherSettings;)Ljava/util/concurrent/atomic/AtomicReference;
+    invoke-static {p0}, Lcom/android/settings/TetherSettings;->-$$Nest$fgetmBluetoothPan(Lcom/android/settings/TetherSettings;)Ljava/util/concurrent/atomic/AtomicReference;
 
     move-result-object p0
 
@@ -55,7 +55,7 @@
 
     iget-object p0, p0, Lcom/android/settings/TetherSettings$1;->this$0:Lcom/android/settings/TetherSettings;
 
-    invoke-static {p0}, Lcom/android/settings/TetherSettings;->access$1100(Lcom/android/settings/TetherSettings;)Ljava/util/concurrent/atomic/AtomicReference;
+    invoke-static {p0}, Lcom/android/settings/TetherSettings;->-$$Nest$fgetmBluetoothPan(Lcom/android/settings/TetherSettings;)Ljava/util/concurrent/atomic/AtomicReference;
 
     move-result-object p0
 

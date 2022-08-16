@@ -124,9 +124,9 @@
 
     iget-object v1, p0, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl$1;->val$uri:Landroid/net/Uri;
 
-    iget-object p0, p0, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl$1;->val$pref:Landroidx/preference/Preference;
+    iget-object v2, p0, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl$1;->val$pref:Landroidx/preference/Preference;
 
-    invoke-static {v0, v1, p0}, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;->access$200(Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;Landroid/net/Uri;Landroidx/preference/Preference;)V
+    invoke-static {v0, v1, v2, p0}, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;->-$$Nest$mrefreshSwitch(Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;Landroid/net/Uri;Landroidx/preference/Preference;Lcom/android/settings/dashboard/DynamicDataObserver;)V
 
     goto :goto_1
 
@@ -135,9 +135,9 @@
 
     iget-object v1, p0, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl$1;->val$uri:Landroid/net/Uri;
 
-    iget-object p0, p0, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl$1;->val$pref:Landroidx/preference/Preference;
+    iget-object v2, p0, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl$1;->val$pref:Landroidx/preference/Preference;
 
-    invoke-static {v0, v1, p0}, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;->access$100(Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;Landroid/net/Uri;Landroidx/preference/Preference;)V
+    invoke-static {v0, v1, v2, p0}, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;->-$$Nest$mrefreshSummary(Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;Landroid/net/Uri;Landroidx/preference/Preference;Lcom/android/settings/dashboard/DynamicDataObserver;)V
 
     goto :goto_1
 
@@ -146,9 +146,9 @@
 
     iget-object v1, p0, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl$1;->val$uri:Landroid/net/Uri;
 
-    iget-object p0, p0, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl$1;->val$pref:Landroidx/preference/Preference;
+    iget-object v2, p0, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl$1;->val$pref:Landroidx/preference/Preference;
 
-    invoke-static {v0, v1, p0}, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;->access$000(Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;Landroid/net/Uri;Landroidx/preference/Preference;)V
+    invoke-static {v0, v1, v2, p0}, Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;->-$$Nest$mrefreshTitle(Lcom/android/settings/dashboard/DashboardFeatureProviderImpl;Landroid/net/Uri;Landroidx/preference/Preference;Lcom/android/settings/dashboard/DynamicDataObserver;)V
 
     :goto_1
     return-void

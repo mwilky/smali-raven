@@ -52,10 +52,10 @@
     return-void
 .end method
 
-.method public constructor <init>(Landroidx/lifecycle/Lifecycle;Landroid/content/Context;Landroid/net/wifi/WifiManager;Landroid/net/ConnectivityManager;Landroid/net/NetworkScoreManager;Landroid/os/Handler;Landroid/os/Handler;Ljava/time/Clock;JJLcom/android/wifitrackerlib/WifiPickerTracker$WifiPickerTrackerCallback;)V
+.method public constructor <init>(Landroidx/lifecycle/Lifecycle;Landroid/content/Context;Landroid/net/wifi/WifiManager;Landroid/net/ConnectivityManager;Landroid/os/Handler;Landroid/os/Handler;Ljava/time/Clock;JJLcom/android/wifitrackerlib/WifiPickerTracker$WifiPickerTrackerCallback;)V
     .locals 0
 
-    invoke-direct/range {p0 .. p13}, Lcom/android/wifitrackerlib/WifiPickerTracker;-><init>(Landroidx/lifecycle/Lifecycle;Landroid/content/Context;Landroid/net/wifi/WifiManager;Landroid/net/ConnectivityManager;Landroid/net/NetworkScoreManager;Landroid/os/Handler;Landroid/os/Handler;Ljava/time/Clock;JJLcom/android/wifitrackerlib/WifiPickerTracker$WifiPickerTrackerCallback;)V
+    invoke-direct/range {p0 .. p12}, Lcom/android/wifitrackerlib/WifiPickerTracker;-><init>(Landroidx/lifecycle/Lifecycle;Landroid/content/Context;Landroid/net/wifi/WifiManager;Landroid/net/ConnectivityManager;Landroid/os/Handler;Landroid/os/Handler;Ljava/time/Clock;JJLcom/android/wifitrackerlib/WifiPickerTracker$WifiPickerTrackerCallback;)V
 
     new-instance p1, Ljava/util/HashMap;
 
@@ -77,7 +77,7 @@
 
     new-instance p1, Lcom/google/android/wifitrackerlib/WsuManager;
 
-    invoke-direct {p1, p2, p3, p7}, Lcom/google/android/wifitrackerlib/WsuManager;-><init>(Landroid/content/Context;Landroid/net/wifi/WifiManager;Landroid/os/Handler;)V
+    invoke-direct {p1, p2, p3, p6}, Lcom/google/android/wifitrackerlib/WsuManager;-><init>(Landroid/content/Context;Landroid/net/wifi/WifiManager;Landroid/os/Handler;)V
 
     iput-object p1, p0, Lcom/google/android/wifitrackerlib/GoogleWifiPickerTracker;->mWsuManager:Lcom/google/android/wifitrackerlib/WsuManager;
 
@@ -219,7 +219,7 @@
 .end method
 
 .method private updateWsuWifiEntryScans(Ljava/util/List;)V
-    .locals 11
+    .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -262,56 +262,50 @@
 
     invoke-static {v1}, Lcom/google/android/wifitrackerlib/WsuWifiEntry;->generateWsuWifiEntryKey(Lcom/google/android/wifitrackerlib/WsuProvider;)Ljava/lang/String;
 
-    move-result-object v8
-
-    iget-object v2, p0, Lcom/google/android/wifitrackerlib/GoogleWifiPickerTracker;->mWsuWifiEntryCache:Ljava/util/Map;
-
-    invoke-interface {v2, v8}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_0
-
-    iget-object v9, p0, Lcom/google/android/wifitrackerlib/GoogleWifiPickerTracker;->mWsuWifiEntryCache:Ljava/util/Map;
-
-    new-instance v10, Lcom/google/android/wifitrackerlib/WsuWifiEntry;
-
-    iget-object v3, p0, Lcom/android/wifitrackerlib/BaseWifiTracker;->mContext:Landroid/content/Context;
-
-    iget-object v4, p0, Lcom/android/wifitrackerlib/BaseWifiTracker;->mMainHandler:Landroid/os/Handler;
-
-    iget-object v6, p0, Lcom/android/wifitrackerlib/BaseWifiTracker;->mWifiManager:Landroid/net/wifi/WifiManager;
-
-    iget-object v7, p0, Lcom/android/wifitrackerlib/BaseWifiTracker;->mWifiNetworkScoreCache:Landroid/net/wifi/WifiNetworkScoreCache;
-
-    move-object v2, v10
-
-    move-object v5, v1
-
-    invoke-direct/range {v2 .. v7}, Lcom/google/android/wifitrackerlib/WsuWifiEntry;-><init>(Landroid/content/Context;Landroid/os/Handler;Lcom/google/android/wifitrackerlib/WsuProvider;Landroid/net/wifi/WifiManager;Landroid/net/wifi/WifiNetworkScoreCache;)V
-
-    invoke-interface {v9, v8, v10}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    :cond_0
-    iget-object v2, p0, Lcom/google/android/wifitrackerlib/GoogleWifiPickerTracker;->mWsuWifiEntryCache:Ljava/util/Map;
-
-    invoke-interface {v2, v8}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
     move-result-object v2
 
-    check-cast v2, Lcom/google/android/wifitrackerlib/WsuWifiEntry;
+    iget-object v3, p0, Lcom/google/android/wifitrackerlib/GoogleWifiPickerTracker;->mWsuWifiEntryCache:Ljava/util/Map;
 
-    invoke-interface {p1, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v3, v2}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    iget-object v3, p0, Lcom/google/android/wifitrackerlib/GoogleWifiPickerTracker;->mWsuWifiEntryCache:Ljava/util/Map;
+
+    new-instance v4, Lcom/google/android/wifitrackerlib/WsuWifiEntry;
+
+    iget-object v5, p0, Lcom/android/wifitrackerlib/BaseWifiTracker;->mContext:Landroid/content/Context;
+
+    iget-object v6, p0, Lcom/android/wifitrackerlib/BaseWifiTracker;->mMainHandler:Landroid/os/Handler;
+
+    iget-object v7, p0, Lcom/android/wifitrackerlib/BaseWifiTracker;->mWifiManager:Landroid/net/wifi/WifiManager;
+
+    invoke-direct {v4, v5, v6, v1, v7}, Lcom/google/android/wifitrackerlib/WsuWifiEntry;-><init>(Landroid/content/Context;Landroid/os/Handler;Lcom/google/android/wifitrackerlib/WsuProvider;Landroid/net/wifi/WifiManager;)V
+
+    invoke-interface {v3, v2, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    :cond_0
+    iget-object v3, p0, Lcom/google/android/wifitrackerlib/GoogleWifiPickerTracker;->mWsuWifiEntryCache:Ljava/util/Map;
+
+    invoke-interface {v3, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v3
 
-    check-cast v3, Ljava/util/List;
+    check-cast v3, Lcom/google/android/wifitrackerlib/WsuWifiEntry;
 
-    invoke-virtual {v2, v3}, Lcom/google/android/wifitrackerlib/WsuWifiEntry;->updateScanResultInfo(Ljava/util/List;)V
+    invoke-interface {p1, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v2, p0, Lcom/google/android/wifitrackerlib/GoogleWifiPickerTracker;->mWsuWifiEntryCache:Ljava/util/Map;
+    move-result-object v4
 
-    invoke-interface {v2, v8}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    check-cast v4, Ljava/util/List;
+
+    invoke-virtual {v3, v4}, Lcom/google/android/wifitrackerlib/WsuWifiEntry;->updateScanResultInfo(Ljava/util/List;)V
+
+    iget-object v3, p0, Lcom/google/android/wifitrackerlib/GoogleWifiPickerTracker;->mWsuWifiEntryCache:Ljava/util/Map;
+
+    invoke-interface {v3, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v2
 
@@ -334,7 +328,9 @@
 
     move-result-object p0
 
-    sget-object p1, Lcom/google/android/wifitrackerlib/GoogleWifiPickerTracker$$ExternalSyntheticLambda2;->INSTANCE:Lcom/google/android/wifitrackerlib/GoogleWifiPickerTracker$$ExternalSyntheticLambda2;
+    new-instance p1, Lcom/google/android/wifitrackerlib/GoogleWifiPickerTracker$$ExternalSyntheticLambda2;
+
+    invoke-direct {p1}, Lcom/google/android/wifitrackerlib/GoogleWifiPickerTracker$$ExternalSyntheticLambda2;-><init>()V
 
     invoke-interface {p0, p1}, Ljava/util/Set;->removeIf(Ljava/util/function/Predicate;)Z
 

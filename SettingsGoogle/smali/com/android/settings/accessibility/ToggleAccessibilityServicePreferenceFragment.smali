@@ -4,15 +4,17 @@
 
 
 # instance fields
-.field private mDialog:Landroid/app/Dialog;
+.field private mDisabledStateLogged:Z
 
 .field private mIsDialogShown:Ljava/util/concurrent/atomic/AtomicBoolean;
 
-.field private mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
-
 .field private mPackageRemovedReceiver:Landroid/content/BroadcastReceiver;
 
-.field private final mSettingsContentObserver:Lcom/android/settings/accessibility/SettingsContentObserver;
+.field private mStartTimeMillsForLogging:J
+
+.field private mTileComponentName:Landroid/content/ComponentName;
+
+.field private mWarningDialog:Landroid/app/Dialog;
 
 
 # direct methods
@@ -32,10 +34,10 @@
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$N1_s8nq5aDPR6sNyWlzn_dMrzmc(Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;Landroid/content/DialogInterface;)V
+.method public static synthetic $r8$lambda$Z-orruyoYgXEMzXP9JvPnfdPAJo(Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;Ljava/lang/String;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->lambda$showPopupDialog$0(Landroid/content/DialogInterface;)V
+    invoke-direct {p0, p1}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->lambda$registerKeysToObserverCallback$0(Ljava/lang/String;)V
 
     return-void
 .end method
@@ -44,6 +46,14 @@
     .locals 0
 
     invoke-direct {p0}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->onDialogButtonFromUninstallClicked()V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$teLYfD5lKFFxoORXG7B6Ko705Is(Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;Landroid/content/DialogInterface;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->lambda$showPopupDialog$1(Landroid/content/DialogInterface;)V
 
     return-void
 .end method
@@ -61,86 +71,13 @@
 
     iput-object v0, p0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mIsDialogShown:Ljava/util/concurrent/atomic/AtomicBoolean;
 
-    new-instance v0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment$1;
+    iput-boolean v1, p0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mDisabledStateLogged:Z
 
-    new-instance v1, Landroid/os/Handler;
+    const-wide/16 v0, 0x0
 
-    invoke-direct {v1}, Landroid/os/Handler;-><init>()V
-
-    invoke-direct {v0, p0, v1}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment$1;-><init>(Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;Landroid/os/Handler;)V
-
-    iput-object v0, p0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mSettingsContentObserver:Lcom/android/settings/accessibility/SettingsContentObserver;
+    iput-wide v0, p0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mStartTimeMillsForLogging:J
 
     return-void
-.end method
-
-.method private createConfirmCredentialReasonMessage()Ljava/lang/String;
-    .locals 5
-
-    iget-object v0, p0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
-
-    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
-
-    move-result v1
-
-    invoke-virtual {v0, v1}, Lcom/android/internal/widget/LockPatternUtils;->getKeyguardStoredPasswordQuality(I)I
-
-    move-result v0
-
-    const/high16 v1, 0x10000
-
-    if-eq v0, v1, :cond_1
-
-    const/high16 v1, 0x20000
-
-    if-eq v0, v1, :cond_0
-
-    const/high16 v1, 0x30000
-
-    if-eq v0, v1, :cond_0
-
-    const v0, 0x7f040890
-
-    goto :goto_0
-
-    :cond_0
-    const v0, 0x7f040892
-
-    goto :goto_0
-
-    :cond_1
-    const v0, 0x7f040891
-
-    :goto_0
-    const/4 v1, 0x1
-
-    new-array v1, v1, [Ljava/lang/Object;
-
-    const/4 v2, 0x0
-
-    invoke-virtual {p0}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->getAccessibilityServiceInfo()Landroid/accessibilityservice/AccessibilityServiceInfo;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Landroid/accessibilityservice/AccessibilityServiceInfo;->getResolveInfo()Landroid/content/pm/ResolveInfo;
-
-    move-result-object v3
-
-    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Landroid/content/pm/ResolveInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
-
-    move-result-object v3
-
-    aput-object v3, v1, v2
-
-    invoke-virtual {p0, v0, v1}, Landroidx/fragment/app/Fragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object p0
-
-    return-object p0
 .end method
 
 .method private createUninstallPackageActivityIntent()Landroid/content/Intent;
@@ -238,16 +175,6 @@
     return p0
 .end method
 
-.method private isFullDiskEncrypted()Z
-    .locals 0
-
-    invoke-static {}, Landroid/os/storage/StorageManager;->isNonDefaultBlockEncrypted()Z
-
-    move-result p0
-
-    return p0
-.end method
-
 .method private isServiceSupportAccessibilityButton()Z
     .locals 3
 
@@ -328,7 +255,15 @@
     return p0
 .end method
 
-.method private synthetic lambda$showPopupDialog$0(Landroid/content/DialogInterface;)V
+.method private synthetic lambda$registerKeysToObserverCallback$0(Ljava/lang/String;)V
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->updateSwitchBarToggleSwitch()V
+
+    return-void
+.end method
+
+.method private synthetic lambda$showPopupDialog$1(Landroid/content/DialogInterface;)V
     .locals 1
 
     iget-object p0, p0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mIsDialogShown:Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -342,39 +277,51 @@
     return-void
 .end method
 
-.method private onAllowButtonFromEnableToggleClicked()V
-    .locals 3
+.method private logDisabledState(Ljava/lang/String;)V
+    .locals 4
 
-    invoke-direct {p0}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->isFullDiskEncrypted()Z
+    iget-wide v0, p0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mStartTimeMillsForLogging:J
 
-    move-result v0
+    const-wide/16 v2, 0x0
 
-    const/4 v1, 0x1
+    cmp-long v0, v0, v2
 
-    if-eqz v0, :cond_0
+    if-lez v0, :cond_0
 
-    invoke-direct {p0}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->createConfirmCredentialReasonMessage()Ljava/lang/String;
+    iget-boolean v0, p0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mDisabledStateLogged:Z
 
-    move-result-object v0
+    if-nez v0, :cond_0
 
-    const/4 v2, 0x0
+    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
-    invoke-static {v0, v2}, Lcom/android/settings/password/ConfirmDeviceCredentialActivity;->createIntent(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Landroid/content/Intent;
+    move-result-wide v0
 
-    move-result-object v0
+    iget-wide v2, p0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mStartTimeMillsForLogging:J
 
-    invoke-virtual {p0, v0, v1}, Landroidx/fragment/app/Fragment;->startActivityForResult(Landroid/content/Intent;I)V
+    sub-long/2addr v0, v2
 
-    goto :goto_0
+    invoke-static {p1, v0, v1}, Lcom/android/settings/accessibility/AccessibilityStatsLogUtils;->logDisableNonA11yCategoryService(Ljava/lang/String;J)V
+
+    const/4 p1, 0x1
+
+    iput-boolean p1, p0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mDisabledStateLogged:Z
 
     :cond_0
-    invoke-direct {p0, v1}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->handleConfirmServiceEnabled(Z)V
+    return-void
+.end method
+
+.method private onAllowButtonFromEnableToggleClicked()V
+    .locals 2
+
+    const/4 v0, 0x1
+
+    invoke-direct {p0, v0}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->handleConfirmServiceEnabled(Z)V
 
     invoke-direct {p0}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->isServiceSupportAccessibilityButton()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mIsDialogShown:Ljava/util/concurrent/atomic/AtomicBoolean;
 
@@ -386,9 +333,8 @@
 
     invoke-direct {p0, v0}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->showPopupDialog(I)V
 
-    :cond_1
-    :goto_0
-    iget-object p0, p0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mDialog:Landroid/app/Dialog;
+    :cond_0
+    iget-object p0, p0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mWarningDialog:Landroid/app/Dialog;
 
     invoke-virtual {p0}, Landroid/app/Dialog;->dismiss()V
 
@@ -408,7 +354,7 @@
 
     invoke-direct {p0, v0}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->showPopupDialog(I)V
 
-    iget-object p0, p0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mDialog:Landroid/app/Dialog;
+    iget-object p0, p0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mWarningDialog:Landroid/app/Dialog;
 
     invoke-virtual {p0}, Landroid/app/Dialog;->dismiss()V
 
@@ -456,7 +402,7 @@
 
     invoke-direct {p0, v0}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->showPopupDialog(I)V
 
-    iget-object v0, p0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mDialog:Landroid/app/Dialog;
+    iget-object v0, p0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mWarningDialog:Landroid/app/Dialog;
 
     invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
@@ -482,7 +428,7 @@
 
     invoke-direct {p0, v0}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->handleConfirmServiceEnabled(Z)V
 
-    iget-object p0, p0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mDialog:Landroid/app/Dialog;
+    iget-object p0, p0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mWarningDialog:Landroid/app/Dialog;
 
     invoke-virtual {p0}, Landroid/app/Dialog;->dismiss()V
 
@@ -492,7 +438,7 @@
 .method private onDenyButtonFromShortcutClicked()V
     .locals 0
 
-    iget-object p0, p0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mDialog:Landroid/app/Dialog;
+    iget-object p0, p0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mWarningDialog:Landroid/app/Dialog;
 
     invoke-virtual {p0}, Landroid/app/Dialog;->dismiss()V
 
@@ -508,7 +454,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/settings/accessibility/ShortcutPreference;->setChecked(Z)V
 
-    iget-object p0, p0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mDialog:Landroid/app/Dialog;
+    iget-object p0, p0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mWarningDialog:Landroid/app/Dialog;
 
     invoke-virtual {p0}, Landroid/app/Dialog;->dismiss()V
 
@@ -557,7 +503,7 @@
 
     move-result p1
 
-    const v0, 0x7f0d0435
+    const v0, 0x7f0d0465
 
     if-ne p1, v0, :cond_0
 
@@ -566,7 +512,7 @@
     goto :goto_0
 
     :cond_0
-    const v0, 0x7f0d0436
+    const v0, 0x7f0d0466
 
     if-ne p1, v0, :cond_1
 
@@ -588,7 +534,7 @@
 .method private onDialogButtonFromUninstallClicked()V
     .locals 1
 
-    iget-object v0, p0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mDialog:Landroid/app/Dialog;
+    iget-object v0, p0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mWarningDialog:Landroid/app/Dialog;
 
     invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
@@ -692,9 +638,9 @@
     goto :goto_0
 
     :cond_0
-    new-instance v0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment$2;
+    new-instance v0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment$1;
 
-    invoke-direct {v0, p0}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment$2;-><init>(Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;)V
+    invoke-direct {v0, p0}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment$1;-><init>(Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;)V
 
     iput-object v0, p0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mPackageRemovedReceiver:Landroid/content/BroadcastReceiver;
 
@@ -738,9 +684,9 @@
 
     invoke-virtual {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->showDialog(I)V
 
-    new-instance p1, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment$$ExternalSyntheticLambda1;
+    new-instance p1, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment$$ExternalSyntheticLambda6;
 
-    invoke-direct {p1, p0}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;)V
+    invoke-direct {p1, p0}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment$$ExternalSyntheticLambda6;-><init>(Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;)V
 
     invoke-virtual {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
 
@@ -941,6 +887,66 @@
     return p0
 .end method
 
+.method getTileComponentName()Landroid/content/ComponentName;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mTileComponentName:Landroid/content/ComponentName;
+
+    return-object p0
+.end method
+
+.method getTileTooltipContent(I)Ljava/lang/CharSequence;
+    .locals 3
+
+    invoke-virtual {p0}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->getTileComponentName()Landroid/content/ComponentName;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    if-nez v0, :cond_0
+
+    return-object v1
+
+    :cond_0
+    invoke-virtual {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->getPrefContext()Landroid/content/Context;
+
+    move-result-object v2
+
+    invoke-virtual {p0, v2, v0}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->loadTileLabel(Landroid/content/Context;Landroid/content/ComponentName;)Ljava/lang/CharSequence;
+
+    move-result-object v0
+
+    if-nez v0, :cond_1
+
+    return-object v1
+
+    :cond_1
+    if-nez p1, :cond_2
+
+    const p1, 0x7f04013a
+
+    goto :goto_0
+
+    :cond_2
+    const p1, 0x7f040136
+
+    :goto_0
+    const/4 v1, 0x1
+
+    new-array v1, v1, [Ljava/lang/Object;
+
+    const/4 v2, 0x0
+
+    aput-object v0, v1, v2
+
+    invoke-virtual {p0, p1, v1}, Landroidx/fragment/app/Fragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method getUserShortcutTypes()I
     .locals 1
 
@@ -958,199 +964,152 @@
 .end method
 
 .method public onActivityResult(IILandroid/content/Intent;)V
-    .locals 1
+    .locals 0
 
-    const/4 p3, 0x1
-
-    if-ne p1, p3, :cond_1
-
-    const/4 p1, -0x1
-
-    const/4 v0, 0x0
-
-    if-ne p2, p1, :cond_0
-
-    invoke-direct {p0, p3}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->handleConfirmServiceEnabled(Z)V
-
-    invoke-direct {p0}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->isFullDiskEncrypted()Z
-
-    move-result p1
-
-    if-eqz p1, :cond_1
-
-    iget-object p1, p0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
-
-    invoke-virtual {p1}, Lcom/android/internal/widget/LockPatternUtils;->clearEncryptionPassword()V
-
-    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object p0
-
-    const-string p1, "require_password_to_decrypt"
-
-    invoke-static {p0, p1, v0}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-
-    goto :goto_0
-
-    :cond_0
-    invoke-direct {p0, v0}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->handleConfirmServiceEnabled(Z)V
-
-    :cond_1
-    :goto_0
     return-void
 .end method
 
 .method public onCreate(Landroid/os/Bundle;)V
-    .locals 1
+    .locals 2
 
     invoke-super {p0, p1}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    new-instance p1, Lcom/android/internal/widget/LockPatternUtils;
+    if-eqz p1, :cond_0
 
-    invoke-virtual {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->getPrefContext()Landroid/content/Context;
+    const-string v0, "has_logged"
 
-    move-result-object v0
+    invoke-virtual {p1, v0}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
 
-    invoke-direct {p1, v0}, Lcom/android/internal/widget/LockPatternUtils;-><init>(Landroid/content/Context;)V
+    move-result v1
 
-    iput-object p1, p0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+    if-eqz v1, :cond_0
 
+    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
+
+    move-result p1
+
+    iput-boolean p1, p0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mDisabledStateLogged:Z
+
+    :cond_0
     return-void
 .end method
 
 .method public onCreateDialog(I)Landroid/app/Dialog;
     .locals 3
 
-    const/4 v0, 0x0
+    invoke-virtual {p0}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->getAccessibilityServiceInfo()Landroid/accessibilityservice/AccessibilityServiceInfo;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
 
     packed-switch p1, :pswitch_data_0
 
     invoke-super {p0, p1}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->onCreateDialog(I)Landroid/app/Dialog;
 
-    move-result-object p1
+    move-result-object p0
 
-    iput-object p1, p0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mDialog:Landroid/app/Dialog;
-
-    goto :goto_0
+    return-object p0
 
     :pswitch_0
-    invoke-virtual {p0}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->getAccessibilityServiceInfo()Landroid/accessibilityservice/AccessibilityServiceInfo;
+    if-nez v0, :cond_0
 
-    move-result-object p1
-
-    if-nez p1, :cond_0
-
-    return-object v0
+    return-object v1
 
     :cond_0
     invoke-virtual {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->getPrefContext()Landroid/content/Context;
 
-    move-result-object v0
-
-    new-instance v1, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment$$ExternalSyntheticLambda0;
-
-    invoke-direct {v1, p0}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;)V
-
-    invoke-static {v0, p1, v1}, Lcom/android/settings/accessibility/AccessibilityServiceWarning;->createDisableDialog(Landroid/content/Context;Landroid/accessibilityservice/AccessibilityServiceInfo;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/Dialog;
-
     move-result-object p1
-
-    iput-object p1, p0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mDialog:Landroid/app/Dialog;
-
-    goto :goto_0
-
-    :pswitch_1
-    invoke-virtual {p0}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->getAccessibilityServiceInfo()Landroid/accessibilityservice/AccessibilityServiceInfo;
-
-    move-result-object p1
-
-    if-nez p1, :cond_1
-
-    return-object v0
-
-    :cond_1
-    invoke-virtual {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->getPrefContext()Landroid/content/Context;
-
-    move-result-object v0
-
-    new-instance v1, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment$$ExternalSyntheticLambda3;
-
-    invoke-direct {v1, p0}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment$$ExternalSyntheticLambda3;-><init>(Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;)V
-
-    new-instance v2, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment$$ExternalSyntheticLambda5;
-
-    invoke-direct {v2, p0}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment$$ExternalSyntheticLambda5;-><init>(Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;)V
-
-    invoke-static {v0, p1, v1, v2}, Lcom/android/settings/accessibility/AccessibilityServiceWarning;->createCapabilitiesDialog(Landroid/content/Context;Landroid/accessibilityservice/AccessibilityServiceInfo;Landroid/view/View$OnClickListener;Lcom/android/settings/accessibility/AccessibilityServiceWarning$UninstallActionPerformer;)Landroid/app/Dialog;
-
-    move-result-object p1
-
-    iput-object p1, p0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mDialog:Landroid/app/Dialog;
-
-    goto :goto_0
-
-    :pswitch_2
-    invoke-virtual {p0}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->getAccessibilityServiceInfo()Landroid/accessibilityservice/AccessibilityServiceInfo;
-
-    move-result-object p1
-
-    if-nez p1, :cond_2
-
-    return-object v0
-
-    :cond_2
-    invoke-virtual {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->getPrefContext()Landroid/content/Context;
-
-    move-result-object v0
-
-    new-instance v1, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment$$ExternalSyntheticLambda2;
-
-    invoke-direct {v1, p0}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;)V
-
-    new-instance v2, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment$$ExternalSyntheticLambda5;
-
-    invoke-direct {v2, p0}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment$$ExternalSyntheticLambda5;-><init>(Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;)V
-
-    invoke-static {v0, p1, v1, v2}, Lcom/android/settings/accessibility/AccessibilityServiceWarning;->createCapabilitiesDialog(Landroid/content/Context;Landroid/accessibilityservice/AccessibilityServiceInfo;Landroid/view/View$OnClickListener;Lcom/android/settings/accessibility/AccessibilityServiceWarning$UninstallActionPerformer;)Landroid/app/Dialog;
-
-    move-result-object p1
-
-    iput-object p1, p0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mDialog:Landroid/app/Dialog;
-
-    goto :goto_0
-
-    :pswitch_3
-    invoke-virtual {p0}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->getAccessibilityServiceInfo()Landroid/accessibilityservice/AccessibilityServiceInfo;
-
-    move-result-object p1
-
-    if-nez p1, :cond_3
-
-    return-object v0
-
-    :cond_3
-    invoke-virtual {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->getPrefContext()Landroid/content/Context;
-
-    move-result-object v0
 
     new-instance v1, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment$$ExternalSyntheticLambda4;
 
     invoke-direct {v1, p0}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment$$ExternalSyntheticLambda4;-><init>(Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;)V
 
-    new-instance v2, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment$$ExternalSyntheticLambda5;
-
-    invoke-direct {v2, p0}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment$$ExternalSyntheticLambda5;-><init>(Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;)V
-
-    invoke-static {v0, p1, v1, v2}, Lcom/android/settings/accessibility/AccessibilityServiceWarning;->createCapabilitiesDialog(Landroid/content/Context;Landroid/accessibilityservice/AccessibilityServiceInfo;Landroid/view/View$OnClickListener;Lcom/android/settings/accessibility/AccessibilityServiceWarning$UninstallActionPerformer;)Landroid/app/Dialog;
+    invoke-static {p1, v0, v1}, Lcom/android/settings/accessibility/AccessibilityServiceWarning;->createDisableDialog(Landroid/content/Context;Landroid/accessibilityservice/AccessibilityServiceInfo;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/Dialog;
 
     move-result-object p1
 
-    iput-object p1, p0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mDialog:Landroid/app/Dialog;
+    iput-object p1, p0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mWarningDialog:Landroid/app/Dialog;
 
-    :goto_0
-    iget-object p0, p0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mDialog:Landroid/app/Dialog;
+    return-object p1
 
-    return-object p0
+    :pswitch_1
+    if-nez v0, :cond_1
+
+    return-object v1
+
+    :cond_1
+    invoke-virtual {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->getPrefContext()Landroid/content/Context;
+
+    move-result-object p1
+
+    new-instance v1, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment$$ExternalSyntheticLambda2;
+
+    invoke-direct {v1, p0}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;)V
+
+    new-instance v2, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment$$ExternalSyntheticLambda1;
+
+    invoke-direct {v2, p0}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;)V
+
+    invoke-static {p1, v0, v1, v2}, Lcom/android/settings/accessibility/AccessibilityServiceWarning;->createCapabilitiesDialog(Landroid/content/Context;Landroid/accessibilityservice/AccessibilityServiceInfo;Landroid/view/View$OnClickListener;Lcom/android/settings/accessibility/AccessibilityServiceWarning$UninstallActionPerformer;)Landroid/app/Dialog;
+
+    move-result-object p1
+
+    iput-object p1, p0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mWarningDialog:Landroid/app/Dialog;
+
+    return-object p1
+
+    :pswitch_2
+    if-nez v0, :cond_2
+
+    return-object v1
+
+    :cond_2
+    invoke-virtual {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->getPrefContext()Landroid/content/Context;
+
+    move-result-object p1
+
+    new-instance v1, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment$$ExternalSyntheticLambda3;
+
+    invoke-direct {v1, p0}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment$$ExternalSyntheticLambda3;-><init>(Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;)V
+
+    new-instance v2, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment$$ExternalSyntheticLambda1;
+
+    invoke-direct {v2, p0}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;)V
+
+    invoke-static {p1, v0, v1, v2}, Lcom/android/settings/accessibility/AccessibilityServiceWarning;->createCapabilitiesDialog(Landroid/content/Context;Landroid/accessibilityservice/AccessibilityServiceInfo;Landroid/view/View$OnClickListener;Lcom/android/settings/accessibility/AccessibilityServiceWarning$UninstallActionPerformer;)Landroid/app/Dialog;
+
+    move-result-object p1
+
+    iput-object p1, p0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mWarningDialog:Landroid/app/Dialog;
+
+    return-object p1
+
+    :pswitch_3
+    if-nez v0, :cond_3
+
+    return-object v1
+
+    :cond_3
+    invoke-virtual {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->getPrefContext()Landroid/content/Context;
+
+    move-result-object p1
+
+    new-instance v1, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment$$ExternalSyntheticLambda0;
+
+    invoke-direct {v1, p0}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;)V
+
+    new-instance v2, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment$$ExternalSyntheticLambda1;
+
+    invoke-direct {v2, p0}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;)V
+
+    invoke-static {p1, v0, v1, v2}, Lcom/android/settings/accessibility/AccessibilityServiceWarning;->createCapabilitiesDialog(Landroid/content/Context;Landroid/accessibilityservice/AccessibilityServiceInfo;Landroid/view/View$OnClickListener;Lcom/android/settings/accessibility/AccessibilityServiceWarning$UninstallActionPerformer;)Landroid/app/Dialog;
+
+    move-result-object p1
+
+    iput-object p1, p0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mWarningDialog:Landroid/app/Dialog;
+
+    return-object p1
 
     :pswitch_data_0
     .packed-switch 0x3ea
@@ -1174,7 +1133,7 @@
 
     move-result p1
 
-    const v0, 0x7f0d0435
+    const v0, 0x7f0d0465
 
     if-ne p1, v0, :cond_0
 
@@ -1183,7 +1142,7 @@
     goto :goto_0
 
     :cond_0
-    const v0, 0x7f0d0436
+    const v0, 0x7f0d0466
 
     if-ne p1, v0, :cond_1
 
@@ -1209,7 +1168,7 @@
 
     move-result p1
 
-    const v0, 0x7f0d0435
+    const v0, 0x7f0d0465
 
     if-ne p1, v0, :cond_0
 
@@ -1218,7 +1177,7 @@
     goto :goto_0
 
     :cond_0
-    const v0, 0x7f0d0436
+    const v0, 0x7f0d0466
 
     if-ne p1, v0, :cond_1
 
@@ -1237,8 +1196,16 @@
     throw p0
 .end method
 
-.method public onPreferenceToggled(Ljava/lang/String;Z)V
+.method public onPause()V
     .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->onPause()V
+
+    return-void
+.end method
+
+.method public onPreferenceToggled(Ljava/lang/String;Z)V
+    .locals 1
 
     invoke-static {p1}, Landroid/content/ComponentName;->unflattenFromString(Ljava/lang/String;)Landroid/content/ComponentName;
 
@@ -1246,6 +1213,15 @@
 
     invoke-static {p1, p2}, Lcom/android/settings/accessibility/AccessibilityStatsLogUtils;->logAccessibilityServiceEnabled(Landroid/content/ComponentName;Z)V
 
+    if-nez p2, :cond_0
+
+    invoke-virtual {p1}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {p0, v0}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->logDisabledState(Ljava/lang/String;)V
+
+    :cond_0
     invoke-virtual {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->getPrefContext()Landroid/content/Context;
 
     move-result-object p0
@@ -1341,80 +1317,122 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
-    move-result p1
+    move-result v0
 
-    if-lez p1, :cond_1
+    if-lez v0, :cond_1
 
-    new-instance v0, Landroid/net/Uri$Builder;
+    new-instance v1, Landroid/net/Uri$Builder;
 
-    invoke-direct {v0}, Landroid/net/Uri$Builder;-><init>()V
+    invoke-direct {v1}, Landroid/net/Uri$Builder;-><init>()V
 
-    const-string v1, "android.resource"
+    const-string v2, "android.resource"
 
-    invoke-virtual {v0, v1}, Landroid/net/Uri$Builder;->scheme(Ljava/lang/String;)Landroid/net/Uri$Builder;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mComponentName:Landroid/content/ComponentName;
-
-    invoke-virtual {v1}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+    invoke-virtual {v1, v2}, Landroid/net/Uri$Builder;->scheme(Ljava/lang/String;)Landroid/net/Uri$Builder;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Landroid/net/Uri$Builder;->authority(Ljava/lang/String;)Landroid/net/Uri$Builder;
+    iget-object v2, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mComponentName:Landroid/content/ComponentName;
+
+    invoke-virtual {v2}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Landroid/net/Uri$Builder;->authority(Ljava/lang/String;)Landroid/net/Uri$Builder;
+
+    move-result-object v1
+
+    invoke-static {v0}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-static {p1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    invoke-virtual {v1, v0}, Landroid/net/Uri$Builder;->appendPath(Ljava/lang/String;)Landroid/net/Uri$Builder;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {v0, p1}, Landroid/net/Uri$Builder;->appendPath(Ljava/lang/String;)Landroid/net/Uri$Builder;
+    invoke-virtual {v0}, Landroid/net/Uri$Builder;->build()Landroid/net/Uri;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Landroid/net/Uri$Builder;->build()Landroid/net/Uri;
-
-    move-result-object p1
-
-    iput-object p1, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mImageUri:Landroid/net/Uri;
+    iput-object v0, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mImageUri:Landroid/net/Uri;
 
     :cond_1
     invoke-virtual {p0}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->getAccessibilityServiceInfo()Landroid/accessibilityservice/AccessibilityServiceInfo;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Landroid/accessibilityservice/AccessibilityServiceInfo;->getResolveInfo()Landroid/content/pm/ResolveInfo;
-
-    move-result-object p1
-
-    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {v0}, Landroid/accessibilityservice/AccessibilityServiceInfo;->getResolveInfo()Landroid/content/pm/ResolveInfo;
 
     move-result-object v0
 
-    invoke-virtual {p1, v0}, Landroid/content/pm/ResolveInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object p1
+    move-result-object v1
 
-    iput-object p1, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mPackageName:Ljava/lang/CharSequence;
+    invoke-virtual {v0, v1}, Landroid/content/pm/ResolveInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mPackageName:Ljava/lang/CharSequence;
+
+    const-string/jumbo v0, "tile_service_component_name"
+
+    invoke-virtual {p1, v0}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Landroid/content/ComponentName;->unflattenFromString(Ljava/lang/String;)Landroid/content/ComponentName;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mTileComponentName:Landroid/content/ComponentName;
+
+    :cond_2
+    const-string/jumbo v0, "start_time_to_log_a11y_tool"
+
+    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getLong(Ljava/lang/String;)J
+
+    move-result-wide v0
+
+    iput-wide v0, p0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mStartTimeMillsForLogging:J
 
     return-void
 .end method
 
 .method public onResume()V
-    .locals 1
+    .locals 0
 
     invoke-super {p0}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->onResume()V
 
     invoke-virtual {p0}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->updateSwitchBarToggleSwitch()V
 
-    iget-object v0, p0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mSettingsContentObserver:Lcom/android/settings/accessibility/SettingsContentObserver;
+    return-void
+.end method
 
-    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
+.method public onSaveInstanceState(Landroid/os/Bundle;)V
+    .locals 4
 
-    move-result-object p0
+    iget-wide v0, p0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mStartTimeMillsForLogging:J
 
-    invoke-virtual {v0, p0}, Lcom/android/settings/accessibility/SettingsContentObserver;->register(Landroid/content/ContentResolver;)V
+    const-wide/16 v2, 0x0
+
+    cmp-long v0, v0, v2
+
+    if-lez v0, :cond_0
+
+    iget-boolean v0, p0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mDisabledStateLogged:Z
+
+    const-string v1, "has_logged"
+
+    invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
+
+    :cond_0
+    invoke-super {p0, p1}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->onSaveInstanceState(Landroid/os/Bundle;)V
 
     return-void
 .end method
@@ -1468,7 +1486,7 @@
 .method public onStart()V
     .locals 1
 
-    invoke-super {p0}, Lcom/android/settingslib/core/lifecycle/ObservablePreferenceFragment;->onStart()V
+    invoke-super {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->onStart()V
 
     invoke-virtual {p0}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->getAccessibilityServiceInfo()Landroid/accessibilityservice/AccessibilityServiceInfo;
 
@@ -1602,6 +1620,20 @@
     move-result-object p0
 
     invoke-virtual {p1, p0}, Landroidx/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
+
+    return-void
+.end method
+
+.method protected registerKeysToObserverCallback(Lcom/android/settings/accessibility/AccessibilitySettingsContentObserver;)V
+    .locals 1
+
+    invoke-super {p0, p1}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->registerKeysToObserverCallback(Lcom/android/settings/accessibility/AccessibilitySettingsContentObserver;)V
+
+    new-instance v0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment$$ExternalSyntheticLambda5;
+
+    invoke-direct {v0, p0}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment$$ExternalSyntheticLambda5;-><init>(Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;)V
+
+    invoke-virtual {p1, v0}, Lcom/android/settings/accessibility/AccessibilitySettingsContentObserver;->registerObserverCallback(Lcom/android/settings/accessibility/AccessibilitySettingsContentObserver$ContentObserverCallback;)V
 
     return-void
 .end method

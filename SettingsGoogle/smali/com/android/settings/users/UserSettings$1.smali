@@ -51,7 +51,7 @@
 
     iget p1, p1, Landroid/os/Message;->arg1:I
 
-    invoke-static {p0, p1}, Lcom/android/settings/users/UserSettings;->access$000(Lcom/android/settings/users/UserSettings;I)V
+    invoke-static {p0, p1}, Lcom/android/settings/users/UserSettings;->-$$Nest$monUserCreated(Lcom/android/settings/users/UserSettings;I)V
 
     goto :goto_0
 

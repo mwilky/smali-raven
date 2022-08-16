@@ -48,7 +48,7 @@
     goto :goto_0
 
     :cond_0
-    invoke-static {p2}, Lcom/android/settings/inputmethod/SpellCheckersSettings;->access$000(I)I
+    invoke-static {p2}, Lcom/android/settings/inputmethod/SpellCheckersSettings;->-$$Nest$smconvertDialogItemIdToSubtypeIndex(I)I
 
     move-result p2
 
@@ -65,11 +65,11 @@
     :goto_0
     iget-object v0, p0, Lcom/android/settings/inputmethod/SpellCheckersSettings$1;->this$0:Lcom/android/settings/inputmethod/SpellCheckersSettings;
 
-    invoke-static {v0}, Lcom/android/settings/inputmethod/SpellCheckersSettings;->access$100(Lcom/android/settings/inputmethod/SpellCheckersSettings;)Landroid/content/ContentResolver;
+    invoke-static {v0}, Lcom/android/settings/inputmethod/SpellCheckersSettings;->access$000(Lcom/android/settings/inputmethod/SpellCheckersSettings;)Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    const-string v1, "selected_spell_checker_subtype"
+    const-string/jumbo v1, "selected_spell_checker_subtype"
 
     invoke-static {v0, v1, p2}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
@@ -77,7 +77,7 @@
 
     iget-object p0, p0, Lcom/android/settings/inputmethod/SpellCheckersSettings$1;->this$0:Lcom/android/settings/inputmethod/SpellCheckersSettings;
 
-    invoke-static {p0}, Lcom/android/settings/inputmethod/SpellCheckersSettings;->access$200(Lcom/android/settings/inputmethod/SpellCheckersSettings;)V
+    invoke-static {p0}, Lcom/android/settings/inputmethod/SpellCheckersSettings;->-$$Nest$mupdatePreferenceScreen(Lcom/android/settings/inputmethod/SpellCheckersSettings;)V
 
     return-void
 .end method

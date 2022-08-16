@@ -39,7 +39,7 @@
 
     iget-object p0, p0, Lcom/android/settings/display/PeakRefreshRatePreferenceController$1;->this$0:Lcom/android/settings/display/PeakRefreshRatePreferenceController;
 
-    invoke-static {p0}, Lcom/android/settings/display/PeakRefreshRatePreferenceController;->access$100(Lcom/android/settings/display/PeakRefreshRatePreferenceController;)Landroidx/preference/Preference;
+    invoke-static {p0}, Lcom/android/settings/display/PeakRefreshRatePreferenceController;->-$$Nest$fgetmPreference(Lcom/android/settings/display/PeakRefreshRatePreferenceController;)Landroidx/preference/Preference;
 
     move-result-object v0
 

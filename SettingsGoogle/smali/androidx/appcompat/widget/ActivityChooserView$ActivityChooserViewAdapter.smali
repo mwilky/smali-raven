@@ -15,8 +15,6 @@
 
 
 # instance fields
-.field private mDataModel:Landroidx/appcompat/widget/ActivityChooserModel;
-
 .field private mHighlightDefaultActivity:Z
 
 .field private mMaxActivityCount:I
@@ -64,7 +62,7 @@
 .method public getDataModel()Landroidx/appcompat/widget/ActivityChooserModel;
     .locals 0
 
-    iget-object p0, p0, Landroidx/appcompat/widget/ActivityChooserView$ActivityChooserViewAdapter;->mDataModel:Landroidx/appcompat/widget/ActivityChooserModel;
+    const/4 p0, 0x0
 
     return-object p0
 .end method

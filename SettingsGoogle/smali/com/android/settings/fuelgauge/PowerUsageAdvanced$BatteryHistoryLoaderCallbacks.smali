@@ -47,7 +47,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settings/fuelgauge/PowerUsageAdvanced;Lcom/android/settings/fuelgauge/PowerUsageAdvanced$1;)V
+.method synthetic constructor <init>(Lcom/android/settings/fuelgauge/PowerUsageAdvanced;Lcom/android/settings/fuelgauge/PowerUsageAdvanced$BatteryHistoryLoaderCallbacks-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settings/fuelgauge/PowerUsageAdvanced$BatteryHistoryLoaderCallbacks;-><init>(Lcom/android/settings/fuelgauge/PowerUsageAdvanced;)V
@@ -74,7 +74,7 @@
         }
     .end annotation
 
-    const-string p1, "refresh_type"
+    const-string/jumbo p1, "refresh_type"
 
     invoke-virtual {p2, p1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 

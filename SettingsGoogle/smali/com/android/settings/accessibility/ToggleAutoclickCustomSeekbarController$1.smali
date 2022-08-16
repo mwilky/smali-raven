@@ -39,11 +39,11 @@
 
     iget-object p0, p0, Lcom/android/settings/accessibility/ToggleAutoclickCustomSeekbarController$1;->this$0:Lcom/android/settings/accessibility/ToggleAutoclickCustomSeekbarController;
 
-    invoke-static {p0, p2}, Lcom/android/settings/accessibility/ToggleAutoclickCustomSeekbarController;->access$000(Lcom/android/settings/accessibility/ToggleAutoclickCustomSeekbarController;I)I
+    invoke-static {p0, p2}, Lcom/android/settings/accessibility/ToggleAutoclickCustomSeekbarController;->-$$Nest$mseekBarProgressToDelay(Lcom/android/settings/accessibility/ToggleAutoclickCustomSeekbarController;I)I
 
     move-result p1
 
-    invoke-static {p0, p1}, Lcom/android/settings/accessibility/ToggleAutoclickCustomSeekbarController;->access$100(Lcom/android/settings/accessibility/ToggleAutoclickCustomSeekbarController;I)V
+    invoke-static {p0, p1}, Lcom/android/settings/accessibility/ToggleAutoclickCustomSeekbarController;->-$$Nest$mupdateCustomDelayValue(Lcom/android/settings/accessibility/ToggleAutoclickCustomSeekbarController;I)V
 
     return-void
 .end method

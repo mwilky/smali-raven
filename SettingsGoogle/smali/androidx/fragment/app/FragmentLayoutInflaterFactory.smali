@@ -371,6 +371,8 @@
     :goto_3
     check-cast p1, Landroid/view/ViewGroup;
 
+    invoke-static {v0, p1}, Landroidx/fragment/app/strictmode/FragmentStrictMode;->onFragmentTagUsage(Landroidx/fragment/app/Fragment;Landroid/view/ViewGroup;)V
+
     iput-object p1, v0, Landroidx/fragment/app/Fragment;->mContainer:Landroid/view/ViewGroup;
 
     invoke-virtual {p3}, Landroidx/fragment/app/FragmentStateManager;->moveToExpectedState()V

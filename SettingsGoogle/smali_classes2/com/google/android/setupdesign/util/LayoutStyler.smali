@@ -43,11 +43,11 @@
 
     move-result v5
 
-    if-eqz v5, :cond_6
+    if-eqz v5, :cond_8
 
     if-nez v1, :cond_1
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_8
 
     :cond_1
     const/4 v5, 0x2
@@ -76,7 +76,7 @@
 
     invoke-virtual {v5, v8, v7}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
 
-    move-result v8
+    move-result v7
 
     invoke-virtual {v5}, Landroid/content/res/TypedArray;->recycle()V
 
@@ -94,10 +94,6 @@
 
     sub-int/2addr v1, v6
 
-    invoke-static {v7, v1}, Ljava/lang/Math;->max(II)I
-
-    move-result v1
-
     goto :goto_0
 
     :cond_2
@@ -110,63 +106,123 @@
 
     invoke-static {v0}, Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;->get(Landroid/content/Context;)Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v2, v0, v4}, Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;->getDimension(Landroid/content/Context;Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;)F
+    invoke-virtual {v3, v0, v4}, Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;->getDimension(Landroid/content/Context;Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;)F
+
+    move-result v3
+
+    float-to-int v3, v3
+
+    sub-int/2addr v3, v7
+
+    invoke-virtual {p0}, Landroid/view/View;->getId()I
+
+    move-result v4
+
+    sget v5, Lcom/google/android/setupdesign/R$id;->sud_layout_content:I
+
+    if-ne v4, v5, :cond_4
+
+    invoke-static {v0}, Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;->get(Landroid/content/Context;)Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v0, v2}, Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;->getDimension(Landroid/content/Context;Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;)F
 
     move-result v0
 
     float-to-int v0, v0
 
-    sub-int/2addr v0, v8
-
-    invoke-static {v7, v0}, Ljava/lang/Math;->max(II)I
-
-    move-result v0
+    sub-int v3, v0, v7
 
     goto :goto_1
 
     :cond_3
     invoke-virtual {p0}, Landroid/view/View;->getPaddingEnd()I
 
+    move-result v3
+
+    invoke-virtual {p0}, Landroid/view/View;->getId()I
+
     move-result v0
 
+    sget v2, Lcom/google/android/setupdesign/R$id;->sud_layout_content:I
+
+    if-ne v0, v2, :cond_4
+
+    invoke-virtual {p0}, Landroid/view/View;->getPaddingStart()I
+
+    move-result v3
+
+    :cond_4
     :goto_1
     invoke-virtual {p0}, Landroid/view/View;->getPaddingStart()I
 
-    move-result v2
+    move-result v0
 
-    if-ne v1, v2, :cond_4
+    if-ne v1, v0, :cond_5
 
     invoke-virtual {p0}, Landroid/view/View;->getPaddingEnd()I
 
-    move-result v2
+    move-result v0
 
-    if-eq v0, v2, :cond_6
+    if-eq v3, v0, :cond_8
 
-    :cond_4
+    :cond_5
+    invoke-virtual {p0}, Landroid/view/View;->getId()I
+
+    move-result v0
+
+    sget v2, Lcom/google/android/setupdesign/R$id;->sud_layout_content:I
+
+    if-ne v0, v2, :cond_7
+
+    invoke-virtual {p0}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v0
+
+    instance-of v2, v0, Landroid/view/ViewGroup$MarginLayoutParams;
+
+    if-eqz v2, :cond_6
+
+    check-cast v0, Landroid/view/ViewGroup$MarginLayoutParams;
+
+    goto :goto_2
+
+    :cond_6
+    new-instance v2, Landroid/view/ViewGroup$MarginLayoutParams;
+
+    invoke-direct {v2, v0}, Landroid/view/ViewGroup$MarginLayoutParams;-><init>(Landroid/view/ViewGroup$LayoutParams;)V
+
+    move-object v0, v2
+
+    :goto_2
     invoke-virtual {p0}, Landroid/view/View;->getPaddingTop()I
 
     move-result v2
 
-    invoke-virtual {p0}, Landroid/view/View;->getId()I
-
-    move-result v3
-
-    sget v4, Lcom/google/android/setupdesign/R$id;->sud_layout_content:I
-
-    if-ne v3, v4, :cond_5
-
-    move v0, v1
-
-    :cond_5
     invoke-virtual {p0}, Landroid/view/View;->getPaddingBottom()I
 
-    move-result v3
+    move-result p0
 
-    invoke-virtual {p0, v1, v2, v0, v3}, Landroid/view/View;->setPadding(IIII)V
+    invoke-virtual {v0, v1, v2, v3, p0}, Landroid/view/ViewGroup$MarginLayoutParams;->setMargins(IIII)V
 
-    :cond_6
+    goto :goto_3
+
+    :cond_7
+    invoke-virtual {p0}, Landroid/view/View;->getPaddingTop()I
+
+    move-result v0
+
+    invoke-virtual {p0}, Landroid/view/View;->getPaddingBottom()I
+
+    move-result v2
+
+    invoke-virtual {p0, v1, v0, v3, v2}, Landroid/view/View;->setPadding(IIII)V
+
+    :cond_8
+    :goto_3
     return-void
 .end method
 

@@ -6,7 +6,6 @@
 .implements Landroidx/core/view/NestedScrollingParent3;
 .implements Landroidx/core/view/NestedScrollingParent2;
 .implements Landroidx/core/view/NestedScrollingChild;
-.implements Landroidx/core/view/NestedScrollingParent;
 
 
 # annotations
@@ -116,6 +115,14 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$TJQwvhSNdSgIObfb_vmTzqiMXfk(Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;)V
+    .locals 0
+
+    invoke-direct {p0}, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;->lambda$onStopNestedScroll$0()V
+
+    return-void
+.end method
+
 .method static constructor <clinit>()V
     .locals 3
 
@@ -144,14 +151,6 @@
 
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "context"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -162,16 +161,6 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "attrs"
-        }
-    .end annotation
 
     invoke-direct {p0, p1, p2}, Landroid/view/ViewGroup;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
@@ -336,16 +325,6 @@
 
 .method private animateOffsetToCorrectPosition(ILandroid/view/animation/Animation$AnimationListener;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "from",
-            "listener"
-        }
-    .end annotation
 
     iput p1, p0, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;->mFrom:I
 
@@ -387,16 +366,6 @@
 
 .method private animateOffsetToStartPosition(ILandroid/view/animation/Animation$AnimationListener;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "from",
-            "listener"
-        }
-    .end annotation
 
     iget-boolean v0, p0, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;->mScale:Z
 
@@ -536,14 +505,6 @@
 
 .method private finishSpinner(F)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "overscrollTop"
-        }
-    .end annotation
 
     iget v0, p0, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;->mTotalDragDistance:F
 
@@ -593,14 +554,6 @@
 
 .method private isAnimationRunning(Landroid/view/animation/Animation;)Z
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "animation"
-        }
-    .end annotation
 
     if-eqz p1, :cond_0
 
@@ -627,16 +580,16 @@
     return p0
 .end method
 
+.method private synthetic lambda$onStopNestedScroll$0()V
+    .locals 0
+
+    invoke-virtual {p0}, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;->reset()V
+
+    return-void
+.end method
+
 .method private moveSpinner(F)V
     .locals 11
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "overscrollTop"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;->mProgress:Landroidx/swiperefreshlayout/widget/CircularProgressDrawable;
 
@@ -909,14 +862,6 @@
 
 .method private onSecondaryPointerUp(Landroid/view/MotionEvent;)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "ev"
-        }
-    .end annotation
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionIndex()I
 
@@ -952,14 +897,6 @@
 
 .method private setColorViewAlpha(I)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "targetAlpha"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;->mCircleView:Landroidx/swiperefreshlayout/widget/CircleImageView;
 
@@ -978,16 +915,6 @@
 
 .method private setRefreshing(ZZ)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x10
-        }
-        names = {
-            "refreshing",
-            "notify"
-        }
-    .end annotation
 
     iget-boolean v0, p0, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;->mRefreshing:Z
 
@@ -1021,16 +948,6 @@
 
 .method private startAlphaAnimation(II)Landroid/view/animation/Animation;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x10,
-            0x10
-        }
-        names = {
-            "startingAlpha",
-            "endingAlpha"
-        }
-    .end annotation
 
     new-instance v0, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout$4;
 
@@ -1059,14 +976,6 @@
 
 .method private startDragging(F)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "y"
-        }
-    .end annotation
 
     iget v0, p0, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;->mInitialDownY:F
 
@@ -1146,16 +1055,6 @@
 
 .method private startScaleDownReturnToStartAnimation(ILandroid/view/animation/Animation$AnimationListener;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "from",
-            "listener"
-        }
-    .end annotation
 
     iput p1, p0, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;->mFrom:I
 
@@ -1199,14 +1098,6 @@
 
 .method private startScaleUpAnimation(Landroid/view/animation/Animation$AnimationListener;)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "listener"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;->mCircleView:Landroidx/swiperefreshlayout/widget/CircleImageView;
 
@@ -1296,18 +1187,6 @@
 
 .method public dispatchNestedFling(FFZ)Z
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "velocityX",
-            "velocityY",
-            "consumed"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;->mNestedScrollingChildHelper:Landroidx/core/view/NestedScrollingChildHelper;
 
@@ -1320,16 +1199,6 @@
 
 .method public dispatchNestedPreFling(FF)Z
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "velocityX",
-            "velocityY"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;->mNestedScrollingChildHelper:Landroidx/core/view/NestedScrollingChildHelper;
 
@@ -1342,20 +1211,6 @@
 
 .method public dispatchNestedPreScroll(II[I[I)Z
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "dx",
-            "dy",
-            "consumed",
-            "offsetInWindow"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;->mNestedScrollingChildHelper:Landroidx/core/view/NestedScrollingChildHelper;
 
@@ -1368,26 +1223,6 @@
 
 .method public dispatchNestedScroll(IIII[II[I)V
     .locals 8
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "dxConsumed",
-            "dyConsumed",
-            "dxUnconsumed",
-            "dyUnconsumed",
-            "offsetInWindow",
-            "type",
-            "consumed"
-        }
-    .end annotation
 
     if-nez p6, :cond_0
 
@@ -1415,22 +1250,6 @@
 
 .method public dispatchNestedScroll(IIII[I)Z
     .locals 6
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "dxConsumed",
-            "dyConsumed",
-            "dxUnconsumed",
-            "dyUnconsumed",
-            "offsetInWindow"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;->mNestedScrollingChildHelper:Landroidx/core/view/NestedScrollingChildHelper;
 
@@ -1453,16 +1272,6 @@
 
 .method protected getChildDrawingOrder(II)I
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "childCount",
-            "i"
-        }
-    .end annotation
 
     iget p0, p0, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;->mCircleViewIndex:I
 
@@ -1548,14 +1357,6 @@
 
 .method moveToStart(F)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "interpolatedTime"
-        }
-    .end annotation
 
     iget v0, p0, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;->mFrom:I
 
@@ -1596,14 +1397,6 @@
 
 .method public onInterceptTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "ev"
-        }
-    .end annotation
 
     invoke-direct {p0}, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;->ensureTarget()V
 
@@ -1762,22 +1555,6 @@
 
 .method protected onLayout(ZIIII)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "changed",
-            "left",
-            "top",
-            "right",
-            "bottom"
-        }
-    .end annotation
 
     invoke-virtual {p0}, Landroid/view/ViewGroup;->getMeasuredWidth()I
 
@@ -1881,16 +1658,6 @@
 
 .method public onMeasure(II)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "widthMeasureSpec",
-            "heightMeasureSpec"
-        }
-    .end annotation
 
     invoke-super {p0, p1, p2}, Landroid/view/ViewGroup;->onMeasure(II)V
 
@@ -2005,20 +1772,6 @@
 
 .method public onNestedFling(Landroid/view/View;FFZ)Z
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "target",
-            "velocityX",
-            "velocityY",
-            "consumed"
-        }
-    .end annotation
 
     invoke-virtual {p0, p2, p3, p4}, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;->dispatchNestedFling(FFZ)Z
 
@@ -2029,18 +1782,6 @@
 
 .method public onNestedPreFling(Landroid/view/View;FF)Z
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "target",
-            "velocityX",
-            "velocityY"
-        }
-    .end annotation
 
     invoke-virtual {p0, p2, p3}, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;->dispatchNestedPreFling(FF)Z
 
@@ -2051,20 +1792,6 @@
 
 .method public onNestedPreScroll(Landroid/view/View;II[I)V
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "target",
-            "dx",
-            "dy",
-            "consumed"
-        }
-    .end annotation
 
     const/4 p1, 0x0
 
@@ -2176,22 +1903,6 @@
 
 .method public onNestedPreScroll(Landroid/view/View;II[II)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "target",
-            "dx",
-            "dy",
-            "consumed",
-            "type"
-        }
-    .end annotation
 
     if-nez p5, :cond_0
 
@@ -2203,22 +1914,6 @@
 
 .method public onNestedScroll(Landroid/view/View;IIII)V
     .locals 8
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x10,
-            0x10,
-            0x10,
-            0x10,
-            0x10
-        }
-        names = {
-            "target",
-            "dxConsumed",
-            "dyConsumed",
-            "dxUnconsumed",
-            "dyUnconsumed"
-        }
-    .end annotation
 
     iget-object v7, p0, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;->mNestedScrollingV2ConsumedCompat:[I
 
@@ -2243,24 +1938,6 @@
 
 .method public onNestedScroll(Landroid/view/View;IIIII)V
     .locals 8
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "target",
-            "dxConsumed",
-            "dyConsumed",
-            "dxUnconsumed",
-            "dyUnconsumed",
-            "type"
-        }
-    .end annotation
 
     iget-object v7, p0, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;->mNestedScrollingV2ConsumedCompat:[I
 
@@ -2285,26 +1962,6 @@
 
 .method public onNestedScroll(Landroid/view/View;IIIII[I)V
     .locals 11
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "target",
-            "dxConsumed",
-            "dyConsumed",
-            "dxUnconsumed",
-            "dyUnconsumed",
-            "type",
-            "consumed"
-        }
-    .end annotation
 
     move-object v8, p0
 
@@ -2389,18 +2046,6 @@
 
 .method public onNestedScrollAccepted(Landroid/view/View;Landroid/view/View;I)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "child",
-            "target",
-            "axes"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;->mNestedScrollingParentHelper:Landroidx/core/view/NestedScrollingParentHelper;
 
@@ -2423,20 +2068,6 @@
 
 .method public onNestedScrollAccepted(Landroid/view/View;Landroid/view/View;II)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "child",
-            "target",
-            "axes",
-            "type"
-        }
-    .end annotation
 
     if-nez p4, :cond_0
 
@@ -2448,14 +2079,6 @@
 
 .method protected onRestoreInstanceState(Landroid/os/Parcelable;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "state"
-        }
-    .end annotation
 
     check-cast p1, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout$SavedState;
 
@@ -2490,18 +2113,6 @@
 
 .method public onStartNestedScroll(Landroid/view/View;Landroid/view/View;I)Z
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "child",
-            "target",
-            "nestedScrollAxes"
-        }
-    .end annotation
 
     invoke-virtual {p0}, Landroid/view/ViewGroup;->isEnabled()Z
 
@@ -2534,20 +2145,6 @@
 
 .method public onStartNestedScroll(Landroid/view/View;Landroid/view/View;II)Z
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "child",
-            "target",
-            "axes",
-            "type"
-        }
-    .end annotation
 
     if-nez p4, :cond_0
 
@@ -2565,14 +2162,6 @@
 
 .method public onStopNestedScroll(Landroid/view/View;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "target"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;->mNestedScrollingParentHelper:Landroidx/core/view/NestedScrollingParentHelper;
 
@@ -2594,7 +2183,16 @@
 
     iput v0, p0, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;->mTotalUnconsumed:F
 
+    goto :goto_0
+
     :cond_0
+    new-instance p1, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout$$ExternalSyntheticLambda0;
+
+    invoke-direct {p1, p0}, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout$$ExternalSyntheticLambda0;-><init>(Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;)V
+
+    invoke-virtual {p0, p1}, Landroid/view/ViewGroup;->post(Ljava/lang/Runnable;)Z
+
+    :goto_0
     invoke-virtual {p0}, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;->stopNestedScroll()V
 
     return-void
@@ -2602,16 +2200,6 @@
 
 .method public onStopNestedScroll(Landroid/view/View;I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "target",
-            "type"
-        }
-    .end annotation
 
     if-nez p2, :cond_0
 
@@ -2623,14 +2211,6 @@
 
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 5
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "ev"
-        }
-    .end annotation
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
 
@@ -2847,47 +2427,25 @@
 .end method
 
 .method public requestDisallowInterceptTouchEvent(Z)V
-    .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "b"
-        }
-    .end annotation
+    .locals 1
 
     iget-boolean v0, p0, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;->mEnableLegacyRequestDisallowInterceptTouch:Z
 
-    if-eqz v0, :cond_2
-
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    if-ge v0, v1, :cond_0
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;->mTarget:Landroid/view/View;
 
-    instance-of v0, v0, Landroid/widget/AbsListView;
-
-    if-nez v0, :cond_1
-
-    :cond_0
-    iget-object v0, p0, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;->mTarget:Landroid/view/View;
-
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_0
 
     invoke-static {v0}, Landroidx/core/view/ViewCompat;->isNestedScrollingEnabled(Landroid/view/View;)Z
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_0
 
-    :cond_1
     return-void
 
-    :cond_2
+    :cond_0
     invoke-super {p0, p1}, Landroid/view/ViewGroup;->requestDisallowInterceptTouchEvent(Z)V
 
     return-void
@@ -2947,14 +2505,6 @@
 
 .method setAnimationProgress(F)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "progress"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;->mCircleView:Landroidx/swiperefreshlayout/widget/CircleImageView;
 
@@ -2969,15 +2519,6 @@
 
 .method public varargs setColorScheme([I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "colors"
-        }
-    .end annotation
-
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -2988,14 +2529,6 @@
 
 .method public varargs setColorSchemeColors([I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "colors"
-        }
-    .end annotation
 
     invoke-direct {p0}, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;->ensureTarget()V
 
@@ -3008,14 +2541,6 @@
 
 .method public varargs setColorSchemeResources([I)V
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "colorResIds"
-        }
-    .end annotation
 
     invoke-virtual {p0}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
 
@@ -3052,14 +2577,6 @@
 
 .method public setDistanceToTriggerSync(I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "distance"
-        }
-    .end annotation
 
     int-to-float p1, p1
 
@@ -3070,14 +2587,6 @@
 
 .method public setEnabled(Z)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "enabled"
-        }
-    .end annotation
 
     invoke-super {p0, p1}, Landroid/view/ViewGroup;->setEnabled(Z)V
 
@@ -3091,15 +2600,6 @@
 
 .method public setLegacyRequestDisallowInterceptTouchEventEnabled(Z)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "enabled"
-        }
-    .end annotation
-
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -3110,14 +2610,6 @@
 
 .method public setNestedScrollingEnabled(Z)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "enabled"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;->mNestedScrollingChildHelper:Landroidx/core/view/NestedScrollingChildHelper;
 
@@ -3128,14 +2620,6 @@
 
 .method public setOnChildScrollUpCallback(Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout$OnChildScrollUpCallback;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "callback"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;->mChildScrollUpCallback:Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout$OnChildScrollUpCallback;
 
@@ -3144,14 +2628,6 @@
 
 .method public setOnRefreshListener(Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout$OnRefreshListener;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "listener"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;->mListener:Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout$OnRefreshListener;
 
@@ -3160,15 +2636,6 @@
 
 .method public setProgressBackgroundColor(I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "colorRes"
-        }
-    .end annotation
-
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -3179,14 +2646,6 @@
 
 .method public setProgressBackgroundColorSchemeColor(I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "color"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;->mCircleView:Landroidx/swiperefreshlayout/widget/CircleImageView;
 
@@ -3197,14 +2656,6 @@
 
 .method public setProgressBackgroundColorSchemeResource(I)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "colorRes"
-        }
-    .end annotation
 
     invoke-virtual {p0}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
 
@@ -3221,14 +2672,6 @@
 
 .method public setRefreshing(Z)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "refreshing"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -3279,14 +2722,6 @@
 
 .method public setSize(I)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "size"
-        }
-    .end annotation
 
     if-eqz p1, :cond_0
 
@@ -3352,14 +2787,6 @@
 
 .method public setSlingshotDistance(I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "slingshotDistance"
-        }
-    .end annotation
 
     iput p1, p0, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;->mCustomSlingshotDistance:I
 
@@ -3368,14 +2795,6 @@
 
 .method setTargetOffsetTopAndBottom(I)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "offset"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;->mCircleView:Landroidx/swiperefreshlayout/widget/CircleImageView;
 
@@ -3398,14 +2817,6 @@
 
 .method public startNestedScroll(I)Z
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "axes"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;->mNestedScrollingChildHelper:Landroidx/core/view/NestedScrollingChildHelper;
 
@@ -3418,14 +2829,6 @@
 
 .method startScaleDownAnimation(Landroid/view/animation/Animation$AnimationListener;)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "listener"
-        }
-    .end annotation
 
     new-instance v0, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout$3;
 

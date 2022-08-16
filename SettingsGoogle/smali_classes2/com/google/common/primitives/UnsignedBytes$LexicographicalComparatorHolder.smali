@@ -98,6 +98,10 @@
 
     move-result-object v0
 
+    invoke-static {v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+
+    check-cast v0, [Ljava/lang/Object;
+
     const/4 v1, 0x0
 
     aget-object v0, v0, v1

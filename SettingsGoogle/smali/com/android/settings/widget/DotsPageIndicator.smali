@@ -114,6 +114,174 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetanimHalfDuration(Lcom/android/settings/widget/DotsPageIndicator;)J
+    .locals 2
+
+    iget-wide v0, p0, Lcom/android/settings/widget/DotsPageIndicator;->animHalfDuration:J
+
+    return-wide v0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetdotCenterX(Lcom/android/settings/widget/DotsPageIndicator;)[F
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/widget/DotsPageIndicator;->dotCenterX:[F
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetdotRadius(Lcom/android/settings/widget/DotsPageIndicator;)F
+    .locals 0
+
+    iget p0, p0, Lcom/android/settings/widget/DotsPageIndicator;->dotRadius:F
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetinterpolator(Lcom/android/settings/widget/DotsPageIndicator;)Landroid/view/animation/Interpolator;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/widget/DotsPageIndicator;->interpolator:Landroid/view/animation/Interpolator;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetretreatAnimation(Lcom/android/settings/widget/DotsPageIndicator;)Lcom/android/settings/widget/DotsPageIndicator$PendingRetreatAnimator;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/widget/DotsPageIndicator;->retreatAnimation:Lcom/android/settings/widget/DotsPageIndicator$PendingRetreatAnimator;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetretreatingJoinX1(Lcom/android/settings/widget/DotsPageIndicator;)F
+    .locals 0
+
+    iget p0, p0, Lcom/android/settings/widget/DotsPageIndicator;->retreatingJoinX1:F
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetretreatingJoinX2(Lcom/android/settings/widget/DotsPageIndicator;)F
+    .locals 0
+
+    iget p0, p0, Lcom/android/settings/widget/DotsPageIndicator;->retreatingJoinX2:F
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetrevealAnimations(Lcom/android/settings/widget/DotsPageIndicator;)[Lcom/android/settings/widget/DotsPageIndicator$PendingRevealAnimator;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/widget/DotsPageIndicator;->revealAnimations:[Lcom/android/settings/widget/DotsPageIndicator$PendingRevealAnimator;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetselectedDotX(Lcom/android/settings/widget/DotsPageIndicator;)F
+    .locals 0
+
+    iget p0, p0, Lcom/android/settings/widget/DotsPageIndicator;->selectedDotX:F
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetviewPager(Lcom/android/settings/widget/DotsPageIndicator;)Landroidx/viewpager/widget/ViewPager;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/widget/DotsPageIndicator;->viewPager:Landroidx/viewpager/widget/ViewPager;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputattachedState(Lcom/android/settings/widget/DotsPageIndicator;Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/settings/widget/DotsPageIndicator;->attachedState:Z
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fputretreatingJoinX1(Lcom/android/settings/widget/DotsPageIndicator;F)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/settings/widget/DotsPageIndicator;->retreatingJoinX1:F
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fputretreatingJoinX2(Lcom/android/settings/widget/DotsPageIndicator;F)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/settings/widget/DotsPageIndicator;->retreatingJoinX2:F
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fputrevealAnimations(Lcom/android/settings/widget/DotsPageIndicator;[Lcom/android/settings/widget/DotsPageIndicator$PendingRevealAnimator;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/settings/widget/DotsPageIndicator;->revealAnimations:[Lcom/android/settings/widget/DotsPageIndicator$PendingRevealAnimator;
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fputselectedDotInPosition(Lcom/android/settings/widget/DotsPageIndicator;Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/settings/widget/DotsPageIndicator;->selectedDotInPosition:Z
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fputselectedDotX(Lcom/android/settings/widget/DotsPageIndicator;F)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/settings/widget/DotsPageIndicator;->selectedDotX:F
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mcancelJoiningAnimations(Lcom/android/settings/widget/DotsPageIndicator;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/widget/DotsPageIndicator;->cancelJoiningAnimations()V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mclearJoiningFractions(Lcom/android/settings/widget/DotsPageIndicator;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/widget/DotsPageIndicator;->clearJoiningFractions()V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$msetDotRevealFraction(Lcom/android/settings/widget/DotsPageIndicator;IF)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/settings/widget/DotsPageIndicator;->setDotRevealFraction(IF)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$msetJoiningFraction(Lcom/android/settings/widget/DotsPageIndicator;IF)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/settings/widget/DotsPageIndicator;->setJoiningFraction(IF)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$msetPageCount(Lcom/android/settings/widget/DotsPageIndicator;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/widget/DotsPageIndicator;->setPageCount(I)V
+
+    return-void
+.end method
+
 .method static constructor <clinit>()V
     .locals 1
 
@@ -269,12 +437,6 @@
 
     invoke-virtual {p2, p3}, Landroid/graphics/Paint;->setColor(I)V
 
-    sget p2, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 p3, 0x15
-
-    if-lt p2, p3, :cond_0
-
     const p2, 0x10c000d
 
     invoke-static {p1, p2}, Landroid/view/animation/AnimationUtils;->loadInterpolator(Landroid/content/Context;I)Landroid/view/animation/Interpolator;
@@ -283,18 +445,6 @@
 
     iput-object p1, p0, Lcom/android/settings/widget/DotsPageIndicator;->interpolator:Landroid/view/animation/Interpolator;
 
-    goto :goto_0
-
-    :cond_0
-    const p2, 0x10a0004
-
-    invoke-static {p1, p2}, Landroid/view/animation/AnimationUtils;->loadInterpolator(Landroid/content/Context;I)Landroid/view/animation/Interpolator;
-
-    move-result-object p1
-
-    iput-object p1, p0, Lcom/android/settings/widget/DotsPageIndicator;->interpolator:Landroid/view/animation/Interpolator;
-
-    :goto_0
     new-instance p1, Landroid/graphics/Path;
 
     invoke-direct {p1}, Landroid/graphics/Path;-><init>()V
@@ -332,174 +482,6 @@
     invoke-virtual {p0, p1}, Landroid/view/View;->addOnAttachStateChangeListener(Landroid/view/View$OnAttachStateChangeListener;)V
 
     return-void
-.end method
-
-.method static synthetic access$002(Lcom/android/settings/widget/DotsPageIndicator;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/settings/widget/DotsPageIndicator;->attachedState:Z
-
-    return p1
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/widget/DotsPageIndicator;)Landroidx/viewpager/widget/ViewPager;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/widget/DotsPageIndicator;->viewPager:Landroidx/viewpager/widget/ViewPager;
-
-    return-object p0
-.end method
-
-.method static synthetic access$1000(Lcom/android/settings/widget/DotsPageIndicator;)F
-    .locals 0
-
-    iget p0, p0, Lcom/android/settings/widget/DotsPageIndicator;->dotRadius:F
-
-    return p0
-.end method
-
-.method static synthetic access$1100(Lcom/android/settings/widget/DotsPageIndicator;)[Lcom/android/settings/widget/DotsPageIndicator$PendingRevealAnimator;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/widget/DotsPageIndicator;->revealAnimations:[Lcom/android/settings/widget/DotsPageIndicator$PendingRevealAnimator;
-
-    return-object p0
-.end method
-
-.method static synthetic access$1102(Lcom/android/settings/widget/DotsPageIndicator;[Lcom/android/settings/widget/DotsPageIndicator$PendingRevealAnimator;)[Lcom/android/settings/widget/DotsPageIndicator$PendingRevealAnimator;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/settings/widget/DotsPageIndicator;->revealAnimations:[Lcom/android/settings/widget/DotsPageIndicator$PendingRevealAnimator;
-
-    return-object p1
-.end method
-
-.method static synthetic access$1200(Lcom/android/settings/widget/DotsPageIndicator;)F
-    .locals 0
-
-    iget p0, p0, Lcom/android/settings/widget/DotsPageIndicator;->retreatingJoinX1:F
-
-    return p0
-.end method
-
-.method static synthetic access$1202(Lcom/android/settings/widget/DotsPageIndicator;F)F
-    .locals 0
-
-    iput p1, p0, Lcom/android/settings/widget/DotsPageIndicator;->retreatingJoinX1:F
-
-    return p1
-.end method
-
-.method static synthetic access$1300(Lcom/android/settings/widget/DotsPageIndicator;)F
-    .locals 0
-
-    iget p0, p0, Lcom/android/settings/widget/DotsPageIndicator;->retreatingJoinX2:F
-
-    return p0
-.end method
-
-.method static synthetic access$1302(Lcom/android/settings/widget/DotsPageIndicator;F)F
-    .locals 0
-
-    iput p1, p0, Lcom/android/settings/widget/DotsPageIndicator;->retreatingJoinX2:F
-
-    return p1
-.end method
-
-.method static synthetic access$1400(Lcom/android/settings/widget/DotsPageIndicator;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/widget/DotsPageIndicator;->cancelJoiningAnimations()V
-
-    return-void
-.end method
-
-.method static synthetic access$1500(Lcom/android/settings/widget/DotsPageIndicator;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/widget/DotsPageIndicator;->clearJoiningFractions()V
-
-    return-void
-.end method
-
-.method static synthetic access$1600(Lcom/android/settings/widget/DotsPageIndicator;IF)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/settings/widget/DotsPageIndicator;->setDotRevealFraction(IF)V
-
-    return-void
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/widget/DotsPageIndicator;I)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/widget/DotsPageIndicator;->setPageCount(I)V
-
-    return-void
-.end method
-
-.method static synthetic access$300(Lcom/android/settings/widget/DotsPageIndicator;)F
-    .locals 0
-
-    iget p0, p0, Lcom/android/settings/widget/DotsPageIndicator;->selectedDotX:F
-
-    return p0
-.end method
-
-.method static synthetic access$302(Lcom/android/settings/widget/DotsPageIndicator;F)F
-    .locals 0
-
-    iput p1, p0, Lcom/android/settings/widget/DotsPageIndicator;->selectedDotX:F
-
-    return p1
-.end method
-
-.method static synthetic access$400(Lcom/android/settings/widget/DotsPageIndicator;)Lcom/android/settings/widget/DotsPageIndicator$PendingRetreatAnimator;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/widget/DotsPageIndicator;->retreatAnimation:Lcom/android/settings/widget/DotsPageIndicator$PendingRetreatAnimator;
-
-    return-object p0
-.end method
-
-.method static synthetic access$502(Lcom/android/settings/widget/DotsPageIndicator;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/settings/widget/DotsPageIndicator;->selectedDotInPosition:Z
-
-    return p1
-.end method
-
-.method static synthetic access$600(Lcom/android/settings/widget/DotsPageIndicator;IF)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/settings/widget/DotsPageIndicator;->setJoiningFraction(IF)V
-
-    return-void
-.end method
-
-.method static synthetic access$700(Lcom/android/settings/widget/DotsPageIndicator;)J
-    .locals 2
-
-    iget-wide v0, p0, Lcom/android/settings/widget/DotsPageIndicator;->animHalfDuration:J
-
-    return-wide v0
-.end method
-
-.method static synthetic access$800(Lcom/android/settings/widget/DotsPageIndicator;)Landroid/view/animation/Interpolator;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/widget/DotsPageIndicator;->interpolator:Landroid/view/animation/Interpolator;
-
-    return-object p0
-.end method
-
-.method static synthetic access$900(Lcom/android/settings/widget/DotsPageIndicator;)[F
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/widget/DotsPageIndicator;->dotCenterX:[F
-
-    return-object p0
 .end method
 
 .method private calculateDotPositions()V
@@ -901,39 +883,33 @@
     :goto_0
     iget v1, p0, Lcom/android/settings/widget/DotsPageIndicator;->pageCount:I
 
-    const/16 v2, 0x15
+    const/high16 v2, -0x40800000    # -1.0f
 
-    const/high16 v3, -0x40800000    # -1.0f
+    if-ge v0, v1, :cond_2
 
-    if-ge v0, v1, :cond_3
+    add-int/lit8 v3, v1, -0x1
 
-    add-int/lit8 v4, v1, -0x1
+    if-ne v0, v3, :cond_0
 
-    if-ne v0, v4, :cond_0
-
-    move v4, v0
+    move v3, v0
 
     goto :goto_1
 
     :cond_0
-    add-int/lit8 v4, v0, 0x1
+    add-int/lit8 v3, v0, 0x1
 
     :goto_1
-    sget v5, Landroid/os/Build$VERSION;->SDK_INT:I
+    iget-object v4, p0, Lcom/android/settings/widget/DotsPageIndicator;->dotCenterX:[F
 
-    if-lt v5, v2, :cond_2
+    aget v5, v4, v0
 
-    iget-object v2, p0, Lcom/android/settings/widget/DotsPageIndicator;->dotCenterX:[F
-
-    aget v5, v2, v0
-
-    aget v4, v2, v4
+    aget v4, v4, v3
 
     add-int/lit8 v1, v1, -0x1
 
     if-ne v0, v1, :cond_1
 
-    move v6, v3
+    move v6, v2
 
     goto :goto_2
 
@@ -969,36 +945,16 @@
 
     invoke-virtual {v2, v1, v3}, Landroid/graphics/Path;->op(Landroid/graphics/Path;Landroid/graphics/Path$Op;)Z
 
-    goto :goto_3
-
-    :cond_2
-    iget-object v1, p0, Lcom/android/settings/widget/DotsPageIndicator;->dotCenterX:[F
-
-    aget v1, v1, v0
-
-    iget v2, p0, Lcom/android/settings/widget/DotsPageIndicator;->dotCenterY:F
-
-    iget v3, p0, Lcom/android/settings/widget/DotsPageIndicator;->dotRadius:F
-
-    iget-object v4, p0, Lcom/android/settings/widget/DotsPageIndicator;->unselectedPaint:Landroid/graphics/Paint;
-
-    invoke-virtual {p1, v1, v2, v3, v4}, Landroid/graphics/Canvas;->drawCircle(FFFLandroid/graphics/Paint;)V
-
-    :goto_3
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    :cond_3
+    :cond_2
     iget v0, p0, Lcom/android/settings/widget/DotsPageIndicator;->retreatingJoinX1:F
 
-    cmpl-float v0, v0, v3
+    cmpl-float v0, v0, v2
 
-    if-eqz v0, :cond_4
-
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    if-lt v0, v2, :cond_4
+    if-eqz v0, :cond_3
 
     iget-object v0, p0, Lcom/android/settings/widget/DotsPageIndicator;->combinedUnselectedPath:Landroid/graphics/Path;
 
@@ -1010,7 +966,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/graphics/Path;->op(Landroid/graphics/Path;Landroid/graphics/Path$Op;)Z
 
-    :cond_4
+    :cond_3
     iget-object v0, p0, Lcom/android/settings/widget/DotsPageIndicator;->combinedUnselectedPath:Landroid/graphics/Path;
 
     iget-object p0, p0, Lcom/android/settings/widget/DotsPageIndicator;->unselectedPaint:Landroid/graphics/Paint;
@@ -1117,7 +1073,7 @@
 .end method
 
 .method private getUnselectedPath(IFFFF)Landroid/graphics/Path;
-    .locals 25
+    .locals 22
 
     move-object/from16 v0, p0
 
@@ -1180,17 +1136,17 @@
 
     const/high16 v14, 0x42b40000    # 90.0f
 
-    if-lez v3, :cond_4
+    if-lez v3, :cond_3
 
     cmpg-float v1, p4, v12
 
-    if-gez v1, :cond_4
+    if-gez v1, :cond_3
 
     iget v1, v0, Lcom/android/settings/widget/DotsPageIndicator;->retreatingJoinX1:F
 
     cmpl-float v1, v1, v10
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_3
 
     iget-object v1, v0, Lcom/android/settings/widget/DotsPageIndicator;->unselectedDotLeftPath:Landroid/graphics/Path;
 
@@ -1308,12 +1264,6 @@
 
     invoke-virtual/range {v1 .. v7}, Landroid/graphics/Path;->cubicTo(FFFFFF)V
 
-    sget v15, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v7, 0x15
-
-    if-lt v15, v7, :cond_3
-
     iget-object v1, v0, Lcom/android/settings/widget/DotsPageIndicator;->unselectedDotPath:Landroid/graphics/Path;
 
     iget-object v2, v0, Lcom/android/settings/widget/DotsPageIndicator;->unselectedDotLeftPath:Landroid/graphics/Path;
@@ -1322,7 +1272,6 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/graphics/Path;->op(Landroid/graphics/Path;Landroid/graphics/Path$Op;)Z
 
-    :cond_3
     iget-object v1, v0, Lcom/android/settings/widget/DotsPageIndicator;->unselectedDotRightPath:Landroid/graphics/Path;
 
     invoke-virtual {v1}, Landroid/graphics/Path;->rewind()V
@@ -1389,29 +1338,27 @@
 
     iput v3, v0, Lcom/android/settings/widget/DotsPageIndicator;->controlY2:F
 
-    iget-object v6, v0, Lcom/android/settings/widget/DotsPageIndicator;->unselectedDotRightPath:Landroid/graphics/Path;
+    iget-object v15, v0, Lcom/android/settings/widget/DotsPageIndicator;->unselectedDotRightPath:Landroid/graphics/Path;
 
-    move-object/from16 v16, v6
+    move/from16 v16, v4
 
-    move/from16 v17, v4
+    move/from16 v17, v5
 
-    move/from16 v18, v5
+    move/from16 v18, v1
 
-    move/from16 v19, v1
+    move/from16 v19, v3
 
-    move/from16 v20, v3
+    move/from16 v20, v1
 
-    move/from16 v21, v1
+    move/from16 v21, v2
 
-    move/from16 v22, v2
-
-    invoke-virtual/range {v16 .. v22}, Landroid/graphics/Path;->cubicTo(FFFFFF)V
+    invoke-virtual/range {v15 .. v21}, Landroid/graphics/Path;->cubicTo(FFFFFF)V
 
     iput v9, v0, Lcom/android/settings/widget/DotsPageIndicator;->endX2:F
 
-    iget v6, v0, Lcom/android/settings/widget/DotsPageIndicator;->dotBottomY:F
+    iget v7, v0, Lcom/android/settings/widget/DotsPageIndicator;->dotBottomY:F
 
-    iput v6, v0, Lcom/android/settings/widget/DotsPageIndicator;->endY2:F
+    iput v7, v0, Lcom/android/settings/widget/DotsPageIndicator;->endY2:F
 
     iget v2, v0, Lcom/android/settings/widget/DotsPageIndicator;->endX1:F
 
@@ -1429,7 +1376,7 @@
 
     iput v5, v0, Lcom/android/settings/widget/DotsPageIndicator;->controlX2:F
 
-    iput v6, v0, Lcom/android/settings/widget/DotsPageIndicator;->controlY2:F
+    iput v7, v0, Lcom/android/settings/widget/DotsPageIndicator;->controlY2:F
 
     iget-object v1, v0, Lcom/android/settings/widget/DotsPageIndicator;->unselectedDotRightPath:Landroid/graphics/Path;
 
@@ -1437,19 +1384,11 @@
 
     move v4, v5
 
-    move v5, v6
-
-    move/from16 v16, v6
+    move v5, v7
 
     move/from16 v6, p3
 
-    move v11, v7
-
-    move/from16 v7, v16
-
     invoke-virtual/range {v1 .. v7}, Landroid/graphics/Path;->cubicTo(FFFFFF)V
-
-    if-lt v15, v11, :cond_4
 
     iget-object v1, v0, Lcom/android/settings/widget/DotsPageIndicator;->unselectedDotPath:Landroid/graphics/Path;
 
@@ -1459,22 +1398,22 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/graphics/Path;->op(Landroid/graphics/Path;Landroid/graphics/Path$Op;)Z
 
-    :cond_4
+    :cond_3
     cmpl-float v1, p4, v12
 
-    const/high16 v11, 0x3f800000    # 1.0f
+    const/high16 v12, 0x3f800000    # 1.0f
 
-    if-lez v1, :cond_5
+    if-lez v1, :cond_4
 
-    cmpg-float v1, p4, v11
+    cmpg-float v1, p4, v12
 
-    if-gez v1, :cond_5
+    if-gez v1, :cond_4
 
     iget v1, v0, Lcom/android/settings/widget/DotsPageIndicator;->retreatingJoinX1:F
 
     cmpl-float v1, v1, v10
 
-    if-nez v1, :cond_5
+    if-nez v1, :cond_4
 
     iget-object v1, v0, Lcom/android/settings/widget/DotsPageIndicator;->unselectedDotPath:Landroid/graphics/Path;
 
@@ -1500,9 +1439,7 @@
 
     iget-object v2, v0, Lcom/android/settings/widget/DotsPageIndicator;->rectF:Landroid/graphics/RectF;
 
-    const/4 v3, 0x1
-
-    invoke-virtual {v1, v2, v14, v13, v3}, Landroid/graphics/Path;->arcTo(Landroid/graphics/RectF;FFZ)V
+    invoke-virtual {v1, v2, v14, v13, v11}, Landroid/graphics/Path;->arcTo(Landroid/graphics/RectF;FFZ)V
 
     iget v1, v0, Lcom/android/settings/widget/DotsPageIndicator;->dotRadius:F
 
@@ -1528,17 +1465,17 @@
 
     mul-float v4, p4, v1
 
-    sub-float v4, v2, v4
+    sub-float v15, v2, v4
 
-    iput v4, v0, Lcom/android/settings/widget/DotsPageIndicator;->controlX1:F
+    iput v15, v0, Lcom/android/settings/widget/DotsPageIndicator;->controlX1:F
 
-    iget v5, v0, Lcom/android/settings/widget/DotsPageIndicator;->dotTopY:F
+    iget v4, v0, Lcom/android/settings/widget/DotsPageIndicator;->dotTopY:F
 
-    iput v5, v0, Lcom/android/settings/widget/DotsPageIndicator;->controlY1:F
+    iput v4, v0, Lcom/android/settings/widget/DotsPageIndicator;->controlY1:F
 
-    sub-float v12, v11, p4
+    sub-float v21, v12, p4
 
-    mul-float/2addr v1, v12
+    mul-float v1, v1, v21
 
     sub-float v1, v2, v1
 
@@ -1546,23 +1483,19 @@
 
     iput v3, v0, Lcom/android/settings/widget/DotsPageIndicator;->controlY2:F
 
-    iget-object v6, v0, Lcom/android/settings/widget/DotsPageIndicator;->unselectedDotPath:Landroid/graphics/Path;
+    iget-object v14, v0, Lcom/android/settings/widget/DotsPageIndicator;->unselectedDotPath:Landroid/graphics/Path;
 
-    move-object/from16 v18, v6
+    move/from16 v16, v4
 
-    move/from16 v19, v4
+    move/from16 v17, v1
 
-    move/from16 v20, v5
+    move/from16 v18, v3
 
-    move/from16 v21, v1
+    move/from16 v19, v2
 
-    move/from16 v22, v3
+    move/from16 v20, v3
 
-    move/from16 v23, v2
-
-    move/from16 v24, v3
-
-    invoke-virtual/range {v18 .. v24}, Landroid/graphics/Path;->cubicTo(FFFFFF)V
+    invoke-virtual/range {v14 .. v20}, Landroid/graphics/Path;->cubicTo(FFFFFF)V
 
     iput v9, v0, Lcom/android/settings/widget/DotsPageIndicator;->endX2:F
 
@@ -1574,7 +1507,7 @@
 
     iget v2, v0, Lcom/android/settings/widget/DotsPageIndicator;->dotRadius:F
 
-    mul-float v3, v12, v2
+    mul-float v3, v21, v2
 
     add-float/2addr v3, v1
 
@@ -1626,9 +1559,7 @@
 
     const/high16 v3, 0x43870000    # 270.0f
 
-    const/4 v4, 0x1
-
-    invoke-virtual {v1, v2, v3, v13, v4}, Landroid/graphics/Path;->arcTo(Landroid/graphics/RectF;FFZ)V
+    invoke-virtual {v1, v2, v3, v13, v11}, Landroid/graphics/Path;->arcTo(Landroid/graphics/RectF;FFZ)V
 
     iget v1, v0, Lcom/android/settings/widget/DotsPageIndicator;->dotCenterY:F
 
@@ -1652,7 +1583,7 @@
 
     iput v15, v0, Lcom/android/settings/widget/DotsPageIndicator;->controlY1:F
 
-    mul-float/2addr v2, v12
+    mul-float v2, v2, v21
 
     add-float/2addr v2, v3
 
@@ -1682,9 +1613,9 @@
 
     iget v2, v0, Lcom/android/settings/widget/DotsPageIndicator;->dotRadius:F
 
-    mul-float/2addr v12, v2
+    mul-float v21, v21, v2
 
-    sub-float v3, v1, v12
+    sub-float v3, v1, v21
 
     iput v3, v0, Lcom/android/settings/widget/DotsPageIndicator;->controlX1:F
 
@@ -1714,16 +1645,16 @@
 
     invoke-virtual/range {v1 .. v7}, Landroid/graphics/Path;->cubicTo(FFFFFF)V
 
-    :cond_5
-    cmpl-float v1, p4, v11
+    :cond_4
+    cmpl-float v1, p4, v12
 
-    if-nez v1, :cond_6
+    if-nez v1, :cond_5
 
     iget v1, v0, Lcom/android/settings/widget/DotsPageIndicator;->retreatingJoinX1:F
 
     cmpl-float v1, v1, v10
 
-    if-nez v1, :cond_6
+    if-nez v1, :cond_5
 
     iget-object v1, v0, Lcom/android/settings/widget/DotsPageIndicator;->rectF:Landroid/graphics/RectF;
 
@@ -1749,12 +1680,12 @@
 
     invoke-virtual {v1, v2, v3, v3, v4}, Landroid/graphics/Path;->addRoundRect(Landroid/graphics/RectF;FFLandroid/graphics/Path$Direction;)V
 
-    :cond_6
+    :cond_5
     const v1, 0x3727c5ac    # 1.0E-5f
 
     cmpl-float v1, p5, v1
 
-    if-lez v1, :cond_7
+    if-lez v1, :cond_6
 
     iget-object v1, v0, Lcom/android/settings/widget/DotsPageIndicator;->unselectedDotPath:Landroid/graphics/Path;
 
@@ -1768,7 +1699,7 @@
 
     invoke-virtual {v1, v8, v2, v3, v4}, Landroid/graphics/Path;->addCircle(FFFLandroid/graphics/Path$Direction;)V
 
-    :cond_7
+    :cond_6
     iget-object v0, v0, Lcom/android/settings/widget/DotsPageIndicator;->unselectedDotPath:Landroid/graphics/Path;
 
     return-object v0
@@ -1891,7 +1822,7 @@
 
     iget v0, p0, Lcom/android/settings/widget/DotsPageIndicator;->currentPage:I
 
-    if-eq p1, v0, :cond_4
+    if-eq p1, v0, :cond_3
 
     iget v1, p0, Lcom/android/settings/widget/DotsPageIndicator;->pageCount:I
 
@@ -1901,12 +1832,6 @@
 
     :cond_0
     iput p1, p0, Lcom/android/settings/widget/DotsPageIndicator;->currentPage:I
-
-    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v2, 0x10
-
-    if-lt v1, v2, :cond_3
 
     invoke-direct {p0}, Lcom/android/settings/widget/DotsPageIndicator;->cancelRunningAnimations()V
 
@@ -1976,14 +1901,7 @@
 
     invoke-direct {p0}, Lcom/android/settings/widget/DotsPageIndicator;->startJoiningAnimations()V
 
-    goto :goto_2
-
     :cond_3
-    invoke-direct {p0}, Lcom/android/settings/widget/DotsPageIndicator;->setCurrentPageImmediate()V
-
-    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
-
-    :cond_4
     :goto_2
     return-void
 .end method
@@ -2011,19 +1929,12 @@
 
 # virtual methods
 .method public clearAnimation()V
-    .locals 2
+    .locals 0
 
     invoke-super {p0}, Landroid/view/View;->clearAnimation()V
 
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x10
-
-    if-lt v0, v1, :cond_0
-
     invoke-direct {p0}, Lcom/android/settings/widget/DotsPageIndicator;->cancelRunningAnimations()V
 
-    :cond_0
     return-void
 .end method
 

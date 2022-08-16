@@ -103,8 +103,6 @@
 
 .method static isFlashlightAvailable(Landroid/content/Context;)Z
     .locals 5
-    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -231,7 +229,7 @@
 
     iget-object v3, p0, Lcom/android/settings/flashlight/FlashlightSlice;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f020367
+    const v4, 0x7f02038c
 
     invoke-static {v3, v4}, Landroidx/core/graphics/drawable/IconCompat;->createWithResource(Landroid/content/Context;I)Landroidx/core/graphics/drawable/IconCompat;
 
@@ -257,7 +255,7 @@
 
     iget-object v5, p0, Lcom/android/settings/flashlight/FlashlightSlice;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f040f33
+    const v6, 0x7f040fca
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 

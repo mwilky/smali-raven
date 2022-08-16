@@ -36,7 +36,7 @@
 
     iget-object p0, p0, Lcom/android/settings/display/darkmode/DarkModeObserver$1;->this$0:Lcom/android/settings/display/darkmode/DarkModeObserver;
 
-    invoke-static {p0}, Lcom/android/settings/display/darkmode/DarkModeObserver;->access$000(Lcom/android/settings/display/darkmode/DarkModeObserver;)Ljava/lang/Runnable;
+    invoke-static {p0}, Lcom/android/settings/display/darkmode/DarkModeObserver;->-$$Nest$fgetmCallback(Lcom/android/settings/display/darkmode/DarkModeObserver;)Ljava/lang/Runnable;
 
     move-result-object p0
 

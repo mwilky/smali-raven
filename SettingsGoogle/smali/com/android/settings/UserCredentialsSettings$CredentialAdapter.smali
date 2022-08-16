@@ -96,7 +96,7 @@
 
     iget-object v1, p1, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
 
-    const v2, 0x7f0602a4
+    const v2, 0x7f0602b4
 
     const/4 v3, 0x0
 
@@ -146,7 +146,7 @@
 
     new-instance p2, Lcom/android/settings/UserCredentialsSettings$ViewHolder;
 
-    const v0, 0x7f0602a4
+    const v0, 0x7f0602b4
 
     const/4 v1, 0x0
 

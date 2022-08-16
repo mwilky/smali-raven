@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/google/android/wifitrackerlib/WsuServiceClient$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/wifitrackerlib/WifiEntry$ManageSubscriptionAction;
+.implements Lcom/google/android/wifitrackerlib/WsuManager$WsuSignupAction;
 
 
 # instance fields
@@ -33,7 +34,7 @@
 
     iget-object p0, p0, Lcom/google/android/wifitrackerlib/WsuServiceClient$$ExternalSyntheticLambda0;->f$1:Lcom/android/wsuinterface/NetworkGroupSubscription;
 
-    invoke-static {v0, p0}, Lcom/google/android/wifitrackerlib/WsuServiceClient;->$r8$lambda$ChyBenHDoETtHwlO7WDLB2RL-SE(Lcom/google/android/wifitrackerlib/WsuServiceClient;Lcom/android/wsuinterface/NetworkGroupSubscription;)V
+    invoke-static {v0, p0}, Lcom/google/android/wifitrackerlib/WsuServiceClient;->$r8$lambda$kqpF4e-iA4Z-MNWstbP4s2thmHo(Lcom/google/android/wifitrackerlib/WsuServiceClient;Lcom/android/wsuinterface/NetworkGroupSubscription;)V
 
     return-void
 .end method

@@ -213,7 +213,7 @@
 
     invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "setBridgedModeOpportunisticShutdownEnabled:"
+    const-string/jumbo v3, "setBridgedModeOpportunisticShutdownEnabled:"
 
     invoke-virtual {p0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -244,7 +244,7 @@
 
     invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v0, "setBand:"
+    const-string/jumbo v0, "setBand:"
 
     invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -304,12 +304,12 @@
 
     if-eqz p0, :cond_1
 
-    const p0, 0x7f041688
+    const p0, 0x7f04177f
 
     goto :goto_0
 
     :cond_1
-    const p0, 0x7f041689
+    const p0, 0x7f041780
 
     :goto_0
     invoke-virtual {v0, p0}, Landroidx/preference/Preference;->setSummary(I)V

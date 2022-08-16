@@ -17,6 +17,14 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$sfgetTAG()Ljava/lang/String;
+    .locals 1
+
+    sget-object v0, Lcom/android/settings/EncryptionInterstitial;->TAG:Ljava/lang/String;
+
+    return-object v0
+.end method
+
 .method static constructor <clinit>()V
     .locals 0
 
@@ -29,14 +37,6 @@
     invoke-direct {p0}, Lcom/android/settings/SettingsActivity;-><init>()V
 
     return-void
-.end method
-
-.method static synthetic access$000()Ljava/lang/String;
-    .locals 1
-
-    sget-object v0, Lcom/android/settings/EncryptionInterstitial;->TAG:Ljava/lang/String;
-
-    return-object v0
 .end method
 
 .method public static createStartIntent(Landroid/content/Context;IZLandroid/content/Intent;)Landroid/content/Intent;
@@ -56,7 +56,7 @@
 
     const-string p1, ":settings:show_fragment_title_resid"
 
-    const v0, 0x7f0408a3
+    const v0, 0x7f0408f9
 
     invoke-virtual {p0, p1, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
@@ -140,7 +140,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/SettingsActivity;->onCreate(Landroid/os/Bundle;)V
 
-    const p1, 0x7f0d017a
+    const p1, 0x7f0d018f
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 

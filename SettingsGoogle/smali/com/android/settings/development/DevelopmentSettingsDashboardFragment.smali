@@ -8,7 +8,7 @@
 .implements Lcom/android/settings/development/AdbDialogHost;
 .implements Lcom/android/settings/development/AdbClearKeysDialogHost;
 .implements Lcom/android/settings/development/LogPersistDialogHost;
-.implements Lcom/android/settings/development/BluetoothA2dpHwOffloadRebootDialog$OnA2dpHwDialogConfirmedListener;
+.implements Lcom/android/settings/development/BluetoothHwOffloadRebootDialog$OnHwOffloadDialogListener;
 .implements Lcom/android/settings/development/bluetooth/AbstractBluetoothPreferenceController$Callback;
 
 
@@ -47,12 +47,54 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmBluetoothA2dp(Lcom/android/settings/development/DevelopmentSettingsDashboardFragment;)Landroid/bluetooth/BluetoothA2dp;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/development/DevelopmentSettingsDashboardFragment;->mBluetoothA2dp:Landroid/bluetooth/BluetoothA2dp;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmBluetoothA2dpConfigStore(Lcom/android/settings/development/DevelopmentSettingsDashboardFragment;)Lcom/android/settings/development/BluetoothA2dpConfigStore;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/development/DevelopmentSettingsDashboardFragment;->mBluetoothA2dpConfigStore:Lcom/android/settings/development/BluetoothA2dpConfigStore;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmPreferenceControllers(Lcom/android/settings/development/DevelopmentSettingsDashboardFragment;)Ljava/util/List;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/development/DevelopmentSettingsDashboardFragment;->mPreferenceControllers:Ljava/util/List;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmBluetoothA2dp(Lcom/android/settings/development/DevelopmentSettingsDashboardFragment;Landroid/bluetooth/BluetoothA2dp;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/settings/development/DevelopmentSettingsDashboardFragment;->mBluetoothA2dp:Landroid/bluetooth/BluetoothA2dp;
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$smbuildPreferenceControllers(Landroid/content/Context;Landroid/app/Activity;Lcom/android/settingslib/core/lifecycle/Lifecycle;Lcom/android/settings/development/DevelopmentSettingsDashboardFragment;Lcom/android/settings/development/BluetoothA2dpConfigStore;)Ljava/util/List;
+    .locals 0
+
+    invoke-static {p0, p1, p2, p3, p4}, Lcom/android/settings/development/DevelopmentSettingsDashboardFragment;->buildPreferenceControllers(Landroid/content/Context;Landroid/app/Activity;Lcom/android/settingslib/core/lifecycle/Lifecycle;Lcom/android/settings/development/DevelopmentSettingsDashboardFragment;Lcom/android/settings/development/BluetoothA2dpConfigStore;)Ljava/util/List;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method static constructor <clinit>()V
     .locals 2
 
     new-instance v0, Lcom/android/settings/development/DevelopmentSettingsDashboardFragment$5;
 
-    const v1, 0x7f15005e
+    const v1, 0x7f150061
 
     invoke-direct {v0, v1}, Lcom/android/settings/development/DevelopmentSettingsDashboardFragment$5;-><init>(I)V
 
@@ -111,54 +153,12 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/settings/development/DevelopmentSettingsDashboardFragment;)Ljava/util/List;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/development/DevelopmentSettingsDashboardFragment;->mPreferenceControllers:Ljava/util/List;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/development/DevelopmentSettingsDashboardFragment;)Lcom/android/settings/development/BluetoothA2dpConfigStore;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/development/DevelopmentSettingsDashboardFragment;->mBluetoothA2dpConfigStore:Lcom/android/settings/development/BluetoothA2dpConfigStore;
-
-    return-object p0
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/development/DevelopmentSettingsDashboardFragment;)Landroid/bluetooth/BluetoothA2dp;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/development/DevelopmentSettingsDashboardFragment;->mBluetoothA2dp:Landroid/bluetooth/BluetoothA2dp;
-
-    return-object p0
-.end method
-
-.method static synthetic access$202(Lcom/android/settings/development/DevelopmentSettingsDashboardFragment;Landroid/bluetooth/BluetoothA2dp;)Landroid/bluetooth/BluetoothA2dp;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/settings/development/DevelopmentSettingsDashboardFragment;->mBluetoothA2dp:Landroid/bluetooth/BluetoothA2dp;
-
-    return-object p1
-.end method
-
-.method static synthetic access$300(Lcom/android/settings/development/DevelopmentSettingsDashboardFragment;)V
+.method static synthetic access$000(Lcom/android/settings/development/DevelopmentSettingsDashboardFragment;)V
     .locals 0
 
     invoke-virtual {p0}, Lcom/android/settings/dashboard/DashboardFragment;->updatePreferenceStates()V
 
     return-void
-.end method
-
-.method static synthetic access$400(Landroid/content/Context;Landroid/app/Activity;Lcom/android/settingslib/core/lifecycle/Lifecycle;Lcom/android/settings/development/DevelopmentSettingsDashboardFragment;Lcom/android/settings/development/BluetoothA2dpConfigStore;)Ljava/util/List;
-    .locals 0
-
-    invoke-static {p0, p1, p2, p3, p4}, Lcom/android/settings/development/DevelopmentSettingsDashboardFragment;->buildPreferenceControllers(Landroid/content/Context;Landroid/app/Activity;Lcom/android/settingslib/core/lifecycle/Lifecycle;Lcom/android/settings/development/DevelopmentSettingsDashboardFragment;Lcom/android/settings/development/BluetoothA2dpConfigStore;)Ljava/util/List;
-
-    move-result-object p0
-
-    return-object p0
 .end method
 
 .method private static buildPreferenceControllers(Landroid/content/Context;Landroid/app/Activity;Lcom/android/settingslib/core/lifecycle/Lifecycle;Lcom/android/settings/development/DevelopmentSettingsDashboardFragment;Lcom/android/settings/development/BluetoothA2dpConfigStore;)Ljava/util/List;
@@ -206,6 +206,12 @@
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
+    new-instance v1, Lcom/android/settings/development/RebootWithMtePreferenceController;
+
+    invoke-direct {v1, p0, p3}, Lcom/android/settings/development/RebootWithMtePreferenceController;-><init>(Landroid/content/Context;Lcom/android/settings/development/DevelopmentSettingsDashboardFragment;)V
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
     new-instance v1, Lcom/android/settings/development/LocalBackupPasswordPreferenceController;
 
     invoke-direct {v1, p0}, Lcom/android/settings/development/LocalBackupPasswordPreferenceController;-><init>(Landroid/content/Context;)V
@@ -235,12 +241,6 @@
     invoke-direct {v1, p0, p1, p3}, Lcom/android/settings/development/OemUnlockPreferenceController;-><init>(Landroid/content/Context;Landroid/app/Activity;Lcom/android/settings/development/DevelopmentSettingsDashboardFragment;)V
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    new-instance p1, Lcom/android/settings/development/FileEncryptionPreferenceController;
-
-    invoke-direct {p1, p0}, Lcom/android/settings/development/FileEncryptionPreferenceController;-><init>(Landroid/content/Context;)V
-
-    invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     new-instance p1, Lcom/android/settings/development/PictureColorModePreferenceController;
 
@@ -317,6 +317,12 @@
     new-instance p1, Lcom/android/settings/development/MockLocationAppPreferenceController;
 
     invoke-direct {p1, p0, p3}, Lcom/android/settings/development/MockLocationAppPreferenceController;-><init>(Landroid/content/Context;Lcom/android/settings/development/DevelopmentSettingsDashboardFragment;)V
+
+    invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    new-instance p1, Lcom/android/settings/development/MockModemPreferenceController;
+
+    invoke-direct {p1, p0}, Lcom/android/settings/development/MockModemPreferenceController;-><init>(Landroid/content/Context;)V
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
@@ -404,9 +410,9 @@
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    new-instance p1, Lcom/android/settings/development/WifiEnhancedMacRandomizationPreferenceController;
+    new-instance p1, Lcom/android/settings/development/WifiNonPersistentMacRandomizationPreferenceController;
 
-    invoke-direct {p1, p0}, Lcom/android/settings/development/WifiEnhancedMacRandomizationPreferenceController;-><init>(Landroid/content/Context;)V
+    invoke-direct {p1, p0}, Lcom/android/settings/development/WifiNonPersistentMacRandomizationPreferenceController;-><init>(Landroid/content/Context;)V
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
@@ -434,12 +440,6 @@
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    new-instance p1, Lcom/android/settings/development/BluetoothGabeldorschePreferenceController;
-
-    invoke-direct {p1, p0}, Lcom/android/settings/development/BluetoothGabeldorschePreferenceController;-><init>(Landroid/content/Context;)V
-
-    invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
     new-instance p1, Lcom/android/settings/development/BluetoothAvrcpVersionPreferenceController;
 
     invoke-direct {p1, p0}, Lcom/android/settings/development/BluetoothAvrcpVersionPreferenceController;-><init>(Landroid/content/Context;)V
@@ -458,9 +458,21 @@
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
+    new-instance p1, Lcom/android/settings/development/BluetoothLeAudioHwOffloadPreferenceController;
+
+    invoke-direct {p1, p0, p3}, Lcom/android/settings/development/BluetoothLeAudioHwOffloadPreferenceController;-><init>(Landroid/content/Context;Lcom/android/settings/development/DevelopmentSettingsDashboardFragment;)V
+
+    invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
     new-instance p1, Lcom/android/settings/development/BluetoothMaxConnectedAudioDevicesPreferenceController;
 
     invoke-direct {p1, p0}, Lcom/android/settings/development/BluetoothMaxConnectedAudioDevicesPreferenceController;-><init>(Landroid/content/Context;)V
+
+    invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    new-instance p1, Lcom/android/settings/development/NfcStackDebugLogPreferenceController;
+
+    invoke-direct {p1, p0}, Lcom/android/settings/development/NfcStackDebugLogPreferenceController;-><init>(Landroid/content/Context;)V
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
@@ -652,13 +664,13 @@
 
     new-instance p1, Lcom/android/settings/development/FreeformWindowsPreferenceController;
 
-    invoke-direct {p1, p0}, Lcom/android/settings/development/FreeformWindowsPreferenceController;-><init>(Landroid/content/Context;)V
+    invoke-direct {p1, p0, p3}, Lcom/android/settings/development/FreeformWindowsPreferenceController;-><init>(Landroid/content/Context;Lcom/android/settings/development/DevelopmentSettingsDashboardFragment;)V
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     new-instance p1, Lcom/android/settings/development/DesktopModePreferenceController;
 
-    invoke-direct {p1, p0}, Lcom/android/settings/development/DesktopModePreferenceController;-><init>(Landroid/content/Context;)V
+    invoke-direct {p1, p0, p3}, Lcom/android/settings/development/DesktopModePreferenceController;-><init>(Landroid/content/Context;Lcom/android/settings/development/DevelopmentSettingsDashboardFragment;)V
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
@@ -682,7 +694,7 @@
 
     new-instance p1, Lcom/android/settings/development/DefaultLaunchPreferenceController;
 
-    const-string v1, "running_apps"
+    const-string/jumbo v1, "running_apps"
 
     invoke-direct {p1, p0, v1}, Lcom/android/settings/development/DefaultLaunchPreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
@@ -698,7 +710,7 @@
 
     new-instance p1, Lcom/android/settings/development/DefaultLaunchPreferenceController;
 
-    const-string v1, "quick_settings_tiles"
+    const-string/jumbo v1, "quick_settings_tiles"
 
     invoke-direct {p1, p0, v1}, Lcom/android/settings/development/DefaultLaunchPreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
@@ -739,6 +751,12 @@
     const-string v1, "inactive_apps"
 
     invoke-direct {p1, p0, v1}, Lcom/android/settings/development/DefaultLaunchPreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;)V
+
+    invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    new-instance p1, Lcom/android/settings/development/autofill/AutofillCategoryController;
+
+    invoke-direct {p1, p0, p2}, Lcom/android/settings/development/autofill/AutofillCategoryController;-><init>(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
@@ -799,6 +817,24 @@
     new-instance p1, Lcom/android/settings/development/OverlaySettingsPreferenceController;
 
     invoke-direct {p1, p0}, Lcom/android/settings/development/OverlaySettingsPreferenceController;-><init>(Landroid/content/Context;)V
+
+    invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    new-instance p1, Lcom/android/settings/development/StylusHandwritingPreferenceController;
+
+    invoke-direct {p1, p0}, Lcom/android/settings/development/StylusHandwritingPreferenceController;-><init>(Landroid/content/Context;)V
+
+    invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    new-instance p1, Lcom/android/settings/development/IngressRateLimitPreferenceController;
+
+    invoke-direct {p1, p0}, Lcom/android/settings/development/IngressRateLimitPreferenceController;-><init>(Landroid/content/Context;)V
+
+    invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    new-instance p1, Lcom/android/settings/development/BackAnimationPreferenceController;
+
+    invoke-direct {p1, p0, p3}, Lcom/android/settings/development/BackAnimationPreferenceController;-><init>(Landroid/content/Context;Lcom/android/settings/development/DevelopmentSettingsDashboardFragment;)V
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
@@ -1206,31 +1242,15 @@
 
     if-eqz p0, :cond_0
 
-    const p0, 0x7f1500b6
+    const p0, 0x7f1500b8
 
     goto :goto_0
 
     :cond_0
-    const p0, 0x7f15005e
+    const p0, 0x7f150061
 
     :goto_0
     return p0
-.end method
-
-.method public onA2dpHwDialogConfirmed()V
-    .locals 1
-
-    const-class v0, Lcom/android/settings/development/BluetoothA2dpHwOffloadPreferenceController;
-
-    invoke-virtual {p0, v0}, Lcom/android/settings/development/DevelopmentSettingsDashboardFragment;->getDevelopmentOptionsController(Ljava/lang/Class;)Lcom/android/settingslib/core/AbstractPreferenceController;
-
-    move-result-object p0
-
-    check-cast p0, Lcom/android/settings/development/BluetoothA2dpHwOffloadPreferenceController;
-
-    invoke-virtual {p0}, Lcom/android/settings/development/BluetoothA2dpHwOffloadPreferenceController;->onA2dpHwDialogConfirmed()V
-
-    return-void
 .end method
 
 .method public onActivityCreated(Landroid/os/Bundle;)V
@@ -1277,7 +1297,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0407cf
+    const v1, 0x7f040817
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1341,7 +1361,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f0407d2
+    const v0, 0x7f04081a
 
     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setText(I)V
 
@@ -1688,6 +1708,58 @@
     return-void
 .end method
 
+.method public onHwOffloadDialogCanceled()V
+    .locals 1
+
+    const-class v0, Lcom/android/settings/development/BluetoothA2dpHwOffloadPreferenceController;
+
+    invoke-virtual {p0, v0}, Lcom/android/settings/development/DevelopmentSettingsDashboardFragment;->getDevelopmentOptionsController(Ljava/lang/Class;)Lcom/android/settingslib/core/AbstractPreferenceController;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/settings/development/BluetoothA2dpHwOffloadPreferenceController;
+
+    invoke-virtual {v0}, Lcom/android/settings/development/BluetoothA2dpHwOffloadPreferenceController;->onHwOffloadDialogCanceled()V
+
+    const-class v0, Lcom/android/settings/development/BluetoothLeAudioHwOffloadPreferenceController;
+
+    invoke-virtual {p0, v0}, Lcom/android/settings/development/DevelopmentSettingsDashboardFragment;->getDevelopmentOptionsController(Ljava/lang/Class;)Lcom/android/settingslib/core/AbstractPreferenceController;
+
+    move-result-object p0
+
+    check-cast p0, Lcom/android/settings/development/BluetoothLeAudioHwOffloadPreferenceController;
+
+    invoke-virtual {p0}, Lcom/android/settings/development/BluetoothLeAudioHwOffloadPreferenceController;->onHwOffloadDialogCanceled()V
+
+    return-void
+.end method
+
+.method public onHwOffloadDialogConfirmed()V
+    .locals 1
+
+    const-class v0, Lcom/android/settings/development/BluetoothA2dpHwOffloadPreferenceController;
+
+    invoke-virtual {p0, v0}, Lcom/android/settings/development/DevelopmentSettingsDashboardFragment;->getDevelopmentOptionsController(Ljava/lang/Class;)Lcom/android/settingslib/core/AbstractPreferenceController;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/settings/development/BluetoothA2dpHwOffloadPreferenceController;
+
+    invoke-virtual {v0}, Lcom/android/settings/development/BluetoothA2dpHwOffloadPreferenceController;->onHwOffloadDialogConfirmed()V
+
+    const-class v0, Lcom/android/settings/development/BluetoothLeAudioHwOffloadPreferenceController;
+
+    invoke-virtual {p0, v0}, Lcom/android/settings/development/DevelopmentSettingsDashboardFragment;->getDevelopmentOptionsController(Ljava/lang/Class;)Lcom/android/settingslib/core/AbstractPreferenceController;
+
+    move-result-object p0
+
+    check-cast p0, Lcom/android/settings/development/BluetoothLeAudioHwOffloadPreferenceController;
+
+    invoke-virtual {p0}, Lcom/android/settings/development/BluetoothLeAudioHwOffloadPreferenceController;->onHwOffloadDialogConfirmed()V
+
+    return-void
+.end method
+
 .method public onOemUnlockDialogConfirmed()V
     .locals 1
 
@@ -1742,7 +1814,7 @@
 
     move-result p1
 
-    if-eq p2, p1, :cond_4
+    if-eq p2, p1, :cond_5
 
     if-eqz p2, :cond_1
 
@@ -1759,26 +1831,51 @@
 
     check-cast p1, Lcom/android/settings/development/BluetoothA2dpHwOffloadPreferenceController;
 
-    if-eqz p1, :cond_3
+    const-class p2, Lcom/android/settings/development/BluetoothLeAudioHwOffloadPreferenceController;
+
+    invoke-virtual {p0, p2}, Lcom/android/settings/development/DevelopmentSettingsDashboardFragment;->getDevelopmentOptionsController(Ljava/lang/Class;)Lcom/android/settingslib/core/AbstractPreferenceController;
+
+    move-result-object p2
+
+    check-cast p2, Lcom/android/settings/development/BluetoothLeAudioHwOffloadPreferenceController;
+
+    if-eqz p1, :cond_2
 
     invoke-virtual {p1}, Lcom/android/settings/development/BluetoothA2dpHwOffloadPreferenceController;->isDefaultValue()Z
 
     move-result p1
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_3
+
+    :cond_2
+    if-eqz p2, :cond_4
+
+    invoke-virtual {p2}, Lcom/android/settings/development/BluetoothLeAudioHwOffloadPreferenceController;->isDefaultValue()Z
+
+    move-result p1
+
+    if-eqz p1, :cond_3
 
     goto :goto_0
 
-    :cond_2
+    :cond_3
     invoke-static {p0}, Lcom/android/settings/development/DisableDevSettingsDialogFragment;->show(Lcom/android/settings/development/DevelopmentSettingsDashboardFragment;)V
 
     goto :goto_1
 
-    :cond_3
+    :cond_4
     :goto_0
     invoke-direct {p0}, Lcom/android/settings/development/DevelopmentSettingsDashboardFragment;->disableDeveloperOptions()V
 
-    :cond_4
+    :cond_5
     :goto_1
     return-void
+.end method
+
+.method protected shouldSkipForInitialSUW()Z
+    .locals 0
+
+    const/4 p0, 0x1
+
+    return p0
 .end method

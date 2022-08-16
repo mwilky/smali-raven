@@ -3,25 +3,19 @@
 .source "NavUtils.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Landroidx/core/app/NavUtils$Api16Impl;
+    }
+.end annotation
+
+
 # direct methods
 .method public static getParentActivityIntent(Landroid/app/Activity;)Landroid/content/Intent;
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "sourceActivity"
-        }
-    .end annotation
 
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x10
-
-    if-lt v0, v1, :cond_0
-
-    invoke-virtual {p0}, Landroid/app/Activity;->getParentActivityIntent()Landroid/content/Intent;
+    invoke-static {p0}, Landroidx/core/app/NavUtils$Api16Impl;->getParentActivityIntent(Landroid/app/Activity;)Landroid/content/Intent;
 
     move-result-object v0
 
@@ -100,17 +94,6 @@
 
 .method public static getParentActivityIntent(Landroid/content/Context;Landroid/content/ComponentName;)Landroid/content/Intent;
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "componentName"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/pm/PackageManager$NameNotFoundException;
@@ -163,14 +146,6 @@
 
 .method public static getParentActivityName(Landroid/app/Activity;)Ljava/lang/String;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "sourceActivity"
-        }
-    .end annotation
 
     :try_start_0
     invoke-virtual {p0}, Landroid/app/Activity;->getComponentName()Landroid/content/ComponentName;
@@ -196,18 +171,7 @@
 .end method
 
 .method public static getParentActivityName(Landroid/content/Context;Landroid/content/ComponentName;)Ljava/lang/String;
-    .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "componentName"
-        }
-    .end annotation
-
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/pm/PackageManager$NameNotFoundException;
@@ -218,62 +182,39 @@
 
     move-result-object v0
 
-    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
+    const v1, 0x100c0280
 
-    const/16 v2, 0x280
-
-    const/16 v3, 0x1d
-
-    if-lt v1, v3, :cond_0
-
-    const v2, 0x100c0280
-
-    goto :goto_0
-
-    :cond_0
-    const/16 v3, 0x18
-
-    if-lt v1, v3, :cond_1
-
-    const v2, 0xc0280
-
-    :cond_1
-    :goto_0
-    invoke-virtual {v0, p1, v2}, Landroid/content/pm/PackageManager;->getActivityInfo(Landroid/content/ComponentName;I)Landroid/content/pm/ActivityInfo;
+    invoke-virtual {v0, p1, v1}, Landroid/content/pm/PackageManager;->getActivityInfo(Landroid/content/ComponentName;I)Landroid/content/pm/ActivityInfo;
 
     move-result-object p1
 
-    const/16 v0, 0x10
-
-    if-lt v1, v0, :cond_2
-
     iget-object v0, p1, Landroid/content/pm/ActivityInfo;->parentActivityName:Ljava/lang/String;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_0
 
     return-object v0
 
-    :cond_2
+    :cond_0
     iget-object p1, p1, Landroid/content/pm/ActivityInfo;->metaData:Landroid/os/Bundle;
 
     const/4 v0, 0x0
 
-    if-nez p1, :cond_3
+    if-nez p1, :cond_1
 
     return-object v0
 
-    :cond_3
+    :cond_1
     const-string v1, "android.support.PARENT_ACTIVITY"
 
     invoke-virtual {p1, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p1
 
-    if-nez p1, :cond_4
+    if-nez p1, :cond_2
 
     return-object v0
 
-    :cond_4
+    :cond_2
     const/4 v0, 0x0
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->charAt(I)C
@@ -282,7 +223,7 @@
 
     const/16 v1, 0x2e
 
-    if-ne v0, v1, :cond_5
+    if-ne v0, v1, :cond_3
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -300,97 +241,24 @@
 
     move-result-object p1
 
-    :cond_5
+    :cond_3
     return-object p1
 .end method
 
 .method public static navigateUpTo(Landroid/app/Activity;Landroid/content/Intent;)V
-    .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "sourceActivity",
-            "upIntent"
-        }
-    .end annotation
+    .locals 0
 
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+    invoke-static {p0, p1}, Landroidx/core/app/NavUtils$Api16Impl;->navigateUpTo(Landroid/app/Activity;Landroid/content/Intent;)Z
 
-    const/16 v1, 0x10
-
-    if-lt v0, v1, :cond_0
-
-    invoke-virtual {p0, p1}, Landroid/app/Activity;->navigateUpTo(Landroid/content/Intent;)Z
-
-    goto :goto_0
-
-    :cond_0
-    const/high16 v0, 0x4000000
-
-    invoke-virtual {p1, v0}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
-
-    invoke-virtual {p0, p1}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
-
-    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
-
-    :goto_0
     return-void
 .end method
 
 .method public static shouldUpRecreateTask(Landroid/app/Activity;Landroid/content/Intent;)Z
-    .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "sourceActivity",
-            "targetIntent"
-        }
-    .end annotation
+    .locals 0
 
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x10
-
-    if-lt v0, v1, :cond_0
-
-    invoke-virtual {p0, p1}, Landroid/app/Activity;->shouldUpRecreateTask(Landroid/content/Intent;)Z
+    invoke-static {p0, p1}, Landroidx/core/app/NavUtils$Api16Impl;->shouldUpRecreateTask(Landroid/app/Activity;Landroid/content/Intent;)Z
 
     move-result p0
 
-    return p0
-
-    :cond_0
-    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Landroid/content/Intent;->getAction()Ljava/lang/String;
-
-    move-result-object p0
-
-    if-eqz p0, :cond_1
-
-    const-string p1, "android.intent.action.MAIN"
-
-    invoke-virtual {p0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p0
-
-    if-nez p0, :cond_1
-
-    const/4 p0, 0x1
-
-    goto :goto_0
-
-    :cond_1
-    const/4 p0, 0x0
-
-    :goto_0
     return p0
 .end method

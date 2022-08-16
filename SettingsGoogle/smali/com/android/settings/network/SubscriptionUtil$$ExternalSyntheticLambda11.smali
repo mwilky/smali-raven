@@ -1,45 +1,44 @@
 .class public final synthetic Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda11;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Predicate;
+.implements Ljava/util/function/Function;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda11;
+# instance fields
+.field public final synthetic f$0:Ljava/util/Set;
+
+.field public final synthetic f$1:Landroid/content/Context;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda11;
-
-    invoke-direct {v0}, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda11;-><init>()V
-
-    sput-object v0, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda11;->INSTANCE:Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda11;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Ljava/util/Set;Landroid/content/Context;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda11;->f$0:Ljava/util/Set;
+
+    iput-object p2, p0, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda11;->f$1:Landroid/content/Context;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final test(Ljava/lang/Object;)Z
-    .locals 0
+.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 1
 
-    check-cast p1, Landroid/telephony/SubscriptionInfo;
+    iget-object v0, p0, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda11;->f$0:Ljava/util/Set;
 
-    invoke-static {p1}, Lcom/android/settings/network/SubscriptionUtil;->$r8$lambda$UyGmnAS3aoptCkwwmzE5QiQDQyI(Landroid/telephony/SubscriptionInfo;)Z
+    iget-object p0, p0, Lcom/android/settings/network/SubscriptionUtil$$ExternalSyntheticLambda11;->f$1:Landroid/content/Context;
 
-    move-result p0
+    check-cast p1, Lcom/android/settings/network/SubscriptionUtil$1DisplayInfo;
 
-    return p0
+    invoke-static {v0, p0, p1}, Lcom/android/settings/network/SubscriptionUtil;->$r8$lambda$E0UGhSa4weEC3imZpd7SetzczSs(Ljava/util/Set;Landroid/content/Context;Lcom/android/settings/network/SubscriptionUtil$1DisplayInfo;)Lcom/android/settings/network/SubscriptionUtil$1DisplayInfo;
+
+    move-result-object p0
+
+    return-object p0
 .end method

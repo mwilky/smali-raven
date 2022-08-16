@@ -115,9 +115,9 @@
     :goto_0
     iget-object v0, p0, Lcom/android/settings/security/CredentialManagementAppPreferenceController;->mHandler:Landroid/os/Handler;
 
-    new-instance v1, Lcom/android/settings/security/CredentialManagementAppPreferenceController$$ExternalSyntheticLambda0;
+    new-instance v1, Lcom/android/settings/security/CredentialManagementAppPreferenceController$$ExternalSyntheticLambda1;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/settings/security/CredentialManagementAppPreferenceController$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/security/CredentialManagementAppPreferenceController;Landroidx/preference/Preference;)V
+    invoke-direct {v1, p0, p1}, Lcom/android/settings/security/CredentialManagementAppPreferenceController$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/security/CredentialManagementAppPreferenceController;Landroidx/preference/Preference;)V
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
@@ -126,14 +126,6 @@
 
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method displayPreference(Landroidx/preference/Preference;)V
     .locals 3
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
@@ -180,7 +172,7 @@
     :cond_0
     invoke-virtual {p1, v1}, Landroidx/preference/Preference;->setEnabled(Z)V
 
-    const p0, 0x7f040e1a
+    const p0, 0x7f040ea9
 
     invoke-virtual {p1, p0}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -198,15 +190,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -245,16 +228,6 @@
     return p0
 .end method
 
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
-
-    move-result p0
-
-    return p0
-.end method
-
 .method public bridge synthetic isPublicSlice()Z
     .locals 0
 
@@ -280,9 +253,9 @@
 
     iget-object v0, p0, Lcom/android/settings/security/CredentialManagementAppPreferenceController;->mExecutor:Ljava/util/concurrent/ExecutorService;
 
-    new-instance v1, Lcom/android/settings/security/CredentialManagementAppPreferenceController$$ExternalSyntheticLambda1;
+    new-instance v1, Lcom/android/settings/security/CredentialManagementAppPreferenceController$$ExternalSyntheticLambda0;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/settings/security/CredentialManagementAppPreferenceController$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/security/CredentialManagementAppPreferenceController;Landroidx/preference/Preference;)V
+    invoke-direct {v1, p0, p1}, Lcom/android/settings/security/CredentialManagementAppPreferenceController$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/security/CredentialManagementAppPreferenceController;Landroidx/preference/Preference;)V
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/ExecutorService;->execute(Ljava/lang/Runnable;)V
 

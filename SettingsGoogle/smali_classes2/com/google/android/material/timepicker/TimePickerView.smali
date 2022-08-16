@@ -22,12 +22,6 @@
 
 .field private final minuteView:Lcom/google/android/material/chip/Chip;
 
-.field private onDoubleTapListener:Lcom/google/android/material/timepicker/TimePickerView$OnDoubleTapListener;
-
-.field private onPeriodChangeListener:Lcom/google/android/material/timepicker/TimePickerView$OnPeriodChangeListener;
-
-.field private onSelectionChangeListener:Lcom/google/android/material/timepicker/TimePickerView$OnSelectionChange;
-
 .field private final selectionListener:Landroid/view/View$OnClickListener;
 
 .field private final toggle:Lcom/google/android/material/button/MaterialButtonToggleGroup;
@@ -109,25 +103,31 @@
 
     iput-object p1, p0, Lcom/google/android/material/timepicker/TimePickerView;->minuteView:Lcom/google/android/material/chip/Chip;
 
-    sget p1, Lcom/google/android/material/R$id;->material_hour_tv:I
+    sget p2, Lcom/google/android/material/R$id;->material_hour_tv:I
 
-    invoke-virtual {p0, p1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, p2}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
-    move-result-object p1
+    move-result-object p2
 
-    check-cast p1, Lcom/google/android/material/chip/Chip;
+    check-cast p2, Lcom/google/android/material/chip/Chip;
 
-    iput-object p1, p0, Lcom/google/android/material/timepicker/TimePickerView;->hourView:Lcom/google/android/material/chip/Chip;
+    iput-object p2, p0, Lcom/google/android/material/timepicker/TimePickerView;->hourView:Lcom/google/android/material/chip/Chip;
 
-    sget p1, Lcom/google/android/material/R$id;->material_clock_hand:I
+    sget p3, Lcom/google/android/material/R$id;->material_clock_hand:I
 
-    invoke-virtual {p0, p1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, p3}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
-    move-result-object p1
+    move-result-object p3
 
-    check-cast p1, Lcom/google/android/material/timepicker/ClockHandView;
+    check-cast p3, Lcom/google/android/material/timepicker/ClockHandView;
 
-    iput-object p1, p0, Lcom/google/android/material/timepicker/TimePickerView;->clockHandView:Lcom/google/android/material/timepicker/ClockHandView;
+    iput-object p3, p0, Lcom/google/android/material/timepicker/TimePickerView;->clockHandView:Lcom/google/android/material/timepicker/ClockHandView;
+
+    const/4 p3, 0x2
+
+    invoke-static {p1, p3}, Landroidx/core/view/ViewCompat;->setAccessibilityLiveRegion(Landroid/view/View;I)V
+
+    invoke-static {p2, p3}, Landroidx/core/view/ViewCompat;->setAccessibilityLiveRegion(Landroid/view/View;I)V
 
     invoke-direct {p0}, Lcom/google/android/material/timepicker/TimePickerView;->setupDoubleTap()V
 
@@ -139,7 +139,9 @@
 .method static synthetic access$000(Lcom/google/android/material/timepicker/TimePickerView;)Lcom/google/android/material/timepicker/TimePickerView$OnSelectionChange;
     .locals 0
 
-    iget-object p0, p0, Lcom/google/android/material/timepicker/TimePickerView;->onSelectionChangeListener:Lcom/google/android/material/timepicker/TimePickerView$OnSelectionChange;
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    const/4 p0, 0x0
 
     return-object p0
 .end method
@@ -147,7 +149,9 @@
 .method static synthetic access$100(Lcom/google/android/material/timepicker/TimePickerView;)Lcom/google/android/material/timepicker/TimePickerView$OnPeriodChangeListener;
     .locals 0
 
-    iget-object p0, p0, Lcom/google/android/material/timepicker/TimePickerView;->onPeriodChangeListener:Lcom/google/android/material/timepicker/TimePickerView$OnPeriodChangeListener;
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    const/4 p0, 0x0
 
     return-object p0
 .end method
@@ -155,7 +159,9 @@
 .method static synthetic access$200(Lcom/google/android/material/timepicker/TimePickerView;)Lcom/google/android/material/timepicker/TimePickerView$OnDoubleTapListener;
     .locals 0
 
-    iget-object p0, p0, Lcom/google/android/material/timepicker/TimePickerView;->onDoubleTapListener:Lcom/google/android/material/timepicker/TimePickerView$OnDoubleTapListener;
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    const/4 p0, 0x0
 
     return-object p0
 .end method

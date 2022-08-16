@@ -4,7 +4,6 @@
 
 # interfaces
 .implements Landroidx/transition/Transition$TransitionListener;
-.implements Landroidx/transition/AnimatorUtils$AnimatorPauseListenerCompat;
 
 
 # annotations

@@ -52,7 +52,7 @@
 
     iget-object p2, p0, Lcom/android/settings/SettingsActivity$1;->this$0:Lcom/android/settings/SettingsActivity;
 
-    invoke-static {p2}, Lcom/android/settings/SettingsActivity;->access$000(Lcom/android/settings/SettingsActivity;)Z
+    invoke-static {p2}, Lcom/android/settings/SettingsActivity;->-$$Nest$fgetmBatteryPresent(Lcom/android/settings/SettingsActivity;)Z
 
     move-result p2
 
@@ -60,11 +60,11 @@
 
     iget-object p2, p0, Lcom/android/settings/SettingsActivity$1;->this$0:Lcom/android/settings/SettingsActivity;
 
-    invoke-static {p2, p1}, Lcom/android/settings/SettingsActivity;->access$002(Lcom/android/settings/SettingsActivity;Z)Z
+    invoke-static {p2, p1}, Lcom/android/settings/SettingsActivity;->-$$Nest$fputmBatteryPresent(Lcom/android/settings/SettingsActivity;Z)V
 
     iget-object p0, p0, Lcom/android/settings/SettingsActivity$1;->this$0:Lcom/android/settings/SettingsActivity;
 
-    invoke-static {p0}, Lcom/android/settings/SettingsActivity;->access$100(Lcom/android/settings/SettingsActivity;)V
+    invoke-static {p0}, Lcom/android/settings/SettingsActivity;->-$$Nest$mupdateTilesList(Lcom/android/settings/SettingsActivity;)V
 
     :cond_0
     return-void

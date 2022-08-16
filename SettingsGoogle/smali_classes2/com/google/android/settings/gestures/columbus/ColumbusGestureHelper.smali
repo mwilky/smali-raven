@@ -28,6 +28,46 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmColumbusServiceGestureListener(Lcom/google/android/settings/gestures/columbus/ColumbusGestureHelper;)Lcom/google/android/systemui/columbus/IColumbusServiceGestureListener;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/settings/gestures/columbus/ColumbusGestureHelper;->mColumbusServiceGestureListener:Lcom/google/android/systemui/columbus/IColumbusServiceGestureListener;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmGestureListener(Lcom/google/android/settings/gestures/columbus/ColumbusGestureHelper;)Lcom/google/android/settings/gestures/columbus/ColumbusGestureHelper$GestureListener;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/settings/gestures/columbus/ColumbusGestureHelper;->mGestureListener:Lcom/google/android/settings/gestures/columbus/ColumbusGestureHelper$GestureListener;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmService(Lcom/google/android/settings/gestures/columbus/ColumbusGestureHelper;)Lcom/google/android/systemui/columbus/IColumbusService;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/settings/gestures/columbus/ColumbusGestureHelper;->mService:Lcom/google/android/systemui/columbus/IColumbusService;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmToken(Lcom/google/android/settings/gestures/columbus/ColumbusGestureHelper;)Landroid/os/IBinder;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/settings/gestures/columbus/ColumbusGestureHelper;->mToken:Landroid/os/IBinder;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmService(Lcom/google/android/settings/gestures/columbus/ColumbusGestureHelper;Lcom/google/android/systemui/columbus/IColumbusService;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/google/android/settings/gestures/columbus/ColumbusGestureHelper;->mService:Lcom/google/android/systemui/columbus/IColumbusService;
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
 
@@ -54,46 +94,6 @@
     iput-object p1, p0, Lcom/google/android/settings/gestures/columbus/ColumbusGestureHelper;->mContext:Landroid/content/Context;
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/google/android/settings/gestures/columbus/ColumbusGestureHelper;)Lcom/google/android/settings/gestures/columbus/ColumbusGestureHelper$GestureListener;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/settings/gestures/columbus/ColumbusGestureHelper;->mGestureListener:Lcom/google/android/settings/gestures/columbus/ColumbusGestureHelper$GestureListener;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/google/android/settings/gestures/columbus/ColumbusGestureHelper;)Lcom/google/android/systemui/columbus/IColumbusService;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/settings/gestures/columbus/ColumbusGestureHelper;->mService:Lcom/google/android/systemui/columbus/IColumbusService;
-
-    return-object p0
-.end method
-
-.method static synthetic access$102(Lcom/google/android/settings/gestures/columbus/ColumbusGestureHelper;Lcom/google/android/systemui/columbus/IColumbusService;)Lcom/google/android/systemui/columbus/IColumbusService;
-    .locals 0
-
-    iput-object p1, p0, Lcom/google/android/settings/gestures/columbus/ColumbusGestureHelper;->mService:Lcom/google/android/systemui/columbus/IColumbusService;
-
-    return-object p1
-.end method
-
-.method static synthetic access$200(Lcom/google/android/settings/gestures/columbus/ColumbusGestureHelper;)Landroid/os/IBinder;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/settings/gestures/columbus/ColumbusGestureHelper;->mToken:Landroid/os/IBinder;
-
-    return-object p0
-.end method
-
-.method static synthetic access$300(Lcom/google/android/settings/gestures/columbus/ColumbusGestureHelper;)Lcom/google/android/systemui/columbus/IColumbusServiceGestureListener;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/settings/gestures/columbus/ColumbusGestureHelper;->mColumbusServiceGestureListener:Lcom/google/android/systemui/columbus/IColumbusServiceGestureListener;
-
-    return-object p0
 .end method
 
 

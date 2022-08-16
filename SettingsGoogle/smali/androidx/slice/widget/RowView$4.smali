@@ -24,14 +24,6 @@
 # direct methods
 .method constructor <init>(Landroidx/slice/widget/RowView;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x8010
-        }
-        names = {
-            "this$0"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/slice/widget/RowView$4;->this$0:Landroidx/slice/widget/RowView;
 
@@ -44,18 +36,6 @@
 # virtual methods
 .method public onRatingChanged(Landroid/widget/RatingBar;FZ)V
     .locals 5
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "ratingBar",
-            "rating",
-            "fromUser"
-        }
-    .end annotation
 
     iget-object p1, p0, Landroidx/slice/widget/RowView$4;->this$0:Landroidx/slice/widget/RowView;
 

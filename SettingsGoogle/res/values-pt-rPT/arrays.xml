@@ -159,7 +159,7 @@
         <item>volume do toque</item>
         <item>volume de multimédia</item>
         <item>volume de alarme</item>
-        <item>volume de notificação</item>
+        <item>volume de notificações</item>
         <item>volume de Bluetooth</item>
         <item>Manter ativo</item>
         <item>monitorizar localização</item>
@@ -205,6 +205,7 @@
         <item>Mais de 60 dias</item>
         <item>Mais de 90 dias</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>0%</item>
         <item>50%</item>
@@ -348,17 +349,10 @@
         <item>Elevado</item>
         <item>Reduzido</item>
     </string-array>
-    <string-array name="captioning_font_size_selector_summaries">
-        <item>Tamanho do texto muito pequeno</item>
-        <item>Tamanho do texto pequeno</item>
-        <item>Tamanho do texto predefinido</item>
-        <item>Tamanho do texto grande</item>
-        <item>Tamanho do texto muito grande</item>
-    </string-array>
     <string-array name="captioning_font_size_selector_titles">
         <item>Muito pequeno</item>
         <item>Pequeno</item>
-        <item>Predefinição</item>
+        <item>Médio</item>
         <item>Grande</item>
         <item>Muito grande</item>
     </string-array>
@@ -456,7 +450,7 @@
     <string-array name="hdcp_checking_summaries">
         <item>Nunca utilizar a verificação HDCP</item>
         <item>Utilizar a verificação HDCP para conteúdo DRM apenas</item>
-        <item>Utilizar sempre a verificação HDCP</item>
+        <item>Usar sempre a verificação HDCP</item>
     </string-array>
     <string-array name="hdcp_checking_titles">
         <item>Nunca verificar</item>
@@ -489,6 +483,14 @@
         <item>SPN</item>
         <item>IMSI</item>
         <item>GID</item>
+    </string-array>
+    <string-array name="nfc_payment_favor">
+        <item>Sempre</item>
+        <item>Exceto quando outra app de pagamentos está aberta</item>
+    </string-array>
+    <string-array name="nfc_payment_favor_values">
+        <item>0</item>
+        <item>1</item>
     </string-array>
     <string-array name="overlay_display_devices_entries">
         <item>Nenhuma</item>
@@ -616,6 +618,17 @@
     <string-array name="swipe_direction_values">
         <item>1</item>
         <item>0</item>
+    </string-array>
+    <string-array name="switch_to_user_zero_when_docked_timeout_entries">
+        <item>Nunca</item>
+        <item>Após 1 minuto</item>
+        <item>Após 5 minutos</item>
+    </string-array>
+    <string-array name="tare_modifiers_subfactors">
+        <item>Carregamento</item>
+        <item>Soneca</item>
+        <item>Modo de poupança de energia</item>
+        <item>Estado do processo</item>
     </string-array>
     <string-array name="timezone_filters">
         <item>América</item>

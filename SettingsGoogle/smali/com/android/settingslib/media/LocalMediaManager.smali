@@ -16,18 +16,6 @@
 .end annotation
 
 
-# static fields
-.field private static final COMPARATOR:Ljava/util/Comparator;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/Comparator<",
-            "Lcom/android/settingslib/media/MediaDevice;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-
 # instance fields
 .field mBluetoothAdapter:Landroid/bluetooth/BluetoothAdapter;
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
@@ -104,14 +92,66 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
+.method static bridge synthetic -$$Nest$fgetmContext(Lcom/android/settingslib/media/LocalMediaManager;)Landroid/content/Context;
+    .locals 0
 
-    invoke-static {}, Ljava/util/Comparator;->naturalOrder()Ljava/util/Comparator;
+    iget-object p0, p0, Lcom/android/settingslib/media/LocalMediaManager;->mContext:Landroid/content/Context;
 
-    move-result-object v0
+    return-object p0
+.end method
 
-    sput-object v0, Lcom/android/settingslib/media/LocalMediaManager;->COMPARATOR:Ljava/util/Comparator;
+.method static bridge synthetic -$$Nest$fgetmInfoMediaManager(Lcom/android/settingslib/media/LocalMediaManager;)Lcom/android/settingslib/media/InfoMediaManager;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settingslib/media/LocalMediaManager;->mInfoMediaManager:Lcom/android/settingslib/media/InfoMediaManager;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmLocalBluetoothManager(Lcom/android/settingslib/media/LocalMediaManager;)Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settingslib/media/LocalMediaManager;->mLocalBluetoothManager:Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmMediaDevicesLock(Lcom/android/settingslib/media/LocalMediaManager;)Ljava/lang/Object;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settingslib/media/LocalMediaManager;->mMediaDevicesLock:Ljava/lang/Object;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmOnTransferBluetoothDevice(Lcom/android/settingslib/media/LocalMediaManager;)Lcom/android/settingslib/media/MediaDevice;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settingslib/media/LocalMediaManager;->mOnTransferBluetoothDevice:Lcom/android/settingslib/media/MediaDevice;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmPackageName(Lcom/android/settingslib/media/LocalMediaManager;)Ljava/lang/String;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settingslib/media/LocalMediaManager;->mPackageName:Ljava/lang/String;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmOnTransferBluetoothDevice(Lcom/android/settingslib/media/LocalMediaManager;Lcom/android/settingslib/media/MediaDevice;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/settingslib/media/LocalMediaManager;->mOnTransferBluetoothDevice:Lcom/android/settingslib/media/MediaDevice;
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$munRegisterDeviceAttributeChangeCallback(Lcom/android/settingslib/media/LocalMediaManager;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settingslib/media/LocalMediaManager;->unRegisterDeviceAttributeChangeCallback()V
 
     return-void
 .end method
@@ -199,78 +239,6 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/settingslib/media/LocalMediaManager;)Ljava/lang/Object;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/media/LocalMediaManager;->mMediaDevicesLock:Ljava/lang/Object;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100()Ljava/util/Comparator;
-    .locals 1
-
-    sget-object v0, Lcom/android/settingslib/media/LocalMediaManager;->COMPARATOR:Ljava/util/Comparator;
-
-    return-object v0
-.end method
-
-.method static synthetic access$200(Lcom/android/settingslib/media/LocalMediaManager;)Lcom/android/settingslib/media/InfoMediaManager;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/media/LocalMediaManager;->mInfoMediaManager:Lcom/android/settingslib/media/InfoMediaManager;
-
-    return-object p0
-.end method
-
-.method static synthetic access$300(Lcom/android/settingslib/media/LocalMediaManager;)Lcom/android/settingslib/media/MediaDevice;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/media/LocalMediaManager;->mOnTransferBluetoothDevice:Lcom/android/settingslib/media/MediaDevice;
-
-    return-object p0
-.end method
-
-.method static synthetic access$302(Lcom/android/settingslib/media/LocalMediaManager;Lcom/android/settingslib/media/MediaDevice;)Lcom/android/settingslib/media/MediaDevice;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/settingslib/media/LocalMediaManager;->mOnTransferBluetoothDevice:Lcom/android/settingslib/media/MediaDevice;
-
-    return-object p1
-.end method
-
-.method static synthetic access$400(Lcom/android/settingslib/media/LocalMediaManager;)Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/media/LocalMediaManager;->mLocalBluetoothManager:Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
-
-    return-object p0
-.end method
-
-.method static synthetic access$500(Lcom/android/settingslib/media/LocalMediaManager;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settingslib/media/LocalMediaManager;->unRegisterDeviceAttributeChangeCallback()V
-
-    return-void
-.end method
-
-.method static synthetic access$600(Lcom/android/settingslib/media/LocalMediaManager;)Landroid/content/Context;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/media/LocalMediaManager;->mContext:Landroid/content/Context;
-
-    return-object p0
-.end method
-
-.method static synthetic access$700(Lcom/android/settingslib/media/LocalMediaManager;)Ljava/lang/String;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/media/LocalMediaManager;->mPackageName:Ljava/lang/String;
-
-    return-object p0
-.end method
-
 .method private getCallbacks()Ljava/util/Collection;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
@@ -292,7 +260,7 @@
 .end method
 
 .method private isActiveDevice(Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;)Z
-    .locals 3
+    .locals 4
 
     iget-object v0, p0, Lcom/android/settingslib/media/LocalMediaManager;->mLocalBluetoothManager:Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
 
@@ -328,19 +296,53 @@
     :goto_0
     if-nez v0, :cond_1
 
+    iget-object v2, p0, Lcom/android/settingslib/media/LocalMediaManager;->mLocalBluetoothManager:Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
+
+    invoke-virtual {v2}, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;->getProfileManager()Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;->getHearingAidProfile()Lcom/android/settingslib/bluetooth/HearingAidProfile;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_1
+
+    invoke-virtual {v2}, Lcom/android/settingslib/bluetooth/HearingAidProfile;->getActiveDevices()Ljava/util/List;
+
+    move-result-object v2
+
+    invoke-virtual {p1}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->getDevice()Landroid/bluetooth/BluetoothDevice;
+
+    move-result-object v3
+
+    invoke-interface {v2, v3}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    goto :goto_1
+
+    :cond_1
+    move v2, v1
+
+    :goto_1
+    if-nez v0, :cond_2
+
+    if-nez v2, :cond_2
+
     iget-object p0, p0, Lcom/android/settingslib/media/LocalMediaManager;->mLocalBluetoothManager:Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
 
     invoke-virtual {p0}, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;->getProfileManager()Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
 
     move-result-object p0
 
-    invoke-virtual {p0}, Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;->getHearingAidProfile()Lcom/android/settingslib/bluetooth/HearingAidProfile;
+    invoke-virtual {p0}, Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;->getLeAudioProfile()Lcom/android/settingslib/bluetooth/LeAudioProfile;
 
     move-result-object p0
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_2
 
-    invoke-virtual {p0}, Lcom/android/settingslib/bluetooth/HearingAidProfile;->getActiveDevices()Ljava/util/List;
+    invoke-virtual {p0}, Lcom/android/settingslib/bluetooth/LeAudioProfile;->getActiveDevices()Ljava/util/List;
 
     move-result-object p0
 
@@ -352,20 +354,22 @@
 
     move-result p0
 
-    goto :goto_1
-
-    :cond_1
-    move p0, v1
-
-    :goto_1
-    if-nez v0, :cond_2
-
-    if-eqz p0, :cond_3
+    goto :goto_2
 
     :cond_2
-    const/4 v1, 0x1
+    move p0, v1
+
+    :goto_2
+    if-nez v0, :cond_3
+
+    if-nez v2, :cond_3
+
+    if-eqz p0, :cond_4
 
     :cond_3
+    const/4 v1, 0x1
+
+    :cond_4
     return v1
 .end method
 

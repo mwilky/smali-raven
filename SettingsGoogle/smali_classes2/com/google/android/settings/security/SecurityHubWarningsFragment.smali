@@ -148,9 +148,9 @@
 
     invoke-virtual {v3, v2}, Landroidx/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
 
-    new-instance v2, Lcom/google/android/settings/security/SecurityHubWarningsFragment$$ExternalSyntheticLambda1;
+    new-instance v2, Lcom/google/android/settings/security/SecurityHubWarningsFragment$$ExternalSyntheticLambda0;
 
-    invoke-direct {v2, p0, v1, v3}, Lcom/google/android/settings/security/SecurityHubWarningsFragment$$ExternalSyntheticLambda1;-><init>(Lcom/google/android/settings/security/SecurityHubWarningsFragment;Landroid/content/Context;Landroidx/preference/PreferenceCategory;)V
+    invoke-direct {v2, p0, v1, v3}, Lcom/google/android/settings/security/SecurityHubWarningsFragment$$ExternalSyntheticLambda0;-><init>(Lcom/google/android/settings/security/SecurityHubWarningsFragment;Landroid/content/Context;Landroidx/preference/PreferenceCategory;)V
 
     invoke-interface {v0, v2}, Ljava/util/List;->forEach(Ljava/util/function/Consumer;)V
 
@@ -182,7 +182,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f1500d2
+    const p0, 0x7f1500d7
 
     return p0
 .end method
@@ -218,9 +218,9 @@
 
     if-eqz v0, :cond_0
 
-    new-instance v1, Lcom/google/android/settings/security/SecurityHubWarningsFragment$$ExternalSyntheticLambda0;
+    new-instance v1, Lcom/google/android/settings/security/SecurityHubWarningsFragment$$ExternalSyntheticLambda1;
 
-    invoke-direct {v1, p0}, Lcom/google/android/settings/security/SecurityHubWarningsFragment$$ExternalSyntheticLambda0;-><init>(Lcom/google/android/settings/security/SecurityHubWarningsFragment;)V
+    invoke-direct {v1, p0}, Lcom/google/android/settings/security/SecurityHubWarningsFragment$$ExternalSyntheticLambda1;-><init>(Lcom/google/android/settings/security/SecurityHubWarningsFragment;)V
 
     invoke-virtual {v0, v1}, Landroid/app/Activity;->runOnUiThread(Ljava/lang/Runnable;)V
 

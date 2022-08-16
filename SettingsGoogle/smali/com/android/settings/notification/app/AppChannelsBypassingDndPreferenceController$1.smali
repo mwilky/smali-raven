@@ -45,7 +45,7 @@
 
     iget-object v0, p0, Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController$1;->this$0:Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;
 
-    invoke-static {v0}, Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;->access$000(Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;)Ljava/util/List;
+    invoke-static {v0}, Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;->-$$Nest$fgetmChannels(Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;)Ljava/util/List;
 
     move-result-object v0
 
@@ -71,7 +71,7 @@
 
     iget-object v3, p0, Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController$1;->this$0:Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;
 
-    invoke-static {v3, v1}, Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;->access$100(Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;Landroid/app/NotificationChannel;)Z
+    invoke-static {v3, v1}, Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;->-$$Nest$mshowNotification(Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;Landroid/app/NotificationChannel;)Z
 
     move-result v3
 
@@ -109,7 +109,7 @@
     :goto_1
     iget-object v0, p0, Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController$1;->this$0:Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;
 
-    invoke-static {v0}, Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;->access$200(Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;)Landroidx/preference/PreferenceCategory;
+    invoke-static {v0}, Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;->-$$Nest$fgetmPreferenceCategory(Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;)Landroidx/preference/PreferenceCategory;
 
     move-result-object v0
 
@@ -121,7 +121,7 @@
 
     iget-object v0, p0, Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController$1;->this$0:Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;
 
-    invoke-static {v0}, Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;->access$200(Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;)Landroidx/preference/PreferenceCategory;
+    invoke-static {v0}, Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;->-$$Nest$fgetmPreferenceCategory(Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;)Landroidx/preference/PreferenceCategory;
 
     move-result-object v0
 
@@ -129,11 +129,11 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/android/settings/widget/PrimarySwitchPreference;
+    check-cast v0, Lcom/android/settingslib/PrimarySwitchPreference;
 
     iget-object v1, p0, Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController$1;->this$0:Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;
 
-    invoke-static {v1}, Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;->access$000(Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;)Ljava/util/List;
+    invoke-static {v1}, Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;->-$$Nest$fgetmChannels(Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;)Ljava/util/List;
 
     move-result-object v3
 
@@ -145,11 +145,11 @@
 
     check-cast v3, Landroid/app/NotificationChannel;
 
-    invoke-static {v1, v3}, Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;->access$300(Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;Landroid/app/NotificationChannel;)Z
+    invoke-static {v1, v3}, Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;->-$$Nest$mshowNotificationInDnd(Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;Landroid/app/NotificationChannel;)Z
 
     move-result v1
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/widget/PrimarySwitchPreference;->setChecked(Z)V
+    invoke-virtual {v0, v1}, Lcom/android/settingslib/PrimarySwitchPreference;->setChecked(Z)V
 
     add-int/lit8 p1, p1, 0x1
 

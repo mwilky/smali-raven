@@ -14,14 +14,6 @@
 
 .method public static isDeclared(Landroid/content/Context;)Z
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "applicationContext"
-        }
-    .end annotation
 
     new-instance v0, Landroid/content/Intent;
 
@@ -61,16 +53,6 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "intent"
-        }
-    .end annotation
 
     return-void
 .end method

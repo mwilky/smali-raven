@@ -4,8 +4,8 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lokio/Timeout;-><clinit>()V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lokio/Timeout;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;

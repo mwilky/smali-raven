@@ -6,14 +6,6 @@
 # direct methods
 .method public static beginSection(Ljava/lang/String;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "label"
-        }
-    .end annotation
 
     invoke-static {p0}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
 

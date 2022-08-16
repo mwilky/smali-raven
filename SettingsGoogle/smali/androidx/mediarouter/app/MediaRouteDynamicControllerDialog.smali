@@ -50,6 +50,8 @@
 
 .field mDescription:Landroid/support/v4/media/MediaDescriptionCompat;
 
+.field final mEnableGroupVolumeUX:Z
+
 .field mFetchArtTask:Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog$FetchArtTask;
 
 .field final mGroupableRoutes:Ljava/util/List;
@@ -172,14 +174,6 @@
 
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "context"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -190,16 +184,6 @@
 
 .method public constructor <init>(Landroid/content/Context;I)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "theme"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -259,6 +243,12 @@
 
     iput-object p1, p0, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog;->mRouter:Landroidx/mediarouter/media/MediaRouter;
 
+    invoke-static {}, Landroidx/mediarouter/media/MediaRouter;->isGroupVolumeUxEnabled()Z
+
+    move-result p2
+
+    iput-boolean p2, p0, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog;->mEnableGroupVolumeUX:Z
+
     new-instance p2, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog$MediaRouterCallback;
 
     invoke-direct {p2, p0}, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog$MediaRouterCallback;-><init>(Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog;)V
@@ -288,18 +278,6 @@
 
 .method private static blurBitmap(Landroid/graphics/Bitmap;FLandroid/content/Context;)Landroid/graphics/Bitmap;
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "bitmap",
-            "radius",
-            "context"
-        }
-    .end annotation
 
     invoke-static {p2}, Landroid/renderscript/RenderScript;->create(Landroid/content/Context;)Landroid/renderscript/RenderScript;
 
@@ -356,14 +334,6 @@
 
 .method static isBitmapRecycled(Landroid/graphics/Bitmap;)Z
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "bitmap"
-        }
-    .end annotation
 
     if-eqz p0, :cond_0
 
@@ -386,16 +356,6 @@
 
 .method static setLayoutHeight(Landroid/view/View;I)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "view",
-            "height"
-        }
-    .end annotation
 
     invoke-virtual {p0}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
@@ -410,14 +370,6 @@
 
 .method private setMediaSession(Landroid/support/v4/media/session/MediaSessionCompat$Token;)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "sessionToken"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog;->mMediaController:Landroid/support/v4/media/session/MediaControllerCompat;
 
@@ -627,14 +579,6 @@
 
 .method protected onCreate(Landroid/os/Bundle;)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "savedInstanceState"
-        }
-    .end annotation
 
     invoke-super {p0, p1}, Landroidx/appcompat/app/AppCompatDialog;->onCreate(Landroid/os/Bundle;)V
 
@@ -839,14 +783,6 @@
 
 .method public onFilterRoute(Landroidx/mediarouter/media/MediaRouter$RouteInfo;)Z
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "route"
-        }
-    .end annotation
 
     invoke-virtual {p1}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->isDefaultOrBluetooth()Z
 
@@ -885,15 +821,6 @@
 
 .method public onFilterRoutes(Ljava/util/List;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "routes"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1034,14 +961,6 @@
 
 .method public setRouteSelector(Landroidx/mediarouter/media/MediaRouteSelector;)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "selector"
-        }
-    .end annotation
 
     if-eqz p1, :cond_1
 
@@ -1081,7 +1000,7 @@
     :cond_1
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string p1, "selector must not be null"
+    const-string/jumbo p1, "selector must not be null"
 
     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
@@ -1170,7 +1089,7 @@
 
     const/16 v4, 0x8
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_3
 
     iget-object v2, p0, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog;->mArtIconLoadedBitmap:Landroid/graphics/Bitmap;
 
@@ -1178,11 +1097,11 @@
 
     move-result v2
 
-    if-nez v2, :cond_4
+    if-nez v2, :cond_3
 
     iget-object v2, p0, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog;->mArtIconLoadedBitmap:Landroid/graphics/Bitmap;
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_3
 
     iget-object v2, p0, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog;->mArtView:Landroid/widget/ImageView;
 
@@ -1204,12 +1123,6 @@
 
     invoke-virtual {v2, v0}, Landroid/view/View;->setVisibility(I)V
 
-    sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v5, 0x11
-
-    if-lt v2, v5, :cond_3
-
     iget-object v2, p0, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog;->mArtIconLoadedBitmap:Landroid/graphics/Bitmap;
 
     const/high16 v5, 0x41200000    # 10.0f
@@ -1227,26 +1140,13 @@
     goto :goto_0
 
     :cond_3
-    iget-object v2, p0, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog;->mMetadataBackground:Landroid/widget/ImageView;
-
-    iget-object v5, p0, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog;->mArtIconLoadedBitmap:Landroid/graphics/Bitmap;
-
-    invoke-static {v5}, Landroid/graphics/Bitmap;->createBitmap(Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
-
-    move-result-object v5
-
-    invoke-virtual {v2, v5}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
-
-    goto :goto_0
-
-    :cond_4
     iget-object v2, p0, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog;->mArtIconLoadedBitmap:Landroid/graphics/Bitmap;
 
     invoke-static {v2}, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog;->isBitmapRecycled(Landroid/graphics/Bitmap;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_4
 
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -1268,7 +1168,7 @@
 
     invoke-static {v5, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_5
+    :cond_4
     iget-object v2, p0, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog;->mArtView:Landroid/widget/ImageView;
 
     invoke-virtual {v2, v4}, Landroid/widget/ImageView;->setVisibility(I)V
@@ -1286,13 +1186,13 @@
 
     iget-object v2, p0, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog;->mDescription:Landroid/support/v4/media/MediaDescriptionCompat;
 
-    if-nez v2, :cond_6
+    if-nez v2, :cond_5
 
     move-object v2, v3
 
     goto :goto_1
 
-    :cond_6
+    :cond_5
     invoke-virtual {v2}, Landroid/support/v4/media/MediaDescriptionCompat;->getTitle()Ljava/lang/CharSequence;
 
     move-result-object v2
@@ -1306,11 +1206,11 @@
 
     iget-object v6, p0, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog;->mDescription:Landroid/support/v4/media/MediaDescriptionCompat;
 
-    if-nez v6, :cond_7
+    if-nez v6, :cond_6
 
     goto :goto_2
 
-    :cond_7
+    :cond_6
     invoke-virtual {v6}, Landroid/support/v4/media/MediaDescriptionCompat;->getSubtitle()Ljava/lang/CharSequence;
 
     move-result-object v3
@@ -1322,7 +1222,7 @@
 
     xor-int/2addr v1, v6
 
-    if-eqz v5, :cond_8
+    if-eqz v5, :cond_7
 
     iget-object v5, p0, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog;->mTitleView:Landroid/widget/TextView;
 
@@ -1330,7 +1230,7 @@
 
     goto :goto_3
 
-    :cond_8
+    :cond_7
     iget-object v2, p0, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog;->mTitleView:Landroid/widget/TextView;
 
     iget-object v5, p0, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog;->mTitlePlaceholder:Ljava/lang/String;
@@ -1338,7 +1238,7 @@
     invoke-virtual {v2, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     :goto_3
-    if-eqz v1, :cond_9
+    if-eqz v1, :cond_8
 
     iget-object v1, p0, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog;->mSubtitleView:Landroid/widget/TextView;
 
@@ -1350,7 +1250,7 @@
 
     goto :goto_4
 
-    :cond_9
+    :cond_8
     iget-object p0, p0, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog;->mSubtitleView:Landroid/widget/TextView;
 
     invoke-virtual {p0, v4}, Landroid/widget/TextView;->setVisibility(I)V

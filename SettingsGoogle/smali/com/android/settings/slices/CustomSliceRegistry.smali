@@ -552,7 +552,7 @@
 
     move-result-object v14
 
-    const-string v15, "ring_volume"
+    const-string/jumbo v15, "ring_volume"
 
     invoke-virtual {v14, v15}, Landroid/net/Uri$Builder;->appendPath(Ljava/lang/String;)Landroid/net/Uri$Builder;
 
@@ -776,7 +776,7 @@
 
     move-result-object v14
 
-    const-string v15, "remote_media"
+    const-string/jumbo v15, "remote_media"
 
     invoke-virtual {v14, v15}, Landroid/net/Uri$Builder;->appendPath(Ljava/lang/String;)Landroid/net/Uri$Builder;
 

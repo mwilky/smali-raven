@@ -233,11 +233,11 @@
         <item quantity="one">已关闭 %d 个类别</item>
     </plurals>
     <plurals name="notifications_sent_daily">
-        <item quantity="other">每天大约 %d 条通知</item>
+        <item quantity="other">每天大约 %,d 条通知</item>
         <item quantity="one">每天大约 %d 条通知</item>
     </plurals>
     <plurals name="notifications_sent_weekly">
-        <item quantity="other">每周大约 %d 条通知</item>
+        <item quantity="other">每周大约 %,d 条通知</item>
         <item quantity="one">每周大约 %d 条通知</item>
     </plurals>
     <plurals name="number_of_device_admins">
@@ -328,22 +328,6 @@
         <item quantity="other">信任或移除证书</item>
         <item quantity="one">信任或移除证书</item>
     </plurals>
-    <plurals name="ssl_ca_cert_info_message">
-        <item quantity="other">"%s 已为您的工作资料安装多个证书授权中心，它们可用于监控您的工作网络活动（包括使用电子邮件、应用和安全网站）。
-
-如需详细了解这些证书，请与您的管理员联系。"</item>
-        <item quantity="one">"%s 已为您的工作资料安装一个证书授权中心，它可用于监控您的工作网络活动（包括使用电子邮件、应用和安全网站）。
-
-如需详细了解此证书，请与您的管理员联系。"</item>
-    </plurals>
-    <plurals name="ssl_ca_cert_info_message_device_owner">
-        <item quantity="other">"%s 已在您的设备上安装多个证书授权中心，它们可用于监控您的设备网络活动（包括使用电子邮件、应用和安全网站）。
-
-如需详细了解这些证书，请与您的管理员联系。"</item>
-        <item quantity="one">"%s 已在您的设备上安装一个证书授权中心，它可用于监控您的设备网络活动（包括使用电子邮件、应用和安全网站）。
-
-如需详细了解此证书，请与您的管理员联系。"</item>
-    </plurals>
     <plurals name="ssl_ca_cert_settings_button">
         <item quantity="other">检查证书</item>
         <item quantity="one">检查证书</item>
@@ -375,10 +359,6 @@
     <plurals name="wifi_saved_passpoint_access_points_summary">
         <item quantity="other">%d 项订阅内容</item>
         <item quantity="one">1 项订阅内容</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">已连接 %1$d 个设备</item>
-        <item quantity="one">已连接 %1$d 个设备</item>
     </plurals>
     <plurals name="wrong_pin_code">
         <item quantity="other">SIM 卡 PIN 码不正确，您还可尝试 %d 次。</item>

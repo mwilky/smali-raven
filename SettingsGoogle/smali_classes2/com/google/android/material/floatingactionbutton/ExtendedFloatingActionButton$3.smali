@@ -19,8 +19,6 @@
 
 .field final synthetic this$0:Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;
 
-.field final synthetic val$callback:Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$OnChangedCallback;
-
 .field final synthetic val$strategy:Lcom/google/android/material/floatingactionbutton/MotionStrategy;
 
 
@@ -64,11 +62,11 @@
 
     if-nez p1, :cond_0
 
-    iget-object p1, p0, Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$3;->val$strategy:Lcom/google/android/material/floatingactionbutton/MotionStrategy;
+    iget-object p0, p0, Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$3;->val$strategy:Lcom/google/android/material/floatingactionbutton/MotionStrategy;
 
-    iget-object p0, p0, Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$3;->val$callback:Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$OnChangedCallback;
+    const/4 p1, 0x0
 
-    invoke-interface {p1, p0}, Lcom/google/android/material/floatingactionbutton/MotionStrategy;->onChange(Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$OnChangedCallback;)V
+    invoke-interface {p0, p1}, Lcom/google/android/material/floatingactionbutton/MotionStrategy;->onChange(Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$OnChangedCallback;)V
 
     :cond_0
     return-void

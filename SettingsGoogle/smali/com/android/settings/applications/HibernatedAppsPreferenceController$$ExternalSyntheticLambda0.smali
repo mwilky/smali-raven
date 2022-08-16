@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/settings/applications/HibernatedAppsPreferenceController$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/settings/applications/HibernatedAppsPreferenceController$UnusedCountLoadedCallback;
+.implements Ljava/util/function/IntConsumer;
 
 
 # instance fields
@@ -22,12 +23,12 @@
 
 
 # virtual methods
-.method public final onUnusedCountLoaded(I)V
+.method public final accept(I)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/settings/applications/HibernatedAppsPreferenceController$$ExternalSyntheticLambda0;->f$0:Lcom/android/settings/applications/HibernatedAppsPreferenceController;
 
-    invoke-static {p0, p1}, Lcom/android/settings/applications/HibernatedAppsPreferenceController;->$r8$lambda$m0VtmPU9IwveVsQaxCT2TW3-qDk(Lcom/android/settings/applications/HibernatedAppsPreferenceController;I)V
+    invoke-static {p0, p1}, Lcom/android/settings/applications/HibernatedAppsPreferenceController;->$r8$lambda$ezSc-X7xPJRDs0eVB1pXba4F6S8(Lcom/android/settings/applications/HibernatedAppsPreferenceController;I)V
 
     return-void
 .end method

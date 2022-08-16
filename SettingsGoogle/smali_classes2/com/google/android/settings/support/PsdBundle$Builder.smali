@@ -63,6 +63,22 @@
     return p0
 .end method
 
+.method static bridge synthetic -$$Nest$fgetmSignalKeys(Lcom/google/android/settings/support/PsdBundle$Builder;)Ljava/util/List;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/settings/support/PsdBundle$Builder;->mSignalKeys:Ljava/util/List;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmSignalValues(Lcom/google/android/settings/support/PsdBundle$Builder;)Ljava/util/List;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/settings/support/PsdBundle$Builder;->mSignalValues:Ljava/util/List;
+
+    return-object p0
+.end method
+
 .method public constructor <init>(Landroid/content/Context;J)V
     .locals 1
 
@@ -117,22 +133,6 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/google/android/settings/support/PsdBundle$Builder;)Ljava/util/List;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/settings/support/PsdBundle$Builder;->mSignalKeys:Ljava/util/List;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/google/android/settings/support/PsdBundle$Builder;)Ljava/util/List;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/settings/support/PsdBundle$Builder;->mSignalValues:Ljava/util/List;
-
-    return-object p0
-.end method
-
 .method private addTelephonyCursorSignals(Ljava/lang/String;)Lcom/google/android/settings/support/PsdBundle$Builder;
     .locals 6
 
@@ -166,7 +166,7 @@
 
     move-result-object v0
 
-    invoke-static {}, Lcom/google/android/settings/support/PsdBundle;->access$300()[Ljava/lang/String;
+    invoke-static {}, Lcom/google/android/settings/support/PsdBundle;->-$$Nest$sfgetTELEPHONY_PROJECTION()[Ljava/lang/String;
 
     move-result-object v2
 
@@ -933,7 +933,9 @@
 
     move-result-object v0
 
-    sget-object v1, Lcom/google/android/settings/support/PsdBundle$Builder$$ExternalSyntheticLambda0;->INSTANCE:Lcom/google/android/settings/support/PsdBundle$Builder$$ExternalSyntheticLambda0;
+    new-instance v1, Lcom/google/android/settings/support/PsdBundle$Builder$$ExternalSyntheticLambda0;
+
+    invoke-direct {v1}, Lcom/google/android/settings/support/PsdBundle$Builder$$ExternalSyntheticLambda0;-><init>()V
 
     invoke-interface {v0, v1}, Ljava/util/List;->sort(Ljava/util/Comparator;)V
 
@@ -1070,7 +1072,7 @@
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, p0, v1}, Lcom/google/android/settings/support/PsdBundle;-><init>(Lcom/google/android/settings/support/PsdBundle$Builder;Lcom/google/android/settings/support/PsdBundle$1;)V
+    invoke-direct {v0, p0, v1}, Lcom/google/android/settings/support/PsdBundle;-><init>(Lcom/google/android/settings/support/PsdBundle$Builder;Lcom/google/android/settings/support/PsdBundle-IA;)V
 
     return-object v0
 .end method

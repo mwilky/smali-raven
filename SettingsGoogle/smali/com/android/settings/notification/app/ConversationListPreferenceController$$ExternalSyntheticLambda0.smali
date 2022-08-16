@@ -1,45 +1,36 @@
 .class public final synthetic Lcom/android/settings/notification/app/ConversationListPreferenceController$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroidx/preference/Preference$OnPreferenceClickListener;
+.implements Ljava/util/function/Predicate;
 
 
 # instance fields
 .field public final synthetic f$0:Lcom/android/settings/notification/app/ConversationListPreferenceController;
 
-.field public final synthetic f$1:Landroid/service/notification/ConversationChannelWrapper;
-
-.field public final synthetic f$2:Lcom/android/settingslib/widget/AppPreference;
-
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/settings/notification/app/ConversationListPreferenceController;Landroid/service/notification/ConversationChannelWrapper;Lcom/android/settingslib/widget/AppPreference;)V
+.method public synthetic constructor <init>(Lcom/android/settings/notification/app/ConversationListPreferenceController;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/settings/notification/app/ConversationListPreferenceController$$ExternalSyntheticLambda0;->f$0:Lcom/android/settings/notification/app/ConversationListPreferenceController;
 
-    iput-object p2, p0, Lcom/android/settings/notification/app/ConversationListPreferenceController$$ExternalSyntheticLambda0;->f$1:Landroid/service/notification/ConversationChannelWrapper;
-
-    iput-object p3, p0, Lcom/android/settings/notification/app/ConversationListPreferenceController$$ExternalSyntheticLambda0;->f$2:Lcom/android/settingslib/widget/AppPreference;
-
     return-void
 .end method
 
 
 # virtual methods
-.method public final onPreferenceClick(Landroidx/preference/Preference;)Z
-    .locals 2
+.method public final test(Ljava/lang/Object;)Z
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/settings/notification/app/ConversationListPreferenceController$$ExternalSyntheticLambda0;->f$0:Lcom/android/settings/notification/app/ConversationListPreferenceController;
+    iget-object p0, p0, Lcom/android/settings/notification/app/ConversationListPreferenceController$$ExternalSyntheticLambda0;->f$0:Lcom/android/settings/notification/app/ConversationListPreferenceController;
 
-    iget-object v1, p0, Lcom/android/settings/notification/app/ConversationListPreferenceController$$ExternalSyntheticLambda0;->f$1:Landroid/service/notification/ConversationChannelWrapper;
+    check-cast p1, Landroid/service/notification/ConversationChannelWrapper;
 
-    iget-object p0, p0, Lcom/android/settings/notification/app/ConversationListPreferenceController$$ExternalSyntheticLambda0;->f$2:Lcom/android/settingslib/widget/AppPreference;
-
-    invoke-static {v0, v1, p0, p1}, Lcom/android/settings/notification/app/ConversationListPreferenceController;->$r8$lambda$Gw_R_yoAMnvV_8YshQuX4ZJpyRo(Lcom/android/settings/notification/app/ConversationListPreferenceController;Landroid/service/notification/ConversationChannelWrapper;Lcom/android/settingslib/widget/AppPreference;Landroidx/preference/Preference;)Z
+    invoke-static {p0, p1}, Lcom/android/settings/notification/app/ConversationListPreferenceController;->$r8$lambda$ld4LOOZQxMRXNlMYrIRyx5j8bL8(Lcom/android/settings/notification/app/ConversationListPreferenceController;Landroid/service/notification/ConversationChannelWrapper;)Z
 
     move-result p0
 

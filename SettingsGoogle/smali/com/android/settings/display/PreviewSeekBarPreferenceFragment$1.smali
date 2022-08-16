@@ -51,7 +51,7 @@
 
     iget-object p0, p0, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment$1;->this$0:Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;
 
-    invoke-static {p0}, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;->access$400(Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;)Landroidx/viewpager/widget/ViewPager;
+    invoke-static {p0}, Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;->-$$Nest$fgetmPreviewPager(Lcom/android/settings/display/PreviewSeekBarPreferenceFragment;)Landroidx/viewpager/widget/ViewPager;
 
     move-result-object p0
 

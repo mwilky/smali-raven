@@ -33,6 +33,38 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmAnomalyTypes(Lcom/android/settings/fuelgauge/batterytip/AppInfo$Builder;)Landroid/util/ArraySet;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/fuelgauge/batterytip/AppInfo$Builder;->mAnomalyTypes:Landroid/util/ArraySet;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmPackageName(Lcom/android/settings/fuelgauge/batterytip/AppInfo$Builder;)Ljava/lang/String;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/fuelgauge/batterytip/AppInfo$Builder;->mPackageName:Ljava/lang/String;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmScreenOnTimeMs(Lcom/android/settings/fuelgauge/batterytip/AppInfo$Builder;)J
+    .locals 2
+
+    iget-wide v0, p0, Lcom/android/settings/fuelgauge/batterytip/AppInfo$Builder;->mScreenOnTimeMs:J
+
+    return-wide v0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmUid(Lcom/android/settings/fuelgauge/batterytip/AppInfo$Builder;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/settings/fuelgauge/batterytip/AppInfo$Builder;->mUid:I
+
+    return p0
+.end method
+
 .method public constructor <init>()V
     .locals 1
 
@@ -45,38 +77,6 @@
     iput-object v0, p0, Lcom/android/settings/fuelgauge/batterytip/AppInfo$Builder;->mAnomalyTypes:Landroid/util/ArraySet;
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/fuelgauge/batterytip/AppInfo$Builder;)Ljava/lang/String;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/fuelgauge/batterytip/AppInfo$Builder;->mPackageName:Ljava/lang/String;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/fuelgauge/batterytip/AppInfo$Builder;)Landroid/util/ArraySet;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/fuelgauge/batterytip/AppInfo$Builder;->mAnomalyTypes:Landroid/util/ArraySet;
-
-    return-object p0
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/fuelgauge/batterytip/AppInfo$Builder;)J
-    .locals 2
-
-    iget-wide v0, p0, Lcom/android/settings/fuelgauge/batterytip/AppInfo$Builder;->mScreenOnTimeMs:J
-
-    return-wide v0
-.end method
-
-.method static synthetic access$300(Lcom/android/settings/fuelgauge/batterytip/AppInfo$Builder;)I
-    .locals 0
-
-    iget p0, p0, Lcom/android/settings/fuelgauge/batterytip/AppInfo$Builder;->mUid:I
-
-    return p0
 .end method
 
 
@@ -102,7 +102,7 @@
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, p0, v1}, Lcom/android/settings/fuelgauge/batterytip/AppInfo;-><init>(Lcom/android/settings/fuelgauge/batterytip/AppInfo$Builder;Lcom/android/settings/fuelgauge/batterytip/AppInfo$1;)V
+    invoke-direct {v0, p0, v1}, Lcom/android/settings/fuelgauge/batterytip/AppInfo;-><init>(Lcom/android/settings/fuelgauge/batterytip/AppInfo$Builder;Lcom/android/settings/fuelgauge/batterytip/AppInfo-IA;)V
 
     return-object v0
 .end method

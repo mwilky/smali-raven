@@ -3,23 +3,27 @@
 .source "ToggleColorInversionPreferenceFragment.java"
 
 
-# instance fields
-.field private final mHandler:Landroid/os/Handler;
-
-.field private mSettingsContentObserver:Lcom/android/settings/accessibility/SettingsContentObserver;
-
-
 # direct methods
+.method public static synthetic $r8$lambda$CY93GyrGRFaZn8IDgj_zXkkLoVc(Lcom/android/settings/accessibility/ToggleColorInversionPreferenceFragment;Ljava/lang/String;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/accessibility/ToggleColorInversionPreferenceFragment;->lambda$registerKeysToObserverCallback$0(Ljava/lang/String;)V
+
+    return-void
+.end method
+
 .method public constructor <init>()V
-    .locals 1
+    .locals 0
 
     invoke-direct {p0}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;-><init>()V
 
-    new-instance v0, Landroid/os/Handler;
+    return-void
+.end method
 
-    invoke-direct {v0}, Landroid/os/Handler;-><init>()V
+.method private synthetic lambda$registerKeysToObserverCallback$0(Ljava/lang/String;)V
+    .locals 0
 
-    iput-object v0, p0, Lcom/android/settings/accessibility/ToggleColorInversionPreferenceFragment;->mHandler:Landroid/os/Handler;
+    invoke-virtual {p0}, Lcom/android/settings/accessibility/ToggleColorInversionPreferenceFragment;->updateSwitchBarToggleSwitch()V
 
     return-void
 .end method
@@ -31,7 +35,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0400c5
+    const v1, 0x7f0400c2
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -41,7 +45,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0400c6
+    const v2, 0x7f0400c4
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -75,7 +79,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a27
+    const p0, 0x7f040a80
 
     return p0
 .end method
@@ -91,9 +95,49 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150004
+    const p0, 0x7f150005
 
     return p0
+.end method
+
+.method protected getShortcutTitle()Ljava/lang/CharSequence;
+    .locals 1
+
+    const v0, 0x7f0400e0
+
+    invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method getTileComponentName()Landroid/content/ComponentName;
+    .locals 0
+
+    sget-object p0, Lcom/android/internal/accessibility/AccessibilityShortcutController;->COLOR_INVERSION_TILE_COMPONENT_NAME:Landroid/content/ComponentName;
+
+    return-object p0
+.end method
+
+.method getTileTooltipContent(I)Ljava/lang/CharSequence;
+    .locals 0
+
+    if-nez p1, :cond_0
+
+    const p1, 0x7f0400c5
+
+    goto :goto_0
+
+    :cond_0
+    const p1, 0x7f0400c3
+
+    :goto_0
+    invoke-virtual {p0, p1}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method getUserShortcutTypes()I
@@ -113,13 +157,13 @@
 .end method
 
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
-    .locals 3
+    .locals 2
 
     sget-object v0, Lcom/android/internal/accessibility/AccessibilityShortcutController;->COLOR_INVERSION_COMPONENT_NAME:Landroid/content/ComponentName;
 
     iput-object v0, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mComponentName:Landroid/content/ComponentName;
 
-    const v0, 0x7f0400dc
+    const v0, 0x7f0400df
 
     invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
@@ -127,13 +171,21 @@
 
     iput-object v0, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mPackageName:Ljava/lang/CharSequence;
 
-    const v0, 0x7f0400db
+    const v0, 0x7f0400de
 
     invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mHtmlDescription:Ljava/lang/CharSequence;
+
+    const v0, 0x7f0400dd
+
+    invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mTopIntroTitle:Ljava/lang/CharSequence;
 
     new-instance v0, Landroid/net/Uri$Builder;
 
@@ -173,24 +225,6 @@
 
     iput-object v0, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mImageUri:Landroid/net/Uri;
 
-    new-instance v0, Ljava/util/ArrayList;
-
-    const/4 v1, 0x1
-
-    invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(I)V
-
-    const-string v1, "accessibility_display_inversion_enabled"
-
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    new-instance v1, Lcom/android/settings/accessibility/ToggleColorInversionPreferenceFragment$1;
-
-    iget-object v2, p0, Lcom/android/settings/accessibility/ToggleColorInversionPreferenceFragment;->mHandler:Landroid/os/Handler;
-
-    invoke-direct {v1, p0, v2, v0}, Lcom/android/settings/accessibility/ToggleColorInversionPreferenceFragment$1;-><init>(Lcom/android/settings/accessibility/ToggleColorInversionPreferenceFragment;Landroid/os/Handler;Ljava/util/List;)V
-
-    iput-object v1, p0, Lcom/android/settings/accessibility/ToggleColorInversionPreferenceFragment;->mSettingsContentObserver:Lcom/android/settings/accessibility/SettingsContentObserver;
-
     invoke-super {p0, p1, p2, p3}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
 
     move-result-object p1
@@ -201,15 +235,7 @@
 .end method
 
 .method public onPause()V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/settings/accessibility/ToggleColorInversionPreferenceFragment;->mSettingsContentObserver:Lcom/android/settings/accessibility/SettingsContentObserver;
-
-    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Lcom/android/settings/accessibility/SettingsContentObserver;->unregister(Landroid/content/ContentResolver;)V
+    .locals 0
 
     invoke-super {p0}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->onPause()V
 
@@ -217,8 +243,37 @@
 .end method
 
 .method protected onPreferenceToggled(Ljava/lang/String;Z)V
-    .locals 0
+    .locals 3
 
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object p1
+
+    const-string v0, "accessibility_display_inversion_enabled"
+
+    const/4 v1, 0x0
+
+    invoke-static {p1, v0, v1}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result p1
+
+    const/4 v2, 0x1
+
+    if-ne p1, v2, :cond_0
+
+    move v1, v2
+
+    :cond_0
+    if-ne p2, v1, :cond_1
+
+    return-void
+
+    :cond_1
+    if-eqz p2, :cond_2
+
+    invoke-virtual {p0, v2}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->showQuickSettingsTooltipIfNeeded(I)V
+
+    :cond_2
     iget-object p1, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mComponentName:Landroid/content/ComponentName;
 
     invoke-static {p1, p2}, Lcom/android/settings/accessibility/AccessibilityStatsLogUtils;->logAccessibilityServiceEnabled(Landroid/content/ComponentName;Z)V
@@ -227,9 +282,7 @@
 
     move-result-object p0
 
-    const-string p1, "accessibility_display_inversion_enabled"
-
-    invoke-static {p0, p1, p2}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    invoke-static {p0, v0, p2}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
     return-void
 .end method
@@ -249,29 +302,35 @@
 .end method
 
 .method public onResume()V
-    .locals 1
+    .locals 0
 
     invoke-super {p0}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->onResume()V
 
     invoke-virtual {p0}, Lcom/android/settings/accessibility/ToggleColorInversionPreferenceFragment;->updateSwitchBarToggleSwitch()V
 
-    iget-object v0, p0, Lcom/android/settings/accessibility/ToggleColorInversionPreferenceFragment;->mSettingsContentObserver:Lcom/android/settings/accessibility/SettingsContentObserver;
-
-    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object p0
-
-    invoke-virtual {v0, p0}, Lcom/android/settings/accessibility/SettingsContentObserver;->register(Landroid/content/ContentResolver;)V
-
     return-void
 .end method
 
-.method protected updateShortcutTitle(Lcom/android/settings/accessibility/ShortcutPreference;)V
-    .locals 0
+.method protected registerKeysToObserverCallback(Lcom/android/settings/accessibility/AccessibilitySettingsContentObserver;)V
+    .locals 2
 
-    const p0, 0x7f0400dd
+    invoke-super {p0, p1}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->registerKeysToObserverCallback(Lcom/android/settings/accessibility/AccessibilitySettingsContentObserver;)V
 
-    invoke-virtual {p1, p0}, Landroidx/preference/Preference;->setTitle(I)V
+    new-instance v0, Ljava/util/ArrayList;
+
+    const/4 v1, 0x1
+
+    invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(I)V
+
+    const-string v1, "accessibility_display_inversion_enabled"
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    new-instance v1, Lcom/android/settings/accessibility/ToggleColorInversionPreferenceFragment$$ExternalSyntheticLambda0;
+
+    invoke-direct {v1, p0}, Lcom/android/settings/accessibility/ToggleColorInversionPreferenceFragment$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/accessibility/ToggleColorInversionPreferenceFragment;)V
+
+    invoke-virtual {p1, v0, v1}, Lcom/android/settings/accessibility/AccessibilitySettingsContentObserver;->registerKeysToObserverCallback(Ljava/util/List;Lcom/android/settings/accessibility/AccessibilitySettingsContentObserver$ContentObserverCallback;)V
 
     return-void
 .end method
@@ -319,7 +378,7 @@
 .method protected updateToggleServiceTitle(Lcom/android/settings/widget/SettingsMainSwitchPreference;)V
     .locals 0
 
-    const p0, 0x7f0400de
+    const p0, 0x7f0400e1
 
     invoke-virtual {p1, p0}, Landroidx/preference/Preference;->setTitle(I)V
 

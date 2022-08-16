@@ -38,24 +38,13 @@
 .method public onFindViewById(I)Landroid/view/View;
     .locals 1
 
-    iget-object v0, p0, Landroidx/fragment/app/DialogFragment$5;->this$0:Landroidx/fragment/app/DialogFragment;
-
-    invoke-virtual {v0, p1}, Landroidx/fragment/app/DialogFragment;->onFindViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    return-object v0
-
-    :cond_0
     iget-object v0, p0, Landroidx/fragment/app/DialogFragment$5;->val$fragmentContainer:Landroidx/fragment/app/FragmentContainer;
 
     invoke-virtual {v0}, Landroidx/fragment/app/FragmentContainer;->onHasView()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     iget-object p0, p0, Landroidx/fragment/app/DialogFragment$5;->val$fragmentContainer:Landroidx/fragment/app/FragmentContainer;
 
@@ -65,8 +54,12 @@
 
     return-object p0
 
-    :cond_1
-    const/4 p0, 0x0
+    :cond_0
+    iget-object p0, p0, Landroidx/fragment/app/DialogFragment$5;->this$0:Landroidx/fragment/app/DialogFragment;
+
+    invoke-virtual {p0, p1}, Landroidx/fragment/app/DialogFragment;->onFindViewById(I)Landroid/view/View;
+
+    move-result-object p0
 
     return-object p0
 .end method
@@ -74,17 +67,17 @@
 .method public onHasView()Z
     .locals 1
 
-    iget-object v0, p0, Landroidx/fragment/app/DialogFragment$5;->this$0:Landroidx/fragment/app/DialogFragment;
+    iget-object v0, p0, Landroidx/fragment/app/DialogFragment$5;->val$fragmentContainer:Landroidx/fragment/app/FragmentContainer;
 
-    invoke-virtual {v0}, Landroidx/fragment/app/DialogFragment;->onHasView()Z
+    invoke-virtual {v0}, Landroidx/fragment/app/FragmentContainer;->onHasView()Z
 
     move-result v0
 
     if-nez v0, :cond_1
 
-    iget-object p0, p0, Landroidx/fragment/app/DialogFragment$5;->val$fragmentContainer:Landroidx/fragment/app/FragmentContainer;
+    iget-object p0, p0, Landroidx/fragment/app/DialogFragment$5;->this$0:Landroidx/fragment/app/DialogFragment;
 
-    invoke-virtual {p0}, Landroidx/fragment/app/FragmentContainer;->onHasView()Z
+    invoke-virtual {p0}, Landroidx/fragment/app/DialogFragment;->onHasView()Z
 
     move-result p0
 

@@ -41,15 +41,15 @@
 
     const/4 p2, 0x0
 
-    invoke-static {p1, p2}, Lcom/android/settings/localepicker/LocaleListEditor;->access$102(Lcom/android/settings/localepicker/LocaleListEditor;Z)Z
+    invoke-static {p1, p2}, Lcom/android/settings/localepicker/LocaleListEditor;->-$$Nest$fputmRemoveMode(Lcom/android/settings/localepicker/LocaleListEditor;Z)V
 
     iget-object p1, p0, Lcom/android/settings/localepicker/LocaleListEditor$4;->this$0:Lcom/android/settings/localepicker/LocaleListEditor;
 
-    invoke-static {p1, p2}, Lcom/android/settings/localepicker/LocaleListEditor;->access$002(Lcom/android/settings/localepicker/LocaleListEditor;Z)Z
+    invoke-static {p1, p2}, Lcom/android/settings/localepicker/LocaleListEditor;->-$$Nest$fputmShowingRemoveDialog(Lcom/android/settings/localepicker/LocaleListEditor;Z)V
 
     iget-object p1, p0, Lcom/android/settings/localepicker/LocaleListEditor$4;->this$0:Lcom/android/settings/localepicker/LocaleListEditor;
 
-    invoke-static {p1}, Lcom/android/settings/localepicker/LocaleListEditor;->access$200(Lcom/android/settings/localepicker/LocaleListEditor;)Lcom/android/settings/localepicker/LocaleDragAndDropAdapter;
+    invoke-static {p1}, Lcom/android/settings/localepicker/LocaleListEditor;->-$$Nest$fgetmAdapter(Lcom/android/settings/localepicker/LocaleListEditor;)Lcom/android/settings/localepicker/LocaleDragAndDropAdapter;
 
     move-result-object p1
 
@@ -57,7 +57,7 @@
 
     iget-object p0, p0, Lcom/android/settings/localepicker/LocaleListEditor$4;->this$0:Lcom/android/settings/localepicker/LocaleListEditor;
 
-    invoke-static {p0, p2}, Lcom/android/settings/localepicker/LocaleListEditor;->access$300(Lcom/android/settings/localepicker/LocaleListEditor;Z)V
+    invoke-static {p0, p2}, Lcom/android/settings/localepicker/LocaleListEditor;->-$$Nest$msetRemoveMode(Lcom/android/settings/localepicker/LocaleListEditor;Z)V
 
     return-void
 .end method

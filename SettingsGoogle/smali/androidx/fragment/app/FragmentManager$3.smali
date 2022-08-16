@@ -1,6 +1,9 @@
 .class Landroidx/fragment/app/FragmentManager$3;
-.super Landroidx/fragment/app/FragmentFactory;
+.super Ljava/lang/Object;
 .source "FragmentManager.java"
+
+# interfaces
+.implements Landroidx/fragment/app/SpecialEffectsControllerFactory;
 
 
 # annotations
@@ -24,37 +27,19 @@
 
     iput-object p1, p0, Landroidx/fragment/app/FragmentManager$3;->this$0:Landroidx/fragment/app/FragmentManager;
 
-    invoke-direct {p0}, Landroidx/fragment/app/FragmentFactory;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public instantiate(Ljava/lang/ClassLoader;Ljava/lang/String;)Landroidx/fragment/app/Fragment;
-    .locals 1
+.method public createController(Landroid/view/ViewGroup;)Landroidx/fragment/app/SpecialEffectsController;
+    .locals 0
 
-    iget-object p1, p0, Landroidx/fragment/app/FragmentManager$3;->this$0:Landroidx/fragment/app/FragmentManager;
+    new-instance p0, Landroidx/fragment/app/DefaultSpecialEffectsController;
 
-    invoke-virtual {p1}, Landroidx/fragment/app/FragmentManager;->getHost()Landroidx/fragment/app/FragmentHostCallback;
-
-    move-result-object p1
-
-    iget-object p0, p0, Landroidx/fragment/app/FragmentManager$3;->this$0:Landroidx/fragment/app/FragmentManager;
-
-    invoke-virtual {p0}, Landroidx/fragment/app/FragmentManager;->getHost()Landroidx/fragment/app/FragmentHostCallback;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Landroidx/fragment/app/FragmentHostCallback;->getContext()Landroid/content/Context;
-
-    move-result-object p0
-
-    const/4 v0, 0x0
-
-    invoke-virtual {p1, p0, p2, v0}, Landroidx/fragment/app/FragmentContainer;->instantiate(Landroid/content/Context;Ljava/lang/String;Landroid/os/Bundle;)Landroidx/fragment/app/Fragment;
-
-    move-result-object p0
+    invoke-direct {p0, p1}, Landroidx/fragment/app/DefaultSpecialEffectsController;-><init>(Landroid/view/ViewGroup;)V
 
     return-object p0
 .end method

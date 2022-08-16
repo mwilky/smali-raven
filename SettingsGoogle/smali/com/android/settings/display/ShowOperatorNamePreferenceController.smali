@@ -27,21 +27,47 @@
 .end method
 
 .method public isAvailable()Z
-    .locals 1
+    .locals 2
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    const-class v0, Landroid/telephony/CarrierConfigManager;
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object p0
 
-    const v0, 0x7f090021
+    check-cast p0, Landroid/telephony/CarrierConfigManager;
 
-    invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
+    const/4 v0, 0x0
+
+    if-nez p0, :cond_0
+
+    return v0
+
+    :cond_0
+    invoke-static {}, Landroid/telephony/SubscriptionManager;->getDefaultDataSubscriptionId()I
+
+    move-result v1
+
+    invoke-virtual {p0, v1}, Landroid/telephony/CarrierConfigManager;->getConfigForSubId(I)Landroid/os/PersistableBundle;
+
+    move-result-object p0
+
+    if-eqz p0, :cond_1
+
+    const-string/jumbo v1, "show_operator_name_in_statusbar_bool"
+
+    invoke-virtual {p0, v1, v0}, Landroid/os/PersistableBundle;->getBoolean(Ljava/lang/String;Z)Z
 
     move-result p0
 
-    return p0
+    if-eqz p0, :cond_1
+
+    const/4 v0, 0x1
+
+    :cond_1
+    return v0
 .end method
 
 .method public onPreferenceChange(Landroidx/preference/Preference;Ljava/lang/Object;)Z

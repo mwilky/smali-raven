@@ -34,7 +34,7 @@
 
     iget-object v0, p0, Lcom/android/settings/print/PrintServiceSettingsFragment$1;->this$0:Lcom/android/settings/print/PrintServiceSettingsFragment;
 
-    invoke-static {v0}, Lcom/android/settings/print/PrintServiceSettingsFragment;->access$100(Lcom/android/settings/print/PrintServiceSettingsFragment;)Lcom/android/settings/print/PrintServiceSettingsFragment$PrintersAdapter;
+    invoke-static {v0}, Lcom/android/settings/print/PrintServiceSettingsFragment;->-$$Nest$fgetmPrintersAdapter(Lcom/android/settings/print/PrintServiceSettingsFragment;)Lcom/android/settings/print/PrintServiceSettingsFragment$PrintersAdapter;
 
     move-result-object v0
 
@@ -44,7 +44,7 @@
 
     iget-object v1, p0, Lcom/android/settings/print/PrintServiceSettingsFragment$1;->this$0:Lcom/android/settings/print/PrintServiceSettingsFragment;
 
-    invoke-static {v1}, Lcom/android/settings/print/PrintServiceSettingsFragment;->access$200(Lcom/android/settings/print/PrintServiceSettingsFragment;)I
+    invoke-static {v1}, Lcom/android/settings/print/PrintServiceSettingsFragment;->-$$Nest$fgetmLastUnfilteredItemCount(Lcom/android/settings/print/PrintServiceSettingsFragment;)I
 
     move-result v1
 
@@ -55,7 +55,7 @@
     :cond_0
     iget-object v1, p0, Lcom/android/settings/print/PrintServiceSettingsFragment$1;->this$0:Lcom/android/settings/print/PrintServiceSettingsFragment;
 
-    invoke-static {v1}, Lcom/android/settings/print/PrintServiceSettingsFragment;->access$200(Lcom/android/settings/print/PrintServiceSettingsFragment;)I
+    invoke-static {v1}, Lcom/android/settings/print/PrintServiceSettingsFragment;->-$$Nest$fgetmLastUnfilteredItemCount(Lcom/android/settings/print/PrintServiceSettingsFragment;)I
 
     move-result v1
 
@@ -75,7 +75,7 @@
     :cond_2
     iget-object p0, p0, Lcom/android/settings/print/PrintServiceSettingsFragment$1;->this$0:Lcom/android/settings/print/PrintServiceSettingsFragment;
 
-    invoke-static {p0, v0}, Lcom/android/settings/print/PrintServiceSettingsFragment;->access$202(Lcom/android/settings/print/PrintServiceSettingsFragment;I)I
+    invoke-static {p0, v0}, Lcom/android/settings/print/PrintServiceSettingsFragment;->-$$Nest$fputmLastUnfilteredItemCount(Lcom/android/settings/print/PrintServiceSettingsFragment;I)V
 
     return-void
 .end method
@@ -89,7 +89,7 @@
 
     iget-object p0, p0, Lcom/android/settings/print/PrintServiceSettingsFragment$1;->this$0:Lcom/android/settings/print/PrintServiceSettingsFragment;
 
-    invoke-static {p0}, Lcom/android/settings/print/PrintServiceSettingsFragment;->access$000(Lcom/android/settings/print/PrintServiceSettingsFragment;)V
+    invoke-static {p0}, Lcom/android/settings/print/PrintServiceSettingsFragment;->-$$Nest$mupdateEmptyView(Lcom/android/settings/print/PrintServiceSettingsFragment;)V
 
     return-void
 .end method

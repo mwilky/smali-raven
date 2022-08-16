@@ -25,6 +25,38 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmContext(Lcom/android/settingslib/net/NetworkStatsSummaryLoader$Builder;)Landroid/content/Context;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settingslib/net/NetworkStatsSummaryLoader$Builder;->mContext:Landroid/content/Context;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmEnd(Lcom/android/settingslib/net/NetworkStatsSummaryLoader$Builder;)J
+    .locals 2
+
+    iget-wide v0, p0, Lcom/android/settingslib/net/NetworkStatsSummaryLoader$Builder;->mEnd:J
+
+    return-wide v0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmNetworkTemplate(Lcom/android/settingslib/net/NetworkStatsSummaryLoader$Builder;)Landroid/net/NetworkTemplate;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settingslib/net/NetworkStatsSummaryLoader$Builder;->mNetworkTemplate:Landroid/net/NetworkTemplate;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmStart(Lcom/android/settingslib/net/NetworkStatsSummaryLoader$Builder;)J
+    .locals 2
+
+    iget-wide v0, p0, Lcom/android/settingslib/net/NetworkStatsSummaryLoader$Builder;->mStart:J
+
+    return-wide v0
+.end method
+
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 0
 
@@ -33,38 +65,6 @@
     iput-object p1, p0, Lcom/android/settingslib/net/NetworkStatsSummaryLoader$Builder;->mContext:Landroid/content/Context;
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settingslib/net/NetworkStatsSummaryLoader$Builder;)Landroid/content/Context;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/net/NetworkStatsSummaryLoader$Builder;->mContext:Landroid/content/Context;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settingslib/net/NetworkStatsSummaryLoader$Builder;)J
-    .locals 2
-
-    iget-wide v0, p0, Lcom/android/settingslib/net/NetworkStatsSummaryLoader$Builder;->mStart:J
-
-    return-wide v0
-.end method
-
-.method static synthetic access$200(Lcom/android/settingslib/net/NetworkStatsSummaryLoader$Builder;)J
-    .locals 2
-
-    iget-wide v0, p0, Lcom/android/settingslib/net/NetworkStatsSummaryLoader$Builder;->mEnd:J
-
-    return-wide v0
-.end method
-
-.method static synthetic access$300(Lcom/android/settingslib/net/NetworkStatsSummaryLoader$Builder;)Landroid/net/NetworkTemplate;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/net/NetworkStatsSummaryLoader$Builder;->mNetworkTemplate:Landroid/net/NetworkTemplate;
-
-    return-object p0
 .end method
 
 
@@ -76,7 +76,7 @@
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, p0, v1}, Lcom/android/settingslib/net/NetworkStatsSummaryLoader;-><init>(Lcom/android/settingslib/net/NetworkStatsSummaryLoader$Builder;Lcom/android/settingslib/net/NetworkStatsSummaryLoader$1;)V
+    invoke-direct {v0, p0, v1}, Lcom/android/settingslib/net/NetworkStatsSummaryLoader;-><init>(Lcom/android/settingslib/net/NetworkStatsSummaryLoader$Builder;Lcom/android/settingslib/net/NetworkStatsSummaryLoader-IA;)V
 
     return-object v0
 .end method

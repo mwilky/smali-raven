@@ -2,9 +2,6 @@
 .super Landroid/widget/LinearLayout;
 .source "FitWindowsLinearLayout.java"
 
-# interfaces
-.implements Landroidx/appcompat/widget/FitWindowsViewGroup;
-
 
 # instance fields
 .field private mListener:Landroidx/appcompat/widget/FitWindowsViewGroup$OnFitSystemWindowsListener;

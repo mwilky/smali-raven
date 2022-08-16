@@ -20,10 +20,10 @@
 
 
 # direct methods
-.method public static synthetic $r8$lambda$YMT27BB3VijI9vlbBPYTPB_rbEs(Lcom/android/settings/connecteddevice/usb/ConnectedUsbDeviceUpdater;ZJII)V
+.method public static synthetic $r8$lambda$WQxHXOlfYQl13KiBkGaswhoxH74(Lcom/android/settings/connecteddevice/usb/ConnectedUsbDeviceUpdater;ZJIIZ)V
     .locals 0
 
-    invoke-direct/range {p0 .. p5}, Lcom/android/settings/connecteddevice/usb/ConnectedUsbDeviceUpdater;->lambda$new$0(ZJII)V
+    invoke-direct/range {p0 .. p6}, Lcom/android/settings/connecteddevice/usb/ConnectedUsbDeviceUpdater;->lambda$new$0(ZJIIZ)V
 
     return-void
 .end method
@@ -55,9 +55,9 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v0, Lcom/android/settings/connecteddevice/usb/ConnectedUsbDeviceUpdater$$ExternalSyntheticLambda1;
+    new-instance v0, Lcom/android/settings/connecteddevice/usb/ConnectedUsbDeviceUpdater$$ExternalSyntheticLambda0;
 
-    invoke-direct {v0, p0}, Lcom/android/settings/connecteddevice/usb/ConnectedUsbDeviceUpdater$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/connecteddevice/usb/ConnectedUsbDeviceUpdater;)V
+    invoke-direct {v0, p0}, Lcom/android/settings/connecteddevice/usb/ConnectedUsbDeviceUpdater$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/connecteddevice/usb/ConnectedUsbDeviceUpdater;)V
 
     iput-object v0, p0, Lcom/android/settings/connecteddevice/usb/ConnectedUsbDeviceUpdater;->mUsbConnectionListener:Lcom/android/settings/connecteddevice/usb/UsbConnectionBroadcastReceiver$UsbConnectionListener;
 
@@ -123,7 +123,7 @@
 
     const/4 v0, 0x2
 
-    const v9, 0x7f0414b3
+    const v9, 0x7f0415b0
 
     if-eq p2, v0, :cond_0
 
@@ -134,7 +134,7 @@
 
     if-nez p2, :cond_1
 
-    const p0, 0x7f0414b4
+    const p0, 0x7f0415b1
 
     return p0
 
@@ -143,7 +143,7 @@
 
     if-nez p2, :cond_2
 
-    const p0, 0x7f0414b9
+    const p0, 0x7f0415b6
 
     return p0
 
@@ -152,7 +152,7 @@
 
     if-nez p2, :cond_3
 
-    const p0, 0x7f0414b6
+    const p0, 0x7f0415b3
 
     return p0
 
@@ -161,7 +161,7 @@
 
     if-nez p0, :cond_4
 
-    const p0, 0x7f0414b1
+    const p0, 0x7f0415ae
 
     return p0
 
@@ -173,7 +173,7 @@
 
     if-nez p2, :cond_6
 
-    const p0, 0x7f0414b5
+    const p0, 0x7f0415b2
 
     return p0
 
@@ -182,7 +182,7 @@
 
     if-nez p2, :cond_7
 
-    const p0, 0x7f0414ba
+    const p0, 0x7f0415b7
 
     return p0
 
@@ -191,7 +191,7 @@
 
     if-nez p2, :cond_8
 
-    const p0, 0x7f0414b7
+    const p0, 0x7f0415b4
 
     return p0
 
@@ -200,12 +200,12 @@
 
     if-nez p0, :cond_9
 
-    const p0, 0x7f0414b2
+    const p0, 0x7f0415af
 
     return p0
 
     :cond_9
-    const p0, 0x7f0414b8
+    const p0, 0x7f0415b5
 
     return p0
 .end method
@@ -243,7 +243,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f0414ae
+    const v0, 0x7f0415ab
 
     invoke-virtual {p1, v0}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 
@@ -266,16 +266,16 @@
     return p0
 .end method
 
-.method private synthetic lambda$new$0(ZJII)V
-    .locals 1
+.method private synthetic lambda$new$0(ZJIIZ)V
+    .locals 0
 
     if-eqz p1, :cond_1
 
     iget-object p1, p0, Lcom/android/settings/connecteddevice/usb/ConnectedUsbDeviceUpdater;->mUsbPreference:Lcom/android/settingslib/RestrictedPreference;
 
-    const/4 v0, 0x2
+    const/4 p6, 0x2
 
-    if-ne p5, v0, :cond_0
+    if-ne p5, p6, :cond_0
 
     goto :goto_0
 
@@ -321,13 +321,13 @@
 
     iput-object v0, p0, Lcom/android/settings/connecteddevice/usb/ConnectedUsbDeviceUpdater;->mUsbPreference:Lcom/android/settingslib/RestrictedPreference;
 
-    const v1, 0x7f0414ad
+    const v1, 0x7f0415aa
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setTitle(I)V
 
     iget-object v0, p0, Lcom/android/settings/connecteddevice/usb/ConnectedUsbDeviceUpdater;->mUsbPreference:Lcom/android/settingslib/RestrictedPreference;
 
-    const v1, 0x7f020396
+    const v1, 0x7f0203ba
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setIcon(I)V
 
@@ -351,9 +351,9 @@
 
     iget-object p1, p0, Lcom/android/settings/connecteddevice/usb/ConnectedUsbDeviceUpdater;->mUsbPreference:Lcom/android/settingslib/RestrictedPreference;
 
-    new-instance v0, Lcom/android/settings/connecteddevice/usb/ConnectedUsbDeviceUpdater$$ExternalSyntheticLambda0;
+    new-instance v0, Lcom/android/settings/connecteddevice/usb/ConnectedUsbDeviceUpdater$$ExternalSyntheticLambda1;
 
-    invoke-direct {v0, p0}, Lcom/android/settings/connecteddevice/usb/ConnectedUsbDeviceUpdater$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/connecteddevice/usb/ConnectedUsbDeviceUpdater;)V
+    invoke-direct {v0, p0}, Lcom/android/settings/connecteddevice/usb/ConnectedUsbDeviceUpdater$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/connecteddevice/usb/ConnectedUsbDeviceUpdater;)V
 
     invoke-virtual {p1, v0}, Landroidx/preference/Preference;->setOnPreferenceClickListener(Landroidx/preference/Preference$OnPreferenceClickListener;)V
 

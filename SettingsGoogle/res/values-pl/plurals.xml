@@ -349,16 +349,16 @@
         <item quantity="many">%d kategorii wyłączonych</item>
     </plurals>
     <plurals name="notifications_sent_daily">
-        <item quantity="other">~%d powiadomienia dziennie</item>
+        <item quantity="other">~%,d powiadomienia dziennie</item>
         <item quantity="one">~%d powiadomienie dziennie</item>
-        <item quantity="few">~%d powiadomienia dziennie</item>
-        <item quantity="many">~%d powiadomień dziennie</item>
+        <item quantity="few">~%,d powiadomienia dziennie</item>
+        <item quantity="many">~%,d powiadomień dziennie</item>
     </plurals>
     <plurals name="notifications_sent_weekly">
-        <item quantity="other">~%d powiadomienia tygodniowo</item>
+        <item quantity="other">~%,d powiadomienia tygodniowo</item>
         <item quantity="one">~%d powiadomienie tygodniowo</item>
-        <item quantity="few">~%d powiadomienia tygodniowo</item>
-        <item quantity="many">~%d powiadomień tygodniowo</item>
+        <item quantity="few">~%,d powiadomienia tygodniowo</item>
+        <item quantity="many">~%,d powiadomień tygodniowo</item>
     </plurals>
     <plurals name="number_of_device_admins">
         <item quantity="other">%d aktywnej aplikacji</item>
@@ -492,34 +492,6 @@
         <item quantity="few">Zaufaj certyfikatom lub je usuń</item>
         <item quantity="many">Zaufaj certyfikatom lub je usuń</item>
     </plurals>
-    <plurals name="ssl_ca_cert_info_message">
-        <item quantity="other">"Domena %s zainstalowała na Twoim profilu służbowym certyfikaty, które mogą zezwolić jej na monitorowanie aktywności w sieci firmowej, w tym e-maili, aplikacji i bezpiecznych stron internetowych.
-
-Aby dowiedzieć się więcej o tych certyfikatach, skontaktuj się z administratorem."</item>
-        <item quantity="one">"Domena %s zainstalowała na Twoim profilu służbowym certyfikat, który może zezwolić jej na monitorowanie aktywności w sieci firmowej, w tym e-maili, aplikacji i bezpiecznych stron internetowych.
-
-Aby dowiedzieć się więcej o tym certyfikacie, skontaktuj się z administratorem."</item>
-        <item quantity="few">"Domena %s zainstalowała na Twoim profilu służbowym certyfikaty, które mogą zezwolić jej na monitorowanie aktywności w sieci firmowej, w tym e-maili, aplikacji i bezpiecznych stron internetowych.
-
-Aby dowiedzieć się więcej o tych certyfikatach, skontaktuj się z administratorem."</item>
-        <item quantity="many">"Domena %s zainstalowała na Twoim profilu służbowym certyfikaty, które mogą zezwolić jej na monitorowanie aktywności w sieci firmowej, w tym e-maili, aplikacji i bezpiecznych stron internetowych.
-
-Aby dowiedzieć się więcej o tych certyfikatach, skontaktuj się z administratorem."</item>
-    </plurals>
-    <plurals name="ssl_ca_cert_info_message_device_owner">
-        <item quantity="other">"Domena %s zainstalowała na Twoim urządzeniu certyfikaty, które mogą zezwolić jej na monitorowanie aktywności urządzenia w sieci, w tym e-maili, aplikacji i bezpiecznych stron internetowych.
-
-Aby dowiedzieć się więcej o tych certyfikatach, skontaktuj się z administratorem."</item>
-        <item quantity="one">"Domena %s zainstalowała na Twoim urządzeniu certyfikat, który może zezwolić jej na monitorowanie aktywności urządzenia w sieci, w tym e-maili, aplikacji i bezpiecznych stron internetowych.
-
-Aby dowiedzieć się więcej o tym certyfikacie, skontaktuj się z administratorem."</item>
-        <item quantity="few">"Domena %s zainstalowała na Twoim urządzeniu certyfikaty, które mogą zezwolić jej na monitorowanie aktywności urządzenia w sieci, w tym e-maili, aplikacji i bezpiecznych stron internetowych.
-
-Aby dowiedzieć się więcej o tych certyfikatach, skontaktuj się z administratorem."</item>
-        <item quantity="many">"Domena %s zainstalowała na Twoim urządzeniu certyfikaty, które mogą zezwolić jej na monitorowanie aktywności urządzenia w sieci, w tym e-maili, aplikacji i bezpiecznych stron internetowych.
-
-Aby dowiedzieć się więcej o tych certyfikatach, skontaktuj się z administratorem."</item>
-    </plurals>
     <plurals name="ssl_ca_cert_settings_button">
         <item quantity="other">Sprawdź certyfikaty</item>
         <item quantity="one">Sprawdź certyfikat</item>
@@ -567,12 +539,6 @@ Aby dowiedzieć się więcej o tych certyfikatach, skontaktuj się z administrat
         <item quantity="one">1 abonament</item>
         <item quantity="few">%d abonamenty</item>
         <item quantity="many">%d abonamentów</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$d urządzenia podłączonego</item>
-        <item quantity="one">%1$d urządzenie podłączone</item>
-        <item quantity="few">%1$d urządzenia podłączone</item>
-        <item quantity="many">%1$d urządzeń podłączonych</item>
     </plurals>
     <plurals name="wrong_pin_code">
         <item quantity="other">Nieprawidłowy kod PIN karty SIM. Masz jeszcze %d próby.</item>

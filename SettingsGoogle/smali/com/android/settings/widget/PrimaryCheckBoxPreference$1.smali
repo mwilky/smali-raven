@@ -39,7 +39,7 @@
 
     iget-object p1, p0, Lcom/android/settings/widget/PrimaryCheckBoxPreference$1;->this$0:Lcom/android/settings/widget/PrimaryCheckBoxPreference;
 
-    invoke-static {p1}, Lcom/android/settings/widget/PrimaryCheckBoxPreference;->access$000(Lcom/android/settings/widget/PrimaryCheckBoxPreference;)Landroid/widget/CheckBox;
+    invoke-static {p1}, Lcom/android/settings/widget/PrimaryCheckBoxPreference;->-$$Nest$fgetmCheckBox(Lcom/android/settings/widget/PrimaryCheckBoxPreference;)Landroid/widget/CheckBox;
 
     move-result-object p1
 
@@ -47,7 +47,7 @@
 
     iget-object p1, p0, Lcom/android/settings/widget/PrimaryCheckBoxPreference$1;->this$0:Lcom/android/settings/widget/PrimaryCheckBoxPreference;
 
-    invoke-static {p1}, Lcom/android/settings/widget/PrimaryCheckBoxPreference;->access$000(Lcom/android/settings/widget/PrimaryCheckBoxPreference;)Landroid/widget/CheckBox;
+    invoke-static {p1}, Lcom/android/settings/widget/PrimaryCheckBoxPreference;->-$$Nest$fgetmCheckBox(Lcom/android/settings/widget/PrimaryCheckBoxPreference;)Landroid/widget/CheckBox;
 
     move-result-object p1
 
@@ -62,7 +62,7 @@
     :cond_0
     iget-object p1, p0, Lcom/android/settings/widget/PrimaryCheckBoxPreference$1;->this$0:Lcom/android/settings/widget/PrimaryCheckBoxPreference;
 
-    invoke-static {p1}, Lcom/android/settings/widget/PrimaryCheckBoxPreference;->access$100(Lcom/android/settings/widget/PrimaryCheckBoxPreference;)Z
+    invoke-static {p1}, Lcom/android/settings/widget/PrimaryCheckBoxPreference;->-$$Nest$fgetmChecked(Lcom/android/settings/widget/PrimaryCheckBoxPreference;)Z
 
     move-result v0
 
@@ -72,7 +72,7 @@
 
     iget-object p1, p0, Lcom/android/settings/widget/PrimaryCheckBoxPreference$1;->this$0:Lcom/android/settings/widget/PrimaryCheckBoxPreference;
 
-    invoke-static {p1}, Lcom/android/settings/widget/PrimaryCheckBoxPreference;->access$100(Lcom/android/settings/widget/PrimaryCheckBoxPreference;)Z
+    invoke-static {p1}, Lcom/android/settings/widget/PrimaryCheckBoxPreference;->-$$Nest$fgetmChecked(Lcom/android/settings/widget/PrimaryCheckBoxPreference;)Z
 
     move-result v0
 
@@ -88,7 +88,7 @@
 
     iget-object p0, p0, Lcom/android/settings/widget/PrimaryCheckBoxPreference$1;->this$0:Lcom/android/settings/widget/PrimaryCheckBoxPreference;
 
-    invoke-static {p0}, Lcom/android/settings/widget/PrimaryCheckBoxPreference;->access$100(Lcom/android/settings/widget/PrimaryCheckBoxPreference;)Z
+    invoke-static {p0}, Lcom/android/settings/widget/PrimaryCheckBoxPreference;->-$$Nest$fgetmChecked(Lcom/android/settings/widget/PrimaryCheckBoxPreference;)Z
 
     move-result p1
 
@@ -101,11 +101,11 @@
     :cond_1
     iget-object p0, p0, Lcom/android/settings/widget/PrimaryCheckBoxPreference$1;->this$0:Lcom/android/settings/widget/PrimaryCheckBoxPreference;
 
-    invoke-static {p0}, Lcom/android/settings/widget/PrimaryCheckBoxPreference;->access$100(Lcom/android/settings/widget/PrimaryCheckBoxPreference;)Z
+    invoke-static {p0}, Lcom/android/settings/widget/PrimaryCheckBoxPreference;->-$$Nest$fgetmChecked(Lcom/android/settings/widget/PrimaryCheckBoxPreference;)Z
 
     move-result p1
 
-    invoke-static {p0, p1}, Lcom/android/settings/widget/PrimaryCheckBoxPreference;->access$200(Lcom/android/settings/widget/PrimaryCheckBoxPreference;Z)Z
+    invoke-static {p0, p1}, Lcom/android/settings/widget/PrimaryCheckBoxPreference;->access$000(Lcom/android/settings/widget/PrimaryCheckBoxPreference;Z)Z
 
     :goto_0
     return-void

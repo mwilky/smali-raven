@@ -36,13 +36,13 @@
 
     move-result-object p0
 
-    const v0, 0x7f0407dc
+    const v0, 0x7f040824
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object p0
 
-    const-string v0, "ro.ril.fccid"
+    const-string/jumbo v0, "ro.ril.fccid"
 
     invoke-static {v0, p0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
@@ -65,7 +65,7 @@
 .method public isAvailable()Z
     .locals 0
 
-    const-string p0, "ro.ril.fccid"
+    const-string/jumbo p0, "ro.ril.fccid"
 
     invoke-static {p0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 

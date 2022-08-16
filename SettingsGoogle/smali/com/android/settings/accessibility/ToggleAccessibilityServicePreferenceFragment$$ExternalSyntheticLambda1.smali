@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnDismissListener;
+.implements Lcom/android/settings/accessibility/AccessibilityServiceWarning$UninstallActionPerformer;
 
 
 # instance fields
@@ -22,12 +23,12 @@
 
 
 # virtual methods
-.method public final onDismiss(Landroid/content/DialogInterface;)V
+.method public final uninstallPackage()V
     .locals 0
 
     iget-object p0, p0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment$$ExternalSyntheticLambda1;->f$0:Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;
 
-    invoke-static {p0, p1}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->$r8$lambda$N1_s8nq5aDPR6sNyWlzn_dMrzmc(Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;Landroid/content/DialogInterface;)V
+    invoke-static {p0}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->$r8$lambda$ctyeSlz3fYa5iRGU4JNEQ81aQbw(Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;)V
 
     return-void
 .end method

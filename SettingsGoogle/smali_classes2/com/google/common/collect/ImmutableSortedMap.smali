@@ -857,40 +857,6 @@
     return-object p0
 .end method
 
-.method isPartialView()Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/common/collect/ImmutableSortedMap;->keySet:Lcom/google/common/collect/RegularImmutableSortedSet;
-
-    invoke-virtual {v0}, Lcom/google/common/collect/RegularImmutableSortedSet;->isPartialView()Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    iget-object p0, p0, Lcom/google/common/collect/ImmutableSortedMap;->valueList:Lcom/google/common/collect/ImmutableList;
-
-    invoke-virtual {p0}, Lcom/google/common/collect/ImmutableCollection;->isPartialView()Z
-
-    move-result p0
-
-    if-eqz p0, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    goto :goto_1
-
-    :cond_1
-    :goto_0
-    const/4 p0, 0x1
-
-    :goto_1
-    return p0
-.end method
-
 .method public bridge synthetic keySet()Lcom/google/common/collect/ImmutableSet;
     .locals 0
 
@@ -1059,9 +1025,6 @@
 
 .method public final pollFirstEntry()Ljava/util/Map$Entry;
     .locals 0
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1082,9 +1045,6 @@
 
 .method public final pollLastEntry()Ljava/util/Map$Entry;
     .locals 0
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

@@ -37,7 +37,9 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    sget-object v0, Lcom/android/settings/accessibility/AccessibilityServiceWarning$$ExternalSyntheticLambda1;->INSTANCE:Lcom/android/settings/accessibility/AccessibilityServiceWarning$$ExternalSyntheticLambda1;
+    new-instance v0, Lcom/android/settings/accessibility/AccessibilityServiceWarning$$ExternalSyntheticLambda1;
+
+    invoke-direct {v0}, Lcom/android/settings/accessibility/AccessibilityServiceWarning$$ExternalSyntheticLambda1;-><init>()V
 
     sput-object v0, Lcom/android/settings/accessibility/AccessibilityServiceWarning;->filterTouchListener:Landroid/view/View$OnTouchListener;
 
@@ -117,7 +119,7 @@
 
     aput-object v3, v2, v4
 
-    const v3, 0x7f0407f8
+    const v3, 0x7f040840
 
     invoke-virtual {p0, v3, v2}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -131,7 +133,7 @@
 
     new-array v2, v2, [Ljava/lang/Object;
 
-    const v3, 0x7f0400d7
+    const v3, 0x7f0400d8
 
     invoke-virtual {p0, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -145,7 +147,7 @@
 
     aput-object p1, v2, v1
 
-    const p1, 0x7f0407f7
+    const p1, 0x7f04083f
 
     invoke-virtual {p0, p1, v2}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -163,7 +165,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f0400d5
+    const p1, 0x7f0400d6
 
     invoke-virtual {p0, p1, p2}, Landroidx/appcompat/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 
@@ -177,7 +179,7 @@
 .end method
 
 .method private static createEnableDialogContentView(Landroid/content/Context;Landroid/accessibilityservice/AccessibilityServiceInfo;Landroid/view/View$OnClickListener;Lcom/android/settings/accessibility/AccessibilityServiceWarning$UninstallActionPerformer;)Landroid/view/View;
-    .locals 7
+    .locals 6
 
     const-string v0, "layout_inflater"
 
@@ -187,7 +189,7 @@
 
     check-cast v0, Landroid/view/LayoutInflater;
 
-    const v1, 0x7f0600dd
+    const v1, 0x7f0600df
 
     const/4 v2, 0x0
 
@@ -195,50 +197,6 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d01fd
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/widget/TextView;
-
-    invoke-static {}, Lcom/android/settings/accessibility/AccessibilityServiceWarning;->isFullDiskEncrypted()Z
-
-    move-result v2
-
-    const/4 v3, 0x1
-
-    const/4 v4, 0x0
-
-    if-eqz v2, :cond_0
-
-    const v2, 0x7f04088f
-
-    new-array v5, v3, [Ljava/lang/Object;
-
-    invoke-static {p0, p1}, Lcom/android/settings/accessibility/AccessibilityServiceWarning;->getServiceName(Landroid/content/Context;Landroid/accessibilityservice/AccessibilityServiceInfo;)Ljava/lang/CharSequence;
-
-    move-result-object v6
-
-    aput-object v6, v5, v4
-
-    invoke-virtual {p0, v2, v5}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    invoke-virtual {v1, v4}, Landroid/widget/TextView;->setVisibility(I)V
-
-    goto :goto_0
-
-    :cond_0
-    const/16 v2, 0x8
-
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setVisibility(I)V
-
-    :goto_0
     invoke-virtual {p1}, Landroid/accessibilityservice/AccessibilityServiceInfo;->getResolveInfo()Landroid/content/pm/ResolveInfo;
 
     move-result-object v1
@@ -247,17 +205,17 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_0
 
-    const v1, 0x7f020169
+    const v1, 0x7f020179
 
     invoke-static {p0, v1}, Landroidx/core/content/ContextCompat;->getDrawable(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v1
 
-    goto :goto_1
+    goto :goto_0
 
-    :cond_1
+    :cond_0
     invoke-virtual {p1}, Landroid/accessibilityservice/AccessibilityServiceInfo;->getResolveInfo()Landroid/content/pm/ResolveInfo;
 
     move-result-object v1
@@ -270,8 +228,8 @@
 
     move-result-object v1
 
-    :goto_1
-    const v2, 0x7f0d0433
+    :goto_0
+    const v2, 0x7f0d0463
 
     invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -281,7 +239,7 @@
 
     invoke-virtual {v2, v1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    const v1, 0x7f0d0434
+    const v1, 0x7f0d0464
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -289,15 +247,19 @@
 
     check-cast v1, Landroid/widget/TextView;
 
-    const v2, 0x7f040893
+    const v2, 0x7f0408e7
+
+    const/4 v3, 0x1
 
     new-array v3, v3, [Ljava/lang/Object;
 
     invoke-static {p0, p1}, Lcom/android/settings/accessibility/AccessibilityServiceWarning;->getServiceName(Landroid/content/Context;Landroid/accessibilityservice/AccessibilityServiceInfo;)Ljava/lang/CharSequence;
 
-    move-result-object v5
+    move-result-object v4
 
-    aput-object v5, v3, v4
+    const/4 v5, 0x0
+
+    aput-object v4, v3, v5
 
     invoke-virtual {p0, v2, v3}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -305,7 +267,7 @@
 
     invoke-virtual {v1, p0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const p0, 0x7f0d0435
+    const p0, 0x7f0d0465
 
     invoke-virtual {v0, p0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -313,7 +275,7 @@
 
     check-cast p0, Landroid/widget/Button;
 
-    const v1, 0x7f0d0436
+    const v1, 0x7f0d0466
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -329,7 +291,7 @@
 
     invoke-virtual {v1, p2}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const p0, 0x7f0d0437
+    const p0, 0x7f0d0467
 
     invoke-virtual {v0, p0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -341,9 +303,9 @@
 
     move-result p1
 
-    if-nez p1, :cond_2
+    if-nez p1, :cond_1
 
-    invoke-virtual {p0, v4}, Landroid/widget/Button;->setVisibility(I)V
+    invoke-virtual {p0, v5}, Landroid/widget/Button;->setVisibility(I)V
 
     new-instance p1, Lcom/android/settings/accessibility/AccessibilityServiceWarning$$ExternalSyntheticLambda0;
 
@@ -351,7 +313,7 @@
 
     invoke-virtual {p0, p1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    :cond_2
+    :cond_1
     return-object v0
 .end method
 
@@ -397,16 +359,6 @@
     move-result-object p0
 
     return-object p0
-.end method
-
-.method private static isFullDiskEncrypted()Z
-    .locals 1
-
-    invoke-static {}, Landroid/os/storage/StorageManager;->isNonDefaultBlockEncrypted()Z
-
-    move-result v0
-
-    return v0
 .end method
 
 .method private static synthetic lambda$createEnableDialogContentView$1(Lcom/android/settings/accessibility/AccessibilityServiceWarning$UninstallActionPerformer;Landroid/view/View;)V
@@ -457,7 +409,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f0413fb
+    const p1, 0x7f0414f5
 
     invoke-static {p0, p1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 

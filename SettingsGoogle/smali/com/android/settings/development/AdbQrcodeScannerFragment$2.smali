@@ -53,7 +53,7 @@
 
     iget-object v0, p0, Lcom/android/settings/development/AdbQrcodeScannerFragment$2;->this$0:Lcom/android/settings/development/AdbQrcodeScannerFragment;
 
-    invoke-static {v0}, Lcom/android/settings/development/AdbQrcodeScannerFragment;->access$000(Lcom/android/settings/development/AdbQrcodeScannerFragment;)Landroid/widget/TextView;
+    invoke-static {v0}, Lcom/android/settings/development/AdbQrcodeScannerFragment;->-$$Nest$fgetmErrorMessage(Lcom/android/settings/development/AdbQrcodeScannerFragment;)Landroid/widget/TextView;
 
     move-result-object v0
 
@@ -63,7 +63,7 @@
 
     iget-object v0, p0, Lcom/android/settings/development/AdbQrcodeScannerFragment$2;->this$0:Lcom/android/settings/development/AdbQrcodeScannerFragment;
 
-    invoke-static {v0}, Lcom/android/settings/development/AdbQrcodeScannerFragment;->access$000(Lcom/android/settings/development/AdbQrcodeScannerFragment;)Landroid/widget/TextView;
+    invoke-static {v0}, Lcom/android/settings/development/AdbQrcodeScannerFragment;->-$$Nest$fgetmErrorMessage(Lcom/android/settings/development/AdbQrcodeScannerFragment;)Landroid/widget/TextView;
 
     move-result-object v0
 
@@ -71,7 +71,7 @@
 
     iget-object p1, p0, Lcom/android/settings/development/AdbQrcodeScannerFragment$2;->this$0:Lcom/android/settings/development/AdbQrcodeScannerFragment;
 
-    invoke-static {p1}, Lcom/android/settings/development/AdbQrcodeScannerFragment;->access$000(Lcom/android/settings/development/AdbQrcodeScannerFragment;)Landroid/widget/TextView;
+    invoke-static {p1}, Lcom/android/settings/development/AdbQrcodeScannerFragment;->-$$Nest$fgetmErrorMessage(Lcom/android/settings/development/AdbQrcodeScannerFragment;)Landroid/widget/TextView;
 
     move-result-object p1
 
@@ -90,7 +90,7 @@
     :cond_1
     iget-object p0, p0, Lcom/android/settings/development/AdbQrcodeScannerFragment$2;->this$0:Lcom/android/settings/development/AdbQrcodeScannerFragment;
 
-    invoke-static {p0}, Lcom/android/settings/development/AdbQrcodeScannerFragment;->access$000(Lcom/android/settings/development/AdbQrcodeScannerFragment;)Landroid/widget/TextView;
+    invoke-static {p0}, Lcom/android/settings/development/AdbQrcodeScannerFragment;->-$$Nest$fgetmErrorMessage(Lcom/android/settings/development/AdbQrcodeScannerFragment;)Landroid/widget/TextView;
 
     move-result-object p0
 

@@ -32,7 +32,7 @@
 
     const-string/jumbo v1, "t"
 
-    const-string v2, "s"
+    const-string/jumbo v2, "s"
 
     const-string v3, "e"
 

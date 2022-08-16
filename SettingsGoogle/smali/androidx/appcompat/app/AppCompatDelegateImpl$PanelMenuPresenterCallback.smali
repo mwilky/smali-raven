@@ -113,7 +113,7 @@
 
     iget-object p0, p0, Landroidx/appcompat/app/AppCompatDelegateImpl$PanelMenuPresenterCallback;->this$0:Landroidx/appcompat/app/AppCompatDelegateImpl;
 
-    iget-boolean p0, p0, Landroidx/appcompat/app/AppCompatDelegateImpl;->mIsDestroyed:Z
+    iget-boolean p0, p0, Landroidx/appcompat/app/AppCompatDelegateImpl;->mDestroyed:Z
 
     if-nez p0, :cond_0
 

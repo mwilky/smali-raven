@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settings/applications/AppStateNotificationBridge$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/widget/CompoundButton$OnCheckedChangeListener;

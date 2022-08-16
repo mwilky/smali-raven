@@ -2,9 +2,6 @@
 .super Lcom/google/common/collect/RangeGwtSerializationDependencies;
 .source "Range.java"
 
-# interfaces
-.implements Lcom/google/common/base/Predicate;
-
 
 # annotations
 .annotation system Ldalvik/annotation/Signature;
@@ -12,10 +9,7 @@
         "<C::",
         "Ljava/lang/Comparable;",
         ">",
-        "Lcom/google/common/collect/RangeGwtSerializationDependencies;",
-        "Lcom/google/common/base/Predicate<",
-        "TC;>;",
-        "Ljava/io/Serializable;"
+        "Lcom/google/common/collect/RangeGwtSerializationDependencies;"
     }
 .end annotation
 

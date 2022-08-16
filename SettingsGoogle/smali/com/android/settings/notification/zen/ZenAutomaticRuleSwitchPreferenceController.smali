@@ -84,7 +84,7 @@
 
     iget-object v1, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f04189f
+    const v2, 0x7f04199d
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -140,16 +140,6 @@
     return p0
 .end method
 
-.method public onResume(Landroid/app/AutomaticZenRule;Ljava/lang/String;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/settings/notification/zen/ZenAutomaticRuleSwitchPreferenceController;->mRule:Landroid/app/AutomaticZenRule;
-
-    iput-object p2, p0, Lcom/android/settings/notification/zen/ZenAutomaticRuleSwitchPreferenceController;->mId:Ljava/lang/String;
-
-    return-void
-.end method
-
 .method public onSwitchChanged(Landroid/widget/Switch;Z)V
     .locals 0
 
@@ -175,6 +165,16 @@
     iget-object p0, p0, Lcom/android/settings/notification/zen/ZenAutomaticRuleSwitchPreferenceController;->mRule:Landroid/app/AutomaticZenRule;
 
     invoke-virtual {p1, p2, p0}, Lcom/android/settings/notification/zen/ZenModeBackend;->updateZenRule(Ljava/lang/String;Landroid/app/AutomaticZenRule;)Z
+
+    return-void
+.end method
+
+.method setIdAndRule(Ljava/lang/String;Landroid/app/AutomaticZenRule;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/settings/notification/zen/ZenAutomaticRuleSwitchPreferenceController;->mId:Ljava/lang/String;
+
+    iput-object p2, p0, Lcom/android/settings/notification/zen/ZenAutomaticRuleSwitchPreferenceController;->mRule:Landroid/app/AutomaticZenRule;
 
     return-void
 .end method

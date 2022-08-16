@@ -10,16 +10,52 @@
 
 .field private mDisabledByAdmin:Z
 
+.field private mDisabledByAppOps:Z
+
+.field private mDisabledSummary:Z
+
 .field private mEnforcedAdmin:Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
 
 .field private final mPreference:Landroidx/preference/Preference;
 
-.field private mUseAdminDisabledSummary:Z
+.field packageName:Ljava/lang/String;
+
+.field uid:I
 
 
 # direct methods
+.method public static synthetic $r8$lambda$PpwEbNSD_9QumHyGDvBzP3cweX8(Lcom/android/settingslib/RestrictedPreferenceHelper;)Ljava/lang/String;
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settingslib/RestrictedPreferenceHelper;->lambda$getDisabledByAdminUpdatableString$0()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Landroidx/preference/Preference;Landroid/util/AttributeSet;)V
-    .locals 4
+    .locals 6
+
+    const/4 v4, 0x0
+
+    const/4 v5, -0x1
+
+    move-object v0, p0
+
+    move-object v1, p1
+
+    move-object v2, p2
+
+    move-object v3, p3
+
+    invoke-direct/range {v0 .. v5}, Lcom/android/settingslib/RestrictedPreferenceHelper;-><init>(Landroid/content/Context;Landroidx/preference/Preference;Landroid/util/AttributeSet;Ljava/lang/String;I)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/content/Context;Landroidx/preference/Preference;Landroid/util/AttributeSet;Ljava/lang/String;I)V
+    .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -29,11 +65,15 @@
 
     const/4 v1, 0x0
 
-    iput-boolean v1, p0, Lcom/android/settingslib/RestrictedPreferenceHelper;->mUseAdminDisabledSummary:Z
+    iput-boolean v1, p0, Lcom/android/settingslib/RestrictedPreferenceHelper;->mDisabledSummary:Z
 
     iput-object p1, p0, Lcom/android/settingslib/RestrictedPreferenceHelper;->mContext:Landroid/content/Context;
 
     iput-object p2, p0, Lcom/android/settingslib/RestrictedPreferenceHelper;->mPreference:Landroidx/preference/Preference;
+
+    iput-object p4, p0, Lcom/android/settingslib/RestrictedPreferenceHelper;->packageName:Ljava/lang/String;
+
+    iput p5, p0, Lcom/android/settingslib/RestrictedPreferenceHelper;->uid:I
 
     if-eqz p3, :cond_5
 
@@ -51,17 +91,17 @@
 
     if-eqz p3, :cond_1
 
-    iget v2, p3, Landroid/util/TypedValue;->type:I
+    iget p4, p3, Landroid/util/TypedValue;->type:I
 
-    const/4 v3, 0x3
+    const/4 p5, 0x3
 
-    if-ne v2, v3, :cond_1
+    if-ne p4, p5, :cond_1
 
-    iget v2, p3, Landroid/util/TypedValue;->resourceId:I
+    iget p4, p3, Landroid/util/TypedValue;->resourceId:I
 
-    if-eqz v2, :cond_0
+    if-eqz p4, :cond_0
 
-    invoke-virtual {p1, v2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
+    invoke-virtual {p1, p4}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object p3
 
@@ -92,9 +132,9 @@
 
     invoke-static {}, Landroid/os/UserHandle;->myUserId()I
 
-    move-result v2
+    move-result p4
 
-    invoke-static {p1, p3, v2}, Lcom/android/settingslib/RestrictedLockUtilsInternal;->hasBaseUserRestriction(Landroid/content/Context;Ljava/lang/String;I)Z
+    invoke-static {p1, p3, p4}, Lcom/android/settingslib/RestrictedLockUtilsInternal;->hasBaseUserRestriction(Landroid/content/Context;Ljava/lang/String;I)Z
 
     move-result p1
 
@@ -126,9 +166,113 @@
     const/4 v1, 0x1
 
     :cond_4
-    iput-boolean v1, p0, Lcom/android/settingslib/RestrictedPreferenceHelper;->mUseAdminDisabledSummary:Z
+    iput-boolean v1, p0, Lcom/android/settingslib/RestrictedPreferenceHelper;->mDisabledSummary:Z
 
     :cond_5
+    return-void
+.end method
+
+.method private getDisabledByAdminUpdatableString()Ljava/lang/String;
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/settingslib/RestrictedPreferenceHelper;->mContext:Landroid/content/Context;
+
+    const-class v1, Landroid/app/admin/DevicePolicyManager;
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/app/admin/DevicePolicyManager;
+
+    invoke-virtual {v0}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/android/settingslib/RestrictedPreferenceHelper$$ExternalSyntheticLambda0;
+
+    invoke-direct {v1, p0}, Lcom/android/settingslib/RestrictedPreferenceHelper$$ExternalSyntheticLambda0;-><init>(Lcom/android/settingslib/RestrictedPreferenceHelper;)V
+
+    const-string p0, "Settings.CONTROLLED_BY_ADMIN_SUMMARY"
+
+    invoke-virtual {v0, p0, v1}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private synthetic lambda$getDisabledByAdminUpdatableString$0()Ljava/lang/String;
+    .locals 1
+
+    iget-object p0, p0, Lcom/android/settingslib/RestrictedPreferenceHelper;->mContext:Landroid/content/Context;
+
+    sget v0, Lcom/android/settingslib/R$string;->disabled_by_admin_summary_text:I
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private updateDisabledState()V
+    .locals 4
+
+    iget-object v0, p0, Lcom/android/settingslib/RestrictedPreferenceHelper;->mPreference:Landroidx/preference/Preference;
+
+    instance-of v1, v0, Lcom/android/settingslib/RestrictedTopLevelPreference;
+
+    const/4 v2, 0x1
+
+    const/4 v3, 0x0
+
+    if-nez v1, :cond_1
+
+    iget-boolean v1, p0, Lcom/android/settingslib/RestrictedPreferenceHelper;->mDisabledByAdmin:Z
+
+    if-nez v1, :cond_0
+
+    iget-boolean v1, p0, Lcom/android/settingslib/RestrictedPreferenceHelper;->mDisabledByAppOps:Z
+
+    if-nez v1, :cond_0
+
+    move v1, v2
+
+    goto :goto_0
+
+    :cond_0
+    move v1, v3
+
+    :goto_0
+    invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setEnabled(Z)V
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/settingslib/RestrictedPreferenceHelper;->mPreference:Landroidx/preference/Preference;
+
+    instance-of v1, v0, Lcom/android/settingslib/PrimarySwitchPreference;
+
+    if-eqz v1, :cond_3
+
+    check-cast v0, Lcom/android/settingslib/PrimarySwitchPreference;
+
+    iget-boolean v1, p0, Lcom/android/settingslib/RestrictedPreferenceHelper;->mDisabledByAdmin:Z
+
+    if-nez v1, :cond_2
+
+    iget-boolean p0, p0, Lcom/android/settingslib/RestrictedPreferenceHelper;->mDisabledByAppOps:Z
+
+    if-nez p0, :cond_2
+
+    goto :goto_1
+
+    :cond_2
+    move v2, v3
+
+    :goto_1
+    invoke-virtual {v0, v2}, Lcom/android/settingslib/PrimarySwitchPreference;->setSwitchEnabled(Z)V
+
+    :cond_3
     return-void
 .end method
 
@@ -181,6 +325,14 @@
     return p0
 .end method
 
+.method public isDisabledByAppOps()Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/settingslib/RestrictedPreferenceHelper;->mDisabledByAppOps:Z
+
+    return p0
+.end method
+
 .method public onAttachedToHierarchy()V
     .locals 2
 
@@ -203,18 +355,23 @@
 
     iget-boolean v0, p0, Lcom/android/settingslib/RestrictedPreferenceHelper;->mDisabledByAdmin:Z
 
-    if-eqz v0, :cond_0
+    if-nez v0, :cond_0
 
+    iget-boolean v0, p0, Lcom/android/settingslib/RestrictedPreferenceHelper;->mDisabledByAppOps:Z
+
+    if-eqz v0, :cond_1
+
+    :cond_0
     iget-object v0, p1, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
 
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setEnabled(Z)V
 
-    :cond_0
-    iget-boolean v0, p0, Lcom/android/settingslib/RestrictedPreferenceHelper;->mUseAdminDisabledSummary:Z
+    :cond_1
+    iget-boolean v0, p0, Lcom/android/settingslib/RestrictedPreferenceHelper;->mDisabledSummary:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_5
 
     const v0, 0x1020010
 
@@ -224,27 +381,50 @@
 
     check-cast p1, Landroid/widget/TextView;
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_5
 
-    invoke-virtual {p1}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
+    invoke-static {}, Lcom/android/settingslib/utils/BuildCompatUtils;->isAtLeastT()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    invoke-direct {p0}, Lcom/android/settingslib/RestrictedPreferenceHelper;->getDisabledByAdminUpdatableString()Ljava/lang/String;
 
     move-result-object v0
-
-    sget v1, Lcom/android/settingslib/R$string;->disabled_by_admin_summary_text:I
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
-
-    move-result-object v0
-
-    iget-boolean p0, p0, Lcom/android/settingslib/RestrictedPreferenceHelper;->mDisabledByAdmin:Z
-
-    if-eqz p0, :cond_1
-
-    invoke-virtual {p1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
+    iget-object v0, p0, Lcom/android/settingslib/RestrictedPreferenceHelper;->mContext:Landroid/content/Context;
+
+    sget v1, Lcom/android/settingslib/R$string;->disabled_by_admin_summary_text:I
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    :goto_0
+    iget-boolean v1, p0, Lcom/android/settingslib/RestrictedPreferenceHelper;->mDisabledByAdmin:Z
+
+    if-eqz v1, :cond_3
+
+    invoke-virtual {p1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    goto :goto_1
+
+    :cond_3
+    iget-boolean p0, p0, Lcom/android/settingslib/RestrictedPreferenceHelper;->mDisabledByAppOps:Z
+
+    if-eqz p0, :cond_4
+
+    sget p0, Lcom/android/settingslib/R$string;->disabled_by_app_ops_text:I
+
+    invoke-virtual {p1, p0}, Landroid/widget/TextView;->setText(I)V
+
+    goto :goto_1
+
+    :cond_4
     invoke-virtual {p1}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
 
     move-result-object p0
@@ -253,21 +433,23 @@
 
     move-result p0
 
-    if-eqz p0, :cond_2
+    if-eqz p0, :cond_5
 
     const/4 p0, 0x0
 
     invoke-virtual {p1, p0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    :cond_2
-    :goto_0
+    :cond_5
+    :goto_1
     return-void
 .end method
 
 .method public performClick()Z
-    .locals 1
+    .locals 3
 
     iget-boolean v0, p0, Lcom/android/settingslib/RestrictedPreferenceHelper;->mDisabledByAdmin:Z
+
+    const/4 v1, 0x1
 
     if-eqz v0, :cond_0
 
@@ -277,11 +459,24 @@
 
     invoke-static {v0, p0}, Lcom/android/settingslib/RestrictedLockUtils;->sendShowAdminSupportDetailsIntent(Landroid/content/Context;Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;)V
 
-    const/4 p0, 0x1
-
-    return p0
+    return v1
 
     :cond_0
+    iget-boolean v0, p0, Lcom/android/settingslib/RestrictedPreferenceHelper;->mDisabledByAppOps:Z
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/settingslib/RestrictedPreferenceHelper;->mContext:Landroid/content/Context;
+
+    iget-object v2, p0, Lcom/android/settingslib/RestrictedPreferenceHelper;->packageName:Ljava/lang/String;
+
+    iget p0, p0, Lcom/android/settingslib/RestrictedPreferenceHelper;->uid:I
+
+    invoke-static {v0, v2, p0}, Lcom/android/settingslib/RestrictedLockUtilsInternal;->sendShowRestrictedSettingDialogIntent(Landroid/content/Context;Ljava/lang/String;I)V
+
+    return v1
+
+    :cond_1
     const/4 p0, 0x0
 
     return p0
@@ -290,18 +485,18 @@
 .method public setDisabledByAdmin(Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;)Z
     .locals 3
 
-    const/4 v0, 0x0
+    const/4 v0, 0x1
 
-    const/4 v1, 0x1
+    const/4 v1, 0x0
 
     if-eqz p1, :cond_0
 
-    move v2, v1
+    move v2, v0
 
     goto :goto_0
 
     :cond_0
-    move v2, v0
+    move v2, v1
 
     :goto_0
     iput-object p1, p0, Lcom/android/settingslib/RestrictedPreferenceHelper;->mEnforcedAdmin:Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
@@ -312,27 +507,53 @@
 
     iput-boolean v2, p0, Lcom/android/settingslib/RestrictedPreferenceHelper;->mDisabledByAdmin:Z
 
-    move v0, v1
+    invoke-direct {p0}, Lcom/android/settingslib/RestrictedPreferenceHelper;->updateDisabledState()V
+
+    goto :goto_1
 
     :cond_1
-    iget-object p0, p0, Lcom/android/settingslib/RestrictedPreferenceHelper;->mPreference:Landroidx/preference/Preference;
+    move v0, v1
 
-    instance-of p1, p0, Lcom/android/settingslib/RestrictedTopLevelPreference;
-
-    if-nez p1, :cond_2
-
-    xor-int/lit8 p1, v2, 0x1
-
-    invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setEnabled(Z)V
-
-    :cond_2
+    :goto_1
     return v0
+.end method
+
+.method public setDisabledByAppOps(Z)Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/settingslib/RestrictedPreferenceHelper;->mDisabledByAppOps:Z
+
+    if-eq v0, p1, :cond_0
+
+    iput-boolean p1, p0, Lcom/android/settingslib/RestrictedPreferenceHelper;->mDisabledByAppOps:Z
+
+    const/4 p1, 0x1
+
+    invoke-direct {p0}, Lcom/android/settingslib/RestrictedPreferenceHelper;->updateDisabledState()V
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p1, 0x0
+
+    :goto_0
+    return p1
+.end method
+
+.method public updatePackageDetails(Ljava/lang/String;I)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/settingslib/RestrictedPreferenceHelper;->packageName:Ljava/lang/String;
+
+    iput p2, p0, Lcom/android/settingslib/RestrictedPreferenceHelper;->uid:I
+
+    return-void
 .end method
 
 .method public useAdminDisabledSummary(Z)V
     .locals 0
 
-    iput-boolean p1, p0, Lcom/android/settingslib/RestrictedPreferenceHelper;->mUseAdminDisabledSummary:Z
+    iput-boolean p1, p0, Lcom/android/settingslib/RestrictedPreferenceHelper;->mDisabledSummary:Z
 
     return-void
 .end method

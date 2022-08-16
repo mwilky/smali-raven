@@ -91,7 +91,7 @@
 
     iget v1, p0, Lcom/android/settings/biometrics/BiometricEnrollBase;->mSensorId:I
 
-    const-string v2, "sensor_id"
+    const-string/jumbo v2, "sensor_id"
 
     invoke-virtual {v0, v2, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
@@ -112,7 +112,7 @@
 .method protected getLayout()Lcom/google/android/setupdesign/GlifLayout;
     .locals 1
 
-    const v0, 0x7f0d04f1
+    const v0, 0x7f0d0533
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -274,7 +274,7 @@
 
     move-result-object v0
 
-    const-string v2, "sensor_id"
+    const-string/jumbo v2, "sensor_id"
 
     const/4 v3, -0x1
 
@@ -437,7 +437,7 @@
 
     iget p0, p0, Lcom/android/settings/biometrics/BiometricEnrollBase;->mSensorId:I
 
-    const-string v0, "sensor_id"
+    const-string/jumbo v0, "sensor_id"
 
     invoke-virtual {p1, v0, p0}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 

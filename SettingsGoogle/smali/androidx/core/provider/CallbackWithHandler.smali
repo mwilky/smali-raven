@@ -12,16 +12,6 @@
 # direct methods
 .method constructor <init>(Landroidx/core/provider/FontsContractCompat$FontRequestCallback;Landroid/os/Handler;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "callback",
-            "callbackHandler"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -34,14 +24,6 @@
 
 .method private onTypefaceRequestFailed(I)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x10
-        }
-        names = {
-            "reason"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/core/provider/CallbackWithHandler;->mCallback:Landroidx/core/provider/FontsContractCompat$FontRequestCallback;
 
@@ -58,14 +40,6 @@
 
 .method private onTypefaceRetrieved(Landroid/graphics/Typeface;)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x10
-        }
-        names = {
-            "typeface"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/core/provider/CallbackWithHandler;->mCallback:Landroidx/core/provider/FontsContractCompat$FontRequestCallback;
 
@@ -84,14 +58,6 @@
 # virtual methods
 .method onTypefaceResult(Landroidx/core/provider/FontRequestWorker$TypefaceResult;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "typefaceResult"
-        }
-    .end annotation
 
     invoke-virtual {p1}, Landroidx/core/provider/FontRequestWorker$TypefaceResult;->isSuccess()Z
 

@@ -188,24 +188,22 @@
 
     const/high16 v6, -0x40800000    # -1.0f
 
-    cmpg-float v5, v5, v6
+    cmpg-float v6, v5, v6
 
-    if-gtz v5, :cond_0
+    if-gtz v6, :cond_0
 
     goto :goto_3
 
     :cond_0
-    cmpl-float v5, v4, v2
+    cmpl-float v6, v4, v2
 
-    if-nez v5, :cond_1
+    if-nez v6, :cond_1
 
     move v3, p2
 
     goto :goto_1
 
     :cond_1
-    aget v5, p0, v1
-
     aget v6, p0, v3
 
     sub-float/2addr v5, v6
@@ -678,13 +676,9 @@
     monitor-enter p0
 
     :try_start_0
-    sget-boolean v4, Lcom/android/launcher3/icons/BaseIconFactory;->ATLEAST_OREO:Z
+    instance-of v4, v0, Landroid/graphics/drawable/AdaptiveIconDrawable;
 
     const/4 v5, 0x0
-
-    if-eqz v4, :cond_2
-
-    instance-of v4, v0, Landroid/graphics/drawable/AdaptiveIconDrawable;
 
     if-eqz v4, :cond_2
 
@@ -941,11 +935,11 @@
 
     iget-object v9, v1, Lcom/android/launcher3/icons/IconNormalizer;->mLeftBorder:[F
 
-    aget v10, v9, v3
+    aget v9, v9, v3
 
-    const/high16 v14, -0x40800000    # -1.0f
+    const/high16 v10, -0x40800000    # -1.0f
 
-    cmpg-float v10, v10, v14
+    cmpg-float v10, v9, v10
 
     if-gtz v10, :cond_11
 
@@ -955,8 +949,6 @@
     iget-object v10, v1, Lcom/android/launcher3/icons/IconNormalizer;->mRightBorder:[F
 
     aget v10, v10, v3
-
-    aget v9, v9, v3
 
     sub-float/2addr v10, v9
 

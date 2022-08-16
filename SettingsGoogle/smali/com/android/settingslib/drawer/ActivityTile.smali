@@ -5,13 +5,11 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/pm/ActivityInfo;Ljava/lang/String;)V
-    .locals 0
+    .locals 1
 
-    invoke-direct {p0, p1, p2}, Lcom/android/settingslib/drawer/Tile;-><init>(Landroid/content/pm/ComponentInfo;Ljava/lang/String;)V
+    iget-object v0, p1, Landroid/content/pm/ActivityInfo;->metaData:Landroid/os/Bundle;
 
-    iget-object p1, p1, Landroid/content/pm/ActivityInfo;->metaData:Landroid/os/Bundle;
-
-    invoke-virtual {p0, p1}, Lcom/android/settingslib/drawer/Tile;->setMetaData(Landroid/os/Bundle;)V
+    invoke-direct {p0, p1, p2, v0}, Lcom/android/settingslib/drawer/Tile;-><init>(Landroid/content/pm/ComponentInfo;Ljava/lang/String;Landroid/os/Bundle;)V
 
     return-void
 .end method

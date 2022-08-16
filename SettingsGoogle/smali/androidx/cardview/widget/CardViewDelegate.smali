@@ -17,42 +17,7 @@
 .end method
 
 .method public abstract setCardBackground(Landroid/graphics/drawable/Drawable;)V
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "drawable"
-        }
-    .end annotation
-.end method
-
-.method public abstract setMinWidthHeightInternal(II)V
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "width",
-            "height"
-        }
-    .end annotation
 .end method
 
 .method public abstract setShadowPadding(IIII)V
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "left",
-            "top",
-            "right",
-            "bottom"
-        }
-    .end annotation
 .end method

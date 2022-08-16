@@ -74,11 +74,11 @@
 
     move-result-object v0
 
-    invoke-static {p1, v0}, Lcom/android/settings/notification/app/ChannelListPreferenceController;->access$002(Lcom/android/settings/notification/app/ChannelListPreferenceController;Ljava/util/List;)Ljava/util/List;
+    invoke-static {p1, v0}, Lcom/android/settings/notification/app/ChannelListPreferenceController;->-$$Nest$fputmChannelGroupList(Lcom/android/settings/notification/app/ChannelListPreferenceController;Ljava/util/List;)V
 
     iget-object p0, p0, Lcom/android/settings/notification/app/ChannelListPreferenceController$1;->this$0:Lcom/android/settings/notification/app/ChannelListPreferenceController;
 
-    invoke-static {p0}, Lcom/android/settings/notification/app/ChannelListPreferenceController;->access$000(Lcom/android/settings/notification/app/ChannelListPreferenceController;)Ljava/util/List;
+    invoke-static {p0}, Lcom/android/settings/notification/app/ChannelListPreferenceController;->-$$Nest$fgetmChannelGroupList(Lcom/android/settings/notification/app/ChannelListPreferenceController;)Ljava/util/List;
 
     move-result-object p0
 
@@ -113,13 +113,13 @@
     return-void
 
     :cond_0
-    invoke-static {p1}, Lcom/android/settings/notification/app/ChannelListPreferenceController;->access$100(Lcom/android/settings/notification/app/ChannelListPreferenceController;)Landroidx/preference/PreferenceCategory;
+    invoke-static {p1}, Lcom/android/settings/notification/app/ChannelListPreferenceController;->-$$Nest$fgetmPreference(Lcom/android/settings/notification/app/ChannelListPreferenceController;)Landroidx/preference/PreferenceCategory;
 
     move-result-object v0
 
     iget-object p0, p0, Lcom/android/settings/notification/app/ChannelListPreferenceController$1;->this$0:Lcom/android/settings/notification/app/ChannelListPreferenceController;
 
-    invoke-static {p0}, Lcom/android/settings/notification/app/ChannelListPreferenceController;->access$000(Lcom/android/settings/notification/app/ChannelListPreferenceController;)Ljava/util/List;
+    invoke-static {p0}, Lcom/android/settings/notification/app/ChannelListPreferenceController;->-$$Nest$fgetmChannelGroupList(Lcom/android/settings/notification/app/ChannelListPreferenceController;)Ljava/util/List;
 
     move-result-object p0
 

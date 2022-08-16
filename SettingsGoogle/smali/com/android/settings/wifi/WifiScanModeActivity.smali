@@ -12,21 +12,15 @@
 
 
 # instance fields
-.field private mApp:Ljava/lang/String;
+.field mApp:Ljava/lang/String;
 
 .field private mDialog:Landroidx/fragment/app/DialogFragment;
 
+.field mWifiPermissionChecker:Lcom/android/settingslib/wifi/WifiPermissionChecker;
+
 
 # direct methods
-.method public constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Landroidx/fragment/app/FragmentActivity;-><init>()V
-
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/wifi/WifiScanModeActivity;)V
+.method static bridge synthetic -$$Nest$mdoNegativeClick(Lcom/android/settings/wifi/WifiScanModeActivity;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/settings/wifi/WifiScanModeActivity;->doNegativeClick()V
@@ -34,10 +28,18 @@
     return-void
 .end method
 
-.method static synthetic access$100(Lcom/android/settings/wifi/WifiScanModeActivity;)V
+.method static bridge synthetic -$$Nest$mdoPositiveClick(Lcom/android/settings/wifi/WifiScanModeActivity;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/settings/wifi/WifiScanModeActivity;->doPositiveClick()V
+
+    return-void
+.end method
+
+.method public constructor <init>()V
+    .locals 0
+
+    invoke-direct {p0}, Landroidx/fragment/app/FragmentActivity;-><init>()V
 
     return-void
 .end method
@@ -161,34 +163,7 @@
 
     if-eqz p1, :cond_0
 
-    invoke-virtual {p0}, Landroid/app/Activity;->getCallingPackage()Ljava/lang/String;
-
-    move-result-object p1
-
-    iput-object p1, p0, Lcom/android/settings/wifi/WifiScanModeActivity;->mApp:Ljava/lang/String;
-
-    :try_start_0
-    invoke-virtual {p0}, Landroid/app/Activity;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object p1
-
-    iget-object v0, p0, Lcom/android/settings/wifi/WifiScanModeActivity;->mApp:Ljava/lang/String;
-
-    const/4 v1, 0x0
-
-    invoke-virtual {p1, v0, v1}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
-
-    move-result-object v0
-
-    invoke-virtual {p1, v0}, Landroid/content/pm/PackageManager;->getApplicationLabel(Landroid/content/pm/ApplicationInfo;)Ljava/lang/CharSequence;
-
-    move-result-object p1
-
-    check-cast p1, Ljava/lang/String;
-
-    iput-object p1, p0, Lcom/android/settings/wifi/WifiScanModeActivity;->mApp:Ljava/lang/String;
-    :try_end_0
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    invoke-virtual {p0}, Lcom/android/settings/wifi/WifiScanModeActivity;->refreshAppLabel()V
 
     goto :goto_0
 
@@ -206,7 +181,6 @@
 
     iput-object p1, p0, Lcom/android/settings/wifi/WifiScanModeActivity;->mApp:Ljava/lang/String;
 
-    :catch_0
     :goto_0
     invoke-direct {p0}, Lcom/android/settings/wifi/WifiScanModeActivity;->createDialog()V
 
@@ -243,6 +217,56 @@
     const-string v0, "app"
 
     invoke-virtual {p1, v0, p0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method refreshAppLabel()V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/settings/wifi/WifiScanModeActivity;->mWifiPermissionChecker:Lcom/android/settingslib/wifi/WifiPermissionChecker;
+
+    if-nez v0, :cond_0
+
+    new-instance v0, Lcom/android/settingslib/wifi/WifiPermissionChecker;
+
+    invoke-direct {v0, p0}, Lcom/android/settingslib/wifi/WifiPermissionChecker;-><init>(Landroid/app/Activity;)V
+
+    iput-object v0, p0, Lcom/android/settings/wifi/WifiScanModeActivity;->mWifiPermissionChecker:Lcom/android/settingslib/wifi/WifiPermissionChecker;
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/settings/wifi/WifiScanModeActivity;->mWifiPermissionChecker:Lcom/android/settingslib/wifi/WifiPermissionChecker;
+
+    invoke-virtual {v0}, Lcom/android/settingslib/wifi/WifiPermissionChecker;->getLaunchedPackage()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/android/settings/wifi/WifiScanModeActivity;->mApp:Ljava/lang/String;
+
+    return-void
+
+    :cond_1
+    invoke-virtual {p0}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-static {v1, v0}, Lcom/android/settings/Utils;->getApplicationLabel(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/CharSequence;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/settings/wifi/WifiScanModeActivity;->mApp:Ljava/lang/String;
 
     return-void
 .end method

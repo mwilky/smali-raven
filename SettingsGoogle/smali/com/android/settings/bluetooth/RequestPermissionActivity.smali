@@ -30,6 +30,30 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmRequest(Lcom/android/settings/bluetooth/RequestPermissionActivity;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/settings/bluetooth/RequestPermissionActivity;->mRequest:I
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$mcancelAndFinish(Lcom/android/settings/bluetooth/RequestPermissionActivity;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/bluetooth/RequestPermissionActivity;->cancelAndFinish()V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mproceedAndFinish(Lcom/android/settings/bluetooth/RequestPermissionActivity;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/bluetooth/RequestPermissionActivity;->proceedAndFinish()V
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 1
 
@@ -38,30 +62,6 @@
     const/16 v0, 0x78
 
     iput v0, p0, Lcom/android/settings/bluetooth/RequestPermissionActivity;->mTimeout:I
-
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/bluetooth/RequestPermissionActivity;)I
-    .locals 0
-
-    iget p0, p0, Lcom/android/settings/bluetooth/RequestPermissionActivity;->mRequest:I
-
-    return p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/bluetooth/RequestPermissionActivity;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/bluetooth/RequestPermissionActivity;->proceedAndFinish()V
-
-    return-void
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/bluetooth/RequestPermissionActivity;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/bluetooth/RequestPermissionActivity;->cancelAndFinish()V
 
     return-void
 .end method
@@ -122,7 +122,7 @@
 
     if-eq v1, v2, :cond_1
 
-    const v1, 0x7f040513
+    const v1, 0x7f04056c
 
     invoke-virtual {p0, v1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -133,7 +133,7 @@
     goto :goto_0
 
     :cond_1
-    const v1, 0x7f040514
+    const v1, 0x7f04056d
 
     invoke-virtual {p0, v1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -155,7 +155,7 @@
 
     if-eqz v1, :cond_3
 
-    const v2, 0x7f040428
+    const v2, 0x7f040469
 
     new-array v4, v4, [Ljava/lang/Object;
 
@@ -168,7 +168,7 @@
     goto :goto_1
 
     :cond_3
-    const v1, 0x7f040429
+    const v1, 0x7f04046a
 
     invoke-virtual {p0, v1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -184,7 +184,7 @@
 
     if-eqz v5, :cond_5
 
-    const v6, 0x7f040420
+    const v6, 0x7f040461
 
     new-array v2, v2, [Ljava/lang/Object;
 
@@ -203,7 +203,7 @@
     goto :goto_2
 
     :cond_5
-    const v2, 0x7f040421
+    const v2, 0x7f040462
 
     new-array v4, v4, [Ljava/lang/Object;
 
@@ -221,7 +221,7 @@
     invoke-virtual {v0, v1}, Landroidx/appcompat/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroidx/appcompat/app/AlertDialog$Builder;
 
     :goto_3
-    const v1, 0x7f0401f9
+    const v1, 0x7f040222
 
     invoke-virtual {p0, v1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -229,7 +229,7 @@
 
     invoke-virtual {v0, v1, p0}, Landroidx/appcompat/app/AlertDialog$Builder;->setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 
-    const v1, 0x7f0407c8
+    const v1, 0x7f04080d
 
     invoke-virtual {p0, v1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -539,17 +539,25 @@
     :cond_0
     iget-object v0, p0, Lcom/android/settings/bluetooth/RequestPermissionActivity;->mBluetoothAdapter:Landroid/bluetooth/BluetoothAdapter;
 
+    iget v2, p0, Lcom/android/settings/bluetooth/RequestPermissionActivity;->mTimeout:I
+
+    int-to-long v2, v2
+
+    invoke-static {v2, v3}, Ljava/time/Duration;->ofSeconds(J)Ljava/time/Duration;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v2}, Landroid/bluetooth/BluetoothAdapter;->setDiscoverableTimeout(Ljava/time/Duration;)I
+
+    iget-object v0, p0, Lcom/android/settings/bluetooth/RequestPermissionActivity;->mBluetoothAdapter:Landroid/bluetooth/BluetoothAdapter;
+
     const/16 v2, 0x17
 
-    iget v3, p0, Lcom/android/settings/bluetooth/RequestPermissionActivity;->mTimeout:I
-
-    int-to-long v3, v3
-
-    invoke-virtual {v0, v2, v3, v4}, Landroid/bluetooth/BluetoothAdapter;->setScanMode(IJ)Z
+    invoke-virtual {v0, v2}, Landroid/bluetooth/BluetoothAdapter;->setScanMode(I)I
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-nez v0, :cond_3
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 

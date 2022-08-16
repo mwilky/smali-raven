@@ -36,7 +36,17 @@
 
 
 # virtual methods
-.method public synthetic add(Ljava/lang/Object;)V
+.method public bridge synthetic add(Ljava/lang/Object;)V
+    .locals 0
+
+    check-cast p1, Ljava/lang/Void;
+
+    invoke-virtual {p0, p1}, Lkotlin/collections/EmptyIterator;->add(Ljava/lang/Void;)V
+
+    return-void
+.end method
+
+.method public add(Ljava/lang/Void;)V
     .locals 0
 
     new-instance p0, Ljava/lang/UnsupportedOperationException;
@@ -136,7 +146,17 @@
     throw p0
 .end method
 
-.method public synthetic set(Ljava/lang/Object;)V
+.method public bridge synthetic set(Ljava/lang/Object;)V
+    .locals 0
+
+    check-cast p1, Ljava/lang/Void;
+
+    invoke-virtual {p0, p1}, Lkotlin/collections/EmptyIterator;->set(Ljava/lang/Void;)V
+
+    return-void
+.end method
+
+.method public set(Ljava/lang/Void;)V
     .locals 0
 
     new-instance p0, Ljava/lang/UnsupportedOperationException;

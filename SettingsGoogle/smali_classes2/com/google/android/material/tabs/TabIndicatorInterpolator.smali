@@ -157,7 +157,39 @@
 
 
 # virtual methods
-.method setIndicatorBoundsForOffset(Lcom/google/android/material/tabs/TabLayout;Landroid/view/View;Landroid/view/View;FLandroid/graphics/drawable/Drawable;)V
+.method setIndicatorBoundsForTab(Lcom/google/android/material/tabs/TabLayout;Landroid/view/View;Landroid/graphics/drawable/Drawable;)V
+    .locals 1
+
+    invoke-static {p1, p2}, Lcom/google/android/material/tabs/TabIndicatorInterpolator;->calculateIndicatorWidthForTab(Lcom/google/android/material/tabs/TabLayout;Landroid/view/View;)Landroid/graphics/RectF;
+
+    move-result-object p0
+
+    iget p1, p0, Landroid/graphics/RectF;->left:F
+
+    float-to-int p1, p1
+
+    invoke-virtual {p3}, Landroid/graphics/drawable/Drawable;->getBounds()Landroid/graphics/Rect;
+
+    move-result-object p2
+
+    iget p2, p2, Landroid/graphics/Rect;->top:I
+
+    iget p0, p0, Landroid/graphics/RectF;->right:F
+
+    float-to-int p0, p0
+
+    invoke-virtual {p3}, Landroid/graphics/drawable/Drawable;->getBounds()Landroid/graphics/Rect;
+
+    move-result-object v0
+
+    iget v0, v0, Landroid/graphics/Rect;->bottom:I
+
+    invoke-virtual {p3, p1, p2, p0, v0}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
+
+    return-void
+.end method
+
+.method updateIndicatorForOffset(Lcom/google/android/material/tabs/TabLayout;Landroid/view/View;Landroid/view/View;FLandroid/graphics/drawable/Drawable;)V
     .locals 0
 
     invoke-static {p1, p2}, Lcom/google/android/material/tabs/TabIndicatorInterpolator;->calculateIndicatorWidthForTab(Lcom/google/android/material/tabs/TabLayout;Landroid/view/View;)Landroid/graphics/RectF;
@@ -205,38 +237,6 @@
     iget p1, p1, Landroid/graphics/Rect;->bottom:I
 
     invoke-virtual {p5, p2, p3, p0, p1}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
-
-    return-void
-.end method
-
-.method setIndicatorBoundsForTab(Lcom/google/android/material/tabs/TabLayout;Landroid/view/View;Landroid/graphics/drawable/Drawable;)V
-    .locals 1
-
-    invoke-static {p1, p2}, Lcom/google/android/material/tabs/TabIndicatorInterpolator;->calculateIndicatorWidthForTab(Lcom/google/android/material/tabs/TabLayout;Landroid/view/View;)Landroid/graphics/RectF;
-
-    move-result-object p0
-
-    iget p1, p0, Landroid/graphics/RectF;->left:F
-
-    float-to-int p1, p1
-
-    invoke-virtual {p3}, Landroid/graphics/drawable/Drawable;->getBounds()Landroid/graphics/Rect;
-
-    move-result-object p2
-
-    iget p2, p2, Landroid/graphics/Rect;->top:I
-
-    iget p0, p0, Landroid/graphics/RectF;->right:F
-
-    float-to-int p0, p0
-
-    invoke-virtual {p3}, Landroid/graphics/drawable/Drawable;->getBounds()Landroid/graphics/Rect;
-
-    move-result-object v0
-
-    iget v0, v0, Landroid/graphics/Rect;->bottom:I
-
-    invoke-virtual {p3, p1, p2, p0, v0}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
     return-void
 .end method

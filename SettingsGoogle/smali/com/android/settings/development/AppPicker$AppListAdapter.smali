@@ -96,7 +96,7 @@
     goto/16 :goto_3
 
     :cond_0
-    invoke-static {p1}, Lcom/android/settings/development/AppPicker;->access$000(Lcom/android/settings/development/AppPicker;)Z
+    invoke-static {p1}, Lcom/android/settings/development/AppPicker;->-$$Nest$fgetmDebuggableOnly(Lcom/android/settings/development/AppPicker;)Z
 
     move-result v4
 
@@ -121,7 +121,7 @@
     goto :goto_3
 
     :cond_1
-    invoke-static {p1}, Lcom/android/settings/development/AppPicker;->access$100(Lcom/android/settings/development/AppPicker;)Z
+    invoke-static {p1}, Lcom/android/settings/development/AppPicker;->-$$Nest$fgetmNonSystemOnly(Lcom/android/settings/development/AppPicker;)Z
 
     move-result v4
 
@@ -136,7 +136,7 @@
     goto :goto_3
 
     :cond_2
-    invoke-static {p1}, Lcom/android/settings/development/AppPicker;->access$200(Lcom/android/settings/development/AppPicker;)Ljava/lang/String;
+    invoke-static {p1}, Lcom/android/settings/development/AppPicker;->-$$Nest$fgetmPermissionName(Lcom/android/settings/development/AppPicker;)Ljava/lang/String;
 
     move-result-object v4
 
@@ -171,7 +171,7 @@
 
     aget-object v7, v4, v6
 
-    invoke-static {p1}, Lcom/android/settings/development/AppPicker;->access$200(Lcom/android/settings/development/AppPicker;)Ljava/lang/String;
+    invoke-static {p1}, Lcom/android/settings/development/AppPicker;->-$$Nest$fgetmPermissionName(Lcom/android/settings/development/AppPicker;)Ljava/lang/String;
 
     move-result-object v8
 
@@ -234,13 +234,13 @@
     :cond_7
     iget-object v1, p0, Lcom/android/settings/development/AppPicker$AppListAdapter;->mPackageInfoList:Ljava/util/List;
 
-    invoke-static {}, Lcom/android/settings/development/AppPicker;->access$300()Ljava/util/Comparator;
+    invoke-static {}, Lcom/android/settings/development/AppPicker;->-$$Nest$sfgetsDisplayNameComparator()Ljava/util/Comparator;
 
     move-result-object v2
 
     invoke-static {v1, v2}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
 
-    invoke-static {p1}, Lcom/android/settings/development/AppPicker;->access$400(Lcom/android/settings/development/AppPicker;)Z
+    invoke-static {p1}, Lcom/android/settings/development/AppPicker;->-$$Nest$fgetmIncludeNothing(Lcom/android/settings/development/AppPicker;)Z
 
     move-result v1
 
@@ -250,7 +250,7 @@
 
     invoke-direct {v1, p1}, Lcom/android/settings/development/AppPicker$MyApplicationInfo;-><init>(Lcom/android/settings/development/AppPicker;)V
 
-    const p1, 0x7f040e14
+    const p1, 0x7f040ea3
 
     invoke-virtual {p2, p1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 

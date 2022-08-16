@@ -12,6 +12,24 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmDays(Lcom/android/settings/notification/zen/ZenModeScheduleDaysSelection;)Landroid/util/SparseBooleanArray;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/notification/zen/ZenModeScheduleDaysSelection;->mDays:Landroid/util/SparseBooleanArray;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$mgetDays(Lcom/android/settings/notification/zen/ZenModeScheduleDaysSelection;)[I
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/notification/zen/ZenModeScheduleDaysSelection;->getDays()[I
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method public constructor <init>(Landroid/content/Context;[I)V
     .locals 7
 
@@ -43,7 +61,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b040f
+    const v2, 0x7f0b050c
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -102,7 +120,7 @@
 
     aget v3, v0, v1
 
-    const v4, 0x7f0602d3
+    const v4, 0x7f0602e7
 
     invoke-virtual {p1, v4, p0, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -150,24 +168,6 @@
 
     :cond_1
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/notification/zen/ZenModeScheduleDaysSelection;)Landroid/util/SparseBooleanArray;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/notification/zen/ZenModeScheduleDaysSelection;->mDays:Landroid/util/SparseBooleanArray;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/notification/zen/ZenModeScheduleDaysSelection;)[I
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/notification/zen/ZenModeScheduleDaysSelection;->getDays()[I
-
-    move-result-object p0
-
-    return-object p0
 .end method
 
 .method private getDays()[I

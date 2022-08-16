@@ -14,6 +14,14 @@
 
 
 # virtual methods
+.method protected forceUpdateHeight()Z
+    .locals 0
+
+    const/4 p0, 0x1
+
+    return p0
+.end method
+
 .method public getFragments()[Landroidx/fragment/app/Fragment;
     .locals 4
 
@@ -61,7 +69,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f15008d
+    const p0, 0x7f15008e
 
     return p0
 .end method

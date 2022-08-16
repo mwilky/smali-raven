@@ -57,7 +57,7 @@
     if-eqz p2, :cond_2
 
     :cond_0
-    invoke-static {}, Lcom/android/settings/notification/app/NotificationSettings;->access$200()Z
+    invoke-static {}, Lcom/android/settings/notification/app/NotificationSettings;->-$$Nest$sfgetDEBUG()Z
 
     move-result p2
 

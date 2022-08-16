@@ -15,7 +15,7 @@
 .method public constructor <init>()V
     .locals 1
 
-    const v0, -0x7ffffcfc
+    const v0, -0x7fffddfc
 
     invoke-direct {p0, v0}, Lcom/android/settingslib/applications/InterestingConfigChanges;-><init>(I)V
 
@@ -42,6 +42,11 @@
 # virtual methods
 .method public applyNewConfig(Landroid/content/res/Resources;)Z
     .locals 5
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "NewApi"
+        }
+    .end annotation
 
     iget-object v0, p0, Lcom/android/settingslib/applications/InterestingConfigChanges;->mLastConfiguration:Landroid/content/res/Configuration;
 

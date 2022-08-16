@@ -99,25 +99,25 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    invoke-static {p1}, Lcom/android/settings/fuelgauge/batterytip/AppInfo$Builder;->access$000(Lcom/android/settings/fuelgauge/batterytip/AppInfo$Builder;)Ljava/lang/String;
+    invoke-static {p1}, Lcom/android/settings/fuelgauge/batterytip/AppInfo$Builder;->-$$Nest$fgetmPackageName(Lcom/android/settings/fuelgauge/batterytip/AppInfo$Builder;)Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/settings/fuelgauge/batterytip/AppInfo;->packageName:Ljava/lang/String;
 
-    invoke-static {p1}, Lcom/android/settings/fuelgauge/batterytip/AppInfo$Builder;->access$100(Lcom/android/settings/fuelgauge/batterytip/AppInfo$Builder;)Landroid/util/ArraySet;
+    invoke-static {p1}, Lcom/android/settings/fuelgauge/batterytip/AppInfo$Builder;->-$$Nest$fgetmAnomalyTypes(Lcom/android/settings/fuelgauge/batterytip/AppInfo$Builder;)Landroid/util/ArraySet;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/settings/fuelgauge/batterytip/AppInfo;->anomalyTypes:Landroid/util/ArraySet;
 
-    invoke-static {p1}, Lcom/android/settings/fuelgauge/batterytip/AppInfo$Builder;->access$200(Lcom/android/settings/fuelgauge/batterytip/AppInfo$Builder;)J
+    invoke-static {p1}, Lcom/android/settings/fuelgauge/batterytip/AppInfo$Builder;->-$$Nest$fgetmScreenOnTimeMs(Lcom/android/settings/fuelgauge/batterytip/AppInfo$Builder;)J
 
     move-result-wide v0
 
     iput-wide v0, p0, Lcom/android/settings/fuelgauge/batterytip/AppInfo;->screenOnTimeMs:J
 
-    invoke-static {p1}, Lcom/android/settings/fuelgauge/batterytip/AppInfo$Builder;->access$300(Lcom/android/settings/fuelgauge/batterytip/AppInfo$Builder;)I
+    invoke-static {p1}, Lcom/android/settings/fuelgauge/batterytip/AppInfo$Builder;->-$$Nest$fgetmUid(Lcom/android/settings/fuelgauge/batterytip/AppInfo$Builder;)I
 
     move-result p1
 
@@ -126,7 +126,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settings/fuelgauge/batterytip/AppInfo$Builder;Lcom/android/settings/fuelgauge/batterytip/AppInfo$1;)V
+.method synthetic constructor <init>(Lcom/android/settings/fuelgauge/batterytip/AppInfo$Builder;Lcom/android/settings/fuelgauge/batterytip/AppInfo-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settings/fuelgauge/batterytip/AppInfo;-><init>(Lcom/android/settings/fuelgauge/batterytip/AppInfo$Builder;)V

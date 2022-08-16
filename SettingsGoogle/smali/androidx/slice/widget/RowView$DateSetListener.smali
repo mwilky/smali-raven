@@ -28,18 +28,6 @@
 # direct methods
 .method constructor <init>(Landroidx/slice/widget/RowView;Landroidx/slice/SliceItem;I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x1010,
-            0x0,
-            0x0
-        }
-        names = {
-            "this$0",
-            "datePickerItem",
-            "mRowIndex"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/slice/widget/RowView$DateSetListener;->this$0:Landroidx/slice/widget/RowView;
 
@@ -56,20 +44,6 @@
 # virtual methods
 .method public onDateSet(Landroid/widget/DatePicker;III)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "datePicker",
-            "year",
-            "month",
-            "day"
-        }
-    .end annotation
 
     invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
 

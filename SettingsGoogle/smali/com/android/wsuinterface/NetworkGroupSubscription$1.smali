@@ -152,7 +152,7 @@
 
     move-object v0, v11
 
-    invoke-direct/range {v0 .. v8}, Lcom/android/wsuinterface/NetworkGroupSubscription;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Landroid/app/PendingIntent;Landroid/app/PendingIntent;Lcom/android/wsuinterface/NetworkGroupSubscription$1;)V
+    invoke-direct/range {v0 .. v8}, Lcom/android/wsuinterface/NetworkGroupSubscription;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Landroid/app/PendingIntent;Landroid/app/PendingIntent;Lcom/android/wsuinterface/NetworkGroupSubscription-IA;)V
 
     invoke-virtual {v11, p0}, Lcom/android/wsuinterface/NetworkGroupSubscription;->setProvisionStatus(I)V
 
@@ -160,7 +160,7 @@
 
     invoke-virtual {v11, v9}, Lcom/android/wsuinterface/NetworkGroupSubscription;->updateProvisionedPasspointConfigurations(Ljava/util/List;)V
 
-    invoke-static {v11, p1}, Lcom/android/wsuinterface/NetworkGroupSubscription;->access$102(Lcom/android/wsuinterface/NetworkGroupSubscription;I)I
+    invoke-static {v11, p1}, Lcom/android/wsuinterface/NetworkGroupSubscription;->-$$Nest$fputmApiVersion(Lcom/android/wsuinterface/NetworkGroupSubscription;I)V
 
     return-object v11
 .end method

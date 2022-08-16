@@ -49,7 +49,7 @@
 
     invoke-direct {v0}, Lcom/android/settings/sim/smartForwarding/MDNHandlerFragment;-><init>()V
 
-    const v1, 0x7f0d0179
+    const v1, 0x7f0d018e
 
     invoke-virtual {p0, v1, v0}, Landroidx/fragment/app/FragmentTransaction;->replace(ILandroidx/fragment/app/Fragment;)Landroidx/fragment/app/FragmentTransaction;
 
@@ -73,7 +73,7 @@
 .method public onCreatePreferences(Landroid/os/Bundle;Ljava/lang/String;)V
     .locals 0
 
-    const p1, 0x7f1500e2
+    const p1, 0x7f1500e7
 
     invoke-virtual {p0, p1, p2}, Landroidx/preference/PreferenceFragmentCompat;->setPreferencesFromResource(ILjava/lang/String;)V
 
@@ -81,7 +81,7 @@
 
     move-result-object p1
 
-    const p2, 0x7f0412a3
+    const p2, 0x7f04135d
 
     invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

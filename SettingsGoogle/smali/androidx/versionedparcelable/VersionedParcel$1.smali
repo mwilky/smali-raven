@@ -59,7 +59,9 @@
 
     move-result-object v0
 
-    const-class v1, Landroidx/versionedparcelable/VersionedParcel$1;
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
 

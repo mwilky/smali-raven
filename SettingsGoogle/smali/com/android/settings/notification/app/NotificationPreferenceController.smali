@@ -58,6 +58,14 @@
 
 .field protected final mUm:Landroid/os/UserManager;
 
+.field overrideCanBlock:Z
+
+.field overrideCanBlockValue:Z
+
+.field overrideCanConfigure:Z
+
+.field overrideCanConfigureValue:Z
+
 
 # direct methods
 .method public static synthetic $r8$lambda$khMuDOER8E7m4ZMNQbF_gTVQJLc(Landroid/app/NotificationChannel;Landroid/app/NotificationChannel;)I
@@ -79,7 +87,9 @@
 
     sput-object v0, Lcom/android/settings/notification/app/NotificationPreferenceController;->CHANNEL_GROUP_COMPARATOR:Ljava/util/Comparator;
 
-    sget-object v0, Lcom/android/settings/notification/app/NotificationPreferenceController$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/settings/notification/app/NotificationPreferenceController$$ExternalSyntheticLambda0;
+    new-instance v0, Lcom/android/settings/notification/app/NotificationPreferenceController$$ExternalSyntheticLambda0;
+
+    invoke-direct {v0}, Lcom/android/settings/notification/app/NotificationPreferenceController$$ExternalSyntheticLambda0;-><init>()V
 
     sput-object v0, Lcom/android/settings/notification/app/NotificationPreferenceController;->CHANNEL_COMPARATOR:Ljava/util/Comparator;
 
@@ -258,6 +268,73 @@
     return p0
 .end method
 
+.method protected isAppBlockable()Z
+    .locals 3
+
+    iget-boolean v0, p0, Lcom/android/settings/notification/app/NotificationPreferenceController;->overrideCanBlock:Z
+
+    if-eqz v0, :cond_0
+
+    iget-boolean p0, p0, Lcom/android/settings/notification/app/NotificationPreferenceController;->overrideCanBlockValue:Z
+
+    return p0
+
+    :cond_0
+    iget-boolean v0, p0, Lcom/android/settings/notification/app/NotificationPreferenceController;->overrideCanConfigure:Z
+
+    if-eqz v0, :cond_1
+
+    iget-boolean p0, p0, Lcom/android/settings/notification/app/NotificationPreferenceController;->overrideCanConfigureValue:Z
+
+    return p0
+
+    :cond_1
+    iget-object p0, p0, Lcom/android/settings/notification/app/NotificationPreferenceController;->mAppRow:Lcom/android/settings/notification/NotificationBackend$AppRow;
+
+    const/4 v0, 0x1
+
+    if-eqz p0, :cond_5
+
+    iget-boolean v1, p0, Lcom/android/settings/notification/NotificationBackend$AppRow;->systemApp:Z
+
+    const/4 v2, 0x0
+
+    if-eqz v1, :cond_3
+
+    if-eqz v1, :cond_2
+
+    iget-boolean v1, p0, Lcom/android/settings/notification/NotificationBackend$AppRow;->banned:Z
+
+    if-eqz v1, :cond_2
+
+    goto :goto_0
+
+    :cond_2
+    move v1, v2
+
+    goto :goto_1
+
+    :cond_3
+    :goto_0
+    move v1, v0
+
+    :goto_1
+    if-eqz v1, :cond_4
+
+    iget-boolean p0, p0, Lcom/android/settings/notification/NotificationBackend$AppRow;->lockedImportance:Z
+
+    if-nez p0, :cond_4
+
+    goto :goto_2
+
+    :cond_4
+    move v0, v2
+
+    :cond_5
+    :goto_2
+    return v0
+.end method
+
 .method public isAvailable()Z
     .locals 3
 
@@ -341,90 +418,117 @@
 .method protected isChannelBlockable(Landroid/app/NotificationChannel;)Z
     .locals 3
 
+    iget-boolean v0, p0, Lcom/android/settings/notification/app/NotificationPreferenceController;->overrideCanBlock:Z
+
+    if-eqz v0, :cond_0
+
+    iget-boolean p0, p0, Lcom/android/settings/notification/app/NotificationPreferenceController;->overrideCanBlockValue:Z
+
+    return p0
+
+    :cond_0
+    iget-boolean v0, p0, Lcom/android/settings/notification/app/NotificationPreferenceController;->overrideCanConfigure:Z
+
+    if-eqz v0, :cond_1
+
+    iget-boolean p0, p0, Lcom/android/settings/notification/app/NotificationPreferenceController;->overrideCanConfigureValue:Z
+
+    return p0
+
+    :cond_1
     const/4 v0, 0x0
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_6
 
     iget-object v1, p0, Lcom/android/settings/notification/app/NotificationPreferenceController;->mAppRow:Lcom/android/settings/notification/NotificationBackend$AppRow;
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_6
 
-    invoke-virtual {p1}, Landroid/app/NotificationChannel;->isImportanceLockedByCriticalDeviceFunction()Z
-
-    move-result v1
+    iget-boolean v1, v1, Lcom/android/settings/notification/NotificationBackend$AppRow;->lockedImportance:Z
 
     const/4 v2, 0x1
 
-    if-nez v1, :cond_3
+    if-eqz v1, :cond_4
 
-    invoke-virtual {p1}, Landroid/app/NotificationChannel;->isImportanceLockedByOEM()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    goto :goto_0
-
-    :cond_0
     invoke-virtual {p1}, Landroid/app/NotificationChannel;->isBlockable()Z
-
-    move-result v1
-
-    if-nez v1, :cond_1
-
-    iget-object p0, p0, Lcom/android/settings/notification/app/NotificationPreferenceController;->mAppRow:Lcom/android/settings/notification/NotificationBackend$AppRow;
-
-    iget-boolean p0, p0, Lcom/android/settings/notification/NotificationBackend$AppRow;->systemApp:Z
-
-    if-eqz p0, :cond_1
-
-    invoke-virtual {p1}, Landroid/app/NotificationChannel;->getImportance()I
 
     move-result p0
 
     if-nez p0, :cond_2
 
-    :cond_1
-    move v0, v2
-
-    :cond_2
-    return v0
-
-    :cond_3
-    :goto_0
     invoke-virtual {p1}, Landroid/app/NotificationChannel;->getImportance()I
 
     move-result p0
 
-    if-nez p0, :cond_4
+    if-nez p0, :cond_3
 
+    :cond_2
     move v0, v2
 
+    :cond_3
+    return v0
+
     :cond_4
+    invoke-virtual {p1}, Landroid/app/NotificationChannel;->isBlockable()Z
+
+    move-result v1
+
+    if-nez v1, :cond_5
+
+    iget-object p0, p0, Lcom/android/settings/notification/app/NotificationPreferenceController;->mAppRow:Lcom/android/settings/notification/NotificationBackend$AppRow;
+
+    iget-boolean p0, p0, Lcom/android/settings/notification/NotificationBackend$AppRow;->systemApp:Z
+
+    if-eqz p0, :cond_5
+
+    invoke-virtual {p1}, Landroid/app/NotificationChannel;->getImportance()I
+
+    move-result p0
+
+    if-nez p0, :cond_6
+
+    :cond_5
+    move v0, v2
+
+    :cond_6
     return v0
 .end method
 
 .method protected isChannelConfigurable(Landroid/app/NotificationChannel;)Z
-    .locals 0
+    .locals 1
 
-    if-eqz p1, :cond_0
+    iget-boolean v0, p0, Lcom/android/settings/notification/app/NotificationPreferenceController;->overrideCanConfigure:Z
 
-    iget-object p0, p0, Lcom/android/settings/notification/app/NotificationPreferenceController;->mAppRow:Lcom/android/settings/notification/NotificationBackend$AppRow;
+    if-eqz v0, :cond_0
 
-    if-eqz p0, :cond_0
-
-    invoke-virtual {p1}, Landroid/app/NotificationChannel;->isImportanceLockedByOEM()Z
-
-    move-result p0
-
-    xor-int/lit8 p0, p0, 0x1
+    iget-boolean p0, p0, Lcom/android/settings/notification/app/NotificationPreferenceController;->overrideCanConfigureValue:Z
 
     return p0
 
     :cond_0
-    const/4 p0, 0x0
+    const/4 v0, 0x0
 
-    return p0
+    if-eqz p1, :cond_2
+
+    iget-object p0, p0, Lcom/android/settings/notification/app/NotificationPreferenceController;->mAppRow:Lcom/android/settings/notification/NotificationBackend$AppRow;
+
+    if-eqz p0, :cond_2
+
+    iget-boolean p0, p0, Lcom/android/settings/notification/NotificationBackend$AppRow;->lockedImportance:Z
+
+    if-eqz p0, :cond_1
+
+    invoke-virtual {p1}, Landroid/app/NotificationChannel;->isBlockable()Z
+
+    move-result p0
+
+    if-eqz p0, :cond_2
+
+    :cond_1
+    const/4 v0, 0x1
+
+    :cond_2
+    return v0
 .end method
 
 .method protected isChannelGroupBlockable()Z
@@ -440,30 +544,52 @@
 .end method
 
 .method protected isChannelGroupBlockable(Landroid/app/NotificationChannelGroup;)Z
-    .locals 0
+    .locals 1
 
-    if-eqz p1, :cond_1
+    iget-boolean v0, p0, Lcom/android/settings/notification/app/NotificationPreferenceController;->overrideCanBlock:Z
+
+    if-eqz v0, :cond_0
+
+    iget-boolean p0, p0, Lcom/android/settings/notification/app/NotificationPreferenceController;->overrideCanBlockValue:Z
+
+    return p0
+
+    :cond_0
+    iget-boolean v0, p0, Lcom/android/settings/notification/app/NotificationPreferenceController;->overrideCanConfigure:Z
+
+    if-eqz v0, :cond_1
+
+    iget-boolean p0, p0, Lcom/android/settings/notification/app/NotificationPreferenceController;->overrideCanConfigureValue:Z
+
+    return p0
+
+    :cond_1
+    if-eqz p1, :cond_3
 
     iget-object p0, p0, Lcom/android/settings/notification/app/NotificationPreferenceController;->mAppRow:Lcom/android/settings/notification/NotificationBackend$AppRow;
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_3
 
-    iget-boolean p0, p0, Lcom/android/settings/notification/NotificationBackend$AppRow;->systemApp:Z
+    iget-boolean v0, p0, Lcom/android/settings/notification/NotificationBackend$AppRow;->systemApp:Z
 
-    if-nez p0, :cond_0
+    if-nez v0, :cond_2
+
+    iget-boolean p0, p0, Lcom/android/settings/notification/NotificationBackend$AppRow;->lockedImportance:Z
+
+    if-nez p0, :cond_2
 
     const/4 p0, 0x1
 
     return p0
 
-    :cond_0
+    :cond_2
     invoke-virtual {p1}, Landroid/app/NotificationChannelGroup;->isBlocked()Z
 
     move-result p0
 
     return p0
 
-    :cond_1
+    :cond_3
     const/4 p0, 0x0
 
     return p0

@@ -2,9 +2,6 @@
 .super Ljava/lang/Object;
 .source "WifiEntry.java"
 
-# interfaces
-.implements Ljava/lang/Comparable;
-
 
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
@@ -21,14 +18,27 @@
     }
 .end annotation
 
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Ljava/lang/Object;",
-        "Ljava/lang/Comparable<",
-        "Lcom/android/wifitrackerlib/WifiEntry;",
-        ">;"
-    }
-.end annotation
+
+# static fields
+.field public static TITLE_COMPARATOR:Ljava/util/Comparator;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/Comparator<",
+            "Lcom/android/wifitrackerlib/WifiEntry;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public static WIFI_PICKER_COMPARATOR:Ljava/util/Comparator;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/Comparator<",
+            "Lcom/android/wifitrackerlib/WifiEntry;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 
 # instance fields
@@ -72,41 +82,191 @@
 
 .field protected mNetworkInfo:Landroid/net/NetworkInfo;
 
-.field protected mScoreCache:Landroid/net/wifi/WifiNetworkScoreCache;
-
-.field protected mSpeed:I
-
 .field protected mWifiInfo:Landroid/net/wifi/WifiInfo;
 
 .field protected final mWifiManager:Landroid/net/wifi/WifiManager;
 
 
 # direct methods
-.method public static synthetic $r8$lambda$YZzJvcD9N68jVndE-VlQDrkIhB0(Lcom/android/wifitrackerlib/WifiEntry;)V
+.method public static synthetic $r8$lambda$CS-Nho7EmabuPg-xMQgRt1ZtGKY(Lcom/android/wifitrackerlib/WifiEntry;)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/wifitrackerlib/WifiEntry;->lambda$updateConnectionInfo$2()V
+    invoke-direct {p0}, Lcom/android/wifitrackerlib/WifiEntry;->lambda$updateConnectionInfo$10()V
 
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$eqfWnISjXdKbW3zp4Le352nvlVY(Lcom/android/wifitrackerlib/WifiEntry;)V
+.method public static synthetic $r8$lambda$IUPo_WGC0UjsfB7Y40barcLTK9U(Lcom/android/wifitrackerlib/WifiEntry;)Ljava/lang/Boolean;
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/wifitrackerlib/WifiEntry;->lambda$updateConnectionInfo$1()V
+    invoke-static {p0}, Lcom/android/wifitrackerlib/WifiEntry;->lambda$static$0(Lcom/android/wifitrackerlib/WifiEntry;)Ljava/lang/Boolean;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static synthetic $r8$lambda$M1ESVe_vBUa6FqTHTskjbwaMt1M(Lcom/android/wifitrackerlib/WifiEntry;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/wifitrackerlib/WifiEntry;->lambda$notifyOnUpdated$8()V
 
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$kmbO9H7mcWhXu3mRNT2ZQpalNUE(Lcom/android/wifitrackerlib/WifiEntry;)V
+.method public static synthetic $r8$lambda$M2P_RO5k68pw7ANR5WYYCFTwqAY(Lcom/android/wifitrackerlib/WifiEntry;)Ljava/lang/Boolean;
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/wifitrackerlib/WifiEntry;->lambda$notifyOnUpdated$0()V
+    invoke-static {p0}, Lcom/android/wifitrackerlib/WifiEntry;->lambda$static$3(Lcom/android/wifitrackerlib/WifiEntry;)Ljava/lang/Boolean;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static synthetic $r8$lambda$NuxOg7rRMQLu_sJChsKxPlgb8vg(Lcom/android/wifitrackerlib/WifiEntry;)Ljava/lang/Boolean;
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/wifitrackerlib/WifiEntry;->lambda$static$2(Lcom/android/wifitrackerlib/WifiEntry;)Ljava/lang/Boolean;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static synthetic $r8$lambda$V5Yw6-JkynOQZJ8QIndp7xuIfSc(Lcom/android/wifitrackerlib/WifiEntry;)Ljava/lang/String;
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/wifitrackerlib/WifiEntry;->lambda$static$6(Lcom/android/wifitrackerlib/WifiEntry;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static synthetic $r8$lambda$gDnD-Fb0OdyQ4c6TAjVvydNQ4V0(Lcom/android/wifitrackerlib/WifiEntry;)Ljava/lang/String;
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/wifitrackerlib/WifiEntry;->lambda$static$7(Lcom/android/wifitrackerlib/WifiEntry;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static synthetic $r8$lambda$mGP0bddjvjg5P-l7AlcYU4dKB5w(Lcom/android/wifitrackerlib/WifiEntry;)Ljava/lang/Boolean;
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/wifitrackerlib/WifiEntry;->lambda$static$4(Lcom/android/wifitrackerlib/WifiEntry;)Ljava/lang/Boolean;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static synthetic $r8$lambda$mV_4wy-qyzaZkxrzHcQBgzPkvoc(Lcom/android/wifitrackerlib/WifiEntry;)Ljava/lang/Integer;
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/wifitrackerlib/WifiEntry;->lambda$static$5(Lcom/android/wifitrackerlib/WifiEntry;)Ljava/lang/Integer;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static synthetic $r8$lambda$oFgNZEoqBf0iMJ67VdBnU50WNW0(Lcom/android/wifitrackerlib/WifiEntry;)Ljava/lang/Boolean;
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/wifitrackerlib/WifiEntry;->lambda$static$1(Lcom/android/wifitrackerlib/WifiEntry;)Ljava/lang/Boolean;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static synthetic $r8$lambda$tW12bGPIn659p7GQKNJB_4FLGr8(Lcom/android/wifitrackerlib/WifiEntry;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/wifitrackerlib/WifiEntry;->lambda$updateConnectionInfo$9()V
 
     return-void
 .end method
 
-.method public constructor <init>(Landroid/os/Handler;Landroid/net/wifi/WifiManager;Landroid/net/wifi/WifiNetworkScoreCache;Z)V
+.method static constructor <clinit>()V
+    .locals 2
+
+    new-instance v0, Lcom/android/wifitrackerlib/WifiEntry$$ExternalSyntheticLambda1;
+
+    invoke-direct {v0}, Lcom/android/wifitrackerlib/WifiEntry$$ExternalSyntheticLambda1;-><init>()V
+
+    invoke-static {v0}, Ljava/util/Comparator;->comparing(Ljava/util/function/Function;)Ljava/util/Comparator;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/android/wifitrackerlib/WifiEntry$$ExternalSyntheticLambda2;
+
+    invoke-direct {v1}, Lcom/android/wifitrackerlib/WifiEntry$$ExternalSyntheticLambda2;-><init>()V
+
+    invoke-interface {v0, v1}, Ljava/util/Comparator;->thenComparing(Ljava/util/function/Function;)Ljava/util/Comparator;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/android/wifitrackerlib/WifiEntry$$ExternalSyntheticLambda3;
+
+    invoke-direct {v1}, Lcom/android/wifitrackerlib/WifiEntry$$ExternalSyntheticLambda3;-><init>()V
+
+    invoke-interface {v0, v1}, Ljava/util/Comparator;->thenComparing(Ljava/util/function/Function;)Ljava/util/Comparator;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/android/wifitrackerlib/WifiEntry$$ExternalSyntheticLambda4;
+
+    invoke-direct {v1}, Lcom/android/wifitrackerlib/WifiEntry$$ExternalSyntheticLambda4;-><init>()V
+
+    invoke-interface {v0, v1}, Ljava/util/Comparator;->thenComparing(Ljava/util/function/Function;)Ljava/util/Comparator;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/android/wifitrackerlib/WifiEntry$$ExternalSyntheticLambda5;
+
+    invoke-direct {v1}, Lcom/android/wifitrackerlib/WifiEntry$$ExternalSyntheticLambda5;-><init>()V
+
+    invoke-interface {v0, v1}, Ljava/util/Comparator;->thenComparing(Ljava/util/function/Function;)Ljava/util/Comparator;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/android/wifitrackerlib/WifiEntry$$ExternalSyntheticLambda6;
+
+    invoke-direct {v1}, Lcom/android/wifitrackerlib/WifiEntry$$ExternalSyntheticLambda6;-><init>()V
+
+    invoke-interface {v0, v1}, Ljava/util/Comparator;->thenComparing(Ljava/util/function/Function;)Ljava/util/Comparator;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/android/wifitrackerlib/WifiEntry$$ExternalSyntheticLambda7;
+
+    invoke-direct {v1}, Lcom/android/wifitrackerlib/WifiEntry$$ExternalSyntheticLambda7;-><init>()V
+
+    invoke-interface {v0, v1}, Ljava/util/Comparator;->thenComparing(Ljava/util/function/Function;)Ljava/util/Comparator;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/android/wifitrackerlib/WifiEntry;->WIFI_PICKER_COMPARATOR:Ljava/util/Comparator;
+
+    new-instance v0, Lcom/android/wifitrackerlib/WifiEntry$$ExternalSyntheticLambda8;
+
+    invoke-direct {v0}, Lcom/android/wifitrackerlib/WifiEntry$$ExternalSyntheticLambda8;-><init>()V
+
+    invoke-static {v0}, Ljava/util/Comparator;->comparing(Ljava/util/function/Function;)Ljava/util/Comparator;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/android/wifitrackerlib/WifiEntry;->TITLE_COMPARATOR:Ljava/util/Comparator;
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/os/Handler;Landroid/net/wifi/WifiManager;Z)V
     .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -121,8 +281,6 @@
     iput v0, p0, Lcom/android/wifitrackerlib/WifiEntry;->mLevel:I
 
     const/4 v0, 0x0
-
-    iput v0, p0, Lcom/android/wifitrackerlib/WifiEntry;->mSpeed:I
 
     iput-boolean v0, p0, Lcom/android/wifitrackerlib/WifiEntry;->mCalledConnect:Z
 
@@ -144,16 +302,14 @@
 
     iput-object p1, p0, Lcom/android/wifitrackerlib/WifiEntry;->mCallbackHandler:Landroid/os/Handler;
 
-    iput-boolean p4, p0, Lcom/android/wifitrackerlib/WifiEntry;->mForSavedNetworksPage:Z
+    iput-boolean p3, p0, Lcom/android/wifitrackerlib/WifiEntry;->mForSavedNetworksPage:Z
 
     iput-object p2, p0, Lcom/android/wifitrackerlib/WifiEntry;->mWifiManager:Landroid/net/wifi/WifiManager;
-
-    iput-object p3, p0, Lcom/android/wifitrackerlib/WifiEntry;->mScoreCache:Landroid/net/wifi/WifiNetworkScoreCache;
 
     return-void
 .end method
 
-.method private synthetic lambda$notifyOnUpdated$0()V
+.method private synthetic lambda$notifyOnUpdated$8()V
     .locals 0
 
     iget-object p0, p0, Lcom/android/wifitrackerlib/WifiEntry;->mListener:Lcom/android/wifitrackerlib/WifiEntry$WifiEntryCallback;
@@ -166,22 +322,133 @@
     return-void
 .end method
 
-.method private synthetic lambda$updateConnectionInfo$1()V
+.method private static synthetic lambda$static$0(Lcom/android/wifitrackerlib/WifiEntry;)Ljava/lang/Boolean;
     .locals 1
 
-    iget-object p0, p0, Lcom/android/wifitrackerlib/WifiEntry;->mConnectCallback:Lcom/android/wifitrackerlib/WifiEntry$ConnectCallback;
+    invoke-virtual {p0}, Lcom/android/wifitrackerlib/WifiEntry;->getConnectedState()I
 
-    if-eqz p0, :cond_0
+    move-result p0
 
-    const/4 v0, 0x0
+    const/4 v0, 0x2
 
-    invoke-interface {p0, v0}, Lcom/android/wifitrackerlib/WifiEntry$ConnectCallback;->onConnectResult(I)V
+    if-eq p0, v0, :cond_0
+
+    const/4 p0, 0x1
+
+    goto :goto_0
 
     :cond_0
-    return-void
+    const/4 p0, 0x0
+
+    :goto_0
+    invoke-static {p0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
-.method private synthetic lambda$updateConnectionInfo$2()V
+.method private static synthetic lambda$static$1(Lcom/android/wifitrackerlib/WifiEntry;)Ljava/lang/Boolean;
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/wifitrackerlib/WifiEntry;->canConnect()Z
+
+    move-result p0
+
+    xor-int/lit8 p0, p0, 0x1
+
+    invoke-static {p0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private static synthetic lambda$static$2(Lcom/android/wifitrackerlib/WifiEntry;)Ljava/lang/Boolean;
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/wifitrackerlib/WifiEntry;->isSubscription()Z
+
+    move-result p0
+
+    xor-int/lit8 p0, p0, 0x1
+
+    invoke-static {p0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private static synthetic lambda$static$3(Lcom/android/wifitrackerlib/WifiEntry;)Ljava/lang/Boolean;
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/wifitrackerlib/WifiEntry;->isSaved()Z
+
+    move-result p0
+
+    xor-int/lit8 p0, p0, 0x1
+
+    invoke-static {p0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private static synthetic lambda$static$4(Lcom/android/wifitrackerlib/WifiEntry;)Ljava/lang/Boolean;
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/wifitrackerlib/WifiEntry;->isSuggestion()Z
+
+    move-result p0
+
+    xor-int/lit8 p0, p0, 0x1
+
+    invoke-static {p0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private static synthetic lambda$static$5(Lcom/android/wifitrackerlib/WifiEntry;)Ljava/lang/Integer;
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/wifitrackerlib/WifiEntry;->getLevel()I
+
+    move-result p0
+
+    neg-int p0, p0
+
+    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private static synthetic lambda$static$6(Lcom/android/wifitrackerlib/WifiEntry;)Ljava/lang/String;
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/wifitrackerlib/WifiEntry;->getTitle()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private static synthetic lambda$static$7(Lcom/android/wifitrackerlib/WifiEntry;)Ljava/lang/String;
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/wifitrackerlib/WifiEntry;->getTitle()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private synthetic lambda$updateConnectionInfo$10()V
     .locals 1
 
     iget-object p0, p0, Lcom/android/wifitrackerlib/WifiEntry;->mDisconnectCallback:Lcom/android/wifitrackerlib/WifiEntry$DisconnectCallback;
@@ -191,6 +458,21 @@
     const/4 v0, 0x0
 
     invoke-interface {p0, v0}, Lcom/android/wifitrackerlib/WifiEntry$DisconnectCallback;->onDisconnectResult(I)V
+
+    :cond_0
+    return-void
+.end method
+
+.method private synthetic lambda$updateConnectionInfo$9()V
+    .locals 1
+
+    iget-object p0, p0, Lcom/android/wifitrackerlib/WifiEntry;->mConnectCallback:Lcom/android/wifitrackerlib/WifiEntry$ConnectCallback;
+
+    if-eqz p0, :cond_0
+
+    const/4 v0, 0x0
+
+    invoke-interface {p0, v0}, Lcom/android/wifitrackerlib/WifiEntry$ConnectCallback;->onConnectResult(I)V
 
     :cond_0
     return-void
@@ -278,186 +560,6 @@
     .locals 0
 
     const/4 p0, 0x0
-
-    return p0
-.end method
-
-.method public compareTo(Lcom/android/wifitrackerlib/WifiEntry;)I
-    .locals 4
-
-    invoke-virtual {p0}, Lcom/android/wifitrackerlib/WifiEntry;->getLevel()I
-
-    move-result v0
-
-    const/4 v1, -0x1
-
-    if-eq v0, v1, :cond_0
-
-    invoke-virtual {p1}, Lcom/android/wifitrackerlib/WifiEntry;->getLevel()I
-
-    move-result v0
-
-    if-ne v0, v1, :cond_0
-
-    return v1
-
-    :cond_0
-    invoke-virtual {p0}, Lcom/android/wifitrackerlib/WifiEntry;->getLevel()I
-
-    move-result v0
-
-    const/4 v2, 0x1
-
-    if-ne v0, v1, :cond_1
-
-    invoke-virtual {p1}, Lcom/android/wifitrackerlib/WifiEntry;->getLevel()I
-
-    move-result v0
-
-    if-eq v0, v1, :cond_1
-
-    return v2
-
-    :cond_1
-    invoke-virtual {p0}, Lcom/android/wifitrackerlib/WifiEntry;->isSubscription()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    invoke-virtual {p1}, Lcom/android/wifitrackerlib/WifiEntry;->isSubscription()Z
-
-    move-result v0
-
-    if-nez v0, :cond_2
-
-    return v1
-
-    :cond_2
-    invoke-virtual {p0}, Lcom/android/wifitrackerlib/WifiEntry;->isSubscription()Z
-
-    move-result v0
-
-    if-nez v0, :cond_3
-
-    invoke-virtual {p1}, Lcom/android/wifitrackerlib/WifiEntry;->isSubscription()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_3
-
-    return v2
-
-    :cond_3
-    invoke-virtual {p0}, Lcom/android/wifitrackerlib/WifiEntry;->isSaved()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_4
-
-    invoke-virtual {p1}, Lcom/android/wifitrackerlib/WifiEntry;->isSaved()Z
-
-    move-result v0
-
-    if-nez v0, :cond_4
-
-    return v1
-
-    :cond_4
-    invoke-virtual {p0}, Lcom/android/wifitrackerlib/WifiEntry;->isSaved()Z
-
-    move-result v0
-
-    if-nez v0, :cond_5
-
-    invoke-virtual {p1}, Lcom/android/wifitrackerlib/WifiEntry;->isSaved()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_5
-
-    return v2
-
-    :cond_5
-    invoke-virtual {p0}, Lcom/android/wifitrackerlib/WifiEntry;->isSuggestion()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_6
-
-    invoke-virtual {p1}, Lcom/android/wifitrackerlib/WifiEntry;->isSuggestion()Z
-
-    move-result v0
-
-    if-nez v0, :cond_6
-
-    return v1
-
-    :cond_6
-    invoke-virtual {p0}, Lcom/android/wifitrackerlib/WifiEntry;->isSuggestion()Z
-
-    move-result v0
-
-    if-nez v0, :cond_7
-
-    invoke-virtual {p1}, Lcom/android/wifitrackerlib/WifiEntry;->isSuggestion()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_7
-
-    return v2
-
-    :cond_7
-    invoke-virtual {p0}, Lcom/android/wifitrackerlib/WifiEntry;->getLevel()I
-
-    move-result v0
-
-    invoke-virtual {p1}, Lcom/android/wifitrackerlib/WifiEntry;->getLevel()I
-
-    move-result v3
-
-    if-le v0, v3, :cond_8
-
-    return v1
-
-    :cond_8
-    invoke-virtual {p0}, Lcom/android/wifitrackerlib/WifiEntry;->getLevel()I
-
-    move-result v0
-
-    invoke-virtual {p1}, Lcom/android/wifitrackerlib/WifiEntry;->getLevel()I
-
-    move-result v1
-
-    if-ge v0, v1, :cond_9
-
-    return v2
-
-    :cond_9
-    invoke-virtual {p0}, Lcom/android/wifitrackerlib/WifiEntry;->getTitle()Ljava/lang/String;
-
-    move-result-object p0
-
-    invoke-virtual {p1}, Lcom/android/wifitrackerlib/WifiEntry;->getTitle()Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-virtual {p0, p1}, Ljava/lang/String;->compareTo(Ljava/lang/String;)I
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .locals 0
-
-    check-cast p1, Lcom/android/wifitrackerlib/WifiEntry;
-
-    invoke-virtual {p0, p1}, Lcom/android/wifitrackerlib/WifiEntry;->compareTo(Lcom/android/wifitrackerlib/WifiEntry;)I
-
-    move-result p0
 
     return p0
 .end method
@@ -852,18 +954,18 @@
     return-object p0
 .end method
 
-.method public getSpeed()I
-    .locals 0
-
-    iget p0, p0, Lcom/android/wifitrackerlib/WifiEntry;->mSpeed:I
-
-    return p0
-.end method
-
 .method public getSsid()Ljava/lang/String;
     .locals 0
 
     const/4 p0, 0x0
+
+    return-object p0
+.end method
+
+.method public getStandardString()Ljava/lang/String;
+    .locals 0
+
+    const-string p0, ""
 
     return-object p0
 .end method
@@ -969,13 +1071,11 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v2, p0, Lcom/android/wifitrackerlib/WifiEntry;->mWifiInfo:Landroid/net/wifi/WifiInfo;
+    invoke-virtual {p0}, Lcom/android/wifitrackerlib/WifiEntry;->getStandardString()Ljava/lang/String;
 
-    invoke-virtual {v2}, Landroid/net/wifi/WifiInfo;->getWifiStandard()I
+    move-result-object v2
 
-    move-result v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -987,7 +1087,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "rssi = "
+    const-string/jumbo v2, "rssi = "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1009,7 +1109,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "score = "
+    const-string/jumbo v2, "score = "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1097,7 +1197,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/StringJoiner;->add(Ljava/lang/CharSequence;)Ljava/util/StringJoiner;
 
-    const-string v1, "rx=%.1f"
+    const-string/jumbo v1, "rx=%.1f"
 
     new-array v2, v2, [Ljava/lang/Object;
 
@@ -1142,6 +1242,20 @@
     .locals 0
 
     iget-boolean p0, p0, Lcom/android/wifitrackerlib/WifiEntry;->mIsValidated:Z
+
+    return p0
+.end method
+
+.method public hashCode()I
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/wifitrackerlib/WifiEntry;->getKey()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/String;->hashCode()I
+
+    move-result p0
 
     return p0
 .end method
@@ -1199,7 +1313,9 @@
 
     iget-object p0, p0, Lcom/android/wifitrackerlib/WifiEntry;->mManageSubscriptionAction:Ljava/util/Optional;
 
-    sget-object v0, Lcom/android/wifitrackerlib/WifiEntry$$ExternalSyntheticLambda3;->INSTANCE:Lcom/android/wifitrackerlib/WifiEntry$$ExternalSyntheticLambda3;
+    new-instance v0, Lcom/android/wifitrackerlib/WifiEntry$$ExternalSyntheticLambda0;
+
+    invoke-direct {v0}, Lcom/android/wifitrackerlib/WifiEntry$$ExternalSyntheticLambda0;-><init>()V
 
     invoke-virtual {p0, v0}, Ljava/util/Optional;->ifPresent(Ljava/util/function/Consumer;)V
 
@@ -1215,9 +1331,9 @@
 
     iget-object v0, p0, Lcom/android/wifitrackerlib/WifiEntry;->mCallbackHandler:Landroid/os/Handler;
 
-    new-instance v1, Lcom/android/wifitrackerlib/WifiEntry$$ExternalSyntheticLambda2;
+    new-instance v1, Lcom/android/wifitrackerlib/WifiEntry$$ExternalSyntheticLambda9;
 
-    invoke-direct {v1, p0}, Lcom/android/wifitrackerlib/WifiEntry$$ExternalSyntheticLambda2;-><init>(Lcom/android/wifitrackerlib/WifiEntry;)V
+    invoke-direct {v1, p0}, Lcom/android/wifitrackerlib/WifiEntry$$ExternalSyntheticLambda9;-><init>(Lcom/android/wifitrackerlib/WifiEntry;)V
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
@@ -1577,14 +1693,6 @@
 
     iput p2, p0, Lcom/android/wifitrackerlib/WifiEntry;->mLevel:I
 
-    iget-object p2, p0, Lcom/android/wifitrackerlib/WifiEntry;->mScoreCache:Landroid/net/wifi/WifiNetworkScoreCache;
-
-    invoke-static {p2, p1}, Lcom/android/wifitrackerlib/Utils;->getSpeedFromWifiInfo(Landroid/net/wifi/WifiNetworkScoreCache;Landroid/net/wifi/WifiInfo;)I
-
-    move-result p2
-
-    iput p2, p0, Lcom/android/wifitrackerlib/WifiEntry;->mSpeed:I
-
     :cond_0
     invoke-virtual {p0}, Lcom/android/wifitrackerlib/WifiEntry;->getConnectedState()I
 
@@ -1602,9 +1710,9 @@
 
     iget-object p2, p0, Lcom/android/wifitrackerlib/WifiEntry;->mCallbackHandler:Landroid/os/Handler;
 
-    new-instance v0, Lcom/android/wifitrackerlib/WifiEntry$$ExternalSyntheticLambda1;
+    new-instance v0, Lcom/android/wifitrackerlib/WifiEntry$$ExternalSyntheticLambda10;
 
-    invoke-direct {v0, p0}, Lcom/android/wifitrackerlib/WifiEntry$$ExternalSyntheticLambda1;-><init>(Lcom/android/wifitrackerlib/WifiEntry;)V
+    invoke-direct {v0, p0}, Lcom/android/wifitrackerlib/WifiEntry$$ExternalSyntheticLambda10;-><init>(Lcom/android/wifitrackerlib/WifiEntry;)V
 
     invoke-virtual {p2, v0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
@@ -1671,9 +1779,9 @@
 
     iget-object p1, p0, Lcom/android/wifitrackerlib/WifiEntry;->mCallbackHandler:Landroid/os/Handler;
 
-    new-instance p2, Lcom/android/wifitrackerlib/WifiEntry$$ExternalSyntheticLambda0;
+    new-instance p2, Lcom/android/wifitrackerlib/WifiEntry$$ExternalSyntheticLambda11;
 
-    invoke-direct {p2, p0}, Lcom/android/wifitrackerlib/WifiEntry$$ExternalSyntheticLambda0;-><init>(Lcom/android/wifitrackerlib/WifiEntry;)V
+    invoke-direct {p2, p0}, Lcom/android/wifitrackerlib/WifiEntry$$ExternalSyntheticLambda11;-><init>(Lcom/android/wifitrackerlib/WifiEntry;)V
 
     invoke-virtual {p1, p2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
@@ -1807,7 +1915,7 @@
 
     move-result v3
 
-    invoke-static {v4, v3}, Lcom/android/net/module/util/NetUtils;->getNetworkPart(Ljava/net/InetAddress;I)Ljava/net/InetAddress;
+    invoke-static {v4, v3}, Lcom/android/wifitrackerlib/Utils;->getNetworkPart(Ljava/net/InetAddress;I)Ljava/net/InetAddress;
 
     move-result-object v3
 
@@ -1917,7 +2025,9 @@
 
     move-result-object p1
 
-    sget-object v1, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2$$ExternalSyntheticLambda8;->INSTANCE:Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2$$ExternalSyntheticLambda8;
+    new-instance v1, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2$$ExternalSyntheticLambda5;
+
+    invoke-direct {v1}, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2$$ExternalSyntheticLambda5;-><init>()V
 
     invoke-interface {p1, v1}, Ljava/util/stream/Stream;->map(Ljava/util/function/Function;)Ljava/util/stream/Stream;
 

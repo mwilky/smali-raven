@@ -311,6 +311,8 @@
         <item>60</item>
         <item>90</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
+    <array name="avatar_images" />
     <array name="background_style1">
         <item>@drawable/rounded_ripple</item>
     </array>
@@ -711,17 +713,10 @@
         <item>3</item>
         <item>4</item>
     </integer-array>
-    <string-array name="captioning_font_size_selector_summaries">
-        <item>Very small text size</item>
-        <item>Small text size</item>
-        <item>Default text size</item>
-        <item>Large text size</item>
-        <item>Very large text size</item>
-    </string-array>
     <string-array name="captioning_font_size_selector_titles">
         <item>Very small</item>
         <item>Small</item>
-        <item>Default</item>
+        <item>Medium</item>
         <item>Large</item>
         <item>Very large</item>
     </string-array>
@@ -835,7 +830,19 @@
         <item>3</item>
         <item>256</item>
     </integer-array>
+    <string-array name="config_disallowed_app_localeChange_packages">
+        <item>com.google.android.apps.internal.betterbug</item>
+        <item>com.google.android.apps.tips</item>
+        <item>com.google.android.cellbroadcastreceiver</item>
+        <item>com.google.android.documentsui</item>
+        <item>com.google.android.gms</item>
+        <item>com.google.android.inputmethod.latin</item>
+        <item>com.google.mds</item>
+        <item>com.google.TrafficMeasurementHub</item>
+        <item>com.google.android.apps.wellbeing</item>
+    </string-array>
     <string-array name="config_order_audio_services">
+        <item>toggle_audio_description</item>
         <item>com.google.android.accessibility.soundamplifier/com.google.android.accessibility.soundamplifier.ui.SoundAmplifierSettingActivity</item>
         <item>com.google.android.accessibility.soundamplifier/com.google.android.accessibility.soundamplifier.SoundAmplifierService</item>
         <item>com.google.audio.hearing.visualization.accessibility.scribe/com.google.audio.hearing.visualization.accessibility.dolphin.ui.visualizer.TimelineActivity</item>
@@ -850,9 +857,9 @@
         <item>rtt_setting</item>
     </string-array>
     <string-array name="config_order_display_services">
-        <item>text_and_display_preference_screen</item>
+        <item>text_reading_options</item>
+        <item>color_and_motion</item>
         <item>reduce_bright_colors_preference</item>
-        <item>dark_ui_mode_accessibility</item>
         <item>magnification_preference_screen</item>
         <item>com.google.android.marvin.talkback/com.google.android.accessibility.selecttospeak.SelectToSpeakService</item>
     </string-array>
@@ -888,6 +895,15 @@
     <string-array name="config_preinstalled_screen_reader_services">
         <item>com.google.android.marvin.talkback/com.google.android.marvin.talkback.TalkBackService</item>
     </string-array>
+    <string-array name="config_screen_resolution_options_strings">
+        <item>@string/screen_resolution_option_high</item>
+        <item>@string/screen_resolution_option_highest</item>
+    </string-array>
+    <string-array name="config_screen_resolution_summaries_strings">
+        <item>@string/screen_resolution_summary_high</item>
+        <item>@string/screen_resolution_summary_highest</item>
+    </string-array>
+    <array name="config_settableAutoRotationDeviceStatesDescriptions" />
     <array name="config_settings_slices_accessibility_components" />
     <string-array name="config_skip_reset_apps_package_name">
         <item>android</item>
@@ -925,6 +941,12 @@
         <item>@string/dark_ui_auto_mode_never</item>
         <item>@string/dark_ui_auto_mode_custom</item>
         <item>@string/dark_ui_auto_mode_auto</item>
+    </string-array>
+    <string-array name="dark_ui_scheduler_with_bedtime_preference_titles">
+        <item>@string/dark_ui_auto_mode_never</item>
+        <item>@string/dark_ui_auto_mode_custom</item>
+        <item>@string/dark_ui_auto_mode_auto</item>
+        <item>@string/dark_ui_auto_mode_custom_bedtime</item>
     </string-array>
     <string-array name="data_usage_data_range">
         <item>Last 30 days</item>
@@ -1087,6 +1109,22 @@
         <item>drm-only</item>
         <item>always</item>
     </string-array>
+    <string-array name="ingress_rate_limit_entries">
+        <item>@string/ingress_rate_limit_no_limit_entry</item>
+        <item>128kbps</item>
+        <item>256kbps</item>
+        <item>1Mbps</item>
+        <item>5Mbps</item>
+        <item>15Mbps</item>
+    </string-array>
+    <string-array name="ingress_rate_limit_values">
+        <item>-1</item>
+        <item>16000</item>
+        <item>32000</item>
+        <item>125000</item>
+        <item>625000</item>
+        <item>1875000</item>
+    </string-array>
     <string-array name="input_method_selector_titles">
         <item>@string/input_method_selector_show_automatically_title</item>
         <item>@string/input_method_selector_always_show_title</item>
@@ -1155,6 +1193,14 @@
         <item>spn</item>
         <item>imsi</item>
         <item>gid</item>
+    </string-array>
+    <string-array name="nfc_payment_favor">
+        <item>Always</item>
+        <item>Except when another payment app is open</item>
+    </string-array>
+    <string-array name="nfc_payment_favor_values">
+        <item>0</item>
+        <item>1</item>
     </string-array>
     <string-array name="notif_types_titles">
         <item>@string/notif_type_ongoing</item>
@@ -1436,6 +1482,71 @@
         <item>1</item>
         <item>0</item>
     </string-array>
+    <string-array name="switch_to_user_zero_when_docked_timeout_entries">
+        <item>Never</item>
+        <item>After 1 minute</item>
+        <item>After 5 minutes</item>
+    </string-array>
+    <string-array name="switch_to_user_zero_when_docked_timeout_values">
+        <item>0</item>
+        <item>60000</item>
+        <item>300000</item>
+    </string-array>
+    <string-array name="tare_alarm_manager_actions">
+        <item>@string/tare_wakeup_exact_idle</item>
+        <item>@string/tare_wakeup_inexact_idle</item>
+        <item>@string/tare_wakeup_exact</item>
+        <item>@string/tare_wakeup_inexact</item>
+        <item>@string/tare_nonwakeup_exact_idle</item>
+        <item>@string/tare_nonwakeup_exact</item>
+        <item>@string/tare_nonwakeup_inexact_idle</item>
+        <item>@string/tare_nonwakeup_inexact</item>
+        <item>@string/tare_alarm_clock</item>
+    </string-array>
+    <string-array name="tare_app_balance_subfactors">
+        <item>@string/tare_max_satiated_balance</item>
+        <item>@string/tare_min_balance_exempted</item>
+        <item>@string/tare_min_balance_headless_app</item>
+        <item>@string/tare_min_balance_other_app</item>
+    </string-array>
+    <string-array name="tare_consumption_limit_subfactors">
+        <item>@string/tare_initial_consumption_limit</item>
+        <item>@string/tare_hard_consumption_limit</item>
+    </string-array>
+    <string-array name="tare_job_scheduler_actions">
+        <item>@string/tare_job_max_start</item>
+        <item>@string/tare_job_max_running</item>
+        <item>@string/tare_job_high_start</item>
+        <item>@string/tare_job_high_running</item>
+        <item>@string/tare_job_default_start</item>
+        <item>@string/tare_job_default_running</item>
+        <item>@string/tare_job_low_start</item>
+        <item>@string/tare_job_low_running</item>
+        <item>@string/tare_job_min_start</item>
+        <item>@string/tare_job_min_running</item>
+        <item>@string/tare_job_timeout_penalty</item>
+    </string-array>
+    <string-array name="tare_modifiers_subfactors">
+        <item>Charging</item>
+        <item>Doze</item>
+        <item>Power Save Mode</item>
+        <item>Process State</item>
+    </string-array>
+    <string-array name="tare_policies">
+        <item>@string/tare_alarmmanager</item>
+        <item>@string/tare_jobscheduler</item>
+    </string-array>
+    <string-array name="tare_rewards_subfactors">
+        <item>@string/tare_top_activity</item>
+        <item>@string/tare_notification_seen</item>
+        <item>@string/tare_notification_interaction</item>
+        <item>@string/tare_widget_interaction</item>
+        <item>@string/tare_other_interaction</item>
+    </string-array>
+    <string-array name="tare_units">
+        <item>ARC</item>
+        <item>Cake</item>
+    </string-array>
     <string-array name="timezone_filters">
         <item>America</item>
         <item>Europe</item>
@@ -1584,13 +1695,11 @@
         <item>@string/screensaver_settings_summary_sleep</item>
         <item>@string/screensaver_settings_summary_dock</item>
         <item>@string/screensaver_settings_summary_either_long</item>
-        <item>@string/screensaver_settings_summary_never</item>
     </string-array>
     <string-array name="when_to_start_screensaver_values">
         <item>while_charging_only</item>
         <item>while_docked_only</item>
         <item>either_charging_or_docked</item>
-        <item>never</item>
     </string-array>
     <string-array name="wifi_ap_band">
         <item>1</item>

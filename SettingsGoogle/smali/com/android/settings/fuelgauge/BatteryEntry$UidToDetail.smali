@@ -15,11 +15,11 @@
 
 
 # instance fields
-.field icon:Landroid/graphics/drawable/Drawable;
+.field mIcon:Landroid/graphics/drawable/Drawable;
 
-.field name:Ljava/lang/String;
+.field mName:Ljava/lang/String;
 
-.field packageName:Ljava/lang/String;
+.field mPackageName:Ljava/lang/String;
 
 
 # direct methods

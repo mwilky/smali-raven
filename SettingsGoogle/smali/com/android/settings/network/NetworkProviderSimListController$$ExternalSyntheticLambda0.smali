@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settings/network/NetworkProviderSimListController$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroidx/preference/Preference$OnPreferenceClickListener;

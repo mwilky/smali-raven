@@ -14,16 +14,6 @@
 # direct methods
 .method protected constructor <init>(Landroidx/slice/Slice$Builder;Landroidx/slice/SliceSpec;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "b",
-            "spec"
-        }
-    .end annotation
 
     new-instance v0, Landroidx/slice/SystemClock;
 
@@ -36,18 +26,6 @@
 
 .method protected constructor <init>(Landroidx/slice/Slice$Builder;Landroidx/slice/SliceSpec;Landroidx/slice/Clock;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "b",
-            "spec",
-            "clock"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -63,14 +41,6 @@
 
 # virtual methods
 .method public abstract apply(Landroidx/slice/Slice$Builder;)V
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "builder"
-        }
-    .end annotation
 .end method
 
 .method public build()Landroidx/slice/Slice;
@@ -125,17 +95,6 @@
 
 .method protected parseImageMode(IZ)Ljava/util/ArrayList;
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "imageMode",
-            "isLoading"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(IZ)",
@@ -186,7 +145,7 @@
     if-ne p1, v1, :cond_5
 
     :cond_4
-    const-string p1, "raw"
+    const-string/jumbo p1, "raw"
 
     invoke-virtual {p0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
@@ -203,14 +162,6 @@
 
 .method protected setBuilder(Landroidx/slice/Slice$Builder;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "builder"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/slice/builders/impl/TemplateBuilderImpl;->mSliceBuilder:Landroidx/slice/Slice$Builder;
 

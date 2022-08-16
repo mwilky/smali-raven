@@ -67,6 +67,14 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fputmApiVersion(Lcom/android/wsuinterface/NetworkGroupSubscription;I)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/wsuinterface/NetworkGroupSubscription;->mApiVersion:I
+
+    return-void
+.end method
+
 .method static constructor <clinit>()V
     .locals 1
 
@@ -115,12 +123,6 @@
 
     iput v0, p0, Lcom/android/wsuinterface/NetworkGroupSubscription;->mProvisionStatus:I
 
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/android/wsuinterface/NetworkGroupSubscription;->mSignUpAction:Landroid/app/PendingIntent;
-
-    iput-object v0, p0, Lcom/android/wsuinterface/NetworkGroupSubscription;->mManageSubscriptionAction:Landroid/app/PendingIntent;
-
     const/4 v0, 0x2
 
     iput v0, p0, Lcom/android/wsuinterface/NetworkGroupSubscription;->mApiVersion:I
@@ -142,20 +144,12 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Landroid/app/PendingIntent;Landroid/app/PendingIntent;Lcom/android/wsuinterface/NetworkGroupSubscription$1;)V
+.method synthetic constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Landroid/app/PendingIntent;Landroid/app/PendingIntent;Lcom/android/wsuinterface/NetworkGroupSubscription-IA;)V
     .locals 0
 
     invoke-direct/range {p0 .. p7}, Lcom/android/wsuinterface/NetworkGroupSubscription;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Landroid/app/PendingIntent;Landroid/app/PendingIntent;)V
 
     return-void
-.end method
-
-.method static synthetic access$102(Lcom/android/wsuinterface/NetworkGroupSubscription;I)I
-    .locals 0
-
-    iput p1, p0, Lcom/android/wsuinterface/NetworkGroupSubscription;->mApiVersion:I
-
-    return p1
 .end method
 
 

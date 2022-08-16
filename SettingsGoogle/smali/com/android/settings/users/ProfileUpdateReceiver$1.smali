@@ -46,7 +46,7 @@
 
     iget-object p0, p0, Lcom/android/settings/users/ProfileUpdateReceiver$1;->val$context:Landroid/content/Context;
 
-    invoke-static {p0}, Lcom/android/settings/users/ProfileUpdateReceiver;->access$000(Landroid/content/Context;)V
+    invoke-static {p0}, Lcom/android/settings/users/ProfileUpdateReceiver;->-$$Nest$smcopyProfileName(Landroid/content/Context;)V
 
     return-void
 .end method

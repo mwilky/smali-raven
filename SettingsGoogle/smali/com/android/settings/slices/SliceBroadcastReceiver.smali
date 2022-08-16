@@ -40,104 +40,6 @@
     return-object p0
 .end method
 
-.method private handleCopyAction(Landroid/content/Context;Landroid/net/Uri;Ljava/lang/String;)V
-    .locals 3
-
-    invoke-static {p3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_3
-
-    invoke-direct {p0, p1, p3}, Lcom/android/settings/slices/SliceBroadcastReceiver;->getPreferenceController(Landroid/content/Context;Ljava/lang/String;)Lcom/android/settings/core/BasePreferenceController;
-
-    move-result-object p0
-
-    instance-of v0, p0, Lcom/android/settings/slices/Sliceable;
-
-    if-eqz v0, :cond_2
-
-    invoke-virtual {p0}, Lcom/android/settings/core/BasePreferenceController;->isAvailable()Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    sget-object v0, Lcom/android/settings/slices/SliceBroadcastReceiver;->TAG:Ljava/lang/String;
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "Can\'t update "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string p3, " since the setting is unavailable"
-
-    invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p3
-
-    invoke-static {v0, p3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-interface {p0}, Lcom/android/settings/slices/Sliceable;->hasAsyncUpdate()Z
-
-    move-result p0
-
-    if-nez p0, :cond_0
-
-    invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object p0
-
-    const/4 p1, 0x0
-
-    invoke-virtual {p0, p2, p1}, Landroid/content/ContentResolver;->notifyChange(Landroid/net/Uri;Landroid/database/ContentObserver;)V
-
-    :cond_0
-    return-void
-
-    :cond_1
-    invoke-interface {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-
-    :cond_2
-    new-instance p0, Ljava/lang/IllegalArgumentException;
-
-    new-instance p1, Ljava/lang/StringBuilder;
-
-    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string p2, "Copyable action passed for a non-copyable key:"
-
-    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw p0
-
-    :cond_3
-    new-instance p0, Ljava/lang/IllegalArgumentException;
-
-    const-string p1, "No key passed to Intent for controller"
-
-    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw p0
-.end method
-
 .method private handleSliderAction(Landroid/content/Context;Landroid/net/Uri;Ljava/lang/String;I)V
     .locals 4
 
@@ -511,12 +413,12 @@
     goto :goto_0
 
     :cond_1
-    const/16 v0, 0x9
+    const/16 v0, 0x8
 
     goto/16 :goto_1
 
     :sswitch_1
-    const-string v3, "com.android.settings.slice.action.COPY"
+    const-string v3, "com.android.settings.slice.action.WIFI_CALLING_PREFERENCE_CELLULAR_PREFERRED"
 
     invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -527,12 +429,12 @@
     goto :goto_0
 
     :cond_2
-    const/16 v0, 0x8
+    const/4 v0, 0x7
 
-    goto/16 :goto_1
+    goto :goto_1
 
     :sswitch_2
-    const-string v3, "com.android.settings.slice.action.WIFI_CALLING_PREFERENCE_CELLULAR_PREFERRED"
+    const-string v3, "com.android.settings.slice.action.WIFI_CALLING_PREFERENCE_WIFI_ONLY"
 
     invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -543,12 +445,12 @@
     goto :goto_0
 
     :cond_3
-    const/4 v0, 0x7
+    const/4 v0, 0x6
 
     goto :goto_1
 
     :sswitch_3
-    const-string v3, "com.android.settings.slice.action.WIFI_CALLING_PREFERENCE_WIFI_ONLY"
+    const-string v3, "com.android.settings.slice.action.SLIDER_CHANGED"
 
     invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -559,12 +461,12 @@
     goto :goto_0
 
     :cond_4
-    const/4 v0, 0x6
+    const/4 v0, 0x5
 
     goto :goto_1
 
     :sswitch_4
-    const-string v3, "com.android.settings.slice.action.SLIDER_CHANGED"
+    const-string v3, "com.android.settings.slice.action.WIFI_CALLING_PREFERENCE_WIFI_PREFERRED"
 
     invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -575,12 +477,12 @@
     goto :goto_0
 
     :cond_5
-    const/4 v0, 0x5
+    const/4 v0, 0x4
 
     goto :goto_1
 
     :sswitch_5
-    const-string v3, "com.android.settings.slice.action.WIFI_CALLING_PREFERENCE_WIFI_PREFERRED"
+    const-string v3, "com.android.settings.wifi.calling.action.WIFI_CALLING_CHANGED"
 
     invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -591,12 +493,12 @@
     goto :goto_0
 
     :cond_6
-    const/4 v0, 0x4
+    const/4 v0, 0x3
 
     goto :goto_1
 
     :sswitch_6
-    const-string v3, "com.android.settings.wifi.calling.action.WIFI_CALLING_CHANGED"
+    const-string v3, "com.android.settings.bluetooth.action.BLUETOOTH_MODE_CHANGED"
 
     invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -607,12 +509,12 @@
     goto :goto_0
 
     :cond_7
-    const/4 v0, 0x3
+    const/4 v0, 0x2
 
     goto :goto_1
 
     :sswitch_7
-    const-string v3, "com.android.settings.bluetooth.action.BLUETOOTH_MODE_CHANGED"
+    const-string v3, "com.android.settings.mobilenetwork.action.ENHANCED_4G_LTE_CHANGED"
 
     invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -623,12 +525,12 @@
     goto :goto_0
 
     :cond_8
-    const/4 v0, 0x2
+    const/4 v0, 0x1
 
     goto :goto_1
 
     :sswitch_8
-    const-string v3, "com.android.settings.mobilenetwork.action.ENHANCED_4G_LTE_CHANGED"
+    const-string v3, "com.android.settings.slice.action.TOGGLE_CHANGED"
 
     invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -639,22 +541,6 @@
     goto :goto_0
 
     :cond_9
-    const/4 v0, 0x1
-
-    goto :goto_1
-
-    :sswitch_9
-    const-string v3, "com.android.settings.slice.action.TOGGLE_CHANGED"
-
-    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_a
-
-    goto :goto_0
-
-    :cond_a
     move v0, v4
 
     :goto_1
@@ -668,11 +554,6 @@
     goto :goto_2
 
     :pswitch_1
-    invoke-direct {p0, p1, v2, v1}, Lcom/android/settings/slices/SliceBroadcastReceiver;->handleCopyAction(Landroid/content/Context;Landroid/net/Uri;Ljava/lang/String;)V
-
-    goto :goto_2
-
-    :pswitch_2
     const-string v0, "android.app.slice.extra.RANGE_VALUE"
 
     invoke-virtual {p2, v0, v5}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
@@ -683,7 +564,7 @@
 
     goto :goto_2
 
-    :pswitch_3
+    :pswitch_2
     invoke-static {p1}, Lcom/android/settings/overlay/FeatureFactory;->getFactory(Landroid/content/Context;)Lcom/android/settings/overlay/FeatureFactory;
 
     move-result-object p0
@@ -700,7 +581,7 @@
 
     goto :goto_2
 
-    :pswitch_4
+    :pswitch_3
     invoke-static {p1}, Lcom/android/settings/overlay/FeatureFactory;->getFactory(Landroid/content/Context;)Lcom/android/settings/overlay/FeatureFactory;
 
     move-result-object p0
@@ -717,12 +598,12 @@
 
     goto :goto_2
 
-    :pswitch_5
+    :pswitch_4
     invoke-static {p1, p2}, Lcom/android/settings/bluetooth/BluetoothSliceBuilder;->handleUriChange(Landroid/content/Context;Landroid/content/Intent;)V
 
     goto :goto_2
 
-    :pswitch_6
+    :pswitch_5
     invoke-static {p1}, Lcom/android/settings/overlay/FeatureFactory;->getFactory(Landroid/content/Context;)Lcom/android/settings/overlay/FeatureFactory;
 
     move-result-object p0
@@ -739,7 +620,7 @@
 
     goto :goto_2
 
-    :pswitch_7
+    :pswitch_6
     const-string v0, "android.app.slice.extra.TOGGLE_STATE"
 
     invoke-virtual {p2, v0, v4}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
@@ -751,31 +632,31 @@
     :goto_2
     return-void
 
+    nop
+
     :sswitch_data_0
     .sparse-switch
-        -0x7bba0bda -> :sswitch_9
-        -0x78091e88 -> :sswitch_8
-        -0x379033de -> :sswitch_7
-        -0x1598e57d -> :sswitch_6
-        -0x523c66d -> :sswitch_5
-        0x10bd4b3 -> :sswitch_4
-        0xa8b033a -> :sswitch_3
-        0x1d8fe7a8 -> :sswitch_2
-        0x35d1b332 -> :sswitch_1
+        -0x7bba0bda -> :sswitch_8
+        -0x78091e88 -> :sswitch_7
+        -0x379033de -> :sswitch_6
+        -0x1598e57d -> :sswitch_5
+        -0x523c66d -> :sswitch_4
+        0x10bd4b3 -> :sswitch_3
+        0xa8b033a -> :sswitch_2
+        0x1d8fe7a8 -> :sswitch_1
         0x720b8ab8 -> :sswitch_0
     .end sparse-switch
 
     :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_7
         :pswitch_6
         :pswitch_5
         :pswitch_4
         :pswitch_3
         :pswitch_2
-        :pswitch_3
-        :pswitch_3
         :pswitch_1
+        :pswitch_2
+        :pswitch_2
         :pswitch_0
     .end packed-switch
 .end method

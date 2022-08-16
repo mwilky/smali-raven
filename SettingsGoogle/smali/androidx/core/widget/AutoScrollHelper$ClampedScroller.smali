@@ -67,14 +67,6 @@
 
 .method private getValueAt(J)F
     .locals 8
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "currentTime"
-        }
-    .end annotation
 
     iget-wide v0, p0, Landroidx/core/widget/AutoScrollHelper$ClampedScroller;->mStartTime:J
 
@@ -153,14 +145,6 @@
 
 .method private interpolateValue(F)F
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "value"
-        }
-    .end annotation
 
     const/high16 p0, -0x3f800000    # -4.0f
 
@@ -362,14 +346,6 @@
 
 .method public setRampDownDuration(I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "durationMillis"
-        }
-    .end annotation
 
     iput p1, p0, Landroidx/core/widget/AutoScrollHelper$ClampedScroller;->mRampDownDuration:I
 
@@ -378,14 +354,6 @@
 
 .method public setRampUpDuration(I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "durationMillis"
-        }
-    .end annotation
 
     iput p1, p0, Landroidx/core/widget/AutoScrollHelper$ClampedScroller;->mRampUpDuration:I
 
@@ -394,16 +362,6 @@
 
 .method public setTargetVelocity(FF)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "x",
-            "y"
-        }
-    .end annotation
 
     iput p1, p0, Landroidx/core/widget/AutoScrollHelper$ClampedScroller;->mTargetVelocityX:F
 

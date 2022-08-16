@@ -19,9 +19,9 @@
 .method public constructor <init>()V
     .locals 4
 
-    const v0, 0x7f040790
+    const v0, 0x7f0407d5
 
-    const v1, 0x7f04110b
+    const v1, 0x7f0411b9
 
     const/4 v2, 0x1
 
@@ -92,7 +92,7 @@
 
     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "region id is not valid: "
+    const-string/jumbo v2, "region id is not valid: "
 
     invoke-virtual {p1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

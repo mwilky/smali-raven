@@ -66,13 +66,13 @@
 .end method
 
 .method private pressButtonOnClick()V
-    .locals 5
+    .locals 6
 
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getChildFragmentManager()Landroidx/fragment/app/FragmentManager;
 
     move-result-object v0
 
-    const v1, 0x7f0d024f
+    const v1, 0x7f0d026f
 
     invoke-virtual {v0, v1}, Landroidx/fragment/app/FragmentManager;->findFragmentById(I)Landroidx/fragment/app/Fragment;
 
@@ -112,11 +112,11 @@
 
     move-result-object v0
 
-    move-object v4, v1
+    move-object v5, v1
 
     move-object v1, v0
 
-    move-object v0, v4
+    move-object v0, v5
 
     goto :goto_0
 
@@ -132,19 +132,17 @@
 
     aput-object v1, v2, v3
 
-    const/4 v1, 0x1
+    const/4 v4, 0x1
 
-    aput-object v0, v2, v1
+    aput-object v0, v2, v4
 
-    aget-object v0, v2, v3
-
-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
     if-nez v0, :cond_2
 
-    aget-object v0, v2, v1
+    aget-object v0, v2, v4
 
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -177,21 +175,23 @@
 
     invoke-direct {v0, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const p0, 0x7f04129a
+    const p0, 0x7f041354
 
     invoke-virtual {v0, p0}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object p0
 
-    const v0, 0x7f04129e
+    const v0, 0x7f041358
 
     invoke-virtual {p0, v0}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object p0
 
-    const v0, 0x7f04129d
+    const v0, 0x7f041357
 
-    sget-object v1, Lcom/android/settings/sim/smartForwarding/MDNHandlerFragment$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/settings/sim/smartForwarding/MDNHandlerFragment$$ExternalSyntheticLambda0;
+    new-instance v1, Lcom/android/settings/sim/smartForwarding/MDNHandlerFragment$$ExternalSyntheticLambda2;
+
+    invoke-direct {v1}, Lcom/android/settings/sim/smartForwarding/MDNHandlerFragment$$ExternalSyntheticLambda2;-><init>()V
 
     invoke-virtual {p0, v0, v1}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -226,7 +226,7 @@
 
     invoke-direct {v0, p1}, Lcom/android/settings/sim/smartForwarding/SmartForwardingFragment;-><init>(Z)V
 
-    const p1, 0x7f0d0179
+    const p1, 0x7f0d018e
 
     invoke-virtual {p0, p1, v0}, Landroidx/fragment/app/FragmentTransaction;->replace(ILandroidx/fragment/app/Fragment;)Landroidx/fragment/app/FragmentTransaction;
 
@@ -250,7 +250,7 @@
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 1
 
-    const p3, 0x7f1500e0
+    const p3, 0x7f1500e5
 
     const/4 v0, 0x0
 
@@ -270,7 +270,7 @@
 
     move-result-object p3
 
-    const v0, 0x7f04129c
+    const v0, 0x7f041356
 
     invoke-virtual {p3, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -278,7 +278,7 @@
 
     invoke-virtual {p2, p3}, Landroid/app/ActionBar;->setTitle(Ljava/lang/CharSequence;)V
 
-    const p2, 0x7f0d0466
+    const p2, 0x7f0d0498
 
     invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -286,13 +286,13 @@
 
     check-cast p2, Landroid/widget/Button;
 
-    new-instance p3, Lcom/android/settings/sim/smartForwarding/MDNHandlerFragment$$ExternalSyntheticLambda2;
+    new-instance p3, Lcom/android/settings/sim/smartForwarding/MDNHandlerFragment$$ExternalSyntheticLambda0;
 
-    invoke-direct {p3, p0}, Lcom/android/settings/sim/smartForwarding/MDNHandlerFragment$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/sim/smartForwarding/MDNHandlerFragment;)V
+    invoke-direct {p3, p0}, Lcom/android/settings/sim/smartForwarding/MDNHandlerFragment$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/sim/smartForwarding/MDNHandlerFragment;)V
 
     invoke-virtual {p2, p3}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const p2, 0x7f0d0137
+    const p2, 0x7f0d0148
 
     invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

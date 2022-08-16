@@ -41,23 +41,6 @@
 # direct methods
 .method constructor <init>(Landroidx/recyclerview/widget/DiffUtil$Callback;Ljava/util/List;[I[IZ)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "callback",
-            "diagonals",
-            "oldItemStatuses",
-            "newItemStatuses",
-            "detectMoves"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -169,14 +152,6 @@
 
 .method private findMatchingAddition(I)V
     .locals 5
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "posX"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/recyclerview/widget/DiffUtil$DiffResult;->mDiagonals:Ljava/util/List;
 
@@ -411,19 +386,6 @@
 
 .method private static getPostponedUpdate(Ljava/util/Collection;IZ)Landroidx/recyclerview/widget/DiffUtil$PostponedUpdate;
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "postponedUpdates",
-            "posInList",
-            "removal"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -506,14 +468,6 @@
 # virtual methods
 .method public dispatchUpdatesTo(Landroidx/recyclerview/widget/ListUpdateCallback;)V
     .locals 12
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "updateCallback"
-        }
-    .end annotation
 
     instance-of v0, p1, Landroidx/recyclerview/widget/BatchingListUpdateCallback;
 
@@ -752,14 +706,6 @@
 
 .method public dispatchUpdatesTo(Landroidx/recyclerview/widget/RecyclerView$Adapter;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x10
-        }
-        names = {
-            "adapter"
-        }
-    .end annotation
 
     new-instance v0, Landroidx/recyclerview/widget/AdapterListUpdateCallback;
 

@@ -84,18 +84,6 @@
 
 .method private snapFromFling(Landroidx/recyclerview/widget/RecyclerView$LayoutManager;II)Z
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "layoutManager",
-            "velocityX",
-            "velocityY"
-        }
-    .end annotation
 
     instance-of v0, p1, Landroidx/recyclerview/widget/RecyclerView$SmoothScroller$ScrollVectorProvider;
 
@@ -139,15 +127,6 @@
 # virtual methods
 .method public attachToRecyclerView(Landroidx/recyclerview/widget/RecyclerView;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "recyclerView"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;
@@ -195,67 +174,19 @@
 .end method
 
 .method public abstract calculateDistanceToFinalSnap(Landroidx/recyclerview/widget/RecyclerView$LayoutManager;Landroid/view/View;)[I
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "layoutManager",
-            "targetView"
-        }
-    .end annotation
 .end method
 
 .method protected abstract createScroller(Landroidx/recyclerview/widget/RecyclerView$LayoutManager;)Landroidx/recyclerview/widget/RecyclerView$SmoothScroller;
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "layoutManager"
-        }
-    .end annotation
 .end method
 
 .method public abstract findSnapView(Landroidx/recyclerview/widget/RecyclerView$LayoutManager;)Landroid/view/View;
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "layoutManager"
-        }
-    .end annotation
 .end method
 
 .method public abstract findTargetSnapPosition(Landroidx/recyclerview/widget/RecyclerView$LayoutManager;II)I
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "layoutManager",
-            "velocityX",
-            "velocityY"
-        }
-    .end annotation
 .end method
 
 .method public onFling(II)Z
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "velocityX",
-            "velocityY"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/recyclerview/widget/SnapHelper;->mRecyclerView:Landroidx/recyclerview/widget/RecyclerView;
 
@@ -346,22 +277,20 @@
 
     const/4 v1, 0x0
 
-    aget v2, v0, v1
+    aget v1, v0, v1
 
-    const/4 v3, 0x1
+    const/4 v2, 0x1
 
-    if-nez v2, :cond_3
+    if-nez v1, :cond_3
 
-    aget v2, v0, v3
+    aget v3, v0, v2
 
-    if-eqz v2, :cond_4
+    if-eqz v3, :cond_4
 
     :cond_3
     iget-object p0, p0, Landroidx/recyclerview/widget/SnapHelper;->mRecyclerView:Landroidx/recyclerview/widget/RecyclerView;
 
-    aget v1, v0, v1
-
-    aget v0, v0, v3
+    aget v0, v0, v2
 
     invoke-virtual {p0, v1, v0}, Landroidx/recyclerview/widget/RecyclerView;->smoothScrollBy(II)V
 

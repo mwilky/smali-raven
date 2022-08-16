@@ -19,6 +19,26 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$mgetCustomizablePreference(Lcom/android/settings/RestrictedListPreference$RestrictedListPreferenceDialogFragment;)Lcom/android/settings/RestrictedListPreference;
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/RestrictedListPreference$RestrictedListPreferenceDialogFragment;->getCustomizablePreference()Lcom/android/settings/RestrictedListPreference;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$mgetLastCheckedPosition(Lcom/android/settings/RestrictedListPreference$RestrictedListPreferenceDialogFragment;)I
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/RestrictedListPreference$RestrictedListPreferenceDialogFragment;->getLastCheckedPosition()I
+
+    move-result p0
+
+    return p0
+.end method
+
 .method public constructor <init>()V
     .locals 1
 
@@ -29,26 +49,6 @@
     iput v0, p0, Lcom/android/settings/RestrictedListPreference$RestrictedListPreferenceDialogFragment;->mLastCheckedPosition:I
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/RestrictedListPreference$RestrictedListPreferenceDialogFragment;)Lcom/android/settings/RestrictedListPreference;
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/RestrictedListPreference$RestrictedListPreferenceDialogFragment;->getCustomizablePreference()Lcom/android/settings/RestrictedListPreference;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/RestrictedListPreference$RestrictedListPreferenceDialogFragment;)I
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/RestrictedListPreference$RestrictedListPreferenceDialogFragment;->getLastCheckedPosition()I
-
-    move-result p0
-
-    return p0
 .end method
 
 .method private getCustomizablePreference()Lcom/android/settings/RestrictedListPreference;

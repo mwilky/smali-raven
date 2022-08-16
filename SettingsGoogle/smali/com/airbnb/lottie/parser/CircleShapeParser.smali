@@ -15,7 +15,7 @@
 
     const-string v1, "p"
 
-    const-string v2, "s"
+    const-string/jumbo v2, "s"
 
     const-string v3, "hd"
 

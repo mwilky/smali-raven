@@ -30,7 +30,7 @@
 
     iput-object p1, p0, Lcom/google/android/settings/gestures/assist/AssistGestureSensitivityPreferenceController$SettingObserver;->this$0:Lcom/google/android/settings/gestures/assist/AssistGestureSensitivityPreferenceController;
 
-    invoke-static {p1}, Lcom/google/android/settings/gestures/assist/AssistGestureSensitivityPreferenceController;->access$100(Lcom/google/android/settings/gestures/assist/AssistGestureSensitivityPreferenceController;)Landroid/os/Handler;
+    invoke-static {p1}, Lcom/google/android/settings/gestures/assist/AssistGestureSensitivityPreferenceController;->-$$Nest$fgetmHandler(Lcom/google/android/settings/gestures/assist/AssistGestureSensitivityPreferenceController;)Landroid/os/Handler;
 
     move-result-object p1
 
@@ -70,7 +70,7 @@
 
     iget-object p0, p0, Lcom/google/android/settings/gestures/assist/AssistGestureSensitivityPreferenceController$SettingObserver;->this$0:Lcom/google/android/settings/gestures/assist/AssistGestureSensitivityPreferenceController;
 
-    invoke-static {p0}, Lcom/google/android/settings/gestures/assist/AssistGestureSensitivityPreferenceController;->access$400(Lcom/google/android/settings/gestures/assist/AssistGestureSensitivityPreferenceController;)V
+    invoke-static {p0}, Lcom/google/android/settings/gestures/assist/AssistGestureSensitivityPreferenceController;->-$$Nest$mupdatePreference(Lcom/google/android/settings/gestures/assist/AssistGestureSensitivityPreferenceController;)V
 
     return-void
 .end method
@@ -80,7 +80,7 @@
 
     iget-object v0, p0, Lcom/google/android/settings/gestures/assist/AssistGestureSensitivityPreferenceController$SettingObserver;->this$0:Lcom/google/android/settings/gestures/assist/AssistGestureSensitivityPreferenceController;
 
-    invoke-static {v0}, Lcom/google/android/settings/gestures/assist/AssistGestureSensitivityPreferenceController;->access$200(Lcom/google/android/settings/gestures/assist/AssistGestureSensitivityPreferenceController;)Landroid/content/Context;
+    invoke-static {v0}, Lcom/google/android/settings/gestures/assist/AssistGestureSensitivityPreferenceController;->access$000(Lcom/google/android/settings/gestures/assist/AssistGestureSensitivityPreferenceController;)Landroid/content/Context;
 
     move-result-object v0
 
@@ -110,7 +110,7 @@
 
     iget-object v0, p0, Lcom/google/android/settings/gestures/assist/AssistGestureSensitivityPreferenceController$SettingObserver;->this$0:Lcom/google/android/settings/gestures/assist/AssistGestureSensitivityPreferenceController;
 
-    invoke-static {v0}, Lcom/google/android/settings/gestures/assist/AssistGestureSensitivityPreferenceController;->access$300(Lcom/google/android/settings/gestures/assist/AssistGestureSensitivityPreferenceController;)Landroid/content/Context;
+    invoke-static {v0}, Lcom/google/android/settings/gestures/assist/AssistGestureSensitivityPreferenceController;->access$100(Lcom/google/android/settings/gestures/assist/AssistGestureSensitivityPreferenceController;)Landroid/content/Context;
 
     move-result-object v0
 

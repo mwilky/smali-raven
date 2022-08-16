@@ -4,7 +4,7 @@
 
 # interfaces
 .implements Landroidx/lifecycle/LifecycleObserver;
-.implements Lcom/android/settingslib/widget/RadioButtonPreference$OnClickListener;
+.implements Lcom/android/settingslib/widget/SelectorWithWidgetPreference$OnClickListener;
 .implements Lcom/android/settings/core/PreferenceControllerMixin;
 
 
@@ -34,7 +34,7 @@
 
 .field private mOnChangeListener:Lcom/android/settings/accessibility/AccessibilityTimeoutController$OnChangeListener;
 
-.field private mPreference:Lcom/android/settingslib/widget/RadioButtonPreference;
+.field private mPreference:Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
 .field private final mPreferenceKey:Ljava/lang/String;
 
@@ -224,11 +224,11 @@
 
     move-result-object p1
 
-    check-cast p1, Lcom/android/settingslib/widget/RadioButtonPreference;
+    check-cast p1, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
-    iput-object p1, p0, Lcom/android/settings/accessibility/AccessibilityTimeoutController;->mPreference:Lcom/android/settingslib/widget/RadioButtonPreference;
+    iput-object p1, p0, Lcom/android/settings/accessibility/AccessibilityTimeoutController;->mPreference:Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
-    invoke-virtual {p1, p0}, Lcom/android/settingslib/widget/RadioButtonPreference;->setOnClickListener(Lcom/android/settingslib/widget/RadioButtonPreference$OnClickListener;)V
+    invoke-virtual {p1, p0}, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;->setOnClickListener(Lcom/android/settingslib/widget/SelectorWithWidgetPreference$OnClickListener;)V
 
     return-void
 .end method
@@ -249,7 +249,7 @@
     return p0
 .end method
 
-.method public onRadioButtonClicked(Lcom/android/settingslib/widget/RadioButtonPreference;)V
+.method public onRadioButtonClicked(Lcom/android/settingslib/widget/SelectorWithWidgetPreference;)V
     .locals 1
 
     invoke-direct {p0}, Lcom/android/settings/accessibility/AccessibilityTimeoutController;->getTimeoutValueToKeyMap()Ljava/util/Map;
@@ -278,7 +278,7 @@
 
     if-eqz p1, :cond_0
 
-    iget-object p0, p0, Lcom/android/settings/accessibility/AccessibilityTimeoutController;->mPreference:Lcom/android/settingslib/widget/RadioButtonPreference;
+    iget-object p0, p0, Lcom/android/settings/accessibility/AccessibilityTimeoutController;->mPreference:Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     invoke-interface {p1, p0}, Lcom/android/settings/accessibility/AccessibilityTimeoutController$OnChangeListener;->onCheckedChanged(Landroidx/preference/Preference;)V
 
@@ -301,7 +301,7 @@
 
     if-ne v0, p1, :cond_0
 
-    iget-object p0, p0, Lcom/android/settings/accessibility/AccessibilityTimeoutController;->mPreference:Lcom/android/settingslib/widget/RadioButtonPreference;
+    iget-object p0, p0, Lcom/android/settings/accessibility/AccessibilityTimeoutController;->mPreference:Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     const/4 p1, 0x1
 
@@ -322,7 +322,7 @@
 
     iput p1, p0, Lcom/android/settings/accessibility/AccessibilityTimeoutController;->mAccessibilityUiTimeoutValue:I
 
-    iget-object p1, p0, Lcom/android/settings/accessibility/AccessibilityTimeoutController;->mPreference:Lcom/android/settingslib/widget/RadioButtonPreference;
+    iget-object p1, p0, Lcom/android/settings/accessibility/AccessibilityTimeoutController;->mPreference:Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     const/4 v0, 0x0
 
@@ -332,7 +332,7 @@
 
     move-result-object p1
 
-    iget-object v0, p0, Lcom/android/settings/accessibility/AccessibilityTimeoutController;->mPreference:Lcom/android/settingslib/widget/RadioButtonPreference;
+    iget-object v0, p0, Lcom/android/settings/accessibility/AccessibilityTimeoutController;->mPreference:Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     invoke-virtual {v0}, Landroidx/preference/Preference;->getKey()Ljava/lang/String;
 

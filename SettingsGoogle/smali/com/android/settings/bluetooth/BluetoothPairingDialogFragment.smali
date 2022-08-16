@@ -18,6 +18,8 @@
 
 .field private mPairingView:Landroid/widget/EditText;
 
+.field private mPositiveClicked:Z
+
 
 # direct methods
 .method public static synthetic $r8$lambda$ToeOkMaiNjZxAotG8U4ifRTcZ14(Lcom/android/settings/bluetooth/BluetoothPairingDialogFragment;Landroid/widget/CompoundButton;Z)V
@@ -37,9 +39,13 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .locals 1
 
     invoke-direct {p0}, Lcom/android/settings/core/instrumentation/InstrumentedDialogFragment;-><init>()V
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialogFragment;->mPositiveClicked:Z
 
     return-void
 .end method
@@ -63,7 +69,7 @@
 
     aput-object v2, v1, v3
 
-    const v2, 0x7f0404b9
+    const v2, 0x7f04050f
 
     invoke-virtual {p0, v2, v1}, Landroidx/fragment/app/Fragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -81,7 +87,7 @@
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialogFragment;->mBuilder:Landroidx/appcompat/app/AlertDialog$Builder;
 
-    const v1, 0x7f0404ab
+    const v1, 0x7f040501
 
     invoke-virtual {p0, v1}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -91,7 +97,7 @@
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialogFragment;->mBuilder:Landroidx/appcompat/app/AlertDialog$Builder;
 
-    const v1, 0x7f0404ad
+    const v1, 0x7f040503
 
     invoke-virtual {p0, v1}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -137,7 +143,7 @@
 
     aput-object v2, v1, v3
 
-    const v2, 0x7f0404b9
+    const v2, 0x7f04050f
 
     invoke-virtual {p0, v2, v1}, Landroidx/fragment/app/Fragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -187,7 +193,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f06006e
+    const v1, 0x7f060075
 
     const/4 v2, 0x0
 
@@ -195,7 +201,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0443
+    const v1, 0x7f0d0473
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -203,7 +209,7 @@
 
     check-cast v1, Landroid/widget/TextView;
 
-    const v2, 0x7f0d0367
+    const v2, 0x7f0d0393
 
     invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -211,7 +217,7 @@
 
     check-cast v2, Landroid/widget/TextView;
 
-    const v3, 0x7f0d0080
+    const v3, 0x7f0d0082
 
     invoke-virtual {v0, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -219,7 +225,7 @@
 
     check-cast v3, Landroid/widget/CheckBox;
 
-    const v4, 0x7f0d0441
+    const v4, 0x7f0d0471
 
     invoke-virtual {v0, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -241,7 +247,7 @@
 
     aput-object v7, v6, v8
 
-    const v7, 0x7f0404ba
+    const v7, 0x7f040510
 
     invoke-virtual {p0, v7, v6}, Landroidx/fragment/app/Fragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -249,7 +255,7 @@
 
     invoke-virtual {v4, v6}, Landroid/widget/CheckBox;->setText(Ljava/lang/CharSequence;)V
 
-    const v6, 0x7f0d05b4
+    const v6, 0x7f0d05f5
 
     invoke-virtual {v0, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -397,7 +403,7 @@
 
     aput-object v2, v1, v3
 
-    const v2, 0x7f0404b9
+    const v2, 0x7f04050f
 
     invoke-virtual {p0, v2, v1}, Landroidx/fragment/app/Fragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -459,7 +465,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f06006d
+    const v1, 0x7f060074
 
     const/4 v2, 0x0
 
@@ -467,7 +473,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0412
+    const v1, 0x7f0d0442
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -475,7 +481,7 @@
 
     check-cast v1, Landroid/widget/TextView;
 
-    const v2, 0x7f0d0416
+    const v2, 0x7f0d0447
 
     invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -483,7 +489,7 @@
 
     check-cast v2, Landroid/widget/TextView;
 
-    const v3, 0x7f0d0414
+    const v3, 0x7f0d0444
 
     invoke-virtual {v0, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -491,7 +497,7 @@
 
     check-cast v3, Landroid/widget/TextView;
 
-    const v4, 0x7f0d0440
+    const v4, 0x7f0d0470
 
     invoke-virtual {v0, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -513,7 +519,7 @@
 
     aput-object v6, v5, v7
 
-    const v6, 0x7f0404ba
+    const v6, 0x7f040510
 
     invoke-virtual {p0, v6, v5}, Landroidx/fragment/app/Fragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -565,10 +571,15 @@
 
     if-eqz v4, :cond_1
 
-    move v6, v7
+    move v4, v7
+
+    goto :goto_1
 
     :cond_1
-    invoke-virtual {v3, v6}, Landroid/widget/TextView;->setVisibility(I)V
+    move v4, v6
+
+    :goto_1
+    invoke-virtual {v3, v4}, Landroid/widget/TextView;->setVisibility(I)V
 
     iget-object v3, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialogFragment;->mPairingController:Lcom/android/settings/bluetooth/BluetoothPairingController;
 
@@ -582,15 +593,39 @@
 
     invoke-virtual {v2, v7}, Landroid/widget/TextView;->setVisibility(I)V
 
-    iget-object p0, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialogFragment;->mPairingController:Lcom/android/settings/bluetooth/BluetoothPairingController;
+    iget-object v1, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialogFragment;->mPairingController:Lcom/android/settings/bluetooth/BluetoothPairingController;
 
-    invoke-virtual {p0}, Lcom/android/settings/bluetooth/BluetoothPairingController;->getPairingContent()Ljava/lang/String;
+    invoke-virtual {v1}, Lcom/android/settings/bluetooth/BluetoothPairingController;->getPairingContent()Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v1
 
-    invoke-virtual {v2, p0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v2, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     :cond_2
+    const v1, 0x7f0d0446
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/widget/TextView;
+
+    iget-object p0, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialogFragment;->mPairingController:Lcom/android/settings/bluetooth/BluetoothPairingController;
+
+    invoke-virtual {p0}, Lcom/android/settings/bluetooth/BluetoothPairingController;->isCoordinatedSetMemberDevice()Z
+
+    move-result p0
+
+    if-eqz p0, :cond_3
+
+    goto :goto_2
+
+    :cond_3
+    move v7, v6
+
+    :goto_2
+    invoke-virtual {v1, v7}, Landroid/widget/TextView;->setVisibility(I)V
+
     return-object v0
 .end method
 
@@ -841,6 +876,10 @@
 
     if-ne p2, p1, :cond_0
 
+    const/4 p1, 0x1
+
+    iput-boolean p1, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialogFragment;->mPositiveClicked:Z
+
     iget-object p1, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialogFragment;->mPairingController:Lcom/android/settings/bluetooth/BluetoothPairingController;
 
     invoke-virtual {p1, p0}, Lcom/android/settings/bluetooth/BluetoothPairingController;->onDialogPositiveClick(Lcom/android/settings/bluetooth/BluetoothPairingDialogFragment;)V
@@ -921,6 +960,23 @@
     invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw p0
+.end method
+
+.method public onDestroy()V
+    .locals 1
+
+    invoke-super {p0}, Lcom/android/settingslib/core/lifecycle/ObservableDialogFragment;->onDestroy()V
+
+    iget-boolean v0, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialogFragment;->mPositiveClicked:Z
+
+    if-nez v0, :cond_0
+
+    iget-object p0, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialogFragment;->mPairingController:Lcom/android/settings/bluetooth/BluetoothPairingController;
+
+    invoke-virtual {p0}, Lcom/android/settings/bluetooth/BluetoothPairingController;->onCancel()V
+
+    :cond_0
+    return-void
 .end method
 
 .method public onTextChanged(Ljava/lang/CharSequence;III)V

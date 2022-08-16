@@ -1,45 +1,34 @@
 .class public final synthetic Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2$$ExternalSyntheticLambda8;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Function;
+.implements Ljava/lang/Runnable;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2$$ExternalSyntheticLambda8;
+# instance fields
+.field public final synthetic f$0:Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2$$ExternalSyntheticLambda8;
-
-    invoke-direct {v0}, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2$$ExternalSyntheticLambda8;-><init>()V
-
-    sput-object v0, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2$$ExternalSyntheticLambda8;->INSTANCE:Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2$$ExternalSyntheticLambda8;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2$$ExternalSyntheticLambda8;->f$0:Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
+.method public final run()V
     .locals 0
 
-    check-cast p1, Ljava/net/InetAddress;
+    iget-object p0, p0, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2$$ExternalSyntheticLambda8;->f$0:Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;
 
-    invoke-virtual {p1}, Ljava/net/InetAddress;->getHostAddress()Ljava/lang/String;
+    invoke-static {p0}, Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;->$r8$lambda$PA2v8wdjhVKT5HCgxNFGTYtKIFk(Lcom/android/settings/wifi/details2/WifiDetailPreferenceController2;)V
 
-    move-result-object p0
-
-    return-object p0
+    return-void
 .end method

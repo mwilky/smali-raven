@@ -77,7 +77,7 @@
 
     iget-object p0, p0, Lcom/android/settings/network/ProviderModelSliceHelper;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f040b1e
+    const v0, 0x7f040b81
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -93,7 +93,9 @@
 
     move-result-object p0
 
-    sget-object v0, Lcom/android/settings/network/ProviderModelSliceHelper$$ExternalSyntheticLambda1;->INSTANCE:Lcom/android/settings/network/ProviderModelSliceHelper$$ExternalSyntheticLambda1;
+    new-instance v0, Lcom/android/settings/network/ProviderModelSliceHelper$$ExternalSyntheticLambda2;
+
+    invoke-direct {v0}, Lcom/android/settings/network/ProviderModelSliceHelper$$ExternalSyntheticLambda2;-><init>()V
 
     invoke-interface {p0, v0}, Ljava/util/stream/Stream;->map(Ljava/util/function/Function;)Ljava/util/stream/Stream;
 
@@ -123,7 +125,7 @@
 
     iget-object p0, p0, Lcom/android/settings/network/ProviderModelSliceHelper;->mContext:Landroid/content/Context;
 
-    const p1, 0x7f040d34
+    const p1, 0x7f040db0
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -140,7 +142,7 @@
 
     iget-object p0, p0, Lcom/android/settings/network/ProviderModelSliceHelper;->mContext:Landroid/content/Context;
 
-    const p1, 0x7f040d32
+    const p1, 0x7f040dae
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -157,7 +159,7 @@
 
     iget-object p0, p0, Lcom/android/settings/network/ProviderModelSliceHelper;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f040f5b
+    const v0, 0x7f040ff4
 
     const/4 v1, 0x2
 
@@ -165,7 +167,7 @@
 
     const/4 v2, 0x0
 
-    const v3, 0x7f040d2e
+    const v3, 0x7f040daa
 
     invoke-virtual {p0, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -258,7 +260,7 @@
 
     iget-object v1, p0, Lcom/android/settings/network/ProviderModelSliceHelper;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f020369
+    const v2, 0x7f02038e
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -389,7 +391,9 @@
 
     move-result-object p1
 
-    sget-object v0, Lcom/android/settings/network/ProviderModelSliceHelper$$ExternalSyntheticLambda2;->INSTANCE:Lcom/android/settings/network/ProviderModelSliceHelper$$ExternalSyntheticLambda2;
+    new-instance v0, Lcom/android/settings/network/ProviderModelSliceHelper$$ExternalSyntheticLambda1;
+
+    invoke-direct {v0}, Lcom/android/settings/network/ProviderModelSliceHelper$$ExternalSyntheticLambda1;-><init>()V
 
     invoke-interface {p1, v0}, Ljava/util/stream/Stream;->filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
 
@@ -558,7 +562,7 @@
 
     iget-object v0, p0, Lcom/android/settings/network/ProviderModelSliceHelper;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f040d38
+    const v1, 0x7f040db4
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 

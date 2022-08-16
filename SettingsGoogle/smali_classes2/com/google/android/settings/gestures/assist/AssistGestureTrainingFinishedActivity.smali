@@ -172,7 +172,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f04009a
+    const v3, 0x7f04008f
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -217,11 +217,11 @@
 
     invoke-static {p0}, Lcom/google/android/setupdesign/util/ThemeHelper;->trySetDynamicColor(Landroid/content/Context;)Z
 
-    const v0, 0x7f060058
+    const v0, 0x7f06005c
 
     invoke-virtual {p0, v0}, Landroidx/activity/ComponentActivity;->setContentView(I)V
 
-    const v0, 0x7f0d0324
+    const v0, 0x7f0d034e
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -251,15 +251,15 @@
 
     invoke-direct {v1, p0}, Lcom/google/android/setupcompat/template/FooterButton$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f04029b
+    const v2, 0x7f0402cf
 
     invoke-virtual {v1, v2}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setText(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
     move-result-object v1
 
-    new-instance v2, Lcom/google/android/settings/gestures/assist/AssistGestureTrainingFinishedActivity$$ExternalSyntheticLambda1;
+    new-instance v2, Lcom/google/android/settings/gestures/assist/AssistGestureTrainingFinishedActivity$$ExternalSyntheticLambda0;
 
-    invoke-direct {v2, p0}, Lcom/google/android/settings/gestures/assist/AssistGestureTrainingFinishedActivity$$ExternalSyntheticLambda1;-><init>(Lcom/google/android/settings/gestures/assist/AssistGestureTrainingFinishedActivity;)V
+    invoke-direct {v2, p0}, Lcom/google/android/settings/gestures/assist/AssistGestureTrainingFinishedActivity$$ExternalSyntheticLambda0;-><init>(Lcom/google/android/settings/gestures/assist/AssistGestureTrainingFinishedActivity;)V
 
     invoke-virtual {v1, v2}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setListener(Landroid/view/View$OnClickListener;)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -269,7 +269,7 @@
 
     move-result-object p1
 
-    const v1, 0x7f13021d
+    const v1, 0x7f130284
 
     invoke-virtual {p1, v1}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setTheme(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -307,15 +307,15 @@
 
     invoke-direct {p1, p0}, Lcom/google/android/setupcompat/template/FooterButton$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f040849
+    const v1, 0x7f040893
 
     invoke-virtual {p1, v1}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setText(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
     move-result-object p1
 
-    new-instance v2, Lcom/google/android/settings/gestures/assist/AssistGestureTrainingFinishedActivity$$ExternalSyntheticLambda0;
+    new-instance v2, Lcom/google/android/settings/gestures/assist/AssistGestureTrainingFinishedActivity$$ExternalSyntheticLambda1;
 
-    invoke-direct {v2, p0}, Lcom/google/android/settings/gestures/assist/AssistGestureTrainingFinishedActivity$$ExternalSyntheticLambda0;-><init>(Lcom/google/android/settings/gestures/assist/AssistGestureTrainingFinishedActivity;)V
+    invoke-direct {v2, p0}, Lcom/google/android/settings/gestures/assist/AssistGestureTrainingFinishedActivity$$ExternalSyntheticLambda1;-><init>(Lcom/google/android/settings/gestures/assist/AssistGestureTrainingFinishedActivity;)V
 
     invoke-virtual {p1, v2}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setListener(Landroid/view/View$OnClickListener;)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -327,7 +327,7 @@
 
     move-result-object p1
 
-    const v2, 0x7f13021c
+    const v2, 0x7f130283
 
     invoke-virtual {p1, v2}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setTheme(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -375,7 +375,7 @@
 
     if-eqz v0, :cond_5
 
-    const v0, 0x7f040297
+    const v0, 0x7f0402cb
 
     invoke-virtual {p1, p0, v0}, Lcom/google/android/setupcompat/template/FooterButton;->setText(Landroid/content/Context;I)V
 
@@ -383,13 +383,13 @@
 
     :cond_4
     :goto_0
-    const v0, 0x7f040dd7
+    const v0, 0x7f040e54
 
     invoke-virtual {p1, p0, v0}, Lcom/google/android/setupcompat/template/FooterButton;->setText(Landroid/content/Context;I)V
 
     :cond_5
     :goto_1
-    const p1, 0x7f0d00b4
+    const p1, 0x7f0d00b8
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -397,7 +397,7 @@
 
     iput-object p1, p0, Lcom/google/android/settings/gestures/assist/AssistGestureTrainingFinishedActivity;->mAssistGestureCheck:Landroid/view/View;
 
-    const p1, 0x7f0d00b5
+    const p1, 0x7f0d00b9
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 

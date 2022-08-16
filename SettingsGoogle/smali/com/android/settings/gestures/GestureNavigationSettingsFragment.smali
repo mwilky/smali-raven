@@ -43,7 +43,7 @@
 
     new-instance v0, Lcom/android/settings/gestures/GestureNavigationSettingsFragment$1;
 
-    const v1, 0x7f150077
+    const v1, 0x7f150079
 
     invoke-direct {v0, v1}, Lcom/android/settings/gestures/GestureNavigationSettingsFragment$1;-><init>(I)V
 
@@ -280,7 +280,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f0409ff
+    const p0, 0x7f040a56
 
     return p0
 .end method
@@ -304,7 +304,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150077
+    const p0, 0x7f150079
 
     return p0
 .end method
@@ -354,7 +354,7 @@
 
     move-result-object p1
 
-    const p2, 0x10500a6
+    const p2, 0x10500a8
 
     invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -364,7 +364,7 @@
 
     iput p2, p0, Lcom/android/settings/gestures/GestureNavigationSettingsFragment;->mDefaultBackGestureInset:F
 
-    const p2, 0x1070019
+    const p2, 0x107001d
 
     invoke-virtual {p1, p2}, Landroid/content/res/Resources;->obtainTypedArray(I)Landroid/content/res/TypedArray;
 

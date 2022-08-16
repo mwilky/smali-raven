@@ -83,19 +83,19 @@
 
     const/4 v7, -0x5
 
-    if-eq v1, v7, :cond_b
+    if-eq v1, v7, :cond_a
 
     const/4 v7, -0x4
 
-    if-eq v1, v7, :cond_9
+    if-eq v1, v7, :cond_8
 
     const/16 v7, 0x3e8
 
-    if-eq v1, v7, :cond_8
+    if-eq v1, v7, :cond_7
 
     const/16 v7, 0x425
 
-    if-eq v1, v7, :cond_7
+    if-eq v1, v7, :cond_6
 
     iget-object v4, v0, Lcom/android/settingslib/net/UidDetailProvider;->mContext:Landroid/content/Context;
 
@@ -171,17 +171,19 @@
 
     move-result-object v11
 
-    const/4 v12, 0x1
+    const-wide/16 v12, 0x0
 
-    if-ne v8, v12, :cond_2
+    const/4 v14, 0x1
+
+    if-ne v8, v14, :cond_2
 
     aget-object v0, v0, v7
 
-    invoke-interface {v11, v0, v7, v9}, Landroid/content/pm/IPackageManager;->getApplicationInfo(Ljava/lang/String;II)Landroid/content/pm/ApplicationInfo;
+    invoke-interface {v11, v0, v12, v13, v9}, Landroid/content/pm/IPackageManager;->getApplicationInfo(Ljava/lang/String;JI)Landroid/content/pm/ApplicationInfo;
 
     move-result-object v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_4
 
     invoke-virtual {v0, v5}, Landroid/content/pm/ApplicationInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
 
@@ -207,79 +209,83 @@
 
     iput-object v0, v6, Lcom/android/settingslib/net/UidDetail;->icon:Landroid/graphics/drawable/Drawable;
 
-    goto :goto_3
+    goto :goto_2
 
     :cond_2
-    if-le v8, v12, :cond_5
+    if-le v8, v14, :cond_4
 
-    new-array v12, v8, [Ljava/lang/CharSequence;
+    new-array v14, v8, [Ljava/lang/CharSequence;
 
-    iput-object v12, v6, Lcom/android/settingslib/net/UidDetail;->detailLabels:[Ljava/lang/CharSequence;
+    iput-object v14, v6, Lcom/android/settingslib/net/UidDetail;->detailLabels:[Ljava/lang/CharSequence;
 
-    new-array v12, v8, [Ljava/lang/CharSequence;
+    new-array v14, v8, [Ljava/lang/CharSequence;
 
-    iput-object v12, v6, Lcom/android/settingslib/net/UidDetail;->detailContentDescriptions:[Ljava/lang/CharSequence;
+    iput-object v14, v6, Lcom/android/settingslib/net/UidDetail;->detailContentDescriptions:[Ljava/lang/CharSequence;
 
-    move v12, v7
+    move v14, v7
 
     :goto_1
-    if-ge v12, v8, :cond_5
+    if-ge v14, v8, :cond_4
 
-    aget-object v13, v0, v12
+    aget-object v15, v0, v14
 
-    invoke-virtual {v5, v13, v7}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
+    invoke-virtual {v5, v15, v7}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
 
-    move-result-object v14
-
-    invoke-interface {v11, v13, v7, v9}, Landroid/content/pm/IPackageManager;->getApplicationInfo(Ljava/lang/String;II)Landroid/content/pm/ApplicationInfo;
-
-    move-result-object v15
-
-    if-eqz v15, :cond_3
-
-    iget-object v7, v6, Lcom/android/settingslib/net/UidDetail;->detailLabels:[Ljava/lang/CharSequence;
-
-    invoke-virtual {v15, v5}, Landroid/content/pm/ApplicationInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
-
-    move-result-object v16
-
-    invoke-interface/range {v16 .. v16}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
-
-    move-result-object v16
-
-    aput-object v16, v7, v12
-
-    iget-object v7, v6, Lcom/android/settingslib/net/UidDetail;->detailContentDescriptions:[Ljava/lang/CharSequence;
+    move-result-object v12
 
     move-object/from16 v16, v0
 
-    iget-object v0, v6, Lcom/android/settingslib/net/UidDetail;->detailLabels:[Ljava/lang/CharSequence;
+    move v13, v8
 
-    aget-object v0, v0, v12
+    const-wide/16 v7, 0x0
 
-    invoke-virtual {v4, v0, v10}, Landroid/os/UserManager;->getBadgedLabelForUser(Ljava/lang/CharSequence;Landroid/os/UserHandle;)Ljava/lang/CharSequence;
-
-    move-result-object v0
-
-    aput-object v0, v7, v12
-
-    iget v0, v14, Landroid/content/pm/PackageInfo;->sharedUserLabel:I
-
-    if-eqz v0, :cond_4
-
-    iget-object v7, v14, Landroid/content/pm/PackageInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
-
-    invoke-virtual {v5, v13, v0, v7}, Landroid/content/pm/PackageManager;->getText(Ljava/lang/String;ILandroid/content/pm/ApplicationInfo;)Ljava/lang/CharSequence;
+    invoke-interface {v11, v15, v7, v8, v9}, Landroid/content/pm/IPackageManager;->getApplicationInfo(Ljava/lang/String;JI)Landroid/content/pm/ApplicationInfo;
 
     move-result-object v0
 
-    invoke-interface {v0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+    if-eqz v0, :cond_3
 
-    move-result-object v0
+    iget-object v7, v6, Lcom/android/settingslib/net/UidDetail;->detailLabels:[Ljava/lang/CharSequence;
 
-    iput-object v0, v6, Lcom/android/settingslib/net/UidDetail;->label:Ljava/lang/CharSequence;
+    invoke-virtual {v0, v5}, Landroid/content/pm/ApplicationInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
 
-    invoke-virtual {v15, v5}, Landroid/content/pm/ApplicationInfo;->loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
+    move-result-object v8
+
+    invoke-interface {v8}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    aput-object v8, v7, v14
+
+    iget-object v7, v6, Lcom/android/settingslib/net/UidDetail;->detailContentDescriptions:[Ljava/lang/CharSequence;
+
+    iget-object v8, v6, Lcom/android/settingslib/net/UidDetail;->detailLabels:[Ljava/lang/CharSequence;
+
+    aget-object v8, v8, v14
+
+    invoke-virtual {v4, v8, v10}, Landroid/os/UserManager;->getBadgedLabelForUser(Ljava/lang/CharSequence;Landroid/os/UserHandle;)Ljava/lang/CharSequence;
+
+    move-result-object v8
+
+    aput-object v8, v7, v14
+
+    iget v7, v12, Landroid/content/pm/PackageInfo;->sharedUserLabel:I
+
+    if-eqz v7, :cond_3
+
+    iget-object v8, v12, Landroid/content/pm/PackageInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    invoke-virtual {v5, v15, v7, v8}, Landroid/content/pm/PackageManager;->getText(Ljava/lang/String;ILandroid/content/pm/ApplicationInfo;)Ljava/lang/CharSequence;
+
+    move-result-object v7
+
+    invoke-interface {v7}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    iput-object v7, v6, Lcom/android/settingslib/net/UidDetail;->label:Ljava/lang/CharSequence;
+
+    invoke-virtual {v0, v5}, Landroid/content/pm/ApplicationInfo;->loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
@@ -289,23 +295,21 @@
 
     iput-object v0, v6, Lcom/android/settingslib/net/UidDetail;->icon:Landroid/graphics/drawable/Drawable;
 
-    goto :goto_2
-
     :cond_3
-    move-object/from16 v16, v0
+    add-int/lit8 v14, v14, 0x1
 
-    :cond_4
-    :goto_2
-    add-int/lit8 v12, v12, 0x1
+    move v8, v13
 
     move-object/from16 v0, v16
 
     const/4 v7, 0x0
 
+    const-wide/16 v12, 0x0
+
     goto :goto_1
 
-    :cond_5
-    :goto_3
+    :cond_4
+    :goto_2
     iget-object v0, v6, Lcom/android/settingslib/net/UidDetail;->label:Ljava/lang/CharSequence;
 
     invoke-virtual {v4, v0, v10}, Landroid/os/UserManager;->getBadgedLabelForUser(Ljava/lang/CharSequence;Landroid/os/UserHandle;)Ljava/lang/CharSequence;
@@ -317,7 +321,7 @@
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_4
+    goto :goto_3
 
     :catch_0
     move-exception v0
@@ -336,7 +340,7 @@
 
     invoke-static {v3, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_4
+    goto :goto_3
 
     :catch_1
     move-exception v0
@@ -355,14 +359,14 @@
 
     invoke-static {v3, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    :goto_4
+    :goto_3
     iget-object v0, v6, Lcom/android/settingslib/net/UidDetail;->label:Ljava/lang/CharSequence;
 
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_5
 
     invoke-static/range {p1 .. p1}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
@@ -370,10 +374,10 @@
 
     iput-object v0, v6, Lcom/android/settingslib/net/UidDetail;->label:Ljava/lang/CharSequence;
 
-    :cond_6
+    :cond_5
     return-object v6
 
-    :cond_7
+    :cond_6
     sget v1, Lcom/android/settingslib/R$string;->data_usage_ota:I
 
     invoke-virtual {v4, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
@@ -394,7 +398,7 @@
 
     return-object v6
 
-    :cond_8
+    :cond_7
     sget v0, Lcom/android/settingslib/R$string;->process_kernel_label:I
 
     invoke-virtual {v4, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
@@ -411,21 +415,21 @@
 
     return-object v6
 
-    :cond_9
+    :cond_8
     invoke-static {}, Landroid/os/UserManager;->supportsMultipleUsers()Z
 
     move-result v0
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_9
 
     sget v0, Lcom/android/settingslib/R$string;->data_usage_uninstalled_apps_users:I
 
-    goto :goto_5
+    goto :goto_4
 
-    :cond_a
+    :cond_9
     sget v0, Lcom/android/settingslib/R$string;->data_usage_uninstalled_apps:I
 
-    :goto_5
+    :goto_4
     invoke-virtual {v4, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v0
@@ -440,7 +444,7 @@
 
     return-object v6
 
-    :cond_b
+    :cond_a
     iget-object v0, v0, Lcom/android/settingslib/net/UidDetailProvider;->mContext:Landroid/content/Context;
 
     const-class v1, Landroid/net/TetheringManager;

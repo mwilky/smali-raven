@@ -1,45 +1,40 @@
 .class public final synthetic Lcom/android/settings/shortcut/CreateShortcutPreferenceController$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/Comparator;
+.implements Landroidx/preference/Preference$OnPreferenceClickListener;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/settings/shortcut/CreateShortcutPreferenceController$$ExternalSyntheticLambda1;
+# instance fields
+.field public final synthetic f$0:Lcom/android/settings/shortcut/CreateShortcutPreferenceController;
+
+.field public final synthetic f$1:Landroid/content/pm/ResolveInfo;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/settings/shortcut/CreateShortcutPreferenceController$$ExternalSyntheticLambda1;
-
-    invoke-direct {v0}, Lcom/android/settings/shortcut/CreateShortcutPreferenceController$$ExternalSyntheticLambda1;-><init>()V
-
-    sput-object v0, Lcom/android/settings/shortcut/CreateShortcutPreferenceController$$ExternalSyntheticLambda1;->INSTANCE:Lcom/android/settings/shortcut/CreateShortcutPreferenceController$$ExternalSyntheticLambda1;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Lcom/android/settings/shortcut/CreateShortcutPreferenceController;Landroid/content/pm/ResolveInfo;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/settings/shortcut/CreateShortcutPreferenceController$$ExternalSyntheticLambda1;->f$0:Lcom/android/settings/shortcut/CreateShortcutPreferenceController;
+
+    iput-object p2, p0, Lcom/android/settings/shortcut/CreateShortcutPreferenceController$$ExternalSyntheticLambda1;->f$1:Landroid/content/pm/ResolveInfo;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 0
+.method public final onPreferenceClick(Landroidx/preference/Preference;)Z
+    .locals 1
 
-    check-cast p1, Landroid/content/pm/ResolveInfo;
+    iget-object v0, p0, Lcom/android/settings/shortcut/CreateShortcutPreferenceController$$ExternalSyntheticLambda1;->f$0:Lcom/android/settings/shortcut/CreateShortcutPreferenceController;
 
-    check-cast p2, Landroid/content/pm/ResolveInfo;
+    iget-object p0, p0, Lcom/android/settings/shortcut/CreateShortcutPreferenceController$$ExternalSyntheticLambda1;->f$1:Landroid/content/pm/ResolveInfo;
 
-    invoke-static {p1, p2}, Lcom/android/settings/shortcut/CreateShortcutPreferenceController;->$r8$lambda$UPdzeGPbYPEv1PqS5VJO5ICmS1s(Landroid/content/pm/ResolveInfo;Landroid/content/pm/ResolveInfo;)I
+    invoke-static {v0, p0, p1}, Lcom/android/settings/shortcut/CreateShortcutPreferenceController;->$r8$lambda$ZITaKR659n4_66B5M3MO2dPB0fs(Lcom/android/settings/shortcut/CreateShortcutPreferenceController;Landroid/content/pm/ResolveInfo;Landroidx/preference/Preference;)Z
 
     move-result p0
 

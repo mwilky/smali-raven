@@ -13,20 +13,6 @@
 # direct methods
 .method public constructor <init>(Landroid/app/PendingIntent;Landroidx/core/graphics/drawable/IconCompat;ILjava/lang/CharSequence;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "action",
-            "actionIcon",
-            "imageMode",
-            "actionTitle"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -41,20 +27,6 @@
 
 .method public constructor <init>(Landroid/app/PendingIntent;Landroidx/core/graphics/drawable/IconCompat;Ljava/lang/CharSequence;Z)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "action",
-            "actionIcon",
-            "actionTitle",
-            "isChecked"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -69,18 +41,6 @@
 
 .method public constructor <init>(Landroid/app/PendingIntent;Ljava/lang/CharSequence;Z)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "action",
-            "actionTitle",
-            "isChecked"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -95,20 +55,6 @@
 
 .method public static create(Landroid/app/PendingIntent;Landroidx/core/graphics/drawable/IconCompat;ILjava/lang/CharSequence;)Landroidx/slice/builders/SliceAction;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "action",
-            "actionIcon",
-            "imageMode",
-            "actionTitle"
-        }
-    .end annotation
 
     new-instance v0, Landroidx/slice/builders/SliceAction;
 
@@ -119,20 +65,6 @@
 
 .method public static createDeeplink(Landroid/app/PendingIntent;Landroidx/core/graphics/drawable/IconCompat;ILjava/lang/CharSequence;)Landroidx/slice/builders/SliceAction;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "action",
-            "actionIcon",
-            "imageMode",
-            "actionTitle"
-        }
-    .end annotation
 
     new-instance v0, Landroidx/slice/builders/SliceAction;
 
@@ -149,20 +81,6 @@
 
 .method public static createToggle(Landroid/app/PendingIntent;Landroidx/core/graphics/drawable/IconCompat;Ljava/lang/CharSequence;Z)Landroidx/slice/builders/SliceAction;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "action",
-            "actionIcon",
-            "actionTitle",
-            "isChecked"
-        }
-    .end annotation
 
     new-instance v0, Landroidx/slice/builders/SliceAction;
 
@@ -173,18 +91,6 @@
 
 .method public static createToggle(Landroid/app/PendingIntent;Ljava/lang/CharSequence;Z)Landroidx/slice/builders/SliceAction;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "action",
-            "actionTitle",
-            "isChecked"
-        }
-    .end annotation
 
     new-instance v0, Landroidx/slice/builders/SliceAction;
 
@@ -197,14 +103,6 @@
 # virtual methods
 .method public buildSlice(Landroidx/slice/Slice$Builder;)Landroidx/slice/Slice;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "builder"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/slice/builders/SliceAction;->mSliceAction:Landroidx/slice/core/SliceActionImpl;
 
@@ -297,14 +195,6 @@
 
 .method public setPrimaryAction(Landroidx/slice/Slice$Builder;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "builder"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/slice/builders/SliceAction;->mSliceAction:Landroidx/slice/core/SliceActionImpl;
 

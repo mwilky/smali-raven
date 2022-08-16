@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settings/sim/smartForwarding/MDNHandlerFragment$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/view/View$OnClickListener;

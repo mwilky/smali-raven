@@ -48,7 +48,7 @@
 
     iget-object p0, p0, Lcom/android/settings/homepage/contextualcards/conditional/GrayscaleConditionController$Receiver;->this$0:Lcom/android/settings/homepage/contextualcards/conditional/GrayscaleConditionController;
 
-    invoke-static {p0}, Lcom/android/settings/homepage/contextualcards/conditional/GrayscaleConditionController;->access$000(Lcom/android/settings/homepage/contextualcards/conditional/GrayscaleConditionController;)Lcom/android/settings/homepage/contextualcards/conditional/ConditionManager;
+    invoke-static {p0}, Lcom/android/settings/homepage/contextualcards/conditional/GrayscaleConditionController;->-$$Nest$fgetmConditionManager(Lcom/android/settings/homepage/contextualcards/conditional/GrayscaleConditionController;)Lcom/android/settings/homepage/contextualcards/conditional/ConditionManager;
 
     move-result-object p0
 

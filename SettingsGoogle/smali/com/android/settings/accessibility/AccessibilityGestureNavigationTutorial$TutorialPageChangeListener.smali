@@ -237,7 +237,7 @@
 
     iget-object v3, p0, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial$TutorialPageChangeListener;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f04016c
+    const v4, 0x7f040196
 
     const/4 v5, 0x2
 

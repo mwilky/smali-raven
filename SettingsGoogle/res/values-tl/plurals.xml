@@ -233,12 +233,12 @@
         <item quantity="one">%d kategorya ang na-off</item>
     </plurals>
     <plurals name="notifications_sent_daily">
-        <item quantity="other">~%d na notification bawat araw</item>
-        <item quantity="one">~%d notification bawat araw</item>
+        <item quantity="other">~%,d na notification bawat araw</item>
+        <item quantity="one">~%,d notification bawat araw</item>
     </plurals>
     <plurals name="notifications_sent_weekly">
-        <item quantity="other">~%d na notification bawat linggo</item>
-        <item quantity="one">~%d notification bawat linggo</item>
+        <item quantity="other">~%,d na notification bawat linggo</item>
+        <item quantity="one">~%,d notification bawat linggo</item>
     </plurals>
     <plurals name="number_of_device_admins">
         <item quantity="other">%d na aktibong app</item>
@@ -328,22 +328,6 @@
         <item quantity="other">Pagkatiwalaan o alisin ang mga certificate</item>
         <item quantity="one">Pagkatiwalaan o alisin ang mga certificate</item>
     </plurals>
-    <plurals name="ssl_ca_cert_info_message">
-        <item quantity="other">"Nag-install ang %s ng mga certificate authority para sa iyong profile sa trabaho, na maaaring magbigay-daan sa mga itong masubaybayan ang aktibidad sa network ng trabaho, kabilang ang mga email, app at secure na website.
-Para sa higit pang impormasyon tungkol sa mga certificate na ito, makipag-ugnayan sa iyong admin.
-"</item>
-        <item quantity="one">"Nag-install ang %s ng mga certificate authority para sa iyong profile sa trabaho, na maaaring magbigay-daan sa mga itong masubaybayan ang aktibidad sa network ng trabaho, kabilang ang mga email, app at secure na website.
-Para sa higit pang impormasyon tungkol sa mga certificate na ito, makipag-ugnayan sa iyong admin.
-"</item>
-    </plurals>
-    <plurals name="ssl_ca_cert_info_message_device_owner">
-        <item quantity="other">"Nag-install ang %s ng mga certificate authority sa iyong device, na maaaring magbigay-daan sa mga itong masubaybayan ang aktibidad sa network ng iyong device, kabilang ang mga email, app at secure na website.
-Para sa higit pang impormasyon tungkol sa mga certificate na ito, makipag-ugnayan sa iyong admin.
-"</item>
-        <item quantity="one">"Nag-install ang %s ng mga certificate authority sa iyong device, na maaaring magbigay-daan sa mga itong masubaybayan ang aktibidad sa network ng iyong device, kabilang ang mga email, app at secure na website.
-Para sa higit pang impormasyon tungkol sa mga certificate na ito, makipag-ugnayan sa iyong admin.
-"</item>
-    </plurals>
     <plurals name="ssl_ca_cert_settings_button">
         <item quantity="other">Tingnan ang mga certificate</item>
         <item quantity="one">Tingnan ang mga certificate</item>
@@ -375,10 +359,6 @@ Para sa higit pang impormasyon tungkol sa mga certificate na ito, makipag-ugnaya
     <plurals name="wifi_saved_passpoint_access_points_summary">
         <item quantity="other">%d na subscription</item>
         <item quantity="one">%d subscription</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$d na device ang nakakonekta</item>
-        <item quantity="one">%1$d device ang nakakonekta</item>
     </plurals>
     <plurals name="wrong_pin_code">
         <item quantity="other">Maling PIN code ng SIM, %d subok na lang bago mo kailanganing makipag-ugnayan sa carrier mo para i-unlock ang device.</item>

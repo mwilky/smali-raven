@@ -5,16 +5,6 @@
 # direct methods
 .method public static bridge synthetic emptySet()Ljava/util/Set;
     .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<T:",
-            "Ljava/lang/Object;",
-            ">()",
-            "Ljava/util/Set<",
-            "TT;>;"
-        }
-    .end annotation
-
     .annotation build Lorg/jetbrains/annotations/NotNull;
     .end annotation
 

@@ -62,6 +62,27 @@
     return p2
 .end method
 
+.method public static resolveInteger(Landroid/content/Context;II)I
+    .locals 1
+
+    invoke-static {p0, p1}, Lcom/google/android/material/resources/MaterialAttributes;->resolve(Landroid/content/Context;I)Landroid/util/TypedValue;
+
+    move-result-object p0
+
+    if-eqz p0, :cond_0
+
+    iget p1, p0, Landroid/util/TypedValue;->type:I
+
+    const/16 v0, 0x10
+
+    if-ne p1, v0, :cond_0
+
+    iget p2, p0, Landroid/util/TypedValue;->data:I
+
+    :cond_0
+    return p2
+.end method
+
 .method public static resolveOrThrow(Landroid/content/Context;ILjava/lang/String;)I
     .locals 3
 

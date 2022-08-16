@@ -21,6 +21,8 @@
 # instance fields
 .field private mAllowedNetworkTypesListener:Lcom/android/settings/network/AllowedNetworkTypesListener;
 
+.field private mCacheOfModeStatus:I
+
 .field private mListeners:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -37,11 +39,15 @@
 
 .field mProgressDialog:Landroid/app/ProgressDialog;
 
+.field private mRecursiveUpdate:Ljava/util/concurrent/atomic/AtomicLong;
+
 .field mSwitchPreference:Landroidx/preference/SwitchPreference;
 
 .field private mTelephonyManager:Landroid/telephony/TelephonyManager;
 
 .field private final mUiHandler:Landroid/os/Handler;
+
+.field private mUpdatingConfig:Ljava/util/concurrent/atomic/AtomicBoolean;
 
 
 # direct methods
@@ -61,10 +67,10 @@
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$ErvGTO5Vv19FZdfnrbkXgw6Q33Q(Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;I)V
+.method public static synthetic $r8$lambda$JK_RfKgpFQpm-DzI8yCS698m_7Q(Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;->lambda$setAutomaticSelectionMode$1(I)V
+    invoke-direct {p0}, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;->lambda$setAutomaticSelectionMode$1()V
 
     return-void
 .end method
@@ -104,6 +110,22 @@
 
     iput p1, p0, Lcom/android/settings/network/telephony/TelephonyTogglePreferenceController;->mSubId:I
 
+    new-instance p1, Ljava/util/concurrent/atomic/AtomicLong;
+
+    invoke-direct {p1}, Ljava/util/concurrent/atomic/AtomicLong;-><init>()V
+
+    iput-object p1, p0, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;->mRecursiveUpdate:Ljava/util/concurrent/atomic/AtomicLong;
+
+    new-instance p1, Ljava/util/concurrent/atomic/AtomicBoolean;
+
+    invoke-direct {p1}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>()V
+
+    iput-object p1, p0, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;->mUpdatingConfig:Ljava/util/concurrent/atomic/AtomicBoolean;
+
+    const/4 p1, 0x0
+
+    iput p1, p0, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;->mCacheOfModeStatus:I
+
     new-instance p1, Ljava/util/ArrayList;
 
     invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
@@ -130,9 +152,9 @@
 
     iput-object p2, p0, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;->mAllowedNetworkTypesListener:Lcom/android/settings/network/AllowedNetworkTypesListener;
 
-    new-instance p1, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController$$ExternalSyntheticLambda0;
+    new-instance p1, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController$$ExternalSyntheticLambda2;
 
-    invoke-direct {p1, p0}, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;)V
+    invoke-direct {p1, p0}, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;)V
 
     invoke-virtual {p2, p1}, Lcom/android/settings/network/AllowedNetworkTypesListener;->setAllowedNetworkTypesListener(Lcom/android/settings/network/AllowedNetworkTypesListener$OnAllowedNetworkTypesListener;)V
 
@@ -172,8 +194,12 @@
     return-void
 .end method
 
-.method private synthetic lambda$setAutomaticSelectionMode$1(I)V
+.method private synthetic lambda$setAutomaticSelectionMode$1()V
     .locals 2
+
+    iget-object v0, p0, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;->mRecursiveUpdate:Ljava/util/concurrent/atomic/AtomicLong;
+
+    invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicLong;->getAndIncrement()J
 
     iget-object v0, p0, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;->mSwitchPreference:Landroidx/preference/SwitchPreference;
 
@@ -183,77 +209,59 @@
 
     iget-object v0, p0, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;->mSwitchPreference:Landroidx/preference/SwitchPreference;
 
-    if-ne p1, v1, :cond_0
+    invoke-virtual {p0}, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;->isChecked()Z
 
-    goto :goto_0
+    move-result v1
 
-    :cond_0
-    const/4 v1, 0x0
-
-    :goto_0
     invoke-virtual {v0, v1}, Landroidx/preference/TwoStatePreference;->setChecked(Z)V
 
-    iget-object p1, p0, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;->mListeners:Ljava/util/List;
+    iget-object v0, p0, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;->mRecursiveUpdate:Ljava/util/concurrent/atomic/AtomicLong;
 
-    invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicLong;->decrementAndGet()J
 
-    move-result-object p1
-
-    :goto_1
-    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController$OnNetworkSelectModeListener;
-
-    invoke-interface {v0}, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController$OnNetworkSelectModeListener;->onNetworkSelectModeChanged()V
-
-    goto :goto_1
-
-    :cond_1
     invoke-direct {p0}, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;->dismissProgressBar()V
 
     return-void
 .end method
 
 .method private synthetic lambda$setAutomaticSelectionMode$2(J)V
-    .locals 5
+    .locals 4
+
+    iget-object v0, p0, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;->mUpdatingConfig:Ljava/util/concurrent/atomic/AtomicBoolean;
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
     iget-object v0, p0, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;->mTelephonyManager:Landroid/telephony/TelephonyManager;
 
     invoke-virtual {v0}, Landroid/telephony/TelephonyManager;->setNetworkSelectionModeAutomatic()V
 
-    iget-object v0, p0, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;->mTelephonyManager:Landroid/telephony/TelephonyManager;
+    iget-object v0, p0, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;->mUpdatingConfig:Ljava/util/concurrent/atomic/AtomicBoolean;
 
-    invoke-virtual {v0}, Landroid/telephony/TelephonyManager;->getNetworkSelectionMode()I
+    const/4 v1, 0x0
 
-    move-result v0
+    invoke-virtual {v0, v1}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
-    move-result-wide v1
+    move-result-wide v0
 
-    sub-long/2addr v1, p1
+    sub-long/2addr v0, p1
 
     iget-object p1, p0, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;->mUiHandler:Landroid/os/Handler;
 
-    new-instance p2, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController$$ExternalSyntheticLambda1;
+    new-instance p2, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController$$ExternalSyntheticLambda0;
 
-    invoke-direct {p2, p0, v0}, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;I)V
+    invoke-direct {p2, p0}, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;)V
 
-    sget-wide v3, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;->MINIMUM_DIALOG_TIME_MILLIS:J
+    sget-wide v2, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;->MINIMUM_DIALOG_TIME_MILLIS:J
 
-    sub-long/2addr v3, v1
+    sub-long/2addr v2, v0
 
     const-wide/16 v0, 0x0
 
-    invoke-static {v3, v4, v0, v1}, Ljava/lang/Math;->max(JJ)J
+    invoke-static {v2, v3, v0, v1}, Ljava/lang/Math;->max(JJ)J
 
     move-result-wide v0
 
@@ -283,7 +291,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f04101e
+    const v2, 0x7f0410c4
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -329,7 +337,17 @@
 
     if-eqz v0, :cond_1
 
+    iget-object v0, p0, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;->mRecursiveUpdate:Ljava/util/concurrent/atomic/AtomicLong;
+
+    invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicLong;->getAndIncrement()J
+
+    iget-object v0, p0, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;->mSwitchPreference:Landroidx/preference/SwitchPreference;
+
     invoke-virtual {p0, v0}, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;->updateState(Landroidx/preference/Preference;)V
+
+    iget-object p0, p0, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;->mRecursiveUpdate:Ljava/util/concurrent/atomic/AtomicLong;
+
+    invoke-virtual {p0}, Ljava/util/concurrent/atomic/AtomicLong;->decrementAndGet()J
 
     :cond_1
     return-void
@@ -347,18 +365,10 @@
     return-object p0
 .end method
 
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public displayPreference(Landroidx/preference/PreferenceScreen;)V
     .locals 1
 
-    invoke-super {p0, p1}, Lcom/android/settings/core/BasePreferenceController;->displayPreference(Landroidx/preference/PreferenceScreen;)V
+    invoke-super {p0, p1}, Lcom/android/settings/core/TogglePreferenceController;->displayPreference(Landroidx/preference/PreferenceScreen;)V
 
     iput-object p1, p0, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;->mPreferenceScreen:Landroidx/preference/PreferenceScreen;
 
@@ -401,15 +411,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -438,96 +439,118 @@
     return p0
 .end method
 
-.method public init(Landroidx/lifecycle/Lifecycle;I)Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;
+.method public init(I)Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;
     .locals 1
 
-    iput p2, p0, Lcom/android/settings/network/telephony/TelephonyTogglePreferenceController;->mSubId:I
+    iput p1, p0, Lcom/android/settings/network/telephony/TelephonyTogglePreferenceController;->mSubId:I
 
-    iget-object p2, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+    iget-object p1, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
     const-class v0, Landroid/telephony/TelephonyManager;
 
-    invoke-virtual {p2, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object p2
+    move-result-object p1
 
-    check-cast p2, Landroid/telephony/TelephonyManager;
-
-    iget v0, p0, Lcom/android/settings/network/telephony/TelephonyTogglePreferenceController;->mSubId:I
-
-    invoke-virtual {p2, v0}, Landroid/telephony/TelephonyManager;->createForSubscriptionId(I)Landroid/telephony/TelephonyManager;
-
-    move-result-object p2
-
-    iput-object p2, p0, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;->mTelephonyManager:Landroid/telephony/TelephonyManager;
-
-    iget-object p2, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
-
-    const-class v0, Landroid/telephony/CarrierConfigManager;
-
-    invoke-virtual {p2, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
-
-    move-result-object p2
-
-    check-cast p2, Landroid/telephony/CarrierConfigManager;
+    check-cast p1, Landroid/telephony/TelephonyManager;
 
     iget v0, p0, Lcom/android/settings/network/telephony/TelephonyTogglePreferenceController;->mSubId:I
 
-    invoke-virtual {p2, v0}, Landroid/telephony/CarrierConfigManager;->getConfigForSubId(I)Landroid/os/PersistableBundle;
+    invoke-virtual {p1, v0}, Landroid/telephony/TelephonyManager;->createForSubscriptionId(I)Landroid/telephony/TelephonyManager;
 
-    move-result-object p2
+    move-result-object p1
 
-    if-eqz p2, :cond_0
+    iput-object p1, p0, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;->mTelephonyManager:Landroid/telephony/TelephonyManager;
+
+    iget-object p1, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    invoke-static {p1}, Lcom/android/settings/network/CarrierConfigCache;->getInstance(Landroid/content/Context;)Lcom/android/settings/network/CarrierConfigCache;
+
+    move-result-object p1
+
+    iget v0, p0, Lcom/android/settings/network/telephony/TelephonyTogglePreferenceController;->mSubId:I
+
+    invoke-virtual {p1, v0}, Lcom/android/settings/network/CarrierConfigCache;->getConfigForSubId(I)Landroid/os/PersistableBundle;
+
+    move-result-object p1
+
+    if-eqz p1, :cond_0
 
     const-string v0, "only_auto_select_in_home_network"
 
-    invoke-virtual {p2, v0}, Landroid/os/PersistableBundle;->getBoolean(Ljava/lang/String;)Z
+    invoke-virtual {p1, v0}, Landroid/os/PersistableBundle;->getBoolean(Ljava/lang/String;)Z
 
-    move-result p2
+    move-result p1
 
     goto :goto_0
 
     :cond_0
-    const/4 p2, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    iput-boolean p2, p0, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;->mOnlyAutoSelectInHome:Z
-
-    invoke-virtual {p1, p0}, Landroidx/lifecycle/Lifecycle;->addObserver(Landroidx/lifecycle/LifecycleObserver;)V
+    iput-boolean p1, p0, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;->mOnlyAutoSelectInHome:Z
 
     return-object p0
 .end method
 
 .method public isChecked()Z
-    .locals 1
+    .locals 3
 
-    iget-object p0, p0, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;->mTelephonyManager:Landroid/telephony/TelephonyManager;
+    iget-object v0, p0, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;->mUpdatingConfig:Ljava/util/concurrent/atomic/AtomicBoolean;
 
-    invoke-virtual {p0}, Landroid/telephony/TelephonyManager;->getNetworkSelectionMode()I
+    invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicBoolean;->get()Z
 
-    move-result p0
+    move-result v0
 
-    const/4 v0, 0x1
+    if-nez v0, :cond_0
 
-    if-ne p0, v0, :cond_0
+    iget-object v0, p0, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;->mTelephonyManager:Landroid/telephony/TelephonyManager;
+
+    invoke-virtual {v0}, Landroid/telephony/TelephonyManager;->getNetworkSelectionMode()I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;->mCacheOfModeStatus:I
+
+    iget-object v0, p0, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;->mListeners:Ljava/util/List;
+
+    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v0
+
+    :goto_0
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController$OnNetworkSelectModeListener;
+
+    iget v2, p0, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;->mCacheOfModeStatus:I
+
+    invoke-interface {v1, v2}, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController$OnNetworkSelectModeListener;->onNetworkSelectModeUpdated(I)V
 
     goto :goto_0
 
     :cond_0
+    iget p0, p0, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;->mCacheOfModeStatus:I
+
+    const/4 v0, 0x1
+
+    if-ne p0, v0, :cond_1
+
+    goto :goto_1
+
+    :cond_1
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_1
     return v0
-.end method
-
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
-
-    move-result p0
-
-    return p0
 .end method
 
 .method public onStart()V
@@ -588,9 +611,9 @@
     invoke-virtual {v2, v3}, Landroidx/preference/Preference;->setEnabled(Z)V
 
     :cond_0
-    new-instance v2, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController$$ExternalSyntheticLambda2;
+    new-instance v2, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController$$ExternalSyntheticLambda1;
 
-    invoke-direct {v2, p0, v0, v1}, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;J)V
+    invoke-direct {v2, p0, v0, v1}, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;J)V
 
     invoke-static {v2}, Lcom/android/settingslib/utils/ThreadUtils;->postOnBackgroundThread(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;
 
@@ -600,18 +623,35 @@
 .end method
 
 .method public setChecked(Z)Z
-    .locals 2
+    .locals 4
 
-    if-eqz p1, :cond_0
+    iget-object v0, p0, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;->mRecursiveUpdate:Ljava/util/concurrent/atomic/AtomicLong;
+
+    invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicLong;->get()J
+
+    move-result-wide v0
+
+    const-wide/16 v2, 0x0
+
+    cmp-long v0, v0, v2
+
+    if-eqz v0, :cond_0
+
+    const/4 p0, 0x1
+
+    return p0
+
+    :cond_0
+    if-eqz p1, :cond_1
 
     invoke-virtual {p0}, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;->setAutomaticSelectionMode()Ljava/util/concurrent/Future;
 
     goto :goto_0
 
-    :cond_0
+    :cond_1
     iget-object p1, p0, Lcom/android/settings/network/telephony/gsm/AutoSelectPreferenceController;->mSwitchPreference:Landroidx/preference/SwitchPreference;
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_2
 
     new-instance p1, Landroid/content/Intent;
 
@@ -633,7 +673,7 @@
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setIntent(Landroid/content/Intent;)V
 
-    :cond_1
+    :cond_2
     :goto_0
     const/4 p0, 0x0
 
@@ -689,7 +729,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f040ca5
+    const v3, 0x7f040d20
 
     new-array v2, v2, [Ljava/lang/Object;
 

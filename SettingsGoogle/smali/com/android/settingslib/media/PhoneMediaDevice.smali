@@ -4,6 +4,8 @@
 
 
 # instance fields
+.field private final mDeviceIconUtil:Lcom/android/settingslib/media/DeviceIconUtil;
+
 .field private mSummary:Ljava/lang/String;
 
 
@@ -17,6 +19,12 @@
 
     iput-object p1, p0, Lcom/android/settingslib/media/PhoneMediaDevice;->mSummary:Ljava/lang/String;
 
+    new-instance p1, Lcom/android/settingslib/media/DeviceIconUtil;
+
+    invoke-direct {p1}, Lcom/android/settingslib/media/DeviceIconUtil;-><init>()V
+
+    iput-object p1, p0, Lcom/android/settingslib/media/PhoneMediaDevice;->mDeviceIconUtil:Lcom/android/settingslib/media/DeviceIconUtil;
+
     invoke-virtual {p0}, Lcom/android/settingslib/media/MediaDevice;->initDeviceRecord()V
 
     return-void
@@ -27,49 +35,19 @@
 .method getDrawableResId()I
     .locals 1
 
+    iget-object v0, p0, Lcom/android/settingslib/media/PhoneMediaDevice;->mDeviceIconUtil:Lcom/android/settingslib/media/DeviceIconUtil;
+
     iget-object p0, p0, Lcom/android/settingslib/media/MediaDevice;->mRouteInfo:Landroid/media/MediaRoute2Info;
 
     invoke-virtual {p0}, Landroid/media/MediaRoute2Info;->getType()I
 
     move-result p0
 
-    const/4 v0, 0x3
+    invoke-virtual {v0, p0}, Lcom/android/settingslib/media/DeviceIconUtil;->getIconResIdFromMediaRouteType(I)I
 
-    if-eq p0, v0, :cond_0
+    move-result p0
 
-    const/4 v0, 0x4
-
-    if-eq p0, v0, :cond_0
-
-    const/16 v0, 0x9
-
-    if-eq p0, v0, :cond_0
-
-    const/16 v0, 0x16
-
-    if-eq p0, v0, :cond_0
-
-    packed-switch p0, :pswitch_data_0
-
-    sget p0, Lcom/android/settingslib/R$drawable;->ic_smartphone:I
-
-    goto :goto_0
-
-    :cond_0
-    :pswitch_0
-    sget p0, Lcom/android/settingslib/R$drawable;->ic_headphone:I
-
-    :goto_0
     return p0
-
-    nop
-
-    :pswitch_data_0
-    .packed-switch 0xb
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-    .end packed-switch
 .end method
 
 .method public getId()Ljava/lang/String;

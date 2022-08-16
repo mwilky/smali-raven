@@ -318,9 +318,7 @@
     goto :goto_0
 
     :cond_4
-    aget v0, p1, v16
-
-    if-ne v10, v0, :cond_5
+    if-ne v10, v2, :cond_5
 
     if-ge v15, v13, :cond_5
 
@@ -856,9 +854,7 @@
     goto :goto_2
 
     :cond_4
-    aget p0, p0, p1
-
-    if-ne p0, v3, :cond_5
+    if-ne v0, v3, :cond_5
 
     invoke-virtual {p2, v4}, Lcom/google/zxing/pdf417/PDF417ResultMetadata;->setLastSegment(Z)V
 
@@ -1249,22 +1245,20 @@
 
     if-nez v2, :cond_6
 
-    add-int/lit8 v4, p1, 0x1
+    add-int/lit8 v5, p1, 0x1
 
     aget p1, p0, p1
 
-    aget v5, p0, v1
-
     const/4 v6, 0x1
 
-    if-ne v4, v5, :cond_0
+    if-ne v5, v4, :cond_0
 
     move v2, v6
 
     :cond_0
-    const/16 v5, 0x384
+    const/16 v4, 0x384
 
-    if-ge p1, v5, :cond_1
+    if-ge p1, v4, :cond_1
 
     aput p1, v0, v3
 
@@ -1273,42 +1267,42 @@
     goto :goto_1
 
     :cond_1
-    if-eq p1, v5, :cond_2
+    if-eq p1, v4, :cond_2
 
-    const/16 v5, 0x385
+    const/16 v4, 0x385
 
-    if-eq p1, v5, :cond_2
+    if-eq p1, v4, :cond_2
 
-    const/16 v5, 0x39c
+    const/16 v4, 0x39c
 
-    if-eq p1, v5, :cond_2
+    if-eq p1, v4, :cond_2
 
-    const/16 v5, 0x3a0
+    const/16 v4, 0x3a0
 
-    if-eq p1, v5, :cond_2
+    if-eq p1, v4, :cond_2
 
-    const/16 v5, 0x39b
+    const/16 v4, 0x39b
 
-    if-eq p1, v5, :cond_2
+    if-eq p1, v4, :cond_2
 
-    const/16 v5, 0x39a
+    const/16 v4, 0x39a
 
-    if-ne p1, v5, :cond_3
+    if-ne p1, v4, :cond_3
 
     :cond_2
-    add-int/lit8 v4, v4, -0x1
+    add-int/lit8 v5, v5, -0x1
 
     move v2, v6
 
     :cond_3
     :goto_1
-    rem-int/lit8 v5, v3, 0xf
+    rem-int/lit8 v4, v3, 0xf
 
-    if-eqz v5, :cond_4
+    if-eqz v4, :cond_4
 
-    const/16 v5, 0x386
+    const/16 v4, 0x386
 
-    if-eq p1, v5, :cond_4
+    if-eq p1, v4, :cond_4
 
     if-eqz v2, :cond_5
 
@@ -1322,7 +1316,7 @@
     move v3, v1
 
     :cond_5
-    move p1, v4
+    move p1, v5
 
     goto :goto_0
 
@@ -1337,21 +1331,19 @@
 
     aget v1, p0, v0
 
+    sub-int v2, v1, p1
+
+    const/4 v3, 0x1
+
+    shl-int/2addr v2, v3
+
+    new-array v2, v2, [I
+
     sub-int/2addr v1, p1
 
-    const/4 v2, 0x1
-
-    shl-int/2addr v1, v2
+    shl-int/2addr v1, v3
 
     new-array v1, v1, [I
-
-    aget v3, p0, v0
-
-    sub-int/2addr v3, p1
-
-    shl-int/2addr v3, v2
-
-    new-array v3, v3, [I
 
     move v4, v0
 
@@ -1374,13 +1366,13 @@
 
     div-int/lit8 v7, p1, 0x1e
 
-    aput v7, v1, v5
+    aput v7, v2, v5
 
     add-int/lit8 v7, v5, 0x1
 
     rem-int/lit8 p1, p1, 0x1e
 
-    aput p1, v1, v7
+    aput p1, v2, v7
 
     add-int/lit8 v5, v5, 0x2
 
@@ -1408,36 +1400,38 @@
     :pswitch_0
     add-int/lit8 v6, v6, -0x1
 
-    move v4, v2
+    move v4, v3
 
     goto :goto_1
 
     :pswitch_1
     add-int/lit8 p1, v5, 0x1
 
-    aput v7, v1, v5
+    aput v7, v2, v5
 
     move v5, p1
 
     goto :goto_1
 
     :cond_2
-    aput v8, v1, v5
+    aput v8, v2, v5
 
     add-int/lit8 p1, v6, 0x1
 
     aget v6, p0, v6
 
-    aput v6, v3, v5
+    aput v6, v1, v5
 
     add-int/lit8 v5, v5, 0x1
 
     goto :goto_0
 
     :cond_3
-    invoke-static {v1, v3, v5, p2}, Lcom/google/zxing/pdf417/decoder/DecodedBitStreamParser;->decodeTextCompaction([I[IILjava/lang/StringBuilder;)V
+    invoke-static {v2, v1, v5, p2}, Lcom/google/zxing/pdf417/decoder/DecodedBitStreamParser;->decodeTextCompaction([I[IILjava/lang/StringBuilder;)V
 
     return p1
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x384

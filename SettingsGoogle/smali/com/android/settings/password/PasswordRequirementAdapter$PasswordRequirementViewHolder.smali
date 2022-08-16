@@ -19,6 +19,14 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmDescriptionText(Lcom/android/settings/password/PasswordRequirementAdapter$PasswordRequirementViewHolder;)Landroid/widget/TextView;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/password/PasswordRequirementAdapter$PasswordRequirementViewHolder;->mDescriptionText:Landroid/widget/TextView;
+
+    return-object p0
+.end method
+
 .method public constructor <init>(Landroid/view/View;)V
     .locals 0
 
@@ -29,12 +37,4 @@
     iput-object p1, p0, Lcom/android/settings/password/PasswordRequirementAdapter$PasswordRequirementViewHolder;->mDescriptionText:Landroid/widget/TextView;
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/password/PasswordRequirementAdapter$PasswordRequirementViewHolder;)Landroid/widget/TextView;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/password/PasswordRequirementAdapter$PasswordRequirementViewHolder;->mDescriptionText:Landroid/widget/TextView;
-
-    return-object p0
 .end method

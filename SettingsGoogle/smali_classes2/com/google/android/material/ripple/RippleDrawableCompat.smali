@@ -4,7 +4,6 @@
 
 # interfaces
 .implements Lcom/google/android/material/shape/Shapeable;
-.implements Landroidx/core/graphics/drawable/TintAwareDrawable;
 
 
 # annotations

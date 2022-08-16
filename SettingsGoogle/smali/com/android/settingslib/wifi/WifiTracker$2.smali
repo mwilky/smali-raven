@@ -56,7 +56,7 @@
 
     move-result p1
 
-    invoke-static {p0, p1}, Lcom/android/settingslib/wifi/WifiTracker;->access$300(Lcom/android/settingslib/wifi/WifiTracker;I)V
+    invoke-static {p0, p1}, Lcom/android/settingslib/wifi/WifiTracker;->-$$Nest$mupdateWifiState(Lcom/android/settingslib/wifi/WifiTracker;I)V
 
     goto :goto_1
 
@@ -73,23 +73,23 @@
 
     const/4 v0, 0x0
 
-    invoke-static {p1, v0}, Lcom/android/settingslib/wifi/WifiTracker;->access$402(Lcom/android/settingslib/wifi/WifiTracker;Z)Z
+    invoke-static {p1, v0}, Lcom/android/settingslib/wifi/WifiTracker;->-$$Nest$fputmStaleScanResults(Lcom/android/settingslib/wifi/WifiTracker;Z)V
 
     iget-object p1, p0, Lcom/android/settingslib/wifi/WifiTracker$2;->this$0:Lcom/android/settingslib/wifi/WifiTracker;
 
     const/4 v0, 0x1
 
-    const-string v1, "resultsUpdated"
+    const-string/jumbo v1, "resultsUpdated"
 
     invoke-virtual {p2, v1, v0}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
     move-result p2
 
-    invoke-static {p1, p2}, Lcom/android/settingslib/wifi/WifiTracker;->access$502(Lcom/android/settingslib/wifi/WifiTracker;Z)Z
+    invoke-static {p1, p2}, Lcom/android/settingslib/wifi/WifiTracker;->-$$Nest$fputmLastScanSucceeded(Lcom/android/settingslib/wifi/WifiTracker;Z)V
 
     iget-object p0, p0, Lcom/android/settingslib/wifi/WifiTracker$2;->this$0:Lcom/android/settingslib/wifi/WifiTracker;
 
-    invoke-static {p0}, Lcom/android/settingslib/wifi/WifiTracker;->access$600(Lcom/android/settingslib/wifi/WifiTracker;)V
+    invoke-static {p0}, Lcom/android/settingslib/wifi/WifiTracker;->-$$Nest$mfetchScansAndConfigsAndUpdateAccessPoints(Lcom/android/settingslib/wifi/WifiTracker;)V
 
     goto :goto_1
 
@@ -131,11 +131,11 @@
 
     iget-object p2, p0, Lcom/android/settingslib/wifi/WifiTracker$2;->this$0:Lcom/android/settingslib/wifi/WifiTracker;
 
-    invoke-static {p2, p1}, Lcom/android/settingslib/wifi/WifiTracker;->access$700(Lcom/android/settingslib/wifi/WifiTracker;Landroid/net/NetworkInfo;)V
+    invoke-static {p2, p1}, Lcom/android/settingslib/wifi/WifiTracker;->-$$Nest$mupdateNetworkInfo(Lcom/android/settingslib/wifi/WifiTracker;Landroid/net/NetworkInfo;)V
 
     iget-object p0, p0, Lcom/android/settingslib/wifi/WifiTracker$2;->this$0:Lcom/android/settingslib/wifi/WifiTracker;
 
-    invoke-static {p0}, Lcom/android/settingslib/wifi/WifiTracker;->access$600(Lcom/android/settingslib/wifi/WifiTracker;)V
+    invoke-static {p0}, Lcom/android/settingslib/wifi/WifiTracker;->-$$Nest$mfetchScansAndConfigsAndUpdateAccessPoints(Lcom/android/settingslib/wifi/WifiTracker;)V
 
     goto :goto_1
 
@@ -152,7 +152,7 @@
 
     const/4 p1, 0x0
 
-    invoke-static {p0, p1}, Lcom/android/settingslib/wifi/WifiTracker;->access$700(Lcom/android/settingslib/wifi/WifiTracker;Landroid/net/NetworkInfo;)V
+    invoke-static {p0, p1}, Lcom/android/settingslib/wifi/WifiTracker;->-$$Nest$mupdateNetworkInfo(Lcom/android/settingslib/wifi/WifiTracker;Landroid/net/NetworkInfo;)V
 
     goto :goto_1
 
@@ -160,7 +160,7 @@
     :goto_0
     iget-object p0, p0, Lcom/android/settingslib/wifi/WifiTracker$2;->this$0:Lcom/android/settingslib/wifi/WifiTracker;
 
-    invoke-static {p0}, Lcom/android/settingslib/wifi/WifiTracker;->access$600(Lcom/android/settingslib/wifi/WifiTracker;)V
+    invoke-static {p0}, Lcom/android/settingslib/wifi/WifiTracker;->-$$Nest$mfetchScansAndConfigsAndUpdateAccessPoints(Lcom/android/settingslib/wifi/WifiTracker;)V
 
     :cond_5
     :goto_1

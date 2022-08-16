@@ -10,24 +10,28 @@
 # instance fields
 .field private mColorDisplayManager:Landroid/hardware/display/ColorDisplayManager;
 
-.field private final mHandler:Landroid/os/Handler;
-
 .field private mRbcIntensityPreferenceController:Lcom/android/settings/accessibility/ReduceBrightColorsIntensityPreferenceController;
 
 .field private mRbcPersistencePreferenceController:Lcom/android/settings/accessibility/ReduceBrightColorsPersistencePreferenceController;
 
-.field private mSettingsContentObserver:Lcom/android/settings/accessibility/SettingsContentObserver;
-
 
 # direct methods
+.method public static synthetic $r8$lambda$kTYnRGVP70d5JEz7oLrobG1pBSQ(Lcom/android/settings/accessibility/ToggleReduceBrightColorsPreferenceFragment;Ljava/lang/String;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/accessibility/ToggleReduceBrightColorsPreferenceFragment;->lambda$registerKeysToObserverCallback$0(Ljava/lang/String;)V
+
+    return-void
+.end method
+
 .method static constructor <clinit>()V
     .locals 2
 
-    new-instance v0, Lcom/android/settings/accessibility/ToggleReduceBrightColorsPreferenceFragment$2;
+    new-instance v0, Lcom/android/settings/accessibility/ToggleReduceBrightColorsPreferenceFragment$1;
 
-    const v1, 0x7f1500c7
+    const v1, 0x7f1500cb
 
-    invoke-direct {v0, v1}, Lcom/android/settings/accessibility/ToggleReduceBrightColorsPreferenceFragment$2;-><init>(I)V
+    invoke-direct {v0, v1}, Lcom/android/settings/accessibility/ToggleReduceBrightColorsPreferenceFragment$1;-><init>(I)V
 
     sput-object v0, Lcom/android/settings/accessibility/ToggleReduceBrightColorsPreferenceFragment;->SEARCH_INDEX_DATA_PROVIDER:Lcom/android/settings/search/BaseSearchIndexProvider;
 
@@ -35,15 +39,17 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .locals 0
 
     invoke-direct {p0}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;-><init>()V
 
-    new-instance v0, Landroid/os/Handler;
+    return-void
+.end method
 
-    invoke-direct {v0}, Landroid/os/Handler;-><init>()V
+.method private synthetic lambda$registerKeysToObserverCallback$0(Ljava/lang/String;)V
+    .locals 0
 
-    iput-object v0, p0, Lcom/android/settings/accessibility/ToggleReduceBrightColorsPreferenceFragment;->mHandler:Landroid/os/Handler;
+    invoke-virtual {p0}, Lcom/android/settings/accessibility/ToggleReduceBrightColorsPreferenceFragment;->updateSwitchBarToggleSwitch()V
 
     return-void
 .end method
@@ -55,7 +61,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f041014
+    const v1, 0x7f0410b9
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -87,7 +93,7 @@
 
     check-cast v0, Landroidx/preference/PreferenceCategory;
 
-    const-string v1, "rbc_intensity"
+    const-string/jumbo v1, "rbc_intensity"
 
     invoke-virtual {p0, v1}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -113,7 +119,7 @@
 
     invoke-virtual {v0, v1}, Landroidx/preference/PreferenceGroup;->addPreference(Landroidx/preference/Preference;)Z
 
-    const-string v1, "rbc_persist"
+    const-string/jumbo v1, "rbc_persist"
 
     invoke-virtual {p0, v1}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -163,9 +169,49 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f1500c7
+    const p0, 0x7f1500cb
 
     return p0
+.end method
+
+.method protected getShortcutTitle()Ljava/lang/CharSequence;
+    .locals 1
+
+    const v0, 0x7f0410c2
+
+    invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method getTileComponentName()Landroid/content/ComponentName;
+    .locals 0
+
+    sget-object p0, Lcom/android/internal/accessibility/AccessibilityShortcutController;->REDUCE_BRIGHT_COLORS_TILE_SERVICE_COMPONENT_NAME:Landroid/content/ComponentName;
+
+    return-object p0
+.end method
+
+.method getTileTooltipContent(I)Ljava/lang/CharSequence;
+    .locals 0
+
+    if-nez p1, :cond_0
+
+    const p1, 0x7f040121
+
+    goto :goto_0
+
+    :cond_0
+    const p1, 0x7f040120
+
+    :goto_0
+    invoke-virtual {p0, p1}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method getUserShortcutTypes()I
@@ -185,7 +231,7 @@
 .end method
 
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
-    .locals 4
+    .locals 3
 
     new-instance v0, Landroid/net/Uri$Builder;
 
@@ -229,7 +275,7 @@
 
     iput-object v0, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mComponentName:Landroid/content/ComponentName;
 
-    const v0, 0x7f04101b
+    const v0, 0x7f0410c1
 
     invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
@@ -237,7 +283,7 @@
 
     iput-object v0, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mPackageName:Ljava/lang/CharSequence;
 
-    const v0, 0x7f041019
+    const v0, 0x7f0410bf
 
     invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
@@ -245,63 +291,53 @@
 
     iput-object v0, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mHtmlDescription:Ljava/lang/CharSequence;
 
-    new-instance v0, Ljava/util/ArrayList;
+    const v0, 0x7f0410be
 
-    const/4 v1, 0x1
+    invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
-    invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(I)V
+    move-result-object v0
 
-    const-string v1, "reduce_bright_colors_activated"
+    iput-object v0, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mTopIntroTitle:Ljava/lang/CharSequence;
 
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    new-instance v1, Lcom/android/settings/accessibility/ReduceBrightColorsIntensityPreferenceController;
+    new-instance v0, Lcom/android/settings/accessibility/ReduceBrightColorsIntensityPreferenceController;
 
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
 
-    move-result-object v2
+    move-result-object v1
 
-    const-string v3, "rbc_intensity"
+    const-string/jumbo v2, "rbc_intensity"
 
-    invoke-direct {v1, v2, v3}, Lcom/android/settings/accessibility/ReduceBrightColorsIntensityPreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;)V
+    invoke-direct {v0, v1, v2}, Lcom/android/settings/accessibility/ReduceBrightColorsIntensityPreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
-    iput-object v1, p0, Lcom/android/settings/accessibility/ToggleReduceBrightColorsPreferenceFragment;->mRbcIntensityPreferenceController:Lcom/android/settings/accessibility/ReduceBrightColorsIntensityPreferenceController;
+    iput-object v0, p0, Lcom/android/settings/accessibility/ToggleReduceBrightColorsPreferenceFragment;->mRbcIntensityPreferenceController:Lcom/android/settings/accessibility/ReduceBrightColorsIntensityPreferenceController;
 
-    new-instance v1, Lcom/android/settings/accessibility/ReduceBrightColorsPersistencePreferenceController;
+    new-instance v0, Lcom/android/settings/accessibility/ReduceBrightColorsPersistencePreferenceController;
 
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
 
-    move-result-object v2
+    move-result-object v1
 
-    const-string v3, "rbc_persist"
+    const-string/jumbo v2, "rbc_persist"
 
-    invoke-direct {v1, v2, v3}, Lcom/android/settings/accessibility/ReduceBrightColorsPersistencePreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;)V
+    invoke-direct {v0, v1, v2}, Lcom/android/settings/accessibility/ReduceBrightColorsPersistencePreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
-    iput-object v1, p0, Lcom/android/settings/accessibility/ToggleReduceBrightColorsPreferenceFragment;->mRbcPersistencePreferenceController:Lcom/android/settings/accessibility/ReduceBrightColorsPersistencePreferenceController;
+    iput-object v0, p0, Lcom/android/settings/accessibility/ToggleReduceBrightColorsPreferenceFragment;->mRbcPersistencePreferenceController:Lcom/android/settings/accessibility/ReduceBrightColorsPersistencePreferenceController;
 
-    iget-object v1, p0, Lcom/android/settings/accessibility/ToggleReduceBrightColorsPreferenceFragment;->mRbcIntensityPreferenceController:Lcom/android/settings/accessibility/ReduceBrightColorsIntensityPreferenceController;
-
-    invoke-virtual {p0}, Landroidx/preference/PreferenceFragmentCompat;->getPreferenceScreen()Landroidx/preference/PreferenceScreen;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Lcom/android/settings/accessibility/ReduceBrightColorsIntensityPreferenceController;->displayPreference(Landroidx/preference/PreferenceScreen;)V
-
-    iget-object v1, p0, Lcom/android/settings/accessibility/ToggleReduceBrightColorsPreferenceFragment;->mRbcPersistencePreferenceController:Lcom/android/settings/accessibility/ReduceBrightColorsPersistencePreferenceController;
+    iget-object v0, p0, Lcom/android/settings/accessibility/ToggleReduceBrightColorsPreferenceFragment;->mRbcIntensityPreferenceController:Lcom/android/settings/accessibility/ReduceBrightColorsIntensityPreferenceController;
 
     invoke-virtual {p0}, Landroidx/preference/PreferenceFragmentCompat;->getPreferenceScreen()Landroidx/preference/PreferenceScreen;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v1, v2}, Lcom/android/settings/core/BasePreferenceController;->displayPreference(Landroidx/preference/PreferenceScreen;)V
+    invoke-virtual {v0, v1}, Lcom/android/settings/accessibility/ReduceBrightColorsIntensityPreferenceController;->displayPreference(Landroidx/preference/PreferenceScreen;)V
 
-    new-instance v1, Lcom/android/settings/accessibility/ToggleReduceBrightColorsPreferenceFragment$1;
+    iget-object v0, p0, Lcom/android/settings/accessibility/ToggleReduceBrightColorsPreferenceFragment;->mRbcPersistencePreferenceController:Lcom/android/settings/accessibility/ReduceBrightColorsPersistencePreferenceController;
 
-    iget-object v2, p0, Lcom/android/settings/accessibility/ToggleReduceBrightColorsPreferenceFragment;->mHandler:Landroid/os/Handler;
+    invoke-virtual {p0}, Landroidx/preference/PreferenceFragmentCompat;->getPreferenceScreen()Landroidx/preference/PreferenceScreen;
 
-    invoke-direct {v1, p0, v2, v0}, Lcom/android/settings/accessibility/ToggleReduceBrightColorsPreferenceFragment$1;-><init>(Lcom/android/settings/accessibility/ToggleReduceBrightColorsPreferenceFragment;Landroid/os/Handler;Ljava/util/List;)V
+    move-result-object v1
 
-    iput-object v1, p0, Lcom/android/settings/accessibility/ToggleReduceBrightColorsPreferenceFragment;->mSettingsContentObserver:Lcom/android/settings/accessibility/SettingsContentObserver;
+    invoke-virtual {v0, v1}, Lcom/android/settings/core/TogglePreferenceController;->displayPreference(Landroidx/preference/PreferenceScreen;)V
 
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
 
@@ -323,7 +359,7 @@
 
     iget-object p2, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mToggleServiceSwitchPreference:Lcom/android/settings/widget/SettingsMainSwitchPreference;
 
-    const p3, 0x7f04101d
+    const p3, 0x7f0410c3
 
     invoke-virtual {p2, p3}, Landroidx/preference/Preference;->setTitle(I)V
 
@@ -335,15 +371,7 @@
 .end method
 
 .method public onPause()V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/settings/accessibility/ToggleReduceBrightColorsPreferenceFragment;->mSettingsContentObserver:Lcom/android/settings/accessibility/SettingsContentObserver;
-
-    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Lcom/android/settings/accessibility/SettingsContentObserver;->unregister(Landroid/content/ContentResolver;)V
+    .locals 0
 
     invoke-super {p0}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->onPause()V
 
@@ -353,6 +381,13 @@
 .method protected onPreferenceToggled(Ljava/lang/String;Z)V
     .locals 0
 
+    if-eqz p2, :cond_0
+
+    const/4 p1, 0x1
+
+    invoke-virtual {p0, p1}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->showQuickSettingsTooltipIfNeeded(I)V
+
+    :cond_0
     iget-object p1, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mComponentName:Landroid/content/ComponentName;
 
     invoke-static {p1, p2}, Lcom/android/settings/accessibility/AccessibilityStatsLogUtils;->logAccessibilityServiceEnabled(Landroid/content/ComponentName;Z)V
@@ -379,19 +414,11 @@
 .end method
 
 .method public onResume()V
-    .locals 1
+    .locals 0
 
     invoke-super {p0}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->onResume()V
 
     invoke-virtual {p0}, Lcom/android/settings/accessibility/ToggleReduceBrightColorsPreferenceFragment;->updateSwitchBarToggleSwitch()V
-
-    iget-object v0, p0, Lcom/android/settings/accessibility/ToggleReduceBrightColorsPreferenceFragment;->mSettingsContentObserver:Lcom/android/settings/accessibility/SettingsContentObserver;
-
-    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object p0
-
-    invoke-virtual {v0, p0}, Lcom/android/settings/accessibility/SettingsContentObserver;->register(Landroid/content/ContentResolver;)V
 
     return-void
 .end method
@@ -404,12 +431,26 @@
     return-void
 .end method
 
-.method protected updateShortcutTitle(Lcom/android/settings/accessibility/ShortcutPreference;)V
-    .locals 0
+.method protected registerKeysToObserverCallback(Lcom/android/settings/accessibility/AccessibilitySettingsContentObserver;)V
+    .locals 2
 
-    const p0, 0x7f04101c
+    invoke-super {p0, p1}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->registerKeysToObserverCallback(Lcom/android/settings/accessibility/AccessibilitySettingsContentObserver;)V
 
-    invoke-virtual {p1, p0}, Landroidx/preference/Preference;->setTitle(I)V
+    new-instance v0, Ljava/util/ArrayList;
+
+    const/4 v1, 0x1
+
+    invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(I)V
+
+    const-string/jumbo v1, "reduce_bright_colors_activated"
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    new-instance v1, Lcom/android/settings/accessibility/ToggleReduceBrightColorsPreferenceFragment$$ExternalSyntheticLambda0;
+
+    invoke-direct {v1, p0}, Lcom/android/settings/accessibility/ToggleReduceBrightColorsPreferenceFragment$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/accessibility/ToggleReduceBrightColorsPreferenceFragment;)V
+
+    invoke-virtual {p1, v0, v1}, Lcom/android/settings/accessibility/AccessibilitySettingsContentObserver;->registerKeysToObserverCallback(Ljava/util/List;Lcom/android/settings/accessibility/AccessibilitySettingsContentObserver$ContentObserverCallback;)V
 
     return-void
 .end method
@@ -429,7 +470,7 @@
 
     move-result-object v2
 
-    const-string v3, "rbc_intensity"
+    const-string/jumbo v3, "rbc_intensity"
 
     invoke-virtual {v2, v3}, Landroidx/preference/PreferenceGroup;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -443,7 +484,7 @@
 
     move-result-object v2
 
-    const-string v3, "rbc_persist"
+    const-string/jumbo v3, "rbc_persist"
 
     invoke-virtual {v2, v3}, Landroidx/preference/PreferenceGroup;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -470,7 +511,7 @@
 .method protected updateToggleServiceTitle(Lcom/android/settings/widget/SettingsMainSwitchPreference;)V
     .locals 0
 
-    const p0, 0x7f04101b
+    const p0, 0x7f0410c1
 
     invoke-virtual {p1, p0}, Landroidx/preference/Preference;->setTitle(I)V
 

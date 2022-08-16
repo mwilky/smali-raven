@@ -54,14 +54,6 @@
 # virtual methods
 .method clear(I)V
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "index"
-        }
-    .end annotation
 
     const/16 v0, 0x40
 
@@ -97,14 +89,6 @@
 
 .method countOnesBefore(I)I
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "index"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/recyclerview/widget/ChildHelper$Bucket;->mNext:Landroidx/recyclerview/widget/ChildHelper$Bucket;
 
@@ -176,14 +160,6 @@
 
 .method get(I)Z
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "index"
-        }
-    .end annotation
 
     const/16 v0, 0x40
 
@@ -229,16 +205,6 @@
 
 .method insert(IZ)V
     .locals 9
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "index",
-            "value"
-        }
-    .end annotation
 
     const/16 v0, 0x40
 
@@ -327,14 +293,6 @@
 
 .method remove(I)Z
     .locals 10
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "index"
-        }
-    .end annotation
 
     const/16 v0, 0x40
 
@@ -443,14 +401,6 @@
 
 .method set(I)V
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "index"
-        }
-    .end annotation
 
     const/16 v0, 0x40
 

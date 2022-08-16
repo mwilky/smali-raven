@@ -62,14 +62,6 @@
 
 .method public constructor <init>(F)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "finalPosition"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -233,16 +225,6 @@
 
 .method public isAtEquilibrium(FF)Z
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "value",
-            "velocity"
-        }
-    .end annotation
 
     invoke-static {p2}, Ljava/lang/Math;->abs(F)F
 
@@ -286,14 +268,6 @@
 
 .method public setDampingRatio(F)Landroidx/dynamicanimation/animation/SpringForce;
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "dampingRatio"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -323,14 +297,6 @@
 
 .method public setFinalPosition(F)Landroidx/dynamicanimation/animation/SpringForce;
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "finalPosition"
-        }
-    .end annotation
 
     float-to-double v0, p1
 
@@ -341,14 +307,6 @@
 
 .method public setStiffness(F)Landroidx/dynamicanimation/animation/SpringForce;
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "stiffness"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -382,14 +340,6 @@
 
 .method setValueThreshold(D)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "threshold"
-        }
-    .end annotation
 
     invoke-static {p1, p2}, Ljava/lang/Math;->abs(D)D
 
@@ -408,18 +358,6 @@
 
 .method updateValues(DDJ)Landroidx/dynamicanimation/animation/DynamicAnimation$MassState;
     .locals 16
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "lastDisplacement",
-            "lastVelocity",
-            "timeElapsed"
-        }
-    .end annotation
 
     move-object/from16 v0, p0
 

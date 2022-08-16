@@ -47,18 +47,6 @@
     return-void
 .end method
 
-.method constructor <init>(Landroid/os/Parcel;)V
-    .locals 1
-
-    invoke-direct {p0, p1}, Landroid/view/View$BaseSavedState;-><init>(Landroid/os/Parcel;)V
-
-    const/4 v0, 0x0
-
-    invoke-direct {p0, p1, v0}, Landroidx/viewpager2/widget/ViewPager2$SavedState;->readValues(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V
-
-    return-void
-.end method
-
 .method constructor <init>(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V
     .locals 0
 

@@ -205,21 +205,17 @@
 
     invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v3
-
-    iput-object v3, p0, Lcom/google/android/material/datepicker/MaterialCalendar;->dayFrame:Landroid/view/View;
-
-    sget-object v3, Lcom/google/android/material/datepicker/MaterialCalendar$CalendarSelector;->DAY:Lcom/google/android/material/datepicker/MaterialCalendar$CalendarSelector;
-
-    invoke-virtual {p0, v3}, Lcom/google/android/material/datepicker/MaterialCalendar;->setSelector(Lcom/google/android/material/datepicker/MaterialCalendar$CalendarSelector;)V
-
-    iget-object v3, p0, Lcom/google/android/material/datepicker/MaterialCalendar;->current:Lcom/google/android/material/datepicker/Month;
-
-    invoke-virtual {p1}, Landroid/view/View;->getContext()Landroid/content/Context;
-
     move-result-object p1
 
-    invoke-virtual {v3, p1}, Lcom/google/android/material/datepicker/Month;->getLongName(Landroid/content/Context;)Ljava/lang/String;
+    iput-object p1, p0, Lcom/google/android/material/datepicker/MaterialCalendar;->dayFrame:Landroid/view/View;
+
+    sget-object p1, Lcom/google/android/material/datepicker/MaterialCalendar$CalendarSelector;->DAY:Lcom/google/android/material/datepicker/MaterialCalendar$CalendarSelector;
+
+    invoke-virtual {p0, p1}, Lcom/google/android/material/datepicker/MaterialCalendar;->setSelector(Lcom/google/android/material/datepicker/MaterialCalendar$CalendarSelector;)V
+
+    iget-object p1, p0, Lcom/google/android/material/datepicker/MaterialCalendar;->current:Lcom/google/android/material/datepicker/Month;
+
+    invoke-virtual {p1}, Lcom/google/android/material/datepicker/Month;->getLongName()Ljava/lang/String;
 
     move-result-object p1
 
@@ -278,6 +274,78 @@
     move-result p0
 
     return p0
+.end method
+
+.method private static getDialogPickerHeight(Landroid/content/Context;)I
+    .locals 5
+
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p0
+
+    sget v0, Lcom/google/android/material/R$dimen;->mtrl_calendar_navigation_height:I
+
+    invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v0
+
+    sget v1, Lcom/google/android/material/R$dimen;->mtrl_calendar_navigation_top_padding:I
+
+    invoke-virtual {p0, v1}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
+
+    move-result v1
+
+    add-int/2addr v0, v1
+
+    sget v1, Lcom/google/android/material/R$dimen;->mtrl_calendar_navigation_bottom_padding:I
+
+    invoke-virtual {p0, v1}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
+
+    move-result v1
+
+    add-int/2addr v0, v1
+
+    sget v1, Lcom/google/android/material/R$dimen;->mtrl_calendar_days_of_week_height:I
+
+    invoke-virtual {p0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v1
+
+    sget v2, Lcom/google/android/material/datepicker/MonthAdapter;->MAXIMUM_WEEKS:I
+
+    sget v3, Lcom/google/android/material/R$dimen;->mtrl_calendar_day_height:I
+
+    invoke-virtual {p0, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v3
+
+    mul-int/2addr v3, v2
+
+    add-int/lit8 v2, v2, -0x1
+
+    sget v4, Lcom/google/android/material/R$dimen;->mtrl_calendar_month_vertical_padding:I
+
+    invoke-virtual {p0, v4}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
+
+    move-result v4
+
+    mul-int/2addr v2, v4
+
+    add-int/2addr v3, v2
+
+    sget v2, Lcom/google/android/material/R$dimen;->mtrl_calendar_bottom_padding:I
+
+    invoke-virtual {p0, v2}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
+
+    move-result p0
+
+    add-int/2addr v0, v1
+
+    add-int/2addr v0, v3
+
+    add-int/2addr v0, p0
+
+    return v0
 .end method
 
 .method public static newInstance(Lcom/google/android/material/datepicker/DateSelector;ILcom/google/android/material/datepicker/CalendarConstraints;)Lcom/google/android/material/datepicker/MaterialCalendar;
@@ -522,6 +590,16 @@
     invoke-virtual {p1, v1, p2, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     move-result-object p1
+
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->requireContext()Landroid/content/Context;
+
+    move-result-object p2
+
+    invoke-static {p2}, Lcom/google/android/material/datepicker/MaterialCalendar;->getDialogPickerHeight(Landroid/content/Context;)I
+
+    move-result p2
+
+    invoke-virtual {p1, p2}, Landroid/view/View;->setMinimumHeight(I)V
 
     sget p2, Lcom/google/android/material/R$id;->mtrl_calendar_days_of_week:I
 

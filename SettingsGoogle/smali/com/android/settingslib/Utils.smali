@@ -23,6 +23,16 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$1Tsi0tp3GHgGugEm7XXPbm9eb_k(Landroid/content/Context;)Ljava/lang/String;
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/settingslib/Utils;->lambda$getUpdatableManagedUserTitle$0(Landroid/content/Context;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method static constructor <clinit>()V
     .locals 3
 
@@ -72,11 +82,11 @@
 
     :array_0
     .array-data 4
-        0x1080565
-        0x1080566
-        0x1080567
-        0x1080568
-        0x1080569
+        0x1080571
+        0x1080572
+        0x1080573
+        0x1080574
+        0x1080575
     .end array-data
 .end method
 
@@ -373,28 +383,28 @@
 
     move-result-object v0
 
-    const/4 v1, 0x1
-
     :try_start_0
-    invoke-virtual {v0, p1, p2, v1}, Lcom/android/launcher3/icons/BaseIconFactory;->createBadgedIconBitmap(Landroid/graphics/drawable/Drawable;Landroid/os/UserHandle;Z)Lcom/android/launcher3/icons/BitmapInfo;
+    new-instance v1, Lcom/android/launcher3/icons/BaseIconFactory$IconOptions;
+
+    invoke-direct {v1}, Lcom/android/launcher3/icons/BaseIconFactory$IconOptions;-><init>()V
+
+    invoke-virtual {v1, p2}, Lcom/android/launcher3/icons/BaseIconFactory$IconOptions;->setUser(Landroid/os/UserHandle;)Lcom/android/launcher3/icons/BaseIconFactory$IconOptions;
+
+    move-result-object p2
+
+    invoke-virtual {v0, p1, p2}, Lcom/android/launcher3/icons/BaseIconFactory;->createBadgedIconBitmap(Landroid/graphics/drawable/Drawable;Lcom/android/launcher3/icons/BaseIconFactory$IconOptions;)Lcom/android/launcher3/icons/BitmapInfo;
 
     move-result-object p1
 
-    iget-object p1, p1, Lcom/android/launcher3/icons/BitmapInfo;->icon:Landroid/graphics/Bitmap;
-
-    new-instance p2, Landroid/graphics/drawable/BitmapDrawable;
-
-    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p1, p0}, Lcom/android/launcher3/icons/BitmapInfo;->newIcon(Landroid/content/Context;)Lcom/android/launcher3/icons/FastBitmapDrawable;
 
     move-result-object p0
-
-    invoke-direct {p2, p0, p1}, Landroid/graphics/drawable/BitmapDrawable;-><init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     invoke-virtual {v0}, Lcom/android/launcher3/icons/IconFactory;->close()V
 
-    return-object p2
+    return-object p0
 
     :catchall_0
     move-exception p0
@@ -429,7 +439,7 @@
 
     move-result v0
 
-    const-string v1, "scale"
+    const-string/jumbo v1, "scale"
 
     const/16 v2, 0x64
 
@@ -444,7 +454,7 @@
     return v0
 .end method
 
-.method public static getBatteryStatus(Landroid/content/Context;Landroid/content/Intent;)Ljava/lang/String;
+.method public static getBatteryStatus(Landroid/content/Context;Landroid/content/Intent;Z)Ljava/lang/String;
     .locals 4
 
     const-string/jumbo v0, "status"
@@ -473,34 +483,30 @@
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1
 
-    sget p0, Lcom/android/settingslib/R$string;->battery_info_status_full:I
+    if-eqz p2, :cond_0
 
-    invoke-virtual {v1, p0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v2
+    sget p0, Lcom/android/settingslib/R$string;->battery_info_status_full_charged:I
 
     goto :goto_0
 
     :cond_0
+    sget p0, Lcom/android/settingslib/R$string;->battery_info_status_full:I
+
+    :goto_0
+    invoke-virtual {v1, p0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    goto :goto_1
+
+    :cond_1
     const/4 p1, 0x2
 
-    if-ne v0, p1, :cond_4
+    if-ne v0, p1, :cond_6
 
-    invoke-virtual {v3}, Lcom/android/settingslib/fuelgauge/BatteryStatus;->isPluggedInWired()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_3
-
-    invoke-virtual {v3, p0}, Lcom/android/settingslib/fuelgauge/BatteryStatus;->getChargingSpeed(Landroid/content/Context;)I
-
-    move-result p0
-
-    if-eqz p0, :cond_2
-
-    if-eq p0, p1, :cond_1
+    if-eqz p2, :cond_2
 
     sget p0, Lcom/android/settingslib/R$string;->battery_info_status_charging:I
 
@@ -508,39 +514,62 @@
 
     move-result-object v2
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_1
+    :cond_2
+    invoke-virtual {v3}, Lcom/android/settingslib/fuelgauge/BatteryStatus;->isPluggedInWired()Z
+
+    move-result p2
+
+    if-eqz p2, :cond_5
+
+    invoke-virtual {v3, p0}, Lcom/android/settingslib/fuelgauge/BatteryStatus;->getChargingSpeed(Landroid/content/Context;)I
+
+    move-result p0
+
+    if-eqz p0, :cond_4
+
+    if-eq p0, p1, :cond_3
+
+    sget p0, Lcom/android/settingslib/R$string;->battery_info_status_charging:I
+
+    invoke-virtual {v1, p0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    goto :goto_1
+
+    :cond_3
     sget p0, Lcom/android/settingslib/R$string;->battery_info_status_charging_fast:I
 
     invoke-virtual {v1, p0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_2
+    :cond_4
     sget p0, Lcom/android/settingslib/R$string;->battery_info_status_charging_slow:I
 
     invoke-virtual {v1, p0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_3
+    :cond_5
     sget p0, Lcom/android/settingslib/R$string;->battery_info_status_charging_wireless:I
 
     invoke-virtual {v1, p0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_4
+    :cond_6
     const/4 p0, 0x3
 
-    if-ne v0, p0, :cond_5
+    if-ne v0, p0, :cond_7
 
     sget p0, Lcom/android/settingslib/R$string;->battery_info_status_discharging:I
 
@@ -548,12 +577,12 @@
 
     move-result-object v2
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_5
+    :cond_7
     const/4 p0, 0x4
 
-    if-ne v0, p0, :cond_6
+    if-ne v0, p0, :cond_8
 
     sget p0, Lcom/android/settingslib/R$string;->battery_info_status_not_charging:I
 
@@ -561,8 +590,8 @@
 
     move-result-object v2
 
-    :cond_6
-    :goto_0
+    :cond_8
+    :goto_1
     return-object v2
 .end method
 
@@ -726,7 +755,7 @@
 .method public static getDefaultStorageManagerDaysToRetain(Landroid/content/res/Resources;)I
     .locals 1
 
-    const v0, 0x10e00d4
+    const v0, 0x10e00e1
 
     :try_start_0
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getInteger(I)I
@@ -917,10 +946,38 @@
     return p0
 .end method
 
+.method private static getUpdatableManagedUserTitle(Landroid/content/Context;)Ljava/lang/String;
+    .locals 2
+
+    const-class v0, Landroid/app/admin/DevicePolicyManager;
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/app/admin/DevicePolicyManager;
+
+    invoke-virtual {v0}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/android/settingslib/Utils$$ExternalSyntheticLambda0;
+
+    invoke-direct {v1, p0}, Lcom/android/settingslib/Utils$$ExternalSyntheticLambda0;-><init>(Landroid/content/Context;)V
+
+    const-string p0, "Settings.WORK_PROFILE_USER_LABEL"
+
+    invoke-virtual {v0, p0, v1}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method public static getUserIcon(Landroid/content/Context;Landroid/os/UserManager;Landroid/content/pm/UserInfo;)Landroid/graphics/drawable/Drawable;
     .locals 3
 
-    invoke-static {p0}, Lcom/android/settingslib/drawable/UserIconDrawable;->getSizeForList(Landroid/content/Context;)I
+    invoke-static {p0}, Lcom/android/settingslib/drawable/UserIconDrawable;->getDefaultSize(Landroid/content/Context;)I
 
     move-result v0
 
@@ -1010,31 +1067,45 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2
 
+    invoke-static {}, Lcom/android/settingslib/utils/BuildCompatUtils;->isAtLeastT()Z
+
+    move-result p1
+
+    if-eqz p1, :cond_1
+
+    invoke-static {p0}, Lcom/android/settingslib/Utils;->getUpdatableManagedUserTitle(Landroid/content/Context;)Ljava/lang/String;
+
+    move-result-object p0
+
+    goto :goto_1
+
+    :cond_1
     sget p1, Lcom/android/settingslib/R$string;->managed_user_title:I
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object p0
 
+    :goto_1
     return-object p0
 
-    :cond_1
+    :cond_2
     invoke-virtual {p1}, Landroid/content/pm/UserInfo;->isGuest()Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_3
 
-    sget v0, Lcom/android/settingslib/R$string;->user_guest:I
+    const v0, 0x104042d
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    :cond_2
-    if-nez v0, :cond_3
+    :cond_3
+    if-nez v0, :cond_4
 
     iget p1, p1, Landroid/content/pm/UserInfo;->id:I
 
@@ -1042,7 +1113,7 @@
 
     move-result-object v0
 
-    :cond_3
+    :cond_4
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object p0
@@ -1163,7 +1234,7 @@
 .method public static isDeviceProvisioningPackage(Landroid/content/res/Resources;Ljava/lang/String;)Z
     .locals 1
 
-    const v0, 0x104022f
+    const v0, 0x1040252
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1277,7 +1348,7 @@
     const/4 v0, 0x0
 
     :try_start_0
-    const-string v1, "ro.storage_manager.enabled"
+    const-string/jumbo v1, "ro.storage_manager.enabled"
 
     invoke-static {v1, v0}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
 
@@ -1366,11 +1437,9 @@
     :cond_3
     sget-object p1, Lcom/android/settingslib/Utils;->sSystemSignature:[Landroid/content/pm/Signature;
 
-    aget-object v0, p1, v2
-
-    if-eqz v0, :cond_4
-
     aget-object p1, p1, v2
+
+    if-eqz p1, :cond_4
 
     invoke-static {p2}, Lcom/android/settingslib/Utils;->getFirstSignature(Landroid/content/pm/PackageInfo;)Landroid/content/pm/Signature;
 
@@ -1459,6 +1528,18 @@
     xor-int/lit8 p0, p0, 0x1
 
     return p0
+.end method
+
+.method private static synthetic lambda$getUpdatableManagedUserTitle$0(Landroid/content/Context;)Ljava/lang/String;
+    .locals 1
+
+    sget v0, Lcom/android/settingslib/R$string;->managed_user_title:I
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method public static tryGetWifiInfoForVcn(Landroid/net/NetworkCapabilities;)Landroid/net/wifi/WifiInfo;

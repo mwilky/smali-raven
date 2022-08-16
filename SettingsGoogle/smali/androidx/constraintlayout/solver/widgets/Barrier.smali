@@ -70,15 +70,13 @@
 
     if-ge v0, v6, :cond_0
 
-    aget-object v6, v1, v0
-
     aget-object v1, v1, v0
 
     invoke-virtual {p1, v1}, Landroidx/constraintlayout/solver/LinearSystem;->createObjectVariable(Ljava/lang/Object;)Landroidx/constraintlayout/solver/SolverVariable;
 
-    move-result-object v1
+    move-result-object v6
 
-    iput-object v1, v6, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->mSolverVariable:Landroidx/constraintlayout/solver/SolverVariable;
+    iput-object v6, v1, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->mSolverVariable:Landroidx/constraintlayout/solver/SolverVariable;
 
     add-int/lit8 v0, v0, 0x1
 
@@ -229,25 +227,17 @@
 
     iget v10, p0, Landroidx/constraintlayout/solver/widgets/Barrier;->mBarrierType:I
 
-    aget-object v11, v8, v10
+    aget-object v8, v8, v10
 
-    iput-object v9, v11, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->mSolverVariable:Landroidx/constraintlayout/solver/SolverVariable;
+    iput-object v9, v8, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->mSolverVariable:Landroidx/constraintlayout/solver/SolverVariable;
 
-    aget-object v11, v8, v10
-
-    iget-object v11, v11, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->mTarget:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
+    iget-object v11, v8, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->mTarget:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
 
     if-eqz v11, :cond_8
-
-    aget-object v11, v8, v10
-
-    iget-object v11, v11, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->mTarget:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
 
     iget-object v11, v11, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->mOwner:Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
 
     if-ne v11, p0, :cond_8
-
-    aget-object v8, v8, v10
 
     iget v8, v8, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->mMargin:I
 

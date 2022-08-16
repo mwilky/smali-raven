@@ -26,7 +26,7 @@
 
     iput-object p1, p0, Lcom/google/android/settings/gestures/assist/AssistGestureWakePreferenceController$SettingObserver;->this$0:Lcom/google/android/settings/gestures/assist/AssistGestureWakePreferenceController;
 
-    invoke-static {p1}, Lcom/google/android/settings/gestures/assist/AssistGestureWakePreferenceController;->access$000(Lcom/google/android/settings/gestures/assist/AssistGestureWakePreferenceController;)Landroid/os/Handler;
+    invoke-static {p1}, Lcom/google/android/settings/gestures/assist/AssistGestureWakePreferenceController;->-$$Nest$fgetmHandler(Lcom/google/android/settings/gestures/assist/AssistGestureWakePreferenceController;)Landroid/os/Handler;
 
     move-result-object p1
 
@@ -50,7 +50,7 @@
 
     iget-object p0, p0, Lcom/google/android/settings/gestures/assist/AssistGestureWakePreferenceController$SettingObserver;->this$0:Lcom/google/android/settings/gestures/assist/AssistGestureWakePreferenceController;
 
-    invoke-static {p0}, Lcom/google/android/settings/gestures/assist/AssistGestureWakePreferenceController;->access$300(Lcom/google/android/settings/gestures/assist/AssistGestureWakePreferenceController;)V
+    invoke-static {p0}, Lcom/google/android/settings/gestures/assist/AssistGestureWakePreferenceController;->-$$Nest$mupdatePreference(Lcom/google/android/settings/gestures/assist/AssistGestureWakePreferenceController;)V
 
     return-void
 .end method
@@ -60,7 +60,7 @@
 
     iget-object v0, p0, Lcom/google/android/settings/gestures/assist/AssistGestureWakePreferenceController$SettingObserver;->this$0:Lcom/google/android/settings/gestures/assist/AssistGestureWakePreferenceController;
 
-    invoke-static {v0}, Lcom/google/android/settings/gestures/assist/AssistGestureWakePreferenceController;->access$100(Lcom/google/android/settings/gestures/assist/AssistGestureWakePreferenceController;)Landroid/content/Context;
+    invoke-static {v0}, Lcom/google/android/settings/gestures/assist/AssistGestureWakePreferenceController;->access$000(Lcom/google/android/settings/gestures/assist/AssistGestureWakePreferenceController;)Landroid/content/Context;
 
     move-result-object v0
 
@@ -82,7 +82,7 @@
 
     iget-object v0, p0, Lcom/google/android/settings/gestures/assist/AssistGestureWakePreferenceController$SettingObserver;->this$0:Lcom/google/android/settings/gestures/assist/AssistGestureWakePreferenceController;
 
-    invoke-static {v0}, Lcom/google/android/settings/gestures/assist/AssistGestureWakePreferenceController;->access$200(Lcom/google/android/settings/gestures/assist/AssistGestureWakePreferenceController;)Landroid/content/Context;
+    invoke-static {v0}, Lcom/google/android/settings/gestures/assist/AssistGestureWakePreferenceController;->access$100(Lcom/google/android/settings/gestures/assist/AssistGestureWakePreferenceController;)Landroid/content/Context;
 
     move-result-object v0
 

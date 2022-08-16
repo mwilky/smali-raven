@@ -39,7 +39,7 @@
 
     iget-object p0, p0, Lcom/android/settings/datausage/CellDataPreference$1;->this$0:Lcom/android/settings/datausage/CellDataPreference;
 
-    invoke-static {p0}, Lcom/android/settings/datausage/CellDataPreference;->access$000(Lcom/android/settings/datausage/CellDataPreference;)V
+    invoke-static {p0}, Lcom/android/settings/datausage/CellDataPreference;->-$$Nest$mupdateEnabled(Lcom/android/settings/datausage/CellDataPreference;)V
 
     return-void
 .end method

@@ -58,8 +58,6 @@
 
     invoke-static {p1, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    check-cast p1, Lcom/android/settingslib/enterprise/ActionDisabledLearnMoreButtonLauncher;
-
     iput-object p1, p0, Lcom/android/settingslib/enterprise/BaseActionDisabledByAdminController;->mLauncher:Lcom/android/settingslib/enterprise/ActionDisabledLearnMoreButtonLauncher;
 
     return-void
@@ -75,8 +73,6 @@
     const-string p2, "admin cannot be null"
 
     invoke-static {p1, p2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
-
-    check-cast p1, Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
 
     iput-object p1, p0, Lcom/android/settingslib/enterprise/BaseActionDisabledByAdminController;->mEnforcedAdmin:Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
 

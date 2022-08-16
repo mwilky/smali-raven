@@ -26,6 +26,14 @@
     return-void
 .end method
 
+.method static bridge synthetic -$$Nest$fputmState(Lcom/google/android/settings/biometrics/face/anim/curve/ScrimState;I)V
+    .locals 0
+
+    iput p1, p0, Lcom/google/android/settings/biometrics/face/anim/curve/ScrimState;->mState:I
+
+    return-void
+.end method
+
 .method public constructor <init>(II)V
     .locals 1
 
@@ -62,14 +70,6 @@
     iput-object p1, p0, Lcom/google/android/settings/biometrics/face/anim/curve/ScrimState;->mScrimAnimatorListener:Landroid/animation/ValueAnimator$AnimatorUpdateListener;
 
     return-void
-.end method
-
-.method static synthetic access$002(Lcom/google/android/settings/biometrics/face/anim/curve/ScrimState;I)I
-    .locals 0
-
-    iput p1, p0, Lcom/google/android/settings/biometrics/face/anim/curve/ScrimState;->mState:I
-
-    return p1
 .end method
 
 .method private synthetic lambda$new$0(Landroid/animation/ValueAnimator;)V

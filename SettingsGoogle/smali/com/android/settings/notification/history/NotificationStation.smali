@@ -59,6 +59,62 @@
     return p0
 .end method
 
+.method static bridge synthetic -$$Nest$fgetmRanking(Lcom/android/settings/notification/history/NotificationStation;)Landroid/service/notification/NotificationListenerService$RankingMap;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/notification/history/NotificationStation;->mRanking:Landroid/service/notification/NotificationListenerService$RankingMap;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmRanking(Lcom/android/settings/notification/history/NotificationStation;Landroid/service/notification/NotificationListenerService$RankingMap;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/settings/notification/history/NotificationStation;->mRanking:Landroid/service/notification/NotificationListenerService$RankingMap;
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$maddOrUpdateNotification(Lcom/android/settings/notification/history/NotificationStation;Landroid/service/notification/StatusBarNotification;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/notification/history/NotificationStation;->addOrUpdateNotification(Landroid/service/notification/StatusBarNotification;)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mmarkNotificationAsDismissed(Lcom/android/settings/notification/history/NotificationStation;Landroid/service/notification/StatusBarNotification;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/notification/history/NotificationStation;->markNotificationAsDismissed(Landroid/service/notification/StatusBarNotification;)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mpopulateNotifications(Lcom/android/settings/notification/history/NotificationStation;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/notification/history/NotificationStation;->populateNotifications()V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mupdateNotificationsFromRanking(Lcom/android/settings/notification/history/NotificationStation;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/notification/history/NotificationStation;->updateNotificationsFromRanking()V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$smlogd(Ljava/lang/String;[Ljava/lang/Object;)V
+    .locals 0
+
+    invoke-static {p0, p1}, Lcom/android/settings/notification/history/NotificationStation;->logd(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    return-void
+.end method
+
 .method static constructor <clinit>()V
     .locals 1
 
@@ -84,65 +140,11 @@
 
     iput-object v0, p0, Lcom/android/settings/notification/history/NotificationStation;->mListener:Landroid/service/notification/NotificationListenerService;
 
-    sget-object v0, Lcom/android/settings/notification/history/NotificationStation$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/settings/notification/history/NotificationStation$$ExternalSyntheticLambda0;
+    new-instance v0, Lcom/android/settings/notification/history/NotificationStation$$ExternalSyntheticLambda0;
+
+    invoke-direct {v0}, Lcom/android/settings/notification/history/NotificationStation$$ExternalSyntheticLambda0;-><init>()V
 
     iput-object v0, p0, Lcom/android/settings/notification/history/NotificationStation;->mNotificationSorter:Ljava/util/Comparator;
-
-    return-void
-.end method
-
-.method static synthetic access$000(Ljava/lang/String;[Ljava/lang/Object;)V
-    .locals 0
-
-    invoke-static {p0, p1}, Lcom/android/settings/notification/history/NotificationStation;->logd(Ljava/lang/String;[Ljava/lang/Object;)V
-
-    return-void
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/notification/history/NotificationStation;)Landroid/service/notification/NotificationListenerService$RankingMap;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/notification/history/NotificationStation;->mRanking:Landroid/service/notification/NotificationListenerService$RankingMap;
-
-    return-object p0
-.end method
-
-.method static synthetic access$102(Lcom/android/settings/notification/history/NotificationStation;Landroid/service/notification/NotificationListenerService$RankingMap;)Landroid/service/notification/NotificationListenerService$RankingMap;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/settings/notification/history/NotificationStation;->mRanking:Landroid/service/notification/NotificationListenerService$RankingMap;
-
-    return-object p1
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/notification/history/NotificationStation;Landroid/service/notification/StatusBarNotification;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/notification/history/NotificationStation;->addOrUpdateNotification(Landroid/service/notification/StatusBarNotification;)V
-
-    return-void
-.end method
-
-.method static synthetic access$300(Lcom/android/settings/notification/history/NotificationStation;Landroid/service/notification/StatusBarNotification;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/notification/history/NotificationStation;->markNotificationAsDismissed(Landroid/service/notification/StatusBarNotification;)V
-
-    return-void
-.end method
-
-.method static synthetic access$400(Lcom/android/settings/notification/history/NotificationStation;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/notification/history/NotificationStation;->updateNotificationsFromRanking()V
-
-    return-void
-.end method
-
-.method static synthetic access$500(Lcom/android/settings/notification/history/NotificationStation;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/notification/history/NotificationStation;->populateNotifications()V
 
     return-void
 .end method
@@ -314,7 +316,7 @@
 
     const/4 v2, 0x0
 
-    invoke-direct {v1, v2}, Lcom/android/settings/notification/history/NotificationStation$HistoricalNotificationInfo;-><init>(Lcom/android/settings/notification/history/NotificationStation$1;)V
+    invoke-direct {v1, v2}, Lcom/android/settings/notification/history/NotificationStation$HistoricalNotificationInfo;-><init>(Lcom/android/settings/notification/history/NotificationStation$HistoricalNotificationInfo-IA;)V
 
     invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getPackageName()Ljava/lang/String;
 
@@ -505,13 +507,13 @@
 
     invoke-direct {v1}, Landroid/text/SpannableStringBuilder;-><init>()V
 
-    const v2, 0x7f040e86
+    const v2, 0x7f040f1a
 
     invoke-virtual {p0, v2}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
-    const v3, 0x7f040e90
+    const v3, 0x7f040f24
 
     invoke-virtual {p0, v3}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -541,7 +543,7 @@
 
     move-result-object p2
 
-    const v4, 0x7f040e8e
+    const v4, 0x7f040f22
 
     invoke-virtual {p0, v4}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -569,7 +571,7 @@
 
     move-result-object p2
 
-    const v4, 0x7f040e8c
+    const v4, 0x7f040f20
 
     invoke-virtual {p0, v4}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -674,7 +676,7 @@
 
     move-result-object p2
 
-    const v4, 0x7f040e8a
+    const v4, 0x7f040f1e
 
     invoke-virtual {p0, v4}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -708,7 +710,7 @@
 
     if-eqz p1, :cond_1
 
-    const p1, 0x7f040e8b
+    const p1, 0x7f040f1f
 
     invoke-virtual {p0, p1}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -729,7 +731,7 @@
 
     move-result-object p1
 
-    const p2, 0x7f040e93
+    const p2, 0x7f040f27
 
     invoke-virtual {p0, p2}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -758,7 +760,7 @@
     :cond_2
     iget-object p1, v0, Landroid/app/Notification;->contentIntent:Landroid/app/PendingIntent;
 
-    const p2, 0x7f040e83
+    const p2, 0x7f040f17
 
     if-eqz p1, :cond_3
 
@@ -799,7 +801,7 @@
 
     move-result-object p1
 
-    const v4, 0x7f040e85
+    const v4, 0x7f040f19
 
     invoke-virtual {p0, v4}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -834,7 +836,7 @@
 
     move-result-object p1
 
-    const v4, 0x7f040e89
+    const v4, 0x7f040f1d
 
     invoke-virtual {p0, v4}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -879,7 +881,7 @@
 
     move-result-object p1
 
-    const v7, 0x7f040e7f
+    const v7, 0x7f040f13
 
     invoke-virtual {p0, v7}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -918,7 +920,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f040e97
+    const v9, 0x7f040f2b
 
     invoke-virtual {p0, v9}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -985,7 +987,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f040e96
+    const v9, 0x7f040f2a
 
     invoke-virtual {p0, v9}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -1029,7 +1031,7 @@
 
     move-result-object p1
 
-    const p2, 0x7f040e84
+    const p2, 0x7f040f18
 
     invoke-virtual {p0, p2}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -1140,7 +1142,7 @@
 
     move-result-object p1
 
-    const p2, 0x7f040e88
+    const p2, 0x7f040f1c
 
     invoke-virtual {p0, p2}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -1239,7 +1241,7 @@
 
     move-result-object p2
 
-    const v0, 0x7f040e91
+    const v0, 0x7f040f25
 
     invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -1273,7 +1275,7 @@
 
     move-result-object p2
 
-    const v0, 0x7f040e81
+    const v0, 0x7f040f15
 
     invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -1291,7 +1293,7 @@
 
     move-result-object p0
 
-    invoke-virtual {p1}, Landroid/os/Parcel;->getBlobAshmemSize()J
+    invoke-virtual {p1}, Landroid/os/Parcel;->getOpenAshmemSize()J
 
     move-result-wide p1
 
@@ -1315,7 +1317,7 @@
 
     invoke-direct {v0}, Landroid/text/SpannableStringBuilder;-><init>()V
 
-    const v1, 0x7f040e86
+    const v1, 0x7f040f1a
 
     invoke-virtual {p0, v1}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -1351,7 +1353,7 @@
 
     move-result-object v3
 
-    const v5, 0x7f040e80
+    const v5, 0x7f040f14
 
     invoke-virtual {p0, v5}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -1368,7 +1370,7 @@
 
     move-result-object v3
 
-    const v5, 0x7f040e7e
+    const v5, 0x7f040f12
 
     invoke-virtual {p0, v5}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -1500,7 +1502,7 @@
 
     move-result-object p1
 
-    const v3, 0x7f040e8d
+    const v3, 0x7f040f21
 
     invoke-virtual {p0, v3}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -1538,7 +1540,7 @@
 
     move-result-object p1
 
-    const v3, 0x7f040e87
+    const v3, 0x7f040f1b
 
     invoke-virtual {p0, v3}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -1567,7 +1569,7 @@
 
     move-result-object p1
 
-    const v3, 0x7f040e82
+    const v3, 0x7f040f16
 
     invoke-virtual {p0, v3}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -1606,7 +1608,7 @@
 
     move-result-object p1
 
-    const v1, 0x7f040e95
+    const v1, 0x7f040f29
 
     invoke-virtual {p0, v1}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -1625,7 +1627,7 @@
 
     move-result-object p1
 
-    const v1, 0x7f040e94
+    const v1, 0x7f040f28
 
     invoke-virtual {p0, v1}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 

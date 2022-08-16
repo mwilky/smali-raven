@@ -16,27 +16,7 @@
 
 # virtual methods
 .method public abstract onVolumeSetRequest(Ljava/lang/Object;I)V
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "routeObj",
-            "volume"
-        }
-    .end annotation
 .end method
 
 .method public abstract onVolumeUpdateRequest(Ljava/lang/Object;I)V
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "routeObj",
-            "direction"
-        }
-    .end annotation
 .end method

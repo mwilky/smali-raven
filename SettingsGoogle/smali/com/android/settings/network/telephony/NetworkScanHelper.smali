@@ -57,6 +57,40 @@
     return p0
 .end method
 
+.method static bridge synthetic -$$Nest$monComplete(Lcom/android/settings/network/telephony/NetworkScanHelper;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/network/telephony/NetworkScanHelper;->onComplete()V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$monError(Lcom/android/settings/network/telephony/NetworkScanHelper;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/network/telephony/NetworkScanHelper;->onError(I)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$monResults(Lcom/android/settings/network/telephony/NetworkScanHelper;Ljava/util/List;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/network/telephony/NetworkScanHelper;->onResults(Ljava/util/List;)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$smconvertToScanErrorCode(I)I
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/settings/network/telephony/NetworkScanHelper;->convertToScanErrorCode(I)I
+
+    move-result p0
+
+    return p0
+.end method
+
 .method public constructor <init>(Landroid/telephony/TelephonyManager;Lcom/android/settings/network/telephony/NetworkScanHelper$NetworkScanCallback;Ljava/util/concurrent/Executor;)V
     .locals 0
 
@@ -70,47 +104,13 @@
 
     const/4 p2, 0x0
 
-    invoke-direct {p1, p0, p2}, Lcom/android/settings/network/telephony/NetworkScanHelper$NetworkScanCallbackImpl;-><init>(Lcom/android/settings/network/telephony/NetworkScanHelper;Lcom/android/settings/network/telephony/NetworkScanHelper$1;)V
+    invoke-direct {p1, p0, p2}, Lcom/android/settings/network/telephony/NetworkScanHelper$NetworkScanCallbackImpl;-><init>(Lcom/android/settings/network/telephony/NetworkScanHelper;Lcom/android/settings/network/telephony/NetworkScanHelper$NetworkScanCallbackImpl-IA;)V
 
     iput-object p1, p0, Lcom/android/settings/network/telephony/NetworkScanHelper;->mInternalNetworkScanCallback:Landroid/telephony/TelephonyScanManager$NetworkScanCallback;
 
     iput-object p3, p0, Lcom/android/settings/network/telephony/NetworkScanHelper;->mExecutor:Ljava/util/concurrent/Executor;
 
     return-void
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/network/telephony/NetworkScanHelper;Ljava/util/List;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/network/telephony/NetworkScanHelper;->onResults(Ljava/util/List;)V
-
-    return-void
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/network/telephony/NetworkScanHelper;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/network/telephony/NetworkScanHelper;->onComplete()V
-
-    return-void
-.end method
-
-.method static synthetic access$300(Lcom/android/settings/network/telephony/NetworkScanHelper;I)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/network/telephony/NetworkScanHelper;->onError(I)V
-
-    return-void
-.end method
-
-.method static synthetic access$400(I)I
-    .locals 0
-
-    invoke-static {p0}, Lcom/android/settings/network/telephony/NetworkScanHelper;->convertToScanErrorCode(I)I
-
-    move-result p0
-
-    return p0
 .end method
 
 .method private static convertToScanErrorCode(I)I
@@ -147,7 +147,9 @@
 
     move-result-object p0
 
-    sget-object v0, Lcom/android/settings/network/telephony/NetworkScanHelper$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/settings/network/telephony/NetworkScanHelper$$ExternalSyntheticLambda0;
+    new-instance v0, Lcom/android/settings/network/telephony/NetworkScanHelper$$ExternalSyntheticLambda0;
+
+    invoke-direct {v0}, Lcom/android/settings/network/telephony/NetworkScanHelper$$ExternalSyntheticLambda0;-><init>()V
 
     invoke-interface {p0, v0}, Ljava/util/stream/IntStream;->anyMatch(Ljava/util/function/IntPredicate;)Z
 
@@ -324,7 +326,7 @@
 
     const-string p0, "NetworkScanHelper"
 
-    const-string v0, "radioAccessSpecifiers add NGRAN."
+    const-string/jumbo v0, "radioAccessSpecifiers add NGRAN."
 
     invoke-static {p0, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -432,12 +434,6 @@
     iput-object p1, p0, Lcom/android/settings/network/telephony/NetworkScanHelper;->mNetworkScanRequester:Landroid/telephony/NetworkScan;
 
     if-nez p1, :cond_2
-
-    const-string p1, "NetworkScanHelper"
-
-    const-string v0, "mNetworkScanRequester == null"
-
-    invoke-static {p1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     const/16 p1, 0x2710
 

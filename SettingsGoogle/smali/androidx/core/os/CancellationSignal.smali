@@ -6,6 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Landroidx/core/os/CancellationSignal$Api16Impl;,
         Landroidx/core/os/CancellationSignal$OnCancelListener;
     }
 .end annotation
@@ -53,7 +54,7 @@
 
 # virtual methods
 .method public cancel()V
-    .locals 4
+    .locals 3
 
     monitor-enter p0
 
@@ -99,15 +100,7 @@
     :goto_0
     if-eqz v1, :cond_2
 
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v3, 0x10
-
-    if-lt v0, v3, :cond_2
-
-    check-cast v1, Landroid/os/CancellationSignal;
-
-    invoke-virtual {v1}, Landroid/os/CancellationSignal;->cancel()V
+    invoke-static {v1}, Landroidx/core/os/CancellationSignal$Api16Impl;->cancel(Ljava/lang/Object;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -170,38 +163,8 @@
     throw v0
 .end method
 
-.method public isCanceled()Z
-    .locals 1
-
-    monitor-enter p0
-
-    :try_start_0
-    iget-boolean v0, p0, Landroidx/core/os/CancellationSignal;->mIsCanceled:Z
-
-    monitor-exit p0
-
-    return v0
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v0
-.end method
-
 .method public setOnCancelListener(Landroidx/core/os/CancellationSignal$OnCancelListener;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "listener"
-        }
-    .end annotation
 
     monitor-enter p0
 

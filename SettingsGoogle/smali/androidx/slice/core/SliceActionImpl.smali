@@ -45,20 +45,6 @@
 # direct methods
 .method public constructor <init>(Landroid/app/PendingIntent;Landroidx/core/graphics/drawable/IconCompat;ILjava/lang/CharSequence;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "action",
-            "actionIcon",
-            "imageMode",
-            "actionTitle"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -91,20 +77,6 @@
 
 .method public constructor <init>(Landroid/app/PendingIntent;Landroidx/core/graphics/drawable/IconCompat;Ljava/lang/CharSequence;Z)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "action",
-            "actionIcon",
-            "actionTitle",
-            "isChecked"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -121,18 +93,6 @@
 
 .method public constructor <init>(Landroid/app/PendingIntent;Ljava/lang/CharSequence;Z)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "action",
-            "actionTitle",
-            "isChecked"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -170,15 +130,6 @@
     .annotation build Landroid/annotation/SuppressLint;
         value = {
             "InlinedApi"
-        }
-    .end annotation
-
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "slice"
         }
     .end annotation
 
@@ -416,7 +367,7 @@
 
     iput-object v0, p0, Landroidx/slice/core/SliceActionImpl;->mActionType:Landroidx/slice/core/SliceActionImpl$ActionType;
 
-    const-string v0, "selected"
+    const-string/jumbo v0, "selected"
 
     invoke-virtual {p1, v0}, Landroidx/slice/SliceItem;->hasHint(Ljava/lang/String;)Z
 
@@ -482,6 +433,8 @@
     :cond_a
     return-void
 
+    nop
+
     :sswitch_data_0
     .sparse-switch
         -0x33c144ac -> :sswitch_2
@@ -499,14 +452,6 @@
 
 .method private buildSliceContent(Landroidx/slice/Slice$Builder;)Landroidx/slice/Slice$Builder;
     .locals 6
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "builder"
-        }
-    .end annotation
 
     new-instance v0, Landroidx/slice/Slice$Builder;
 
@@ -601,7 +546,7 @@
 
     if-eqz v1, :cond_6
 
-    const-string v1, "selected"
+    const-string/jumbo v1, "selected"
 
     filled-new-array {v1}, [Ljava/lang/String;
 
@@ -652,14 +597,6 @@
 
 .method public static parseImageMode(Landroidx/slice/SliceItem;)I
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "iconItem"
-        }
-    .end annotation
 
     const-string/jumbo v0, "show_label"
 
@@ -687,7 +624,7 @@
     return p0
 
     :cond_1
-    const-string v0, "raw"
+    const-string/jumbo v0, "raw"
 
     invoke-virtual {p0, v0}, Landroidx/slice/SliceItem;->hasHint(Ljava/lang/String;)Z
 
@@ -734,14 +671,6 @@
 # virtual methods
 .method public buildPrimaryActionSlice(Landroidx/slice/Slice$Builder;)Landroidx/slice/Slice;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "builder"
-        }
-    .end annotation
 
     invoke-direct {p0, p1}, Landroidx/slice/core/SliceActionImpl;->buildSliceContent(Landroidx/slice/Slice$Builder;)Landroidx/slice/Slice$Builder;
 
@@ -768,14 +697,6 @@
 
 .method public buildSlice(Landroidx/slice/Slice$Builder;)Landroidx/slice/Slice;
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "builder"
-        }
-    .end annotation
 
     const-string/jumbo v0, "shortcut"
 
@@ -995,14 +916,6 @@
 
 .method public setActivity(Z)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "isActivity"
-        }
-    .end annotation
 
     iput-boolean p1, p0, Landroidx/slice/core/SliceActionImpl;->mIsActivity:Z
 

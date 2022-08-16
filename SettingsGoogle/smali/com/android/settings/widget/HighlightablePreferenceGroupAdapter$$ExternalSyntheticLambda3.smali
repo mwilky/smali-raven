@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settings/widget/HighlightablePreferenceGroupAdapter$$ExternalSyntheticLambda3;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -8,18 +9,18 @@
 # instance fields
 .field public final synthetic f$0:Lcom/android/settings/widget/HighlightablePreferenceGroupAdapter;
 
-.field public final synthetic f$1:Landroidx/preference/PreferenceViewHolder;
+.field public final synthetic f$1:I
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/settings/widget/HighlightablePreferenceGroupAdapter;Landroidx/preference/PreferenceViewHolder;)V
+.method public synthetic constructor <init>(Lcom/android/settings/widget/HighlightablePreferenceGroupAdapter;I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/settings/widget/HighlightablePreferenceGroupAdapter$$ExternalSyntheticLambda3;->f$0:Lcom/android/settings/widget/HighlightablePreferenceGroupAdapter;
 
-    iput-object p2, p0, Lcom/android/settings/widget/HighlightablePreferenceGroupAdapter$$ExternalSyntheticLambda3;->f$1:Landroidx/preference/PreferenceViewHolder;
+    iput p2, p0, Lcom/android/settings/widget/HighlightablePreferenceGroupAdapter$$ExternalSyntheticLambda3;->f$1:I
 
     return-void
 .end method
@@ -31,9 +32,9 @@
 
     iget-object v0, p0, Lcom/android/settings/widget/HighlightablePreferenceGroupAdapter$$ExternalSyntheticLambda3;->f$0:Lcom/android/settings/widget/HighlightablePreferenceGroupAdapter;
 
-    iget-object p0, p0, Lcom/android/settings/widget/HighlightablePreferenceGroupAdapter$$ExternalSyntheticLambda3;->f$1:Landroidx/preference/PreferenceViewHolder;
+    iget p0, p0, Lcom/android/settings/widget/HighlightablePreferenceGroupAdapter$$ExternalSyntheticLambda3;->f$1:I
 
-    invoke-static {v0, p0}, Lcom/android/settings/widget/HighlightablePreferenceGroupAdapter;->$r8$lambda$Jm-4_pVOd17fT7nz10xyas78A9g(Lcom/android/settings/widget/HighlightablePreferenceGroupAdapter;Landroidx/preference/PreferenceViewHolder;)V
+    invoke-static {v0, p0}, Lcom/android/settings/widget/HighlightablePreferenceGroupAdapter;->$r8$lambda$hcn8TAU-ZNc-9AejZ1uTK9A3hSU(Lcom/android/settings/widget/HighlightablePreferenceGroupAdapter;I)V
 
     return-void
 .end method

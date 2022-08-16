@@ -3,18 +3,6 @@
 .source "AllConversationsPreferenceController.java"
 
 
-# instance fields
-.field private mConversations:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List<",
-            "Landroid/service/notification/ConversationChannelWrapper;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Lcom/android/settings/notification/NotificationBackend;)V
     .locals 0
@@ -47,7 +35,7 @@
 
     invoke-virtual {v0, p0}, Landroidx/preference/Preference;->setOrder(I)V
 
-    const p0, 0x7f040ee6
+    const p0, 0x7f040f7b
 
     invoke-virtual {v0, p0}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -56,14 +44,6 @@
     invoke-virtual {v0, p0}, Landroidx/preference/Preference;->setSelectable(Z)V
 
     return-object v0
-.end method
-
-.method public isAvailable()Z
-    .locals 0
-
-    const/4 p0, 0x1
-
-    return p0
 .end method
 
 .method matchesFilter(Landroid/service/notification/ConversationChannelWrapper;)Z
@@ -80,34 +60,4 @@
     xor-int/lit8 p0, p0, 0x1
 
     return p0
-.end method
-
-.method public updateState(Landroidx/preference/Preference;)V
-    .locals 2
-
-    check-cast p1, Landroidx/preference/PreferenceCategory;
-
-    iget-object v0, p0, Lcom/android/settings/notification/app/ConversationListPreferenceController;->mBackend:Lcom/android/settings/notification/NotificationBackend;
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Lcom/android/settings/notification/NotificationBackend;->getConversations(Z)Landroid/content/pm/ParceledListSlice;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/content/pm/ParceledListSlice;->getList()Ljava/util/List;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/settings/notification/app/AllConversationsPreferenceController;->mConversations:Ljava/util/List;
-
-    iget-object v1, p0, Lcom/android/settings/notification/app/ConversationListPreferenceController;->mConversationComparator:Ljava/util/Comparator;
-
-    invoke-static {v0, v1}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
-
-    iget-object v0, p0, Lcom/android/settings/notification/app/AllConversationsPreferenceController;->mConversations:Ljava/util/List;
-
-    invoke-virtual {p0, v0, p1}, Lcom/android/settings/notification/app/ConversationListPreferenceController;->populateList(Ljava/util/List;Landroidx/preference/PreferenceGroup;)V
-
-    return-void
 .end method

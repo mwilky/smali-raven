@@ -214,7 +214,7 @@
 .method private getIconResource()I
     .locals 0
 
-    const p0, 0x7f020228
+    const p0, 0x7f020246
 
     return p0
 .end method
@@ -222,7 +222,7 @@
 .method private getScreenTitle(Landroid/content/Context;)Ljava/lang/String;
     .locals 0
 
-    const p0, 0x7f040dbf
+    const p0, 0x7f040e3c
 
     invoke-virtual {p1, p0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -329,7 +329,7 @@
 
     const-string v3, "enable_wifi_ap"
 
-    const v6, 0x7f040d0a
+    const v6, 0x7f040d85
 
     move-object v1, p0
 
@@ -387,7 +387,7 @@
 
     const-string v4, "enable_wifi_ap"
 
-    const v7, 0x7f040d0a
+    const v7, 0x7f040d85
 
     move-object v2, p0
 

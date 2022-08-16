@@ -127,15 +127,17 @@
 
     move-result-object p0
 
-    new-instance p1, Lcom/android/settings/applications/intentpicker/IntentPickerUtils$$ExternalSyntheticLambda1;
+    new-instance p1, Lcom/android/settings/applications/intentpicker/IntentPickerUtils$$ExternalSyntheticLambda0;
 
-    invoke-direct {p1, p2}, Lcom/android/settings/applications/intentpicker/IntentPickerUtils$$ExternalSyntheticLambda1;-><init>(I)V
+    invoke-direct {p1, p2}, Lcom/android/settings/applications/intentpicker/IntentPickerUtils$$ExternalSyntheticLambda0;-><init>(I)V
 
     invoke-interface {p0, p1}, Ljava/util/stream/Stream;->filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
 
     move-result-object p0
 
-    sget-object p1, Lcom/android/settings/applications/intentpicker/IntentPickerUtils$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/settings/applications/intentpicker/IntentPickerUtils$$ExternalSyntheticLambda0;
+    new-instance p1, Lcom/android/settings/applications/intentpicker/IntentPickerUtils$$ExternalSyntheticLambda1;
+
+    invoke-direct {p1}, Lcom/android/settings/applications/intentpicker/IntentPickerUtils$$ExternalSyntheticLambda1;-><init>()V
 
     invoke-interface {p0, p1}, Ljava/util/stream/Stream;->map(Ljava/util/function/Function;)Ljava/util/stream/Stream;
 

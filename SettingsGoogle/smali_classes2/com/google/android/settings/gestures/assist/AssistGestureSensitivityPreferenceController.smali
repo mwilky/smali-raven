@@ -57,6 +57,30 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmHandler(Lcom/google/android/settings/gestures/assist/AssistGestureSensitivityPreferenceController;)Landroid/os/Handler;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/settings/gestures/assist/AssistGestureSensitivityPreferenceController;->mHandler:Landroid/os/Handler;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmIndicatorView(Lcom/google/android/settings/gestures/assist/AssistGestureSensitivityPreferenceController;)Lcom/google/android/settings/gestures/assist/AssistGestureIndicatorView;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/settings/gestures/assist/AssistGestureSensitivityPreferenceController;->mIndicatorView:Lcom/google/android/settings/gestures/assist/AssistGestureIndicatorView;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$mupdatePreference(Lcom/google/android/settings/gestures/assist/AssistGestureSensitivityPreferenceController;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/google/android/settings/gestures/assist/AssistGestureSensitivityPreferenceController;->updatePreference()V
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;)V
     .locals 1
 
@@ -137,23 +161,7 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/google/android/settings/gestures/assist/AssistGestureSensitivityPreferenceController;)Lcom/google/android/settings/gestures/assist/AssistGestureIndicatorView;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/settings/gestures/assist/AssistGestureSensitivityPreferenceController;->mIndicatorView:Lcom/google/android/settings/gestures/assist/AssistGestureIndicatorView;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/google/android/settings/gestures/assist/AssistGestureSensitivityPreferenceController;)Landroid/os/Handler;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/settings/gestures/assist/AssistGestureSensitivityPreferenceController;->mHandler:Landroid/os/Handler;
-
-    return-object p0
-.end method
-
-.method static synthetic access$200(Lcom/google/android/settings/gestures/assist/AssistGestureSensitivityPreferenceController;)Landroid/content/Context;
+.method static synthetic access$000(Lcom/google/android/settings/gestures/assist/AssistGestureSensitivityPreferenceController;)Landroid/content/Context;
     .locals 0
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
@@ -161,20 +169,12 @@
     return-object p0
 .end method
 
-.method static synthetic access$300(Lcom/google/android/settings/gestures/assist/AssistGestureSensitivityPreferenceController;)Landroid/content/Context;
+.method static synthetic access$100(Lcom/google/android/settings/gestures/assist/AssistGestureSensitivityPreferenceController;)Landroid/content/Context;
     .locals 0
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
     return-object p0
-.end method
-
-.method static synthetic access$400(Lcom/google/android/settings/gestures/assist/AssistGestureSensitivityPreferenceController;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/google/android/settings/gestures/assist/AssistGestureSensitivityPreferenceController;->updatePreference()V
-
-    return-void
 .end method
 
 .method public static convertSensitivityFloatToInt(Landroid/content/Context;F)I
@@ -222,7 +222,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f0e000d
+    const v0, 0x7f0e0010
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -499,14 +499,6 @@
 
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public displayPreference(Landroidx/preference/PreferenceScreen;)V
     .locals 2
 
@@ -578,15 +570,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -614,7 +597,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f0e000d
+    const v0, 0x7f0e0010
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -634,7 +617,7 @@
 .method public getSliceHighlightMenuRes()I
     .locals 0
 
-    const p0, 0x7f040d11
+    const p0, 0x7f040d8d
 
     return p0
 .end method
@@ -768,16 +751,6 @@
     .locals 0
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->hasAsyncUpdate()Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
 
     move-result p0
 

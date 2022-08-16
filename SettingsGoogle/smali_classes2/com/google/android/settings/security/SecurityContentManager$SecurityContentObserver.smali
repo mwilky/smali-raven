@@ -38,7 +38,7 @@
 
     iget-object p0, p0, Lcom/google/android/settings/security/SecurityContentManager$SecurityContentObserver;->this$0:Lcom/google/android/settings/security/SecurityContentManager;
 
-    invoke-static {p0}, Lcom/google/android/settings/security/SecurityContentManager;->access$1100(Lcom/google/android/settings/security/SecurityContentManager;)V
+    invoke-static {p0}, Lcom/google/android/settings/security/SecurityContentManager;->-$$Nest$mfetchUiDataAsync(Lcom/google/android/settings/security/SecurityContentManager;)V
 
     return-void
 .end method

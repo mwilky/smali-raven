@@ -57,11 +57,3 @@
 
     return-object v0
 .end method
-
-.method public static getDefaultImpl()Lcom/google/android/systemui/elmyra/IElmyraService;
-    .locals 1
-
-    sget-object v0, Lcom/google/android/systemui/elmyra/IElmyraService$Stub$Proxy;->sDefaultImpl:Lcom/google/android/systemui/elmyra/IElmyraService;
-
-    return-object v0
-.end method

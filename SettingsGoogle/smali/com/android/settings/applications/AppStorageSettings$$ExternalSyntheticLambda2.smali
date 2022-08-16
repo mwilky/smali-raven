@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settings/applications/AppStorageSettings$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/view/View$OnClickListener;
@@ -27,7 +28,7 @@
 
     iget-object p0, p0, Lcom/android/settings/applications/AppStorageSettings$$ExternalSyntheticLambda2;->f$0:Lcom/android/settings/applications/AppStorageSettings;
 
-    invoke-static {p0, p1}, Lcom/android/settings/applications/AppStorageSettings;->$r8$lambda$wR_WQx2BPxRgp8rMHVUXKK95rK0(Lcom/android/settings/applications/AppStorageSettings;Landroid/view/View;)V
+    invoke-static {p0, p1}, Lcom/android/settings/applications/AppStorageSettings;->$r8$lambda$qgUQv9Iiucv_n9rE3dJ3UaYOpvI(Lcom/android/settings/applications/AppStorageSettings;Landroid/view/View;)V
 
     return-void
 .end method

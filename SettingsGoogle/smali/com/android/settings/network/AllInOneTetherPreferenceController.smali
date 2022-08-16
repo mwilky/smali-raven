@@ -28,7 +28,7 @@
 
 .field final mBtProfileServiceListener:Landroid/bluetooth/BluetoothProfile$ServiceListener;
 
-.field private mPreference:Lcom/android/settings/widget/PrimarySwitchPreference;
+.field private mPreference:Lcom/android/settingslib/PrimarySwitchPreference;
 
 .field private mTetherEnabler:Lcom/android/settings/network/TetherEnabler;
 
@@ -36,6 +36,14 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmBluetoothPan(Lcom/android/settings/network/AllInOneTetherPreferenceController;)Ljava/util/concurrent/atomic/AtomicReference;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/network/AllInOneTetherPreferenceController;->mBluetoothPan:Ljava/util/concurrent/atomic/AtomicReference;
+
+    return-object p0
+.end method
+
 .method constructor <init>()V
     .locals 2
 
@@ -114,24 +122,8 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/settings/network/AllInOneTetherPreferenceController;)Ljava/util/concurrent/atomic/AtomicReference;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/network/AllInOneTetherPreferenceController;->mBluetoothPan:Ljava/util/concurrent/atomic/AtomicReference;
-
-    return-object p0
-.end method
-
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public displayPreference(Landroidx/preference/PreferenceScreen;)V
     .locals 1
 
@@ -143,9 +135,9 @@
 
     move-result-object p1
 
-    check-cast p1, Lcom/android/settings/widget/PrimarySwitchPreference;
+    check-cast p1, Lcom/android/settingslib/PrimarySwitchPreference;
 
-    iput-object p1, p0, Lcom/android/settings/network/AllInOneTetherPreferenceController;->mPreference:Lcom/android/settings/widget/PrimarySwitchPreference;
+    iput-object p1, p0, Lcom/android/settings/network/AllInOneTetherPreferenceController;->mPreference:Lcom/android/settingslib/PrimarySwitchPreference;
 
     return-void
 .end method
@@ -187,15 +179,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -252,7 +235,7 @@
     :pswitch_0
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f0413cd
+    const v0, 0x7f0414c7
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -263,7 +246,7 @@
     :pswitch_1
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f0413dd
+    const v0, 0x7f0414d7
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -274,7 +257,7 @@
     :pswitch_2
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f0413d2
+    const v0, 0x7f0414cc
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -285,7 +268,7 @@
     :pswitch_3
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f0413ce
+    const v0, 0x7f0414c8
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -296,7 +279,7 @@
     :pswitch_4
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f0413d6
+    const v0, 0x7f0414d0
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -307,7 +290,7 @@
     :pswitch_5
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f0413de
+    const v0, 0x7f0414d8
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -318,7 +301,7 @@
     :pswitch_6
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f0413d3
+    const v0, 0x7f0414cd
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -329,7 +312,7 @@
     :pswitch_7
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f0413d0
+    const v0, 0x7f0414ca
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -340,7 +323,7 @@
     :pswitch_8
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f0413d5
+    const v0, 0x7f0414cf
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -351,7 +334,7 @@
     :pswitch_9
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f0413dc
+    const v0, 0x7f0414d6
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -362,7 +345,7 @@
     :pswitch_a
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f0413d1
+    const v0, 0x7f0414cb
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -373,7 +356,7 @@
     :pswitch_b
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f0413cf
+    const v0, 0x7f0414c9
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -384,7 +367,7 @@
     :pswitch_c
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f0413d4
+    const v0, 0x7f0414ce
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -395,7 +378,7 @@
     :pswitch_d
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f0413df
+    const v0, 0x7f0414d9
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -406,7 +389,7 @@
     :pswitch_e
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f0413da
+    const v0, 0x7f0414d4
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -417,7 +400,7 @@
     :pswitch_f
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f0413db
+    const v0, 0x7f0414d5
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -465,7 +448,7 @@
 .method initEnabler(Landroidx/lifecycle/Lifecycle;)V
     .locals 4
 
-    iget-object v0, p0, Lcom/android/settings/network/AllInOneTetherPreferenceController;->mPreference:Lcom/android/settings/widget/PrimarySwitchPreference;
+    iget-object v0, p0, Lcom/android/settings/network/AllInOneTetherPreferenceController;->mPreference:Lcom/android/settingslib/PrimarySwitchPreference;
 
     if-eqz v0, :cond_0
 
@@ -475,9 +458,9 @@
 
     new-instance v2, Lcom/android/settings/widget/GenericSwitchController;
 
-    iget-object v3, p0, Lcom/android/settings/network/AllInOneTetherPreferenceController;->mPreference:Lcom/android/settings/widget/PrimarySwitchPreference;
+    iget-object v3, p0, Lcom/android/settings/network/AllInOneTetherPreferenceController;->mPreference:Lcom/android/settingslib/PrimarySwitchPreference;
 
-    invoke-direct {v2, v3}, Lcom/android/settings/widget/GenericSwitchController;-><init>(Lcom/android/settings/widget/PrimarySwitchPreference;)V
+    invoke-direct {v2, v3}, Lcom/android/settings/widget/GenericSwitchController;-><init>(Lcom/android/settingslib/PrimarySwitchPreference;)V
 
     iget-object v3, p0, Lcom/android/settings/network/AllInOneTetherPreferenceController;->mBluetoothPan:Ljava/util/concurrent/atomic/AtomicReference;
 
@@ -501,16 +484,6 @@
     :cond_1
     :goto_0
     return-void
-.end method
-
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
-
-    move-result p0
-
-    return p0
 .end method
 
 .method public bridge synthetic isPublicSlice()Z
@@ -632,7 +605,7 @@
 
     iput p1, p0, Lcom/android/settings/network/AllInOneTetherPreferenceController;->mTetheringState:I
 
-    iget-object p1, p0, Lcom/android/settings/network/AllInOneTetherPreferenceController;->mPreference:Lcom/android/settings/widget/PrimarySwitchPreference;
+    iget-object p1, p0, Lcom/android/settings/network/AllInOneTetherPreferenceController;->mPreference:Lcom/android/settingslib/PrimarySwitchPreference;
 
     invoke-virtual {p0, p1}, Lcom/android/settingslib/core/AbstractPreferenceController;->updateState(Landroidx/preference/Preference;)V
 

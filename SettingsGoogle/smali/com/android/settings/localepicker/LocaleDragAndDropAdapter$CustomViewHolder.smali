@@ -57,7 +57,7 @@
 
     iget-object p1, p0, Lcom/android/settings/localepicker/LocaleDragAndDropAdapter$CustomViewHolder;->this$0:Lcom/android/settings/localepicker/LocaleDragAndDropAdapter;
 
-    invoke-static {p1}, Lcom/android/settings/localepicker/LocaleDragAndDropAdapter;->access$000(Lcom/android/settings/localepicker/LocaleDragAndDropAdapter;)Z
+    invoke-static {p1}, Lcom/android/settings/localepicker/LocaleDragAndDropAdapter;->-$$Nest$fgetmDragEnabled(Lcom/android/settings/localepicker/LocaleDragAndDropAdapter;)Z
 
     move-result p1
 
@@ -74,7 +74,7 @@
     :cond_0
     iget-object p1, p0, Lcom/android/settings/localepicker/LocaleDragAndDropAdapter$CustomViewHolder;->this$0:Lcom/android/settings/localepicker/LocaleDragAndDropAdapter;
 
-    invoke-static {p1}, Lcom/android/settings/localepicker/LocaleDragAndDropAdapter;->access$100(Lcom/android/settings/localepicker/LocaleDragAndDropAdapter;)Landroidx/recyclerview/widget/ItemTouchHelper;
+    invoke-static {p1}, Lcom/android/settings/localepicker/LocaleDragAndDropAdapter;->-$$Nest$fgetmItemTouchHelper(Lcom/android/settings/localepicker/LocaleDragAndDropAdapter;)Landroidx/recyclerview/widget/ItemTouchHelper;
 
     move-result-object p1
 

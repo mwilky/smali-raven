@@ -786,13 +786,11 @@
 
     iget-object v11, v0, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mListDimensionBehaviors:[Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;
 
-    aget-object v15, v11, v3
-
-    sget-object v7, Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;->FIXED:Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;
-
-    if-eq v15, v7, :cond_14
-
     aget-object v11, v11, v3
+
+    sget-object v15, Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;->FIXED:Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;
+
+    if-eq v11, v15, :cond_14
 
     if-ne v11, v4, :cond_17
 
@@ -809,7 +807,7 @@
 
     add-float/2addr v3, v14
 
-    float-to-int v3, v3
+    float-to-int v7, v3
 
     invoke-virtual {v2}, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->getHeight()I
 
@@ -819,9 +817,7 @@
 
     move-object v5, v2
 
-    move-object v6, v7
-
-    move v7, v3
+    move-object v6, v15
 
     move-object v8, v12
 
@@ -852,15 +848,15 @@
     goto/16 :goto_0
 
     :cond_15
-    iget-object v7, v2, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mListAnchors:[Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
+    iget-object v11, v2, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mListAnchors:[Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
 
-    aget-object v11, v7, v3
+    aget-object v7, v11, v3
 
-    iget-object v11, v11, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->mTarget:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
+    iget-object v7, v7, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->mTarget:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
 
-    if-eqz v11, :cond_16
+    if-eqz v7, :cond_16
 
-    aget-object v7, v7, v10
+    aget-object v7, v11, v10
 
     iget-object v7, v7, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->mTarget:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
 
@@ -1035,13 +1031,11 @@
 
     iget-object v7, v0, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mListDimensionBehaviors:[Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;
 
-    aget-object v8, v7, v10
-
-    sget-object v11, Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;->FIXED:Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;
-
-    if-eq v8, v11, :cond_1d
-
     aget-object v7, v7, v10
+
+    sget-object v8, Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;->FIXED:Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;
+
+    if-eq v7, v8, :cond_1d
 
     if-ne v7, v4, :cond_20
 
@@ -1069,8 +1063,6 @@
     move-object v5, v2
 
     move-object v6, v9
-
-    move-object v8, v11
 
     move v9, v3
 
@@ -1176,13 +1168,11 @@
 
     iget-object v4, v0, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mListDimensionBehaviors:[Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;
 
-    aget-object v5, v4, v3
+    aget-object v3, v4, v3
 
     sget-object v8, Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;->FIXED:Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;
 
-    if-eq v5, v8, :cond_22
-
-    aget-object v3, v4, v3
+    if-eq v3, v8, :cond_22
 
     if-ne v3, v8, :cond_0
 
@@ -1190,8 +1180,6 @@
     aget-object v3, v4, v10
 
     if-eq v3, v8, :cond_23
-
-    aget-object v3, v4, v10
 
     if-ne v3, v8, :cond_0
 
@@ -2209,17 +2197,15 @@
 
     iget-object v6, p1, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mListDimensionBehaviors:[Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;
 
-    aget-object v7, v6, v2
-
-    sget-object v8, Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;->FIXED:Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;
-
-    if-eq v7, v8, :cond_b
-
     aget-object v6, v6, v2
 
-    sget-object v7, Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;->MATCH_PARENT:Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;
+    sget-object v7, Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;->FIXED:Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;
 
-    if-ne v6, v7, :cond_a
+    if-eq v6, v7, :cond_b
+
+    sget-object v8, Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;->MATCH_PARENT:Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;
+
+    if-ne v6, v8, :cond_a
 
     goto :goto_1
 
@@ -2260,11 +2246,9 @@
 
     iget-object v4, p1, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mListDimensionBehaviors:[Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;
 
-    aget-object v6, v4, v0
-
-    if-eq v6, v8, :cond_c
-
     aget-object v4, v4, v0
+
+    if-eq v4, v7, :cond_c
 
     sget-object v6, Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;->MATCH_PARENT:Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;
 
@@ -2698,13 +2682,11 @@
 
     iget-object v5, p1, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mListDimensionBehaviors:[Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;
 
-    aget-object v6, v5, v2
-
-    sget-object v7, Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;->FIXED:Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;
-
-    if-eq v6, v7, :cond_5
-
     aget-object v5, v5, v2
+
+    sget-object v6, Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;->FIXED:Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;
+
+    if-eq v5, v6, :cond_5
 
     sget-object v6, Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;->MATCH_PARENT:Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;
 
@@ -2742,13 +2724,11 @@
 
     iget-object v4, p1, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mListDimensionBehaviors:[Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;
 
-    aget-object v6, v4, v0
-
-    sget-object v7, Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;->FIXED:Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;
-
-    if-eq v6, v7, :cond_8
-
     aget-object v4, v4, v0
+
+    sget-object v6, Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;->FIXED:Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;
+
+    if-eq v4, v6, :cond_8
 
     sget-object v6, Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;->MATCH_PARENT:Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;
 

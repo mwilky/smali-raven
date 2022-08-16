@@ -167,7 +167,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f04068f
+    const v1, 0x7f0406ed
 
     const/4 v2, 0x1
 
@@ -187,7 +187,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f04068d
+    const v3, 0x7f0406eb
 
     new-array v2, v2, [Ljava/lang/Object;
 
@@ -206,7 +206,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040690
+    const v1, 0x7f0406ee
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -216,7 +216,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f04068e
+    const v2, 0x7f0406ec
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -237,7 +237,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f04066b
+    const v1, 0x7f0406c9
 
     invoke-virtual {v0, v1, p0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

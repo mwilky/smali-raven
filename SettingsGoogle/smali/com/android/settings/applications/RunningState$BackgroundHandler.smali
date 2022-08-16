@@ -83,7 +83,7 @@
 
     iget-object v3, v1, Lcom/android/settings/applications/RunningState;->mAm:Landroid/app/ActivityManager;
 
-    invoke-static {v1, v2, v3}, Lcom/android/settings/applications/RunningState;->access$100(Lcom/android/settings/applications/RunningState;Landroid/content/Context;Landroid/app/ActivityManager;)Z
+    invoke-static {v1, v2, v3}, Lcom/android/settings/applications/RunningState;->-$$Nest$mupdate(Lcom/android/settings/applications/RunningState;Landroid/content/Context;Landroid/app/ActivityManager;)Z
 
     move-result v1
 
@@ -120,7 +120,7 @@
     :cond_2
     iget-object p0, p0, Lcom/android/settings/applications/RunningState$BackgroundHandler;->this$0:Lcom/android/settings/applications/RunningState;
 
-    invoke-static {p0}, Lcom/android/settings/applications/RunningState;->access$000(Lcom/android/settings/applications/RunningState;)V
+    invoke-static {p0}, Lcom/android/settings/applications/RunningState;->-$$Nest$mreset(Lcom/android/settings/applications/RunningState;)V
 
     :goto_0
     return-void

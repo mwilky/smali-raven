@@ -34,7 +34,7 @@
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 2
 
-    invoke-static {}, Lcom/android/settings/wifi/tether/TetherService;->access$000()Z
+    invoke-static {}, Lcom/android/settings/wifi/tether/TetherService;->-$$Nest$sfgetDEBUG()Z
 
     move-result p1
 
@@ -65,7 +65,7 @@
 
     iget-object v1, p0, Lcom/android/settings/wifi/tether/TetherService$1;->this$0:Lcom/android/settings/wifi/tether/TetherService;
 
-    invoke-static {v1}, Lcom/android/settings/wifi/tether/TetherService;->access$100(Lcom/android/settings/wifi/tether/TetherService;)Ljava/lang/String;
+    invoke-static {v1}, Lcom/android/settings/wifi/tether/TetherService;->-$$Nest$fgetmExpectedProvisionResponseAction(Lcom/android/settings/wifi/tether/TetherService;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -95,7 +95,7 @@
 
     iget-object p0, p0, Lcom/android/settings/wifi/tether/TetherService$1;->this$0:Lcom/android/settings/wifi/tether/TetherService;
 
-    invoke-static {p0}, Lcom/android/settings/wifi/tether/TetherService;->access$100(Lcom/android/settings/wifi/tether/TetherService;)Ljava/lang/String;
+    invoke-static {p0}, Lcom/android/settings/wifi/tether/TetherService;->-$$Nest$fgetmExpectedProvisionResponseAction(Lcom/android/settings/wifi/tether/TetherService;)Ljava/lang/String;
 
     move-result-object p0
 
@@ -112,7 +112,7 @@
     :cond_1
     iget-object p1, p0, Lcom/android/settings/wifi/tether/TetherService$1;->this$0:Lcom/android/settings/wifi/tether/TetherService;
 
-    invoke-static {p1}, Lcom/android/settings/wifi/tether/TetherService;->access$200(Lcom/android/settings/wifi/tether/TetherService;)Z
+    invoke-static {p1}, Lcom/android/settings/wifi/tether/TetherService;->-$$Nest$fgetmInProvisionCheck(Lcom/android/settings/wifi/tether/TetherService;)Z
 
     move-result p1
 
@@ -139,13 +139,13 @@
     :cond_2
     iget-object p1, p0, Lcom/android/settings/wifi/tether/TetherService$1;->this$0:Lcom/android/settings/wifi/tether/TetherService;
 
-    invoke-static {p1}, Lcom/android/settings/wifi/tether/TetherService;->access$400(Lcom/android/settings/wifi/tether/TetherService;)Ljava/util/ArrayList;
+    invoke-static {p1}, Lcom/android/settings/wifi/tether/TetherService;->-$$Nest$fgetmCurrentTethers(Lcom/android/settings/wifi/tether/TetherService;)Ljava/util/ArrayList;
 
     move-result-object p1
 
     iget-object v0, p0, Lcom/android/settings/wifi/tether/TetherService$1;->this$0:Lcom/android/settings/wifi/tether/TetherService;
 
-    invoke-static {v0}, Lcom/android/settings/wifi/tether/TetherService;->access$300(Lcom/android/settings/wifi/tether/TetherService;)I
+    invoke-static {v0}, Lcom/android/settings/wifi/tether/TetherService;->-$$Nest$fgetmCurrentTypeIndex(Lcom/android/settings/wifi/tether/TetherService;)I
 
     move-result v0
 
@@ -163,7 +163,7 @@
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/android/settings/wifi/tether/TetherService;->access$202(Lcom/android/settings/wifi/tether/TetherService;Z)Z
+    invoke-static {v0, v1}, Lcom/android/settings/wifi/tether/TetherService;->-$$Nest$fputmInProvisionCheck(Lcom/android/settings/wifi/tether/TetherService;Z)V
 
     const-string v0, "EntitlementResult"
 
@@ -177,30 +177,34 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/tether/TetherService$1;->this$0:Lcom/android/settings/wifi/tether/TetherService;
 
-    invoke-static {v0, p1}, Lcom/android/settings/wifi/tether/TetherService;->access$500(Lcom/android/settings/wifi/tether/TetherService;I)V
+    invoke-static {v0, p1}, Lcom/android/settings/wifi/tether/TetherService;->-$$Nest$mdisableTethering(Lcom/android/settings/wifi/tether/TetherService;I)V
 
     :cond_3
     iget-object v0, p0, Lcom/android/settings/wifi/tether/TetherService$1;->this$0:Lcom/android/settings/wifi/tether/TetherService;
 
-    invoke-static {v0, p1, p2}, Lcom/android/settings/wifi/tether/TetherService;->access$600(Lcom/android/settings/wifi/tether/TetherService;II)V
+    invoke-static {v0, p1, p2}, Lcom/android/settings/wifi/tether/TetherService;->-$$Nest$mfireCallbacksForType(Lcom/android/settings/wifi/tether/TetherService;II)V
 
     iget-object p1, p0, Lcom/android/settings/wifi/tether/TetherService$1;->this$0:Lcom/android/settings/wifi/tether/TetherService;
 
-    invoke-static {p1}, Lcom/android/settings/wifi/tether/TetherService;->access$304(Lcom/android/settings/wifi/tether/TetherService;)I
-
-    move-result p1
-
-    iget-object p2, p0, Lcom/android/settings/wifi/tether/TetherService$1;->this$0:Lcom/android/settings/wifi/tether/TetherService;
-
-    invoke-static {p2}, Lcom/android/settings/wifi/tether/TetherService;->access$400(Lcom/android/settings/wifi/tether/TetherService;)Ljava/util/ArrayList;
-
-    move-result-object p2
-
-    invoke-virtual {p2}, Ljava/util/ArrayList;->size()I
+    invoke-static {p1}, Lcom/android/settings/wifi/tether/TetherService;->-$$Nest$fgetmCurrentTypeIndex(Lcom/android/settings/wifi/tether/TetherService;)I
 
     move-result p2
 
-    if-lt p1, p2, :cond_4
+    add-int/lit8 p2, p2, 0x1
+
+    invoke-static {p1, p2}, Lcom/android/settings/wifi/tether/TetherService;->-$$Nest$fputmCurrentTypeIndex(Lcom/android/settings/wifi/tether/TetherService;I)V
+
+    iget-object p1, p0, Lcom/android/settings/wifi/tether/TetherService$1;->this$0:Lcom/android/settings/wifi/tether/TetherService;
+
+    invoke-static {p1}, Lcom/android/settings/wifi/tether/TetherService;->-$$Nest$fgetmCurrentTethers(Lcom/android/settings/wifi/tether/TetherService;)Ljava/util/ArrayList;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/util/ArrayList;->size()I
+
+    move-result p1
+
+    if-lt p2, p1, :cond_4
 
     iget-object p0, p0, Lcom/android/settings/wifi/tether/TetherService$1;->this$0:Lcom/android/settings/wifi/tether/TetherService;
 
@@ -211,11 +215,11 @@
     :cond_4
     iget-object p0, p0, Lcom/android/settings/wifi/tether/TetherService$1;->this$0:Lcom/android/settings/wifi/tether/TetherService;
 
-    invoke-static {p0}, Lcom/android/settings/wifi/tether/TetherService;->access$300(Lcom/android/settings/wifi/tether/TetherService;)I
+    invoke-static {p0}, Lcom/android/settings/wifi/tether/TetherService;->-$$Nest$fgetmCurrentTypeIndex(Lcom/android/settings/wifi/tether/TetherService;)I
 
     move-result p1
 
-    invoke-static {p0, p1}, Lcom/android/settings/wifi/tether/TetherService;->access$700(Lcom/android/settings/wifi/tether/TetherService;I)V
+    invoke-static {p0, p1}, Lcom/android/settings/wifi/tether/TetherService;->-$$Nest$mstartProvisioning(Lcom/android/settings/wifi/tether/TetherService;I)V
 
     :goto_0
     return-void

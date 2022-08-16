@@ -185,8 +185,8 @@
         <item quantity="one">Maksimum %d ta raqam</item>
     </plurals>
     <plurals name="lockpassword_pin_too_short">
-        <item quantity="other">Kamida %d ta raqam</item>
-        <item quantity="one">Kamida %d ta raqam</item>
+        <item quantity="other">PIN kod uchun kamida %d ta raqam kiriting</item>
+        <item quantity="one">PIN kod uchun kamida %d ta raqam kiriting</item>
     </plurals>
     <plurals name="manage_notification_access_summary_nonzero">
         <item quantity="other">%d ilova bildirishnomalarni o‘qishi mumkin</item>
@@ -233,11 +233,11 @@
         <item quantity="one">%d ta turkum nofaol</item>
     </plurals>
     <plurals name="notifications_sent_daily">
-        <item quantity="other">~%d ta bildirishnoma (kuniga)</item>
+        <item quantity="other">~%,d ta bildirishnoma (kuniga)</item>
         <item quantity="one">~%d ta bildirishnoma (kuniga)</item>
     </plurals>
     <plurals name="notifications_sent_weekly">
-        <item quantity="other">~%d ta bildirishnoma (haftasiga)</item>
+        <item quantity="other">~%,d ta bildirishnoma (haftasiga)</item>
         <item quantity="one">~%d ta bildirishnoma (haftasiga)</item>
     </plurals>
     <plurals name="number_of_device_admins">
@@ -328,22 +328,6 @@
         <item quantity="other">Sertifikatlarni ishonchli deb belgilash yoki o‘chirib tashlash</item>
         <item quantity="one">Sertifikatni ishonchli deb belgilash yoki o‘chirib tashlash</item>
     </plurals>
-    <plurals name="ssl_ca_cert_info_message">
-        <item quantity="other">"%s domeni administratori ishchi profilingiz uchun xavfsizlik sertifikatlarini o‘rnatdi. Bularning yordamida korporativ tarmoq faoliyati, jumladan, e-pochta xatlari, ilovalar va xavfsiz saytlar nazorat qilinishi mumkin.
-
-Bu sertifikatlar haqida batafsil ma’lumot olish uchun administratoringiz bilan bog‘laning."</item>
-        <item quantity="one">"%s domeni administratori ishchi profilingiz uchun xavfsizlik sertifikatini o‘rnatdi. Buning yordamida korporativ tarmoq faoliyati, jumladan, e-pochta xatlari, ilovalar va xavfsiz saytlar nazorat qilinishi mumkin.
-
-Bu sertifikat haqida batafsil ma’lumot olish uchun administratoringiz bilan bog‘laning."</item>
-    </plurals>
-    <plurals name="ssl_ca_cert_info_message_device_owner">
-        <item quantity="other">"%s domeni administratori qurilmangizga xavfsizlik sertifikatlarini o‘rnatdi. Buning yordamida qurilmadagi tarmoq faoliyati, jumladan, e-pochta xatlari, ilovalar va xavfsiz saytlar nazorat qilinishi mumkin.
-
-Bu sertifikatlar haqida batafsil ma’lumot olish uchun administratoringiz bilan bog‘laning."</item>
-        <item quantity="one">"%s domeni administratori qurilmangizga xavfsizlik sertifikatini o‘rnatdi. Buning yordamida qurilmadagi tarmoq faoliyati, jumladan, e-pochta xatlari, ilovalar va xavfsiz saytlar nazorat qilinishi mumkin.
-
-Bu sertifikat haqida batafsil ma’lumot olish uchun administratoringiz bilan bog‘laning."</item>
-    </plurals>
     <plurals name="ssl_ca_cert_settings_button">
         <item quantity="other">Sertifikatlarni tekshirish</item>
         <item quantity="one">Sertifikatni tekshirish</item>
@@ -375,10 +359,6 @@ Bu sertifikat haqida batafsil ma’lumot olish uchun administratoringiz bilan bo
     <plurals name="wifi_saved_passpoint_access_points_summary">
         <item quantity="other">%d ta obuna</item>
         <item quantity="one">1 ta obuna</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$d ta qurilma ulangan</item>
-        <item quantity="one">%1$d ta qurilma ulangan</item>
     </plurals>
     <plurals name="wrong_pin_code">
         <item quantity="other">SIM kartaning PIN kodi xato. Qurilma qulfini ochish uchun sizda yana %d ta urinish qoldi.</item>

@@ -233,11 +233,11 @@
         <item quantity="one">%d категория өчүк</item>
     </plurals>
     <plurals name="notifications_sent_daily">
-        <item quantity="other">Күнүнө болжол менен %d билдирме</item>
+        <item quantity="other">Күнүнө болжол менен %,d билдирме</item>
         <item quantity="one">Күнүнө болжол менен %d билдирме</item>
     </plurals>
     <plurals name="notifications_sent_weekly">
-        <item quantity="other">Аптасына болжол менен %d билдирме</item>
+        <item quantity="other">Аптасына болжол менен %,d билдирме</item>
         <item quantity="one">Аптасына болжол менен %d билдирме</item>
     </plurals>
     <plurals name="number_of_device_admins">
@@ -328,22 +328,6 @@
         <item quantity="other">Тастыктамаларды кабыл алыңыз же өчүрүп салыңыз</item>
         <item quantity="one">Тастыктаманы кабыл алыңыз же өчүрүп салыңыз</item>
     </plurals>
-    <plurals name="ssl_ca_cert_info_message">
-        <item quantity="other">"%s доменинин администратору жумуш профилиңизге ТБнун тастыктамаларын орнотту. Ушуну менен ал жумуш тармагындагы аракеттериңизге, электрондук почтанын жана колдонмолордун пайдаланылышына, ошондой эле кандай веб-сайттарга кирип жатканыңызды көзөмөлдөп турат.
-
-Бул тастыктамалар тууралуу көбүрөөк маалымат үчүн администраторуңузга кайрылыңыз."</item>
-        <item quantity="one">"%s доменинин администратору жумуш профилиңизге ТБнун тастыктамасын орнотту. Ушуну менен ал жумуш тармагындагы аракеттериңизге, электрондук почтанын жана колдонмолордун пайдаланылышына, ошондой эле кандай веб-сайттарга кирип жатканыңызды көзөмөлдөп турат.
-
-Бул тастыктама тууралуу көбүрөөк маалымат алуу үчүн администраторуңузга кайрылыңыз."</item>
-    </plurals>
-    <plurals name="ssl_ca_cert_info_message_device_owner">
-        <item quantity="other">"%s түзмөгүңүзгө ыйгарым укуктуу күбөлүгүн орнотту, ушуну менен алар түзмөгүңүздүн тармак ишин, электрондук почталарды, колдонмолорду жана коопсуз сайттарды көзөмөлдөө мүмкүнчүлүгүн алышы мүмкүн.
-
-Бул тастыктамалар тууралуу көбүрөөк маалымат үчүн администраторуңузга кайрылыңыз."</item>
-        <item quantity="one">"%s түзмөгүңүзгө ыйгарым укуктуу күбөлүгүн орнотту, ушуну менен алар түзмөгүңүздүн тармак ишин, электрондук почталарды, колдонмолорду жана коопсуз сайттарды көзөмөлдөө мүмкүнчүлүгүн алышы мүмкүн.
-
-Бул тастыктама тууралуу көбүрөөк маалымат алуу үчүн администраторуңузга кайрылыңыз."</item>
-    </plurals>
     <plurals name="ssl_ca_cert_settings_button">
         <item quantity="other">Тастыктамаларды текшерүү</item>
         <item quantity="one">Тастыктаманы текшерүү</item>
@@ -375,10 +359,6 @@
     <plurals name="wifi_saved_passpoint_access_points_summary">
         <item quantity="other">%d жазылуу</item>
         <item quantity="one">1 жазылуу</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$d түзмөк туташып турат</item>
-        <item quantity="one">%1$d түзмөк туташып турат</item>
     </plurals>
     <plurals name="wrong_pin_code">
         <item quantity="other">SIM PIN-коду туура эмес, сизде %d аракет калды.</item>

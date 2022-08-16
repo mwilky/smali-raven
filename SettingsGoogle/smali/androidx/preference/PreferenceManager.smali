@@ -32,8 +32,6 @@
 
 .field private mPreferenceComparisonCallback:Landroidx/preference/PreferenceManager$PreferenceComparisonCallback;
 
-.field private mPreferenceDataStore:Landroidx/preference/PreferenceDataStore;
-
 .field private mPreferenceScreen:Landroidx/preference/PreferenceScreen;
 
 .field private mSharedPreferences:Landroid/content/SharedPreferences;
@@ -256,7 +254,7 @@
 .method public getPreferenceDataStore()Landroidx/preference/PreferenceDataStore;
     .locals 0
 
-    iget-object p0, p0, Landroidx/preference/PreferenceManager;->mPreferenceDataStore:Landroidx/preference/PreferenceDataStore;
+    const/4 p0, 0x0
 
     return-object p0
 .end method

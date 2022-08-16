@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nSegmentedByteString.kt\nKotlin\n*S Kotlin\n*F\n+ 1 SegmentedByteString.kt\nokio/internal/SegmentedByteStringKt\n+ 2 fake.kt\nkotlin/jvm/internal/FakeKt\n*L\n1#1,227:1\n59#1,12:229\n81#1,14:241\n81#1,14:255\n81#1,14:269\n59#1,12:283\n1#2:228\n*E\n*S KotlinDebug\n*F\n+ 1 SegmentedByteString.kt\nokio/internal/SegmentedByteStringKt\n*L\n142#1,12:229\n153#1,14:241\n175#1,14:255\n195#1,14:269\n216#1,12:283\n*E\n"
+    value = "SMAP\nSegmentedByteString.kt\nKotlin\n*S Kotlin\n*F\n+ 1 SegmentedByteString.kt\nokio/internal/SegmentedByteStringKt\n+ 2 fake.kt\nkotlin/jvm/internal/FakeKt\n*L\n1#1,227:1\n59#1,12:229\n81#1,14:241\n81#1,14:255\n81#1,14:269\n59#1,12:283\n1#2:228\n*S KotlinDebug\n*F\n+ 1 SegmentedByteString.kt\nokio/internal/SegmentedByteStringKt\n*L\n142#1:229,12\n153#1:241,14\n175#1:255,14\n195#1:269,14\n216#1:283,12\n*E\n"
 .end annotation
 
 

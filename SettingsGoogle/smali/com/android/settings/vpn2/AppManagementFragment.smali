@@ -41,6 +41,26 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$misVpnAlwaysOn(Lcom/android/settings/vpn2/AppManagementFragment;)Z
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/vpn2/AppManagementFragment;->isVpnAlwaysOn()Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$msetAlwaysOnVpn(Lcom/android/settings/vpn2/AppManagementFragment;ZZ)Z
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/settings/vpn2/AppManagementFragment;->setAlwaysOnVpn(ZZ)Z
+
+    move-result p0
+
+    return p0
+.end method
+
 .method public constructor <init>()V
     .locals 1
 
@@ -59,26 +79,6 @@
     iput-object v0, p0, Lcom/android/settings/vpn2/AppManagementFragment;->mForgetVpnDialogFragmentListener:Lcom/android/settings/vpn2/AppDialogFragment$Listener;
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/vpn2/AppManagementFragment;)Z
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/vpn2/AppManagementFragment;->isVpnAlwaysOn()Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/vpn2/AppManagementFragment;ZZ)Z
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/settings/vpn2/AppManagementFragment;->setAlwaysOnVpn(ZZ)Z
-
-    move-result p0
-
-    return p0
 .end method
 
 .method static appHasVpnPermission(Landroid/content/Context;Landroid/content/pm/ApplicationInfo;)Z
@@ -616,7 +616,7 @@
 
     iget-object p0, p0, Lcom/android/settings/vpn2/AppManagementFragment;->mPreferenceAlwaysOn:Lcom/android/settingslib/RestrictedSwitchPreference;
 
-    const v0, 0x7f041565
+    const v0, 0x7f04165e
 
     invoke-virtual {p0, v0}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -635,7 +635,7 @@
 
     iget-object p0, p0, Lcom/android/settings/vpn2/AppManagementFragment;->mPreferenceAlwaysOn:Lcom/android/settingslib/RestrictedSwitchPreference;
 
-    const v0, 0x7f041567
+    const v0, 0x7f041660
 
     invoke-virtual {p0, v0}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -714,7 +714,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    const p1, 0x7f150109
+    const p1, 0x7f150111
 
     invoke-virtual {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->addPreferencesFromResource(I)V
 
@@ -980,7 +980,7 @@
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setKey(Ljava/lang/String;)V
 
-    const v1, 0x7f0415a6
+    const v1, 0x7f04169f
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setTitle(I)V
 

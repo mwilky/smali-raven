@@ -47,6 +47,22 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmBluetoothPan(Lcom/android/settings/network/TetherPreferenceController;)Ljava/util/concurrent/atomic/AtomicReference;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/network/TetherPreferenceController;->mBluetoothPan:Ljava/util/concurrent/atomic/AtomicReference;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$mupdateSummaryToOff(Lcom/android/settings/network/TetherPreferenceController;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/network/TetherPreferenceController;->updateSummaryToOff()V
+
+    return-void
+.end method
+
 .method constructor <init>()V
     .locals 2
 
@@ -128,28 +144,12 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/settings/network/TetherPreferenceController;)Ljava/util/concurrent/atomic/AtomicReference;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/network/TetherPreferenceController;->mBluetoothPan:Ljava/util/concurrent/atomic/AtomicReference;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/network/TetherPreferenceController;)Landroid/content/Context;
+.method static synthetic access$000(Lcom/android/settings/network/TetherPreferenceController;)Landroid/content/Context;
     .locals 0
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
     return-object p0
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/network/TetherPreferenceController;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/network/TetherPreferenceController;->updateSummaryToOff()V
-
-    return-void
 .end method
 
 .method public static isTetherConfigDisallowed(Landroid/content/Context;)Z
@@ -188,7 +188,7 @@
     return-void
 
     :cond_0
-    const v0, 0x7f04139f
+    const v0, 0x7f041467
 
     invoke-virtual {p0, v0}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -573,7 +573,7 @@
 
     iget-object p0, p0, Lcom/android/settings/network/TetherPreferenceController;->mPreference:Landroidx/preference/Preference;
 
-    const v0, 0x7f04139f
+    const v0, 0x7f041467
 
     invoke-virtual {p0, v0}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -586,7 +586,7 @@
 
     iget-object p0, p0, Lcom/android/settings/network/TetherPreferenceController;->mPreference:Landroidx/preference/Preference;
 
-    const v0, 0x7f0413d9
+    const v0, 0x7f0414d3
 
     invoke-virtual {p0, v0}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -597,7 +597,7 @@
 
     iget-object p0, p0, Lcom/android/settings/network/TetherPreferenceController;->mPreference:Landroidx/preference/Preference;
 
-    const v0, 0x7f0413d8
+    const v0, 0x7f0414d2
 
     invoke-virtual {p0, v0}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -606,7 +606,7 @@
     :cond_c
     iget-object p0, p0, Lcom/android/settings/network/TetherPreferenceController;->mPreference:Landroidx/preference/Preference;
 
-    const v0, 0x7f0413d7
+    const v0, 0x7f0414d1
 
     invoke-virtual {p0, v0}, Landroidx/preference/Preference;->setSummary(I)V
 

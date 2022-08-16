@@ -143,8 +143,6 @@
 
     move-result-object v0
 
-    const/4 v1, 0x0
-
     if-eqz v0, :cond_0
 
     invoke-virtual {v0}, Ljava/lang/Package;->getName()Ljava/lang/String;
@@ -154,16 +152,10 @@
     goto :goto_0
 
     :cond_0
-    move-object v0, v1
+    const/4 v0, 0x0
 
     :goto_0
     sput-object v0, Landroidx/coordinatorlayout/widget/CoordinatorLayout;->WIDGET_PACKAGE_NAME:Ljava/lang/String;
-
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v2, 0x15
-
-    if-lt v0, v2, :cond_1
 
     new-instance v0, Landroidx/coordinatorlayout/widget/CoordinatorLayout$ViewElevationComparator;
 
@@ -171,12 +163,6 @@
 
     sput-object v0, Landroidx/coordinatorlayout/widget/CoordinatorLayout;->TOP_SORTED_CHILDREN_COMPARATOR:Ljava/util/Comparator;
 
-    goto :goto_1
-
-    :cond_1
-    sput-object v1, Landroidx/coordinatorlayout/widget/CoordinatorLayout;->TOP_SORTED_CHILDREN_COMPARATOR:Ljava/util/Comparator;
-
-    :goto_1
     const/4 v0, 0x2
 
     new-array v0, v0, [Ljava/lang/Class;
@@ -2263,26 +2249,17 @@
 .end method
 
 .method private setupForInsets()V
-    .locals 2
+    .locals 1
 
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    if-ge v0, v1, :cond_0
-
-    return-void
-
-    :cond_0
     invoke-static {p0}, Landroidx/core/view/ViewCompat;->getFitsSystemWindows(Landroid/view/View;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Landroidx/coordinatorlayout/widget/CoordinatorLayout;->mApplyWindowInsetsListener:Landroidx/core/view/OnApplyWindowInsetsListener;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_0
 
     new-instance v0, Landroidx/coordinatorlayout/widget/CoordinatorLayout$1;
 
@@ -2290,7 +2267,7 @@
 
     iput-object v0, p0, Landroidx/coordinatorlayout/widget/CoordinatorLayout;->mApplyWindowInsetsListener:Landroidx/core/view/OnApplyWindowInsetsListener;
 
-    :cond_1
+    :cond_0
     iget-object v0, p0, Landroidx/coordinatorlayout/widget/CoordinatorLayout;->mApplyWindowInsetsListener:Landroidx/core/view/OnApplyWindowInsetsListener;
 
     invoke-static {p0, v0}, Landroidx/core/view/ViewCompat;->setOnApplyWindowInsetsListener(Landroid/view/View;Landroidx/core/view/OnApplyWindowInsetsListener;)V
@@ -2301,7 +2278,7 @@
 
     goto :goto_0
 
-    :cond_2
+    :cond_1
     const/4 v0, 0x0
 
     invoke-static {p0, v0}, Landroidx/core/view/ViewCompat;->setOnApplyWindowInsetsListener(Landroid/view/View;Landroidx/core/view/OnApplyWindowInsetsListener;)V

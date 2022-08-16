@@ -496,36 +496,38 @@
 .end method
 
 .method public getBatteryInfo(Ljava/lang/String;)Lcom/android/settings/fuelgauge/BatteryInfo;
-    .locals 18
+    .locals 19
 
     move-object/from16 v1, p0
 
     move-object/from16 v2, p1
 
+    const-string v3, "BatteryUtils"
+
     iget-object v0, v1, Lcom/android/settings/fuelgauge/BatteryUtils;->mContext:Landroid/content/Context;
 
-    const-class v3, Landroid/os/BatteryStatsManager;
+    const-class v4, Landroid/os/BatteryStatsManager;
 
-    invoke-virtual {v0, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-virtual {v0, v4}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Landroid/os/BatteryStatsManager;
 
     :try_start_0
-    new-instance v3, Landroid/os/BatteryUsageStatsQuery$Builder;
+    new-instance v4, Landroid/os/BatteryUsageStatsQuery$Builder;
 
-    invoke-direct {v3}, Landroid/os/BatteryUsageStatsQuery$Builder;-><init>()V
+    invoke-direct {v4}, Landroid/os/BatteryUsageStatsQuery$Builder;-><init>()V
 
-    invoke-virtual {v3}, Landroid/os/BatteryUsageStatsQuery$Builder;->includeBatteryHistory()Landroid/os/BatteryUsageStatsQuery$Builder;
+    invoke-virtual {v4}, Landroid/os/BatteryUsageStatsQuery$Builder;->includeBatteryHistory()Landroid/os/BatteryUsageStatsQuery$Builder;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v3}, Landroid/os/BatteryUsageStatsQuery$Builder;->build()Landroid/os/BatteryUsageStatsQuery;
+    invoke-virtual {v4}, Landroid/os/BatteryUsageStatsQuery$Builder;->build()Landroid/os/BatteryUsageStatsQuery;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v0, v3}, Landroid/os/BatteryStatsManager;->getBatteryUsageStats(Landroid/os/BatteryUsageStatsQuery;)Landroid/os/BatteryUsageStats;
+    invoke-virtual {v0, v4}, Landroid/os/BatteryStatsManager;->getBatteryUsageStats(Landroid/os/BatteryUsageStatsQuery;)Landroid/os/BatteryUsageStats;
 
     move-result-object v0
     :try_end_0
@@ -536,44 +538,40 @@
     :catch_0
     move-exception v0
 
-    const-string v3, "BatteryUtils"
-
     const-string v4, "getBatteryInfo() error from getBatteryUsageStats()"
 
     invoke-static {v3, v4, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     new-instance v0, Landroid/os/BatteryUsageStats$Builder;
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    new-array v4, v3, [Ljava/lang/String;
+    new-array v4, v4, [Ljava/lang/String;
 
-    invoke-direct {v0, v4, v3}, Landroid/os/BatteryUsageStats$Builder;-><init>([Ljava/lang/String;Z)V
+    invoke-direct {v0, v4}, Landroid/os/BatteryUsageStats$Builder;-><init>([Ljava/lang/String;)V
 
     invoke-virtual {v0}, Landroid/os/BatteryUsageStats$Builder;->build()Landroid/os/BatteryUsageStats;
 
     move-result-object v0
 
     :goto_0
-    move-object v5, v0
-
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v10
+    move-result-wide v11
 
-    iget-object v0, v1, Lcom/android/settings/fuelgauge/BatteryUtils;->mContext:Landroid/content/Context;
+    iget-object v4, v1, Lcom/android/settings/fuelgauge/BatteryUtils;->mContext:Landroid/content/Context;
 
-    const/4 v3, 0x0
+    const/4 v5, 0x0
 
-    new-instance v4, Landroid/content/IntentFilter;
+    new-instance v6, Landroid/content/IntentFilter;
 
-    const-string v6, "android.intent.action.BATTERY_CHANGED"
+    const-string v7, "android.intent.action.BATTERY_CHANGED"
 
-    invoke-direct {v4, v6}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
+    invoke-direct {v6, v7}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0, v3, v4}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+    invoke-virtual {v4, v5, v6}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    move-result-object v4
+    move-result-object v5
 
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
@@ -581,48 +579,67 @@
 
     invoke-static {v6, v7}, Lcom/android/settingslib/utils/PowerUtil;->convertMsToUs(J)J
 
-    move-result-wide v7
+    move-result-wide v8
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/fuelgauge/BatteryUtils;->getEnhancedEstimate()Lcom/android/settingslib/fuelgauge/Estimate;
 
-    move-result-object v0
+    move-result-object v4
 
-    if-nez v0, :cond_0
+    if-nez v4, :cond_0
 
-    new-instance v0, Lcom/android/settingslib/fuelgauge/Estimate;
+    new-instance v4, Lcom/android/settingslib/fuelgauge/Estimate;
 
-    invoke-virtual {v5}, Landroid/os/BatteryUsageStats;->getBatteryTimeRemainingMs()J
+    invoke-virtual {v0}, Landroid/os/BatteryUsageStats;->getBatteryTimeRemainingMs()J
 
-    move-result-wide v13
+    move-result-wide v14
 
-    const/4 v15, 0x0
+    const/16 v16, 0x0
 
-    const-wide/16 v16, -0x1
+    const-wide/16 v17, -0x1
 
-    move-object v12, v0
+    move-object v13, v4
 
-    invoke-direct/range {v12 .. v17}, Lcom/android/settingslib/fuelgauge/Estimate;-><init>(JZJ)V
+    invoke-direct/range {v13 .. v18}, Lcom/android/settingslib/fuelgauge/Estimate;-><init>(JZJ)V
 
     :cond_0
+    move-object v7, v4
+
+    const-string v4, "BatteryInfoLoader post query"
+
+    invoke-static {v2, v4, v11, v12}, Lcom/android/settings/fuelgauge/BatteryUtils;->logRuntime(Ljava/lang/String;Ljava/lang/String;J)V
+
+    iget-object v4, v1, Lcom/android/settings/fuelgauge/BatteryUtils;->mContext:Landroid/content/Context;
+
+    const/4 v10, 0x0
+
     move-object v6, v0
 
-    const-string v0, "BatteryInfoLoader post query"
+    invoke-static/range {v4 .. v10}, Lcom/android/settings/fuelgauge/BatteryInfo;->getBatteryInfo(Landroid/content/Context;Landroid/content/Intent;Landroid/os/BatteryUsageStats;Lcom/android/settingslib/fuelgauge/Estimate;JZ)Lcom/android/settings/fuelgauge/BatteryInfo;
 
-    invoke-static {v2, v0, v10, v11}, Lcom/android/settings/fuelgauge/BatteryUtils;->logRuntime(Ljava/lang/String;Ljava/lang/String;J)V
+    move-result-object v1
 
-    iget-object v3, v1, Lcom/android/settings/fuelgauge/BatteryUtils;->mContext:Landroid/content/Context;
+    const-string v4, "BatteryInfoLoader.loadInBackground"
 
-    const/4 v9, 0x0
+    invoke-static {v2, v4, v11, v12}, Lcom/android/settings/fuelgauge/BatteryUtils;->logRuntime(Ljava/lang/String;Ljava/lang/String;J)V
 
-    invoke-static/range {v3 .. v9}, Lcom/android/settings/fuelgauge/BatteryInfo;->getBatteryInfo(Landroid/content/Context;Landroid/content/Intent;Landroid/os/BatteryUsageStats;Lcom/android/settingslib/fuelgauge/Estimate;JZ)Lcom/android/settings/fuelgauge/BatteryInfo;
+    :try_start_1
+    invoke-virtual {v0}, Landroid/os/BatteryUsageStats;->close()V
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
 
-    move-result-object v0
+    goto :goto_1
 
-    const-string v1, "BatteryInfoLoader.loadInBackground"
+    :catch_1
+    move-exception v0
 
-    invoke-static {v2, v1, v10, v11}, Lcom/android/settings/fuelgauge/BatteryUtils;->logRuntime(Ljava/lang/String;Ljava/lang/String;J)V
+    move-object v2, v0
 
-    return-object v0
+    const-string v0, "BatteryUsageStats.close() failed"
+
+    invoke-static {v3, v0, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    :goto_1
+    return-object v1
 .end method
 
 .method getEnhancedEstimate()Lcom/android/settingslib/fuelgauge/Estimate;
@@ -1143,31 +1160,33 @@
 .end method
 
 .method shouldHideUidBatteryConsumerUnconditionally(Landroid/os/UidBatteryConsumer;[Ljava/lang/String;)Z
-    .locals 0
+    .locals 2
 
     invoke-virtual {p1}, Landroid/os/UidBatteryConsumer;->getUid()I
 
     move-result p1
 
+    const/4 v0, 0x0
+
+    const/4 v1, -0x5
+
+    if-ne p1, v1, :cond_0
+
+    goto :goto_0
+
+    :cond_0
     if-ltz p1, :cond_1
 
     invoke-virtual {p0, p2}, Lcom/android/settings/fuelgauge/BatteryUtils;->isHiddenSystemModule([Ljava/lang/String;)Z
 
     move-result p0
 
-    if-eqz p0, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    goto :goto_1
+    if-eqz p0, :cond_2
 
     :cond_1
-    :goto_0
-    const/4 p0, 0x1
+    const/4 v0, 0x1
 
-    :goto_1
-    return p0
+    :cond_2
+    :goto_0
+    return v0
 .end method

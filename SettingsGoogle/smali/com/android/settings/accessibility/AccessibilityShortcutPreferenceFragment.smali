@@ -9,30 +9,60 @@
 # instance fields
 .field private mHardwareTypeCheckBox:Landroid/widget/CheckBox;
 
+.field private mNeedsQSTooltipReshow:Z
+
+.field private mNeedsQSTooltipType:I
+
 .field protected mSavedCheckBoxValue:I
 
-.field private mSettingsContentObserver:Lcom/android/settings/accessibility/SettingsContentObserver;
+.field private mSettingsContentObserver:Lcom/android/settings/accessibility/AccessibilitySettingsContentObserver;
 
 .field protected mShortcutPreference:Lcom/android/settings/accessibility/ShortcutPreference;
 
 .field private mSoftwareTypeCheckBox:Landroid/widget/CheckBox;
 
+.field private mTooltipWindow:Lcom/android/settings/accessibility/AccessibilityQuickSettingsTooltipWindow;
+
 .field private mTouchExplorationStateChangeListener:Landroid/view/accessibility/AccessibilityManager$TouchExplorationStateChangeListener;
 
 
 # direct methods
-.method public static synthetic $r8$lambda$FH-6fTGP3DRP6tzRGtttGuBw92Y(Landroid/widget/CheckBox;Landroid/view/View;)V
+.method public static synthetic $r8$lambda$I7HfkfatRuwWwenoopQNoK2Abco(Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;Ljava/lang/String;)V
     .locals 0
 
-    invoke-static {p0, p1}, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;->lambda$setDialogTextAreaClickListener$1(Landroid/widget/CheckBox;Landroid/view/View;)V
+    invoke-direct {p0, p1}, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;->lambda$onCreate$0(Ljava/lang/String;)V
 
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$gkK56jCmKEpb9ogpgjKUjY4dBcM(Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;Z)V
+.method public static synthetic $r8$lambda$Or6vYsJYbVjD0KUD0NaFY6QFLvY(Landroid/widget/CheckBox;Landroid/view/View;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;->lambda$onCreateView$0(Z)V
+    invoke-static {p0, p1}, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;->lambda$setDialogTextAreaClickListener$2(Landroid/widget/CheckBox;Landroid/view/View;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$rh8qJebthaxctaoLXny6ZPAB8Ag(Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;Z)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;->lambda$onCreateView$1(Z)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$tbii-VnwYIbuKO_4Xb2lgWO6tQ8(Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;->showQuickSettingsTooltipIfNeeded()V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$ubkvlx096e0PNLqSuvzFmt_2kWc(Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;Landroid/content/DialogInterface;I)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;->callOnTutorialDialogButtonClicked(Landroid/content/DialogInterface;I)V
 
     return-void
 .end method
@@ -45,6 +75,22 @@
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;->mSavedCheckBoxValue:I
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;->mNeedsQSTooltipReshow:Z
+
+    iput v0, p0, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;->mNeedsQSTooltipType:I
+
+    return-void
+.end method
+
+.method private callOnTutorialDialogButtonClicked(Landroid/content/DialogInterface;I)V
+    .locals 0
+
+    invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
+
+    invoke-direct {p0}, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;->showQuickSettingsTooltipIfNeeded()V
 
     return-void
 .end method
@@ -67,7 +113,17 @@
     return p0
 .end method
 
-.method private synthetic lambda$onCreateView$0(Z)V
+.method private synthetic lambda$onCreate$0(Ljava/lang/String;)V
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;->updateShortcutPreferenceData()V
+
+    invoke-virtual {p0}, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;->updateShortcutPreference()V
+
+    return-void
+.end method
+
+.method private synthetic lambda$onCreateView$1(Z)V
     .locals 1
 
     const/4 p1, 0x1
@@ -89,7 +145,7 @@
     return-void
 .end method
 
-.method private static synthetic lambda$setDialogTextAreaClickListener$1(Landroid/widget/CheckBox;Landroid/view/View;)V
+.method private static synthetic lambda$setDialogTextAreaClickListener$2(Landroid/widget/CheckBox;Landroid/view/View;)V
     .locals 0
 
     invoke-virtual {p0}, Landroid/widget/CheckBox;->toggle()V
@@ -112,17 +168,106 @@
 .method private setDialogTextAreaClickListener(Landroid/view/View;Landroid/widget/CheckBox;)V
     .locals 0
 
-    const p0, 0x7f0d0173
+    const p0, 0x7f0d0188
 
     invoke-virtual {p1, p0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object p0
 
-    new-instance p1, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment$$ExternalSyntheticLambda1;
+    new-instance p1, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment$$ExternalSyntheticLambda5;
 
-    invoke-direct {p1, p2}, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment$$ExternalSyntheticLambda1;-><init>(Landroid/widget/CheckBox;)V
+    invoke-direct {p1, p2}, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment$$ExternalSyntheticLambda5;-><init>(Landroid/widget/CheckBox;)V
 
     invoke-virtual {p0, p1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    return-void
+.end method
+
+.method private showQuickSettingsTooltipIfNeeded()V
+    .locals 5
+
+    invoke-virtual {p0}, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;->getTileComponentName()Landroid/content/ComponentName;
+
+    move-result-object v0
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
+    iget-boolean v1, p0, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;->mNeedsQSTooltipReshow:Z
+
+    if-nez v1, :cond_1
+
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-static {v1, v0}, Lcom/android/settings/accessibility/AccessibilityQuickSettingUtils;->hasValueInSharedPreferences(Landroid/content/Context;Landroid/content/ComponentName;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    return-void
+
+    :cond_1
+    iget v1, p0, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;->mNeedsQSTooltipType:I
+
+    invoke-virtual {p0, v1}, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;->getTileTooltipContent(I)Ljava/lang/CharSequence;
+
+    move-result-object v1
+
+    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    return-void
+
+    :cond_2
+    iget v2, p0, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;->mNeedsQSTooltipType:I
+
+    if-nez v2, :cond_3
+
+    const v2, 0x7f0200f7
+
+    goto :goto_0
+
+    :cond_3
+    const v2, 0x7f0200ed
+
+    :goto_0
+    new-instance v3, Lcom/android/settings/accessibility/AccessibilityQuickSettingsTooltipWindow;
+
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
+
+    move-result-object v4
+
+    invoke-direct {v3, v4}, Lcom/android/settings/accessibility/AccessibilityQuickSettingsTooltipWindow;-><init>(Landroid/content/Context;)V
+
+    iput-object v3, p0, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;->mTooltipWindow:Lcom/android/settings/accessibility/AccessibilityQuickSettingsTooltipWindow;
+
+    invoke-virtual {v3, v1, v2}, Lcom/android/settings/accessibility/AccessibilityQuickSettingsTooltipWindow;->setup(Ljava/lang/CharSequence;I)V
+
+    iget-object v1, p0, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;->mTooltipWindow:Lcom/android/settings/accessibility/AccessibilityQuickSettingsTooltipWindow;
+
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getView()Landroid/view/View;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Lcom/android/settings/accessibility/AccessibilityQuickSettingsTooltipWindow;->showAtTopCenter(Landroid/view/View;)V
+
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-static {v1, v0}, Lcom/android/settings/accessibility/AccessibilityQuickSettingUtils;->optInValueToSharedPreferences(Landroid/content/Context;Landroid/content/ComponentName;)V
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;->mNeedsQSTooltipReshow:Z
 
     return-void
 .end method
@@ -234,8 +379,6 @@
 
     invoke-static {p2, v0, v1}, Lcom/android/settings/accessibility/AccessibilityUtil;->optOutAllValuesFromSettings(Landroid/content/Context;ILandroid/content/ComponentName;)V
 
-    iget-object p2, p0, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;->mShortcutPreference:Lcom/android/settings/accessibility/ShortcutPreference;
-
     if-eqz p1, :cond_1
 
     const/4 p1, 0x1
@@ -246,20 +389,42 @@
     const/4 p1, 0x0
 
     :goto_0
+    iget-object p2, p0, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;->mShortcutPreference:Lcom/android/settings/accessibility/ShortcutPreference;
+
     invoke-virtual {p2, p1}, Lcom/android/settings/accessibility/ShortcutPreference;->setChecked(Z)V
 
-    iget-object p1, p0, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;->mShortcutPreference:Lcom/android/settings/accessibility/ShortcutPreference;
+    iget-object p2, p0, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;->mShortcutPreference:Lcom/android/settings/accessibility/ShortcutPreference;
+
+    invoke-virtual {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->getPrefContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;->getShortcutTypeSummary(Landroid/content/Context;)Ljava/lang/CharSequence;
+
+    move-result-object v0
+
+    invoke-virtual {p2, v0}, Landroidx/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
+
+    iget-object p2, p0, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;->mHardwareTypeCheckBox:Landroid/widget/CheckBox;
+
+    invoke-virtual {p2}, Landroid/widget/CheckBox;->isChecked()Z
+
+    move-result p2
+
+    if-eqz p2, :cond_2
 
     invoke-virtual {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->getPrefContext()Landroid/content/Context;
 
     move-result-object p2
 
-    invoke-virtual {p0, p2}, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;->getShortcutTypeSummary(Landroid/content/Context;)Ljava/lang/CharSequence;
+    invoke-static {p2}, Lcom/android/settings/accessibility/AccessibilityUtil;->skipVolumeShortcutDialogTimeoutRestriction(Landroid/content/Context;)V
 
-    move-result-object p0
+    :cond_2
+    if-eqz p1, :cond_3
 
-    invoke-virtual {p1, p0}, Landroidx/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-direct {p0}, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;->showQuickSettingsTooltipIfNeeded()V
 
+    :cond_3
     return-void
 .end method
 
@@ -318,7 +483,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f04011a
+    const p1, 0x7f040133
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -334,6 +499,30 @@
     .locals 0
 
     const-string/jumbo p0, "shortcut_preference"
+
+    return-object p0
+.end method
+
+.method protected getShortcutTitle()Ljava/lang/CharSequence;
+    .locals 3
+
+    const/4 v0, 0x1
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    invoke-virtual {p0}, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;->getLabelName()Ljava/lang/CharSequence;
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const v1, 0x7f040157
+
+    invoke-virtual {p0, v1, v0}, Landroidx/fragment/app/Fragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object p0
 
     return-object p0
 .end method
@@ -387,7 +576,7 @@
 
     if-nez v0, :cond_0
 
-    const p0, 0x7f040130
+    const p0, 0x7f04014b
 
     invoke-virtual {p1, p0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -404,7 +593,7 @@
 
     if-nez v0, :cond_1
 
-    const p0, 0x7f04139f
+    const p0, 0x7f041467
 
     invoke-virtual {p1, p0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -431,7 +620,7 @@
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
-    const v3, 0x7f040136
+    const v3, 0x7f040151
 
     invoke-virtual {p1, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -454,7 +643,7 @@
 
     if-eqz p0, :cond_3
 
-    const p0, 0x7f040138
+    const p0, 0x7f040153
 
     invoke-virtual {p1, p0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -499,6 +688,12 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method protected abstract getTileComponentName()Landroid/content/ComponentName;
+.end method
+
+.method protected abstract getTileTooltipContent(I)Ljava/lang/CharSequence;
 .end method
 
 .method protected getUserShortcutTypes()I
@@ -556,7 +751,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/dashboard/DashboardFragment;->onCreate(Landroid/os/Bundle;)V
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_2
 
     const-string/jumbo v0, "shortcut_type"
 
@@ -570,16 +765,46 @@
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
 
-    move-result p1
+    move-result v0
 
-    iput p1, p0, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;->mSavedCheckBoxValue:I
+    iput v0, p0, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;->mSavedCheckBoxValue:I
 
     :cond_0
+    const-string/jumbo v0, "qs_tooltip_reshow"
+
+    invoke-virtual {p1, v0}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
+
+    move-result v0
+
+    iput-boolean v0, p0, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;->mNeedsQSTooltipReshow:Z
+
+    :cond_1
+    const-string/jumbo v0, "qs_tooltip_type"
+
+    invoke-virtual {p1, v0}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
+
+    move-result p1
+
+    iput p1, p0, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;->mNeedsQSTooltipType:I
+
+    :cond_2
     invoke-virtual {p0}, Lcom/android/settings/dashboard/DashboardFragment;->getPreferenceScreenResId()I
 
     move-result p1
 
-    if-gtz p1, :cond_1
+    if-gtz p1, :cond_3
 
     invoke-virtual {p0}, Landroidx/preference/PreferenceFragmentCompat;->getPreferenceManager()Landroidx/preference/PreferenceManager;
 
@@ -595,16 +820,16 @@
 
     invoke-virtual {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->setPreferenceScreen(Landroidx/preference/PreferenceScreen;)V
 
-    :cond_1
+    :cond_3
     invoke-virtual {p0}, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;->showGeneralCategory()Z
 
     move-result p1
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_4
 
     invoke-virtual {p0}, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;->initGeneralCategory()V
 
-    :cond_2
+    :cond_4
     new-instance p1, Ljava/util/ArrayList;
 
     invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
@@ -617,31 +842,35 @@
 
     invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    new-instance v0, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment$1;
+    new-instance v0, Lcom/android/settings/accessibility/AccessibilitySettingsContentObserver;
 
     new-instance v1, Landroid/os/Handler;
 
     invoke-direct {v1}, Landroid/os/Handler;-><init>()V
 
-    invoke-direct {v0, p0, v1, p1}, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment$1;-><init>(Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;Landroid/os/Handler;Ljava/util/List;)V
+    invoke-direct {v0, v1}, Lcom/android/settings/accessibility/AccessibilitySettingsContentObserver;-><init>(Landroid/os/Handler;)V
 
-    iput-object v0, p0, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;->mSettingsContentObserver:Lcom/android/settings/accessibility/SettingsContentObserver;
+    iput-object v0, p0, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;->mSettingsContentObserver:Lcom/android/settings/accessibility/AccessibilitySettingsContentObserver;
+
+    new-instance v1, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment$$ExternalSyntheticLambda0;
+
+    invoke-direct {v1, p0}, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;)V
+
+    invoke-virtual {v0, p1, v1}, Lcom/android/settings/accessibility/AccessibilitySettingsContentObserver;->registerKeysToObserverCallback(Ljava/util/List;Lcom/android/settings/accessibility/AccessibilitySettingsContentObserver$ContentObserverCallback;)V
 
     return-void
 .end method
 
 .method public onCreateDialog(I)Landroid/app/Dialog;
-    .locals 4
+    .locals 3
 
-    const/4 v0, 0x0
+    const/4 v0, 0x1
 
-    const/4 v1, 0x1
+    if-eq p1, v0, :cond_1
 
-    if-eq p1, v1, :cond_1
+    const/16 v0, 0x3f0
 
-    const/16 v1, 0x3f0
-
-    if-ne p1, v1, :cond_0
+    if-ne p1, v0, :cond_0
 
     invoke-virtual {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->getPrefContext()Landroid/content/Context;
 
@@ -649,13 +878,19 @@
 
     invoke-virtual {p0}, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;->getUserShortcutTypes()I
 
-    move-result p0
+    move-result v0
 
-    invoke-static {p1, p0}, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial;->createAccessibilityTutorialDialog(Landroid/content/Context;I)Landroidx/appcompat/app/AlertDialog;
+    new-instance v1, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment$$ExternalSyntheticLambda2;
+
+    invoke-direct {v1, p0}, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;)V
+
+    invoke-static {p1, v0, v1}, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial;->createAccessibilityTutorialDialog(Landroid/content/Context;ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog;
 
     move-result-object p0
 
-    invoke-virtual {p0, v0}, Landroid/app/Dialog;->setCanceledOnTouchOutside(Z)V
+    const/4 p1, 0x0
+
+    invoke-virtual {p0, p1}, Landroid/app/Dialog;->setCanceledOnTouchOutside(Z)V
 
     return-object p0
 
@@ -681,41 +916,27 @@
     throw p0
 
     :cond_1
-    invoke-virtual {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->getPrefContext()Landroid/content/Context;
-
-    move-result-object p1
-
-    const v2, 0x7f04013c
-
-    new-array v1, v1, [Ljava/lang/Object;
-
-    invoke-virtual {p0}, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;->getLabelName()Ljava/lang/CharSequence;
-
-    move-result-object v3
-
-    aput-object v3, v1, v0
-
-    invoke-virtual {p1, v2, v1}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object p1
-
     invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getIntent()Landroid/content/Intent;
+
+    move-result-object p1
+
+    invoke-static {p1}, Lcom/google/android/setupcompat/util/WizardManagerHelper;->isAnySetupWizard(Landroid/content/Intent;)Z
+
+    move-result p1
+
+    invoke-virtual {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->getPrefContext()Landroid/content/Context;
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/google/android/setupcompat/util/WizardManagerHelper;->isAnySetupWizard(Landroid/content/Intent;)Z
-
-    move-result v0
-
-    invoke-virtual {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->getPrefContext()Landroid/content/Context;
+    invoke-virtual {p0}, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;->getShortcutTitle()Ljava/lang/CharSequence;
 
     move-result-object v1
 
-    new-instance v2, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment$$ExternalSyntheticLambda0;
+    new-instance v2, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment$$ExternalSyntheticLambda1;
 
-    invoke-direct {v2, p0}, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;)V
+    invoke-direct {v2, p0}, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;)V
 
-    invoke-static {v1, v0, p1, v2}, Lcom/android/settings/accessibility/AccessibilityDialogUtils;->showEditShortcutDialog(Landroid/content/Context;ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog;
+    invoke-static {v0, p1, v1, v2}, Lcom/android/settings/accessibility/AccessibilityDialogUtils;->showEditShortcutDialog(Landroid/content/Context;ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog;
 
     move-result-object p1
 
@@ -757,7 +978,11 @@
 
     iget-object v0, p0, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;->mShortcutPreference:Lcom/android/settings/accessibility/ShortcutPreference;
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;->updateShortcutTitle(Lcom/android/settings/accessibility/ShortcutPreference;)V
+    invoke-virtual {p0}, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;->getShortcutTitle()Ljava/lang/CharSequence;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
 
     invoke-virtual {p0}, Landroidx/preference/PreferenceFragmentCompat;->getPreferenceScreen()Landroidx/preference/PreferenceScreen;
 
@@ -767,9 +992,9 @@
 
     invoke-virtual {v0, v1}, Landroidx/preference/PreferenceGroup;->addPreference(Landroidx/preference/Preference;)Z
 
-    new-instance v0, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment$$ExternalSyntheticLambda2;
+    new-instance v0, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment$$ExternalSyntheticLambda3;
 
-    invoke-direct {v0, p0}, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;)V
+    invoke-direct {v0, p0}, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment$$ExternalSyntheticLambda3;-><init>(Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;)V
 
     iput-object v0, p0, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;->mTouchExplorationStateChangeListener:Landroid/view/accessibility/AccessibilityManager$TouchExplorationStateChangeListener;
 
@@ -799,13 +1024,13 @@
 
     invoke-virtual {v0, v1}, Landroid/view/accessibility/AccessibilityManager;->removeTouchExplorationStateChangeListener(Landroid/view/accessibility/AccessibilityManager$TouchExplorationStateChangeListener;)Z
 
-    iget-object v0, p0, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;->mSettingsContentObserver:Lcom/android/settings/accessibility/SettingsContentObserver;
+    iget-object v0, p0, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;->mSettingsContentObserver:Lcom/android/settings/accessibility/AccessibilitySettingsContentObserver;
 
     invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/accessibility/SettingsContentObserver;->unregister(Landroid/content/ContentResolver;)V
+    invoke-virtual {v0, v1}, Lcom/android/settings/accessibility/AccessibilitySettingsContentObserver;->unregister(Landroid/content/ContentResolver;)V
 
     invoke-super {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->onPause()V
 
@@ -833,13 +1058,13 @@
 
     invoke-virtual {v0, v1}, Landroid/view/accessibility/AccessibilityManager;->addTouchExplorationStateChangeListener(Landroid/view/accessibility/AccessibilityManager$TouchExplorationStateChangeListener;)Z
 
-    iget-object v0, p0, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;->mSettingsContentObserver:Lcom/android/settings/accessibility/SettingsContentObserver;
+    iget-object v0, p0, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;->mSettingsContentObserver:Lcom/android/settings/accessibility/AccessibilitySettingsContentObserver;
 
     invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/accessibility/SettingsContentObserver;->register(Landroid/content/ContentResolver;)V
+    invoke-virtual {v0, v1}, Lcom/android/settings/accessibility/AccessibilitySettingsContentObserver;->register(Landroid/content/ContentResolver;)V
 
     invoke-virtual {p0}, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;->updateShortcutPreferenceData()V
 
@@ -864,6 +1089,25 @@
     invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     :cond_0
+    iget-object v0, p0, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;->mTooltipWindow:Lcom/android/settings/accessibility/AccessibilityQuickSettingsTooltipWindow;
+
+    if-eqz v0, :cond_1
+
+    invoke-virtual {v0}, Landroid/widget/PopupWindow;->isShowing()Z
+
+    move-result v0
+
+    const-string/jumbo v1, "qs_tooltip_reshow"
+
+    invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
+
+    iget v0, p0, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;->mNeedsQSTooltipType:I
+
+    const-string/jumbo v1, "qs_tooltip_type"
+
+    invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
+
+    :cond_1
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onSaveInstanceState(Landroid/os/Bundle;)V
 
     return-void
@@ -958,6 +1202,29 @@
     return-void
 .end method
 
+.method public onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
+    .locals 0
+
+    invoke-super {p0, p1, p2}, Landroidx/preference/PreferenceFragmentCompat;->onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
+
+    iget-boolean p1, p0, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;->mNeedsQSTooltipReshow:Z
+
+    if-eqz p1, :cond_0
+
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getView()Landroid/view/View;
+
+    move-result-object p1
+
+    new-instance p2, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment$$ExternalSyntheticLambda4;
+
+    invoke-direct {p2, p0}, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment$$ExternalSyntheticLambda4;-><init>(Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;)V
+
+    invoke-virtual {p1, p2}, Landroid/view/View;->post(Ljava/lang/Runnable;)Z
+
+    :cond_0
+    return-void
+.end method
+
 .method saveNonEmptyUserShortcutType(I)V
     .locals 2
 
@@ -990,13 +1257,13 @@
 .method setupEditShortcutDialog(Landroid/app/Dialog;)V
     .locals 3
 
-    const v0, 0x7f0d051f
+    const v0, 0x7f0d0561
 
     invoke-virtual {p1, v0}, Landroid/app/Dialog;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    const v1, 0x7f0d014a
+    const v1, 0x7f0d015e
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1008,7 +1275,7 @@
 
     invoke-direct {p0, v0, v2}, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;->setDialogTextAreaClickListener(Landroid/view/View;Landroid/widget/CheckBox;)V
 
-    const v0, 0x7f0d0268
+    const v0, 0x7f0d028a
 
     invoke-virtual {p1, v0}, Landroid/app/Dialog;->findViewById(I)Landroid/view/View;
 
@@ -1035,6 +1302,16 @@
     const/4 p0, 0x0
 
     return p0
+.end method
+
+.method protected showQuickSettingsTooltipIfNeeded(I)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;->mNeedsQSTooltipType:I
+
+    invoke-direct {p0}, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;->showQuickSettingsTooltipIfNeeded()V
+
+    return-void
 .end method
 
 .method protected updateShortcutPreference()V
@@ -1143,31 +1420,5 @@
     invoke-static {p0, v1}, Lcom/android/settings/accessibility/PreferredShortcuts;->saveUserShortcutType(Landroid/content/Context;Lcom/android/settings/accessibility/PreferredShortcut;)V
 
     :cond_1
-    return-void
-.end method
-
-.method protected updateShortcutTitle(Lcom/android/settings/accessibility/ShortcutPreference;)V
-    .locals 3
-
-    const/4 v0, 0x1
-
-    new-array v0, v0, [Ljava/lang/Object;
-
-    invoke-virtual {p0}, Lcom/android/settings/accessibility/AccessibilityShortcutPreferenceFragment;->getLabelName()Ljava/lang/CharSequence;
-
-    move-result-object v1
-
-    const/4 v2, 0x0
-
-    aput-object v1, v0, v2
-
-    const v1, 0x7f04013c
-
-    invoke-virtual {p0, v1, v0}, Landroidx/fragment/app/Fragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object p0
-
-    invoke-virtual {p1, p0}, Landroidx/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
-
     return-void
 .end method

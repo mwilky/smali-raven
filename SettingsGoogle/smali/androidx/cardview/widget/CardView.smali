@@ -41,42 +41,11 @@
 
     sput-object v0, Landroidx/cardview/widget/CardView;->COLOR_BACKGROUND_ATTR:[I
 
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    if-lt v0, v1, :cond_0
-
     new-instance v0, Landroidx/cardview/widget/CardViewApi21Impl;
 
     invoke-direct {v0}, Landroidx/cardview/widget/CardViewApi21Impl;-><init>()V
 
     sput-object v0, Landroidx/cardview/widget/CardView;->IMPL:Landroidx/cardview/widget/CardViewImpl;
-
-    goto :goto_0
-
-    :cond_0
-    const/16 v1, 0x11
-
-    if-lt v0, v1, :cond_1
-
-    new-instance v0, Landroidx/cardview/widget/CardViewApi17Impl;
-
-    invoke-direct {v0}, Landroidx/cardview/widget/CardViewApi17Impl;-><init>()V
-
-    sput-object v0, Landroidx/cardview/widget/CardView;->IMPL:Landroidx/cardview/widget/CardViewImpl;
-
-    goto :goto_0
-
-    :cond_1
-    new-instance v0, Landroidx/cardview/widget/CardViewBaseImpl;
-
-    invoke-direct {v0}, Landroidx/cardview/widget/CardViewBaseImpl;-><init>()V
-
-    sput-object v0, Landroidx/cardview/widget/CardView;->IMPL:Landroidx/cardview/widget/CardViewImpl;
-
-    :goto_0
-    sget-object v0, Landroidx/cardview/widget/CardView;->IMPL:Landroidx/cardview/widget/CardViewImpl;
 
     invoke-interface {v0}, Landroidx/cardview/widget/CardViewImpl;->initStatic()V
 
@@ -85,14 +54,6 @@
 
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "context"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -103,16 +64,6 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "attrs"
-        }
-    .end annotation
 
     sget v0, Landroidx/cardview/R$attr;->cardViewStyle:I
 
@@ -123,18 +74,6 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 11
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "attrs",
-            "defStyleAttr"
-        }
-    .end annotation
 
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
@@ -382,22 +321,6 @@
     return-void
 .end method
 
-.method static synthetic access$101(Landroidx/cardview/widget/CardView;I)V
-    .locals 0
-
-    invoke-super {p0, p1}, Landroid/widget/FrameLayout;->setMinimumWidth(I)V
-
-    return-void
-.end method
-
-.method static synthetic access$201(Landroidx/cardview/widget/CardView;I)V
-    .locals 0
-
-    invoke-super {p0, p1}, Landroid/widget/FrameLayout;->setMinimumHeight(I)V
-
-    return-void
-.end method
-
 
 # virtual methods
 .method public getCardBackgroundColor()Landroid/content/res/ColorStateList;
@@ -514,16 +437,6 @@
 
 .method protected onMeasure(II)V
     .locals 6
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "widthMeasureSpec",
-            "heightMeasureSpec"
-        }
-    .end annotation
 
     sget-object v0, Landroidx/cardview/widget/CardView;->IMPL:Landroidx/cardview/widget/CardViewImpl;
 
@@ -624,14 +537,6 @@
 
 .method public setCardBackgroundColor(I)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "color"
-        }
-    .end annotation
 
     sget-object v0, Landroidx/cardview/widget/CardView;->IMPL:Landroidx/cardview/widget/CardViewImpl;
 
@@ -648,14 +553,6 @@
 
 .method public setCardBackgroundColor(Landroid/content/res/ColorStateList;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "color"
-        }
-    .end annotation
 
     sget-object v0, Landroidx/cardview/widget/CardView;->IMPL:Landroidx/cardview/widget/CardViewImpl;
 
@@ -668,14 +565,6 @@
 
 .method public setCardElevation(F)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "elevation"
-        }
-    .end annotation
 
     sget-object v0, Landroidx/cardview/widget/CardView;->IMPL:Landroidx/cardview/widget/CardViewImpl;
 
@@ -688,20 +577,6 @@
 
 .method public setContentPadding(IIII)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "left",
-            "top",
-            "right",
-            "bottom"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/cardview/widget/CardView;->mContentPadding:Landroid/graphics/Rect;
 
@@ -718,14 +593,6 @@
 
 .method public setMaxCardElevation(F)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "maxElevation"
-        }
-    .end annotation
 
     sget-object v0, Landroidx/cardview/widget/CardView;->IMPL:Landroidx/cardview/widget/CardViewImpl;
 
@@ -738,14 +605,6 @@
 
 .method public setMinimumHeight(I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "minHeight"
-        }
-    .end annotation
 
     iput p1, p0, Landroidx/cardview/widget/CardView;->mUserSetMinHeight:I
 
@@ -756,14 +615,6 @@
 
 .method public setMinimumWidth(I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "minWidth"
-        }
-    .end annotation
 
     iput p1, p0, Landroidx/cardview/widget/CardView;->mUserSetMinWidth:I
 
@@ -774,54 +625,18 @@
 
 .method public setPadding(IIII)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "left",
-            "top",
-            "right",
-            "bottom"
-        }
-    .end annotation
 
     return-void
 .end method
 
 .method public setPaddingRelative(IIII)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "start",
-            "top",
-            "end",
-            "bottom"
-        }
-    .end annotation
 
     return-void
 .end method
 
 .method public setPreventCornerOverlap(Z)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "preventCornerOverlap"
-        }
-    .end annotation
 
     iget-boolean v0, p0, Landroidx/cardview/widget/CardView;->mPreventCornerOverlap:Z
 
@@ -841,14 +656,6 @@
 
 .method public setRadius(F)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "radius"
-        }
-    .end annotation
 
     sget-object v0, Landroidx/cardview/widget/CardView;->IMPL:Landroidx/cardview/widget/CardViewImpl;
 
@@ -861,14 +668,6 @@
 
 .method public setUseCompatPadding(Z)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "useCompatPadding"
-        }
-    .end annotation
 
     iget-boolean v0, p0, Landroidx/cardview/widget/CardView;->mCompatPadding:Z
 

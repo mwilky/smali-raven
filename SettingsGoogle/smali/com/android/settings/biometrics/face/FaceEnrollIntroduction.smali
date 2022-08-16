@@ -16,6 +16,16 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$7a9YGZsAiPTisFTzCF9QQaQjAdw(Lcom/android/settings/biometrics/face/FaceEnrollIntroduction;)Ljava/lang/String;
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/biometrics/face/FaceEnrollIntroduction;->lambda$getDescriptionDisabledByAdmin$1()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method public static synthetic $r8$lambda$Fg2g0g3c2QrcxhX68ODGm4nW38Y(Lcom/android/settings/biometrics/face/FaceEnrollIntroduction;IIJ)V
     .locals 0
 
@@ -30,6 +40,18 @@
     invoke-direct {p0}, Lcom/android/settings/biometrics/BiometricEnrollIntroduction;-><init>()V
 
     return-void
+.end method
+
+.method private synthetic lambda$getDescriptionDisabledByAdmin$1()Ljava/lang/String;
+    .locals 1
+
+    const v0, 0x7f0411f9
+
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method private synthetic lambda$onCreate$0(IIJ)V
@@ -113,7 +135,7 @@
 
     move-result-object p0
 
-    const v4, 0x7f0e0031
+    const v4, 0x7f0e0052
 
     invoke-virtual {p0, v4}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -154,7 +176,7 @@
 
     if-eqz p0, :cond_0
 
-    const p0, 0x7f04091d
+    const p0, 0x7f04096f
 
     return p0
 
@@ -164,7 +186,7 @@
     return p0
 
     :cond_1
-    const p0, 0x7f04091e
+    const p0, 0x7f040970
 
     return p0
 .end method
@@ -180,7 +202,7 @@
 .method protected getAgreeButtonTextRes()I
     .locals 0
 
-    const p0, 0x7f041180
+    const p0, 0x7f041231
 
     return p0
 .end method
@@ -209,9 +231,9 @@
 
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    new-instance v1, Lcom/android/settings/biometrics/face/FaceEnrollIntroduction$$ExternalSyntheticLambda0;
+    new-instance v1, Lcom/android/settings/biometrics/face/FaceEnrollIntroduction$$ExternalSyntheticLambda3;
 
-    invoke-direct {v1, p1}, Lcom/android/settings/biometrics/face/FaceEnrollIntroduction$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/biometrics/BiometricEnrollIntroduction$GenerateChallengeCallback;)V
+    invoke-direct {v1, p1}, Lcom/android/settings/biometrics/face/FaceEnrollIntroduction$$ExternalSyntheticLambda3;-><init>(Lcom/android/settings/biometrics/BiometricEnrollIntroduction$GenerateChallengeCallback;)V
 
     invoke-virtual {v0, p0, v1}, Landroid/hardware/face/FaceManager;->generateChallenge(ILandroid/hardware/face/FaceManager$GenerateChallengeCallback;)V
 
@@ -221,17 +243,37 @@
 .method protected getConfirmLockTitleResId()I
     .locals 0
 
-    const p0, 0x7f04115f
+    const p0, 0x7f041211
 
     return p0
 .end method
 
-.method protected getDescriptionResDisabledByAdmin()I
-    .locals 0
+.method protected getDescriptionDisabledByAdmin()Ljava/lang/String;
+    .locals 2
 
-    const p0, 0x7f041147
+    const-class v0, Landroid/app/admin/DevicePolicyManager;
 
-    return p0
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/app/admin/DevicePolicyManager;
+
+    invoke-virtual {v0}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/android/settings/biometrics/face/FaceEnrollIntroduction$$ExternalSyntheticLambda4;
+
+    invoke-direct {v1, p0}, Lcom/android/settings/biometrics/face/FaceEnrollIntroduction$$ExternalSyntheticLambda4;-><init>(Lcom/android/settings/biometrics/face/FaceEnrollIntroduction;)V
+
+    const-string p0, "Settings.FACE_UNLOCK_DISABLED"
+
+    invoke-virtual {v0, p0, v1}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method protected getEnrollingIntent()Landroid/content/Intent;
@@ -255,7 +297,7 @@
 .method protected getErrorTextView()Landroid/widget/TextView;
     .locals 1
 
-    const v0, 0x7f0d0213
+    const v0, 0x7f0d022c
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -277,7 +319,7 @@
 .method protected getHeaderResDefault()I
     .locals 0
 
-    const p0, 0x7f04114a
+    const p0, 0x7f0411fc
 
     return p0
 .end method
@@ -285,7 +327,7 @@
 .method protected getHeaderResDisabledByAdmin()I
     .locals 0
 
-    const p0, 0x7f04114b
+    const p0, 0x7f0411fd
 
     return p0
 .end method
@@ -293,7 +335,7 @@
 .method protected getHowMessage()I
     .locals 0
 
-    const p0, 0x7f04113b
+    const p0, 0x7f0411ed
 
     return p0
 .end method
@@ -301,7 +343,7 @@
 .method protected getInControlMessage()I
     .locals 0
 
-    const p0, 0x7f041138
+    const p0, 0x7f0411ea
 
     return p0
 .end method
@@ -309,7 +351,7 @@
 .method protected getInControlTitle()I
     .locals 0
 
-    const p0, 0x7f041139
+    const p0, 0x7f0411eb
 
     return p0
 .end method
@@ -317,7 +359,7 @@
 .method protected getInfoMessageGlasses()I
     .locals 0
 
-    const p0, 0x7f041141
+    const p0, 0x7f0411f3
 
     return p0
 .end method
@@ -325,7 +367,7 @@
 .method protected getInfoMessageLooking()I
     .locals 0
 
-    const p0, 0x7f041143
+    const p0, 0x7f0411f5
 
     return p0
 .end method
@@ -333,7 +375,7 @@
 .method protected getInfoMessageRequireEyes()I
     .locals 0
 
-    const p0, 0x7f041140
+    const p0, 0x7f0411f2
 
     return p0
 .end method
@@ -341,7 +383,7 @@
 .method protected getLayoutResource()I
     .locals 0
 
-    const p0, 0x7f0600e6
+    const p0, 0x7f0600e9
 
     return p0
 .end method
@@ -365,7 +407,7 @@
 .method protected getMoreButtonTextRes()I
     .locals 0
 
-    const p0, 0x7f041148
+    const p0, 0x7f0411fa
 
     return p0
 .end method
@@ -400,7 +442,7 @@
 
     invoke-direct {v0, p0}, Lcom/google/android/setupcompat/template/FooterButton$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f041133
+    const v1, 0x7f0411e5
 
     invoke-virtual {v0, v1}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setText(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -420,7 +462,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f13021c
+    const v1, 0x7f130283
 
     invoke-virtual {v0, v1}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setTheme(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -449,15 +491,15 @@
 
     invoke-direct {v0, p0}, Lcom/google/android/setupcompat/template/FooterButton$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f041149
+    const v1, 0x7f0411fb
 
     invoke-virtual {v0, v1}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setText(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/settings/biometrics/face/FaceEnrollIntroduction$$ExternalSyntheticLambda3;
+    new-instance v1, Lcom/android/settings/biometrics/face/FaceEnrollIntroduction$$ExternalSyntheticLambda1;
 
-    invoke-direct {v1, p0}, Lcom/android/settings/biometrics/face/FaceEnrollIntroduction$$ExternalSyntheticLambda3;-><init>(Lcom/android/settings/biometrics/face/FaceEnrollIntroduction;)V
+    invoke-direct {v1, p0}, Lcom/android/settings/biometrics/face/FaceEnrollIntroduction$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/biometrics/face/FaceEnrollIntroduction;)V
 
     invoke-virtual {v0, v1}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setListener(Landroid/view/View$OnClickListener;)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -469,7 +511,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f13021c
+    const v1, 0x7f130283
 
     invoke-virtual {v0, v1}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setTheme(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -522,7 +564,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/biometrics/BiometricEnrollIntroduction;->onCreate(Landroid/os/Bundle;)V
 
-    const p1, 0x7f0d02b6
+    const p1, 0x7f0d02da
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -530,7 +572,7 @@
 
     check-cast p1, Landroid/widget/ImageView;
 
-    const v0, 0x7f0d02bc
+    const v0, 0x7f0d02e0
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -558,7 +600,7 @@
 
     invoke-virtual {p1, v0}, Landroid/graphics/drawable/Drawable;->setColorFilter(Landroid/graphics/ColorFilter;)V
 
-    const p1, 0x7f0d02dd
+    const p1, 0x7f0d0304
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -566,7 +608,7 @@
 
     check-cast p1, Landroid/widget/TextView;
 
-    const v0, 0x7f0d02df
+    const v0, 0x7f0d0306
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -574,7 +616,7 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    const v1, 0x7f0d02ad
+    const v1, 0x7f0d02cf
 
     invoke-virtual {p0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -582,7 +624,7 @@
 
     check-cast v1, Landroid/widget/TextView;
 
-    const v2, 0x7f0d05d5
+    const v2, 0x7f0d0617
 
     invoke-virtual {p0, v2}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -590,7 +632,7 @@
 
     check-cast v2, Landroid/widget/TextView;
 
-    const v3, 0x7f0d0369
+    const v3, 0x7f0d0395
 
     invoke-virtual {p0, v3}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -632,7 +674,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f09000d
+    const v0, 0x7f09000e
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -642,7 +684,7 @@
 
     if-eqz p1, :cond_0
 
-    const p1, 0x7f0d02e1
+    const p1, 0x7f0d030a
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -650,7 +692,7 @@
 
     check-cast p1, Landroid/widget/LinearLayout;
 
-    const v1, 0x7f0d02ba
+    const v1, 0x7f0d02de
 
     invoke-virtual {p0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -675,7 +717,7 @@
 
     move-result-object p1
 
-    const v1, 0x7f09000e
+    const v1, 0x7f09000f
 
     invoke-virtual {p1, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -683,7 +725,7 @@
 
     if-eqz p1, :cond_1
 
-    const p1, 0x7f0d02e2
+    const p1, 0x7f0d030b
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -691,7 +733,7 @@
 
     check-cast p1, Landroid/widget/LinearLayout;
 
-    const v1, 0x7f0d02bd
+    const v1, 0x7f0d02e1
 
     invoke-virtual {p0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -699,7 +741,7 @@
 
     check-cast v1, Landroid/widget/ImageView;
 
-    const v2, 0x7f0d02e0
+    const v2, 0x7f0d0307
 
     invoke-virtual {p0, v2}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -778,9 +820,9 @@
 
     iget v0, p0, Lcom/android/settings/biometrics/BiometricEnrollBase;->mUserId:I
 
-    new-instance v1, Lcom/android/settings/biometrics/face/FaceEnrollIntroduction$$ExternalSyntheticLambda1;
+    new-instance v1, Lcom/android/settings/biometrics/face/FaceEnrollIntroduction$$ExternalSyntheticLambda0;
 
-    invoke-direct {v1, p0}, Lcom/android/settings/biometrics/face/FaceEnrollIntroduction$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/biometrics/face/FaceEnrollIntroduction;)V
+    invoke-direct {v1, p0}, Lcom/android/settings/biometrics/face/FaceEnrollIntroduction$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/biometrics/face/FaceEnrollIntroduction;)V
 
     invoke-virtual {p1, v0, v1}, Landroid/hardware/face/FaceManager;->generateChallenge(ILandroid/hardware/face/FaceManager$GenerateChallengeCallback;)V
 
@@ -881,7 +923,7 @@
 
     move-result-object v0
 
-    const-string v1, "require_consent"
+    const-string/jumbo v1, "require_consent"
 
     const/4 v2, 0x0
 

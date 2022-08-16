@@ -26,13 +26,13 @@
 
     invoke-direct {p0, p1, p5}, Lcom/android/settings/widget/DotsPageIndicator$PendingStartAnimator;-><init>(Lcom/android/settings/widget/DotsPageIndicator;Lcom/android/settings/widget/DotsPageIndicator$StartPredicate;)V
 
-    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator;->access$700(Lcom/android/settings/widget/DotsPageIndicator;)J
+    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator;->-$$Nest$fgetanimHalfDuration(Lcom/android/settings/widget/DotsPageIndicator;)J
 
     move-result-wide v0
 
     invoke-virtual {p0, v0, v1}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
 
-    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator;->access$800(Lcom/android/settings/widget/DotsPageIndicator;)Landroid/view/animation/Interpolator;
+    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator;->-$$Nest$fgetinterpolator(Lcom/android/settings/widget/DotsPageIndicator;)Landroid/view/animation/Interpolator;
 
     move-result-object p5
 
@@ -40,13 +40,13 @@
 
     if-le p3, p2, :cond_0
 
-    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator;->access$900(Lcom/android/settings/widget/DotsPageIndicator;)[F
+    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator;->-$$Nest$fgetdotCenterX(Lcom/android/settings/widget/DotsPageIndicator;)[F
 
     move-result-object p5
 
     aget p5, p5, p2
 
-    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator;->access$300(Lcom/android/settings/widget/DotsPageIndicator;)F
+    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator;->-$$Nest$fgetselectedDotX(Lcom/android/settings/widget/DotsPageIndicator;)F
 
     move-result v0
 
@@ -54,20 +54,20 @@
 
     move-result p5
 
-    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator;->access$1000(Lcom/android/settings/widget/DotsPageIndicator;)F
+    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator;->-$$Nest$fgetdotRadius(Lcom/android/settings/widget/DotsPageIndicator;)F
 
     move-result v0
 
     goto :goto_0
 
     :cond_0
-    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator;->access$900(Lcom/android/settings/widget/DotsPageIndicator;)[F
+    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator;->-$$Nest$fgetdotCenterX(Lcom/android/settings/widget/DotsPageIndicator;)[F
 
     move-result-object p5
 
     aget p5, p5, p3
 
-    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator;->access$1000(Lcom/android/settings/widget/DotsPageIndicator;)F
+    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator;->-$$Nest$fgetdotRadius(Lcom/android/settings/widget/DotsPageIndicator;)F
 
     move-result v0
 
@@ -78,26 +78,26 @@
 
     if-le p3, p2, :cond_1
 
-    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator;->access$900(Lcom/android/settings/widget/DotsPageIndicator;)[F
+    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator;->-$$Nest$fgetdotCenterX(Lcom/android/settings/widget/DotsPageIndicator;)[F
 
     move-result-object p5
 
     aget p5, p5, p3
 
-    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator;->access$1000(Lcom/android/settings/widget/DotsPageIndicator;)F
+    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator;->-$$Nest$fgetdotRadius(Lcom/android/settings/widget/DotsPageIndicator;)F
 
     move-result v0
 
     goto :goto_1
 
     :cond_1
-    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator;->access$900(Lcom/android/settings/widget/DotsPageIndicator;)[F
+    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator;->-$$Nest$fgetdotCenterX(Lcom/android/settings/widget/DotsPageIndicator;)[F
 
     move-result-object p5
 
     aget p5, p5, p3
 
-    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator;->access$1000(Lcom/android/settings/widget/DotsPageIndicator;)F
+    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator;->-$$Nest$fgetdotRadius(Lcom/android/settings/widget/DotsPageIndicator;)F
 
     move-result v0
 
@@ -106,26 +106,26 @@
 
     if-le p3, p2, :cond_2
 
-    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator;->access$900(Lcom/android/settings/widget/DotsPageIndicator;)[F
+    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator;->-$$Nest$fgetdotCenterX(Lcom/android/settings/widget/DotsPageIndicator;)[F
 
     move-result-object v0
 
     aget v0, v0, p3
 
-    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator;->access$1000(Lcom/android/settings/widget/DotsPageIndicator;)F
+    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator;->-$$Nest$fgetdotRadius(Lcom/android/settings/widget/DotsPageIndicator;)F
 
     move-result v1
 
     goto :goto_2
 
     :cond_2
-    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator;->access$900(Lcom/android/settings/widget/DotsPageIndicator;)[F
+    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator;->-$$Nest$fgetdotCenterX(Lcom/android/settings/widget/DotsPageIndicator;)[F
 
     move-result-object v0
 
     aget v0, v0, p2
 
-    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator;->access$300(Lcom/android/settings/widget/DotsPageIndicator;)F
+    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator;->-$$Nest$fgetselectedDotX(Lcom/android/settings/widget/DotsPageIndicator;)F
 
     move-result v1
 
@@ -133,7 +133,7 @@
 
     move-result v0
 
-    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator;->access$1000(Lcom/android/settings/widget/DotsPageIndicator;)F
+    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator;->-$$Nest$fgetdotRadius(Lcom/android/settings/widget/DotsPageIndicator;)F
 
     move-result v1
 
@@ -144,26 +144,26 @@
 
     if-le p3, p2, :cond_3
 
-    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator;->access$900(Lcom/android/settings/widget/DotsPageIndicator;)[F
+    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator;->-$$Nest$fgetdotCenterX(Lcom/android/settings/widget/DotsPageIndicator;)[F
 
     move-result-object v0
 
     aget p3, v0, p3
 
-    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator;->access$1000(Lcom/android/settings/widget/DotsPageIndicator;)F
+    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator;->-$$Nest$fgetdotRadius(Lcom/android/settings/widget/DotsPageIndicator;)F
 
     move-result v0
 
     goto :goto_3
 
     :cond_3
-    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator;->access$900(Lcom/android/settings/widget/DotsPageIndicator;)[F
+    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator;->-$$Nest$fgetdotCenterX(Lcom/android/settings/widget/DotsPageIndicator;)[F
 
     move-result-object v0
 
     aget p3, v0, p3
 
-    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator;->access$1000(Lcom/android/settings/widget/DotsPageIndicator;)F
+    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator;->-$$Nest$fgetdotRadius(Lcom/android/settings/widget/DotsPageIndicator;)F
 
     move-result v0
 
@@ -172,7 +172,7 @@
 
     new-array v0, p4, [Lcom/android/settings/widget/DotsPageIndicator$PendingRevealAnimator;
 
-    invoke-static {p1, v0}, Lcom/android/settings/widget/DotsPageIndicator;->access$1102(Lcom/android/settings/widget/DotsPageIndicator;[Lcom/android/settings/widget/DotsPageIndicator$PendingRevealAnimator;)[Lcom/android/settings/widget/DotsPageIndicator$PendingRevealAnimator;
+    invoke-static {p1, v0}, Lcom/android/settings/widget/DotsPageIndicator;->-$$Nest$fputrevealAnimations(Lcom/android/settings/widget/DotsPageIndicator;[Lcom/android/settings/widget/DotsPageIndicator$PendingRevealAnimator;)V
 
     new-array v3, p4, [I
 
@@ -197,7 +197,7 @@
     :goto_4
     if-ge v6, p4, :cond_4
 
-    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator;->access$1100(Lcom/android/settings/widget/DotsPageIndicator;)[Lcom/android/settings/widget/DotsPageIndicator$PendingRevealAnimator;
+    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator;->-$$Nest$fgetrevealAnimations(Lcom/android/settings/widget/DotsPageIndicator;)[Lcom/android/settings/widget/DotsPageIndicator$PendingRevealAnimator;
 
     move-result-object p3
 
@@ -207,7 +207,7 @@
 
     new-instance v1, Lcom/android/settings/widget/DotsPageIndicator$RightwardStartPredicate;
 
-    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator;->access$900(Lcom/android/settings/widget/DotsPageIndicator;)[F
+    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator;->-$$Nest$fgetdotCenterX(Lcom/android/settings/widget/DotsPageIndicator;)[F
 
     move-result-object v2
 
@@ -246,7 +246,7 @@
     :goto_5
     if-ge v6, p4, :cond_6
 
-    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator;->access$1100(Lcom/android/settings/widget/DotsPageIndicator;)[Lcom/android/settings/widget/DotsPageIndicator$PendingRevealAnimator;
+    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator;->-$$Nest$fgetrevealAnimations(Lcom/android/settings/widget/DotsPageIndicator;)[Lcom/android/settings/widget/DotsPageIndicator$PendingRevealAnimator;
 
     move-result-object p3
 
@@ -256,7 +256,7 @@
 
     new-instance v1, Lcom/android/settings/widget/DotsPageIndicator$LeftwardStartPredicate;
 
-    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator;->access$900(Lcom/android/settings/widget/DotsPageIndicator;)[F
+    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator;->-$$Nest$fgetdotCenterX(Lcom/android/settings/widget/DotsPageIndicator;)[F
 
     move-result-object v2
 

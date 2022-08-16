@@ -67,7 +67,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f09004c
+    const v0, 0x7f09004d
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -92,7 +92,7 @@
 
     if-nez v0, :cond_1
 
-    const p0, 0x7f04139f
+    const p0, 0x7f041467
 
     invoke-virtual {p1, p0}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -122,7 +122,7 @@
     goto :goto_0
 
     :cond_2
-    const p0, 0x7f0412c6
+    const p0, 0x7f041389
 
     invoke-virtual {p1, p0}, Landroidx/preference/Preference;->setSummary(I)V
 

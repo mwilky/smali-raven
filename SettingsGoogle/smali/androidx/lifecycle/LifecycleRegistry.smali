@@ -158,6 +158,8 @@
 
     move-result-object v4
 
+    check-cast v4, Landroidx/lifecycle/LifecycleObserver;
+
     invoke-virtual {v3, v4}, Landroidx/arch/core/internal/FastSafeIterableMap;->contains(Ljava/lang/Object;)Z
 
     move-result v3
@@ -392,6 +394,8 @@
     invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v4
+
+    check-cast v4, Landroidx/lifecycle/LifecycleObserver;
 
     invoke-virtual {v3, v4}, Landroidx/arch/core/internal/FastSafeIterableMap;->contains(Ljava/lang/Object;)Z
 
@@ -886,7 +890,7 @@
 .method public removeObserver(Landroidx/lifecycle/LifecycleObserver;)V
     .locals 1
 
-    const-string v0, "removeObserver"
+    const-string/jumbo v0, "removeObserver"
 
     invoke-direct {p0, v0}, Landroidx/lifecycle/LifecycleRegistry;->enforceMainThreadIfNeeded(Ljava/lang/String;)V
 
@@ -900,7 +904,7 @@
 .method public setCurrentState(Landroidx/lifecycle/Lifecycle$State;)V
     .locals 1
 
-    const-string v0, "setCurrentState"
+    const-string/jumbo v0, "setCurrentState"
 
     invoke-direct {p0, v0}, Landroidx/lifecycle/LifecycleRegistry;->enforceMainThreadIfNeeded(Ljava/lang/String;)V
 

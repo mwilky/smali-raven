@@ -59,7 +59,7 @@
 
     iget-object v3, p0, Lcom/android/settings/slices/SliceDataConverter;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f040125
+    const v4, 0x7f040140
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -91,7 +91,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f01006d
+    const v4, 0x7f010072
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -167,7 +167,7 @@
 
     if-nez v4, :cond_1
 
-    const v4, 0x7f020169
+    const v4, 0x7f020179
 
     :cond_1
     invoke-virtual {v1, v5}, Lcom/android/settings/slices/SliceData$Builder;->setKey(Ljava/lang/String;)Lcom/android/settings/slices/SliceData$Builder;

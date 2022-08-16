@@ -102,12 +102,60 @@
     return p0
 .end method
 
+.method static bridge synthetic -$$Nest$fgetmAdbManager(Lcom/android/settings/development/WirelessDebuggingFragment;)Landroid/debug/IAdbManager;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/development/WirelessDebuggingFragment;->mAdbManager:Landroid/debug/IAdbManager;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmIpAddrPreference(Lcom/android/settings/development/WirelessDebuggingFragment;)Landroidx/preference/Preference;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/development/WirelessDebuggingFragment;->mIpAddrPreference:Landroidx/preference/Preference;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmPairingCodeDialog(Lcom/android/settings/development/WirelessDebuggingFragment;)Lcom/android/settings/development/AdbWirelessDialog;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/development/WirelessDebuggingFragment;->mPairingCodeDialog:Lcom/android/settings/development/AdbWirelessDialog;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmPairingCodeDialog(Lcom/android/settings/development/WirelessDebuggingFragment;Lcom/android/settings/development/AdbWirelessDialog;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/settings/development/WirelessDebuggingFragment;->mPairingCodeDialog:Lcom/android/settings/development/AdbWirelessDialog;
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mupdatePairedDevicePreferences(Lcom/android/settings/development/WirelessDebuggingFragment;Ljava/util/Map;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/development/WirelessDebuggingFragment;->updatePairedDevicePreferences(Ljava/util/Map;)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$sfgetsAdbIpAddressPreferenceController()Lcom/android/settings/development/AdbIpAddressPreferenceController;
+    .locals 1
+
+    sget-object v0, Lcom/android/settings/development/WirelessDebuggingFragment;->sAdbIpAddressPreferenceController:Lcom/android/settings/development/AdbIpAddressPreferenceController;
+
+    return-object v0
+.end method
+
 .method static constructor <clinit>()V
     .locals 2
 
     new-instance v0, Lcom/android/settings/development/WirelessDebuggingFragment$2;
 
-    const v1, 0x7f15001c
+    const v1, 0x7f15001b
 
     invoke-direct {v0, v1}, Lcom/android/settings/development/WirelessDebuggingFragment$2;-><init>(I)V
 
@@ -136,47 +184,7 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/settings/development/WirelessDebuggingFragment;Ljava/util/Map;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/development/WirelessDebuggingFragment;->updatePairedDevicePreferences(Ljava/util/Map;)V
-
-    return-void
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/development/WirelessDebuggingFragment;)Landroidx/preference/Preference;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/development/WirelessDebuggingFragment;->mIpAddrPreference:Landroidx/preference/Preference;
-
-    return-object p0
-.end method
-
-.method static synthetic access$200()Lcom/android/settings/development/AdbIpAddressPreferenceController;
-    .locals 1
-
-    sget-object v0, Lcom/android/settings/development/WirelessDebuggingFragment;->sAdbIpAddressPreferenceController:Lcom/android/settings/development/AdbIpAddressPreferenceController;
-
-    return-object v0
-.end method
-
-.method static synthetic access$300(Lcom/android/settings/development/WirelessDebuggingFragment;)Lcom/android/settings/development/AdbWirelessDialog;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/development/WirelessDebuggingFragment;->mPairingCodeDialog:Lcom/android/settings/development/AdbWirelessDialog;
-
-    return-object p0
-.end method
-
-.method static synthetic access$302(Lcom/android/settings/development/WirelessDebuggingFragment;Lcom/android/settings/development/AdbWirelessDialog;)Lcom/android/settings/development/AdbWirelessDialog;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/settings/development/WirelessDebuggingFragment;->mPairingCodeDialog:Lcom/android/settings/development/AdbWirelessDialog;
-
-    return-object p1
-.end method
-
-.method static synthetic access$400(Lcom/android/settings/development/WirelessDebuggingFragment;I)V
+.method static synthetic access$000(Lcom/android/settings/development/WirelessDebuggingFragment;I)V
     .locals 0
 
     invoke-virtual {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->removeDialog(I)V
@@ -184,7 +192,7 @@
     return-void
 .end method
 
-.method static synthetic access$500(Lcom/android/settings/development/WirelessDebuggingFragment;I)V
+.method static synthetic access$100(Lcom/android/settings/development/WirelessDebuggingFragment;I)V
     .locals 0
 
     invoke-virtual {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->removeDialog(I)V
@@ -192,20 +200,12 @@
     return-void
 .end method
 
-.method static synthetic access$600(Lcom/android/settings/development/WirelessDebuggingFragment;I)V
+.method static synthetic access$200(Lcom/android/settings/development/WirelessDebuggingFragment;I)V
     .locals 0
 
     invoke-virtual {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->showDialog(I)V
 
     return-void
-.end method
-
-.method static synthetic access$700(Lcom/android/settings/development/WirelessDebuggingFragment;)Landroid/debug/IAdbManager;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/development/WirelessDebuggingFragment;->mAdbManager:Landroid/debug/IAdbManager;
-
-    return-object p0
 .end method
 
 .method private addPreferences()V
@@ -281,7 +281,7 @@
 
     iput-object v1, p0, Lcom/android/settings/development/WirelessDebuggingFragment;->mOffMessagePreference:Lcom/android/settingslib/widget/FooterPreference;
 
-    const v0, 0x7f0401c7
+    const v0, 0x7f0401ee
 
     invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
@@ -437,7 +437,7 @@
 
     invoke-direct {v0, v1}, Lcom/android/settings/core/SubSettingLauncher;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0401c4
+    const v1, 0x7f0401eb
 
     invoke-virtual {v0, v1}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 
@@ -627,9 +627,9 @@
 
     invoke-interface {v2, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    new-instance v0, Lcom/android/settings/development/WirelessDebuggingFragment$$ExternalSyntheticLambda2;
+    new-instance v0, Lcom/android/settings/development/WirelessDebuggingFragment$$ExternalSyntheticLambda1;
 
-    invoke-direct {v0, p0}, Lcom/android/settings/development/WirelessDebuggingFragment$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/development/WirelessDebuggingFragment;)V
+    invoke-direct {v0, p0}, Lcom/android/settings/development/WirelessDebuggingFragment$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/development/WirelessDebuggingFragment;)V
 
     invoke-virtual {v1, v0}, Landroidx/preference/Preference;->setOnPreferenceClickListener(Landroidx/preference/Preference$OnPreferenceClickListener;)V
 
@@ -646,9 +646,9 @@
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/settings/development/WirelessDebuggingFragment$$ExternalSyntheticLambda3;
+    new-instance v1, Lcom/android/settings/development/WirelessDebuggingFragment$$ExternalSyntheticLambda2;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/settings/development/WirelessDebuggingFragment$$ExternalSyntheticLambda3;-><init>(Lcom/android/settings/development/WirelessDebuggingFragment;Ljava/util/Map;)V
+    invoke-direct {v1, p0, p1}, Lcom/android/settings/development/WirelessDebuggingFragment$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/development/WirelessDebuggingFragment;Ljava/util/Map;)V
 
     invoke-interface {v0, v1}, Ljava/util/Set;->removeIf(Ljava/util/function/Predicate;)Z
 
@@ -712,9 +712,9 @@
 
     invoke-interface {v2, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    new-instance v0, Lcom/android/settings/development/WirelessDebuggingFragment$$ExternalSyntheticLambda1;
+    new-instance v0, Lcom/android/settings/development/WirelessDebuggingFragment$$ExternalSyntheticLambda3;
 
-    invoke-direct {v0, p0}, Lcom/android/settings/development/WirelessDebuggingFragment$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/development/WirelessDebuggingFragment;)V
+    invoke-direct {v0, p0}, Lcom/android/settings/development/WirelessDebuggingFragment$$ExternalSyntheticLambda3;-><init>(Lcom/android/settings/development/WirelessDebuggingFragment;)V
 
     invoke-virtual {v1, v0}, Landroidx/preference/Preference;->setOnPreferenceClickListener(Landroidx/preference/Preference$OnPreferenceClickListener;)V
 
@@ -785,7 +785,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f15001c
+    const p0, 0x7f15001b
 
     return p0
 .end method
@@ -806,7 +806,7 @@
 
     invoke-static {p1, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string v1, "request_type"
+    const-string/jumbo v1, "request_type"
 
     invoke-virtual {p2, v1, v0}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
@@ -828,9 +828,7 @@
 
     iget-object p0, p0, Lcom/android/settings/development/WirelessDebuggingFragment;->mAdbManager:Landroid/debug/IAdbManager;
 
-    invoke-virtual {p2}, Landroid/debug/PairDevice;->getGuid()Ljava/lang/String;
-
-    move-result-object p2
+    iget-object p2, p2, Landroid/debug/PairDevice;->guid:Ljava/lang/String;
 
     invoke-interface {p0, p2}, Landroid/debug/IAdbManager;->unpairDevice(Ljava/lang/String;)V
     :try_end_0
@@ -857,7 +855,7 @@
     return-void
 
     :cond_0
-    const-string p1, "request_type_pairing"
+    const-string/jumbo p1, "request_type_pairing"
 
     invoke-virtual {p2, p1, v0}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
@@ -903,7 +901,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f041799
+    const v2, 0x7f041894
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1079,11 +1077,11 @@
 .end method
 
 .method public onEnabled(Z)V
-    .locals 2
+    .locals 6
 
     const-string v0, "WirelessDebuggingFrag"
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_2
 
     invoke-direct {p0}, Lcom/android/settings/development/WirelessDebuggingFragment;->showDebuggingPreferences()V
 
@@ -1100,11 +1098,35 @@
     iput-object p1, p0, Lcom/android/settings/development/WirelessDebuggingFragment;->mAdbManager:Landroid/debug/IAdbManager;
 
     :try_start_0
-    invoke-interface {p1}, Landroid/debug/IAdbManager;->getPairedDevices()Ljava/util/Map;
+    invoke-interface {p1}, Landroid/debug/IAdbManager;->getPairedDevices()[Landroid/debug/FingerprintAndPairDevice;
 
     move-result-object p1
 
-    invoke-direct {p0, p1}, Lcom/android/settings/development/WirelessDebuggingFragment;->updatePairedDevicePreferences(Ljava/util/Map;)V
+    new-instance v1, Ljava/util/HashMap;
+
+    invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
+
+    array-length v2, p1
+
+    const/4 v3, 0x0
+
+    :goto_0
+    if-ge v3, v2, :cond_0
+
+    aget-object v4, p1, v3
+
+    iget-object v5, v4, Landroid/debug/FingerprintAndPairDevice;->keyFingerprint:Ljava/lang/String;
+
+    iget-object v4, v4, Landroid/debug/FingerprintAndPairDevice;->device:Landroid/debug/PairDevice;
+
+    invoke-interface {v1, v5, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    add-int/lit8 v3, v3, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    invoke-direct {p0, v1}, Lcom/android/settings/development/WirelessDebuggingFragment;->updatePairedDevicePreferences(Ljava/util/Map;)V
 
     iget-object p1, p0, Lcom/android/settings/development/WirelessDebuggingFragment;->mAdbManager:Landroid/debug/IAdbManager;
 
@@ -1114,7 +1136,7 @@
 
     iput p1, p0, Lcom/android/settings/development/WirelessDebuggingFragment;->mConnectionPort:I
 
-    if-lez p1, :cond_0
+    if-lez p1, :cond_1
 
     new-instance p1, Ljava/lang/StringBuilder;
 
@@ -1136,27 +1158,27 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_0
+    goto :goto_1
 
     :catch_0
     const-string p1, "Unable to request the paired list for Adb wireless"
 
     invoke-static {v0, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_0
-    :goto_0
+    :cond_1
+    :goto_1
     sget-object p1, Lcom/android/settings/development/WirelessDebuggingFragment;->sAdbIpAddressPreferenceController:Lcom/android/settings/development/AdbIpAddressPreferenceController;
 
     iget-object p0, p0, Lcom/android/settings/development/WirelessDebuggingFragment;->mIpAddrPreference:Landroidx/preference/Preference;
 
     invoke-virtual {p1, p0}, Lcom/android/settings/development/AdbIpAddressPreferenceController;->updateState(Landroidx/preference/Preference;)V
 
-    goto :goto_1
+    goto :goto_2
 
-    :cond_1
+    :cond_2
     invoke-direct {p0}, Lcom/android/settings/development/WirelessDebuggingFragment;->showOffMessage()V
 
-    :goto_1
+    :goto_2
     return-void
 .end method
 
@@ -1181,7 +1203,7 @@
 .end method
 
 .method public onResume()V
-    .locals 2
+    .locals 3
 
     invoke-super {p0}, Lcom/android/settings/dashboard/DashboardFragment;->onResume()V
 
@@ -1193,7 +1215,9 @@
 
     iget-object p0, p0, Lcom/android/settings/development/WirelessDebuggingFragment;->mIntentFilter:Landroid/content/IntentFilter;
 
-    invoke-virtual {v0, v1, p0}, Landroid/app/Activity;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+    const/4 v2, 0x2
+
+    invoke-virtual {v0, v1, p0, v2}, Landroid/app/Activity;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;I)Landroid/content/Intent;
 
     return-void
 .end method

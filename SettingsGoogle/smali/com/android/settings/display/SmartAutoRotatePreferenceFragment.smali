@@ -4,26 +4,30 @@
 
 
 # static fields
-.field static final AUTO_ROTATE_SWITCH_PREFERENCE_ID:Ljava/lang/String; = "auto_rotate_switch"
+.field static final AUTO_ROTATE_MAIN_SWITCH_PREFERENCE_KEY:Ljava/lang/String; = "auto_rotate_main_switch"
+
+.field static final AUTO_ROTATE_SWITCH_PREFERENCE_KEY:Ljava/lang/String; = "auto_rotate_switch"
 
 .field public static final SEARCH_INDEX_DATA_PROVIDER:Lcom/android/settingslib/search/Indexable$SearchIndexProvider;
 
 
-# instance fields
-.field private mRotationPolicyListener:Lcom/android/internal/view/RotationPolicy$RotationPolicyListener;
-
-.field private mSwitchBarController:Lcom/android/settings/display/AutoRotateSwitchBarController;
-
-
 # direct methods
+.method public static synthetic $r8$lambda$in4DOF5SSE40hIB6GGRl3sJ1X5M(Lcom/android/settings/display/SmartAutoRotatePreferenceFragment;Landroid/view/View;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/display/SmartAutoRotatePreferenceFragment;->lambda$addHelpLink$0(Landroid/view/View;)V
+
+    return-void
+.end method
+
 .method static constructor <clinit>()V
     .locals 2
 
-    new-instance v0, Lcom/android/settings/search/BaseSearchIndexProvider;
+    new-instance v0, Lcom/android/settings/display/SmartAutoRotatePreferenceFragment$1;
 
-    const v1, 0x7f15002f
+    const v1, 0x7f150030
 
-    invoke-direct {v0, v1}, Lcom/android/settings/search/BaseSearchIndexProvider;-><init>(I)V
+    invoke-direct {v0, v1}, Lcom/android/settings/display/SmartAutoRotatePreferenceFragment$1;-><init>(I)V
 
     sput-object v0, Lcom/android/settings/display/SmartAutoRotatePreferenceFragment;->SEARCH_INDEX_DATA_PROVIDER:Lcom/android/settingslib/search/Indexable$SearchIndexProvider;
 
@@ -38,52 +42,83 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/settings/display/SmartAutoRotatePreferenceFragment;)Lcom/android/settings/display/AutoRotateSwitchBarController;
-    .locals 0
+.method private synthetic lambda$addHelpLink$0(Landroid/view/View;)V
+    .locals 2
 
-    iget-object p0, p0, Lcom/android/settings/display/SmartAutoRotatePreferenceFragment;->mSwitchBarController:Lcom/android/settings/display/AutoRotateSwitchBarController;
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
 
-    return-object p0
+    move-result-object p1
+
+    invoke-virtual {p0}, Lcom/android/settings/display/SmartAutoRotatePreferenceFragment;->getHelpResource()I
+
+    move-result v0
+
+    invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, ""
+
+    invoke-static {p1, v0, v1}, Lcom/android/settingslib/HelpUtils;->getHelpIntent(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    move-result-object p1
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, p1, v0}, Landroidx/fragment/app/Fragment;->startActivityForResult(Landroid/content/Intent;I)V
+
+    return-void
 .end method
 
 
 # virtual methods
-.method createHeader(Lcom/android/settings/SettingsActivity;)V
-    .locals 3
+.method addHelpLink()V
+    .locals 2
 
-    invoke-static {p1}, Lcom/android/settings/display/SmartAutoRotateController;->isRotationResolverServiceAvailable(Landroid/content/Context;)Z
+    const-string v0, "auto_rotate_footer_preference"
 
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {p1}, Lcom/android/settings/SettingsActivity;->getSwitchBar()Lcom/android/settings/widget/SettingsMainSwitchBar;
+    invoke-virtual {p0, v0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
     move-result-object v0
 
-    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
+    check-cast v0, Lcom/android/settingslib/widget/FooterPreference;
 
-    move-result-object v1
+    if-eqz v0, :cond_0
 
-    const v2, 0x7f0402ef
+    new-instance v1, Lcom/android/settings/display/SmartAutoRotatePreferenceFragment$$ExternalSyntheticLambda0;
 
-    invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    invoke-direct {v1, p0}, Lcom/android/settings/display/SmartAutoRotatePreferenceFragment$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/display/SmartAutoRotatePreferenceFragment;)V
 
-    move-result-object v1
+    invoke-virtual {v0, v1}, Lcom/android/settingslib/widget/FooterPreference;->setLearnMoreAction(Landroid/view/View$OnClickListener;)V
 
-    invoke-virtual {v0, v1}, Lcom/android/settingslib/widget/MainSwitchBar;->setTitle(Ljava/lang/CharSequence;)V
+    const v1, 0x7f040321
 
-    invoke-virtual {v0}, Lcom/android/settingslib/widget/MainSwitchBar;->show()V
+    invoke-virtual {p0, v1}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
-    new-instance v1, Lcom/android/settings/display/AutoRotateSwitchBarController;
+    move-result-object p0
 
-    invoke-virtual {p0}, Lcom/android/settingslib/core/lifecycle/ObservablePreferenceFragment;->getSettingsLifecycle()Lcom/android/settingslib/core/lifecycle/Lifecycle;
+    invoke-virtual {v0, p0}, Lcom/android/settingslib/widget/FooterPreference;->setLearnMoreText(Ljava/lang/CharSequence;)V
 
-    move-result-object v2
+    :cond_0
+    return-void
+.end method
 
-    invoke-direct {v1, p1, v0, v2}, Lcom/android/settings/display/AutoRotateSwitchBarController;-><init>(Landroid/content/Context;Lcom/android/settings/widget/SettingsMainSwitchBar;Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
+.method createHeader(Lcom/android/settings/SettingsActivity;)V
+    .locals 2
 
-    iput-object v1, p0, Lcom/android/settings/display/SmartAutoRotatePreferenceFragment;->mSwitchBarController:Lcom/android/settings/display/AutoRotateSwitchBarController;
+    invoke-static {p1}, Lcom/android/settings/display/DeviceStateAutoRotationHelper;->isDeviceStateRotationEnabled(Landroid/content/Context;)Z
+
+    move-result v0
+
+    invoke-static {p1}, Lcom/android/settings/display/SmartAutoRotateController;->isRotationResolverServiceAvailable(Landroid/content/Context;)Z
+
+    move-result p1
+
+    const/4 v1, 0x0
+
+    if-eqz p1, :cond_0
+
+    if-nez v0, :cond_0
 
     const-string p1, "auto_rotate_switch"
 
@@ -91,12 +126,49 @@
 
     move-result-object p0
 
-    const/4 p1, 0x0
+    invoke-virtual {p0, v1}, Landroidx/preference/Preference;->setVisible(Z)V
 
-    invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setVisible(Z)V
+    goto :goto_0
 
     :cond_0
+    const-string p1, "auto_rotate_main_switch"
+
+    invoke-virtual {p0, p1}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
+
+    move-result-object p0
+
+    invoke-virtual {p0, v1}, Landroidx/preference/Preference;->setVisible(Z)V
+
+    :goto_0
     return-void
+.end method
+
+.method protected createPreferenceControllers(Landroid/content/Context;)Ljava/util/List;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/content/Context;",
+            ")",
+            "Ljava/util/List<",
+            "Lcom/android/settingslib/core/AbstractPreferenceController;",
+            ">;"
+        }
+    .end annotation
+
+    invoke-static {p1}, Lcom/android/settings/display/DeviceStateAutoRotationHelper;->createPreferenceControllers(Landroid/content/Context;)Lcom/google/common/collect/ImmutableList;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public getHelpResource()I
+    .locals 0
+
+    const p0, 0x7f040a75
+
+    return p0
 .end method
 
 .method protected getLogTag()Ljava/lang/String;
@@ -118,35 +190,33 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f15002f
+    const p0, 0x7f150030
 
     return p0
 .end method
 
 .method public onAttach(Landroid/content/Context;)V
-    .locals 0
+    .locals 1
 
     invoke-super {p0, p1}, Lcom/android/settings/dashboard/DashboardFragment;->onAttach(Landroid/content/Context;)V
 
-    const-class p1, Lcom/android/settings/display/SmartAutoRotateController;
-
-    invoke-virtual {p0, p1}, Lcom/android/settings/dashboard/DashboardFragment;->use(Ljava/lang/Class;)Lcom/android/settingslib/core/AbstractPreferenceController;
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getLifecycle()Landroidx/lifecycle/Lifecycle;
 
     move-result-object p1
 
-    check-cast p1, Lcom/android/settings/display/SmartAutoRotateController;
+    const-class v0, Lcom/android/settings/display/DeviceStateAutoRotateSettingController;
 
-    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getLifecycle()Landroidx/lifecycle/Lifecycle;
+    invoke-virtual {p0, v0}, Lcom/android/settings/dashboard/DashboardFragment;->useAll(Ljava/lang/Class;)Ljava/util/List;
 
     move-result-object p0
 
-    invoke-virtual {p1, p0}, Lcom/android/settings/display/SmartAutoRotateController;->init(Landroidx/lifecycle/Lifecycle;)V
+    invoke-static {p1, p0}, Lcom/android/settings/display/DeviceStateAutoRotationHelper;->initControllers(Landroidx/lifecycle/Lifecycle;Ljava/util/List;)V
 
     return-void
 .end method
 
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
-    .locals 1
+    .locals 0
 
     invoke-super {p0, p1, p2, p3}, Lcom/android/settings/SettingsPreferenceFragment;->onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
 
@@ -160,7 +230,7 @@
 
     invoke-virtual {p0, p2}, Lcom/android/settings/display/SmartAutoRotatePreferenceFragment;->createHeader(Lcom/android/settings/SettingsActivity;)V
 
-    const-string p3, "footer_preference"
+    const-string p3, "auto_rotate_footer_preference"
 
     invoke-virtual {p0, p3}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -168,74 +238,37 @@
 
     if-eqz p3, :cond_0
 
-    const v0, 0x7f0412a5
-
-    invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
-
-    move-result-object p0
-
-    const/16 v0, 0x3f
-
-    invoke-static {p0, v0}, Landroid/text/Html;->fromHtml(Ljava/lang/String;I)Landroid/text/Spanned;
-
-    move-result-object p0
-
-    invoke-virtual {p3, p0}, Landroidx/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
-
     invoke-static {p2}, Lcom/android/settings/display/SmartAutoRotateController;->isRotationResolverServiceAvailable(Landroid/content/Context;)Z
 
-    move-result p0
+    move-result p2
 
-    invoke-virtual {p3, p0}, Landroidx/preference/Preference;->setVisible(Z)V
+    invoke-virtual {p3, p2}, Landroidx/preference/Preference;->setVisible(Z)V
+
+    invoke-virtual {p0}, Lcom/android/settings/display/SmartAutoRotatePreferenceFragment;->setupFooter()V
 
     :cond_0
     return-object p1
 .end method
 
-.method public onPause()V
+.method setupFooter()V
     .locals 1
 
-    invoke-super {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->onPause()V
+    invoke-virtual {p0}, Lcom/android/settings/display/SmartAutoRotatePreferenceFragment;->getHelpResource()I
 
-    iget-object v0, p0, Lcom/android/settings/display/SmartAutoRotatePreferenceFragment;->mRotationPolicyListener:Lcom/android/internal/view/RotationPolicy$RotationPolicyListener;
+    move-result v0
 
-    if-eqz v0, :cond_0
-
-    invoke-virtual {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->getPrefContext()Landroid/content/Context;
+    invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    iget-object p0, p0, Lcom/android/settings/display/SmartAutoRotatePreferenceFragment;->mRotationPolicyListener:Lcom/android/internal/view/RotationPolicy$RotationPolicyListener;
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    invoke-static {v0, p0}, Lcom/android/internal/view/RotationPolicy;->unregisterRotationPolicyListener(Landroid/content/Context;Lcom/android/internal/view/RotationPolicy$RotationPolicyListener;)V
-
-    :cond_0
-    return-void
-.end method
-
-.method public onResume()V
-    .locals 1
-
-    invoke-super {p0}, Lcom/android/settings/dashboard/DashboardFragment;->onResume()V
-
-    iget-object v0, p0, Lcom/android/settings/display/SmartAutoRotatePreferenceFragment;->mRotationPolicyListener:Lcom/android/internal/view/RotationPolicy$RotationPolicyListener;
+    move-result v0
 
     if-nez v0, :cond_0
 
-    new-instance v0, Lcom/android/settings/display/SmartAutoRotatePreferenceFragment$1;
-
-    invoke-direct {v0, p0}, Lcom/android/settings/display/SmartAutoRotatePreferenceFragment$1;-><init>(Lcom/android/settings/display/SmartAutoRotatePreferenceFragment;)V
-
-    iput-object v0, p0, Lcom/android/settings/display/SmartAutoRotatePreferenceFragment;->mRotationPolicyListener:Lcom/android/internal/view/RotationPolicy$RotationPolicyListener;
+    invoke-virtual {p0}, Lcom/android/settings/display/SmartAutoRotatePreferenceFragment;->addHelpLink()V
 
     :cond_0
-    invoke-virtual {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->getPrefContext()Landroid/content/Context;
-
-    move-result-object v0
-
-    iget-object p0, p0, Lcom/android/settings/display/SmartAutoRotatePreferenceFragment;->mRotationPolicyListener:Lcom/android/internal/view/RotationPolicy$RotationPolicyListener;
-
-    invoke-static {v0, p0}, Lcom/android/internal/view/RotationPolicy;->registerRotationPolicyListener(Landroid/content/Context;Lcom/android/internal/view/RotationPolicy$RotationPolicyListener;)V
-
     return-void
 .end method

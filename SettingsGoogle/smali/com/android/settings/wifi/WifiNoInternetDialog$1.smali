@@ -36,7 +36,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/WifiNoInternetDialog$1;->this$0:Lcom/android/settings/wifi/WifiNoInternetDialog;
 
-    invoke-static {v0}, Lcom/android/settings/wifi/WifiNoInternetDialog;->access$000(Lcom/android/settings/wifi/WifiNoInternetDialog;)Landroid/net/Network;
+    invoke-static {v0}, Lcom/android/settings/wifi/WifiNoInternetDialog;->-$$Nest$fgetmNetwork(Lcom/android/settings/wifi/WifiNoInternetDialog;)Landroid/net/Network;
 
     move-result-object v0
 
@@ -64,7 +64,7 @@
 
     iget-object p2, p0, Lcom/android/settings/wifi/WifiNoInternetDialog$1;->this$0:Lcom/android/settings/wifi/WifiNoInternetDialog;
 
-    invoke-static {p2}, Lcom/android/settings/wifi/WifiNoInternetDialog;->access$000(Lcom/android/settings/wifi/WifiNoInternetDialog;)Landroid/net/Network;
+    invoke-static {p2}, Lcom/android/settings/wifi/WifiNoInternetDialog;->-$$Nest$fgetmNetwork(Lcom/android/settings/wifi/WifiNoInternetDialog;)Landroid/net/Network;
 
     move-result-object p2
 
@@ -95,7 +95,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/WifiNoInternetDialog$1;->this$0:Lcom/android/settings/wifi/WifiNoInternetDialog;
 
-    invoke-static {v0}, Lcom/android/settings/wifi/WifiNoInternetDialog;->access$000(Lcom/android/settings/wifi/WifiNoInternetDialog;)Landroid/net/Network;
+    invoke-static {v0}, Lcom/android/settings/wifi/WifiNoInternetDialog;->-$$Nest$fgetmNetwork(Lcom/android/settings/wifi/WifiNoInternetDialog;)Landroid/net/Network;
 
     move-result-object v0
 
@@ -115,7 +115,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/WifiNoInternetDialog$1;->this$0:Lcom/android/settings/wifi/WifiNoInternetDialog;
 
-    invoke-static {v0}, Lcom/android/settings/wifi/WifiNoInternetDialog;->access$000(Lcom/android/settings/wifi/WifiNoInternetDialog;)Landroid/net/Network;
+    invoke-static {v0}, Lcom/android/settings/wifi/WifiNoInternetDialog;->-$$Nest$fgetmNetwork(Lcom/android/settings/wifi/WifiNoInternetDialog;)Landroid/net/Network;
 
     move-result-object v0
 

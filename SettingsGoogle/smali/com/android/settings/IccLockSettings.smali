@@ -58,6 +58,88 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmHandler(Lcom/android/settings/IccLockSettings;)Landroid/os/Handler;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/IccLockSettings;->mHandler:Landroid/os/Handler;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmSubId(Lcom/android/settings/IccLockSettings;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/settings/IccLockSettings;->mSubId:I
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmTabHost(Lcom/android/settings/IccLockSettings;)Landroid/widget/TabHost;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/IccLockSettings;->mTabHost:Landroid/widget/TabHost;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmTelephonyManager(Lcom/android/settings/IccLockSettings;)Landroid/telephony/TelephonyManager;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/IccLockSettings;->mTelephonyManager:Landroid/telephony/TelephonyManager;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmSlotId(Lcom/android/settings/IccLockSettings;I)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/settings/IccLockSettings;->mSlotId:I
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fputmTelephonyManager(Lcom/android/settings/IccLockSettings;Landroid/telephony/TelephonyManager;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/settings/IccLockSettings;->mTelephonyManager:Landroid/telephony/TelephonyManager;
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mgetSlotIndexFromTag(Lcom/android/settings/IccLockSettings;Ljava/lang/String;)I
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/IccLockSettings;->getSlotIndexFromTag(Ljava/lang/String;)I
+
+    move-result p0
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$miccLockChanged(Lcom/android/settings/IccLockSettings;ZI)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/settings/IccLockSettings;->iccLockChanged(ZI)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$miccPinChanged(Lcom/android/settings/IccLockSettings;ZI)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/settings/IccLockSettings;->iccPinChanged(ZI)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mupdatePreferences(Lcom/android/settings/IccLockSettings;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/IccLockSettings;->updatePreferences()V
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 1
 
@@ -98,88 +180,6 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/settings/IccLockSettings;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/IccLockSettings;->updatePreferences()V
-
-    return-void
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/IccLockSettings;)Landroid/os/Handler;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/IccLockSettings;->mHandler:Landroid/os/Handler;
-
-    return-object p0
-.end method
-
-.method static synthetic access$1000(Lcom/android/settings/IccLockSettings;)Landroid/widget/TabHost;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/IccLockSettings;->mTabHost:Landroid/widget/TabHost;
-
-    return-object p0
-.end method
-
-.method static synthetic access$300(Lcom/android/settings/IccLockSettings;)Landroid/telephony/TelephonyManager;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/IccLockSettings;->mTelephonyManager:Landroid/telephony/TelephonyManager;
-
-    return-object p0
-.end method
-
-.method static synthetic access$302(Lcom/android/settings/IccLockSettings;Landroid/telephony/TelephonyManager;)Landroid/telephony/TelephonyManager;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/settings/IccLockSettings;->mTelephonyManager:Landroid/telephony/TelephonyManager;
-
-    return-object p1
-.end method
-
-.method static synthetic access$400(Lcom/android/settings/IccLockSettings;)I
-    .locals 0
-
-    iget p0, p0, Lcom/android/settings/IccLockSettings;->mSubId:I
-
-    return p0
-.end method
-
-.method static synthetic access$500(Lcom/android/settings/IccLockSettings;ZI)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/settings/IccLockSettings;->iccLockChanged(ZI)V
-
-    return-void
-.end method
-
-.method static synthetic access$700(Lcom/android/settings/IccLockSettings;ZI)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/settings/IccLockSettings;->iccPinChanged(ZI)V
-
-    return-void
-.end method
-
-.method static synthetic access$802(Lcom/android/settings/IccLockSettings;I)I
-    .locals 0
-
-    iput p1, p0, Lcom/android/settings/IccLockSettings;->mSlotId:I
-
-    return p1
-.end method
-
-.method static synthetic access$900(Lcom/android/settings/IccLockSettings;Ljava/lang/String;)I
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/IccLockSettings;->getSlotIndexFromTag(Ljava/lang/String;)I
-
-    move-result p0
-
-    return p0
-.end method
-
 .method private buildTabSpec(Ljava/lang/String;Ljava/lang/String;)Landroid/widget/TabHost$TabSpec;
     .locals 1
 
@@ -213,7 +213,7 @@
 
     check-cast v0, Landroid/view/LayoutInflater;
 
-    const v1, 0x1090137
+    const v1, 0x1090143
 
     const/4 v2, 0x0
 
@@ -230,6 +230,10 @@
     check-cast v1, Landroid/widget/TextView;
 
     invoke-virtual {v1, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setSingleLine(Z)V
 
     new-instance v1, Landroid/view/WindowManager$LayoutParams;
 
@@ -255,7 +259,7 @@
 
     move-result-object v3
 
-    const v4, 0x10e00d8
+    const v4, 0x10e00e5
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -299,7 +303,7 @@
 
     move-result-object v2
 
-    const v3, 0x10502c0
+    const v3, 0x10502ca
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -375,7 +379,7 @@
 
     iget-object p0, p0, Lcom/android/settings/IccLockSettings;->mRes:Landroid/content/res/Resources;
 
-    const p1, 0x7f0417ba
+    const p1, 0x7f0418b5
 
     invoke-virtual {p0, p1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -392,7 +396,7 @@
 
     iget-object p0, p0, Lcom/android/settings/IccLockSettings;->mRes:Landroid/content/res/Resources;
 
-    const v2, 0x7f0417b9
+    const v2, 0x7f0418b4
 
     new-array v1, v1, [Ljava/lang/Object;
 
@@ -413,7 +417,7 @@
 
     iget-object p0, p0, Lcom/android/settings/IccLockSettings;->mRes:Landroid/content/res/Resources;
 
-    const v2, 0x7f12005d
+    const v2, 0x7f12005a
 
     new-array v1, v1, [Ljava/lang/Object;
 
@@ -432,7 +436,7 @@
     :cond_2
     iget-object p0, p0, Lcom/android/settings/IccLockSettings;->mRes:Landroid/content/res/Resources;
 
-    const p1, 0x7f040f14
+    const p1, 0x7f040faa
 
     invoke-virtual {p0, p1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -589,7 +593,7 @@
 
     iget-object p2, p0, Lcom/android/settings/IccLockSettings;->mRes:Landroid/content/res/Resources;
 
-    const v1, 0x7f04127d
+    const v1, 0x7f041337
 
     invoke-virtual {p2, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -610,7 +614,7 @@
 
     iget-object p2, p0, Lcom/android/settings/IccLockSettings;->mRes:Landroid/content/res/Resources;
 
-    const v1, 0x7f04127c
+    const v1, 0x7f041336
 
     invoke-virtual {p2, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -670,7 +674,7 @@
 
     iget-object p2, p0, Lcom/android/settings/IccLockSettings;->mRes:Landroid/content/res/Resources;
 
-    const v0, 0x7f04125d
+    const v0, 0x7f041317
 
     invoke-virtual {p2, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1011,7 +1015,7 @@
 
     const/4 v1, 0x2
 
-    const v2, 0x7f04125c
+    const v2, 0x7f041316
 
     if-eq v0, v1, :cond_2
 
@@ -1030,7 +1034,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/settings/IccLockSettings;->mRes:Landroid/content/res/Resources;
 
-    const v1, 0x7f041282
+    const v1, 0x7f04133c
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1051,7 +1055,7 @@
     :cond_1
     iget-object v0, p0, Lcom/android/settings/IccLockSettings;->mRes:Landroid/content/res/Resources;
 
-    const v1, 0x7f041267
+    const v1, 0x7f041321
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1072,7 +1076,7 @@
     :cond_2
     iget-object v0, p0, Lcom/android/settings/IccLockSettings;->mRes:Landroid/content/res/Resources;
 
-    const v1, 0x7f041269
+    const v1, 0x7f041323
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1093,7 +1097,7 @@
     :cond_3
     iget-object v0, p0, Lcom/android/settings/IccLockSettings;->mRes:Landroid/content/res/Resources;
 
-    const v1, 0x7f04126a
+    const v1, 0x7f041324
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1107,7 +1111,7 @@
 
     iget-object v2, p0, Lcom/android/settings/IccLockSettings;->mRes:Landroid/content/res/Resources;
 
-    const v3, 0x7f041265
+    const v3, 0x7f04131f
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1118,7 +1122,7 @@
     :cond_4
     iget-object v2, p0, Lcom/android/settings/IccLockSettings;->mRes:Landroid/content/res/Resources;
 
-    const v3, 0x7f04125f
+    const v3, 0x7f041319
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1217,7 +1221,7 @@
 
     const/4 v3, 0x0
 
-    invoke-direct {v0, p0, v1, v2, v3}, Lcom/android/settings/IccLockSettings$SetIccLockEnabled;-><init>(Lcom/android/settings/IccLockSettings;ZLjava/lang/String;Lcom/android/settings/IccLockSettings$1;)V
+    invoke-direct {v0, p0, v1, v2, v3}, Lcom/android/settings/IccLockSettings$SetIccLockEnabled;-><init>(Lcom/android/settings/IccLockSettings;ZLjava/lang/String;Lcom/android/settings/IccLockSettings$SetIccLockEnabled-IA;)V
 
     const/4 v1, 0x0
 
@@ -1243,7 +1247,7 @@
 
     const/4 v3, 0x0
 
-    invoke-direct {v0, p0, v1, v2, v3}, Lcom/android/settings/IccLockSettings$ChangeIccLockPin;-><init>(Lcom/android/settings/IccLockSettings;Ljava/lang/String;Ljava/lang/String;Lcom/android/settings/IccLockSettings$1;)V
+    invoke-direct {v0, p0, v1, v2, v3}, Lcom/android/settings/IccLockSettings$ChangeIccLockPin;-><init>(Lcom/android/settings/IccLockSettings;Ljava/lang/String;Ljava/lang/String;Lcom/android/settings/IccLockSettings$ChangeIccLockPin-IA;)V
 
     const/4 p0, 0x0
 
@@ -1356,7 +1360,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a35
+    const p0, 0x7f040a8e
 
     return p0
 .end method
@@ -1415,7 +1419,7 @@
 
     iput-object v0, p0, Lcom/android/settings/IccLockSettings;->mTelephonyManager:Landroid/telephony/TelephonyManager;
 
-    const v0, 0x7f1500dc
+    const v0, 0x7f1500e1
 
     invoke-virtual {p0, v0}, Lcom/android/settings/SettingsPreferenceFragment;->addPreferencesFromResource(I)V
 
@@ -1663,13 +1667,13 @@
 
     if-le v0, v3, :cond_5
 
-    const v0, 0x7f06010c
+    const v0, 0x7f06010f
 
     invoke-virtual {p1, v0, p2, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     move-result-object v0
 
-    const v3, 0x7f0d044f
+    const v3, 0x7f0d047f
 
     invoke-virtual {v0, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1837,7 +1841,7 @@
 
     iget-object p1, p0, Lcom/android/settings/IccLockSettings;->mRes:Landroid/content/res/Resources;
 
-    const p2, 0x7f041248
+    const p2, 0x7f041302
 
     invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1885,7 +1889,7 @@
 
     iget-object p1, p0, Lcom/android/settings/IccLockSettings;->mRes:Landroid/content/res/Resources;
 
-    const p2, 0x7f04127f
+    const p2, 0x7f041339
 
     invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

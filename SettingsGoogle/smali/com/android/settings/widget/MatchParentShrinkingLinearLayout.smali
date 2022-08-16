@@ -1524,11 +1524,11 @@
 
     add-int v22, v10, v1
 
-    move-object v1, v0
+    move-object/from16 p1, v0
 
     move-object/from16 v0, p0
 
-    move-object/from16 p1, v1
+    move-object/from16 v1, p1
 
     move v11, v2
 

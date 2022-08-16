@@ -46,7 +46,7 @@
 
     if-eqz v0, :cond_0
 
-    const v1, 0x7f13048a
+    const v1, 0x7f13060e
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextAppearance(I)V
 
@@ -61,7 +61,7 @@
 
     if-eqz p1, :cond_1
 
-    const v0, 0x7f130489
+    const v0, 0x7f13060d
 
     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setTextAppearance(I)V
 

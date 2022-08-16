@@ -18,7 +18,8 @@
         "Lcom/google/protobuf/GeneratedMessageLite<",
         "Lcom/android/settings/intelligence/LogProto$SettingsLog;",
         "Lcom/android/settings/intelligence/LogProto$SettingsLog$Builder;",
-        ">;"
+        ">;",
+        "Lcom/google/protobuf/MessageLiteOrBuilder;"
     }
 .end annotation
 
@@ -66,6 +67,62 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$msetAction(Lcom/android/settings/intelligence/LogProto$SettingsLog;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/intelligence/LogProto$SettingsLog;->setAction(I)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$msetAttribution(Lcom/android/settings/intelligence/LogProto$SettingsLog;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/intelligence/LogProto$SettingsLog;->setAttribution(I)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$msetChangedPreferenceIntValue(Lcom/android/settings/intelligence/LogProto$SettingsLog;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/intelligence/LogProto$SettingsLog;->setChangedPreferenceIntValue(I)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$msetChangedPreferenceKey(Lcom/android/settings/intelligence/LogProto$SettingsLog;Ljava/lang/String;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/intelligence/LogProto$SettingsLog;->setChangedPreferenceKey(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$msetPageId(Lcom/android/settings/intelligence/LogProto$SettingsLog;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/intelligence/LogProto$SettingsLog;->setPageId(I)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$msetTimestamp(Lcom/android/settings/intelligence/LogProto$SettingsLog;Ljava/lang/String;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/intelligence/LogProto$SettingsLog;->setTimestamp(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$sfgetDEFAULT_INSTANCE()Lcom/android/settings/intelligence/LogProto$SettingsLog;
+    .locals 1
+
+    sget-object v0, Lcom/android/settings/intelligence/LogProto$SettingsLog;->DEFAULT_INSTANCE:Lcom/android/settings/intelligence/LogProto$SettingsLog;
+
+    return-object v0
+.end method
+
 .method static constructor <clinit>()V
     .locals 2
 
@@ -92,62 +149,6 @@
     iput-object v0, p0, Lcom/android/settings/intelligence/LogProto$SettingsLog;->changedPreferenceKey_:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/android/settings/intelligence/LogProto$SettingsLog;->timestamp_:Ljava/lang/String;
-
-    return-void
-.end method
-
-.method static synthetic access$000()Lcom/android/settings/intelligence/LogProto$SettingsLog;
-    .locals 1
-
-    sget-object v0, Lcom/android/settings/intelligence/LogProto$SettingsLog;->DEFAULT_INSTANCE:Lcom/android/settings/intelligence/LogProto$SettingsLog;
-
-    return-object v0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/intelligence/LogProto$SettingsLog;I)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/intelligence/LogProto$SettingsLog;->setAttribution(I)V
-
-    return-void
-.end method
-
-.method static synthetic access$1000(Lcom/android/settings/intelligence/LogProto$SettingsLog;I)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/intelligence/LogProto$SettingsLog;->setChangedPreferenceIntValue(I)V
-
-    return-void
-.end method
-
-.method static synthetic access$1200(Lcom/android/settings/intelligence/LogProto$SettingsLog;Ljava/lang/String;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/intelligence/LogProto$SettingsLog;->setTimestamp(Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method static synthetic access$300(Lcom/android/settings/intelligence/LogProto$SettingsLog;I)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/intelligence/LogProto$SettingsLog;->setAction(I)V
-
-    return-void
-.end method
-
-.method static synthetic access$500(Lcom/android/settings/intelligence/LogProto$SettingsLog;I)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/intelligence/LogProto$SettingsLog;->setPageId(I)V
-
-    return-void
-.end method
-
-.method static synthetic access$700(Lcom/android/settings/intelligence/LogProto$SettingsLog;Ljava/lang/String;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/intelligence/LogProto$SettingsLog;->setChangedPreferenceKey(Ljava/lang/String;)V
 
     return-void
 .end method
@@ -211,7 +212,7 @@
 .method private setChangedPreferenceKey(Ljava/lang/String;)V
     .locals 1
 
-    invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     iget v0, p0, Lcom/android/settings/intelligence/LogProto$SettingsLog;->bitField0_:I
 
@@ -241,7 +242,7 @@
 .method private setTimestamp(Ljava/lang/String;)V
     .locals 1
 
-    invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     iget v0, p0, Lcom/android/settings/intelligence/LogProto$SettingsLog;->bitField0_:I
 
@@ -392,7 +393,7 @@
     :pswitch_5
     new-instance p0, Lcom/android/settings/intelligence/LogProto$SettingsLog$Builder;
 
-    invoke-direct {p0, p2}, Lcom/android/settings/intelligence/LogProto$SettingsLog$Builder;-><init>(Lcom/android/settings/intelligence/LogProto$1;)V
+    invoke-direct {p0, p2}, Lcom/android/settings/intelligence/LogProto$SettingsLog$Builder;-><init>(Lcom/android/settings/intelligence/LogProto$SettingsLog$Builder-IA;)V
 
     return-object p0
 

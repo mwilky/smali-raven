@@ -19,8 +19,6 @@
 
 
 # instance fields
-.field private final mParams:Landroidx/core/text/PrecomputedTextCompat$Params;
-
 .field private final mText:Landroid/text/Spannable;
 
 .field private final mWrapped:Landroid/text/PrecomputedText;
@@ -43,14 +41,6 @@
 # virtual methods
 .method public charAt(I)C
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "index"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/core/text/PrecomputedTextCompat;->mText:Landroid/text/Spannable;
 
@@ -59,14 +49,6 @@
     move-result p0
 
     return p0
-.end method
-
-.method public getParams()Landroidx/core/text/PrecomputedTextCompat$Params;
-    .locals 0
-
-    iget-object p0, p0, Landroidx/core/text/PrecomputedTextCompat;->mParams:Landroidx/core/text/PrecomputedTextCompat$Params;
-
-    return-object p0
 .end method
 
 .method public getPrecomputedText()Landroid/text/PrecomputedText;
@@ -90,14 +72,6 @@
 
 .method public getSpanEnd(Ljava/lang/Object;)I
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "tag"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/core/text/PrecomputedTextCompat;->mText:Landroid/text/Spannable;
 
@@ -110,14 +84,6 @@
 
 .method public getSpanFlags(Ljava/lang/Object;)I
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "tag"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/core/text/PrecomputedTextCompat;->mText:Landroid/text/Spannable;
 
@@ -130,14 +96,6 @@
 
 .method public getSpanStart(Ljava/lang/Object;)I
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "tag"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/core/text/PrecomputedTextCompat;->mText:Landroid/text/Spannable;
 
@@ -149,26 +107,7 @@
 .end method
 
 .method public getSpans(IILjava/lang/Class;)[Ljava/lang/Object;
-    .locals 2
-    .annotation build Landroid/annotation/SuppressLint;
-        value = {
-            "NewApi"
-        }
-    .end annotation
-
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "start",
-            "end",
-            "type"
-        }
-    .end annotation
-
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -179,24 +118,9 @@
         }
     .end annotation
 
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x1d
-
-    if-lt v0, v1, :cond_0
-
     iget-object p0, p0, Landroidx/core/text/PrecomputedTextCompat;->mWrapped:Landroid/text/PrecomputedText;
 
     invoke-virtual {p0, p1, p2, p3}, Landroid/text/PrecomputedText;->getSpans(IILjava/lang/Class;)[Ljava/lang/Object;
-
-    move-result-object p0
-
-    return-object p0
-
-    :cond_0
-    iget-object p0, p0, Landroidx/core/text/PrecomputedTextCompat;->mText:Landroid/text/Spannable;
-
-    invoke-interface {p0, p1, p2, p3}, Landroid/text/Spannable;->getSpans(IILjava/lang/Class;)[Ljava/lang/Object;
 
     move-result-object p0
 
@@ -217,18 +141,6 @@
 
 .method public nextSpanTransition(IILjava/lang/Class;)I
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "start",
-            "limit",
-            "type"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/core/text/PrecomputedTextCompat;->mText:Landroid/text/Spannable;
 
@@ -240,47 +152,19 @@
 .end method
 
 .method public removeSpan(Ljava/lang/Object;)V
-    .locals 2
-    .annotation build Landroid/annotation/SuppressLint;
-        value = {
-            "NewApi"
-        }
-    .end annotation
-
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "what"
-        }
-    .end annotation
+    .locals 1
 
     instance-of v0, p1, Landroid/text/style/MetricAffectingSpan;
 
-    if-nez v0, :cond_1
-
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x1d
-
-    if-lt v0, v1, :cond_0
+    if-nez v0, :cond_0
 
     iget-object p0, p0, Landroidx/core/text/PrecomputedTextCompat;->mWrapped:Landroid/text/PrecomputedText;
 
     invoke-virtual {p0, p1}, Landroid/text/PrecomputedText;->removeSpan(Ljava/lang/Object;)V
 
-    goto :goto_0
-
-    :cond_0
-    iget-object p0, p0, Landroidx/core/text/PrecomputedTextCompat;->mText:Landroid/text/Spannable;
-
-    invoke-interface {p0, p1}, Landroid/text/Spannable;->removeSpan(Ljava/lang/Object;)V
-
-    :goto_0
     return-void
 
-    :cond_1
+    :cond_0
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "MetricAffectingSpan can not be removed from PrecomputedText."
@@ -291,53 +175,19 @@
 .end method
 
 .method public setSpan(Ljava/lang/Object;III)V
-    .locals 2
-    .annotation build Landroid/annotation/SuppressLint;
-        value = {
-            "NewApi"
-        }
-    .end annotation
-
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "what",
-            "start",
-            "end",
-            "flags"
-        }
-    .end annotation
+    .locals 1
 
     instance-of v0, p1, Landroid/text/style/MetricAffectingSpan;
 
-    if-nez v0, :cond_1
-
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x1d
-
-    if-lt v0, v1, :cond_0
+    if-nez v0, :cond_0
 
     iget-object p0, p0, Landroidx/core/text/PrecomputedTextCompat;->mWrapped:Landroid/text/PrecomputedText;
 
     invoke-virtual {p0, p1, p2, p3, p4}, Landroid/text/PrecomputedText;->setSpan(Ljava/lang/Object;III)V
 
-    goto :goto_0
-
-    :cond_0
-    iget-object p0, p0, Landroidx/core/text/PrecomputedTextCompat;->mText:Landroid/text/Spannable;
-
-    invoke-interface {p0, p1, p2, p3, p4}, Landroid/text/Spannable;->setSpan(Ljava/lang/Object;III)V
-
-    :goto_0
     return-void
 
-    :cond_1
+    :cond_0
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "MetricAffectingSpan can not be set to PrecomputedText."
@@ -349,16 +199,6 @@
 
 .method public subSequence(II)Ljava/lang/CharSequence;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "start",
-            "end"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/core/text/PrecomputedTextCompat;->mText:Landroid/text/Spannable;
 

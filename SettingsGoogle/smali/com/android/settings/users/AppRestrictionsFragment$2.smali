@@ -36,7 +36,7 @@
 
     iget-object p0, p0, Lcom/android/settings/users/AppRestrictionsFragment$2;->this$0:Lcom/android/settings/users/AppRestrictionsFragment;
 
-    invoke-static {p0, p2}, Lcom/android/settings/users/AppRestrictionsFragment;->access$200(Lcom/android/settings/users/AppRestrictionsFragment;Landroid/content/Intent;)V
+    invoke-static {p0, p2}, Lcom/android/settings/users/AppRestrictionsFragment;->-$$Nest$monPackageChanged(Lcom/android/settings/users/AppRestrictionsFragment;Landroid/content/Intent;)V
 
     return-void
 .end method

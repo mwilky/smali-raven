@@ -53,7 +53,7 @@
 
     const/4 v0, 0x0
 
-    invoke-static {p1, p2, v0}, Lcom/android/settings/network/telephony/Enhanced4gBasePreferenceController;->access$500(Lcom/android/settings/network/telephony/Enhanced4gBasePreferenceController;Landroid/telephony/ims/ImsMmTelManager;Z)Z
+    invoke-static {p1, p2, v0}, Lcom/android/settings/network/telephony/Enhanced4gBasePreferenceController;->-$$Nest$msetAdvancedCallingSettingEnabled(Lcom/android/settings/network/telephony/Enhanced4gBasePreferenceController;Landroid/telephony/ims/ImsMmTelManager;Z)Z
 
     iget-object p0, p0, Lcom/android/settings/network/telephony/Enhanced4gBasePreferenceController$1;->this$0:Lcom/android/settings/network/telephony/Enhanced4gBasePreferenceController;
 

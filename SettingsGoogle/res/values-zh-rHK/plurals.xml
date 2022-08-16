@@ -233,11 +233,11 @@
         <item quantity="one">已關閉 %d 個類別</item>
     </plurals>
     <plurals name="notifications_sent_daily">
-        <item quantity="other">~每天 %d 個通知</item>
+        <item quantity="other">~每天 %,d 個通知</item>
         <item quantity="one">~每天 %d 個通知</item>
     </plurals>
     <plurals name="notifications_sent_weekly">
-        <item quantity="other">~每星期 %d 個通知</item>
+        <item quantity="other">~每星期 %,d 個通知</item>
         <item quantity="one">~每星期 %d 個通知</item>
     </plurals>
     <plurals name="number_of_device_admins">
@@ -328,22 +328,6 @@
         <item quantity="other">信任或移除憑證</item>
         <item quantity="one">信任或移除憑證</item>
     </plurals>
-    <plurals name="ssl_ca_cert_info_message">
-        <item quantity="other">"%s 已為您的工作設定檔安裝憑證，這可能允許憑證核發當局監察電郵、應用程式和安全網站等工作網絡活動。
-
-如需進一步瞭解此憑證，請聯絡您的管理員。"</item>
-        <item quantity="one">"%s 已為您的工作設定檔安裝憑證，這可能允許憑證核發當局監察電郵、應用程式和安全網站等工作網絡活動。
-
-如需進一步瞭解此憑證，請聯絡您的管理員。"</item>
-    </plurals>
-    <plurals name="ssl_ca_cert_info_message_device_owner">
-        <item quantity="other">"%s 已在您的裝置上安裝憑證，這可能允許憑證核發當局監察您裝置的電郵、應用程式和安全網站等網絡活動。
-
-如需進一步瞭解這些憑證，請聯絡您的管理員。"</item>
-        <item quantity="one">"%s 已在您的裝置上安裝憑證，這可能允許憑證核發當局監察您裝置的電郵、應用程式和安全網站等網絡活動。
-
-如需進一步瞭解此憑證，請聯絡您的管理員。"</item>
-    </plurals>
     <plurals name="ssl_ca_cert_settings_button">
         <item quantity="other">檢查憑證</item>
         <item quantity="one">檢查憑證</item>
@@ -375,10 +359,6 @@
     <plurals name="wifi_saved_passpoint_access_points_summary">
         <item quantity="other">%d 個訂閱</item>
         <item quantity="one">1 個訂閱</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$d 部已連線的裝置</item>
-        <item quantity="one">%1$d 部已連線的裝置</item>
     </plurals>
     <plurals name="wrong_pin_code">
         <item quantity="other">SIM PIN 碼不正確，您還有 %d 次機會輸入。</item>

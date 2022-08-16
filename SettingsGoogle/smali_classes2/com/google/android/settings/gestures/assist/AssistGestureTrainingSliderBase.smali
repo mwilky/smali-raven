@@ -27,6 +27,40 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$mclearMessage(Lcom/google/android/settings/gestures/assist/AssistGestureTrainingSliderBase;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/google/android/settings/gestures/assist/AssistGestureTrainingSliderBase;->clearMessage()V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mfadeInView(Lcom/google/android/settings/gestures/assist/AssistGestureTrainingSliderBase;Landroid/view/View;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/google/android/settings/gestures/assist/AssistGestureTrainingSliderBase;->fadeInView(Landroid/view/View;)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mfadeOutView(Lcom/google/android/settings/gestures/assist/AssistGestureTrainingSliderBase;Landroid/view/View;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/google/android/settings/gestures/assist/AssistGestureTrainingSliderBase;->fadeOutView(Landroid/view/View;)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$mgetErrorString(Lcom/google/android/settings/gestures/assist/AssistGestureTrainingSliderBase;I)Ljava/lang/String;
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/google/android/settings/gestures/assist/AssistGestureTrainingSliderBase;->getErrorString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method public constructor <init>()V
     .locals 1
 
@@ -37,40 +71,6 @@
     invoke-direct {v0, p0}, Lcom/google/android/settings/gestures/assist/AssistGestureTrainingSliderBase$1;-><init>(Lcom/google/android/settings/gestures/assist/AssistGestureTrainingSliderBase;)V
 
     iput-object v0, p0, Lcom/google/android/settings/gestures/assist/AssistGestureTrainingSliderBase;->mHandler:Landroid/os/Handler;
-
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/google/android/settings/gestures/assist/AssistGestureTrainingSliderBase;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/google/android/settings/gestures/assist/AssistGestureTrainingSliderBase;->clearMessage()V
-
-    return-void
-.end method
-
-.method static synthetic access$100(Lcom/google/android/settings/gestures/assist/AssistGestureTrainingSliderBase;I)Ljava/lang/String;
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/google/android/settings/gestures/assist/AssistGestureTrainingSliderBase;->getErrorString(I)Ljava/lang/String;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method static synthetic access$200(Lcom/google/android/settings/gestures/assist/AssistGestureTrainingSliderBase;Landroid/view/View;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/google/android/settings/gestures/assist/AssistGestureTrainingSliderBase;->fadeInView(Landroid/view/View;)V
-
-    return-void
-.end method
-
-.method static synthetic access$300(Lcom/google/android/settings/gestures/assist/AssistGestureTrainingSliderBase;Landroid/view/View;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/google/android/settings/gestures/assist/AssistGestureTrainingSliderBase;->fadeOutView(Landroid/view/View;)V
 
     return-void
 .end method
@@ -102,7 +102,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0096
+    const v2, 0x7f0b009b
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -230,7 +230,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f0402aa
+    const p1, 0x7f0402de
 
     invoke-virtual {p0, p1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -243,7 +243,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f0402a5
+    const p1, 0x7f0402d9
 
     invoke-virtual {p0, p1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -256,7 +256,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f0402a9
+    const p1, 0x7f0402dd
 
     invoke-virtual {p0, p1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -269,7 +269,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f0402a6
+    const p1, 0x7f0402da
 
     invoke-virtual {p0, p1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -427,7 +427,7 @@
 
     invoke-super {p0, p1}, Lcom/google/android/settings/gestures/assist/AssistGestureTrainingBase;->onCreate(Landroid/os/Bundle;)V
 
-    const p1, 0x7f0d0212
+    const p1, 0x7f0d022b
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -453,7 +453,7 @@
 
     iput-object p1, p0, Lcom/google/android/settings/gestures/assist/AssistGestureTrainingSliderBase;->mFastOutLinearInInterpolator:Landroid/view/animation/Interpolator;
 
-    const p1, 0x7f0d00b3
+    const p1, 0x7f0d00b7
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -606,7 +606,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0095
+    const v4, 0x7f0b009a
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

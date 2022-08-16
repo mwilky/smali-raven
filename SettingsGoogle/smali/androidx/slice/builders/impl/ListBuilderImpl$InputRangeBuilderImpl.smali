@@ -35,16 +35,6 @@
 # direct methods
 .method constructor <init>(Landroidx/slice/Slice$Builder;Landroidx/slice/builders/ListBuilder$InputRangeBuilder;)V
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "sb",
-            "builder"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -207,16 +197,6 @@
 
 .method private addEndItem(Landroidx/slice/builders/SliceAction;Z)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "action",
-            "isLoading"
-        }
-    .end annotation
 
     new-instance v0, Landroidx/slice/Slice$Builder;
 
@@ -252,14 +232,6 @@
 # virtual methods
 .method public apply(Landroidx/slice/Slice$Builder;)V
     .locals 5
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "builder"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/slice/builders/impl/ListBuilderImpl$InputRangeBuilderImpl;->mAction:Landroid/app/PendingIntent;
 
@@ -290,7 +262,7 @@
 
     move-result-object v0
 
-    const-string v3, "range"
+    const-string/jumbo v3, "range"
 
     invoke-virtual {p1, v1, v0, v3}, Landroidx/slice/Slice$Builder;->addAction(Landroid/app/PendingIntent;Landroidx/slice/Slice;Ljava/lang/String;)Landroidx/slice/Slice$Builder;
 
@@ -349,18 +321,6 @@
 
 .method setTitleItem(Landroidx/core/graphics/drawable/IconCompat;IZ)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "icon",
-            "imageMode",
-            "isLoading"
-        }
-    .end annotation
 
     new-instance v0, Landroidx/slice/Slice$Builder;
 

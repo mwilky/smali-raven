@@ -1,37 +1,40 @@
 .class public final synthetic Lcom/android/settings/wifi/NetworkRequestDialogFragment$$ExternalSyntheticLambda4;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Predicate;
+.implements Landroid/view/View$OnClickListener;
 
 
 # instance fields
 .field public final synthetic f$0:Lcom/android/settings/wifi/NetworkRequestDialogFragment;
 
+.field public final synthetic f$1:Landroid/widget/Button;
+
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/settings/wifi/NetworkRequestDialogFragment;)V
+.method public synthetic constructor <init>(Lcom/android/settings/wifi/NetworkRequestDialogFragment;Landroid/widget/Button;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/settings/wifi/NetworkRequestDialogFragment$$ExternalSyntheticLambda4;->f$0:Lcom/android/settings/wifi/NetworkRequestDialogFragment;
 
+    iput-object p2, p0, Lcom/android/settings/wifi/NetworkRequestDialogFragment$$ExternalSyntheticLambda4;->f$1:Landroid/widget/Button;
+
     return-void
 .end method
 
 
 # virtual methods
-.method public final test(Ljava/lang/Object;)Z
-    .locals 0
+.method public final onClick(Landroid/view/View;)V
+    .locals 1
 
-    iget-object p0, p0, Lcom/android/settings/wifi/NetworkRequestDialogFragment$$ExternalSyntheticLambda4;->f$0:Lcom/android/settings/wifi/NetworkRequestDialogFragment;
+    iget-object v0, p0, Lcom/android/settings/wifi/NetworkRequestDialogFragment$$ExternalSyntheticLambda4;->f$0:Lcom/android/settings/wifi/NetworkRequestDialogFragment;
 
-    check-cast p1, Lcom/android/wifitrackerlib/WifiEntry;
+    iget-object p0, p0, Lcom/android/settings/wifi/NetworkRequestDialogFragment$$ExternalSyntheticLambda4;->f$1:Landroid/widget/Button;
 
-    invoke-static {p0, p1}, Lcom/android/settings/wifi/NetworkRequestDialogFragment;->$r8$lambda$DnEQsXdoWfagMGX6QWn58B4lEXE(Lcom/android/settings/wifi/NetworkRequestDialogFragment;Lcom/android/wifitrackerlib/WifiEntry;)Z
+    invoke-static {v0, p0, p1}, Lcom/android/settings/wifi/NetworkRequestDialogFragment;->$r8$lambda$dpxfev_YBw6DN45ABAPpzvGXNss(Lcom/android/settings/wifi/NetworkRequestDialogFragment;Landroid/widget/Button;Landroid/view/View;)V
 
-    move-result p0
-
-    return p0
+    return-void
 .end method

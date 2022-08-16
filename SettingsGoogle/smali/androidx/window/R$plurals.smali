@@ -179,33 +179,27 @@
 
 .field public static final ssl_ca_cert_dialog_title:I = 0x7f120051
 
-.field public static final ssl_ca_cert_info_message:I = 0x7f120052
+.field public static final ssl_ca_cert_settings_button:I = 0x7f120052
 
-.field public static final ssl_ca_cert_info_message_device_owner:I = 0x7f120053
+.field public static final suggestions_collapsed_summary:I = 0x7f120053
 
-.field public static final ssl_ca_cert_settings_button:I = 0x7f120054
+.field public static final suggestions_collapsed_title:I = 0x7f120054
 
-.field public static final suggestions_collapsed_summary:I = 0x7f120055
+.field public static final unused_apps_summary:I = 0x7f120055
 
-.field public static final suggestions_collapsed_title:I = 0x7f120056
+.field public static final uri_permissions_text:I = 0x7f120056
 
-.field public static final unused_apps_summary:I = 0x7f120057
+.field public static final wifi_saved_access_points_summary:I = 0x7f120057
 
-.field public static final uri_permissions_text:I = 0x7f120058
+.field public static final wifi_saved_all_access_points_summary:I = 0x7f120058
 
-.field public static final wifi_saved_access_points_summary:I = 0x7f120059
+.field public static final wifi_saved_passpoint_access_points_summary:I = 0x7f120059
 
-.field public static final wifi_saved_all_access_points_summary:I = 0x7f12005a
+.field public static final wrong_pin_code:I = 0x7f12005a
 
-.field public static final wifi_saved_passpoint_access_points_summary:I = 0x7f12005b
+.field public static final zen_mode_summary_alarms_only_by_hour:I = 0x7f12005b
 
-.field public static final wifi_tether_connected_summary:I = 0x7f12005c
-
-.field public static final wrong_pin_code:I = 0x7f12005d
-
-.field public static final zen_mode_summary_alarms_only_by_hour:I = 0x7f12005e
-
-.field public static final zen_mode_summary_alarms_only_by_minute:I = 0x7f12005f
+.field public static final zen_mode_summary_alarms_only_by_minute:I = 0x7f12005c
 
 
 # direct methods

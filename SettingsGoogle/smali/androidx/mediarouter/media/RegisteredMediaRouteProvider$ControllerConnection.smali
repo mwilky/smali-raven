@@ -16,14 +16,6 @@
 
 # virtual methods
 .method public abstract attachConnection(Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;)V
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "connection"
-        }
-    .end annotation
 .end method
 
 .method public abstract detachConnection()V

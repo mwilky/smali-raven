@@ -13,13 +13,20 @@
 
     invoke-direct {p0, p1}, Landroidx/fragment/app/FragmentPagerAdapter;-><init>(Landroidx/fragment/app/FragmentManager;)V
 
-    const-string p1, "Questions were missing!"
-
-    invoke-static {p2, p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    if-eqz p2, :cond_0
 
     iput-object p2, p0, Lcom/google/android/libraries/hats20/adapter/SurveyViewPagerAdapter;->questions:[Lcom/google/android/libraries/hats20/model/Question;
 
     return-void
+
+    :cond_0
+    new-instance p0, Ljava/lang/NullPointerException;
+
+    const-string p1, "Questions were missing!"
+
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+
+    throw p0
 .end method
 
 .method private buildFragment(Lcom/google/android/libraries/hats20/model/Question;)Landroidx/fragment/app/Fragment;

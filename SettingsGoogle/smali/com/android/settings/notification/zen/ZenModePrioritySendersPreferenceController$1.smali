@@ -1,19 +1,26 @@
 .class Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController$1;
-.super Ljava/lang/Object;
+.super Landroid/os/AsyncTask;
 .source "ZenModePrioritySendersPreferenceController.java"
-
-# interfaces
-.implements Lcom/android/settingslib/widget/RadioButtonPreference$OnClickListener;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;->updateChannelCounts()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
     accessFlags = 0x0
     name = null
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Landroid/os/AsyncTask<",
+        "Ljava/lang/Void;",
+        "Ljava/lang/Void;",
+        "Ljava/lang/Void;",
+        ">;"
+    }
 .end annotation
 
 
@@ -27,52 +34,72 @@
 
     iput-object p1, p0, Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController$1;->this$0:Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Landroid/os/AsyncTask;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onRadioButtonClicked(Lcom/android/settingslib/widget/RadioButtonPreference;)V
-    .locals 1
+.method protected bridge synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 0
 
-    invoke-virtual {p1}, Landroidx/preference/Preference;->getKey()Ljava/lang/String;
+    check-cast p1, [Ljava/lang/Void;
 
-    move-result-object p1
+    invoke-virtual {p0, p1}, Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController$1;->doInBackground([Ljava/lang/Void;)Ljava/lang/Void;
 
-    invoke-static {p1}, Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;->access$000(Ljava/lang/String;)I
+    move-result-object p0
 
-    move-result p1
+    return-object p0
+.end method
 
-    iget-object v0, p0, Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController$1;->this$0:Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;
-
-    invoke-static {v0}, Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;->access$100(Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;)I
-
-    move-result v0
-
-    if-eq p1, v0, :cond_1
+.method protected varargs doInBackground([Ljava/lang/Void;)Ljava/lang/Void;
+    .locals 0
 
     iget-object p0, p0, Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController$1;->this$0:Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;
 
-    iget-object v0, p0, Lcom/android/settings/notification/zen/AbstractZenModePreferenceController;->mBackend:Lcom/android/settings/notification/zen/ZenModeBackend;
+    invoke-static {p0}, Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;->-$$Nest$fgetmHelper(Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;)Lcom/android/settings/notification/zen/ZenPrioritySendersHelper;
 
-    invoke-static {p0}, Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;->access$200(Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;)Z
+    move-result-object p0
 
-    move-result p0
+    invoke-virtual {p0}, Lcom/android/settings/notification/zen/ZenPrioritySendersHelper;->updateChannelCounts()V
 
-    if-eqz p0, :cond_0
+    const/4 p0, 0x0
 
-    const/4 p0, 0x4
+    return-object p0
+.end method
 
-    goto :goto_0
+.method protected bridge synthetic onPostExecute(Ljava/lang/Object;)V
+    .locals 0
+
+    check-cast p1, Ljava/lang/Void;
+
+    invoke-virtual {p0, p1}, Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController$1;->onPostExecute(Ljava/lang/Void;)V
+
+    return-void
+.end method
+
+.method protected onPostExecute(Ljava/lang/Void;)V
+    .locals 0
+
+    iget-object p1, p0, Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController$1;->this$0:Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;
+
+    invoke-static {p1}, Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;->access$000(Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;)Landroid/content/Context;
+
+    move-result-object p1
+
+    if-nez p1, :cond_0
+
+    return-void
 
     :cond_0
-    const/16 p0, 0x8
+    iget-object p0, p0, Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController$1;->this$0:Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;
 
-    :goto_0
-    invoke-virtual {v0, p0, p1}, Lcom/android/settings/notification/zen/ZenModeBackend;->saveSenders(II)V
+    invoke-static {p0}, Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;->-$$Nest$fgetmPreferenceCategory(Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;)Landroidx/preference/PreferenceCategory;
 
-    :cond_1
+    move-result-object p1
+
+    invoke-virtual {p0, p1}, Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;->updateState(Landroidx/preference/Preference;)V
+
     return-void
 .end method

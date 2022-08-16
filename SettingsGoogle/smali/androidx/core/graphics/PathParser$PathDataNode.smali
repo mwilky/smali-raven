@@ -23,16 +23,6 @@
 # direct methods
 .method constructor <init>(C[F)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "type",
-            "params"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -45,14 +35,6 @@
 
 .method constructor <init>(Landroidx/core/graphics/PathParser$PathDataNode;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "n"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -77,22 +59,6 @@
 
 .method private static addCommand(Landroid/graphics/Path;[FCC[F)V
     .locals 25
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "path",
-            "current",
-            "previousCmd",
-            "cmd",
-            "val"
-        }
-    .end annotation
 
     move-object/from16 v10, p0
 
@@ -390,31 +356,23 @@
     :cond_6
     add-int/lit8 v0, v7, 0x0
 
-    aget v1, v12, v0
+    aget v0, v12, v0
 
-    add-float/2addr v9, v1
+    add-float/2addr v9, v0
 
     add-int/lit8 v1, v7, 0x1
 
-    aget v4, v12, v1
+    aget v1, v12, v1
 
-    add-float/2addr v8, v4
+    add-float/2addr v8, v1
 
     if-lez v7, :cond_7
-
-    aget v0, v12, v0
-
-    aget v1, v12, v1
 
     invoke-virtual {v10, v0, v1}, Landroid/graphics/Path;->rLineTo(FF)V
 
     goto :goto_4
 
     :cond_7
-    aget v0, v12, v0
-
-    aget v1, v12, v1
-
     invoke-virtual {v10, v0, v1}, Landroid/graphics/Path;->rMoveTo(FF)V
 
     goto/16 :goto_a
@@ -548,26 +506,18 @@
 
     aget v9, v12, v0
 
-    add-int/lit8 v1, v7, 0x1
+    add-int/lit8 v0, v7, 0x1
 
-    aget v8, v12, v1
+    aget v8, v12, v0
 
     if-lez v7, :cond_10
 
-    aget v0, v12, v0
-
-    aget v1, v12, v1
-
-    invoke-virtual {v10, v0, v1}, Landroid/graphics/Path;->lineTo(FF)V
+    invoke-virtual {v10, v9, v8}, Landroid/graphics/Path;->lineTo(FF)V
 
     goto/16 :goto_4
 
     :cond_10
-    aget v0, v12, v0
-
-    aget v1, v12, v1
-
-    invoke-virtual {v10, v0, v1}, Landroid/graphics/Path;->moveTo(FF)V
+    invoke-virtual {v10, v9, v8}, Landroid/graphics/Path;->moveTo(FF)V
 
     :goto_a
     move/from16 v24, v7
@@ -1057,32 +1007,6 @@
 
 .method private static arcToBezier(Landroid/graphics/Path;DDDDDDDDD)V
     .locals 49
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "p",
-            "cx",
-            "cy",
-            "a",
-            "b",
-            "e1x",
-            "e1y",
-            "theta",
-            "start",
-            "sweep"
-        }
-    .end annotation
 
     move-wide/from16 v0, p5
 
@@ -1333,32 +1257,6 @@
 
 .method private static drawArc(Landroid/graphics/Path;FFFFFFFZZ)V
     .locals 41
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "p",
-            "x0",
-            "y0",
-            "x1",
-            "y1",
-            "a",
-            "b",
-            "theta",
-            "isMoreThanHalf",
-            "isPositiveArc"
-        }
-    .end annotation
 
     move/from16 v1, p1
 
@@ -1662,16 +1560,6 @@
 
 .method public static nodesToPath([Landroidx/core/graphics/PathParser$PathDataNode;Landroid/graphics/Path;)V
     .locals 5
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "node",
-            "path"
-        }
-    .end annotation
 
     const/4 v0, 0x6
 
@@ -1688,77 +1576,17 @@
 
     aget-object v3, p0, v2
 
-    iget-char v3, v3, Landroidx/core/graphics/PathParser$PathDataNode;->mType:C
+    iget-char v4, v3, Landroidx/core/graphics/PathParser$PathDataNode;->mType:C
 
-    aget-object v4, p0, v2
+    iget-object v3, v3, Landroidx/core/graphics/PathParser$PathDataNode;->mParams:[F
 
-    iget-object v4, v4, Landroidx/core/graphics/PathParser$PathDataNode;->mParams:[F
-
-    invoke-static {p1, v0, v1, v3, v4}, Landroidx/core/graphics/PathParser$PathDataNode;->addCommand(Landroid/graphics/Path;[FCC[F)V
+    invoke-static {p1, v0, v1, v4, v3}, Landroidx/core/graphics/PathParser$PathDataNode;->addCommand(Landroid/graphics/Path;[FCC[F)V
 
     aget-object v1, p0, v2
 
     iget-char v1, v1, Landroidx/core/graphics/PathParser$PathDataNode;->mType:C
 
     add-int/lit8 v2, v2, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    return-void
-.end method
-
-
-# virtual methods
-.method public interpolatePathDataNode(Landroidx/core/graphics/PathParser$PathDataNode;Landroidx/core/graphics/PathParser$PathDataNode;F)V
-    .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "nodeFrom",
-            "nodeTo",
-            "fraction"
-        }
-    .end annotation
-
-    iget-char v0, p1, Landroidx/core/graphics/PathParser$PathDataNode;->mType:C
-
-    iput-char v0, p0, Landroidx/core/graphics/PathParser$PathDataNode;->mType:C
-
-    const/4 v0, 0x0
-
-    :goto_0
-    iget-object v1, p1, Landroidx/core/graphics/PathParser$PathDataNode;->mParams:[F
-
-    array-length v2, v1
-
-    if-ge v0, v2, :cond_0
-
-    iget-object v2, p0, Landroidx/core/graphics/PathParser$PathDataNode;->mParams:[F
-
-    aget v1, v1, v0
-
-    const/high16 v3, 0x3f800000    # 1.0f
-
-    sub-float/2addr v3, p3
-
-    mul-float/2addr v1, v3
-
-    iget-object v3, p2, Landroidx/core/graphics/PathParser$PathDataNode;->mParams:[F
-
-    aget v3, v3, v0
-
-    mul-float/2addr v3, p3
-
-    add-float/2addr v1, v3
-
-    aput v1, v2, v0
-
-    add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 

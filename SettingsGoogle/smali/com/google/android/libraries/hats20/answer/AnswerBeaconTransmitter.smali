@@ -31,21 +31,15 @@
 .end method
 
 .method constructor <init>(Ljava/lang/String;Lcom/google/android/libraries/hats20/storage/HatsDataStore;Ljava/util/concurrent/Executor;)V
-    .locals 1
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    const-string v0, "Answer URL was missing"
+    if-eqz p1, :cond_2
 
-    invoke-static {p1, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    if-eqz p2, :cond_1
 
-    const-string v0, "HaTS cookie store was missing"
-
-    invoke-static {p2, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
-
-    const-string v0, "Executor was missing"
-
-    invoke-static {p3, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    if-eqz p3, :cond_0
 
     iput-object p1, p0, Lcom/google/android/libraries/hats20/answer/AnswerBeaconTransmitter;->answerUrl:Ljava/lang/String;
 
@@ -54,6 +48,33 @@
     iput-object p3, p0, Lcom/google/android/libraries/hats20/answer/AnswerBeaconTransmitter;->executor:Ljava/util/concurrent/Executor;
 
     return-void
+
+    :cond_0
+    new-instance p0, Ljava/lang/NullPointerException;
+
+    const-string p1, "Executor was missing"
+
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+
+    :cond_1
+    new-instance p0, Ljava/lang/NullPointerException;
+
+    const-string p1, "HaTS cookie store was missing"
+
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+
+    :cond_2
+    new-instance p0, Ljava/lang/NullPointerException;
+
+    const-string p1, "Answer URL was missing"
+
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+
+    throw p0
 .end method
 
 .method static synthetic access$000(Lcom/google/android/libraries/hats20/answer/AnswerBeaconTransmitter;)Ljava/lang/String;

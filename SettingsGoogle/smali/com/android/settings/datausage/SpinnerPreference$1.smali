@@ -48,7 +48,7 @@
 
     iget-object v0, p0, Lcom/android/settings/datausage/SpinnerPreference$1;->this$0:Lcom/android/settings/datausage/SpinnerPreference;
 
-    invoke-static {v0}, Lcom/android/settings/datausage/SpinnerPreference;->access$000(Lcom/android/settings/datausage/SpinnerPreference;)I
+    invoke-static {v0}, Lcom/android/settings/datausage/SpinnerPreference;->-$$Nest$fgetmPosition(Lcom/android/settings/datausage/SpinnerPreference;)I
 
     move-result v0
 
@@ -59,11 +59,11 @@
     :cond_0
     iget-object v0, p0, Lcom/android/settings/datausage/SpinnerPreference$1;->this$0:Lcom/android/settings/datausage/SpinnerPreference;
 
-    invoke-static {v0, p3}, Lcom/android/settings/datausage/SpinnerPreference;->access$002(Lcom/android/settings/datausage/SpinnerPreference;I)I
+    invoke-static {v0, p3}, Lcom/android/settings/datausage/SpinnerPreference;->-$$Nest$fputmPosition(Lcom/android/settings/datausage/SpinnerPreference;I)V
 
     iget-object v0, p0, Lcom/android/settings/datausage/SpinnerPreference$1;->this$0:Lcom/android/settings/datausage/SpinnerPreference;
 
-    invoke-static {v0}, Lcom/android/settings/datausage/SpinnerPreference;->access$200(Lcom/android/settings/datausage/SpinnerPreference;)Lcom/android/settings/datausage/CycleAdapter;
+    invoke-static {v0}, Lcom/android/settings/datausage/SpinnerPreference;->-$$Nest$fgetmAdapter(Lcom/android/settings/datausage/SpinnerPreference;)Lcom/android/settings/datausage/CycleAdapter;
 
     move-result-object v1
 
@@ -71,11 +71,19 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Lcom/android/settings/datausage/SpinnerPreference;->access$102(Lcom/android/settings/datausage/SpinnerPreference;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {v0, v1}, Lcom/android/settings/datausage/SpinnerPreference;->-$$Nest$fputmCurrentObject(Lcom/android/settings/datausage/SpinnerPreference;Ljava/lang/Object;)V
+
+    iget-object v0, p0, Lcom/android/settings/datausage/SpinnerPreference$1;->this$0:Lcom/android/settings/datausage/SpinnerPreference;
+
+    invoke-static {v0}, Lcom/android/settings/datausage/SpinnerPreference;->-$$Nest$fgetmListener(Lcom/android/settings/datausage/SpinnerPreference;)Landroid/widget/AdapterView$OnItemSelectedListener;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1
 
     iget-object p0, p0, Lcom/android/settings/datausage/SpinnerPreference$1;->this$0:Lcom/android/settings/datausage/SpinnerPreference;
 
-    invoke-static {p0}, Lcom/android/settings/datausage/SpinnerPreference;->access$300(Lcom/android/settings/datausage/SpinnerPreference;)Landroid/widget/AdapterView$OnItemSelectedListener;
+    invoke-static {p0}, Lcom/android/settings/datausage/SpinnerPreference;->-$$Nest$fgetmListener(Lcom/android/settings/datausage/SpinnerPreference;)Landroid/widget/AdapterView$OnItemSelectedListener;
 
     move-result-object v0
 
@@ -89,11 +97,12 @@
 
     invoke-interface/range {v0 .. v5}, Landroid/widget/AdapterView$OnItemSelectedListener;->onItemSelected(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
 
+    :cond_1
     return-void
 .end method
 
 .method public onNothingSelected(Landroid/widget/AdapterView;)V
-    .locals 0
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -102,13 +111,22 @@
         }
     .end annotation
 
+    iget-object v0, p0, Lcom/android/settings/datausage/SpinnerPreference$1;->this$0:Lcom/android/settings/datausage/SpinnerPreference;
+
+    invoke-static {v0}, Lcom/android/settings/datausage/SpinnerPreference;->-$$Nest$fgetmListener(Lcom/android/settings/datausage/SpinnerPreference;)Landroid/widget/AdapterView$OnItemSelectedListener;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
     iget-object p0, p0, Lcom/android/settings/datausage/SpinnerPreference$1;->this$0:Lcom/android/settings/datausage/SpinnerPreference;
 
-    invoke-static {p0}, Lcom/android/settings/datausage/SpinnerPreference;->access$300(Lcom/android/settings/datausage/SpinnerPreference;)Landroid/widget/AdapterView$OnItemSelectedListener;
+    invoke-static {p0}, Lcom/android/settings/datausage/SpinnerPreference;->-$$Nest$fgetmListener(Lcom/android/settings/datausage/SpinnerPreference;)Landroid/widget/AdapterView$OnItemSelectedListener;
 
     move-result-object p0
 
     invoke-interface {p0, p1}, Landroid/widget/AdapterView$OnItemSelectedListener;->onNothingSelected(Landroid/widget/AdapterView;)V
 
+    :cond_0
     return-void
 .end method

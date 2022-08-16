@@ -60,7 +60,7 @@
 
     iget-object v2, v0, Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask$FlowController;->this$0:Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;
 
-    invoke-static {v2}, Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;->access$000(Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;)Landroid/telephony/TelephonyManager;
+    invoke-static {v2}, Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;->-$$Nest$fgettm(Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;)Landroid/telephony/TelephonyManager;
 
     move-result-object v2
 
@@ -72,7 +72,7 @@
 
     iget-object v2, v0, Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask$FlowController;->this$0:Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;
 
-    invoke-static {v2}, Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;->access$100(Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;)Landroid/telephony/SubscriptionManager;
+    invoke-static {v2}, Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;->-$$Nest$fgetsm(Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;)Landroid/telephony/SubscriptionManager;
 
     move-result-object v2
 
@@ -85,7 +85,7 @@
 
     iget-object v3, v0, Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask$FlowController;->this$0:Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;
 
-    invoke-static {v3}, Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;->access$000(Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;)Landroid/telephony/TelephonyManager;
+    invoke-static {v3}, Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;->-$$Nest$fgettm(Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;)Landroid/telephony/TelephonyManager;
 
     move-result-object v3
 
@@ -104,7 +104,7 @@
     :cond_1
     iget-object v2, v0, Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask$FlowController;->this$0:Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;
 
-    invoke-static {v2}, Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;->access$000(Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;)Landroid/telephony/TelephonyManager;
+    invoke-static {v2}, Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;->-$$Nest$fgettm(Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;)Landroid/telephony/TelephonyManager;
 
     move-result-object v2
 
@@ -129,7 +129,7 @@
 
     iget-object v2, v0, Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask$FlowController;->this$0:Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;
 
-    invoke-static {v2}, Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;->access$100(Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;)Landroid/telephony/SubscriptionManager;
+    invoke-static {v2}, Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;->-$$Nest$fgetsm(Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;)Landroid/telephony/SubscriptionManager;
 
     move-result-object v2
 
@@ -152,7 +152,7 @@
 
     iget-object v2, v0, Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask$FlowController;->this$0:Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;
 
-    invoke-static {v2}, Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;->access$100(Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;)Landroid/telephony/SubscriptionManager;
+    invoke-static {v2}, Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;->-$$Nest$fgetsm(Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;)Landroid/telephony/SubscriptionManager;
 
     move-result-object v2
 
@@ -177,7 +177,7 @@
 
     iget-object v2, v0, Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask$FlowController;->this$0:Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;
 
-    invoke-static {v2}, Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;->access$000(Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;)Landroid/telephony/TelephonyManager;
+    invoke-static {v2}, Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;->-$$Nest$fgettm(Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;)Landroid/telephony/TelephonyManager;
 
     move-result-object v2
 
@@ -187,7 +187,7 @@
 
     iget-object v2, v0, Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask$FlowController;->this$0:Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;
 
-    invoke-static {v2}, Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;->access$000(Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;)Landroid/telephony/TelephonyManager;
+    invoke-static {v2}, Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;->-$$Nest$fgettm(Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;)Landroid/telephony/TelephonyManager;
 
     move-result-object v2
 
@@ -197,7 +197,7 @@
 
     iget-object v2, v0, Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask$FlowController;->this$0:Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;
 
-    invoke-static {v2}, Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;->access$000(Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;)Landroid/telephony/TelephonyManager;
+    invoke-static {v2}, Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;->-$$Nest$fgettm(Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;)Landroid/telephony/TelephonyManager;
 
     move-result-object v2
 
@@ -207,7 +207,7 @@
 
     iget-object v2, v0, Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask$FlowController;->this$0:Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;
 
-    invoke-static {v2}, Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;->access$000(Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;)Landroid/telephony/TelephonyManager;
+    invoke-static {v2}, Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;->-$$Nest$fgettm(Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;)Landroid/telephony/TelephonyManager;
 
     move-result-object v3
 
@@ -406,7 +406,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "restoreStep: "
+    const-string/jumbo v1, "restoreStep: "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -569,7 +569,7 @@
 
     iget-object v0, v0, Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;->mResult:Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask$FeatureResult;
 
-    invoke-static {v0, v2}, Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask$FeatureResult;->access$202(Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask$FeatureResult;Z)Z
+    invoke-static {v0, v2}, Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask$FeatureResult;->-$$Nest$fputresult(Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask$FeatureResult;Z)V
 
     iget-object v0, p0, Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask$FlowController;->this$0:Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask;
 
@@ -577,7 +577,7 @@
 
     iget-object v1, p0, Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask$FlowController;->mSlotUTData:[Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask$SlotUTData;
 
-    invoke-static {v0, v1}, Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask$FeatureResult;->access$302(Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask$FeatureResult;[Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask$SlotUTData;)[Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask$SlotUTData;
+    invoke-static {v0, v1}, Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask$FeatureResult;->-$$Nest$fputslotUTData(Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask$FeatureResult;[Lcom/android/settings/sim/smartForwarding/EnableSmartForwardingTask$SlotUTData;)V
 
     const-string v0, "Smart forwarding successful"
 

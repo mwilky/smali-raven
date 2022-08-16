@@ -21,7 +21,7 @@
 
 
 # instance fields
-.field private mInputMethodManager:Lcom/android/internal/view/IInputMethodManager;
+.field private mImeTracing:Lcom/android/internal/inputmethod/ImeTracing;
 
 .field private mSurfaceFlinger:Landroid/os/IBinder;
 
@@ -40,29 +40,13 @@
 .end method
 
 .method private isImeTraceEnabled()Z
-    .locals 2
+    .locals 0
 
-    :try_start_0
-    iget-object p0, p0, Lcom/android/settings/development/qstile/DevelopmentTiles$WinscopeTrace;->mInputMethodManager:Lcom/android/internal/view/IInputMethodManager;
+    iget-object p0, p0, Lcom/android/settings/development/qstile/DevelopmentTiles$WinscopeTrace;->mImeTracing:Lcom/android/internal/inputmethod/ImeTracing;
 
-    invoke-interface {p0}, Lcom/android/internal/view/IInputMethodManager;->isImeTraceEnabled()Z
+    invoke-virtual {p0}, Lcom/android/internal/inputmethod/ImeTracing;->isEnabled()Z
 
     move-result p0
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    return p0
-
-    :catch_0
-    move-exception p0
-
-    const-string v0, "DevelopmentTiles"
-
-    const-string v1, "Could not get ime trace status, defaulting to false."
-
-    invoke-static {v0, v1, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    const/4 p0, 0x0
 
     return p0
 .end method
@@ -306,50 +290,20 @@
 .end method
 
 .method private setImeTraceEnabled(Z)V
-    .locals 1
+    .locals 0
 
     if-eqz p1, :cond_0
 
-    :try_start_0
-    iget-object p0, p0, Lcom/android/settings/development/qstile/DevelopmentTiles$WinscopeTrace;->mInputMethodManager:Lcom/android/internal/view/IInputMethodManager;
+    iget-object p0, p0, Lcom/android/settings/development/qstile/DevelopmentTiles$WinscopeTrace;->mImeTracing:Lcom/android/internal/inputmethod/ImeTracing;
 
-    invoke-interface {p0}, Lcom/android/internal/view/IInputMethodManager;->startImeTrace()V
+    invoke-virtual {p0}, Lcom/android/internal/inputmethod/ImeTracing;->startImeTrace()V
 
     goto :goto_0
 
     :cond_0
-    iget-object p0, p0, Lcom/android/settings/development/qstile/DevelopmentTiles$WinscopeTrace;->mInputMethodManager:Lcom/android/internal/view/IInputMethodManager;
+    iget-object p0, p0, Lcom/android/settings/development/qstile/DevelopmentTiles$WinscopeTrace;->mImeTracing:Lcom/android/internal/inputmethod/ImeTracing;
 
-    invoke-interface {p0}, Lcom/android/internal/view/IInputMethodManager;->stopImeTrace()V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_0
-
-    :catch_0
-    move-exception p0
-
-    new-instance p1, Ljava/lang/StringBuilder;
-
-    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v0, "Could not set ime trace status."
-
-    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p0}, Landroid/os/RemoteException;->toString()Ljava/lang/String;
-
-    move-result-object p0
-
-    invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p0
-
-    const-string p1, "DevelopmentTiles"
-
-    invoke-static {p1, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {p0}, Lcom/android/internal/inputmethod/ImeTracing;->stopImeTrace()V
 
     :goto_0
     return-void
@@ -650,17 +604,11 @@
 
     iput-object v0, p0, Lcom/android/settings/development/qstile/DevelopmentTiles$WinscopeTrace;->mSurfaceFlinger:Landroid/os/IBinder;
 
-    const-string v0, "input_method"
-
-    invoke-static {v0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+    invoke-static {}, Lcom/android/internal/inputmethod/ImeTracing;->getInstance()Lcom/android/internal/inputmethod/ImeTracing;
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/android/internal/view/IInputMethodManager$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/view/IInputMethodManager;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/settings/development/qstile/DevelopmentTiles$WinscopeTrace;->mInputMethodManager:Lcom/android/internal/view/IInputMethodManager;
+    iput-object v0, p0, Lcom/android/settings/development/qstile/DevelopmentTiles$WinscopeTrace;->mImeTracing:Lcom/android/internal/inputmethod/ImeTracing;
 
     invoke-virtual {p0}, Landroid/service/quicksettings/TileService;->getApplicationContext()Landroid/content/Context;
 

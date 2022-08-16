@@ -20,13 +20,11 @@
 
 
 # static fields
-.field private static final COMPONENT_NAME_SEPARATOR:C = ':'
-
 .field private static final DIALOG_ID_BASE:I = 0xa
 
 .field static final DIALOG_MAGNIFICATION_MODE:I = 0xb
 
-.field static final DIALOG_MAGNIFICATION_SWITCH_SHORTCUT:I = 0xc
+.field static final DIALOG_MAGNIFICATION_TRIPLE_TAP_WARNING:I = 0xc
 
 .field static final EXTRA_MODE:Ljava/lang/String; = "mode"
 
@@ -38,9 +36,11 @@
 # instance fields
 .field private mDialogHelper:Lcom/android/settings/accessibility/MagnificationModePreferenceController$DialogHelper;
 
+.field private mLinkPreference:Lcom/android/settings/accessibility/ShortcutPreference;
+
 .field mMagnificationModesListView:Landroid/widget/ListView;
 
-.field private mMode:I
+.field private mModeCache:I
 
 .field private final mModeInfos:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
@@ -74,10 +74,10 @@
     return p0
 .end method
 
-.method public static synthetic $r8$lambda$WhS4mR7hFmJHjpHn_4VDj53o6DY(Lcom/android/settings/accessibility/MagnificationModePreferenceController;Landroid/content/DialogInterface;I)V
+.method public static synthetic $r8$lambda$Vp7SQj0QdWut2PqalaWJl062sos(Lcom/android/settings/accessibility/MagnificationModePreferenceController;Landroid/app/Dialog;Landroid/view/View;)V
     .locals 0
 
-    invoke-direct {p0, p1, p2}, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->onMagnificationModeDialogPositiveButtonClicked(Landroid/content/DialogInterface;I)V
+    invoke-direct {p0, p1, p2}, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->lambda$updateLinkInTripleTapWarningDialog$1(Landroid/app/Dialog;Landroid/view/View;)V
 
     return-void
 .end method
@@ -89,7 +89,7 @@
 
     const/4 p1, 0x0
 
-    iput p1, p0, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->mMode:I
+    iput p1, p0, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->mModeCache:I
 
     new-instance p1, Ljava/util/ArrayList;
 
@@ -128,7 +128,7 @@
 
     iget v3, v3, Lcom/android/settings/accessibility/MagnificationModePreferenceController$MagnificationModeInfo;->mMagnificationMode:I
 
-    iget v4, p0, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->mMode:I
+    iget v4, p0, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->mModeCache:I
 
     if-ne v3, v4, :cond_0
 
@@ -158,15 +158,15 @@
 .end method
 
 .method private createMagnificationModeDialog()Landroid/app/Dialog;
-    .locals 4
+    .locals 9
 
     iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
     iget-object v1, p0, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->mModeInfos:Ljava/util/List;
 
-    new-instance v2, Lcom/android/settings/accessibility/MagnificationModePreferenceController$$ExternalSyntheticLambda1;
+    new-instance v2, Lcom/android/settings/accessibility/MagnificationModePreferenceController$$ExternalSyntheticLambda2;
 
-    invoke-direct {v2, p0}, Lcom/android/settings/accessibility/MagnificationModePreferenceController$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/accessibility/MagnificationModePreferenceController;)V
+    invoke-direct {v2, p0}, Lcom/android/settings/accessibility/MagnificationModePreferenceController$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/accessibility/MagnificationModePreferenceController;)V
 
     invoke-static {v0, v1, v2}, Lcom/android/settings/accessibility/AccessibilityDialogUtils;->createSingleChoiceListView(Landroid/content/Context;Ljava/util/List;Landroid/widget/AdapterView$OnItemClickListener;)Landroid/widget/ListView;
 
@@ -182,7 +182,7 @@
 
     iget-object v1, p0, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->mMagnificationModesListView:Landroid/widget/ListView;
 
-    const v2, 0x7f060038
+    const v2, 0x7f060037
 
     const/4 v3, 0x0
 
@@ -208,41 +208,105 @@
 
     iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0400f6
+    const v1, 0x7f0400ff
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v3
 
-    iget-object v1, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    iget-object v2, p0, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->mMagnificationModesListView:Landroid/widget/ListView;
+    const v1, 0x7f041159
 
-    new-instance v3, Lcom/android/settings/accessibility/MagnificationModePreferenceController$$ExternalSyntheticLambda0;
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
-    invoke-direct {v3, p0}, Lcom/android/settings/accessibility/MagnificationModePreferenceController$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/accessibility/MagnificationModePreferenceController;)V
+    move-result-object v5
 
-    invoke-static {v1, v0, v2, v3}, Lcom/android/settings/accessibility/AccessibilityDialogUtils;->createCustomDialog(Landroid/content/Context;Ljava/lang/CharSequence;Landroid/view/View;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/Dialog;
+    iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    const v1, 0x7f0405c1
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v7
+
+    iget-object v2, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    iget-object v4, p0, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->mMagnificationModesListView:Landroid/widget/ListView;
+
+    new-instance v6, Lcom/android/settings/accessibility/MagnificationModePreferenceController$$ExternalSyntheticLambda3;
+
+    invoke-direct {v6, p0}, Lcom/android/settings/accessibility/MagnificationModePreferenceController$$ExternalSyntheticLambda3;-><init>(Lcom/android/settings/accessibility/MagnificationModePreferenceController;)V
+
+    const/4 v8, 0x0
+
+    invoke-static/range {v2 .. v8}, Lcom/android/settings/accessibility/AccessibilityDialogUtils;->createCustomDialog(Landroid/content/Context;Ljava/lang/CharSequence;Landroid/view/View;Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/Dialog;
 
     move-result-object p0
 
     return-object p0
 .end method
 
-.method private createMagnificationShortCutConfirmDialog()Landroid/app/Dialog;
-    .locals 2
+.method private createMagnificationTripleTapWarningDialog()Landroid/app/Dialog;
+    .locals 10
 
     iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    new-instance v1, Lcom/android/settings/accessibility/MagnificationModePreferenceController$$ExternalSyntheticLambda3;
+    invoke-static {v0}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
-    invoke-direct {v1, p0}, Lcom/android/settings/accessibility/MagnificationModePreferenceController$$ExternalSyntheticLambda3;-><init>(Lcom/android/settings/accessibility/MagnificationModePreferenceController;)V
+    move-result-object v0
 
-    invoke-static {v0, v1}, Lcom/android/settings/accessibility/AccessibilityDialogUtils;->createMagnificationSwitchShortcutDialog(Landroid/content/Context;Lcom/android/settings/accessibility/AccessibilityDialogUtils$CustomButtonsClickListener;)Landroid/app/Dialog;
+    const v1, 0x7f060124
 
-    move-result-object p0
+    const/4 v2, 0x0
 
-    return-object p0
+    invoke-virtual {v0, v1, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    const v2, 0x7f040109
+
+    invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    iget-object v1, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    const v2, 0x7f040108
+
+    invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v6
+
+    iget-object v1, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    const v2, 0x7f040107
+
+    invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v8
+
+    iget-object v3, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    new-instance v7, Lcom/android/settings/accessibility/MagnificationModePreferenceController$$ExternalSyntheticLambda0;
+
+    invoke-direct {v7, p0}, Lcom/android/settings/accessibility/MagnificationModePreferenceController$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/accessibility/MagnificationModePreferenceController;)V
+
+    new-instance v9, Lcom/android/settings/accessibility/MagnificationModePreferenceController$$ExternalSyntheticLambda1;
+
+    invoke-direct {v9, p0}, Lcom/android/settings/accessibility/MagnificationModePreferenceController$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/accessibility/MagnificationModePreferenceController;)V
+
+    move-object v5, v0
+
+    invoke-static/range {v3 .. v9}, Lcom/android/settings/accessibility/AccessibilityDialogUtils;->createCustomDialog(Landroid/content/Context;Ljava/lang/CharSequence;Landroid/view/View;Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/Dialog;
+
+    move-result-object v1
+
+    invoke-direct {p0, v1, v0}, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->updateLinkInTripleTapWarningDialog(Landroid/app/Dialog;Landroid/view/View;)V
+
+    return-object v1
 .end method
 
 .method private initModeInfos()V
@@ -254,7 +318,7 @@
 
     iget-object v2, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0400f3
+    const v3, 0x7f0400fc
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -262,7 +326,7 @@
 
     const/4 v3, 0x0
 
-    const v4, 0x7f02022b
+    const v4, 0x7f020249
 
     const/4 v5, 0x1
 
@@ -276,13 +340,13 @@
 
     iget-object v2, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f0400f5
+    const v4, 0x7f0400fe
 
     invoke-virtual {v2, v4}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v2
 
-    const v4, 0x7f02022d
+    const v4, 0x7f02024b
 
     const/4 v5, 0x2
 
@@ -296,7 +360,7 @@
 
     iget-object v2, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0400f4
+    const v3, 0x7f0400fd
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -304,13 +368,13 @@
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0400f1
+    const v3, 0x7f0400fa
 
     invoke-virtual {p0, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object p0
 
-    const v3, 0x7f02022c
+    const v3, 0x7f02024a
 
     const/4 v4, 0x3
 
@@ -355,7 +419,7 @@
 
     move-result p1
 
-    iput p1, p0, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->mMode:I
+    iput p1, p0, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->mModeCache:I
 
     iget-object p0, p0, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->mDialogHelper:Lcom/android/settings/accessibility/MagnificationModePreferenceController$DialogHelper;
 
@@ -368,41 +432,19 @@
     return p0
 .end method
 
-.method private onMagnificationModeDialogPositiveButtonClicked(Landroid/content/DialogInterface;I)V
+.method private synthetic lambda$updateLinkInTripleTapWarningDialog$1(Landroid/app/Dialog;Landroid/view/View;)V
     .locals 0
 
-    iget-object p1, p0, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->mMagnificationModesListView:Landroid/widget/ListView;
+    iget p2, p0, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->mModeCache:I
 
-    invoke-virtual {p1}, Landroid/widget/ListView;->getCheckedItemPosition()I
+    invoke-direct {p0, p2}, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->updateCapabilitiesAndSummary(I)V
 
-    move-result p1
+    iget-object p0, p0, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->mLinkPreference:Lcom/android/settings/accessibility/ShortcutPreference;
 
-    const/4 p2, -0x1
+    invoke-virtual {p0}, Landroidx/preference/Preference;->performClick()V
 
-    if-eq p1, p2, :cond_0
+    invoke-virtual {p1}, Landroid/app/Dialog;->dismiss()V
 
-    iget-object p2, p0, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->mMagnificationModesListView:Landroid/widget/ListView;
-
-    invoke-virtual {p2, p1}, Landroid/widget/ListView;->getItemAtPosition(I)Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Lcom/android/settings/accessibility/MagnificationModePreferenceController$MagnificationModeInfo;
-
-    iget p1, p1, Lcom/android/settings/accessibility/MagnificationModePreferenceController$MagnificationModeInfo;->mMagnificationMode:I
-
-    invoke-direct {p0, p1}, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->setMode(I)V
-
-    goto :goto_0
-
-    :cond_0
-    const-string p0, "MagnificationModePreferenceController"
-
-    const-string p1, "invalid index"
-
-    invoke-static {p0, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    :goto_0
     return-void
 .end method
 
@@ -428,125 +470,22 @@
 
     iget p1, p1, Lcom/android/settings/accessibility/MagnificationModePreferenceController$MagnificationModeInfo;->mMagnificationMode:I
 
-    iget p2, p0, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->mMode:I
+    iget p2, p0, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->mModeCache:I
 
     if-ne p1, p2, :cond_0
 
     return-void
 
     :cond_0
-    iput p1, p0, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->mMode:I
-
-    iget-object p1, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
-
-    invoke-static {p1}, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->isTripleTapEnabled(Landroid/content/Context;)Z
-
-    move-result p1
-
-    if-eqz p1, :cond_1
-
-    iget p1, p0, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->mMode:I
-
-    const/4 p2, 0x1
-
-    if-eq p1, p2, :cond_1
-
-    iget-object p0, p0, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->mDialogHelper:Lcom/android/settings/accessibility/MagnificationModePreferenceController$DialogHelper;
-
-    const/16 p1, 0xc
-
-    invoke-interface {p0, p1}, Lcom/android/settings/accessibility/MagnificationModePreferenceController$DialogHelper;->showDialog(I)V
-
-    :cond_1
-    return-void
-.end method
-
-.method private optInMagnificationToAccessibilityButton()V
-    .locals 5
-
-    iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v0
-
-    const-string v1, "accessibility_button_targets"
-
-    invoke-static {v0, v1}, Landroid/provider/Settings$Secure;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string v2, "com.android.server.accessibility.MagnificationController"
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {v0, v2}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    return-void
-
-    :cond_0
-    new-instance v3, Ljava/util/StringJoiner;
-
-    const/16 v4, 0x3a
-
-    invoke-static {v4}, Ljava/lang/String;->valueOf(C)Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-direct {v3, v4}, Ljava/util/StringJoiner;-><init>(Ljava/lang/CharSequence;)V
-
-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_1
-
-    invoke-virtual {v3, v0}, Ljava/util/StringJoiner;->add(Ljava/lang/CharSequence;)Ljava/util/StringJoiner;
-
-    :cond_1
-    invoke-virtual {v3, v2}, Ljava/util/StringJoiner;->add(Ljava/lang/CharSequence;)Ljava/util/StringJoiner;
-
-    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
-
-    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object p0
-
-    invoke-virtual {v3}, Ljava/util/StringJoiner;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {p0, v1, v0}, Landroid/provider/Settings$Secure;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
+    iput p1, p0, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->mModeCache:I
 
     return-void
 .end method
 
-.method private optOutMagnificationFromTripleTap()V
-    .locals 2
-
-    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
-
-    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object p0
-
-    const-string v0, "accessibility_display_magnification_enabled"
-
-    const/4 v1, 0x0
-
-    invoke-static {p0, v0, v1}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-
-    return-void
-.end method
-
-.method private setMode(I)V
+.method private updateCapabilitiesAndSummary(I)V
     .locals 1
 
-    iput p1, p0, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->mMode:I
+    iput p1, p0, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->mModeCache:I
 
     iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
@@ -556,7 +495,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    iget p0, p0, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->mMode:I
+    iget p0, p0, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->mModeCache:I
 
     invoke-static {v0, p0}, Lcom/android/settings/accessibility/MagnificationCapabilities;->getSummary(Landroid/content/Context;I)Ljava/lang/String;
 
@@ -567,16 +506,65 @@
     return-void
 .end method
 
+.method private updateLinkInTripleTapWarningDialog(Landroid/app/Dialog;Landroid/view/View;)V
+    .locals 4
 
-# virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
+    const v0, 0x7f0d0392
 
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
+    invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/TextView;
+
+    new-instance v1, Lcom/android/settings/accessibility/MagnificationModePreferenceController$$ExternalSyntheticLambda5;
+
+    invoke-direct {v1, p0, p1}, Lcom/android/settings/accessibility/MagnificationModePreferenceController$$ExternalSyntheticLambda5;-><init>(Lcom/android/settings/accessibility/MagnificationModePreferenceController;Landroid/app/Dialog;)V
+
+    new-instance v2, Lcom/android/settings/utils/AnnotationSpan$LinkInfo;
+
+    const-string v3, "link"
+
+    invoke-direct {v2, v3, v1}, Lcom/android/settings/utils/AnnotationSpan$LinkInfo;-><init>(Ljava/lang/String;Landroid/view/View$OnClickListener;)V
+
+    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    const v1, 0x7f040106
+
+    invoke-virtual {p0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object p0
+
+    const/4 v1, 0x1
+
+    new-array v1, v1, [Lcom/android/settings/utils/AnnotationSpan$LinkInfo;
+
+    const/4 v3, 0x0
+
+    aput-object v2, v1, v3
+
+    invoke-static {p0, v1}, Lcom/android/settings/utils/AnnotationSpan;->linkify(Ljava/lang/CharSequence;[Lcom/android/settings/utils/AnnotationSpan$LinkInfo;)Ljava/lang/CharSequence;
+
+    move-result-object p0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0, p0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    invoke-static {}, Landroid/text/method/LinkMovementMethod;->getInstance()Landroid/text/method/MovementMethod;
+
+    move-result-object p0
+
+    invoke-virtual {v0, p0}, Landroid/widget/TextView;->setMovementMethod(Landroid/text/method/MovementMethod;)V
+
+    :cond_0
+    invoke-virtual {p1, p2}, Landroid/app/Dialog;->setContentView(Landroid/view/View;)V
 
     return-void
 .end method
 
+
+# virtual methods
 .method public displayPreference(Landroidx/preference/PreferenceScreen;)V
     .locals 1
 
@@ -588,13 +576,25 @@
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceGroup;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->mModePreference:Landroidx/preference/Preference;
+
+    const-string/jumbo v0, "shortcut_preference"
+
+    invoke-virtual {p1, v0}, Landroidx/preference/PreferenceGroup;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
+
     move-result-object p1
 
-    iput-object p1, p0, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->mModePreference:Landroidx/preference/Preference;
+    check-cast p1, Lcom/android/settings/accessibility/ShortcutPreference;
 
-    new-instance v0, Lcom/android/settings/accessibility/MagnificationModePreferenceController$$ExternalSyntheticLambda2;
+    iput-object p1, p0, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->mLinkPreference:Lcom/android/settings/accessibility/ShortcutPreference;
 
-    invoke-direct {v0, p0}, Lcom/android/settings/accessibility/MagnificationModePreferenceController$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/accessibility/MagnificationModePreferenceController;)V
+    iget-object p1, p0, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->mModePreference:Landroidx/preference/Preference;
+
+    new-instance v0, Lcom/android/settings/accessibility/MagnificationModePreferenceController$$ExternalSyntheticLambda4;
+
+    invoke-direct {v0, p0}, Lcom/android/settings/accessibility/MagnificationModePreferenceController$$ExternalSyntheticLambda4;-><init>(Lcom/android/settings/accessibility/MagnificationModePreferenceController;)V
 
     invoke-virtual {p1, v0}, Landroidx/preference/Preference;->setOnPreferenceClickListener(Landroidx/preference/Preference$OnPreferenceClickListener;)V
 
@@ -611,15 +611,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -644,7 +635,7 @@
     return p0
 
     :cond_0
-    const/16 p0, 0x739
+    const/16 p0, 0x783
 
     return p0
 
@@ -702,16 +693,6 @@
     return p0
 .end method
 
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
-
-    move-result p0
-
-    return p0
-.end method
-
 .method public bridge synthetic isPublicSlice()Z
     .locals 0
 
@@ -745,7 +726,7 @@
 
     move-result p1
 
-    iput p1, p0, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->mMode:I
+    iput p1, p0, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->mModeCache:I
 
     :cond_0
     return-void
@@ -767,7 +748,7 @@
     return-object p0
 
     :cond_0
-    invoke-direct {p0}, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->createMagnificationShortCutConfirmDialog()Landroid/app/Dialog;
+    invoke-direct {p0}, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->createMagnificationTripleTapWarningDialog()Landroid/app/Dialog;
 
     move-result-object p0
 
@@ -779,6 +760,101 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method onMagnificationModeDialogPositiveButtonClicked(Landroid/content/DialogInterface;I)V
+    .locals 0
+
+    iget-object p1, p0, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->mMagnificationModesListView:Landroid/widget/ListView;
+
+    invoke-virtual {p1}, Landroid/widget/ListView;->getCheckedItemPosition()I
+
+    move-result p1
+
+    const/4 p2, -0x1
+
+    if-ne p1, p2, :cond_0
+
+    const-string p0, "MagnificationModePreferenceController"
+
+    const-string p1, "invalid index"
+
+    invoke-static {p0, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_0
+    iget-object p2, p0, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->mMagnificationModesListView:Landroid/widget/ListView;
+
+    invoke-virtual {p2, p1}, Landroid/widget/ListView;->getItemAtPosition(I)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Lcom/android/settings/accessibility/MagnificationModePreferenceController$MagnificationModeInfo;
+
+    iget p1, p1, Lcom/android/settings/accessibility/MagnificationModePreferenceController$MagnificationModeInfo;->mMagnificationMode:I
+
+    iput p1, p0, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->mModeCache:I
+
+    iget-object p1, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    invoke-static {p1}, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->isTripleTapEnabled(Landroid/content/Context;)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_1
+
+    iget p1, p0, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->mModeCache:I
+
+    const/4 p2, 0x1
+
+    if-eq p1, p2, :cond_1
+
+    iget-object p0, p0, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->mDialogHelper:Lcom/android/settings/accessibility/MagnificationModePreferenceController$DialogHelper;
+
+    const/16 p1, 0xc
+
+    invoke-interface {p0, p1}, Lcom/android/settings/accessibility/MagnificationModePreferenceController$DialogHelper;->showDialog(I)V
+
+    goto :goto_0
+
+    :cond_1
+    iget p1, p0, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->mModeCache:I
+
+    invoke-direct {p0, p1}, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->updateCapabilitiesAndSummary(I)V
+
+    :goto_0
+    return-void
+.end method
+
+.method onMagnificationTripleTapWarningDialogNegativeButtonClicked(Landroid/content/DialogInterface;I)V
+    .locals 0
+
+    iget-object p1, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    invoke-static {p1}, Lcom/android/settings/accessibility/MagnificationCapabilities;->getCapabilities(Landroid/content/Context;)I
+
+    move-result p1
+
+    iput p1, p0, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->mModeCache:I
+
+    iget-object p0, p0, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->mDialogHelper:Lcom/android/settings/accessibility/MagnificationModePreferenceController$DialogHelper;
+
+    const/16 p1, 0xb
+
+    invoke-interface {p0, p1}, Lcom/android/settings/accessibility/MagnificationModePreferenceController$DialogHelper;->showDialog(I)V
+
+    return-void
+.end method
+
+.method onMagnificationTripleTapWarningDialogPositiveButtonClicked(Landroid/content/DialogInterface;I)V
+    .locals 0
+
+    iget p1, p0, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->mModeCache:I
+
+    invoke-direct {p0, p1}, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->updateCapabilitiesAndSummary(I)V
+
+    return-void
 .end method
 
 .method public onResume()V
@@ -794,21 +870,11 @@
 .method public onSaveInstanceState(Landroid/os/Bundle;)V
     .locals 1
 
-    iget p0, p0, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->mMode:I
+    iget p0, p0, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->mModeCache:I
 
     const-string v0, "mode"
 
     invoke-virtual {p1, v0, p0}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
-
-    return-void
-.end method
-
-.method onSwitchShortcutDialogButtonClicked(I)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->optOutMagnificationFromTripleTap()V
-
-    invoke-direct {p0}, Lcom/android/settings/accessibility/MagnificationModePreferenceController;->optInMagnificationToAccessibilityButton()V
 
     return-void
 .end method

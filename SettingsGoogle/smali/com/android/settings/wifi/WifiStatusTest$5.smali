@@ -44,7 +44,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/WifiStatusTest$5;->this$0:Lcom/android/settings/wifi/WifiStatusTest;
 
-    invoke-static {v0}, Lcom/android/settings/wifi/WifiStatusTest;->access$2200(Lcom/android/settings/wifi/WifiStatusTest;)V
+    invoke-static {v0}, Lcom/android/settings/wifi/WifiStatusTest;->-$$Nest$mpingHostname(Lcom/android/settings/wifi/WifiStatusTest;)V
 
     iget-object v0, p0, Lcom/android/settings/wifi/WifiStatusTest$5;->val$handler:Landroid/os/Handler;
 

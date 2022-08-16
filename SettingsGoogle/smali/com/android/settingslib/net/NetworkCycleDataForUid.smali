@@ -18,6 +18,22 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fputmBackgroudUsage(Lcom/android/settingslib/net/NetworkCycleDataForUid;J)V
+    .locals 0
+
+    iput-wide p1, p0, Lcom/android/settingslib/net/NetworkCycleDataForUid;->mBackgroudUsage:J
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fputmForegroudUsage(Lcom/android/settingslib/net/NetworkCycleDataForUid;J)V
+    .locals 0
+
+    iput-wide p1, p0, Lcom/android/settingslib/net/NetworkCycleDataForUid;->mForegroudUsage:J
+
+    return-void
+.end method
+
 .method private constructor <init>()V
     .locals 0
 
@@ -26,28 +42,12 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settingslib/net/NetworkCycleDataForUid$1;)V
+.method synthetic constructor <init>(Lcom/android/settingslib/net/NetworkCycleDataForUid-IA;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/settingslib/net/NetworkCycleDataForUid;-><init>()V
 
     return-void
-.end method
-
-.method static synthetic access$102(Lcom/android/settingslib/net/NetworkCycleDataForUid;J)J
-    .locals 0
-
-    iput-wide p1, p0, Lcom/android/settingslib/net/NetworkCycleDataForUid;->mBackgroudUsage:J
-
-    return-wide p1
-.end method
-
-.method static synthetic access$202(Lcom/android/settingslib/net/NetworkCycleDataForUid;J)J
-    .locals 0
-
-    iput-wide p1, p0, Lcom/android/settingslib/net/NetworkCycleDataForUid;->mForegroudUsage:J
-
-    return-wide p1
 .end method
 
 

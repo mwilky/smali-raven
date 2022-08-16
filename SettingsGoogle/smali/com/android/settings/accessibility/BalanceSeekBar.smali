@@ -28,6 +28,62 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmCenter(Lcom/android/settings/accessibility/BalanceSeekBar;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/settings/accessibility/BalanceSeekBar;->mCenter:I
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmContext(Lcom/android/settings/accessibility/BalanceSeekBar;)Landroid/content/Context;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/accessibility/BalanceSeekBar;->mContext:Landroid/content/Context;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmLastProgress(Lcom/android/settings/accessibility/BalanceSeekBar;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/settings/accessibility/BalanceSeekBar;->mLastProgress:I
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmListenerLock(Lcom/android/settings/accessibility/BalanceSeekBar;)Ljava/lang/Object;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/accessibility/BalanceSeekBar;->mListenerLock:Ljava/lang/Object;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmOnSeekBarChangeListener(Lcom/android/settings/accessibility/BalanceSeekBar;)Landroid/widget/SeekBar$OnSeekBarChangeListener;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/accessibility/BalanceSeekBar;->mOnSeekBarChangeListener:Landroid/widget/SeekBar$OnSeekBarChangeListener;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmSnapThreshold(Lcom/android/settings/accessibility/BalanceSeekBar;)F
+    .locals 0
+
+    iget p0, p0, Lcom/android/settings/accessibility/BalanceSeekBar;->mSnapThreshold:F
+
+    return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fputmLastProgress(Lcom/android/settings/accessibility/BalanceSeekBar;I)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/settings/accessibility/BalanceSeekBar;->mLastProgress:I
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
 
@@ -77,13 +133,13 @@
 
     new-instance v0, Landroid/graphics/Rect;
 
-    const v1, 0x7f0b00a1
+    const v1, 0x7f0b00aa
 
     invoke-virtual {p4, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v1
 
-    const v2, 0x7f0b00a0
+    const v2, 0x7f0b00a9
 
     invoke-virtual {p4, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -128,62 +184,6 @@
     invoke-super {p0, p3}, Landroid/widget/SeekBar;->setOnSeekBarChangeListener(Landroid/widget/SeekBar$OnSeekBarChangeListener;)V
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/accessibility/BalanceSeekBar;)Ljava/lang/Object;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/accessibility/BalanceSeekBar;->mListenerLock:Ljava/lang/Object;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/accessibility/BalanceSeekBar;)Landroid/widget/SeekBar$OnSeekBarChangeListener;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/accessibility/BalanceSeekBar;->mOnSeekBarChangeListener:Landroid/widget/SeekBar$OnSeekBarChangeListener;
-
-    return-object p0
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/accessibility/BalanceSeekBar;)I
-    .locals 0
-
-    iget p0, p0, Lcom/android/settings/accessibility/BalanceSeekBar;->mCenter:I
-
-    return p0
-.end method
-
-.method static synthetic access$300(Lcom/android/settings/accessibility/BalanceSeekBar;)F
-    .locals 0
-
-    iget p0, p0, Lcom/android/settings/accessibility/BalanceSeekBar;->mSnapThreshold:F
-
-    return p0
-.end method
-
-.method static synthetic access$400(Lcom/android/settings/accessibility/BalanceSeekBar;)I
-    .locals 0
-
-    iget p0, p0, Lcom/android/settings/accessibility/BalanceSeekBar;->mLastProgress:I
-
-    return p0
-.end method
-
-.method static synthetic access$402(Lcom/android/settings/accessibility/BalanceSeekBar;I)I
-    .locals 0
-
-    iput p1, p0, Lcom/android/settings/accessibility/BalanceSeekBar;->mLastProgress:I
-
-    return p1
-.end method
-
-.method static synthetic access$500(Lcom/android/settings/accessibility/BalanceSeekBar;)Landroid/content/Context;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/accessibility/BalanceSeekBar;->mContext:Landroid/content/Context;
-
-    return-object p0
 .end method
 
 

@@ -557,6 +557,25 @@
 
     move-result-object p2
 
+    if-eqz p2, :cond_0
+
+    sget p3, Lcom/google/android/material/R$styleable;->Tooltip_android_textColor:I
+
+    invoke-virtual {p1, p3}, Landroid/content/res/TypedArray;->hasValue(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/google/android/material/tooltip/TooltipDrawable;->context:Landroid/content/Context;
+
+    invoke-static {v0, p1, p3}, Lcom/google/android/material/resources/MaterialResources;->getColorStateList(Landroid/content/Context;Landroid/content/res/TypedArray;I)Landroid/content/res/ColorStateList;
+
+    move-result-object p3
+
+    invoke-virtual {p2, p3}, Lcom/google/android/material/resources/TextAppearance;->setTextColor(Landroid/content/res/ColorStateList;)V
+
+    :cond_0
     invoke-virtual {p0, p2}, Lcom/google/android/material/tooltip/TooltipDrawable;->setTextAppearance(Lcom/google/android/material/resources/TextAppearance;)V
 
     iget-object p2, p0, Lcom/google/android/material/tooltip/TooltipDrawable;->context:Landroid/content/Context;
@@ -575,15 +594,15 @@
 
     iget-object p3, p0, Lcom/google/android/material/tooltip/TooltipDrawable;->context:Landroid/content/Context;
 
-    const-class v0, Lcom/google/android/material/tooltip/TooltipDrawable;
+    const v0, 0x1010031
 
-    invoke-virtual {v0}, Ljava/lang/Class;->getCanonicalName()Ljava/lang/String;
+    const-class v1, Lcom/google/android/material/tooltip/TooltipDrawable;
 
-    move-result-object v0
+    invoke-virtual {v1}, Ljava/lang/Class;->getCanonicalName()Ljava/lang/String;
 
-    const v1, 0x1010031
+    move-result-object v1
 
-    invoke-static {p3, v1, v0}, Lcom/google/android/material/color/MaterialColors;->getColor(Landroid/content/Context;ILjava/lang/String;)I
+    invoke-static {p3, v0, v1}, Lcom/google/android/material/color/MaterialColors;->getColor(Landroid/content/Context;ILjava/lang/String;)I
 
     move-result p3
 

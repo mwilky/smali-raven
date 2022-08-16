@@ -46,7 +46,7 @@
 
     iget-object v0, p0, Lcom/google/android/setupdesign/view/HeaderRecyclerView$HeaderAdapter$1;->this$0:Lcom/google/android/setupdesign/view/HeaderRecyclerView$HeaderAdapter;
 
-    invoke-static {v0}, Lcom/google/android/setupdesign/view/HeaderRecyclerView$HeaderAdapter;->access$000(Lcom/google/android/setupdesign/view/HeaderRecyclerView$HeaderAdapter;)Landroid/view/View;
+    invoke-static {v0}, Lcom/google/android/setupdesign/view/HeaderRecyclerView$HeaderAdapter;->-$$Nest$fgetheader(Lcom/google/android/setupdesign/view/HeaderRecyclerView$HeaderAdapter;)Landroid/view/View;
 
     move-result-object v0
 
@@ -67,7 +67,7 @@
 
     iget-object v0, p0, Lcom/google/android/setupdesign/view/HeaderRecyclerView$HeaderAdapter$1;->this$0:Lcom/google/android/setupdesign/view/HeaderRecyclerView$HeaderAdapter;
 
-    invoke-static {v0}, Lcom/google/android/setupdesign/view/HeaderRecyclerView$HeaderAdapter;->access$000(Lcom/google/android/setupdesign/view/HeaderRecyclerView$HeaderAdapter;)Landroid/view/View;
+    invoke-static {v0}, Lcom/google/android/setupdesign/view/HeaderRecyclerView$HeaderAdapter;->-$$Nest$fgetheader(Lcom/google/android/setupdesign/view/HeaderRecyclerView$HeaderAdapter;)Landroid/view/View;
 
     move-result-object v0
 
@@ -88,7 +88,7 @@
 
     iget-object v0, p0, Lcom/google/android/setupdesign/view/HeaderRecyclerView$HeaderAdapter$1;->this$0:Lcom/google/android/setupdesign/view/HeaderRecyclerView$HeaderAdapter;
 
-    invoke-static {v0}, Lcom/google/android/setupdesign/view/HeaderRecyclerView$HeaderAdapter;->access$000(Lcom/google/android/setupdesign/view/HeaderRecyclerView$HeaderAdapter;)Landroid/view/View;
+    invoke-static {v0}, Lcom/google/android/setupdesign/view/HeaderRecyclerView$HeaderAdapter;->-$$Nest$fgetheader(Lcom/google/android/setupdesign/view/HeaderRecyclerView$HeaderAdapter;)Landroid/view/View;
 
     move-result-object v0
 
@@ -125,7 +125,7 @@
 
     iget-object v0, p0, Lcom/google/android/setupdesign/view/HeaderRecyclerView$HeaderAdapter$1;->this$0:Lcom/google/android/setupdesign/view/HeaderRecyclerView$HeaderAdapter;
 
-    invoke-static {v0}, Lcom/google/android/setupdesign/view/HeaderRecyclerView$HeaderAdapter;->access$000(Lcom/google/android/setupdesign/view/HeaderRecyclerView$HeaderAdapter;)Landroid/view/View;
+    invoke-static {v0}, Lcom/google/android/setupdesign/view/HeaderRecyclerView$HeaderAdapter;->-$$Nest$fgetheader(Lcom/google/android/setupdesign/view/HeaderRecyclerView$HeaderAdapter;)Landroid/view/View;
 
     move-result-object v0
 

@@ -23,7 +23,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settings/deviceinfo/StorageWizardFormatProgress$1;)V
+.method synthetic constructor <init>(Lcom/android/settings/deviceinfo/StorageWizardFormatProgress$SilentObserver-IA;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/settings/deviceinfo/StorageWizardFormatProgress$SilentObserver;-><init>()V

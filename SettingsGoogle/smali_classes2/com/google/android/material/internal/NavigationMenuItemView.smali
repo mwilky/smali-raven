@@ -531,11 +531,17 @@
 .end method
 
 .method public setHorizontalPadding(I)V
-    .locals 1
+    .locals 2
 
-    const/4 v0, 0x0
+    invoke-virtual {p0}, Landroid/view/ViewGroup;->getPaddingTop()I
 
-    invoke-virtual {p0, p1, v0, p1, v0}, Landroid/view/ViewGroup;->setPadding(IIII)V
+    move-result v0
+
+    invoke-virtual {p0}, Landroid/view/ViewGroup;->getPaddingBottom()I
+
+    move-result v1
+
+    invoke-virtual {p0, p1, v0, p1, v1}, Landroid/view/ViewGroup;->setPadding(IIII)V
 
     return-void
 .end method

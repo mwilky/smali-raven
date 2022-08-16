@@ -90,6 +90,14 @@
     return-void
 .end method
 
+.method static bridge synthetic -$$Nest$mupdateShowVirtualKeyboardSwitch(Lcom/android/settings/inputmethod/PhysicalKeyboardFragment;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/inputmethod/PhysicalKeyboardFragment;->updateShowVirtualKeyboardSwitch()V
+
+    return-void
+.end method
+
 .method static constructor <clinit>()V
     .locals 1
 
@@ -130,14 +138,6 @@
     invoke-direct {v0, p0, v1}, Lcom/android/settings/inputmethod/PhysicalKeyboardFragment$1;-><init>(Lcom/android/settings/inputmethod/PhysicalKeyboardFragment;Landroid/os/Handler;)V
 
     iput-object v0, p0, Lcom/android/settings/inputmethod/PhysicalKeyboardFragment;->mContentObserver:Landroid/database/ContentObserver;
-
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/inputmethod/PhysicalKeyboardFragment;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/inputmethod/PhysicalKeyboardFragment;->updateShowVirtualKeyboardSwitch()V
 
     return-void
 .end method
@@ -239,9 +239,9 @@
 
     move-result-object p0
 
-    new-instance v1, Lcom/android/settings/inputmethod/PhysicalKeyboardFragment$$ExternalSyntheticLambda4;
+    new-instance v1, Lcom/android/settings/inputmethod/PhysicalKeyboardFragment$$ExternalSyntheticLambda1;
 
-    invoke-direct {v1, p0}, Lcom/android/settings/inputmethod/PhysicalKeyboardFragment$$ExternalSyntheticLambda4;-><init>(Ljava/text/Collator;)V
+    invoke-direct {v1, p0}, Lcom/android/settings/inputmethod/PhysicalKeyboardFragment$$ExternalSyntheticLambda1;-><init>(Ljava/text/Collator;)V
 
     invoke-interface {v0, v1}, Ljava/util/List;->sort(Ljava/util/Comparator;)V
 
@@ -259,7 +259,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f040ace
+    const v0, 0x7f040b2c
 
     if-nez p0, :cond_0
 
@@ -550,7 +550,7 @@
 
     invoke-direct {v1, v2}, Landroidx/preference/PreferenceCategory;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f04053a
+    const v2, 0x7f040599
 
     invoke-virtual {v1, v2}, Landroidx/preference/Preference;->setTitle(I)V
 
@@ -593,9 +593,9 @@
 
     invoke-virtual {v3, v4}, Landroidx/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
-    new-instance v4, Lcom/android/settings/inputmethod/PhysicalKeyboardFragment$$ExternalSyntheticLambda1;
+    new-instance v4, Lcom/android/settings/inputmethod/PhysicalKeyboardFragment$$ExternalSyntheticLambda4;
 
-    invoke-direct {v4, p0, v2}, Lcom/android/settings/inputmethod/PhysicalKeyboardFragment$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/inputmethod/PhysicalKeyboardFragment;Lcom/android/settings/inputmethod/PhysicalKeyboardFragment$HardKeyboardDeviceInfo;)V
+    invoke-direct {v4, p0, v2}, Lcom/android/settings/inputmethod/PhysicalKeyboardFragment$$ExternalSyntheticLambda4;-><init>(Lcom/android/settings/inputmethod/PhysicalKeyboardFragment;Lcom/android/settings/inputmethod/PhysicalKeyboardFragment$HardKeyboardDeviceInfo;)V
 
     invoke-virtual {v3, v4}, Landroidx/preference/Preference;->setOnPreferenceClickListener(Landroidx/preference/Preference$OnPreferenceClickListener;)V
 
@@ -696,7 +696,7 @@
 
     check-cast p1, Landroid/app/Activity;
 
-    const p2, 0x7f1500b1
+    const p2, 0x7f1500b3
 
     invoke-virtual {p0, p2}, Lcom/android/settings/SettingsPreferenceFragment;->addPreferencesFromResource(I)V
 

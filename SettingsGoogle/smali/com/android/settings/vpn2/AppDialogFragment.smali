@@ -27,18 +27,18 @@
 
 
 # direct methods
-.method public constructor <init>()V
+.method static bridge synthetic -$$Nest$monDisconnect(Lcom/android/settings/vpn2/AppDialogFragment;Landroid/content/DialogInterface;)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/settings/core/instrumentation/InstrumentedDialogFragment;-><init>()V
+    invoke-direct {p0, p1}, Lcom/android/settings/vpn2/AppDialogFragment;->onDisconnect(Landroid/content/DialogInterface;)V
 
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/settings/vpn2/AppDialogFragment;Landroid/content/DialogInterface;)V
+.method public constructor <init>()V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/settings/vpn2/AppDialogFragment;->onDisconnect(Landroid/content/DialogInterface;)V
+    invoke-direct {p0}, Lcom/android/settings/core/instrumentation/InstrumentedDialogFragment;-><init>()V
 
     return-void
 .end method
@@ -395,7 +395,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f04156f
+    const v2, 0x7f041668
 
     invoke-virtual {v1, v2}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -409,7 +409,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f041568
+    const v2, 0x7f041661
 
     invoke-virtual {v1, v2}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -433,7 +433,7 @@
 
     move-result-object p1
 
-    const v1, 0x7f04156e
+    const v1, 0x7f041667
 
     invoke-virtual {p1, v1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 

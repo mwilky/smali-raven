@@ -51,6 +51,10 @@
 
     invoke-virtual {p1, p0}, Landroid/widget/TextView;->setMovementMethod(Landroid/text/method/MovementMethod;)V
 
+    const/4 p0, 0x0
+
+    invoke-virtual {p1, p0}, Landroid/widget/TextView;->setFocusable(Z)V
+
     goto :goto_0
 
     :cond_0

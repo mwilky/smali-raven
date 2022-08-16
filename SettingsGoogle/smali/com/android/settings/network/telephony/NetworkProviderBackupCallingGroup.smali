@@ -205,7 +205,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f04033b
+    const v0, 0x7f040378
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -327,7 +327,7 @@
 
     if-nez p0, :cond_0
 
-    const-string p0, "setCrossSimCallingEnabled(), ImsMmTelManager is null"
+    const-string/jumbo p0, "setCrossSimCallingEnabled(), ImsMmTelManager is null"
 
     invoke-static {v0, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -441,9 +441,9 @@
 
     invoke-virtual {v4, v1}, Landroidx/preference/TwoStatePreference;->setChecked(Z)V
 
-    new-instance v2, Lcom/android/settings/network/telephony/NetworkProviderBackupCallingGroup$$ExternalSyntheticLambda0;
+    new-instance v2, Lcom/android/settings/network/telephony/NetworkProviderBackupCallingGroup$$ExternalSyntheticLambda1;
 
-    invoke-direct {v2, p0, v3, v1}, Lcom/android/settings/network/telephony/NetworkProviderBackupCallingGroup$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/network/telephony/NetworkProviderBackupCallingGroup;IZ)V
+    invoke-direct {v2, p0, v3, v1}, Lcom/android/settings/network/telephony/NetworkProviderBackupCallingGroup$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/network/telephony/NetworkProviderBackupCallingGroup;IZ)V
 
     invoke-virtual {v4, v2}, Landroidx/preference/Preference;->setOnPreferenceClickListener(Landroidx/preference/Preference$OnPreferenceClickListener;)V
 
@@ -470,9 +470,9 @@
 
     if-eqz v0, :cond_0
 
-    new-instance v1, Lcom/android/settings/network/telephony/NetworkProviderBackupCallingGroup$$ExternalSyntheticLambda1;
+    new-instance v1, Lcom/android/settings/network/telephony/NetworkProviderBackupCallingGroup$$ExternalSyntheticLambda0;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/settings/network/telephony/NetworkProviderBackupCallingGroup$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/network/telephony/NetworkProviderBackupCallingGroup;Landroid/content/Context;)V
+    invoke-direct {v1, p0, p1}, Lcom/android/settings/network/telephony/NetworkProviderBackupCallingGroup$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/network/telephony/NetworkProviderBackupCallingGroup;Landroid/content/Context;)V
 
     invoke-interface {v0, v1}, Ljava/util/List;->removeIf(Ljava/util/function/Predicate;)Z
 
@@ -597,14 +597,6 @@
 
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public displayPreference(Landroidx/preference/PreferenceScreen;)V
     .locals 1
 
@@ -660,15 +652,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -721,16 +704,6 @@
     .locals 0
 
     const/4 p0, 0x0
-
-    return p0
-.end method
-
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
-
-    move-result p0
 
     return p0
 .end method

@@ -55,7 +55,7 @@
 
     move-result p1
 
-    invoke-static {v0, p1}, Lcom/android/settings/widget/DotsPageIndicator;->access$1202(Lcom/android/settings/widget/DotsPageIndicator;F)F
+    invoke-static {v0, p1}, Lcom/android/settings/widget/DotsPageIndicator;->-$$Nest$fputretreatingJoinX1(Lcom/android/settings/widget/DotsPageIndicator;F)V
 
     iget-object p1, p0, Lcom/android/settings/widget/DotsPageIndicator$PendingRetreatAnimator$1;->this$1:Lcom/android/settings/widget/DotsPageIndicator$PendingRetreatAnimator;
 
@@ -67,7 +67,7 @@
 
     iget-object p1, p1, Lcom/android/settings/widget/DotsPageIndicator$PendingRetreatAnimator;->this$0:Lcom/android/settings/widget/DotsPageIndicator;
 
-    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator;->access$1100(Lcom/android/settings/widget/DotsPageIndicator;)[Lcom/android/settings/widget/DotsPageIndicator$PendingRevealAnimator;
+    invoke-static {p1}, Lcom/android/settings/widget/DotsPageIndicator;->-$$Nest$fgetrevealAnimations(Lcom/android/settings/widget/DotsPageIndicator;)[Lcom/android/settings/widget/DotsPageIndicator$PendingRevealAnimator;
 
     move-result-object p1
 
@@ -84,7 +84,7 @@
 
     iget-object v3, v3, Lcom/android/settings/widget/DotsPageIndicator$PendingRetreatAnimator;->this$0:Lcom/android/settings/widget/DotsPageIndicator;
 
-    invoke-static {v3}, Lcom/android/settings/widget/DotsPageIndicator;->access$1200(Lcom/android/settings/widget/DotsPageIndicator;)F
+    invoke-static {v3}, Lcom/android/settings/widget/DotsPageIndicator;->-$$Nest$fgetretreatingJoinX1(Lcom/android/settings/widget/DotsPageIndicator;)F
 
     move-result v3
 

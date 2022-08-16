@@ -72,7 +72,7 @@
 
     iget-object p2, p0, Lcom/android/settings/network/apn/ApnSettings$2;->this$0:Lcom/android/settings/network/apn/ApnSettings;
 
-    invoke-static {p2}, Lcom/android/settings/network/apn/ApnSettings;->access$300(Lcom/android/settings/network/apn/ApnSettings;)I
+    invoke-static {p2}, Lcom/android/settings/network/apn/ApnSettings;->-$$Nest$fgetmSubId(Lcom/android/settings/network/apn/ApnSettings;)I
 
     move-result p2
 
@@ -109,7 +109,7 @@
 
     iget-object v0, p0, Lcom/android/settings/network/apn/ApnSettings$2;->this$0:Lcom/android/settings/network/apn/ApnSettings;
 
-    invoke-static {v0}, Lcom/android/settings/network/apn/ApnSettings;->access$000(Lcom/android/settings/network/apn/ApnSettings;)Z
+    invoke-static {v0}, Lcom/android/settings/network/apn/ApnSettings;->-$$Nest$fgetmRestoreDefaultApnMode(Lcom/android/settings/network/apn/ApnSettings;)Z
 
     move-result v0
 
@@ -134,7 +134,7 @@
 
     iget-object v0, p0, Lcom/android/settings/network/apn/ApnSettings$2;->this$0:Lcom/android/settings/network/apn/ApnSettings;
 
-    invoke-static {v0}, Lcom/android/settings/network/apn/ApnSettings;->access$400(Lcom/android/settings/network/apn/ApnSettings;)I
+    invoke-static {v0}, Lcom/android/settings/network/apn/ApnSettings;->-$$Nest$fgetmPhoneId(Lcom/android/settings/network/apn/ApnSettings;)I
 
     move-result v0
 
@@ -146,7 +146,7 @@
 
     iget-object p1, p0, Lcom/android/settings/network/apn/ApnSettings$2;->this$0:Lcom/android/settings/network/apn/ApnSettings;
 
-    invoke-static {p1}, Lcom/android/settings/network/apn/ApnSettings;->access$300(Lcom/android/settings/network/apn/ApnSettings;)I
+    invoke-static {p1}, Lcom/android/settings/network/apn/ApnSettings;->-$$Nest$fgetmSubId(Lcom/android/settings/network/apn/ApnSettings;)I
 
     move-result p1
 
@@ -154,32 +154,32 @@
 
     iget-object p1, p0, Lcom/android/settings/network/apn/ApnSettings$2;->this$0:Lcom/android/settings/network/apn/ApnSettings;
 
-    invoke-static {p1, p2}, Lcom/android/settings/network/apn/ApnSettings;->access$302(Lcom/android/settings/network/apn/ApnSettings;I)I
+    invoke-static {p1, p2}, Lcom/android/settings/network/apn/ApnSettings;->-$$Nest$fputmSubId(Lcom/android/settings/network/apn/ApnSettings;I)V
 
     iget-object p1, p0, Lcom/android/settings/network/apn/ApnSettings$2;->this$0:Lcom/android/settings/network/apn/ApnSettings;
 
-    invoke-static {p1}, Lcom/android/settings/network/apn/ApnSettings;->access$300(Lcom/android/settings/network/apn/ApnSettings;)I
+    invoke-static {p1}, Lcom/android/settings/network/apn/ApnSettings;->-$$Nest$fgetmSubId(Lcom/android/settings/network/apn/ApnSettings;)I
 
     move-result p2
 
-    invoke-static {p1, p2}, Lcom/android/settings/network/apn/ApnSettings;->access$600(Lcom/android/settings/network/apn/ApnSettings;I)Landroid/telephony/SubscriptionInfo;
+    invoke-static {p1, p2}, Lcom/android/settings/network/apn/ApnSettings;->-$$Nest$mgetSubscriptionInfo(Lcom/android/settings/network/apn/ApnSettings;I)Landroid/telephony/SubscriptionInfo;
 
     move-result-object p2
 
-    invoke-static {p1, p2}, Lcom/android/settings/network/apn/ApnSettings;->access$502(Lcom/android/settings/network/apn/ApnSettings;Landroid/telephony/SubscriptionInfo;)Landroid/telephony/SubscriptionInfo;
+    invoke-static {p1, p2}, Lcom/android/settings/network/apn/ApnSettings;->-$$Nest$fputmSubscriptionInfo(Lcom/android/settings/network/apn/ApnSettings;Landroid/telephony/SubscriptionInfo;)V
 
     iget-object p1, p0, Lcom/android/settings/network/apn/ApnSettings$2;->this$0:Lcom/android/settings/network/apn/ApnSettings;
 
-    invoke-static {p1}, Lcom/android/settings/network/apn/ApnSettings;->access$300(Lcom/android/settings/network/apn/ApnSettings;)I
+    invoke-static {p1}, Lcom/android/settings/network/apn/ApnSettings;->-$$Nest$fgetmSubId(Lcom/android/settings/network/apn/ApnSettings;)I
 
     move-result p2
 
-    invoke-static {p1, p2}, Lcom/android/settings/network/apn/ApnSettings;->access$700(Lcom/android/settings/network/apn/ApnSettings;I)V
+    invoke-static {p1, p2}, Lcom/android/settings/network/apn/ApnSettings;->-$$Nest$mrestartPhoneStateListener(Lcom/android/settings/network/apn/ApnSettings;I)V
 
     :cond_2
     iget-object p0, p0, Lcom/android/settings/network/apn/ApnSettings$2;->this$0:Lcom/android/settings/network/apn/ApnSettings;
 
-    invoke-static {p0}, Lcom/android/settings/network/apn/ApnSettings;->access$100(Lcom/android/settings/network/apn/ApnSettings;)V
+    invoke-static {p0}, Lcom/android/settings/network/apn/ApnSettings;->-$$Nest$mfillList(Lcom/android/settings/network/apn/ApnSettings;)V
 
     :cond_3
     :goto_0

@@ -67,7 +67,7 @@
 
     fill-array-data v5, :array_0
 
-    const v2, 0x7f0602a7
+    const v2, 0x7f0602b7
 
     move-object v0, v6
 
@@ -263,7 +263,7 @@
 
     move-result-object p1
 
-    const p2, 0x7f0414f4
+    const p2, 0x7f0415f3
 
     invoke-virtual {p1, p2}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 
@@ -422,13 +422,13 @@
 
     const/4 p2, 0x1
 
-    const v0, 0x7f0414f6
+    const v0, 0x7f0415f5
 
     invoke-interface {p1, p0, p2, p0, v0}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
     move-result-object p0
 
-    const p1, 0x7f020171
+    const p1, 0x7f020185
 
     invoke-interface {p0, p1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -448,7 +448,7 @@
 
     move-result-object p3
 
-    const v0, 0x7f041504
+    const v0, 0x7f041603
 
     invoke-virtual {p3, v0}, Landroid/app/Activity;->setTitle(I)V
 
@@ -477,7 +477,7 @@
     invoke-virtual {p3, p0}, Landroid/app/ActionBar;->setSubtitle(Ljava/lang/CharSequence;)V
 
     :cond_0
-    const p0, 0x10900e0
+    const p0, 0x10900eb
 
     const/4 p3, 0x0
 
@@ -633,7 +633,7 @@
 
     check-cast p1, Landroid/widget/TextView;
 
-    const p2, 0x7f041500
+    const p2, 0x7f0415ff
 
     invoke-virtual {p1, p2}, Landroid/widget/TextView;->setText(I)V
 

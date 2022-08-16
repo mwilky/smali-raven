@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen android:key="mobile_network_pref_screen"
   xmlns:android="http://schemas.android.com/apk/res/android" xmlns:settings="http://schemas.android.com/apk/res-auto">
-    <com.android.settings.widget.SettingsMainSwitchPreference android:key="use_sim_switch" settings:controller="com.android.settings.network.telephony.MobileNetworkSwitchController" />
+    <com.android.settings.widget.SettingsMainSwitchPreference android:title="@string/mobile_network_use_sim_on" android:key="use_sim_switch" settings:controller="com.android.settings.network.telephony.MobileNetworkSwitchController" />
     <PreferenceCategory android:layout="@layout/preference_category_no_label" android:title="@string/summary_placeholder" android:key="enabled_state_container" settings:controller="com.android.settings.network.telephony.DisabledSubscriptionController">
         <com.android.settings.datausage.DataUsageSummaryPreference android:visibility="gone" android:selectable="false" android:key="status_header" />
         <ListPreference android:title="@string/calls_preference" android:key="calls_preference" settings:controller="com.android.settings.network.telephony.CallsDefaultSubscriptionController" settings:allowDividerAbove="true" />

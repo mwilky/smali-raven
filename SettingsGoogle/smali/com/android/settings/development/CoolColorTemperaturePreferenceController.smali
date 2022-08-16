@@ -27,7 +27,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f0405ea
+    const v0, 0x7f040646
 
     const/4 v1, 0x1
 
@@ -57,7 +57,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f090009
+    const v0, 0x7f09000a
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 

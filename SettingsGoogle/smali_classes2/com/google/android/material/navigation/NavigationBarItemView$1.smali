@@ -39,7 +39,7 @@
 
     iget-object p1, p0, Lcom/google/android/material/navigation/NavigationBarItemView$1;->this$0:Lcom/google/android/material/navigation/NavigationBarItemView;
 
-    invoke-static {p1}, Lcom/google/android/material/navigation/NavigationBarItemView;->access$000(Lcom/google/android/material/navigation/NavigationBarItemView;)Landroid/widget/ImageView;
+    invoke-static {p1}, Lcom/google/android/material/navigation/NavigationBarItemView;->access$200(Lcom/google/android/material/navigation/NavigationBarItemView;)Landroid/widget/ImageView;
 
     move-result-object p1
 
@@ -51,11 +51,11 @@
 
     iget-object p0, p0, Lcom/google/android/material/navigation/NavigationBarItemView$1;->this$0:Lcom/google/android/material/navigation/NavigationBarItemView;
 
-    invoke-static {p0}, Lcom/google/android/material/navigation/NavigationBarItemView;->access$000(Lcom/google/android/material/navigation/NavigationBarItemView;)Landroid/widget/ImageView;
+    invoke-static {p0}, Lcom/google/android/material/navigation/NavigationBarItemView;->access$200(Lcom/google/android/material/navigation/NavigationBarItemView;)Landroid/widget/ImageView;
 
     move-result-object p1
 
-    invoke-static {p0, p1}, Lcom/google/android/material/navigation/NavigationBarItemView;->access$100(Lcom/google/android/material/navigation/NavigationBarItemView;Landroid/view/View;)V
+    invoke-static {p0, p1}, Lcom/google/android/material/navigation/NavigationBarItemView;->access$300(Lcom/google/android/material/navigation/NavigationBarItemView;Landroid/view/View;)V
 
     :cond_0
     return-void

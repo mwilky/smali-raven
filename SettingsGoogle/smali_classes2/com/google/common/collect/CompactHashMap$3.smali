@@ -50,9 +50,9 @@
 
     iget-object p0, p0, Lcom/google/common/collect/CompactHashMap$3;->this$0:Lcom/google/common/collect/CompactHashMap;
 
-    iget-object p0, p0, Lcom/google/common/collect/CompactHashMap;->values:[Ljava/lang/Object;
+    invoke-static {p0, p1}, Lcom/google/common/collect/CompactHashMap;->access$600(Lcom/google/common/collect/CompactHashMap;I)Ljava/lang/Object;
 
-    aget-object p0, p0, p1
+    move-result-object p0
 
     return-object p0
 .end method

@@ -178,7 +178,7 @@
 
     aput v1, v5, v2
 
-    const-string v0, "scrollX"
+    const-string/jumbo v0, "scrollX"
 
     invoke-static {p1, v0, v5}, Landroid/animation/ObjectAnimator;->ofInt(Ljava/lang/Object;Ljava/lang/String;[I)Landroid/animation/ObjectAnimator;
 
@@ -200,7 +200,7 @@
 
     aput p3, p0, v2
 
-    const-string p2, "scrollY"
+    const-string/jumbo p2, "scrollY"
 
     invoke-static {p1, p2, p0}, Landroid/animation/ObjectAnimator;->ofInt(Ljava/lang/Object;Ljava/lang/String;[I)Landroid/animation/ObjectAnimator;
 

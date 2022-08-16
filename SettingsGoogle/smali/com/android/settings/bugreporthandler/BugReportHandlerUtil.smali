@@ -98,7 +98,7 @@
 
     move-result-object p0
 
-    const p1, 0x1040215
+    const p1, 0x1040233
 
     invoke-virtual {p0, p1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -396,7 +396,9 @@
 
     move-result-object v1
 
-    sget-object v3, Lcom/android/settings/bugreporthandler/BugReportHandlerUtil$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/settings/bugreporthandler/BugReportHandlerUtil$$ExternalSyntheticLambda0;
+    new-instance v3, Lcom/android/settings/bugreporthandler/BugReportHandlerUtil$$ExternalSyntheticLambda0;
+
+    invoke-direct {v3}, Lcom/android/settings/bugreporthandler/BugReportHandlerUtil$$ExternalSyntheticLambda0;-><init>()V
 
     invoke-interface {v1, v3}, Ljava/util/stream/Stream;->filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
 
@@ -515,7 +517,7 @@
 
     move-result-object p0
 
-    const p1, 0x1110040
+    const p1, 0x1110042
 
     invoke-virtual {p0, p1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -561,7 +563,7 @@
 .method public showInvalidChoiceToast(Landroid/content/Context;)V
     .locals 1
 
-    const p0, 0x7f0411c7
+    const p0, 0x7f04127c
 
     const/4 v0, 0x0
 

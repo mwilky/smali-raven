@@ -89,7 +89,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f040245
+    const v2, 0x7f040274
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -101,13 +101,15 @@
 
     invoke-virtual {v0, v1}, Landroidx/appcompat/app/AlertDialog;->setTitle(Ljava/lang/CharSequence;)V
 
-    const v1, 0x7f040246
+    const v1, 0x7f040275
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object p0
 
-    sget-object v1, Lcom/android/settings/applications/intentpicker/ProgressDialogFragment$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/settings/applications/intentpicker/ProgressDialogFragment$$ExternalSyntheticLambda0;
+    new-instance v1, Lcom/android/settings/applications/intentpicker/ProgressDialogFragment$$ExternalSyntheticLambda0;
+
+    invoke-direct {v1}, Lcom/android/settings/applications/intentpicker/ProgressDialogFragment$$ExternalSyntheticLambda0;-><init>()V
 
     const/4 v2, -0x2
 
@@ -123,9 +125,9 @@
 .method private generateProgressAlertDialog()V
     .locals 1
 
-    new-instance v0, Lcom/android/settings/applications/intentpicker/ProgressDialogFragment$$ExternalSyntheticLambda2;
+    new-instance v0, Lcom/android/settings/applications/intentpicker/ProgressDialogFragment$$ExternalSyntheticLambda1;
 
-    invoke-direct {v0, p0}, Lcom/android/settings/applications/intentpicker/ProgressDialogFragment$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/applications/intentpicker/ProgressDialogFragment;)V
+    invoke-direct {v0, p0}, Lcom/android/settings/applications/intentpicker/ProgressDialogFragment$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/applications/intentpicker/ProgressDialogFragment;)V
 
     invoke-static {v0}, Lcom/android/settingslib/utils/ThreadUtils;->postOnBackgroundThread(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;
 
@@ -217,7 +219,7 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "queryLinksInBackground take time: "
+    const-string/jumbo v3, "queryLinksInBackground take time: "
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -245,9 +247,9 @@
 
     iget-object v0, p0, Lcom/android/settings/applications/intentpicker/ProgressDialogFragment;->mHandle:Landroid/os/Handler;
 
-    new-instance v1, Lcom/android/settings/applications/intentpicker/ProgressDialogFragment$$ExternalSyntheticLambda1;
+    new-instance v1, Lcom/android/settings/applications/intentpicker/ProgressDialogFragment$$ExternalSyntheticLambda2;
 
-    invoke-direct {v1, p0}, Lcom/android/settings/applications/intentpicker/ProgressDialogFragment$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/applications/intentpicker/ProgressDialogFragment;)V
+    invoke-direct {v1, p0}, Lcom/android/settings/applications/intentpicker/ProgressDialogFragment$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/applications/intentpicker/ProgressDialogFragment;)V
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
@@ -463,7 +465,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "queryLinksInBackground : SupportedLinkWrapperList size="
+    const-string/jumbo v1, "queryLinksInBackground : SupportedLinkWrapperList size="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

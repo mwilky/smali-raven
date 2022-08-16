@@ -52,13 +52,13 @@
 
     new-array v0, v0, [Ljava/lang/Object;
 
-    sget-object v1, Landroid/os/Build$VERSION;->RELEASE_OR_CODENAME:Ljava/lang/String;
+    sget-object v1, Landroid/os/Build$VERSION;->RELEASE_OR_PREVIEW_DISPLAY:Ljava/lang/String;
 
     const/4 v2, 0x0
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f0412f2
+    const v1, 0x7f0413b6
 
     invoke-virtual {p0, v1, v0}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

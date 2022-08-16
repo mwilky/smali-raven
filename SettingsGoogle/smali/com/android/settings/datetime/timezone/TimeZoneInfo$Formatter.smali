@@ -41,31 +41,12 @@
     return-void
 .end method
 
-.method private static getCanonicalZoneId(Landroid/icu/util/TimeZone;)Ljava/lang/String;
-    .locals 1
-
-    invoke-virtual {p0}, Landroid/icu/util/TimeZone;->getID()Ljava/lang/String;
-
-    move-result-object p0
-
-    invoke-static {p0}, Landroid/icu/util/TimeZone;->getCanonicalID(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    return-object v0
-
-    :cond_0
-    return-object p0
-.end method
-
 
 # virtual methods
 .method public format(Landroid/icu/util/TimeZone;)Lcom/android/settings/datetime/timezone/TimeZoneInfo;
     .locals 6
 
-    invoke-static {p1}, Lcom/android/settings/datetime/timezone/TimeZoneInfo$Formatter;->getCanonicalZoneId(Landroid/icu/util/TimeZone;)Ljava/lang/String;
+    invoke-static {p1}, Lcom/android/settings/datetime/timezone/TimeZoneInfo;->-$$Nest$smgetCanonicalZoneId(Landroid/icu/util/TimeZone;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -75,7 +56,7 @@
 
     move-result-object v1
 
-    invoke-static {v0}, Ljava/util/TimeZone;->getTimeZone(Ljava/lang/String;)Ljava/util/TimeZone;
+    invoke-static {v0}, Lcom/android/settings/datetime/timezone/TimeZoneInfo;->-$$Nest$smtoJavaTimeZone(Ljava/lang/String;)Ljava/util/TimeZone;
 
     move-result-object v2
 

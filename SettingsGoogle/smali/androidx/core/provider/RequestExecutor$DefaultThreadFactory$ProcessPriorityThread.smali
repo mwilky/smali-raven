@@ -21,18 +21,6 @@
 # direct methods
 .method constructor <init>(Ljava/lang/Runnable;Ljava/lang/String;I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "target",
-            "name",
-            "priority"
-        }
-    .end annotation
 
     invoke-direct {p0, p1, p2}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;Ljava/lang/String;)V
 

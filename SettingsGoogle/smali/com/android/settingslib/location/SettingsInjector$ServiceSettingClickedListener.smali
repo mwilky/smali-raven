@@ -59,7 +59,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/location/SettingsInjector$ServiceSettingClickedListener;->this$0:Lcom/android/settingslib/location/SettingsInjector;
 
-    invoke-static {v0}, Lcom/android/settingslib/location/SettingsInjector;->access$000(Lcom/android/settingslib/location/SettingsInjector;)Landroid/content/Context;
+    invoke-static {v0}, Lcom/android/settingslib/location/SettingsInjector;->-$$Nest$fgetmContext(Lcom/android/settingslib/location/SettingsInjector;)Landroid/content/Context;
 
     move-result-object v0
 

@@ -46,13 +46,13 @@
 
     new-instance p2, Lcom/android/settings/users/AutoSyncDataPreferenceController;
 
-    invoke-direct {p2, p0, p1}, Lcom/android/settings/users/AutoSyncDataPreferenceController;-><init>(Landroid/content/Context;Landroidx/fragment/app/Fragment;)V
+    invoke-direct {p2, p0, p1}, Lcom/android/settings/users/AutoSyncDataPreferenceController;-><init>(Landroid/content/Context;Landroidx/preference/PreferenceFragmentCompat;)V
 
     invoke-interface {p3, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     new-instance p2, Lcom/android/settings/users/AutoSyncPersonalDataPreferenceController;
 
-    invoke-direct {p2, p0, p1}, Lcom/android/settings/users/AutoSyncPersonalDataPreferenceController;-><init>(Landroid/content/Context;Landroidx/fragment/app/Fragment;)V
+    invoke-direct {p2, p0, p1}, Lcom/android/settings/users/AutoSyncPersonalDataPreferenceController;-><init>(Landroid/content/Context;Landroidx/preference/PreferenceFragmentCompat;)V
 
     invoke-interface {p3, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
@@ -98,7 +98,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a51
+    const p0, 0x7f040aaa
 
     return p0
 .end method
@@ -122,7 +122,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150018
+    const p0, 0x7f150017
 
     return p0
 .end method

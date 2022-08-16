@@ -52,7 +52,7 @@
 
     const/4 v2, 0x0
 
-    const v3, 0x7f040dd7
+    const v3, 0x7f040e54
 
     const/4 v4, 0x1
 
@@ -74,7 +74,7 @@
 
     const/4 v6, 0x2
 
-    const v7, 0x7f040c49
+    const v7, 0x7f040cb0
 
     invoke-direct {v3, v5, v6, v7, v4}, Lcom/android/settings/password/ChooseLockPattern$ChooseLockPatternFragment$RightButtonMode;-><init>(Ljava/lang/String;IIZ)V
 

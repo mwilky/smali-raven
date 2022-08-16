@@ -6,7 +6,6 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;,
         Lcom/google/common/collect/Sets$SetView;,
         Lcom/google/common/collect/Sets$ImprovedAbstractSet;
     }
@@ -189,29 +188,6 @@
     return-object v0
 .end method
 
-.method public static newConcurrentHashSet()Ljava/util/Set;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<E:",
-            "Ljava/lang/Object;",
-            ">()",
-            "Ljava/util/Set<",
-            "TE;>;"
-        }
-    .end annotation
-
-    new-instance v0, Ljava/util/concurrent/ConcurrentHashMap;
-
-    invoke-direct {v0}, Ljava/util/concurrent/ConcurrentHashMap;-><init>()V
-
-    invoke-static {v0}, Ljava/util/Collections;->newSetFromMap(Ljava/util/Map;)Ljava/util/Set;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
 .method public static newHashSet()Ljava/util/HashSet;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
@@ -350,40 +326,4 @@
 
     :cond_0
     return v0
-.end method
-
-.method public static unmodifiableNavigableSet(Ljava/util/NavigableSet;)Ljava/util/NavigableSet;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<E:",
-            "Ljava/lang/Object;",
-            ">(",
-            "Ljava/util/NavigableSet<",
-            "TE;>;)",
-            "Ljava/util/NavigableSet<",
-            "TE;>;"
-        }
-    .end annotation
-
-    instance-of v0, p0, Lcom/google/common/collect/ImmutableCollection;
-
-    if-nez v0, :cond_1
-
-    instance-of v0, p0, Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;
-
-    if-eqz v0, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    new-instance v0, Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;
-
-    invoke-direct {v0, p0}, Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;-><init>(Ljava/util/NavigableSet;)V
-
-    return-object v0
-
-    :cond_1
-    :goto_0
-    return-object p0
 .end method

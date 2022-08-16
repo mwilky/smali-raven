@@ -3,8 +3,6 @@
 .source "FloatingActionButton.java"
 
 # interfaces
-.implements Landroidx/core/view/TintableBackgroundView;
-.implements Landroidx/core/widget/TintableImageSourceView;
 .implements Lcom/google/android/material/expandable/ExpandableWidget;
 .implements Lcom/google/android/material/shape/Shapeable;
 .implements Landroidx/coordinatorlayout/widget/CoordinatorLayout$AttachedBehavior;
@@ -236,7 +234,7 @@
 
     move-result v5
 
-    iput v5, p0, Lcom/google/android/material/floatingactionbutton/FloatingActionButton;->maxImageSize:I
+    invoke-virtual {p0, v5}, Lcom/google/android/material/floatingactionbutton/FloatingActionButton;->setMaxImageSize(I)V
 
     sget v5, Lcom/google/android/material/R$styleable;->FloatingActionButton_showMotionSpec:I
 
@@ -340,14 +338,6 @@
 
     move-result-object p1
 
-    iget p2, p0, Lcom/google/android/material/floatingactionbutton/FloatingActionButton;->maxImageSize:I
-
-    invoke-virtual {p1, p2}, Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;->setMaxImageSize(I)V
-
-    invoke-direct {p0}, Lcom/google/android/material/floatingactionbutton/FloatingActionButton;->getImpl()Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;
-
-    move-result-object p1
-
     invoke-virtual {p1, v5}, Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;->setShowMotionSpec(Lcom/google/android/material/animation/MotionSpec;)V
 
     invoke-direct {p0}, Lcom/google/android/material/floatingactionbutton/FloatingActionButton;->getImpl()Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;
@@ -388,12 +378,6 @@
 .method private createImpl()Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;
     .locals 2
 
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    if-lt v0, v1, :cond_0
-
     new-instance v0, Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop;
 
     new-instance v1, Lcom/google/android/material/floatingactionbutton/FloatingActionButton$ShadowDelegateImpl;
@@ -401,17 +385,6 @@
     invoke-direct {v1, p0}, Lcom/google/android/material/floatingactionbutton/FloatingActionButton$ShadowDelegateImpl;-><init>(Lcom/google/android/material/floatingactionbutton/FloatingActionButton;)V
 
     invoke-direct {v0, p0, v1}, Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop;-><init>(Lcom/google/android/material/floatingactionbutton/FloatingActionButton;Lcom/google/android/material/shadow/ShadowViewDelegate;)V
-
-    return-object v0
-
-    :cond_0
-    new-instance v0, Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;
-
-    new-instance v1, Lcom/google/android/material/floatingactionbutton/FloatingActionButton$ShadowDelegateImpl;
-
-    invoke-direct {v1, p0}, Lcom/google/android/material/floatingactionbutton/FloatingActionButton$ShadowDelegateImpl;-><init>(Lcom/google/android/material/floatingactionbutton/FloatingActionButton;)V
-
-    invoke-direct {v0, p0, v1}, Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;-><init>(Lcom/google/android/material/floatingactionbutton/FloatingActionButton;Lcom/google/android/material/shadow/ShadowViewDelegate;)V
 
     return-object v0
 .end method
@@ -1619,6 +1592,20 @@
     invoke-virtual {v0, p1}, Landroidx/appcompat/widget/AppCompatImageHelper;->setImageResource(I)V
 
     invoke-direct {p0}, Lcom/google/android/material/floatingactionbutton/FloatingActionButton;->onApplySupportImageTint()V
+
+    return-void
+.end method
+
+.method public setMaxImageSize(I)V
+    .locals 0
+
+    iput p1, p0, Lcom/google/android/material/floatingactionbutton/FloatingActionButton;->maxImageSize:I
+
+    invoke-direct {p0}, Lcom/google/android/material/floatingactionbutton/FloatingActionButton;->getImpl()Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;
+
+    move-result-object p0
+
+    invoke-virtual {p0, p1}, Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;->setMaxImageSize(I)V
 
     return-void
 .end method

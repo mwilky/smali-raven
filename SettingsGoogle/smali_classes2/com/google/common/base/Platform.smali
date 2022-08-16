@@ -102,13 +102,3 @@
     :goto_1
     return p0
 .end method
-
-.method static systemNanoTime()J
-    .locals 2
-
-    invoke-static {}, Ljava/lang/System;->nanoTime()J
-
-    move-result-wide v0
-
-    return-wide v0
-.end method

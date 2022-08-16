@@ -663,7 +663,7 @@
 .end method
 
 .method protected onAttachedToWindow()V
-    .locals 7
+    .locals 5
 
     invoke-super {p0}, Landroid/view/View;->onAttachedToWindow()V
 
@@ -681,83 +681,67 @@
 
     iget-boolean v0, p0, Landroidx/constraintlayout/helper/widget/Layer;->mApplyElevationOnAttach:Z
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_3
 
     :cond_0
     invoke-virtual {p0}, Landroid/view/View;->getVisibility()I
 
     move-result v0
 
-    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v2, 0x15
-
-    const/4 v3, 0x0
-
-    if-lt v1, v2, :cond_1
-
     invoke-virtual {p0}, Landroid/view/View;->getElevation()F
 
     move-result v1
 
-    goto :goto_0
-
-    :cond_1
-    move v1, v3
+    const/4 v2, 0x0
 
     :goto_0
+    iget v3, p0, Landroidx/constraintlayout/widget/ConstraintHelper;->mCount:I
+
+    if-ge v2, v3, :cond_3
+
+    iget-object v3, p0, Landroidx/constraintlayout/widget/ConstraintHelper;->mIds:[I
+
+    aget v3, v3, v2
+
+    iget-object v4, p0, Landroidx/constraintlayout/helper/widget/Layer;->mContainer:Landroidx/constraintlayout/widget/ConstraintLayout;
+
+    invoke-virtual {v4, v3}, Landroidx/constraintlayout/widget/ConstraintLayout;->getViewById(I)Landroid/view/View;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_2
+
+    iget-boolean v4, p0, Landroidx/constraintlayout/helper/widget/Layer;->mApplyVisibilityOnAttach:Z
+
+    if-eqz v4, :cond_1
+
+    invoke-virtual {v3, v0}, Landroid/view/View;->setVisibility(I)V
+
+    :cond_1
+    iget-boolean v4, p0, Landroidx/constraintlayout/helper/widget/Layer;->mApplyElevationOnAttach:Z
+
+    if-eqz v4, :cond_2
+
     const/4 v4, 0x0
 
-    :goto_1
-    iget v5, p0, Landroidx/constraintlayout/widget/ConstraintHelper;->mCount:I
+    cmpl-float v4, v1, v4
 
-    if-ge v4, v5, :cond_4
+    if-lez v4, :cond_2
 
-    iget-object v5, p0, Landroidx/constraintlayout/widget/ConstraintHelper;->mIds:[I
+    invoke-virtual {v3}, Landroid/view/View;->getTranslationZ()F
 
-    aget v5, v5, v4
+    move-result v4
 
-    iget-object v6, p0, Landroidx/constraintlayout/helper/widget/Layer;->mContainer:Landroidx/constraintlayout/widget/ConstraintLayout;
+    add-float/2addr v4, v1
 
-    invoke-virtual {v6, v5}, Landroidx/constraintlayout/widget/ConstraintLayout;->getViewById(I)Landroid/view/View;
-
-    move-result-object v5
-
-    if-eqz v5, :cond_3
-
-    iget-boolean v6, p0, Landroidx/constraintlayout/helper/widget/Layer;->mApplyVisibilityOnAttach:Z
-
-    if-eqz v6, :cond_2
-
-    invoke-virtual {v5, v0}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v3, v4}, Landroid/view/View;->setTranslationZ(F)V
 
     :cond_2
-    iget-boolean v6, p0, Landroidx/constraintlayout/helper/widget/Layer;->mApplyElevationOnAttach:Z
+    add-int/lit8 v2, v2, 0x1
 
-    if-eqz v6, :cond_3
-
-    cmpl-float v6, v1, v3
-
-    if-lez v6, :cond_3
-
-    sget v6, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    if-lt v6, v2, :cond_3
-
-    invoke-virtual {v5}, Landroid/view/View;->getTranslationZ()F
-
-    move-result v6
-
-    add-float/2addr v6, v1
-
-    invoke-virtual {v5, v6}, Landroid/view/View;->setTranslationZ(F)V
+    goto :goto_0
 
     :cond_3
-    add-int/lit8 v4, v4, 0x1
-
-    goto :goto_1
-
-    :cond_4
     return-void
 .end method
 

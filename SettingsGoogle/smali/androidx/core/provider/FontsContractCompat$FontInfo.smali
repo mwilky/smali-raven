@@ -29,23 +29,6 @@
 # direct methods
 .method public constructor <init>(Landroid/net/Uri;IIZI)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "uri",
-            "ttcIndex",
-            "weight",
-            "italic",
-            "resultCode"
-        }
-    .end annotation
-
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -72,22 +55,6 @@
 
 .method static create(Landroid/net/Uri;IIZI)Landroidx/core/provider/FontsContractCompat$FontInfo;
     .locals 7
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "uri",
-            "ttcIndex",
-            "weight",
-            "italic",
-            "resultCode"
-        }
-    .end annotation
 
     new-instance v6, Landroidx/core/provider/FontsContractCompat$FontInfo;
 

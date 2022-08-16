@@ -25,16 +25,6 @@
 # direct methods
 .method constructor <init>(Landroidx/swiperefreshlayout/widget/CircleImageView;I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "circleImageView",
-            "shadowRadius"
-        }
-    .end annotation
 
     invoke-direct {p0}, Landroid/graphics/drawable/shapes/OvalShape;-><init>()V
 
@@ -65,14 +55,6 @@
 
 .method private updateRadialGradient(I)V
     .locals 9
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "diameter"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/swiperefreshlayout/widget/CircleImageView$OvalShadow;->mShadowPaint:Landroid/graphics/Paint;
 
@@ -119,16 +101,6 @@
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;Landroid/graphics/Paint;)V
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "canvas",
-            "paint"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/swiperefreshlayout/widget/CircleImageView$OvalShadow;->mCircleImageView:Landroidx/swiperefreshlayout/widget/CircleImageView;
 
@@ -167,16 +139,6 @@
 
 .method protected onResize(FF)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "width",
-            "height"
-        }
-    .end annotation
 
     invoke-super {p0, p1, p2}, Landroid/graphics/drawable/shapes/OvalShape;->onResize(FF)V
 

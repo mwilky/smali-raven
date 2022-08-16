@@ -42,26 +42,14 @@
 .end method
 
 .method private requestInputMethod(Landroid/app/Dialog;)V
-    .locals 2
+    .locals 0
 
     invoke-virtual {p1}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
 
-    move-result-object p1
+    move-result-object p0
 
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+    invoke-static {p0}, Landroidx/preference/PreferenceDialogFragmentCompat$Api30Impl;->showIme(Landroid/view/Window;)V
 
-    const/16 v1, 0x1e
-
-    if-lt v0, v1, :cond_0
-
-    invoke-static {p1}, Landroidx/preference/PreferenceDialogFragmentCompat$Api30Impl;->showIme(Landroid/view/Window;)V
-
-    goto :goto_0
-
-    :cond_0
-    invoke-virtual {p0}, Landroidx/preference/PreferenceDialogFragmentCompat;->scheduleShowSoftInput()V
-
-    :goto_0
     return-void
 .end method
 
@@ -565,11 +553,5 @@
     invoke-virtual {p1, v0, p0}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
     :cond_0
-    return-void
-.end method
-
-.method protected scheduleShowSoftInput()V
-    .locals 0
-
     return-void
 .end method

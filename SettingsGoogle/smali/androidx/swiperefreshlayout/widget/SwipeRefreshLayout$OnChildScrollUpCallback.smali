@@ -16,14 +16,4 @@
 
 # virtual methods
 .method public abstract canChildScrollUp(Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;Landroid/view/View;)Z
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "parent",
-            "child"
-        }
-    .end annotation
 .end method

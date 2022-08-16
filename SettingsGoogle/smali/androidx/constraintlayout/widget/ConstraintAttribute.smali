@@ -553,7 +553,7 @@
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v8, "set"
+    const-string/jumbo v8, "set"
 
     invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -875,8 +875,6 @@
     :cond_0
     return-void
 
-    nop
-
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_6
@@ -1192,7 +1190,7 @@
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v7, "set"
+    const-string/jumbo v7, "set"
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1663,6 +1661,8 @@
 
     :goto_1
     return-void
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x1

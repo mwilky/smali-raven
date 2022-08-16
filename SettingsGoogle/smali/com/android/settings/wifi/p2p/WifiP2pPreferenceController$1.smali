@@ -36,7 +36,7 @@
 
     iget-object p0, p0, Lcom/android/settings/wifi/p2p/WifiP2pPreferenceController$1;->this$0:Lcom/android/settings/wifi/p2p/WifiP2pPreferenceController;
 
-    invoke-static {p0}, Lcom/android/settings/wifi/p2p/WifiP2pPreferenceController;->access$000(Lcom/android/settings/wifi/p2p/WifiP2pPreferenceController;)V
+    invoke-static {p0}, Lcom/android/settings/wifi/p2p/WifiP2pPreferenceController;->-$$Nest$mtogglePreferences(Lcom/android/settings/wifi/p2p/WifiP2pPreferenceController;)V
 
     return-void
 .end method

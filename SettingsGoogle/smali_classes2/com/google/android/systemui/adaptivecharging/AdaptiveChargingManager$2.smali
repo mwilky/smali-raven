@@ -22,20 +22,20 @@
 
 .field final synthetic val$deathRecipient:Landroid/os/IHwBinder$DeathRecipient;
 
-.field final synthetic val$googleBattery:Lvendor/google/google_battery/V1_1/IGoogleBattery;
+.field final synthetic val$googleBattery:Lvendor/google/google_battery/V1_2/IGoogleBattery;
 
 .field final synthetic val$receiver:Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager$AdaptiveChargingStatusReceiver;
 
 
 # direct methods
-.method constructor <init>(Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager;Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager$AdaptiveChargingStatusReceiver;Lvendor/google/google_battery/V1_1/IGoogleBattery;Landroid/os/IHwBinder$DeathRecipient;)V
+.method constructor <init>(Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager;Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager$AdaptiveChargingStatusReceiver;Lvendor/google/google_battery/V1_2/IGoogleBattery;Landroid/os/IHwBinder$DeathRecipient;)V
     .locals 0
 
     iput-object p1, p0, Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager$2;->this$0:Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager;
 
     iput-object p2, p0, Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager$2;->val$receiver:Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager$AdaptiveChargingStatusReceiver;
 
-    iput-object p3, p0, Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager$2;->val$googleBattery:Lvendor/google/google_battery/V1_1/IGoogleBattery;
+    iput-object p3, p0, Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager$2;->val$googleBattery:Lvendor/google/google_battery/V1_2/IGoogleBattery;
 
     iput-object p4, p0, Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager$2;->val$deathRecipient:Landroid/os/IHwBinder$DeathRecipient;
 
@@ -49,7 +49,7 @@
 .method public onValues(BLjava/lang/String;I)V
     .locals 2
 
-    invoke-static {}, Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager;->access$000()Z
+    invoke-static {}, Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager;->-$$Nest$sfgetDEBUG()Z
 
     move-result v0
 
@@ -95,11 +95,11 @@
     :cond_1
     iget-object p1, p0, Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager$2;->this$0:Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager;
 
-    iget-object p2, p0, Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager$2;->val$googleBattery:Lvendor/google/google_battery/V1_1/IGoogleBattery;
+    iget-object p2, p0, Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager$2;->val$googleBattery:Lvendor/google/google_battery/V1_2/IGoogleBattery;
 
     iget-object p3, p0, Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager$2;->val$deathRecipient:Landroid/os/IHwBinder$DeathRecipient;
 
-    invoke-static {p1, p2, p3}, Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager;->access$100(Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager;Lvendor/google/google_battery/V1_1/IGoogleBattery;Landroid/os/IHwBinder$DeathRecipient;)V
+    invoke-static {p1, p2, p3}, Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager;->-$$Nest$mdestroyHalInterface(Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager;Lvendor/google/google_battery/V1_2/IGoogleBattery;Landroid/os/IHwBinder$DeathRecipient;)V
 
     iget-object p0, p0, Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager$2;->val$receiver:Lcom/google/android/systemui/adaptivecharging/AdaptiveChargingManager$AdaptiveChargingStatusReceiver;
 

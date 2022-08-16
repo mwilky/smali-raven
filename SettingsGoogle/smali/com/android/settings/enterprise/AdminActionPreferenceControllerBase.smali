@@ -11,6 +11,16 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$x59-YbfaaPAxG3hQadmHJzZ-iFY(Lcom/android/settings/enterprise/AdminActionPreferenceControllerBase;)Ljava/lang/String;
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/enterprise/AdminActionPreferenceControllerBase;->lambda$getEnterprisePrivacyNone$0()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
 
@@ -27,6 +37,50 @@
     iput-object p1, p0, Lcom/android/settings/enterprise/AdminActionPreferenceControllerBase;->mFeatureProvider:Lcom/android/settings/enterprise/EnterprisePrivacyFeatureProvider;
 
     return-void
+.end method
+
+.method private getEnterprisePrivacyNone()Ljava/lang/String;
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    const-string v1, "device_policy"
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/app/admin/DevicePolicyManager;
+
+    invoke-virtual {v0}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/android/settings/enterprise/AdminActionPreferenceControllerBase$$ExternalSyntheticLambda0;
+
+    invoke-direct {v1, p0}, Lcom/android/settings/enterprise/AdminActionPreferenceControllerBase$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/enterprise/AdminActionPreferenceControllerBase;)V
+
+    const-string p0, "Settings.ADMIN_ACTION_NONE"
+
+    invoke-virtual {v0, p0, v1}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private synthetic lambda$getEnterprisePrivacyNone$0()Ljava/lang/String;
+    .locals 1
+
+    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    const v0, 0x7f040929
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 
@@ -51,11 +105,7 @@
 
     if-nez v0, :cond_0
 
-    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
-
-    const v0, 0x7f0408d5
-
-    invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    invoke-direct {p0}, Lcom/android/settings/enterprise/AdminActionPreferenceControllerBase;->getEnterprisePrivacyNone()Ljava/lang/String;
 
     move-result-object p0
 

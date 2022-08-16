@@ -77,7 +77,7 @@
 
     move-result-object p1
 
-    const p2, 0x7f0412f1
+    const p2, 0x7f0413b5
 
     invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -162,7 +162,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Landroid/os/Parcel;Lcom/android/settings/deviceinfo/storage/StorageEntry$1;)V
+.method synthetic constructor <init>(Landroid/os/Parcel;Lcom/android/settings/deviceinfo/storage/StorageEntry-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settings/deviceinfo/storage/StorageEntry;-><init>(Landroid/os/Parcel;)V

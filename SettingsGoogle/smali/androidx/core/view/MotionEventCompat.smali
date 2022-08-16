@@ -6,15 +6,6 @@
 # direct methods
 .method public static getActionMasked(Landroid/view/MotionEvent;)I
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "event"
-        }
-    .end annotation
-
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -27,16 +18,6 @@
 
 .method public static isFromSource(Landroid/view/MotionEvent;I)Z
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "event",
-            "source"
-        }
-    .end annotation
 
     invoke-virtual {p0}, Landroid/view/MotionEvent;->getSource()I
 

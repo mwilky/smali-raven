@@ -28,6 +28,14 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fputmUsageBuckets(Lcom/android/settingslib/net/NetworkCycleChartData;Ljava/util/List;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/settingslib/net/NetworkCycleChartData;->mUsageBuckets:Ljava/util/List;
+
+    return-void
+.end method
+
 .method static constructor <clinit>()V
     .locals 3
 
@@ -52,20 +60,12 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settingslib/net/NetworkCycleChartData$1;)V
+.method synthetic constructor <init>(Lcom/android/settingslib/net/NetworkCycleChartData-IA;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/settingslib/net/NetworkCycleChartData;-><init>()V
 
     return-void
-.end method
-
-.method static synthetic access$102(Lcom/android/settingslib/net/NetworkCycleChartData;Ljava/util/List;)Ljava/util/List;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/settingslib/net/NetworkCycleChartData;->mUsageBuckets:Ljava/util/List;
-
-    return-object p1
 .end method
 
 

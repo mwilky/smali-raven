@@ -38,70 +38,66 @@
     return-void
 .end method
 
-.method private findNextDstTransition(Landroid/icu/util/TimeZone;)Landroid/icu/util/TimeZoneTransition;
-    .locals 3
+.method private findNextDstTransition(Lcom/android/settings/datetime/timezone/TimeZoneInfo;)Ljava/time/zone/ZoneOffsetTransition;
+    .locals 4
 
-    instance-of v0, p1, Landroid/icu/util/BasicTimeZone;
+    invoke-virtual {p1}, Lcom/android/settings/datetime/timezone/TimeZoneInfo;->getTimeZone()Landroid/icu/util/TimeZone;
 
-    if-nez v0, :cond_0
+    move-result-object v0
 
-    const/4 p0, 0x0
+    invoke-virtual {p1}, Lcom/android/settings/datetime/timezone/TimeZoneInfo;->getJavaTimeZone()Ljava/util/TimeZone;
 
-    return-object p0
+    move-result-object p1
 
-    :cond_0
-    check-cast p1, Landroid/icu/util/BasicTimeZone;
+    invoke-virtual {p1}, Ljava/util/TimeZone;->toZoneId()Ljava/time/ZoneId;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/time/ZoneId;->getRules()Ljava/time/zone/ZoneRules;
+
+    move-result-object p1
 
     iget-object p0, p0, Lcom/android/settings/datetime/timezone/TimeZoneInfoPreferenceController;->mDate:Ljava/util/Date;
 
-    invoke-virtual {p0}, Ljava/util/Date;->getTime()J
+    invoke-virtual {p0}, Ljava/util/Date;->toInstant()Ljava/time/Instant;
 
-    move-result-wide v0
+    move-result-object p0
 
-    const/4 p0, 0x0
-
-    invoke-virtual {p1, v0, v1, p0}, Landroid/icu/util/BasicTimeZone;->getNextTransition(JZ)Landroid/icu/util/TimeZoneTransition;
-
-    move-result-object v0
-
-    :cond_1
-    invoke-virtual {v0}, Landroid/icu/util/TimeZoneTransition;->getTo()Landroid/icu/util/TimeZoneRule;
+    :goto_0
+    invoke-virtual {p1, p0}, Ljava/time/zone/ZoneRules;->nextTransition(Ljava/time/Instant;)Ljava/time/zone/ZoneOffsetTransition;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/icu/util/TimeZoneRule;->getDSTSavings()I
+    if-nez v1, :cond_0
 
-    move-result v1
+    goto :goto_1
 
-    invoke-virtual {v0}, Landroid/icu/util/TimeZoneTransition;->getFrom()Landroid/icu/util/TimeZoneRule;
+    :cond_0
+    invoke-virtual {v1}, Ljava/time/zone/ZoneOffsetTransition;->getInstant()Ljava/time/Instant;
 
     move-result-object v2
 
-    invoke-virtual {v2}, Landroid/icu/util/TimeZoneRule;->getDSTSavings()I
+    invoke-static {v0, p0}, Lcom/android/settings/datetime/timezone/TimeZoneInfoPreferenceController;->getDSTSavings(Landroid/icu/util/TimeZone;Ljava/time/Instant;)I
 
-    move-result v2
+    move-result p0
 
-    if-eq v1, v2, :cond_2
+    invoke-static {v0, v2}, Lcom/android/settings/datetime/timezone/TimeZoneInfoPreferenceController;->getDSTSavings(Landroid/icu/util/TimeZone;Ljava/time/Instant;)I
+
+    move-result v3
+
+    if-eq p0, v3, :cond_1
+
+    :goto_1
+    return-object v1
+
+    :cond_1
+    move-object p0, v2
 
     goto :goto_0
-
-    :cond_2
-    invoke-virtual {v0}, Landroid/icu/util/TimeZoneTransition;->getTime()J
-
-    move-result-wide v0
-
-    invoke-virtual {p1, v0, v1, p0}, Landroid/icu/util/BasicTimeZone;->getNextTransition(JZ)Landroid/icu/util/TimeZoneTransition;
-
-    move-result-object v0
-
-    if-nez v0, :cond_1
-
-    :goto_0
-    return-object v0
 .end method
 
 .method private formatInfo(Lcom/android/settings/datetime/timezone/TimeZoneInfo;)Ljava/lang/CharSequence;
-    .locals 7
+    .locals 6
 
     invoke-direct {p0, p1}, Lcom/android/settings/datetime/timezone/TimeZoneInfoPreferenceController;->formatOffsetAndName(Lcom/android/settings/datetime/timezone/TimeZoneInfo;)Ljava/lang/CharSequence;
 
@@ -115,57 +111,65 @@
 
     move-result v2
 
-    const/4 v3, 0x0
+    const v3, 0x7f0419be
 
-    const/4 v4, 0x1
+    const/4 v4, 0x0
+
+    const/4 v5, 0x1
 
     if-nez v2, :cond_0
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const p1, 0x7f0418c0
+    new-array p1, v5, [Ljava/lang/Object;
 
-    new-array v1, v4, [Ljava/lang/Object;
+    aput-object v0, p1, v4
 
-    aput-object v0, v1, v3
-
-    invoke-virtual {p0, p1, v1}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {p0, v3, p1}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object p0
 
     return-object p0
 
     :cond_0
-    invoke-direct {p0, v1}, Lcom/android/settings/datetime/timezone/TimeZoneInfoPreferenceController;->findNextDstTransition(Landroid/icu/util/TimeZone;)Landroid/icu/util/TimeZoneTransition;
+    invoke-direct {p0, p1}, Lcom/android/settings/datetime/timezone/TimeZoneInfoPreferenceController;->findNextDstTransition(Lcom/android/settings/datetime/timezone/TimeZoneInfo;)Ljava/time/zone/ZoneOffsetTransition;
 
     move-result-object v2
 
     if-nez v2, :cond_1
 
-    const/4 p0, 0x0
+    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    new-array p1, v5, [Ljava/lang/Object;
+
+    aput-object v0, p1, v4
+
+    invoke-virtual {p0, v3, p1}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object p0
 
     return-object p0
 
     :cond_1
-    invoke-virtual {v2}, Landroid/icu/util/TimeZoneTransition;->getTo()Landroid/icu/util/TimeZoneRule;
+    invoke-virtual {v2}, Ljava/time/zone/ZoneOffsetTransition;->getInstant()Ljava/time/Instant;
 
-    move-result-object v5
+    move-result-object v3
 
-    invoke-virtual {v5}, Landroid/icu/util/TimeZoneRule;->getDSTSavings()I
+    invoke-static {v1, v3}, Lcom/android/settings/datetime/timezone/TimeZoneInfoPreferenceController;->getDSTSavings(Landroid/icu/util/TimeZone;Ljava/time/Instant;)I
 
-    move-result v5
+    move-result v3
 
-    if-eqz v5, :cond_2
+    if-eqz v3, :cond_2
 
-    move v5, v4
+    move v3, v5
 
     goto :goto_0
 
     :cond_2
-    move v5, v3
+    move v3, v4
 
     :goto_0
-    if-eqz v5, :cond_3
+    if-eqz v3, :cond_3
 
     invoke-virtual {p1}, Lcom/android/settings/datetime/timezone/TimeZoneInfo;->getDaylightName()Ljava/lang/String;
 
@@ -181,13 +185,13 @@
     :goto_1
     if-nez p1, :cond_5
 
-    if-eqz v5, :cond_4
+    if-eqz v3, :cond_4
 
     iget-object p1, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f0418c4
+    const v3, 0x7f0419c2
 
-    invoke-virtual {p1, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    invoke-virtual {p1, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object p1
 
@@ -196,9 +200,9 @@
     :cond_4
     iget-object p1, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f0418c5
+    const v3, 0x7f0419c3
 
-    invoke-virtual {p1, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    invoke-virtual {p1, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object p1
 
@@ -208,11 +212,15 @@
 
     move-result-object v1
 
-    invoke-virtual {v2}, Landroid/icu/util/TimeZoneTransition;->getTime()J
+    invoke-virtual {v2}, Ljava/time/zone/ZoneOffsetTransition;->getInstant()Ljava/time/Instant;
 
-    move-result-wide v5
+    move-result-object v2
 
-    invoke-virtual {v1, v5, v6}, Landroid/icu/util/Calendar;->setTimeInMillis(J)V
+    invoke-virtual {v2}, Ljava/time/Instant;->toEpochMilli()J
+
+    move-result-wide v2
+
+    invoke-virtual {v1, v2, v3}, Landroid/icu/util/Calendar;->setTimeInMillis(J)V
 
     iget-object v2, p0, Lcom/android/settings/datetime/timezone/TimeZoneInfoPreferenceController;->mDateFormat:Landroid/icu/text/DateFormat;
 
@@ -226,21 +234,21 @@
 
     move-result-object p0
 
-    const v2, 0x7f0418bf
+    const v2, 0x7f0419bd
 
-    const/4 v5, 0x3
+    const/4 v3, 0x3
 
-    new-array v5, v5, [Ljava/lang/Object;
+    new-array v3, v3, [Ljava/lang/Object;
 
-    aput-object v0, v5, v3
+    aput-object v0, v3, v4
 
-    aput-object p1, v5, v4
+    aput-object p1, v3, v5
 
     const/4 p1, 0x2
 
-    aput-object v1, v5, p1
+    aput-object v1, v3, p1
 
-    invoke-static {p0, v2, v5}, Lcom/android/settings/datetime/timezone/SpannableUtil;->getResourcesText(Landroid/content/res/Resources;I[Ljava/lang/Object;)Landroid/text/Spannable;
+    invoke-static {p0, v2, v3}, Lcom/android/settings/datetime/timezone/SpannableUtil;->getResourcesText(Landroid/content/res/Resources;I[Ljava/lang/Object;)Landroid/text/Spannable;
 
     move-result-object p0
 
@@ -300,7 +308,7 @@
 
     move-result-object p0
 
-    const v1, 0x7f0418c1
+    const v1, 0x7f0419bf
 
     const/4 v2, 0x2
 
@@ -325,16 +333,30 @@
     return-object p0
 .end method
 
+.method private static getDSTSavings(Landroid/icu/util/TimeZone;Ljava/time/Instant;)I
+    .locals 3
 
-# virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
+    const/4 v0, 0x2
 
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
+    new-array v0, v0, [I
 
-    return-void
+    invoke-virtual {p1}, Ljava/time/Instant;->toEpochMilli()J
+
+    move-result-wide v1
+
+    const/4 p1, 0x0
+
+    invoke-virtual {p0, v1, v2, p1, v0}, Landroid/icu/util/TimeZone;->getOffset(JZ[I)V
+
+    const/4 p0, 0x1
+
+    aget p0, v0, p0
+
+    return p0
 .end method
 
+
+# virtual methods
 .method public getAvailabilityStatus()I
     .locals 0
 
@@ -355,15 +377,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -416,16 +429,6 @@
     .locals 0
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->hasAsyncUpdate()Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
 
     move-result p0
 

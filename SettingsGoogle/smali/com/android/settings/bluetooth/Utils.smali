@@ -10,6 +10,14 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$sfgetmErrorListener()Lcom/android/settingslib/bluetooth/BluetoothUtils$ErrorListener;
+    .locals 1
+
+    sget-object v0, Lcom/android/settings/bluetooth/Utils;->mErrorListener:Lcom/android/settingslib/bluetooth/BluetoothUtils$ErrorListener;
+
+    return-object v0
+.end method
+
 .method static constructor <clinit>()V
     .locals 1
 
@@ -26,14 +34,6 @@
     sput-object v0, Lcom/android/settings/bluetooth/Utils;->mOnInitCallback:Lcom/android/settingslib/bluetooth/LocalBluetoothManager$BluetoothManagerCallback;
 
     return-void
-.end method
-
-.method static synthetic access$000()Lcom/android/settingslib/bluetooth/BluetoothUtils$ErrorListener;
-    .locals 1
-
-    sget-object v0, Lcom/android/settings/bluetooth/Utils;->mErrorListener:Lcom/android/settingslib/bluetooth/BluetoothUtils$ErrorListener;
-
-    return-object v0
 .end method
 
 .method public static createRemoteName(Landroid/content/Context;Landroid/bluetooth/BluetoothDevice;)Ljava/lang/String;
@@ -53,7 +53,7 @@
     :goto_0
     if-nez p1, :cond_1
 
-    const p1, 0x7f041447
+    const p1, 0x7f041542
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -214,7 +214,7 @@
 
     invoke-virtual {v0, p0, v1, v2, v1}, Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;->visible(Landroid/content/Context;III)V
 
-    const v0, 0x7f040445
+    const v0, 0x7f04048a
 
     invoke-static {p0, p1, v0, p2}, Lcom/android/settings/bluetooth/Utils;->showError(Landroid/content/Context;Ljava/lang/String;ILcom/android/settingslib/bluetooth/LocalBluetoothManager;)V
 
@@ -320,7 +320,7 @@
 
     invoke-direct {p0, p2}, Landroidx/appcompat/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const p2, 0x7f04047d
+    const p2, 0x7f0404c7
 
     invoke-virtual {p0, p2}, Landroidx/appcompat/app/AlertDialog$Builder;->setTitle(I)Landroidx/appcompat/app/AlertDialog$Builder;
 

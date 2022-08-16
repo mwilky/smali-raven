@@ -48,7 +48,7 @@
 
     iget-object v0, p0, Lcom/android/settings/location/LocationSlice;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f040b9f
+    const v1, 0x7f040c09
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -118,7 +118,7 @@
 
     iget-object v0, p0, Lcom/android/settings/location/LocationSlice;->mContext:Landroid/content/Context;
 
-    const v1, 0x1080544
+    const v1, 0x108054f
 
     invoke-static {v0, v1}, Landroidx/core/graphics/drawable/IconCompat;->createWithResource(Landroid/content/Context;I)Landroidx/core/graphics/drawable/IconCompat;
 
@@ -126,7 +126,7 @@
 
     iget-object v1, p0, Lcom/android/settings/location/LocationSlice;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f040b9f
+    const v2, 0x7f040c09
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -192,7 +192,7 @@
 .method public getSliceHighlightMenuRes()I
     .locals 0
 
-    const p0, 0x7f040d09
+    const p0, 0x7f040d84
 
     return p0
 .end method

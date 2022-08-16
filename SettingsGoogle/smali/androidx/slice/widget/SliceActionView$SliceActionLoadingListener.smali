@@ -16,14 +16,4 @@
 
 # virtual methods
 .method public abstract onSliceActionLoading(Landroidx/slice/SliceItem;I)V
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "actionItem",
-            "position"
-        }
-    .end annotation
 .end method

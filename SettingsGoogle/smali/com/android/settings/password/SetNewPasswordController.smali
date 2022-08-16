@@ -65,35 +65,31 @@
 .end method
 
 .method public static create(Landroid/content/Context;Lcom/android/settings/password/SetNewPasswordController$Ui;Landroid/content/Intent;Landroid/os/IBinder;)Lcom/android/settings/password/SetNewPasswordController;
-    .locals 8
-
-    invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
-
-    move-result v0
+    .locals 7
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    const-string v2, "android.app.action.SET_NEW_PASSWORD"
+    const-string v1, "android.app.action.SET_NEW_PASSWORD"
 
-    invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
     invoke-static {p0}, Landroid/os/UserManager;->get(Landroid/content/Context;)Landroid/os/UserManager;
 
-    move-result-object v1
+    move-result-object v0
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
     invoke-virtual {p2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
     move-result-object p2
 
-    invoke-static {p3, v1, v2, p2}, Lcom/android/settings/Utils;->getSecureTargetUser(Landroid/os/IBinder;Landroid/os/UserManager;Landroid/os/Bundle;Landroid/os/Bundle;)Landroid/os/UserHandle;
+    invoke-static {p3, v0, v1, p2}, Lcom/android/settings/Utils;->getSecureTargetUser(Landroid/os/IBinder;Landroid/os/UserManager;Landroid/os/Bundle;Landroid/os/Bundle;)Landroid/os/UserHandle;
 
     move-result-object p2
 
@@ -101,37 +97,29 @@
 
     move-result p2
 
-    new-instance p3, Lcom/android/internal/widget/LockPatternUtils;
-
-    invoke-direct {p3, p0}, Lcom/android/internal/widget/LockPatternUtils;-><init>(Landroid/content/Context;)V
-
-    invoke-virtual {p3, p2}, Lcom/android/internal/widget/LockPatternUtils;->isSeparateProfileChallengeAllowed(I)Z
-
-    move-result p3
-
-    if-eqz p3, :cond_0
-
-    move v2, p2
-
     goto :goto_0
 
     :cond_0
-    move v2, v0
+    invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
+
+    move-result p2
 
     :goto_0
+    move v1, p2
+
     invoke-static {p0}, Lcom/android/settings/Utils;->getFingerprintManagerOrNull(Landroid/content/Context;)Landroid/hardware/fingerprint/FingerprintManager;
 
-    move-result-object v4
+    move-result-object v3
 
     invoke-static {p0}, Lcom/android/settings/Utils;->getFaceManagerOrNull(Landroid/content/Context;)Landroid/hardware/face/FaceManager;
 
-    move-result-object v5
+    move-result-object v4
 
     new-instance p2, Lcom/android/settings/password/SetNewPasswordController;
 
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v3
+    move-result-object v2
 
     const-string p3, "device_policy"
 
@@ -139,15 +127,15 @@
 
     move-result-object p0
 
-    move-object v6, p0
+    move-object v5, p0
 
-    check-cast v6, Landroid/app/admin/DevicePolicyManager;
+    check-cast v5, Landroid/app/admin/DevicePolicyManager;
 
-    move-object v1, p2
+    move-object v0, p2
 
-    move-object v7, p1
+    move-object v6, p1
 
-    invoke-direct/range {v1 .. v7}, Lcom/android/settings/password/SetNewPasswordController;-><init>(ILandroid/content/pm/PackageManager;Landroid/hardware/fingerprint/FingerprintManager;Landroid/hardware/face/FaceManager;Landroid/app/admin/DevicePolicyManager;Lcom/android/settings/password/SetNewPasswordController$Ui;)V
+    invoke-direct/range {v0 .. v6}, Lcom/android/settings/password/SetNewPasswordController;-><init>(ILandroid/content/pm/PackageManager;Landroid/hardware/fingerprint/FingerprintManager;Landroid/hardware/face/FaceManager;Landroid/app/admin/DevicePolicyManager;Lcom/android/settings/password/SetNewPasswordController$Ui;)V
 
     return-object p2
 .end method
@@ -165,7 +153,7 @@
 
     invoke-virtual {p0, v0, v1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
-    const-string v0, "request_gk_pw_handle"
+    const-string/jumbo v0, "request_gk_pw_handle"
 
     invoke-virtual {p0, v0, v1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
@@ -189,7 +177,7 @@
 
     invoke-virtual {p0, v0, v1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
-    const-string v0, "request_gk_pw_handle"
+    const-string/jumbo v0, "request_gk_pw_handle"
 
     invoke-virtual {p0, v0, v1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
@@ -213,7 +201,7 @@
 
     invoke-virtual {p0, v0, v1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
-    const-string v0, "request_gk_pw_handle"
+    const-string/jumbo v0, "request_gk_pw_handle"
 
     invoke-virtual {p0, v0, v1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 

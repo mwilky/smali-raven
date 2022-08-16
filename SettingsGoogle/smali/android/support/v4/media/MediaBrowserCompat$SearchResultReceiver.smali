@@ -6,16 +6,6 @@
 # virtual methods
 .method protected onReceiveResult(ILandroid/os/Bundle;)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "resultCode",
-            "resultData"
-        }
-    .end annotation
 
     if-eqz p2, :cond_0
 
@@ -30,7 +20,7 @@
 
     if-eqz p2, :cond_2
 
-    const-string p1, "search_results"
+    const-string/jumbo p1, "search_results"
 
     invoke-virtual {p2, p1}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
 
@@ -42,11 +32,13 @@
 
     move-result-object p1
 
-    invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     new-instance p2, Ljava/util/ArrayList;
 
-    invoke-direct {p2}, Ljava/util/ArrayList;-><init>()V
+    array-length v0, p1
+
+    invoke-direct {p2, v0}, Ljava/util/ArrayList;-><init>(I)V
 
     array-length v0, p1
 

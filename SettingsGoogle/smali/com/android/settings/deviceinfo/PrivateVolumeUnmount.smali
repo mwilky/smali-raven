@@ -12,6 +12,14 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmVolume(Lcom/android/settings/deviceinfo/PrivateVolumeUnmount;)Landroid/os/storage/VolumeInfo;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/deviceinfo/PrivateVolumeUnmount;->mVolume:Landroid/os/storage/VolumeInfo;
+
+    return-object p0
+.end method
+
 .method public constructor <init>()V
     .locals 1
 
@@ -24,14 +32,6 @@
     iput-object v0, p0, Lcom/android/settings/deviceinfo/PrivateVolumeUnmount;->mConfirmListener:Landroid/view/View$OnClickListener;
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/deviceinfo/PrivateVolumeUnmount;)Landroid/os/storage/VolumeInfo;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/deviceinfo/PrivateVolumeUnmount;->mVolume:Landroid/os/storage/VolumeInfo;
-
-    return-object p0
 .end method
 
 
@@ -99,7 +99,7 @@
 
     iput-object p3, p0, Lcom/android/settings/deviceinfo/PrivateVolumeUnmount;->mDisk:Landroid/os/storage/DiskInfo;
 
-    const p3, 0x7f060224
+    const p3, 0x7f060231
 
     const/4 v0, 0x0
 
@@ -107,7 +107,7 @@
 
     move-result-object p1
 
-    const p2, 0x7f0d0103
+    const p2, 0x7f0d0109
 
     invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -115,7 +115,7 @@
 
     check-cast p2, Landroid/widget/TextView;
 
-    const p3, 0x7f0d016f
+    const p3, 0x7f0d0184
 
     invoke-virtual {p1, p3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -123,7 +123,7 @@
 
     check-cast p3, Landroid/widget/Button;
 
-    const v1, 0x7f041303
+    const v1, 0x7f0413c7
 
     invoke-virtual {p0, v1}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 

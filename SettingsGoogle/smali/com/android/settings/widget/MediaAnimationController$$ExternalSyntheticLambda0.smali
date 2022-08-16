@@ -1,41 +1,46 @@
 .class public final synthetic Lcom/android/settings/widget/MediaAnimationController$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/media/MediaPlayer$OnPreparedListener;
+.implements Landroid/view/View$OnClickListener;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/settings/widget/MediaAnimationController$$ExternalSyntheticLambda0;
+# instance fields
+.field public final synthetic f$0:Lcom/android/settings/widget/MediaAnimationController;
+
+.field public final synthetic f$1:Landroid/view/View;
+
+.field public final synthetic f$2:Landroid/view/View;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/settings/widget/MediaAnimationController$$ExternalSyntheticLambda0;
-
-    invoke-direct {v0}, Lcom/android/settings/widget/MediaAnimationController$$ExternalSyntheticLambda0;-><init>()V
-
-    sput-object v0, Lcom/android/settings/widget/MediaAnimationController$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/settings/widget/MediaAnimationController$$ExternalSyntheticLambda0;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Lcom/android/settings/widget/MediaAnimationController;Landroid/view/View;Landroid/view/View;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/settings/widget/MediaAnimationController$$ExternalSyntheticLambda0;->f$0:Lcom/android/settings/widget/MediaAnimationController;
+
+    iput-object p2, p0, Lcom/android/settings/widget/MediaAnimationController$$ExternalSyntheticLambda0;->f$1:Landroid/view/View;
+
+    iput-object p3, p0, Lcom/android/settings/widget/MediaAnimationController$$ExternalSyntheticLambda0;->f$2:Landroid/view/View;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final onPrepared(Landroid/media/MediaPlayer;)V
-    .locals 0
+.method public final onClick(Landroid/view/View;)V
+    .locals 2
 
-    invoke-static {p1}, Lcom/android/settings/widget/MediaAnimationController;->$r8$lambda$m6KHtyfIfmIOT__5mnHxrCGtXr0(Landroid/media/MediaPlayer;)V
+    iget-object v0, p0, Lcom/android/settings/widget/MediaAnimationController$$ExternalSyntheticLambda0;->f$0:Lcom/android/settings/widget/MediaAnimationController;
+
+    iget-object v1, p0, Lcom/android/settings/widget/MediaAnimationController$$ExternalSyntheticLambda0;->f$1:Landroid/view/View;
+
+    iget-object p0, p0, Lcom/android/settings/widget/MediaAnimationController$$ExternalSyntheticLambda0;->f$2:Landroid/view/View;
+
+    invoke-static {v0, v1, p0, p1}, Lcom/android/settings/widget/MediaAnimationController;->$r8$lambda$1lbRZM95YqIapN5_U4WkNvLXzms(Lcom/android/settings/widget/MediaAnimationController;Landroid/view/View;Landroid/view/View;Landroid/view/View;)V
 
     return-void
 .end method

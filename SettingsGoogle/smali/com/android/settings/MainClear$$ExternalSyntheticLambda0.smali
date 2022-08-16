@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settings/MainClear$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/content/DialogInterface$OnDismissListener;
@@ -27,7 +28,7 @@
 
     iget-object p0, p0, Lcom/android/settings/MainClear$$ExternalSyntheticLambda0;->f$0:Lcom/android/settings/MainClear;
 
-    invoke-static {p0, p1}, Lcom/android/settings/MainClear;->$r8$lambda$Jv8PtXFW-fkQx_bfM4Hi8oJ6wQs(Lcom/android/settings/MainClear;Landroid/content/DialogInterface;)V
+    invoke-static {p0, p1}, Lcom/android/settings/MainClear;->$r8$lambda$sTow67Ak-drHhZaD9k0MXEm0X-o(Lcom/android/settings/MainClear;Landroid/content/DialogInterface;)V
 
     return-void
 .end method

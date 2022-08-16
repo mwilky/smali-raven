@@ -19,11 +19,15 @@
 
 .field description:Ljava/lang/CharSequence;
 
+.field public icon:Landroid/graphics/drawable/Drawable;
+
 .field isDefault:Z
 
 .field public label:Ljava/lang/CharSequence;
 
 .field public settingsComponent:Landroid/content/ComponentName;
+
+.field public userHandle:Landroid/os/UserHandle;
 
 
 # direct methods

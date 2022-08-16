@@ -98,7 +98,7 @@
 
     move-result-object p0
 
-    invoke-static {p0}, Lcom/android/settingslib/CustomDialogPreferenceCompat;->access$100(Lcom/android/settingslib/CustomDialogPreferenceCompat;)Landroid/content/DialogInterface$OnShowListener;
+    invoke-static {p0}, Lcom/android/settingslib/CustomDialogPreferenceCompat;->-$$Nest$mgetOnShowListener(Lcom/android/settingslib/CustomDialogPreferenceCompat;)Landroid/content/DialogInterface$OnShowListener;
 
     move-result-object p0
 
@@ -128,7 +128,7 @@
 
     move-result-object v0
 
-    invoke-static {v0, p0}, Lcom/android/settingslib/CustomDialogPreferenceCompat;->access$000(Lcom/android/settingslib/CustomDialogPreferenceCompat;Lcom/android/settingslib/CustomDialogPreferenceCompat$CustomPreferenceDialogFragment;)V
+    invoke-static {v0, p0}, Lcom/android/settingslib/CustomDialogPreferenceCompat;->-$$Nest$msetFragment(Lcom/android/settingslib/CustomDialogPreferenceCompat;Lcom/android/settingslib/CustomDialogPreferenceCompat$CustomPreferenceDialogFragment;)V
 
     invoke-direct {p0}, Lcom/android/settingslib/CustomDialogPreferenceCompat$CustomPreferenceDialogFragment;->getCustomizablePreference()Lcom/android/settingslib/CustomDialogPreferenceCompat;
 

@@ -67,14 +67,6 @@
 
 .method private genString(Landroidx/slice/SliceItem;)Ljava/lang/String;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "item"
-        }
-    .end annotation
 
     invoke-virtual {p1}, Landroidx/slice/SliceItem;->getFormat()Ljava/lang/String;
 
@@ -134,14 +126,6 @@
 # virtual methods
 .method public getId(Landroidx/slice/SliceItem;)J
     .locals 5
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "item"
-        }
-    .end annotation
 
     invoke-direct {p0, p1}, Landroidx/slice/widget/SliceAdapter$IdGenerator;->genString(Landroidx/slice/SliceItem;)Ljava/lang/String;
 

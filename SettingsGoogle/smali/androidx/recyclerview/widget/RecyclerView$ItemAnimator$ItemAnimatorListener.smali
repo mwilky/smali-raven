@@ -16,12 +16,4 @@
 
 # virtual methods
 .method public abstract onAnimationFinished(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)V
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "item"
-        }
-    .end annotation
 .end method

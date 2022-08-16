@@ -37,18 +37,6 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/database/Cursor;Z)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "c",
-            "autoRequery"
-        }
-    .end annotation
 
     invoke-direct {p0}, Landroid/widget/BaseAdapter;-><init>()V
 
@@ -70,30 +58,10 @@
 
 # virtual methods
 .method public abstract bindView(Landroid/view/View;Landroid/content/Context;Landroid/database/Cursor;)V
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "view",
-            "context",
-            "cursor"
-        }
-    .end annotation
 .end method
 
 .method public changeCursor(Landroid/database/Cursor;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "cursor"
-        }
-    .end annotation
 
     invoke-virtual {p0, p1}, Landroidx/cursoradapter/widget/CursorAdapter;->swapCursor(Landroid/database/Cursor;)Landroid/database/Cursor;
 
@@ -108,14 +76,6 @@
 .end method
 
 .method public abstract convertToString(Landroid/database/Cursor;)Ljava/lang/CharSequence;
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "cursor"
-        }
-    .end annotation
 .end method
 
 .method public getCount()I
@@ -151,18 +111,6 @@
 
 .method public getDropDownView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "position",
-            "convertView",
-            "parent"
-        }
-    .end annotation
 
     iget-boolean v0, p0, Landroidx/cursoradapter/widget/CursorAdapter;->mDataValid:Z
 
@@ -218,14 +166,6 @@
 
 .method public getItem(I)Ljava/lang/Object;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "position"
-        }
-    .end annotation
 
     iget-boolean v0, p0, Landroidx/cursoradapter/widget/CursorAdapter;->mDataValid:Z
 
@@ -249,14 +189,6 @@
 
 .method public getItemId(I)J
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "position"
-        }
-    .end annotation
 
     iget-boolean v0, p0, Landroidx/cursoradapter/widget/CursorAdapter;->mDataValid:Z
 
@@ -290,18 +222,6 @@
 
 .method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "position",
-            "convertView",
-            "parent"
-        }
-    .end annotation
 
     iget-boolean v0, p0, Landroidx/cursoradapter/widget/CursorAdapter;->mDataValid:Z
 
@@ -367,18 +287,6 @@
 
 .method init(Landroid/content/Context;Landroid/database/Cursor;I)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "c",
-            "flags"
-        }
-    .end annotation
 
     and-int/lit8 v0, p3, 0x1
 
@@ -473,33 +381,9 @@
 .end method
 
 .method public abstract newDropDownView(Landroid/content/Context;Landroid/database/Cursor;Landroid/view/ViewGroup;)Landroid/view/View;
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "cursor",
-            "parent"
-        }
-    .end annotation
 .end method
 
 .method public abstract newView(Landroid/content/Context;Landroid/database/Cursor;Landroid/view/ViewGroup;)Landroid/view/View;
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "cursor",
-            "parent"
-        }
-    .end annotation
 .end method
 
 .method protected onContentChanged()V
@@ -533,14 +417,6 @@
 
 .method public swapCursor(Landroid/database/Cursor;)Landroid/database/Cursor;
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "newCursor"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/cursoradapter/widget/CursorAdapter;->mCursor:Landroid/database/Cursor;
 

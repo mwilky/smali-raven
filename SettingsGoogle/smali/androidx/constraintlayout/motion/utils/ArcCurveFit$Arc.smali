@@ -474,13 +474,11 @@
 
     sub-double/2addr v2, v11
 
-    aget-wide v11, v10, v1
+    aget-wide v13, v10, v1
 
-    aget-wide v13, v10, v4
+    sub-double/2addr v13, v11
 
-    sub-double/2addr v11, v13
-
-    div-double/2addr v2, v11
+    div-double/2addr v2, v13
 
     add-double/2addr v8, v2
 
@@ -683,7 +681,7 @@
 .end method
 
 .method lookup(D)D
-    .locals 7
+    .locals 5
 
     const-wide/16 v0, 0x0
 
@@ -721,13 +719,11 @@
 
     aget-wide v1, p0, v0
 
-    add-int/lit8 v3, v0, 0x1
+    add-int/lit8 v0, v0, 0x1
 
-    aget-wide v3, p0, v3
+    aget-wide v3, p0, v0
 
-    aget-wide v5, p0, v0
-
-    sub-double/2addr v3, v5
+    sub-double/2addr v3, v1
 
     mul-double/2addr p1, v3
 

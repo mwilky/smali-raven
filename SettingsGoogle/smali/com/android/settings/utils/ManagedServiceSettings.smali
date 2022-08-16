@@ -35,14 +35,32 @@
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$cKgufX0d_EJ8HdpbqyhWa9hywjw(Lcom/android/settings/utils/ManagedServiceSettings;Ljava/lang/CharSequence;Landroid/content/ComponentName;Landroidx/preference/Preference;Ljava/lang/Object;)Z
+.method public static synthetic $r8$lambda$b9zqpJvorEjMEmsbORAQ6DuSgwg(Lcom/android/settings/utils/ManagedServiceSettings;)Ljava/lang/String;
     .locals 0
 
-    invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/settings/utils/ManagedServiceSettings;->lambda$updateList$0(Ljava/lang/CharSequence;Landroid/content/ComponentName;Landroidx/preference/Preference;Ljava/lang/Object;)Z
+    invoke-direct {p0}, Lcom/android/settings/utils/ManagedServiceSettings;->lambda$updateList$0()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static synthetic $r8$lambda$r86PABXWfp4ubMlkw0EqguYfSnI(Lcom/android/settings/utils/ManagedServiceSettings;Ljava/lang/CharSequence;Landroid/content/ComponentName;Landroidx/preference/Preference;Ljava/lang/Object;)Z
+    .locals 0
+
+    invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/settings/utils/ManagedServiceSettings;->lambda$updateList$1(Ljava/lang/CharSequence;Landroid/content/ComponentName;Landroidx/preference/Preference;Ljava/lang/Object;)Z
 
     move-result p0
 
     return p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmConfig(Lcom/android/settings/utils/ManagedServiceSettings;)Lcom/android/settings/utils/ManagedServiceSettings$Config;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/utils/ManagedServiceSettings;->mConfig:Lcom/android/settings/utils/ManagedServiceSettings$Config;
+
+    return-object p0
 .end method
 
 .method public constructor <init>()V
@@ -59,15 +77,19 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/settings/utils/ManagedServiceSettings;)Lcom/android/settings/utils/ManagedServiceSettings$Config;
-    .locals 0
+.method private synthetic lambda$updateList$0()Ljava/lang/String;
+    .locals 1
 
-    iget-object p0, p0, Lcom/android/settings/utils/ManagedServiceSettings;->mConfig:Lcom/android/settings/utils/ManagedServiceSettings$Config;
+    const v0, 0x7f0418a3
+
+    invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
 
     return-object p0
 .end method
 
-.method private synthetic lambda$updateList$0(Ljava/lang/CharSequence;Landroid/content/ComponentName;Landroidx/preference/Preference;Ljava/lang/Object;)Z
+.method private synthetic lambda$updateList$1(Ljava/lang/CharSequence;Landroid/content/ComponentName;Landroidx/preference/Preference;Ljava/lang/Object;)Z
     .locals 0
 
     check-cast p4, Ljava/lang/Boolean;
@@ -283,14 +305,28 @@
 
     if-nez v2, :cond_1
 
-    const v2, 0x7f0417a8
+    iget-object v2, p0, Lcom/android/settings/utils/ManagedServiceSettings;->mDpm:Landroid/app/admin/DevicePolicyManager;
 
-    invoke-virtual {v7, v2}, Landroidx/preference/Preference;->setSummary(I)V
+    invoke-virtual {v2}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
+
+    move-result-object v2
+
+    new-instance v5, Lcom/android/settings/utils/ManagedServiceSettings$$ExternalSyntheticLambda1;
+
+    invoke-direct {v5, p0}, Lcom/android/settings/utils/ManagedServiceSettings$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/utils/ManagedServiceSettings;)V
+
+    const-string v6, "Settings.WORK_PROFILE_NOTIFICATION_LISTENER_BLOCKED"
+
+    invoke-virtual {v2, v6, v5}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v7, v2}, Landroidx/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
     :cond_1
-    new-instance v2, Lcom/android/settings/utils/ManagedServiceSettings$$ExternalSyntheticLambda0;
+    new-instance v2, Lcom/android/settings/utils/ManagedServiceSettings$$ExternalSyntheticLambda2;
 
-    invoke-direct {v2, p0, v4, v3}, Lcom/android/settings/utils/ManagedServiceSettings$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/utils/ManagedServiceSettings;Ljava/lang/CharSequence;Landroid/content/ComponentName;)V
+    invoke-direct {v2, p0, v4, v3}, Lcom/android/settings/utils/ManagedServiceSettings$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/utils/ManagedServiceSettings;Ljava/lang/CharSequence;Landroid/content/ComponentName;)V
 
     invoke-virtual {v7, v2}, Landroidx/preference/Preference;->setOnPreferenceChangeListener(Landroidx/preference/Preference$OnPreferenceChangeListener;)V
 
@@ -428,9 +464,9 @@
 
     iput-object p1, p0, Lcom/android/settings/utils/ManagedServiceSettings;->mServiceListing:Lcom/android/settingslib/applications/ServiceListing;
 
-    new-instance v0, Lcom/android/settings/utils/ManagedServiceSettings$$ExternalSyntheticLambda1;
+    new-instance v0, Lcom/android/settings/utils/ManagedServiceSettings$$ExternalSyntheticLambda0;
 
-    invoke-direct {v0, p0}, Lcom/android/settings/utils/ManagedServiceSettings$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/utils/ManagedServiceSettings;)V
+    invoke-direct {v0, p0}, Lcom/android/settings/utils/ManagedServiceSettings$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/utils/ManagedServiceSettings;)V
 
     invoke-virtual {p1, v0}, Lcom/android/settingslib/applications/ServiceListing;->addCallback(Lcom/android/settingslib/applications/ServiceListing$Callback;)V
 

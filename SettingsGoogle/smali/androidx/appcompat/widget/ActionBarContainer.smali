@@ -801,15 +801,8 @@
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->invalidate()V
 
-    sget p1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v0, 0x15
-
-    if-lt p1, v0, :cond_4
-
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->invalidateOutline()V
 
-    :cond_4
     return-void
 .end method
 
@@ -888,15 +881,8 @@
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->invalidate()V
 
-    sget p1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v0, 0x15
-
-    if-lt p1, v0, :cond_4
-
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->invalidateOutline()V
 
-    :cond_4
     return-void
 .end method
 
@@ -990,15 +976,8 @@
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->invalidate()V
 
-    sget p1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v0, 0x15
-
-    if-lt p1, v0, :cond_4
-
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->invalidateOutline()V
 
-    :cond_4
     return-void
 .end method
 

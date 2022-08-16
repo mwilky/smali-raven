@@ -38,7 +38,7 @@
 .method public getPreferenceKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "reset_app_prefs"
+    const-string/jumbo p0, "reset_app_prefs"
 
     return-object p0
 .end method

@@ -36,7 +36,7 @@
 
     iget-object p0, p0, Lcom/android/settings/accessibility/FloatingMenuSizePreferenceController$1;->this$0:Lcom/android/settings/accessibility/FloatingMenuSizePreferenceController;
 
-    invoke-static {p0}, Lcom/android/settings/accessibility/FloatingMenuSizePreferenceController;->access$000(Lcom/android/settings/accessibility/FloatingMenuSizePreferenceController;)V
+    invoke-static {p0}, Lcom/android/settings/accessibility/FloatingMenuSizePreferenceController;->-$$Nest$mupdateAvailabilityStatus(Lcom/android/settings/accessibility/FloatingMenuSizePreferenceController;)V
 
     return-void
 .end method

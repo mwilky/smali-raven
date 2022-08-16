@@ -71,12 +71,12 @@
 
     if-eqz p1, :cond_0
 
-    const p1, 0x7f06005f
+    const p1, 0x7f060065
 
     goto :goto_0
 
     :cond_0
-    const p1, 0x7f060063
+    const p1, 0x7f060068
 
     :goto_0
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setLayoutResource(I)V
@@ -139,7 +139,7 @@
 
     if-eqz v2, :cond_1
 
-    const v2, 0x7f0d00d8
+    const v2, 0x7f0d00de
 
     invoke-virtual {p1, v2}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -149,7 +149,7 @@
 
     iput-object v2, p0, Lcom/android/settings/fuelgauge/BatteryHistoryPreference;->mBatteryChartView:Lcom/android/settings/fuelgauge/BatteryChartView;
 
-    const v3, 0x7f0d016d
+    const v3, 0x7f0d0181
 
     invoke-virtual {p1, v3}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -170,7 +170,7 @@
     goto :goto_0
 
     :cond_1
-    const v2, 0x7f0d0147
+    const v2, 0x7f0d015b
 
     invoke-virtual {p1, v2}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -184,7 +184,7 @@
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const v2, 0x7f0d0109
+    const v2, 0x7f0d010f
 
     invoke-virtual {p1, v2}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -212,7 +212,7 @@
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setVisibility(I)V
 
     :cond_3
-    const v2, 0x7f0d00de
+    const v2, 0x7f0d00e4
 
     invoke-virtual {p1, v2}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -220,7 +220,7 @@
 
     check-cast p1, Lcom/android/settings/widget/UsageView;
 
-    const v2, 0x7f0d0318
+    const v2, 0x7f0d0342
 
     invoke-virtual {p1, v2}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 

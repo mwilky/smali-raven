@@ -109,21 +109,21 @@
 
     if-eqz p1, :cond_0
 
-    const p0, 0x7f04040c
+    const p0, 0x7f04044a
 
     return p0
 
     :cond_0
     if-eqz p0, :cond_1
 
-    const p0, 0x7f04040d
+    const p0, 0x7f04044b
 
     return p0
 
     :cond_1
     if-eqz p1, :cond_2
 
-    const p0, 0x7f04040e
+    const p0, 0x7f04044c
 
     return p0
 
@@ -261,7 +261,7 @@
 
     invoke-virtual {v0, v1, p3}, Landroid/os/Bundle;->putByteArray(Ljava/lang/String;[B)V
 
-    const-string p3, "sensor_id"
+    const-string/jumbo p3, "sensor_id"
 
     invoke-virtual {v0, p3, p2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
@@ -325,7 +325,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f041118
+    const v1, 0x7f0411ca
 
     invoke-virtual {p0, v1}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -382,7 +382,7 @@
 
     invoke-virtual {v0, v2, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    const-string v2, "request_gk_pw_handle"
+    const-string/jumbo v2, "request_gk_pw_handle"
 
     invoke-virtual {v0, v2, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
@@ -592,7 +592,7 @@
 
     iput-boolean v0, p0, Lcom/android/settings/biometrics/combination/BiometricsSettingsBase;->mDoNotFinishActivity:Z
 
-    const-string v0, "request_gk_pw_handle"
+    const-string/jumbo v0, "request_gk_pw_handle"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
 
@@ -771,7 +771,7 @@
 
     if-eqz p0, :cond_0
 
-    const-string p0, "request_gk_pw_handle"
+    const-string/jumbo p0, "request_gk_pw_handle"
 
     invoke-virtual {p1, p0, v0, v1}, Landroid/os/Bundle;->putLong(Ljava/lang/String;J)V
 

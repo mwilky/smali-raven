@@ -88,7 +88,7 @@
 
     invoke-virtual {p1, v1}, Landroidx/preference/Preference;->setEnabled(Z)V
 
-    check-cast p1, Lcom/android/settingslib/widget/RadioButtonPreference;
+    check-cast p1, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     invoke-virtual {p1, v1}, Landroidx/preference/TwoStatePreference;->setChecked(Z)V
 
@@ -111,7 +111,7 @@
 
     move-object p0, p1
 
-    check-cast p0, Lcom/android/settingslib/widget/RadioButtonPreference;
+    check-cast p0, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     invoke-virtual {p0, v3}, Landroidx/preference/TwoStatePreference;->setChecked(Z)V
 
@@ -134,14 +134,14 @@
 
     invoke-static {v2, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    check-cast p1, Lcom/android/settingslib/widget/RadioButtonPreference;
+    check-cast p1, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     invoke-virtual {p1, v1}, Landroidx/preference/TwoStatePreference;->setChecked(Z)V
 
     goto :goto_0
 
     :cond_2
-    check-cast p1, Lcom/android/settingslib/widget/RadioButtonPreference;
+    check-cast p1, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     invoke-virtual {p1, v3}, Landroidx/preference/TwoStatePreference;->setChecked(Z)V
 

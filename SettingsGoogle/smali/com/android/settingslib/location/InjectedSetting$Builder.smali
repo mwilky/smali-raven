@@ -31,23 +31,7 @@
 
 
 # direct methods
-.method public constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settingslib/location/InjectedSetting$Builder;)Ljava/lang/String;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/location/InjectedSetting$Builder;->mPackageName:Ljava/lang/String;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settingslib/location/InjectedSetting$Builder;)Ljava/lang/String;
+.method static bridge synthetic -$$Nest$fgetmClassName(Lcom/android/settingslib/location/InjectedSetting$Builder;)Ljava/lang/String;
     .locals 0
 
     iget-object p0, p0, Lcom/android/settingslib/location/InjectedSetting$Builder;->mClassName:Ljava/lang/String;
@@ -55,15 +39,7 @@
     return-object p0
 .end method
 
-.method static synthetic access$200(Lcom/android/settingslib/location/InjectedSetting$Builder;)Ljava/lang/String;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/location/InjectedSetting$Builder;->mTitle:Ljava/lang/String;
-
-    return-object p0
-.end method
-
-.method static synthetic access$300(Lcom/android/settingslib/location/InjectedSetting$Builder;)I
+.method static bridge synthetic -$$Nest$fgetmIconId(Lcom/android/settingslib/location/InjectedSetting$Builder;)I
     .locals 0
 
     iget p0, p0, Lcom/android/settingslib/location/InjectedSetting$Builder;->mIconId:I
@@ -71,15 +47,15 @@
     return p0
 .end method
 
-.method static synthetic access$400(Lcom/android/settingslib/location/InjectedSetting$Builder;)Landroid/os/UserHandle;
+.method static bridge synthetic -$$Nest$fgetmPackageName(Lcom/android/settingslib/location/InjectedSetting$Builder;)Ljava/lang/String;
     .locals 0
 
-    iget-object p0, p0, Lcom/android/settingslib/location/InjectedSetting$Builder;->mUserHandle:Landroid/os/UserHandle;
+    iget-object p0, p0, Lcom/android/settingslib/location/InjectedSetting$Builder;->mPackageName:Ljava/lang/String;
 
     return-object p0
 .end method
 
-.method static synthetic access$500(Lcom/android/settingslib/location/InjectedSetting$Builder;)Ljava/lang/String;
+.method static bridge synthetic -$$Nest$fgetmSettingsActivity(Lcom/android/settingslib/location/InjectedSetting$Builder;)Ljava/lang/String;
     .locals 0
 
     iget-object p0, p0, Lcom/android/settingslib/location/InjectedSetting$Builder;->mSettingsActivity:Ljava/lang/String;
@@ -87,12 +63,36 @@
     return-object p0
 .end method
 
-.method static synthetic access$600(Lcom/android/settingslib/location/InjectedSetting$Builder;)Ljava/lang/String;
+.method static bridge synthetic -$$Nest$fgetmTitle(Lcom/android/settingslib/location/InjectedSetting$Builder;)Ljava/lang/String;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settingslib/location/InjectedSetting$Builder;->mTitle:Ljava/lang/String;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmUserHandle(Lcom/android/settingslib/location/InjectedSetting$Builder;)Landroid/os/UserHandle;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settingslib/location/InjectedSetting$Builder;->mUserHandle:Landroid/os/UserHandle;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmUserRestriction(Lcom/android/settingslib/location/InjectedSetting$Builder;)Ljava/lang/String;
     .locals 0
 
     iget-object p0, p0, Lcom/android/settingslib/location/InjectedSetting$Builder;->mUserRestriction:Ljava/lang/String;
 
     return-object p0
+.end method
+
+.method public constructor <init>()V
+    .locals 0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
 .end method
 
 
@@ -131,7 +131,7 @@
     :cond_0
     new-instance v0, Lcom/android/settingslib/location/InjectedSetting;
 
-    invoke-direct {v0, p0, v1}, Lcom/android/settingslib/location/InjectedSetting;-><init>(Lcom/android/settingslib/location/InjectedSetting$Builder;Lcom/android/settingslib/location/InjectedSetting$1;)V
+    invoke-direct {v0, p0, v1}, Lcom/android/settingslib/location/InjectedSetting;-><init>(Lcom/android/settingslib/location/InjectedSetting$Builder;Lcom/android/settingslib/location/InjectedSetting-IA;)V
 
     return-object v0
 

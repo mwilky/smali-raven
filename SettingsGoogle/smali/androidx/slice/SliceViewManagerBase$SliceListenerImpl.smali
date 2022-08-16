@@ -33,20 +33,6 @@
 # direct methods
 .method constructor <init>(Landroidx/slice/SliceViewManagerBase;Landroid/net/Uri;Ljava/util/concurrent/Executor;Landroidx/slice/SliceViewManager$SliceCallback;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x1010,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "this$0",
-            "uri",
-            "executor",
-            "callback"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/slice/SliceViewManagerBase$SliceListenerImpl;->this$0:Landroidx/slice/SliceViewManagerBase;
 

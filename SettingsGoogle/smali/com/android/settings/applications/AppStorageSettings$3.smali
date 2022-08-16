@@ -60,26 +60,26 @@
     :cond_1
     iget-object p1, p0, Lcom/android/settings/applications/AppStorageSettings$3;->this$0:Lcom/android/settings/applications/AppStorageSettings;
 
-    invoke-static {p1, v1}, Lcom/android/settings/applications/AppStorageSettings;->access$202(Lcom/android/settings/applications/AppStorageSettings;Z)Z
+    invoke-static {p1, v1}, Lcom/android/settings/applications/AppStorageSettings;->-$$Nest$fputmCacheCleared(Lcom/android/settings/applications/AppStorageSettings;Z)V
 
     iget-object p0, p0, Lcom/android/settings/applications/AppStorageSettings$3;->this$0:Lcom/android/settings/applications/AppStorageSettings;
 
-    invoke-static {p0}, Lcom/android/settings/applications/AppStorageSettings;->access$400(Lcom/android/settings/applications/AppStorageSettings;)V
+    invoke-static {p0}, Lcom/android/settings/applications/AppStorageSettings;->-$$Nest$mupdateSize(Lcom/android/settings/applications/AppStorageSettings;)V
 
     goto :goto_0
 
     :cond_2
     iget-object v0, p0, Lcom/android/settings/applications/AppStorageSettings$3;->this$0:Lcom/android/settings/applications/AppStorageSettings;
 
-    invoke-static {v0, v1}, Lcom/android/settings/applications/AppStorageSettings;->access$102(Lcom/android/settings/applications/AppStorageSettings;Z)Z
+    invoke-static {v0, v1}, Lcom/android/settings/applications/AppStorageSettings;->-$$Nest$fputmDataCleared(Lcom/android/settings/applications/AppStorageSettings;Z)V
 
     iget-object v0, p0, Lcom/android/settings/applications/AppStorageSettings$3;->this$0:Lcom/android/settings/applications/AppStorageSettings;
 
-    invoke-static {v0, v1}, Lcom/android/settings/applications/AppStorageSettings;->access$202(Lcom/android/settings/applications/AppStorageSettings;Z)Z
+    invoke-static {v0, v1}, Lcom/android/settings/applications/AppStorageSettings;->-$$Nest$fputmCacheCleared(Lcom/android/settings/applications/AppStorageSettings;Z)V
 
     iget-object p0, p0, Lcom/android/settings/applications/AppStorageSettings$3;->this$0:Lcom/android/settings/applications/AppStorageSettings;
 
-    invoke-static {p0, p1}, Lcom/android/settings/applications/AppStorageSettings;->access$300(Lcom/android/settings/applications/AppStorageSettings;Landroid/os/Message;)V
+    invoke-static {p0, p1}, Lcom/android/settings/applications/AppStorageSettings;->-$$Nest$mprocessClearMsg(Lcom/android/settings/applications/AppStorageSettings;Landroid/os/Message;)V
 
     :goto_0
     return-void

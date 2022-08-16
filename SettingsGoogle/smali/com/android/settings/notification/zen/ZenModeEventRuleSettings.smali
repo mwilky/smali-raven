@@ -34,6 +34,24 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmEvent(Lcom/android/settings/notification/zen/ZenModeEventRuleSettings;)Landroid/service/notification/ZenModeConfig$EventInfo;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/notification/zen/ZenModeEventRuleSettings;->mEvent:Landroid/service/notification/ZenModeConfig$EventInfo;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$smkey(Landroid/service/notification/ZenModeConfig$EventInfo;)Ljava/lang/String;
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/settings/notification/zen/ZenModeEventRuleSettings;->key(Landroid/service/notification/ZenModeConfig$EventInfo;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method static constructor <clinit>()V
     .locals 1
 
@@ -52,24 +70,6 @@
     invoke-direct {p0}, Lcom/android/settings/notification/zen/ZenModeRuleSettingsBase;-><init>()V
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/notification/zen/ZenModeEventRuleSettings;)Landroid/service/notification/ZenModeConfig$EventInfo;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/notification/zen/ZenModeEventRuleSettings;->mEvent:Landroid/service/notification/ZenModeConfig$EventInfo;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Landroid/service/notification/ZenModeConfig$EventInfo;)Ljava/lang/String;
-    .locals 0
-
-    invoke-static {p0}, Lcom/android/settings/notification/zen/ZenModeEventRuleSettings;->key(Landroid/service/notification/ZenModeConfig$EventInfo;)Ljava/lang/String;
-
-    move-result-object p0
-
-    return-object p0
 .end method
 
 .method private addCalendars(Landroid/content/Context;Ljava/util/List;)V
@@ -335,7 +335,7 @@
 .method private reloadCalendar()V
     .locals 6
 
-    iget-object v0, p0, Lcom/android/settings/notification/zen/ZenModeRuleSettingsBase;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Lcom/android/settings/notification/zen/ZenModeSettingsBase;->mContext:Landroid/content/Context;
 
     invoke-direct {p0, v0}, Lcom/android/settings/notification/zen/ZenModeEventRuleSettings;->getCalendars(Landroid/content/Context;)Ljava/util/List;
 
@@ -349,7 +349,7 @@
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
-    const v3, 0x7f04182d
+    const v3, 0x7f041928
 
     invoke-virtual {p0, v3}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -607,7 +607,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150128
+    const p0, 0x7f150130
 
     return p0
 .end method
@@ -639,7 +639,7 @@
 
     invoke-virtual {v2, v3}, Landroidx/preference/Preference;->setOnPreferenceChangeListener(Landroidx/preference/Preference$OnPreferenceChangeListener;)V
 
-    const-string v2, "reply"
+    const-string/jumbo v2, "reply"
 
     invoke-virtual {v1, v2}, Landroidx/preference/PreferenceGroup;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -653,7 +653,7 @@
 
     new-array v3, v2, [Ljava/lang/CharSequence;
 
-    const v4, 0x7f04182f
+    const v4, 0x7f04192a
 
     invoke-virtual {p0, v4}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -663,7 +663,7 @@
 
     aput-object v4, v3, v5
 
-    const v4, 0x7f041831
+    const v4, 0x7f04192c
 
     invoke-virtual {p0, v4}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -671,7 +671,7 @@
 
     aput-object v4, v3, v0
 
-    const v4, 0x7f041830
+    const v4, 0x7f04192b
 
     invoke-virtual {p0, v4}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 

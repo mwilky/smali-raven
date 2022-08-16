@@ -1,45 +1,34 @@
 .class public final synthetic Lcom/android/settings/users/UserSettings$$ExternalSyntheticLambda7;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Predicate;
+.implements Ljava/lang/Runnable;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/settings/users/UserSettings$$ExternalSyntheticLambda7;
+# instance fields
+.field public final synthetic f$0:Lcom/android/settings/users/UserSettings;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/settings/users/UserSettings$$ExternalSyntheticLambda7;
-
-    invoke-direct {v0}, Lcom/android/settings/users/UserSettings$$ExternalSyntheticLambda7;-><init>()V
-
-    sput-object v0, Lcom/android/settings/users/UserSettings$$ExternalSyntheticLambda7;->INSTANCE:Lcom/android/settings/users/UserSettings$$ExternalSyntheticLambda7;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Lcom/android/settings/users/UserSettings;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/settings/users/UserSettings$$ExternalSyntheticLambda7;->f$0:Lcom/android/settings/users/UserSettings;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final test(Ljava/lang/Object;)Z
+.method public final run()V
     .locals 0
 
-    check-cast p1, Landroid/content/pm/UserInfo;
+    iget-object p0, p0, Lcom/android/settings/users/UserSettings$$ExternalSyntheticLambda7;->f$0:Lcom/android/settings/users/UserSettings;
 
-    invoke-virtual {p1}, Landroid/content/pm/UserInfo;->isGuest()Z
+    invoke-static {p0}, Lcom/android/settings/users/UserSettings;->$r8$lambda$MvCixqGz6A4Gh42vETaj-Y6ukAs(Lcom/android/settings/users/UserSettings;)V
 
-    move-result p0
-
-    return p0
+    return-void
 .end method

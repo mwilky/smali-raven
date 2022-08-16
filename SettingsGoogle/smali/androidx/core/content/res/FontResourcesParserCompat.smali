@@ -6,6 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Landroidx/core/content/res/FontResourcesParserCompat$Api21Impl;,
         Landroidx/core/content/res/FontResourcesParserCompat$FontFamilyFilesResourceEntry;,
         Landroidx/core/content/res/FontResourcesParserCompat$FontFileResourceEntry;,
         Landroidx/core/content/res/FontResourcesParserCompat$ProviderResourceEntry;,
@@ -16,55 +17,17 @@
 
 # direct methods
 .method private static getType(Landroid/content/res/TypedArray;I)I
-    .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "typedArray",
-            "index"
-        }
-    .end annotation
+    .locals 0
 
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    if-lt v0, v1, :cond_0
-
-    invoke-virtual {p0, p1}, Landroid/content/res/TypedArray;->getType(I)I
+    invoke-static {p0, p1}, Landroidx/core/content/res/FontResourcesParserCompat$Api21Impl;->getType(Landroid/content/res/TypedArray;I)I
 
     move-result p0
-
-    return p0
-
-    :cond_0
-    new-instance v0, Landroid/util/TypedValue;
-
-    invoke-direct {v0}, Landroid/util/TypedValue;-><init>()V
-
-    invoke-virtual {p0, p1, v0}, Landroid/content/res/TypedArray;->getValue(ILandroid/util/TypedValue;)Z
-
-    iget p0, v0, Landroid/util/TypedValue;->type:I
 
     return p0
 .end method
 
 .method public static parse(Lorg/xmlpull/v1/XmlPullParser;Landroid/content/res/Resources;)Landroidx/core/content/res/FontResourcesParserCompat$FamilyResourceEntry;
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "parser",
-            "resources"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -108,17 +71,6 @@
 
 .method public static readCerts(Landroid/content/res/Resources;I)Ljava/util/List;
     .locals 5
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "resources",
-            "certsId"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -234,17 +186,6 @@
 
 .method private static readFamilies(Lorg/xmlpull/v1/XmlPullParser;Landroid/content/res/Resources;)Landroidx/core/content/res/FontResourcesParserCompat$FamilyResourceEntry;
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "parser",
-            "resources"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -284,17 +225,6 @@
 
 .method private static readFamily(Lorg/xmlpull/v1/XmlPullParser;Landroid/content/res/Resources;)Landroidx/core/content/res/FontResourcesParserCompat$FamilyResourceEntry;
     .locals 9
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "parser",
-            "resources"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -338,27 +268,27 @@
 
     move-result v4
 
-    sget v5, Landroidx/core/R$styleable;->FontFamily_fontProviderFetchStrategy:I
+    sget v6, Landroidx/core/R$styleable;->FontFamily_fontProviderFetchStrategy:I
 
-    const/4 v6, 0x1
-
-    invoke-virtual {v0, v5, v6}, Landroid/content/res/TypedArray;->getInteger(II)I
-
-    move-result v5
-
-    sget v6, Landroidx/core/R$styleable;->FontFamily_fontProviderFetchTimeout:I
-
-    const/16 v7, 0x1f4
+    const/4 v7, 0x1
 
     invoke-virtual {v0, v6, v7}, Landroid/content/res/TypedArray;->getInteger(II)I
 
     move-result v6
 
-    sget v7, Landroidx/core/R$styleable;->FontFamily_fontProviderSystemFontFamily:I
+    sget v7, Landroidx/core/R$styleable;->FontFamily_fontProviderFetchTimeout:I
 
-    invoke-virtual {v0, v7}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
+    const/16 v8, 0x1f4
 
-    move-result-object v7
+    invoke-virtual {v0, v7, v8}, Landroid/content/res/TypedArray;->getInteger(II)I
+
+    move-result v7
+
+    sget v8, Landroidx/core/R$styleable;->FontFamily_fontProviderSystemFontFamily:I
+
+    invoke-virtual {v0, v8}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
+
+    move-result-object v8
 
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
@@ -373,9 +303,9 @@
     :goto_0
     invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
-    move-result v8
+    move-result v5
 
-    if-eq v8, v0, :cond_0
+    if-eq v5, v0, :cond_0
 
     invoke-static {p0}, Landroidx/core/content/res/FontResourcesParserCompat;->skip(Lorg/xmlpull/v1/XmlPullParser;)V
 
@@ -392,7 +322,7 @@
 
     invoke-direct {v0, v1, v2, v3, p0}, Landroidx/core/provider/FontRequest;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)V
 
-    invoke-direct {p1, v0, v5, v6, v7}, Landroidx/core/content/res/FontResourcesParserCompat$ProviderResourceEntry;-><init>(Landroidx/core/provider/FontRequest;IILjava/lang/String;)V
+    invoke-direct {p1, v0, v6, v7, v8}, Landroidx/core/content/res/FontResourcesParserCompat$ProviderResourceEntry;-><init>(Landroidx/core/provider/FontRequest;IILjava/lang/String;)V
 
     return-object p1
 
@@ -458,11 +388,7 @@
     :cond_5
     new-instance p0, Landroidx/core/content/res/FontResourcesParserCompat$FontFamilyFilesResourceEntry;
 
-    invoke-interface {v1}, Ljava/util/List;->size()I
-
-    move-result p1
-
-    new-array p1, p1, [Landroidx/core/content/res/FontResourcesParserCompat$FontFileResourceEntry;
+    new-array p1, v5, [Landroidx/core/content/res/FontResourcesParserCompat$FontFileResourceEntry;
 
     invoke-interface {v1, p1}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
@@ -477,17 +403,6 @@
 
 .method private static readFont(Lorg/xmlpull/v1/XmlPullParser;Landroid/content/res/Resources;)Landroidx/core/content/res/FontResourcesParserCompat$FontFileResourceEntry;
     .locals 9
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "parser",
-            "resources"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -642,15 +557,6 @@
 
 .method private static skip(Lorg/xmlpull/v1/XmlPullParser;)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "parser"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -693,15 +599,6 @@
 
 .method private static toByteArrayList([Ljava/lang/String;)Ljava/util/List;
     .locals 5
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "stringArray"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([",

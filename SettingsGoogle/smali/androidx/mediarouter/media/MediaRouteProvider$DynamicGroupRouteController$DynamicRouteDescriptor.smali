@@ -35,22 +35,6 @@
 # direct methods
 .method constructor <init>(Landroidx/mediarouter/media/MediaRouteDescriptor;IZZZ)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "mediaRouteDescriptor",
-            "selectionState",
-            "isUnselectable",
-            "isGroupable",
-            "isTransferable"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -69,14 +53,6 @@
 
 .method static fromBundle(Landroid/os/Bundle;)Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController$DynamicRouteDescriptor;
     .locals 7
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "bundle"
-        }
-    .end annotation
 
     if-nez p0, :cond_0
 
@@ -97,7 +73,7 @@
 
     const/4 v0, 0x1
 
-    const-string v1, "selectionState"
+    const-string/jumbo v1, "selectionState"
 
     invoke-virtual {p0, v1, v0}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
 

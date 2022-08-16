@@ -47,7 +47,7 @@
 
     if-eqz p0, :cond_0
 
-    invoke-virtual {p0}, Landroid/view/View;->cancelPendingInputEvents()V
+    invoke-static {p0}, Landroidx/fragment/app/Fragment$Api19Impl;->cancelPendingInputEvents(Landroid/view/View;)V
 
     :cond_0
     return-void

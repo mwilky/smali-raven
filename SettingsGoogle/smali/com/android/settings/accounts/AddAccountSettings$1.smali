@@ -89,7 +89,7 @@
 
     iget-object v7, p0, Lcom/android/settings/accounts/AddAccountSettings$1;->this$0:Lcom/android/settings/accounts/AddAccountSettings;
 
-    invoke-static {v7}, Lcom/android/settings/accounts/AddAccountSettings;->access$000(Lcom/android/settings/accounts/AddAccountSettings;)Landroid/app/PendingIntent;
+    invoke-static {v7}, Lcom/android/settings/accounts/AddAccountSettings;->-$$Nest$fgetmPendingIntent(Lcom/android/settings/accounts/AddAccountSettings;)Landroid/app/PendingIntent;
 
     move-result-object v7
 
@@ -109,7 +109,7 @@
 
     iget-object v7, p0, Lcom/android/settings/accounts/AddAccountSettings$1;->this$0:Lcom/android/settings/accounts/AddAccountSettings;
 
-    invoke-static {v7}, Lcom/android/settings/accounts/AddAccountSettings;->access$100(Lcom/android/settings/accounts/AddAccountSettings;)Landroid/os/UserHandle;
+    invoke-static {v7}, Lcom/android/settings/accounts/AddAccountSettings;->-$$Nest$fgetmUserHandle(Lcom/android/settings/accounts/AddAccountSettings;)Landroid/os/UserHandle;
 
     move-result-object v7
 
@@ -131,7 +131,7 @@
 
     iget-object v5, p0, Lcom/android/settings/accounts/AddAccountSettings$1;->this$0:Lcom/android/settings/accounts/AddAccountSettings;
 
-    invoke-static {v5}, Lcom/android/settings/accounts/AddAccountSettings;->access$100(Lcom/android/settings/accounts/AddAccountSettings;)Landroid/os/UserHandle;
+    invoke-static {v5}, Lcom/android/settings/accounts/AddAccountSettings;->-$$Nest$fgetmUserHandle(Lcom/android/settings/accounts/AddAccountSettings;)Landroid/os/UserHandle;
 
     move-result-object v6
 
@@ -148,7 +148,7 @@
 
     iget-object v4, p0, Lcom/android/settings/accounts/AddAccountSettings$1;->this$0:Lcom/android/settings/accounts/AddAccountSettings;
 
-    invoke-static {v4}, Lcom/android/settings/accounts/AddAccountSettings;->access$000(Lcom/android/settings/accounts/AddAccountSettings;)Landroid/app/PendingIntent;
+    invoke-static {v4}, Lcom/android/settings/accounts/AddAccountSettings;->-$$Nest$fgetmPendingIntent(Lcom/android/settings/accounts/AddAccountSettings;)Landroid/app/PendingIntent;
 
     move-result-object v4
 
@@ -156,7 +156,7 @@
 
     iget-object v4, p0, Lcom/android/settings/accounts/AddAccountSettings$1;->this$0:Lcom/android/settings/accounts/AddAccountSettings;
 
-    invoke-static {v4}, Lcom/android/settings/accounts/AddAccountSettings;->access$000(Lcom/android/settings/accounts/AddAccountSettings;)Landroid/app/PendingIntent;
+    invoke-static {v4}, Lcom/android/settings/accounts/AddAccountSettings;->-$$Nest$fgetmPendingIntent(Lcom/android/settings/accounts/AddAccountSettings;)Landroid/app/PendingIntent;
 
     move-result-object v4
 
@@ -166,7 +166,7 @@
 
     const/4 v5, 0x0
 
-    invoke-static {v4, v5}, Lcom/android/settings/accounts/AddAccountSettings;->access$002(Lcom/android/settings/accounts/AddAccountSettings;Landroid/app/PendingIntent;)Landroid/app/PendingIntent;
+    invoke-static {v4, v5}, Lcom/android/settings/accounts/AddAccountSettings;->-$$Nest$fputmPendingIntent(Lcom/android/settings/accounts/AddAccountSettings;Landroid/app/PendingIntent;)V
 
     :cond_1
     :goto_0

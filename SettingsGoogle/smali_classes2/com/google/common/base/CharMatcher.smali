@@ -2,9 +2,6 @@
 .super Ljava/lang/Object;
 .source "CharMatcher.java"
 
-# interfaces
-.implements Lcom/google/common/base/Predicate;
-
 
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
@@ -23,15 +20,6 @@
         Lcom/google/common/base/CharMatcher$NegatedFastMatcher;,
         Lcom/google/common/base/CharMatcher$NamedFastMatcher;,
         Lcom/google/common/base/CharMatcher$FastMatcher;
-    }
-.end annotation
-
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Ljava/lang/Object;",
-        "Lcom/google/common/base/Predicate<",
-        "Ljava/lang/Character;",
-        ">;"
     }
 .end annotation
 

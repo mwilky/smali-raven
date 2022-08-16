@@ -63,9 +63,9 @@
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
 
-    const v0, 0x7f070038
+    const v0, 0x7f070037
 
-    const v1, 0x7f070039
+    const v1, 0x7f070038
 
     invoke-virtual {p0, v0, v1}, Landroid/app/Activity;->overridePendingTransition(II)V
 
@@ -231,15 +231,15 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/biometrics/BiometricEnrollBase;->onCreate(Landroid/os/Bundle;)V
 
-    const p1, 0x7f0600f1
+    const p1, 0x7f0600f4
 
     invoke-virtual {p0, p1}, Landroidx/activity/ComponentActivity;->setContentView(I)V
 
-    const p1, 0x7f04117f
+    const p1, 0x7f04122f
 
     invoke-virtual {p0, p1}, Lcom/android/settings/biometrics/BiometricEnrollBase;->setHeaderText(I)V
 
-    const p1, 0x7f04117e
+    const p1, 0x7f041230
 
     invoke-virtual {p0, p1}, Lcom/android/settings/biometrics/BiometricEnrollBase;->setDescriptionText(I)V
 
@@ -261,7 +261,7 @@
 
     invoke-direct {v0, p0}, Lcom/google/android/setupcompat/template/FooterButton$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f04094b
+    const v1, 0x7f0409b0
 
     invoke-virtual {v0, v1}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setText(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -273,7 +273,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f13021d
+    const v1, 0x7f130284
 
     invoke-virtual {v0, v1}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setTheme(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -291,7 +291,7 @@
 
     invoke-direct {v0, p0}, Lcom/google/android/setupcompat/template/FooterButton$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f041176
+    const v1, 0x7f041227
 
     invoke-virtual {v0, v1}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setText(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -311,7 +311,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f13021c
+    const v0, 0x7f130283
 
     invoke-virtual {p0, v0}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setTheme(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -382,25 +382,27 @@
 
     if-eqz v1, :cond_0
 
-    iget v3, p0, Lcom/android/settings/biometrics/BiometricEnrollBase;->mUserId:I
+    invoke-virtual {v1}, Landroid/hardware/fingerprint/FingerprintManager;->getSensorPropertiesInternal()Ljava/util/List;
 
-    invoke-virtual {v1, v3}, Landroid/hardware/fingerprint/FingerprintManager;->getEnrolledFingerprints(I)Ljava/util/List;
+    move-result-object v3
+
+    invoke-interface {v3, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;
+
+    iget v3, v3, Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;->maxEnrollmentsPerUser:I
+
+    iget v4, p0, Lcom/android/settings/biometrics/BiometricEnrollBase;->mUserId:I
+
+    invoke-virtual {v1, v4}, Landroid/hardware/fingerprint/FingerprintManager;->getEnrolledFingerprints(I)Ljava/util/List;
 
     move-result-object v1
 
     invoke-interface {v1}, Ljava/util/List;->size()I
 
     move-result v1
-
-    invoke-virtual {p0}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v3
-
-    const v4, 0x10e0067
-
-    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getInteger(I)I
-
-    move-result v3
 
     if-lt v1, v3, :cond_0
 

@@ -34,19 +34,19 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    invoke-static {p1}, Lcom/google/android/settings/security/SecurityContentManager$OverallStatus$Builder;->access$700(Lcom/google/android/settings/security/SecurityContentManager$OverallStatus$Builder;)Ljava/lang/String;
+    invoke-static {p1}, Lcom/google/android/settings/security/SecurityContentManager$OverallStatus$Builder;->-$$Nest$fgetmTitle(Lcom/google/android/settings/security/SecurityContentManager$OverallStatus$Builder;)Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/google/android/settings/security/SecurityContentManager$OverallStatus;->mTitle:Ljava/lang/String;
 
-    invoke-static {p1}, Lcom/google/android/settings/security/SecurityContentManager$OverallStatus$Builder;->access$800(Lcom/google/android/settings/security/SecurityContentManager$OverallStatus$Builder;)Ljava/lang/String;
+    invoke-static {p1}, Lcom/google/android/settings/security/SecurityContentManager$OverallStatus$Builder;->-$$Nest$fgetmSummary(Lcom/google/android/settings/security/SecurityContentManager$OverallStatus$Builder;)Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/google/android/settings/security/SecurityContentManager$OverallStatus;->mSummary:Ljava/lang/String;
 
-    invoke-static {p1}, Lcom/google/android/settings/security/SecurityContentManager$OverallStatus$Builder;->access$900(Lcom/google/android/settings/security/SecurityContentManager$OverallStatus$Builder;)Lcom/google/android/settings/security/StatusSecurityLevel;
+    invoke-static {p1}, Lcom/google/android/settings/security/SecurityContentManager$OverallStatus$Builder;->-$$Nest$fgetmStatusSecurityLevel(Lcom/google/android/settings/security/SecurityContentManager$OverallStatus$Builder;)Lcom/google/android/settings/security/StatusSecurityLevel;
 
     move-result-object p1
 
@@ -55,7 +55,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/google/android/settings/security/SecurityContentManager$OverallStatus$Builder;Lcom/google/android/settings/security/SecurityContentManager$1;)V
+.method synthetic constructor <init>(Lcom/google/android/settings/security/SecurityContentManager$OverallStatus$Builder;Lcom/google/android/settings/security/SecurityContentManager$OverallStatus-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/google/android/settings/security/SecurityContentManager$OverallStatus;-><init>(Lcom/google/android/settings/security/SecurityContentManager$OverallStatus$Builder;)V

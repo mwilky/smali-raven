@@ -30,16 +30,6 @@
 # direct methods
 .method constructor <init>(Landroid/content/res/ColorStateList;F)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "backgroundColor",
-            "radius"
-        }
-    .end annotation
 
     invoke-direct {p0}, Landroid/graphics/drawable/Drawable;-><init>()V
 
@@ -84,16 +74,6 @@
 
 .method private createTintFilter(Landroid/content/res/ColorStateList;Landroid/graphics/PorterDuff$Mode;)Landroid/graphics/PorterDuffColorFilter;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "tint",
-            "tintMode"
-        }
-    .end annotation
 
     if-eqz p1, :cond_1
 
@@ -127,14 +107,6 @@
 
 .method private setBackground(Landroid/content/res/ColorStateList;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "color"
-        }
-    .end annotation
 
     if-nez p1, :cond_0
 
@@ -170,14 +142,6 @@
 
 .method private updateBounds(Landroid/graphics/Rect;)V
     .locals 5
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "bounds"
-        }
-    .end annotation
 
     if-nez p1, :cond_0
 
@@ -268,14 +232,6 @@
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "canvas"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/cardview/widget/RoundRectDrawable;->mPaint:Landroid/graphics/Paint;
 
@@ -335,14 +291,6 @@
 
 .method public getOutline(Landroid/graphics/Outline;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "outline"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/cardview/widget/RoundRectDrawable;->mBoundsI:Landroid/graphics/Rect;
 
@@ -414,14 +362,6 @@
 
 .method protected onBoundsChange(Landroid/graphics/Rect;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "bounds"
-        }
-    .end annotation
 
     invoke-super {p0, p1}, Landroid/graphics/drawable/Drawable;->onBoundsChange(Landroid/graphics/Rect;)V
 
@@ -432,14 +372,6 @@
 
 .method protected onStateChange([I)Z
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "stateSet"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/cardview/widget/RoundRectDrawable;->mBackground:Landroid/content/res/ColorStateList;
 
@@ -498,14 +430,6 @@
 
 .method public setAlpha(I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "alpha"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/cardview/widget/RoundRectDrawable;->mPaint:Landroid/graphics/Paint;
 
@@ -516,14 +440,6 @@
 
 .method public setColor(Landroid/content/res/ColorStateList;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "color"
-        }
-    .end annotation
 
     invoke-direct {p0, p1}, Landroidx/cardview/widget/RoundRectDrawable;->setBackground(Landroid/content/res/ColorStateList;)V
 
@@ -534,14 +450,6 @@
 
 .method public setColorFilter(Landroid/graphics/ColorFilter;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "cf"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/cardview/widget/RoundRectDrawable;->mPaint:Landroid/graphics/Paint;
 
@@ -552,18 +460,6 @@
 
 .method setPadding(FZZ)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "padding",
-            "insetForPadding",
-            "insetForRadius"
-        }
-    .end annotation
 
     iget v0, p0, Landroidx/cardview/widget/RoundRectDrawable;->mPadding:F
 
@@ -599,14 +495,6 @@
 
 .method setRadius(F)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "radius"
-        }
-    .end annotation
 
     iget v0, p0, Landroidx/cardview/widget/RoundRectDrawable;->mRadius:F
 
@@ -630,14 +518,6 @@
 
 .method public setTintList(Landroid/content/res/ColorStateList;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "tint"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/cardview/widget/RoundRectDrawable;->mTint:Landroid/content/res/ColorStateList;
 
@@ -656,14 +536,6 @@
 
 .method public setTintMode(Landroid/graphics/PorterDuff$Mode;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "tintMode"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/cardview/widget/RoundRectDrawable;->mTintMode:Landroid/graphics/PorterDuff$Mode;
 

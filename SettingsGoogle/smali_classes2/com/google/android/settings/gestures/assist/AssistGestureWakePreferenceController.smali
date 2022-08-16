@@ -32,6 +32,22 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmHandler(Lcom/google/android/settings/gestures/assist/AssistGestureWakePreferenceController;)Landroid/os/Handler;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/settings/gestures/assist/AssistGestureWakePreferenceController;->mHandler:Landroid/os/Handler;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$mupdatePreference(Lcom/google/android/settings/gestures/assist/AssistGestureWakePreferenceController;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/google/android/settings/gestures/assist/AssistGestureWakePreferenceController;->updatePreference()V
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;)V
     .locals 0
 
@@ -66,10 +82,10 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/google/android/settings/gestures/assist/AssistGestureWakePreferenceController;)Landroid/os/Handler;
+.method static synthetic access$000(Lcom/google/android/settings/gestures/assist/AssistGestureWakePreferenceController;)Landroid/content/Context;
     .locals 0
 
-    iget-object p0, p0, Lcom/google/android/settings/gestures/assist/AssistGestureWakePreferenceController;->mHandler:Landroid/os/Handler;
+    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
     return-object p0
 .end method
@@ -80,22 +96,6 @@
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
     return-object p0
-.end method
-
-.method static synthetic access$200(Lcom/google/android/settings/gestures/assist/AssistGestureWakePreferenceController;)Landroid/content/Context;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
-
-    return-object p0
-.end method
-
-.method static synthetic access$300(Lcom/google/android/settings/gestures/assist/AssistGestureWakePreferenceController;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/google/android/settings/gestures/assist/AssistGestureWakePreferenceController;->updatePreference()V
-
-    return-void
 .end method
 
 .method private updatePreference()V
@@ -187,14 +187,6 @@
     return v1
 .end method
 
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public displayPreference(Landroidx/preference/PreferenceScreen;)V
     .locals 2
 
@@ -262,15 +254,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -333,16 +316,6 @@
 
     :goto_0
     return v1
-.end method
-
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
-
-    move-result p0
-
-    return p0
 .end method
 
 .method public isPublicSlice()Z

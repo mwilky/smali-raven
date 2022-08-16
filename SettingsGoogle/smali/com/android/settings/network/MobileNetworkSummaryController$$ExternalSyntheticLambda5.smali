@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/settings/network/MobileNetworkSummaryController$$ExternalSyntheticLambda5;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Consumer;
+.implements Lcom/android/settings/widget/AddPreference$OnAddClickListener;
 
 
 # instance fields
@@ -22,14 +23,12 @@
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
+.method public final onAddClick(Lcom/android/settings/widget/AddPreference;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/settings/network/MobileNetworkSummaryController$$ExternalSyntheticLambda5;->f$0:Lcom/android/settings/network/MobileNetworkSummaryController;
 
-    check-cast p1, Lcom/android/settings/network/MobileNetworkSummaryStatus;
-
-    invoke-static {p0, p1}, Lcom/android/settings/network/MobileNetworkSummaryController;->$r8$lambda$lRN6lIBK0gu2nMZMXWV4tN6eHSw(Lcom/android/settings/network/MobileNetworkSummaryController;Lcom/android/settings/network/MobileNetworkSummaryStatus;)V
+    invoke-static {p0, p1}, Lcom/android/settings/network/MobileNetworkSummaryController;->$r8$lambda$TZsCTK-0E2FfcMg430v774JcE-w(Lcom/android/settings/network/MobileNetworkSummaryController;Lcom/android/settings/widget/AddPreference;)V
 
     return-void
 .end method

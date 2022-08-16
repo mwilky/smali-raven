@@ -20,6 +20,16 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$396mFaDrPMiXpp8luAylEfqzRPE(Landroid/view/View;Landroid/view/MotionEvent;)Z
+    .locals 0
+
+    invoke-static {p0, p1}, Lcom/android/settings/accessibility/ShortcutPreference;->lambda$onBindViewHolder$2(Landroid/view/View;Landroid/view/MotionEvent;)Z
+
+    move-result p0
+
+    return p0
+.end method
+
 .method public static synthetic $r8$lambda$Q7zMC5xtid3x2TqSOBlVJXSvsec(Lcom/android/settings/accessibility/ShortcutPreference;Landroid/view/View;)V
     .locals 0
 
@@ -28,30 +38,30 @@
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$dIhEkZxFPivjCVRvRPQZu7QL5WI(Lcom/android/settings/accessibility/ShortcutPreference;Landroid/view/View;)V
+.method public static synthetic $r8$lambda$VBgzr--NkOk2L_3UE1fB9OvlBjs(Lcom/android/settings/accessibility/ShortcutPreference;Landroid/view/View;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/settings/accessibility/ShortcutPreference;->lambda$onBindViewHolder$2(Landroid/view/View;)V
+    invoke-direct {p0, p1}, Lcom/android/settings/accessibility/ShortcutPreference;->lambda$onBindViewHolder$4(Landroid/view/View;)V
 
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$lgzoBUDALjr3HbCWHGRdOVIJex0(Landroid/view/View;Landroid/view/MotionEvent;)Z
+.method public static synthetic $r8$lambda$YkSBbqxFbkqUHibKn_ghlNkwezE(Lcom/android/settings/accessibility/ShortcutPreference;Landroid/view/View;)V
     .locals 0
 
-    invoke-static {p0, p1}, Lcom/android/settings/accessibility/ShortcutPreference;->lambda$onBindViewHolder$1(Landroid/view/View;Landroid/view/MotionEvent;)Z
+    invoke-direct {p0, p1}, Lcom/android/settings/accessibility/ShortcutPreference;->lambda$onBindViewHolder$1(Landroid/view/View;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$jTLIyutzc4CTIPWFbALYbHxQ4TU(Lcom/android/settings/accessibility/ShortcutPreference;Landroidx/preference/Preference;)Z
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/accessibility/ShortcutPreference;->lambda$new$0(Landroidx/preference/Preference;)Z
 
     move-result p0
 
     return p0
-.end method
-
-.method public static synthetic $r8$lambda$s18opwqXQJK_LrOXcn-RNo8pnds(Lcom/android/settings/accessibility/ShortcutPreference;Landroid/view/View;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/accessibility/ShortcutPreference;->lambda$onBindViewHolder$0(Landroid/view/View;)V
-
-    return-void
 .end method
 
 .method constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -71,15 +81,21 @@
 
     iput-boolean p2, p0, Lcom/android/settings/accessibility/ShortcutPreference;->mSettingsEditable:Z
 
-    const p2, 0x7f06003a
+    const p2, 0x7f060039
 
     invoke-virtual {p0, p2}, Landroidx/preference/Preference;->setLayoutResource(I)V
 
-    const p2, 0x7f0601be
+    const p2, 0x7f0601ca
 
     invoke-virtual {p0, p2}, Landroidx/preference/Preference;->setWidgetLayoutResource(I)V
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setIconSpaceReserved(Z)V
+
+    new-instance p1, Lcom/android/settings/accessibility/ShortcutPreference$$ExternalSyntheticLambda4;
+
+    invoke-direct {p1, p0}, Lcom/android/settings/accessibility/ShortcutPreference$$ExternalSyntheticLambda4;-><init>(Lcom/android/settings/accessibility/ShortcutPreference;)V
+
+    invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setOnPreferenceClickListener(Landroidx/preference/Preference$OnPreferenceClickListener;)V
 
     return-void
 .end method
@@ -116,7 +132,17 @@
     return-void
 .end method
 
-.method private synthetic lambda$onBindViewHolder$0(Landroid/view/View;)V
+.method private synthetic lambda$new$0(Landroidx/preference/Preference;)Z
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/accessibility/ShortcutPreference;->callOnSettingsClicked()V
+
+    const/4 p0, 0x1
+
+    return p0
+.end method
+
+.method private synthetic lambda$onBindViewHolder$1(Landroid/view/View;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/settings/accessibility/ShortcutPreference;->callOnSettingsClicked()V
@@ -124,7 +150,7 @@
     return-void
 .end method
 
-.method private static synthetic lambda$onBindViewHolder$1(Landroid/view/View;Landroid/view/MotionEvent;)Z
+.method private static synthetic lambda$onBindViewHolder$2(Landroid/view/View;Landroid/view/MotionEvent;)Z
     .locals 0
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
@@ -146,7 +172,7 @@
     return p0
 .end method
 
-.method private synthetic lambda$onBindViewHolder$2(Landroid/view/View;)V
+.method private synthetic lambda$onBindViewHolder$3(Landroid/view/View;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/settings/accessibility/ShortcutPreference;->callOnToggleClicked()V
@@ -154,7 +180,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$onBindViewHolder$3(Landroid/view/View;)V
+.method private synthetic lambda$onBindViewHolder$4(Landroid/view/View;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/settings/accessibility/ShortcutPreference;->callOnToggleClicked()V
@@ -205,7 +231,7 @@
 
     iget-object v1, p1, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
 
-    const v2, 0x7f0d034a
+    const v2, 0x7f0d0375
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -217,9 +243,9 @@
 
     if-eqz v1, :cond_1
 
-    new-instance v4, Lcom/android/settings/accessibility/ShortcutPreference$$ExternalSyntheticLambda2;
+    new-instance v4, Lcom/android/settings/accessibility/ShortcutPreference$$ExternalSyntheticLambda0;
 
-    invoke-direct {v4, p0}, Lcom/android/settings/accessibility/ShortcutPreference$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/accessibility/ShortcutPreference;)V
+    invoke-direct {v4, p0}, Lcom/android/settings/accessibility/ShortcutPreference$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/accessibility/ShortcutPreference;)V
 
     invoke-virtual {v1, v4}, Landroid/widget/LinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
@@ -248,7 +274,7 @@
     :cond_1
     iget-object v1, p1, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
 
-    const v4, 0x7f0d0591
+    const v4, 0x7f0d05d6
 
     invoke-virtual {v1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -258,7 +284,9 @@
 
     if-eqz v1, :cond_3
 
-    sget-object v4, Lcom/android/settings/accessibility/ShortcutPreference$$ExternalSyntheticLambda3;->INSTANCE:Lcom/android/settings/accessibility/ShortcutPreference$$ExternalSyntheticLambda3;
+    new-instance v4, Lcom/android/settings/accessibility/ShortcutPreference$$ExternalSyntheticLambda1;
+
+    invoke-direct {v4}, Lcom/android/settings/accessibility/ShortcutPreference$$ExternalSyntheticLambda1;-><init>()V
 
     invoke-virtual {v1, v4}, Landroid/widget/Switch;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
@@ -266,7 +294,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f04013b
+    const v5, 0x7f040156
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -278,9 +306,9 @@
 
     invoke-virtual {v1, v4}, Landroid/widget/Switch;->setChecked(Z)V
 
-    new-instance v4, Lcom/android/settings/accessibility/ShortcutPreference$$ExternalSyntheticLambda1;
+    new-instance v4, Lcom/android/settings/accessibility/ShortcutPreference$$ExternalSyntheticLambda2;
 
-    invoke-direct {v4, p0}, Lcom/android/settings/accessibility/ShortcutPreference$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/accessibility/ShortcutPreference;)V
+    invoke-direct {v4, p0}, Lcom/android/settings/accessibility/ShortcutPreference$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/accessibility/ShortcutPreference;)V
 
     invoke-virtual {v1, v4}, Landroid/widget/Switch;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
@@ -309,7 +337,7 @@
     :cond_3
     iget-object v0, p1, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
 
-    const v1, 0x7f0d01d4
+    const v1, 0x7f0d01ed
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -332,9 +360,9 @@
     :cond_5
     iget-object v0, p1, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
 
-    new-instance v1, Lcom/android/settings/accessibility/ShortcutPreference$$ExternalSyntheticLambda0;
+    new-instance v1, Lcom/android/settings/accessibility/ShortcutPreference$$ExternalSyntheticLambda3;
 
-    invoke-direct {v1, p0}, Lcom/android/settings/accessibility/ShortcutPreference$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/accessibility/ShortcutPreference;)V
+    invoke-direct {v1, p0}, Lcom/android/settings/accessibility/ShortcutPreference$$ExternalSyntheticLambda3;-><init>(Lcom/android/settings/accessibility/ShortcutPreference;)V
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 

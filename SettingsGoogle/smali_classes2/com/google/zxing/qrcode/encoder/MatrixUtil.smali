@@ -1764,11 +1764,9 @@
 
     sget-object v3, Lcom/google/zxing/qrcode/encoder/MatrixUtil;->TYPE_INFO_COORDINATES:[[I
 
-    aget-object v4, v3, p1
-
-    aget v4, v4, p0
-
     aget-object v3, v3, p1
+
+    aget v4, v3, p0
 
     aget v3, v3, v2
 
@@ -2073,27 +2071,25 @@
 
     sget-object v0, Lcom/google/zxing/qrcode/encoder/MatrixUtil;->POSITION_ADJUSTMENT_PATTERN_COORDINATE_TABLE:[[I
 
-    aget-object v1, v0, p0
-
     aget-object p0, v0, p0
 
-    array-length p0, p0
+    array-length v0, p0
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    move v2, v0
+    move v2, v1
 
     :goto_0
-    if-ge v2, p0, :cond_4
+    if-ge v2, v0, :cond_4
 
-    move v3, v0
+    move v3, v1
 
     :goto_1
-    if-ge v3, p0, :cond_3
+    if-ge v3, v0, :cond_3
 
-    aget v4, v1, v2
+    aget v4, p0, v2
 
-    aget v5, v1, v3
+    aget v5, p0, v3
 
     const/4 v6, -0x1
 

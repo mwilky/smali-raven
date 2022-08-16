@@ -25,6 +25,43 @@
 
 
 # virtual methods
+.method public getNonIndexableKeys(Landroid/content/Context;)Ljava/util/List;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/content/Context;",
+            ")",
+            "Ljava/util/List<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+
+    invoke-super {p0, p1}, Lcom/android/settings/search/BaseSearchIndexProvider;->getNonIndexableKeys(Landroid/content/Context;)Ljava/util/List;
+
+    move-result-object p0
+
+    invoke-static {p1}, Lcom/android/settings/flashlight/FlashlightSlice;->isFlashlightAvailable(Landroid/content/Context;)Z
+
+    move-result p1
+
+    if-nez p1, :cond_0
+
+    const-string p1, "FlashlightActivity"
+
+    const-string v0, "Flashlight is unavailable"
+
+    invoke-static {p1, v0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string p1, "flashlight"
+
+    invoke-interface {p0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    :cond_0
+    return-object p0
+.end method
+
 .method public getRawDataToIndex(Landroid/content/Context;Z)Ljava/util/List;
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
@@ -46,7 +83,7 @@
 
     invoke-direct {p2, p1}, Lcom/android/settingslib/search/SearchIndexableRaw;-><init>(Landroid/content/Context;)V
 
-    const v0, 0x7f040f33
+    const v0, 0x7f040fca
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -60,7 +97,7 @@
 
     iput-object v0, p2, Lcom/android/settingslib/search/SearchIndexableRaw;->screenTitle:Ljava/lang/String;
 
-    const v0, 0x7f040b11
+    const v0, 0x7f040b74
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

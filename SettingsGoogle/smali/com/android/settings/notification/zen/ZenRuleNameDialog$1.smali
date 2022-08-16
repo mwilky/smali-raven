@@ -53,7 +53,7 @@
 
     iget-object p2, p0, Lcom/android/settings/notification/zen/ZenRuleNameDialog$1;->val$editText:Landroid/widget/EditText;
 
-    invoke-static {p1, p2}, Lcom/android/settings/notification/zen/ZenRuleNameDialog;->access$000(Lcom/android/settings/notification/zen/ZenRuleNameDialog;Landroid/widget/EditText;)Ljava/lang/String;
+    invoke-static {p1, p2}, Lcom/android/settings/notification/zen/ZenRuleNameDialog;->-$$Nest$mtrimmedText(Lcom/android/settings/notification/zen/ZenRuleNameDialog;Landroid/widget/EditText;)Ljava/lang/String;
 
     move-result-object p1
 

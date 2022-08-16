@@ -60,13 +60,13 @@
 
     iget-object v0, p0, Lcom/android/settings/homepage/contextualcards/slices/SliceContextualCardRenderer$1;->this$0:Lcom/android/settings/homepage/contextualcards/slices/SliceContextualCardRenderer;
 
-    invoke-static {v0}, Lcom/android/settings/homepage/contextualcards/slices/SliceContextualCardRenderer;->access$100(Lcom/android/settings/homepage/contextualcards/slices/SliceContextualCardRenderer;)Lcom/android/settings/homepage/contextualcards/ControllerRendererPool;
+    invoke-static {v0}, Lcom/android/settings/homepage/contextualcards/slices/SliceContextualCardRenderer;->-$$Nest$fgetmControllerRendererPool(Lcom/android/settings/homepage/contextualcards/slices/SliceContextualCardRenderer;)Lcom/android/settings/homepage/contextualcards/ControllerRendererPool;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/settings/homepage/contextualcards/slices/SliceContextualCardRenderer$1;->this$0:Lcom/android/settings/homepage/contextualcards/slices/SliceContextualCardRenderer;
 
-    invoke-static {v1}, Lcom/android/settings/homepage/contextualcards/slices/SliceContextualCardRenderer;->access$000(Lcom/android/settings/homepage/contextualcards/slices/SliceContextualCardRenderer;)Landroid/content/Context;
+    invoke-static {v1}, Lcom/android/settings/homepage/contextualcards/slices/SliceContextualCardRenderer;->-$$Nest$fgetmContext(Lcom/android/settings/homepage/contextualcards/slices/SliceContextualCardRenderer;)Landroid/content/Context;
 
     move-result-object v1
 

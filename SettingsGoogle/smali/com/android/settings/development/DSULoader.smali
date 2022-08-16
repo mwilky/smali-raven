@@ -36,6 +36,32 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetmAdapter(Lcom/android/settings/development/DSULoader;)Landroid/widget/ArrayAdapter;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/development/DSULoader;->mAdapter:Landroid/widget/ArrayAdapter;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmDSUList(Lcom/android/settings/development/DSULoader;)Ljava/util/List;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/development/DSULoader;->mDSUList:Ljava/util/List;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$smreadAll(Ljava/net/URL;)Ljava/lang/String;
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/settings/development/DSULoader;->readAll(Ljava/net/URL;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method public constructor <init>()V
     .locals 1
 
@@ -48,37 +74,6 @@
     iput-object v0, p0, Lcom/android/settings/development/DSULoader;->mDSUList:Ljava/util/List;
 
     return-void
-.end method
-
-.method static synthetic access$000(Ljava/net/URL;)Ljava/lang/String;
-    .locals 0
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
-
-    invoke-static {p0}, Lcom/android/settings/development/DSULoader;->readAll(Ljava/net/URL;)Ljava/lang/String;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/development/DSULoader;)Ljava/util/List;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/development/DSULoader;->mDSUList:Ljava/util/List;
-
-    return-object p0
-.end method
-
-.method static synthetic access$200(Lcom/android/settings/development/DSULoader;)Landroid/widget/ArrayAdapter;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/development/DSULoader;->mAdapter:Landroid/widget/ArrayAdapter;
-
-    return-object p0
 .end method
 
 .method private static readAll(Ljava/io/InputStream;)Ljava/lang/String;
@@ -395,7 +390,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f04085a
+    const v2, 0x7f0408b1
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -452,7 +447,7 @@
 
     move-result-object p3
 
-    const p4, 0x7f04085a
+    const p4, 0x7f0408b1
 
     invoke-virtual {p3, p4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

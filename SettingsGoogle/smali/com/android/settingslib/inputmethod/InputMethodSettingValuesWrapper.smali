@@ -6,7 +6,23 @@
 # static fields
 .field private static final TAG:Ljava/lang/String; = "InputMethodSettingValuesWrapper"
 
-.field private static volatile sInstance:Lcom/android/settingslib/inputmethod/InputMethodSettingValuesWrapper;
+.field private static sInstanceMap:Landroid/util/SparseArray;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "sInstanceMapLock"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/util/SparseArray<",
+            "Lcom/android/settingslib/inputmethod/InputMethodSettingValuesWrapper;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private static final sInstanceMapLock:Ljava/lang/Object;
 
 
 # instance fields
@@ -27,7 +43,19 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .locals 1
+
+    new-instance v0, Ljava/lang/Object;
+
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
+
+    sput-object v0, Lcom/android/settingslib/inputmethod/InputMethodSettingValuesWrapper;->sInstanceMapLock:Ljava/lang/Object;
+
+    new-instance v0, Landroid/util/SparseArray;
+
+    invoke-direct {v0}, Landroid/util/SparseArray;-><init>()V
+
+    sput-object v0, Lcom/android/settingslib/inputmethod/InputMethodSettingValuesWrapper;->sInstanceMap:Landroid/util/SparseArray;
 
     return-void
 .end method
@@ -178,46 +206,83 @@
 .end method
 
 .method public static getInstance(Landroid/content/Context;)Lcom/android/settingslib/inputmethod/InputMethodSettingValuesWrapper;
-    .locals 2
+    .locals 3
 
-    sget-object v0, Lcom/android/settingslib/inputmethod/InputMethodSettingValuesWrapper;->sInstance:Lcom/android/settingslib/inputmethod/InputMethodSettingValuesWrapper;
+    invoke-virtual {p0}, Landroid/content/Context;->getUserId()I
 
-    if-nez v0, :cond_1
+    move-result v0
 
-    sget-object v0, Lcom/android/settingslib/inputmethod/InputMethodSettingValuesWrapper;->TAG:Ljava/lang/String;
+    sget-object v1, Lcom/android/settingslib/inputmethod/InputMethodSettingValuesWrapper;->sInstanceMapLock:Ljava/lang/Object;
 
-    monitor-enter v0
+    monitor-enter v1
 
     :try_start_0
-    sget-object v1, Lcom/android/settingslib/inputmethod/InputMethodSettingValuesWrapper;->sInstance:Lcom/android/settingslib/inputmethod/InputMethodSettingValuesWrapper;
+    sget-object v2, Lcom/android/settingslib/inputmethod/InputMethodSettingValuesWrapper;->sInstanceMap:Landroid/util/SparseArray;
 
-    if-nez v1, :cond_0
+    invoke-virtual {v2}, Landroid/util/SparseArray;->size()I
 
-    new-instance v1, Lcom/android/settingslib/inputmethod/InputMethodSettingValuesWrapper;
+    move-result v2
 
-    invoke-direct {v1, p0}, Lcom/android/settingslib/inputmethod/InputMethodSettingValuesWrapper;-><init>(Landroid/content/Context;)V
+    if-nez v2, :cond_0
 
-    sput-object v1, Lcom/android/settingslib/inputmethod/InputMethodSettingValuesWrapper;->sInstance:Lcom/android/settingslib/inputmethod/InputMethodSettingValuesWrapper;
+    new-instance v2, Lcom/android/settingslib/inputmethod/InputMethodSettingValuesWrapper;
+
+    invoke-direct {v2, p0}, Lcom/android/settingslib/inputmethod/InputMethodSettingValuesWrapper;-><init>(Landroid/content/Context;)V
+
+    sget-object p0, Lcom/android/settingslib/inputmethod/InputMethodSettingValuesWrapper;->sInstanceMap:Landroid/util/SparseArray;
+
+    invoke-virtual {p0, v0, v2}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+
+    monitor-exit v1
+
+    return-object v2
 
     :cond_0
-    monitor-exit v0
+    sget-object v2, Lcom/android/settingslib/inputmethod/InputMethodSettingValuesWrapper;->sInstanceMap:Landroid/util/SparseArray;
 
-    goto :goto_0
+    invoke-virtual {v2, v0}, Landroid/util/SparseArray;->indexOfKey(I)I
+
+    move-result v2
+
+    if-ltz v2, :cond_1
+
+    sget-object p0, Lcom/android/settingslib/inputmethod/InputMethodSettingValuesWrapper;->sInstanceMap:Landroid/util/SparseArray;
+
+    invoke-virtual {p0, v0}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Lcom/android/settingslib/inputmethod/InputMethodSettingValuesWrapper;
+
+    monitor-exit v1
+
+    return-object p0
+
+    :cond_1
+    new-instance v0, Lcom/android/settingslib/inputmethod/InputMethodSettingValuesWrapper;
+
+    invoke-direct {v0, p0}, Lcom/android/settingslib/inputmethod/InputMethodSettingValuesWrapper;-><init>(Landroid/content/Context;)V
+
+    sget-object v2, Lcom/android/settingslib/inputmethod/InputMethodSettingValuesWrapper;->sInstanceMap:Landroid/util/SparseArray;
+
+    invoke-virtual {p0}, Landroid/content/Context;->getUserId()I
+
+    move-result p0
+
+    invoke-virtual {v2, p0, v0}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+
+    monitor-exit v1
+
+    return-object v0
 
     :catchall_0
     move-exception p0
 
-    monitor-exit v0
+    monitor-exit v1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw p0
-
-    :cond_1
-    :goto_0
-    sget-object p0, Lcom/android/settingslib/inputmethod/InputMethodSettingValuesWrapper;->sInstance:Lcom/android/settingslib/inputmethod/InputMethodSettingValuesWrapper;
-
-    return-object p0
 .end method
 
 
@@ -347,7 +412,7 @@
 .end method
 
 .method public refreshAllInputMethodAndSubtypes()V
-    .locals 1
+    .locals 3
 
     iget-object v0, p0, Lcom/android/settingslib/inputmethod/InputMethodSettingValuesWrapper;->mMethodList:Ljava/util/ArrayList;
 
@@ -355,9 +420,17 @@
 
     iget-object v0, p0, Lcom/android/settingslib/inputmethod/InputMethodSettingValuesWrapper;->mMethodList:Ljava/util/ArrayList;
 
-    iget-object p0, p0, Lcom/android/settingslib/inputmethod/InputMethodSettingValuesWrapper;->mImm:Landroid/view/inputmethod/InputMethodManager;
+    iget-object v1, p0, Lcom/android/settingslib/inputmethod/InputMethodSettingValuesWrapper;->mImm:Landroid/view/inputmethod/InputMethodManager;
 
-    invoke-virtual {p0}, Landroid/view/inputmethod/InputMethodManager;->getInputMethodList()Ljava/util/List;
+    iget-object p0, p0, Lcom/android/settingslib/inputmethod/InputMethodSettingValuesWrapper;->mContentResolver:Landroid/content/ContentResolver;
+
+    invoke-virtual {p0}, Landroid/content/ContentResolver;->getUserId()I
+
+    move-result p0
+
+    const/4 v2, 0x1
+
+    invoke-virtual {v1, p0, v2}, Landroid/view/inputmethod/InputMethodManager;->getInputMethodListAsUser(II)Ljava/util/List;
 
     move-result-object p0
 

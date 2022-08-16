@@ -35,12 +35,12 @@
 
     if-eqz p1, :cond_0
 
-    const p1, 0x7f040270
+    const p1, 0x7f0402a3
 
     goto :goto_0
 
     :cond_0
-    const p1, 0x7f040271
+    const p1, 0x7f0402a4
 
     :goto_0
     invoke-virtual {p0, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
@@ -250,7 +250,7 @@
     return-void
 
     :cond_0
-    const p1, 0x7f150069
+    const p1, 0x7f15006d
 
     invoke-virtual {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->addPreferencesFromResource(I)V
 
@@ -276,7 +276,7 @@
 
     if-nez v0, :cond_0
 
-    const p0, 0x7f060121
+    const p0, 0x7f06012a
 
     const/4 p2, 0x0
 

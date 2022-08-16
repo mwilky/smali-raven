@@ -25,9 +25,6 @@
 .method public abstract getTitle()Ljava/lang/CharSequence;
 .end method
 
-.method public abstract getViewGroup()Landroid/view/ViewGroup;
-.end method
-
 .method public abstract hasExpandedActionView()Z
 .end method
 

@@ -1,11 +1,11 @@
 .class Lcom/android/settings/accessibility/ToggleReduceBrightColorsPreferenceFragment$1;
-.super Lcom/android/settings/accessibility/SettingsContentObserver;
+.super Lcom/android/settings/search/BaseSearchIndexProvider;
 .source "ToggleReduceBrightColorsPreferenceFragment.java"
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/settings/accessibility/ToggleReduceBrightColorsPreferenceFragment;->onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/settings/accessibility/ToggleReduceBrightColorsPreferenceFragment;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -14,29 +14,23 @@
 .end annotation
 
 
-# instance fields
-.field final synthetic this$0:Lcom/android/settings/accessibility/ToggleReduceBrightColorsPreferenceFragment;
-
-
 # direct methods
-.method constructor <init>(Lcom/android/settings/accessibility/ToggleReduceBrightColorsPreferenceFragment;Landroid/os/Handler;Ljava/util/List;)V
+.method constructor <init>(I)V
     .locals 0
 
-    iput-object p1, p0, Lcom/android/settings/accessibility/ToggleReduceBrightColorsPreferenceFragment$1;->this$0:Lcom/android/settings/accessibility/ToggleReduceBrightColorsPreferenceFragment;
-
-    invoke-direct {p0, p2, p3}, Lcom/android/settings/accessibility/SettingsContentObserver;-><init>(Landroid/os/Handler;Ljava/util/List;)V
+    invoke-direct {p0, p1}, Lcom/android/settings/search/BaseSearchIndexProvider;-><init>(I)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onChange(ZLandroid/net/Uri;)V
+.method protected isPageSearchEnabled(Landroid/content/Context;)Z
     .locals 0
 
-    iget-object p0, p0, Lcom/android/settings/accessibility/ToggleReduceBrightColorsPreferenceFragment$1;->this$0:Lcom/android/settings/accessibility/ToggleReduceBrightColorsPreferenceFragment;
+    invoke-static {p1}, Landroid/hardware/display/ColorDisplayManager;->isReduceBrightColorsAvailable(Landroid/content/Context;)Z
 
-    invoke-virtual {p0}, Lcom/android/settings/accessibility/ToggleReduceBrightColorsPreferenceFragment;->updateSwitchBarToggleSwitch()V
+    move-result p0
 
-    return-void
+    return p0
 .end method

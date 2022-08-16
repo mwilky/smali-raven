@@ -36,7 +36,7 @@
 
     iget-object p0, p0, Lcom/android/settings/connecteddevice/AddDevicePreferenceController$1;->this$0:Lcom/android/settings/connecteddevice/AddDevicePreferenceController;
 
-    invoke-static {p0}, Lcom/android/settings/connecteddevice/AddDevicePreferenceController;->access$000(Lcom/android/settings/connecteddevice/AddDevicePreferenceController;)Landroidx/preference/Preference;
+    invoke-static {p0}, Lcom/android/settings/connecteddevice/AddDevicePreferenceController;->-$$Nest$fgetmPreference(Lcom/android/settings/connecteddevice/AddDevicePreferenceController;)Landroidx/preference/Preference;
 
     move-result-object p1
 

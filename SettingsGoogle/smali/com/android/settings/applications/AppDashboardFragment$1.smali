@@ -38,7 +38,7 @@
         }
     .end annotation
 
-    invoke-static {p1}, Lcom/android/settings/applications/AppDashboardFragment;->access$000(Landroid/content/Context;)Ljava/util/List;
+    invoke-static {p1}, Lcom/android/settings/applications/AppDashboardFragment;->-$$Nest$smbuildPreferenceControllers(Landroid/content/Context;)Ljava/util/List;
 
     move-result-object p0
 
@@ -62,7 +62,7 @@
 
     invoke-direct {p0, p1}, Landroid/provider/SearchIndexableResource;-><init>(Landroid/content/Context;)V
 
-    const p1, 0x7f15002c
+    const p1, 0x7f15002d
 
     iput p1, p0, Landroid/provider/SearchIndexableResource;->xmlResId:I
 

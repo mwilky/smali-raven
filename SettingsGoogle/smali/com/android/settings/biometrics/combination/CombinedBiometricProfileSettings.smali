@@ -13,7 +13,7 @@
 
     new-instance v0, Lcom/android/settings/biometrics/combination/CombinedBiometricSearchIndexProvider;
 
-    const v1, 0x7f1500d5
+    const v1, 0x7f1500da
 
     invoke-direct {v0, v1}, Lcom/android/settings/biometrics/combination/CombinedBiometricSearchIndexProvider;-><init>(I)V
 
@@ -67,7 +67,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f1500d5
+    const p0, 0x7f1500da
 
     return p0
 .end method

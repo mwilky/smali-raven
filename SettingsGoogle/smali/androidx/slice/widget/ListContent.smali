@@ -34,14 +34,6 @@
 # direct methods
 .method public constructor <init>(Landroidx/slice/Slice;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "slice"
-        }
-    .end annotation
 
     invoke-direct {p0, p1}, Landroidx/slice/widget/SliceContent;-><init>(Landroidx/slice/Slice;)V
 
@@ -65,14 +57,6 @@
 
 .method private static findHeaderItem(Landroidx/slice/Slice;)Landroidx/slice/SliceItem;
     .locals 8
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "slice"
-        }
-    .end annotation
 
     const-string v0, "list_item"
 
@@ -88,7 +72,7 @@
 
     const-string v6, "horizontal"
 
-    const-string v7, "selection_option"
+    const-string/jumbo v7, "selection_option"
 
     filled-new-array/range {v0 .. v7}, [Ljava/lang/String;
 
@@ -175,19 +159,6 @@
 
 .method public static getListHeight(Ljava/util/List;Landroidx/slice/widget/SliceStyle;Landroidx/slice/widget/SliceViewPolicy;)I
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "listItems",
-            "style",
-            "policy"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -209,19 +180,6 @@
 
 .method public static getRowType(Landroidx/slice/widget/SliceContent;ZLjava/util/List;)I
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "content",
-            "isHeader",
-            "actions"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -372,16 +330,8 @@
 
 .method private static getSeeMoreItem(Landroidx/slice/Slice;)Landroidx/slice/SliceItem;
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "slice"
-        }
-    .end annotation
 
-    const-string v0, "see_more"
+    const-string/jumbo v0, "see_more"
 
     filled-new-array {v0}, [Ljava/lang/String;
 
@@ -458,14 +408,6 @@
 
 .method private static isValidHeader(Landroidx/slice/SliceItem;)Z
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "sliceItem"
-        }
-    .end annotation
 
     invoke-virtual {p0}, Landroidx/slice/SliceItem;->getFormat()Ljava/lang/String;
 
@@ -485,7 +427,7 @@
 
     const-string v2, "keywords"
 
-    const-string v3, "see_more"
+    const-string/jumbo v3, "see_more"
 
     filled-new-array {v0, v2, v3}, [Ljava/lang/String;
 
@@ -515,14 +457,6 @@
 
 .method private populate(Landroidx/slice/Slice;)V
     .locals 9
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "slice"
-        }
-    .end annotation
 
     if-nez p1, :cond_0
 
@@ -594,7 +528,7 @@
 
     const-string v4, "actions"
 
-    const-string v5, "see_more"
+    const-string/jumbo v5, "see_more"
 
     const-string v6, "keywords"
 
@@ -799,16 +733,6 @@
 
 .method public getHeight(Landroidx/slice/widget/SliceStyle;Landroidx/slice/widget/SliceViewPolicy;)I
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "style",
-            "policy"
-        }
-    .end annotation
 
     invoke-virtual {p1, p0, p2}, Landroidx/slice/widget/SliceStyle;->getListHeight(Landroidx/slice/widget/ListContent;Landroidx/slice/widget/SliceViewPolicy;)I
 
@@ -819,18 +743,6 @@
 
 .method public getRowItems(ILandroidx/slice/widget/SliceStyle;Landroidx/slice/widget/SliceViewPolicy;)Landroidx/slice/widget/DisplayedListItems;
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "availableHeight",
-            "style",
-            "policy"
-        }
-    .end annotation
 
     invoke-virtual {p3}, Landroidx/slice/widget/SliceViewPolicy;->getMode()I
 
@@ -925,14 +837,6 @@
 
 .method public getShortcut(Landroid/content/Context;)Landroidx/slice/core/SliceAction;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "context"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/slice/widget/ListContent;->mPrimaryAction:Landroidx/slice/core/SliceAction;
 
@@ -995,14 +899,6 @@
 
 .method public showActionDividers(Z)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "enabled"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/slice/widget/ListContent;->mRowItems:Ljava/util/ArrayList;
 
@@ -1040,14 +936,6 @@
 
 .method public showHeaderDivider(Z)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "enabled"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/slice/widget/ListContent;->mHeaderContent:Landroidx/slice/widget/RowContent;
 
@@ -1073,14 +961,6 @@
 
 .method public showTitleItems(Z)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "enabled"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/slice/widget/ListContent;->mHeaderContent:Landroidx/slice/widget/RowContent;
 

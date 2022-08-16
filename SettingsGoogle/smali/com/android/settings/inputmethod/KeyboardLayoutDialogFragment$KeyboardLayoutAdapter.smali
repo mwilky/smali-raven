@@ -32,7 +32,7 @@
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
 
-    const v0, 0x1090111
+    const v0, 0x109011d
 
     invoke-direct {p0, p1, v0}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;I)V
 
@@ -107,7 +107,7 @@
     :cond_0
     iget-object p0, p0, Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment$KeyboardLayoutAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const p1, 0x1090111
+    const p1, 0x109011d
 
     const/4 v0, 0x0
 
@@ -136,7 +136,7 @@
 
     check-cast p2, Landroid/widget/TextView;
 
-    const v0, 0x102041e
+    const v0, 0x102044e
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -215,7 +215,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040ace
+    const v1, 0x7f040b2c
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

@@ -233,12 +233,12 @@
         <item quantity="one">%d ਸ਼੍ਰੇਣੀ ਬੰਦ ਹੈ</item>
     </plurals>
     <plurals name="notifications_sent_daily">
-        <item quantity="other">ਹਰ ਰੋਜ਼ ~%d ਸੂਚਨਾਵਾਂ</item>
-        <item quantity="one">ਹਰ ਰੋਜ਼ ~%d ਸੂਚਨਾ</item>
+        <item quantity="other">ਹਰ ਰੋਜ਼ ~%,d ਸੂਚਨਾਵਾਂ</item>
+        <item quantity="one">ਹਰ ਰੋਜ਼ ~%,d ਸੂਚਨਾ</item>
     </plurals>
     <plurals name="notifications_sent_weekly">
-        <item quantity="other">ਹਰ ਹਫ਼ਤੇ ~%d ਸੂਚਨਾਵਾਂ</item>
-        <item quantity="one">ਹਰ ਹਫ਼ਤੇ ~%d ਸੂਚਨਾ</item>
+        <item quantity="other">~ਹਰ ਹਫ਼ਤੇ %,d ਸੂਚਨਾਵਾਂ</item>
+        <item quantity="one">~ਹਰ ਹਫ਼ਤੇ %,d ਸੂਚਨਾ</item>
     </plurals>
     <plurals name="number_of_device_admins">
         <item quantity="other">%d ਕਿਰਿਆਸ਼ੀਲ ਐਪਾਂ</item>
@@ -328,22 +328,6 @@
         <item quantity="other">"ਪ੍ਰਮਾਣ-ਪੱਤਰਾਂ 'ਤੇ ਭਰੋਸਾ ਕਰੋ ਜਾਂ ਹਟਾਓ"</item>
         <item quantity="one">"ਪ੍ਰਮਾਣ-ਪੱਤਰਾਂ 'ਤੇ ਭਰੋਸਾ ਕਰੋ ਜਾਂ ਹਟਾਓ"</item>
     </plurals>
-    <plurals name="ssl_ca_cert_info_message">
-        <item quantity="other">"%s ਨੇ ਤੁਹਾਡੀ ਕੰਮ ਪ੍ਰੋਫਾਈਲ ਲਈ ਪ੍ਰਮਾਣ-ਪੱਤਰ ਅਥਾਰਿਟੀਆਂ ਨੂੰ ਸਥਾਪਤ ਕੀਤਾ ਹੈ, ਜੋ ਉਹਨਾਂ ਨੂੰ ਈਮੇਲਾਂ, ਐਪਾਂ, ਅਤੇ ਸੁਰੱਖਿਅਤ ਵੈੱਬਸਾਈਟਾਂ ਸਮੇਤ ਕੰਮ ਨੈੱਟਵਰਕ ਸਰਗਰਮੀ ਦੀ ਨਿਗਰਾਨੀ ਕਰਨ ਦੇ ਸਕਦੀਆਂ ਹਨ।
-
-ਇਹਨਾਂ ਪ੍ਰਮਾਣ-ਪੱਤਰਾਂ ਬਾਰੇ ਹੋਰ ਜਾਣਕਾਰੀ ਲਈ, ਆਪਣੇ ਪ੍ਰਸ਼ਾਸਕ ਨੂੰ ਸੰਪਰਕ ਕਰੋ।"</item>
-        <item quantity="one">"%s ਨੇ ਤੁਹਾਡੀ ਕੰਮ ਪ੍ਰੋਫਾਈਲ ਲਈ ਪ੍ਰਮਾਣ-ਪੱਤਰ ਅਥਾਰਿਟੀਆਂ ਨੂੰ ਸਥਾਪਤ ਕੀਤਾ ਹੈ, ਜੋ ਉਹਨਾਂ ਨੂੰ ਈਮੇਲਾਂ, ਐਪਾਂ, ਅਤੇ ਸੁਰੱਖਿਅਤ ਵੈੱਬਸਾਈਟਾਂ ਸਮੇਤ ਕੰਮ ਨੈੱਟਵਰਕ ਸਰਗਰਮੀ ਦੀ ਨਿਗਰਾਨੀ ਕਰਨ ਦੇ ਸਕਦੀਆਂ ਹਨ।
-
-ਇਹਨਾਂ ਪ੍ਰਮਾਣ-ਪੱਤਰਾਂ ਬਾਰੇ ਹੋਰ ਜਾਣਕਾਰੀ ਲਈ, ਆਪਣੇ ਪ੍ਰਸ਼ਾਸਕ ਨੂੰ ਸੰਪਰਕ ਕਰੋ।"</item>
-    </plurals>
-    <plurals name="ssl_ca_cert_info_message_device_owner">
-        <item quantity="other">"%s ਨੇ ਤੁਹਾਡੇ ਡੀਵਾਈਸ 'ਤੇ ਪ੍ਰਮਾਣ-ਪੱਤਰ ਅਥਾਰਿਟੀਆਂ ਸਥਾਪਤ ਕੀਤੀਆਂ ਹਨ, ਜੋ ਉਹਨਾਂ ਨੂੰ ਈਮੇਲਾਂ, ਐਪਾਂ, ਅਤੇ ਸੁਰੱਖਿਅਤ ਵੈੱਬਸਾਈਟਾਂ ਸਮੇਤ ਤੁਹਾਡੀ ਡੀਵਾਈਸ ਨੈੱਟਰਵਕ ਸਰਗਰਮੀ ਦੀ ਨਿਗਰਾਨੀ ਕਰਨ ਦੇ ਸਕਦੀਆਂ ਹਨ।
-
-ਇਹਨਾਂ ਪ੍ਰਮਾਣ-ਪੱਤਰਾਂ ਬਾਰੇ ਹੋਰ ਜਾਣਕਾਰੀ ਲਈ, ਆਪਣੇ ਪ੍ਰਸ਼ਾਸਕ ਨੂੰ ਸੰਪਰਕ ਕਰੋ।"</item>
-        <item quantity="one">"%s ਨੇ ਤੁਹਾਡੇ ਡੀਵਾਈਸ 'ਤੇ ਪ੍ਰਮਾਣ-ਪੱਤਰ ਅਥਾਰਿਟੀਆਂ ਸਥਾਪਤ ਕੀਤੀਆਂ ਹਨ, ਜੋ ਉਹਨਾਂ ਨੂੰ ਈਮੇਲਾਂ, ਐਪਾਂ, ਅਤੇ ਸੁਰੱਖਿਅਤ ਵੈੱਬਸਾਈਟਾਂ ਸਮੇਤ ਤੁਹਾਡੀ ਡੀਵਾਈਸ ਨੈੱਟਰਵਕ ਸਰਗਰਮੀ ਦੀ ਨਿਗਰਾਨੀ ਕਰਨ ਦੇ ਸਕਦੀਆਂ ਹਨ।
-
-ਇਹਨਾਂ ਪ੍ਰਮਾਣ-ਪੱਤਰਾਂ ਬਾਰੇ ਹੋਰ ਜਾਣਕਾਰੀ ਲਈ, ਆਪਣੇ ਪ੍ਰਸ਼ਾਸਕ ਨੂੰ ਸੰਪਰਕ ਕਰੋ।"</item>
-    </plurals>
     <plurals name="ssl_ca_cert_settings_button">
         <item quantity="other">ਪ੍ਰਮਾਣ-ਪੱਤਰਾਂ ਦੀ ਜਾਂਚ ਕਰੋ</item>
         <item quantity="one">ਪ੍ਰਮਾਣ-ਪੱਤਰਾਂ ਦੀ ਜਾਂਚ ਕਰੋ</item>
@@ -375,10 +359,6 @@
     <plurals name="wifi_saved_passpoint_access_points_summary">
         <item quantity="other">%d ਗਾਹਕੀਆਂ</item>
         <item quantity="one">%d ਗਾਹਕੀ</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$d ਡੀਵਾਈਸ ਕਨੈਕਟ ਕੀਤੇ ਗਏ</item>
-        <item quantity="one">%1$d ਡੀਵਾਈਸ ਕਨੈਕਟ ਕੀਤਾ ਗਿਆ</item>
     </plurals>
     <plurals name="wrong_pin_code">
         <item quantity="other">ਗਲਤ ਸਿਮ ਪਿੰਨ ਕੋਡ, ਤੁਹਾਡੇ ਕੋਲ %d ਕੋਸ਼ਿਸ਼ ਬਾਕੀ ਹੈ।</item>

@@ -6,10 +6,6 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroidx/appcompat/widget/ResourceManagerInternal$DrawableDelegate;,
-        Landroidx/appcompat/widget/ResourceManagerInternal$AsldcInflateDelegate;,
-        Landroidx/appcompat/widget/ResourceManagerInternal$AvdcInflateDelegate;,
-        Landroidx/appcompat/widget/ResourceManagerInternal$VdcInflateDelegate;,
         Landroidx/appcompat/widget/ResourceManagerInternal$ColorFilterLruCache;,
         Landroidx/appcompat/widget/ResourceManagerInternal$InflateDelegate;,
         Landroidx/appcompat/widget/ResourceManagerInternal$ResourceManagerHooks;
@@ -110,27 +106,6 @@
     invoke-direct {v0, v1}, Ljava/util/WeakHashMap;-><init>(I)V
 
     iput-object v0, p0, Landroidx/appcompat/widget/ResourceManagerInternal;->mDrawableCaches:Ljava/util/WeakHashMap;
-
-    return-void
-.end method
-
-.method private addDelegate(Ljava/lang/String;Landroidx/appcompat/widget/ResourceManagerInternal$InflateDelegate;)V
-    .locals 1
-
-    iget-object v0, p0, Landroidx/appcompat/widget/ResourceManagerInternal;->mDelegates:Landroidx/collection/SimpleArrayMap;
-
-    if-nez v0, :cond_0
-
-    new-instance v0, Landroidx/collection/SimpleArrayMap;
-
-    invoke-direct {v0}, Landroidx/collection/SimpleArrayMap;-><init>()V
-
-    iput-object v0, p0, Landroidx/appcompat/widget/ResourceManagerInternal;->mDelegates:Landroidx/collection/SimpleArrayMap;
-
-    :cond_0
-    iget-object p0, p0, Landroidx/appcompat/widget/ResourceManagerInternal;->mDelegates:Landroidx/collection/SimpleArrayMap;
-
-    invoke-virtual {p0, p1, p2}, Landroidx/collection/SimpleArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     return-void
 .end method
@@ -568,47 +543,8 @@
 .end method
 
 .method private static installDefaultInflateDelegates(Landroidx/appcompat/widget/ResourceManagerInternal;)V
-    .locals 2
+    .locals 0
 
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x18
-
-    if-ge v0, v1, :cond_0
-
-    new-instance v0, Landroidx/appcompat/widget/ResourceManagerInternal$VdcInflateDelegate;
-
-    invoke-direct {v0}, Landroidx/appcompat/widget/ResourceManagerInternal$VdcInflateDelegate;-><init>()V
-
-    const-string/jumbo v1, "vector"
-
-    invoke-direct {p0, v1, v0}, Landroidx/appcompat/widget/ResourceManagerInternal;->addDelegate(Ljava/lang/String;Landroidx/appcompat/widget/ResourceManagerInternal$InflateDelegate;)V
-
-    new-instance v0, Landroidx/appcompat/widget/ResourceManagerInternal$AvdcInflateDelegate;
-
-    invoke-direct {v0}, Landroidx/appcompat/widget/ResourceManagerInternal$AvdcInflateDelegate;-><init>()V
-
-    const-string v1, "animated-vector"
-
-    invoke-direct {p0, v1, v0}, Landroidx/appcompat/widget/ResourceManagerInternal;->addDelegate(Ljava/lang/String;Landroidx/appcompat/widget/ResourceManagerInternal$InflateDelegate;)V
-
-    new-instance v0, Landroidx/appcompat/widget/ResourceManagerInternal$AsldcInflateDelegate;
-
-    invoke-direct {v0}, Landroidx/appcompat/widget/ResourceManagerInternal$AsldcInflateDelegate;-><init>()V
-
-    const-string v1, "animated-selector"
-
-    invoke-direct {p0, v1, v0}, Landroidx/appcompat/widget/ResourceManagerInternal;->addDelegate(Ljava/lang/String;Landroidx/appcompat/widget/ResourceManagerInternal$InflateDelegate;)V
-
-    new-instance v0, Landroidx/appcompat/widget/ResourceManagerInternal$DrawableDelegate;
-
-    invoke-direct {v0}, Landroidx/appcompat/widget/ResourceManagerInternal$DrawableDelegate;-><init>()V
-
-    const-string v1, "drawable"
-
-    invoke-direct {p0, v1, v0}, Landroidx/appcompat/widget/ResourceManagerInternal;->addDelegate(Ljava/lang/String;Landroidx/appcompat/widget/ResourceManagerInternal$InflateDelegate;)V
-
-    :cond_0
     return-void
 .end method
 
@@ -988,15 +924,6 @@
     invoke-virtual {p0, p1}, Landroid/graphics/drawable/Drawable;->setColorFilter(Landroid/graphics/ColorFilter;)V
 
     :goto_3
-    sget p1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 p2, 0x17
-
-    if-gt p1, p2, :cond_5
-
-    invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->invalidateSelf()V
-
-    :cond_5
     return-void
 .end method
 
@@ -1190,7 +1117,7 @@
 
     if-nez v0, :cond_0
 
-    invoke-virtual {p2, p3}, Landroidx/appcompat/widget/VectorEnabledTintResources;->superGetDrawable(I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {p2, p3}, Landroidx/appcompat/widget/ResourcesWrapper;->getDrawableCanonical(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 

@@ -47,7 +47,7 @@
 
     iget-object p0, p0, Lcom/android/settings/deviceinfo/PublicVolumeSettings$1;->this$0:Lcom/android/settings/deviceinfo/PublicVolumeSettings;
 
-    invoke-static {p0}, Lcom/android/settings/deviceinfo/PublicVolumeSettings;->access$000(Lcom/android/settings/deviceinfo/PublicVolumeSettings;)Landroid/os/storage/VolumeInfo;
+    invoke-static {p0}, Lcom/android/settings/deviceinfo/PublicVolumeSettings;->-$$Nest$fgetmVolume(Lcom/android/settings/deviceinfo/PublicVolumeSettings;)Landroid/os/storage/VolumeInfo;
 
     move-result-object p0
 

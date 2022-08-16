@@ -12,11 +12,7 @@
 # instance fields
 .field private final mFilter:Landroid/content/IntentFilter;
 
-.field private final mLocationFilter:Landroid/content/IntentFilter;
-
-.field private final mLocationManager:Landroid/location/LocationManager;
-
-.field final mLocationReceiver:Landroid/content/BroadcastReceiver;
+.field mIsWifiDirectAllow:Z
 
 .field final mReceiver:Landroid/content/BroadcastReceiver;
 
@@ -26,6 +22,14 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$mtogglePreferences(Lcom/android/settings/wifi/p2p/WifiP2pPreferenceController;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/wifi/p2p/WifiP2pPreferenceController;->togglePreferences()V
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;Landroid/net/wifi/WifiManager;)V
     .locals 2
 
@@ -45,73 +49,31 @@
 
     iput-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pPreferenceController;->mFilter:Landroid/content/IntentFilter;
 
-    new-instance v0, Lcom/android/settings/wifi/p2p/WifiP2pPreferenceController$2;
-
-    invoke-direct {v0, p0}, Lcom/android/settings/wifi/p2p/WifiP2pPreferenceController$2;-><init>(Lcom/android/settings/wifi/p2p/WifiP2pPreferenceController;)V
-
-    iput-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pPreferenceController;->mLocationReceiver:Landroid/content/BroadcastReceiver;
-
-    new-instance v0, Landroid/content/IntentFilter;
-
-    const-string v1, "android.location.MODE_CHANGED"
-
-    invoke-direct {v0, v1}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
-
-    iput-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pPreferenceController;->mLocationFilter:Landroid/content/IntentFilter;
-
     iput-object p3, p0, Lcom/android/settings/wifi/p2p/WifiP2pPreferenceController;->mWifiManager:Landroid/net/wifi/WifiManager;
+
+    invoke-static {p1}, Lcom/android/settingslib/wifi/WifiEnterpriseRestrictionUtils;->isWifiDirectAllowed(Landroid/content/Context;)Z
+
+    move-result p1
+
+    iput-boolean p1, p0, Lcom/android/settings/wifi/p2p/WifiP2pPreferenceController;->mIsWifiDirectAllow:Z
 
     invoke-virtual {p2, p0}, Lcom/android/settingslib/core/lifecycle/Lifecycle;->addObserver(Landroidx/lifecycle/LifecycleObserver;)V
 
-    const-string p2, "location"
-
-    invoke-virtual {p1, p2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Landroid/location/LocationManager;
-
-    iput-object p1, p0, Lcom/android/settings/wifi/p2p/WifiP2pPreferenceController;->mLocationManager:Landroid/location/LocationManager;
-
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/settings/wifi/p2p/WifiP2pPreferenceController;)V
-    .locals 0
+.method private isWifiP2pAvailable()Z
+    .locals 1
 
-    invoke-direct {p0}, Lcom/android/settings/wifi/p2p/WifiP2pPreferenceController;->togglePreferences()V
+    iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pPreferenceController;->mWifiManager:Landroid/net/wifi/WifiManager;
 
-    return-void
-.end method
+    invoke-virtual {v0}, Landroid/net/wifi/WifiManager;->isWifiEnabled()Z
 
-.method static synthetic access$100(Lcom/android/settings/wifi/p2p/WifiP2pPreferenceController;)Landroidx/preference/Preference;
-    .locals 0
+    move-result v0
 
-    iget-object p0, p0, Lcom/android/settings/wifi/p2p/WifiP2pPreferenceController;->mWifiDirectPref:Landroidx/preference/Preference;
+    if-eqz v0, :cond_0
 
-    return-object p0
-.end method
-
-.method private togglePreferences()V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pPreferenceController;->mWifiDirectPref:Landroidx/preference/Preference;
-
-    if-eqz v0, :cond_1
-
-    iget-object v1, p0, Lcom/android/settings/wifi/p2p/WifiP2pPreferenceController;->mWifiManager:Landroid/net/wifi/WifiManager;
-
-    invoke-virtual {v1}, Landroid/net/wifi/WifiManager;->isWifiEnabled()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    iget-object p0, p0, Lcom/android/settings/wifi/p2p/WifiP2pPreferenceController;->mLocationManager:Landroid/location/LocationManager;
-
-    invoke-virtual {p0}, Landroid/location/LocationManager;->isLocationEnabled()Z
-
-    move-result p0
+    iget-boolean p0, p0, Lcom/android/settings/wifi/p2p/WifiP2pPreferenceController;->mIsWifiDirectAllow:Z
 
     if-eqz p0, :cond_0
 
@@ -123,9 +85,23 @@
     const/4 p0, 0x0
 
     :goto_0
+    return p0
+.end method
+
+.method private togglePreferences()V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pPreferenceController;->mWifiDirectPref:Landroidx/preference/Preference;
+
+    if-eqz v0, :cond_0
+
+    invoke-direct {p0}, Lcom/android/settings/wifi/p2p/WifiP2pPreferenceController;->isWifiP2pAvailable()Z
+
+    move-result p0
+
     invoke-virtual {v0, p0}, Landroidx/preference/Preference;->setEnabled(Z)V
 
-    :cond_1
+    :cond_0
     return-void
 .end method
 
@@ -146,6 +122,17 @@
 
     invoke-direct {p0}, Lcom/android/settings/wifi/p2p/WifiP2pPreferenceController;->togglePreferences()V
 
+    iget-boolean p1, p0, Lcom/android/settings/wifi/p2p/WifiP2pPreferenceController;->mIsWifiDirectAllow:Z
+
+    if-nez p1, :cond_0
+
+    iget-object p0, p0, Lcom/android/settings/wifi/p2p/WifiP2pPreferenceController;->mWifiDirectPref:Landroidx/preference/Preference;
+
+    const p1, 0x7f040ec0
+
+    invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setSummary(I)V
+
+    :cond_0
     return-void
 .end method
 
@@ -166,17 +153,11 @@
 .end method
 
 .method public onPause()V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    iget-object v1, p0, Lcom/android/settings/wifi/p2p/WifiP2pPreferenceController;->mReceiver:Landroid/content/BroadcastReceiver;
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
-
-    iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
-
-    iget-object p0, p0, Lcom/android/settings/wifi/p2p/WifiP2pPreferenceController;->mLocationReceiver:Landroid/content/BroadcastReceiver;
+    iget-object p0, p0, Lcom/android/settings/wifi/p2p/WifiP2pPreferenceController;->mReceiver:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {v0, p0}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
@@ -184,21 +165,13 @@
 .end method
 
 .method public onResume()V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
     iget-object v1, p0, Lcom/android/settings/wifi/p2p/WifiP2pPreferenceController;->mReceiver:Landroid/content/BroadcastReceiver;
 
-    iget-object v2, p0, Lcom/android/settings/wifi/p2p/WifiP2pPreferenceController;->mFilter:Landroid/content/IntentFilter;
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
-
-    iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
-
-    iget-object v1, p0, Lcom/android/settings/wifi/p2p/WifiP2pPreferenceController;->mLocationReceiver:Landroid/content/BroadcastReceiver;
-
-    iget-object p0, p0, Lcom/android/settings/wifi/p2p/WifiP2pPreferenceController;->mLocationFilter:Landroid/content/IntentFilter;
+    iget-object p0, p0, Lcom/android/settings/wifi/p2p/WifiP2pPreferenceController;->mFilter:Landroid/content/IntentFilter;
 
     invoke-virtual {v0, v1, p0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
@@ -206,34 +179,14 @@
 .end method
 
 .method public updateState(Landroidx/preference/Preference;)V
-    .locals 1
+    .locals 0
 
     invoke-super {p0, p1}, Lcom/android/settingslib/core/AbstractPreferenceController;->updateState(Landroidx/preference/Preference;)V
 
-    iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pPreferenceController;->mLocationManager:Landroid/location/LocationManager;
-
-    invoke-virtual {v0}, Landroid/location/LocationManager;->isLocationEnabled()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object p0, p0, Lcom/android/settings/wifi/p2p/WifiP2pPreferenceController;->mWifiManager:Landroid/net/wifi/WifiManager;
-
-    invoke-virtual {p0}, Landroid/net/wifi/WifiManager;->isWifiEnabled()Z
+    invoke-direct {p0}, Lcom/android/settings/wifi/p2p/WifiP2pPreferenceController;->isWifiP2pAvailable()Z
 
     move-result p0
 
-    if-eqz p0, :cond_0
-
-    const/4 p0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
     invoke-virtual {p1, p0}, Landroidx/preference/Preference;->setEnabled(Z)V
 
     return-void

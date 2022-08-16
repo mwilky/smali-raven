@@ -29,7 +29,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settings/media/MediaDeviceUpdateWorker;Lcom/android/settings/media/MediaDeviceUpdateWorker$1;)V
+.method synthetic constructor <init>(Lcom/android/settings/media/MediaDeviceUpdateWorker;Lcom/android/settings/media/MediaDeviceUpdateWorker$DevicesChangedBroadcastReceiver-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settings/media/MediaDeviceUpdateWorker$DevicesChangedBroadcastReceiver;-><init>(Lcom/android/settings/media/MediaDeviceUpdateWorker;)V
@@ -66,7 +66,7 @@
 
     iget-object p0, p0, Lcom/android/settings/media/MediaDeviceUpdateWorker$DevicesChangedBroadcastReceiver;->this$0:Lcom/android/settings/media/MediaDeviceUpdateWorker;
 
-    invoke-static {p0}, Lcom/android/settings/media/MediaDeviceUpdateWorker;->access$100(Lcom/android/settings/media/MediaDeviceUpdateWorker;)V
+    invoke-static {p0}, Lcom/android/settings/media/MediaDeviceUpdateWorker;->access$000(Lcom/android/settings/media/MediaDeviceUpdateWorker;)V
 
     :cond_0
     return-void

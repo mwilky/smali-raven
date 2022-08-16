@@ -3,14 +3,6 @@
 .source "AccessibilitySettings.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/android/settings/accessibility/AccessibilitySettings$RestrictedPreferenceHelper;
-    }
-.end annotation
-
-
 # static fields
 .field private static final CATEGORIES:[Ljava/lang/String;
 
@@ -57,7 +49,7 @@
     .end annotation
 .end field
 
-.field final mSettingsContentObserver:Lcom/android/settings/accessibility/SettingsContentObserver;
+.field final mSettingsContentObserver:Lcom/android/settings/accessibility/AccessibilitySettingsContentObserver;
 
 .field private final mSettingsPackageMonitor:Lcom/android/internal/content/PackageMonitor;
 
@@ -65,20 +57,44 @@
 
 
 # direct methods
-.method public static synthetic $r8$lambda$0Nd_YmP6-vZuN23voKRDSpQoTQw(Lcom/android/settings/accessibility/AccessibilitySettings;Ljava/util/List;Landroid/accessibilityservice/AccessibilityServiceInfo;)Z
+.method public static synthetic $r8$lambda$Tzbj37jHkUmMnx2knTszs4t4Z3o(Lcom/android/settings/accessibility/AccessibilitySettings;Ljava/util/List;Landroid/accessibilityservice/AccessibilityServiceInfo;)Z
     .locals 0
 
-    invoke-direct {p0, p1, p2}, Lcom/android/settings/accessibility/AccessibilitySettings;->lambda$getInstalledAccessibilityList$0(Ljava/util/List;Landroid/accessibilityservice/AccessibilityServiceInfo;)Z
+    invoke-direct {p0, p1, p2}, Lcom/android/settings/accessibility/AccessibilitySettings;->lambda$getInstalledAccessibilityList$1(Ljava/util/List;Landroid/accessibilityservice/AccessibilityServiceInfo;)Z
 
     move-result p0
 
     return p0
 .end method
 
+.method public static synthetic $r8$lambda$l2nL1nyiW6d1LZRtKoC9g-yRg-w(Lcom/android/settings/accessibility/AccessibilitySettings;Ljava/lang/String;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/accessibility/AccessibilitySettings;->lambda$new$0(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmHandler(Lcom/android/settings/accessibility/AccessibilitySettings;)Landroid/os/Handler;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/accessibility/AccessibilitySettings;->mHandler:Landroid/os/Handler;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetmUpdateRunnable(Lcom/android/settings/accessibility/AccessibilitySettings;)Ljava/lang/Runnable;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/accessibility/AccessibilitySettings;->mUpdateRunnable:Ljava/lang/Runnable;
+
+    return-object p0
+.end method
+
 .method static constructor <clinit>()V
     .locals 6
 
-    const-string v0, "screen_reader_category"
+    const-string/jumbo v0, "screen_reader_category"
 
     const-string v1, "captions_category"
 
@@ -96,11 +112,11 @@
 
     sput-object v0, Lcom/android/settings/accessibility/AccessibilitySettings;->CATEGORIES:[Ljava/lang/String;
 
-    new-instance v0, Lcom/android/settings/accessibility/AccessibilitySettings$4;
+    new-instance v0, Lcom/android/settings/accessibility/AccessibilitySettings$3;
 
-    const v1, 0x7f15000b
+    const v1, 0x7f15000a
 
-    invoke-direct {v0, v1}, Lcom/android/settings/accessibility/AccessibilitySettings$4;-><init>(I)V
+    invoke-direct {v0, v1}, Lcom/android/settings/accessibility/AccessibilitySettings$3;-><init>(I)V
 
     sput-object v0, Lcom/android/settings/accessibility/AccessibilitySettings;->SEARCH_INDEX_DATA_PROVIDER:Lcom/android/settings/search/BaseSearchIndexProvider;
 
@@ -206,31 +222,21 @@
 
     invoke-interface {v1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    new-instance v0, Lcom/android/settings/accessibility/AccessibilitySettings$3;
+    new-instance v0, Lcom/android/settings/accessibility/AccessibilitySettingsContentObserver;
 
     iget-object v2, p0, Lcom/android/settings/accessibility/AccessibilitySettings;->mHandler:Landroid/os/Handler;
 
-    invoke-direct {v0, p0, v2, v1}, Lcom/android/settings/accessibility/AccessibilitySettings$3;-><init>(Lcom/android/settings/accessibility/AccessibilitySettings;Landroid/os/Handler;Ljava/util/List;)V
+    invoke-direct {v0, v2}, Lcom/android/settings/accessibility/AccessibilitySettingsContentObserver;-><init>(Landroid/os/Handler;)V
 
-    iput-object v0, p0, Lcom/android/settings/accessibility/AccessibilitySettings;->mSettingsContentObserver:Lcom/android/settings/accessibility/SettingsContentObserver;
+    iput-object v0, p0, Lcom/android/settings/accessibility/AccessibilitySettings;->mSettingsContentObserver:Lcom/android/settings/accessibility/AccessibilitySettingsContentObserver;
+
+    new-instance v2, Lcom/android/settings/accessibility/AccessibilitySettings$$ExternalSyntheticLambda0;
+
+    invoke-direct {v2, p0}, Lcom/android/settings/accessibility/AccessibilitySettings$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/accessibility/AccessibilitySettings;)V
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/settings/accessibility/AccessibilitySettingsContentObserver;->registerKeysToObserverCallback(Ljava/util/List;Lcom/android/settings/accessibility/AccessibilitySettingsContentObserver$ContentObserverCallback;)V
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/accessibility/AccessibilitySettings;)Ljava/lang/Runnable;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/accessibility/AccessibilitySettings;->mUpdateRunnable:Ljava/lang/Runnable;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/settings/accessibility/AccessibilitySettings;)Landroid/os/Handler;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/accessibility/AccessibilitySettings;->mHandler:Landroid/os/Handler;
-
-    return-object p0
 .end method
 
 .method private containsTargetNameInList(Ljava/util/List;Landroid/accessibilityservice/AccessibilityServiceInfo;)Z
@@ -335,9 +341,9 @@
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/settings/accessibility/AccessibilitySettings$RestrictedPreferenceHelper;
+    new-instance v1, Lcom/android/settings/accessibility/RestrictedPreferenceHelper;
 
-    invoke-direct {v1, p1}, Lcom/android/settings/accessibility/AccessibilitySettings$RestrictedPreferenceHelper;-><init>(Landroid/content/Context;)V
+    invoke-direct {v1, p1}, Lcom/android/settings/accessibility/RestrictedPreferenceHelper;-><init>(Landroid/content/Context;)V
 
     invoke-static {}, Landroid/os/UserHandle;->myUserId()I
 
@@ -355,17 +361,17 @@
 
     invoke-direct {v2, v0}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
-    new-instance v0, Lcom/android/settings/accessibility/AccessibilitySettings$$ExternalSyntheticLambda0;
+    new-instance v0, Lcom/android/settings/accessibility/AccessibilitySettings$$ExternalSyntheticLambda1;
 
-    invoke-direct {v0, p0, p1}, Lcom/android/settings/accessibility/AccessibilitySettings$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/accessibility/AccessibilitySettings;Ljava/util/List;)V
+    invoke-direct {v0, p0, p1}, Lcom/android/settings/accessibility/AccessibilitySettings$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/accessibility/AccessibilitySettings;Ljava/util/List;)V
 
     invoke-interface {v2, v0}, Ljava/util/List;->removeIf(Ljava/util/function/Predicate;)Z
 
-    invoke-virtual {v1, p1}, Lcom/android/settings/accessibility/AccessibilitySettings$RestrictedPreferenceHelper;->createAccessibilityActivityPreferenceList(Ljava/util/List;)Ljava/util/List;
+    invoke-virtual {v1, p1}, Lcom/android/settings/accessibility/RestrictedPreferenceHelper;->createAccessibilityActivityPreferenceList(Ljava/util/List;)Ljava/util/List;
 
     move-result-object p0
 
-    invoke-virtual {v1, v2}, Lcom/android/settings/accessibility/AccessibilitySettings$RestrictedPreferenceHelper;->createAccessibilityServicePreferenceList(Ljava/util/List;)Ljava/util/List;
+    invoke-virtual {v1, v2}, Lcom/android/settings/accessibility/RestrictedPreferenceHelper;->createAccessibilityServicePreferenceList(Ljava/util/List;)Ljava/util/List;
 
     move-result-object p1
 
@@ -380,7 +386,7 @@
     return-object v0
 .end method
 
-.method static getServiceDescription(Landroid/content/Context;Landroid/accessibilityservice/AccessibilityServiceInfo;Z)Ljava/lang/CharSequence;
+.method public static getServiceDescription(Landroid/content/Context;Landroid/accessibilityservice/AccessibilityServiceInfo;Z)Ljava/lang/CharSequence;
     .locals 0
 
     if-eqz p2, :cond_0
@@ -389,7 +395,7 @@
 
     if-eqz p2, :cond_0
 
-    const p1, 0x7f0400d3
+    const p1, 0x7f0400d4
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -409,7 +415,7 @@
     return-object p0
 .end method
 
-.method static getServiceSummary(Landroid/content/Context;Landroid/accessibilityservice/AccessibilityServiceInfo;Z)Ljava/lang/CharSequence;
+.method public static getServiceSummary(Landroid/content/Context;Landroid/accessibilityservice/AccessibilityServiceInfo;Z)Ljava/lang/CharSequence;
     .locals 4
 
     if-eqz p2, :cond_0
@@ -418,7 +424,7 @@
 
     if-eqz v0, :cond_0
 
-    const p1, 0x7f040147
+    const p1, 0x7f040162
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -473,7 +479,7 @@
     :goto_0
     if-eqz p2, :cond_2
 
-    const p2, 0x7f040144
+    const p2, 0x7f04015f
 
     invoke-virtual {p0, p2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -482,7 +488,7 @@
     goto :goto_1
 
     :cond_2
-    const p2, 0x7f040143
+    const p2, 0x7f04015e
 
     invoke-virtual {p0, p2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -493,7 +499,7 @@
     :cond_3
     if-eqz p2, :cond_4
 
-    const p2, 0x7f040146
+    const p2, 0x7f040161
 
     invoke-virtual {p0, p2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -502,7 +508,7 @@
     goto :goto_1
 
     :cond_4
-    const p2, 0x7f040145
+    const p2, 0x7f040160
 
     invoke-virtual {p0, p2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -517,7 +523,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f040f5b
+    const v0, 0x7f040ff4
 
     const/4 v3, 0x2
 
@@ -624,32 +630,7 @@
     return-void
 .end method
 
-.method static isRampingRingerEnabled(Landroid/content/Context;)Z
-    .locals 2
-
-    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object p0
-
-    const-string v0, "apply_ramping_ringer"
-
-    const/4 v1, 0x0
-
-    invoke-static {p0, v0, v1}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result p0
-
-    const/4 v0, 0x1
-
-    if-ne p0, v0, :cond_0
-
-    move v1, v0
-
-    :cond_0
-    return v1
-.end method
-
-.method private synthetic lambda$getInstalledAccessibilityList$0(Ljava/util/List;Landroid/accessibilityservice/AccessibilityServiceInfo;)Z
+.method private synthetic lambda$getInstalledAccessibilityList$1(Ljava/util/List;Landroid/accessibilityservice/AccessibilityServiceInfo;)Z
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/settings/accessibility/AccessibilitySettings;->containsTargetNameInList(Ljava/util/List;Landroid/accessibilityservice/AccessibilityServiceInfo;)Z
@@ -657,6 +638,14 @@
     move-result p0
 
     return p0
+.end method
+
+.method private synthetic lambda$new$0(Ljava/lang/String;)V
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/settings/accessibility/AccessibilitySettings;->onContentChanged()V
+
+    return-void
 .end method
 
 .method private registerContentMonitors()V
@@ -676,13 +665,13 @@
 
     invoke-virtual {v1, v0, v2, v3}, Lcom/android/internal/content/PackageMonitor;->register(Landroid/content/Context;Landroid/os/Looper;Z)V
 
-    iget-object v0, p0, Lcom/android/settings/accessibility/AccessibilitySettings;->mSettingsContentObserver:Lcom/android/settings/accessibility/SettingsContentObserver;
+    iget-object v0, p0, Lcom/android/settings/accessibility/AccessibilitySettings;->mSettingsContentObserver:Lcom/android/settings/accessibility/AccessibilitySettingsContentObserver;
 
     invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object p0
 
-    invoke-virtual {v0, p0}, Lcom/android/settings/accessibility/SettingsContentObserver;->register(Landroid/content/ContentResolver;)V
+    invoke-virtual {v0, p0}, Lcom/android/settings/accessibility/AccessibilitySettingsContentObserver;->register(Landroid/content/ContentResolver;)V
 
     return-void
 .end method
@@ -694,13 +683,13 @@
 
     invoke-virtual {v0}, Lcom/android/internal/content/PackageMonitor;->unregister()V
 
-    iget-object v0, p0, Lcom/android/settings/accessibility/AccessibilitySettings;->mSettingsContentObserver:Lcom/android/settings/accessibility/SettingsContentObserver;
+    iget-object v0, p0, Lcom/android/settings/accessibility/AccessibilitySettings;->mSettingsContentObserver:Lcom/android/settings/accessibility/AccessibilitySettingsContentObserver;
 
     invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object p0
 
-    invoke-virtual {v0, p0}, Lcom/android/settings/accessibility/SettingsContentObserver;->unregister(Landroid/content/ContentResolver;)V
+    invoke-virtual {v0, p0}, Lcom/android/settings/accessibility/AccessibilitySettingsContentObserver;->unregister(Landroid/content/ContentResolver;)V
 
     return-void
 .end method
@@ -816,7 +805,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f0409f2
+    const p0, 0x7f040a49
 
     return p0
 .end method
@@ -840,7 +829,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f15000b
+    const p0, 0x7f15000a
 
     return p0
 .end method
@@ -907,6 +896,16 @@
     invoke-direct {p0}, Lcom/android/settings/accessibility/AccessibilitySettings;->unregisterContentMonitors()V
 
     invoke-super {p0}, Lcom/android/settingslib/core/lifecycle/ObservablePreferenceFragment;->onDestroy()V
+
+    return-void
+.end method
+
+.method public onResume()V
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/dashboard/DashboardFragment;->onResume()V
+
+    invoke-virtual {p0}, Lcom/android/settings/accessibility/AccessibilitySettings;->updateAllPreferences()V
 
     return-void
 .end method
@@ -1001,31 +1000,31 @@
     goto :goto_0
 
     :cond_0
-    const v0, 0x7f01006c
+    const v0, 0x7f01006e
 
-    const-string v2, "screen_reader_category"
+    const-string/jumbo v2, "screen_reader_category"
 
     invoke-direct {p0, v2, v0}, Lcom/android/settings/accessibility/AccessibilitySettings;->initializePreBundledServicesMapFromArray(Ljava/lang/String;I)V
 
-    const v0, 0x7f010069
+    const v0, 0x7f01006b
 
     const-string v3, "captions_category"
 
     invoke-direct {p0, v3, v0}, Lcom/android/settings/accessibility/AccessibilitySettings;->initializePreBundledServicesMapFromArray(Ljava/lang/String;I)V
 
-    const v0, 0x7f010068
+    const v0, 0x7f01006a
 
     const-string v4, "audio_category"
 
     invoke-direct {p0, v4, v0}, Lcom/android/settings/accessibility/AccessibilitySettings;->initializePreBundledServicesMapFromArray(Ljava/lang/String;I)V
 
-    const v0, 0x7f01006a
+    const v0, 0x7f01006c
 
     const-string v5, "display_category"
 
     invoke-direct {p0, v5, v0}, Lcom/android/settings/accessibility/AccessibilitySettings;->initializePreBundledServicesMapFromArray(Ljava/lang/String;I)V
 
-    const v0, 0x7f01006b
+    const v0, 0x7f01006d
 
     const-string v6, "interaction_control_category"
 
@@ -1107,23 +1106,23 @@
     goto :goto_1
 
     :cond_2
-    const v0, 0x7f010066
+    const v0, 0x7f010068
 
     invoke-direct {p0, v2, v0}, Lcom/android/settings/accessibility/AccessibilitySettings;->updateCategoryOrderFromArray(Ljava/lang/String;I)V
 
-    const v0, 0x7f010063
+    const v0, 0x7f010065
 
     invoke-direct {p0, v3, v0}, Lcom/android/settings/accessibility/AccessibilitySettings;->updateCategoryOrderFromArray(Ljava/lang/String;I)V
 
-    const v0, 0x7f010062
+    const v0, 0x7f010064
 
     invoke-direct {p0, v4, v0}, Lcom/android/settings/accessibility/AccessibilitySettings;->updateCategoryOrderFromArray(Ljava/lang/String;I)V
 
-    const v0, 0x7f010065
+    const v0, 0x7f010067
 
     invoke-direct {p0, v6, v0}, Lcom/android/settings/accessibility/AccessibilitySettings;->updateCategoryOrderFromArray(Ljava/lang/String;I)V
 
-    const v0, 0x7f010064
+    const v0, 0x7f010066
 
     invoke-direct {p0, v5, v0}, Lcom/android/settings/accessibility/AccessibilitySettings;->updateCategoryOrderFromArray(Ljava/lang/String;I)V
 

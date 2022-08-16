@@ -33,7 +33,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f1500c0
+    const p0, 0x7f1500c2
 
     return p0
 .end method
@@ -102,7 +102,7 @@
 
     if-nez v0, :cond_1
 
-    const v0, 0x7f040f9a
+    const v0, 0x7f041033
 
     invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -123,7 +123,7 @@
 
     const/4 p2, 0x2
 
-    const v0, 0x7f040fab
+    const v0, 0x7f041044
 
     invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 

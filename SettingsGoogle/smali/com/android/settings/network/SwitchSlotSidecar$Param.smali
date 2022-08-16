@@ -17,6 +17,10 @@
 # instance fields
 .field command:I
 
+.field port:I
+
+.field removedSubInfo:Landroid/telephony/SubscriptionInfo;
+
 .field slotId:I
 
 

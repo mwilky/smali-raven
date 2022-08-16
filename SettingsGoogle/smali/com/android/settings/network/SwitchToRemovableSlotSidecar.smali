@@ -2,14 +2,11 @@
 .super Lcom/android/settings/network/telephony/EuiccOperationSidecar;
 .source "SwitchToRemovableSlotSidecar.java"
 
-# interfaces
-.implements Lcom/android/settings/SidecarFragment$Listener;
-
 
 # instance fields
 .field private mPhysicalSlotId:I
 
-.field private mSwitchSlotSidecar:Lcom/android/settings/network/SwitchSlotSidecar;
+.field private mRemovedSubInfo:Landroid/telephony/SubscriptionInfo;
 
 .field private mSwitchToSubscriptionSidecar:Lcom/android/settings/network/SwitchToEuiccSubscriptionSidecar;
 
@@ -28,7 +25,7 @@
 
     const-class v0, Lcom/android/settings/network/SwitchToRemovableSlotSidecar;
 
-    const-string v1, "DisableSubscriptionAndSwitchSlotSidecar"
+    const-string v1, "SwitchRemovableSidecar"
 
     const/4 v2, 0x0
 
@@ -44,7 +41,7 @@
 .method private onSwitchSlotSidecarStateChange()V
     .locals 4
 
-    iget-object v0, p0, Lcom/android/settings/network/SwitchToRemovableSlotSidecar;->mSwitchSlotSidecar:Lcom/android/settings/network/SwitchSlotSidecar;
+    iget-object v0, p0, Lcom/android/settings/network/telephony/EuiccOperationSidecar;->mSwitchSlotSidecar:Lcom/android/settings/network/SwitchSlotSidecar;
 
     invoke-virtual {v0}, Lcom/android/settings/SidecarFragment;->getState()I
 
@@ -52,7 +49,7 @@
 
     const/4 v1, 0x0
 
-    const-string v2, "DisableSubscriptionAndSwitchSlotSidecar"
+    const-string v2, "SwitchRemovableSidecar"
 
     const/4 v3, 0x2
 
@@ -65,7 +62,7 @@
     goto :goto_0
 
     :cond_0
-    iget-object v0, p0, Lcom/android/settings/network/SwitchToRemovableSlotSidecar;->mSwitchSlotSidecar:Lcom/android/settings/network/SwitchSlotSidecar;
+    iget-object v0, p0, Lcom/android/settings/network/telephony/EuiccOperationSidecar;->mSwitchSlotSidecar:Lcom/android/settings/network/SwitchSlotSidecar;
 
     invoke-virtual {v0}, Lcom/android/settings/SidecarFragment;->reset()V
 
@@ -78,7 +75,7 @@
     goto :goto_0
 
     :cond_1
-    iget-object v0, p0, Lcom/android/settings/network/SwitchToRemovableSlotSidecar;->mSwitchSlotSidecar:Lcom/android/settings/network/SwitchSlotSidecar;
+    iget-object v0, p0, Lcom/android/settings/network/telephony/EuiccOperationSidecar;->mSwitchSlotSidecar:Lcom/android/settings/network/SwitchSlotSidecar;
 
     invoke-virtual {v0}, Lcom/android/settings/SidecarFragment;->reset()V
 
@@ -103,7 +100,7 @@
 
     const/4 v1, 0x2
 
-    const-string v2, "DisableSubscriptionAndSwitchSlotSidecar"
+    const-string v2, "SwitchRemovableSidecar"
 
     if-eq v0, v1, :cond_1
 
@@ -137,11 +134,13 @@
 
     invoke-static {v2, v0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v0, p0, Lcom/android/settings/network/SwitchToRemovableSlotSidecar;->mSwitchSlotSidecar:Lcom/android/settings/network/SwitchSlotSidecar;
+    iget-object v0, p0, Lcom/android/settings/network/telephony/EuiccOperationSidecar;->mSwitchSlotSidecar:Lcom/android/settings/network/SwitchSlotSidecar;
 
-    iget p0, p0, Lcom/android/settings/network/SwitchToRemovableSlotSidecar;->mPhysicalSlotId:I
+    iget v1, p0, Lcom/android/settings/network/SwitchToRemovableSlotSidecar;->mPhysicalSlotId:I
 
-    invoke-virtual {v0, p0}, Lcom/android/settings/network/SwitchSlotSidecar;->runSwitchToRemovableSlot(I)V
+    iget-object p0, p0, Lcom/android/settings/network/SwitchToRemovableSlotSidecar;->mRemovedSubInfo:Landroid/telephony/SubscriptionInfo;
+
+    invoke-virtual {v0, v1, p0}, Lcom/android/settings/network/SwitchSlotSidecar;->runSwitchToRemovableSlot(ILandroid/telephony/SubscriptionInfo;)V
 
     :goto_0
     return-void
@@ -172,16 +171,6 @@
 
     iput-object p1, p0, Lcom/android/settings/network/SwitchToRemovableSlotSidecar;->mSwitchToSubscriptionSidecar:Lcom/android/settings/network/SwitchToEuiccSubscriptionSidecar;
 
-    invoke-virtual {p0}, Landroid/app/Fragment;->getChildFragmentManager()Landroid/app/FragmentManager;
-
-    move-result-object p1
-
-    invoke-static {p1}, Lcom/android/settings/network/SwitchSlotSidecar;->get(Landroid/app/FragmentManager;)Lcom/android/settings/network/SwitchSlotSidecar;
-
-    move-result-object p1
-
-    iput-object p1, p0, Lcom/android/settings/network/SwitchToRemovableSlotSidecar;->mSwitchSlotSidecar:Lcom/android/settings/network/SwitchSlotSidecar;
-
     return-void
 .end method
 
@@ -192,11 +181,7 @@
 
     invoke-virtual {v0, p0}, Lcom/android/settings/SidecarFragment;->removeListener(Lcom/android/settings/SidecarFragment$Listener;)Z
 
-    iget-object v0, p0, Lcom/android/settings/network/SwitchToRemovableSlotSidecar;->mSwitchSlotSidecar:Lcom/android/settings/network/SwitchSlotSidecar;
-
-    invoke-virtual {v0, p0}, Lcom/android/settings/SidecarFragment;->removeListener(Lcom/android/settings/SidecarFragment$Listener;)Z
-
-    invoke-super {p0}, Landroid/app/Fragment;->onPause()V
+    invoke-super {p0}, Lcom/android/settings/network/telephony/EuiccOperationSidecar;->onPause()V
 
     return-void
 .end method
@@ -204,13 +189,9 @@
 .method public onResume()V
     .locals 1
 
-    invoke-super {p0}, Landroid/app/Fragment;->onResume()V
+    invoke-super {p0}, Lcom/android/settings/network/telephony/EuiccOperationSidecar;->onResume()V
 
     iget-object v0, p0, Lcom/android/settings/network/SwitchToRemovableSlotSidecar;->mSwitchToSubscriptionSidecar:Lcom/android/settings/network/SwitchToEuiccSubscriptionSidecar;
-
-    invoke-virtual {v0, p0}, Lcom/android/settings/SidecarFragment;->addListener(Lcom/android/settings/SidecarFragment$Listener;)V
-
-    iget-object v0, p0, Lcom/android/settings/network/SwitchToRemovableSlotSidecar;->mSwitchSlotSidecar:Lcom/android/settings/network/SwitchSlotSidecar;
 
     invoke-virtual {v0, p0}, Lcom/android/settings/SidecarFragment;->addListener(Lcom/android/settings/SidecarFragment$Listener;)V
 
@@ -229,7 +210,7 @@
     goto :goto_0
 
     :cond_0
-    iget-object v0, p0, Lcom/android/settings/network/SwitchToRemovableSlotSidecar;->mSwitchSlotSidecar:Lcom/android/settings/network/SwitchSlotSidecar;
+    iget-object v0, p0, Lcom/android/settings/network/telephony/EuiccOperationSidecar;->mSwitchSlotSidecar:Lcom/android/settings/network/SwitchSlotSidecar;
 
     if-ne p1, v0, :cond_1
 
@@ -238,7 +219,7 @@
     goto :goto_0
 
     :cond_1
-    const-string p0, "DisableSubscriptionAndSwitchSlotSidecar"
+    const-string p0, "SwitchRemovableSidecar"
 
     const-string p1, "Received state change from a sidecar not expected."
 
@@ -248,22 +229,38 @@
     return-void
 .end method
 
-.method public run(I)V
-    .locals 1
+.method public run(ILandroid/telephony/SubscriptionInfo;)V
+    .locals 3
 
     iput p1, p0, Lcom/android/settings/network/SwitchToRemovableSlotSidecar;->mPhysicalSlotId:I
+
+    iput-object p2, p0, Lcom/android/settings/network/SwitchToRemovableSlotSidecar;->mRemovedSubInfo:Landroid/telephony/SubscriptionInfo;
 
     invoke-virtual {p0}, Landroid/app/Fragment;->getContext()Landroid/content/Context;
 
     move-result-object p1
 
-    const-class v0, Landroid/telephony/SubscriptionManager;
+    const-class p2, Landroid/telephony/SubscriptionManager;
 
-    invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-virtual {p1, p2}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object p1
 
     check-cast p1, Landroid/telephony/SubscriptionManager;
+
+    iget-object p2, p0, Lcom/android/settings/network/telephony/EuiccOperationSidecar;->mTelephonyManager:Landroid/telephony/TelephonyManager;
+
+    invoke-virtual {p2}, Landroid/telephony/TelephonyManager;->isMultiSimEnabled()Z
+
+    move-result p2
+
+    const/4 v0, 0x0
+
+    const/4 v1, -0x1
+
+    const-string v2, "SwitchRemovableSidecar"
+
+    if-nez p2, :cond_0
 
     invoke-static {p1}, Lcom/android/settings/network/SubscriptionUtil;->getActiveSubscriptions(Landroid/telephony/SubscriptionManager;)Ljava/util/List;
 
@@ -273,38 +270,63 @@
 
     move-result-object p1
 
-    sget-object v0, Lcom/android/settings/network/SwitchToRemovableSlotSidecar$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/settings/network/SwitchToRemovableSlotSidecar$$ExternalSyntheticLambda0;
+    new-instance p2, Lcom/android/settings/network/SwitchToRemovableSlotSidecar$$ExternalSyntheticLambda0;
 
-    invoke-interface {p1, v0}, Ljava/util/stream/Stream;->anyMatch(Ljava/util/function/Predicate;)Z
+    invoke-direct {p2}, Lcom/android/settings/network/SwitchToRemovableSlotSidecar$$ExternalSyntheticLambda0;-><init>()V
+
+    invoke-interface {p1, p2}, Ljava/util/stream/Stream;->anyMatch(Ljava/util/function/Predicate;)Z
 
     move-result p1
-
-    const-string v0, "DisableSubscriptionAndSwitchSlotSidecar"
 
     if-eqz p1, :cond_0
 
     const-string p1, "There is an active eSIM profile. Disable the profile first."
 
-    invoke-static {v0, p1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, p1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object p0, p0, Lcom/android/settings/network/SwitchToRemovableSlotSidecar;->mSwitchToSubscriptionSidecar:Lcom/android/settings/network/SwitchToEuiccSubscriptionSidecar;
 
-    const/4 p1, -0x1
+    const/4 p1, 0x0
 
-    invoke-virtual {p0, p1}, Lcom/android/settings/network/SwitchToEuiccSubscriptionSidecar;->run(I)V
+    invoke-virtual {p0, v1, p1, v0}, Lcom/android/settings/network/SwitchToEuiccSubscriptionSidecar;->run(IILandroid/telephony/SubscriptionInfo;)V
 
     goto :goto_0
 
     :cond_0
-    const-string p1, "There is no active eSIM profiles. Start to switch to removable slot."
+    iget-object p1, p0, Lcom/android/settings/network/telephony/EuiccOperationSidecar;->mTelephonyManager:Landroid/telephony/TelephonyManager;
 
-    invoke-static {v0, p1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {p1}, Landroid/telephony/TelephonyManager;->isMultiSimEnabled()Z
 
-    iget-object p1, p0, Lcom/android/settings/network/SwitchToRemovableSlotSidecar;->mSwitchSlotSidecar:Lcom/android/settings/network/SwitchSlotSidecar;
+    move-result p1
 
-    iget p0, p0, Lcom/android/settings/network/SwitchToRemovableSlotSidecar;->mPhysicalSlotId:I
+    if-eqz p1, :cond_1
 
-    invoke-virtual {p1, p0}, Lcom/android/settings/network/SwitchSlotSidecar;->runSwitchToRemovableSlot(I)V
+    iget-object p1, p0, Lcom/android/settings/network/SwitchToRemovableSlotSidecar;->mRemovedSubInfo:Landroid/telephony/SubscriptionInfo;
+
+    if-eqz p1, :cond_1
+
+    iget-object p0, p0, Lcom/android/settings/network/SwitchToRemovableSlotSidecar;->mSwitchToSubscriptionSidecar:Lcom/android/settings/network/SwitchToEuiccSubscriptionSidecar;
+
+    invoke-virtual {p1}, Landroid/telephony/SubscriptionInfo;->getPortIndex()I
+
+    move-result p1
+
+    invoke-virtual {p0, v1, p1, v0}, Lcom/android/settings/network/SwitchToEuiccSubscriptionSidecar;->run(IILandroid/telephony/SubscriptionInfo;)V
+
+    goto :goto_0
+
+    :cond_1
+    const-string p1, "Start to switch to removable slot."
+
+    invoke-static {v2, p1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object p1, p0, Lcom/android/settings/network/telephony/EuiccOperationSidecar;->mSwitchSlotSidecar:Lcom/android/settings/network/SwitchSlotSidecar;
+
+    iget p2, p0, Lcom/android/settings/network/SwitchToRemovableSlotSidecar;->mPhysicalSlotId:I
+
+    iget-object p0, p0, Lcom/android/settings/network/SwitchToRemovableSlotSidecar;->mRemovedSubInfo:Landroid/telephony/SubscriptionInfo;
+
+    invoke-virtual {p1, p2, p0}, Lcom/android/settings/network/SwitchSlotSidecar;->runSwitchToRemovableSlot(ILandroid/telephony/SubscriptionInfo;)V
 
     :goto_0
     return-void

@@ -255,7 +255,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const p1, 0x7f0401c8
+    const p1, 0x7f0401ef
 
     invoke-static {p0, p1, p2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -319,9 +319,9 @@
     const/4 v1, 0x1
 
     :cond_0
-    check-cast p1, Lcom/android/settings/widget/PrimarySwitchPreference;
+    check-cast p1, Lcom/android/settingslib/PrimarySwitchPreference;
 
-    invoke-virtual {p1, v1}, Lcom/android/settings/widget/PrimarySwitchPreference;->setChecked(Z)V
+    invoke-virtual {p1, v1}, Lcom/android/settingslib/PrimarySwitchPreference;->setChecked(Z)V
 
     return-void
 .end method

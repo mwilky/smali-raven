@@ -28,6 +28,30 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$fgetdelegate(Lcom/google/android/setupdesign/template/RequireScrollMixin;)Lcom/google/android/setupdesign/template/RequireScrollMixin$ScrollHandlingDelegate;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/setupdesign/template/RequireScrollMixin;->delegate:Lcom/google/android/setupdesign/template/RequireScrollMixin$ScrollHandlingDelegate;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetlistener(Lcom/google/android/setupdesign/template/RequireScrollMixin;)Lcom/google/android/setupdesign/template/RequireScrollMixin$OnRequireScrollStateChangedListener;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/setupdesign/template/RequireScrollMixin;->listener:Lcom/google/android/setupdesign/template/RequireScrollMixin$OnRequireScrollStateChangedListener;
+
+    return-object p0
+.end method
+
+.method static bridge synthetic -$$Nest$fgetrequiringScrollToBottom(Lcom/google/android/setupdesign/template/RequireScrollMixin;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/google/android/setupdesign/template/RequireScrollMixin;->requiringScrollToBottom:Z
+
+    return p0
+.end method
+
 .method public constructor <init>(Lcom/google/android/setupcompat/internal/TemplateLayout;)V
     .locals 1
 
@@ -50,30 +74,6 @@
     iput-boolean p1, p0, Lcom/google/android/setupdesign/template/RequireScrollMixin;->everScrolledToBottom:Z
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/google/android/setupdesign/template/RequireScrollMixin;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/google/android/setupdesign/template/RequireScrollMixin;->requiringScrollToBottom:Z
-
-    return p0
-.end method
-
-.method static synthetic access$100(Lcom/google/android/setupdesign/template/RequireScrollMixin;)Lcom/google/android/setupdesign/template/RequireScrollMixin$ScrollHandlingDelegate;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/setupdesign/template/RequireScrollMixin;->delegate:Lcom/google/android/setupdesign/template/RequireScrollMixin$ScrollHandlingDelegate;
-
-    return-object p0
-.end method
-
-.method static synthetic access$200(Lcom/google/android/setupdesign/template/RequireScrollMixin;)Lcom/google/android/setupdesign/template/RequireScrollMixin$OnRequireScrollStateChangedListener;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/setupdesign/template/RequireScrollMixin;->listener:Lcom/google/android/setupdesign/template/RequireScrollMixin$OnRequireScrollStateChangedListener;
-
-    return-object p0
 .end method
 
 .method private postScrollStateChange(Z)V

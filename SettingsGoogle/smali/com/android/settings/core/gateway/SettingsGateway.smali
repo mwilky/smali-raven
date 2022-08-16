@@ -13,7 +13,7 @@
 .method static constructor <clinit>()V
     .locals 25
 
-    const/16 v0, 0x95
+    const/16 v0, 0xa0
 
     new-array v0, v0, [Ljava/lang/String;
 
@@ -347,7 +347,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/location/LocationServices;
+    const-class v1, Lcom/android/settings/privacy/PrivacyControlsFragment;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -357,7 +357,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/security/SecuritySettings;
+    const-class v1, Lcom/android/settings/location/LocationServices;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -367,7 +367,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/applications/UsageAccessDetails;
+    const-class v1, Lcom/android/settings/security/SecuritySettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -377,7 +377,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/backup/PrivacySettings;
+    const-class v1, Lcom/android/settings/security/SecurityAdvancedSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -387,7 +387,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminSettings;
+    const-class v1, Lcom/android/settings/applications/UsageAccessDetails;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -397,7 +397,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/accessibility/AccessibilityDetailsSettingsFragment;
+    const-class v1, Lcom/android/settings/backup/PrivacySettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -407,7 +407,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/accessibility/AccessibilitySettings;
+    const-class v1, Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -417,7 +417,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/accessibility/AccessibilitySettingsForSetupWizard;
+    const-class v1, Lcom/android/settings/accessibility/AccessibilityDetailsSettingsFragment;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -427,7 +427,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/accessibility/CaptionPropertiesFragment;
+    const-class v1, Lcom/android/settings/accessibility/AccessibilitySettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -437,7 +437,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/accessibility/ToggleDaltonizerPreferenceFragment;
+    const-class v1, Lcom/android/settings/accessibility/AccessibilitySettingsForSetupWizard;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -447,7 +447,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/accessibility/ToggleColorInversionPreferenceFragment;
+    const-class v1, Lcom/android/settings/accessibility/TextReadingPreferenceFragmentForSetupWizard;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -457,7 +457,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/accessibility/ToggleReduceBrightColorsPreferenceFragment;
+    const-class v1, Lcom/android/settings/accessibility/CaptionPropertiesFragment;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -467,7 +467,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/tts/TextToSpeechSettings;
+    const-class v1, Lcom/android/settings/accessibility/ToggleDaltonizerPreferenceFragment;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -477,7 +477,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/deviceinfo/PrivateVolumeForget;
+    const-class v1, Lcom/android/settings/accessibility/ToggleColorInversionPreferenceFragment;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -487,7 +487,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/deviceinfo/PublicVolumeSettings;
+    const-class v1, Lcom/android/settings/accessibility/ToggleReduceBrightColorsPreferenceFragment;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -497,7 +497,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/development/DevelopmentSettingsDashboardFragment;
+    const-class v1, Lcom/android/settings/tts/TextToSpeechSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -507,7 +507,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/nfc/AndroidBeam;
+    const-class v1, Lcom/android/settings/deviceinfo/PrivateVolumeForget;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -517,7 +517,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/wfd/WifiDisplaySettings;
+    const-class v1, Lcom/android/settings/deviceinfo/PublicVolumeSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -527,7 +527,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/fuelgauge/PowerUsageSummary;
+    const-class v1, Lcom/android/settings/development/DevelopmentSettingsDashboardFragment;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -537,7 +537,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/accounts/AccountSyncSettings;
+    const-class v1, Lcom/android/settings/nfc/AndroidBeam;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -547,7 +547,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/gestures/AssistGestureSettings;
+    const-class v1, Lcom/android/settings/wfd/WifiDisplaySettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -557,7 +557,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/biometrics/face/FaceSettings;
+    const-class v1, Lcom/android/settings/fuelgauge/PowerUsageSummary;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -567,7 +567,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/biometrics/fingerprint/FingerprintSettings$FingerprintSettingsFragment;
+    const-class v1, Lcom/android/settings/accounts/AccountSyncSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -577,7 +577,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/biometrics/combination/CombinedBiometricSettings;
+    const-class v1, Lcom/android/settings/gestures/AssistGestureSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -587,7 +587,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/biometrics/combination/CombinedBiometricProfileSettings;
+    const-class v1, Lcom/android/settings/biometrics/face/FaceSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -597,7 +597,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/gestures/SwipeToNotificationSettings;
+    const-class v1, Lcom/android/settings/biometrics/fingerprint/FingerprintSettings$FingerprintSettingsFragment;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -607,7 +607,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/gestures/DoubleTapPowerSettings;
+    const-class v1, Lcom/android/settings/biometrics/combination/CombinedBiometricSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -617,7 +617,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/gestures/DoubleTapScreenSettings;
+    const-class v1, Lcom/android/settings/biometrics/combination/CombinedBiometricProfileSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -627,7 +627,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/gestures/PickupGestureSettings;
+    const-class v1, Lcom/android/settings/gestures/SwipeToNotificationSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -637,7 +637,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/gestures/DoubleTwistGestureSettings;
+    const-class v1, Lcom/android/settings/gestures/DoubleTapPowerSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -647,7 +647,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/gestures/SystemNavigationGestureSettings;
+    const-class v1, Lcom/android/settings/gestures/DoubleTapScreenSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -657,7 +657,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/security/CryptKeeperSettings;
+    const-class v1, Lcom/android/settings/gestures/PickupGestureSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -667,7 +667,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/datausage/DataUsageSummary;
+    const-class v1, Lcom/android/settings/gestures/DoubleTwistGestureSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -677,7 +677,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/dream/DreamSettings;
+    const-class v1, Lcom/android/settings/gestures/SystemNavigationGestureSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -687,7 +687,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/users/UserSettings;
+    const-class v1, Lcom/android/settings/datausage/DataUsageSummary;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -697,7 +697,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/notification/NotificationAccessSettings;
+    const-class v1, Lcom/android/settings/dream/DreamSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -707,7 +707,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/applications/specialaccess/notificationaccess/NotificationAccessDetails;
+    const-class v1, Lcom/android/settings/users/UserSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -717,7 +717,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/notification/app/AppBubbleNotificationSettings;
+    const-class v1, Lcom/android/settings/notification/NotificationAccessSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -727,7 +727,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/notification/zen/ZenAccessSettings;
+    const-class v1, Lcom/android/settings/applications/specialaccess/notificationaccess/NotificationAccessDetails;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -737,7 +737,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/applications/specialaccess/zenaccess/ZenAccessDetails;
+    const-class v1, Lcom/android/settings/notification/app/AppBubbleNotificationSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -747,7 +747,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/notification/zen/ZenModeAutomationSettings;
+    const-class v1, Lcom/android/settings/notification/zen/ZenAccessSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -757,7 +757,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/print/PrintSettingsFragment;
+    const-class v1, Lcom/android/settings/applications/specialaccess/zenaccess/ZenAccessDetails;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -767,7 +767,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/print/PrintJobSettingsFragment;
+    const-class v1, Lcom/android/settings/notification/zen/ZenModeAutomationSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -777,7 +777,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/TrustedCredentialsSettings;
+    const-class v1, Lcom/android/settings/print/PrintSettingsFragment;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -787,7 +787,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/nfc/PaymentSettings;
+    const-class v1, Lcom/android/settings/print/PrintJobSettingsFragment;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -797,7 +797,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/inputmethod/KeyboardLayoutPickerFragment;
+    const-class v1, Lcom/android/settings/TrustedCredentialsSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -807,7 +807,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/inputmethod/PhysicalKeyboardFragment;
+    const-class v1, Lcom/android/settings/nfc/PaymentSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -817,7 +817,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/notification/zen/ZenModeSettings;
+    const-class v1, Lcom/android/settings/inputmethod/KeyboardLayoutPickerFragment;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -827,7 +827,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/notification/SoundSettings;
+    const-class v1, Lcom/android/settings/inputmethod/PhysicalKeyboardFragment;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -837,7 +837,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/notification/app/ConversationListSettings;
+    const-class v1, Lcom/android/settings/notification/zen/ZenModeSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -847,7 +847,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/notification/ConfigureNotificationSettings;
+    const-class v1, Lcom/android/settings/notification/SoundSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -857,7 +857,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment;
+    const-class v1, Lcom/android/settings/notification/app/ConversationListSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -867,7 +867,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/password/ChooseLockPattern$ChooseLockPatternFragment;
+    const-class v1, Lcom/android/settings/notification/ConfigureNotificationSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -877,7 +877,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment;
+    const-class v1, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -887,7 +887,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/fuelgauge/batterysaver/BatterySaverSettings;
+    const-class v1, Lcom/android/settings/password/ChooseLockPattern$ChooseLockPatternFragment;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -897,7 +897,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/notification/app/AppNotificationSettings;
+    const-class v1, Lcom/android/settings/applications/appinfo/AppInfoDashboardFragment;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -907,7 +907,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/notification/NotificationAssistantPicker;
+    const-class v1, Lcom/android/settings/fuelgauge/batterysaver/BatterySaverSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -917,7 +917,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/notification/app/ChannelNotificationSettings;
+    const-class v1, Lcom/android/settings/notification/app/AppNotificationSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -927,7 +927,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/network/apn/ApnSettings;
+    const-class v1, Lcom/android/settings/notification/NotificationAssistantPicker;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -937,7 +937,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/network/apn/ApnEditor;
+    const-class v1, Lcom/android/settings/notification/app/ChannelNotificationSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -947,7 +947,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/wifi/calling/WifiCallingSettings;
+    const-class v1, Lcom/android/settings/network/apn/ApnSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -957,7 +957,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings;
+    const-class v1, Lcom/android/settings/network/apn/ApnEditor;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -967,7 +967,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/notification/zen/ZenModeEventRuleSettings;
+    const-class v1, Lcom/android/settings/wifi/calling/WifiCallingSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -977,7 +977,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/notification/zen/ZenModeBlockedEffectsSettings;
+    const-class v1, Lcom/android/settings/notification/zen/ZenModeScheduleRuleSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -987,7 +987,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/applications/ProcessStatsUi;
+    const-class v1, Lcom/android/settings/notification/zen/ZenModeEventRuleSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -997,7 +997,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/fuelgauge/AdvancedPowerUsageDetail;
+    const-class v1, Lcom/android/settings/notification/zen/ZenModeBlockedEffectsSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1007,7 +1007,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/applications/ProcessStatsSummary;
+    const-class v1, Lcom/android/settings/applications/ProcessStatsUi;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1017,7 +1017,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/applications/appinfo/DrawOverlayDetails;
+    const-class v1, Lcom/android/settings/fuelgauge/AdvancedPowerUsageDetail;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1027,7 +1027,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/applications/appinfo/WriteSettingsDetails;
+    const-class v1, Lcom/android/settings/applications/ProcessStatsSummary;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1037,7 +1037,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/applications/appinfo/ExternalSourcesDetails;
+    const-class v1, Lcom/android/settings/applications/appinfo/DrawOverlayDetails;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1047,7 +1047,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/applications/appinfo/ManageExternalStorageDetails;
+    const-class v1, Lcom/android/settings/applications/appinfo/WriteSettingsDetails;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1057,7 +1057,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/wallpaper/WallpaperTypeSettings;
+    const-class v1, Lcom/android/settings/applications/appinfo/ExternalSourcesDetails;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1067,7 +1067,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/applications/specialaccess/vrlistener/VrListenerSettings;
+    const-class v1, Lcom/android/settings/applications/appinfo/ManageExternalStorageDetails;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1077,7 +1077,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/applications/specialaccess/pictureinpicture/PictureInPictureSettings;
+    const-class v1, Lcom/android/settings/wallpaper/WallpaperTypeSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1087,7 +1087,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/applications/specialaccess/pictureinpicture/PictureInPictureDetails;
+    const-class v1, Lcom/android/settings/applications/specialaccess/vrlistener/VrListenerSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1097,7 +1097,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/applications/specialaccess/premiumsms/PremiumSmsAccess;
+    const-class v1, Lcom/android/settings/applications/specialaccess/pictureinpicture/PictureInPictureSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1107,7 +1107,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/accounts/ManagedProfileSettings;
+    const-class v1, Lcom/android/settings/applications/specialaccess/pictureinpicture/PictureInPictureDetails;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1117,7 +1117,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/accounts/ChooseAccountFragment;
+    const-class v1, Lcom/android/settings/applications/specialaccess/premiumsms/PremiumSmsAccess;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1127,7 +1127,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/IccLockSettings;
+    const-class v1, Lcom/android/settings/accounts/ManagedProfileSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1137,7 +1137,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/TestingSettings;
+    const-class v1, Lcom/android/settings/accounts/ChooseAccountFragment;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1147,7 +1147,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/wifi/WifiAPITest;
+    const-class v1, Lcom/android/settings/IccLockSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1157,7 +1157,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/wifi/WifiInfo;
+    const-class v1, Lcom/android/settings/TestingSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1167,7 +1167,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/MainClear;
+    const-class v1, Lcom/android/settings/wifi/WifiAPITest;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1177,7 +1177,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/MainClearConfirm;
+    const-class v1, Lcom/android/settings/wifi/WifiInfo;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1187,7 +1187,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/system/ResetDashboardFragment;
+    const-class v1, Lcom/android/settings/MainClear;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1197,7 +1197,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/display/NightDisplaySettings;
+    const-class v1, Lcom/android/settings/MainClearConfirm;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1207,7 +1207,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/applications/managedomainurls/ManageDomainUrls;
+    const-class v1, Lcom/android/settings/system/ResetDashboardFragment;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1217,7 +1217,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/deletionhelper/AutomaticStorageManagerSettings;
+    const-class v1, Lcom/android/settings/display/NightDisplaySettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1227,7 +1227,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/deviceinfo/StorageDashboardFragment;
+    const-class v1, Lcom/android/settings/applications/managedomainurls/ManageDomainUrls;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1237,7 +1237,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/system/SystemDashboardFragment;
+    const-class v1, Lcom/android/settings/deletionhelper/AutomaticStorageManagerSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1247,7 +1247,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/network/NetworkDashboardFragment;
+    const-class v1, Lcom/android/settings/deviceinfo/StorageDashboardFragment;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1257,7 +1257,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/connecteddevice/ConnectedDeviceDashboardFragment;
+    const-class v1, Lcom/android/settings/system/SystemDashboardFragment;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1267,7 +1267,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/connecteddevice/usb/UsbDetailsFragment;
+    const-class v1, Lcom/android/settings/network/NetworkDashboardFragment;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1277,7 +1277,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/applications/AppDashboardFragment;
+    const-class v1, Lcom/android/settings/connecteddevice/ConnectedDeviceDashboardFragment;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1287,7 +1287,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/wifi/calling/WifiCallingDisclaimerFragment;
+    const-class v1, Lcom/android/settings/connecteddevice/usb/UsbDetailsFragment;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1297,7 +1297,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/accounts/AccountDashboardFragment;
+    const-class v1, Lcom/android/settings/applications/AppDashboardFragment;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1307,7 +1307,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/enterprise/EnterprisePrivacySettings;
+    const-class v1, Lcom/android/settings/wifi/calling/WifiCallingDisclaimerFragment;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1317,7 +1317,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/webview/WebViewAppPicker;
+    const-class v1, Lcom/android/settings/accounts/AccountDashboardFragment;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1327,7 +1327,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/security/LockscreenDashboardFragment;
+    const-class v1, Lcom/android/settings/enterprise/EnterprisePrivacySettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1337,7 +1337,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/bluetooth/BluetoothDeviceDetailsFragment;
+    const-class v1, Lcom/android/settings/webview/WebViewAppPicker;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1347,7 +1347,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/datausage/DataUsageList;
+    const-class v1, Lcom/android/settings/security/LockscreenDashboardFragment;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1357,7 +1357,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/backup/ToggleBackupSettingFragment;
+    const-class v1, Lcom/android/settings/bluetooth/BluetoothDeviceDetailsFragment;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1367,7 +1367,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/connecteddevice/PreviouslyConnectedDeviceDashboardFragment;
+    const-class v1, Lcom/android/settings/bluetooth/BluetoothBroadcastDialog;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1377,7 +1377,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/fuelgauge/batterysaver/BatterySaverScheduleSettings;
+    const-class v1, Lcom/android/settings/bluetooth/BluetoothFindBroadcastsFragment;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1387,7 +1387,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/network/MobileNetworkListFragment;
+    const-class v1, Lcom/android/settings/datausage/DataUsageList;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1397,7 +1397,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/gestures/PowerMenuSettings;
+    const-class v1, Lcom/android/settings/backup/ToggleBackupSettingFragment;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1407,7 +1407,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/display/darkmode/DarkModeSettingsFragment;
+    const-class v1, Lcom/android/settings/connecteddevice/PreviouslyConnectedDeviceDashboardFragment;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1417,7 +1417,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/bugreporthandler/BugReportHandlerPicker;
+    const-class v1, Lcom/android/settings/fuelgauge/batterysaver/BatterySaverScheduleSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1427,7 +1427,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/gestures/GestureNavigationSettingsFragment;
+    const-class v1, Lcom/android/settings/network/MobileNetworkListFragment;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1437,7 +1437,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/applications/specialaccess/interactacrossprofiles/InteractAcrossProfilesSettings;
+    const-class v1, Lcom/android/settings/gestures/PowerMenuSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1447,7 +1447,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/applications/specialaccess/interactacrossprofiles/InteractAcrossProfilesDetails;
+    const-class v1, Lcom/android/settings/display/darkmode/DarkModeSettingsFragment;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1457,7 +1457,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/sound/MediaControlsSettings;
+    const-class v1, Lcom/android/settings/bugreporthandler/BugReportHandlerPicker;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1467,7 +1467,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/network/NetworkProviderSettings;
+    const-class v1, Lcom/android/settings/gestures/GestureNavigationSettingsFragment;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1477,7 +1477,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/network/telephony/NetworkSelectSettings;
+    const-class v1, Lcom/android/settings/gestures/ButtonNavigationSettingsFragment;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1487,7 +1487,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/applications/appinfo/AlarmsAndRemindersDetails;
+    const-class v1, Lcom/android/settings/applications/specialaccess/interactacrossprofiles/InteractAcrossProfilesSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1497,7 +1497,7 @@
 
     aput-object v1, v0, v24
 
-    const-class v1, Lcom/android/settings/applications/appinfo/MediaManagementAppsDetails;
+    const-class v1, Lcom/android/settings/applications/specialaccess/interactacrossprofiles/InteractAcrossProfilesDetails;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1507,9 +1507,119 @@
 
     aput-object v1, v0, v24
 
+    const-class v1, Lcom/android/settings/sound/MediaControlsSettings;
+
+    invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
+
+    move-result-object v1
+
+    const/16 v24, 0x95
+
+    aput-object v1, v0, v24
+
+    const-class v1, Lcom/android/settings/network/NetworkProviderSettings;
+
+    invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
+
+    move-result-object v1
+
+    const/16 v24, 0x96
+
+    aput-object v1, v0, v24
+
+    const-class v1, Lcom/android/settings/network/telephony/NetworkSelectSettings;
+
+    invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
+
+    move-result-object v1
+
+    const/16 v24, 0x97
+
+    aput-object v1, v0, v24
+
+    const-class v1, Lcom/android/settings/applications/appinfo/AlarmsAndRemindersDetails;
+
+    invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
+
+    move-result-object v1
+
+    const/16 v24, 0x98
+
+    aput-object v1, v0, v24
+
+    const-class v1, Lcom/android/settings/applications/appinfo/MediaManagementAppsDetails;
+
+    invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
+
+    move-result-object v1
+
+    const/16 v24, 0x99
+
+    aput-object v1, v0, v24
+
+    const-class v1, Lcom/android/settings/display/AutoBrightnessSettings;
+
+    invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
+
+    move-result-object v1
+
+    const/16 v24, 0x9a
+
+    aput-object v1, v0, v24
+
+    const-class v1, Lcom/android/settings/gestures/OneHandedSettings;
+
+    invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
+
+    move-result-object v1
+
+    const/16 v24, 0x9b
+
+    aput-object v1, v0, v24
+
+    const-class v1, Lcom/android/settings/network/telephony/MobileNetworkSettings;
+
+    invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
+
+    move-result-object v1
+
+    const/16 v24, 0x9c
+
+    aput-object v1, v0, v24
+
+    const-class v1, Lcom/android/settings/applications/appinfo/AppLocaleDetails;
+
+    invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
+
+    move-result-object v1
+
+    const/16 v24, 0x9d
+
+    aput-object v1, v0, v24
+
+    const-class v1, Lcom/android/settings/applications/specialaccess/turnscreenon/TurnScreenOnSettings;
+
+    invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
+
+    move-result-object v1
+
+    const/16 v24, 0x9e
+
+    aput-object v1, v0, v24
+
+    const-class v1, Lcom/android/settings/applications/specialaccess/turnscreenon/TurnScreenOnDetails;
+
+    invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
+
+    move-result-object v1
+
+    const/16 v24, 0x9f
+
+    aput-object v1, v0, v24
+
     sput-object v0, Lcom/android/settings/core/gateway/SettingsGateway;->ENTRY_FRAGMENTS:[Ljava/lang/String;
 
-    const/16 v0, 0x1f
+    const/16 v0, 0x20
 
     new-array v0, v0, [Ljava/lang/String;
 
@@ -1709,7 +1819,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/Settings$LocationSettingsActivity;
+    const-class v1, Lcom/android/settings/Settings$AdaptiveBrightnessActivity;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1719,7 +1829,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/Settings$LanguageAndInputSettingsActivity;
+    const-class v1, Lcom/android/settings/Settings$LocationSettingsActivity;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1729,7 +1839,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/Settings$DateTimeSettingsActivity;
+    const-class v1, Lcom/android/settings/Settings$LanguageAndInputSettingsActivity;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1739,7 +1849,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/Settings$EnterprisePrivacySettingsActivity;
+    const-class v1, Lcom/android/settings/Settings$DateTimeSettingsActivity;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1749,7 +1859,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/Settings$MyDeviceInfoActivity;
+    const-class v1, Lcom/android/settings/Settings$EnterprisePrivacySettingsActivity;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1759,7 +1869,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/Settings$ModuleLicensesActivity;
+    const-class v1, Lcom/android/settings/Settings$MyDeviceInfoActivity;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1769,13 +1879,23 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/backup/UserBackupSettingsActivity;
+    const-class v1, Lcom/android/settings/Settings$ModuleLicensesActivity;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
     move-result-object v1
 
     const/16 v2, 0x1e
+
+    aput-object v1, v0, v2
+
+    const-class v1, Lcom/android/settings/backup/UserBackupSettingsActivity;
+
+    invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
+
+    move-result-object v1
+
+    const/16 v2, 0x1f
 
     aput-object v1, v0, v2
 

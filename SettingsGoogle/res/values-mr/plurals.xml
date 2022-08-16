@@ -193,8 +193,8 @@
         <item quantity="one">%d अ‍ॅप सूचना वाचू शकतो</item>
     </plurals>
     <plurals name="manage_trust_agents_summary_on">
-        <item quantity="other">%d सक्रिय विश्वासू एजंट</item>
-        <item quantity="one">1 सक्रिय विश्वासू एजंट</item>
+        <item quantity="other">%d अ‍ॅक्टिव्ह विश्वासू एजंट</item>
+        <item quantity="one">1 अ‍ॅक्टिव्ह विश्वासू एजंट</item>
     </plurals>
     <plurals name="memory_usage_apps_summary">
         <item quantity="other">गेल्या %2$s मध्‍ये %1$d अ‍ॅप्सने मेमरी वापरली</item>
@@ -233,16 +233,16 @@
         <item quantity="one">%d वर्गवारी बंद केली आहे</item>
     </plurals>
     <plurals name="notifications_sent_daily">
-        <item quantity="other">~दर दिवसाला %d सूचना</item>
+        <item quantity="other">~दर दिवसाला %,d सूचना</item>
         <item quantity="one">~दर दिवसाला %d सूचना</item>
     </plurals>
     <plurals name="notifications_sent_weekly">
-        <item quantity="other">~दर आठवड्याला %d सूचना</item>
+        <item quantity="other">~दर आठवड्याला %,d सूचना</item>
         <item quantity="one">~दर आठवड्याला %d सूचना</item>
     </plurals>
     <plurals name="number_of_device_admins">
-        <item quantity="other">%d सक्रिय अ‍ॅप्‍स</item>
-        <item quantity="one">%d सक्रिय अ‍ॅप</item>
+        <item quantity="other">%d अ‍ॅक्टिव्ह अ‍ॅप्‍स</item>
+        <item quantity="one">%d अ‍ॅक्टिव्ह अ‍ॅप</item>
     </plurals>
     <plurals name="number_of_urls">
         <item quantity="other">%d URL</item>
@@ -328,22 +328,6 @@
         <item quantity="other">प्रमाणपत्रांवर विश्वास ठेवा अथवा काढून टाका</item>
         <item quantity="one">प्रमाणपत्रावर विश्वास ठेवा अथवा काढून टाका</item>
     </plurals>
-    <plurals name="ssl_ca_cert_info_message">
-        <item quantity="other">"%s नी आपल्या कार्य प्रोफाइलसाठी प्रमाणप‍त्र अधिकार इंस्टॉल केले आहेत, जे त्यांना ईमेल, अ‍ॅप्स आणि सुरक्षित वेबसाइटसह कार्य नेटवर्क क्रियाकलापाचे परीक्षण करण्याची अनुमती देऊ शकतात.
-
-या प्रमाणपत्रांंविषयी अधिक माहितीसाठी, तुमच्या प्रशासकाशी संपर्क साधा."</item>
-        <item quantity="one">"%s नी आपल्या कार्य प्रोफाइलसाठी एक प्रमाणप‍त्र अधिकार इंस्टॉल केला आहे, जो त्यांना ईमेल, अ‍ॅप्स आणि सुरक्षित वेबसाइटसह कार्य नेटवर्क क्रियाकलापाचे परीक्षण करण्याची अनुमती देतो.
-
-या प्रमाणपत्राविषयी अधिक माहितीसाठी, तुमच्या प्रशासकाशी संपर्क साधा."</item>
-    </plurals>
-    <plurals name="ssl_ca_cert_info_message_device_owner">
-        <item quantity="other">"%s नी तुमच्या डिव्हाइस वर एक प्रमाणप‍त्र अधिकार इंस्टॉल केले आहेत, जे त्यांना ईमेल, अ‍ॅप्स आणि सुरक्षित वेबसाइटसह तुमच्या डिव्हाइस नेटवर्क ॲक्टिव्हिटीचे परीक्षण करण्याची अनुमती देऊ शकतात.
-
-या प्रमाणपत्रांंविषयी अधिक माहितीसाठी, तुमच्या प्रशासकाशी संपर्क साधा."</item>
-        <item quantity="one">"%s नी तुमच्या डिव्हाइस वर एक प्रमाणप‍त्र अधिकार इंस्टॉल केला आहे, जो त्यांना ईमेल, अ‍ॅप्स आणि सुरक्षित वेबसाइटसह तुमच्या डिव्हाइस नेटवर्क ॲक्टिव्हिटीचे परीक्षण करण्याची अनुमती देऊ शकतो.
-
-या प्रमाणपत्राविषयी अधिक माहितीसाठी, तुमच्या प्रशासकाशी संपर्क साधा."</item>
-    </plurals>
     <plurals name="ssl_ca_cert_settings_button">
         <item quantity="other">प्रमाणपत्रे तपासा</item>
         <item quantity="one">प्रमाणपत्र तपासा</item>
@@ -375,10 +359,6 @@
     <plurals name="wifi_saved_passpoint_access_points_summary">
         <item quantity="other">%d सदस्यत्वे</item>
         <item quantity="one">एक सदस्यत्व</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$d डिव्हाइस कनेक्ट केली आहेत</item>
-        <item quantity="one">%1$d डिव्हाइस कनेक्ट केले आहे</item>
     </plurals>
     <plurals name="wrong_pin_code">
         <item quantity="other">चुकीचा सिम पिन कोड, तुमच्याकडे %d प्रयत्न शिल्लक आहेत.</item>

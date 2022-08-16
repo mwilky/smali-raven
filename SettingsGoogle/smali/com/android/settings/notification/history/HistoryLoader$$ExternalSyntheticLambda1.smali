@@ -1,39 +1,32 @@
 .class public final synthetic Lcom/android/settings/notification/history/HistoryLoader$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/lang/Runnable;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/android/settings/notification/history/HistoryLoader;
-
-.field public final synthetic f$1:Lcom/android/settings/notification/history/HistoryLoader$OnHistoryLoaderListener;
+.implements Ljava/util/Comparator;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/settings/notification/history/HistoryLoader;Lcom/android/settings/notification/history/HistoryLoader$OnHistoryLoaderListener;)V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/settings/notification/history/HistoryLoader$$ExternalSyntheticLambda1;->f$0:Lcom/android/settings/notification/history/HistoryLoader;
-
-    iput-object p2, p0, Lcom/android/settings/notification/history/HistoryLoader$$ExternalSyntheticLambda1;->f$1:Lcom/android/settings/notification/history/HistoryLoader$OnHistoryLoaderListener;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final run()V
-    .locals 1
+.method public final compare(Ljava/lang/Object;Ljava/lang/Object;)I
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/settings/notification/history/HistoryLoader$$ExternalSyntheticLambda1;->f$0:Lcom/android/settings/notification/history/HistoryLoader;
+    check-cast p1, Lcom/android/settings/notification/history/NotificationHistoryPackage;
 
-    iget-object p0, p0, Lcom/android/settings/notification/history/HistoryLoader$$ExternalSyntheticLambda1;->f$1:Lcom/android/settings/notification/history/HistoryLoader$OnHistoryLoaderListener;
+    check-cast p2, Lcom/android/settings/notification/history/NotificationHistoryPackage;
 
-    invoke-static {v0, p0}, Lcom/android/settings/notification/history/HistoryLoader;->$r8$lambda$enoYIDP5jdcTEV8Eez6o-Iir7Bw(Lcom/android/settings/notification/history/HistoryLoader;Lcom/android/settings/notification/history/HistoryLoader$OnHistoryLoaderListener;)V
+    invoke-static {p1, p2}, Lcom/android/settings/notification/history/HistoryLoader;->$r8$lambda$GpGYaF6YXGjGlXcPH9bfMmq-iDo(Lcom/android/settings/notification/history/NotificationHistoryPackage;Lcom/android/settings/notification/history/NotificationHistoryPackage;)I
 
-    return-void
+    move-result p0
+
+    return p0
 .end method

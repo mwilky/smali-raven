@@ -39,13 +39,13 @@
 
     iget-object p1, p0, Lcom/android/settings/notification/zen/ZenRuleButtonsPreferenceController$DeleteRuleClickListener;->this$0:Lcom/android/settings/notification/zen/ZenRuleButtonsPreferenceController;
 
-    invoke-static {p1}, Lcom/android/settings/notification/zen/ZenRuleButtonsPreferenceController;->access$000(Lcom/android/settings/notification/zen/ZenRuleButtonsPreferenceController;)Landroidx/preference/PreferenceFragmentCompat;
+    invoke-static {p1}, Lcom/android/settings/notification/zen/ZenRuleButtonsPreferenceController;->-$$Nest$fgetmFragment(Lcom/android/settings/notification/zen/ZenRuleButtonsPreferenceController;)Landroidx/preference/PreferenceFragmentCompat;
 
     move-result-object p1
 
     iget-object v0, p0, Lcom/android/settings/notification/zen/ZenRuleButtonsPreferenceController$DeleteRuleClickListener;->this$0:Lcom/android/settings/notification/zen/ZenRuleButtonsPreferenceController;
 
-    invoke-static {v0}, Lcom/android/settings/notification/zen/ZenRuleButtonsPreferenceController;->access$100(Lcom/android/settings/notification/zen/ZenRuleButtonsPreferenceController;)Landroid/app/AutomaticZenRule;
+    invoke-static {v0}, Lcom/android/settings/notification/zen/ZenRuleButtonsPreferenceController;->-$$Nest$fgetmRule(Lcom/android/settings/notification/zen/ZenRuleButtonsPreferenceController;)Landroid/app/AutomaticZenRule;
 
     move-result-object v0
 
@@ -55,7 +55,7 @@
 
     iget-object v1, p0, Lcom/android/settings/notification/zen/ZenRuleButtonsPreferenceController$DeleteRuleClickListener;->this$0:Lcom/android/settings/notification/zen/ZenRuleButtonsPreferenceController;
 
-    invoke-static {v1}, Lcom/android/settings/notification/zen/ZenRuleButtonsPreferenceController;->access$300(Lcom/android/settings/notification/zen/ZenRuleButtonsPreferenceController;)Ljava/lang/String;
+    invoke-static {v1}, Lcom/android/settings/notification/zen/ZenRuleButtonsPreferenceController;->-$$Nest$fgetmId(Lcom/android/settings/notification/zen/ZenRuleButtonsPreferenceController;)Ljava/lang/String;
 
     move-result-object v1
 

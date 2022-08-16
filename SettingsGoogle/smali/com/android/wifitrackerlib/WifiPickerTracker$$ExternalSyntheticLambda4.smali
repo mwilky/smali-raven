@@ -1,41 +1,30 @@
 .class public final synthetic Lcom/android/wifitrackerlib/WifiPickerTracker$$ExternalSyntheticLambda4;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Consumer;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/android/wifitrackerlib/WifiPickerTracker;
-
-.field public final synthetic f$1:Ljava/util/Map;
+.implements Ljava/util/function/Function;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/wifitrackerlib/WifiPickerTracker;Ljava/util/Map;)V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/wifitrackerlib/WifiPickerTracker$$ExternalSyntheticLambda4;->f$0:Lcom/android/wifitrackerlib/WifiPickerTracker;
-
-    iput-object p2, p0, Lcom/android/wifitrackerlib/WifiPickerTracker$$ExternalSyntheticLambda4;->f$1:Ljava/util/Map;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
-    .locals 1
+.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/wifitrackerlib/WifiPickerTracker$$ExternalSyntheticLambda4;->f$0:Lcom/android/wifitrackerlib/WifiPickerTracker;
+    check-cast p1, Lcom/android/wifitrackerlib/StandardWifiEntry;
 
-    iget-object p0, p0, Lcom/android/wifitrackerlib/WifiPickerTracker$$ExternalSyntheticLambda4;->f$1:Ljava/util/Map;
+    invoke-static {p1}, Lcom/android/wifitrackerlib/WifiPickerTracker;->$r8$lambda$PZQUAEylYBPKIbM0Rh0tys_6adM(Lcom/android/wifitrackerlib/StandardWifiEntry;)Lcom/android/wifitrackerlib/StandardWifiEntry$ScanResultKey;
 
-    check-cast p1, Lcom/android/wifitrackerlib/OsuWifiEntry;
+    move-result-object p0
 
-    invoke-static {v0, p0, p1}, Lcom/android/wifitrackerlib/WifiPickerTracker;->$r8$lambda$dBQe8C_JcVEcZlZdlbxLZKDxNW0(Lcom/android/wifitrackerlib/WifiPickerTracker;Ljava/util/Map;Lcom/android/wifitrackerlib/OsuWifiEntry;)V
-
-    return-void
+    return-object p0
 .end method

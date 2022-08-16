@@ -120,7 +120,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/settings/media/MediaOutputIndicatorSlice;->mContext:Landroid/content/Context;
 
-    const v4, 0x1080533
+    const v4, 0x108053f
 
     invoke-static {v0, v4}, Landroidx/core/graphics/drawable/IconCompat;->createWithResource(Landroid/content/Context;I)Landroidx/core/graphics/drawable/IconCompat;
 
@@ -128,7 +128,7 @@
 
     iget-object v4, p0, Lcom/android/settings/media/MediaOutputIndicatorSlice;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f040cce
+    const v5, 0x7f040d49
 
     new-array v3, v3, [Ljava/lang/Object;
 
@@ -232,7 +232,7 @@
 .method public getSliceHighlightMenuRes()I
     .locals 0
 
-    const p0, 0x7f040d06
+    const p0, 0x7f040d81
 
     return p0
 .end method

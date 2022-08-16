@@ -126,6 +126,14 @@
     return-void
 .end method
 
+.method static bridge synthetic -$$Nest$mfetchUiDataAsync(Lcom/google/android/settings/security/SecurityContentManager;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/google/android/settings/security/SecurityContentManager;->fetchUiDataAsync()V
+
+    return-void
+.end method
+
 .method static constructor <clinit>()V
     .locals 3
 
@@ -236,14 +244,6 @@
     move-result-object p1
 
     iput-object p1, p0, Lcom/google/android/settings/security/SecurityContentManager;->mApplicationContext:Landroid/content/Context;
-
-    return-void
-.end method
-
-.method static synthetic access$1100(Lcom/google/android/settings/security/SecurityContentManager;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/google/android/settings/security/SecurityContentManager;->fetchUiDataAsync()V
 
     return-void
 .end method
@@ -621,9 +621,9 @@
     :cond_4
     iget-object p1, p0, Lcom/google/android/settings/security/SecurityContentManager;->mUiDataSubscribers:Ljava/util/Set;
 
-    new-instance v1, Lcom/google/android/settings/security/SecurityContentManager$$ExternalSyntheticLambda1;
+    new-instance v1, Lcom/google/android/settings/security/SecurityContentManager$$ExternalSyntheticLambda0;
 
-    invoke-direct {v1, p0}, Lcom/google/android/settings/security/SecurityContentManager$$ExternalSyntheticLambda1;-><init>(Lcom/google/android/settings/security/SecurityContentManager;)V
+    invoke-direct {v1, p0}, Lcom/google/android/settings/security/SecurityContentManager$$ExternalSyntheticLambda0;-><init>(Lcom/google/android/settings/security/SecurityContentManager;)V
 
     invoke-interface {p1, v1}, Ljava/util/Set;->forEach(Ljava/util/function/Consumer;)V
 
@@ -667,9 +667,9 @@
 
     invoke-virtual {v2, v0}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
-    new-instance v0, Lcom/google/android/settings/security/SecurityContentManager$$ExternalSyntheticLambda0;
+    new-instance v0, Lcom/google/android/settings/security/SecurityContentManager$$ExternalSyntheticLambda1;
 
-    invoke-direct {v0, p0, p1, v1}, Lcom/google/android/settings/security/SecurityContentManager$$ExternalSyntheticLambda0;-><init>(Lcom/google/android/settings/security/SecurityContentManager;Lcom/google/android/settings/security/SecurityContentManager$UiDataSubscriber;Z)V
+    invoke-direct {v0, p0, p1, v1}, Lcom/google/android/settings/security/SecurityContentManager$$ExternalSyntheticLambda1;-><init>(Lcom/google/android/settings/security/SecurityContentManager;Lcom/google/android/settings/security/SecurityContentManager$UiDataSubscriber;Z)V
 
     invoke-static {v0}, Lcom/android/settingslib/utils/ThreadUtils;->postOnBackgroundThread(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;
 

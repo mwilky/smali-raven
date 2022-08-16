@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/settings/connecteddevice/usb/ConnectedUsbDeviceUpdater$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/settings/connecteddevice/usb/UsbConnectionBroadcastReceiver$UsbConnectionListener;
+.implements Landroidx/preference/Preference$OnPreferenceClickListener;
 
 
 # instance fields
@@ -22,20 +23,14 @@
 
 
 # virtual methods
-.method public final onUsbConnectionChanged(ZJII)V
-    .locals 6
+.method public final onPreferenceClick(Landroidx/preference/Preference;)Z
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/settings/connecteddevice/usb/ConnectedUsbDeviceUpdater$$ExternalSyntheticLambda1;->f$0:Lcom/android/settings/connecteddevice/usb/ConnectedUsbDeviceUpdater;
+    iget-object p0, p0, Lcom/android/settings/connecteddevice/usb/ConnectedUsbDeviceUpdater$$ExternalSyntheticLambda1;->f$0:Lcom/android/settings/connecteddevice/usb/ConnectedUsbDeviceUpdater;
 
-    move v1, p1
+    invoke-static {p0, p1}, Lcom/android/settings/connecteddevice/usb/ConnectedUsbDeviceUpdater;->$r8$lambda$oCI2J5W_Rx24LqiFrRa1IDTQNWI(Lcom/android/settings/connecteddevice/usb/ConnectedUsbDeviceUpdater;Landroidx/preference/Preference;)Z
 
-    move-wide v2, p2
+    move-result p0
 
-    move v4, p4
-
-    move v5, p5
-
-    invoke-static/range {v0 .. v5}, Lcom/android/settings/connecteddevice/usb/ConnectedUsbDeviceUpdater;->$r8$lambda$YMT27BB3VijI9vlbBPYTPB_rbEs(Lcom/android/settings/connecteddevice/usb/ConnectedUsbDeviceUpdater;ZJII)V
-
-    return-void
+    return p0
 .end method

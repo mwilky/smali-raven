@@ -1,73 +1,30 @@
 .class public final synthetic Lcom/google/android/settings/fuelgauge/DatabaseUtils$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Consumer;
-
-
-# instance fields
-.field public final synthetic f$0:Ljava/util/List;
-
-.field public final synthetic f$1:Landroid/os/BatteryUsageStats;
-
-.field public final synthetic f$2:I
-
-.field public final synthetic f$3:I
-
-.field public final synthetic f$4:I
-
-.field public final synthetic f$5:J
-
-.field public final synthetic f$6:J
+.implements Ljava/util/function/Predicate;
 
 
 # direct methods
-.method public synthetic constructor <init>(Ljava/util/List;Landroid/os/BatteryUsageStats;IIIJJ)V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/google/android/settings/fuelgauge/DatabaseUtils$$ExternalSyntheticLambda0;->f$0:Ljava/util/List;
-
-    iput-object p2, p0, Lcom/google/android/settings/fuelgauge/DatabaseUtils$$ExternalSyntheticLambda0;->f$1:Landroid/os/BatteryUsageStats;
-
-    iput p3, p0, Lcom/google/android/settings/fuelgauge/DatabaseUtils$$ExternalSyntheticLambda0;->f$2:I
-
-    iput p4, p0, Lcom/google/android/settings/fuelgauge/DatabaseUtils$$ExternalSyntheticLambda0;->f$3:I
-
-    iput p5, p0, Lcom/google/android/settings/fuelgauge/DatabaseUtils$$ExternalSyntheticLambda0;->f$4:I
-
-    iput-wide p6, p0, Lcom/google/android/settings/fuelgauge/DatabaseUtils$$ExternalSyntheticLambda0;->f$5:J
-
-    iput-wide p8, p0, Lcom/google/android/settings/fuelgauge/DatabaseUtils$$ExternalSyntheticLambda0;->f$6:J
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
-    .locals 10
+.method public final test(Ljava/lang/Object;)Z
+    .locals 0
 
-    iget-object v0, p0, Lcom/google/android/settings/fuelgauge/DatabaseUtils$$ExternalSyntheticLambda0;->f$0:Ljava/util/List;
+    check-cast p1, Lcom/android/settings/fuelgauge/BatteryEntry;
 
-    iget-object v1, p0, Lcom/google/android/settings/fuelgauge/DatabaseUtils$$ExternalSyntheticLambda0;->f$1:Landroid/os/BatteryUsageStats;
+    invoke-static {p1}, Lcom/google/android/settings/fuelgauge/DatabaseUtils;->$r8$lambda$3OoOKF4Ww-P9n_pzKsNU5UOpZig(Lcom/android/settings/fuelgauge/BatteryEntry;)Z
 
-    iget v2, p0, Lcom/google/android/settings/fuelgauge/DatabaseUtils$$ExternalSyntheticLambda0;->f$2:I
+    move-result p0
 
-    iget v3, p0, Lcom/google/android/settings/fuelgauge/DatabaseUtils$$ExternalSyntheticLambda0;->f$3:I
-
-    iget v4, p0, Lcom/google/android/settings/fuelgauge/DatabaseUtils$$ExternalSyntheticLambda0;->f$4:I
-
-    iget-wide v5, p0, Lcom/google/android/settings/fuelgauge/DatabaseUtils$$ExternalSyntheticLambda0;->f$5:J
-
-    iget-wide v7, p0, Lcom/google/android/settings/fuelgauge/DatabaseUtils$$ExternalSyntheticLambda0;->f$6:J
-
-    move-object v9, p1
-
-    check-cast v9, Lcom/android/settings/fuelgauge/BatteryEntry;
-
-    invoke-static/range {v0 .. v9}, Lcom/google/android/settings/fuelgauge/DatabaseUtils;->$r8$lambda$t86y-XEEO_6qdiNoHyEXdlkwPtA(Ljava/util/List;Landroid/os/BatteryUsageStats;IIIJJLcom/android/settings/fuelgauge/BatteryEntry;)V
-
-    return-void
+    return p0
 .end method

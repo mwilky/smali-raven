@@ -22,8 +22,6 @@
 # instance fields
 .field private final calendarConstraints:Lcom/google/android/material/datepicker/CalendarConstraints;
 
-.field private final context:Landroid/content/Context;
-
 .field private final dateSelector:Lcom/google/android/material/datepicker/DateSelector;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -95,17 +93,15 @@
 
     invoke-static {p1}, Lcom/google/android/material/datepicker/MaterialCalendar;->getDayHeight(Landroid/content/Context;)I
 
-    move-result v1
+    move-result p1
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    iput-object p1, p0, Lcom/google/android/material/datepicker/MonthsPagerAdapter;->context:Landroid/content/Context;
-
-    add-int/2addr v0, v1
+    add-int/2addr v0, p1
 
     iput v0, p0, Lcom/google/android/material/datepicker/MonthsPagerAdapter;->itemHeight:I
 
@@ -203,11 +199,9 @@
 
     invoke-virtual {p0, p1}, Lcom/google/android/material/datepicker/MonthsPagerAdapter;->getPageMonth(I)Lcom/google/android/material/datepicker/Month;
 
-    move-result-object p1
+    move-result-object p0
 
-    iget-object p0, p0, Lcom/google/android/material/datepicker/MonthsPagerAdapter;->context:Landroid/content/Context;
-
-    invoke-virtual {p1, p0}, Lcom/google/android/material/datepicker/Month;->getLongName(Landroid/content/Context;)Ljava/lang/String;
+    invoke-virtual {p0}, Lcom/google/android/material/datepicker/Month;->getLongName()Ljava/lang/String;
 
     move-result-object p0
 
@@ -255,13 +249,7 @@
 
     iget-object v0, p1, Lcom/google/android/material/datepicker/MonthsPagerAdapter$ViewHolder;->monthTitle:Landroid/widget/TextView;
 
-    iget-object v1, p1, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
-
-    invoke-virtual {v1}, Landroid/view/View;->getContext()Landroid/content/Context;
-
-    move-result-object v1
-
-    invoke-virtual {p2, v1}, Lcom/google/android/material/datepicker/Month;->getLongName(Landroid/content/Context;)Ljava/lang/String;
+    invoke-virtual {p2}, Lcom/google/android/material/datepicker/Month;->getLongName()Ljava/lang/String;
 
     move-result-object v1
 

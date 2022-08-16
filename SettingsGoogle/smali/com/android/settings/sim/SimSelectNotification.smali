@@ -107,7 +107,7 @@
 
     new-instance v0, Landroid/app/NotificationChannel;
 
-    const v1, 0x7f040887
+    const v1, 0x7f0408df
 
     invoke-virtual {p0, v1}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -123,13 +123,13 @@
 
     invoke-direct {p0, p1, v1}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
-    const v1, 0x7f020328
+    const v1, 0x7f02034c
 
     invoke-virtual {p0, v1}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
     move-result-object p0
 
-    const v1, 0x7f0a01fe
+    const v1, 0x7f0a0395
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getColor(I)I
 
@@ -171,15 +171,13 @@
 
     invoke-direct {p2, p3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    const-class v1, Lcom/android/settings/network/telephony/MobileNetworkActivity;
+    const-string p3, "com.android.settings"
 
-    invoke-virtual {p2, p1, v1}, Landroid/content/Intent;->setClass(Landroid/content/Context;Ljava/lang/Class;)Landroid/content/Intent;
+    invoke-virtual {p2, p3}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
 
-    const-string v1, "android.provider.extra.SUB_ID"
+    const-string p3, "android.provider.extra.SUB_ID"
 
-    invoke-virtual {p2, v1, p4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
-
-    invoke-static {p1, p2, p3}, Lcom/android/settings/network/MobileNetworkTwoPaneUtils;->registerTwoPaneForMobileNetwork(Landroid/content/Context;Landroid/content/Intent;Ljava/lang/String;)V
+    invoke-virtual {p2, p3, p4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
     const/4 p3, 0x0
 
@@ -230,7 +228,7 @@
     return-void
 
     :cond_0
-    const v0, 0x7f04085e
+    const v0, 0x7f0408b5
 
     const/4 v1, 0x1
 
@@ -246,7 +244,7 @@
 
     new-instance v0, Landroid/app/NotificationChannel;
 
-    const v2, 0x7f04085d
+    const v2, 0x7f0408b4
 
     invoke-virtual {p0, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -262,13 +260,13 @@
 
     invoke-direct {v2, p1, v5}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
-    const v4, 0x7f02036b
+    const v4, 0x7f020390
 
     invoke-virtual {v2, v4}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
     move-result-object v2
 
-    const v4, 0x7f0a01fe
+    const v4, 0x7f0a0395
 
     invoke-virtual {p1, v4}, Landroid/content/Context;->getColor(I)I
 
@@ -278,7 +276,7 @@
 
     move-result-object v2
 
-    const v4, 0x7f04125e
+    const v4, 0x7f041318
 
     invoke-virtual {p0, v4}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -358,7 +356,7 @@
 
     new-instance v0, Landroid/app/NotificationChannel;
 
-    const v1, 0x7f041284
+    const v1, 0x7f04133e
 
     invoke-virtual {p0, v1}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -374,13 +372,13 @@
 
     invoke-direct {v1, p1, v2}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
-    const v2, 0x7f02036b
+    const v2, 0x7f020390
 
     invoke-virtual {v1, v2}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
     move-result-object v1
 
-    const v2, 0x7f0a01fe
+    const v2, 0x7f0a0395
 
     invoke-virtual {p1, v2}, Landroid/content/Context;->getColor(I)I
 
@@ -390,7 +388,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f041278
+    const v2, 0x7f041332
 
     invoke-virtual {p0, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -400,7 +398,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f041277
+    const v2, 0x7f041331
 
     invoke-virtual {p0, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -553,7 +551,7 @@
 
     move-result-object p2
 
-    const v3, 0x7f04088d
+    const v3, 0x7f0408e5
 
     invoke-virtual {p2, v3}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -568,7 +566,7 @@
 
     move-result-object p2
 
-    const v3, 0x7f04088e
+    const v3, 0x7f0408e6
 
     invoke-virtual {p2, v3}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -618,7 +616,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f040888
+    const v4, 0x7f0408e0
 
     new-array v1, v1, [Ljava/lang/Object;
 

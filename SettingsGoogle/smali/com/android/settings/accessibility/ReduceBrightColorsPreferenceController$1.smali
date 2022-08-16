@@ -46,7 +46,7 @@
     move-result-object p1
 
     :goto_0
-    const-string p2, "reduce_bright_colors_activated"
+    const-string/jumbo p2, "reduce_bright_colors_activated"
 
     invoke-static {p1, p2}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
 
@@ -56,7 +56,7 @@
 
     iget-object p0, p0, Lcom/android/settings/accessibility/ReduceBrightColorsPreferenceController$1;->this$0:Lcom/android/settings/accessibility/ReduceBrightColorsPreferenceController;
 
-    invoke-static {p0}, Lcom/android/settings/accessibility/ReduceBrightColorsPreferenceController;->access$000(Lcom/android/settings/accessibility/ReduceBrightColorsPreferenceController;)Lcom/android/settings/widget/PrimarySwitchPreference;
+    invoke-static {p0}, Lcom/android/settings/accessibility/ReduceBrightColorsPreferenceController;->-$$Nest$fgetmPreference(Lcom/android/settings/accessibility/ReduceBrightColorsPreferenceController;)Lcom/android/settingslib/PrimarySwitchPreference;
 
     move-result-object p1
 

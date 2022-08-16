@@ -144,7 +144,7 @@
     :cond_4
     iput-boolean v1, p0, Lcom/google/android/settings/fuelgauge/reversecharging/ReverseChargingBasePreferenceController;->mCharging:Z
 
-    invoke-static {p0}, Lcom/google/android/settings/fuelgauge/reversecharging/ReverseChargingBasePreferenceController;->access$000(Lcom/google/android/settings/fuelgauge/reversecharging/ReverseChargingBasePreferenceController;)V
+    invoke-static {p0}, Lcom/google/android/settings/fuelgauge/reversecharging/ReverseChargingBasePreferenceController;->-$$Nest$mnotifyChanged(Lcom/google/android/settings/fuelgauge/reversecharging/ReverseChargingBasePreferenceController;)V
 
     goto :goto_3
 
@@ -159,7 +159,7 @@
 
     iget-object p0, p0, Lcom/google/android/settings/fuelgauge/reversecharging/ReverseChargingBasePreferenceController$BatteryLevelReceiver;->this$0:Lcom/google/android/settings/fuelgauge/reversecharging/ReverseChargingBasePreferenceController;
 
-    invoke-static {p0}, Lcom/google/android/settings/fuelgauge/reversecharging/ReverseChargingBasePreferenceController;->access$000(Lcom/google/android/settings/fuelgauge/reversecharging/ReverseChargingBasePreferenceController;)V
+    invoke-static {p0}, Lcom/google/android/settings/fuelgauge/reversecharging/ReverseChargingBasePreferenceController;->-$$Nest$mnotifyChanged(Lcom/google/android/settings/fuelgauge/reversecharging/ReverseChargingBasePreferenceController;)V
 
     goto :goto_3
 
@@ -186,7 +186,7 @@
 
     iget-object p0, p0, Lcom/google/android/settings/fuelgauge/reversecharging/ReverseChargingBasePreferenceController$BatteryLevelReceiver;->this$0:Lcom/google/android/settings/fuelgauge/reversecharging/ReverseChargingBasePreferenceController;
 
-    invoke-static {p0}, Lcom/google/android/settings/fuelgauge/reversecharging/ReverseChargingBasePreferenceController;->access$000(Lcom/google/android/settings/fuelgauge/reversecharging/ReverseChargingBasePreferenceController;)V
+    invoke-static {p0}, Lcom/google/android/settings/fuelgauge/reversecharging/ReverseChargingBasePreferenceController;->-$$Nest$mnotifyChanged(Lcom/google/android/settings/fuelgauge/reversecharging/ReverseChargingBasePreferenceController;)V
 
     goto :goto_3
 
@@ -203,7 +203,7 @@
 
     iput-boolean v1, p0, Lcom/google/android/settings/fuelgauge/reversecharging/ReverseChargingBasePreferenceController;->mIsUsbPlugIn:Z
 
-    invoke-static {p0}, Lcom/google/android/settings/fuelgauge/reversecharging/ReverseChargingBasePreferenceController;->access$000(Lcom/google/android/settings/fuelgauge/reversecharging/ReverseChargingBasePreferenceController;)V
+    invoke-static {p0}, Lcom/google/android/settings/fuelgauge/reversecharging/ReverseChargingBasePreferenceController;->-$$Nest$mnotifyChanged(Lcom/google/android/settings/fuelgauge/reversecharging/ReverseChargingBasePreferenceController;)V
 
     :cond_8
     :goto_3

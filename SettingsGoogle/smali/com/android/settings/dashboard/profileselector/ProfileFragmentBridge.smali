@@ -54,20 +54,6 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const-class v1, Lcom/android/settings/location/RecentLocationAccessSeeAllFragment;
-
-    invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
-
-    move-result-object v1
-
-    const-class v2, Lcom/android/settings/dashboard/profileselector/ProfileSelectRecentLocationAccessFragment;
-
-    invoke-virtual {v2}, Ljava/lang/Class;->getName()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
     const-class v1, Lcom/android/settings/location/LocationServices;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
@@ -89,6 +75,20 @@
     move-result-object v1
 
     const-class v2, Lcom/android/settings/dashboard/profileselector/ProfileSelectStorageFragment;
+
+    invoke-virtual {v2}, Ljava/lang/Class;->getName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-class v1, Lcom/android/settings/inputmethod/AvailableVirtualKeyboardFragment;
+
+    invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-class v2, Lcom/android/settings/dashboard/profileselector/ProfileSelectKeyboardFragment;
 
     invoke-virtual {v2}, Ljava/lang/Class;->getName()Ljava/lang/String;
 

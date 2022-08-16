@@ -18,9 +18,6 @@
 
 # virtual methods
 .method public abstract apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TF;)TT;"

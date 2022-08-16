@@ -31,7 +31,9 @@
 
 .field mContext:Landroid/content/Context;
 
-.field mDisableOptionsPreference:Landroidx/preference/Preference;
+.field private mDevicePolicyManager:Landroid/app/admin/DevicePolicyManager;
+
+.field mDisableOptionsPreference:Lcom/android/settingslib/widget/FooterPreference;
 
 .field private mInitialEntries:[Ljava/lang/CharSequence;
 
@@ -47,6 +49,24 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$WIwekGEi5VQBNm0yphmU3JIdJoI(Lcom/android/settings/display/ScreenTimeoutSettings;Landroid/view/View;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/settings/display/ScreenTimeoutSettings;->lambda$setupDisabledFooterPreference$2(Landroid/view/View;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$rnPjSEoRV4lUkrnB3uqIS_Rm7ho(Lcom/android/settings/display/ScreenTimeoutSettings;)Ljava/lang/String;
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/display/ScreenTimeoutSettings;->lambda$setupDisabledFooterPreference$1()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method public static synthetic $r8$lambda$u_wdS46Dqkxgvv7qkKrxK4ZNl_I(Lcom/android/settings/display/ScreenTimeoutSettings;IZ)V
     .locals 0
 
@@ -55,14 +75,24 @@
     return-void
 .end method
 
+.method static bridge synthetic -$$Nest$smisScreenAttentionAvailable(Landroid/content/Context;)Z
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/settings/display/ScreenTimeoutSettings;->isScreenAttentionAvailable(Landroid/content/Context;)Z
+
+    move-result p0
+
+    return p0
+.end method
+
 .method static constructor <clinit>()V
     .locals 2
 
-    new-instance v0, Lcom/android/settings/display/ScreenTimeoutSettings$3;
+    new-instance v0, Lcom/android/settings/display/ScreenTimeoutSettings$2;
 
-    const v1, 0x7f1500ce
+    const v1, 0x7f1500d3
 
-    invoke-direct {v0, v1}, Lcom/android/settings/display/ScreenTimeoutSettings$3;-><init>(I)V
+    invoke-direct {v0, v1}, Lcom/android/settings/display/ScreenTimeoutSettings$2;-><init>(I)V
 
     sput-object v0, Lcom/android/settings/display/ScreenTimeoutSettings;->SEARCH_INDEX_DATA_PROVIDER:Lcom/android/settings/search/BaseSearchIndexProvider;
 
@@ -97,16 +127,6 @@
     return-void
 .end method
 
-.method static synthetic access$000(Landroid/content/Context;)Z
-    .locals 0
-
-    invoke-static {p0}, Lcom/android/settings/display/ScreenTimeoutSettings;->isScreenAttentionAvailable(Landroid/content/Context;)Z
-
-    move-result p0
-
-    return p0
-.end method
-
 .method private getCurrentSystemScreenTimeout(Landroid/content/Context;)Ljava/lang/String;
     .locals 2
 
@@ -125,7 +145,7 @@
 
     move-result-object p0
 
-    const-string p1, "screen_off_timeout"
+    const-string/jumbo p1, "screen_off_timeout"
 
     invoke-static {p0, p1, v0, v1}, Landroid/provider/Settings$System;->getLong(Landroid/content/ContentResolver;Ljava/lang/String;J)J
 
@@ -213,6 +233,36 @@
     return-void
 .end method
 
+.method private synthetic lambda$setupDisabledFooterPreference$1()Ljava/lang/String;
+    .locals 1
+
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p0
+
+    const v0, 0x7f040204
+
+    invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private synthetic lambda$setupDisabledFooterPreference$2(Landroid/view/View;)V
+    .locals 0
+
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
+
+    move-result-object p1
+
+    iget-object p0, p0, Lcom/android/settings/display/ScreenTimeoutSettings;->mAdmin:Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
+
+    invoke-static {p1, p0}, Lcom/android/settingslib/RestrictedLockUtils;->sendShowAdminSupportDetailsIntent(Landroid/content/Context;Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;)V
+
+    return-void
+.end method
+
 .method private setCurrentSystemScreenTimeout(Landroid/content/Context;Ljava/lang/String;)V
     .locals 3
 
@@ -235,7 +285,7 @@
 
     move-result-object p0
 
-    const-string p1, "screen_off_timeout"
+    const-string/jumbo p1, "screen_off_timeout"
 
     invoke-static {p0, p1, v0, v1}, Landroid/provider/Settings$System;->putLong(Landroid/content/ContentResolver;Ljava/lang/String;J)Z
     :try_end_0
@@ -367,7 +417,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a18
+    const p0, 0x7f040a70
 
     return p0
 .end method
@@ -383,7 +433,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f1500ce
+    const p0, 0x7f1500d3
 
     return p0
 .end method
@@ -394,6 +444,16 @@
     invoke-super {p0, p1}, Lcom/android/settings/widget/RadioButtonPickerFragment;->onAttach(Landroid/content/Context;)V
 
     iput-object p1, p0, Lcom/android/settings/display/ScreenTimeoutSettings;->mContext:Landroid/content/Context;
+
+    const-class v0, Landroid/app/admin/DevicePolicyManager;
+
+    invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/app/admin/DevicePolicyManager;
+
+    iput-object v0, p0, Lcom/android/settings/display/ScreenTimeoutSettings;->mDevicePolicyManager:Landroid/app/admin/DevicePolicyManager;
 
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getResources()Landroid/content/res/Resources;
 
@@ -449,13 +509,13 @@
 
     iput-object v0, p0, Lcom/android/settings/display/ScreenTimeoutSettings;->mPrivacyPreference:Lcom/android/settingslib/widget/FooterPreference;
 
-    const v1, 0x7f020309
+    const v1, 0x7f02032b
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setIcon(I)V
 
     iget-object v0, p0, Lcom/android/settings/display/ScreenTimeoutSettings;->mPrivacyPreference:Lcom/android/settingslib/widget/FooterPreference;
 
-    const v1, 0x7f0401ab
+    const v1, 0x7f0401d2
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setTitle(I)V
 
@@ -467,7 +527,7 @@
 
     iget-object v0, p0, Lcom/android/settings/display/ScreenTimeoutSettings;->mPrivacyPreference:Lcom/android/settingslib/widget/FooterPreference;
 
-    const v1, 0x7f06019c
+    const v1, 0x7f0601a7
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setLayoutResource(I)V
 
@@ -477,9 +537,9 @@
 
     iput-object p1, p0, Lcom/android/settings/display/ScreenTimeoutSettings;->mPrivacyManager:Landroid/hardware/SensorPrivacyManager;
 
-    new-instance v0, Lcom/android/settings/display/ScreenTimeoutSettings$$ExternalSyntheticLambda0;
+    new-instance v0, Lcom/android/settings/display/ScreenTimeoutSettings$$ExternalSyntheticLambda2;
 
-    invoke-direct {v0, p0}, Lcom/android/settings/display/ScreenTimeoutSettings$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/display/ScreenTimeoutSettings;)V
+    invoke-direct {v0, p0}, Lcom/android/settings/display/ScreenTimeoutSettings$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/display/ScreenTimeoutSettings;)V
 
     const/4 p0, 0x2
 
@@ -491,7 +551,7 @@
 .method public onStart()V
     .locals 3
 
-    invoke-super {p0}, Lcom/android/settingslib/core/lifecycle/ObservablePreferenceFragment;->onStart()V
+    invoke-super {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->onStart()V
 
     iget-object v0, p0, Lcom/android/settings/display/ScreenTimeoutSettings;->mAdaptiveSleepPermissionController:Lcom/android/settings/display/AdaptiveSleepPermissionPreferenceController;
 
@@ -553,15 +613,21 @@
 .end method
 
 .method setupDisabledFooterPreference()V
-    .locals 5
+    .locals 4
 
-    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getResources()Landroid/content/res/Resources;
+    iget-object v0, p0, Lcom/android/settings/display/ScreenTimeoutSettings;->mDevicePolicyManager:Landroid/app/admin/DevicePolicyManager;
+
+    invoke-virtual {v0}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
 
     move-result-object v0
 
-    const v1, 0x7f0401dc
+    new-instance v1, Lcom/android/settings/display/ScreenTimeoutSettings$$ExternalSyntheticLambda0;
 
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    invoke-direct {v1, p0}, Lcom/android/settings/display/ScreenTimeoutSettings$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/display/ScreenTimeoutSettings;)V
+
+    const-string v2, "Settings.OTHER_OPTIONS_DISABLED_BY_ADMIN"
+
+    invoke-virtual {v0, v2, v1}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -569,102 +635,49 @@
 
     move-result-object v1
 
-    const v2, 0x7f0401de
+    const v2, 0x7f040206
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    new-instance v2, Landroid/text/SpannableString;
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-static {}, Ljava/lang/System;->lineSeparator()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-static {}, Ljava/lang/System;->lineSeparator()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-direct {v2, v3}, Landroid/text/SpannableString;-><init>(Ljava/lang/CharSequence;)V
-
-    new-instance v3, Lcom/android/settings/display/ScreenTimeoutSettings$2;
-
-    invoke-direct {v3, p0}, Lcom/android/settings/display/ScreenTimeoutSettings$2;-><init>(Lcom/android/settings/display/ScreenTimeoutSettings;)V
-
-    if-eqz v0, :cond_0
-
-    if-eqz v1, :cond_0
-
-    invoke-virtual {v0}, Ljava/lang/String;->length()I
-
-    move-result v4
-
-    add-int/lit8 v4, v4, 0x1
-
-    invoke-virtual {v0}, Ljava/lang/String;->length()I
-
-    move-result v0
-
-    invoke-virtual {v1}, Ljava/lang/String;->length()I
-
-    move-result v1
-
-    add-int/2addr v0, v1
-
-    add-int/lit8 v0, v0, 0x2
-
-    const/16 v1, 0x21
-
-    invoke-virtual {v2, v3, v4, v0, v1}, Landroid/text/SpannableString;->setSpan(Ljava/lang/Object;III)V
-
-    :cond_0
-    new-instance v0, Lcom/android/settingslib/widget/FooterPreference;
+    new-instance v2, Lcom/android/settingslib/widget/FooterPreference;
 
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-direct {v0, v1}, Lcom/android/settingslib/widget/FooterPreference;-><init>(Landroid/content/Context;)V
+    invoke-direct {v2, v3}, Lcom/android/settingslib/widget/FooterPreference;-><init>(Landroid/content/Context;)V
 
-    iput-object v0, p0, Lcom/android/settings/display/ScreenTimeoutSettings;->mDisableOptionsPreference:Landroidx/preference/Preference;
+    iput-object v2, p0, Lcom/android/settings/display/ScreenTimeoutSettings;->mDisableOptionsPreference:Lcom/android/settingslib/widget/FooterPreference;
 
-    const v1, 0x7f06019c
+    invoke-virtual {v2, v0}, Landroidx/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
 
-    invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setLayoutResource(I)V
+    iget-object v0, p0, Lcom/android/settings/display/ScreenTimeoutSettings;->mDisableOptionsPreference:Lcom/android/settingslib/widget/FooterPreference;
 
-    iget-object v0, p0, Lcom/android/settings/display/ScreenTimeoutSettings;->mDisableOptionsPreference:Landroidx/preference/Preference;
+    const/4 v2, 0x0
 
-    invoke-virtual {v0, v2}, Landroidx/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v2}, Landroidx/preference/Preference;->setSelectable(Z)V
 
-    iget-object v0, p0, Lcom/android/settings/display/ScreenTimeoutSettings;->mDisableOptionsPreference:Landroidx/preference/Preference;
+    iget-object v0, p0, Lcom/android/settings/display/ScreenTimeoutSettings;->mDisableOptionsPreference:Lcom/android/settingslib/widget/FooterPreference;
 
-    const/4 v1, 0x0
+    invoke-virtual {v0, v1}, Lcom/android/settingslib/widget/FooterPreference;->setLearnMoreText(Ljava/lang/CharSequence;)V
 
-    invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setSelectable(Z)V
+    iget-object v0, p0, Lcom/android/settings/display/ScreenTimeoutSettings;->mDisableOptionsPreference:Lcom/android/settingslib/widget/FooterPreference;
 
-    iget-object v0, p0, Lcom/android/settings/display/ScreenTimeoutSettings;->mDisableOptionsPreference:Landroidx/preference/Preference;
+    new-instance v1, Lcom/android/settings/display/ScreenTimeoutSettings$$ExternalSyntheticLambda1;
 
-    const v1, 0x7f020231
+    invoke-direct {v1, p0}, Lcom/android/settings/display/ScreenTimeoutSettings$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/display/ScreenTimeoutSettings;)V
+
+    invoke-virtual {v0, v1}, Lcom/android/settingslib/widget/FooterPreference;->setLearnMoreAction(Landroid/view/View$OnClickListener;)V
+
+    iget-object v0, p0, Lcom/android/settings/display/ScreenTimeoutSettings;->mDisableOptionsPreference:Lcom/android/settingslib/widget/FooterPreference;
+
+    const v1, 0x7f02024f
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setIcon(I)V
 
-    iget-object v0, p0, Lcom/android/settings/display/ScreenTimeoutSettings;->mDisableOptionsPreference:Landroidx/preference/Preference;
+    iget-object v0, p0, Lcom/android/settings/display/ScreenTimeoutSettings;->mDisableOptionsPreference:Lcom/android/settingslib/widget/FooterPreference;
 
     const v1, 0x7ffffffe
 
@@ -718,19 +731,19 @@
 
     check-cast v4, Lcom/android/settingslib/widget/CandidateInfo;
 
-    new-instance v5, Lcom/android/settingslib/widget/RadioButtonPreference;
+    new-instance v5, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     invoke-virtual {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->getPrefContext()Landroid/content/Context;
 
     move-result-object v6
 
-    invoke-direct {v5, v6}, Lcom/android/settingslib/widget/RadioButtonPreference;-><init>(Landroid/content/Context;)V
+    invoke-direct {v5, v6}, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;-><init>(Landroid/content/Context;)V
 
     invoke-virtual {v4}, Lcom/android/settingslib/widget/CandidateInfo;->getKey()Ljava/lang/String;
 
     move-result-object v6
 
-    invoke-virtual {p0, v5, v6, v4, v0}, Lcom/android/settings/widget/RadioButtonPickerFragment;->bindPreference(Lcom/android/settingslib/widget/RadioButtonPreference;Ljava/lang/String;Lcom/android/settingslib/widget/CandidateInfo;Ljava/lang/String;)Lcom/android/settingslib/widget/RadioButtonPreference;
+    invoke-virtual {p0, v5, v6, v4, v0}, Lcom/android/settings/widget/RadioButtonPickerFragment;->bindPreference(Lcom/android/settingslib/widget/SelectorWithWidgetPreference;Ljava/lang/String;Lcom/android/settingslib/widget/CandidateInfo;Ljava/lang/String;)Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     invoke-virtual {v1, v5}, Landroidx/preference/PreferenceGroup;->addPreference(Landroidx/preference/Preference;)Z
 
@@ -775,7 +788,7 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/android/settingslib/widget/RadioButtonPreference;
+    check-cast v0, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     invoke-virtual {v0, v2}, Landroidx/preference/TwoStatePreference;->setChecked(Z)V
 
@@ -788,13 +801,13 @@
 
     iput-object v0, p0, Lcom/android/settings/display/ScreenTimeoutSettings;->mPrivacyPreference:Lcom/android/settingslib/widget/FooterPreference;
 
-    const v2, 0x7f020309
+    const v2, 0x7f02032b
 
     invoke-virtual {v0, v2}, Landroidx/preference/Preference;->setIcon(I)V
 
     iget-object v0, p0, Lcom/android/settings/display/ScreenTimeoutSettings;->mPrivacyPreference:Lcom/android/settingslib/widget/FooterPreference;
 
-    const v2, 0x7f0401ab
+    const v2, 0x7f0401d2
 
     invoke-virtual {v0, v2}, Landroidx/preference/Preference;->setTitle(I)V
 
@@ -806,7 +819,7 @@
 
     iget-object v0, p0, Lcom/android/settings/display/ScreenTimeoutSettings;->mPrivacyPreference:Lcom/android/settingslib/widget/FooterPreference;
 
-    const v2, 0x7f06019c
+    const v2, 0x7f0601a7
 
     invoke-virtual {v0, v2}, Landroidx/preference/Preference;->setLayoutResource(I)V
 
@@ -828,13 +841,13 @@
 
     invoke-virtual {v0, v1}, Lcom/android/settings/display/AdaptiveSleepCameraStatePreferenceController;->addToScreen(Landroidx/preference/PreferenceScreen;)V
 
-    iget-object v0, p0, Lcom/android/settings/display/ScreenTimeoutSettings;->mAdaptiveSleepBatterySaverPreferenceController:Lcom/android/settings/display/AdaptiveSleepBatterySaverPreferenceController;
-
-    invoke-virtual {v0, v1}, Lcom/android/settings/display/AdaptiveSleepBatterySaverPreferenceController;->addToScreen(Landroidx/preference/PreferenceScreen;)V
-
     iget-object v0, p0, Lcom/android/settings/display/ScreenTimeoutSettings;->mAdaptiveSleepController:Lcom/android/settings/display/AdaptiveSleepPreferenceController;
 
     invoke-virtual {v0, v1}, Lcom/android/settings/display/AdaptiveSleepPreferenceController;->addToScreen(Landroidx/preference/PreferenceScreen;)V
+
+    iget-object v0, p0, Lcom/android/settings/display/ScreenTimeoutSettings;->mAdaptiveSleepBatterySaverPreferenceController:Lcom/android/settings/display/AdaptiveSleepBatterySaverPreferenceController;
+
+    invoke-virtual {v0, v1}, Lcom/android/settings/display/AdaptiveSleepBatterySaverPreferenceController;->addToScreen(Landroidx/preference/PreferenceScreen;)V
 
     iget-object v0, p0, Lcom/android/settings/display/ScreenTimeoutSettings;->mPrivacyPreference:Lcom/android/settingslib/widget/FooterPreference;
 
@@ -847,7 +860,7 @@
 
     invoke-virtual {p0}, Lcom/android/settings/display/ScreenTimeoutSettings;->setupDisabledFooterPreference()V
 
-    iget-object p0, p0, Lcom/android/settings/display/ScreenTimeoutSettings;->mDisableOptionsPreference:Landroidx/preference/Preference;
+    iget-object p0, p0, Lcom/android/settings/display/ScreenTimeoutSettings;->mDisableOptionsPreference:Lcom/android/settingslib/widget/FooterPreference;
 
     invoke-virtual {v1, p0}, Landroidx/preference/PreferenceGroup;->addPreference(Landroidx/preference/Preference;)Z
 

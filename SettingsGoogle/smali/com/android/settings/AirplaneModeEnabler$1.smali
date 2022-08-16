@@ -36,7 +36,7 @@
 
     iget-object p0, p0, Lcom/android/settings/AirplaneModeEnabler$1;->this$0:Lcom/android/settings/AirplaneModeEnabler;
 
-    invoke-static {p0}, Lcom/android/settings/AirplaneModeEnabler;->access$000(Lcom/android/settings/AirplaneModeEnabler;)V
+    invoke-static {p0}, Lcom/android/settings/AirplaneModeEnabler;->-$$Nest$monAirplaneModeChanged(Lcom/android/settings/AirplaneModeEnabler;)V
 
     return-void
 .end method

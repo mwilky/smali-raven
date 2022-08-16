@@ -36,43 +36,43 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    invoke-static {p1}, Lcom/android/settingslib/location/InjectedSetting$Builder;->access$000(Lcom/android/settingslib/location/InjectedSetting$Builder;)Ljava/lang/String;
+    invoke-static {p1}, Lcom/android/settingslib/location/InjectedSetting$Builder;->-$$Nest$fgetmPackageName(Lcom/android/settingslib/location/InjectedSetting$Builder;)Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/settingslib/location/InjectedSetting;->packageName:Ljava/lang/String;
 
-    invoke-static {p1}, Lcom/android/settingslib/location/InjectedSetting$Builder;->access$100(Lcom/android/settingslib/location/InjectedSetting$Builder;)Ljava/lang/String;
+    invoke-static {p1}, Lcom/android/settingslib/location/InjectedSetting$Builder;->-$$Nest$fgetmClassName(Lcom/android/settingslib/location/InjectedSetting$Builder;)Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/settingslib/location/InjectedSetting;->className:Ljava/lang/String;
 
-    invoke-static {p1}, Lcom/android/settingslib/location/InjectedSetting$Builder;->access$200(Lcom/android/settingslib/location/InjectedSetting$Builder;)Ljava/lang/String;
+    invoke-static {p1}, Lcom/android/settingslib/location/InjectedSetting$Builder;->-$$Nest$fgetmTitle(Lcom/android/settingslib/location/InjectedSetting$Builder;)Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/settingslib/location/InjectedSetting;->title:Ljava/lang/String;
 
-    invoke-static {p1}, Lcom/android/settingslib/location/InjectedSetting$Builder;->access$300(Lcom/android/settingslib/location/InjectedSetting$Builder;)I
+    invoke-static {p1}, Lcom/android/settingslib/location/InjectedSetting$Builder;->-$$Nest$fgetmIconId(Lcom/android/settingslib/location/InjectedSetting$Builder;)I
 
     move-result v0
 
     iput v0, p0, Lcom/android/settingslib/location/InjectedSetting;->iconId:I
 
-    invoke-static {p1}, Lcom/android/settingslib/location/InjectedSetting$Builder;->access$400(Lcom/android/settingslib/location/InjectedSetting$Builder;)Landroid/os/UserHandle;
+    invoke-static {p1}, Lcom/android/settingslib/location/InjectedSetting$Builder;->-$$Nest$fgetmUserHandle(Lcom/android/settingslib/location/InjectedSetting$Builder;)Landroid/os/UserHandle;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/settingslib/location/InjectedSetting;->mUserHandle:Landroid/os/UserHandle;
 
-    invoke-static {p1}, Lcom/android/settingslib/location/InjectedSetting$Builder;->access$500(Lcom/android/settingslib/location/InjectedSetting$Builder;)Ljava/lang/String;
+    invoke-static {p1}, Lcom/android/settingslib/location/InjectedSetting$Builder;->-$$Nest$fgetmSettingsActivity(Lcom/android/settingslib/location/InjectedSetting$Builder;)Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/settingslib/location/InjectedSetting;->settingsActivity:Ljava/lang/String;
 
-    invoke-static {p1}, Lcom/android/settingslib/location/InjectedSetting$Builder;->access$600(Lcom/android/settingslib/location/InjectedSetting$Builder;)Ljava/lang/String;
+    invoke-static {p1}, Lcom/android/settingslib/location/InjectedSetting$Builder;->-$$Nest$fgetmUserRestriction(Lcom/android/settingslib/location/InjectedSetting$Builder;)Ljava/lang/String;
 
     move-result-object p1
 
@@ -81,7 +81,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settingslib/location/InjectedSetting$Builder;Lcom/android/settingslib/location/InjectedSetting$1;)V
+.method synthetic constructor <init>(Lcom/android/settingslib/location/InjectedSetting$Builder;Lcom/android/settingslib/location/InjectedSetting-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settingslib/location/InjectedSetting;-><init>(Lcom/android/settingslib/location/InjectedSetting$Builder;)V

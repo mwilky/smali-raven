@@ -137,7 +137,7 @@
 
 
 # virtual methods
-.method public final translate$window_debug(Landroid/app/Activity;Landroidx/window/extensions/layout/FoldingFeature;)Landroidx/window/layout/FoldingFeature;
+.method public final translate$window_release(Landroid/app/Activity;Landroidx/window/extensions/layout/FoldingFeature;)Landroidx/window/layout/FoldingFeature;
     .locals 6
     .param p1    # Landroid/app/Activity;
         .annotation build Lorg/jetbrains/annotations/NotNull;
@@ -246,7 +246,7 @@
     return-object v3
 .end method
 
-.method public final translate$window_debug(Landroid/app/Activity;Landroidx/window/extensions/layout/WindowLayoutInfo;)Landroidx/window/layout/WindowLayoutInfo;
+.method public final translate$window_release(Landroid/app/Activity;Landroidx/window/extensions/layout/WindowLayoutInfo;)Landroidx/window/layout/WindowLayoutInfo;
     .locals 3
     .param p1    # Landroid/app/Activity;
         .annotation build Lorg/jetbrains/annotations/NotNull;
@@ -274,6 +274,8 @@
     const-string p2, "info.displayFeatures"
 
     invoke-static {p0, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+
+    check-cast p0, Ljava/lang/Iterable;
 
     new-instance p2, Ljava/util/ArrayList;
 
@@ -309,7 +311,7 @@
 
     check-cast v0, Landroidx/window/extensions/layout/FoldingFeature;
 
-    invoke-virtual {v1, p1, v0}, Landroidx/window/layout/ExtensionsWindowLayoutInfoAdapter;->translate$window_debug(Landroid/app/Activity;Landroidx/window/extensions/layout/FoldingFeature;)Landroidx/window/layout/FoldingFeature;
+    invoke-virtual {v1, p1, v0}, Landroidx/window/layout/ExtensionsWindowLayoutInfoAdapter;->translate$window_release(Landroid/app/Activity;Landroidx/window/extensions/layout/FoldingFeature;)Landroidx/window/layout/FoldingFeature;
 
     move-result-object v0
 

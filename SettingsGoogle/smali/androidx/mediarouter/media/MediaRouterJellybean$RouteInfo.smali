@@ -17,16 +17,6 @@
 # direct methods
 .method public static getName(Ljava/lang/Object;Landroid/content/Context;)Ljava/lang/CharSequence;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "routeObj",
-            "context"
-        }
-    .end annotation
 
     check-cast p0, Landroid/media/MediaRouter$RouteInfo;
 
@@ -39,14 +29,6 @@
 
 .method public static getPlaybackStream(Ljava/lang/Object;)I
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "routeObj"
-        }
-    .end annotation
 
     check-cast p0, Landroid/media/MediaRouter$RouteInfo;
 
@@ -59,14 +41,6 @@
 
 .method public static getPlaybackType(Ljava/lang/Object;)I
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "routeObj"
-        }
-    .end annotation
 
     check-cast p0, Landroid/media/MediaRouter$RouteInfo;
 
@@ -79,14 +53,6 @@
 
 .method public static getSupportedTypes(Ljava/lang/Object;)I
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "routeObj"
-        }
-    .end annotation
 
     check-cast p0, Landroid/media/MediaRouter$RouteInfo;
 
@@ -99,14 +65,6 @@
 
 .method public static getTag(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "routeObj"
-        }
-    .end annotation
 
     check-cast p0, Landroid/media/MediaRouter$RouteInfo;
 
@@ -119,14 +77,6 @@
 
 .method public static getVolume(Ljava/lang/Object;)I
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "routeObj"
-        }
-    .end annotation
 
     check-cast p0, Landroid/media/MediaRouter$RouteInfo;
 
@@ -139,14 +89,6 @@
 
 .method public static getVolumeHandling(Ljava/lang/Object;)I
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "routeObj"
-        }
-    .end annotation
 
     check-cast p0, Landroid/media/MediaRouter$RouteInfo;
 
@@ -159,14 +101,6 @@
 
 .method public static getVolumeMax(Ljava/lang/Object;)I
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "routeObj"
-        }
-    .end annotation
 
     check-cast p0, Landroid/media/MediaRouter$RouteInfo;
 
@@ -179,16 +113,6 @@
 
 .method public static requestSetVolume(Ljava/lang/Object;I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "routeObj",
-            "volume"
-        }
-    .end annotation
 
     check-cast p0, Landroid/media/MediaRouter$RouteInfo;
 
@@ -199,16 +123,6 @@
 
 .method public static requestUpdateVolume(Ljava/lang/Object;I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "routeObj",
-            "direction"
-        }
-    .end annotation
 
     check-cast p0, Landroid/media/MediaRouter$RouteInfo;
 
@@ -219,16 +133,6 @@
 
 .method public static setTag(Ljava/lang/Object;Ljava/lang/Object;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "routeObj",
-            "tag"
-        }
-    .end annotation
 
     check-cast p0, Landroid/media/MediaRouter$RouteInfo;
 

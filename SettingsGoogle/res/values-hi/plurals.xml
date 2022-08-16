@@ -233,12 +233,12 @@
         <item quantity="one">%d श्रेणियों को बंद कर दिया गया</item>
     </plurals>
     <plurals name="notifications_sent_daily">
-        <item quantity="other">रोज़ ~%d सूचनाएं</item>
-        <item quantity="one">रोज़~%d सूचना</item>
+        <item quantity="other">रोज़ ~%,d सूचनाएं</item>
+        <item quantity="one">रोज़~%,d सूचना</item>
     </plurals>
     <plurals name="notifications_sent_weekly">
-        <item quantity="other">हर हफ़्ते ~%d सूचनाएं</item>
-        <item quantity="one">हर हफ़्ते ~%d सूचना</item>
+        <item quantity="other">हर हफ़्ते ~%,d सूचनाएं</item>
+        <item quantity="one">हर हफ़्ते ~%,d सूचना</item>
     </plurals>
     <plurals name="number_of_device_admins">
         <item quantity="other">%d चालू ऐप्लिकेशन</item>
@@ -328,22 +328,6 @@
         <item quantity="other">प्रमाणपत्रों पर विश्वास करें या निकालें</item>
         <item quantity="one">प्रमाणपत्रों पर विश्वास करें या निकालें</item>
     </plurals>
-    <plurals name="ssl_ca_cert_info_message">
-        <item quantity="other">"%s ने आपकी वर्क प्रोफ़ाइल के लिए प्रमाणपत्र अनुमतियां इंस्टॉल की हैं, जो उन्हें ईमेल, ऐप्लिकेशन और सुरक्षित वेबसाइट सहित, वर्क नेटवर्क गतिविधि की निगरानी करने की अनुमति दे सकते हैं.
-
-इन प्रमाणपत्रों के बारे में और जानकारी के लिए, अपने एडमिन से संपर्क करें."</item>
-        <item quantity="one">"%s ने आपकी वर्क प्रोफ़ाइल के लिए प्रमाणपत्र अनुमतियां इंस्टॉल की हैं, जिससे उसे ईमेल, ऐप्लिकेशन और सुरक्षित वेबसाइटों के साथ ही वर्क नेटवर्क की गतिविधि की निगरानी करने की अनुमति मिल सकती है.
-
-इन प्रमाणपत्रों के बारे में और जानकारी के लिए, अपने एडमिन से संपर्क करें."</item>
-    </plurals>
-    <plurals name="ssl_ca_cert_info_message_device_owner">
-        <item quantity="other">"%s ने आपके डिवाइस पर एक सर्टिफ़िकेट अथॉरिटी को इंस्टॉल किया है, जिससे उसे ईमेल, ऐप्लिकेशन और सुरक्षित वेबसाइटों के साथ ही आपकी डिवाइस नेटवर्क गतिविधि की निगरानी करने की अनुमति मिल सकती है.
-
-इन प्रमाणपत्रों के बारे में और जानकारी के लिए, अपने व्यवस्थापक से संपर्क करें."</item>
-        <item quantity="one">"%s ने आपके डिवाइस पर एक सर्टिफ़िकेट अथॉरिटी को इंस्टॉल किया है, जिससे उसे ईमेल, ऐप्लिकेशन और सुरक्षित वेबसाइटों के साथ ही आपकी डिवाइस नेटवर्क गतिविधि की निगरानी करने की अनुमति मिल सकती है.
-
-इन प्रमाणपत्रों के बारे में और जानकारी के लिए, अपने एडमिन से संपर्क करें."</item>
-    </plurals>
     <plurals name="ssl_ca_cert_settings_button">
         <item quantity="other">प्रमाणपत्रों की जाँच करें</item>
         <item quantity="one">प्रमाणपत्रों की जाँच करें</item>
@@ -375,10 +359,6 @@
     <plurals name="wifi_saved_passpoint_access_points_summary">
         <item quantity="other">%d सदस्यताएं</item>
         <item quantity="one">%d सदस्यताएं</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$d डिवाइस जुड़े हैं</item>
-        <item quantity="one">%1$d डिवाइस जुड़ा है</item>
     </plurals>
     <plurals name="wrong_pin_code">
         <item quantity="other">गलत सिम पिन कोड, आप %d बार और कोशिश कर सकते हैं.</item>

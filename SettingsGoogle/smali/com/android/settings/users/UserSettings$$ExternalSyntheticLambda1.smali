@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/settings/users/UserSettings$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/settingslib/users/ActivityStarter;
+.implements Landroid/content/DialogInterface$OnClickListener;
 
 
 # instance fields
@@ -22,12 +23,12 @@
 
 
 # virtual methods
-.method public final startActivityForResult(Landroid/content/Intent;I)V
+.method public final onClick(Landroid/content/DialogInterface;I)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/settings/users/UserSettings$$ExternalSyntheticLambda1;->f$0:Lcom/android/settings/users/UserSettings;
 
-    invoke-virtual {p0, p1, p2}, Lcom/android/settings/users/UserSettings;->startActivityForResult(Landroid/content/Intent;I)V
+    invoke-static {p0, p1, p2}, Lcom/android/settings/users/UserSettings;->$r8$lambda$P5Nxb5Y2VWJkZ9OBv0JqTpWkgHE(Lcom/android/settings/users/UserSettings;Landroid/content/DialogInterface;I)V
 
     return-void
 .end method

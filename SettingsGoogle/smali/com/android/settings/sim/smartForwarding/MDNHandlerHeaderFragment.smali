@@ -44,7 +44,7 @@
 .method public onCreatePreferences(Landroid/os/Bundle;Ljava/lang/String;)V
     .locals 1
 
-    const p1, 0x7f1500e1
+    const p1, 0x7f1500e6
 
     invoke-virtual {p0, p1, p2}, Landroidx/preference/PreferenceFragmentCompat;->setPreferencesFromResource(ILjava/lang/String;)V
 

@@ -247,7 +247,7 @@
 
     if-eqz p1, :cond_2
 
-    const-string v1, "requested_min_complexity"
+    const-string/jumbo v1, "requested_min_complexity"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 

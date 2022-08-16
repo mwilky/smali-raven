@@ -41,7 +41,7 @@
 
     const/16 v0, 0x37
 
-    invoke-static {p1, v0}, Lcom/android/settings/ResetNetwork;->access$000(Lcom/android/settings/ResetNetwork;I)Z
+    invoke-static {p1, v0}, Lcom/android/settings/ResetNetwork;->-$$Nest$mrunKeyguardConfirmation(Lcom/android/settings/ResetNetwork;I)Z
 
     move-result p1
 

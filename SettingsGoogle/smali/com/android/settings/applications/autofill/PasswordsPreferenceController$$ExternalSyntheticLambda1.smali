@@ -1,53 +1,42 @@
 .class public final synthetic Lcom/android/settings/applications/autofill/PasswordsPreferenceController$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroidx/preference/Preference$OnPreferenceClickListener;
+.implements Landroidx/lifecycle/Observer;
 
 
 # instance fields
-.field public final synthetic f$0:Landroid/content/pm/ServiceInfo;
+.field public final synthetic f$0:Lcom/android/settings/applications/autofill/PasswordsPreferenceController;
 
-.field public final synthetic f$1:Landroid/service/autofill/AutofillServiceInfo;
-
-.field public final synthetic f$2:Landroid/content/Context;
-
-.field public final synthetic f$3:I
+.field public final synthetic f$1:Lcom/android/settingslib/widget/AppPreference;
 
 
 # direct methods
-.method public synthetic constructor <init>(Landroid/content/pm/ServiceInfo;Landroid/service/autofill/AutofillServiceInfo;Landroid/content/Context;I)V
+.method public synthetic constructor <init>(Lcom/android/settings/applications/autofill/PasswordsPreferenceController;Lcom/android/settingslib/widget/AppPreference;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/settings/applications/autofill/PasswordsPreferenceController$$ExternalSyntheticLambda1;->f$0:Landroid/content/pm/ServiceInfo;
+    iput-object p1, p0, Lcom/android/settings/applications/autofill/PasswordsPreferenceController$$ExternalSyntheticLambda1;->f$0:Lcom/android/settings/applications/autofill/PasswordsPreferenceController;
 
-    iput-object p2, p0, Lcom/android/settings/applications/autofill/PasswordsPreferenceController$$ExternalSyntheticLambda1;->f$1:Landroid/service/autofill/AutofillServiceInfo;
-
-    iput-object p3, p0, Lcom/android/settings/applications/autofill/PasswordsPreferenceController$$ExternalSyntheticLambda1;->f$2:Landroid/content/Context;
-
-    iput p4, p0, Lcom/android/settings/applications/autofill/PasswordsPreferenceController$$ExternalSyntheticLambda1;->f$3:I
+    iput-object p2, p0, Lcom/android/settings/applications/autofill/PasswordsPreferenceController$$ExternalSyntheticLambda1;->f$1:Lcom/android/settingslib/widget/AppPreference;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final onPreferenceClick(Landroidx/preference/Preference;)Z
-    .locals 3
+.method public final onChanged(Ljava/lang/Object;)V
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/settings/applications/autofill/PasswordsPreferenceController$$ExternalSyntheticLambda1;->f$0:Landroid/content/pm/ServiceInfo;
+    iget-object v0, p0, Lcom/android/settings/applications/autofill/PasswordsPreferenceController$$ExternalSyntheticLambda1;->f$0:Lcom/android/settings/applications/autofill/PasswordsPreferenceController;
 
-    iget-object v1, p0, Lcom/android/settings/applications/autofill/PasswordsPreferenceController$$ExternalSyntheticLambda1;->f$1:Landroid/service/autofill/AutofillServiceInfo;
+    iget-object p0, p0, Lcom/android/settings/applications/autofill/PasswordsPreferenceController$$ExternalSyntheticLambda1;->f$1:Lcom/android/settingslib/widget/AppPreference;
 
-    iget-object v2, p0, Lcom/android/settings/applications/autofill/PasswordsPreferenceController$$ExternalSyntheticLambda1;->f$2:Landroid/content/Context;
+    check-cast p1, Ljava/lang/Integer;
 
-    iget p0, p0, Lcom/android/settings/applications/autofill/PasswordsPreferenceController$$ExternalSyntheticLambda1;->f$3:I
+    invoke-static {v0, p0, p1}, Lcom/android/settings/applications/autofill/PasswordsPreferenceController;->$r8$lambda$Aeh3auB9sNC-wcIo8i6Q7cDCN9s(Lcom/android/settings/applications/autofill/PasswordsPreferenceController;Lcom/android/settingslib/widget/AppPreference;Ljava/lang/Integer;)V
 
-    invoke-static {v0, v1, v2, p0, p1}, Lcom/android/settings/applications/autofill/PasswordsPreferenceController;->$r8$lambda$JGgp_e6f0i4jNg6DmrAYOTQYMF8(Landroid/content/pm/ServiceInfo;Landroid/service/autofill/AutofillServiceInfo;Landroid/content/Context;ILandroidx/preference/Preference;)Z
-
-    move-result p0
-
-    return p0
+    return-void
 .end method

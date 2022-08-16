@@ -28,6 +28,14 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$msubscriptionsChangedCallback(Lcom/android/settings/network/SubscriptionsChangeListener;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/network/SubscriptionsChangeListener;->subscriptionsChangedCallback()V
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Lcom/android/settings/network/SubscriptionsChangeListener$SubscriptionsChangeListenerClient;)V
     .locals 2
 
@@ -82,14 +90,6 @@
     invoke-direct {p1, p0}, Lcom/android/settings/network/SubscriptionsChangeListener$2;-><init>(Lcom/android/settings/network/SubscriptionsChangeListener;)V
 
     iput-object p1, p0, Lcom/android/settings/network/SubscriptionsChangeListener;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
-
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/network/SubscriptionsChangeListener;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/network/SubscriptionsChangeListener;->subscriptionsChangedCallback()V
 
     return-void
 .end method

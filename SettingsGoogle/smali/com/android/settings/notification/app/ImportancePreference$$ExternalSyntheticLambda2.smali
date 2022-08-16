@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settings/notification/app/ImportancePreference$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -27,7 +28,7 @@
 
     iget-object p0, p0, Lcom/android/settings/notification/app/ImportancePreference$$ExternalSyntheticLambda2;->f$0:Lcom/android/settings/notification/app/ImportancePreference;
 
-    invoke-static {p0}, Lcom/android/settings/notification/app/ImportancePreference;->$r8$lambda$6hpQohC28OwWPJ78QdZBGYjOxcM(Lcom/android/settings/notification/app/ImportancePreference;)V
+    invoke-static {p0}, Lcom/android/settings/notification/app/ImportancePreference;->$r8$lambda$BkhUoMtbIe1iPS09WLGoZNoyCjE(Lcom/android/settings/notification/app/ImportancePreference;)V
 
     return-void
 .end method

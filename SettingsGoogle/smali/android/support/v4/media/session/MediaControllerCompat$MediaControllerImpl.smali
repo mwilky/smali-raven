@@ -28,25 +28,7 @@
 .end method
 
 .method public abstract registerCallback(Landroid/support/v4/media/session/MediaControllerCompat$Callback;Landroid/os/Handler;)V
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "callback",
-            "handler"
-        }
-    .end annotation
 .end method
 
 .method public abstract unregisterCallback(Landroid/support/v4/media/session/MediaControllerCompat$Callback;)V
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "callback"
-        }
-    .end annotation
 .end method

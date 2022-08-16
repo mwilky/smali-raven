@@ -965,7 +965,7 @@
 .end method
 
 .method protected updateLandscapeMiddleHorizontalSpacing()V
-    .locals 9
+    .locals 8
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getResources()Landroid/content/res/Resources;
 
@@ -1024,238 +1024,192 @@
 
     move-result-object v1
 
-    const/16 v2, 0x11
+    const/4 v2, 0x1
 
-    const/4 v3, 0x1
+    const/4 v3, 0x0
 
-    const/4 v4, 0x0
-
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_2
 
     invoke-virtual {p0}, Lcom/google/android/setupcompat/PartnerCustomizationLayout;->shouldApplyPartnerResource()Z
 
-    move-result v5
+    move-result v4
 
-    if-eqz v5, :cond_1
-
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getContext()Landroid/content/Context;
-
-    move-result-object v5
-
-    invoke-static {v5}, Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;->get(Landroid/content/Context;)Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;
-
-    move-result-object v5
-
-    sget-object v6, Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;->CONFIG_LAYOUT_MARGIN_END:Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;
-
-    invoke-virtual {v5, v6}, Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;->isPartnerConfigAvailable(Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_1
+    if-eqz v4, :cond_1
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getContext()Landroid/content/Context;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-static {v5}, Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;->get(Landroid/content/Context;)Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;
+    invoke-static {v4}, Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;->get(Landroid/content/Context;)Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;
 
-    move-result-object v5
+    move-result-object v4
+
+    sget-object v5, Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;->CONFIG_LAYOUT_MARGIN_END:Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;
+
+    invoke-virtual {v4, v5}, Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;->isPartnerConfigAvailable(Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getContext()Landroid/content/Context;
 
-    move-result-object v7
+    move-result-object v4
 
-    invoke-virtual {v5, v7, v6}, Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;->getDimension(Landroid/content/Context;Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;)F
+    invoke-static {v4}, Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;->get(Landroid/content/Context;)Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;
 
-    move-result v5
+    move-result-object v4
 
-    float-to-int v5, v5
+    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getContext()Landroid/content/Context;
+
+    move-result-object v6
+
+    invoke-virtual {v4, v6, v5}, Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;->getDimension(Landroid/content/Context;Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;)F
+
+    move-result v4
+
+    float-to-int v4, v4
 
     goto :goto_0
 
     :cond_1
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getContext()Landroid/content/Context;
 
-    move-result-object v5
+    move-result-object v4
 
-    new-array v6, v3, [I
+    new-array v5, v2, [I
 
-    sget v7, Lcom/google/android/setupdesign/R$attr;->sudMarginEnd:I
+    sget v6, Lcom/google/android/setupdesign/R$attr;->sudMarginEnd:I
 
-    aput v7, v6, v4
+    aput v6, v5, v3
 
-    invoke-virtual {v5, v6}, Landroid/content/Context;->obtainStyledAttributes([I)Landroid/content/res/TypedArray;
+    invoke-virtual {v4, v5}, Landroid/content/Context;->obtainStyledAttributes([I)Landroid/content/res/TypedArray;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-virtual {v5, v4, v4}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
+    invoke-virtual {v4, v3, v3}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
 
-    move-result v6
+    move-result v5
 
-    invoke-virtual {v5}, Landroid/content/res/TypedArray;->recycle()V
+    invoke-virtual {v4}, Landroid/content/res/TypedArray;->recycle()V
 
-    move v5, v6
+    move v4, v5
 
     :goto_0
-    div-int/lit8 v6, v0, 0x2
+    div-int/lit8 v5, v0, 0x2
 
-    sub-int/2addr v6, v5
-
-    sget v5, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    if-lt v5, v2, :cond_2
+    sub-int/2addr v5, v4
 
     invoke-virtual {v1}, Landroid/view/View;->getPaddingStart()I
 
-    move-result v5
+    move-result v4
 
     invoke-virtual {v1}, Landroid/view/View;->getPaddingTop()I
 
-    move-result v7
+    move-result v6
 
     invoke-virtual {v1}, Landroid/view/View;->getPaddingBottom()I
 
-    move-result v8
+    move-result v7
 
-    invoke-virtual {v1, v5, v7, v6, v8}, Landroid/view/View;->setPadding(IIII)V
-
-    goto :goto_1
+    invoke-virtual {v1, v4, v6, v5, v7}, Landroid/view/View;->setPadding(IIII)V
 
     :cond_2
-    invoke-virtual {v1}, Landroid/view/View;->getPaddingLeft()I
+    sget v4, Lcom/google/android/setupdesign/R$id;->sud_landscape_content_area:I
 
-    move-result v5
+    invoke-virtual {p0, v4}, Lcom/google/android/setupcompat/internal/TemplateLayout;->findManagedViewById(I)Landroid/view/View;
 
-    invoke-virtual {v1}, Landroid/view/View;->getPaddingTop()I
+    move-result-object v4
 
-    move-result v7
-
-    invoke-virtual {v1}, Landroid/view/View;->getPaddingBottom()I
-
-    move-result v8
-
-    invoke-virtual {v1, v5, v7, v6, v8}, Landroid/view/View;->setPadding(IIII)V
-
-    :cond_3
-    :goto_1
-    sget v5, Lcom/google/android/setupdesign/R$id;->sud_landscape_content_area:I
-
-    invoke-virtual {p0, v5}, Lcom/google/android/setupcompat/internal/TemplateLayout;->findManagedViewById(I)Landroid/view/View;
-
-    move-result-object v5
-
-    if-eqz v5, :cond_7
+    if-eqz v4, :cond_5
 
     invoke-virtual {p0}, Lcom/google/android/setupcompat/PartnerCustomizationLayout;->shouldApplyPartnerResource()Z
 
-    move-result v6
+    move-result v5
 
-    if-eqz v6, :cond_4
-
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getContext()Landroid/content/Context;
-
-    move-result-object v6
-
-    invoke-static {v6}, Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;->get(Landroid/content/Context;)Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;
-
-    move-result-object v6
-
-    sget-object v7, Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;->CONFIG_LAYOUT_MARGIN_START:Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;
-
-    invoke-virtual {v6, v7}, Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;->isPartnerConfigAvailable(Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_4
+    if-eqz v5, :cond_3
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getContext()Landroid/content/Context;
 
-    move-result-object v3
+    move-result-object v5
 
-    invoke-static {v3}, Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;->get(Landroid/content/Context;)Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;
+    invoke-static {v5}, Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;->get(Landroid/content/Context;)Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;
 
-    move-result-object v3
+    move-result-object v5
+
+    sget-object v6, Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;->CONFIG_LAYOUT_MARGIN_START:Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;
+
+    invoke-virtual {v5, v6}, Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;->isPartnerConfigAvailable(Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_3
+
+    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getContext()Landroid/content/Context;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;->get(Landroid/content/Context;)Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;
+
+    move-result-object v2
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getContext()Landroid/content/Context;
 
     move-result-object p0
 
-    invoke-virtual {v3, p0, v7}, Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;->getDimension(Landroid/content/Context;Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;)F
+    invoke-virtual {v2, p0, v6}, Lcom/google/android/setupcompat/partnerconfig/PartnerConfigHelper;->getDimension(Landroid/content/Context;Lcom/google/android/setupcompat/partnerconfig/PartnerConfig;)F
 
     move-result p0
 
     float-to-int p0, p0
 
-    goto :goto_2
+    goto :goto_1
 
-    :cond_4
+    :cond_3
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getContext()Landroid/content/Context;
 
     move-result-object p0
 
-    new-array v3, v3, [I
+    new-array v2, v2, [I
 
-    sget v6, Lcom/google/android/setupdesign/R$attr;->sudMarginStart:I
+    sget v5, Lcom/google/android/setupdesign/R$attr;->sudMarginStart:I
 
-    aput v6, v3, v4
+    aput v5, v2, v3
 
-    invoke-virtual {p0, v3}, Landroid/content/Context;->obtainStyledAttributes([I)Landroid/content/res/TypedArray;
+    invoke-virtual {p0, v2}, Landroid/content/Context;->obtainStyledAttributes([I)Landroid/content/res/TypedArray;
 
     move-result-object p0
 
-    invoke-virtual {p0, v4, v4}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
+    invoke-virtual {p0, v3, v3}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
 
-    move-result v3
+    move-result v2
 
     invoke-virtual {p0}, Landroid/content/res/TypedArray;->recycle()V
 
-    move p0, v3
+    move p0, v2
 
-    :goto_2
-    if-eqz v1, :cond_5
+    :goto_1
+    if-eqz v1, :cond_4
 
     div-int/lit8 v0, v0, 0x2
 
-    sub-int v4, v0, p0
+    sub-int v3, v0, p0
+
+    :cond_4
+    invoke-virtual {v4}, Landroid/view/View;->getPaddingTop()I
+
+    move-result p0
+
+    invoke-virtual {v4}, Landroid/view/View;->getPaddingEnd()I
+
+    move-result v0
+
+    invoke-virtual {v4}, Landroid/view/View;->getPaddingBottom()I
+
+    move-result v1
+
+    invoke-virtual {v4, v3, p0, v0, v1}, Landroid/view/View;->setPadding(IIII)V
 
     :cond_5
-    sget p0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    if-lt p0, v2, :cond_6
-
-    invoke-virtual {v5}, Landroid/view/View;->getPaddingTop()I
-
-    move-result p0
-
-    invoke-virtual {v5}, Landroid/view/View;->getPaddingEnd()I
-
-    move-result v0
-
-    invoke-virtual {v5}, Landroid/view/View;->getPaddingBottom()I
-
-    move-result v1
-
-    invoke-virtual {v5, v4, p0, v0, v1}, Landroid/view/View;->setPadding(IIII)V
-
-    goto :goto_3
-
-    :cond_6
-    invoke-virtual {v5}, Landroid/view/View;->getPaddingTop()I
-
-    move-result p0
-
-    invoke-virtual {v5}, Landroid/view/View;->getPaddingRight()I
-
-    move-result v0
-
-    invoke-virtual {v5}, Landroid/view/View;->getPaddingBottom()I
-
-    move-result v1
-
-    invoke-virtual {v5, v4, p0, v0, v1}, Landroid/view/View;->setPadding(IIII)V
-
-    :cond_7
-    :goto_3
     return-void
 .end method

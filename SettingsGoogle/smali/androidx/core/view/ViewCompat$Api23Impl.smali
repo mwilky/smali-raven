@@ -17,14 +17,6 @@
 # direct methods
 .method public static getRootWindowInsets(Landroid/view/View;)Landroidx/core/view/WindowInsetsCompat;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "v"
-        }
-    .end annotation
 
     invoke-virtual {p0}, Landroid/view/View;->getRootWindowInsets()Landroid/view/WindowInsets;
 
@@ -50,4 +42,12 @@
     invoke-virtual {v0, p0}, Landroidx/core/view/WindowInsetsCompat;->copyRootViewBounds(Landroid/view/View;)V
 
     return-object v0
+.end method
+
+.method static setScrollIndicators(Landroid/view/View;II)V
+    .locals 0
+
+    invoke-virtual {p0, p1, p2}, Landroid/view/View;->setScrollIndicators(II)V
+
+    return-void
 .end method

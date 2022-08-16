@@ -46,39 +46,9 @@
         }
     .end annotation
 
-    iget-object p1, p0, Lcom/android/settings/datausage/DataUsageList$4;->this$0:Lcom/android/settings/datausage/DataUsageList;
-
-    iget-object p1, p1, Lcom/android/settings/datausage/DataUsageList;->mCycleSpinner:Landroid/widget/Spinner;
-
-    invoke-virtual {p1}, Landroid/widget/Spinner;->getSelectedItem()Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Lcom/android/settings/datausage/CycleAdapter$CycleItem;
-
-    iget-object p1, p0, Lcom/android/settings/datausage/DataUsageList$4;->this$0:Lcom/android/settings/datausage/DataUsageList;
-
-    invoke-static {p1}, Lcom/android/settings/datausage/DataUsageList;->access$100(Lcom/android/settings/datausage/DataUsageList;)Lcom/android/settings/datausage/ChartDataUsagePreference;
-
-    move-result-object p1
-
-    iget-object p2, p0, Lcom/android/settings/datausage/DataUsageList$4;->this$0:Lcom/android/settings/datausage/DataUsageList;
-
-    invoke-static {p2}, Lcom/android/settings/datausage/DataUsageList;->access$000(Lcom/android/settings/datausage/DataUsageList;)Ljava/util/List;
-
-    move-result-object p2
-
-    invoke-interface {p2, p3}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object p2
-
-    check-cast p2, Lcom/android/settingslib/net/NetworkCycleChartData;
-
-    invoke-virtual {p1, p2}, Lcom/android/settings/datausage/ChartDataUsagePreference;->setNetworkCycleData(Lcom/android/settingslib/net/NetworkCycleChartData;)V
-
     iget-object p0, p0, Lcom/android/settings/datausage/DataUsageList$4;->this$0:Lcom/android/settings/datausage/DataUsageList;
 
-    invoke-static {p0}, Lcom/android/settings/datausage/DataUsageList;->access$200(Lcom/android/settings/datausage/DataUsageList;)V
+    invoke-static {p0}, Lcom/android/settings/datausage/DataUsageList;->-$$Nest$mupdateSelectedCycle(Lcom/android/settings/datausage/DataUsageList;)V
 
     return-void
 .end method

@@ -19,6 +19,14 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$mupdateAppsBypassingDndSummaryText(Lcom/android/settings/notification/zen/ZenModeBypassingAppsPreferenceController;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/notification/zen/ZenModeBypassingAppsPreferenceController;->updateAppsBypassingDndSummaryText()V
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Landroid/app/Application;Landroidx/fragment/app/Fragment;Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
     .locals 0
 
@@ -73,14 +81,6 @@
     iput-object p1, p0, Lcom/android/settings/notification/zen/ZenModeBypassingAppsPreferenceController;->mAppSession:Lcom/android/settingslib/applications/ApplicationsState$Session;
 
     :cond_0
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/notification/zen/ZenModeBypassingAppsPreferenceController;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settings/notification/zen/ZenModeBypassingAppsPreferenceController;->updateAppsBypassingDndSummaryText()V
-
     return-void
 .end method
 
@@ -304,7 +304,7 @@
 
     iget-object v6, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v7, 0x7f041807
+    const v7, 0x7f041902
 
     invoke-virtual {v6, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -376,7 +376,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f041808
+    const v0, 0x7f041903
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

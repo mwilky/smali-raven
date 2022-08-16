@@ -39,12 +39,12 @@
 
     if-eqz p2, :cond_0
 
-    const p1, 0x7f041120
+    const p1, 0x7f0411d2
 
     goto :goto_0
 
     :cond_0
-    const p1, 0x7f04111f
+    const p1, 0x7f0411d1
 
     :goto_0
     iget-object v0, p0, Lcom/android/settings/biometrics/face/FaceEnrollEducation$1;->this$0:Lcom/android/settings/biometrics/face/FaceEnrollEducation;
@@ -55,11 +55,11 @@
 
     iget-object p1, p0, Lcom/android/settings/biometrics/face/FaceEnrollEducation$1;->this$0:Lcom/android/settings/biometrics/face/FaceEnrollEducation;
 
-    invoke-static {p1}, Lcom/android/settings/biometrics/face/FaceEnrollEducation;->access$100(Lcom/android/settings/biometrics/face/FaceEnrollEducation;)V
+    invoke-static {p1}, Lcom/android/settings/biometrics/face/FaceEnrollEducation;->-$$Nest$mhideDefaultIllustration(Lcom/android/settings/biometrics/face/FaceEnrollEducation;)V
 
     iget-object p0, p0, Lcom/android/settings/biometrics/face/FaceEnrollEducation$1;->this$0:Lcom/android/settings/biometrics/face/FaceEnrollEducation;
 
-    invoke-static {p0}, Lcom/android/settings/biometrics/face/FaceEnrollEducation;->access$200(Lcom/android/settings/biometrics/face/FaceEnrollEducation;)Landroid/view/View;
+    invoke-static {p0}, Lcom/android/settings/biometrics/face/FaceEnrollEducation;->-$$Nest$fgetmIllustrationAccessibility(Lcom/android/settings/biometrics/face/FaceEnrollEducation;)Landroid/view/View;
 
     move-result-object p0
 
@@ -72,11 +72,11 @@
     :cond_1
     iget-object p1, p0, Lcom/android/settings/biometrics/face/FaceEnrollEducation$1;->this$0:Lcom/android/settings/biometrics/face/FaceEnrollEducation;
 
-    invoke-static {p1}, Lcom/android/settings/biometrics/face/FaceEnrollEducation;->access$300(Lcom/android/settings/biometrics/face/FaceEnrollEducation;)V
+    invoke-static {p1}, Lcom/android/settings/biometrics/face/FaceEnrollEducation;->-$$Nest$mshowDefaultIllustration(Lcom/android/settings/biometrics/face/FaceEnrollEducation;)V
 
     iget-object p0, p0, Lcom/android/settings/biometrics/face/FaceEnrollEducation$1;->this$0:Lcom/android/settings/biometrics/face/FaceEnrollEducation;
 
-    invoke-static {p0}, Lcom/android/settings/biometrics/face/FaceEnrollEducation;->access$200(Lcom/android/settings/biometrics/face/FaceEnrollEducation;)Landroid/view/View;
+    invoke-static {p0}, Lcom/android/settings/biometrics/face/FaceEnrollEducation;->-$$Nest$fgetmIllustrationAccessibility(Lcom/android/settings/biometrics/face/FaceEnrollEducation;)Landroid/view/View;
 
     move-result-object p0
 

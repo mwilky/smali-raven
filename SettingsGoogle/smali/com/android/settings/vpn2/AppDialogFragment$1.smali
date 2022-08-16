@@ -39,7 +39,7 @@
 
     iget-object p0, p0, Lcom/android/settings/vpn2/AppDialogFragment$1;->this$0:Lcom/android/settings/vpn2/AppDialogFragment;
 
-    invoke-static {p0, p1}, Lcom/android/settings/vpn2/AppDialogFragment;->access$000(Lcom/android/settings/vpn2/AppDialogFragment;Landroid/content/DialogInterface;)V
+    invoke-static {p0, p1}, Lcom/android/settings/vpn2/AppDialogFragment;->-$$Nest$monDisconnect(Lcom/android/settings/vpn2/AppDialogFragment;Landroid/content/DialogInterface;)V
 
     return-void
 .end method

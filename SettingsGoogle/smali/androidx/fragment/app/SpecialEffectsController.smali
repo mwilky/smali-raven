@@ -936,11 +936,14 @@
 
     invoke-virtual {v0}, Landroidx/fragment/app/SpecialEffectsController$Operation;->getLifecycleImpact()Landroidx/fragment/app/SpecialEffectsController$Operation$LifecycleImpact;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    goto :goto_0
 
     :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
     invoke-virtual {p1}, Landroidx/fragment/app/FragmentStateManager;->getFragment()Landroidx/fragment/app/Fragment;
 
     move-result-object p1
@@ -949,18 +952,23 @@
 
     move-result-object p0
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_2
 
+    if-eqz v0, :cond_1
+
+    sget-object p1, Landroidx/fragment/app/SpecialEffectsController$Operation$LifecycleImpact;->NONE:Landroidx/fragment/app/SpecialEffectsController$Operation$LifecycleImpact;
+
+    if-ne v0, p1, :cond_2
+
+    :cond_1
     invoke-virtual {p0}, Landroidx/fragment/app/SpecialEffectsController$Operation;->getLifecycleImpact()Landroidx/fragment/app/SpecialEffectsController$Operation$LifecycleImpact;
 
     move-result-object p0
 
     return-object p0
 
-    :cond_1
-    const/4 p0, 0x0
-
-    return-object p0
+    :cond_2
+    return-object v0
 .end method
 
 .method public getContainer()Landroid/view/ViewGroup;

@@ -49,7 +49,7 @@
 
     iget-object v0, p0, Lcom/google/android/setupdesign/items/RecyclerItemAdapter$1;->this$0:Lcom/google/android/setupdesign/items/RecyclerItemAdapter;
 
-    invoke-static {v0}, Lcom/google/android/setupdesign/items/RecyclerItemAdapter;->access$000(Lcom/google/android/setupdesign/items/RecyclerItemAdapter;)Lcom/google/android/setupdesign/items/RecyclerItemAdapter$OnItemSelectedListener;
+    invoke-static {v0}, Lcom/google/android/setupdesign/items/RecyclerItemAdapter;->-$$Nest$fgetlistener(Lcom/google/android/setupdesign/items/RecyclerItemAdapter;)Lcom/google/android/setupdesign/items/RecyclerItemAdapter$OnItemSelectedListener;
 
     move-result-object v0
 
@@ -65,7 +65,7 @@
 
     iget-object p0, p0, Lcom/google/android/setupdesign/items/RecyclerItemAdapter$1;->this$0:Lcom/google/android/setupdesign/items/RecyclerItemAdapter;
 
-    invoke-static {p0}, Lcom/google/android/setupdesign/items/RecyclerItemAdapter;->access$000(Lcom/google/android/setupdesign/items/RecyclerItemAdapter;)Lcom/google/android/setupdesign/items/RecyclerItemAdapter$OnItemSelectedListener;
+    invoke-static {p0}, Lcom/google/android/setupdesign/items/RecyclerItemAdapter;->-$$Nest$fgetlistener(Lcom/google/android/setupdesign/items/RecyclerItemAdapter;)Lcom/google/android/setupdesign/items/RecyclerItemAdapter$OnItemSelectedListener;
 
     move-result-object p0
 

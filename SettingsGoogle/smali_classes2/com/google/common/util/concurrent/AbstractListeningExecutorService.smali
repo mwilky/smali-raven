@@ -6,11 +6,6 @@
 .implements Lcom/google/common/util/concurrent/ListeningExecutorService;
 
 
-# annotations
-.annotation build Lcom/google/errorprone/annotations/CanIgnoreReturnValue;
-.end annotation
-
-
 # direct methods
 .method public constructor <init>()V
     .locals 0

@@ -2,9 +2,16 @@
 .super Lcom/android/settings/core/TogglePreferenceController;
 .source "FontWeightAdjustmentPreferenceController.java"
 
+# interfaces
+.implements Lcom/android/settings/accessibility/TextReadingResetController$ResetStateListener;
+
 
 # static fields
 .field static final BOLD_TEXT_ADJUSTMENT:I = 0x12c
+
+
+# instance fields
+.field private mEntryPoint:I
 
 
 # direct methods
@@ -18,14 +25,6 @@
 
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public getAvailabilityStatus()I
     .locals 0
 
@@ -36,15 +35,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -66,7 +56,7 @@
 .method public getSliceHighlightMenuRes()I
     .locals 0
 
-    const p0, 0x7f040d02
+    const p0, 0x7f040d7d
 
     return p0
 .end method
@@ -108,18 +98,36 @@
     return v1
 .end method
 
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
+.method public resetState()V
+    .locals 1
 
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
+    const/4 v0, 0x0
 
-    move-result p0
+    invoke-virtual {p0, v0}, Lcom/android/settings/accessibility/FontWeightAdjustmentPreferenceController;->setChecked(Z)Z
 
-    return p0
+    return-void
 .end method
 
 .method public setChecked(Z)Z
-    .locals 1
+    .locals 3
+
+    invoke-virtual {p0}, Lcom/android/settings/core/BasePreferenceController;->getPreferenceKey()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/android/settings/accessibility/AccessibilityStatsLogUtils;->convertToItemKeyName(Ljava/lang/String;)I
+
+    move-result v0
+
+    iget v1, p0, Lcom/android/settings/accessibility/FontWeightAdjustmentPreferenceController;->mEntryPoint:I
+
+    invoke-static {v1}, Lcom/android/settings/accessibility/AccessibilityStatsLogUtils;->convertToEntryPoint(I)I
+
+    move-result v1
+
+    const/16 v2, 0x1c6
+
+    invoke-static {v2, v0, p1, v1}, Lcom/android/settings/core/instrumentation/SettingsStatsLog;->write(IIII)V
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
@@ -144,6 +152,14 @@
     move-result p0
 
     return p0
+.end method
+
+.method setEntryPoint(I)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/settings/accessibility/FontWeightAdjustmentPreferenceController;->mEntryPoint:I
+
+    return-void
 .end method
 
 .method public bridge synthetic useDynamicSliceSummary()Z

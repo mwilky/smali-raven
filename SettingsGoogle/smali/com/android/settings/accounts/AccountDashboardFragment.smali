@@ -8,12 +8,20 @@
 
 
 # direct methods
+.method static bridge synthetic -$$Nest$smbuildAccountPreferenceControllers(Landroid/content/Context;Lcom/android/settings/SettingsPreferenceFragment;[Ljava/lang/String;Ljava/util/List;)V
+    .locals 0
+
+    invoke-static {p0, p1, p2, p3}, Lcom/android/settings/accounts/AccountDashboardFragment;->buildAccountPreferenceControllers(Landroid/content/Context;Lcom/android/settings/SettingsPreferenceFragment;[Ljava/lang/String;Ljava/util/List;)V
+
+    return-void
+.end method
+
 .method static constructor <clinit>()V
     .locals 2
 
     new-instance v0, Lcom/android/settings/accounts/AccountDashboardFragment$1;
 
-    const v1, 0x7f150016
+    const v1, 0x7f150015
 
     invoke-direct {v0, v1}, Lcom/android/settings/accounts/AccountDashboardFragment$1;-><init>(I)V
 
@@ -26,14 +34,6 @@
     .locals 0
 
     invoke-direct {p0}, Lcom/android/settings/dashboard/DashboardFragment;-><init>()V
-
-    return-void
-.end method
-
-.method static synthetic access$000(Landroid/content/Context;Lcom/android/settings/SettingsPreferenceFragment;[Ljava/lang/String;Ljava/util/List;)V
-    .locals 0
-
-    invoke-static {p0, p1, p2, p3}, Lcom/android/settings/accounts/AccountDashboardFragment;->buildAccountPreferenceControllers(Landroid/content/Context;Lcom/android/settings/SettingsPreferenceFragment;[Ljava/lang/String;Ljava/util/List;)V
 
     return-void
 .end method
@@ -72,19 +72,19 @@
 
     new-instance p2, Lcom/android/settings/users/AutoSyncDataPreferenceController;
 
-    invoke-direct {p2, p0, p1}, Lcom/android/settings/users/AutoSyncDataPreferenceController;-><init>(Landroid/content/Context;Landroidx/fragment/app/Fragment;)V
+    invoke-direct {p2, p0, p1}, Lcom/android/settings/users/AutoSyncDataPreferenceController;-><init>(Landroid/content/Context;Landroidx/preference/PreferenceFragmentCompat;)V
 
     invoke-interface {p3, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     new-instance p2, Lcom/android/settings/users/AutoSyncPersonalDataPreferenceController;
 
-    invoke-direct {p2, p0, p1}, Lcom/android/settings/users/AutoSyncPersonalDataPreferenceController;-><init>(Landroid/content/Context;Landroidx/fragment/app/Fragment;)V
+    invoke-direct {p2, p0, p1}, Lcom/android/settings/users/AutoSyncPersonalDataPreferenceController;-><init>(Landroid/content/Context;Landroidx/preference/PreferenceFragmentCompat;)V
 
     invoke-interface {p3, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     new-instance p2, Lcom/android/settings/users/AutoSyncWorkDataPreferenceController;
 
-    invoke-direct {p2, p0, p1}, Lcom/android/settings/users/AutoSyncWorkDataPreferenceController;-><init>(Landroid/content/Context;Landroidx/fragment/app/Fragment;)V
+    invoke-direct {p2, p0, p1}, Lcom/android/settings/users/AutoSyncWorkDataPreferenceController;-><init>(Landroid/content/Context;Landroidx/preference/PreferenceFragmentCompat;)V
 
     invoke-interface {p3, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
@@ -157,7 +157,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a51
+    const p0, 0x7f040aaa
 
     return p0
 .end method
@@ -181,7 +181,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150016
+    const p0, 0x7f150015
 
     return p0
 .end method
@@ -206,4 +206,12 @@
     invoke-virtual {p1, p0}, Lcom/android/settingslib/core/lifecycle/Lifecycle;->addObserver(Landroidx/lifecycle/LifecycleObserver;)V
 
     return-void
+.end method
+
+.method protected shouldSkipForInitialSUW()Z
+    .locals 0
+
+    const/4 p0, 0x1
+
+    return p0
 .end method

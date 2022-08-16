@@ -1463,11 +1463,11 @@
 
     add-int v22, v10, v1
 
-    move-object v1, v0
+    move-object/from16 p1, v0
 
     move-object/from16 v0, p0
 
-    move-object/from16 p1, v1
+    move-object/from16 v1, p1
 
     move v11, v2
 
@@ -2464,19 +2464,19 @@
 
     if-ne v1, v3, :cond_18
 
-    const/4 v1, 0x0
+    const/16 v21, 0x0
 
-    aget v5, v15, v1
+    aget v5, v15, v21
 
     if-ne v5, v3, :cond_18
 
-    aget v1, v15, v17
+    aget v5, v15, v17
 
-    if-ne v1, v3, :cond_18
+    if-ne v5, v3, :cond_18
 
-    aget v1, v15, v16
+    aget v5, v15, v16
 
-    if-eq v1, v3, :cond_17
+    if-eq v5, v3, :cond_17
 
     goto :goto_f
 
@@ -2489,25 +2489,23 @@
 
     :cond_18
     :goto_f
-    aget v1, v15, v16
+    aget v3, v15, v16
 
-    const/4 v3, 0x0
+    const/4 v5, 0x0
 
-    aget v5, v15, v3
+    aget v9, v15, v5
 
-    aget v9, v15, v18
+    aget v5, v15, v17
 
-    aget v3, v15, v17
+    invoke-static {v1, v5}, Ljava/lang/Math;->max(II)I
 
-    invoke-static {v9, v3}, Ljava/lang/Math;->max(II)I
+    move-result v1
 
-    move-result v3
+    invoke-static {v9, v1}, Ljava/lang/Math;->max(II)I
 
-    invoke-static {v5, v3}, Ljava/lang/Math;->max(II)I
+    move-result v1
 
-    move-result v3
-
-    invoke-static {v1, v3}, Ljava/lang/Math;->max(II)I
+    invoke-static {v3, v1}, Ljava/lang/Math;->max(II)I
 
     move-result v1
 
@@ -2594,7 +2592,7 @@
     add-int/2addr v2, v3
 
     :goto_12
-    move/from16 v22, v1
+    move/from16 v21, v1
 
     goto :goto_13
 
@@ -2634,7 +2632,7 @@
 
     add-int v9, v6, v14
 
-    move/from16 v22, v1
+    move/from16 v21, v1
 
     iget v1, v5, Landroid/widget/LinearLayout$LayoutParams;->leftMargin:I
 
@@ -2659,12 +2657,12 @@
     :goto_13
     add-int/lit8 v2, v2, 0x1
 
-    move/from16 v1, v22
+    move/from16 v1, v21
 
     goto :goto_11
 
     :cond_1d
-    move/from16 v22, v1
+    move/from16 v21, v1
 
     iget v1, v7, Landroidx/appcompat/widget/LinearLayoutCompat;->mTotalLength:I
 
@@ -2786,7 +2784,7 @@
 
     move/from16 v25, v11
 
-    move/from16 v3, v22
+    move/from16 v3, v21
 
     goto/16 :goto_24
 
@@ -3213,19 +3211,19 @@
 
     if-ne v0, v3, :cond_34
 
-    const/4 v0, 0x0
+    const/4 v5, 0x0
 
-    aget v5, v15, v0
+    aget v8, v15, v5
+
+    if-ne v8, v3, :cond_34
+
+    aget v5, v15, v17
 
     if-ne v5, v3, :cond_34
 
-    aget v0, v15, v17
+    aget v5, v15, v16
 
-    if-ne v0, v3, :cond_34
-
-    aget v0, v15, v16
-
-    if-eq v0, v3, :cond_33
+    if-eq v5, v3, :cond_33
 
     goto :goto_22
 
@@ -3236,31 +3234,29 @@
 
     :cond_34
     :goto_22
-    aget v0, v15, v16
+    aget v3, v15, v16
 
-    const/4 v3, 0x0
+    const/4 v5, 0x0
 
-    aget v5, v15, v3
-
-    aget v8, v15, v18
+    aget v8, v15, v5
 
     aget v10, v15, v17
 
-    invoke-static {v8, v10}, Ljava/lang/Math;->max(II)I
-
-    move-result v8
-
-    invoke-static {v5, v8}, Ljava/lang/Math;->max(II)I
-
-    move-result v5
-
-    invoke-static {v0, v5}, Ljava/lang/Math;->max(II)I
+    invoke-static {v0, v10}, Ljava/lang/Math;->max(II)I
 
     move-result v0
 
-    aget v5, v28, v16
+    invoke-static {v8, v0}, Ljava/lang/Math;->max(II)I
 
-    aget v3, v28, v3
+    move-result v0
+
+    invoke-static {v3, v0}, Ljava/lang/Math;->max(II)I
+
+    move-result v0
+
+    aget v3, v28, v16
+
+    aget v5, v28, v5
 
     aget v8, v28, v18
 
@@ -3270,11 +3266,11 @@
 
     move-result v8
 
-    invoke-static {v3, v8}, Ljava/lang/Math;->max(II)I
+    invoke-static {v5, v8}, Ljava/lang/Math;->max(II)I
 
-    move-result v3
+    move-result v5
 
-    invoke-static {v5, v3}, Ljava/lang/Math;->max(II)I
+    invoke-static {v3, v5}, Ljava/lang/Math;->max(II)I
 
     move-result v3
 

@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settings/applications/intentpicker/ProgressDialogFragment$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -27,7 +28,7 @@
 
     iget-object p0, p0, Lcom/android/settings/applications/intentpicker/ProgressDialogFragment$$ExternalSyntheticLambda1;->f$0:Lcom/android/settings/applications/intentpicker/ProgressDialogFragment;
 
-    invoke-static {p0}, Lcom/android/settings/applications/intentpicker/ProgressDialogFragment;->$r8$lambda$K0wBvkDAhiyN6PvZVVA4XCAK9Rs(Lcom/android/settings/applications/intentpicker/ProgressDialogFragment;)V
+    invoke-static {p0}, Lcom/android/settings/applications/intentpicker/ProgressDialogFragment;->$r8$lambda$s2RiGDgAzY4dTWxT4cdZVGbvLHs(Lcom/android/settings/applications/intentpicker/ProgressDialogFragment;)V
 
     return-void
 .end method

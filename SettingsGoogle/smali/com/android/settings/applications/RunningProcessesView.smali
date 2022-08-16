@@ -196,7 +196,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f0410a5
+    const v0, 0x7f04114b
 
     invoke-virtual {p1, v0}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 
@@ -259,7 +259,7 @@
 
     check-cast v0, Landroid/view/LayoutInflater;
 
-    const v1, 0x7f0601ec
+    const v1, 0x7f0601f5
 
     invoke-virtual {v0, v1, p0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -306,7 +306,7 @@
 
     invoke-virtual {v2, v1}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V
 
-    const v1, 0x7f0601ea
+    const v1, 0x7f0601f3
 
     const/4 v2, 0x0
 
@@ -324,7 +324,7 @@
 
     iget-object v0, p0, Lcom/android/settings/applications/RunningProcessesView;->mHeader:Landroid/view/View;
 
-    const v1, 0x7f0d0165
+    const v1, 0x7f0d0179
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -340,7 +340,7 @@
 
     iget-object v1, p0, Lcom/android/settings/applications/RunningProcessesView;->mColorBar:Landroid/widget/ProgressBar;
 
-    const v2, 0x7f0a01a7
+    const v2, 0x7f0a032a
 
     invoke-virtual {v0, v2}, Landroid/content/Context;->getColor(I)I
 
@@ -368,7 +368,7 @@
 
     iget-object v1, p0, Lcom/android/settings/applications/RunningProcessesView;->mColorBar:Landroid/widget/ProgressBar;
 
-    const v2, 0x7f0a01a6
+    const v2, 0x7f0a0329
 
     invoke-virtual {v0, v2}, Landroid/content/Context;->getColor(I)I
 
@@ -388,7 +388,7 @@
 
     iget-object v0, p0, Lcom/android/settings/applications/RunningProcessesView;->mHeader:Landroid/view/View;
 
-    const v1, 0x7f0d0252
+    const v1, 0x7f0d0273
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -400,7 +400,7 @@
 
     iget-object v0, p0, Lcom/android/settings/applications/RunningProcessesView;->mHeader:Landroid/view/View;
 
-    const v1, 0x7f0d00ac
+    const v1, 0x7f0d00af
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -412,7 +412,7 @@
 
     iget-object v0, p0, Lcom/android/settings/applications/RunningProcessesView;->mHeader:Landroid/view/View;
 
-    const v1, 0x7f0d0599
+    const v1, 0x7f0d05dd
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -424,7 +424,7 @@
 
     iget-object v0, p0, Lcom/android/settings/applications/RunningProcessesView;->mHeader:Landroid/view/View;
 
-    const v1, 0x7f0d0251
+    const v1, 0x7f0d0272
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -436,7 +436,7 @@
 
     iget-object v0, p0, Lcom/android/settings/applications/RunningProcessesView;->mHeader:Landroid/view/View;
 
-    const v1, 0x7f0d00ab
+    const v1, 0x7f0d00ae
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -448,7 +448,7 @@
 
     iget-object v0, p0, Lcom/android/settings/applications/RunningProcessesView;->mHeader:Landroid/view/View;
 
-    const v1, 0x7f0d0598
+    const v1, 0x7f0d05dc
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -651,7 +651,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f04109e
+    const v2, 0x7f041144
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -665,7 +665,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f041098
+    const v2, 0x7f04113e
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -682,7 +682,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f04109c
+    const v2, 0x7f041142
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -696,7 +696,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f041097
+    const v2, 0x7f04113d
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -827,7 +827,7 @@
 
     aput-object v2, v11, v12
 
-    const v2, 0x7f04109b
+    const v2, 0x7f041141
 
     invoke-virtual {v9, v2, v11}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

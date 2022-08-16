@@ -95,7 +95,7 @@
 
     move-result-object v0
 
-    const v3, 0x7f0d0348
+    const v3, 0x7f0d0373
 
     invoke-virtual {v0, v3}, Landroidx/fragment/app/FragmentManager;->findFragmentById(I)Landroidx/fragment/app/Fragment;
 
@@ -192,7 +192,7 @@
     goto :goto_0
 
     :cond_3
-    const p1, 0x7f060208
+    const p1, 0x7f060211
 
     invoke-virtual {p0, p1}, Landroidx/activity/ComponentActivity;->setContentView(I)V
 

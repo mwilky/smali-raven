@@ -291,14 +291,14 @@
         <item quantity="few">%d kategorije isključene</item>
     </plurals>
     <plurals name="notifications_sent_daily">
-        <item quantity="other">~%d obavještenja dnevno</item>
-        <item quantity="one">~%d obavještenje dnevno</item>
-        <item quantity="few">~%d obavještenja dnevno</item>
+        <item quantity="other">~%,d obavještenja dnevno</item>
+        <item quantity="one">~%,d obavještenje dnevno</item>
+        <item quantity="few">~%,d obavještenja dnevno</item>
     </plurals>
     <plurals name="notifications_sent_weekly">
-        <item quantity="other">~%d obavještenja sedmično</item>
-        <item quantity="one">~%d obavještenje sedmično</item>
-        <item quantity="few">~%d obavještenja sedmično</item>
+        <item quantity="other">~%,d obavještenja sedmično</item>
+        <item quantity="one">~%,d obavještenje sedmično</item>
+        <item quantity="few">~%,d obavještenja sedmično</item>
     </plurals>
     <plurals name="number_of_device_admins">
         <item quantity="other">%d aktivnih aplikacija</item>
@@ -366,9 +366,9 @@
         <item quantity="few">%s sekunde</item>
     </plurals>
     <plurals name="security_settings_fingerprint_preference_summary">
-        <item quantity="other">Dodano je %1$d otisaka prstiju</item>
+        <item quantity="other">Dodano je %1$d otisaka prsta</item>
         <item quantity="one">Dodan je %1$d otisak prsta</item>
-        <item quantity="few">Dodana su %1$d otiska prstiju</item>
+        <item quantity="few">Dodana su %1$d otiska prsta</item>
     </plurals>
     <plurals name="security_settings_hub_show_warnings_preference">
         <item quantity="other">Pogledajte sva upozorenja (%1$d)</item>
@@ -410,28 +410,6 @@
         <item quantity="one">Vjerujte certifikatu ili ga uklonite</item>
         <item quantity="few">Vjerujte certifikatima ili ih uklonite</item>
     </plurals>
-    <plurals name="ssl_ca_cert_info_message">
-        <item quantity="other">"Domena %s je instaliralo certifikate ovlaštenja za vaš radni profil, koji im mogu omogućiti da prati radne aktivnosti mreže, uključujući e-poštu, aplikacije i sigurne web lokacije.
-
-Za više informacija o ovim certifikatima, obratite se administratoru."</item>
-        <item quantity="one">"Domena %s je instalirala certifikate ovlaštenja za vaš radni profil, koji im mogu omogućiti da prati radne aktivnosti mreže, uključujući e-poštu, aplikacije i sigurne web lokacije.
-
-Za više informacija o ovim certifikatima, obratite se administratoru."</item>
-        <item quantity="few">"Domene %s su instalirale certifikate ovlaštenja za vaš radni profil, koji im mogu omogućiti da prati radne aktivnosti mreže, uključujući e-poštu, aplikacije i sigurne web lokacije.
-
-Za više informacija o ovim certifikatima, obratite se administratoru."</item>
-    </plurals>
-    <plurals name="ssl_ca_cert_info_message_device_owner">
-        <item quantity="other">"Domena %s je instaliralo certifikate ovlaštenja na vaš uređaj, koji im mogu omogućiti da prate mrežne aktivnosti vašeg uređaja, uključujući e-poštu, aplikacije i sigurne web lokacije.
-
-Za više informacija o ovim certifikatima, obratite se administratoru."</item>
-        <item quantity="one">"Domena %s je instalirala certifikate ovlaštenja na vaš uređaj, koji im mogu omogućiti da prati radne aktivnosti mreže, uključujući e-poštu, aplikacije i sigurne web lokacije.
-
-Za više informacija o ovim certifikatima, obratite se administratoru."</item>
-        <item quantity="few">"Domene %s su instalirale certifikate ovlaštenja na vaš uređaj, koji im mogu omogućiti da prate mrežne aktivnosti vašeg uređaja, uključujući e-poštu, aplikacije i sigurne web lokacije.
-
-Za više informacija o ovim certifikatima, obratite se administratoru."</item>
-    </plurals>
     <plurals name="ssl_ca_cert_settings_button">
         <item quantity="other">Provjerite certifikate</item>
         <item quantity="one">Provjerite certifikate</item>
@@ -471,11 +449,6 @@ Za više informacija o ovim certifikatima, obratite se administratoru."</item>
         <item quantity="other">%d pretplata</item>
         <item quantity="one">%d pretplata</item>
         <item quantity="few">%d pretplate</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">Povezano je %1$d uređaja</item>
-        <item quantity="one">Povezan je %1$d uređaj</item>
-        <item quantity="few">Povezana su %1$duređaja</item>
     </plurals>
     <plurals name="wrong_pin_code">
         <item quantity="other">PIN za SIM je netačan. Preostalo vam je još %d pokušaja.</item>

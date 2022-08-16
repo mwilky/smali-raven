@@ -55,7 +55,7 @@
 
     invoke-super {p0, p1}, Lcom/google/android/setupdesign/items/Item;->onBindView(Landroid/view/View;)V
 
-    const v0, 0x7f0d056f
+    const v0, 0x7f0d05b1
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -63,7 +63,7 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    const v1, 0x7f0d056c
+    const v1, 0x7f0d05ae
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

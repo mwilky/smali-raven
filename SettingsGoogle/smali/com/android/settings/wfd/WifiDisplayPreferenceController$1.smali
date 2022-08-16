@@ -36,11 +36,11 @@
 
     iget-object p0, p0, Lcom/android/settings/wfd/WifiDisplayPreferenceController$1;->this$0:Lcom/android/settings/wfd/WifiDisplayPreferenceController;
 
-    invoke-static {p0}, Lcom/android/settings/wfd/WifiDisplayPreferenceController;->access$000(Lcom/android/settings/wfd/WifiDisplayPreferenceController;)Landroidx/preference/Preference;
+    invoke-static {p0}, Lcom/android/settings/wfd/WifiDisplayPreferenceController;->-$$Nest$fgetmPreference(Lcom/android/settings/wfd/WifiDisplayPreferenceController;)Landroidx/preference/Preference;
 
     move-result-object p1
 
-    invoke-static {p0, p1}, Lcom/android/settings/wfd/WifiDisplayPreferenceController;->access$300(Lcom/android/settings/wfd/WifiDisplayPreferenceController;Landroidx/preference/Preference;)V
+    invoke-static {p0, p1}, Lcom/android/settings/wfd/WifiDisplayPreferenceController;->access$200(Lcom/android/settings/wfd/WifiDisplayPreferenceController;Landroidx/preference/Preference;)V
 
     return-void
 .end method
@@ -50,11 +50,11 @@
 
     iget-object p0, p0, Lcom/android/settings/wfd/WifiDisplayPreferenceController$1;->this$0:Lcom/android/settings/wfd/WifiDisplayPreferenceController;
 
-    invoke-static {p0}, Lcom/android/settings/wfd/WifiDisplayPreferenceController;->access$000(Lcom/android/settings/wfd/WifiDisplayPreferenceController;)Landroidx/preference/Preference;
+    invoke-static {p0}, Lcom/android/settings/wfd/WifiDisplayPreferenceController;->-$$Nest$fgetmPreference(Lcom/android/settings/wfd/WifiDisplayPreferenceController;)Landroidx/preference/Preference;
 
     move-result-object p1
 
-    invoke-static {p0, p1}, Lcom/android/settings/wfd/WifiDisplayPreferenceController;->access$500(Lcom/android/settings/wfd/WifiDisplayPreferenceController;Landroidx/preference/Preference;)V
+    invoke-static {p0, p1}, Lcom/android/settings/wfd/WifiDisplayPreferenceController;->access$400(Lcom/android/settings/wfd/WifiDisplayPreferenceController;Landroidx/preference/Preference;)V
 
     return-void
 .end method
@@ -64,11 +64,11 @@
 
     iget-object p0, p0, Lcom/android/settings/wfd/WifiDisplayPreferenceController$1;->this$0:Lcom/android/settings/wfd/WifiDisplayPreferenceController;
 
-    invoke-static {p0}, Lcom/android/settings/wfd/WifiDisplayPreferenceController;->access$000(Lcom/android/settings/wfd/WifiDisplayPreferenceController;)Landroidx/preference/Preference;
+    invoke-static {p0}, Lcom/android/settings/wfd/WifiDisplayPreferenceController;->-$$Nest$fgetmPreference(Lcom/android/settings/wfd/WifiDisplayPreferenceController;)Landroidx/preference/Preference;
 
     move-result-object p1
 
-    invoke-static {p0, p1}, Lcom/android/settings/wfd/WifiDisplayPreferenceController;->access$400(Lcom/android/settings/wfd/WifiDisplayPreferenceController;Landroidx/preference/Preference;)V
+    invoke-static {p0, p1}, Lcom/android/settings/wfd/WifiDisplayPreferenceController;->access$300(Lcom/android/settings/wfd/WifiDisplayPreferenceController;Landroidx/preference/Preference;)V
 
     return-void
 .end method
@@ -78,11 +78,11 @@
 
     iget-object p0, p0, Lcom/android/settings/wfd/WifiDisplayPreferenceController$1;->this$0:Lcom/android/settings/wfd/WifiDisplayPreferenceController;
 
-    invoke-static {p0}, Lcom/android/settings/wfd/WifiDisplayPreferenceController;->access$000(Lcom/android/settings/wfd/WifiDisplayPreferenceController;)Landroidx/preference/Preference;
+    invoke-static {p0}, Lcom/android/settings/wfd/WifiDisplayPreferenceController;->-$$Nest$fgetmPreference(Lcom/android/settings/wfd/WifiDisplayPreferenceController;)Landroidx/preference/Preference;
 
     move-result-object p1
 
-    invoke-static {p0, p1}, Lcom/android/settings/wfd/WifiDisplayPreferenceController;->access$100(Lcom/android/settings/wfd/WifiDisplayPreferenceController;Landroidx/preference/Preference;)V
+    invoke-static {p0, p1}, Lcom/android/settings/wfd/WifiDisplayPreferenceController;->access$000(Lcom/android/settings/wfd/WifiDisplayPreferenceController;Landroidx/preference/Preference;)V
 
     return-void
 .end method
@@ -92,11 +92,11 @@
 
     iget-object p0, p0, Lcom/android/settings/wfd/WifiDisplayPreferenceController$1;->this$0:Lcom/android/settings/wfd/WifiDisplayPreferenceController;
 
-    invoke-static {p0}, Lcom/android/settings/wfd/WifiDisplayPreferenceController;->access$000(Lcom/android/settings/wfd/WifiDisplayPreferenceController;)Landroidx/preference/Preference;
+    invoke-static {p0}, Lcom/android/settings/wfd/WifiDisplayPreferenceController;->-$$Nest$fgetmPreference(Lcom/android/settings/wfd/WifiDisplayPreferenceController;)Landroidx/preference/Preference;
 
     move-result-object p1
 
-    invoke-static {p0, p1}, Lcom/android/settings/wfd/WifiDisplayPreferenceController;->access$200(Lcom/android/settings/wfd/WifiDisplayPreferenceController;Landroidx/preference/Preference;)V
+    invoke-static {p0, p1}, Lcom/android/settings/wfd/WifiDisplayPreferenceController;->access$100(Lcom/android/settings/wfd/WifiDisplayPreferenceController;Landroidx/preference/Preference;)V
 
     return-void
 .end method

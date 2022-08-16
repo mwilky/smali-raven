@@ -77,7 +77,7 @@
 
     aput-object v0, v4, v5
 
-    const v0, 0x7f040e79
+    const v0, 0x7f040f0d
 
     invoke-virtual {v2, v0, v4}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -103,15 +103,17 @@
 
     invoke-direct {v2, p0, v1, p1}, Lcom/android/settings/applications/specialaccess/notificationaccess/FriendlyWarningDialogFragment$1;-><init>(Lcom/android/settings/applications/specialaccess/notificationaccess/FriendlyWarningDialogFragment;Lcom/android/settings/applications/specialaccess/notificationaccess/NotificationAccessDetails;Landroid/content/ComponentName;)V
 
-    const p0, 0x7f040e78
+    const p0, 0x7f040f0c
 
     invoke-virtual {v0, p0, v2}, Landroidx/appcompat/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 
     move-result-object p0
 
-    sget-object p1, Lcom/android/settings/applications/specialaccess/notificationaccess/FriendlyWarningDialogFragment$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/settings/applications/specialaccess/notificationaccess/FriendlyWarningDialogFragment$$ExternalSyntheticLambda0;
+    new-instance p1, Lcom/android/settings/applications/specialaccess/notificationaccess/FriendlyWarningDialogFragment$$ExternalSyntheticLambda0;
 
-    const v0, 0x7f040e77
+    invoke-direct {p1}, Lcom/android/settings/applications/specialaccess/notificationaccess/FriendlyWarningDialogFragment$$ExternalSyntheticLambda0;-><init>()V
+
+    const v0, 0x7f040f0b
 
     invoke-virtual {p0, v0, p1}, Landroidx/appcompat/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 

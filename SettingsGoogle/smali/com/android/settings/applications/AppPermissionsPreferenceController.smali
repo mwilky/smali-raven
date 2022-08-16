@@ -94,14 +94,6 @@
 
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public getAvailabilityStatus()I
     .locals 0
 
@@ -112,15 +104,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -153,16 +136,6 @@
     .locals 0
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->hasAsyncUpdate()Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
 
     move-result p0
 
@@ -204,7 +177,9 @@
 
     move-result-object v0
 
-    sget-object v1, Lcom/android/settings/applications/AppPermissionsPreferenceController$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/settings/applications/AppPermissionsPreferenceController$$ExternalSyntheticLambda0;
+    new-instance v1, Lcom/android/settings/applications/AppPermissionsPreferenceController$$ExternalSyntheticLambda0;
+
+    invoke-direct {v1}, Lcom/android/settings/applications/AppPermissionsPreferenceController$$ExternalSyntheticLambda0;-><init>()V
 
     invoke-interface {v0, v1}, Ljava/util/stream/Stream;->filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
 
@@ -355,7 +330,7 @@
 
     iget-object v1, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f040274
+    const v2, 0x7f0402a7
 
     new-array v0, v0, [Ljava/lang/Object;
 
@@ -382,7 +357,7 @@
     :cond_2
     iget-object v1, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f040273
+    const v2, 0x7f0402a6
 
     new-array v0, v0, [Ljava/lang/Object;
 
@@ -409,7 +384,7 @@
     :cond_3
     iget-object p1, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f0410ab
+    const v0, 0x7f041151
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

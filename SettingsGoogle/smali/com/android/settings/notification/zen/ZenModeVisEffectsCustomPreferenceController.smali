@@ -4,7 +4,7 @@
 
 
 # instance fields
-.field private mPreference:Lcom/android/settingslib/widget/RadioButtonPreference;
+.field private mPreference:Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
 
 # direct methods
@@ -16,10 +16,10 @@
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$Z1ORKtFyOCYjHR5yHeB7GvQXcrc(Lcom/android/settings/notification/zen/ZenModeVisEffectsCustomPreferenceController;Lcom/android/settingslib/widget/RadioButtonPreference;)V
+.method public static synthetic $r8$lambda$MxPXTyr_XpY70faSwm4YYRTHRMU(Lcom/android/settings/notification/zen/ZenModeVisEffectsCustomPreferenceController;Lcom/android/settingslib/widget/SelectorWithWidgetPreference;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/settings/notification/zen/ZenModeVisEffectsCustomPreferenceController;->lambda$displayPreference$1(Lcom/android/settingslib/widget/RadioButtonPreference;)V
+    invoke-direct {p0, p1}, Lcom/android/settings/notification/zen/ZenModeVisEffectsCustomPreferenceController;->lambda$displayPreference$1(Lcom/android/settingslib/widget/SelectorWithWidgetPreference;)V
 
     return-void
 .end method
@@ -40,7 +40,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$displayPreference$1(Lcom/android/settingslib/widget/RadioButtonPreference;)V
+.method private synthetic lambda$displayPreference$1(Lcom/android/settingslib/widget/SelectorWithWidgetPreference;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/settings/notification/zen/ZenModeVisEffectsCustomPreferenceController;->launchCustomSettings()V
@@ -69,7 +69,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f0418a2
+    const v0, 0x7f0419a0
 
     invoke-virtual {p0, v0}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 
@@ -147,23 +147,23 @@
 
     move-result-object p1
 
-    check-cast p1, Lcom/android/settingslib/widget/RadioButtonPreference;
+    check-cast p1, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
-    iput-object p1, p0, Lcom/android/settings/notification/zen/ZenModeVisEffectsCustomPreferenceController;->mPreference:Lcom/android/settingslib/widget/RadioButtonPreference;
+    iput-object p1, p0, Lcom/android/settings/notification/zen/ZenModeVisEffectsCustomPreferenceController;->mPreference:Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     new-instance v0, Lcom/android/settings/notification/zen/ZenModeVisEffectsCustomPreferenceController$$ExternalSyntheticLambda0;
 
     invoke-direct {v0, p0}, Lcom/android/settings/notification/zen/ZenModeVisEffectsCustomPreferenceController$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/notification/zen/ZenModeVisEffectsCustomPreferenceController;)V
 
-    invoke-virtual {p1, v0}, Lcom/android/settingslib/widget/RadioButtonPreference;->setExtraWidgetOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {p1, v0}, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;->setExtraWidgetOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    iget-object p1, p0, Lcom/android/settings/notification/zen/ZenModeVisEffectsCustomPreferenceController;->mPreference:Lcom/android/settingslib/widget/RadioButtonPreference;
+    iget-object p1, p0, Lcom/android/settings/notification/zen/ZenModeVisEffectsCustomPreferenceController;->mPreference:Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     new-instance v0, Lcom/android/settings/notification/zen/ZenModeVisEffectsCustomPreferenceController$$ExternalSyntheticLambda1;
 
     invoke-direct {v0, p0}, Lcom/android/settings/notification/zen/ZenModeVisEffectsCustomPreferenceController$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/notification/zen/ZenModeVisEffectsCustomPreferenceController;)V
 
-    invoke-virtual {p1, v0}, Lcom/android/settingslib/widget/RadioButtonPreference;->setOnClickListener(Lcom/android/settingslib/widget/RadioButtonPreference$OnClickListener;)V
+    invoke-virtual {p1, v0}, Lcom/android/settingslib/widget/SelectorWithWidgetPreference;->setOnClickListener(Lcom/android/settingslib/widget/SelectorWithWidgetPreference$OnClickListener;)V
 
     return-void
 .end method
@@ -197,7 +197,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settingslib/core/AbstractPreferenceController;->updateState(Landroidx/preference/Preference;)V
 
-    iget-object p1, p0, Lcom/android/settings/notification/zen/ZenModeVisEffectsCustomPreferenceController;->mPreference:Lcom/android/settingslib/widget/RadioButtonPreference;
+    iget-object p1, p0, Lcom/android/settings/notification/zen/ZenModeVisEffectsCustomPreferenceController;->mPreference:Lcom/android/settingslib/widget/SelectorWithWidgetPreference;
 
     invoke-virtual {p0}, Lcom/android/settings/notification/zen/ZenModeVisEffectsCustomPreferenceController;->areCustomOptionsSelected()Z
 

@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/wifitrackerlib/WifiPickerTracker$$ExternalSyntheticLambda3;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Consumer;
+.implements Ljava/util/function/Predicate;
 
 
 # instance fields
@@ -22,14 +23,16 @@
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
+.method public final test(Ljava/lang/Object;)Z
     .locals 0
 
     iget-object p0, p0, Lcom/android/wifitrackerlib/WifiPickerTracker$$ExternalSyntheticLambda3;->f$0:Lcom/android/wifitrackerlib/WifiPickerTracker;
 
     check-cast p1, Lcom/android/wifitrackerlib/StandardWifiEntry;
 
-    invoke-static {p0, p1}, Lcom/android/wifitrackerlib/WifiPickerTracker;->$r8$lambda$YbKxbe3iEtUT38HLyzPmr9o7MzU(Lcom/android/wifitrackerlib/WifiPickerTracker;Lcom/android/wifitrackerlib/StandardWifiEntry;)V
+    invoke-static {p0, p1}, Lcom/android/wifitrackerlib/WifiPickerTracker;->$r8$lambda$2St2HPka3gQKm4TvZOgpmNEZ3yg(Lcom/android/wifitrackerlib/WifiPickerTracker;Lcom/android/wifitrackerlib/StandardWifiEntry;)Z
 
-    return-void
+    move-result p0
+
+    return p0
 .end method

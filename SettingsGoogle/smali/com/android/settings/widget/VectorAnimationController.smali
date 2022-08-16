@@ -23,6 +23,14 @@
     return-void
 .end method
 
+.method static bridge synthetic -$$Nest$fgetmAnimatedVectorDrawableCompat(Lcom/android/settings/widget/VectorAnimationController;)Landroidx/vectordrawable/graphics/drawable/AnimatedVectorDrawableCompat;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settings/widget/VectorAnimationController;->mAnimatedVectorDrawableCompat:Landroidx/vectordrawable/graphics/drawable/AnimatedVectorDrawableCompat;
+
+    return-object p0
+.end method
+
 .method constructor <init>(Landroid/content/Context;I)V
     .locals 0
 
@@ -41,14 +49,6 @@
     iput-object p1, p0, Lcom/android/settings/widget/VectorAnimationController;->mAnimationCallback:Landroidx/vectordrawable/graphics/drawable/Animatable2Compat$AnimationCallback;
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/settings/widget/VectorAnimationController;)Landroidx/vectordrawable/graphics/drawable/AnimatedVectorDrawableCompat;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/widget/VectorAnimationController;->mAnimatedVectorDrawableCompat:Landroidx/vectordrawable/graphics/drawable/AnimatedVectorDrawableCompat;
-
-    return-object p0
 .end method
 
 .method private synthetic lambda$attachView$0(Landroid/view/View;Landroid/view/View;Landroid/view/View;)V

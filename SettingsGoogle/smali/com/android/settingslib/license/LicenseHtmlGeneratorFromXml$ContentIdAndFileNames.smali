@@ -17,12 +17,14 @@
 # instance fields
 .field final mContentId:Ljava/lang/String;
 
-.field final mFileNameList:Ljava/util/List;
+.field final mLibraryToFileNameMap:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
+            "Ljava/util/Map<",
+            "Ljava/lang/String;",
             "Ljava/util/List<",
             "Ljava/lang/String;",
-            ">;"
+            ">;>;"
         }
     .end annotation
 .end field
@@ -34,11 +36,11 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v0, Ljava/util/ArrayList;
+    new-instance v0, Ljava/util/TreeMap;
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v0}, Ljava/util/TreeMap;-><init>()V
 
-    iput-object v0, p0, Lcom/android/settingslib/license/LicenseHtmlGeneratorFromXml$ContentIdAndFileNames;->mFileNameList:Ljava/util/List;
+    iput-object v0, p0, Lcom/android/settingslib/license/LicenseHtmlGeneratorFromXml$ContentIdAndFileNames;->mLibraryToFileNameMap:Ljava/util/Map;
 
     iput-object p1, p0, Lcom/android/settingslib/license/LicenseHtmlGeneratorFromXml$ContentIdAndFileNames;->mContentId:Ljava/lang/String;
 

@@ -102,7 +102,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/applications/AppInfoBase;->onCreate(Landroid/os/Bundle;)V
 
-    const p1, 0x7f15011d
+    const p1, 0x7f150125
 
     invoke-virtual {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->addPreferencesFromResource(I)V
 
@@ -200,7 +200,7 @@
 
     invoke-virtual {p2, p1}, Landroidx/preference/Preference;->setEnabled(Z)V
 
-    const p1, 0x7f0417bd
+    const p1, 0x7f0418b8
 
     invoke-virtual {p0, p1}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 

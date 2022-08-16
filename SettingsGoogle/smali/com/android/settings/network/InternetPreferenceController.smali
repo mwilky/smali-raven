@@ -74,7 +74,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0202e1
+    const v2, 0x7f020302
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -90,7 +90,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0202e0
+    const v3, 0x7f020301
 
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -106,7 +106,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0203b6
+    const v4, 0x7f0203da
 
     invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -122,7 +122,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0202dd
+    const v5, 0x7f0202fe
 
     invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -138,7 +138,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f020340
+    const v6, 0x7f020364
 
     invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -152,7 +152,7 @@
 
     sput-object v0, Lcom/android/settings/network/InternetPreferenceController;->sSummaryMap:Ljava/util/Map;
 
-    const v6, 0x7f040624
+    const v6, 0x7f040682
 
     invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -162,7 +162,7 @@
 
     sget-object v0, Lcom/android/settings/network/InternetPreferenceController;->sSummaryMap:Ljava/util/Map;
 
-    const v6, 0x7f040dd5
+    const v6, 0x7f040e52
 
     invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -180,7 +180,7 @@
 
     sget-object v0, Lcom/android/settings/network/InternetPreferenceController;->sSummaryMap:Ljava/util/Map;
 
-    const v1, 0x7f0413f8
+    const v1, 0x7f0414f1
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -289,9 +289,9 @@
 .method public onAirplaneModeChanged(Z)V
     .locals 0
 
-    new-instance p1, Lcom/android/settings/network/InternetPreferenceController$$ExternalSyntheticLambda0;
+    new-instance p1, Lcom/android/settings/network/InternetPreferenceController$$ExternalSyntheticLambda1;
 
-    invoke-direct {p1, p0}, Lcom/android/settings/network/InternetPreferenceController$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/network/InternetPreferenceController;)V
+    invoke-direct {p1, p0}, Lcom/android/settings/network/InternetPreferenceController$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/network/InternetPreferenceController;)V
 
     invoke-static {p1}, Lcom/android/settingslib/utils/ThreadUtils;->postOnMainThread(Ljava/lang/Runnable;)V
 
@@ -317,9 +317,9 @@
 
     if-eqz v0, :cond_1
 
-    new-instance p1, Lcom/android/settings/network/InternetPreferenceController$$ExternalSyntheticLambda1;
+    new-instance p1, Lcom/android/settings/network/InternetPreferenceController$$ExternalSyntheticLambda0;
 
-    invoke-direct {p1, p0}, Lcom/android/settings/network/InternetPreferenceController$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/network/InternetPreferenceController;)V
+    invoke-direct {p1, p0}, Lcom/android/settings/network/InternetPreferenceController$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/network/InternetPreferenceController;)V
 
     invoke-static {p1}, Lcom/android/settingslib/utils/ThreadUtils;->postOnMainThread(Ljava/lang/Runnable;)V
 

@@ -21,25 +21,25 @@
 
 .field mAnimatingAway:Landroid/view/View;
 
-.field mAnimator:Landroid/animation/Animator;
+.field mEnterAnim:I
 
 .field mEnterTransition:Ljava/lang/Object;
 
-.field mEnterTransitionCallback:Landroidx/core/app/SharedElementCallback;
-
 .field mEnterTransitionPostponed:Z
+
+.field mExitAnim:I
 
 .field mExitTransition:Ljava/lang/Object;
 
-.field mExitTransitionCallback:Landroidx/core/app/SharedElementCallback;
-
 .field mFocusedView:Landroid/view/View;
 
-.field mIsHideReplaced:Z
-
-.field mNextAnim:I
+.field mIsPop:Z
 
 .field mNextTransition:I
+
+.field mPopEnterAnim:I
+
+.field mPopExitAnim:I
 
 .field mPostOnViewCreatedAlpha:F
 
@@ -70,8 +70,6 @@
         }
     .end annotation
 .end field
-
-.field mStartEnterTransitionListener:Landroidx/fragment/app/Fragment$OnStartEnterTransitionListener;
 
 
 # direct methods

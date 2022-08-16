@@ -46,6 +46,10 @@
 
 .field final mImagesUri:Landroid/net/Uri;
 
+.field private mIsDocumentsPrefShown:Z
+
+.field private mIsPreferenceOrderedBySize:Z
+
 .field private mIsWorkProfile:Z
 
 .field private final mMetricsFeatureProvider:Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;
@@ -65,6 +69,8 @@
 .field mPublicStoragePreference:Landroidx/preference/Preference;
 
 .field private mScreen:Landroidx/preference/PreferenceScreen;
+
+.field private mStorageCacheHelper:Lcom/android/settings/deviceinfo/storage/StorageCacheHelper;
 
 .field private final mSvp:Lcom/android/settingslib/deviceinfo/StorageVolumeProvider;
 
@@ -133,11 +139,27 @@
 
     iput p2, p0, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->mUserId:I
 
+    invoke-direct {p0}, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->isDocumentsPrefShown()Z
+
+    move-result p2
+
+    iput-boolean p2, p0, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->mIsDocumentsPrefShown:Z
+
+    new-instance p2, Lcom/android/settings/deviceinfo/storage/StorageCacheHelper;
+
+    iget-object p3, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    iget p4, p0, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->mUserId:I
+
+    invoke-direct {p2, p3, p4}, Lcom/android/settings/deviceinfo/storage/StorageCacheHelper;-><init>(Landroid/content/Context;I)V
+
+    iput-object p2, p0, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->mStorageCacheHelper:Lcom/android/settings/deviceinfo/storage/StorageCacheHelper;
+
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object p2
 
-    const p3, 0x7f040652
+    const p3, 0x7f0406b1
 
     invoke-virtual {p2, p3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -153,7 +175,7 @@
 
     move-result-object p2
 
-    const p3, 0x7f04065c
+    const p3, 0x7f0406bb
 
     invoke-virtual {p2, p3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -169,7 +191,7 @@
 
     move-result-object p2
 
-    const p3, 0x7f040642
+    const p3, 0x7f0406a1
 
     invoke-virtual {p2, p3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -185,7 +207,7 @@
 
     move-result-object p1
 
-    const p2, 0x7f04064b
+    const p2, 0x7f0406aa
 
     invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -198,6 +220,142 @@
     iput-object p1, p0, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->mDocumentsAndOtherUri:Landroid/net/Uri;
 
     return-void
+.end method
+
+.method private getSizeInfo(Landroid/util/SparseArray;I)Lcom/android/settings/deviceinfo/storage/StorageCacheHelper$StorageCache;
+    .locals 8
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/util/SparseArray<",
+            "Lcom/android/settings/deviceinfo/storage/StorageAsyncLoader$StorageResult;",
+            ">;I)",
+            "Lcom/android/settings/deviceinfo/storage/StorageCacheHelper$StorageCache;"
+        }
+    .end annotation
+
+    if-nez p1, :cond_0
+
+    iget-object p0, p0, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->mStorageCacheHelper:Lcom/android/settings/deviceinfo/storage/StorageCacheHelper;
+
+    invoke-virtual {p0}, Lcom/android/settings/deviceinfo/storage/StorageCacheHelper;->retrieveCachedSize()Lcom/android/settings/deviceinfo/storage/StorageCacheHelper$StorageCache;
+
+    move-result-object p0
+
+    return-object p0
+
+    :cond_0
+    invoke-virtual {p1, p2}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+
+    move-result-object p2
+
+    check-cast p2, Lcom/android/settings/deviceinfo/storage/StorageAsyncLoader$StorageResult;
+
+    new-instance v0, Lcom/android/settings/deviceinfo/storage/StorageCacheHelper$StorageCache;
+
+    invoke-direct {v0}, Lcom/android/settings/deviceinfo/storage/StorageCacheHelper$StorageCache;-><init>()V
+
+    iget-wide v1, p2, Lcom/android/settings/deviceinfo/storage/StorageAsyncLoader$StorageResult;->imagesSize:J
+
+    iput-wide v1, v0, Lcom/android/settings/deviceinfo/storage/StorageCacheHelper$StorageCache;->imagesSize:J
+
+    iget-wide v1, p2, Lcom/android/settings/deviceinfo/storage/StorageAsyncLoader$StorageResult;->videosSize:J
+
+    iput-wide v1, v0, Lcom/android/settings/deviceinfo/storage/StorageCacheHelper$StorageCache;->videosSize:J
+
+    iget-wide v1, p2, Lcom/android/settings/deviceinfo/storage/StorageAsyncLoader$StorageResult;->audioSize:J
+
+    iput-wide v1, v0, Lcom/android/settings/deviceinfo/storage/StorageCacheHelper$StorageCache;->audioSize:J
+
+    iget-wide v1, p2, Lcom/android/settings/deviceinfo/storage/StorageAsyncLoader$StorageResult;->allAppsExceptGamesSize:J
+
+    iput-wide v1, v0, Lcom/android/settings/deviceinfo/storage/StorageCacheHelper$StorageCache;->allAppsExceptGamesSize:J
+
+    iget-wide v1, p2, Lcom/android/settings/deviceinfo/storage/StorageAsyncLoader$StorageResult;->gamesSize:J
+
+    iput-wide v1, v0, Lcom/android/settings/deviceinfo/storage/StorageCacheHelper$StorageCache;->gamesSize:J
+
+    iget-wide v1, p2, Lcom/android/settings/deviceinfo/storage/StorageAsyncLoader$StorageResult;->documentsAndOtherSize:J
+
+    iput-wide v1, v0, Lcom/android/settings/deviceinfo/storage/StorageCacheHelper$StorageCache;->documentsAndOtherSize:J
+
+    iget-wide v1, p2, Lcom/android/settings/deviceinfo/storage/StorageAsyncLoader$StorageResult;->trashSize:J
+
+    iput-wide v1, v0, Lcom/android/settings/deviceinfo/storage/StorageCacheHelper$StorageCache;->trashSize:J
+
+    const-wide/16 v1, 0x0
+
+    const/4 p2, 0x0
+
+    :goto_0
+    invoke-virtual {p1}, Landroid/util/SparseArray;->size()I
+
+    move-result v3
+
+    if-ge p2, v3, :cond_1
+
+    invoke-virtual {p1, p2}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Lcom/android/settings/deviceinfo/storage/StorageAsyncLoader$StorageResult;
+
+    iget-wide v4, v3, Lcom/android/settings/deviceinfo/storage/StorageAsyncLoader$StorageResult;->gamesSize:J
+
+    iget-wide v6, v3, Lcom/android/settings/deviceinfo/storage/StorageAsyncLoader$StorageResult;->audioSize:J
+
+    add-long/2addr v4, v6
+
+    iget-wide v6, v3, Lcom/android/settings/deviceinfo/storage/StorageAsyncLoader$StorageResult;->videosSize:J
+
+    add-long/2addr v4, v6
+
+    iget-wide v6, v3, Lcom/android/settings/deviceinfo/storage/StorageAsyncLoader$StorageResult;->imagesSize:J
+
+    add-long/2addr v4, v6
+
+    iget-wide v6, v3, Lcom/android/settings/deviceinfo/storage/StorageAsyncLoader$StorageResult;->documentsAndOtherSize:J
+
+    add-long/2addr v4, v6
+
+    iget-wide v6, v3, Lcom/android/settings/deviceinfo/storage/StorageAsyncLoader$StorageResult;->trashSize:J
+
+    add-long/2addr v4, v6
+
+    iget-wide v6, v3, Lcom/android/settings/deviceinfo/storage/StorageAsyncLoader$StorageResult;->allAppsExceptGamesSize:J
+
+    add-long/2addr v4, v6
+
+    add-long/2addr v1, v4
+
+    iget-wide v3, v3, Lcom/android/settings/deviceinfo/storage/StorageAsyncLoader$StorageResult;->duplicateCodeSize:J
+
+    sub-long/2addr v1, v3
+
+    add-int/lit8 p2, p2, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    sget-object p1, Landroid/util/DataUnit;->GIBIBYTES:Landroid/util/DataUnit;
+
+    const-wide/16 v3, 0x1
+
+    invoke-virtual {p1, v3, v4}, Landroid/util/DataUnit;->toBytes(J)J
+
+    move-result-wide p1
+
+    iget-wide v3, p0, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->mUsedBytes:J
+
+    sub-long/2addr v3, v1
+
+    invoke-static {p1, p2, v3, v4}, Ljava/lang/Math;->max(JJ)J
+
+    move-result-wide p0
+
+    iput-wide p0, v0, Lcom/android/settings/deviceinfo/storage/StorageCacheHelper$StorageCache;->systemSize:J
+
+    return-object v0
 .end method
 
 .method private getWorkAnnotatedBundle(I)Landroid/os/Bundle;
@@ -216,6 +374,36 @@
     invoke-virtual {v0, p1, p0}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     return-object v0
+.end method
+
+.method private isDocumentsPrefShown()Z
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->mSvp:Lcom/android/settingslib/deviceinfo/StorageVolumeProvider;
+
+    iget-object p0, p0, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->mVolume:Landroid/os/storage/VolumeInfo;
+
+    invoke-interface {v0, p0}, Lcom/android/settingslib/deviceinfo/StorageVolumeProvider;->findEmulatedForPrivate(Landroid/os/storage/VolumeInfo;)Landroid/os/storage/VolumeInfo;
+
+    move-result-object p0
+
+    if-eqz p0, :cond_0
+
+    invoke-virtual {p0}, Landroid/os/storage/VolumeInfo;->isMountedReadable()Z
+
+    move-result p0
+
+    if-eqz p0, :cond_0
+
+    const/4 p0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    :goto_0
+    return p0
 .end method
 
 .method private isValidPrivateVolume()Z
@@ -398,7 +586,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f040287
+    const v2, 0x7f0402bb
 
     invoke-virtual {v1, v2}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 
@@ -472,7 +660,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f040991
+    const v2, 0x7f0409e8
 
     invoke-virtual {v1, v2}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 
@@ -590,7 +778,7 @@
     :cond_0
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f04132d
+    const v0, 0x7f0413f1
 
     invoke-static {p0, v0, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -738,7 +926,9 @@
 
     iget-object v0, p0, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->mPrivateStorageItemPreferences:Ljava/util/List;
 
-    sget-object v1, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController$$ExternalSyntheticLambda0;
+    new-instance v1, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController$$ExternalSyntheticLambda0;
+
+    invoke-direct {v1}, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController$$ExternalSyntheticLambda0;-><init>()V
 
     invoke-static {v1}, Ljava/util/Comparator;->comparingLong(Ljava/util/function/ToLongFunction;)Ljava/util/Comparator;
 
@@ -1194,7 +1384,7 @@
 .end method
 
 .method public onEmptyTrashComplete()V
-    .locals 5
+    .locals 6
 
     iget-object v0, p0, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->mTrashPreference:Lcom/android/settings/deviceinfo/StorageItemPreference;
 
@@ -1207,7 +1397,9 @@
 
     iget-wide v3, p0, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->mTotalSize:J
 
-    invoke-virtual {v0, v1, v2, v3, v4}, Lcom/android/settings/deviceinfo/StorageItemPreference;->setStorageSize(JJ)V
+    const/4 v5, 0x1
+
+    invoke-virtual/range {v0 .. v5}, Lcom/android/settings/deviceinfo/StorageItemPreference;->setStorageSize(JJZ)V
 
     invoke-direct {p0}, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->updatePrivateStorageCategoryPreferencesOrder()V
 
@@ -1215,7 +1407,7 @@
 .end method
 
 .method public onLoadFinished(Landroid/util/SparseArray;I)V
-    .locals 7
+    .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1225,154 +1417,120 @@
         }
     .end annotation
 
-    invoke-virtual {p1, p2}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    const/4 v0, 0x1
 
-    move-result-object p2
+    if-eqz p1, :cond_0
 
-    check-cast p2, Lcom/android/settings/deviceinfo/storage/StorageAsyncLoader$StorageResult;
+    iget-boolean v1, p0, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->mIsPreferenceOrderedBySize:Z
 
-    iget-object v0, p0, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->mImagesPreference:Lcom/android/settings/deviceinfo/StorageItemPreference;
+    if-eqz v1, :cond_0
 
-    iget-wide v1, p2, Lcom/android/settings/deviceinfo/storage/StorageAsyncLoader$StorageResult;->imagesSize:J
-
-    iget-wide v3, p0, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->mTotalSize:J
-
-    invoke-virtual {v0, v1, v2, v3, v4}, Lcom/android/settings/deviceinfo/StorageItemPreference;->setStorageSize(JJ)V
-
-    iget-object v0, p0, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->mVideosPreference:Lcom/android/settings/deviceinfo/StorageItemPreference;
-
-    iget-wide v1, p2, Lcom/android/settings/deviceinfo/storage/StorageAsyncLoader$StorageResult;->videosSize:J
-
-    iget-wide v3, p0, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->mTotalSize:J
-
-    invoke-virtual {v0, v1, v2, v3, v4}, Lcom/android/settings/deviceinfo/StorageItemPreference;->setStorageSize(JJ)V
-
-    iget-object v0, p0, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->mAudioPreference:Lcom/android/settings/deviceinfo/StorageItemPreference;
-
-    iget-wide v1, p2, Lcom/android/settings/deviceinfo/storage/StorageAsyncLoader$StorageResult;->audioSize:J
-
-    iget-wide v3, p0, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->mTotalSize:J
-
-    invoke-virtual {v0, v1, v2, v3, v4}, Lcom/android/settings/deviceinfo/StorageItemPreference;->setStorageSize(JJ)V
-
-    iget-object v0, p0, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->mAppsPreference:Lcom/android/settings/deviceinfo/StorageItemPreference;
-
-    iget-wide v1, p2, Lcom/android/settings/deviceinfo/storage/StorageAsyncLoader$StorageResult;->allAppsExceptGamesSize:J
-
-    iget-wide v3, p0, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->mTotalSize:J
-
-    invoke-virtual {v0, v1, v2, v3, v4}, Lcom/android/settings/deviceinfo/StorageItemPreference;->setStorageSize(JJ)V
-
-    iget-object v0, p0, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->mGamesPreference:Lcom/android/settings/deviceinfo/StorageItemPreference;
-
-    iget-wide v1, p2, Lcom/android/settings/deviceinfo/storage/StorageAsyncLoader$StorageResult;->gamesSize:J
-
-    iget-wide v3, p0, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->mTotalSize:J
-
-    invoke-virtual {v0, v1, v2, v3, v4}, Lcom/android/settings/deviceinfo/StorageItemPreference;->setStorageSize(JJ)V
-
-    iget-object v0, p0, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->mDocumentsAndOtherPreference:Lcom/android/settings/deviceinfo/StorageItemPreference;
-
-    iget-wide v1, p2, Lcom/android/settings/deviceinfo/storage/StorageAsyncLoader$StorageResult;->documentsAndOtherSize:J
-
-    iget-wide v3, p0, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->mTotalSize:J
-
-    invoke-virtual {v0, v1, v2, v3, v4}, Lcom/android/settings/deviceinfo/StorageItemPreference;->setStorageSize(JJ)V
-
-    iget-object v0, p0, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->mTrashPreference:Lcom/android/settings/deviceinfo/StorageItemPreference;
-
-    iget-wide v1, p2, Lcom/android/settings/deviceinfo/storage/StorageAsyncLoader$StorageResult;->trashSize:J
-
-    iget-wide v3, p0, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->mTotalSize:J
-
-    invoke-virtual {v0, v1, v2, v3, v4}, Lcom/android/settings/deviceinfo/StorageItemPreference;->setStorageSize(JJ)V
-
-    iget-object p2, p0, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->mSystemPreference:Lcom/android/settings/deviceinfo/StorageItemPreference;
-
-    if-eqz p2, :cond_1
-
-    const-wide/16 v0, 0x0
-
-    const/4 p2, 0x0
-
-    :goto_0
-    invoke-virtual {p1}, Landroid/util/SparseArray;->size()I
-
-    move-result v2
-
-    if-ge p2, v2, :cond_0
-
-    invoke-virtual {p1, p2}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/android/settings/deviceinfo/storage/StorageAsyncLoader$StorageResult;
-
-    iget-wide v3, v2, Lcom/android/settings/deviceinfo/storage/StorageAsyncLoader$StorageResult;->gamesSize:J
-
-    iget-wide v5, v2, Lcom/android/settings/deviceinfo/storage/StorageAsyncLoader$StorageResult;->audioSize:J
-
-    add-long/2addr v3, v5
-
-    iget-wide v5, v2, Lcom/android/settings/deviceinfo/storage/StorageAsyncLoader$StorageResult;->videosSize:J
-
-    add-long/2addr v3, v5
-
-    iget-wide v5, v2, Lcom/android/settings/deviceinfo/storage/StorageAsyncLoader$StorageResult;->imagesSize:J
-
-    add-long/2addr v3, v5
-
-    iget-wide v5, v2, Lcom/android/settings/deviceinfo/storage/StorageAsyncLoader$StorageResult;->documentsAndOtherSize:J
-
-    add-long/2addr v3, v5
-
-    iget-wide v5, v2, Lcom/android/settings/deviceinfo/storage/StorageAsyncLoader$StorageResult;->trashSize:J
-
-    add-long/2addr v3, v5
-
-    iget-wide v5, v2, Lcom/android/settings/deviceinfo/storage/StorageAsyncLoader$StorageResult;->allAppsExceptGamesSize:J
-
-    add-long/2addr v3, v5
-
-    add-long/2addr v0, v3
-
-    iget-wide v2, v2, Lcom/android/settings/deviceinfo/storage/StorageAsyncLoader$StorageResult;->duplicateCodeSize:J
-
-    sub-long/2addr v0, v2
-
-    add-int/lit8 p2, p2, 0x1
+    move v1, v0
 
     goto :goto_0
 
     :cond_0
-    const-wide/32 p1, 0x40000000
+    const/4 v1, 0x0
 
-    iget-wide v2, p0, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->mUsedBytes:J
+    :goto_0
+    invoke-direct {p0, p1, p2}, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->getSizeInfo(Landroid/util/SparseArray;I)Lcom/android/settings/deviceinfo/storage/StorageCacheHelper$StorageCache;
 
-    sub-long/2addr v2, v0
+    move-result-object p2
 
-    invoke-static {p1, p2, v2, v3}, Ljava/lang/Math;->max(JJ)J
+    iget-object v2, p0, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->mImagesPreference:Lcom/android/settings/deviceinfo/StorageItemPreference;
 
-    move-result-wide p1
+    iget-wide v3, p2, Lcom/android/settings/deviceinfo/storage/StorageCacheHelper$StorageCache;->imagesSize:J
 
-    iget-object v0, p0, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->mSystemPreference:Lcom/android/settings/deviceinfo/StorageItemPreference;
+    iget-wide v5, p0, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->mTotalSize:J
 
-    iget-wide v1, p0, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->mTotalSize:J
+    move v7, v1
 
-    invoke-virtual {v0, p1, p2, v1, v2}, Lcom/android/settings/deviceinfo/StorageItemPreference;->setStorageSize(JJ)V
+    invoke-virtual/range {v2 .. v7}, Lcom/android/settings/deviceinfo/StorageItemPreference;->setStorageSize(JJZ)V
+
+    iget-object v2, p0, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->mVideosPreference:Lcom/android/settings/deviceinfo/StorageItemPreference;
+
+    iget-wide v3, p2, Lcom/android/settings/deviceinfo/storage/StorageCacheHelper$StorageCache;->videosSize:J
+
+    iget-wide v5, p0, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->mTotalSize:J
+
+    invoke-virtual/range {v2 .. v7}, Lcom/android/settings/deviceinfo/StorageItemPreference;->setStorageSize(JJZ)V
+
+    iget-object v2, p0, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->mAudioPreference:Lcom/android/settings/deviceinfo/StorageItemPreference;
+
+    iget-wide v3, p2, Lcom/android/settings/deviceinfo/storage/StorageCacheHelper$StorageCache;->audioSize:J
+
+    iget-wide v5, p0, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->mTotalSize:J
+
+    invoke-virtual/range {v2 .. v7}, Lcom/android/settings/deviceinfo/StorageItemPreference;->setStorageSize(JJZ)V
+
+    iget-object v2, p0, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->mAppsPreference:Lcom/android/settings/deviceinfo/StorageItemPreference;
+
+    iget-wide v3, p2, Lcom/android/settings/deviceinfo/storage/StorageCacheHelper$StorageCache;->allAppsExceptGamesSize:J
+
+    iget-wide v5, p0, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->mTotalSize:J
+
+    invoke-virtual/range {v2 .. v7}, Lcom/android/settings/deviceinfo/StorageItemPreference;->setStorageSize(JJZ)V
+
+    iget-object v2, p0, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->mGamesPreference:Lcom/android/settings/deviceinfo/StorageItemPreference;
+
+    iget-wide v3, p2, Lcom/android/settings/deviceinfo/storage/StorageCacheHelper$StorageCache;->gamesSize:J
+
+    iget-wide v5, p0, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->mTotalSize:J
+
+    invoke-virtual/range {v2 .. v7}, Lcom/android/settings/deviceinfo/StorageItemPreference;->setStorageSize(JJZ)V
+
+    iget-object v2, p0, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->mDocumentsAndOtherPreference:Lcom/android/settings/deviceinfo/StorageItemPreference;
+
+    iget-wide v3, p2, Lcom/android/settings/deviceinfo/storage/StorageCacheHelper$StorageCache;->documentsAndOtherSize:J
+
+    iget-wide v5, p0, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->mTotalSize:J
+
+    invoke-virtual/range {v2 .. v7}, Lcom/android/settings/deviceinfo/StorageItemPreference;->setStorageSize(JJZ)V
+
+    iget-object v2, p0, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->mTrashPreference:Lcom/android/settings/deviceinfo/StorageItemPreference;
+
+    iget-wide v3, p2, Lcom/android/settings/deviceinfo/storage/StorageCacheHelper$StorageCache;->trashSize:J
+
+    iget-wide v5, p0, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->mTotalSize:J
+
+    invoke-virtual/range {v2 .. v7}, Lcom/android/settings/deviceinfo/StorageItemPreference;->setStorageSize(JJZ)V
+
+    iget-object v2, p0, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->mSystemPreference:Lcom/android/settings/deviceinfo/StorageItemPreference;
+
+    if-eqz v2, :cond_1
+
+    iget-wide v3, p2, Lcom/android/settings/deviceinfo/storage/StorageCacheHelper$StorageCache;->systemSize:J
+
+    iget-wide v5, p0, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->mTotalSize:J
+
+    move v7, v1
+
+    invoke-virtual/range {v2 .. v7}, Lcom/android/settings/deviceinfo/StorageItemPreference;->setStorageSize(JJZ)V
 
     :cond_1
+    if-eqz p1, :cond_2
+
+    iget-object p1, p0, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->mStorageCacheHelper:Lcom/android/settings/deviceinfo/storage/StorageCacheHelper;
+
+    invoke-virtual {p1, p2}, Lcom/android/settings/deviceinfo/storage/StorageCacheHelper;->cacheSizeInfo(Lcom/android/settings/deviceinfo/storage/StorageCacheHelper$StorageCache;)V
+
+    :cond_2
+    iget-boolean p1, p0, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->mIsPreferenceOrderedBySize:Z
+
+    if-nez p1, :cond_3
+
     invoke-direct {p0}, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->updatePrivateStorageCategoryPreferencesOrder()V
 
-    const/4 p1, 0x1
+    iput-boolean v0, p0, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->mIsPreferenceOrderedBySize:Z
 
-    invoke-virtual {p0, p1}, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->setPrivateStorageCategoryPreferencesVisibility(Z)V
+    :cond_3
+    invoke-virtual {p0, v0}, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->setPrivateStorageCategoryPreferencesVisibility(Z)V
 
     return-void
 .end method
 
 .method setPrivateStorageCategoryPreferencesVisibility(Z)V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->mScreen:Landroidx/preference/PreferenceScreen;
 
@@ -1409,39 +1567,22 @@
 
     invoke-virtual {v0, p1}, Landroidx/preference/Preference;->setVisible(Z)V
 
-    const/4 v0, 0x0
-
-    if-eqz p1, :cond_2
-
-    iget-object p1, p0, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->mSvp:Lcom/android/settingslib/deviceinfo/StorageVolumeProvider;
-
-    iget-object v1, p0, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->mVolume:Landroid/os/storage/VolumeInfo;
-
-    invoke-interface {p1, v1}, Lcom/android/settingslib/deviceinfo/StorageVolumeProvider;->findEmulatedForPrivate(Landroid/os/storage/VolumeInfo;)Landroid/os/storage/VolumeInfo;
-
-    move-result-object p1
-
-    iget-object p0, p0, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->mDocumentsAndOtherPreference:Lcom/android/settings/deviceinfo/StorageItemPreference;
-
     if-eqz p1, :cond_1
 
-    invoke-virtual {p1}, Landroid/os/storage/VolumeInfo;->isMountedReadable()Z
+    iget-object p1, p0, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->mDocumentsAndOtherPreference:Lcom/android/settings/deviceinfo/StorageItemPreference;
 
-    move-result p1
+    iget-boolean p0, p0, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->mIsDocumentsPrefShown:Z
 
-    if-eqz p1, :cond_1
-
-    const/4 v0, 0x1
-
-    :cond_1
-    invoke-virtual {p0, v0}, Landroidx/preference/Preference;->setVisible(Z)V
+    invoke-virtual {p1, p0}, Landroidx/preference/Preference;->setVisible(Z)V
 
     goto :goto_0
 
-    :cond_2
+    :cond_1
     iget-object p0, p0, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->mDocumentsAndOtherPreference:Lcom/android/settings/deviceinfo/StorageItemPreference;
 
-    invoke-virtual {p0, v0}, Landroidx/preference/Preference;->setVisible(Z)V
+    const/4 p1, 0x0
+
+    invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setVisible(Z)V
 
     :goto_0
     return-void
@@ -1483,12 +1624,21 @@
 
     move-result p1
 
-    if-nez p1, :cond_1
+    if-eqz p1, :cond_1
 
+    invoke-direct {p0}, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->isDocumentsPrefShown()Z
+
+    move-result p1
+
+    iput-boolean p1, p0, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->mIsDocumentsPrefShown:Z
+
+    goto :goto_0
+
+    :cond_1
     const/4 p1, 0x0
 
     invoke-virtual {p0, p1}, Lcom/android/settings/deviceinfo/storage/StorageItemPreferenceController;->setPrivateStorageCategoryPreferencesVisibility(Z)V
 
-    :cond_1
+    :goto_0
     return-void
 .end method

@@ -45,7 +45,7 @@
 
     iget-object p0, p0, Lcom/android/settings/development/DSUTermsOfServiceActivity$1;->val$intent:Landroid/content/Intent;
 
-    invoke-static {p1, p0}, Lcom/android/settings/development/DSUTermsOfServiceActivity;->access$000(Lcom/android/settings/development/DSUTermsOfServiceActivity;Landroid/content/Intent;)V
+    invoke-static {p1, p0}, Lcom/android/settings/development/DSUTermsOfServiceActivity;->-$$Nest$minstallDSU(Lcom/android/settings/development/DSUTermsOfServiceActivity;Landroid/content/Intent;)V
 
     return-void
 .end method

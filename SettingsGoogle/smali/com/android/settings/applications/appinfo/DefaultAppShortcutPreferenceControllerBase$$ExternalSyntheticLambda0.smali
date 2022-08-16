@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settings/applications/appinfo/DefaultAppShortcutPreferenceControllerBase$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
@@ -29,7 +30,7 @@
 
     check-cast p1, Ljava/lang/Boolean;
 
-    invoke-static {p0, p1}, Lcom/android/settings/applications/appinfo/DefaultAppShortcutPreferenceControllerBase;->$r8$lambda$99ipONgjzKT6T1Y14XD15xfGz-Q(Lcom/android/settings/applications/appinfo/DefaultAppShortcutPreferenceControllerBase;Ljava/lang/Boolean;)V
+    invoke-static {p0, p1}, Lcom/android/settings/applications/appinfo/DefaultAppShortcutPreferenceControllerBase;->$r8$lambda$lYS-CUh7ApzWtVChkV56sBkFqM4(Lcom/android/settings/applications/appinfo/DefaultAppShortcutPreferenceControllerBase;Ljava/lang/Boolean;)V
 
     return-void
 .end method

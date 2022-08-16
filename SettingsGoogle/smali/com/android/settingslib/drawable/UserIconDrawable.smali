@@ -51,6 +51,26 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$rV-lTSPqM1f-ln3isiEqXP-GX-w(Landroid/content/Context;)Landroid/graphics/drawable/Drawable;
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/settingslib/drawable/UserIconDrawable;->lambda$getUpdatableManagedUserDrawable$0(Landroid/content/Context;)Landroid/graphics/drawable/Drawable;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public constructor <init>()V
+    .locals 1
+
+    const/4 v0, 0x0
+
+    invoke-direct {p0, v0}, Lcom/android/settingslib/drawable/UserIconDrawable;-><init>(I)V
+
+    return-void
+.end method
+
 .method public constructor <init>(I)V
     .locals 6
 
@@ -116,6 +136,22 @@
     return-void
 .end method
 
+.method public static getDefaultSize(Landroid/content/Context;)I
+    .locals 1
+
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p0
+
+    const v0, 0x10502d3
+
+    invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result p0
+
+    return p0
+.end method
+
 .method private static getDrawableForDisplayDensity(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
     .locals 2
 
@@ -147,7 +183,20 @@
 .method public static getManagedUserDrawable(Landroid/content/Context;)Landroid/graphics/drawable/Drawable;
     .locals 1
 
-    const v0, 0x108037f
+    invoke-static {}, Lcom/android/settingslib/utils/BuildCompatUtils;->isAtLeastT()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-static {p0}, Lcom/android/settingslib/drawable/UserIconDrawable;->getUpdatableManagedUserDrawable(Landroid/content/Context;)Landroid/graphics/drawable/Drawable;
+
+    move-result-object p0
+
+    return-object p0
+
+    :cond_0
+    const v0, 0x1080389
 
     invoke-static {p0, v0}, Lcom/android/settingslib/drawable/UserIconDrawable;->getDrawableForDisplayDensity(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
 
@@ -156,22 +205,56 @@
     return-object p0
 .end method
 
-.method public static getSizeForList(Landroid/content/Context;)I
-    .locals 1
+.method private static getUpdatableManagedUserDrawable(Landroid/content/Context;)Landroid/graphics/drawable/Drawable;
+    .locals 4
+
+    const-class v0, Landroid/app/admin/DevicePolicyManager;
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/app/admin/DevicePolicyManager;
+
+    invoke-virtual {v0}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
+
+    move-result-object v0
 
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+
+    move-result-object v1
+
+    iget v1, v1, Landroid/util/DisplayMetrics;->densityDpi:I
+
+    new-instance v2, Lcom/android/settingslib/drawable/UserIconDrawable$$ExternalSyntheticLambda0;
+
+    invoke-direct {v2, p0}, Lcom/android/settingslib/drawable/UserIconDrawable$$ExternalSyntheticLambda0;-><init>(Landroid/content/Context;)V
+
+    const-string p0, "WORK_PROFILE_USER_ICON"
+
+    const-string v3, "SOLID_COLORED"
+
+    invoke-virtual {v0, p0, v3, v1, v2}, Landroid/app/admin/DevicePolicyResourcesManager;->getDrawableForDensity(Ljava/lang/String;Ljava/lang/String;ILjava/util/function/Supplier;)Landroid/graphics/drawable/Drawable;
+
     move-result-object p0
 
-    sget v0, Lcom/android/settingslib/R$dimen;->circle_avatar_size:I
+    return-object p0
+.end method
 
-    invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getDimension(I)F
+.method private static synthetic lambda$getUpdatableManagedUserDrawable$0(Landroid/content/Context;)Landroid/graphics/drawable/Drawable;
+    .locals 1
 
-    move-result p0
+    const v0, 0x1080389
 
-    float-to-int p0, p0
+    invoke-static {p0, v0}, Lcom/android/settingslib/drawable/UserIconDrawable;->getDrawableForDisplayDensity(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
 
-    return p0
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method private rebake()V
@@ -580,6 +663,14 @@
     return-void
 .end method
 
+.method public getBadge()Landroid/graphics/drawable/Drawable;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settingslib/drawable/UserIconDrawable;->mBadge:Landroid/graphics/drawable/Drawable;
+
+    return-object p0
+.end method
+
 .method public getConstantState()Landroid/graphics/drawable/Drawable$ConstantState;
     .locals 1
 
@@ -631,6 +722,22 @@
     return p0
 .end method
 
+.method public getUserDrawable()Landroid/graphics/drawable/Drawable;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settingslib/drawable/UserIconDrawable;->mUserDrawable:Landroid/graphics/drawable/Drawable;
+
+    return-object p0
+.end method
+
+.method public getUserIcon()Landroid/graphics/Bitmap;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settingslib/drawable/UserIconDrawable;->mUserIcon:Landroid/graphics/Bitmap;
+
+    return-object p0
+.end method
+
 .method public invalidateDrawable(Landroid/graphics/drawable/Drawable;)V
     .locals 0
 
@@ -649,6 +756,14 @@
     iput-boolean v0, p0, Lcom/android/settingslib/drawable/UserIconDrawable;->mInvalidated:Z
 
     return-void
+.end method
+
+.method public isInvalidated()Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/settingslib/drawable/UserIconDrawable;->mInvalidated:Z
+
+    return p0
 .end method
 
 .method public isStateful()Z

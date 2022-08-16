@@ -279,18 +279,6 @@
     return-void
 .end method
 
-.method protected scheduleShowSoftInput()V
-    .locals 1
-
-    const/4 v0, 0x1
-
-    invoke-direct {p0, v0}, Landroidx/preference/EditTextPreferenceDialogFragmentCompat;->setPendingShowSoftInputRequest(Z)V
-
-    invoke-virtual {p0}, Landroidx/preference/EditTextPreferenceDialogFragmentCompat;->scheduleShowSoftInputInner()V
-
-    return-void
-.end method
-
 .method scheduleShowSoftInputInner()V
     .locals 3
 

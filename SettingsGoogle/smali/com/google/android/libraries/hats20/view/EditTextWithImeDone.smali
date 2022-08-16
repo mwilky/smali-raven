@@ -25,13 +25,9 @@
 
     and-int/lit16 v0, v0, -0x100
 
-    iput v0, p1, Landroid/view/inputmethod/EditorInfo;->imeOptions:I
-
     const/4 v1, 0x6
 
     or-int/2addr v0, v1
-
-    iput v0, p1, Landroid/view/inputmethod/EditorInfo;->imeOptions:I
 
     const v2, -0x40000001    # -1.9999999f
 

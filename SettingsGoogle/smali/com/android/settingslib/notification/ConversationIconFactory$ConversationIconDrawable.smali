@@ -94,7 +94,7 @@
 
     div-float/2addr v0, v1
 
-    invoke-static {}, Lcom/android/settingslib/notification/ConversationIconFactory;->access$000()F
+    invoke-static {}, Lcom/android/settingslib/notification/ConversationIconFactory;->-$$Nest$sfgetRING_STROKE_WIDTH()F
 
     move-result v1
 
@@ -126,7 +126,7 @@
 
     invoke-virtual {v5, v1}, Landroid/graphics/Paint;->setStrokeWidth(F)V
 
-    invoke-static {}, Lcom/android/settingslib/notification/ConversationIconFactory;->access$100()F
+    invoke-static {}, Lcom/android/settingslib/notification/ConversationIconFactory;->-$$Nest$sfgetCIRCLE_RADIUS()F
 
     move-result v5
 

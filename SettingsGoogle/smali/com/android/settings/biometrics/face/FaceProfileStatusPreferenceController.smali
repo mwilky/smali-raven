@@ -7,13 +7,37 @@
 .field private static final KEY_FACE_SETTINGS:Ljava/lang/String; = "face_settings_profile"
 
 
+# instance fields
+.field private final mDevicePolicyManager:Landroid/app/admin/DevicePolicyManager;
+
+
 # direct methods
+.method public static synthetic $r8$lambda$iKOCJM3BuMdKKZgHS_qqTMs571U(Lcom/android/settings/biometrics/face/FaceProfileStatusPreferenceController;)Ljava/lang/String;
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/settings/biometrics/face/FaceProfileStatusPreferenceController;->lambda$updateState$0()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
 
     const-string v0, "face_settings_profile"
 
     invoke-direct {p0, p1, v0}, Lcom/android/settings/biometrics/face/FaceStatusPreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;)V
+
+    const-class v0, Landroid/app/admin/DevicePolicyManager;
+
+    invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Landroid/app/admin/DevicePolicyManager;
+
+    iput-object p1, p0, Lcom/android/settings/biometrics/face/FaceProfileStatusPreferenceController;->mDevicePolicyManager:Landroid/app/admin/DevicePolicyManager;
 
     return-void
 .end method
@@ -25,6 +49,16 @@
 
     invoke-direct {p0, p1, v0, p2}, Lcom/android/settings/biometrics/face/FaceStatusPreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;Landroidx/lifecycle/Lifecycle;)V
 
+    const-class p2, Landroid/app/admin/DevicePolicyManager;
+
+    invoke-virtual {p1, p2}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Landroid/app/admin/DevicePolicyManager;
+
+    iput-object p1, p0, Lcom/android/settings/biometrics/face/FaceProfileStatusPreferenceController;->mDevicePolicyManager:Landroid/app/admin/DevicePolicyManager;
+
     return-void
 .end method
 
@@ -32,6 +66,16 @@
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/settings/biometrics/face/FaceStatusPreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;)V
+
+    const-class p2, Landroid/app/admin/DevicePolicyManager;
+
+    invoke-virtual {p1, p2}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Landroid/app/admin/DevicePolicyManager;
+
+    iput-object p1, p0, Lcom/android/settings/biometrics/face/FaceProfileStatusPreferenceController;->mDevicePolicyManager:Landroid/app/admin/DevicePolicyManager;
 
     return-void
 .end method
@@ -41,19 +85,39 @@
 
     invoke-direct {p0, p1, p2, p3}, Lcom/android/settings/biometrics/face/FaceStatusPreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;Landroidx/lifecycle/Lifecycle;)V
 
+    const-class p2, Landroid/app/admin/DevicePolicyManager;
+
+    invoke-virtual {p1, p2}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Landroid/app/admin/DevicePolicyManager;
+
+    iput-object p1, p0, Lcom/android/settings/biometrics/face/FaceProfileStatusPreferenceController;->mDevicePolicyManager:Landroid/app/admin/DevicePolicyManager;
+
     return-void
+.end method
+
+.method private synthetic lambda$updateState$0()Ljava/lang/String;
+    .locals 1
+
+    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p0
+
+    const v0, 0x7f041212
+
+    invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 
 # virtual methods
-.method public bridge synthetic copy()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->copy()V
-
-    return-void
-.end method
-
 .method public getAvailabilityStatus()I
     .locals 0
 
@@ -73,15 +137,6 @@
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/lang/Class<",
-            "+",
-            "Lcom/android/settings/slices/SliceBackgroundWorker;",
-            ">;"
-        }
-    .end annotation
 
     invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getBackgroundWorkerClass()Ljava/lang/Class;
 
@@ -128,16 +183,6 @@
     return p0
 .end method
 
-.method public bridge synthetic isCopyableSlice()Z
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->isCopyableSlice()Z
-
-    move-result p0
-
-    return p0
-.end method
-
 .method public bridge synthetic isPublicSlice()Z
     .locals 0
 
@@ -167,9 +212,9 @@
 
     if-eq v0, v1, :cond_0
 
-    iget-object p0, p0, Lcom/android/settings/biometrics/BiometricStatusPreferenceController;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+    iget-object p0, p0, Lcom/android/settings/biometrics/BiometricStatusPreferenceController;->mUm:Landroid/os/UserManager;
 
-    invoke-virtual {p0, v0}, Lcom/android/internal/widget/LockPatternUtils;->isSeparateProfileChallengeAllowed(I)Z
+    invoke-virtual {p0, v0}, Landroid/os/UserManager;->isManagedProfile(I)Z
 
     move-result p0
 
@@ -187,19 +232,23 @@
 .end method
 
 .method public updateState(Landroidx/preference/Preference;)V
-    .locals 1
+    .locals 2
 
     invoke-super {p0, p1}, Lcom/android/settings/biometrics/face/FaceStatusPreferenceController;->updateState(Landroidx/preference/Preference;)V
 
-    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Lcom/android/settings/biometrics/face/FaceProfileStatusPreferenceController;->mDevicePolicyManager:Landroid/app/admin/DevicePolicyManager;
 
-    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v0}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
 
-    move-result-object p0
+    move-result-object v0
 
-    const v0, 0x7f041160
+    new-instance v1, Lcom/android/settings/biometrics/face/FaceProfileStatusPreferenceController$$ExternalSyntheticLambda0;
 
-    invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    invoke-direct {v1, p0}, Lcom/android/settings/biometrics/face/FaceProfileStatusPreferenceController$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/biometrics/face/FaceProfileStatusPreferenceController;)V
+
+    const-string p0, "Settings.FACE_SETTINGS_FOR_WORK_TITLE"
+
+    invoke-virtual {v0, p0, v1}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
 
     move-result-object p0
 

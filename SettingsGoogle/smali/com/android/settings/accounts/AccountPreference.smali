@@ -23,7 +23,7 @@
 
     const/4 v0, 0x2
 
-    const v1, 0x7f04014a
+    const v1, 0x7f040165
 
     if-eq p1, v0, :cond_1
 
@@ -64,7 +64,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f04014b
+    const p1, 0x7f040166
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -88,7 +88,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f040148
+    const p1, 0x7f040163
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -101,7 +101,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f040149
+    const p1, 0x7f040164
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -113,7 +113,7 @@
 .method private getSyncStatusIcon(I)I
     .locals 2
 
-    const p0, 0x7f020358
+    const p0, 0x7f02037d
 
     if-eqz p1, :cond_1
 
@@ -150,12 +150,12 @@
     goto :goto_0
 
     :cond_0
-    const p0, 0x7f020357
+    const p0, 0x7f02037c
 
     goto :goto_0
 
     :cond_1
-    const p0, 0x7f020356
+    const p0, 0x7f02037b
 
     :cond_2
     :goto_0
