@@ -24,6 +24,8 @@
 
 
 # static fields
+.field public static mBlockPowerMenuKeyguard:Z
+
 .field static final LONG_PRESS_POWER_TORCH:I = 0x6
 
 .field private static final MSG_TOGGLE_TORCH:I = 0x19
@@ -11361,12 +11363,12 @@
     .registers 14
     .param p1, "j"    # J
 
-    .line 428
+    .line 456
     invoke-virtual {p0}, Lcom/android/server/policy/PhoneWindowManager;->getResolvedLongPressOnPowerBehavior()I
 
     move-result v0
 
-    .line 429
+    .line 457
     .local v0, "resolvedLongPressOnPowerBehavior":I
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -11402,10 +11404,10 @@
 
     invoke-static {v2, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 430
+    .line 458
     const/4 v1, 0x0
 
-    .line 431
+    .line 459
     .local v1, "z":Z
     const/16 v2, 0x2713
 
@@ -11413,71 +11415,99 @@
 
     const/4 v4, 0x1
 
-    if-ne v0, v4, :cond_3a
+    if-ne v0, v4, :cond_53
 
-    .line 432
+    .line 460
+    sget-boolean v5, Lcom/android/server/policy/PhoneWindowManager;->mBlockPowerMenuKeyguard:Z
+
+    if-eqz v5, :cond_48
+
+    invoke-virtual {p0}, Lcom/android/server/policy/PhoneWindowManager;->isScreenOn()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_48
+
+    invoke-virtual {p0}, Lcom/android/server/policy/PhoneWindowManager;->keyguardOn()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_48
+
+    .line 461
     iput-boolean v4, p0, Lcom/android/server/policy/PhoneWindowManager;->mPowerKeyHandled:Z
 
-    .line 433
+    .line 462
+    const-string v4, "Power - Long Press - Global Actions Suppressed"
+
+    invoke-virtual {p0, v2, v3, v4}, Lcom/android/server/policy/PhoneWindowManager;->performHapticFeedback(IZLjava/lang/String;)Z
+
+    goto/16 :goto_b3
+
+    .line 464
+    :cond_48
+    iput-boolean v4, p0, Lcom/android/server/policy/PhoneWindowManager;->mPowerKeyHandled:Z
+
+    .line 465
     const-string v4, "Power - Long Press - Global Actions"
 
     invoke-virtual {p0, v2, v3, v4}, Lcom/android/server/policy/PhoneWindowManager;->performHapticFeedback(IZLjava/lang/String;)Z
 
-    .line 434
+    .line 466
     invoke-virtual {p0}, Lcom/android/server/policy/PhoneWindowManager;->showGlobalActions()V
 
-    goto :goto_9a
+    goto :goto_b3
 
-    .line 435
-    :cond_3a
+    .line 468
+    :cond_53
     const/4 v5, 0x2
 
-    if-eq v0, v5, :cond_85
+    if-eq v0, v5, :cond_9e
 
     const/4 v6, 0x3
 
-    if-ne v0, v6, :cond_41
+    if-ne v0, v6, :cond_5a
 
-    goto :goto_85
+    goto :goto_9e
 
-    .line 444
-    :cond_41
+    .line 477
+    :cond_5a
     const/4 v5, 0x4
 
-    if-ne v0, v5, :cond_51
+    if-ne v0, v5, :cond_6a
 
-    .line 445
+    .line 478
     iput-boolean v4, p0, Lcom/android/server/policy/PhoneWindowManager;->mPowerKeyHandled:Z
 
-    .line 446
+    .line 479
     const-string v4, "Power - Long Press - Go To Voice Assist"
 
     invoke-virtual {p0, v2, v3, v4}, Lcom/android/server/policy/PhoneWindowManager;->performHapticFeedback(IZLjava/lang/String;)Z
 
-    .line 447
+    .line 480
     iget-boolean v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mAllowStartActivityForLongPressOnPowerDuringSetup:Z
 
     invoke-virtual {p0, v2}, Lcom/android/server/policy/PhoneWindowManager;->launchVoiceAssist(Z)V
 
-    goto :goto_9a
+    goto :goto_b3
 
-    .line 448
-    :cond_51
+    .line 481
+    :cond_6a
     const/4 v2, 0x5
 
-    if-ne v0, v2, :cond_67
+    if-ne v0, v2, :cond_80
 
-    .line 449
+    .line 482
     iput-boolean v4, p0, Lcom/android/server/policy/PhoneWindowManager;->mPowerKeyHandled:Z
 
-    .line 450
+    .line 483
     const/16 v2, 0x2712
 
     const-string v4, "Power - Long Press - Go To Assistant"
 
     invoke-virtual {p0, v2, v3, v4}, Lcom/android/server/policy/PhoneWindowManager;->performHapticFeedback(IZLjava/lang/String;)Z
 
-    .line 451
+    .line 484
     const/4 v6, 0x0
 
     const/high16 v7, -0x80000000
@@ -11488,84 +11518,84 @@
 
     move-wide v8, p1
 
-    invoke-direct/range {v5 .. v10}, Lcom/android/server/policy/PhoneWindowManager;->launchAssistAction(Ljava/lang/String;IJI)V
+    invoke-virtual/range {v5 .. v10}, Lcom/android/server/policy/PhoneWindowManager;->launchAssistAction(Ljava/lang/String;IJI)V
 
-    goto :goto_9a
+    goto :goto_b3
 
-    .line 452
-    :cond_67
+    .line 485
+    :cond_80
     const/4 v2, 0x6
 
-    if-ne v0, v2, :cond_9a
+    if-ne v0, v2, :cond_b3
 
-    .line 453
+    .line 486
     iput-boolean v4, p0, Lcom/android/server/policy/PhoneWindowManager;->mPowerKeyHandled:Z
 
-    .line 454
+    .line 487
     iget-object v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mHandler:Landroid/os/Handler;
 
     const/16 v5, 0x19
 
     invoke-virtual {v2, v5}, Landroid/os/Handler;->removeMessages(I)V
 
-    .line 455
+    .line 488
     iget-object v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v2, v5}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
     move-result-object v2
 
-    .line 456
+    .line 489
     .local v2, "obtainMessage":Landroid/os/Message;
     invoke-virtual {v2, v4}, Landroid/os/Message;->setAsynchronous(Z)V
 
-    .line 457
+    .line 490
     invoke-virtual {v2}, Landroid/os/Message;->sendToTarget()V
 
-    .line 458
+    .line 491
     const-string v4, "Power - Long Press - Torch"
 
     invoke-virtual {p0, v3, v3, v4}, Lcom/android/server/policy/PhoneWindowManager;->performHapticFeedback(IZLjava/lang/String;)Z
 
-    goto :goto_9a
+    goto :goto_b3
 
-    .line 436
+    .line 469
     .end local v2    # "obtainMessage":Landroid/os/Message;
-    :cond_85
-    :goto_85
+    :cond_9e
+    :goto_9e
     iput-boolean v4, p0, Lcom/android/server/policy/PhoneWindowManager;->mPowerKeyHandled:Z
 
-    .line 437
+    .line 470
     const-string v4, "Power - Long Press - Shut Off"
 
     invoke-virtual {p0, v2, v3, v4}, Lcom/android/server/policy/PhoneWindowManager;->performHapticFeedback(IZLjava/lang/String;)Z
 
-    .line 438
+    .line 471
     const-string v2, "globalactions"
 
     invoke-virtual {p0, v2}, Lcom/android/server/policy/PhoneWindowManager;->sendCloseSystemWindows(Ljava/lang/String;)V
 
-    .line 439
+    .line 472
     iget-object v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mWindowManagerFuncs:Lcom/android/server/policy/WindowManagerPolicy$WindowManagerFuncs;
 
-    .line 440
+    .line 473
     .local v2, "windowManagerFuncs":Lcom/android/server/policy/WindowManagerPolicy$WindowManagerFuncs;
-    if-ne v0, v5, :cond_96
+    if-ne v0, v5, :cond_af
 
-    .line 441
+    .line 474
     const/4 v1, 0x1
 
-    .line 443
-    :cond_96
+    .line 476
+    :cond_af
     invoke-interface {v2, v1}, Lcom/android/server/policy/WindowManagerPolicy$WindowManagerFuncs;->shutdown(Z)V
 
-    .line 444
+    .line 477
     .end local v2    # "windowManagerFuncs":Lcom/android/server/policy/WindowManagerPolicy$WindowManagerFuncs;
     nop
 
-    .line 461
-    :cond_9a
-    :goto_9a
+    .line 494
+    :cond_b3
+    :goto_b3
     return-void
 .end method
 
@@ -14386,6 +14416,8 @@
 .method public updateSettings()V
     .locals 8
     
+    invoke-virtual {p0}, Lcom/android/server/policy/PhoneWindowManager;->setBlockPowerMenuKeyguard()V
+    
     invoke-virtual {p0}, Lcom/android/server/policy/PhoneWindowManager;->setTorchPower()V
 
     iget-object v0, p0, Lcom/android/server/policy/PhoneWindowManager;->mContext:Landroid/content/Context;
@@ -15221,4 +15253,26 @@
     const/4 v0, 0x1
 
     return v0
+.end method
+
+.method public setBlockPowerMenuKeyguard()V
+	.locals 3
+
+    iget-object v0, p0, Lcom/android/server/policy/PhoneWindowManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "tweaks_block_power_menu_keyguard"
+
+    const/4 v2, 0x0
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    sput-boolean v0, Lcom/android/server/policy/PhoneWindowManager;->mBlockPowerMenuKeyguard:Z
+
+    return-void   
 .end method

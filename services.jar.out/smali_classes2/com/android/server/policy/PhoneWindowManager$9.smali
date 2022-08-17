@@ -61,49 +61,79 @@
 .end method
 
 .method public execute()V
-    .locals 5
+    .registers 7
 
-    iget-object v0, p0, Lcom/android/server/policy/PhoneWindowManager$9;->this$0:Lcom/android/server/policy/PhoneWindowManager;
+    .line 436
+    iget-object v5, p0, Lcom/android/server/policy/PhoneWindowManager$9;->this$0:Lcom/android/server/policy/PhoneWindowManager;
+    
+    iget v0, v5, Lcom/android/server/policy/PhoneWindowManager;->mPowerVolUpBehavior:I
 
-    iget v1, v0, Lcom/android/server/policy/PhoneWindowManager;->mPowerVolUpBehavior:I
+    .line 437
+    .local v0, "i":I
+    const/4 v1, 0x1
 
-    const/4 v2, 0x1
+    if-ne v0, v1, :cond_b
 
-    if-eq v1, v2, :cond_1
+    .line 438
+    invoke-static {v5}, Lcom/android/server/policy/PhoneWindowManager;->-$$Nest$minterceptRingerToggleChord(Lcom/android/server/policy/PhoneWindowManager;)V
 
-    const/4 v3, 0x2
+    .line 439
+    iput-boolean v1, v5, Lcom/android/server/policy/PhoneWindowManager;->mPowerKeyHandled:Z
 
-    if-eq v1, v3, :cond_0
+    goto :goto_32
 
-    goto :goto_0
+    .line 440
+    :cond_b
+    const/4 v2, 0x2
 
-    :cond_0
-    const/16 v1, 0x2713
+    if-eq v0, v2, :cond_f
+
+    goto :goto_32
+
+    .line 442
+    :cond_f
+    sget-boolean v2, Lcom/android/server/policy/PhoneWindowManager;->mBlockPowerMenuKeyguard:Z
 
     const/4 v3, 0x0
 
-    const-string v4, "Power + Volume Up - Global Actions"
+    const/16 v4, 0x2713
 
-    invoke-static {v0, v1, v3, v4}, Lcom/android/server/policy/PhoneWindowManager;->-$$Nest$mperformHapticFeedback(Lcom/android/server/policy/PhoneWindowManager;IZLjava/lang/String;)Z
+    if-eqz v2, :cond_28
 
-    iget-object v0, p0, Lcom/android/server/policy/PhoneWindowManager$9;->this$0:Lcom/android/server/policy/PhoneWindowManager;
+    invoke-virtual {v5}, Lcom/android/server/policy/PhoneWindowManager;->isScreenOn()Z
 
-    invoke-virtual {v0}, Lcom/android/server/policy/PhoneWindowManager;->showGlobalActions()V
+    move-result v2
 
-    iget-object p0, p0, Lcom/android/server/policy/PhoneWindowManager$9;->this$0:Lcom/android/server/policy/PhoneWindowManager;
+    if-eqz v2, :cond_28
 
-    iput-boolean v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mPowerKeyHandled:Z
+    invoke-virtual {v5}, Lcom/android/server/policy/PhoneWindowManager;->keyguardOn()Z
 
-    goto :goto_0
+    move-result v2
 
-    :cond_1
-    invoke-static {v0}, Lcom/android/server/policy/PhoneWindowManager;->-$$Nest$minterceptRingerToggleChord(Lcom/android/server/policy/PhoneWindowManager;)V
+    if-eqz v2, :cond_28
 
-    iget-object p0, p0, Lcom/android/server/policy/PhoneWindowManager$9;->this$0:Lcom/android/server/policy/PhoneWindowManager;
+    .line 443
+    const-string v2, "Power + Volume Up - Global Actions Suppressed"
 
-    iput-boolean v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mPowerKeyHandled:Z
+    invoke-static {v5, v4, v3, v2}, Lcom/android/server/policy/PhoneWindowManager;->-$$Nest$mperformHapticFeedback(Lcom/android/server/policy/PhoneWindowManager;IZLjava/lang/String;)Z
 
-    :goto_0
+    goto :goto_30
+
+    .line 445
+    :cond_28
+    const-string v2, "Power + Volume Up - Global Actions"
+
+    invoke-static {v5, v4, v3, v2}, Lcom/android/server/policy/PhoneWindowManager;->-$$Nest$mperformHapticFeedback(Lcom/android/server/policy/PhoneWindowManager;IZLjava/lang/String;)Z
+
+    .line 446
+    invoke-virtual {v5}, Lcom/android/server/policy/PhoneWindowManager;->showGlobalActions()V
+
+    .line 448
+    :goto_30
+    iput-boolean v1, v5, Lcom/android/server/policy/PhoneWindowManager;->mPowerKeyHandled:Z
+
+    .line 450
+    :goto_32
     return-void
 .end method
 
