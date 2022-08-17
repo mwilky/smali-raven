@@ -1591,7 +1591,7 @@
 .end method
 
 .method public final getAllowAllRotations()I
-    .locals 2
+    .locals 3
 
     iget v0, p0, Lcom/android/server/wm/DisplayRotation;->mAllowAllRotations:I
 
@@ -1601,16 +1601,18 @@
 
     iget-object v0, p0, Lcom/android/server/wm/DisplayRotation;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    const v1, 0x1110011
+    const-string/jumbo v1, "tweaks_all_rotations"
 
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
+    const/4 v2, 0x0
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v0
-
+    
     iput v0, p0, Lcom/android/server/wm/DisplayRotation;->mAllowAllRotations:I
 
     :cond_0
@@ -4373,6 +4375,10 @@
 
 .method public final updateSettings()Z
     .locals 9
+    
+    invoke-virtual {p0}, Lcom/android/server/wm/DisplayRotation;->resetAllowAllRotations()V
+    
+    invoke-virtual {p0}, Lcom/android/server/wm/DisplayRotation;->getAllowAllRotations()I
 
     iget-object v0, p0, Lcom/android/server/wm/DisplayRotation;->mContext:Landroid/content/Context;
 
