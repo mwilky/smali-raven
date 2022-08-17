@@ -231,6 +231,13 @@
     check-cast p1, Landroid/view/KeyEvent;
 
     invoke-virtual {p0, p1}, Lcom/android/server/policy/PhoneWindowManager;->dispatchMediaKeyWithWakeLock(Landroid/view/KeyEvent;)V
+    
+    goto :goto_0
+
+    :pswitch_torch
+    iget-object v0, p0, Lcom/android/server/policy/PhoneWindowManager$PolicyHandler;->this$0:Lcom/android/server/policy/PhoneWindowManager;
+
+    invoke-virtual {v0}, Lcom/android/server/policy/PhoneWindowManager;->toggleTorchMode()V
 
     :cond_0
     :goto_0
@@ -260,5 +267,6 @@
         :pswitch_3
         :pswitch_2
         :pswitch_1
+        :pswitch_torch
     .end packed-switch
 .end method
