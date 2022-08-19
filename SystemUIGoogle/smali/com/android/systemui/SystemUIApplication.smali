@@ -7,6 +7,10 @@
 .implements Landroid/util/DumpableContainer;
 
 
+# static fields
+.field private static mContext:Landroid/content/Context;
+
+
 # instance fields
 .field public mBootCompleteCache:Lcom/android/systemui/BootCompleteCacheImpl;
 
@@ -314,6 +318,8 @@
     const v1, 0x7f140449
 
     invoke-virtual {p0, v1}, Landroid/app/Application;->setTheme(I)V
+
+    sput-object p0, Lcom/android/systemui/SystemUIApplication;->mContext:Landroid/content/Context;
 
     invoke-static {}, Landroid/os/Process;->myUserHandle()Landroid/os/UserHandle;
 
@@ -839,4 +845,12 @@
     iput-boolean v2, p0, Lcom/android/systemui/SystemUIApplication;->mServicesStarted:Z
 
     return-void
+.end method
+
+.method public static getContext()Landroid/content/Context;
+    .locals 1
+
+    sget-object v0, Lcom/android/systemui/SystemUIApplication;->mContext:Landroid/content/Context;
+
+    return-object v0
 .end method
